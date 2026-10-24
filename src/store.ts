@@ -34,6 +34,8 @@ interface AtlasState {
   selectedId: string | null;
   /** Bumped on every selection so the map re-focuses even when re-selecting the same id. */
   selectionNonce: number;
+  /** Whether the map zooms to fit the selection: picks from search and cards do, clicks on the map do not. */
+  fitSelection: boolean;
   layers: LayerToggles;
   display: DisplayToggles;
   route: { from: string | null; to: string | null };
@@ -48,7 +50,7 @@ interface AtlasState {
   setMap: (map: MaplibreMap | null) => void;
   setAppearance: (appearance: Appearance) => void;
   setLang: (lang: Lang) => void;
-  select: (id: string | null) => void;
+  select: (id: string | null, opts?: { fit?: boolean }) => void;
   toggleLayer: (key: keyof LayerToggles) => void;
   toggleDisplay: (key: keyof DisplayToggles) => void;
 }
@@ -93,6 +95,7 @@ export const useAtlas = create<AtlasState>((set) => ({
   lang: initial.lang ?? "zh",
   selectedId: initial.sel ?? null,
   selectionNonce: 0,
+  fitSelection: true,
   layers: readStored(STORAGE.layers, DEFAULT_LAYERS),
   display: readStored(STORAGE.display, DEFAULT_DISPLAY),
   route: { from: null, to: null },
@@ -108,7 +111,8 @@ export const useAtlas = create<AtlasState>((set) => ({
     set({ appearance: a, theme: resolveTheme(a) });
   },
   setLang: (lang) => set({ lang }),
-  select: (id) => set((s) => ({ selectedId: id, selectionNonce: s.selectionNonce + 1, highlight: null })),
+  select: (id, opts) =>
+    set((s) => ({ selectedId: id, selectionNonce: s.selectionNonce + 1, fitSelection: opts?.fit ?? true, highlight: null })),
   toggleLayer: (key) =>
     set((s) => {
       const layers = { ...s.layers, [key]: !s.layers[key] };

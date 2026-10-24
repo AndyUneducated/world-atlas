@@ -168,10 +168,11 @@ export function MapView() {
     map.on("move", readouts);
     map.on("load", readouts);
 
-    // The most specific thing under the cursor wins; divisions are picked only by their names.
+    // Names under the cursor win over the lines beneath them, then the most specific thing; divisions
+    // are picked only by their names.
     const order = [
-      HIT_LAYERS.station, HIT_LAYERS.metroStation, ...SHIELD_LAYERS, HIT_LAYERS.road, HIT_LAYERS.rail, HIT_LAYERS.landmark, HIT_LAYERS.street,
-      ...LANDFORM_LABEL_LAYERS, HIT_LAYERS.river, HIT_LAYERS.lake, HIT_LAYERS.ridge, ...DIVISION_LABEL_LAYERS, HIT_LAYERS.city,
+      HIT_LAYERS.station, HIT_LAYERS.metroStation, ...DIVISION_LABEL_LAYERS, HIT_LAYERS.city, ...SHIELD_LAYERS, ...LANDFORM_LABEL_LAYERS,
+      HIT_LAYERS.road, HIT_LAYERS.rail, HIT_LAYERS.landmark, HIT_LAYERS.street, HIT_LAYERS.river, HIT_LAYERS.lake, HIT_LAYERS.ridge,
     ];
     const divisionLayers = new Set<string>([...DIVISION_LABEL_LAYERS, HIT_LAYERS.city]);
     const queryHit = (point: maplibregl.Point) => {
@@ -192,7 +193,7 @@ export function MapView() {
         return;
       }
       const hit = queryHit(e.point);
-      select(hit?.id ?? null);
+      select(hit?.id ?? null, { fit: false });
     });
 
     map.on("mousemove", (e) => {
@@ -250,7 +251,7 @@ export function MapView() {
     else map.once("idle", apply);
 
     const entity = selectedId ? data.entities[selectedId] : undefined;
-    if (entity?.bbox && nonce > 0) {
+    if (entity?.bbox && nonce > 0 && useAtlas.getState().fitSelection) {
       map.fitBounds(entity.bbox, {
         padding: cardPadding(),
         maxZoom: entity.subtype === "station" ? 14.5 : entity.kind === "place" ? 15.5 : entity.kind === "division" && entity.subtype === "borough" ? 11 : 10.5,

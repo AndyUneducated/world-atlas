@@ -14,7 +14,7 @@ export function PlaceMarker({ id }: { id: string }) {
   if (!place || !owner) return null;
   return (
     <button
-      onClick={() => select(id)}
+      onClick={() => select(id, { fit: false })}
       className={clsx("atlas-marker group relative grid place-items-center", selected && "is-selected")}
       aria-label={displayName(place, lang)}
     >

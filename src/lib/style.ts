@@ -46,6 +46,7 @@ export const HIT_LAYERS = {
  * the streets fill in, districts once landmark names appear. */
 const TERRITORY_LABEL_MAX = 7;
 const CITY_LABEL_MAX = 12.2;
+const DISTRICT_LABEL_MIN = 7.4;
 const DISTRICT_LABEL_MAX = 15;
 const fadeOut = (z: number): ExpressionSpecification => ["interpolate", ["linear"], ["zoom"], z - 0.6, 1, z, 0];
 
@@ -801,19 +802,19 @@ export function buildStyle(opts: {
       id: "district-label",
       type: "symbol",
       source: "labels",
-      minzoom: 8.5,
+      minzoom: DISTRICT_LABEL_MIN,
       maxzoom: DISTRICT_LABEL_MAX,
       filter: isKind("borough"),
       layout: {
         "text-field": name(lang),
-        "text-font": FONT.regular,
-        "text-size": ["interpolate", ["linear"], ["zoom"], 8.5, 10.5, 12, 14],
+        "text-font": FONT.medium,
+        "text-size": ["interpolate", ["linear"], ["zoom"], DISTRICT_LABEL_MIN, 13, 10, 15.5, 13, 18],
         "text-max-width": 7,
         "text-letter-spacing": lang === "en" ? 0.04 : 0.1,
       },
       paint: {
         "text-color": m.label.minor,
-        "text-opacity": ["interpolate", ["linear"], ["zoom"], 8.5, 0, 9, 1, DISTRICT_LABEL_MAX - 0.6, 1, DISTRICT_LABEL_MAX, 0],
+        "text-opacity": ["interpolate", ["linear"], ["zoom"], DISTRICT_LABEL_MIN, 0, DISTRICT_LABEL_MIN + 0.4, 1, DISTRICT_LABEL_MAX - 0.6, 1, DISTRICT_LABEL_MAX, 0],
         ...halo,
       },
     },
