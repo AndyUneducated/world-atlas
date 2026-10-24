@@ -64,7 +64,6 @@ npm run data                                    # 重新生成地图
 | 环线、笔直、支线 | ring、straight、ends_at_network | 是/否。笔直的道路每段都是直线，遇山开隧道、遇水架桥；支线从第一个市出发，接入已有路网即止 |
 | 隧道成本 | tunnel_cost | 越小越倾向于打隧道穿山 |
 | 路牌图案 | shield | 省道（`S-NV-…`）必填，路牌上部的图案：`lighthouse`、`star`、`salmon`、`fir`、`waterfall`、`reindeer`、`swallow`、`sunrise`、`snowflake`、`peaks`、`wheat`、`compass` |
-| 徽标图案、徽标底纹 | emblem_motif、emblem_pattern | |
 | 中文简介、英文简介 | notes_zh、notes_en | |
 
 道路按文件中的顺序生成，新道路追加在最后，会避开已有道路的走廊。

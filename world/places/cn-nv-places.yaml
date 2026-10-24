@@ -646,3 +646,199 @@ places:
     in: div_479xae
     offset_km: [0.8, 0.6]
     site: { size_m: [500, 400], layout: campus }
+  - id: bld_z6csvp
+    subtype: townhall
+    status: generated
+    names:
+      zh: 新城市人民政府
+      en: New City Government
+      art-x-viking: Stadtregierung Neustad
+      art-x-buckham: Governo Cittadino di Neu Teatu
+    notes:
+      zh: 米特区新市中心的市政府与市级机关
+      en: The city government and offices at the heart of the new Mitte centre.
+    in: div_m2tz6c
+    offset_km: [0.3, 0.3]
+    site: { layout: complex, size_m: [340, 260] }
+  - id: bld_0yywnv
+    subtype: exhibition_centre
+    status: generated
+    names:
+      zh: 新城国际会展中心
+      en: New City International Exhibition Centre
+      art-x-viking: Internationales Messezentrum Neustad
+      art-x-buckham: Centro Fieristico Internazionale di Neu Teatu
+    notes:
+      zh: 领地最大的会展场馆，千禧大道旁
+      en: The territory's largest exhibition halls, on Millennium Avenue.
+    in: div_m2tz6c
+    offset_km: [1.6, -0.7]
+    site: { layout: hall, size_m: [520, 300] }
+  - id: poi_4atna2
+    subtype: park
+    status: generated
+    names:
+      zh: 米特中央公园
+      en: Mitte Central Park
+      art-x-viking: Zentralpark Mitte
+      art-x-buckham: Parco Centrale del Centro
+    notes:
+      zh: 新市中心规划时预留的大公园
+      en: A large park set aside when the new centre was planned.
+    in: div_m2tz6c
+    offset_km: [-1.1, 0.9]
+    site: { layout: park, size_m: [900, 500] }
+  - id: bld_xapen6
+    subtype: marketplace
+    status: generated
+    names:
+      zh: 青坪购物中心
+      en: Greenmead Shopping Centre
+      art-x-viking: Einkaufszentrum Grünau
+      art-x-buckham: Centro Commerciale Prato Verde
+    notes:
+      zh: 青坪轨道交通枢纽旁的大型商场
+      en: A large shopping centre next to the Greenmead transit hub.
+    in: div_z8yxye
+    offset_km: [0.6, -0.4]
+    site: { layout: market, size_m: [260, 160] }
+  - id: poi_pa01cb
+    subtype: stadium
+    status: generated
+    names:
+      zh: 新城体育中心
+      en: New City Sports Centre
+      art-x-viking: Sportzentrum Neustad
+      art-x-buckham: Centro Sportivo di Neu Teatu
+    notes:
+      zh: 新城的主体育场与体育馆
+      en: New City's main stadium and arena.
+    in: div_z8yxye
+    offset_km: [-1.8, 1.3]
+    site: { layout: stadium, size_m: [340, 260] }
+  - id: poi_095gba
+    subtype: school
+    status: generated
+    names:
+      zh: 新城第一中学
+      en: New City No. 1 High School
+      art-x-viking: Erstes Gymnasium Neustad
+      art-x-buckham: Primo Liceo di Neu Teatu
+    notes:
+      zh: 北苑区成片新社区配套的重点中学
+      en: The leading high school of the new North Gardens estates.
+    in: div_s1qwxh
+    offset_km: [0.8, 0.9]
+    site: { layout: campus, size_m: [400, 300] }
+  - id: poi_bwdq2d
+    subtype: college
+    status: generated
+    names:
+      zh: 新城师范学院
+      en: New City Normal College
+      art-x-viking: Pädagogische Hochschule Neustad
+      art-x-buckham: Istituto Magistrale di Neu Teatu
+    notes:
+      zh: 培养领地中小学教师的师范学院
+      en: The college that trains the territory's schoolteachers.
+    in: div_s1qwxh
+    offset_km: [-2, -1.5]
+    site: { layout: campus, size_m: [900, 600] }
+  - id: poi_aavtst
+    subtype: logistics_park
+    status: generated
+    names:
+      zh: 南驿物流园
+      en: South Post Logistics Park
+      art-x-viking: Logistikpark Südpost
+      art-x-buckham: Polo Logistico di Posta Sud
+    notes:
+      zh: 萨科勒大道旁的仓储与配送中心，服务萨科勒与贝克勒
+      en: Warehousing and distribution on Sakole Avenue, serving Sakole and Bekele.
+    in: div_hyxnpg
+    offset_km: [2, -1.6]
+    site: { layout: complex, size_m: [700, 500] }
+  - id: bld_epe310
+    subtype: townhall
+    status: generated
+    names:
+      zh: 勒克尔市人民政府
+      en: Lekor City Government
+      art-x-viking: Stadtregierung Lekor
+      art-x-buckham: Governo Cittadino di Lekor
+    notes:
+      zh: 勒克尔大街上的市政府
+      en: The city government on Lekor High Street.
+    in: div_0wvh63
+    offset_km: [0.2, 0.2]
+    site: { layout: complex, size_m: [280, 200] }
+  - id: bld_1pg5rs
+    subtype: marketplace
+    status: generated
+    names:
+      zh: 勒克尔农产品交易中心
+      en: Lekor Produce Exchange
+      art-x-viking: Agrarbörse Lekor
+      art-x-buckham: Borsa Agricola di Lekor
+    notes:
+      zh: 领地最大的粮食、乳品与肉类批发市场
+      en: The territory's largest wholesale market for grain, dairy and meat.
+    in: div_0wvh63
+    offset_km: [1.5, -0.8]
+    site: { layout: market, size_m: [300, 180] }
+  - id: bld_bbw8n2
+    subtype: museum
+    status: generated
+    names:
+      zh: 勒克尔农业博物馆
+      en: Lekor Farming Museum
+      art-x-viking: Landwirtschaftsmuseum Lekor
+      art-x-buckham: Museo dell'Agricoltura di Lekor
+    notes:
+      zh: 由老粮仓改建，讲述北维京岛的农牧历史
+      en: A converted granary, telling the story of farming on North Viking Island.
+    in: div_0wvh63
+    offset_km: [-0.6, 0.6]
+    site: { layout: hall, size_m: [160, 110] }
+  - id: poi_8btcjd
+    subtype: plaza
+    status: generated
+    names:
+      zh: 丰谷丰收广场
+      en: Harvest Vale Festival Square
+      art-x-viking: Erntefestplatz Erntegau
+      art-x-buckham: Piazza della Festa di Messe Valle
+    notes:
+      zh: 勒克尔丰收节的主会场
+      en: The main venue of the Lekor Harvest Festival.
+    in: div_davn2j
+    offset_km: [0.3, 0.3]
+    site: { layout: plaza, size_m: [420, 300] }
+  - id: poi_9yp4qr
+    subtype: winery
+    status: generated
+    names:
+      zh: 丰谷酒庄
+      en: Harvest Vale Winery
+      art-x-viking: Weingut Erntegau
+      art-x-buckham: Cantina di Messe Valle
+    notes:
+      zh: 丰谷区最大的酒庄，葡萄园与酒窖对游客开放
+      en: The largest winery in Harvest Vale, with vineyards and cellars open to visitors.
+    in: div_davn2j
+    offset_km: [2.6, 1.8]
+    site: { layout: park, size_m: [700, 500] }
+  - id: poi_9wff2j
+    subtype: park
+    status: generated
+    names:
+      zh: 澄湖湖滨公园
+      en: Clearlake Shore Park
+      art-x-viking: Uferpark Klarsee
+      art-x-buckham: Parco Lungolago di Lago Chiaro
+    notes:
+      zh: 澄湖岸边的步道、沙滩与游船码头
+      en: Lakeside promenades, a beach and the pleasure-boat pier on Clear Lake.
+    in: div_t8bg0d
+    offset_km: [0, 2.0]
+    site: { layout: park, size_m: [800, 400] }

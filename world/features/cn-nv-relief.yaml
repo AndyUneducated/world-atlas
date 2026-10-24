@@ -223,14 +223,6 @@ features:
     notes:
       zh: 洛龙峰南侧的冰川。
       en: Glacier south of Lorond Peak.
-  - id: nat_8n4aee
-    subtype: glacier
-    status: generated
-    detect: { kind: glacier, at_km: [146.4, 122.4] }
-    names: { zh: 勒北冰川, en: Lekor North Glacier, art-x-viking: Lekor-Nordgletscher }
-    notes:
-      zh: 洛龙山脉北端的冰川，冰缘延伸到勒北区。
-      en: Glacier at the northern end of the Lorond Range, reaching into Lekor North District.
   - id: nat_a7552a
     subtype: glacier
     status: generated

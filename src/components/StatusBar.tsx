@@ -1,4 +1,3 @@
-import { formatNumber } from "../lib/i18n";
 import { useAtlas, useCursor } from "../store";
 
 const NICE = [1, 2, 5];
@@ -20,32 +19,21 @@ function dms(v: number, pos: string, neg: string) {
   return `${d}°${String(m).padStart(2, "0")}′${String(s).padStart(2, "0")}″${v >= 0 ? pos : neg}`;
 }
 
-/** Scale bar, cursor coordinates and zoom level, each behind its own display toggle. */
+/** Scale bar and cursor coordinates, behind one display toggle. */
 export function StatusBar() {
-  const display = useAtlas((s) => s.display);
-  const { lngLat, zoom, metersPerPixel } = useCursor();
+  const shown = useAtlas((s) => s.display.scalePosition);
+  const { lngLat, metersPerPixel } = useCursor();
+  if (!shown) return null;
   const bar = scaleBar(metersPerPixel);
-
-  const items: React.ReactNode[] = [];
-  if (display.scale)
-    items.push(
-      <span key="scale" className="flex items-center gap-2">
-        <span className="relative h-1.5 border-x border-b border-current transition-[width] duration-150" style={{ width: bar.px }} />
-        {bar.label}
-      </span>,
-    );
-  if (display.coordinates) items.push(<span key="coords">{lngLat ? `${dms(lngLat[1], "N", "S")}  ${dms(lngLat[0], "E", "W")}` : "—"}</span>);
-  if (display.zoomLevel) items.push(<span key="zoom">z {formatNumber(zoom, "en", 1)}</span>);
-  if (!items.length) return null;
 
   return (
     <div className="glass pointer-events-auto flex h-8 items-center gap-3 rounded-full px-3 text-[11px] text-muted tabular-nums">
-      {items.map((item, i) => (
-        <span key={i} className="flex items-center gap-3">
-          {i > 0 && <span className="h-3 w-px bg-line" />}
-          {item}
-        </span>
-      ))}
+      <span className="flex items-center gap-2">
+        <span className="relative h-1.5 border-x border-b border-current transition-[width] duration-150" style={{ width: bar.px }} />
+        {bar.label}
+      </span>
+      <span className="h-3 w-px bg-line" />
+      <span>{lngLat ? `${dms(lngLat[1], "N", "S")}  ${dms(lngLat[0], "E", "W")}` : "—"}</span>
     </div>
   );
 }

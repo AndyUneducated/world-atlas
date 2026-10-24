@@ -64,6 +64,9 @@ terrain:
     - [68.9, 64.6, 9, 0.95]    # 沙洲区
     - [239.5, 46.5, 8, 0.95]   # 贝克勒自由贸易区
     - [183.1, 58.1, 10, 0.93]  # 青坪区、米特区
+    # 澄湖 basin in the northern Lorond Range: the lakeside town and the lake
+    - [150.5, 118.3, 5, 0.9]
+    - [150.4, 122.6, 5, 0.88]
   # Valleys: a floor falling from source_m at the first point to the sea at the last. The floor
   # only guides the river where it lies below the surrounding land, so source_m stays under the
   # Erding plain (~120 m); the valley rises north of the New City lowland, which drains south.
@@ -76,6 +79,12 @@ hydrology:
   river_candidate_km2: 150
   # River mouths draining at least this much are listed as estuaries.
   estuary_km2: 700
+  # Lakes: a lobed disc of radius_km (design km) at offset_km (real km) from the district centre.
+  lakes:
+    - { feature: nat_jaxtgn, in: div_t8bg0d, radius_km: 3.0, offset_km: [0, 13] }     # 澄湖：澄湖区集镇北岸
+    - { feature: nat_kxhv1k, in: div_0tsyzy, radius_km: 1.8, offset_km: [-16, 14] }   # 雪湖
+    - { feature: nat_9mpvb7, in: div_zs7kjk, radius_km: 1.0, offset_km: [-16, 10] }   # 鹿鸣湖：西北城区以西的林间
+    - { feature: nat_j67079, in: div_0t2t36, radius_km: 0.9, offset_km: [11, 17.6] }  # 深峡湖：厄定河上
   named_rivers:
     # The named river is the largest stream crossing the given division (city or district)
     # that no river above it in this list already follows; one that runs into such a river
@@ -128,7 +137,7 @@ landcover:
 # podium, industrial, civic, park). named: fixed names for grid arterials (planned and mixed
 # styles); axis 0/1 and line n count from the district centre.
 streets:
-  cities: [div_nbrnfr, div_m41gwn, div_0yef9a]
+  cities: [div_nbrnfr, div_m41gwn, div_0yef9a, div_k4s990, div_yjghe9]
   arterial_spacing_km: 1.5
   neighbourhood_km: 1.3
   local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
@@ -150,6 +159,13 @@ streets:
     div_7rk2mh: { style: planned, mix: { slabs: 1.3, towers: 1.2, industrial: 0.4 } }  # 奥斯特海姆区：二十一世纪的东部住宅新城
     div_b3qw9e: { style: organic, mix: { houses: 2.0, park: 2.5, industrial: 0.2 } }   # 贝格兰区：丘陵上的低密度住宅与森林公园
     div_s8f4kt: { style: planned, mix: { civic: 2.2, park: 1.4, industrial: 0.5 } }    # 科学城：实验室、大学分校与航天企业
+    div_m2tz6c: { style: planned, angle_deg: 12, mix: { towers: 1.8, podium: 1.6, civic: 1.5, industrial: 0.2 } }  # 米特区：2000 年代的新市中心与商务区
+    div_z8yxye: { style: planned, angle_deg: 12, mix: { towers: 1.5, podium: 1.2, industrial: 0.5 } }  # 青坪区：高层住宅、商业与轨道交通枢纽
+    div_s1qwxh: { style: planned, mix: { slabs: 1.5, civic: 1.4, industrial: 0.3 } }   # 北苑区：成片新建社区与学校
+    div_hyxnpg: { style: mixed, angle_deg: -36, mix: { industrial: 1.5, podium: 1.1, houses: 0.8 } }  # 南驿区：通往萨科勒的快速路、公交走廊与物流园
+    div_0wvh63: { style: mixed, mix: { houses: 1.6, industrial: 1.4, towers: 0.3 } }   # 勒北区：农牧核心的集镇，粮仓与农产品加工
+    div_davn2j: { style: organic, mix: { houses: 2.2, park: 1.8, industrial: 0.4, towers: 0.2 } }  # 丰谷区：酒庄、民宿与丰收节
+    div_t8bg0d: { style: organic, mix: { houses: 2.0, park: 2.2, industrial: 0.2, towers: 0.2 } }  # 澄湖区：环湖集镇与水上休闲
   named:
     - { district: div_16cxr8, axis: 0, line: 0, status: canon, names: { zh: 人民大道, en: People's Avenue, art-x-viking: Volksallee, art-x-buckham: Viale del Popolo } }
     - { district: div_16cxr8, axis: 1, line: 0, status: generated, names: { zh: 自由大道, en: Liberty Avenue, art-x-viking: Freiheitsallee, art-x-buckham: Viale della Libertà } }
@@ -163,6 +179,12 @@ streets:
     - { district: div_zs7kjk, axis: 0, line: 0, status: generated, names: { zh: 鹿鸣大道, en: Deersong Avenue, art-x-viking: Hirschliedallee, art-x-buckham: Viale Canto Cervo } }
     - { district: div_g27nda, axis: 0, line: 0, status: canon, names: { zh: 科学大道, en: Science Avenue, art-x-viking: Wissenschaftsallee, art-x-buckham: Viale della Scienza } }
     - { district: div_fr1vq9, axis: 0, line: 0, status: generated, names: { zh: 学府路, en: University Road, art-x-viking: Universitätsstraße, art-x-buckham: Via dell'Università } }
+    - { district: div_m2tz6c, axis: 0, line: 0, status: generated, names: { zh: 新城大道, en: New City Avenue, art-x-viking: Neustadallee, art-x-buckham: Viale di Neu Teatu } }
+    - { district: div_m2tz6c, axis: 1, line: 0, status: generated, names: { zh: 千禧大道, en: Millennium Avenue, art-x-viking: Jahrtausendallee, art-x-buckham: Viale del Millennio } }
+    - { district: div_z8yxye, axis: 0, line: 0, status: generated, names: { zh: 青坪大道, en: Greenmead Avenue, art-x-viking: Grünauer Allee, art-x-buckham: Viale Prato Verde } }
+    - { district: div_s1qwxh, axis: 0, line: 0, status: generated, names: { zh: 学苑路, en: Academy Road, art-x-viking: Akademiestraße, art-x-buckham: Via dell'Accademia } }
+    - { district: div_hyxnpg, axis: 0, line: 0, status: generated, names: { zh: 萨科勒大道, en: Sakole Avenue, art-x-viking: Sakoler Allee, art-x-buckham: Viale di Sakole } }
+    - { district: div_0wvh63, axis: 0, line: 0, status: generated, names: { zh: 勒克尔大街, en: Lekor High Street, art-x-viking: Lekorer Hauptstraße, art-x-buckham: Corso di Lekor } }
 
 # City metro systems (real km; see build_metro in pipeline/build.py). Each line runs straight along
 # street-grid axis 0 or 1 of a district (the main axis of its built-up area where it has no streets
@@ -190,17 +212,17 @@ metro:
         - { district: div_zs7kjk, axis: 1, at_km: [8, 9] }                       # 鹿鸣区南北线
         - { district: div_zs7kjk, axis: 0, to: poi_1f5czt }                      # 鹿鸣区东西线，西至西北机场
         - { district: div_g27nda, axis: 0 }                                       # 望星区
+    - city: div_k4s990   # 新城市
+      names: { zh: 新城地铁, en: New City Metro, art-x-viking: Neustad U-Bahn, art-x-buckham: Metropolitana di Neu Teatu }
+      lines:
+        - { district: div_m2tz6c, axis: 0 }                                       # 新城大道下，米特区—青坪区
+        - { district: div_hyxnpg, axis: 0, to: poi_h1vjx3 }                       # 南驿区萨科勒大道下，至新城机场
 
 # Facts the build checks and reports; a failed check is printed as a warning.
 expect:
   longest_river: nat_ww491j
   largest_cities_by_area: [div_8emjne, div_rdypg7, div_prcxzt]
   district_centres_on: [territorial_expressway, territorial_highway]
-  lakes:
-    - { feature: nat_jaxtgn, in: div_t8bg0d, radius_km: 4.2 }
-    - { feature: nat_kxhv1k, in: div_0tsyzy, radius_km: 3.0 }
-    - { feature: nat_9mpvb7, in: div_zs7kjk, radius_km: 2.6 }
-    - { feature: nat_j67079, in: div_0t2t36, radius_km: 2.4 }
 
 layout:
   # City anchor points. Districts are placed around them along a unit direction.

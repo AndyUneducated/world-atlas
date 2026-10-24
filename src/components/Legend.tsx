@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { AnimatePresence, motion } from "motion/react";
 import { t, type StringKey } from "../lib/i18n";
 import { DENSITY_BREAKS } from "../lib/style";
@@ -8,7 +9,7 @@ import { RouteShield } from "./RouteShield";
 
 function Heading({ children, unit }: { children: React.ReactNode; unit?: string }) {
   return (
-    <div className="mb-1.5 flex items-baseline justify-between text-[10.5px] font-semibold tracking-wider text-faint uppercase">
+    <div className="mb-1 flex items-baseline justify-between text-[9.5px] font-semibold tracking-wider text-faint uppercase">
       <span>{children}</span>
       {unit && <span className="font-normal tracking-normal normal-case">{unit}</span>}
     </div>
@@ -17,8 +18,8 @@ function Heading({ children, unit }: { children: React.ReactNode; unit?: string 
 
 function Row({ swatch, label }: { swatch: React.ReactNode; label: string }) {
   return (
-    <li className="flex items-center gap-2.5 text-[12px] text-ink">
-      <span className="flex w-7 shrink-0 justify-center">{swatch}</span>
+    <li className="flex items-center gap-2 text-[11px] text-ink">
+      <span className="flex w-6 shrink-0 justify-center">{swatch}</span>
       <span className="truncate">{label}</span>
     </li>
   );
@@ -83,11 +84,11 @@ const ROADS: { key: keyof LayerToggles; style: (m: MapTheme) => { fill: string; 
 function LegendBody({ m, layers, lang }: { m: MapTheme; layers: LayerToggles; lang: Lang }) {
   const roads = ROADS.filter((r) => layers[r.key]);
   return (
-    <div className="space-y-2.5">
+    <div className="space-y-2">
       {roads.length > 0 && (
         <section>
           <Heading>{t("roads", lang)}</Heading>
-          <ul className="space-y-1">
+          <ul className="space-y-0.5">
             {roads.map((r) => {
               const s = r.style(m);
               return (
@@ -104,7 +105,7 @@ function LegendBody({ m, layers, lang }: { m: MapTheme; layers: LayerToggles; la
       {(layers.railways || layers.metro) && (
         <section>
           <Heading>{t("transit", lang)}</Heading>
-          <ul className="space-y-1">
+          <ul className="space-y-0.5">
             {layers.railways && (
               <Row
                 label={t("railways", lang)}
@@ -125,7 +126,7 @@ function LegendBody({ m, layers, lang }: { m: MapTheme; layers: LayerToggles; la
       )}
       <section>
         <Heading>{t("places", lang)}</Heading>
-        <ul className="space-y-1">
+        <ul className="space-y-0.5">
           <Row label={t("capital", lang)} swatch={<span className="size-2.5 rounded-full" style={{ background: m.cityDot.capital, boxShadow: `0 0 0 1.5px ${m.cityDot.fill}` }} />} />
           <Row label={t("city", lang)} swatch={<span className="size-2.5 rounded-full" style={{ background: m.cityDot.fill, boxShadow: `0 0 0 1.5px ${m.cityDot.stroke}` }} />} />
           {layers.boundaries && <Row label={t("boundaryCity", lang)} swatch={<LineSwatch color={m.cityLine.color} width={1.4} />} />}
@@ -137,16 +138,16 @@ function LegendBody({ m, layers, lang }: { m: MapTheme; layers: LayerToggles; la
           <Heading>{t("landcover", lang)}</Heading>
           <ul className="grid grid-cols-2 gap-x-2 gap-y-1">
             {LANDCOVER_CLASSES.map((c) => (
-              <li key={c} className="flex items-center gap-1.5 truncate text-[11.5px] text-ink">
+              <li key={c} className="flex items-center gap-1.5 truncate text-[10.5px] text-ink">
                 <span className="size-2.5 shrink-0 rounded-[3px] ring-1 ring-line" style={{ background: m.landcover.colors[c] }} />
                 {t(`lc_${c}` as StringKey, lang)}
               </li>
             ))}
-            <li className="flex items-center gap-1.5 truncate text-[11.5px] text-ink">
+            <li className="flex items-center gap-1.5 truncate text-[10.5px] text-ink">
               <span className="size-2.5 shrink-0 rounded-[3px]" style={{ background: m.glacier.fill, boxShadow: `inset 0 0 0 1px ${m.glacier.line}` }} />
               {t("lc_glacier", lang)}
             </li>
-            <li className="flex items-center gap-1.5 truncate text-[11.5px] text-ink">
+            <li className="flex items-center gap-1.5 truncate text-[10.5px] text-ink">
               <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden className="shrink-0">
                 <path d="M5 1 L9.4 9 H0.6 Z" fill={m.peak} />
                 <path d="M5 1 L6.3 3.4 H3.7 Z" fill="#fff" />
@@ -165,9 +166,9 @@ function LegendBody({ m, layers, lang }: { m: MapTheme; layers: LayerToggles; la
               { key: "bc_landmark", fill: m.building.landmark.fill, line: m.building.landmark.outline },
               { key: "bc_park", fill: m.building.park, line: m.building.park },
               { key: "fc_runway", fill: m.building.facility.runway, line: m.building.facility.runway },
-              { key: "fc_paved", fill: m.building.facility.paved, line: m.building.facility.runway },
+              { key: "fc_paved", fill: m.building.facility.paved, line: m.building.facility.runway, wide: true },
             ].map((s) => (
-              <li key={s.key} className="flex items-center gap-1.5 truncate text-[11.5px] text-ink">
+              <li key={s.key} className={clsx("flex items-center gap-1.5 truncate text-[10.5px] text-ink", "wide" in s && "col-span-2")}>
                 <span className="size-2.5 shrink-0 rounded-[2px]" style={{ background: s.fill, boxShadow: `inset 0 0 0 1px ${s.line}` }} />
                 {t(s.key as StringKey, lang)}
               </li>
@@ -205,7 +206,7 @@ export function Legend() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 8 }}
           transition={{ type: "spring", stiffness: 420, damping: 34 }}
-          className="glass pointer-events-auto w-52 rounded-2xl px-3.5 py-3 max-md:hidden"
+          className="glass scrollbar-thin pointer-events-auto max-h-[calc(100dvh-140px)] w-44 overflow-y-auto rounded-2xl px-3 py-2.5 max-md:hidden"
           aria-label={t("legend", lang)}
         >
           <LegendBody m={THEMES[theme].map} layers={layers} lang={lang} />

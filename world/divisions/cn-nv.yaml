@@ -1000,8 +1000,8 @@ divisions:
   population: 2400
   area_km2: 9000.0
   notes:
-    zh: 厄定河上游的无建制荒野。仿加拿大的 improvement district，不设区议会，道路、消防与学校由领地直接提供
-    en: Unincorporated wilderness on the upper Erding. Like a Canadian improvement district it has no district council; roads, fire service and schools are provided directly by the territory.
+    zh: 厄定河上游的无建制荒野。不设区议会，道路、消防与学校由领地直接提供
+    en: Unincorporated wilderness on the upper Erding. It has no district council; roads, fire service and schools are provided directly by the territory.
 - id: div_e2pk5r
   subtype: borough
   parent: div_8emjne

@@ -311,6 +311,10 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
             <TiltBadge glow={accent}>
               <Emblem entity={badgeOwner} size={64} sheen className="drop-shadow-[0_6px_14px_rgba(0,0,0,0.35)]" />
             </TiltBadge>
+          ) : hasShield(entity) ? (
+            <span className="mt-1 grid h-12 shrink-0 place-items-center drop-shadow-[0_3px_8px_rgba(0,0,0,0.25)]">
+              <RouteShield entity={entity} height={44} />
+            </span>
           ) : (
             <span className="relative mt-1 shrink-0">
               <span className="grid size-12 place-items-center rounded-2xl text-white shadow-sm" style={{ background: `linear-gradient(135deg, ${accent}, ${accent}bb)` }}>
@@ -325,7 +329,6 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
           )}
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-1.5">
-              {hasShield(entity) && <RouteShield entity={entity} height={20} className="-my-0.5" />}
               <span className="text-[11px] font-medium tracking-wide text-muted uppercase">{kindLabel(entity, lang)}</span>
               {isCapital && (
                 <span className="flex items-center gap-1 rounded-full bg-amber-400/15 px-1.5 py-px text-[10.5px] font-semibold text-amber-500">

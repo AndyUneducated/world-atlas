@@ -1,6 +1,6 @@
 import {
-  Anchor, Building2, Castle, Droplets, Flag, FlaskConical, Footprints, GraduationCap, Landmark, MapPin, Mountain, Navigation2,
-  Plane, Rocket, Route, Ship, Shell, Snowflake, Telescope, TrainFront, TramFront, Trees, Waves,
+  Anchor, Building2, Castle, Droplets, Flag, FlaskConical, Footprints, GraduationCap, Grape, Landmark, MapPin, Mountain, Navigation2,
+  Plane, Rocket, Route, Ship, Shell, Snowflake, Telescope, TrainFront, TramFront, Trees, Warehouse, Waves,
 } from "lucide-react";
 import type { Entity } from "../lib/types";
 
@@ -25,7 +25,12 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
         return <Rocket {...props} />;
       case "university":
       case "college":
+      case "school":
         return <GraduationCap {...props} />;
+      case "winery":
+        return <Grape {...props} />;
+      case "logistics_park":
+        return <Warehouse {...props} />;
       case "research_institute":
         return <FlaskConical {...props} />;
       case "observatory":

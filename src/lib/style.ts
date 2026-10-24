@@ -30,7 +30,6 @@ export const DENSITY_BREAKS = [50, 150, 400, 1200, 3000];
 
 /** Invisible layers used for hit-testing clicks and hovers. */
 export const HIT_LAYERS = {
-  division: "hit-division",
   road: "hit-road",
   street: "hit-street",
   landmark: "hit-landmark",
@@ -42,6 +41,18 @@ export const HIT_LAYERS = {
   lake: "water",
   city: "city-dot",
 } as const;
+
+/** Division names give way to the finer names below them: the territory to its cities, cities once
+ * the streets fill in, districts once landmark names appear. */
+const TERRITORY_LABEL_MAX = 7;
+const CITY_LABEL_MAX = 12.2;
+const DISTRICT_LABEL_MAX = 15;
+const fadeOut = (z: number): ExpressionSpecification => ["interpolate", ["linear"], ["zoom"], z - 0.6, 1, z, 0];
+
+/** Road sign layers, which double as hit targets for their road. */
+export const SHIELD_LAYERS = ["road-shield", "road-shield-primary"];
+/** Name labels of the territory, cities and districts: the only way to pick a division on the map. */
+export const DIVISION_LABEL_LAYERS = ["district-label", "city-label-major", "city-label-minor", "territory-label"];
 
 /** Coastal landform kinds (label `kind`), split by whether they are water or land. */
 export const LANDFORM_KINDS = { water: ["bay", "fjord", "strait", "estuary"], land: ["island", "cape"] } as const;
@@ -536,7 +547,6 @@ export function buildStyle(opts: {
 
   // Invisible hit targets.
   style.push(
-    { id: HIT_LAYERS.division, type: "fill", source: "divisions", filter: isSubtype("borough"), paint: { "fill-opacity": 0 } },
     {
       id: HIT_LAYERS.road,
       type: "line",
@@ -791,18 +801,19 @@ export function buildStyle(opts: {
       id: "district-label",
       type: "symbol",
       source: "labels",
-      minzoom: 8.3,
+      minzoom: 8.5,
+      maxzoom: DISTRICT_LABEL_MAX,
       filter: isKind("borough"),
       layout: {
         "text-field": name(lang),
         "text-font": FONT.regular,
-        "text-size": ["interpolate", ["linear"], ["zoom"], 8.3, 10.5, 12, 14],
+        "text-size": ["interpolate", ["linear"], ["zoom"], 8.5, 10.5, 12, 14],
         "text-max-width": 7,
         "text-letter-spacing": lang === "en" ? 0.04 : 0.1,
       },
       paint: {
         "text-color": m.label.minor,
-        "text-opacity": ["interpolate", ["linear"], ["zoom"], 8.3, 0, 8.8, 1],
+        "text-opacity": ["interpolate", ["linear"], ["zoom"], 8.5, 0, 9, 1, DISTRICT_LABEL_MAX - 0.6, 1, DISTRICT_LABEL_MAX, 0],
         ...halo,
       },
     },
@@ -811,12 +822,15 @@ export function buildStyle(opts: {
       type: "circle",
       source: "labels",
       minzoom: 5,
+      maxzoom: CITY_LABEL_MAX,
       filter: isKind("locality"),
       paint: {
         "circle-radius": ["interpolate", ["linear"], ["zoom"], 5, ["case", ["get", "capital"], 3.6, 2.4], 10, ["case", ["get", "capital"], 6.5, 4.6]],
         "circle-color": ["case", ["get", "capital"], m.cityDot.capital, m.cityDot.fill],
         "circle-stroke-color": ["case", ["get", "capital"], m.cityDot.fill, m.cityDot.stroke],
         "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 5, 1.2, 10, 2],
+        "circle-opacity": fadeOut(CITY_LABEL_MAX),
+        "circle-stroke-opacity": fadeOut(CITY_LABEL_MAX),
       },
     },
   );
@@ -826,6 +840,7 @@ export function buildStyle(opts: {
     type: "symbol",
     source: "labels",
     minzoom,
+    maxzoom: CITY_LABEL_MAX,
     filter,
     layout: {
       "text-field": ["format", name(lang), {}, "\n", {}, ["get", `name_${other}`], { "font-scale": 0.68, "text-font": ["literal", FONT.regular] }],
@@ -837,7 +852,7 @@ export function buildStyle(opts: {
       "symbol-sort-key": ["get", "rank"],
       "text-letter-spacing": lang === "zh" ? 0.06 : 0.01,
     },
-    paint: { "text-color": m.label.text, ...halo, "text-halo-width": 1.6 },
+    paint: { "text-color": m.label.text, ...halo, "text-halo-width": 1.6, "text-opacity": fadeOut(CITY_LABEL_MAX) },
   });
   style.push(
     {
@@ -893,7 +908,7 @@ export function buildStyle(opts: {
       id: "territory-label",
       type: "symbol",
       source: "labels",
-      maxzoom: 6.4,
+      maxzoom: TERRITORY_LABEL_MAX,
       filter: isKind("dependency"),
       layout: {
         "text-field": name(lang),
@@ -902,7 +917,7 @@ export function buildStyle(opts: {
         "text-letter-spacing": 0.3,
         "text-transform": "uppercase",
       },
-      paint: { "text-color": m.label.territory, ...halo },
+      paint: { "text-color": m.label.territory, ...halo, "text-opacity": fadeOut(TERRITORY_LABEL_MAX) },
     },
   );
 

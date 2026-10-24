@@ -19,9 +19,8 @@ export interface LayerToggles {
 /** On-screen map furniture the user can hide from the settings panel. */
 export interface DisplayToggles {
   legend: boolean;
-  scale: boolean;
-  coordinates: boolean;
-  zoomLevel: boolean;
+  /** Scale bar and cursor coordinates. */
+  scalePosition: boolean;
   zoomButtons: boolean;
 }
 
@@ -56,7 +55,7 @@ interface AtlasState {
 
 const initial = readUrl();
 /** Bump a key's version whenever its defaults change, so returning visitors pick them up. */
-const STORAGE = { appearance: "atlas.appearance", layers: "atlas.layers.v2", display: "atlas.display.v2" };
+const STORAGE = { appearance: "atlas.appearance", layers: "atlas.layers.v2", display: "atlas.display.v3" };
 const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
 function readStored<T>(key: string, fallback: T): T {
@@ -84,7 +83,7 @@ const DEFAULT_LAYERS: LayerToggles = {
   metro: false,
   buildings: true,
 };
-const DEFAULT_DISPLAY: DisplayToggles = { legend: false, scale: false, coordinates: false, zoomLevel: false, zoomButtons: false };
+const DEFAULT_DISPLAY: DisplayToggles = { legend: false, scalePosition: false, zoomButtons: false };
 
 export const useAtlas = create<AtlasState>((set) => ({
   data: null,

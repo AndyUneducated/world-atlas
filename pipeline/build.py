@@ -305,6 +305,20 @@ def lake_raster(g: Grid, center, radius, land):
     return (np.hypot(g.X - cx, g.Y - cy) < rr) & land
 
 
+def lake_basins(elev, lakes, res, falloff=0.8):
+    """Rendered elevation with each lake flat at its shoreline level and the land around it easing down to it,
+    so hillshade shows a basin rather than a pit wall."""
+    out = elev.copy()
+    for _, m in lakes:
+        shore = ndimage.binary_dilation(m) & ~m
+        if not shore.any():
+            continue
+        level = float(np.percentile(elev[shore], 10))
+        w = np.exp(-((ndimage.distance_transform_edt(~m) * res) / falloff) ** 2)
+        out = np.where(m, level, out - np.clip(out - level, 0, None) * w)
+    return out
+
+
 def street_place_stems(world: World, cities: list[dict], skip: str) -> list[dict]:
     """Stems for streets named after the territory's other cities and its named landforms."""
     conlangs = ("art-x-viking", "art-x-buckham")
@@ -811,13 +825,19 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     lakes = []
     for lk in spec.get("hydrology", {}).get("lakes", []):
         di = next(i for i, d in enumerate(districts) if d["id"] == lk["in"])
-        m = lake_raster(g, poles[di], lk["radius_km"], land)
+        dx, dy = lk.get("offset_km", (0, 0))
+        m = lake_raster(g, (poles[di][0] + dx / frame.scale, poles[di][1] + dy / frame.scale), lk["radius_km"], land)
         lakes.append((lk["feature"], m))
-        x, y = poles[di]
-        poles[di] = (x, y - lk["radius_km"] * 1.6)
     water = np.zeros(g.shape, bool)
     for _, m in lakes:
         water |= m
+    lake_polys = [p for _, m in lakes if (p := polygonize_labels(np.where(m, 0, -1), g.res).get(0)) is not None]
+    lake_union = shapely.union_all(lake_polys) if lake_polys else None
+
+    def on_land(line):
+        """The part of a river drawn on the map: lakes cover it."""
+        return line if lake_union is None else line.difference(lake_union)
+
     log("vectorising boundaries")
     dist_polys = polygonize_labels(dist_r, g.res)
     city_polys = [shapely.union_all([dist_polys[i] for i, dc in enumerate(district_city) if dc == ci]) for ci in range(len(cities))]
@@ -832,7 +852,8 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     for chain, acc in drain.river_chains(min_km2):
         cy, cx = np.divmod(np.array(chain), gc.nx)
         line = smooth_line(np.column_stack([gc.xs[cx], gc.ys[cy]]), 0.35, 3)
-        stream_features.append(feature(to_lonlat(line, frame), {"magnitude": round(acc, 1)}))
+        if not (shown := on_land(line)).is_empty:
+            stream_features.append(feature(to_lonlat(shown, frame), {"magnitude": round(acc, 1)}))
         stream_lines.append((line, acc))
     named_rivers = []
     for nr in spec["hydrology"].get("named_rivers", []):
@@ -901,7 +922,6 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     bath_polys = polygonize_labels(bands, gc.res, smooth=3, simplify_km=0.1)
 
     street_out, building_out, park_out = [], [], []
-    lake_polys = [p for _, m in lakes if (p := polygonize_labels(np.where(m, 0, -1), g.res).get(0)) is not None]
     s = frame.scale
     land_real = affinity.scale(terr_poly, s, s, origin=(0, 0))
     if lake_polys:
@@ -1118,7 +1138,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     named_features = []
     for fe, line, acc, _ in named_rivers:
         geom = to_lonlat(line, frame)
-        named_features.append(feature(geom, {"id": fe["id"], "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"]}))
+        named_features.append(feature(to_lonlat(on_land(line), frame), {"id": fe["id"], "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"]}))
         mid = line.interpolate(0.5, normalized=True)
         entities[fe["id"]].update({"bbox": bbox_lonlat(geom), "center": list(point_lonlat(frame, mid.x, mid.y).coords[0]),
                                    "stats": {"length_km": round(frame.km(line_length_km(line.coords)), 1), "drainage_km2": round(frame.km2(acc))}})
@@ -1395,7 +1415,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
 
     log("writing terrain tiles")
     bounds = frame.bounds_lonlat()
-    n = write_dem_tiles(OUT / "dem", np.where(land & ~water, np.maximum(elev, 1.0), -40.0), g, frame, bounds)
+    n = write_dem_tiles(OUT / "dem", np.where(land, np.maximum(lake_basins(elev, lakes, g.res), 1.0), -40.0), g, frame, bounds)
     log(f"  {n} tiles")
     return {
         "id": territory["id"],

@@ -35,6 +35,7 @@ export default function App() {
   const theme = useAtlas((s) => s.theme);
   const lang = useAtlas((s) => s.lang);
   const selectedId = useAtlas((s) => s.selectedId);
+  const sidePanel = useAtlas((s) => !!(s.selectedId || s.route.from || s.route.to));
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -77,11 +78,8 @@ export default function App() {
             <MapMenu />
           </div>
 
-          <div className="absolute top-1/2 right-3 -translate-y-1/2 max-md:top-20 max-md:translate-y-0">
-            <MapControls />
-          </div>
-
-          <div className="absolute right-3 bottom-12">
+          {/* Beside the side panel while it holds a card, so the two never overlap. */}
+          <div className={clsx("absolute bottom-3 transition-[left] duration-300", sidePanel ? "left-[calc(min(400px,100vw-76px)+24px)]" : "left-3")}>
             <Legend />
           </div>
 
@@ -89,8 +87,13 @@ export default function App() {
             <MeasurePanel />
           </div>
 
-          <div className={clsx("absolute right-3 bottom-3", selectedId && "max-md:hidden")}>
-            <StatusBar />
+          <div className="absolute right-3 bottom-3 flex flex-col items-end gap-2">
+            <div className="max-md:fixed max-md:top-16 max-md:right-3">
+              <MapControls />
+            </div>
+            <div className={clsx(selectedId && "max-md:hidden")}>
+              <StatusBar />
+            </div>
           </div>
         </div>
       )}

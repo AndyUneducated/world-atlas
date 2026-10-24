@@ -1,5 +1,5 @@
 import * as maplibregl from "maplibre-gl";
-import type { GeoJSONSource, MapGeoJSONFeature } from "maplibre-gl";
+import type { GeoJSONSource } from "maplibre-gl";
 import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import { Protocol } from "pmtiles";
 import { useEffect, useMemo, useRef } from "react";
@@ -11,7 +11,7 @@ import { BASE_URL } from "../lib/data";
 import { buildFocus, indexFeatures } from "../lib/focus";
 import { measureFeatures } from "../lib/measure";
 import { useRoute } from "../lib/useRoute";
-import { buildStyle, HIT_LAYERS, LANDFORM_LABEL_LAYERS, type FocusData } from "../lib/style";
+import { buildStyle, DIVISION_LABEL_LAYERS, HIT_LAYERS, LANDFORM_LABEL_LAYERS, SHIELD_LAYERS, type FocusData } from "../lib/style";
 import { drawShield, shieldImageId } from "../lib/shields";
 import { THEMES } from "../lib/themes";
 import type { Entity } from "../lib/types";
@@ -22,7 +22,8 @@ maplibregl.setWorkerUrl(workerUrl);
 maplibregl.addProtocol("pmtiles", new Protocol().tile);
 
 const CJK_FONT = '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC", sans-serif';
-const BOROUGH_ZOOM = 8.8;
+/** Clicks this close to a line, label or point still hit it. */
+const HIT_SLOP_PX = 4;
 /** Below this zoom landmark markers would sit on top of the city labels. */
 const PLACE_MARKER_ZOOM = 7.5;
 
@@ -167,19 +168,18 @@ export function MapView() {
     map.on("move", readouts);
     map.on("load", readouts);
 
-    const pickDivision = (f: MapGeoJSONFeature) => {
-      const props = f.properties as { id: string; parent: string };
-      const sel = useAtlas.getState().selectedId;
-      if (map.getZoom() >= BOROUGH_ZOOM || sel === props.parent || sel === props.id) return props.id;
-      return props.parent;
-    };
-
-    const queryHit = (point: maplibregl.PointLike) => {
-      const order = [HIT_LAYERS.station, HIT_LAYERS.metroStation, HIT_LAYERS.road, HIT_LAYERS.rail, HIT_LAYERS.landmark, HIT_LAYERS.street, HIT_LAYERS.city, ...LANDFORM_LABEL_LAYERS, HIT_LAYERS.river, HIT_LAYERS.lake, HIT_LAYERS.ridge, HIT_LAYERS.division];
-      const hits = map.queryRenderedFeatures(point, { layers: order.filter((l) => map.getLayer(l)) });
+    // The most specific thing under the cursor wins; divisions are picked only by their names.
+    const order = [
+      HIT_LAYERS.station, HIT_LAYERS.metroStation, ...SHIELD_LAYERS, HIT_LAYERS.road, HIT_LAYERS.rail, HIT_LAYERS.landmark, HIT_LAYERS.street,
+      ...LANDFORM_LABEL_LAYERS, HIT_LAYERS.river, HIT_LAYERS.lake, HIT_LAYERS.ridge, ...DIVISION_LABEL_LAYERS, HIT_LAYERS.city,
+    ];
+    const divisionLayers = new Set<string>([...DIVISION_LABEL_LAYERS, HIT_LAYERS.city]);
+    const queryHit = (point: maplibregl.Point) => {
+      const box: [maplibregl.PointLike, maplibregl.PointLike] = [[point.x - HIT_SLOP_PX, point.y - HIT_SLOP_PX], [point.x + HIT_SLOP_PX, point.y + HIT_SLOP_PX]];
+      const hits = map.queryRenderedFeatures(box, { layers: order.filter((l) => map.getLayer(l)) });
       for (const layer of order) {
-        const f = hits.find((h) => h.layer.id === layer);
-        if (f) return { layer, id: layer === HIT_LAYERS.division ? pickDivision(f) : (f.properties as { id: string }).id };
+        const f = hits.find((h) => h.layer.id === layer && (h.properties as { id?: string }).id);
+        if (f) return { layer, id: (f.properties as { id: string }).id, division: divisionLayers.has(layer) };
       }
       return null;
     };
@@ -206,7 +206,7 @@ export function MapView() {
       }
       const hit = queryHit(e.point);
       map.getCanvas().style.cursor = hit ? "pointer" : "";
-      const hoverId = hit?.layer === HIT_LAYERS.division ? hit.id : null;
+      const hoverId = hit?.division ? hit.id : null;
       if (hoverId !== hoverRef.current) {
         if (hoverRef.current) map.setFeatureState({ source: "divisions", id: hoverRef.current }, { hover: false });
         if (hoverId) map.setFeatureState({ source: "divisions", id: hoverId }, { hover: true });

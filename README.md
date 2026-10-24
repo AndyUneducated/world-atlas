@@ -55,7 +55,7 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   `Y-NV-n` township roads (GB/T 917 numbering, with the territory infix `NV`). A route's
   `via` lists cities or districts; `ring`, `straight` (straight legs, crossing hills and
   water on structures) and per-leg `legs` overrides shape the path. Territorial routes name
-  a `shield` glyph for their BC-style sign.
+  a `shield` glyph for the upper half of their sign.
 - **Engineering.** `world/transport/engineering.yaml` holds the standard of each road and
   rail network: grade limits, bridge and tunnel thresholds, unit costs in US dollars, speed
   limits and technical data. The generator derives each route's bridge and tunnel lengths,

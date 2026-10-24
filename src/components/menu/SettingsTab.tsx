@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Check, Grid3x3, ListTree, Monitor, Moon, Plus, Ruler, Sun, ZoomIn } from "lucide-react";
+import { Check, ListTree, Monitor, Moon, Plus, Ruler, Sun } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useId } from "react";
 import { t, type StringKey } from "../../lib/i18n";
@@ -23,9 +23,7 @@ const LANGS: { id: Lang; label: string }[] = [
 
 const DISPLAY: { key: keyof DisplayToggles; icon: typeof Sun; label: StringKey }[] = [
   { key: "legend", icon: ListTree, label: "legend" },
-  { key: "scale", icon: Ruler, label: "scaleBar" },
-  { key: "coordinates", icon: Grid3x3, label: "coordinates" },
-  { key: "zoomLevel", icon: ZoomIn, label: "zoomLevel" },
+  { key: "scalePosition", icon: Ruler, label: "scalePosition" },
   { key: "zoomButtons", icon: Plus, label: "zoomButtons" },
 ];
 

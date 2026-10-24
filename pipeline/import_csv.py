@@ -45,7 +45,7 @@ NETWORKS = {
     "township_road": ("tertiary", r"Y-NV-\d{3}"),
 }
 BUILDING_SUBTYPES = ("government", "building", "civic", "office", "museum", "theatre", "library", "townhall",
-                     "tower", "hospital", "marketplace")
+                     "tower", "hospital", "marketplace", "exhibition_centre")
 
 
 def _emblem_names(const: str, file: str = "emblems.tsx") -> tuple[str, ...]:
@@ -120,8 +120,6 @@ KINDS = {
             Col("ends_at_network", "支线", "ends_at_network", "bool"),
             Col("tunnel_cost", "隧道成本", "tunnel_cost", "float"),
             Col("shield", "路牌图案", "shield", "choice", GLYPHS),
-            Col("emblem_motif", "徽标图案", "emblem.motif", "choice", MOTIFS),
-            Col("emblem_pattern", "徽标底纹", "emblem.pattern", "choice", PATTERNS),
             *NOTES,
         ],
     },
@@ -479,11 +477,11 @@ ORDER = {
                   "emblem", "notes"],
     "features": ["id", "subtype", "status", "detect", "names", "notes"],
     "routes": ["id", "ref", "network", "class", "status", "names", "notes", "ring", "straight", "ends_at_network",
-               "tunnel_cost", "legs", "emblem", "shield", "via"],
+               "tunnel_cost", "legs", "shield", "via"],
     "places": ["id", "subtype", "status", "names", "notes", "in", "offset_km", "marker", "emblem_of", "site"],
     "railways": ["id", "network", "status", "names", "notes", "color", "tech", "tunnel_cost", "via", "station_names"],
 }
-FLOW = {"divisions": (), "features": ("detect", "names"), "routes": ("emblem", "via"), "places": ("site",),
+FLOW = {"divisions": (), "features": ("detect", "names"), "routes": ("via",), "places": ("site",),
         "railways": ("tech", "via")}
 
 
