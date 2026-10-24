@@ -754,7 +754,7 @@ places:
       art-x-buckham: Polo Logistico di Posta Sud
     notes:
       zh: 萨科勒大道旁的仓储与配送中心，服务萨科勒与贝克勒
-      en: Warehousing and distribution on Sakole Avenue, serving Sakole and Bekele.
+      en: Warehousing and distribution on Sakole Avenue, serving Sakole and Beckerle.
     in: div_hyxnpg
     offset_km: [2, -1.6]
     site: { layout: complex, size_m: [700, 500] }
@@ -842,3 +842,200 @@ places:
     in: div_t8bg0d
     offset_km: [0, 2.0]
     site: { layout: park, size_m: [800, 400] }
+  # ── 萨科勒市与贝克勒自由贸易区地标（M15）──
+  - id: bld_1bjy8a
+    subtype: townhall
+    status: generated
+    names:
+      zh: 萨科勒市人民政府
+      en: Sakole City Government
+      art-x-viking: Stadtregierung Sakole
+      art-x-buckham: Governo Cittadino di Sakole
+    notes:
+      zh: 设在萨科老镇中心的市政府，1990 年建市时由镇公所扩建
+      en: The city government in the centre of old Sako, enlarged from the town hall when the city was founded in 1990.
+    in: div_8m0jx4
+    offset_km: [0.2, 0.2]
+    site: { layout: complex, size_m: [300, 220] }
+  - id: poi_39e7mh
+    subtype: plaza
+    status: generated
+    names:
+      zh: 萨科老镇广场
+      en: Sako Old Town Square
+      art-x-viking: Altmarkt Sako
+      art-x-buckham: Piazza Vecchia di Sako
+    notes:
+      zh: 老镇钟楼前的石铺广场，建市前是萨科镇的集市与中心
+      en: The cobbled square below the old clock tower, the market and centre of Sako before the city was founded.
+    in: div_8m0jx4
+    offset_km: [0.7, -0.5]
+    site: { layout: plaza, size_m: [220, 160] }
+  - id: bld_142py9
+    subtype: marketplace
+    status: generated
+    names:
+      zh: 萨科鱼市
+      en: Sako Fish Market
+      art-x-viking: Fischmarkt Sako
+      art-x-buckham: Mercato del Pesce di Sako
+    notes:
+      zh: 老镇的鱼市，每天清晨拍卖萨科湾渔港的渔获
+      en: The old town's fish market, auctioning the catch of the Sako Bay harbour every dawn.
+    in: div_8m0jx4
+    offset_km: [-0.9, -0.7]
+    site: { layout: market, size_m: [220, 120] }
+  - id: poi_6wrkc6
+    subtype: industrial_park
+    status: generated
+    names:
+      zh: 铁岗先进制造产业园
+      en: Iron Knoll Advanced Manufacturing Park
+      art-x-viking: Industriepark Eisenhügel
+      art-x-buckham: Parco Industriale di Colle Ferro
+    notes:
+      zh: 1990 年代起布局的制造业园区，以机械、汽车零部件与电子装配为主，萨科勒「新工业区」的主体
+      en: Manufacturing parks laid out since the 1990s, mainly machinery, car parts and electronics assembly; the core of Sakole's new industrial zone.
+    in: div_6byxb5
+    offset_km: [2.2, -1.0]
+    site: { layout: complex, size_m: [1200, 700] }
+  - id: bld_j9z0s3
+    subtype: museum
+    status: generated
+    names:
+      zh: 铁岗矿业博物馆
+      en: Iron Knoll Mining Museum
+      art-x-viking: Bergbaumuseum Eisenhügel
+      art-x-buckham: Museo Minerario di Colle Ferro
+    notes:
+      zh: 由铁岗山旧铁矿的选矿厂改建，展出矿车、竖井模型与矿工生活
+      en: The former ore-dressing plant of the old Iron Knoll mine, with mine carts, shaft models and the story of the miners.
+    in: div_6byxb5
+    offset_km: [-1.2, 0.8]
+    site: { layout: hall, size_m: [180, 120] }
+  - id: poi_ymmy11
+    subtype: college
+    status: generated
+    names:
+      zh: 萨科勒职业技术学院
+      en: Sakole Polytechnic
+      art-x-viking: Technische Hochschule Sakole
+      art-x-buckham: Politecnico di Sakole
+    notes:
+      zh: 为铁岗产业园培养技工与工程师的学院
+      en: Trains technicians and engineers for the Iron Knoll manufacturing parks.
+    in: div_6byxb5
+    offset_km: [0.6, 1.6]
+    site: { layout: campus, size_m: [600, 400] }
+  - id: poi_3mxxkj
+    subtype: logistics_park
+    status: generated
+    names:
+      zh: 罗卡公路货运站
+      en: Rocca Road Freight Terminal
+      art-x-viking: Straßengüterterminal Felsburg
+      art-x-buckham: Terminal Merci di Rocca
+    notes:
+      zh: 南岸公路旁的公路货运枢纽与仓储区，集散萨科勒工厂的零部件与成品
+      en: Road freight hub and warehouses on the South Coast Highway, handling parts and products for Sakole's factories.
+    in: div_8njcs3
+    offset_km: [1.0, -0.8]
+    site: { layout: complex, size_m: [800, 500] }
+  - id: poi_8rttd6
+    subtype: park
+    status: generated
+    names:
+      zh: 岩堡公园
+      en: Rocca Park
+      art-x-viking: Felsburgpark
+      art-x-buckham: Parco della Rocca
+    notes:
+      zh: 环绕海边岩丘的公园，罗卡区（巴克汉姆语「岩堡」）以这座岩丘得名
+      en: A park around the seaside rock outcrop that gave Rocca District (Buckham for "rock fort") its name.
+    in: div_8njcs3
+    offset_km: [-1.0, 0.6]
+    site: { layout: park, size_m: [500, 350] }
+  - id: bld_h2rtj9
+    subtype: townhall
+    status: generated
+    names:
+      zh: 贝克勒自由贸易区管理委员会
+      en: Beckerle Free Trade Zone Administration
+      art-x-viking: Verwaltung der Freihandelszone Beckerle
+      art-x-buckham: Amministrazione della Zona Franca di Beckerle
+    notes:
+      zh: 自贸区的管理机构，代行市政府职能，设在镜湾区交易所大道
+      en: The zone's administration, which serves as its city government, on Exchange Avenue in Mirror Bay District.
+    in: div_8p9k5t
+    offset_km: [0.3, 0.4]
+    site: { layout: complex, size_m: [320, 240] }
+  - id: bld_0bp3k2
+    subtype: tower
+    status: generated
+    names:
+      zh: 镜湾国际金融中心
+      en: Mirror Bay International Finance Centre
+      art-x-viking: Internationales Finanzzentrum Spiegelbucht
+      art-x-buckham: Centro Finanziario Internazionale di Baia Specchio
+    notes:
+      zh: 镜湾天际线上最高的塔楼，离岸银行、结算机构与跨国公司区域总部集中于此
+      en: The tallest tower on the Mirror Bay skyline, home to offshore banks, clearing houses and regional headquarters.
+    in: div_8p9k5t
+    offset_km: [0.9, -0.3]
+    site: { layout: tower, size_m: [140, 140] }
+  - id: bld_31xavn
+    subtype: office
+    status: generated
+    names:
+      zh: 贝克勒国际商品交易所
+      en: Beckerle International Commodity Exchange
+      art-x-viking: Internationale Warenbörse Beckerle
+      art-x-buckham: Borsa Merci Internazionale di Beckerle
+    notes:
+      zh: 交易所大道上的大宗商品与外汇交易所，自贸区徽标上的「交换」图案即取自这里
+      en: The commodity and currency exchange on Exchange Avenue; the "exchange" motif of the zone's emblem comes from it.
+    in: div_8p9k5t
+    offset_km: [-0.6, -0.6]
+    site: { layout: hall, size_m: [240, 160] }
+  - id: poi_n5w3kb
+    subtype: park
+    status: generated
+    names:
+      zh: 镜湾滨海公园
+      en: Mirror Bay Waterfront Park
+      art-x-viking: Uferpark Spiegelbucht
+      art-x-buckham: Parco Lungomare di Baia Specchio
+    notes:
+      zh: 镜湾岸边的步道与草坪，可远眺倒映在湾面上的镜岛
+      en: Promenades and lawns on the shore of Mirror Bay, looking out to Mirror Isle reflected in the water.
+    in: div_8p9k5t
+    offset_km: [0.4, 1.1]
+    site: { layout: park, size_m: [900, 300] }
+  - id: bld_mks7z1
+    subtype: hospital
+    status: generated
+    names:
+      zh: 贝克勒国际医院
+      en: Beckerle International Hospital
+      art-x-viking: Internationales Krankenhaus Beckerle
+      art-x-buckham: Ospedale Internazionale di Beckerle
+    notes:
+      zh: 卡波区的国际医院，接诊自贸区的外籍居民与过境旅客
+      en: The international hospital in Capo District, treating the zone's foreign residents and passengers in transit.
+    in: div_e6pc44
+    offset_km: [-0.8, 0.6]
+    site: { layout: complex, size_m: [300, 240] }
+  - id: poi_a9mra4
+    subtype: logistics_park
+    status: generated
+    names:
+      zh: 燕礁保税物流园
+      en: Swallow Reef Bonded Logistics Park
+      art-x-viking: Zolllager-Logistikpark Schwalbenriff
+      art-x-buckham: Polo Logistico Doganale di Scoglio Rondine
+    notes:
+      zh: 保税仓储与加工贸易的园区，货物在园内存放、加工不需缴纳关税
+      en: Bonded warehousing and processing; goods can be stored and worked here without paying customs duty.
+    in: div_ts5cw5
+    offset_km: [1.2, -0.6]
+    site: { layout: complex, size_m: [900, 600] }

@@ -107,6 +107,7 @@ const STRINGS = {
   resetNorth: { zh: "指北", en: "Reset north" },
   home: { zh: "全岛视图", en: "Whole island" },
   perKm2: { zh: "人/km²", en: "/km²" },
+  hectares: { zh: "公顷", en: "ha" },
   loading: { zh: "正在载入地图", en: "Loading map" },
   routeFrom: { zh: "从这里出发", en: "Directions from" },
   routeTo: { zh: "到这里去", en: "Directions to" },

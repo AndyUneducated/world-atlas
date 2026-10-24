@@ -70,7 +70,10 @@ function stats(e: Entity, lang: Lang) {
   const out: { label: string; value: string; unit?: string }[] = [];
   if (e.population) out.push({ label: t("population", lang), value: formatPopulation(e.population, lang) });
   if (e.area_km2) out.push({ label: t("area", lang), value: formatNumber(e.area_km2, lang), unit: "km²" });
-  else if (e.stats?.area_km2_mapped) out.push({ label: t("area", lang), value: formatNumber(e.stats.area_km2_mapped, lang, 1), unit: "km²" });
+  else if (e.stats?.area_km2_mapped && e.stats.area_km2_mapped < 1) {
+    const ha = e.stats.area_km2_mapped * 100;
+    out.push({ label: t("area", lang), value: formatNumber(ha, lang, ha < 10 ? 1 : 0), unit: t("hectares", lang) });
+  } else if (e.stats?.area_km2_mapped) out.push({ label: t("area", lang), value: formatNumber(e.stats.area_km2_mapped, lang, 1), unit: "km²" });
   if (e.stats?.density_per_km2) out.push({ label: t("density", lang), value: formatNumber(e.stats.density_per_km2, lang, e.stats.density_per_km2 < 10 ? 1 : 0), unit: t("perKm2", lang) });
   if (e.stats?.length_km) out.push({ label: t("length", lang), value: formatNumber(e.stats.length_km, lang, 1), unit: "km" });
   if (e.stats?.bridge_km) out.push({ label: t("seaBridge", lang), value: formatNumber(e.stats.bridge_km, lang, 1), unit: "km" });
