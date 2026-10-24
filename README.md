@@ -67,6 +67,12 @@ npm run dev         # http://localhost:5173
 `npm run data:check` validates the YAML without generating anything. Pushing to `main`
 runs the pipeline and deploys to GitHub Pages through `.github/workflows/deploy.yml`.
 
+Display-only layers with many features (land cover, streams, sea depth) are packed into a
+[PMTiles](https://docs.protomaps.com/pmtiles/) vector tile archive by `pipeline/tiles.py`
+with [tippecanoe](https://github.com/felt/tippecanoe), and the site reads them tile by tile.
+CI always builds the archive; locally it is optional, and without tippecanoe the site loads
+the same layers as GeoJSON.
+
 Design decisions made without an explicit instruction are recorded in
 [`DECISIONS.md`](DECISIONS.md).
 

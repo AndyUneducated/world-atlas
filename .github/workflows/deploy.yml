@@ -38,6 +38,26 @@ jobs:
       - name: Build map data
         run: python pipeline/build.py
 
+      - name: Cache tippecanoe
+        id: tippecanoe
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/bin/tippecanoe
+          key: tippecanoe-2.79.0-${{ runner.os }}
+
+      - name: Build tippecanoe
+        if: steps.tippecanoe.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update -q && sudo apt-get install -yq libsqlite3-dev zlib1g-dev
+          git clone -q --depth 1 --branch 2.79.0 https://github.com/felt/tippecanoe.git /tmp/tippecanoe
+          make -C /tmp/tippecanoe -j"$(nproc)" tippecanoe
+          mkdir -p ~/.local/bin && cp /tmp/tippecanoe/tippecanoe ~/.local/bin/
+
+      - name: Pack vector tiles
+        run: |
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          PATH="$HOME/.local/bin:$PATH" python pipeline/tiles.py --require
+
       - name: Install web dependencies
         run: npm ci
 

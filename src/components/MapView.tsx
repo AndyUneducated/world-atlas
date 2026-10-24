@@ -1,6 +1,7 @@
 import * as maplibregl from "maplibre-gl";
 import type { GeoJSONSource, MapGeoJSONFeature } from "maplibre-gl";
 import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
+import { Protocol } from "pmtiles";
 import { useEffect, useMemo, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import type { FeatureCollection, Point } from "geojson";
@@ -16,6 +17,7 @@ import { writeUrl } from "../lib/url";
 import { initialView, useAtlas, useCursor } from "../store";
 
 maplibregl.setWorkerUrl(workerUrl);
+maplibregl.addProtocol("pmtiles", new Protocol().tile);
 
 const CJK_FONT = '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC", sans-serif';
 const BOROUGH_ZOOM = 8.8;

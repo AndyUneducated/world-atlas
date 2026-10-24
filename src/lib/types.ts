@@ -90,6 +90,8 @@ export interface Manifest {
   home: string;
   regions: Region[];
   dem: { tiles: string; encoding: "terrarium"; tileSize: number; minzoom: number; maxzoom: number; bounds: BBox };
+  /** Vector tile archive (PMTiles) holding some layers; absent when the build had no tippecanoe. */
+  tiles?: { url: string; layers: LayerFile[]; maxzoom: number };
 }
 
 export const LAYER_FILES = [

@@ -28,9 +28,9 @@
 - 行政区、自然要素、道路、地标各一个 CSV 模板（`templates/csv/`）
 - 导入脚本（`npm run data:import -- 文件.csv`）先校验再写入 `world/` 下的 YAML，校验错误用中文提示
 
-## M5 矢量瓦片底座
+## M5 矢量瓦片底座 ✅ 2026-10-24
 
-- CI 中用 tippecanoe 生成 PMTiles，前端按需加载
+- CI 中用 tippecanoe 生成 PMTiles，前端按需加载（首批：地表覆盖、溪流、海深）
 - 为街道、建筑的大数据量做准备，界面无可见变化
 
 ## M6 自由市街道

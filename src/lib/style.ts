@@ -8,7 +8,7 @@ import type { FeatureCollection } from "geojson";
 import type { LayerToggles } from "../store";
 import { BASE_URL } from "./data";
 import { LANDCOVER_CLASSES, type Theme } from "./themes";
-import type { AtlasData, Lang } from "./types";
+import type { AtlasData, Lang, LayerFile } from "./types";
 
 export interface FocusData {
   mask: FeatureCollection;
@@ -85,15 +85,18 @@ export function buildStyle(opts: {
   const dem = data.manifest.dem;
   const other: Lang = lang === "zh" ? "en" : "zh";
 
+  const tiles = data.manifest.tiles;
+  const tiled = new Set<LayerFile>(tiles?.layers ?? []);
+  /** Where a layer's features come from: the tile archive, or the layer's own GeoJSON source. */
+  const from = (name: LayerFile) => (tiled.has(name) ? { source: "tiles", "source-layer": name } : { source: name });
+
   const sources: Record<string, SourceSpecification> = {
     divisions: { type: "geojson", data: data.layers.divisions, promoteId: "id" },
     labels: { type: "geojson", data: data.layers.labels },
     water: { type: "geojson", data: data.layers.water, promoteId: "id" },
-    rivers: { type: "geojson", data: data.layers.rivers },
     "rivers-named": { type: "geojson", data: data.layers["rivers-named"], promoteId: "id" },
     ridges: { type: "geojson", data: data.layers.ridges, promoteId: "id" },
     roads: { type: "geojson", data: data.layers.roads, promoteId: "id" },
-    bathymetry: { type: "geojson", data: data.layers.bathymetry },
     context: { type: "geojson", data: data.layers.context },
     "focus-mask": { type: "geojson", data: focus.mask },
     "focus-outline": { type: "geojson", data: focus.outline },
@@ -102,7 +105,6 @@ export function buildStyle(opts: {
     highlight: { type: "geojson", data: highlight },
     places: { type: "geojson", data: data.layers.places },
     coast: { type: "geojson", data: data.layers.coast, promoteId: "id" },
-    landcover: { type: "geojson", data: data.layers.landcover },
     glaciers: { type: "geojson", data: data.layers.glaciers },
     dem: {
       type: "raster-dem",
@@ -114,6 +116,10 @@ export function buildStyle(opts: {
       bounds: dem.bounds,
     },
   };
+  for (const name of ["bathymetry", "landcover", "rivers"] as const) {
+    if (!tiled.has(name)) sources[name] = { type: "geojson", data: data.layers[name] };
+  }
+  if (tiles) sources.tiles = { type: "vector", url: `pmtiles://${BASE_URL}data/${tiles.url}` };
 
   const isSubtype = (s: string): ExpressionSpecification => ["==", ["get", "subtype"], s];
   const isKind = (k: string): ExpressionSpecification => ["==", ["get", "kind"], k];
@@ -124,7 +130,7 @@ export function buildStyle(opts: {
     {
       id: "bathymetry",
       type: "fill",
-      source: "bathymetry",
+      ...from("bathymetry"),
       paint: { "fill-color": ["match", ["get", "band"], 0, m.bathymetry[0], 1, m.bathymetry[1], m.bathymetry[2]], "fill-antialias": false },
     },
     { id: "context-fill", type: "fill", source: "context", paint: { "fill-color": m.context.fill } },
@@ -167,7 +173,7 @@ export function buildStyle(opts: {
   style.push({
     id: "landcover",
     type: "fill",
-    source: "landcover",
+    ...from("landcover"),
     layout: { visibility: visible(layers.landcover) },
     paint: {
       "fill-color": ["match", ["get", "class"], ...LANDCOVER_CLASSES.flatMap((c) => [c, m.landcover.colors[c]]), m.land] as unknown as ExpressionSpecification,
@@ -213,7 +219,7 @@ export function buildStyle(opts: {
     {
       id: "rivers",
       type: "line",
-      source: "rivers",
+      ...from("rivers"),
       minzoom: 6,
       layout: { "line-cap": "round", "line-join": "round" },
       paint: {
