@@ -12,6 +12,8 @@ WORLD_DIR = ROOT / "world"
 ID_PATTERN = re.compile(r"^(div|nat|rte|poi|bld|ctx)_[0-9a-hjkmnp-tv-z]{6}$|^country:[A-Z]{2}$")
 REQUIRED_LANGS = ("zh", "en")
 DIVISION_SUBTYPES = ("country", "dependency", "region", "locality", "borough")
+# Landmark footprint templates (see pipeline/atlas/buildings.py).
+SITE_LAYOUTS = ("complex", "hall", "campus", "stadium", "tower", "park", "plaza", "market")
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
 DETECT_KINDS = ("island", "bay", "fjord", "cape", "strait", "estuary", "river", "peak", "pass", "glacier")
 
@@ -124,6 +126,14 @@ class World:
         for pid, p in self.places.items():
             if p.get("in") not in self.divisions:
                 errors.append(f"{pid}: 'in' must name a division")
+            if site := p.get("site"):
+                if site.get("layout") not in SITE_LAYOUTS:
+                    errors.append(f"{pid}: site layout must be one of {', '.join(SITE_LAYOUTS)}")
+                size = site.get("size_m")
+                if not (isinstance(size, list) and len(size) == 2 and all(isinstance(v, (int, float)) and 10 <= v <= 3000 for v in size)):
+                    errors.append(f"{pid}: site size_m must be [along, across] in metres (10–3000)")
+                if self.divisions.get(p.get("in"), {}).get("subtype") != "borough":
+                    errors.append(f"{pid}: a place with a site must be 'in' a district")
         for gen in self.generators:
             layout = gen.get("layout", {})
             for c in self.children(gen.get("territory", "")):

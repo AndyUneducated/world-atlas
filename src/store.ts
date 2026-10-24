@@ -11,6 +11,7 @@ export interface LayerToggles {
   nationalExpressway: boolean;
   territorialExpressway: boolean;
   cityRoads: boolean;
+  buildings: boolean;
 }
 
 /** On-screen map furniture the user can hide from the settings panel. */
@@ -74,6 +75,7 @@ const DEFAULT_LAYERS: LayerToggles = {
   nationalExpressway: true,
   territorialExpressway: true,
   cityRoads: true,
+  buildings: true,
 };
 const DEFAULT_DISPLAY: DisplayToggles = { legend: true, scale: true, coordinates: true };
 

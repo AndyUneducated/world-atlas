@@ -58,6 +58,10 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   pinned to grid lines under `named`; all other names are composed from the stems and
   suffixes in `world/names/streets.yaml`. Arterials and collectors are clickable routes;
   local streets are drawn and labelled only.
+- **Buildings.** The blocks between a city's streets are filled with generated building
+  footprints whose type (slab estates, towers, courtyard blocks, shops, houses, sheds, parks)
+  follows the district style. Places with a `site` (size and layout template) are drawn as
+  clickable landmarks; streets and generated buildings keep out of their grounds.
 
 ## Development
 
@@ -73,7 +77,7 @@ npm run dev         # http://localhost:5173
 `npm run data:check` validates the YAML without generating anything. Pushing to `main`
 runs the pipeline and deploys to GitHub Pages through `.github/workflows/deploy.yml`.
 
-Display-only layers with many features (land cover, streams, sea depth, streets) are packed into a
+Display-only layers with many features (land cover, streams, sea depth, streets, buildings) are packed into a
 [PMTiles](https://docs.protomaps.com/pmtiles/) vector tile archive by `pipeline/tiles.py`
 with [tippecanoe](https://github.com/felt/tippecanoe), and the site reads them tile by tile.
 CI always builds the archive; locally it is optional, and without tippecanoe the site loads

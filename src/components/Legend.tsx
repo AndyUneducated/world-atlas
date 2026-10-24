@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { t, type StringKey } from "../lib/i18n";
 import { DENSITY_BREAKS } from "../lib/style";
-import { LANDCOVER_CLASSES, THEMES, type MapTheme } from "../lib/themes";
+import { BUILDING_CLASSES, LANDCOVER_CLASSES, THEMES, type MapTheme } from "../lib/themes";
 import type { Lang } from "../lib/types";
 import { useAtlas, type LayerToggles } from "../store";
 
@@ -135,6 +135,23 @@ function LegendBody({ m, layers, lang }: { m: MapTheme; layers: LayerToggles; la
               </svg>
               {t("peak", lang)}
             </li>
+          </ul>
+        </section>
+      )}
+      {layers.buildings && (
+        <section>
+          <Heading>{t("buildings", lang)}</Heading>
+          <ul className="grid grid-cols-2 gap-x-2 gap-y-1">
+            {[
+              ...BUILDING_CLASSES.map((c) => ({ key: `bc_${c}`, fill: m.building.fill[c], line: m.building.outline })),
+              { key: "bc_landmark", fill: m.building.landmark.fill, line: m.building.landmark.outline },
+              { key: "bc_park", fill: m.building.park, line: m.building.park },
+            ].map((s) => (
+              <li key={s.key} className="flex items-center gap-1.5 truncate text-[11.5px] text-ink">
+                <span className="size-2.5 shrink-0 rounded-[2px]" style={{ background: s.fill, boxShadow: `inset 0 0 0 1px ${s.line}` }} />
+                {t(s.key as StringKey, lang)}
+              </li>
+            ))}
           </ul>
         </section>
       )}

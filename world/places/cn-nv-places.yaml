@@ -3,6 +3,10 @@
 # in: the division the place lies in. Without explicit coordinates the generator puts
 #   the place at that division's urban core, offset by offset_km (real km, east/north).
 # marker: map symbol; "emblem" draws the logo of the entity named by emblem_of.
+# site: the place's grounds drawn as a landmark in a city with generated streets. size_m is
+#   [along, across] the district's street grid; layout picks the footprint template
+#   (complex, hall, campus, stadium, tower, park, plaza, market); the front faces the
+#   district centre. Streets and generated buildings keep out of the site.
 places:
   - id: bld_mc71ej
     subtype: government
@@ -15,6 +19,187 @@ places:
       zh: 领地最高行政机关驻地，位于首府自由市白桦区的议会综合办公区
       en: Seat of the territory's executive, in the Parliament Complex of Birchwood District in the capital, Freedom City.
     in: div_16cxr8
-    offset_km: [3, 2]
+    offset_km: [3.06, 2.04]
     marker: emblem
     emblem_of: div_fbfqv9
+
+  # ── 自由市地标（M7）──
+  - id: poi_65b998
+    subtype: government
+    status: canon
+    names:
+      zh: 议会综合办公区
+      en: Parliament Complex
+      art-x-viking: Parlamentsviertel
+      art-x-buckham: Complesso del Parlamento
+    notes:
+      zh: 领地议会与领地政府所在的建筑群，坐落在人民大道东北端
+      en: Seat of the territorial parliament and government, at the north-east end of People's Avenue.
+    in: div_16cxr8
+    offset_km: [3, 2]
+    site: { size_m: [560, 420], layout: complex }
+
+  - id: poi_s7aqz9
+    subtype: plaza
+    status: generated
+    names:
+      zh: 人民广场
+      en: People's Square
+      art-x-viking: Volksplatz
+      art-x-buckham: Piazza del Popolo
+    notes:
+      zh: 人民大道中段的城市广场，正对议会综合办公区
+      en: The city square halfway along People's Avenue, facing the Parliament Complex.
+    in: div_16cxr8
+    offset_km: [1.87, 1.25]
+    site: { size_m: [400, 260], layout: plaza }
+
+  - id: bld_s3p065
+    subtype: museum
+    status: generated
+    names:
+      zh: 领地博物馆
+      en: Territorial Museum
+      art-x-viking: Landesmuseum
+      art-x-buckham: Museo Territoriale
+    in: div_16cxr8
+    offset_km: [1.62, 1.62]
+    site: { size_m: [220, 150], layout: hall }
+
+  - id: bld_5zev8b
+    subtype: theatre
+    status: generated
+    names:
+      zh: 自由市大剧院
+      en: Freedom City Grand Theatre
+      art-x-viking: Großes Theater Freistad
+      art-x-buckham: Gran Teatro di Frei
+    in: div_16cxr8
+    offset_km: [2.12, 0.87]
+    site: { size_m: [200, 150], layout: hall }
+
+  - id: bld_cv6swy
+    subtype: library
+    status: generated
+    names:
+      zh: 领地图书馆
+      en: Territorial Library
+      art-x-viking: Landesbibliothek
+      art-x-buckham: Biblioteca Territoriale
+    in: div_16cxr8
+    offset_km: [0.61, 0.89]
+    site: { size_m: [160, 120], layout: hall }
+
+  - id: bld_dh9ze4
+    subtype: townhall
+    status: generated
+    names:
+      zh: 自由市政厅
+      en: Freedom City Hall
+      art-x-viking: Rathaus Freistad
+      art-x-buckham: Municipio di Frei
+    in: div_16cxr8
+    offset_km: [-0.53, 0.07]
+    site: { size_m: [180, 130], layout: hall }
+
+  - id: bld_d262pb
+    subtype: tower
+    status: generated
+    names:
+      zh: 自由塔
+      en: Liberty Tower
+      art-x-viking: Freiheitsturm
+      art-x-buckham: Torre della Libertà
+    notes:
+      zh: 广播电视塔，自由市最高建筑
+      en: Broadcasting tower, the tallest structure in Freedom City.
+    in: div_16cxr8
+    offset_km: [-0.11, 1.25]
+    site: { size_m: [90, 90], layout: tower }
+
+  - id: poi_gst9cv
+    subtype: university
+    status: generated
+    names:
+      zh: 北维京岛大学
+      en: University of North Viking Island
+      art-x-viking: Universität Hea Veiling
+      art-x-buckham: Università di Teatu Viking
+    in: div_16cxr8
+    offset_km: [-3.38, 0.39]
+    site: { size_m: [900, 650], layout: campus }
+
+  - id: bld_7zgazx
+    subtype: hospital
+    status: generated
+    names:
+      zh: 自由市中心医院
+      en: Freedom City Central Hospital
+      art-x-viking: Zentralkrankenhaus Freistad
+      art-x-buckham: Ospedale Centrale di Frei
+    in: div_16cxr8
+    offset_km: [1.55, -0.89]
+    site: { size_m: [400, 300], layout: campus }
+
+  - id: poi_xv5v45
+    subtype: stadium
+    status: generated
+    names:
+      zh: 自由市体育中心
+      en: Freedom City Sports Centre
+      art-x-viking: Sportzentrum Freistad
+      art-x-buckham: Centro Sportivo di Frei
+    in: div_16cxr8
+    offset_km: [0.08, -2.83]
+    site: { size_m: [330, 260], layout: stadium }
+
+  - id: bld_eewr9c
+    subtype: marketplace
+    status: generated
+    names:
+      zh: 北河市场
+      en: North River Market
+      art-x-viking: Nordflussmarkt
+      art-x-buckham: Mercato del Rivo Nord
+    in: div_b1dx32
+    offset_km: [0.5, 0.3]
+    site: { size_m: [140, 80], layout: market }
+
+  - id: bld_yn4gzk
+    subtype: marketplace
+    status: generated
+    names:
+      zh: 沙洲老渔市
+      en: Sandbar Old Fish Market
+      art-x-viking: Alter Fischmarkt Sandbank
+      art-x-buckham: Vecchio Mercato del Pesce di Banco Sabbia
+    notes:
+      zh: 河口老港区的鱼市，沙洲区最早的街巷围绕它形成
+      en: The fish market of the old river-mouth harbour; the first lanes of Sandbar District grew around it.
+    in: div_g4a8q0
+    offset_km: [0.3, 0.2]
+    site: { size_m: [160, 90], layout: market }
+
+  - id: bld_q4f5ec
+    subtype: tower
+    status: generated
+    names:
+      zh: 沙洲钟楼
+      en: Sandbar Clock Tower
+      art-x-viking: Uhrturm Sandbank
+      art-x-buckham: Torre dell'Orologio di Banco Sabbia
+    in: div_g4a8q0
+    offset_km: [-0.25, 0.15]
+    site: { size_m: [60, 60], layout: tower }
+
+  - id: poi_mecb4f
+    subtype: park
+    status: generated
+    names:
+      zh: 沙洲公园
+      en: Sandbar Park
+      art-x-viking: Sandbankpark
+      art-x-buckham: Parco di Banco Sabbia
+    in: div_g4a8q0
+    offset_km: [1.2, -0.9]
+    site: { size_m: [500, 380], layout: park }

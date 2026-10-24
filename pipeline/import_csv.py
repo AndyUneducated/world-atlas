@@ -30,7 +30,7 @@ from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas.world import DETECT_KINDS, ROOT, WORLD_DIR, World  # noqa: E402
+from atlas.world import DETECT_KINDS, ROOT, SITE_LAYOUTS, WORLD_DIR, World  # noqa: E402
 from new_id import mint  # noqa: E402
 
 DELETE = object()
@@ -44,7 +44,8 @@ NETWORKS = {
     "municipal_road": ("secondary", r"X-NV-\d{3}"),
     "township_road": ("tertiary", r"Y-NV-\d{3}"),
 }
-BUILDING_SUBTYPES = ("government", "building", "civic", "office")
+BUILDING_SUBTYPES = ("government", "building", "civic", "office", "museum", "theatre", "library", "townhall",
+                     "tower", "hospital", "marketplace")
 
 
 def _emblem_names(const: str) -> tuple[str, ...]:
@@ -130,6 +131,8 @@ KINDS = {
             Col("offset_east_km", "向东偏移"), Col("offset_north_km", "向北偏移"),
             Col("marker", "地图符号", "marker", "choice", ("dot", "emblem")),
             Col("emblem_of", "徽标来自", "emblem_of", "ref"),
+            Col("site_layout", "占地布局", "site.layout", "choice", SITE_LAYOUTS),
+            Col("site_along_m", "占地长米"), Col("site_across_m", "占地宽米"),
             *NOTES,
         ],
     },
@@ -416,7 +419,13 @@ class Importer:
         off = self.pair(row, i, "offset_east_km", "offset_north_km")
         if off is not None:
             changes["offset_km"] = off
+        size = self.pair(row, i, "site_along_m", "site_across_m")
+        if size is not None:
+            changes["site.size_m"] = size
         cur = self.world.places.get(eid, {})
+        site = {**(cur.get("site") or {}), **{k.split(".")[1]: v for k, v in changes.items() if k.startswith("site.")}}
+        if site and size is not DELETE and ("layout" not in site or "size_m" not in site):
+            self.problems.add(self.where(i, "site_layout"), "地标占地需要同时填写 占地布局、占地长米、占地宽米")
         if changes.get("marker", cur.get("marker")) == "emblem" and not changes.get("emblem_of", cur.get("emblem_of")):
             self.problems.add(self.where(i, "emblem_of"), "地图符号为 emblem 时必须指定徽标来自哪个条目")
 
@@ -427,9 +436,9 @@ ORDER = {
     "features": ["id", "subtype", "status", "detect", "names", "notes"],
     "routes": ["id", "ref", "network", "class", "status", "names", "notes", "ring", "ends_at_network", "tunnel_cost",
                "emblem", "via"],
-    "places": ["id", "subtype", "status", "names", "notes", "in", "offset_km", "marker", "emblem_of"],
+    "places": ["id", "subtype", "status", "names", "notes", "in", "offset_km", "marker", "emblem_of", "site"],
 }
-FLOW = {"divisions": (), "features": ("detect", "names"), "routes": ("emblem", "via"), "places": ()}
+FLOW = {"divisions": (), "features": ("detect", "names"), "routes": ("emblem", "via"), "places": ("site",)}
 
 
 def yaml_for(text: str) -> YAML:

@@ -25,7 +25,7 @@ from atlas.world import ROOT  # noqa: E402
 OUT = ROOT / "public" / "data"
 ARCHIVE = "atlas.pmtiles"
 # Layers read only for drawing: no click targets, no client-side geometry work.
-TILE_LAYERS = ("bathymetry", "landcover", "rivers", "streets")
+TILE_LAYERS = ("bathymetry", "landcover", "rivers", "streets", "buildings", "parks")
 MAX_ZOOM = 12
 
 TIPPECANOE_FLAGS = [

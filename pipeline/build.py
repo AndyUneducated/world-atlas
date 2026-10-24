@@ -23,7 +23,7 @@ from shapely.geometry import LineString, MultiLineString, mapping
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas import coast, landcover, relief, streets  # noqa: E402
+from atlas import buildings, coast, landcover, relief, streets  # noqa: E402
 from atlas.cache import CACHE_DIR, stage  # noqa: E402
 from atlas.dem_tiles import write_dem_tiles  # noqa: E402
 from atlas.divisions import partition, pole_of_inaccessibility  # noqa: E402
@@ -72,6 +72,16 @@ def short_name(names: dict) -> dict:
 def feature(geom, props):
     head = {"type": "Feature", "id": props["id"]} if props.get("id") else {"type": "Feature"}
     return {**head, "properties": props, "geometry": mapping(geom)}
+
+
+STREET_MINZOOM = {"arterial": 10, "collector": 11, "local": 12}
+BUILDING_MINZOOM = 12
+
+
+def tile_minzoom(f: dict, z: int) -> dict:
+    """Keep the feature out of vector tiles below zoom `z` (read by tippecanoe, ignored by MapLibre)."""
+    f["tippecanoe"] = {"minzoom": z}
+    return f
 
 
 def write_geojson(name, features):
@@ -316,8 +326,30 @@ def main_axis(poly) -> float:
     return math.atan2(ey, ex)
 
 
+def landmark_sites(world, d, core, angle, built, seed):
+    """Site outlines and footprints (real km) of the places in district `d` that have a `site`."""
+    out = []
+    for pid, pl in world.places.items():
+        if pl["in"] != d["id"] or not pl.get("site"):
+            continue
+        cfg = pl["site"]
+        ox, oy = pl.get("offset_km", (0, 0))
+        rng = np.random.default_rng([seed, int(hashlib.sha1(pid.encode()).hexdigest()[:8], 16)])
+        size = (cfg["size_m"][0] / 1000, cfg["size_m"][1] / 1000)
+        site, parts = buildings.landmark(cfg["layout"], (core[0] + ox, core[1] + oy), angle + math.radians(cfg.get("angle_deg", 0)), size, rng)
+        if not built.buffer(0.05).contains(site.centroid):
+            log(f"  WARN {pl['names']['zh']}: site lies outside the built-up area")
+        for other, osite, _ in out:
+            if site.intersects(osite):
+                log(f"  WARN {pl['names']['zh']}: site overlaps {world.places[other]['names']['zh']}")
+        out.append((pid, site, parts))
+    return out
+
+
 def build_streets(world, sp, frame, seed, cities, districts, district_city, dist_polys, poles, urban, land, lake_polys, river_lines):
-    """Street networks of the cities listed in the generator's `streets` section; returns [(city, [Street])] in design km."""
+    """Street networks of the cities listed in the generator's `streets` section.
+
+    Returns [(city, [Street] in design km, {district: context in real km}, [landmark site])]."""
     if urban is None:
         return []
     s = frame.scale
@@ -332,7 +364,7 @@ def build_streets(world, sp, frame, seed, cities, districts, district_city, dist
     for cid in sp["cities"]:
         ci = next(i for i, c in enumerate(cities) if c["id"] == cid)
         namer = streets.Namer(ROOT / "world" / "names" / "streets.yaml", street_place_stems(world, cities, cid))
-        city_streets, styles, named = [], {}, {}
+        city_streets, styles, named, ctx, city_sites = [], {}, {}, {}, []
         for i, d in enumerate(districts):
             if district_city[i] != ci:
                 continue
@@ -348,15 +380,22 @@ def build_streets(world, sp, frame, seed, cities, districts, district_city, dist
             core = (poles[i][0] * s, poles[i][1] * s)
             ds = streets.district_streets(built, core, style, angle, rng, sp, i)
             streets.bend(ds, streets.Field(rng, sp["warp_wavelength_km"]), sp["warp_km"][style])
+            sites = landmark_sites(world, d, core, angle, built, seed)
             safe = built.buffer(0.05).intersection(safe_all)
+            if sites:
+                safe = safe.difference(shapely.union_all([site for _, site, _ in sites]).buffer(0.004))
             dry = safe.difference(rivers_r) if rivers_r is not None else safe
-            kept = []
+            kept, real_lines = [], []
             for st in ds:
                 g = streets.keep(st.geom.intersection(dry if st.cls == "local" else safe).simplify(0.004), st.cls)
                 if g is not None:
+                    real_lines.append((st.cls, g))
                     st.geom = affinity.scale(g, 1 / s, 1 / s, origin=(0, 0))
                     kept.append(st)
             styles[i] = style
+            ctx[i] = {"name": d["names"]["zh"], "built": built.intersection(safe_all), "style": style, "angle": angle, "core": core, "lines": real_lines,
+                      "radius": math.sqrt(built.area / math.pi)}
+            city_sites += [(pid, site, parts, i) for pid, site, parts in sites]
             city_streets += kept
             counts = {c: sum(1 for st in kept if st.cls == c) for c in streets.CLASSES}
             log(f"  {d['names']['zh']} ({style}): {frame.km2(dist_polys[i].intersection(urban).area):.0f} km² built up, "
@@ -371,8 +410,25 @@ def build_streets(world, sp, frame, seed, cities, districts, district_city, dist
             log(f"  WARN street {zh}: no arterial at that axis and line")
         rng = np.random.default_rng([seed, 7, ci])
         streets.assign_names(city_streets, namer, styles, rng, named)
-        out.append((cities[ci], city_streets))
+        out.append((cities[ci], city_streets, ctx, city_sites))
     return out
+
+
+def build_buildings(street_out, seed) -> tuple[list, list]:
+    """Generated building footprints and parks, [(cls, polygon)] and [polygon] in real km."""
+    out, parks = [], []
+    for city, _, ctx, sites in street_out:
+        taken = buildings.corridors([line for c in ctx.values() for line in c["lines"]])
+        if sites:
+            taken = taken.union(shapely.union_all([site.buffer(0.01) for _, site, _, _ in sites]))
+        for i, c in ctx.items():
+            blks = buildings.blocks(c["built"], taken)
+            rng = np.random.default_rng([seed, 11, i])
+            bl, pk = buildings.district_buildings(blks, c["style"], c["core"], c["angle"], c["radius"], rng)
+            out += [(b.cls, b.geom) for b in bl]
+            parks += pk
+            log(f"  {c['name']}: {len(blks)} blocks, {len(bl)} buildings, {len(pk)} parks")
+    return out, parks
 
 
 def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: dict, use_cache: bool = True):
@@ -518,7 +574,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     bands[land_c] = -1
     bath_polys = polygonize_labels(bands, gc.res, smooth=3, simplify_km=0.1)
 
-    street_out = []
+    street_out, building_out, park_out = [], [], []
     if spec.get("streets"):
         log("streets")
         lake_polys = [p for _, m in lakes if (p := polygonize_labels(np.where(m, 0, -1), g.res).get(0)) is not None]
@@ -527,6 +583,8 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
                       [line for line, acc in stream_lines if acc >= sp.get("river_gap_min_km2", 60)]
         street_out = build_streets(world, sp, frame, seed, cities, districts, district_city, dist_polys, poles,
                                    cover_polys.get(landcover.CLASSES.index("urban")), terr_poly, lake_polys, river_lines)
+        log("buildings")
+        building_out, park_out = build_buildings(street_out, seed)
 
     log("routing roads")
     land_r = block_reduce(land, 4, "mode_bool")
@@ -612,8 +670,9 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             "id": d["id"], "kind": "borough", "name_zh": d["names"]["zh"], "name_en": d["names"]["en"],
             "population": d["population"], "color": cities[ci]["color"], "rank": 4}))
 
-    place_features = []
+    place_features, landmark_features = [], []
     district_index = {d["id"]: i for i, d in enumerate(districts)}
+    sites = {pid: (site, parts) for _, _, _, city_sites in street_out for pid, site, parts, _ in city_sites}
     for pid, p in world.places.items():
         if p["in"] in district_index:
             x, y = poles[district_index[p["in"]]]
@@ -625,10 +684,19 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         pt = point_lonlat(frame, x + ox / frame.scale, y + oy / frame.scale)
         place_features.append(feature(pt, {
             "id": pid, "subtype": p["subtype"], "marker": p.get("marker", "dot"), "emblem_of": p.get("emblem_of"),
-            "name_zh": p["names"]["zh"], "name_en": p["names"]["en"]}))
+            "name_zh": p["names"]["zh"], "name_en": p["names"]["en"], "site": pid in sites}))
         lon, lat = pt.coords[0]
         entities[pid].update({"center": [lon, lat], "bbox": [lon - 0.02, lat - 0.01, lon + 0.02, lat + 0.01],
                               "ancestors": [p["in"], *world.ancestors(p["in"])]})
+        if pid in sites:
+            site, parts = sites[pid]
+            geom = to_lonlat(affinity.scale(site, 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6)
+            landmark_features.append(feature(geom, {"id": pid, "subtype": p["subtype"], "layout": p["site"]["layout"],
+                                                    "name_zh": p["names"]["zh"], "name_en": p["names"]["en"]}))
+            for part in parts:
+                part_geom = to_lonlat(affinity.scale(part, 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6)
+                landmark_features.append(feature(part_geom, {"part": "building", "of": pid}))
+            entities[pid].update({"bbox": bbox_lonlat(geom), "stats": {"area_km2_mapped": round(site.area, 2)}})
 
     water_features = []
     for fid, m in lakes:
@@ -689,31 +757,41 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             # travel length, including junction stretches drawn under another route's number
             ent["stats"]["length_km"] = round(sum(s["km"] for s in ent["segments"]), 1)
 
-    street_features, street_named = [], []
-    for city, sts in street_out:
+    street_features, street_named, named_parts = [], [], {}
+    for city, sts, _, _ in street_out:
         for st in sts:
             geom = to_lonlat(st.geom, frame)
             props = {"class": st.cls, "name_zh": st.names["zh"], "name_en": st.names["en"]}
             if st.cls == "local":
-                street_features.append(feature(geom, props))
+                street_features.append(tile_minzoom(feature(geom, props), STREET_MINZOOM[st.cls]))
                 continue
             rid = derived_id("rte", f"street:{city['id']}:{st.names['zh']}")
             props = {"id": rid, **props}
-            street_features.append(feature(geom, props))
-            street_named.append(feature(geom, props))
-            via = [districts[i]["id"] for i in range(len(districts)) if district_city[i] == city_index[city["id"]]
-                   and dist_polys[i].intersection(st.geom).length > 0.02]
-            longest = max(streets.pieces(st.geom), key=lambda q: q.length)
-            entities[rid] = {
-                "id": rid, "kind": "route", "network": f"{st.cls}_street", "class": st.cls, "status": st.status,
-                "names": st.names, "via": via or [districts[st.district]["id"]], "source": "generated:streets",
-                "ancestors": [city["id"], *world.ancestors(city["id"])],
-                "bbox": bbox_lonlat(geom),
-                "center": list(point_lonlat(frame, *longest.interpolate(0.5, normalized=True).coords[0]).coords[0]),
-                "stats": {"length_km": round(frame.km(st.geom.length), 2)},
-            }
+            street_features.append(tile_minzoom(feature(geom, props), STREET_MINZOOM[st.cls]))
+            named_parts.setdefault(rid, (city, st, props, []))[3].append(st.geom)
+    for rid, (city, st, props, parts) in named_parts.items():
+        # one entity per name: a canon avenue may run through several districts
+        geom_km = shapely.union_all(parts)
+        geom = to_lonlat(geom_km, frame)
+        street_named.append(feature(geom, props))
+        via = [districts[i]["id"] for i in range(len(districts)) if district_city[i] == city_index[city["id"]]
+               and dist_polys[i].intersection(geom_km).length > 0.02]
+        longest = max(streets.pieces(geom_km), key=lambda q: q.length)
+        entities[rid] = {
+            "id": rid, "kind": "route", "network": f"{st.cls}_street", "class": st.cls, "status": st.status,
+            "names": st.names, "via": via or [districts[st.district]["id"]], "source": "generated:streets",
+            "ancestors": [city["id"], *world.ancestors(city["id"])],
+            "bbox": bbox_lonlat(geom),
+            "center": list(point_lonlat(frame, *longest.interpolate(0.5, normalized=True).coords[0]).coords[0]),
+            "stats": {"length_km": round(frame.km(geom_km.length), 2)},
+        }
     if street_out:
         log(f"  {len(street_features)} streets, {len(street_named)} named arterials and collectors")
+    to_map = lambda g: to_lonlat(affinity.scale(g, 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6)
+    building_features = [tile_minzoom(feature(to_map(g), {"class": cls}), BUILDING_MINZOOM) for cls, g in building_out]
+    park_features = [tile_minzoom(feature(to_map(g), {"class": "park"}), BUILDING_MINZOOM) for g in park_out]
+    if building_out:
+        log(f"  {len(building_features)} buildings, {len(park_features)} parks, {len(sites)} landmark sites")
 
     terminals = {c["id"]: node[ci] for ci, c in enumerate(cities)}
     terminals.update({d["id"]: node[district_city[i]] if i == core[district_city[i]] else router.cell(*poles[i])
@@ -816,6 +894,9 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     layers["roads"] += road_features
     layers["streets"] += street_features
     layers["streets-named"] += street_named
+    layers["buildings"] += building_features
+    layers["parks"] += park_features
+    layers["landmarks"] += landmark_features
     layers["bathymetry"] += bath_features
     layers["context"] += ctx_features
 
@@ -870,7 +951,7 @@ def main():
         shutil.rmtree(OUT)
     OUT.mkdir(parents=True)
     entities = base_entities(world)
-    layers = {k: [] for k in ("divisions", "labels", "places", "landcover", "water", "coast", "glaciers", "rivers", "rivers-named", "ridges", "roads", "streets", "streets-named", "bathymetry", "context")}
+    layers = {k: [] for k in ("divisions", "labels", "places", "landcover", "water", "coast", "glaciers", "rivers", "rivers-named", "ridges", "roads", "streets", "streets-named", "buildings", "parks", "landmarks", "bathymetry", "context")}
     graph = {"nodes": [], "edges": [], "roads": [], "places": {}}
     regions = [build_region(world, spec, entities, layers, graph, not args.fresh) for spec in world.generators]
     for name, feats in layers.items():

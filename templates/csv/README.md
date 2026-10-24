@@ -79,7 +79,11 @@ npm run data                                    # 重新生成地图
 | 向东偏移、向北偏移 | offset_east_km、offset_north_km | 相对所在区城区中心的实际 km |
 | 地图符号 | marker | `dot` 或 `emblem` |
 | 徽标来自 | emblem_of | 地图符号为 `emblem` 时必填 |
+| 占地布局 | site_layout | 在有街道的城市里画出地标占地和建筑轮廓：`complex`（建筑群）、`hall`（单体大楼）、`campus`（园区）、`stadium`（体育场）、`tower`（塔）、`park`（公园）、`plaza`（广场）、`market`（市场） |
+| 占地长米、占地宽米 | site_along_m、site_across_m | 占地沿街道方格方向的长、宽（米），与占地布局一起填 |
 | 中文简介、英文简介 | notes_zh、notes_en | |
+
+有占地的地标必须位于区内（所在区填区）。占地内不再生成街道和普通建筑；占地要落在城区（建成区）内，否则生成时会给出警告。
 
 ## 示例
 

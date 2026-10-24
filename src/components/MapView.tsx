@@ -154,7 +154,7 @@ export function MapView() {
         ? { center: [initialView.lng, initialView.lat], zoom: initialView.zoom, bearing: initialView.bearing }
         : { bounds: region.bounds, fitBoundsOptions: { padding: homePadding() } }),
       minZoom: 1.2,
-      maxZoom: 15,
+      maxZoom: 17,
       maxPitch: 0,
       attributionControl: false,
       localIdeographFontFamily: CJK_FONT,
@@ -191,7 +191,7 @@ export function MapView() {
     };
 
     const queryHit = (point: maplibregl.PointLike) => {
-      const order = [HIT_LAYERS.road, HIT_LAYERS.street, HIT_LAYERS.city, ...LANDFORM_LABEL_LAYERS, HIT_LAYERS.river, HIT_LAYERS.lake, HIT_LAYERS.ridge, HIT_LAYERS.division];
+      const order = [HIT_LAYERS.road, HIT_LAYERS.landmark, HIT_LAYERS.street, HIT_LAYERS.city, ...LANDFORM_LABEL_LAYERS, HIT_LAYERS.river, HIT_LAYERS.lake, HIT_LAYERS.ridge, HIT_LAYERS.division];
       const hits = map.queryRenderedFeatures(point, { layers: order.filter((l) => map.getLayer(l)) });
       for (const layer of order) {
         const f = hits.find((h) => h.layer.id === layer);
@@ -269,7 +269,7 @@ export function MapView() {
     if (entity?.bbox && nonce > 0) {
       map.fitBounds(entity.bbox, {
         padding: cardPadding(),
-        maxZoom: entity.kind === "division" && entity.subtype === "borough" ? 11 : 10.5,
+        maxZoom: entity.kind === "place" ? 15.5 : entity.kind === "division" && entity.subtype === "borough" ? 11 : 10.5,
         duration: 1200,
         essential: true,
       });

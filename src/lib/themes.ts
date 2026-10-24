@@ -2,6 +2,8 @@ import type { Lang, ThemeId } from "./types";
 
 export const LANDCOVER_CLASSES = ["forest", "tundra", "rock", "farmland", "wetland", "urban"] as const;
 export type LandcoverClass = (typeof LANDCOVER_CLASSES)[number];
+export const BUILDING_CLASSES = ["residential", "commercial", "industrial", "civic"] as const;
+export type BuildingClass = (typeof BUILDING_CLASSES)[number];
 
 interface RoadStyle {
   fill: string;
@@ -39,6 +41,13 @@ export interface MapTheme {
   cityRoad: RoadStyle;
   /** City streets: arterials (主干道), collectors (次干道), local streets (支路). */
   street: { arterial: RoadStyle; collector: RoadStyle; local: RoadStyle; label: string };
+  /** Generated building footprints by class, parks, and landmark sites with their own buildings. */
+  building: {
+    fill: Record<BuildingClass, string>;
+    outline: string;
+    park: string;
+    landmark: { fill: string; outline: string; grounds: string; park: string; plaza: string; label: string };
+  };
   shield: { national: { fill: string; text: string; stroke: string }; territorial: { fill: string; text: string; stroke: string } };
   label: { text: string; halo: string; minor: string; water: string; terrain: string; territory: string };
   cityDot: { fill: string; stroke: string; capital: string };
@@ -104,6 +113,12 @@ export const THEMES: Record<ThemeId, Theme> = {
         local: { fill: "#ffffff", casing: "#dde2e8" },
         label: "#4b5563",
       },
+      building: {
+        fill: { residential: "#ddd7d0", commercial: "#d6d3dc", industrial: "#d5d6d1", civic: "#e3d5c8" },
+        outline: "#c7bfb5",
+        park: "#cfe5c0",
+        landmark: { fill: "#f1d9b3", outline: "#c49a5c", grounds: "#efe6d6", park: "#c6e2b5", plaza: "#ece5d9", label: "#7a4f17" },
+      },
       shield: {
         national: { fill: "#1f7a4d", text: "#ffffff", stroke: "#c8312b" },
         territorial: { fill: "#ffffff", text: "#8a5a00", stroke: "#d9b04a" },
@@ -163,6 +178,12 @@ export const THEMES: Record<ThemeId, Theme> = {
         collector: { fill: "#2e3b50", casing: "#0a101b" },
         local: { fill: "#243044", casing: "#0a101b" },
         label: "#94a3b8",
+      },
+      building: {
+        fill: { residential: "#1c2433", commercial: "#21253a", industrial: "#1e252d", civic: "#272839" },
+        outline: "#2d3b52",
+        park: "#13302a",
+        landmark: { fill: "#1f3d4f", outline: "#5eead4", grounds: "#152233", park: "#123a30", plaza: "#1a2638", label: "#99f6e4" },
       },
       shield: {
         national: { fill: "#0f3b2a", text: "#e6fff2", stroke: "#f87171" },

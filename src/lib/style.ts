@@ -7,7 +7,7 @@ import type {
 import type { FeatureCollection } from "geojson";
 import type { LayerToggles } from "../store";
 import { BASE_URL } from "./data";
-import { LANDCOVER_CLASSES, type Theme } from "./themes";
+import { BUILDING_CLASSES, LANDCOVER_CLASSES, type Theme } from "./themes";
 import type { AtlasData, Lang, LayerFile } from "./types";
 
 export interface FocusData {
@@ -32,6 +32,7 @@ export const HIT_LAYERS = {
   division: "hit-division",
   road: "hit-road",
   street: "hit-street",
+  landmark: "hit-landmark",
   river: "hit-river",
   ridge: "hit-ridge",
   lake: "water",
@@ -117,10 +118,11 @@ export function buildStyle(opts: {
       bounds: dem.bounds,
     },
   };
-  for (const name of ["bathymetry", "landcover", "rivers", "streets"] as const) {
+  for (const name of ["bathymetry", "landcover", "rivers", "streets", "buildings", "parks"] as const) {
     if (!tiled.has(name)) sources[name] = { type: "geojson", data: data.layers[name] };
   }
   sources["streets-named"] = { type: "geojson", data: data.layers["streets-named"], promoteId: "id" };
+  sources.landmarks = { type: "geojson", data: data.layers.landmarks, promoteId: "id" };
   if (tiles) sources.tiles = { type: "vector", url: `pmtiles://${BASE_URL}data/${tiles.url}` };
 
   const isSubtype = (s: string): ExpressionSpecification => ["==", ["get", "subtype"], s];
@@ -184,6 +186,68 @@ export function buildStyle(opts: {
     },
   });
 
+  /** Parks, landmark grounds and building footprints, fading in as the city streets fill in. */
+  function buildingLayers(): LayerSpecification[] {
+    const b = m.building;
+    const layout = { visibility: visible(layers.buildings) };
+    const fadeIn = (z: number, to = 1): ExpressionSpecification => ["interpolate", ["linear"], ["zoom"], z, 0, z + 0.8, to];
+    const isSite: ExpressionSpecification = ["has", "id"];
+    return [
+      { id: "park", type: "fill", ...from("parks"), minzoom: 12, layout, paint: { "fill-color": b.park, "fill-opacity": fadeIn(12) } },
+      {
+        id: "landmark-grounds",
+        type: "fill",
+        source: "landmarks",
+        minzoom: 12,
+        filter: isSite,
+        layout,
+        paint: {
+          "fill-color": ["match", ["get", "layout"], "park", b.landmark.park, "plaza", b.landmark.plaza, "campus", b.landmark.park, b.landmark.grounds],
+          "fill-opacity": fadeIn(12),
+        },
+      },
+      {
+        id: "building",
+        type: "fill",
+        ...from("buildings"),
+        minzoom: 13,
+        layout,
+        paint: {
+          "fill-color": ["match", ["get", "class"], ...BUILDING_CLASSES.flatMap((c) => [c, b.fill[c]]), b.fill.residential] as unknown as ExpressionSpecification,
+          "fill-opacity": fadeIn(13),
+          "fill-outline-color": b.outline,
+        },
+      },
+      {
+        id: "landmark-building",
+        type: "fill",
+        source: "landmarks",
+        minzoom: 12.5,
+        filter: ["!", isSite],
+        layout,
+        paint: { "fill-color": b.landmark.fill, "fill-opacity": fadeIn(12.5) },
+      },
+      {
+        id: "landmark-site-line",
+        type: "line",
+        source: "landmarks",
+        minzoom: 12.5,
+        filter: isSite,
+        layout,
+        paint: { "line-color": b.landmark.outline, "line-width": 0.8, "line-opacity": fadeIn(12.5, 0.8), "line-dasharray": [2, 1.5] },
+      },
+      {
+        id: "landmark-building-line",
+        type: "line",
+        source: "landmarks",
+        minzoom: 12.5,
+        filter: ["!", isSite],
+        layout,
+        paint: { "line-color": b.landmark.outline, "line-width": 1.1, "line-opacity": fadeIn(12.5, 0.9) },
+      },
+    ] as LayerSpecification[];
+  }
+
   const [c0, c1, c2, c3, c4, c5] = m.choropleth;
   style.push(
     {
@@ -238,6 +302,7 @@ export function buildStyle(opts: {
         ],
       },
     },
+    ...buildingLayers(),
     {
       id: "district-line",
       type: "line",
@@ -424,6 +489,15 @@ export function buildStyle(opts: {
       source: "roads",
       filter: roadShown,
       paint: { "line-width": 12, "line-opacity": 0 },
+    },
+    {
+      id: HIT_LAYERS.landmark,
+      type: "fill",
+      source: "landmarks",
+      minzoom: 12.5,
+      filter: ["has", "id"],
+      layout: { visibility: visible(layers.buildings) },
+      paint: { "fill-opacity": 0 },
     },
     { id: HIT_LAYERS.street, type: "line", source: "streets-named", minzoom: 11, layout: { visibility: visible(layers.cityRoads) }, paint: { "line-width": 10, "line-opacity": 0 } },
     { id: HIT_LAYERS.river, type: "line", source: "rivers-named", minzoom: 7, paint: { "line-width": 10, "line-opacity": 0 } },
@@ -655,10 +729,27 @@ export function buildStyle(opts: {
   });
   style.push(
     {
+      id: "landmark-label",
+      type: "symbol",
+      source: "landmarks",
+      minzoom: 13.4,
+      filter: ["has", "id"],
+      layout: {
+        visibility: visible(layers.buildings),
+        "text-field": name(lang),
+        "text-font": FONT.medium,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 13.4, 10.5, 16, 13],
+        "text-max-width": 7,
+        "symbol-sort-key": ["match", ["get", "layout"], "complex", 0, "plaza", 1, 2],
+      },
+      paint: { "text-color": m.building.landmark.label, ...halo, "text-opacity": ["interpolate", ["linear"], ["zoom"], 13.4, 0, 13.9, 1] },
+    },
+    {
       id: "place-label",
       type: "symbol",
       source: "places",
       minzoom: 9,
+      filter: ["!=", ["get", "site"], true],
       layout: {
         "text-field": name(lang),
         "text-font": FONT.medium,

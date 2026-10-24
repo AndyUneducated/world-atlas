@@ -21,12 +21,18 @@ def classify(elev, land, g, real_km_per_cell, km_per_design, seed, settlements, 
     n1 = value_noise(seed + 401, 18, 4, 0.5, ext, g.shape)
     n2 = value_noise(seed + 402, 7, 4, 0.5, ext, g.shape)
 
+    # Each settlement's built-up area is a noisy disc on buildable land, sized to its population.
+    buildable = land & (slope < p["urban_max_slope_deg"])
+    cell_km2 = (g.res * km_per_design) ** 2
     urban = np.zeros(g.shape, bool)
     for x, y, pop in settlements:
-        r = np.sqrt(pop / p["urban_density_per_km2"] / np.pi) / km_per_design
-        d = np.hypot(g.X - x, g.Y - y)
-        urban |= d < r * (1 + 0.9 * n2)
-    urban &= land & (slope < p["urban_max_slope_deg"])
+        target = pop / p["urban_density_per_km2"]
+        d = np.hypot(g.X - x, g.Y - y) / np.clip(1 + 0.6 * n2, 0.35, None)
+        r = np.sqrt(target / np.pi) / km_per_design
+        for _ in range(5):
+            area = np.count_nonzero(buildable & (d < r)) * cell_km2
+            r *= 2.0 if area == 0 else min(2.0, max(0.5, np.sqrt(target / area)))
+        urban |= buildable & (d < r)
     reach = ndimage.distance_transform_edt(~urban) * g.res * km_per_design
 
     wet = np.log1p(acc) - 0.6 * slope

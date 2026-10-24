@@ -112,13 +112,15 @@ streets:
   river_gap_km: 0.05
   districts:
     div_16cxr8: { style: planned, angle_deg: 33.7 }  # 白桦区：1990 年新建的首府，人民大道从区中心直通议会综合办公区
-    div_b1dx32: { style: mixed }                     # 北河区
+    div_b1dx32: { style: mixed, angle_deg: -34 }     # 北河区：北河大道与北河流向平行，人民大道与之垂直
     div_g4a8q0: { style: organic }                   # 沙洲区：河口沙洲上的老港区
   named:
     - { district: div_16cxr8, axis: 0, line: 0, status: canon, names: { zh: 人民大道, en: People's Avenue, art-x-viking: Volksallee, art-x-buckham: Viale del Popolo } }
     - { district: div_16cxr8, axis: 1, line: 0, status: generated, names: { zh: 自由大道, en: Liberty Avenue, art-x-viking: Freiheitsallee, art-x-buckham: Viale della Libertà } }
     - { district: div_16cxr8, axis: 1, line: -1, status: generated, names: { zh: 平等大街, en: Equality Boulevard, art-x-viking: Gleichheitschaussee, art-x-buckham: Corso dell'Uguaglianza } }
     - { district: div_16cxr8, axis: 1, line: 1, status: generated, names: { zh: 博爱大街, en: Fraternity Boulevard, art-x-viking: Brüderlichkeitschaussee, art-x-buckham: Corso della Fraternità } }
+    - { district: div_b1dx32, axis: 0, line: 0, status: canon, names: { zh: 北河大道, en: North River Avenue, art-x-viking: Nordflussallee, art-x-buckham: Viale del Rivo Nord } }
+    - { district: div_b1dx32, axis: 1, line: 0, status: canon, names: { zh: 人民大道, en: People's Avenue, art-x-viking: Volksallee, art-x-buckham: Viale del Popolo } }
 
 # Facts the build checks and reports; a failed check is printed as a warning.
 expect:

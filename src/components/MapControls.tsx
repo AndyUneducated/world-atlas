@@ -11,7 +11,7 @@ import { Switch } from "./Switch";
 const BTN = "grid size-10 place-items-center text-ink transition-colors hover:bg-hover active:scale-95";
 const LAYER_GROUPS: { title: StringKey; keys: (keyof LayerToggles)[] }[] = [
   { title: "roads", keys: ["nationalExpressway", "territorialExpressway", "cityRoads"] },
-  { title: "mapDetails", keys: ["landcover", "boundaries", "choropleth"] },
+  { title: "mapDetails", keys: ["landcover", "buildings", "boundaries", "choropleth"] },
 ];
 const ROAD_SWATCH: Partial<Record<keyof LayerToggles, (m: MapTheme) => string>> = {
   nationalExpressway: (m) => m.nationalExpressway.fill,

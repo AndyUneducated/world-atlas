@@ -307,7 +307,14 @@ class Namer:
             if not any(nm["zh"] in self.used for nm in names):
                 self.used.update(nm["zh"] for nm in names)
                 return names
-        raise RuntimeError("street names exhausted")
+        # pools used up: continue a numbered series past its highest ordinal
+        stem, suffix = self.numbered[rng.integers(2)], self.suffixes["collector"][0]
+        start = 1
+        while any(self.compose(stem, suffix, start + n)["zh"] in self.used for n in range(count)):
+            start += 1
+        names = [self.compose(stem, suffix, start + n) for n in range(count)]
+        self.used.update(nm["zh"] for nm in names)
+        return names
 
 
 def assign_names(streets: list[Street], namer: Namer, styles: list[str], rng: np.random.Generator, named: dict[tuple, dict]):
