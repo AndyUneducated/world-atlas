@@ -79,6 +79,8 @@ class World:
                 errors.append(f"{did}: parent {d.get('parent')} not found")
                 continue
             admin = d.get("codes", {}).get("admin")
+            if not admin and d["subtype"] in ("locality", "borough"):
+                errors.append(f"{did}: needs an admin code (codes.admin)")
             if admin:
                 if admin in codes:
                     errors.append(f"{did}: admin code {admin} already used by {codes[admin]}")
@@ -124,6 +126,9 @@ class World:
                 errors.append(f"{pid}: 'in' must name a division")
         for gen in self.generators:
             layout = gen.get("layout", {})
+            for c in self.children(gen.get("territory", "")):
+                if c["subtype"] == "locality" and c["id"] not in layout.get("cities", {}):
+                    errors.append(f"generator: city {c['id']} has no anchor in layout.cities")
             for key in list(layout.get("cities", {})) + list(layout.get("districts", {})):
                 if key not in self.divisions:
                     errors.append(f"generator: unknown division {key}")

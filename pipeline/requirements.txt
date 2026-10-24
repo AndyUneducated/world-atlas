@@ -3,3 +3,4 @@ scipy>=1.14
 shapely>=2.1
 pillow>=11
 pyyaml>=6
+ruamel.yaml>=0.18

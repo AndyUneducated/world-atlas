@@ -187,6 +187,32 @@ def route_segments(path: list[int], router: Router, dist_r: np.ndarray, factor: 
     return segments
 
 
+def district_directions(layout: dict, districts: list[dict], district_city: list[int]) -> dict[str, list[float]]:
+    """layout.districts, with a direction filled in for districts that have none (e.g. just imported):
+    the middle of the widest gap between their siblings' directions."""
+    dirs = {k: list(v) for k, v in layout.get("districts", {}).items()}
+    for ci in sorted(set(district_city)):
+        sib = [d["id"] for d, c in zip(districts, district_city) if c == ci]
+        known = [math.atan2(dirs[s][1], dirs[s][0]) for s in sib if s in dirs]
+        for s in sib:
+            if s in dirs:
+                continue
+            if len(sib) == 1:
+                dirs[s] = [0.0, 0.0]
+                continue
+            if not known:
+                ang = 0.0
+            else:
+                ks = sorted(known)
+                gaps = [((ks[(i + 1) % len(ks)] - a) % (2 * math.pi) or 2 * math.pi, a) for i, a in enumerate(ks)]
+                width, start = max(gaps)
+                ang = start + width / 2
+            dirs[s] = [round(0.7 * math.cos(ang), 2), round(0.7 * math.sin(ang), 2)]
+            known.append(ang)
+            log(f"  {s}: no layout direction, placed at {dirs[s]} (add it to layout.districts to fix)")
+    return dirs
+
+
 def block_upsample(a: np.ndarray, shape) -> np.ndarray:
     f = shape[0] // a.shape[0]
     return np.repeat(np.repeat(a, f, axis=0), f, axis=1)[: shape[0], : shape[1]]
@@ -281,6 +307,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             district_city.append(ci)
     city_index = {c["id"]: ci for ci, c in enumerate(cities)}
     total_area = sum(c["area_km2"] for c in cities) / frame.km2(1.0)
+    dirs = district_directions(layout, districts, district_city)
 
     def land_and_partition():
         log(f"{territory['names']['en']}: land")
@@ -298,7 +325,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             cmask = city_r == ci
             ax, ay = anchors[ci]
             r = 0.42 * math.sqrt(c["area_km2"]) / frame.km(1.0)
-            seeds = [(ax + r * layout["districts"][districts[i]["id"]][0], ay + r * layout["districts"][districts[i]["id"]][1]) for i in idx]
+            seeds = [(ax + r * dirs[districts[i]["id"]][0], ay + r * dirs[districts[i]["id"]][1]) for i in idx]
             sub, err, fitted = partition(cmask, wx, wy, seeds, [districts[i]["area_km2"] for i in idx], g.cell, sea=~land)
             land = (land & ~cmask) | fitted
             city_r[cmask & ~fitted] = -1
@@ -308,7 +335,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
                 dist_errs[i] = err[k]
         return land, city_r, dist_r, dist_errs
 
-    stage_inputs = {"spec": {k: spec.get(k) for k in ("seed", "frame", "land", "layout")},
+    stage_inputs = {"spec": {k: spec.get(k) for k in ("seed", "frame", "land", "layout")}, "dirs": dirs,
                     "areas": [(d["id"], d["area_km2"]) for d in cities + districts]}
     land, city_r, dist_r, dist_errs = stage(f"partition-{territory['id']}", stage_inputs, land_and_partition, use_cache,
                                             modules=("divisions", "terrain", "noise", "grid"))

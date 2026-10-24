@@ -35,6 +35,10 @@ names one with `detect: {kind, at_km}`, which claims the nearest landform of tha
 After each build, `.cache/candidates-<territory>.json` lists every landform found,
 named or not, with its district and size, so new ones can be named by adding entries.
 
+Entities can also be added or edited in bulk from a spreadsheet:
+`npm run data:import -- file.csv` checks every row and writes into `world/` only if the
+whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](templates/csv/README.md).
+
 ## Conventions
 
 - **IDs.** Each entity has a permanent ID (`div_…`, `nat_…`, `rte_…`, `poi_…`, `bld_…`)

@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "data": "python pipeline/build.py",
     "data:check": "python pipeline/build.py --check",
+    "data:import": "python pipeline/import_csv.py",
     "fonts": "node scripts/fetch-glyphs.mjs"
   },
   "dependencies": {
