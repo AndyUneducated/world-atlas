@@ -12,6 +12,8 @@ WORLD_DIR = ROOT / "world"
 ID_PATTERN = re.compile(r"^(div|nat|rte|poi|bld|ctx)_[0-9a-hjkmnp-tv-z]{6}$|^country:[A-Z]{2}$")
 REQUIRED_LANGS = ("zh", "en")
 DIVISION_SUBTYPES = ("country", "dependency", "region", "locality", "borough")
+# Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
+DETECT_KINDS = ("island", "bay", "fjord", "cape", "strait", "estuary", "river")
 
 
 def _load(path: Path):
@@ -108,6 +110,15 @@ class World:
             refs[r["ref"]] = rid
             if r.get("ring") and len(r.get("via", [])) < 3:
                 errors.append(f"{rid}: a ring needs at least three via divisions")
+        for fid, f in self.features.items():
+            det = f.get("detect")
+            if det is None:
+                continue
+            if det.get("kind") not in DETECT_KINDS:
+                errors.append(f"{fid}: detect.kind must be one of {', '.join(DETECT_KINDS)}")
+            at = det.get("at_km")
+            if not (isinstance(at, list) and len(at) == 2 and all(isinstance(v, (int, float)) for v in at)):
+                errors.append(f"{fid}: detect.at_km must be [x, y] in design km")
         for pid, p in self.places.items():
             if p.get("in") not in self.divisions:
                 errors.append(f"{pid}: 'in' must name a division")

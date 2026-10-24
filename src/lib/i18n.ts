@@ -9,6 +9,7 @@ const STRINGS = {
   density: { zh: "人口密度", en: "Density" },
   maxElevation: { zh: "最高海拔", en: "Highest point" },
   length: { zh: "长度", en: "Length" },
+  width: { zh: "最窄处", en: "Narrowest" },
   drainage: { zh: "流域面积", en: "Drainage basin" },
   names: { zh: "名称", en: "Names" },
   codes: { zh: "编码", en: "Codes" },
@@ -102,6 +103,12 @@ const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
   ridge: { zh: "山岭", en: "Ridge" },
   river: { zh: "河流", en: "River" },
   lake: { zh: "湖泊", en: "Lake" },
+  bay: { zh: "海湾", en: "Bay" },
+  fjord: { zh: "峡湾", en: "Fjord" },
+  cape: { zh: "岬角", en: "Cape" },
+  strait: { zh: "海峡", en: "Strait" },
+  island: { zh: "岛屿", en: "Island" },
+  estuary: { zh: "河口", en: "River mouth" },
   government: { zh: "政府机关", en: "Government" },
 };
 

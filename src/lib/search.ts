@@ -19,7 +19,13 @@ const KIND_WEIGHT: Record<string, number> = {
   mountain_range: 14,
   river: 13,
   lake: 13,
+  bay: 12,
+  fjord: 12,
   ridge: 11,
+  island: 11,
+  cape: 9,
+  strait: 9,
+  estuary: 8,
   motorway: 12,
   secondary: 4,
 };

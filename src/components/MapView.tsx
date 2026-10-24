@@ -10,7 +10,7 @@ import { BASE_URL } from "../lib/data";
 import { buildFocus, indexFeatures } from "../lib/focus";
 import { measureFeatures } from "../lib/measure";
 import { useRoute } from "../lib/useRoute";
-import { buildStyle, HIT_LAYERS, type FocusData } from "../lib/style";
+import { buildStyle, HIT_LAYERS, LANDFORM_LABEL_LAYERS, type FocusData } from "../lib/style";
 import { THEMES } from "../lib/themes";
 import { writeUrl } from "../lib/url";
 import { initialView, useAtlas, useCursor } from "../store";
@@ -140,7 +140,7 @@ export function MapView() {
     };
 
     const queryHit = (point: maplibregl.PointLike) => {
-      const order = [HIT_LAYERS.road, HIT_LAYERS.city, HIT_LAYERS.river, HIT_LAYERS.lake, HIT_LAYERS.ridge, HIT_LAYERS.division];
+      const order = [HIT_LAYERS.road, HIT_LAYERS.city, ...LANDFORM_LABEL_LAYERS, HIT_LAYERS.river, HIT_LAYERS.lake, HIT_LAYERS.ridge, HIT_LAYERS.division];
       const hits = map.queryRenderedFeatures(point, { layers: order.filter((l) => map.getLayer(l)) });
       for (const layer of order) {
         const f = hits.find((h) => h.layer.id === layer);

@@ -40,8 +40,8 @@ features:
       en: Freedom River
       art-x-viking: Freifluss
     notes:
-      zh: 自由市的母亲河，向南注入大海，入海口位于联合区。
-      en: The mother river of Freedom City, flowing south to the sea; its mouth lies in Union District.
+      zh: 自由市的母亲河，向南注入大海，入海口位于沙洲区。
+      en: The mother river of Freedom City, flowing south to the sea; its mouth lies in Sandbar District.
   - id: nat_9h7mcd
     subtype: river
     status: generated

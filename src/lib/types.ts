@@ -20,6 +20,7 @@ export interface EntityStats {
   elev_mean_m?: number;
   density_per_km2?: number;
   length_km?: number;
+  width_km?: number;
   drainage_km2?: number;
 }
 
@@ -94,6 +95,7 @@ export const LAYER_FILES = [
   "labels",
   "places",
   "water",
+  "coast",
   "rivers",
   "rivers-named",
   "ridges",

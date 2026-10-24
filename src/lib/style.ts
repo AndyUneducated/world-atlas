@@ -37,6 +37,11 @@ export const HIT_LAYERS = {
   city: "city-dot",
 } as const;
 
+/** Coastal landform kinds (label `kind`), split by whether they are water or land. */
+export const LANDFORM_KINDS = { water: ["bay", "fjord", "strait", "estuary"], land: ["island", "cape"] } as const;
+/** Landform label layers, which double as their hit targets. */
+export const LANDFORM_LABEL_LAYERS = ["water-label-major", "water-label", "land-label-major", "land-label"];
+
 const FONT = {
   regular: ["Noto Sans Regular"],
   medium: ["Noto Sans Medium"],
@@ -82,6 +87,7 @@ export function buildStyle(opts: {
     measure: { type: "geojson", data: measure },
     highlight: { type: "geojson", data: highlight },
     places: { type: "geojson", data: data.layers.places },
+    coast: { type: "geojson", data: data.layers.coast, promoteId: "id" },
     dem: {
       type: "raster-dem",
       tiles: [`${BASE_URL}data/${dem.tiles}`],
@@ -408,6 +414,34 @@ export function buildStyle(opts: {
       layout: { "text-field": name(lang), "text-font": FONT.italic, "text-size": 12 },
       paint: { "text-color": m.label.water, ...halo },
     },
+  );
+
+  const landformLabel = (id: string, kinds: readonly string[], major: boolean, minzoom: number, water: boolean): LayerSpecification => ({
+    id,
+    type: "symbol",
+    source: "labels",
+    minzoom,
+    filter: ["all", ["in", ["get", "kind"], ["literal", kinds]], ["==", ["coalesce", ["get", "major"], false], major]],
+    layout: {
+      "text-field": name(lang),
+      "text-font": water ? FONT.italic : FONT.regular,
+      "text-size": major
+        ? ["interpolate", ["linear"], ["zoom"], minzoom, 11.5, 11, 15]
+        : ["interpolate", ["linear"], ["zoom"], minzoom, 10.5, 12, 13],
+      "text-letter-spacing": water ? 0.18 : 0.06,
+      "text-max-width": 6,
+      ...(water ? {} : { "text-variable-anchor": ["center", "top", "bottom"], "text-radial-offset": 0.3 }),
+    },
+    paint: { "text-color": water ? m.label.water : m.label.terrain, ...halo },
+  });
+  style.push(
+    landformLabel("water-label-major", LANDFORM_KINDS.water, true, 6.6, true),
+    landformLabel("water-label", LANDFORM_KINDS.water, false, 8.4, true),
+    landformLabel("land-label-major", LANDFORM_KINDS.land, true, 7.4, false),
+    landformLabel("land-label", LANDFORM_KINDS.land, false, 8.8, false),
+  );
+
+  style.push(
     {
       id: "road-shield",
       type: "symbol",

@@ -60,14 +60,22 @@ def _arcs(labels: np.ndarray):
     return arcs, stride
 
 
-def polygonize_labels(labels: np.ndarray, res_km: float, smooth=3, simplify_km=0.03, min_area_km2=0.01):
-    """labels: int raster, negative = background. Returns {label: (Multi)Polygon in km}."""
+def polygonize_labels(labels: np.ndarray, res_km: float, smooth=3, simplify_km=0.03, min_area_km2=0.01, destair=0.55):
+    """labels: int raster, negative = background. Returns {label: (Multi)Polygon in km}.
+
+    destair: before smoothing, pixel staircases are straightened with this tolerance (in cells),
+    so diagonal edges come out straight instead of wavy.
+    """
     arcs, stride = _arcs(labels)
     lines = []
     for arc in arcs:
         a = np.array(arc)
         pts = np.column_stack([a % stride, a // stride]).astype(float) * res_km
         closed = arc[0] == arc[-1]
+        if destair and len(pts) > 3:
+            straight = np.asarray(LineString(pts).simplify(destair * res_km, preserve_topology=False).coords)
+            if len(straight) >= (4 if closed else 2):
+                pts = straight
         if closed:
             sm = chaikin(pts[:-1], smooth, closed=True)
             sm = np.vstack([sm, sm[:1]])

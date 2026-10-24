@@ -49,11 +49,29 @@ terrain:
 
 hydrology:
   river_min_drainage_km2: 25  # design km²
+  # Rivers draining at least this much reach the naming list (features with detect.kind: river).
+  river_candidate_km2: 150
+  # River mouths draining at least this much are listed as estuaries.
+  estuary_km2: 700
   named_rivers:
-    # The named river is the largest stream crossing the given division (city or district).
+    # The named river is the largest stream crossing the given division (city or district)
+    # that no river above it in this list already follows; one that runs into such a river
+    # ends at the confluence as its tributary.
     - { feature: nat_x9bmeh, through: div_g4a8q0 }
     - { feature: nat_9h7mcd, through: div_b1dx32 }
     - { feature: nat_ww491j, through: div_8emjne }
+
+# Coastal landform detection (design km / km²). Detected landforms are named in
+# world/features/*.yaml by `detect: {kind, at_km}`; the build pairs each entry with the
+# nearest landform of that kind and lists the rest in .cache/candidates-<id>.json.
+coast:
+  island_min_km2: 0.8
+  bay_close_km: 5        # coast that wraps around water narrower than 2× this forms a bay
+  bay_min_km2: 6
+  cape_open_km: 2.5      # land sticking out further than this from the coast forms a cape
+  cape_min_prominence_km: 1.5
+  strait_max_gap_km: 4
+  match_radius_km: 10
 
 # Facts the build checks and reports; a failed check is printed as a warning.
 expect:
@@ -61,6 +79,9 @@ expect:
   largest_cities_by_area: [div_8emjne, div_rdypg7, div_prcxzt]
   lakes:
     - { feature: nat_jaxtgn, in: div_t8bg0d, radius_km: 4.2 }
+    - { feature: nat_kxhv1k, in: div_0tsyzy, radius_km: 3.0 }
+    - { feature: nat_9mpvb7, in: div_zs7kjk, radius_km: 2.6 }
+    - { feature: nat_j67079, in: div_0t2t36, radius_km: 2.4 }
 
 layout:
   # City anchor points. Districts are placed around them along a unit direction.

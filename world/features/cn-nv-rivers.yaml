@@ -1,0 +1,158 @@
+# Rivers, river mouths and lakes of North Viking Island found by the generator.
+# Rivers and estuaries are matched by the position of their mouth (`detect.at_km`, design km);
+# the three rivers named through a division live in cn-nv-natural.yaml.
+features:
+  # ── Rivers (largest first) ───────────────────────────────
+  - id: nat_qt12rq
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [281.8, 114.2] }
+    names: { zh: 马斯林河, en: Maslin River, art-x-viking: Maslinfluss }
+    notes:
+      zh: 东部第一大河，汇集马斯林山盆地的众水后向东穿过海岸平原入海。
+      en: The largest river of the east. It gathers the streams of the Maslin basin and crosses the coastal plain to the sea.
+  - id: nat_bpjv97
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [208.8, 148.8] }
+    names: { zh: 鹰河, en: Eagle River, art-x-viking: Adlerfluss }
+    notes:
+      zh: 厄定河以东向北入海的河流，上游峡谷中栖息着海雕。
+      en: River east of the Erding flowing north to the sea; sea eagles nest in its upper gorges.
+  - id: nat_34dfkf
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [235.8, 64.8] }
+    names: { zh: 天河, en: Sky River, art-x-viking: Himmelfluss }
+    notes:
+      zh: 发源于马斯林山脉，流入镜湾北端的天河湾，天城市沿河而建。
+      en: Rises in the Maslin Range and flows into Sky River Bay at the northern end of Mirror Bay; Skytown grew along its banks.
+  - id: nat_xwk44c
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [113.2, 133.8] }
+    names: { zh: 勒河, en: Lek River, art-x-viking: Lekfluss }
+    notes:
+      zh: 勒克尔市北部的河流，在勒北区注入北部海域。
+      en: River in the north of Lekor, reaching the northern sea in Lekor North District.
+  - id: nat_sh3rkk
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [247.8, 66.2] }
+    names: { zh: 台河, en: Terrace River, art-x-viking: Terrassenfluss }
+    notes:
+      zh: 流经天台区阶地，注入天台峡湾湾顶。
+      en: Flows across the terraces of Sky Terrace District into the head of Sky Terrace Fjord.
+  - id: nat_8va6kk
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [270.8, 124.8] }
+    names: { zh: 星河, en: Star River, art-x-viking: Sternfluss }
+    notes:
+      zh: 星港区的主要河流，河口即星港所在。
+      en: The main river of Starport District; the star port stands at its mouth.
+  - id: nat_8xkqv5
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [32.2, 59.8] }
+    names: { zh: 瓦尔河, en: Wal River, art-x-viking: Walfluss }
+    notes:
+      zh: 维京港市西南部的河流，在瓦尔维克区入海。
+      en: River in the south-west of Viking Port City, reaching the sea in Walvik District.
+  - id: nat_g46cfd
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [256.8, 136.8] }
+    names: { zh: 鲑河, en: Salmon River, art-x-viking: Lachsfluss }
+    notes:
+      zh: 东北海岸的短急河流，秋季有鲑鱼洄游。
+      en: Short, swift river on the north-east coast with an autumn salmon run.
+  - id: nat_63q4d4
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [235.8, 143.8] }
+    names: { zh: 白沙河, en: White Sand River, art-x-viking: Weißsandfluss }
+    notes:
+      zh: 厄定区东部的短河，河口两侧为白色沙滩。
+      en: Short river in the east of Erding District, with white sand beaches either side of its mouth.
+  - id: nat_dctsdf
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [276.2, 49.2] }
+    names: { zh: 银溪, en: Silver Brook, art-x-viking: Silberbach }
+    notes:
+      zh: 银滩区的山溪，自岚山直落海滨。
+      en: Mountain brook of Silver Beach District, dropping from the Mist Hills straight to the shore.
+
+  # ── River mouths ─────────────────────────────────────────
+  - id: nat_n5s4er
+    subtype: estuary
+    status: generated
+    detect: { kind: estuary, at_km: [171.8, 138.8] }
+    names: { zh: 厄定河口, en: Erding Mouth, art-x-viking: Erdingmündung }
+    notes:
+      zh: 全岛最大河流的入海口，宽阔的三角洲湿地是候鸟的重要停歇地。
+      en: Mouth of the island's largest river; its broad delta wetlands are a major stopover for migrating birds.
+  - id: nat_zawm5e
+    subtype: estuary
+    status: generated
+    detect: { kind: estuary, at_km: [68.8, 65.8] }
+    names: { zh: 自由河口, en: Freedom River Mouth, art-x-viking: Freiflussmündung }
+    notes:
+      zh: 自由河在沙洲区入海，河口沙洲连绵，沙洲区因此得名。
+      en: Where the Freedom River meets the sea in Sandbar District, among the sandbars that gave the district its name.
+  - id: nat_3xnyt2
+    subtype: estuary
+    status: generated
+    detect: { kind: estuary, at_km: [112.2, 71.2] }
+    names: { zh: 北河口, en: North River Mouth, art-x-viking: Nordflussmündung }
+    notes:
+      zh: 北河在沙洲区东部入海。
+      en: Where the North River reaches the sea in the east of Sandbar District.
+  - id: nat_915gyn
+    subtype: estuary
+    status: generated
+    detect: { kind: estuary, at_km: [281.8, 114.2] }
+    names: { zh: 马斯林河口, en: Maslin Mouth, art-x-viking: Maslinmündung }
+    notes:
+      zh: 马斯林河在东营区北部入海，河口港是马斯林山市的货运门户。
+      en: Where the Maslin River reaches the sea in the north of East Camp District; its river port handles Maslin Mountain City's freight.
+  - id: nat_45w10g
+    subtype: estuary
+    status: generated
+    detect: { kind: estuary, at_km: [208.8, 148.8] }
+    names: { zh: 鹰河口, en: Eagle Mouth, art-x-viking: Adlermündung }
+    notes:
+      zh: 鹰河在北海岸的入海口。
+      en: Mouth of the Eagle River on the north coast.
+  - id: nat_3fftzc
+    subtype: estuary
+    status: generated
+    detect: { kind: estuary, at_km: [235.8, 64.8] }
+    names: { zh: 天河口, en: Sky River Mouth, art-x-viking: Himmelflussmündung }
+    notes:
+      zh: 天河注入天河湾之处。
+      en: Where the Sky River enters Sky River Bay.
+
+  # ── Lakes ────────────────────────────────────────────────
+  - id: nat_kxhv1k
+    subtype: lake
+    status: generated
+    names: { zh: 雪湖, en: Snow Lake, art-x-viking: Schneesee }
+    notes:
+      zh: 雪谷区的冰川湖，每年有半年封冻。
+      en: Glacial lake in Snow Valley District, frozen half the year.
+  - id: nat_9mpvb7
+    subtype: lake
+    status: generated
+    names: { zh: 鹿鸣湖, en: Deersong Lake, art-x-viking: Hirschliedsee }
+    notes:
+      zh: 鹿鸣区林间的湖泊，秋季湖畔常闻鹿鸣。
+      en: Forest lake in Deersong District, where stags can be heard calling in autumn.
+  - id: nat_j67079
+    subtype: lake
+    status: generated
+    names: { zh: 深峡湖, en: Gorge Lake, art-x-viking: Schluchtsee }
+    notes:
+      zh: 深峡区峡谷中的狭长湖泊，湖水深而冷。
+      en: Long, deep and cold lake in the gorge of Deep Gorge District.

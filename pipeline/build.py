@@ -23,7 +23,8 @@ from shapely.geometry import LineString, MultiLineString, mapping
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas.cache import stage  # noqa: E402
+from atlas import coast  # noqa: E402
+from atlas.cache import CACHE_DIR, stage  # noqa: E402
 from atlas.dem_tiles import write_dem_tiles  # noqa: E402
 from atlas.divisions import partition, pole_of_inaccessibility  # noqa: E402
 from atlas.grid import Frame, Grid, block_reduce, chaikin, line_length_km, polyline_distance  # noqa: E402
@@ -39,6 +40,9 @@ OUT = ROOT / "public" / "data"
 B32 = "0123456789abcdefghjkmnpqrstvwxyz"
 # Road networks whose cards list the districts they pass through.
 SEGMENTED_NETWORKS = {"national_expressway", "national_highway", "territorial_expressway", "territorial_highway"}
+# Bays and fjords this large (real km²) and capes this prominent (real km) are labelled from lower zooms.
+MAJOR_LANDFORM_KM2 = 200
+MAJOR_CAPE_KM = 12
 
 def log(msg):
     print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)
@@ -182,6 +186,74 @@ def route_segments(path: list[int], router: Router, dist_r: np.ndarray, factor: 
     return segments
 
 
+def block_upsample(a: np.ndarray, shape) -> np.ndarray:
+    f = shape[0] // a.shape[0]
+    return np.repeat(np.repeat(a, f, axis=0), f, axis=1)[: shape[0], : shape[1]]
+
+
+def detect_landforms(world: World, spec: dict, drain: Drainage, land_c: np.ndarray, gc: Grid, frame: Frame,
+                     named_rivers: list, dist_r: np.ndarray, g: Grid, districts: list[dict]):
+    """Find coastal landforms and river mouths, and pair them with the named entries in world/features.
+
+    Returns ({"matched": [(candidate, feature)], "rivers": [(feature, line, drainage, stem)]}, report);
+    the report lists every candidate, named or not, for the naming workflow.
+    """
+    cp, hp = spec.get("coast", {}), spec["hydrology"]
+    args = (land_c, gc.xs, gc.ys, gc.res)
+    island_min = cp.get("island_min_km2", 0.8)
+    cands = (coast.islands(*args, island_min)
+             + coast.bays(*args, cp.get("bay_close_km", 5), cp.get("bay_min_km2", 15))
+             + coast.capes(*args, cp.get("cape_open_km", 2.5), cp.get("cape_min_prominence_km", 2.5))
+             + coast.straits(*args, cp.get("strait_max_gap_km", 4), island_min))
+    landf = land_c.ravel()
+
+    def mouth_of(stem):
+        return stem[-1] if landf[stem[-1]] else stem[-2]
+
+    named_mouths = {mouth_of(stem) for *_, stem in named_rivers}
+    river_min, estuary_min = hp.get("river_candidate_km2", 150), hp.get("estuary_km2", 600)
+    for stem, acc in drain.outlets(min(river_min, estuary_min)):
+        my, mx = divmod(mouth_of(stem), gc.nx)
+        at = (float(gc.xs[mx]), float(gc.ys[my]))
+        if acc >= estuary_min:
+            cands.append({"kind": "estuary", "at": at, "metrics": {"drainage_km2": acc}})
+        if acc >= river_min and mouth_of(stem) not in named_mouths:
+            cy, cx = np.divmod(np.array(stem), gc.nx)
+            length = line_length_km(np.column_stack([gc.xs[cx], gc.ys[cy]]))
+            cands.append({"kind": "river", "at": at, "stem": stem, "metrics": {"drainage_km2": acc, "length_km": length}})
+
+    entries = [f for f in world.features.values() if f.get("detect")]
+    pairs = coast.match(cands, entries, cp.get("match_radius_km", 10))
+    matched, rivers = [], []
+    for ei, ci in pairs.items():
+        c, fe = cands[ci], entries[ei]
+        if c["kind"] == "river":
+            cy, cx = np.divmod(np.array(c["stem"]), gc.nx)
+            rivers.append((fe, smooth_line(np.column_stack([gc.xs[cx], gc.ys[cy]]), 0.35, 3), c["metrics"]["drainage_km2"], c["stem"]))
+        else:
+            matched.append((c, fe))
+    for ei, fe in enumerate(entries):
+        if ei not in pairs:
+            log(f"  WARN {fe['id']} {fe['names']['zh']}: no {fe['detect']['kind']} found near {fe['detect']['at_km']}")
+
+    _, (ny_, nx_) = ndimage.distance_transform_edt(dist_r < 0, return_indices=True)
+    by_candidate = {ci: entries[ei]["id"] for ei, ci in pairs.items()}
+    report, unnamed = [], {}
+    for ci, c in enumerate(cands):
+        iy, ix = g.index_of(*c["at"])
+        d = districts[dist_r[ny_[iy, ix], nx_[iy, ix]]]
+        c["district"] = d["id"]
+        metrics = {}
+        for k, v in c["metrics"].items():
+            metrics[k] = round(frame.km2(v) if k.endswith("km2") else frame.km(v) if k.endswith("_km") else v, 1)
+        report.append({"kind": c["kind"], "at_km": [round(c["at"][0], 1), round(c["at"][1], 1)], "named": by_candidate.get(ci),
+                       "district": d["names"]["zh"], "district_id": d["id"], "metrics": metrics})
+        if ci not in by_candidate:
+            unnamed[c["kind"]] = unnamed.get(c["kind"], 0) + 1
+    log(f"  {len(pairs)}/{len(cands)} landforms named" + (f"; unnamed: {unnamed}" if unnamed else ""))
+    return {"matched": matched, "rivers": rivers}, report
+
+
 def lake_raster(g: Grid, center, radius, land):
     cx, cy = center
     ang = np.arctan2(g.Y - cy, g.X - cx)
@@ -235,7 +307,8 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
 
     stage_inputs = {"spec": {k: spec.get(k) for k in ("seed", "frame", "land", "layout")},
                     "areas": [(d["id"], d["area_km2"]) for d in cities + districts]}
-    land, city_r, dist_r, dist_errs = stage(f"partition-{territory['id']}", stage_inputs, land_and_partition, use_cache)
+    land, city_r, dist_r, dist_errs = stage(f"partition-{territory['id']}", stage_inputs, land_and_partition, use_cache,
+                                            modules=("divisions", "terrain", "noise", "grid"))
     log(f"{territory['names']['en']}: terrain")
     city_t = np.array([c["area_km2"] for c in cities], float)
     city_t *= land.sum() * g.cell / city_t.sum()
@@ -282,14 +355,19 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         else:
             region_mask = dist_r == next(i for i, d in enumerate(districts) if d["id"] == nr["through"])
         through = block_reduce(region_mask, 2, "mean") > 0.5
-        stem = drain.main_stem(through, min_km2)
+        stem = drain.main_stem(through, min_km2, frozenset(c for *_, s in named_rivers for c in s))
         if not stem:
             continue
         cy, cx = np.divmod(np.array(stem), gc.nx)
         line = smooth_line(np.column_stack([gc.xs[cx], gc.ys[cy]]), 0.35, 3)
         fe = world.features[nr["feature"]]
         mouth_acc = float(drain.acc.ravel()[stem[-2]])
-        named_rivers.append((fe, line, mouth_acc))
+        named_rivers.append((fe, line, mouth_acc, stem))
+
+    log("coastal landforms")
+    coast_feats, candidate_report = detect_landforms(world, spec, drain, land_c, gc, frame, named_rivers, dist_r, g, districts)
+    for fe, line, acc, stem in coast_feats.pop("rivers"):
+        named_rivers.append((fe, line, acc, stem))
 
     log("bathymetry")
     dsea = ndimage.distance_transform_edt(~land_c) * gc.res
@@ -414,7 +492,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
                               "stats": {"area_km2_mapped": round(frame.km2(poly.area), 1)}})
 
     named_features = []
-    for fe, line, acc in named_rivers:
+    for fe, line, acc, _ in named_rivers:
         geom = to_lonlat(line, frame)
         named_features.append(feature(geom, {"id": fe["id"], "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"]}))
         mid = line.interpolate(0.5, normalized=True)
@@ -497,12 +575,45 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             moved = affinity.translate(polys[0], g.w / 2 + ox - cw / 2, g.h / 2 + oy - ch / 2)
             ctx_features.append(feature(to_lonlat(moved, frame), {"id": ctx["id"], "name_zh": ctx["names"]["zh"], "name_en": ctx["names"]["en"]}))
 
+    coast_features = []
+    for c, fe in coast_feats["matched"]:
+        x, y = c["at"]
+        pt = point_lonlat(frame, x, y)
+        props = {"id": fe["id"], "kind": fe["subtype"], "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"]}
+        m = c["metrics"]
+        major = frame.km2(m.get("area_km2", 0)) >= MAJOR_LANDFORM_KM2 if c["kind"] in ("bay", "fjord") else \
+            frame.km(m.get("prominence_km", 0)) >= MAJOR_CAPE_KM if c["kind"] == "cape" else False
+        label_features.append(feature(pt, {**props, "rank": 5, "major": major}))
+        stats = {}
+        if c.get("geom") is not None:
+            geom = to_lonlat(c["geom"], frame)
+            coast_features.append(feature(geom, props))
+            bbox = bbox_lonlat(geom)
+            stats["area_km2_mapped"] = round(frame.km2(c["geom"].area), 1)
+        else:
+            lon, lat = pt.coords[0]
+            bbox = [lon - 0.12, lat - 0.06, lon + 0.12, lat + 0.06]
+        if "length_km" in m and c["kind"] == "fjord":
+            stats["length_km"] = round(frame.km(m["length_km"]), 1)
+        if "width_km" in m:
+            stats["width_km"] = round(frame.km(m["width_km"]), 1)
+        if "drainage_km2" in m:
+            stats["drainage_km2"] = round(frame.km2(m["drainage_km2"]))
+        if c.get("mask") is not None:
+            stats.update(elev_stats(block_upsample(c["mask"], g.shape)))
+        entities[fe["id"]].update({"bbox": bbox, "center": list(pt.coords[0]), "stats": stats,
+                                   "ancestors": [c["district"], *world.ancestors(c["district"])]})
+    CACHE_DIR.mkdir(exist_ok=True)
+    with open(CACHE_DIR / f"candidates-{territory['id']}.json", "w", encoding="utf-8") as f:
+        json.dump(candidate_report, f, ensure_ascii=False, indent=1)
+
     check_expectations(spec.get("expect", {}), entities)
 
     layers["divisions"] += div_features
     layers["labels"] += label_features
     layers["places"] += place_features
     layers["water"] += water_features
+    layers["coast"] += coast_features
     layers["rivers"] += stream_features
     layers["rivers-named"] += named_features
     layers["ridges"] += ridge_features
@@ -526,7 +637,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
 def base_entities(world: World) -> dict:
     out = {}
     for eid, e in world.entities.items():
-        ent = {k: v for k, v in e.items() if not k.startswith("_")}
+        ent = {k: v for k, v in e.items() if not k.startswith("_") and k != "detect"}
         ent["source"] = e.get("_source")
         if eid in world.divisions or eid in world.countries:
             ent["kind"] = "division"
@@ -561,7 +672,7 @@ def main():
         shutil.rmtree(OUT)
     OUT.mkdir(parents=True)
     entities = base_entities(world)
-    layers = {k: [] for k in ("divisions", "labels", "places", "water", "rivers", "rivers-named", "ridges", "roads", "bathymetry", "context")}
+    layers = {k: [] for k in ("divisions", "labels", "places", "water", "coast", "rivers", "rivers-named", "ridges", "roads", "bathymetry", "context")}
     graph = {"nodes": [], "edges": [], "roads": [], "places": {}}
     regions = [build_region(world, spec, entities, layers, graph, not args.fresh) for spec in world.generators]
     for name, feats in layers.items():

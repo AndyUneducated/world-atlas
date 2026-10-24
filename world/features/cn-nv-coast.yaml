@@ -1,0 +1,292 @@
+# Coastal landforms of North Viking Island: islands, bays, fjords, capes and straits.
+# The generator finds them in the coastline (pipeline/atlas/coast.py); each entry names the
+# landform of `detect.kind` nearest to `detect.at_km` (design km, x east, y north).
+# Unnamed landforms are listed in .cache/candidates-<territory>.json after a build.
+features:
+  # ── Islands ──────────────────────────────────────────────
+  - id: nat_vwan1x
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [251.2, 50.2] }
+    names: { zh: 燕子岛, en: Swallow Island, art-x-viking: Schwalbeninsel }
+    notes:
+      zh: 燕礁湾口外的小岛，春季有大群海燕在岩壁筑巢，燕礁区因此得名。
+      en: Small island off the mouth of Swallow Reef Bay. Large flocks of storm petrels nest on its cliffs in spring, which gave Swallow Reef District its name.
+  - id: nat_sq09st
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [249.2, 55.2] }
+    names: { zh: 灯塔岛, en: Lighthouse Island, art-x-viking: Leuchtturminsel }
+    notes:
+      zh: 东南海岸最大的离岛之一，岛顶灯塔为进出镜湾与燕礁湾的船只导航。
+      en: One of the largest islands off the south-east coast. The lighthouse on its summit guides ships into Mirror Bay and Swallow Reef Bay.
+  - id: nat_xr4bvf
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [236.2, 57.8] }
+    names: { zh: 镜岛, en: Mirror Isle, art-x-viking: Spiegelinsel }
+    notes:
+      zh: 位于镜湾湾顶，风平浪静时倒映在湾面上，是贝克勒自由贸易区的标志景观。
+      en: Lies at the head of Mirror Bay and is reflected in the still water on calm days; a landmark of the Beckerle Free Trade Zone.
+  - id: nat_hzrb58
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [297.2, 89.8] }
+    names: { zh: 东哨岛, en: East Watch Island, art-x-viking: Ostwachtinsel }
+    notes:
+      zh: 东营湾北侧的岛屿，岛上旧哨所曾守望东部海域。
+      en: Island on the north side of East Camp Bay. Its old watch post once kept an eye on the eastern sea.
+  - id: nat_q60x3z
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [298.2, 95.8] }
+    names: { zh: 营盘岛, en: Camp Island, art-x-viking: Lagerinsel }
+    notes:
+      zh: 东营湾外侧的岛屿，与东哨岛一起为东营湾挡住外海风浪。
+      en: Island on the seaward side of East Camp Bay. Together with East Watch Island it shelters the bay from the open sea.
+
+  # ── Bays and fjords ──────────────────────────────────────
+  - id: nat_yvejfq
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [225.2, 36.2] }
+    names: { zh: 萨科湾, en: Sako Bay, art-x-viking: Sakobucht }
+    notes:
+      zh: 萨科区南岸的海湾，湾内渔港是萨科勒市最早的定居点。
+      en: Bay on the south coast of Sako District. Its fishing harbour was the first settlement of Sakole.
+  - id: nat_7n9nyd
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [233.2, 40.8] }
+    names: { zh: 卡波湾, en: Capo Bay, art-x-viking: Kapbucht }
+    notes:
+      zh: 卡波角与萨科角之间的海湾，湾口朝南。
+      en: South-facing bay between Cape Capo and Cape Sako.
+  - id: nat_xfj32x
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [246.8, 51.2] }
+    names: { zh: 燕礁湾, en: Swallow Reef Bay, art-x-viking: Schwalbenbucht }
+    notes:
+      zh: 东南海岸两大海湾之一，湾内暗礁密布，大型船舶须经燕子水道进出。
+      en: One of the two great bays of the south-east coast. Its floor is studded with reefs, so large ships enter by Swallow Sound.
+  - id: nat_3xvtrb
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [238.8, 51.8] }
+    names: { zh: 镜湾, en: Mirror Bay, art-x-viking: Spiegelbucht }
+    notes:
+      zh: 岛上面积最大的海湾，水深浪静，是贝克勒自由贸易区港口群所在地，镜湾区以其命名。
+      en: The largest bay of the island, deep and sheltered, home to the ports of the Beckerle Free Trade Zone; Mirror Bay District is named after it.
+  - id: nat_np7fbj
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [132.8, 58.2] }
+    names: { zh: 牛角湾, en: Oxhorn Bay, art-x-viking: Ochsenhornbucht }
+    notes:
+      zh: 奥克区南岸被牛角岬与犊角环抱的小海湾，形似弯曲的牛角。
+      en: Small bay on the south coast of Ox District, held between Oxhorn Point and Calf Point and curved like a horn.
+  - id: nat_zn3d92
+    subtype: fjord
+    status: generated
+    detect: { kind: fjord, at_km: [250.8, 62.2] }
+    names: { zh: 天台峡湾, en: Sky Terrace Fjord, art-x-viking: Himmelfjord }
+    notes:
+      zh: 深入天台区的狭长峡湾，台河注入湾顶。
+      en: Long narrow fjord cutting into Sky Terrace District, with the Terrace River entering at its head.
+  - id: nat_h1xfkg
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [236.2, 63.2] }
+    names: { zh: 天河湾, en: Sky River Bay, art-x-viking: Himmelflussbucht }
+    notes:
+      zh: 镜湾北端、天河入海处的圆形海湾，湾畔为天城市的主要港区。
+      en: Round bay at the northern end of Mirror Bay where the Sky River enters, lined by the main harbour of Skytown.
+  - id: nat_w3swqc
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [297.2, 94.2] }
+    names: { zh: 东营湾, en: East Camp Bay, art-x-viking: Ostlagerbucht }
+    notes:
+      zh: 东海岸最大的海湾，外有东哨岛、营盘岛屏护，是马斯林山市的出海口。
+      en: The largest bay on the east coast, screened by East Watch and Camp islands; Maslin Mountain City's gateway to the sea.
+  - id: nat_nwn6ja
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [20.2, 98.2] }
+    names: { zh: 菲尔内斯湾, en: Fyrnes Bay, art-x-viking: Fyrnesbucht }
+    notes:
+      zh: 西海岸由冰川刻蚀的深湾，湾口南侧为全岛最西端的海门角。
+      en: Glacier-carved inlet on the west coast. Seagate Cape, the westernmost point of the island, guards its southern side.
+  - id: nat_q138sx
+    subtype: fjord
+    status: generated
+    detect: { kind: fjord, at_km: [33.2, 119.2] }
+    names: { zh: 寒岭峡湾, en: Frost Fjord, art-x-viking: Frostfjord }
+    notes:
+      zh: 全岛最长的峡湾，自西北海岸蜿蜒深入寒岭山地，两岸为陡峭的冰川谷壁。
+      en: The longest fjord of the island, winding from the north-west coast deep into the Frost Ridge hills between steep glacial walls.
+  - id: nat_w7c1m4
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [87.2, 138.8] }
+    names: { zh: 望星湾, en: Stargaze Bay, art-x-viking: Sternwachtbucht }
+    notes:
+      zh: 北海岸的海湾，冬季极夜时是观赏极光的胜地。
+      en: Bay on the north coast, a favourite spot for watching the aurora during the polar night.
+  - id: nat_akr4q4
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [81.8, 139.2] }
+    names: { zh: 鲸湾, en: Whale Bay, art-x-viking: Walbucht }
+    notes:
+      zh: 望星湾西侧的狭长海湾，夏季常有鲸群入湾觅食。
+      en: Narrow bay west of Stargaze Bay, where whales come in to feed in summer.
+
+  # ── Capes ────────────────────────────────────────────────
+  - id: nat_f0ypp1
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [230.2, 35.2] }
+    names: { zh: 萨科角, en: Cape Sako, art-x-viking: Sakokap }
+    notes:
+      zh: 萨科湾东侧的岬角。
+      en: Headland on the east side of Sako Bay.
+  - id: nat_vj5hej
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [235.2, 38.2] }
+    names: { zh: 卡波角, en: Cape Capo, art-x-viking: Kap Capo }
+    notes:
+      zh: 东南海岸向南突出的岬角，靠近全岛最南端，卡波区以其得名。
+      en: Headland jutting south from the south-east coast near the southern tip of the island; Capo District is named after it.
+  - id: nat_6c66xb
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [245.2, 54.2] }
+    names: { zh: 燕尾角, en: Swallowtail Point, art-x-viking: Schwalbenschwanz }
+    notes:
+      zh: 分隔镜湾与燕礁湾的长半岛末端，形如燕尾。
+      en: Tip of the long peninsula dividing Mirror Bay from Swallow Reef Bay, forked like a swallow's tail.
+  - id: nat_qpscw3
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [271.2, 45.8] }
+    names: { zh: 银角, en: Silver Cape, art-x-viking: Silberkap }
+    notes:
+      zh: 银滩区南端的岬角，两侧为细白沙滩。
+      en: Headland at the southern end of Silver Beach District, flanked by fine white beaches.
+  - id: nat_ahnx6g
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [133.8, 55.8] }
+    names: { zh: 牛角岬, en: Oxhorn Point, art-x-viking: Ochsenhorn }
+    notes:
+      zh: 牛角湾东侧的岬角，奥克西诺市海岸的最南端。
+      en: Headland on the east side of Oxhorn Bay, the southernmost point of the Oxino coast.
+  - id: nat_xyxtqa
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [130.2, 58.2] }
+    names: { zh: 犊角, en: Calf Point, art-x-viking: Kalbspitze }
+    notes:
+      zh: 牛角湾西侧较小的岬角。
+      en: The smaller headland on the west side of Oxhorn Bay.
+  - id: nat_kz388s
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [236.2, 59.8] }
+    names: { zh: 铁岬, en: Iron Point, art-x-viking: Eisenspitze }
+    notes:
+      zh: 铁岗区伸入镜湾的岩岬，与镜岛隔镜岛水道相望。
+      en: Rocky point of Iron Knoll District reaching into Mirror Bay, facing Mirror Isle across Mirror Sound.
+  - id: nat_59166f
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [296.2, 93.8] }
+    names: { zh: 营角, en: Camp Point, art-x-viking: Lagerspitze }
+    notes:
+      zh: 东营湾内的岬角，将海湾分为南北两部分。
+      en: Point inside East Camp Bay that divides it into a northern and a southern basin.
+  - id: nat_5seexw
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [16.2, 96.2] }
+    names: { zh: 海门角, en: Seagate Cape, art-x-viking: Seetorkap }
+    notes:
+      zh: 全岛最西端，海门区以其为"通往西海之门"而得名。
+      en: The westernmost point of the island; Seagate District takes its name from this "gate to the western sea".
+  - id: nat_ke9p9y
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [31.8, 122.2] }
+    names: { zh: 霜角, en: Frost Point, art-x-viking: Frostspitze }
+    notes:
+      zh: 寒岭峡湾北岸的岬角，冬季常被海冰包围。
+      en: Point on the north shore of Frost Fjord, often locked in sea ice in winter.
+  - id: nat_p20bak
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [134.2, 131.8] }
+    names: { zh: 勒北角, en: Lekor North Cape, art-x-viking: Lekor-Nordkap }
+    notes:
+      zh: 勒克尔市北海岸的岬角。
+      en: Headland on the north coast of Lekor.
+  - id: nat_j3fyfr
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [102.8, 138.2] }
+    names: { zh: 星角, en: Star Point, art-x-viking: Sternspitze }
+    notes:
+      zh: 望星区东部的岬角。
+      en: Point in the east of Stargaze District.
+  - id: nat_m9w71f
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [89.2, 142.2] }
+    names: { zh: 望星角, en: Cape Stargaze, art-x-viking: Sternwachtkap }
+    notes:
+      zh: 北海岸最突出的岬角，分隔望星湾与外海，岬顶有极光观测站。
+      en: The most prominent headland of the north coast, sheltering Stargaze Bay; an aurora observatory stands on its crest.
+
+  # ── Straits ──────────────────────────────────────────────
+  - id: nat_sa0fd2
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [250.5, 52.8] }
+    names: { zh: 燕子水道, en: Swallow Sound, art-x-viking: Schwalbensund }
+    notes:
+      zh: 燕子岛与灯塔岛之间的水道，是进出燕礁湾的主航道。
+      en: Channel between Swallow Island and Lighthouse Island, the main fairway into Swallow Reef Bay.
+  - id: nat_ch1td2
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [247.8, 55.8] }
+    names: { zh: 灯塔水道, en: Lighthouse Sound, art-x-viking: Leuchtturmsund }
+    notes:
+      zh: 灯塔岛与燕尾角之间的狭窄水道。
+      en: Narrow channel between Lighthouse Island and Swallowtail Point.
+  - id: nat_kgkyyt
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [236.0, 59.0] }
+    names: { zh: 镜岛水道, en: Mirror Sound, art-x-viking: Spiegelsund }
+    notes:
+      zh: 镜岛与铁岬之间的水道，水浅流缓。
+      en: Shallow, slow channel between Mirror Isle and Iron Point.
+  - id: nat_5xt2h0
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [296.2, 90.2] }
+    names: { zh: 东哨水道, en: East Watch Sound, art-x-viking: Ostwachtsund }
+    notes:
+      zh: 东哨岛与本岛之间的水道，东营湾的北入口。
+      en: Channel between East Watch Island and the mainland, the northern entrance to East Camp Bay.
+  - id: nat_xg4y0d
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [297.0, 94.5] }
+    names: { zh: 营盘水道, en: Camp Sound, art-x-viking: Lagersund }
+    notes:
+      zh: 营盘岛西侧的水道，东营湾的主航道。
+      en: Channel west of Camp Island, the main fairway of East Camp Bay.

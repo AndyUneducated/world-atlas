@@ -90,26 +90,44 @@ class Drainage:
                 chains.append((chain, float(accf[chain[-2] if len(chain) > 1 else chain[-1]])))
         return chains
 
-    def main_stem(self, through_mask: np.ndarray, min_km2: float):
-        """Largest stream crossing through_mask, traced from its source to the sea."""
+    def main_stem(self, through_mask: np.ndarray, min_km2: float, taken: frozenset = frozenset()):
+        """Largest stream crossing through_mask that is not already taken, traced from its source
+        to the sea, or to the confluence with a taken river (a tributary)."""
         accf = self.acc.ravel()
         cand = np.where(through_mask.ravel() & self.land.ravel(), accf, 0)
+        if taken:
+            cand[list(taken)] = 0
         start = int(np.argmax(cand))
         if cand[start] < min_km2:
             return None
+        return self.stem(start, min_km2, taken)
+
+    def outlets(self, min_km2: float):
+        """(stem, drainage) of every river reaching the sea with at least min_km2 upstream, largest first."""
+        accf = self.acc.ravel()
+        mouths = np.flatnonzero((self.rec == -1) & self.land.ravel() & (accf >= min_km2))
+        return [(self.stem(int(c), min_km2), float(accf[c])) for c in sorted(mouths.tolist(), key=lambda c: -accf[c])]
+
+    def stem(self, start: int, min_km2: float, taken: frozenset = frozenset()):
+        """Cells from the source of the largest headwater above start, through start, down to the sea
+        (or to the first taken cell)."""
+        accf = self.acc.ravel()
         down = [start]
         c = int(self.rec[start])
         while c >= 0:
             down.append(c)
+            if c in taken:
+                break
             c = int(self.rec[c])
-        mouth = self._sea_neighbour(down[-1])
-        if mouth is not None:
-            down.append(mouth)
+        if down[-1] not in taken:
+            mouth = self._sea_neighbour(down[-1])
+            if mouth is not None:
+                down.append(mouth)
         ups = self.upstream()
         up = []
         c = start
         while True:
-            kids = [u for u in ups[c] if accf[u] >= min_km2]
+            kids = [u for u in ups[c] if accf[u] >= min_km2 and u not in taken]
             if not kids:
                 break
             c = max(kids, key=lambda u: accf[u])

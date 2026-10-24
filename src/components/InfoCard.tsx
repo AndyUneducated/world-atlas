@@ -71,6 +71,7 @@ function stats(e: Entity, lang: Lang) {
   else if (e.stats?.area_km2_mapped) out.push({ label: t("area", lang), value: formatNumber(e.stats.area_km2_mapped, lang, 1), unit: "km²" });
   if (e.stats?.density_per_km2) out.push({ label: t("density", lang), value: formatNumber(e.stats.density_per_km2, lang), unit: t("perKm2", lang) });
   if (e.stats?.length_km) out.push({ label: t("length", lang), value: formatNumber(e.stats.length_km, lang, 1), unit: "km" });
+  if (e.stats?.width_km) out.push({ label: t("width", lang), value: formatNumber(e.stats.width_km, lang, 1), unit: "km" });
   if (e.stats?.drainage_km2) out.push({ label: t("drainage", lang), value: formatNumber(e.stats.drainage_km2, lang), unit: "km²" });
   if (e.stats?.elev_max_m) out.push({ label: t("maxElevation", lang), value: formatNumber(e.stats.elev_max_m, lang), unit: "m" });
   return out.slice(0, 4);

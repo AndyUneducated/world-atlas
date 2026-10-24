@@ -20,7 +20,7 @@ world/*.yaml  ──►  pipeline/build.py  ──►  public/data/*.geojson, de
 | `world/planet.yaml` | Planet and coordinate reference system |
 | `world/registry/` | Countries (ISO 3166-1) |
 | `world/divisions/` | Administrative divisions: territory, cities, districts |
-| `world/features/` | Natural features: mountain ranges, rivers, lakes |
+| `world/features/` | Natural features: mountain ranges, rivers, lakes, and coastal landforms (bays, fjords, capes, straits, islands, river mouths) |
 | `world/transport/` | Numbered routes (expressways, highways) |
 | `world/generator/` | Layout parameters: coastline, terrain, city anchors, seeds |
 | `pipeline/` | Python generator |
@@ -29,6 +29,11 @@ world/*.yaml  ──►  pipeline/build.py  ──►  public/data/*.geojson, de
 The pipeline is seeded and deterministic: the same YAML always produces the same map.
 Changing a city's area, moving its anchor, or adding a route only means editing YAML and
 re-running the build.
+
+Rivers and coastal landforms are found by the generator. An entry in `world/features/`
+names one with `detect: {kind, at_km}`, which claims the nearest landform of that kind.
+After each build, `.cache/candidates-<territory>.json` lists every landform found,
+named or not, with its district and size, so new ones can be named by adding entries.
 
 ## Conventions
 
