@@ -5,6 +5,7 @@ import { InfoCard } from "./components/InfoCard";
 import { Legend } from "./components/Legend";
 import { MapControls } from "./components/MapControls";
 import { MapView } from "./components/MapView";
+import { MeasurePanel } from "./components/MeasurePanel";
 import { RoutePanel } from "./components/RoutePanel";
 import { SearchBox } from "./components/SearchBox";
 import { StatusBar } from "./components/StatusBar";
@@ -52,7 +53,8 @@ export default function App() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && !(e.target instanceof HTMLInputElement)) useAtlas.getState().select(null);
+      const s = useAtlas.getState();
+      if (e.key === "Escape" && !(e.target instanceof HTMLInputElement) && !s.measure) s.select(null);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -81,6 +83,10 @@ export default function App() {
 
           <div className="absolute right-3 bottom-12">
             <Legend />
+          </div>
+
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 max-md:bottom-14">
+            <MeasurePanel />
           </div>
 
           <div className="absolute right-3 bottom-3">

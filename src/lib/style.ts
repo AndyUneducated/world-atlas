@@ -65,8 +65,9 @@ export function buildStyle(opts: {
   layers: LayerToggles;
   focus: FocusData;
   route: FeatureCollection;
+  measure: FeatureCollection;
 }): StyleSpecification {
-  const { theme, lang, data, layers, focus, route } = opts;
+  const { theme, lang, data, layers, focus, route, measure } = opts;
   const m = theme.map;
   const dem = data.manifest.dem;
   const other: Lang = lang === "zh" ? "en" : "zh";
@@ -84,6 +85,7 @@ export function buildStyle(opts: {
     "focus-mask": { type: "geojson", data: focus.mask },
     "focus-outline": { type: "geojson", data: focus.outline },
     route: { type: "geojson", data: route },
+    measure: { type: "geojson", data: measure },
     dem: {
       type: "raster-dem",
       tiles: [`${BASE_URL}data/${dem.tiles}`],
@@ -491,6 +493,56 @@ export function buildStyle(opts: {
         "text-transform": "uppercase",
       },
       paint: { "text-color": m.label.territory, ...halo },
+    },
+  );
+
+  const isMeasure = (k: string): ExpressionSpecification => ["==", ["get", "kind"], k];
+  style.push(
+    {
+      id: "measure-casing",
+      type: "line",
+      source: "measure",
+      filter: ["!=", ["get", "kind"], "vertex"],
+      layout: { "line-join": "round", "line-cap": "round" },
+      paint: { "line-color": m.label.halo, "line-width": 5 },
+    },
+    {
+      id: "measure-line",
+      type: "line",
+      source: "measure",
+      filter: isMeasure("line"),
+      layout: { "line-join": "round", "line-cap": "round" },
+      paint: { "line-color": m.focus.line, "line-width": 2.5 },
+    },
+    {
+      id: "measure-preview",
+      type: "line",
+      source: "measure",
+      filter: isMeasure("preview"),
+      paint: { "line-color": m.focus.line, "line-width": 2, "line-dasharray": [1.5, 1.5] },
+    },
+    {
+      id: "measure-vertex",
+      type: "circle",
+      source: "measure",
+      filter: isMeasure("vertex"),
+      paint: { "circle-radius": 4.5, "circle-color": m.label.halo, "circle-stroke-color": m.focus.line, "circle-stroke-width": 2.2 },
+    },
+    {
+      id: "measure-label",
+      type: "symbol",
+      source: "measure",
+      filter: ["all", isMeasure("vertex"), ["!=", ["get", "label"], ""]],
+      layout: {
+        "text-field": ["get", "label"],
+        "text-font": FONT.medium,
+        "text-size": 11.5,
+        "text-anchor": "left",
+        "text-offset": [0.8, 0],
+        "text-allow-overlap": true,
+        "text-ignore-placement": true,
+      },
+      paint: { "text-color": m.label.text, ...halo, "text-halo-width": 2 },
     },
   );
 

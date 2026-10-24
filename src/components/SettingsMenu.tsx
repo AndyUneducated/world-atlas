@@ -79,7 +79,7 @@ function AppearanceTile({ id, active, onSelect, lang }: { id: Appearance; active
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
               transition={{ type: "spring", stiffness: 600, damping: 30 }}
-              className="absolute top-1 right-1 grid size-4 place-items-center rounded-full bg-accent text-white shadow"
+              className="absolute top-1 right-1 grid size-4 place-items-center rounded-full bg-accent text-on-accent shadow"
             >
               <Check className="size-2.5" strokeWidth={3.5} />
             </motion.span>

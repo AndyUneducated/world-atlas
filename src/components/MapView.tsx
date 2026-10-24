@@ -3,7 +3,9 @@ import type { GeoJSONSource, MapGeoJSONFeature } from "maplibre-gl";
 import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import { useEffect, useMemo, useRef } from "react";
 import type { FeatureCollection } from "geojson";
+import { BASE_URL } from "../lib/data";
 import { buildFocus, indexFeatures } from "../lib/focus";
+import { measureFeatures } from "../lib/measure";
 import { useRoute } from "../lib/useRoute";
 import { buildStyle, HIT_LAYERS, type FocusData } from "../lib/style";
 import { THEMES } from "../lib/themes";
@@ -76,13 +78,16 @@ export function MapView() {
   const routeRef = useRef(routeFc);
   routeRef.current = routeFc;
 
+  const measure = useAtlas((s) => s.measure);
+  const measureFc = () => measureFeatures(useAtlas.getState().measure, null);
+
   const currentFocus = () => focusRef.current ?? buildFocus(features.get(useAtlas.getState().selectedId ?? ""), region.bounds);
 
   useEffect(() => {
     const s = useAtlas.getState();
     const map = new maplibregl.Map({
       container: container.current!,
-      style: buildStyle({ theme: THEMES[s.theme], lang: s.lang, data, layers: s.layers, focus: currentFocus(), route: routeRef.current }),
+      style: buildStyle({ theme: THEMES[s.theme], lang: s.lang, data, layers: s.layers, focus: currentFocus(), route: routeRef.current, measure: measureFc() }),
       ...(initialView
         ? { center: [initialView.lng, initialView.lat], zoom: initialView.zoom, bearing: initialView.bearing }
         : { bounds: region.bounds, fitBoundsOptions: { padding: 80 } }),
@@ -95,8 +100,16 @@ export function MapView() {
     });
     mapRef.current = map;
 
-    map.on("styleimagemissing", (e) => {
-      if (e.id.startsWith("shield|") && !map.hasImage(e.id)) drawShield(map, e.id);
+    map.on("error", (e) => {
+      const err = e.error as Error & { status?: number; url?: string };
+      // A style change while tiles are downloading cancels them, and MapLibre reports the cancelled
+      // requests as status-0 fetch failures; the tiles are requested again with the new style.
+      if (err?.status === 0 && err.url?.startsWith(BASE_URL)) return;
+      console.error(err ?? e);
+    });
+
+    map.setMissingStyleImageResolver((id) => {
+      if (id.startsWith("shield|") && !map.hasImage(id)) drawShield(map, id);
     });
 
     const readouts = () => {
@@ -124,12 +137,24 @@ export function MapView() {
     };
 
     map.on("click", (e) => {
+      const { measure, setMeasure, select } = useAtlas.getState();
+      if (measure) {
+        setMeasure([...measure, [e.lngLat.lng, e.lngLat.lat]]);
+        return;
+      }
       const hit = queryHit(e.point);
-      useAtlas.getState().select(hit?.id ?? null);
+      select(hit?.id ?? null);
     });
 
     map.on("mousemove", (e) => {
-      useCursor.getState().set({ lngLat: [e.lngLat.lng, e.lngLat.lat] });
+      const cursor: [number, number] = [e.lngLat.lng, e.lngLat.lat];
+      useCursor.getState().set({ lngLat: cursor });
+      const measure = useAtlas.getState().measure;
+      if (measure) {
+        (map.getSource("measure") as GeoJSONSource | undefined)?.setData(measureFeatures(measure, cursor));
+        map.getCanvas().style.cursor = "crosshair";
+        return;
+      }
       const hit = queryHit(e.point);
       map.getCanvas().style.cursor = hit ? "pointer" : "";
       const hoverId = hit?.layer === HIT_LAYERS.division ? hit.id : null;
@@ -158,7 +183,7 @@ export function MapView() {
       styledRef.current = true;
       return;
     }
-    map.setStyle(buildStyle({ theme: THEMES[theme], lang, data, layers, focus: currentFocus(), route: routeRef.current }), { diff: true });
+    map.setStyle(buildStyle({ theme: THEMES[theme], lang, data, layers, focus: currentFocus(), route: routeRef.current, measure: measureFc() }), { diff: true });
     syncUrl(map);
   }, [theme, lang, layers, data]);
 
@@ -207,6 +232,17 @@ export function MapView() {
       });
     }
   }, [routeFc]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    const apply = () => (map.getSource("measure") as GeoJSONSource | undefined)?.setData(measureFeatures(measure, null));
+    if (map.isStyleLoaded()) apply();
+    else map.once("idle", apply);
+    map.getCanvas().style.cursor = measure ? "crosshair" : "";
+    if (measure) map.doubleClickZoom.disable();
+    else map.doubleClickZoom.enable();
+  }, [measure]);
 
   return (
     <div className="absolute inset-0">

@@ -138,7 +138,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
           </button>
         </div>
         <div className="relative mt-4 flex flex-wrap gap-2">
-          <button onClick={zoomTo} className="flex items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 text-[12px] font-medium text-white shadow-sm hover:opacity-90">
+          <button onClick={zoomTo} className="flex items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 text-[12px] font-medium text-on-accent shadow-sm hover:opacity-90">
             <Crosshair className="size-3.5" />
             {t("zoomTo", lang)}
           </button>

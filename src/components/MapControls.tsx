@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Layers, Maximize, Minus, Mountain, Navigation2, Plus } from "lucide-react";
+import { Layers, Maximize, Minus, Mountain, Navigation2, Plus, Ruler } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { t, type StringKey } from "../lib/i18n";
@@ -26,6 +26,8 @@ export function MapControls() {
   const toggleLayer = useAtlas((s) => s.toggleLayer);
   const mapTheme = THEMES[useAtlas((s) => s.theme)].map;
   const bearing = useCursor((s) => s.bearing);
+  const measuring = useAtlas((s) => s.measure !== null);
+  const setMeasure = useAtlas((s) => s.setMeasure);
   const [open, setOpen] = useState(false);
 
   const home = () => {
@@ -84,6 +86,16 @@ export function MapControls() {
           <Minus className="size-[18px]" />
         </button>
       </div>
+
+      <button
+        className={clsx("glass rounded-xl", BTN, measuring && "text-accent ring-1 ring-accent/50")}
+        onClick={() => setMeasure(measuring ? null : [])}
+        aria-pressed={measuring}
+        aria-label={t("measure", lang)}
+        title={t("measure", lang)}
+      >
+        <Ruler className="size-[18px]" />
+      </button>
 
       <button className={clsx("glass rounded-xl", BTN)} onClick={() => map?.easeTo({ bearing: 0, duration: 500 })} aria-label={t("resetNorth", lang)} title={t("resetNorth", lang)}>
         <Navigation2 className="size-[18px] fill-accent text-accent transition-transform" style={{ transform: `rotate(${-bearing}deg)` }} />

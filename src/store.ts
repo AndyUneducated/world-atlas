@@ -32,6 +32,9 @@ interface AtlasState {
   layers: LayerToggles;
   display: DisplayToggles;
   route: { from: string | null; to: string | null };
+  /** Measuring-tool vertices; null when the tool is off. */
+  measure: [number, number][] | null;
+  setMeasure: (points: [number, number][] | null) => void;
   setRoute: (patch: Partial<{ from: string | null; to: string | null }>) => void;
   setData: (data: AtlasData) => void;
   setMap: (map: MaplibreMap | null) => void;
@@ -80,6 +83,8 @@ export const useAtlas = create<AtlasState>((set) => ({
   layers: readStored(STORAGE.layers, DEFAULT_LAYERS),
   display: readStored(STORAGE.display, DEFAULT_DISPLAY),
   route: { from: null, to: null },
+  measure: null,
+  setMeasure: (measure) => set({ measure }),
   setRoute: (patch) => set((s) => ({ route: { ...s.route, ...patch } })),
   setData: (data) => set({ data }),
   setMap: (map) => set({ map }),
