@@ -12,6 +12,9 @@ WORLD_DIR = ROOT / "world"
 ID_PATTERN = re.compile(r"^(div|nat|rte|poi|bld|ctx)_[0-9a-hjkmnp-tv-z]{6}$|^country:[A-Z]{2}$")
 REQUIRED_LANGS = ("zh", "en")
 DIVISION_SUBTYPES = ("country", "dependency", "region", "locality", "borough")
+# Division codes (GB/T 2260): six digits, of which a territory uses the first two, a city four
+# and a district all six; the rest are zeros (900000 → 900100 → 900101).
+CODE_DIGITS = {"dependency": 2, "locality": 4, "borough": 6}
 # Landmark footprint templates (see pipeline/atlas/buildings.py); the last three are transport facilities.
 SITE_LAYOUTS = ("complex", "hall", "campus", "stadium", "tower", "park", "plaza", "market", "airport", "port", "spaceport")
 FACILITY_LAYOUTS = ("airport", "port", "spaceport")
@@ -94,8 +97,12 @@ class World:
                 if admin in codes:
                     errors.append(f"{did}: admin code {admin} already used by {codes[admin]}")
                 codes[admin] = did
+                level = CODE_DIGITS.get(d["subtype"])
+                if not re.fullmatch(r"\d{6}", admin) or (level and admin[level:].strip("0")):
+                    errors.append(f"{did}: admin code {admin} must have 6 digits, zero past the first {level}")
                 parent_admin = parent.get("codes", {}).get("admin")
-                if parent_admin and not admin.startswith(parent_admin):
+                parent_level = CODE_DIGITS.get(parent["subtype"])
+                if parent_admin and parent_level and not admin.startswith(parent_admin[:parent_level]):
                     errors.append(f"{did}: admin code {admin} does not extend parent code {parent_admin}")
             if d["subtype"] == "locality" and not re.match(r"^#[0-9A-Fa-f]{6}$", str(d.get("color", ""))):
                 errors.append(f"{did}: a city needs a colour (#RRGGBB) for its map tint and emblem")

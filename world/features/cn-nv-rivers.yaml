@@ -117,14 +117,6 @@ features:
     notes:
       zh: 马斯林河在东营区北部入海，河口港是马斯林山市的货运门户。
       en: Where the Maslin River reaches the sea in the north of East Camp District; its river port handles Maslin Mountain City's freight.
-  - id: nat_45w10g
-    subtype: estuary
-    status: generated
-    detect: { kind: estuary, at_km: [208.8, 148.8] }
-    names: { zh: 鹰河口, en: Eagle Mouth, art-x-viking: Adlermündung }
-    notes:
-      zh: 鹰河在北海岸的入海口。
-      en: Mouth of the Eagle River on the north coast.
   - id: nat_3fftzc
     subtype: estuary
     status: generated

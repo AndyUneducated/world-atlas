@@ -271,6 +271,8 @@ export function buildStyle(opts: {
         "fill-opacity": 0.82,
       },
     },
+    // Ice under the hillshade, so the relief of the ice fields stays visible
+    { id: "glacier", type: "fill", source: "glaciers", paint: { "fill-color": m.glacier.fill, "fill-opacity": 0.9 } },
     {
       id: "hillshade",
       type: "hillshade",
@@ -283,7 +285,6 @@ export function buildStyle(opts: {
         "hillshade-illumination-direction": 315,
       },
     },
-    { id: "glacier", type: "fill", source: "glaciers", paint: { "fill-color": m.glacier.fill, "fill-opacity": 0.82 } },
     {
       id: "glacier-line",
       type: "line",

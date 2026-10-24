@@ -30,7 +30,7 @@ from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas.world import DETECT_KINDS, RAIL_NETWORKS, ROOT, SITE_LAYOUTS, WORLD_DIR, World  # noqa: E402
+from atlas.world import CODE_DIGITS, DETECT_KINDS, RAIL_NETWORKS, ROOT, SITE_LAYOUTS, WORLD_DIR, World  # noqa: E402
 from new_id import mint  # noqa: E402
 
 DELETE = object()
@@ -381,19 +381,20 @@ class Importer:
         used = {d.get("codes", {}).get("admin") for d in self.world.divisions.values()} | set(self.new_codes.values())
         if is_new and "codes.admin" not in changes and parent:
             base = self.new_codes.get(parent) or self.world.divisions.get(parent, {}).get("codes", {}).get("admin")
-            if base:
+            if base and want in CODE_DIGITS:
+                base = base[:CODE_DIGITS[want]]
                 n = 1
-                while f"{base}{n:02d}" in used:
+                while f"{base}{n:02d}".ljust(6, "0") in used:
                     n += 1
-                changes["codes.admin"] = f"{base}{n:02d}"
+                changes["codes.admin"] = f"{base}{n:02d}".ljust(6, "0")
             elif parent in self.ids:
                 self.problems.add(self.where(i, "parent"), "上级是本文件中新建的条目时，须排在本行之前")
         code = changes.get("codes.admin")
         if code is DELETE:
             self.problems.add(self.where(i, "admin_code"), "行政区必须有区划代码")
         elif isinstance(code, str):
-            if not code.isdigit():
-                self.problems.add(self.where(i, "admin_code"), f"“{code}”应只含数字")
+            if not (code.isdigit() and len(code) == 6):
+                self.problems.add(self.where(i, "admin_code"), f"“{code}”应为 6 位数字")
             elif is_new and code in used:
                 self.problems.add(self.where(i, "admin_code"), f"区划代码 {code} 已被使用")
             self.new_codes[eid] = code

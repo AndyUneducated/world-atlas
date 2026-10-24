@@ -38,6 +38,7 @@ from atlas.vectorize import point_lonlat, polygonize_labels, to_lonlat  # noqa: 
 from atlas.world import FACILITY_LAYOUTS, ROOT, World  # noqa: E402
 
 OUT = ROOT / "public" / "data"
+SITE_SNAP_KM = 6.0  # how far (real km) a port or facility site may move to fit the shore
 B32 = "0123456789abcdefghjkmnpqrstvwxyz"
 # Road networks whose cards list the districts they pass through.
 SEGMENTED_NETWORKS = {"national_expressway", "national_highway", "territorial_expressway", "territorial_highway"}
@@ -328,21 +329,53 @@ def main_axis(poly) -> float:
     return math.atan2(ey, ex)
 
 
+def sea_coast(land):
+    """The shoreline of `land` against the sea (exterior rings only, so lake shores are left out)."""
+    return shapely.MultiLineString([p.exterior for p in getattr(land, "geoms", [land])])
+
+
+def fit_site(layout, centre, a, size, land, coast, seed, pid):
+    """Site outline and parts placed at `centre` (real km), then fitted to the shore: a port moves to
+    the nearest sea coast within SITE_SNAP_KM, and a facility steps inland until it is dry. So a site
+    keeps its role when the district centre it is offset from moves after a repartition."""
+    def build(c):
+        rng = np.random.default_rng([seed, int(hashlib.sha1(pid.encode()).hexdigest()[:8], 16)])
+        return buildings.landmark(layout, c, a, size, rng, land)
+
+    p = Point(centre)
+    if layout == "port":
+        q = nearest_points(coast, p)[0]
+        return build((q.x, q.y) if q.distance(p) <= SITE_SNAP_KM else centre)
+    site, parts = build(centre)
+    if layout in FACILITY_LAYOUTS and site.intersection(land).area < 0.95 * site.area:
+        q = nearest_points(coast, p)[0]
+        ux, uy = (p.x - q.x, p.y - q.y) if land.contains(p) else (q.x - p.x, q.y - p.y)
+        n = math.hypot(ux, uy) or 1.0
+        reach = SITE_SNAP_KM + (0.0 if land.contains(p) else n)
+        for k in range(1, int(reach / 0.2) + 1):
+            c = (p.x + ux / n * 0.2 * k, p.y + uy / n * 0.2 * k)
+            moved = build(c)
+            if moved[0].intersection(land).area >= 0.95 * moved[0].area:
+                return moved
+    return site, parts
+
+
 def landmark_sites(world, d, core, angle, built, land, seed):
     """Site outlines and parts (real km) of the places in district `d` that have a `site`.
 
     City landmarks follow the street grid `angle`; an explicit site.angle_deg is absolute (east = 0).
     `built` is the district's built-up area (None without streets), `land` the dry land around it."""
-    out = []
+    out, coast = [], None
     for pid, pl in world.places.items():
         if pl["in"] != d["id"] or not pl.get("site"):
             continue
         cfg = pl["site"]
         ox, oy = pl.get("offset_km", (0, 0))
-        rng = np.random.default_rng([seed, int(hashlib.sha1(pid.encode()).hexdigest()[:8], 16)])
         size = (cfg["size_m"][0] / 1000, cfg["size_m"][1] / 1000)
         a = math.radians(cfg["angle_deg"]) if "angle_deg" in cfg else angle
-        site, parts = buildings.landmark(cfg["layout"], (core[0] + ox, core[1] + oy), a, size, rng, land)
+        if cfg["layout"] in FACILITY_LAYOUTS:
+            coast = coast or sea_coast(land)
+        site, parts = fit_site(cfg["layout"], (core[0] + ox, core[1] + oy), a, size, land, coast, seed, pid)
         zh = pl["names"]["zh"]
         if cfg["layout"] == "port":
             if not any(k == "paved" for k, _ in parts) or site.intersection(land).area < 0.25 * size[0] * size[1]:
@@ -527,8 +560,11 @@ def build_metro(mp: dict, world: World, seed, s, cities, districts, district_cit
     ctx_all = {i: c for _, _, ctx, _ in street_out for i, c in ctx.items()}
     named_streets = {city["id"]: [(st.names, real(st.geom)) for st in sts if st.cls != "local"] for city, sts, _, _ in street_out}
     dist_index = {d["id"]: i for i, d in enumerate(districts)}
+    site_of = {pid: poly for pid, poly, _, _ in sites}
 
     def place_xy(pid):
+        if pid in site_of:
+            return site_of[pid].centroid
         pl = world.places[pid]
         i = dist_index[pl["in"]]
         ox, oy = pl.get("offset_km", (0, 0))
@@ -1016,7 +1052,11 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         else:
             continue
         ox, oy = p.get("offset_km", (0, 0))
-        pt = point_lonlat(frame, x + ox / frame.scale, y + oy / frame.scale)
+        if pid in sites:  # fitted to the shore, see fit_site
+            c = sites[pid][0].centroid
+            pt = point_lonlat(frame, c.x / frame.scale, c.y / frame.scale)
+        else:
+            pt = point_lonlat(frame, x + ox / frame.scale, y + oy / frame.scale)
         place_features.append(feature(pt, {
             "id": pid, "subtype": p["subtype"], "marker": p.get("marker", "dot"), "emblem_of": p.get("emblem_of"),
             "name_zh": p["names"]["zh"], "name_en": p["names"]["en"], "site": pid in sites}))

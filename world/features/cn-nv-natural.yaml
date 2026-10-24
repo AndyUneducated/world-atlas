@@ -32,6 +32,17 @@ features:
     notes:
       zh: 西北市北部东西走向的山岭，最高峰霜冠峰，冬季积雪期长。
       en: East–west ridge in the north of Northwest City, rising to Frostcrown, with a long winter snow season.
+  - id: nat_h7v2kd
+    subtype: ridge
+    status: generated
+    names:
+      zh: 贝格兰丘陵
+      en: Bergland Hills
+      art-x-viking: Berglandhügel
+      art-x-buckham: Colli di Bergland
+    notes:
+      zh: 维京港与自由市之间西北—东南走向的低山，把两座城市所在的滨海平原隔开，自维高速以隧道穿过。
+      en: Low hills running north-west to south-east between Viking Port and Freedom City, separating the two cities' coastal plains; the Freedom–Viking Port Expressway tunnels through them.
   - id: nat_x9bmeh
     subtype: river
     status: generated

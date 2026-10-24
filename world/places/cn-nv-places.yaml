@@ -319,7 +319,7 @@ places:
       zh: 星河河口的航天港，发射台面向大海，星港区因此得名
       en: Spaceport at the mouth of the Star River, its pads facing the sea; Starport District is named after it.
     in: div_nytsvb
-    offset_km: [34.56, -2.02]
+    offset_km: [25.8, -3.7]
     site: { size_m: [2500, 800], layout: spaceport, angle_deg: 105 }
 
   - id: poi_jc0fe5

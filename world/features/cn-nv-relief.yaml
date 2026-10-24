@@ -3,14 +3,38 @@
 # `detect.at_km` (design km). Elevation and prominence come from the generated terrain.
 features:
   # ── Peaks (highest first) ────────────────────────────────
+  - id: nat_nans6b
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [258.8, 113.2] }
+    names: { zh: 观星峰, en: Starwatch Peak, art-x-viking: Sternwartspitze }
+    notes:
+      zh: 全岛最高峰，马斯林山脉北翼东端高山群的主峰，俯临星港区；峰顶设有高山天文台。
+      en: The highest summit of the island, the main peak of the high massif at the eastern end of the Maslin Range's northern arm, above Starport District; an alpine observatory stands on its top.
+  - id: nat_w3c8nk
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [253.2, 116.8] }
+    names: { zh: 北冕峰, en: Northcrown, art-x-viking: Nordkrone, art-x-buckham: Corona del Nord }
+    notes:
+      zh: 马斯林山脉北翼东段高山群的中峰，三面冰斗环抱，形如冠冕，与西南的南冠峰南北相对。
+      en: The central summit of the high massif on the eastern part of the Maslin Range's northern arm, ringed on three sides by cirques like a crown; it faces Southcrown to the south-west.
+  - id: nat_r6y4ex
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [245.2, 115.8] }
+    names: { zh: 极光峰, en: Aurora Peak, art-x-viking: Nordlichtspitze, art-x-buckham: Picco dell'Aurora }
+    notes:
+      zh: 北冕峰西侧的四千米级高峰，冬夜极光常在峰顶上空出现。
+      en: A 4000-metre summit west of Northcrown; on winter nights the aurora often hangs above its top.
   - id: nat_7fcbdm
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [214.8, 111.8] }
     names: { zh: 王座峰, en: Throne Peak, art-x-viking: Thronspitze }
     notes:
-      zh: 全岛最高峰，马斯林山脉北翼与西翼交会处的主峰，终年被王座冰原覆盖。
-      en: The highest summit of the island, where the northern and western arms of the Maslin Range meet; capped all year by the Throne Icefield.
+      zh: 马斯林山脉北翼与西翼交会处的主峰，终年被王座冰原覆盖。
+      en: The main summit where the northern and western arms of the Maslin Range meet; capped all year by the Throne Icefield.
   - id: nat_m9thfe
     subtype: peak
     status: generated
@@ -35,14 +59,6 @@ features:
     notes:
       zh: 洛龙山脉北段的主峰，与南面的山脊合称"龙脊"，俯瞰龙关。
       en: The main summit of the northern Lorond Range, overlooking Dragon Pass; with the ridges to the south it forms the "Dragon's Spine".
-  - id: nat_nans6b
-    subtype: peak
-    status: generated
-    detect: { kind: peak, at_km: [258.8, 112.8] }
-    names: { zh: 观星峰, en: Starwatch Peak, art-x-viking: Sternwartspitze }
-    notes:
-      zh: 马斯林山脉北翼东端的高峰，俯临星港区。
-      en: High summit at the eastern end of the Maslin Range's northern arm, above Starport District.
   - id: nat_baqmce
     subtype: peak
     status: generated
@@ -170,19 +186,19 @@ features:
   - id: nat_hvjjwy
     subtype: glacier
     status: generated
-    detect: { kind: glacier, at_km: [220.6, 115.4] }
+    detect: { kind: glacier, at_km: [232.6, 114.4] }
     names: { zh: 王座冰原, en: Throne Icefield, art-x-viking: Throneisfeld }
     notes:
-      zh: 全岛最大的冰原，覆盖王座峰周围的马斯林山脉北翼，北坡冰舌下伸最低。
-      en: The largest icefield of the island, covering the northern arm of the Maslin Range around Throne Peak; its tongues reach lowest on the north side.
+      zh: 全岛最大的冰原，自王座峰向东覆盖马斯林山脉北翼直至观星峰，北坡冰舌下伸最低。
+      en: The largest icefield of the island, covering the northern arm of the Maslin Range from Throne Peak east to Starwatch Peak; its tongues reach lowest on the north side.
   - id: nat_62jkkn
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [212.6, 67.1] }
     names: { zh: 南冠冰川, en: Southcrown Glacier, art-x-viking: Südkronengletscher }
     notes:
-      zh: 覆盖南冠峰的冰川。
-      en: Glacier capping Southcrown.
+      zh: 覆盖南冠峰的冰川，沿西翼山脊向北延伸到马斯林山口南侧。
+      en: Glacier capping Southcrown, reaching north along the western arm to just south of Maslin Pass.
   - id: nat_1r9x72
     subtype: glacier
     status: generated
@@ -202,19 +218,11 @@ features:
   - id: nat_af1705
     subtype: glacier
     status: generated
-    detect: { kind: glacier, at_km: [146.9, 65.9] }
+    detect: { kind: glacier, at_km: [151.1, 58.9] }
     names: { zh: 杉岭冰川, en: Fir Ridge Glacier, art-x-viking: Fichtenkammgletscher }
     notes:
       zh: 洛龙峰南侧的冰川。
       en: Glacier south of Lorond Peak.
-  - id: nat_a0cdp8
-    subtype: glacier
-    status: generated
-    detect: { kind: glacier, at_km: [257.9, 113.4] }
-    names: { zh: 观星冰川, en: Starwatch Glacier, art-x-viking: Sternwartgletscher }
-    notes:
-      zh: 观星峰顶的冰川。
-      en: Glacier on the summit of Starwatch Peak.
   - id: nat_8n4aee
     subtype: glacier
     status: generated
@@ -239,11 +247,3 @@ features:
     notes:
       zh: 霜冠峰顶的冰川，寒岭唯一较大的冰川。
       en: Glacier on the summit of Frostcrown, the only sizeable glacier of the Frost Ridge.
-  - id: nat_6w1rwe
-    subtype: glacier
-    status: generated
-    detect: { kind: glacier, at_km: [207.9, 86.6] }
-    names: { zh: 马斯林冰川, en: Maslin Glacier, art-x-viking: Maslingletscher }
-    notes:
-      zh: 马斯林山口南侧的冰川。
-      en: Glacier south of Maslin Pass.

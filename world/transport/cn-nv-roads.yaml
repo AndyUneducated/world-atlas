@@ -136,11 +136,11 @@ routes:
       zh: 观星公路
       en: Stargazer Highway
     notes:
-      zh: 自维京港斯坦堡老城经首府白桦区、林道区，通往望星区的天文台
-      en: From the old town of Steinburg in Viking Port through the capital's Birchwood District and Lindau to the observatory at Stargaze.
+      zh: 自维京港斯坦堡老城经奥斯特海姆、首府白桦区、林道区，通往望星区的天文台和科学城
+      en: From the old town of Steinburg in Viking Port through Osterheim, the capital's Birchwood District and Lindau to the observatory at Stargaze and on to Science City.
     emblem: { motif: star, pattern: dots }
     shield: star
-    via: [div_z29w6h, div_t3bfmm, div_16cxr8, div_fr1vq9, div_g27nda]
+    via: [div_z29w6h, div_t3bfmm, div_7rk2mh, div_16cxr8, div_fr1vq9, div_g27nda, div_s8f4kt]
   - id: rte_c8j4ya
     ref: S-NV-203
     network: territorial_highway
@@ -150,11 +150,11 @@ routes:
       zh: 北河公路
       en: North River Highway
     notes:
-      zh: 自沙洲经首府、北河谷地、西诺与丰谷抵达勒克尔；北河是岛上鲑鱼洄游最盛的河
-      en: From Sandbar through the capital, the North River valley, Ino and Harvest Vale to Lekor; the North River has the island's largest salmon run.
+      zh: 自贝格兰丘陵下到沙洲，经首府、北河谷地、西诺与丰谷抵达勒克尔；北河是岛上鲑鱼洄游最盛的河
+      en: From the Bergland Hills down to Sandbar, then through the capital, the North River valley, Ino and Harvest Vale to Lekor; the North River has the island's largest salmon run.
     emblem: { motif: salmon, pattern: flow }
     shield: salmon
-    via: [div_g4a8q0, div_16cxr8, div_b1dx32, div_mpfctv, div_davn2j, div_0wvh63]
+    via: [div_b3qw9e, div_g4a8q0, div_16cxr8, div_b1dx32, div_mpfctv, div_davn2j, div_0wvh63]
   - id: rte_m2q7xb
     ref: S-NV-204
     network: territorial_highway
@@ -178,11 +178,11 @@ routes:
       zh: 深峡公路
       en: Deep Gorge Highway
     notes:
-      zh: 自新城青坪北上，经北苑、深峡区的瀑布峡谷到洛龙山龙关
-      en: North from Greenmead in New City through North Gardens and the waterfall gorges of Deep Gorge to Dragon Pass in Lorond Mountain.
+      zh: 自新城米特、青坪北上，经北苑、深峡区的瀑布峡谷到洛龙山龙关
+      en: North from Mitte and Greenmead in New City through North Gardens and the waterfall gorges of Deep Gorge to Dragon Pass in Lorond Mountain.
     emblem: { motif: waterfall, pattern: flow }
     shield: waterfall
-    via: [div_z8yxye, div_s1qwxh, div_0t2t36, div_j82dgm]
+    via: [div_m2tz6c, div_z8yxye, div_s1qwxh, div_0t2t36, div_j82dgm]
   - id: rte_t6h2pe
     ref: S-NV-206
     network: territorial_highway
@@ -192,11 +192,11 @@ routes:
       zh: 厄定河公路
       en: Erding River Highway
     notes:
-      zh: 自新城北苑北上，经旧府到厄定河口；沿途是驯鹿的冬季牧场
-      en: North from North Gardens in New City through Old Prefecture to the mouth of the Erding; the road crosses the reindeer's winter pastures.
+      zh: 自新城北苑北上，经厄定河上游、旧府和驯鹿原的冬季牧场到厄定河口
+      en: North from North Gardens in New City through the upper Erding, Old Prefecture and the reindeer's winter pastures to the mouth of the Erding.
     emblem: { motif: reindeer, pattern: contours }
     shield: reindeer
-    via: [div_s1qwxh, div_1qm5cj, div_qpyn9e]
+    via: [div_s1qwxh, div_4vnc7y, div_1qm5cj, div_e2pk5r, div_qpyn9e]
   - id: rte_x4b8rn
     ref: S-NV-207
     network: territorial_highway
@@ -206,11 +206,11 @@ routes:
       zh: 南岸公路
       en: South Coast Highway
     notes:
-      zh: 沿岛南岸自新城经南驿、萨科勒的罗卡与萨科，经卡波、镜湾到贝克勒自由贸易区的燕礁
-      en: Along the south coast from New City through South Post, Sakole's Rocca and Sako districts, Capo and Mirror Bay to Swallow Reef in the Beckerle Free Trade Zone.
+      zh: 沿岛南岸自新城经南驿、萨科勒的罗卡与萨科，经卡波、镜湾、保税港区到贝克勒自由贸易区的燕礁
+      en: Along the south coast from New City through South Post, Sakole's Rocca and Sako districts, Capo, Mirror Bay and the Bonded Port Zone to Swallow Reef in the Beckerle Free Trade Zone.
     emblem: { motif: swallow, pattern: waves }
     shield: swallow
-    via: [div_z8yxye, div_hyxnpg, div_8njcs3, div_8m0jx4, div_e6pc44, div_8p9k5t, div_ts5cw5]
+    via: [div_z8yxye, div_hyxnpg, div_8njcs3, div_8m0jx4, div_e6pc44, div_8p9k5t, div_f9x3wn, div_ts5cw5]
   - id: rte_2d7v5m
     ref: S-NV-208
     network: territorial_highway
@@ -234,8 +234,8 @@ routes:
       zh: 雪谷公路
       en: Snow Valley Highway
     notes:
-      zh: 自天城天台北上，经雪谷、西坪到马斯林山和平区与星港，冬季常因大雪封闭
-      en: North from Sky Terrace in Skytown through Snow Valley and West Heath to Peace and Starport in Maslin Mountain; often closed by snow in winter.
+      zh: 自天城天台北上，经雪谷、马斯林山和平区、西坪，穿过群峰训练管理区到星港，冬季常因大雪封闭
+      en: North from Sky Terrace in Skytown through Snow Valley, Peace in Maslin Mountain and West Heath, across the High Peaks Training Area to Starport; often closed by snow in winter.
     emblem: { motif: snowflake, pattern: dots }
     shield: snowflake
-    via: [div_w1ea18, div_0tsyzy, div_nwke3f, div_nvrjpg, div_nytsvb]
+    via: [div_w1ea18, div_0tsyzy, div_nvrjpg, div_nwke3f, div_q5h8zp, div_nytsvb]

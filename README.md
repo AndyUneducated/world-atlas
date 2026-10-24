@@ -50,7 +50,7 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
 - **Names.** BCP 47 keys: `zh`, `en`, `art-x-viking`, `art-x-buckham`.
 - **Hierarchy.** Country → territory (`dependency`) → city (`locality`) → district
   (`borough`), following the Overture Maps division subtypes. Division codes follow the
-  GB/T 2260 pattern (`90` → `9001` → `900101`).
+  six-digit GB/T 2260 pattern (`900000` → `900100` → `900101`).
 - **Routes.** `G-NV-n` national, `S-NV-n` territorial, `X-NV-n` municipal and
   `Y-NV-n` township roads (GB/T 917 numbering, with the territory infix `NV`). A route's
   `via` lists cities or districts; `ring`, `straight` (straight legs, crossing hills and

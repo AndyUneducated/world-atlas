@@ -32,20 +32,43 @@ land:
     - [[[120, 190], [118, 140]], 1.2, 0.8]
 
 terrain:
-  max_elevation_m: 2500
+  max_elevation_m: 4800  # soft ceiling (tanh): the north-east massif tops out near 4500 m
   ridges:
     - { feature: nat_b9bmz2, path: [[150, 128], [144, 98], [150, 66], [162, 38]], height_m: 1900, width_km: 13 }
     - { feature: nat_qsrakx, path: [[212, 112], [236, 116], [258, 112]], height_m: 2100, width_km: 8 }
     - { feature: nat_qsrakx, path: [[212, 112], [208, 82], [214, 56]], height_m: 2200, width_km: 8 }
     - { feature: nat_qsrakx, path: [[214, 56], [240, 50], [262, 56]], height_m: 1900, width_km: 8 }
     - { feature: nat_papy7d, path: [[38, 132], [72, 136], [96, 130]], height_m: 1150, width_km: 9 }
+    # Bergland Hills between Viking Port and Freedom City, like the hills around a bay plain: a
+    # narrow, steep ridge, so the straight G-NV-2 has to tunnel through rather than climb over
+    - { feature: nat_h7v2kd, path: [[51, 65], [46, 72], [41, 80]], height_m: 500, width_km: 1.8 }
+    # North-east high massif on the Maslin Range's northern arm: a crest and three summits above 4000 m
+    # (heights are before the tanh ceiling, which compresses them strongly near max_elevation_m)
+    - { feature: nat_qsrakx, path: [[240, 115], [250, 116.5], [260, 113]], height_m: 2700, width_km: 5 }
+    - { feature: nat_qsrakx, path: [[244.5, 115.5], [245.5, 115.8]], height_m: 3800, width_km: 2.5 }
+    - { feature: nat_qsrakx, path: [[251.5, 116.5], [252.5, 116.6]], height_m: 5200, width_km: 2.5 }
+    - { feature: nat_qsrakx, path: [[258, 113.5], [258.8, 113]], height_m: 1400, width_km: 2.5 }
+    # Iron Knoll on the southern arm, kept distinct from the Beckerle lowland next to it
+    - { feature: nat_qsrakx, path: [[229.6, 50.2], [230.2, 50.6]], height_m: 500, width_km: 2.5 }
   # Plains flatten terrain: [cx, cy, radius_km, strength 0..1]
   plains:
     - [108, 72, 28, 0.75]
     - [265, 82, 10, 0.7]
-  # Valleys: a floor falling from source_m at the first point to the sea at the last.
+    # City-centre lowlands near sea level (Shanghai / bay plain): Viking Port, Freedom City,
+    # the Beckerle free trade zone and New City
+    - [31.9, 63.6, 10, 0.96]   # 瓦尔维克区
+    - [18.4, 87.4, 8, 0.9]     # 海门区
+    - [41.9, 90.1, 9, 0.9]     # 斯坦堡区、奥斯特海姆区
+    - [20.1, 100.9, 8, 0.85]   # 菲尔内斯区
+    - [58.9, 82.6, 10, 0.95]   # 白桦区
+    - [68.9, 64.6, 9, 0.95]    # 沙洲区
+    - [239.5, 46.5, 8, 0.95]   # 贝克勒自由贸易区
+    - [183.1, 58.1, 10, 0.93]  # 青坪区、米特区
+  # Valleys: a floor falling from source_m at the first point to the sea at the last. The floor
+  # only guides the river where it lies below the surrounding land, so source_m stays under the
+  # Erding plain (~120 m); the valley rises north of the New City lowland, which drains south.
   valleys:
-    - { feature: nat_ww491j, path: [[178, 46], [184, 70], [190, 94], [198, 116], [206, 138], [210, 150]], width_km: 16, source_m: 520, strength: 0.85 }
+    - { feature: nat_ww491j, path: [[180, 62], [186, 80], [190, 94], [193, 112], [186, 127], [172, 139]], width_km: 14, source_m: 120, strength: 0.95 }
 
 hydrology:
   river_min_drainage_km2: 25  # design km²
@@ -78,9 +101,9 @@ relief:
   peak_min_elev_m: 700
   peak_min_prominence_m: 150
   pass_min_elev_m: 450     # key saddles of the peaks above this become passes
-  snowline_m: 2000         # on flat ground; north-facing slopes hold ice down to snowline − aspect
+  snowline_m: 2200         # on flat ground; north-facing slopes hold ice down to snowline − aspect
   snowline_aspect_m: 300
-  glacier_max_slope_deg: 38
+  glacier_max_slope_deg: 42
   ice_min_km2: 0.5         # smallest ice field drawn (design km²)
   glacier_min_km2: 4       # smallest ice field listed for naming
 
@@ -124,6 +147,9 @@ streets:
     div_g27nda: { style: planned, mix: { civic: 1.8, industrial: 0.6 } }     # 望星区：科学大道沿线的科研区
     div_fr1vq9: { style: mixed, mix: { civic: 2.5, park: 1.5 } }             # 林道区：大学城
     div_479xae: { style: organic, mix: { houses: 1.5, park: 2.5, industrial: 0.3 } }  # 寒岭区：低密度科研居住与生态缓冲带
+    div_7rk2mh: { style: planned, mix: { slabs: 1.3, towers: 1.2, industrial: 0.4 } }  # 奥斯特海姆区：二十一世纪的东部住宅新城
+    div_b3qw9e: { style: organic, mix: { houses: 2.0, park: 2.5, industrial: 0.2 } }   # 贝格兰区：丘陵上的低密度住宅与森林公园
+    div_s8f4kt: { style: planned, mix: { civic: 2.2, park: 1.4, industrial: 0.5 } }    # 科学城：实验室、大学分校与航天企业
   named:
     - { district: div_16cxr8, axis: 0, line: 0, status: canon, names: { zh: 人民大道, en: People's Avenue, art-x-viking: Volksallee, art-x-buckham: Viale del Popolo } }
     - { district: div_16cxr8, axis: 1, line: 0, status: generated, names: { zh: 自由大道, en: Liberty Avenue, art-x-viking: Freiheitsallee, art-x-buckham: Viale della Libertà } }
@@ -230,6 +256,14 @@ layout:
     div_0tsyzy: [0, -1]      # 雪谷区
     div_qpyn9e: [0.1, 0.7]   # 厄定区
     div_1qm5cj: [-0.1, -0.7] # 旧府区
+    div_7rk2mh: [0.8, 0.6]   # 奥斯特海姆区
+    div_b3qw9e: [0.9, -0.45] # 贝格兰区
+    div_s8f4kt: [0.9, -0.7]  # 科学城
+    div_m2tz6c: [-0.4, 0.45] # 米特区
+    div_f9x3wn: [-0.8, 0.5]  # 保税港区
+    div_q5h8zp: [-0.75, 0.75] # 群峰训练管理区
+    div_4vnc7y: [-0.6, -0.9] # 上厄定改良区
+    div_e2pk5r: [0.9, 0.3]   # 驯鹿原牧区
   boundary_warp_km: 4
   # Port towns: the district centre moves to the coast, next to the mouth of the named river or
   # the named landform (or the nearest stretch of coast), so the town and its harbour meet the sea.
@@ -243,6 +277,7 @@ layout:
     div_e6pc44: nat_7n9nyd   # 卡波区，卡波湾
     div_8p9k5t: nat_3xvtrb   # 镜湾区，镜湾
     div_ts5cw5: nat_xfj32x   # 燕礁区，燕礁湾
+    div_f9x3wn: null         # 保税港区，镜湾外的填海港区
 
 context:
   # Neighbouring land shown only as a rough outline.

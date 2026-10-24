@@ -1,5 +1,6 @@
 # Administrative divisions of the Territory of North Viking Island (CN-NV).
-# id: permanent, never reused or changed. codes.admin: hierarchical code, may change on reorganisation.
+# id: permanent, never reused or changed. codes.admin: 6-digit hierarchical code (GB/T 2260 pattern:
+# territory 900000, city 900100, district 900101); may change on reorganisation.
 # subtype follows Overture Maps divisions: country > dependency/region > locality > borough.
 divisions:
 - id: div_fbfqv9
@@ -20,7 +21,7 @@ divisions:
       alpha3: NVI
       numeric: '901'
     iso3166_2: CN-NV
-    admin: '90'
+    admin: '900000'
   motto:
     zh: 自由，平等，博爱
     en: Liberty, Equality, Fraternity
@@ -38,7 +39,7 @@ divisions:
     art-x-viking: Freistad auf Hea
     art-x-buckham: Frei en Teatu
   codes:
-    admin: '9001'
+    admin: '900100'
     unlocode: NV FRD
   population: 560000
   area_km2: 17680.0
@@ -107,7 +108,7 @@ divisions:
     art-x-viking: Veiling Havn auf Hea
     art-x-buckham: Veiling Porto en Teatu
   codes:
-    admin: '9002'
+    admin: '900200'
     unlocode: NV VKP
   population: 3100000
   area_km2: 12320.0
@@ -129,8 +130,8 @@ divisions:
     art-x-buckham: Baia Balena
   codes:
     admin: '900201'
-  population: 1180000
-  area_km2: 3360.0
+  population: 1020000
+  area_km2: 2600.0
   notes:
     zh: 维京语意为「鲸湾」。旧时捕鲸站所在的海湾，今为最大港区与临港产业带
     en: Viking for "whale bay". Once a whaling station, now the largest port area and port-industry belt.
@@ -145,8 +146,8 @@ divisions:
     art-x-buckham: Capo Faro
   codes:
     admin: '900202'
-  population: 860000
-  area_km2: 3040.0
+  population: 800000
+  area_km2: 2500.0
   notes:
     zh: 维京语意为「烽火岬」。客运码头、邮轮与海关查验区
     en: Viking for "beacon headland". Passenger terminals, cruise piers and customs inspection zone.
@@ -161,8 +162,8 @@ divisions:
     art-x-buckham: Muro Pietra
   codes:
     admin: '900203'
-  population: 680000
-  area_km2: 3280.0
+  population: 580000
+  area_km2: 2200.0
   notes:
     zh: 维京语意为「石堡」。旧城围绕维京时代的石垒形成
     en: Viking for "stone fort". The old town grew around a Viking-age stone rampart.
@@ -178,10 +179,42 @@ divisions:
   codes:
     admin: '900204'
   population: 380000
-  area_km2: 2640.0
+  area_km2: 2200.0
   notes:
     zh: 二十一世纪沿西岸扩展的商务居住带
     en: Business and residential strip developed along the west coast in the 21st century.
+- id: div_7rk2mh
+  subtype: borough
+  parent: div_m41gwn
+  status: generated
+  names:
+    zh: 奥斯特海姆区
+    en: Osterheim District
+    art-x-viking: Osterheim
+    art-x-buckham: "Dimora d'Oriente"
+  codes:
+    admin: '900205'
+  population: 240000
+  area_km2: 1300.0
+  notes:
+    zh: 维京语意为「东家园」。二十一世纪兴建的东部住宅新城，承接瓦尔维克与斯坦堡外溢的人口
+    en: "Viking for \"east home\". A 21st-century residential new town in the east that takes the overflow from Walvik and Steinburg."
+- id: div_b3qw9e
+  subtype: borough
+  parent: div_m41gwn
+  status: generated
+  names:
+    zh: 贝格兰区
+    en: Bergland District
+    art-x-viking: Bergland
+    art-x-buckham: Terra dei Colli
+  codes:
+    admin: '900206'
+  population: 80000
+  area_km2: 1520.0
+  notes:
+    zh: 维京语意为「山地」。维京港与自由市之间的贝格兰丘陵，森林公园与低密度住宅，自维高速以隧道穿山而过
+    en: "Viking for \"hill country\". The Bergland Hills between Viking Port and Freedom City: forest parks and low-density housing, crossed in tunnel by the Freedom–Viking Port Expressway."
 - id: div_0yef9a
   subtype: locality
   parent: div_fbfqv9
@@ -192,7 +225,7 @@ divisions:
     art-x-viking: Nordwest auf Hea
     art-x-buckham: Nordveste en Teatu
   codes:
-    admin: '9003'
+    admin: '900300'
     unlocode: NV NWS
   population: 1980000
   area_km2: 18400.0
@@ -214,7 +247,7 @@ divisions:
     art-x-buckham: Canto Cervo
   codes:
     admin: '900301'
-  population: 860000
+  population: 820000
   area_km2: 4640.0
   notes:
     zh: 取「呦呦鹿鸣」之意。市级机关与广电机构集中区
@@ -230,11 +263,11 @@ divisions:
     art-x-buckham: Guarda Stella
   codes:
     admin: '900302'
-  population: 540000
-  area_km2: 5760.0
+  population: 420000
+  area_km2: 3860.0
   notes:
-    zh: 科学大道沿线，深空太空军北维京研发中心等科研设施所在
-    en: Research facilities along Science Avenue, including the Deep Space Force North Viking R&D Centre.
+    zh: 科学大道沿线，深空太空军北维京研发中心等科研设施所在；东部 2010 年析出设科学城
+    en: Research facilities along Science Avenue, including the Deep Space Force North Viking R&D Centre. Its eastern part became Science City in 2010.
 - id: div_fr1vq9
   subtype: borough
   parent: div_0yef9a
@@ -267,6 +300,22 @@ divisions:
   notes:
     zh: 低密度科研居住与生态缓冲带
     en: Low-density research housing and ecological buffer zone.
+- id: div_s8f4kt
+  subtype: borough
+  parent: div_0yef9a
+  status: generated
+  names:
+    zh: 科学城
+    en: Science City
+    art-x-viking: Wissenschaftsstadt
+    art-x-buckham: Città della Scienza
+  codes:
+    admin: '900305'
+  population: 160000
+  area_km2: 1900.0
+  notes:
+    zh: 科学大道向东延伸形成的科研新城，聚集国家实验室、大学分校与航天企业；2010 年自望星区析出
+    en: "Research new town grown along the eastern extension of Science Avenue: national laboratories, university campuses and space companies. Split from Stargaze District in 2010."
 - id: div_yjghe9
   subtype: locality
   parent: div_fbfqv9
@@ -277,7 +326,7 @@ divisions:
     art-x-viking: Lekor auf Hea
     art-x-buckham: Lekor en Teatu
   codes:
-    admin: '9004'
+    admin: '900400'
     unlocode: NV LKR
   population: 960000
   area_km2: 12472.0
@@ -346,7 +395,7 @@ divisions:
     art-x-viking: Oxino auf Hea
     art-x-buckham: Oxino en Teatu
   codes:
-    admin: '9005'
+    admin: '900500'
     unlocode: NV OXN
   population: 880000
   area_km2: 7520.0
@@ -399,7 +448,7 @@ divisions:
     art-x-viking: Lorondberg auf Hea
     art-x-buckham: Lorond Tehee en Teatu
   codes:
-    admin: '9006'
+    admin: '900600'
     unlocode: NV LRD
   population: 450000
   area_km2: 24000.0
@@ -468,7 +517,7 @@ divisions:
     art-x-viking: Neustad auf Hea
     art-x-buckham: Neu Teatu en Teatu
   codes:
-    admin: '9007'
+    admin: '900700'
     unlocode: NV NEW
   population: 1890000
   area_km2: 12000.0
@@ -490,11 +539,11 @@ divisions:
     art-x-buckham: Prato Verde
   codes:
     admin: '900701'
-  population: 720000
-  area_km2: 4160.0
+  population: 480000
+  area_km2: 3360.0
   notes:
-    zh: 建在原来的青草坪地上。高层住宅、商业与轨道交通枢纽
-    en: Built on former green meadows. High-rise housing, commerce and the rail transit hub.
+    zh: 建在原来的青草坪地上。高层住宅、商业与轨道交通枢纽；北部 2000 年代析出设米特区
+    en: Built on former green meadows. High-rise housing, commerce and the rail transit hub. Its northern part became Mitte District in the 2000s.
 - id: div_s1qwxh
   subtype: borough
   parent: div_k4s990
@@ -527,6 +576,22 @@ divisions:
   notes:
     zh: 面向萨科勒方向的快速路与公交走廊
     en: Expressway and bus corridor towards Sakole.
+- id: div_m2tz6c
+  subtype: borough
+  parent: div_k4s990
+  status: generated
+  names:
+    zh: 米特区
+    en: Mitte District
+    art-x-viking: Mitte
+    art-x-buckham: Centro
+  codes:
+    admin: '900704'
+  population: 240000
+  area_km2: 800.0
+  notes:
+    zh: 维京语意为「中心」。2000 年代自青坪区析出的新市中心，市政府、会展中心与商务区所在
+    en: "Viking for \"centre\". The new city centre split from Greenmead District in the 2000s, home to the city government, the exhibition centre and the business district."
 - id: div_ygk521
   subtype: locality
   parent: div_fbfqv9
@@ -537,7 +602,7 @@ divisions:
     art-x-viking: Himmelstad auf Hea
     art-x-buckham: Cielo en Teatu
   codes:
-    admin: '9008'
+    admin: '900800'
     unlocode: NV SKY
   population: 780000
   area_km2: 7600.0
@@ -606,7 +671,7 @@ divisions:
     art-x-viking: Sakole auf Hea
     art-x-buckham: Sakole en Teatu
   codes:
-    admin: '9009'
+    admin: '900900'
     unlocode: NV SKL
   population: 900000
   area_km2: 6000.0
@@ -675,7 +740,7 @@ divisions:
     art-x-viking: Beckerle Frei auf Hea
     art-x-buckham: Beckerle Libre en Teatu
   codes:
-    admin: '9010'
+    admin: '901000'
     unlocode: NV BKL
   population: 950000
   area_km2: 992.0
@@ -714,8 +779,8 @@ divisions:
     art-x-buckham: Baia Specchio
   codes:
     admin: '901002'
-  population: 410000
-  area_km2: 416.0
+  population: 330000
+  area_km2: 306.0
   notes:
     zh: 湾内水面平静如镜。离岸金融、结算与总部经济
     en: A sheltered bay as still as a mirror. Offshore finance, clearing and headquarters economy.
@@ -735,6 +800,22 @@ divisions:
   notes:
     zh: 包括东南离岛与海燕栖息的礁群。保税仓储与加工贸易
     en: Includes the south-eastern islet and the reefs where petrels nest. Bonded warehousing and processing trade.
+- id: div_f9x3wn
+  subtype: borough
+  parent: div_k4hg7b
+  status: generated
+  names:
+    zh: 保税港区
+    en: Bonded Port Zone
+    art-x-viking: Freihafen
+    art-x-buckham: Porto Franco
+  codes:
+    admin: '901004'
+  population: 80000
+  area_km2: 110.0
+  notes:
+    zh: 镜湾外填海建成的保税港区：集装箱码头、保税仓储与转口加工，货物进出不征关税
+    en: "Bonded port on land reclaimed outside Mirror Bay: container terminals, bonded warehouses and re-export processing, with no customs duty on goods passing through."
 - id: div_rdypg7
   subtype: locality
   parent: div_fbfqv9
@@ -745,7 +826,7 @@ divisions:
     art-x-viking: Maslinberg auf Hea
     art-x-buckham: Maslin Tehee en Teatu
   codes:
-    admin: '9011'
+    admin: '901100'
     unlocode: NV MSL
   population: 90000
   area_km2: 27000.0
@@ -767,8 +848,8 @@ divisions:
     art-x-buckham: Pace
   codes:
     admin: '901101'
-  population: 21000
-  area_km2: 4858.1
+  population: 20600
+  area_km2: 4300.0
   notes:
     zh: 领地维和部队指挥部驻地
     en: Headquarters of the Territorial Peacekeeping Force.
@@ -783,8 +864,8 @@ divisions:
     art-x-buckham: Porto Stella
   codes:
     admin: '901102'
-  population: 18000
-  area_km2: 5699.0
+  population: 17600
+  area_km2: 4300.0
   notes:
     zh: 深空太空军马斯林山指挥中心
     en: Deep Space Force Maslin Mountain Command Centre.
@@ -800,7 +881,7 @@ divisions:
   codes:
     admin: '901103'
   population: 15000
-  area_km2: 5418.7
+  area_km2: 4700.0
   notes:
     zh: 深空太空军士官学校
     en: Deep Space Force NCO Academy.
@@ -815,8 +896,8 @@ divisions:
     art-x-buckham: Pianoro Ovest
   codes:
     admin: '901104'
-  population: 19000
-  area_km2: 5979.2
+  population: 18600
+  area_km2: 4200.0
   notes:
     zh: 维京-马斯林山发射与降落中心
     en: Viking–Maslin Mountain Launch and Landing Centre.
@@ -832,10 +913,26 @@ divisions:
   codes:
     admin: '901105'
   population: 17000
-  area_km2: 5045.0
+  area_km2: 3300.0
   notes:
     zh: 终年积雪的高山谷地。解放军马斯林山联合训练基地
     en: A high valley under snow most of the year. PLA Maslin Mountain Joint Training Base.
+- id: div_q5h8zp
+  subtype: borough
+  parent: div_rdypg7
+  status: generated
+  names:
+    zh: 群峰训练管理区
+    en: High Peaks Training Area
+    art-x-viking: Gipfelübungsplatz
+    art-x-buckham: Poligono delle Vette
+  codes:
+    admin: '901106'
+  population: 1200
+  area_km2: 6200.0
+  notes:
+    zh: 马斯林山脉北翼与西翼之间的军事训练区，由领地与驻军共管，常住人口只有驻地职工和家属，每平方公里不到 0.2 人
+    en: Military training area between the northern and western arms of the Maslin Range, run jointly by the territory and the garrison. Only base staff and their families live here, fewer than 0.2 people per km².
 - id: div_8emjne
   subtype: locality
   parent: div_fbfqv9
@@ -846,7 +943,7 @@ divisions:
     art-x-viking: Erding Fluß auf Hea
     art-x-buckham: Erding Rivo en Teatu
   codes:
-    admin: '9012'
+    admin: '901200'
     unlocode: NV ERD
   population: 30000
   area_km2: 32000.0
@@ -868,8 +965,8 @@ divisions:
     art-x-buckham: Erding
   codes:
     admin: '901201'
-  population: 18000
-  area_km2: 18696.6
+  population: 15000
+  area_km2: 8500.0
   notes:
     zh: 厄定河沿岸农业与小型集镇
     en: Farming and small towns along the Erding River.
@@ -884,8 +981,40 @@ divisions:
     art-x-buckham: Palazzo Vecchio
   codes:
     admin: '901202'
-  population: 12000
-  area_km2: 13303.4
+  population: 9500
+  area_km2: 6500.0
   notes:
     zh: 马斯林山拆市前的机关旧址与博物馆
     en: Former government seat of Maslin Mountain City before the split, now museums.
+- id: div_4vnc7y
+  subtype: borough
+  parent: div_8emjne
+  status: generated
+  names:
+    zh: 上厄定改良区
+    en: Upper Erding Improvement District
+    art-x-viking: Obererding
+    art-x-buckham: Alto Erding
+  codes:
+    admin: '901203'
+  population: 2400
+  area_km2: 9000.0
+  notes:
+    zh: 厄定河上游的无建制荒野。仿加拿大的 improvement district，不设区议会，道路、消防与学校由领地直接提供
+    en: Unincorporated wilderness on the upper Erding. Like a Canadian improvement district it has no district council; roads, fire service and schools are provided directly by the territory.
+- id: div_e2pk5r
+  subtype: borough
+  parent: div_8emjne
+  status: generated
+  names:
+    zh: 驯鹿原牧区
+    en: Reindeer Range Pastoral District
+    art-x-viking: Rentierweide
+    art-x-buckham: Pascoli delle Renne
+  codes:
+    admin: '901204'
+  population: 3100
+  area_km2: 8000.0
+  notes:
+    zh: 厄定河东岸高原上的驯鹿冬季牧场，牧民随季节迁徙，常住人口每平方公里不到 0.4 人
+    en: Winter reindeer pastures on the plateau east of the Erding; herders move with the seasons, and fewer than 0.4 people per km² live here year-round.

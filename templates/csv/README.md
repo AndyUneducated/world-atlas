@@ -31,7 +31,7 @@ npm run data                                    # 重新生成地图
 | 中文名、英文名 | name_zh、name_en | 新建必填 |
 | 维京语名、巴克汉姆语名 | name_viking、name_buckham | |
 | 中文简称、英文简称 | short_zh、short_en | |
-| 区划代码 | admin_code | 留空时按上级代码自动编下一个 |
+| 区划代码 | admin_code | 6 位数字：领地 `900000`、市 `900100`、区 `900101`。留空时按上级代码自动编下一个 |
 | 人口、面积 | population、area_km2 | 面积为实际 km²；各区之和须等于所属市 |
 | 主色 | color | `#RRGGBB`，新建市必填 |
 | 徽标图案、徽标底纹 | emblem_motif、emblem_pattern | 可选值见 `src/lib/emblems.tsx` |
