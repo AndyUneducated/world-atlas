@@ -1039,3 +1039,186 @@ places:
     in: div_ts5cw5
     offset_km: [1.2, -0.6]
     site: { layout: complex, size_m: [900, 600] }
+  # ── 奥克西诺市与天城市地标（M16）──
+  - id: bld_ydkbmq
+    subtype: townhall
+    status: generated
+    names:
+      zh: 奥克西诺市人民政府
+      en: Oxino City Government
+      art-x-viking: Stadtregierung Oxino
+      art-x-buckham: Governo Cittadino di Oxino
+    notes:
+      zh: 奥克老镇的市政府，1990 年奥克、西诺两镇合并设市时建成
+      en: The city government in old Ox, built when the towns of Ox and Ino merged into one city in 1990.
+    in: div_rzw76f
+    offset_km: [0.2, 0.2]
+    site: { layout: complex, size_m: [300, 220] }
+  - id: bld_ddaw3h
+    subtype: marketplace
+    status: generated
+    names:
+      zh: 奥克农产品集散中心
+      en: Ox Produce Distribution Centre
+      art-x-viking: Agrarumschlagplatz Ox
+      art-x-buckham: Centro Agroalimentare di Ox
+    notes:
+      zh: 奥克西诺平原的粮食与蔬果在此分拣、冷藏，再运往全岛
+      en: Grain, fruit and vegetables from the Oxino plain are sorted and chilled here before going out across the island.
+    in: div_rzw76f
+    offset_km: [1.6, -0.8]
+    site: { layout: market, size_m: [320, 200] }
+  - id: bld_77y46r
+    subtype: museum
+    status: generated
+    names:
+      zh: 奥克西诺农机博物馆
+      en: Oxino Farm Machinery Museum
+      art-x-viking: Landmaschinenmuseum Oxino
+      art-x-buckham: Museo delle Macchine Agricole di Oxino
+    notes:
+      zh: 从畜力犁到无人驾驶收割机，展出平原机械化农业的历程
+      en: From horse-drawn ploughs to driverless combines, the story of mechanised farming on the plain.
+    in: div_rzw76f
+    offset_km: [-0.8, 0.6]
+    site: { layout: hall, size_m: [200, 120] }
+  - id: poi_qm3z2m
+    subtype: park
+    status: generated
+    names:
+      zh: 牛角湾海滨公园
+      en: Oxhorn Bay Seaside Park
+      art-x-viking: Strandpark Ochsenhornbucht
+      art-x-buckham: Parco al Mare di Baia Corno di Bue
+    notes:
+      zh: 牛角湾岸边的草地与沙滩，夏季是奥克西诺人消暑的去处
+      en: Lawns and a beach on Oxhorn Bay, where Oxino goes to cool off in summer.
+    in: div_rzw76f
+    offset_km: [0.6, -1.6]
+    site: { layout: park, size_m: [800, 350] }
+  - id: poi_3s7f2z
+    subtype: plaza
+    status: generated
+    names:
+      zh: 两镇广场
+      en: Twin Towns Square
+      art-x-viking: Zweistädteplatz
+      art-x-buckham: Piazza delle Due Città
+    notes:
+      zh: 纪念 1990 年奥克与西诺两镇合并设市的广场，市名由两镇名合成
+      en: Marks the 1990 merger of Ox and Ino into one city, whose name joins the two.
+    in: div_mpfctv
+    offset_km: [0.3, 0.3]
+    site: { layout: plaza, size_m: [240, 180] }
+  - id: poi_qj4vze
+    subtype: college
+    status: generated
+    names:
+      zh: 奥克西诺农业学院
+      en: Oxino Agricultural College
+      art-x-viking: Landwirtschaftliche Hochschule Oxino
+      art-x-buckham: Istituto Agrario di Oxino
+    notes:
+      zh: 农学、农机与食品加工的学院，试验田一直延伸到城外
+      en: A college of agronomy, farm machinery and food processing, with trial fields reaching out of town.
+    in: div_mpfctv
+    offset_km: [1.2, 0.8]
+    site: { layout: campus, size_m: [700, 500] }
+  - id: bld_bj9ny3
+    subtype: townhall
+    status: generated
+    names:
+      zh: 天城市人民政府
+      en: Skytown City Government
+      art-x-viking: Stadtregierung Himmelstad
+      art-x-buckham: Governo Cittadino di Cielo
+    notes:
+      zh: 天台区阶地上的市政府
+      en: The city government on the terraces of Sky Terrace District.
+    in: div_w1ea18
+    offset_km: [0.2, 0.2]
+    site: { layout: complex, size_m: [300, 220] }
+  - id: bld_1av471
+    subtype: exhibition_centre
+    status: generated
+    names:
+      zh: 天台国际会议中心
+      en: Sky Terrace International Convention Centre
+      art-x-viking: Internationales Kongresszentrum Himmelterrasse
+      art-x-buckham: Centro Congressi Internazionale di Terrazza Cielo
+    notes:
+      zh: 度假集群中心的会议中心，领地的年度论坛与大型会议多在此举行
+      en: The convention centre at the heart of the resort cluster, where the territory holds its annual forum and most large conferences.
+    in: div_w1ea18
+    offset_km: [1.2, -0.6]
+    site: { layout: hall, size_m: [420, 260] }
+  - id: poi_vybdrp
+    subtype: theme_park
+    status: generated
+    names:
+      zh: 银滩主题乐园
+      en: Silver Beach Theme Park
+      art-x-viking: Freizeitpark Silberstrand
+      art-x-buckham: Parco Divertimenti di Spiaggia Argento
+    notes:
+      zh: 全岛最大的主题乐园，有过山车、海洋馆和夏夜烟火
+      en: The island's largest theme park, with roller coasters, an aquarium and summer-night fireworks.
+    in: div_f5s7ax
+    offset_km: [1.0, 0.8]
+    site: { layout: park, size_m: [900, 700] }
+  - id: poi_y3d08p
+    subtype: hotel
+    status: generated
+    names:
+      zh: 银滩大酒店
+      en: Silver Beach Grand Hotel
+      art-x-viking: Grandhotel Silberstrand
+      art-x-buckham: Grand Hotel Spiaggia Argento
+    notes:
+      zh: 海滩边的高层度假酒店，银滩酒店群中最早的一座
+      en: A high-rise resort hotel on the sand, the first of the Silver Beach hotels.
+    in: div_f5s7ax
+    offset_km: [0.4, -0.4]
+    site: { layout: tower, size_m: [160, 120] }
+  - id: poi_detmcs
+    subtype: park
+    status: generated
+    names:
+      zh: 银滩海滨公园
+      en: Silver Beach Seafront Park
+      art-x-viking: Strandpark Silberstrand
+      art-x-buckham: Parco Lungomare di Spiaggia Argento
+    notes:
+      zh: 沿细白沙滩的步道、草坪与沙滩排球场
+      en: Promenades, lawns and beach-volleyball courts along the fine white sand.
+    in: div_f5s7ax
+    offset_km: [-0.5, -1.2]
+    site: { layout: park, size_m: [1200, 250] }
+  - id: poi_8qs7q4
+    subtype: golf_course
+    status: generated
+    names:
+      zh: 岚山高尔夫球场
+      en: Mist Hill Golf Club
+      art-x-viking: Golfclub Nebelhang
+      art-x-buckham: Golf Club Pendio Nebbia
+    notes:
+      zh: 岚山坡地上的 18 洞球场，俯瞰银滩与大海
+      en: An 18-hole course on the slopes of Mist Hill, looking down over Silver Beach and the sea.
+    in: div_ts88e3
+    offset_km: [1.2, 0.8]
+    site: { layout: park, size_m: [1400, 900] }
+  - id: poi_t5nges
+    subtype: park
+    status: generated
+    names:
+      zh: 岚山森林公园
+      en: Mist Hill Forest Park
+      art-x-viking: Waldpark Nebelhang
+      art-x-buckham: Parco Forestale di Pendio Nebbia
+    notes:
+      zh: 晨雾常绕山腰的森林公园，岚山区以此得名；山溪自此直落银滩
+      en: A forest park whose slopes are often wrapped in morning mist, which gave Mist Hill its name; its stream drops straight down to Silver Beach.
+    in: div_ts88e3
+    offset_km: [-1.0, 0.6]
+    site: { layout: park, size_m: [900, 600] }
