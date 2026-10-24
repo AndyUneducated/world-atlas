@@ -1,0 +1,164 @@
+# Coastal landforms of the Viking Islands: islands, bays, capes and straits.
+# The generator finds them in the coastline (pipeline/atlas/coast.py); each entry names the
+# landform of `detect.kind` nearest to `detect.at_km` (design km, x east, y north).
+# Unnamed landforms are listed in .cache/candidates-div_raat4g.json after a build.
+features:
+  # ── Islands ──────────────────────────────────────────────
+  - id: nat_170rsf
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [132.2, 79.2] }
+    names: { zh: 长船岛, en: Longship Island, art-x-viking: Langskipinsel, art-x-buckham: Isola Navelunga }
+    notes:
+      zh: 群岛最大的岛，狭长如一艘长船，船首朝东北，船尾朝西南。
+      en: The largest of the islands, long and narrow like a longship, its bow to the north-east and its stern to the south-west.
+  - id: nat_2p2v9m
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [198.2, 118.8] }
+    names: { zh: 白帆岛, en: White Sail Island, art-x-viking: Weißsegelinsel, art-x-buckham: Isola Velabianca }
+    notes:
+      zh: 群岛东北端的大岛，远望山岭如一面白帆。
+      en: The large island at the north-east end of the chain; from afar its ridge looks like a white sail.
+  - id: nat_9ajbb1
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [51.2, 35.2] }
+    names: { zh: 暖泉岛, en: Warmspring Island, art-x-viking: Warmquellinsel, art-x-buckham: Isola Fontecalda }
+    notes:
+      zh: 群岛西南端的圆形火山岛，岛心是暖泉火山。
+      en: The round volcanic island at the south-west end of the chain, with Warmspring Volcano at its heart.
+  - id: nat_43xwsq
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [56.2, 90.2] }
+    names: { zh: 鲸岛, en: Whale Isle, art-x-viking: Walinsel, art-x-buckham: Isola Balena }
+    notes:
+      zh: 外屿最大的岛，夏季座头鲸在岛外洄游。
+      en: The largest of the outer isles; humpbacks pass it every summer.
+  - id: nat_nwd97h
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [40.2, 108.2] }
+    names: { zh: 鸟崖岛, en: Bird Cliff Isle, art-x-viking: Vogelklippeninsel, art-x-buckham: Isola Scogliera Uccelli }
+    notes:
+      zh: 四周是海鸟筑巢的悬崖，岛北设海鸟保护区。
+      en: Ringed by cliffs where seabirds nest, with a seabird reserve in the north.
+  - id: nat_d329td
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [103.8, 38.2] }
+    names: { zh: 守望岛, en: Watch Isle, art-x-viking: Wachtinsel, art-x-buckham: Isola della Vedetta }
+    notes:
+      zh: 长船港外的小岛，维京时代在岛顶点烽火，预警来船。
+      en: Small island off Longship harbour; in the Viking age a beacon on its top warned of approaching ships.
+  - id: nat_37jgdq
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [166.8, 105.2] }
+    names: { zh: 中流岛, en: Midway Isle, art-x-viking: Mittelinsel, art-x-buckham: Isola di Mezzo }
+    notes:
+      zh: 长船岛与白帆岛之间的小岛，群岛跨海高速在岛上落脚。
+      en: Small island between Longship and White Sail islands, where the Island Chain Expressway touches down.
+  - id: nat_myqvrf
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [24.2, 123.8] }
+    names: { zh: 孤礁岛, en: Lone Skerry, art-x-viking: Einsamer Schären, art-x-buckham: Scoglio Solitario }
+    notes:
+      zh: 群岛最西北的无人小岛。
+      en: The uninhabited islet at the far north-west of the chain.
+
+  # ── Bays ─────────────────────────────────────────────────
+  - id: nat_zgv4r2
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [118.2, 49.8] }
+    names: { zh: 长船湾, en: Longship Bay, art-x-viking: Langskipbucht, art-x-buckham: Baia Navelunga }
+    notes:
+      zh: 古城区南岸的海湾，维京长船曾在此停泊，湾畔是长船古城。
+      en: Bay on the south shore of Old Town where the Viking longships once lay; the old town of Longship stands on its shore.
+  - id: nat_1abejp
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [106.2, 43.8] }
+    names: { zh: 守望湾, en: Watch Bay, art-x-viking: Wachtbucht, art-x-buckham: Baia della Vedetta }
+    notes:
+      zh: 长船岛南岸与守望岛之间的海湾。
+      en: Bay between the south coast of Longship Island and Watch Isle.
+  - id: nat_h3knsp
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [155.8, 86.2] }
+    names: { zh: 汇金湾, en: Goldmark Bay, art-x-viking: Goldmarkbucht, art-x-buckham: Baia Marcoro }
+    notes:
+      zh: 汇金区玻璃塔楼环抱的小海湾。
+      en: Small bay ringed by the glass towers of Goldmark.
+  - id: nat_dw7pxt
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [172.2, 105.2] }
+    names: { zh: 帆港湾, en: Sail Harbour Bay, art-x-viking: Segelhafenbucht, art-x-buckham: Baia Porto Vela }
+    notes:
+      zh: 白帆岛西南的海湾，邮轮母港在湾内。
+      en: Bay at the south-west of White Sail Island, home of the cruise port.
+  - id: nat_ht8qd3
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [212.2, 115.2] }
+    names: { zh: 灯塔湾, en: Lighthouse Bay, art-x-viking: Leuchtturmbucht, art-x-buckham: Baia del Faro }
+    notes:
+      zh: 灯塔区南岸的海湾。
+      en: Bay on the south shore of Lighthouse District.
+
+  # ── Capes ────────────────────────────────────────────────
+  - id: nat_m5r3gc
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [80.8, 50.2] }
+    names: { zh: 船尾岬, en: Stern Point, art-x-viking: Heckspitze, art-x-buckham: Punta di Poppa }
+    notes:
+      zh: 长船岛的西南端，即"船尾"，隔暖泉海峡与暖泉岛相望。
+      en: The south-west tip of Longship Island, its "stern", facing Warmspring Island across Warmspring Strait.
+  - id: nat_x8bkdv
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [68.2, 48.8] }
+    names: { zh: 温泉岬, en: Hot Springs Point, art-x-viking: Thermenspitze, art-x-buckham: Punta delle Terme }
+    notes:
+      zh: 暖泉岛东北端，群岛跨海高速由此上岛。
+      en: The north-east tip of Warmspring Island, where the Island Chain Expressway comes ashore.
+  - id: nat_3r1gvb
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [149.2, 69.8] }
+    names: { zh: 金角, en: Gold Point, art-x-viking: Goldspitze, art-x-buckham: Punta d'Oro }
+    notes:
+      zh: 汇金区南端的岬角。
+      en: Headland at the southern end of Goldmark.
+
+  # ── Straits ──────────────────────────────────────────────
+  - id: nat_qcp61q
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [74.5, 49.5] }
+    names: { zh: 暖泉海峡, en: Warmspring Strait, art-x-viking: Warmquellstraße, art-x-buckham: Stretto di Fontecalda }
+    notes:
+      zh: 暖泉岛与长船岛之间的海峡，群岛跨海高速以长桥跨越。
+      en: The strait between Warmspring and Longship islands, crossed by a long bridge of the Island Chain Expressway.
+  - id: nat_5h94f5
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [174.5, 104.2] }
+    names: { zh: 白帆海峡, en: White Sail Strait, art-x-viking: Weißsegelstraße, art-x-buckham: Stretto di Velabianca }
+    notes:
+      zh: 中流岛与白帆岛之间的海峡，邮轮经此进出帆港湾。
+      en: The strait between Midway Isle and White Sail Island, the cruise ships' way in and out of Sail Harbour Bay.
+  - id: nat_pf80ey
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [102.5, 42.5] }
+    names: { zh: 守望水道, en: Watch Sound, art-x-viking: Wachtsund, art-x-buckham: Canale della Vedetta }
+    notes:
+      zh: 守望岛与长船岛之间的水道，进出长船港的航道。
+      en: The channel between Watch Isle and Longship Island, the fairway into Longship harbour.

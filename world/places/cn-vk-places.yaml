@@ -1,0 +1,235 @@
+# Named places (buildings, landmarks, facilities) of the Viking Islands.
+# Same conventions as cn-nv-places.yaml.
+places:
+  # ── 长船市 ──
+  - id: bld_jsrk65
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政府
+      en: Government of the Territory of the Viking Islands
+      art-x-viking: Regierung von Veiling Ysear
+      art-x-buckham: Governo di Etei Viking
+    notes:
+      zh: 领地议会与政府所在的石砌楼群，在长船古城中心
+      en: The stone buildings of the territorial parliament and government, in the middle of Longship's old town.
+    in: div_g2g1yc
+    offset_km: [0.3, 0.4]
+    marker: emblem
+    emblem_of: div_raat4g
+    site: { layout: complex, size_m: [260, 180] }
+  - id: poi_297zsp
+    subtype: castle
+    status: generated
+    names:
+      zh: 维京王厅遗址
+      en: Viking Hall Ruins
+      art-x-viking: Ruinen der Königshalle
+      art-x-buckham: Rovine della Sala del Re
+    notes:
+      zh: 维京时代群岛首领的长厅遗址，古城就在它周围形成
+      en: The ruins of the long hall of the islands' Viking-age chieftains; the old town grew up around it.
+    in: div_g2g1yc
+    offset_km: [-0.5, 0.2]
+    site: { layout: park, size_m: [260, 200] }
+  - id: bld_gxv1c9
+    subtype: museum
+    status: generated
+    names:
+      zh: 长船博物馆
+      en: Longship Museum
+      art-x-viking: Langskipmuseum
+      art-x-buckham: Museo della Nave Lunga
+    notes:
+      zh: 陈列从港湾泥滩中发掘的三艘维京长船
+      en: Displays three Viking longships raised from the mud of the harbour.
+    in: div_g2g1yc
+    offset_km: [0.6, -0.4]
+    site: { layout: hall, size_m: [200, 120] }
+  - id: bld_1cr259
+    subtype: office
+    status: generated
+    names:
+      zh: 汇金证券交易所
+      en: Goldmark Stock Exchange
+      art-x-viking: Börse Goldmark
+      art-x-buckham: Borsa di Marcoro
+    notes:
+      zh: 群岛离岸金融的中心，汇金大道上的交易大厅
+      en: The centre of the islands' offshore finance, a trading hall on Goldmark Avenue.
+    in: div_jzqknb
+    offset_km: [-0.4, 0.3]
+    site: { layout: hall, size_m: [220, 150] }
+  - id: bld_kqvbk1
+    subtype: tower
+    status: generated
+    names:
+      zh: 群岛银行大厦
+      en: Islands Bank Tower
+      art-x-viking: Inselbankturm
+      art-x-buckham: Torre della Banca delle Isole
+    notes:
+      zh: 汇金区天际线上最高的塔楼，群岛银行总部
+      en: The tallest tower on the Goldmark skyline, headquarters of the Islands Bank.
+    in: div_jzqknb
+    offset_km: [0.5, -0.3]
+    site: { layout: tower, size_m: [110, 110] }
+  - id: poi_p2ynaf
+    subtype: university
+    status: generated
+    names:
+      zh: 群岛大学
+      en: University of the Islands
+      art-x-viking: Universität der Inseln
+      art-x-buckham: Università delle Isole
+    notes:
+      zh: 领地唯一的大学，以海洋学、旅游管理与金融法见长
+      en: The territory's only university, known for oceanography, tourism management and financial law.
+    in: div_xps98r
+    offset_km: [0.6, 0.5]
+    site: { layout: campus, size_m: [700, 450] }
+  - id: poi_jk9zca
+    subtype: airport
+    status: generated
+    names:
+      zh: 长船国际机场
+      en: Longship International Airport
+      art-x-viking: Internationaler Flughafen Langskip
+      art-x-buckham: Aeroporto Internazionale di Navelunga
+    notes:
+      zh: 群岛唯一的机场，跑道顺着长船岛的走向
+      en: The islands' only airport, its runway along the length of Longship Island.
+    in: div_xps98r
+    offset_km: [-3, -2]
+    site: { size_m: [3200, 1100], layout: airport, angle_deg: 32 }
+
+  # ── 白帆市 ──
+  - id: poi_yvdm1z
+    subtype: port
+    status: generated
+    names:
+      zh: 白帆邮轮母港
+      en: White Sail Cruise Port
+      art-x-viking: Kreuzfahrthafen Weißsegel
+      art-x-buckham: Porto Crociere di Velabianca
+    notes:
+      zh: 群岛的邮轮母港，夏季每天有多艘邮轮同时靠泊
+      en: The islands' cruise home port; in summer several ships berth at once every day.
+    in: div_tkvfsx
+    site: { size_m: [1400, 500], layout: port }
+  - id: bld_43g6sp
+    subtype: marketplace
+    status: generated
+    names:
+      zh: 白帆免税城
+      en: White Sail Duty-Free Mall
+      art-x-viking: Zollfreie Stadt Weißsegel
+      art-x-buckham: Città Duty Free di Velabianca
+    notes:
+      zh: 邮轮码头旁的免税购物城，离港旅客的必经之地
+      en: The duty-free shopping town beside the cruise piers, on every departing passenger's way.
+    in: div_tkvfsx
+    offset_km: [0.4, 0.5]
+    site: { layout: market, size_m: [320, 180] }
+  - id: bld_tb1eh5
+    subtype: tower
+    status: generated
+    names:
+      zh: 白帆灯塔
+      en: White Sail Lighthouse
+      art-x-viking: Leuchtturm Weißsegel
+      art-x-buckham: Faro di Velabianca
+    notes:
+      zh: 群岛最古老的灯塔，灯塔区由此得名
+      en: The oldest lighthouse in the islands, which gave the Lighthouse District its name.
+    in: div_8a2hzm
+    offset_km: [0.4, 0.3]
+    site: { layout: tower, size_m: [40, 40] }
+
+  # ── 暖泉市 ──
+  - id: poi_v2pw1f
+    subtype: hotel
+    status: generated
+    names:
+      zh: 暖泉温泉度假村
+      en: Warmspring Spa Resort
+      art-x-viking: Thermalresort Warmquell
+      art-x-buckham: Resort Termale di Fontecalda
+    notes:
+      zh: 火山脚下的露天温泉池与酒店，冬夜可在极光下泡温泉
+      en: Open-air hot pools and a hotel at the foot of the volcano; on winter nights guests bathe under the aurora.
+    in: div_cz7sch
+    offset_km: [0.4, 0.4]
+    site: { layout: park, size_m: [600, 400] }
+  - id: poi_pz8sfs
+    subtype: industrial_park
+    status: generated
+    names:
+      zh: 黑沙地热电站
+      en: Black Sand Geothermal Power Station
+      art-x-viking: Geothermalkraftwerk Schwarzsand
+      art-x-buckham: Centrale Geotermica di Sabbianera
+    notes:
+      zh: 利用火山地热发电，供应全群岛约一半的电力
+      en: Generates power from the volcano's heat, supplying about half of the islands' electricity.
+    in: div_v2tq1k
+    offset_km: [0.8, 0.6]
+    site: { layout: complex, size_m: [500, 300] }
+  - id: poi_4hccr3
+    subtype: park
+    status: generated
+    names:
+      zh: 黑沙滩
+      en: Black Sand Beach
+      art-x-viking: Schwarzer Strand
+      art-x-buckham: Spiaggia Nera
+    notes:
+      zh: 火山熔岩冲刷成的黑色沙滩，黑沙区由此得名
+      en: A black beach of volcanic sand washed from the lava, which gave Black Sand District its name.
+    in: div_v2tq1k
+    offset_km: [-0.5, -0.4]
+    site: { layout: park, size_m: [900, 250] }
+
+  # ── 外屿市 ──
+  - id: poi_5w25ae
+    subtype: ferry_terminal
+    status: generated
+    names:
+      zh: 鲸岛渡轮码头
+      en: Whale Isle Ferry Terminal
+      art-x-viking: Fährterminal Walinsel
+      art-x-buckham: Terminal Traghetti di Isola Balena
+    notes:
+      zh: 往返长船古城的渡轮与观鲸船在此停靠
+      en: Ferries to Longship's old town and the whale-watching boats call here.
+    in: div_khmgcq
+    offset_km: [0.1, -1.39]
+    site: { size_m: [600, 300], layout: port, angle_deg: 270 }
+  - id: bld_may0w4
+    subtype: museum
+    status: generated
+    names:
+      zh: 鲸岛观鲸中心
+      en: Whale Isle Whale Centre
+      art-x-viking: Walzentrum Walinsel
+      art-x-buckham: Centro Balene di Isola Balena
+    notes:
+      zh: 座头鲸研究站与展馆，夏季观鲸船从这里出发
+      en: A humpback research station and exhibition; the summer whale-watching boats leave from here.
+    in: div_khmgcq
+    offset_km: [0.3, 0.3]
+    site: { layout: hall, size_m: [140, 90] }
+  - id: poi_jv4zc1
+    subtype: park
+    status: generated
+    names:
+      zh: 鸟崖海鸟保护区
+      en: Bird Cliff Seabird Reserve
+      art-x-viking: Seevogelschutzgebiet Vogelklippe
+      art-x-buckham: Riserva degli Uccelli Marini di Scogliera Uccelli
+    notes:
+      zh: 海鹦与三趾鸥在崖壁上筑巢的自然保护区
+      en: A nature reserve where puffins and kittiwakes nest on the cliffs.
+    in: div_5p2a2d
+    offset_km: [0.6, 0.5]
+    site: { layout: park, size_m: [800, 600] }

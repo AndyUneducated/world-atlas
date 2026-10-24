@@ -1,0 +1,75 @@
+# Road routes of the Viking Islands. Same conventions as cn-nv-roads.yaml, with the
+# territory infix VK:
+#   G-VK-1..99    national expressway    (class motorway)
+#   S-VK-101..    territorial highway    (class primary)
+#   X-VK-001..    municipal road         (class secondary, derived)
+routes:
+  - id: rte_6mvf59
+    ref: G-VK-1
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 群岛跨海高速
+      en: Island Chain Expressway
+      art-x-viking: Inselkettenautobahn
+      art-x-buckham: Autostrada delle Isole
+    notes:
+      zh: 自暖泉经长船到白帆，一条直线串起三座主岛，海峡上架桥、遇山开隧道
+      en: From Warmspring through Longship to White Sail, one straight line linking the three main islands, bridging the straits and tunnelling through the hills.
+    straight: true
+    via: [div_qjzmw5, div_3cvg2q, div_x22naa]
+
+  # 省道 (territorial highways, class primary): every district centre lies on one.
+  - id: rte_cx8xa1
+    ref: S-VK-101
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 长船环岛公路
+      en: Longship Island Road
+    notes:
+      zh: 自古城区经汇金区到北岸的北岬区，串起长船岛的三个区
+      en: From Old Town through Goldmark to North Cape on the north shore, linking the three districts of Longship Island.
+    shield: peaks
+    via: [div_g2g1yc, div_jzqknb, div_xps98r]
+  - id: rte_15zjhp
+    ref: S-VK-102
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 白帆灯塔公路
+      en: White Sail Lighthouse Road
+    notes:
+      zh: 从邮轮港所在的帆港区通往东北端的灯塔区
+      en: From the cruise port in Sail Harbour to the Lighthouse District at the north-east tip.
+    shield: lighthouse
+    via: [div_tkvfsx, div_8a2hzm]
+  - id: rte_8jm50e
+    ref: S-VK-103
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 暖泉环山公路
+      en: Warmspring Volcano Road
+    notes:
+      zh: 绕过暖泉火山山麓，连接温泉区与黑沙区
+      en: Round the foot of Warmspring Volcano, linking Hot Springs and Black Sand.
+    shield: sunrise
+    via: [div_cz7sch, div_v2tq1k]
+  - id: rte_f4nr9s
+    ref: S-VK-104
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 外屿跨海公路
+      en: Outer Isles Causeway
+    notes:
+      zh: 以一座跨海桥连接鲸岛与鸟崖岛，是外屿两岛之间唯一的陆路
+      en: Joins Whale Isle and Bird Cliff Isle over a sea bridge, the only land link between the two outer isles.
+    shield: swallow
+    via: [div_khmgcq, div_5p2a2d]

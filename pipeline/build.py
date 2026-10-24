@@ -26,7 +26,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from atlas import buildings, coast, engineering, landcover, relief, streets  # noqa: E402
 from atlas.cache import CACHE_DIR, stage  # noqa: E402
-from atlas.dem_tiles import write_dem_tiles  # noqa: E402
+from atlas.dem_tiles import fill_sea_tiles, write_dem_tiles  # noqa: E402
 from atlas.divisions import partition, pole_of_inaccessibility  # noqa: E402
 from atlas.grid import Frame, Grid, block_reduce, chaikin, line_length_km, polyline_distance  # noqa: E402
 from atlas.hydro import Drainage  # noqa: E402
@@ -243,11 +243,11 @@ def detect_landforms(world: World, spec: dict, drain: Drainage, land_c: np.ndarr
     """
     cp, hp = spec.get("coast", {}), spec["hydrology"]
     args = (land_c, gc.xs, gc.ys, gc.res)
-    island_min = cp.get("island_min_km2", 0.8)
-    cands = (coast.islands(*args, island_min)
+    island_min, mainland = cp.get("island_min_km2", 0.8), cp.get("mainland", True)
+    cands = (coast.islands(*args, island_min, mainland)
              + coast.bays(*args, cp.get("bay_close_km", 5), cp.get("bay_min_km2", 15))
-             + coast.capes(*args, cp.get("cape_open_km", 2.5), cp.get("cape_min_prominence_km", 2.5))
-             + coast.straits(*args, cp.get("strait_max_gap_km", 4), island_min)
+             + coast.capes(*args, cp.get("cape_open_km", 2.5), cp.get("cape_min_prominence_km", 2.5), mainland)
+             + coast.straits(*args, cp.get("strait_max_gap_km", 4), island_min, mainland)
              + extra)
     landf = land_c.ravel()
 
@@ -266,7 +266,7 @@ def detect_landforms(world: World, spec: dict, drain: Drainage, land_c: np.ndarr
             length = line_length_km(np.column_stack([gc.xs[cx], gc.ys[cy]]))
             cands.append({"kind": "river", "at": at, "stem": stem, "metrics": {"drainage_km2": acc, "length_km": length}})
 
-    entries = [f for f in world.features.values() if f.get("detect")]
+    entries = [f for f in world.region_features(spec) if f.get("detect")]
     pairs = coast.match(cands, entries, cp.get("match_radius_km", 10))
     matched, rivers = [], []
     for ei, ci in pairs.items():
@@ -319,7 +319,7 @@ def lake_basins(elev, lakes, res, falloff=0.8):
     return out
 
 
-def street_place_stems(world: World, cities: list[dict], skip: str) -> list[dict]:
+def street_place_stems(features: list[dict], cities: list[dict], skip: str) -> list[dict]:
     """Stems for streets named after the territory's other cities and its named landforms."""
     conlangs = ("art-x-viking", "art-x-buckham")
     out = []
@@ -329,7 +329,7 @@ def street_place_stems(world: World, cities: list[dict], skip: str) -> list[dict
         n = c["names"]
         out.append({"zh": n["zh"].removesuffix("市"), "en": n["en"].removesuffix(" City"),
                     **{k: n[k] for k in conlangs if n.get(k)}})
-    for fe in world.features.values():
+    for fe in features:
         if fe["subtype"] in ("bay", "fjord", "peak", "lake", "mountain_range", "island", "cape", "glacier"):
             n = fe["names"]
             out.append({"zh": n["zh"], "en": n["en"], **{k: n[k] for k in conlangs if n.get(k)}})
@@ -422,7 +422,7 @@ def landmark_sites(world, d, core, angle, built, land, seed):
     return out
 
 
-def build_streets(world, sp, frame, seed, cities, districts, district_city, dist_polys, poles, urban, land, lake_polys, river_lines):
+def build_streets(world, sp, features, frame, seed, cities, districts, district_city, dist_polys, poles, urban, land, lake_polys, river_lines):
     """Street networks of the cities listed in the generator's `streets` section.
 
     Returns [(city, [Street] in design km, {district: context in real km}, [landmark site])]."""
@@ -439,7 +439,7 @@ def build_streets(world, sp, frame, seed, cities, districts, district_city, dist
     out = []
     for cid in sp["cities"]:
         ci = next(i for i, c in enumerate(cities) if c["id"] == cid)
-        namer = streets.Namer(ROOT / "world" / "names" / "streets.yaml", street_place_stems(world, cities, cid))
+        namer = streets.Namer(ROOT / "world" / "names" / "streets.yaml", street_place_stems(features, cities, cid))
         city_streets, styles, named, ctx, city_sites = [], {}, {}, {}, []
         for i, d in enumerate(districts):
             if district_city[i] != ci:
@@ -769,6 +769,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     layout = spec["layout"]
 
     territory = world.divisions[spec["territory"]]
+    in_territory = [territory["id"], *world.ancestors(territory["id"])]
     cities = sorted(world.children(territory["id"]), key=lambda d: d["codes"]["admin"])
     districts, district_city = [], []
     for ci, c in enumerate(cities):
@@ -932,7 +933,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         sp = spec["streets"]
         river_lines = [line for _, line, _, _ in named_rivers] + \
                       [line for line, acc in stream_lines if acc >= sp.get("river_gap_min_km2", 60)]
-        street_out = build_streets(world, sp, frame, seed, cities, districts, district_city, dist_polys, poles,
+        street_out = build_streets(world, sp, world.region_features(spec), frame, seed, cities, districts, district_city, dist_polys, poles,
                                    cover_polys.get(landcover.CLASSES.index("urban")), terr_poly, lake_polys, river_lines)
         log("buildings")
         building_out, park_out = build_buildings(street_out, seed)
@@ -977,7 +978,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             path = router.trim_to_network(path)
         router.commit(path, r["class"], ref=r["ref"])
         road_out.append((r, path))
-    feeder_seq = 0
+    feeder_seq, infix = 0, territory["codes"]["iso3166_2"].split("-")[1]
     for i, d in enumerate(districts):
         ci = district_city[i]
         if i == core[ci]:
@@ -991,7 +992,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         a, b = short_name(districts[core[ci]]["names"]), short_name(d["names"])
         rid = derived_id("rte", f"feeder:{d['id']}")
         r = {
-            "id": rid, "ref": f"X-NV-{feeder_seq:03d}", "network": "municipal_road", "class": "secondary",
+            "id": rid, "ref": f"X-{infix}-{feeder_seq:03d}", "network": "municipal_road", "class": "secondary",
             "status": "generated", "via": [districts[core[ci]]["id"], d["id"]],
             "names": {"zh": f"{a['zh']}—{b['zh']}公路", "en": f"{a['en']}–{b['en']} Road"},
         }
@@ -1132,8 +1133,10 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         cxy = poly.representative_point()
         label_features.append(feature(point_lonlat(frame, cxy.x, cxy.y), {
             "id": fid, "kind": "lake", "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"], "rank": 5}))
+        lake_in = next(lk["in"] for lk in spec["hydrology"]["lakes"] if lk["feature"] == fid)
         entities[fid].update({"bbox": bbox_lonlat(geom), "center": list(point_lonlat(frame, cxy.x, cxy.y).coords[0]),
-                              "stats": {"area_km2_mapped": round(frame.km2(poly.area), 1)}})
+                              "stats": {"area_km2_mapped": round(frame.km2(poly.area), 1)},
+                              "ancestors": [lake_in, *world.ancestors(lake_in)]})
 
     named_features = []
     for fe, line, acc, _ in named_rivers:
@@ -1141,7 +1144,8 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         named_features.append(feature(to_lonlat(on_land(line), frame), {"id": fe["id"], "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"]}))
         mid = line.interpolate(0.5, normalized=True)
         entities[fe["id"]].update({"bbox": bbox_lonlat(geom), "center": list(point_lonlat(frame, mid.x, mid.y).coords[0]),
-                                   "stats": {"length_km": round(frame.km(line_length_km(line.coords)), 1), "drainage_km2": round(frame.km2(acc))}})
+                                   "stats": {"length_km": round(frame.km(line_length_km(line.coords)), 1), "drainage_km2": round(frame.km2(acc))},
+                                   "ancestors": in_territory})
 
     ridge_features = []
     by_feature: dict[str, list] = {}
@@ -1160,7 +1164,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         ridge_features.append(feature(geom, {"id": fid, "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"]}))
         cpt = geom_km.interpolate(0.5, normalized=True) if geom_km.geom_type == "LineString" else geom_km.centroid
         entities[fid].update({"bbox": bbox_lonlat(geom), "center": list(point_lonlat(frame, cpt.x, cpt.y).coords[0]),
-                              "stats": {"elev_max_m": int(elev[mask & land].max())}})
+                              "stats": {"elev_max_m": int(elev[mask & land].max())}, "ancestors": in_territory})
 
     eng = world.engineering
     standards, climate = eng.get("standards", {}), eng.get("climate", {})
@@ -1202,7 +1206,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             "name_zh": r["names"]["zh"], "name_en": r["names"]["en"]}))
         longest = max(lines, key=lambda ln: ln.length)
         ent = entities.setdefault(r["id"], {**r, "source": "generated:feeder-roads"})
-        ent.update({"kind": "route", "bbox": bbox_lonlat(geom),
+        ent.update({"kind": "route", "bbox": bbox_lonlat(geom), "ancestors": in_territory,
                     "center": list(point_lonlat(frame, *longest.interpolate(0.5, normalized=True).coords[0]).coords[0]),
                     "stats": {"length_km": round(frame.km(sum(line_length_km(ln.coords) for ln in lines)), 1)}})
         if r["network"] in SEGMENTED_NETWORKS:
@@ -1468,6 +1472,8 @@ def main():
     layers = {k: [] for k in ("divisions", "labels", "places", "landcover", "water", "coast", "glaciers", "rivers", "rivers-named", "ridges", "roads", "streets", "streets-named", "buildings", "parks", "landmarks", "rail", "stations", "bathymetry", "context")}
     graph = {"nodes": [], "edges": [], "roads": [], "places": {}}
     regions = [build_region(world, spec, entities, layers, graph, not args.fresh) for spec in world.generators]
+    dem_bounds = [f(r["frame_bounds"][i] for r in regions) for i, f in enumerate((min, min, max, max))]
+    log(f"  {fill_sea_tiles(OUT / 'dem', dem_bounds)} open-water terrain tiles")
     for name, feats in layers.items():
         write_geojson(f"{name}.geojson", feats)
     with open(OUT / "graph.json", "w", encoding="utf-8") as f:
@@ -1480,7 +1486,7 @@ def main():
         "home": regions[0]["id"],
         "regions": regions,
         "dem": {"tiles": "dem/{z}/{x}/{y}.png", "encoding": "terrarium", "tileSize": 256, "minzoom": 3, "maxzoom": 10,
-                "bounds": regions[0]["frame_bounds"]},
+                "bounds": dem_bounds},
         "layers": sorted(layers),
     }
     with open(OUT / "manifest.json", "w", encoding="utf-8") as f:

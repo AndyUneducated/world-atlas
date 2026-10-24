@@ -1,0 +1,37 @@
+# Named natural features of the Viking Islands.
+# subtype follows OSM natural=* values. Geometry is produced by the generator
+# (see world/generator/cn-vk.yaml); this file only holds identity and semantics.
+features:
+  - id: nat_bb9whq
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 龙骨山
+      en: Keel Hills
+      art-x-viking: Kielberge
+      art-x-buckham: Colli della Chiglia
+    notes:
+      zh: 纵贯长船岛的低山脊，形如倒扣的船龙骨，长船市由此得名的传说之一。
+      en: A low ridge running the length of Longship Island, shaped like an upturned keel; one of the stories behind Longship City's name.
+  - id: nat_1kngjx
+    subtype: volcano
+    status: generated
+    names:
+      zh: 暖泉火山
+      en: Warmspring Volcano
+      art-x-viking: Warmquellvulkan
+      art-x-buckham: Vulcano Fontecalda
+    notes:
+      zh: 暖泉岛中央的休眠火山，山麓的地热温泉和黑沙滩都来自它。
+      en: The dormant volcano in the middle of Warmspring Island; the hot springs and black beaches at its foot both come from it.
+  - id: nat_kdza0d
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 帆影岭
+      en: Sailshadow Ridge
+      art-x-viking: Segelschattengrat
+      art-x-buckham: Cresta Ombra di Vela
+    notes:
+      zh: 白帆岛中部的山岭，从海上望去如一面鼓满的帆。
+      en: The ridge along the middle of White Sail Island; seen from the sea it looks like a full sail.

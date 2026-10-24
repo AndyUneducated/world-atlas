@@ -48,7 +48,8 @@ class World:
         self.routes = self._collect(root / "transport", "routes")
         self.railways = self._collect(root / "transport", "railways")
         self.places = self._collect(root / "places", "places")
-        self.generators = [_load(p) for p in sorted((root / "generator").glob("*.yaml"))]
+        # A region's features live in world/features/<generator file name>-*.yaml.
+        self.generators = [{**_load(p), "_region": p.stem} for p in sorted((root / "generator").glob("*.yaml"))]
         eng = root / "transport" / "engineering.yaml"
         self.engineering: dict = _load(eng) if eng.exists() else {}
 
@@ -62,6 +63,9 @@ class World:
                 out[item["id"]] = item
                 self.entities[item["id"]] = item
         return out
+
+    def region_features(self, spec: dict) -> list[dict]:
+        return [f for f in self.features.values() if Path(f["_source"]).stem.startswith(spec["_region"] + "-")]
 
     def children(self, parent_id: str) -> list[dict]:
         return [d for d in self.divisions.values() if d.get("parent") == parent_id]

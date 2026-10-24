@@ -8,7 +8,7 @@ npm run data:import -- 我的地标.csv --check    # 只校验，不写入
 npm run data                                    # 重新生成地图
 ```
 
-脚本按文件名判断类型：文件名含 `division`/`行政区`、`feature`/`自然要素`、`route`/`道路`、`railway`/`铁路`、`place`/`地标`。也可以用 `--kind divisions|features|routes|railways|places` 指定。新条目默认写入该类的主文件，`--into world/features/xxx.yaml` 可改写到别的文件。
+脚本按文件名判断类型：文件名含 `division`/`行政区`、`feature`/`自然要素`、`route`/`道路`、`railway`/`铁路`、`place`/`地标`。也可以用 `--kind divisions|features|routes|railways|places` 指定。新条目默认写入该类的主文件（北维京岛的 `cn-nv-*.yaml`），`--into world/features/xxx.yaml` 可改写到别的文件；维京群岛的条目写入 `cn-vk-*.yaml`，例如 `--into world/features/cn-vk-natural.yaml`。自然要素只在文件名前缀相同的生成器区域内识别。
 
 整份文件全部通过才会写入。任何一行有错，都会列出“第 N 行 列名：原因”，不改动任何文件。写入后还会用生成器的完整校验（面积、人口之和，区划代码，道路编号等）再查一遍。
 

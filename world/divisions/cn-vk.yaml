@@ -1,0 +1,262 @@
+# Administrative divisions of the Territory of the Viking Islands (CN-VK).
+# id: stable internal key, referenced by other files. codes.admin: 6-digit hierarchical code (GB/T 2260 pattern:
+# territory 910000, city 910100, district 910101); may change on reorganisation.
+# subtype follows Overture Maps divisions: country > dependency/region > locality > borough.
+divisions:
+- id: div_raat4g
+  subtype: dependency
+  parent: country:CN
+  status: generated
+  names:
+    zh: 维京群岛领地
+    en: Territory of the Viking Islands
+    art-x-viking: Subleland auf Veiling Ysear
+    art-x-buckham: Smalaland en Etei Viking
+  short_names:
+    zh: 维京群岛
+    en: Viking Islands
+  codes:
+    iso3166_1:
+      alpha2: VK
+      alpha3: VKI
+      numeric: '902'
+    iso3166_2: CN-VK
+    admin: '910000'
+  motto:
+    zh: 向海而生
+    en: Born of the Sea
+  capital: div_3cvg2q
+  emblem:
+    motif: longship
+    pattern: waves
+  notes:
+    zh: 北维京岛西南外海的七座岛屿，维京时代的长船航路由此北上。以旅游、邮轮与离岸金融为主，一条串起三座主岛的跨海高速连通全境
+    en: Seven islands off the south-west of North Viking Island, on the longship route north in the Viking age. Lives on tourism, cruises and offshore finance; one sea-crossing expressway links the three main islands.
+- id: div_3cvg2q
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 长船市
+    en: Longship City
+    art-x-viking: Langskip auf Ysear
+    art-x-buckham: Navelunga en Etei
+  codes:
+    admin: '910100'
+    unlocode: VK LGS
+  population: 380000
+  area_km2: 2400.0
+  color: '#2E86AB'
+  emblem:
+    motif: longship
+    pattern: waves
+  notes:
+    zh: 领地首府，建在维京时代的长船港上。石砌老城与离岸金融区隔湾相望
+    en: The territorial capital, built on the longship harbour of the Viking age. The stone old town and the offshore finance district face each other across the bay.
+- id: div_g2g1yc
+  subtype: borough
+  parent: div_3cvg2q
+  status: generated
+  names:
+    zh: 古城区
+    en: Old Town District
+    art-x-viking: Altstadt
+    art-x-buckham: Città Vecchia
+  codes:
+    admin: '910101'
+  population: 120000
+  area_km2: 260.0
+  notes:
+    zh: 长船港周围的石砌老城，城墙内只许步行，是邮轮游客必到之处
+    en: The stone old town around the longship harbour; inside the walls it is pedestrians only, and every cruise passenger comes here.
+- id: div_jzqknb
+  subtype: borough
+  parent: div_3cvg2q
+  status: generated
+  names:
+    zh: 汇金区
+    en: Goldmark District
+    art-x-viking: Goldmark
+    art-x-buckham: Marcoro
+  codes:
+    admin: '910102'
+  population: 160000
+  area_km2: 340.0
+  notes:
+    zh: 离岸银行、信托与基金公司聚集的新城区，玻璃塔楼沿海湾排开
+    en: The new district of offshore banks, trusts and funds, its glass towers lined up along the bay.
+- id: div_xps98r
+  subtype: borough
+  parent: div_3cvg2q
+  status: generated
+  names:
+    zh: 北岬区
+    en: North Cape District
+    art-x-viking: Nordkap
+    art-x-buckham: Capo Nord
+  codes:
+    admin: '910103'
+  population: 100000
+  area_km2: 1800.0
+  notes:
+    zh: 长船岛北部的居住区与牧羊草场，领地机场在此
+    en: Homes and sheep pastures in the north of Longship Island, and the territory's airport.
+- id: div_x22naa
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 白帆市
+    en: White Sail City
+    art-x-viking: Weißsegel auf Ysear
+    art-x-buckham: Velabianca en Etei
+  codes:
+    admin: '910200'
+    unlocode: VK WSL
+  population: 220000
+  area_km2: 1300.0
+  color: '#E9A23B'
+  emblem:
+    motif: compass
+    pattern: waves
+  notes:
+    zh: 邮轮母港与免税购物城，离北维京岛最近
+    en: Cruise home port and duty-free shopping town, the closest of the islands to North Viking Island.
+- id: div_tkvfsx
+  subtype: borough
+  parent: div_x22naa
+  status: generated
+  names:
+    zh: 帆港区
+    en: Sail Harbour District
+    art-x-viking: Segelhafen
+    art-x-buckham: Porto Vela
+  codes:
+    admin: '910201'
+  population: 140000
+  area_km2: 420.0
+  notes:
+    zh: 邮轮码头、免税商业街与渡轮枢纽
+    en: Cruise piers, duty-free shopping streets and the ferry hub.
+- id: div_8a2hzm
+  subtype: borough
+  parent: div_x22naa
+  status: generated
+  names:
+    zh: 灯塔区
+    en: Lighthouse District
+    art-x-viking: Leuchtturm
+    art-x-buckham: Faro
+  codes:
+    admin: '910202'
+  population: 80000
+  area_km2: 880.0
+  notes:
+    zh: 白帆岛东北端的老灯塔、海滨别墅与观鲸码头
+    en: The old lighthouse at the north-east tip of White Sail Island, seaside villas and whale-watching piers.
+- id: div_qjzmw5
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 暖泉市
+    en: Warmspring City
+    art-x-viking: Warmquell auf Ysear
+    art-x-buckham: Fontecalda en Etei
+  codes:
+    admin: '910300'
+    unlocode: VK WSP
+  population: 130000
+  area_km2: 1000.0
+  color: '#E76F51'
+  emblem:
+    motif: sun
+    pattern: rays
+  notes:
+    zh: 火山岛上的温泉度假城，冬季极光下泡温泉是群岛最有名的体验
+    en: A hot-spring resort on a volcanic island; bathing under the winter aurora is the islands' best-known experience.
+- id: div_cz7sch
+  subtype: borough
+  parent: div_qjzmw5
+  status: generated
+  names:
+    zh: 温泉区
+    en: Hot Springs District
+    art-x-viking: Thermen
+    art-x-buckham: Terme
+  codes:
+    admin: '910301'
+  population: 85000
+  area_km2: 450.0
+  notes:
+    zh: 火山脚下的温泉酒店、疗养院与会议度假村
+    en: Hot-spring hotels, spas and conference resorts at the foot of the volcano.
+- id: div_v2tq1k
+  subtype: borough
+  parent: div_qjzmw5
+  status: generated
+  names:
+    zh: 黑沙区
+    en: Black Sand District
+    art-x-viking: Schwarzsand
+    art-x-buckham: Sabbianera
+  codes:
+    admin: '910302'
+  population: 45000
+  area_km2: 550.0
+  notes:
+    zh: 火山黑沙滩、熔岩地貌步道与地热电站
+    en: Black volcanic beaches, lava-field trails and the geothermal power station.
+- id: div_87ygkn
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 外屿市
+    en: Outer Isles City
+    art-x-viking: Außeninseln auf Ysear
+    art-x-buckham: Isolesterne en Etei
+  codes:
+    admin: '910400'
+    unlocode: VK OUT
+  population: 70000
+  area_km2: 500.0
+  color: '#2A9D8F'
+  emblem:
+    motif: ring
+    pattern: dots
+  notes:
+    zh: 群岛西部的外围小岛，观鲸、海鸟与渔村，只通渡轮和一条岛间公路
+    en: The outlying western isles of whale-watching, seabirds and fishing villages, reached only by ferry and linked by one inter-island road.
+- id: div_khmgcq
+  subtype: borough
+  parent: div_87ygkn
+  status: generated
+  names:
+    zh: 鲸岛区
+    en: Whale Isle District
+    art-x-viking: Walinsel
+    art-x-buckham: Isola Balena
+  codes:
+    admin: '910401'
+  population: 45000
+  area_km2: 320.0
+  notes:
+    zh: 观鲸船的母港与渔村，每年夏季座头鲸在岛外洄游
+    en: Home port of the whale-watching boats and fishing villages; humpbacks pass the isle every summer.
+- id: div_5p2a2d
+  subtype: borough
+  parent: div_87ygkn
+  status: generated
+  names:
+    zh: 鸟崖区
+    en: Bird Cliff District
+    art-x-viking: Vogelklippe
+    art-x-buckham: Scogliera Uccelli
+  codes:
+    admin: '910402'
+  population: 25000
+  area_km2: 180.0
+  notes:
+    zh: 海鸟栖息的悬崖小岛，自然保护区与灯塔
+    en: A small isle of seabird cliffs, with a nature reserve and a lighthouse.

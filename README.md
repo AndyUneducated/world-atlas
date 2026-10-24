@@ -1,7 +1,8 @@
 # World Atlas · 世界地图
 
-An interactive atlas of **Homeworld**, a fictional planet. The first mapped region is the
-Territory of North Viking Island (北维京岛领地), China.
+An interactive atlas of **Homeworld**, a fictional planet. The mapped regions are the
+Territory of North Viking Island (北维京岛领地) and the Territory of the Viking Islands
+(维京群岛领地), China.
 
 Live site: https://andyuneducated.github.io/world-atlas/
 
@@ -53,8 +54,11 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
 - **Hierarchy.** Country → territory (`dependency`) → city (`locality`) → district
   (`borough`), following the Overture Maps division subtypes. Division codes follow the
   six-digit GB/T 2260 pattern (`900000` → `900100` → `900101`).
+- **Regions.** Each territory has one generator file, `world/generator/<region>.yaml`
+  (`cn-nv`, `cn-vk`); its natural features live in `world/features/<region>-*.yaml` and are
+  only matched and used for street names inside that region.
 - **Routes.** `G-NV-n` national, `S-NV-n` territorial, `X-NV-n` municipal and
-  `Y-NV-n` township roads (GB/T 917 numbering, with the territory infix `NV`). A route's
+  `Y-NV-n` township roads (GB/T 917 numbering, with the territory infix: `NV`, `VK`). A route's
   `via` lists cities or districts; `ring`, `straight` (straight legs, crossing hills and
   water on structures) and per-leg `legs` overrides shape the path. Territorial routes name
   a `shield` glyph for the upper half of their sign.

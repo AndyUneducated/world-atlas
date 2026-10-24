@@ -57,8 +57,7 @@ export function SearchBox() {
   const hits = useMemo(() => (index ? index.search(query) : []), [index, query]);
   const cities = useMemo(() => {
     if (!data) return [];
-    const home = data.entities[data.manifest.home];
-    return (home?.children ?? []).map((id) => data.entities[id]).filter(Boolean);
+    return data.manifest.regions.flatMap((r) => data.entities[r.id]?.children ?? []).map((id) => data.entities[id]).filter(Boolean);
   }, [data]);
   const routes = useMemo(() => {
     const out: Record<"national" | "territorial", Entity[]> = { national: [], territorial: [] };

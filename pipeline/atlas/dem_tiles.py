@@ -24,7 +24,8 @@ def _tile_range(bounds, z):
 
 
 def write_dem_tiles(out_dir: Path, elev: np.ndarray, grid, frame, bounds, zooms=range(3, 11), size=256, sea_level_m=-40.0):
-    """sea_level_m: elevation written for open water, below 0 so styles can mask the sea."""
+    """sea_level_m: elevation written for open water, below 0 so styles can mask the sea.
+    A tile already written by another region keeps the higher of the two elevations."""
     count = 0
     for z in zooms:
         k = 2 ** z
@@ -37,10 +38,30 @@ def write_dem_tiles(out_dir: Path, elev: np.ndarray, grid, frame, bounds, zooms=
                 LON, LAT = np.meshgrid(lon, lat)
                 x, y = frame.from_lonlat(LON, LAT)
                 e = ndimage.map_coordinates(elev, [y / grid.res - 0.5, x / grid.res - 0.5], order=1, mode="constant", cval=sea_level_m)
+                path = out_dir / str(z) / str(tx)
+                if (path / f"{ty}.png").exists():
+                    old = np.asarray(Image.open(path / f"{ty}.png").convert("RGB"), float)
+                    e = np.maximum(e, old[..., 0] * 256 + old[..., 1] + old[..., 2] / 256 - 32768.0)
                 v = e + 32768.0
                 rgb = np.stack([np.floor(v / 256), np.floor(v % 256), np.floor((v - np.floor(v)) * 256)], axis=-1)
-                path = out_dir / str(z) / str(tx)
                 path.mkdir(parents=True, exist_ok=True)
                 Image.fromarray(rgb.astype(np.uint8), "RGB").save(path / f"{ty}.png", optimize=True)
                 count += 1
+    return count
+
+
+def fill_sea_tiles(out_dir: Path, bounds, zooms=range(3, 11), size=256, sea_level_m=-40.0):
+    """Open-water tiles wherever no region wrote one inside bounds, so every tile the map asks for exists."""
+    v = sea_level_m + 32768.0
+    sea = Image.fromarray(np.full((size, size, 3), [v // 256, v % 256, (v % 1) * 256], np.uint8), "RGB")
+    count = 0
+    for z in zooms:
+        xs_r, ys_r = _tile_range(bounds, z)
+        for tx in xs_r:
+            for ty in ys_r:
+                path = out_dir / str(z) / str(tx) / f"{ty}.png"
+                if not path.exists():
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    sea.save(path, optimize=True)
+                    count += 1
     return count

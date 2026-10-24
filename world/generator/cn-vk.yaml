@@ -1,0 +1,126 @@
+# Procedural generator parameters for the Viking Islands.
+#
+# Same conventions as cn-nv.yaml: positions and lengths in design kilometres inside a local
+# equal-area frame centred on frame.origin_lonlat. Here one design km is one real km.
+# The seven islands lie on one line from south-west to north-east; each city's islands are
+# sized to its area, so the partition never splits an island between two cities.
+territory: div_raat4g
+seed: 23
+frame:
+  origin_lonlat: [1.8, 56.85]
+  size_km: [240, 160]
+  scale: 1.0
+  resolution_km: 0.25
+
+land:
+  # Gaussian lobes: [cx, cy, rx, ry, rotation_deg, weight]
+  lobes:
+    - [48, 34, 19.3, 17.4, 0, 1.0]      # 暖泉岛：圆形火山岛
+    - [120, 72, 48.3, 20.0, 32, 1.0]    # 长船岛：主岛
+    - [201, 123, 28.2, 15.4, 32, 1.0]   # 白帆岛
+    - [57, 91, 14, 8.7, 20, 1.0]        # 鲸岛
+    - [41, 108, 10.1, 7.7, 0, 1.0]      # 鸟崖岛
+    - [24, 124, 3.5, 2.5, 0, 1.2]       # 鸟崖岛西北的小岛
+    - [104, 38, 4, 2.5, 20, 1.2]        # 长船港外的小岛
+  coast_noise: { amplitude: 0.08, scale_km: 25, octaves: 6, detail_amplitude: 0.04, detail_scale_km: 5 }
+
+terrain:
+  max_elevation_m: 1800
+  ridges:
+    - { feature: nat_bb9whq, path: [[92, 55], [120, 72], [148, 89]], height_m: 600, width_km: 7 }    # 龙骨山
+    - { feature: nat_1kngjx, path: [[46, 35], [47, 35.5]], height_m: 1900, width_km: 6 }              # 暖泉火山
+    - { feature: nat_kdza0d, path: [[188, 115], [212, 130]], height_m: 420, width_km: 5 }             # 帆影岭
+  plains: []
+
+hydrology:
+  river_min_drainage_km2: 25
+  river_candidate_km2: 150
+  estuary_km2: 700
+  named_rivers: []
+
+coast:
+  mainland: false        # an archipelago: every landmass is an island with its own capes and straits
+  island_min_km2: 0.8
+  bay_close_km: 4
+  bay_min_km2: 4
+  cape_open_km: 2
+  cape_min_prominence_km: 1.2
+  strait_max_gap_km: 14
+  match_radius_km: 10
+
+relief:
+  peak_min_elev_m: 350
+  peak_min_prominence_m: 120
+  pass_min_elev_m: 250
+  snowline_m: 2200
+  snowline_aspect_m: 300
+  glacier_max_slope_deg: 42
+  ice_min_km2: 0.5
+  glacier_min_km2: 4
+
+# Windswept islands: grass and heath above a low treeline, few trees.
+landcover:
+  urban_density_per_km2: 4000
+  urban_max_slope_deg: 12
+  urban_terrace_slope_deg: 22
+  wetland_max_elev_m: 60
+  wetland_wetness: 2.4
+  farm_max_elev_m: 200
+  farm_max_slope_deg: 5
+  farm_reach_km: 12
+  treeline_m: 260
+  treeline_aspect_m: 80
+  rock_above_treeline_m: 600
+  rock_slope_deg: 31
+
+streets:
+  cities: [div_3cvg2q, div_x22naa, div_qjzmw5, div_87ygkn]
+  arterial_spacing_km: 1.5
+  neighbourhood_km: 1.3
+  local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
+  warp_km: { planned: 0.02, mixed: 0.05, organic: 0.09 }
+  warp_wavelength_km: 1.6
+  river_gap_km: 0.05
+  districts:
+    div_g2g1yc: { style: organic, mix: { perimeter: 1.8, houses: 1.2, industrial: 0.2 } }   # 古城区：城墙内的石砌老城
+    div_jzqknb: { style: planned, mix: { towers: 2.4, podium: 1.8, civic: 0.6, industrial: 0.1 } }  # 汇金区：离岸金融
+    div_xps98r: { style: mixed, mix: { houses: 2.0, park: 1.2, industrial: 0.4 } }         # 北岬区：居住与草场
+    div_tkvfsx: { style: mixed, mix: { podium: 1.8, towers: 0.8, industrial: 0.5 } }       # 帆港区：邮轮码头与免税街
+    div_8a2hzm: { style: organic, mix: { houses: 2.4, park: 1.5, industrial: 0.1 } }       # 灯塔区：海滨别墅
+    div_cz7sch: { style: organic, mix: { podium: 1.2, houses: 1.6, park: 2.0, industrial: 0.1 } }  # 温泉区：温泉酒店与疗养院
+    div_v2tq1k: { style: organic, mix: { houses: 2.0, industrial: 0.8 } }                  # 黑沙区：黑沙滩与地热电站
+    div_khmgcq: { style: organic, mix: { houses: 2.2, industrial: 0.6 } }                  # 鲸岛区：渔村与观鲸码头
+    div_5p2a2d: { style: organic, mix: { houses: 2.2, park: 1.0 } }                        # 鸟崖区：保护区小镇
+  named:
+    - { district: div_jzqknb, axis: 0, line: 0, status: generated, names: { zh: 汇金大道, en: Goldmark Avenue, art-x-viking: Goldmarkallee, art-x-buckham: Viale Marcoro } }
+    - { district: div_jzqknb, axis: 1, line: 0, status: generated, names: { zh: 信托街, en: Trust Street, art-x-viking: Treuhandstraße, art-x-buckham: Via del Trust } }
+    - { district: div_xps98r, axis: 0, line: 0, status: generated, names: { zh: 北岬大道, en: North Cape Avenue, art-x-viking: Nordkapallee, art-x-buckham: Viale Capo Nord } }
+    - { district: div_tkvfsx, axis: 0, line: 0, status: generated, names: { zh: 邮轮大道, en: Cruise Avenue, art-x-viking: Kreuzfahrtallee, art-x-buckham: Viale delle Crociere } }
+
+expect:
+  district_centres_on: [territorial_expressway, territorial_highway]
+
+layout:
+  cities:
+    div_3cvg2q: [120, 72]    # 长船市
+    div_x22naa: [200, 122]   # 白帆市
+    div_qjzmw5: [48, 34]     # 暖泉市
+    div_87ygkn: [50, 100]    # 外屿市
+  districts:
+    div_g2g1yc: [0.3, -0.8]  # 古城区：长船岛东南岸
+    div_jzqknb: [0.9, -0.1]  # 汇金区：古城以东
+    div_xps98r: [-0.6, 0.6]  # 北岬区：长船岛西北大半
+    div_tkvfsx: [-0.7, -0.5] # 帆港区：白帆岛西南，面向长船
+    div_8a2hzm: [0.8, 0.5]   # 灯塔区：白帆岛东北
+    div_cz7sch: [0.5, 0.5]   # 温泉区：暖泉岛东北
+    div_v2tq1k: [-0.5, -0.6] # 黑沙区：暖泉岛西南
+    div_khmgcq: [0.6, -0.8]  # 鲸岛区
+    div_5p2a2d: [-0.75, 0.65] # 鸟崖区
+  boundary_warp_km: 2
+  coastal:
+    div_g2g1yc: null         # 古城区，长船港
+    div_jzqknb: null         # 汇金区，海湾
+    div_xps98r: null         # 北岬区，长船岛北岸
+    div_tkvfsx: null         # 帆港区，邮轮码头
+    div_v2tq1k: null         # 黑沙区，黑沙滩
+    div_khmgcq: null         # 鲸岛区，渔港

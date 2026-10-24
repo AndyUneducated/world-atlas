@@ -35,14 +35,14 @@ from new_id import mint  # noqa: E402
 
 DELETE = object()
 STATUSES = ("canon", "draft", "generated")
-FEATURE_SUBTYPES = ("mountain_range", "ridge", "river", "lake", *DETECT_KINDS)
-NETWORKS = {
-    "national_expressway": ("motorway", r"G-NV-\d{1,2}"),
-    "national_highway": ("trunk", r"G-NV-1\d{2}"),
-    "territorial_expressway": ("motorway", r"S-NV-\d{1,2}"),
-    "territorial_highway": ("primary", r"S-NV-[1-9]\d{2}"),
-    "municipal_road": ("secondary", r"X-NV-\d{3}"),
-    "township_road": ("tertiary", r"Y-NV-\d{3}"),
+FEATURE_SUBTYPES = ("mountain_range", "ridge", "volcano", "river", "lake", *DETECT_KINDS)
+NETWORKS = {  # the infix is the territory's ISO 3166-2 suffix (NV, VK, …)
+    "national_expressway": ("motorway", r"G-[A-Z]{2}-\d{1,2}"),
+    "national_highway": ("trunk", r"G-[A-Z]{2}-1\d{2}"),
+    "territorial_expressway": ("motorway", r"S-[A-Z]{2}-\d{1,2}"),
+    "territorial_highway": ("primary", r"S-[A-Z]{2}-[1-9]\d{2}"),
+    "municipal_road": ("secondary", r"X-[A-Z]{2}-\d{3}"),
+    "township_road": ("tertiary", r"Y-[A-Z]{2}-\d{3}"),
 }
 BUILDING_SUBTYPES = ("government", "building", "civic", "office", "museum", "theatre", "library", "townhall",
                      "tower", "hospital", "marketplace", "exhibition_centre")

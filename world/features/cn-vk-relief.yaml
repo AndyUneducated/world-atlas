@@ -1,0 +1,62 @@
+# Peaks and passes of the Viking Islands found by the generator (pipeline/atlas/relief.py).
+# Each entry names the landform of `detect.kind` nearest to `detect.at_km` (design km).
+features:
+  # ── Peaks (highest first) ────────────────────────────────
+  - id: nat_242405
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [47.8, 33.8] }
+    names: { zh: 火口峰, en: Crater Peak, art-x-viking: Kraterspitze, art-x-buckham: Picco del Cratere }
+    notes:
+      zh: 暖泉火山的火口缘最高点，群岛最高峰，火口内终年冒着蒸汽。
+      en: The highest point of Warmspring Volcano's crater rim and of the islands; steam rises from the crater all year.
+  - id: nat_pqybvd
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [92.2, 54.8] }
+    names: { zh: 舵峰, en: Rudder Peak, art-x-viking: Ruderspitze, art-x-buckham: Picco del Timone }
+    notes:
+      zh: 龙骨山西南端的高峰，在长船岛的"船尾"如一把船舵。
+      en: The high summit at the south-west end of the Keel Hills, standing at Longship Island's "stern" like a rudder.
+  - id: nat_fczk77
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [137.8, 82.8] }
+    names: { zh: 船首峰, en: Prow Peak, art-x-viking: Bugspitze, art-x-buckham: Picco di Prua }
+    notes:
+      zh: 龙骨山东北段的主峰，俯瞰汇金区。
+      en: The main summit of the north-eastern Keel Hills, above Goldmark.
+  - id: nat_msexyn
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [185.8, 115.2] }
+    names: { zh: 帆影峰, en: Sailshadow Peak, art-x-viking: Segelschattenspitze, art-x-buckham: Picco Ombra di Vela }
+    notes:
+      zh: 帆影岭的最高峰，白帆岛最高点。
+      en: The highest summit of Sailshadow Ridge and of White Sail Island.
+  - id: nat_1cqe9c
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [205.2, 125.2] }
+    names: { zh: 望海峰, en: Seawatch Peak, art-x-viking: Seewachtspitze, art-x-buckham: Picco Guardamare }
+    notes:
+      zh: 帆影岭东北段的山峰，可眺望灯塔区与外海。
+      en: Summit on the north-eastern Sailshadow Ridge, looking over Lighthouse District and the open sea.
+
+  # ── Passes ───────────────────────────────────────────────
+  - id: nat_02xmec
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [128.8, 76.2] }
+    names: { zh: 龙骨口, en: Keel Gap, art-x-viking: Kielscharte, art-x-buckham: Passo della Chiglia }
+    notes:
+      zh: 龙骨山中段的山口，群岛跨海高速经此翻越龙骨山。
+      en: The gap in the middle of the Keel Hills, where the Island Chain Expressway crosses them.
+  - id: nat_7xxwr5
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [195.8, 120.2] }
+    names: { zh: 帆影垭口, en: Sailshadow Saddle, art-x-viking: Segelschattensattel, art-x-buckham: Sella Ombra di Vela }
+    notes:
+      zh: 帆影峰与望海峰之间的鞍部。
+      en: The saddle between Sailshadow Peak and Seawatch Peak.

@@ -345,12 +345,3 @@ layout:
     div_8p9k5t: nat_3xvtrb   # 镜湾区，镜湾
     div_ts5cw5: nat_xfj32x   # 燕礁区，燕礁湾
     div_f9x3wn: null         # 保税港区，镜湾外的填海港区
-
-context:
-  # Neighbouring land shown only as a rough outline.
-  - id: ctx_vi
-    names: { zh: 维京群岛领地, en: Viking Islands Territory }
-    offset_km: [-360, -350]
-    extent_km: [240, 160]
-    islands: 7
-    seed: 1010

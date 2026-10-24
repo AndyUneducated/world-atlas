@@ -21,12 +21,13 @@ def _xy(xs, ys, iy, ix):
     return float(xs[ix]), float(ys[iy])
 
 
-def islands(land, xs, ys, res, min_km2):
+def islands(land, xs, ys, res, min_km2, mainland=True):
+    """Every landmass but the largest, or every landmass when there is no mainland (an archipelago)."""
     lab, n = ndimage.label(land)
-    if n < 2:
+    if n < 2 and mainland:
         return []
     sizes = ndimage.sum(np.ones_like(lab), lab, range(1, n + 1)) * res * res
-    main = 1 + int(np.argmax(sizes))
+    main = 1 + int(np.argmax(sizes)) if mainland else 0
     out = []
     for k in range(1, n + 1):
         if k == main or sizes[k - 1] < min_km2:
@@ -69,14 +70,18 @@ def bays(land, xs, ys, res, close_km, min_km2, fjord_elongation=3.2):
     return out
 
 
-def capes(land, xs, ys, res, open_km, min_prominence_km):
-    """Land left over by a morphological opening: tips that stick out from the main coast (islands excluded)."""
+def capes(land, xs, ys, res, open_km, min_prominence_km, mainland=True):
+    """Land left over by a morphological opening: tips that stick out from the main coast (islands
+    excluded), or from the coast of every island big enough to survive the opening (an archipelago)."""
     r = open_km / res
     core = _edt(land) > r
     opened = _edt(~core) <= r
     lab, n = ndimage.label(land)
-    sizes = ndimage.sum(np.ones_like(lab), lab, range(1, n + 1))
-    tips = (lab == 1 + int(np.argmax(sizes))) & ~opened
+    if mainland:
+        sizes = ndimage.sum(np.ones_like(lab), lab, range(1, n + 1))
+        tips = (lab == 1 + int(np.argmax(sizes))) & ~opened
+    else:
+        tips = np.isin(lab, np.unique(lab[core])) & (lab > 0) & ~opened
     lab, n = ndimage.label(tips)
     if not n:
         return []
@@ -94,15 +99,16 @@ def capes(land, xs, ys, res, open_km, min_prominence_km):
     return out
 
 
-def straits(land, xs, ys, res, max_gap_km, min_island_km2):
+def straits(land, xs, ys, res, max_gap_km, min_island_km2, mainland=True):
     """Narrowest sea gap between each island and the nearest other land."""
     lab, n = ndimage.label(land)
     if n < 2:
         return []
     sizes = ndimage.sum(np.ones_like(lab), lab, range(1, n + 1)) * res * res
+    main = 1 + int(np.argmax(sizes)) if mainland else 0
     out = []
     for k in range(1, n + 1):
-        if sizes[k - 1] < min_island_km2 or k == 1 + int(np.argmax(sizes)):
+        if sizes[k - 1] < min_island_km2 or k == main:
             continue
         own = lab == k
         dist, (ny_, nx_) = ndimage.distance_transform_edt(~(land & ~own), return_indices=True)

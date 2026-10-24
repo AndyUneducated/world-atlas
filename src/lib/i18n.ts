@@ -166,6 +166,7 @@ const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
   borough: { zh: "区", en: "District" },
   mountain_range: { zh: "山脉", en: "Mountain range" },
   ridge: { zh: "山岭", en: "Ridge" },
+  volcano: { zh: "火山", en: "Volcano" },
   river: { zh: "河流", en: "River" },
   lake: { zh: "湖泊", en: "Lake" },
   bay: { zh: "海湾", en: "Bay" },

@@ -17,6 +17,7 @@ const KIND_WEIGHT: Record<string, number> = {
   locality: 26,
   borough: 16,
   mountain_range: 14,
+  volcano: 13,
   river: 13,
   lake: 13,
   peak: 12,
