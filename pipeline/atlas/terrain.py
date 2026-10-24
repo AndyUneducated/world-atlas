@@ -4,7 +4,7 @@ from __future__ import annotations
 import numpy as np
 from scipy import ndimage
 
-from .grid import Grid, polyline_distance
+from .grid import Grid, polyline_distance, polyline_param
 from .noise import value_noise
 
 
@@ -56,6 +56,12 @@ def elevation(spec: dict, seed: int, g: Grid, land: np.ndarray):
     e += 450 * mount * ridged
     for cx, cy, radius, k in t.get("plains", []):
         e *= 1 - k * np.exp(-((np.hypot(X - cx, Y - cy) / radius) ** 2))
+    for v in t.get("valleys", []):
+        # A valley floor falling steadily from source to mouth, so the main stream follows it.
+        d, s = polyline_param(v["path"], X, Y)
+        floor = v["source_m"] * (1 - s) + 4 * s
+        m = v.get("strength", 0.9) * np.exp(-((d / v["width_km"]) ** 2))
+        e = e * (1 - m) + np.minimum(e, floor) * m
     peak = t.get("max_elevation_m", 2500)
     e = peak * np.tanh(e / peak)
     e *= np.clip(dcoast / 5, 0, 1) ** 0.6

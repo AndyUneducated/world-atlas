@@ -1,21 +1,5 @@
 import type { Lang, ThemeId } from "./types";
 
-/** One hue per locality, ordered by division code. Boroughs inherit their city's hue. */
-export const PALETTE = [
-  "#E9B949", // 自由市
-  "#4C8BF5", // 维京港市
-  "#36B37E", // 西北市
-  "#9BC53D", // 勒克尔市
-  "#E3C567", // 奥克西诺市
-  "#5E9E6E", // 洛龙山市
-  "#E5739D", // 新城市
-  "#F29E4C", // 天城市
-  "#8E7CC3", // 萨科勒市
-  "#E5534B", // 贝克勒自由贸易区
-  "#9A8F7E", // 马斯林山市
-  "#3FB6C6", // 厄定河市
-];
-
 interface RoadStyle {
   fill: string;
   casing: string;

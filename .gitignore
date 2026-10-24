@@ -9,6 +9,8 @@ public/data/
 __pycache__/
 *.pyc
 .venv/
+# Stage cache written by pipeline/build.py (safe to delete)
+.cache/
 
 .DS_Store
 Thumbs.db

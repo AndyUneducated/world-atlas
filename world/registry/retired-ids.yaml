@@ -1,0 +1,10 @@
+# Ids that were once in use. They are never reused; validation rejects them.
+retired:
+  - id: rte_tb40gm
+    date: 2026-10-23
+    was: G-NV-1 北岸高速 North Shore Expressway
+    reason: absorbed into the ring expressway rte_rr93s4
+  - id: rte_r8td20
+    date: 2026-10-23
+    was: G-NV-2 南岸高速 South Shore Expressway
+    reason: absorbed into the ring expressway rte_rr93s4

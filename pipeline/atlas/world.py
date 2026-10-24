@@ -32,7 +32,10 @@ class World:
         self.divisions = self._collect(root / "divisions", "divisions")
         self.features = self._collect(root / "features", "features")
         self.routes = self._collect(root / "transport", "routes")
+        self.places = self._collect(root / "places", "places")
         self.generators = [_load(p) for p in sorted((root / "generator").glob("*.yaml"))]
+        retired = root / "registry" / "retired-ids.yaml"
+        self.retired: dict[str, dict] = {r["id"]: r for r in (_load(retired).get("retired", []) if retired.exists() else [])}
 
     def _collect(self, folder: Path, key: str) -> dict[str, dict]:
         out: dict[str, dict] = {}
@@ -81,6 +84,8 @@ class World:
                 parent_admin = parent.get("codes", {}).get("admin")
                 if parent_admin and not admin.startswith(parent_admin):
                     errors.append(f"{did}: admin code {admin} does not extend parent code {parent_admin}")
+            if d["subtype"] == "locality" and not re.match(r"^#[0-9A-Fa-f]{6}$", str(d.get("color", ""))):
+                errors.append(f"{did}: a city needs a colour (#RRGGBB) for its map tint and emblem")
             kids = self.children(did)
             if kids and d.get("area_km2"):
                 total = sum(k.get("area_km2", 0) for k in kids)
@@ -90,16 +95,31 @@ class World:
                 total = sum(k.get("population", 0) for k in kids)
                 if abs(total - d["population"]) > 100:
                     errors.append(f"{did}: children population {total} != {d['population']}")
+        for eid in self.entities:
+            if eid in self.retired:
+                errors.append(f"{eid}: id was retired ({self.retired[eid].get('reason', '')}) and must not be reused")
+        refs: dict[str, str] = {}
         for rid, r in self.routes.items():
             for v in r.get("via", []):
                 if v not in self.divisions:
                     errors.append(f"{rid}: via {v} is not a division")
+            if r["ref"] in refs:
+                errors.append(f"{rid}: route number {r['ref']} already used by {refs[r['ref']]}")
+            refs[r["ref"]] = rid
+            if r.get("ring") and len(r.get("via", [])) < 3:
+                errors.append(f"{rid}: a ring needs at least three via divisions")
+        for pid, p in self.places.items():
+            if p.get("in") not in self.divisions:
+                errors.append(f"{pid}: 'in' must name a division")
         for gen in self.generators:
             layout = gen.get("layout", {})
             for key in list(layout.get("cities", {})) + list(layout.get("districts", {})):
                 if key not in self.divisions:
                     errors.append(f"generator: unknown division {key}")
-            for r in gen.get("terrain", {}).get("ridges", []):
+            for r in gen.get("terrain", {}).get("ridges", []) + gen.get("terrain", {}).get("valleys", []):
                 if r["feature"] not in self.features:
                     errors.append(f"generator: unknown feature {r['feature']}")
+            for nr in gen.get("hydrology", {}).get("named_rivers", []):
+                if nr["through"] not in self.divisions:
+                    errors.append(f"generator: named river through unknown division {nr['through']}")
         return errors

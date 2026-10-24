@@ -3,6 +3,7 @@ import { ChevronRight } from "lucide-react";
 import { lineage } from "../lib/entity";
 import { displayName } from "../lib/i18n";
 import { useAtlas } from "../store";
+import { Emblem, hasEmblem } from "./Emblem";
 
 export function Breadcrumbs() {
   const data = useAtlas((s) => s.data);
@@ -24,11 +25,13 @@ export function Breadcrumbs() {
               disabled={!clickable}
               onClick={() => select(e.id)}
               className={clsx(
-                "glass rounded-full px-2.5 py-1 text-[12px] leading-none transition-colors",
+                "glass flex items-center gap-1.5 rounded-full py-1 text-[12px] leading-none transition-colors",
+                hasEmblem(e) ? "pr-2.5 pl-1" : "px-2.5",
                 last ? "font-medium text-ink" : "text-muted",
                 clickable && "hover:text-ink",
               )}
             >
+              {hasEmblem(e) && <Emblem entity={e} size={15} />}
               {e.short_names?.[lang] ?? displayName(e, lang)}
             </button>
             {!last && <ChevronRight className="size-3.5 text-faint" />}

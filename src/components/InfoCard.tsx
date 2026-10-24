@@ -1,6 +1,9 @@
-import { Check, Crosshair, Link2, X } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import clsx from "clsx";
+import { Check, Crosshair, Link2, Star, X } from "lucide-react";
+import { AnimatePresence, motion, useSpring } from "motion/react";
 import { useState } from "react";
+import { CityEmblem, Emblem, hasEmblem } from "./Emblem";
+import { RouteTimeline } from "./RouteTimeline";
 import { accentColor } from "../lib/entity";
 import { displayName, formatNumber, formatPopulation, kindLabel, NAME_LANG_LABELS, t } from "../lib/i18n";
 import { NAME_LANGS, type AtlasData, type Entity, type Lang, type NameLang } from "../lib/types";
@@ -13,6 +16,31 @@ const NAME_TAGS: Record<NameLang, Record<Lang, string>> = {
 };
 import { useAtlas } from "../store";
 import { EntityIcon } from "./EntityIcon";
+
+/** Emblem holder that leans towards the pointer and glows in the entity colour. */
+function TiltBadge({ glow, children }: { glow: string; children: React.ReactNode }) {
+  const rx = useSpring(0, { stiffness: 260, damping: 18 });
+  const ry = useSpring(0, { stiffness: 260, damping: 18 });
+  const onMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    ry.set(((e.clientX - r.left) / r.width - 0.5) * 26);
+    rx.set(-((e.clientY - r.top) / r.height - 0.5) * 26);
+  };
+  return (
+    <div className="relative shrink-0" onPointerMove={onMove} onPointerLeave={() => (rx.set(0), ry.set(0))}>
+      <div className="absolute inset-1 rounded-full opacity-50 blur-xl" style={{ background: glow }} />
+      <motion.div
+        initial={{ scale: 0.6, rotate: -10, opacity: 0 }}
+        animate={{ scale: 1, rotate: 0, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 300, damping: 16, delay: 0.05 }}
+        style={{ rotateX: rx, rotateY: ry, transformPerspective: 380 }}
+        className="relative"
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+}
 
 function Stat({ label, value, unit }: { label: string; value: string; unit?: string }) {
   return (
@@ -73,12 +101,16 @@ function ChildList({ data, entity, lang }: { data: AtlasData; entity: Entity; la
             <li key={k.id}>
               <button onClick={() => select(k.id)} className="group w-full rounded-lg px-2 py-1.5 text-left hover:bg-hover">
                 <div className="flex items-center gap-2">
-                  <span className="size-2 shrink-0 rounded-full" style={{ background: accent }} />
+                  {hasEmblem(k) ? (
+                    <Emblem entity={k} size={22} className="-my-0.5 shrink-0 transition-transform group-hover:scale-110" />
+                  ) : (
+                    <span className="size-2 shrink-0 rounded-full" style={{ background: accent }} />
+                  )}
                   <span className="flex-1 truncate text-[13px] text-ink">{displayName(k, lang)}</span>
                   {k.population ? <span className="text-[12px] text-muted tabular-nums">{formatPopulation(k.population, lang)}</span> : null}
                 </div>
                 {entity.kind !== "route" && k.population ? (
-                  <div className="mt-1 ml-4 h-1 overflow-hidden rounded-full bg-hover">
+                  <div className={clsx("mt-1 h-1 overflow-hidden rounded-full bg-hover", hasEmblem(k) ? "ml-[30px]" : "ml-4")}>
                     <div className="h-full rounded-full opacity-80" style={{ width: `${(100 * k.population) / max}%`, background: accent }} />
                   </div>
                 ) : null}
@@ -111,16 +143,46 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
     if (map && entity.bbox) map.fitBounds(entity.bbox, { padding: { left: 460, top: 90, right: 100, bottom: 90 }, duration: 900 });
   };
 
+  const badgeOwner = entity.kind === "place" && entity.emblem_of ? data.entities[entity.emblem_of] : entity;
+  const city = entity.subtype === "borough" && entity.parent ? data.entities[entity.parent] : undefined;
+  const isCapital = data.entities[entity.parent ?? ""]?.capital === entity.id;
+
   return (
     <>
-      <div className="relative px-5 pt-5 pb-4">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-24 opacity-[0.16]" style={{ background: `linear-gradient(180deg, ${accent}, transparent)` }} />
-        <div className="relative flex items-start gap-3">
-          <span className="grid size-11 shrink-0 place-items-center rounded-2xl text-white shadow-sm" style={{ background: accent }}>
-            <EntityIcon entity={entity} className="size-5" />
-          </span>
+      <div className="relative overflow-hidden px-5 pt-5 pb-4">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-32 opacity-[0.2]" style={{ background: `linear-gradient(180deg, ${accent}, transparent)` }} />
+        {badgeOwner && hasEmblem(badgeOwner) && (
+          <div className="pointer-events-none absolute -top-10 -right-12 rotate-[-14deg] opacity-[0.09] blur-[0.5px]">
+            <Emblem entity={badgeOwner} size={210} />
+          </div>
+        )}
+        <div className="relative flex items-start gap-3.5">
+          {badgeOwner && hasEmblem(badgeOwner) ? (
+            <TiltBadge glow={accent}>
+              <Emblem entity={badgeOwner} size={64} sheen className="drop-shadow-[0_6px_14px_rgba(0,0,0,0.35)]" />
+            </TiltBadge>
+          ) : (
+            <span className="relative mt-1 shrink-0">
+              <span className="grid size-12 place-items-center rounded-2xl text-white shadow-sm" style={{ background: `linear-gradient(135deg, ${accent}, ${accent}bb)` }}>
+                <EntityIcon entity={entity} className="size-5" />
+              </span>
+              {city && hasEmblem(city) && (
+                <button onClick={() => select(city.id)} className="absolute -right-2 -bottom-2 transition-transform hover:scale-110" title={displayName(city, lang)}>
+                  <CityEmblem entity={city} size={24} className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.35)]" />
+                </button>
+              )}
+            </span>
+          )}
           <div className="min-w-0 flex-1">
-            <div className="text-[11px] font-medium tracking-wide text-muted uppercase">{kindLabel(entity, lang)}</div>
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-[11px] font-medium tracking-wide text-muted uppercase">{kindLabel(entity, lang)}</span>
+              {isCapital && (
+                <span className="flex items-center gap-1 rounded-full bg-amber-400/15 px-1.5 py-px text-[10.5px] font-semibold text-amber-500">
+                  <Star className="size-2.5 fill-current" />
+                  {t("capitalOf", lang)}
+                </span>
+              )}
+            </div>
             <h2 className="mt-0.5 text-[22px] leading-tight font-semibold tracking-tight text-ink">{displayName(entity, lang)}</h2>
             <ul className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1" aria-label={t("names", lang)}>
               {names
@@ -179,7 +241,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
         </Section>
       )}
 
-      <ChildList data={data} entity={entity} lang={lang} />
+      {entity.segments?.length ? <RouteTimeline data={data} entity={entity} lang={lang} /> : <ChildList data={data} entity={entity} lang={lang} />}
 
       {codeRows.length > 0 && (
         <Section title={t("codes", lang)}>

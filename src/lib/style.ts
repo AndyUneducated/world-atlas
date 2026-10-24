@@ -7,7 +7,7 @@ import type {
 import type { FeatureCollection } from "geojson";
 import type { LayerToggles } from "../store";
 import { BASE_URL } from "./data";
-import { PALETTE, type Theme } from "./themes";
+import type { Theme } from "./themes";
 import type { AtlasData, Lang } from "./types";
 
 export interface FocusData {
@@ -45,13 +45,6 @@ const FONT = {
 
 const name = (lang: Lang): ExpressionSpecification => ["coalesce", ["get", `name_${lang}`], ["get", "name_zh"]];
 
-const paletteColor = (fallback: string): ExpressionSpecification => [
-  "match",
-  ["get", "palette"],
-  ...PALETTE.flatMap((c, i) => [i, c]),
-  fallback,
-] as unknown as ExpressionSpecification;
-
 const visible = (on: boolean) => (on ? "visible" : "none") as "visible" | "none";
 
 export function shieldImageId(fill: string, stroke: string) {
@@ -66,8 +59,9 @@ export function buildStyle(opts: {
   focus: FocusData;
   route: FeatureCollection;
   measure: FeatureCollection;
+  highlight: FeatureCollection;
 }): StyleSpecification {
-  const { theme, lang, data, layers, focus, route, measure } = opts;
+  const { theme, lang, data, layers, focus, route, measure, highlight } = opts;
   const m = theme.map;
   const dem = data.manifest.dem;
   const other: Lang = lang === "zh" ? "en" : "zh";
@@ -86,6 +80,8 @@ export function buildStyle(opts: {
     "focus-outline": { type: "geojson", data: focus.outline },
     route: { type: "geojson", data: route },
     measure: { type: "geojson", data: measure },
+    highlight: { type: "geojson", data: highlight },
+    places: { type: "geojson", data: data.layers.places },
     dem: {
       type: "raster-dem",
       tiles: [`${BASE_URL}data/${dem.tiles}`],
@@ -143,7 +139,7 @@ export function buildStyle(opts: {
     type: "fill",
     source: "divisions",
     filter: isSubtype("locality"),
-    paint: { "fill-color": paletteColor(m.land), "fill-opacity": layers.terrain ? m.terrain.tintOpacity : m.tintOpacity },
+    paint: { "fill-color": ["coalesce", ["get", "color"], m.land], "fill-opacity": layers.terrain ? m.terrain.tintOpacity : m.tintOpacity },
   });
 
   const [c0, c1, c2, c3, c4, c5] = m.choropleth;
@@ -328,6 +324,20 @@ export function buildStyle(opts: {
       layout: { "line-join": "round", "line-cap": "round" },
       paint: { "line-color": m.focus.line, "line-width": ["interpolate", ["linear"], ["zoom"], 6, 4, 12, 8] },
     },
+    {
+      id: "highlight-glow",
+      type: "line",
+      source: "highlight",
+      layout: { "line-join": "round", "line-cap": "round" },
+      paint: { "line-color": m.focus.glow, "line-width": ["interpolate", ["linear"], ["zoom"], 6, 12, 12, 22], "line-blur": 5 },
+    },
+    {
+      id: "highlight-line",
+      type: "line",
+      source: "highlight",
+      layout: { "line-join": "round", "line-cap": "round" },
+      paint: { "line-color": m.focus.line, "line-width": ["interpolate", ["linear"], ["zoom"], 6, 3.5, 12, 7] },
+    },
   );
 
   // Invisible hit targets.
@@ -477,6 +487,20 @@ export function buildStyle(opts: {
     paint: { "text-color": m.label.text, ...halo, "text-halo-width": 1.6 },
   });
   style.push(
+    {
+      id: "place-label",
+      type: "symbol",
+      source: "places",
+      minzoom: 9,
+      layout: {
+        "text-field": name(lang),
+        "text-font": FONT.medium,
+        "text-size": 11.5,
+        "text-anchor": "top",
+        "text-offset": [0, 1.9],
+      },
+      paint: { "text-color": m.label.text, ...halo },
+    },
     cityLabel("city-label-major", ["all", isKind("locality"), ["<=", ["get", "rank"], 2]], 5),
     cityLabel("city-label-minor", ["all", isKind("locality"), [">", ["get", "rank"], 2]], 6.2),
     {

@@ -11,37 +11,45 @@
 #
 # via: ordered list of divisions; the generator routes between their urban cores
 # over the terrain. Municipal roads to every district are derived automatically.
+# ring (optional): the route returns from the last via to the first.
+# ends_at_network (optional): the route runs from the first via towards the last and
+#   stops where it meets an earlier route (a spur).
 # tunnel_cost (optional): caps the per-km cost of steep terrain, letting the route
-# tunnel through mountains instead of detouring around them.
+#   tunnel through mountains instead of detouring around them.
+# emblem: motif and pattern of the route logo (see src/lib/emblems.tsx).
+# Every road segment belongs to exactly one route: routes are built in the order
+# below and later routes avoid the corridors of earlier ones.
 routes:
-  - id: rte_tb40gm
+  - id: rte_rr93s4
     ref: G-NV-1
     network: national_expressway
     class: motorway
-    status: generated
+    status: canon
     names:
-      zh: 北岸高速
-      en: North Shore Expressway
-    via: [div_m41gwn, div_0yef9a, div_yjghe9, div_8emjne]
-  - id: rte_r8td20
-    ref: G-NV-2
-    network: national_expressway
-    class: motorway
-    status: generated
-    names:
-      zh: 南岸高速
-      en: South Shore Expressway
+      zh: 环北维京岛高速
+      en: North Viking Island Ring Expressway
+      art-x-viking: Ringautobahn Hea Veiling
+    notes:
+      zh: 环绕全岛，串联除马斯林山市以外的所有城市，是领地交通的主骨架
+      en: Circles the island and links every city except Maslin Mountain; the backbone of the territory's road network.
+    ring: true
     tunnel_cost: 3.5
-    via: [div_m41gwn, div_nbrnfr, div_q4d6n6, div_k4s990, div_da3s38, div_k4hg7b, div_ygk521]
+    emblem: { motif: ring, pattern: contours }
+    via: [div_m41gwn, div_nbrnfr, div_q4d6n6, div_prcxzt, div_k4s990, div_da3s38, div_k4hg7b, div_ygk521, div_8emjne, div_yjghe9, div_0yef9a]
   - id: rte_cs3vnw
-    ref: G-NV-3
+    ref: G-NV-2
     network: national_expressway
     class: motorway
     status: generated
     names:
       zh: 龙关高速
       en: Long Pass Expressway
-    via: [div_yjghe9, div_q4d6n6, div_prcxzt, div_k4s990]
+    notes:
+      zh: 经龙关穿越洛龙山脉，连接北岸的勒克尔与山区腹地的洛龙山
+      en: Crosses the Lorond Range through Dragon Pass, linking Lekor on the north coast with Lorond Mountain in the interior.
+    tunnel_cost: 3.5
+    emblem: { motif: pass, pattern: contours }
+    via: [div_yjghe9, div_prcxzt]
   - id: rte_dprjx3
     ref: S-NV-1
     network: territorial_expressway
@@ -50,7 +58,12 @@ routes:
     names:
       zh: 马斯林山高速
       en: Maslin Expressway
-    via: [div_8emjne, div_rdypg7, div_ygk521]
+    notes:
+      zh: 从环岛高速伸入马斯林山盆地的支线
+      en: Spur from the ring expressway into the Maslin basin.
+    ends_at_network: true
+    emblem: { motif: basin, pattern: stripes }
+    via: [div_rdypg7, div_ygk521]
   - id: rte_2w74xj
     ref: S-NV-2
     network: territorial_expressway
@@ -59,6 +72,7 @@ routes:
     names:
       zh: 自勒高速
       en: Freedom–Lekor Expressway
+    emblem: { motif: wheat, pattern: stripes }
     via: [div_nbrnfr, div_yjghe9]
   - id: rte_72cfce
     ref: S-NV-3
@@ -68,4 +82,5 @@ routes:
     names:
       zh: 西奥高速
       en: Northwest–Oxino Expressway
+    emblem: { motif: compass, pattern: stripes }
     via: [div_0yef9a, div_q4d6n6]

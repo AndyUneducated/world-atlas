@@ -71,8 +71,12 @@ def _refine(grid, mask, targets, cell, tolerance, seed=0, iters=1200):
         src = grid[cand]
         pair = src * n + dest[cand]
         counts = np.bincount(pair, minlength=n * n)
-        # move about half the pairwise imbalance per step, spread over the shared boundary
-        prob = np.minimum(1.0, best_gain[cand] / (2.0 * counts[pair]))
+        # move about half the pairwise imbalance per step, spread over the shared boundary and
+        # split among each label's trading partners so a label between two donors doesn't overshoot
+        linked = counts.reshape(n, n) > 0
+        partners = np.maximum((linked | linked.T).sum(axis=1), 1)
+        share = np.maximum(partners[src], partners[dest[cand]])
+        prob = np.minimum(1.0, best_gain[cand] / (2.0 * counts[pair] * share))
         move = rng.random(prob.shape) < prob
         ys, xs = np.nonzero(cand)
         grid[ys[move], xs[move]] = dest[cand][move]

@@ -7,22 +7,35 @@ EARTH_RADIUS_KM = 6371.0088
 
 
 class Frame:
-    """Local sinusoidal (equal-area) frame: km offsets <-> lon/lat on the planet sphere."""
+    """Local sinusoidal (equal-area) frame: km offsets <-> lon/lat on the planet sphere.
 
-    def __init__(self, origin_lonlat, size_km):
+    The generator works in design kilometres; `scale` maps one design km to that many real km on
+    the planet, so the whole region can be resized without retuning any generator parameter.
+    """
+
+    def __init__(self, origin_lonlat, size_km, scale=1.0):
         self.lon0, self.lat0 = origin_lonlat
         self.w, self.h = size_km
+        self.scale = float(scale)
+
+    def km(self, design_km):
+        """Design length -> real km."""
+        return design_km * self.scale
+
+    def km2(self, design_km2):
+        """Design area -> real km²."""
+        return design_km2 * self.scale * self.scale
 
     def to_lonlat(self, xy: np.ndarray) -> np.ndarray:
         xy = np.asarray(xy, float)
-        lat = self.lat0 + np.degrees((xy[..., 1] - self.h / 2) / EARTH_RADIUS_KM)
-        lon = self.lon0 + np.degrees((xy[..., 0] - self.w / 2) / (EARTH_RADIUS_KM * np.cos(np.radians(lat))))
+        lat = self.lat0 + np.degrees((xy[..., 1] - self.h / 2) * self.scale / EARTH_RADIUS_KM)
+        lon = self.lon0 + np.degrees((xy[..., 0] - self.w / 2) * self.scale / (EARTH_RADIUS_KM * np.cos(np.radians(lat))))
         return np.stack([lon, lat], axis=-1)
 
     def from_lonlat(self, lon, lat):
         lon, lat = np.asarray(lon, float), np.asarray(lat, float)
-        y = np.radians(lat - self.lat0) * EARTH_RADIUS_KM + self.h / 2
-        x = np.radians(lon - self.lon0) * EARTH_RADIUS_KM * np.cos(np.radians(lat)) + self.w / 2
+        y = np.radians(lat - self.lat0) * EARTH_RADIUS_KM / self.scale + self.h / 2
+        x = np.radians(lon - self.lon0) * EARTH_RADIUS_KM * np.cos(np.radians(lat)) / self.scale + self.w / 2
         return x, y
 
     def bounds_lonlat(self):
@@ -71,6 +84,23 @@ def polyline_distance(pts, X, Y) -> np.ndarray:
         t = np.clip(((X - x1) * dx + (Y - y1) * dy) / (dx * dx + dy * dy), 0, 1)
         d = np.minimum(d, np.hypot(X - (x1 + t * dx), Y - (y1 + t * dy)))
     return d
+
+
+def polyline_param(pts, X, Y):
+    """Distance to a polyline and the normalised arc position (0 at the first point) of the nearest point."""
+    pts = np.asarray(pts, float)
+    seg = np.hypot(*np.diff(pts, axis=0).T)
+    start = np.concatenate([[0.0], np.cumsum(seg)])
+    d = np.full(X.shape, np.inf)
+    s = np.zeros(X.shape)
+    for (x1, y1), (x2, y2), s0, ln in zip(pts[:-1], pts[1:], start, seg):
+        dx, dy = x2 - x1, y2 - y1
+        t = np.clip(((X - x1) * dx + (Y - y1) * dy) / (dx * dx + dy * dy), 0, 1)
+        dd = np.hypot(X - (x1 + t * dx), Y - (y1 + t * dy))
+        closer = dd < d
+        d[closer] = dd[closer]
+        s[closer] = (s0 + t * ln)[closer]
+    return d, s / start[-1]
 
 
 def chaikin(coords: np.ndarray, iterations=2, closed=False) -> np.ndarray:

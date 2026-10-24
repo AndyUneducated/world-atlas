@@ -1,0 +1,20 @@
+# Named places (buildings, landmarks, facilities) of North Viking Island.
+# subtype follows OSM / Overture place categories.
+# in: the division the place lies in. Without explicit coordinates the generator puts
+#   the place at that division's urban core, offset by offset_km (real km, east/north).
+# marker: map symbol; "emblem" draws the logo of the entity named by emblem_of.
+places:
+  - id: bld_mc71ej
+    subtype: government
+    status: canon
+    names:
+      zh: 北维京岛领地政府
+      en: Government of the Territory of North Viking Island
+      art-x-viking: Regierung von Hea Veiling
+    notes:
+      zh: 领地最高行政机关驻地，位于首府自由市白桦区的议会综合办公区
+      en: Seat of the territory's executive, in the Parliament Complex of Birchwood District in the capital, Freedom City.
+    in: div_16cxr8
+    offset_km: [3, 2]
+    marker: emblem
+    emblem_of: div_fbfqv9

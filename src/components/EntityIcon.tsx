@@ -4,6 +4,7 @@ import type { Entity } from "../lib/types";
 export function EntityIcon({ entity, className }: { entity: Entity; className?: string }) {
   const props = { className, strokeWidth: 1.8 };
   if (entity.kind === "route") return <Route {...props} />;
+  if (entity.kind === "place") return <Landmark {...props} />;
   switch (entity.subtype) {
     case "dependency":
       return <Flag {...props} />;

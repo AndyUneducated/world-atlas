@@ -11,7 +11,7 @@ export type NameLang = (typeof NAME_LANGS)[number];
 export type Names = Partial<Record<NameLang, string>> & { zh: string; en: string };
 export type Localized = { zh: string; en: string };
 
-export type EntityKind = "division" | "natural" | "route";
+export type EntityKind = "division" | "natural" | "route" | "place";
 export type EntityStatus = "canon" | "draft" | "generated";
 
 export interface EntityStats {
@@ -52,7 +52,26 @@ export interface Entity {
   network?: string;
   class?: string;
   via?: string[];
+  ring?: boolean;
+  ends_at_network?: boolean;
+  segments?: RouteSegment[];
+  /** #RRGGBB; set on cities, used for map tint and emblem. */
+  color?: string;
+  emblem?: { motif: string; pattern: string };
+  /** Places: the division the place stands in, and whose emblem marks it on the map. */
+  in?: string;
+  marker?: string;
+  emblem_of?: string;
   source?: string;
+}
+
+/** One stretch of a route inside a single district, in travel order. */
+export interface RouteSegment {
+  division: string | null;
+  from_km: number;
+  km: number;
+  bbox: BBox;
+  line: LngLat[];
 }
 
 export interface Region {
@@ -73,6 +92,7 @@ export interface Manifest {
 export const LAYER_FILES = [
   "divisions",
   "labels",
+  "places",
   "water",
   "rivers",
   "rivers-named",
@@ -99,6 +119,7 @@ export interface AtlasData {
   manifest: Manifest;
   entities: Record<string, Entity>;
   layers: Record<LayerFile, FeatureCollection>;
-  palette: Record<string, number>;
+  /** Map colour per division: each city's own, inherited by its districts. */
+  colors: Record<string, string>;
   graph: RoadGraph;
 }

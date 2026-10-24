@@ -2,7 +2,9 @@ import * as maplibregl from "maplibre-gl";
 import type { GeoJSONSource, MapGeoJSONFeature } from "maplibre-gl";
 import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import { useEffect, useMemo, useRef } from "react";
-import type { FeatureCollection } from "geojson";
+import { createRoot } from "react-dom/client";
+import type { FeatureCollection, Point } from "geojson";
+import { PlaceMarker } from "./PlaceMarker";
 import { BASE_URL } from "../lib/data";
 import { buildFocus, indexFeatures } from "../lib/focus";
 import { measureFeatures } from "../lib/measure";
@@ -16,6 +18,8 @@ maplibregl.setWorkerUrl(workerUrl);
 
 const CJK_FONT = '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC", sans-serif';
 const BOROUGH_ZOOM = 8.8;
+/** Below this zoom landmark markers would sit on top of the city labels. */
+const PLACE_MARKER_ZOOM = 7.5;
 
 function drawShield(map: maplibregl.Map, id: string) {
   const [, fill, stroke] = id.split("|");
@@ -80,14 +84,22 @@ export function MapView() {
 
   const measure = useAtlas((s) => s.measure);
   const measureFc = () => measureFeatures(useAtlas.getState().measure, null);
+  const highlight = useAtlas((s) => s.highlight);
+  const highlightFc = (): FeatureCollection => {
+    const h = useAtlas.getState().highlight;
+    return { type: "FeatureCollection", features: h ? [{ type: "Feature", properties: {}, geometry: { type: "MultiLineString", coordinates: h.lines } }] : [] };
+  };
+  const styleOpts = () => {
+    const s = useAtlas.getState();
+    return { theme: THEMES[s.theme], lang: s.lang, data, layers: s.layers, focus: currentFocus(), route: routeRef.current, measure: measureFc(), highlight: highlightFc() };
+  };
 
   const currentFocus = () => focusRef.current ?? buildFocus(features.get(useAtlas.getState().selectedId ?? ""), region.bounds);
 
   useEffect(() => {
-    const s = useAtlas.getState();
     const map = new maplibregl.Map({
       container: container.current!,
-      style: buildStyle({ theme: THEMES[s.theme], lang: s.lang, data, layers: s.layers, focus: currentFocus(), route: routeRef.current, measure: measureFc() }),
+      style: buildStyle(styleOpts()),
       ...(initialView
         ? { center: [initialView.lng, initialView.lat], zoom: initialView.zoom, bearing: initialView.bearing }
         : { bounds: region.bounds, fitBoundsOptions: { padding: 80 } }),
@@ -137,6 +149,7 @@ export function MapView() {
     };
 
     map.on("click", (e) => {
+      if ((e.originalEvent.target as HTMLElement | null)?.closest(".atlas-marker")) return;
       const { measure, setMeasure, select } = useAtlas.getState();
       if (measure) {
         setMeasure([...measure, [e.lngLat.lng, e.lngLat.lat]]);
@@ -183,7 +196,7 @@ export function MapView() {
       styledRef.current = true;
       return;
     }
-    map.setStyle(buildStyle({ theme: THEMES[theme], lang, data, layers, focus: currentFocus(), route: routeRef.current, measure: measureFc() }), { diff: true });
+    map.setStyle(buildStyle(styleOpts()), { diff: true });
     syncUrl(map);
   }, [theme, lang, layers, data]);
 
@@ -232,6 +245,41 @@ export function MapView() {
       });
     }
   }, [routeFc]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    const apply = () => (map.getSource("highlight") as GeoJSONSource | undefined)?.setData(highlightFc());
+    if (map.isStyleLoaded()) apply();
+    else map.once("idle", apply);
+  }, [highlight]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    const markers = data.layers.places.features
+      .filter((f) => (f.properties as { marker?: string }).marker === "emblem" && f.geometry.type === "Point")
+      .map((f) => {
+        const el = document.createElement("div");
+        el.className = "atlas-marker-layer";
+        const root = createRoot(el);
+        root.render(<PlaceMarker id={(f.properties as { id: string }).id} />);
+        const marker = new maplibregl.Marker({ element: el, anchor: "center" })
+          .setLngLat((f.geometry as Point).coordinates as [number, number])
+          .addTo(map);
+        return { el, root, marker };
+      });
+    const fade = () => markers.forEach(({ el }) => el.classList.toggle("is-hidden", map.getZoom() < PLACE_MARKER_ZOOM));
+    fade();
+    map.on("zoom", fade);
+    return () => {
+      map.off("zoom", fade);
+      markers.forEach(({ root, marker }) => {
+        marker.remove();
+        setTimeout(() => root.unmount());
+      });
+    };
+  }, [data]);
 
   useEffect(() => {
     const map = mapRef.current;

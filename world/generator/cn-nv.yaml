@@ -1,14 +1,17 @@
 # Procedural generator parameters for North Viking Island (layout draft A, "spine").
 #
-# All positions are in kilometres inside a local equal-area (sinusoidal) frame whose
-# centre maps to frame.origin_lonlat. Changing a number here and re-running
-# `npm run data` rebuilds coastline, terrain, rivers, boundaries and roads.
-# Division areas are taken from world/divisions/*.yaml (area_km2) and enforced.
+# All positions and lengths are in design kilometres inside a local equal-area
+# (sinusoidal) frame whose centre maps to frame.origin_lonlat; frame.scale converts
+# design km to real km on the planet (areas scale by its square). Changing a number
+# here and re-running `npm run data` rebuilds coastline, terrain, rivers, boundaries
+# and roads. Division areas are taken from world/divisions/*.yaml (area_km2, real km²)
+# and enforced.
 territory: div_fbfqv9
 seed: 11
 frame:
   origin_lonlat: [8.0, 60.0]
   size_km: [320, 190]
+  scale: 2.8284  # √8: the island is 8× the area of the original sketch
   resolution_km: 0.25
 
 land:
@@ -19,6 +22,7 @@ land:
     - [250, 82, 48, 42, 0, 0.6]
     - [195, 48, 45, 22, -8, 0.45]
     - [30, 80, 25, 30, 0, 0.4]
+    - [204, 128, 42, 20, 12, 0.5]   # Erding valley mouth on the north coast
   coast_noise: { amplitude: 0.14, scale_km: 60, octaves: 7, detail_amplitude: 0.05, detail_scale_km: 9 }
   # Fjords: polyline cut into the coast, [path, width_km, depth].
   fjords:
@@ -38,16 +42,23 @@ terrain:
   # Plains flatten terrain: [cx, cy, radius_km, strength 0..1]
   plains:
     - [108, 72, 28, 0.75]
-    - [232, 118, 14, 0.6]
     - [265, 82, 10, 0.7]
+  # Valleys: a floor falling from source_m at the first point to the sea at the last.
+  valleys:
+    - { feature: nat_ww491j, path: [[178, 46], [184, 70], [190, 94], [198, 116], [206, 138], [210, 150]], width_km: 16, source_m: 520, strength: 0.85 }
 
 hydrology:
-  river_min_drainage_km2: 25
+  river_min_drainage_km2: 25  # design km²
   named_rivers:
-    # The named river is the largest stream crossing the given division.
+    # The named river is the largest stream crossing the given division (city or district).
     - { feature: nat_x9bmeh, through: div_g4a8q0 }
     - { feature: nat_9h7mcd, through: div_b1dx32 }
-    - { feature: nat_ww491j, through: div_qpyn9e }
+    - { feature: nat_ww491j, through: div_8emjne }
+
+# Facts the build checks and reports; a failed check is printed as a warning.
+expect:
+  longest_river: nat_ww491j
+  largest_cities_by_area: [div_8emjne, div_rdypg7, div_prcxzt]
   lakes:
     - { feature: nat_jaxtgn, in: div_t8bg0d, radius_km: 4.2 }
 
@@ -65,7 +76,7 @@ layout:
     div_k4hg7b: [222, 27]    # 贝克勒自由贸易区
     div_ygk521: [258, 40]    # 天城市
     div_rdypg7: [240, 82]    # 马斯林山市
-    div_8emjne: [224, 118]   # 厄定河市
+    div_8emjne: [194, 108]   # 厄定河市
   districts:
     div_16cxr8: [0, 0]       # 中央行政区
     div_b1dx32: [0, 1]       # 北河区
@@ -103,8 +114,8 @@ layout:
     div_tc0ngk: [1, 0]       # 东营大区
     div_nwke3f: [-1, 0]      # 西坪大区
     div_0tsyzy: [0, -1]      # 联训大区
-    div_qpyn9e: [0.7, 0]     # 厄定区
-    div_1qm5cj: [-0.7, 0]    # 旧府区
+    div_qpyn9e: [0.1, 0.7]   # 厄定区
+    div_1qm5cj: [-0.1, -0.7] # 旧府区
   boundary_warp_km: 4
 
 context:

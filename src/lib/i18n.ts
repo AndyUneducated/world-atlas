@@ -16,6 +16,15 @@ const STRINGS = {
   motto: { zh: "格言", en: "Motto" },
   subdivisions: { zh: "下辖", en: "Subdivisions" },
   passesThrough: { zh: "途经", en: "Passes through" },
+  route_segments: { zh: "途经路段", en: "Route sections" },
+  route_cities: { zh: "市", en: "cities" },
+  route_districts: { zh: "区", en: "districts" },
+  route_loop: { zh: "环线", en: "Loop" },
+  route_spur: { zh: "支线", en: "Spur" },
+  route_water: { zh: "跨水段", en: "Water crossing" },
+  capitalOf: { zh: "领地首府", en: "Territorial capital" },
+  emblem: { zh: "徽标", en: "Emblem" },
+  locatedIn: { zh: "位于", en: "Located in" },
   share: { zh: "复制链接", en: "Copy link" },
   copied: { zh: "已复制", en: "Copied" },
   zoomTo: { zh: "定位", en: "Zoom to" },
@@ -93,6 +102,7 @@ const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
   ridge: { zh: "山岭", en: "Ridge" },
   river: { zh: "河流", en: "River" },
   lake: { zh: "湖泊", en: "Lake" },
+  government: { zh: "政府机关", en: "Government" },
 };
 
 const NETWORK_LABELS: Record<string, Record<Lang, string>> = {

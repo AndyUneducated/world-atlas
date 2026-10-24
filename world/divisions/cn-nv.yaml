@@ -25,6 +25,9 @@ divisions:
     zh: 自由，平等，博爱
     en: Liberty, Equality, Fraternity
   capital: div_nbrnfr
+  emblem:
+    motif: aurora
+    pattern: stars
 - id: div_nbrnfr
   subtype: locality
   parent: div_fbfqv9
@@ -38,7 +41,11 @@ divisions:
     admin: '9001'
     unlocode: NV FRD
   population: 560000
-  area_km2: 2210.0
+  area_km2: 17680.0
+  color: '#E9B949'
+  emblem:
+    motif: capitol
+    pattern: rays
   notes:
     zh: 领地首府。1990 年在原勒克尔市基础上拆分建成
     en: Territorial capital. Formed in 1990 by splitting the former Lekor City.
@@ -54,7 +61,7 @@ divisions:
   codes:
     admin: '900101'
   population: 320000
-  area_km2: 720.0
+  area_km2: 5760.0
   notes:
     zh: 领地机关驻地。1990 年首府建在两河之间长满白桦的台地上，区名由此而来
     en: Seat of the territorial institutions. The capital was built in 1990 on a birch-wooded terrace between the two rivers.
@@ -70,7 +77,7 @@ divisions:
   codes:
     admin: '900102'
   population: 150000
-  area_km2: 580.0
+  area_km2: 4640.0
   notes:
     zh: 北河大道、人民大道沿线商住区
     en: Commercial and residential corridor along North River Avenue and People's Avenue.
@@ -86,7 +93,7 @@ divisions:
   codes:
     admin: '900103'
   population: 90000
-  area_km2: 910.0
+  area_km2: 7280.0
   notes:
     zh: 自由河入海口的冲积沙洲，临港配套
     en: Alluvial sandbars at the mouth of the Freedom River; port support zone.
@@ -103,7 +110,11 @@ divisions:
     admin: '9002'
     unlocode: NV VKP
   population: 3100000
-  area_km2: 1540.0
+  area_km2: 12320.0
+  color: '#4C8BF5'
+  emblem:
+    motif: longship
+    pattern: waves
   notes:
     zh: 维京岛领地最早建成的城市，坐落在维京岛西部。目前为人口最多的城市、经济中心、最大港口
     en: The oldest city of the territory, on the west coast. Largest population, economic centre and largest port.
@@ -119,7 +130,7 @@ divisions:
   codes:
     admin: '900201'
   population: 1180000
-  area_km2: 420.0
+  area_km2: 3360.0
   notes:
     zh: 维京语意为「鲸湾」。旧时捕鲸站所在的海湾，今为最大港区与临港产业带
     en: Viking for "whale bay". Once a whaling station, now the largest port area and port-industry belt.
@@ -135,7 +146,7 @@ divisions:
   codes:
     admin: '900202'
   population: 860000
-  area_km2: 380.0
+  area_km2: 3040.0
   notes:
     zh: 维京语意为「烽火岬」。客运码头、邮轮与海关查验区
     en: Viking for "beacon headland". Passenger terminals, cruise piers and customs inspection zone.
@@ -151,7 +162,7 @@ divisions:
   codes:
     admin: '900203'
   population: 680000
-  area_km2: 410.0
+  area_km2: 3280.0
   notes:
     zh: 维京语意为「石堡」。旧城围绕维京时代的石垒形成
     en: Viking for "stone fort". The old town grew around a Viking-age stone rampart.
@@ -167,7 +178,7 @@ divisions:
   codes:
     admin: '900204'
   population: 380000
-  area_km2: 330.0
+  area_km2: 2640.0
   notes:
     zh: 二十一世纪沿西岸扩展的商务居住带
     en: Business and residential strip developed along the west coast in the 21st century.
@@ -184,7 +195,11 @@ divisions:
     admin: '9003'
     unlocode: NV NWS
   population: 1980000
-  area_km2: 2300.0
+  area_km2: 18400.0
+  color: '#36B37E'
+  emblem:
+    motif: orbit
+    pattern: dots
   notes:
     zh: 科研中心，教育中心。1990 年在原勒克尔市拆分建成
     en: Centre of research and education. Formed in 1990 by splitting the former Lekor City.
@@ -200,7 +215,7 @@ divisions:
   codes:
     admin: '900301'
   population: 860000
-  area_km2: 580.0
+  area_km2: 4640.0
   notes:
     zh: 取「呦呦鹿鸣」之意。市级机关与广电机构集中区
     en: Named after the classical ode of the calling deer. Municipal institutions and broadcasting organisations.
@@ -216,7 +231,7 @@ divisions:
   codes:
     admin: '900302'
   population: 540000
-  area_km2: 720.0
+  area_km2: 5760.0
   notes:
     zh: 科学大道沿线，深空太空军北维京研发中心等科研设施所在
     en: Research facilities along Science Avenue, including the Deep Space Force North Viking R&D Centre.
@@ -232,7 +247,7 @@ divisions:
   codes:
     admin: '900303'
   population: 380000
-  area_km2: 540.0
+  area_km2: 4320.0
   notes:
     zh: 维京语意为「椴树滩」，中文取「林间小道」之意。高等教育与附属研发机构
     en: Viking for "linden meadow"; the Chinese name reads "forest path". Higher education and affiliated research institutes.
@@ -248,7 +263,7 @@ divisions:
   codes:
     admin: '900304'
   population: 200000
-  area_km2: 460.0
+  area_km2: 3680.0
   notes:
     zh: 低密度科研居住与生态缓冲带
     en: Low-density research housing and ecological buffer zone.
@@ -265,7 +280,11 @@ divisions:
     admin: '9004'
     unlocode: NV LKR
   population: 960000
-  area_km2: 1559.0
+  area_km2: 12472.0
+  color: '#9BC53D'
+  emblem:
+    motif: wheat
+    pattern: furrows
   notes:
     zh: 农业中心、旅游度假区。在领地刚刚建成阶段曾覆盖维京港以东的大片地区，后逐渐被拆分为其他城市，目前仅保留原勒克尔市北部的五分之一领土
     en: Agricultural centre and resort area. Once covered most of the land east of Viking Port; now retains only the northern fifth of its former territory.
@@ -281,7 +300,7 @@ divisions:
   codes:
     admin: '900401'
   population: 420000
-  area_km2: 620.0
+  area_km2: 4960.0
   notes:
     zh: 拆市后保留的北部农牧核心
     en: The northern farming and pastoral core retained after the 1990 split.
@@ -297,7 +316,7 @@ divisions:
   codes:
     admin: '900402'
   population: 360000
-  area_km2: 580.0
+  area_km2: 4640.0
   notes:
     zh: 酒庄、民宿与勒克尔丰收节主会场
     en: Wineries, guesthouses and the main venue of the Lekor Harvest Festival.
@@ -313,7 +332,7 @@ divisions:
   codes:
     admin: '900403'
   population: 180000
-  area_km2: 359.0
+  area_km2: 2872.0
   notes:
     zh: 环湖集镇与水上休闲
     en: Lakeside towns and water recreation.
@@ -330,7 +349,11 @@ divisions:
     admin: '9005'
     unlocode: NV OXN
   population: 880000
-  area_km2: 940.0
+  area_km2: 7520.0
+  color: '#E3C567'
+  emblem:
+    motif: ox
+    pattern: stripes
   notes:
     zh: 平原地区。1990 年在原勒克尔市拆分建成
     en: Plains region. Formed in 1990 by splitting the former Lekor City.
@@ -346,7 +369,7 @@ divisions:
   codes:
     admin: '900501'
   population: 620000
-  area_km2: 650.0
+  area_km2: 5200.0
   notes:
     zh: 原奥克镇。1990 年与西诺镇合并设市，市名由两镇名合成。机械化农业与农产品集散
     en: Formerly the town of Ox, merged with Ino in 1990; the city name joins the two. Mechanised agriculture and produce distribution.
@@ -362,7 +385,7 @@ divisions:
   codes:
     admin: '900502'
   population: 260000
-  area_km2: 290.0
+  area_km2: 2320.0
   notes:
     zh: 原西诺镇，1990 年与奥克镇合并设市。承接勒克尔方向通勤的居住拓展
     en: Formerly the town of Ino, merged with Ox in 1990. Residential expansion serving commuters towards Lekor.
@@ -379,7 +402,11 @@ divisions:
     admin: '9006'
     unlocode: NV LRD
   population: 450000
-  area_km2: 2998.0
+  area_km2: 24000.0
+  color: '#5E9E6E'
+  emblem:
+    motif: peaks
+    pattern: contours
   notes:
     zh: 复杂山区。1990 年在原勒克尔市拆分建成
     en: Complex mountain terrain. Formed in 1990 by splitting the former Lekor City.
@@ -395,7 +422,7 @@ divisions:
   codes:
     admin: '900601'
   population: 180000
-  area_km2: 380.0
+  area_km2: 3042.0
   notes:
     zh: 洛龙山隘口集镇与公路枢纽
     en: Mountain-pass town and highway hub of the Lorond Mountains.
@@ -411,7 +438,7 @@ divisions:
   codes:
     admin: '900602'
   population: 120000
-  area_km2: 1420.0
+  area_km2: 11367.6
   notes:
     zh: 林业、护林与少量季节性驻地
     en: Forestry, forest protection and a few seasonal settlements.
@@ -427,7 +454,7 @@ divisions:
   codes:
     admin: '900603'
   population: 150000
-  area_km2: 1198.0
+  area_km2: 9590.4
   notes:
     zh: 高山峡谷村落与观光步道
     en: Alpine gorge villages and scenic trails.
@@ -444,7 +471,11 @@ divisions:
     admin: '9007'
     unlocode: NV NEW
   population: 1890000
-  area_km2: 1500.0
+  area_km2: 12000.0
+  color: '#E5739D'
+  emblem:
+    motif: skyline
+    pattern: grid
   notes:
     zh: 新建成的现代化居住中心，居民多通勤于萨科勒市。1990 年拆分自马斯林山市
     en: Newly built modern residential centre; most residents commute to Sakole. Split from Maslin Mountain City in 1990.
@@ -460,7 +491,7 @@ divisions:
   codes:
     admin: '900701'
   population: 720000
-  area_km2: 520.0
+  area_km2: 4160.0
   notes:
     zh: 建在原来的青草坪地上。高层住宅、商业与轨道交通枢纽
     en: Built on former green meadows. High-rise housing, commerce and the rail transit hub.
@@ -476,7 +507,7 @@ divisions:
   codes:
     admin: '900702'
   population: 680000
-  area_km2: 540.0
+  area_km2: 4320.0
   notes:
     zh: 成片新建社区与学校
     en: Large new residential communities and schools.
@@ -492,7 +523,7 @@ divisions:
   codes:
     admin: '900703'
   population: 490000
-  area_km2: 440.0
+  area_km2: 3520.0
   notes:
     zh: 面向萨科勒方向的快速路与公交走廊
     en: Expressway and bus corridor towards Sakole.
@@ -509,7 +540,11 @@ divisions:
     admin: '9008'
     unlocode: NV SKY
   population: 780000
-  area_km2: 950.0
+  area_km2: 7600.0
+  color: '#F29E4C'
+  emblem:
+    motif: sun
+    pattern: halo
   notes:
     zh: 度假区。1990 年拆分自马斯林山市
     en: Resort area. Split from Maslin Mountain City in 1990.
@@ -525,7 +560,7 @@ divisions:
   codes:
     admin: '900801'
   population: 320000
-  area_km2: 320.0
+  area_km2: 2560.0
   notes:
     zh: 主度假集群与会议中心
     en: Main resort cluster and convention centre.
@@ -541,7 +576,7 @@ divisions:
   codes:
     admin: '900802'
   population: 280000
-  area_km2: 380.0
+  area_km2: 3040.0
   notes:
     zh: 海滩、主题乐园与酒店群
     en: Beaches, theme parks and hotels.
@@ -557,7 +592,7 @@ divisions:
   codes:
     admin: '900803'
   population: 180000
-  area_km2: 250.0
+  area_km2: 2000.0
   notes:
     zh: 低密度高端住宅
     en: Low-density high-end residences.
@@ -574,7 +609,11 @@ divisions:
     admin: '9009'
     unlocode: NV SKL
   population: 900000
-  area_km2: 750.0
+  area_km2: 6000.0
+  color: '#8E7CC3'
+  emblem:
+    motif: gear
+    pattern: hex
   notes:
     zh: 建设有新工业区。1990 年拆分自马斯林山市
     en: Home to a new industrial zone. Split from Maslin Mountain City in 1990.
@@ -590,7 +629,7 @@ divisions:
   codes:
     admin: '900901'
   population: 380000
-  area_km2: 280.0
+  area_km2: 2240.0
   notes:
     zh: 岗地曾出产铁矿而得名。1990 年代起布局的制造业园区
     en: Named after the iron ore once mined from its knolls. Manufacturing parks laid out since the 1990s.
@@ -606,7 +645,7 @@ divisions:
   codes:
     admin: '900902'
   population: 320000
-  area_km2: 310.0
+  area_km2: 2480.0
   notes:
     zh: 原萨科镇，城市名萨科勒在巴克汉姆语中意为「萨科之地」。拆市前的传统市镇中心
     en: The old town of Sako; Sakole means "Sako's land" in Buckham. The traditional town centre before the split.
@@ -622,7 +661,7 @@ divisions:
   codes:
     admin: '900903'
   population: 200000
-  area_km2: 160.0
+  area_km2: 1280.0
   notes:
     zh: 巴克汉姆语意为「岩堡」，得名于海边的岩丘。公路货运站与仓储
     en: Buckham for "rock fort", after a seaside rock outcrop. Road freight station and warehousing.
@@ -639,7 +678,11 @@ divisions:
     admin: '9010'
     unlocode: NV BKL
   population: 950000
-  area_km2: 124.0
+  area_km2: 992.0
+  color: '#E5534B'
+  emblem:
+    motif: exchange
+    pattern: diagonal
   notes:
     zh: 自由贸易试验区，拥有极端自由的经济政策。1990 年拆分自马斯林山市
     en: Free trade pilot zone with extremely liberal economic policies. Split from Maslin Mountain City in 1990.
@@ -656,7 +699,7 @@ divisions:
   codes:
     admin: '901001'
   population: 280000
-  area_km2: 38.0
+  area_km2: 304.0
   notes:
     zh: 巴克汉姆语意为「海角」。海陆空联运监管与旅客通道
     en: Buckham for "cape". Sea-land-air intermodal supervision and passenger gateway.
@@ -672,7 +715,7 @@ divisions:
   codes:
     admin: '901002'
   population: 410000
-  area_km2: 52.0
+  area_km2: 416.0
   notes:
     zh: 湾内水面平静如镜。离岸金融、结算与总部经济
     en: A sheltered bay as still as a mirror. Offshore finance, clearing and headquarters economy.
@@ -688,7 +731,7 @@ divisions:
   codes:
     admin: '901003'
   population: 260000
-  area_km2: 34.0
+  area_km2: 272.0
   notes:
     zh: 包括东南离岛与海燕栖息的礁群。保税仓储与加工贸易
     en: Includes the south-eastern islet and the reefs where petrels nest. Bonded warehousing and processing trade.
@@ -705,7 +748,11 @@ divisions:
     admin: '9011'
     unlocode: NV MSL
   population: 90000
-  area_km2: 2890.0
+  area_km2: 27000.0
+  color: '#9A8F7E'
+  emblem:
+    motif: basin
+    pattern: contours
   notes:
     zh: 复杂山区，东部为平地，其他三面被高山环绕。军事训练区
     en: 'Complex mountain terrain: flat land to the east, high mountains on the other three sides. Military training area.'
@@ -721,7 +768,7 @@ divisions:
   codes:
     admin: '901101'
   population: 21000
-  area_km2: 520.0
+  area_km2: 4858.1
   notes:
     zh: 领地维和部队指挥部驻地
     en: Headquarters of the Territorial Peacekeeping Force.
@@ -737,7 +784,7 @@ divisions:
   codes:
     admin: '901102'
   population: 18000
-  area_km2: 610.0
+  area_km2: 5699.0
   notes:
     zh: 深空太空军马斯林山指挥中心
     en: Deep Space Force Maslin Mountain Command Centre.
@@ -753,7 +800,7 @@ divisions:
   codes:
     admin: '901103'
   population: 15000
-  area_km2: 580.0
+  area_km2: 5418.7
   notes:
     zh: 深空太空军士官学校
     en: Deep Space Force NCO Academy.
@@ -769,7 +816,7 @@ divisions:
   codes:
     admin: '901104'
   population: 19000
-  area_km2: 640.0
+  area_km2: 5979.2
   notes:
     zh: 维京-马斯林山发射与降落中心
     en: Viking–Maslin Mountain Launch and Landing Centre.
@@ -785,7 +832,7 @@ divisions:
   codes:
     admin: '901105'
   population: 17000
-  area_km2: 540.0
+  area_km2: 5045.0
   notes:
     zh: 终年积雪的高山谷地。解放军马斯林山联合训练基地
     en: A high valley under snow most of the year. PLA Maslin Mountain Joint Training Base.
@@ -802,7 +849,11 @@ divisions:
     admin: '9012'
     unlocode: NV ERD
   population: 30000
-  area_km2: 890.0
+  area_km2: 32000.0
+  color: '#3FB6C6'
+  emblem:
+    motif: river
+    pattern: flow
   notes:
     zh: 维京岛东北地区的河谷平原。原为马斯林山市首府
     en: River valley plain in the north-east of the island. Formerly the seat of Maslin Mountain City.
@@ -818,7 +869,7 @@ divisions:
   codes:
     admin: '901201'
   population: 18000
-  area_km2: 520.0
+  area_km2: 18696.6
   notes:
     zh: 厄定河沿岸农业与小型集镇
     en: Farming and small towns along the Erding River.
@@ -834,7 +885,7 @@ divisions:
   codes:
     admin: '901202'
   population: 12000
-  area_km2: 370.0
+  area_km2: 13303.4
   notes:
     zh: 马斯林山拆市前的机关旧址与博物馆
     en: Former government seat of Maslin Mountain City before the split, now museums.

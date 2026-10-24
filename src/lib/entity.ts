@@ -1,10 +1,11 @@
-import { PALETTE } from "./themes";
+import { ROUTE_COLORS, TERRITORY_COLOR } from "./emblems";
 import type { AtlasData, Entity, Lang } from "./types";
 import { displayName } from "./i18n";
 
 export function accentColor(data: AtlasData, e: Entity): string | undefined {
-  const slot = data.palette[e.id];
-  return slot !== undefined && slot >= 0 ? PALETTE[slot] : undefined;
+  if (e.kind === "route") return ROUTE_COLORS[e.network ?? ""];
+  if (e.kind === "place" || e.subtype === "dependency") return TERRITORY_COLOR;
+  return data.colors[e.id];
 }
 
 /** Breadcrumb chain from the outermost ancestor down to the entity itself. */
@@ -23,4 +24,10 @@ export function pathLabel(data: AtlasData, e: Entity, lang: Lang): string {
     .filter((x) => x.kind === "division" && x.subtype !== "country")
     .map((x) => x.short_names?.[lang] ?? displayName(x, lang))
     .join(" · ");
+}
+
+/** Chainage in the GB style, e.g. 12.4 km -> "K12+400". */
+export function chainage(km: number): string {
+  const m = Math.round(km * 1000);
+  return `K${Math.floor(m / 1000)}+${String(m % 1000).padStart(3, "0")}`;
 }

@@ -6,6 +6,7 @@ import { accentColor, pathLabel } from "../lib/entity";
 import { displayName, otherName, t } from "../lib/i18n";
 import { SearchIndex } from "../lib/search";
 import { useAtlas } from "../store";
+import { Emblem, hasEmblem } from "./Emblem";
 import { EntityIcon } from "./EntityIcon";
 
 export function SearchBox() {
@@ -130,12 +131,18 @@ export function SearchBox() {
                           onMouseEnter={() => setCursor(i)}
                           className={clsx("flex w-full items-center gap-3 rounded-xl px-2.5 py-2 text-left", i === cursor && "bg-hover")}
                         >
-                          <span
-                            className="grid size-9 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent"
-                            style={accent ? { background: `${accent}22`, color: accent } : undefined}
-                          >
-                            <EntityIcon entity={e} className="size-[18px]" />
-                          </span>
+                          {hasEmblem(e) ? (
+                            <span className="grid size-9 shrink-0 place-items-center">
+                              <Emblem entity={e} size={32} />
+                            </span>
+                          ) : (
+                            <span
+                              className="grid size-9 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent"
+                              style={accent ? { background: `${accent}22`, color: accent } : undefined}
+                            >
+                              <EntityIcon entity={e} className="size-[18px]" />
+                            </span>
+                          )}
                           <span className="min-w-0 flex-1">
                             <span className="flex items-baseline gap-2">
                               <span className="truncate text-[14px] font-medium text-ink">{displayName(e, lang)}</span>
@@ -163,7 +170,7 @@ export function SearchBox() {
                       onClick={() => choose(c.id)}
                       className="flex items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] text-ink hover:bg-hover"
                     >
-                      <span className="size-2 shrink-0 rounded-full" style={{ background: accentColor(data, c) }} />
+                      <Emblem entity={c} size={20} className="shrink-0" />
                       <span className="truncate">{displayName(c, lang)}</span>
                     </button>
                   ))}

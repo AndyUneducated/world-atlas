@@ -23,6 +23,7 @@ from shapely.geometry import LineString, MultiLineString, mapping
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from atlas.cache import stage  # noqa: E402
 from atlas.dem_tiles import write_dem_tiles  # noqa: E402
 from atlas.divisions import partition, pole_of_inaccessibility  # noqa: E402
 from atlas.grid import Frame, Grid, block_reduce, chaikin, line_length_km, polyline_distance  # noqa: E402
@@ -36,6 +37,8 @@ from atlas.world import ROOT, World  # noqa: E402
 
 OUT = ROOT / "public" / "data"
 B32 = "0123456789abcdefghjkmnpqrstvwxyz"
+# Road networks whose cards list the districts they pass through.
+SEGMENTED_NETWORKS = {"national_expressway", "national_highway", "territorial_expressway", "territorial_highway"}
 
 def log(msg):
     print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)
@@ -102,6 +105,83 @@ def owned_runs(path: list[int], ref: str, owner: dict[int, str]) -> list[list[in
     return runs or [path]
 
 
+def check_expectations(expect: dict, entities: dict):
+    """Report whether the generated geography matches the facts the setting requires."""
+    def report(ok: bool, what: str):
+        log(f"  {'ok  ' if ok else 'FAIL'} {what}")
+
+    if "longest_river" in expect:
+        rivers = {eid: e["stats"]["length_km"] for eid, e in entities.items()
+                  if e.get("subtype") == "river" and e.get("stats", {}).get("length_km")}
+        want = expect["longest_river"]
+        top = max(rivers, key=rivers.get) if rivers else None
+        detail = ", ".join(f"{entities[k]['names']['zh']} {v:.0f} km" for k, v in sorted(rivers.items(), key=lambda kv: -kv[1]))
+        report(top == want, f"longest river is {entities[want]['names']['zh']} ({detail})")
+    if "largest_cities_by_area" in expect:
+        want = expect["largest_cities_by_area"]
+        cities = sorted((e for e in entities.values() if e.get("subtype") == "locality" and e.get("stats")),
+                        key=lambda e: -e["stats"]["area_km2_mapped"])
+        got = [e["id"] for e in cities[: len(want)]]
+        detail = ", ".join(f"{e['names']['zh']} {e['stats']['area_km2_mapped']:.0f} km²" for e in cities[: len(want) + 1])
+        report(got == want, f"largest cities by area ({detail})")
+
+
+def route_segments(path: list[int], router: Router, dist_r: np.ndarray, factor: int, frame: Frame,
+                   district_ids: list[str], min_km=2.0) -> list[dict]:
+    """Ordered district-by-district breakdown of a route: chainage, length, extent and line of each stretch."""
+    nx = router.nx
+    cells = [divmod(c, nx) for c in path]
+    labels = [int(dist_r[min(cy * factor + factor // 2, dist_r.shape[0] - 1), min(cx * factor + factor // 2, dist_r.shape[1] - 1)])
+              for cy, cx in cells]
+    for i, v in enumerate(labels):  # bridges and lake crossings take the district they come from
+        if v < 0:
+            labels[i] = labels[i - 1] if i else next((w for w in labels if w >= 0), -1)
+    step = [0.0] + [frame.km(router.res * math.hypot(a[0] - b[0], a[1] - b[1])) for a, b in zip(cells[:-1], cells[1:])]
+    runs: list[list] = []  # [label, first index, last index]
+    for i, v in enumerate(labels):
+        if runs and runs[-1][0] == v:
+            runs[-1][2] = i
+        else:
+            runs.append([v, i, i])
+
+    def run_km(run):
+        return sum(step[run[1] + 1: run[2] + 1]) + (step[run[2] + 1] if run[2] + 1 < len(step) else 0)
+
+    merged = True
+    while merged and len(runs) > 1:
+        merged = False
+        k = min(range(len(runs)), key=lambda j: run_km(runs[j]))
+        if run_km(runs[k]) >= min_km:
+            break
+        left, right = (runs[k - 1] if k > 0 else None), (runs[k + 1] if k + 1 < len(runs) else None)
+        into = left if right is None or (left is not None and run_km(left) >= run_km(right)) else right
+        into[1], into[2] = min(into[1], runs[k][1]), max(into[2], runs[k][2])
+        del runs[k]
+        out: list[list] = []
+        for run in runs:
+            if out and out[-1][0] == run[0]:
+                out[-1][2] = run[2]
+            else:
+                out.append(run)
+        runs, merged = out, True
+
+    segments, chainage = [], 0.0
+    for v, i0, i1 in runs:
+        pts = np.array([router.xy(c) for c in path[i0: min(i1 + 2, len(path))]])
+        line = smooth_line(pts, 0.7, 2) if len(pts) > 2 else LineString(pts)
+        geom = to_lonlat(line, frame)
+        km = run_km([v, i0, i1])
+        segments.append({
+            "division": district_ids[v] if v >= 0 else None,
+            "from_km": round(chainage, 1),
+            "km": round(km, 1),
+            "bbox": bbox_lonlat(geom),
+            "line": [[round(x, 4), round(y, 4)] for x, y in geom.coords],
+        })
+        chainage += km
+    return segments
+
+
 def lake_raster(g: Grid, center, radius, land):
     cx, cy = center
     ang = np.arctan2(g.Y - cy, g.X - cx)
@@ -109,9 +189,9 @@ def lake_raster(g: Grid, center, radius, land):
     return (np.hypot(g.X - cx, g.Y - cy) < rr) & land
 
 
-def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: dict):
+def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: dict, use_cache: bool = True):
     seed = spec["seed"]
-    frame = Frame(spec["frame"]["origin_lonlat"], spec["frame"]["size_km"])
+    frame = Frame(spec["frame"]["origin_lonlat"], spec["frame"]["size_km"], spec["frame"].get("scale", 1.0))
     g = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"])
     gc = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"] * 2)
     gr = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"] * 4)
@@ -124,32 +204,39 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         for d in sorted(world.children(c["id"]), key=lambda d: d["codes"]["admin"]):
             districts.append(d)
             district_city.append(ci)
-    total_area = sum(c["area_km2"] for c in cities)
+    city_index = {c["id"]: ci for ci, c in enumerate(cities)}
+    total_area = sum(c["area_km2"] for c in cities) / frame.km2(1.0)
 
-    log(f"{territory['names']['en']}: land & terrain")
-    land = land_mask(spec, seed, g, total_area)
+    def land_and_partition():
+        log(f"{territory['names']['en']}: land")
+        land = land_mask(spec, seed, g, total_area)
+        log("partitioning divisions")
+        warp = layout.get("boundary_warp_km", 4)
+        wx = g.X + warp * value_noise(seed + 101, 30, 5, 0.5, (g.w, g.h), g.shape)
+        wy = g.Y + warp * value_noise(seed + 202, 30, 5, 0.5, (g.w, g.h), g.shape)
+        anchors = [layout["cities"][c["id"]] for c in cities]
+        city_r, _, land = partition(land, wx, wy, anchors, [c["area_km2"] for c in cities], g.cell)
+        dist_r = np.full(g.shape, -1)
+        dist_errs = np.zeros(len(districts))
+        for ci, c in enumerate(cities):
+            idx = [i for i, dc in enumerate(district_city) if dc == ci]
+            cmask = city_r == ci
+            ax, ay = anchors[ci]
+            r = 0.42 * math.sqrt(c["area_km2"]) / frame.km(1.0)
+            seeds = [(ax + r * layout["districts"][districts[i]["id"]][0], ay + r * layout["districts"][districts[i]["id"]][1]) for i in idx]
+            sub, err, fitted = partition(cmask, wx, wy, seeds, [districts[i]["area_km2"] for i in idx], g.cell, sea=~land)
+            land = (land & ~cmask) | fitted
+            city_r[cmask & ~fitted] = -1
+            city_r[fitted] = ci
+            for k, i in enumerate(idx):
+                dist_r[sub == k] = i
+                dist_errs[i] = err[k]
+        return land, city_r, dist_r, dist_errs
 
-    log("partitioning divisions")
-    warp = layout.get("boundary_warp_km", 4)
-    wx = g.X + warp * value_noise(seed + 101, 30, 5, 0.5, (g.w, g.h), g.shape)
-    wy = g.Y + warp * value_noise(seed + 202, 30, 5, 0.5, (g.w, g.h), g.shape)
-    anchors = [layout["cities"][c["id"]] for c in cities]
-    city_r, city_err, land = partition(land, wx, wy, anchors, [c["area_km2"] for c in cities], g.cell)
-    dist_r = np.full(g.shape, -1)
-    dist_errs = np.zeros(len(districts))
-    for ci, c in enumerate(cities):
-        idx = [i for i, dc in enumerate(district_city) if dc == ci]
-        cmask = city_r == ci
-        ax, ay = anchors[ci]
-        r = 0.42 * math.sqrt(c["area_km2"])
-        seeds = [(ax + r * layout["districts"][districts[i]["id"]][0], ay + r * layout["districts"][districts[i]["id"]][1]) for i in idx]
-        sub, err, fitted = partition(cmask, wx, wy, seeds, [districts[i]["area_km2"] for i in idx], g.cell, sea=~land)
-        land = (land & ~cmask) | fitted
-        city_r[cmask & ~fitted] = -1
-        city_r[fitted] = ci
-        for k, i in enumerate(idx):
-            dist_r[sub == k] = i
-            dist_errs[i] = err[k]
+    stage_inputs = {"spec": {k: spec.get(k) for k in ("seed", "frame", "land", "layout")},
+                    "areas": [(d["id"], d["area_km2"]) for d in cities + districts]}
+    land, city_r, dist_r, dist_errs = stage(f"partition-{territory['id']}", stage_inputs, land_and_partition, use_cache)
+    log(f"{territory['names']['en']}: terrain")
     city_t = np.array([c["area_km2"] for c in cities], float)
     city_t *= land.sum() * g.cell / city_t.sum()
     city_err = np.abs(np.bincount(city_r[land], minlength=len(cities)) * g.cell - city_t) / city_t
@@ -190,8 +277,11 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         stream_features.append(feature(to_lonlat(line, frame), {"magnitude": round(acc, 1)}))
     named_rivers = []
     for nr in spec["hydrology"].get("named_rivers", []):
-        di = next(i for i, d in enumerate(districts) if d["id"] == nr["through"])
-        through = block_reduce(dist_r == di, 2, "mean") > 0.5
+        if nr["through"] in city_index:
+            region_mask = city_r == city_index[nr["through"]]
+        else:
+            region_mask = dist_r == next(i for i, d in enumerate(districts) if d["id"] == nr["through"])
+        through = block_reduce(region_mask, 2, "mean") > 0.5
         stem = drain.main_stem(through, min_km2)
         if not stem:
             continue
@@ -213,17 +303,19 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     water_r = block_reduce(water, 4, "mode_bool")
     router = Router(elev_r, land_r & ~water_r, gr.res)
     node = [router.cell(*poles[core[ci]]) for ci in range(len(cities))]
-    city_index = {c["id"]: ci for ci, c in enumerate(cities)}
     road_out = []
     routes = sorted(
         (r for r in world.routes.values() if all(v in city_index for v in r["via"])),
         key=lambda r: (ROAD_RANK[r["class"]], r["ref"]),
     )
     for r in routes:
+        via = r["via"] + r["via"][:1] if r.get("ring") else r["via"]
         path = []
-        for a, b in zip(r["via"][:-1], r["via"][1:]):
+        for a, b in zip(via[:-1], via[1:]):
             leg = router.route(node[city_index[a]], node[city_index[b]], r.get("tunnel_cost"), ref=r["ref"])
             path += leg if not path else leg[1:]
+        if r.get("ends_at_network"):
+            path = router.trim_to_network(path)
         router.commit(path, r["class"], ref=r["ref"])
         road_out.append((r, path))
     feeder_seq = 0
@@ -247,7 +339,6 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         road_out.append((r, path))
 
     log("exporting")
-    palette_index = {c["id"]: ci for ci, c in enumerate(cities)}
     div_features, label_features = [], []
     terr_ll = to_lonlat(terr_poly, frame)
 
@@ -268,27 +359,45 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         e.update({
             "bbox": bbox_lonlat(geom),
             "center": list(point_lonlat(frame, *pole_xy).coords[0]),
-            "stats": {"area_km2_mapped": round(geom_km.area, 1), **elev_stats(mask),
+            "stats": {"area_km2_mapped": round(frame.km2(geom_km.area), 1), **elev_stats(mask),
                       **({"density_per_km2": density} if density else {})},
         })
 
     terr = territory
-    add_division(terr, terr_poly, pole_of_inaccessibility(land, g.xs, g.ys), land, {"palette": -1, "rank": 0})
+    add_division(terr, terr_poly, pole_of_inaccessibility(land, g.xs, g.ys), land, {"rank": 0})
     label_features.append(feature(point_lonlat(frame, *pole_of_inaccessibility(land, g.xs, g.ys)), {
         "id": terr["id"], "kind": "dependency", "name_zh": terr["short_names"]["zh"], "name_en": terr["short_names"]["en"], "rank": 0}))
     for ci, c in enumerate(cities):
-        add_division(c, city_polys[ci], poles[core[ci]], city_r == ci, {"palette": ci, "city": c["id"], "rank": 1})
+        add_division(c, city_polys[ci], poles[core[ci]], city_r == ci, {"color": c["color"], "city": c["id"], "rank": 1})
         is_capital = terr.get("capital") == c["id"]
         label_features.append(feature(point_lonlat(frame, *poles[core[ci]]), {
             "id": c["id"], "kind": "locality", "name_zh": c["names"]["zh"], "name_en": c["names"]["en"],
-            "capital": is_capital, "population": c["population"], "palette": ci,
+            "capital": is_capital, "population": c["population"], "color": c["color"],
             "rank": 1 if is_capital else (2 if c["population"] >= 1_000_000 else 3)}))
     for i, d in enumerate(districts):
         ci = district_city[i]
-        add_division(d, dist_polys[i], poles[i], dist_r == i, {"palette": ci, "city": cities[ci]["id"], "rank": 2})
+        add_division(d, dist_polys[i], poles[i], dist_r == i, {"color": cities[ci]["color"], "city": cities[ci]["id"], "rank": 2})
         label_features.append(feature(point_lonlat(frame, *poles[i]), {
             "id": d["id"], "kind": "borough", "name_zh": d["names"]["zh"], "name_en": d["names"]["en"],
-            "population": d["population"], "palette": ci, "rank": 4}))
+            "population": d["population"], "color": cities[ci]["color"], "rank": 4}))
+
+    place_features = []
+    district_index = {d["id"]: i for i, d in enumerate(districts)}
+    for pid, p in world.places.items():
+        if p["in"] in district_index:
+            x, y = poles[district_index[p["in"]]]
+        elif p["in"] in city_index:
+            x, y = poles[core[city_index[p["in"]]]]
+        else:
+            continue
+        ox, oy = p.get("offset_km", (0, 0))
+        pt = point_lonlat(frame, x + ox / frame.scale, y + oy / frame.scale)
+        place_features.append(feature(pt, {
+            "id": pid, "subtype": p["subtype"], "marker": p.get("marker", "dot"), "emblem_of": p.get("emblem_of"),
+            "name_zh": p["names"]["zh"], "name_en": p["names"]["en"]}))
+        lon, lat = pt.coords[0]
+        entities[pid].update({"center": [lon, lat], "bbox": [lon - 0.02, lat - 0.01, lon + 0.02, lat + 0.01],
+                              "ancestors": [p["in"], *world.ancestors(p["in"])]})
 
     water_features = []
     for fid, m in lakes:
@@ -302,7 +411,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         label_features.append(feature(point_lonlat(frame, cxy.x, cxy.y), {
             "id": fid, "kind": "lake", "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"], "rank": 5}))
         entities[fid].update({"bbox": bbox_lonlat(geom), "center": list(point_lonlat(frame, cxy.x, cxy.y).coords[0]),
-                              "stats": {"area_km2_mapped": round(poly.area, 1)}})
+                              "stats": {"area_km2_mapped": round(frame.km2(poly.area), 1)}})
 
     named_features = []
     for fe, line, acc in named_rivers:
@@ -310,7 +419,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         named_features.append(feature(geom, {"id": fe["id"], "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"]}))
         mid = line.interpolate(0.5, normalized=True)
         entities[fe["id"]].update({"bbox": bbox_lonlat(geom), "center": list(point_lonlat(frame, mid.x, mid.y).coords[0]),
-                                   "stats": {"length_km": round(line_length_km(line.coords), 1), "drainage_km2": round(acc)}})
+                                   "stats": {"length_km": round(frame.km(line_length_km(line.coords)), 1), "drainage_km2": round(frame.km2(acc))}})
 
     ridge_features = []
     by_feature: dict[str, list] = {}
@@ -343,13 +452,17 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         ent = entities.setdefault(r["id"], {**r, "source": "generated:feeder-roads"})
         ent.update({"kind": "route", "bbox": bbox_lonlat(geom),
                     "center": list(point_lonlat(frame, *longest.interpolate(0.5, normalized=True).coords[0]).coords[0]),
-                    "stats": {"length_km": round(sum(line_length_km(ln.coords) for ln in lines), 1)}})
+                    "stats": {"length_km": round(frame.km(sum(line_length_km(ln.coords) for ln in lines)), 1)}})
+        if r["network"] in SEGMENTED_NETWORKS:
+            ent["segments"] = route_segments(path, router, dist_r, 4, frame, [d["id"] for d in districts])
+            # travel length, including junction stretches drawn under another route's number
+            ent["stats"]["length_km"] = round(sum(s["km"] for s in ent["segments"]), 1)
 
     terminals = {c["id"]: node[ci] for ci, c in enumerate(cities)}
     terminals.update({d["id"]: node[district_city[i]] if i == core[district_city[i]] else router.cell(*poles[i])
                       for i, d in enumerate(districts)})
     node_cells, edges, places = build_graph(
-        [(ri, r["class"], path) for ri, (r, path) in enumerate(road_out)], terminals, router.nx, router.res)
+        [(ri, r["class"], path) for ri, (r, path) in enumerate(road_out)], terminals, router.nx, frame.km(router.res))
 
     def ll(xy):
         return [round(v, 5) for v in frame.to_lonlat(np.asarray(xy))]
@@ -369,7 +482,8 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
 
     ctx_features = []
     for ctx in spec.get("context", []):
-        cw, ch = ctx["extent_km"]
+        # Context placement is given in real km, independent of the region's design scale.
+        cw, ch = (v / frame.scale for v in ctx["extent_km"])
         cg = Grid((cw, ch), 0.5)
         rng = np.random.default_rng(ctx["seed"])
         f = np.zeros(cg.shape)
@@ -379,12 +493,15 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         f += 0.25 * value_noise(ctx["seed"] + 5, 30, 5, 0.5, (cw, ch), cg.shape)
         polys = polygonize_labels(np.where(f > 0.55, 0, -1), cg.res, simplify_km=0.15)
         if 0 in polys:
-            ox, oy = ctx["offset_km"]
+            ox, oy = (v / frame.scale for v in ctx["offset_km"])
             moved = affinity.translate(polys[0], g.w / 2 + ox - cw / 2, g.h / 2 + oy - ch / 2)
             ctx_features.append(feature(to_lonlat(moved, frame), {"id": ctx["id"], "name_zh": ctx["names"]["zh"], "name_en": ctx["names"]["en"]}))
 
+    check_expectations(spec.get("expect", {}), entities)
+
     layers["divisions"] += div_features
     layers["labels"] += label_features
+    layers["places"] += place_features
     layers["water"] += water_features
     layers["rivers"] += stream_features
     layers["rivers-named"] += named_features
@@ -419,13 +536,16 @@ def base_entities(world: World) -> dict:
             ent["kind"] = "natural"
         elif eid in world.routes:
             ent["kind"] = "route"
+        elif eid in world.places:
+            ent["kind"] = "place"
         out[eid] = ent
     return out
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--check", action="store_true")
+    ap.add_argument("--check", action="store_true", help="validate the world sources and stop")
+    ap.add_argument("--fresh", action="store_true", help="ignore cached stages and recompute everything")
     args = ap.parse_args()
     world = World()
     errors = world.validate()
@@ -441,9 +561,9 @@ def main():
         shutil.rmtree(OUT)
     OUT.mkdir(parents=True)
     entities = base_entities(world)
-    layers = {k: [] for k in ("divisions", "labels", "water", "rivers", "rivers-named", "ridges", "roads", "bathymetry", "context")}
+    layers = {k: [] for k in ("divisions", "labels", "places", "water", "rivers", "rivers-named", "ridges", "roads", "bathymetry", "context")}
     graph = {"nodes": [], "edges": [], "roads": [], "places": {}}
-    regions = [build_region(world, spec, entities, layers, graph) for spec in world.generators]
+    regions = [build_region(world, spec, entities, layers, graph, not args.fresh) for spec in world.generators]
     for name, feats in layers.items():
         write_geojson(f"{name}.geojson", feats)
     with open(OUT / "graph.json", "w", encoding="utf-8") as f:

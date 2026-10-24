@@ -1,7 +1,7 @@
 import type { Map as MaplibreMap } from "maplibre-gl";
 import { create } from "zustand";
 import { readUrl } from "./lib/url";
-import type { Appearance, AtlasData, Lang, ThemeId } from "./lib/types";
+import type { Appearance, AtlasData, Lang, LngLat, ThemeId } from "./lib/types";
 
 export interface LayerToggles {
   terrain: boolean;
@@ -35,6 +35,9 @@ interface AtlasState {
   /** Measuring-tool vertices; null when the tool is off. */
   measure: [number, number][] | null;
   setMeasure: (points: [number, number][] | null) => void;
+  /** Lines drawn on top of the map, e.g. the route stretch picked in a card timeline. */
+  highlight: { key: string; lines: LngLat[][] } | null;
+  setHighlight: (highlight: { key: string; lines: LngLat[][] } | null) => void;
   setRoute: (patch: Partial<{ from: string | null; to: string | null }>) => void;
   setData: (data: AtlasData) => void;
   setMap: (map: MaplibreMap | null) => void;
@@ -85,6 +88,8 @@ export const useAtlas = create<AtlasState>((set) => ({
   route: { from: null, to: null },
   measure: null,
   setMeasure: (measure) => set({ measure }),
+  highlight: null,
+  setHighlight: (highlight) => set({ highlight }),
   setRoute: (patch) => set((s) => ({ route: { ...s.route, ...patch } })),
   setData: (data) => set({ data }),
   setMap: (map) => set({ map }),
@@ -93,7 +98,7 @@ export const useAtlas = create<AtlasState>((set) => ({
     set({ appearance: a, theme: resolveTheme(a) });
   },
   setLang: (lang) => set({ lang }),
-  select: (id) => set((s) => ({ selectedId: id, selectionNonce: s.selectionNonce + 1 })),
+  select: (id) => set((s) => ({ selectedId: id, selectionNonce: s.selectionNonce + 1, highlight: null })),
   toggleLayer: (key) =>
     set((s) => {
       const layers = { ...s.layers, [key]: !s.layers[key] };

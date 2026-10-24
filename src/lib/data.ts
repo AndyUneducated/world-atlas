@@ -19,11 +19,10 @@ export async function loadAtlas(): Promise<AtlasData> {
   ]);
   const layers = Object.fromEntries(LAYER_FILES.map((name, i) => [name, layerData[i]])) as Record<LayerFile, FeatureCollection>;
 
-  // Palette slot per division: each locality gets its own hue, boroughs inherit it.
-  const palette: Record<string, number> = {};
+  const colors: Record<string, string> = {};
   for (const f of layers.divisions.features) {
-    const p = f.properties as { id: string; palette: number };
-    palette[p.id] = p.palette;
+    const p = f.properties as { id: string; color?: string };
+    if (p.color) colors[p.id] = p.color;
   }
-  return { manifest, entities, layers, palette, graph };
+  return { manifest, entities, layers, colors, graph };
 }
