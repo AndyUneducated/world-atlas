@@ -811,6 +811,9 @@ export function buildStyle(opts: {
         "text-field": name(lang),
         "text-font": FONT.medium,
         "text-size": ["interpolate", ["linear"], ["zoom"], DISTRICT_LABEL_MIN, 13, 10, 15.5, 13, 18],
+        // A city's core district shares its centre with the city name, so let it step aside rather than hide.
+        "text-variable-anchor": ["center", "bottom", "top", "left", "right", "bottom-left", "bottom-right", "top-left", "top-right"],
+        "text-radial-offset": 1.1,
         "text-max-width": 7,
         "text-letter-spacing": lang === "en" ? 0.04 : 0.1,
       },
@@ -829,8 +832,8 @@ export function buildStyle(opts: {
       filter: isKind("locality"),
       paint: {
         "circle-radius": ["interpolate", ["linear"], ["zoom"], 5, ["case", ["get", "capital"], 3.6, 2.4], 10, ["case", ["get", "capital"], 6.5, 4.6]],
-        "circle-color": ["case", ["get", "capital"], m.cityDot.capital, m.cityDot.fill],
-        "circle-stroke-color": ["case", ["get", "capital"], m.cityDot.fill, m.cityDot.stroke],
+        "circle-color": m.cityDot.fill,
+        "circle-stroke-color": m.cityDot.stroke,
         "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 5, 1.2, 10, 2],
         "circle-opacity": fadeOut(CITY_LABEL_MAX),
         "circle-stroke-opacity": fadeOut(CITY_LABEL_MAX),

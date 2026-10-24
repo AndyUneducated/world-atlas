@@ -56,7 +56,7 @@ npm run data                                    # 重新生成地图
 | 列 | 英文列名 | 说明 |
 |---|---|---|
 | 编号、状态 | id、status | |
-| 编号牌 | ref | 按等级：`G-NV-1`、`G-NV-101`、`S-NV-1`、`S-NV-201`、`X-NV-001`、`Y-NV-001` |
+| 编号牌 | ref | 按等级：`G-NV-1`、`G-NV-101`、`S-NV-1`、`S-NV-101`、`X-NV-001`、`Y-NV-001` |
 | 等级 | network | `national_expressway`、`national_highway`、`territorial_expressway`、`territorial_highway`、`municipal_road`、`township_road` |
 | 道路类别 | class | 留空时按等级自动填写 |
 | 中文名 … 巴克汉姆语名 | name_zh … name_buckham | |

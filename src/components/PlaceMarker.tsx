@@ -20,7 +20,7 @@ export function PlaceMarker({ id }: { id: string }) {
     >
       <span className="atlas-marker-halo absolute inset-0 rounded-full" />
       <span className="relative transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-110">
-        <Emblem entity={owner} size={36} className="drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)]" />
+        <Emblem entity={owner} size={28} className="drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)]" />
       </span>
       <span className="glass pointer-events-none absolute top-full mt-1.5 rounded-full px-2.5 py-1 text-[11.5px] font-medium whitespace-nowrap text-ink opacity-0 transition-opacity duration-200 group-hover:opacity-100">
         {displayName(place, lang)}

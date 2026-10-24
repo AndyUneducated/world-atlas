@@ -7,10 +7,11 @@ alwaysApply: true
 
 The owner is the only user and never shares links, so no number is kept for old links.
 
-- Route numbers (`G-NV-1`, `S-NV-201`), division codes (`900101`) and metro line numbers always run in order with no gaps.
+- Route numbers (`G-NV-1`, `S-NV-101`), division codes (`900101`) and metro line numbers always run in order with no gaps.
+- Each grade has its own series: expressways from 1, highways from 101 (`G-NV-101…`, `S-NV-101…`).
 - When something is added, removed, merged or regraded, renumber so the sequence closes up; freed numbers are reused.
 - Never retire a number or keep a "retired" registry.
 
-Example: upgrading S-NV-202 to an expressway makes it S-NV-4, and S-NV-203…209 become S-NV-202…208.
+Example: upgrading S-NV-102 to an expressway makes it S-NV-5, and S-NV-103…107 become S-NV-102…106.
 
 Entity ids (`rte_…`, `div_…`) are internal keys referenced across files; leave them unchanged when renumbering.

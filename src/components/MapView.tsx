@@ -25,7 +25,7 @@ const CJK_FONT = '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sa
 /** Clicks this close to a line, label or point still hit it. */
 const HIT_SLOP_PX = 4;
 /** Below this zoom landmark markers would sit on top of the city labels. */
-const PLACE_MARKER_ZOOM = 7.5;
+const PLACE_MARKER_ZOOM = 12.5;
 
 function addRouteShield(map: maplibregl.Map, id: string, routes: Map<string, Entity>) {
   const route = routes.get(id.slice(shieldImageId("").length));

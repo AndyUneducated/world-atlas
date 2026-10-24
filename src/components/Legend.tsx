@@ -77,8 +77,8 @@ function ElevationRamp({ relief }: { relief: [number, string][] }) {
 
 const ROADS: { key: keyof LayerToggles; style: (m: MapTheme) => { fill: string; casing: string }; sample?: Entity; height?: number }[] = [
   { key: "nationalExpressway", style: (m) => m.nationalExpressway, sample: sampleRoute("legend:g", "G-NV-1", "national_expressway") },
-  { key: "territorialExpressway", style: (m) => m.territorialExpressway, sample: sampleRoute("legend:s", "S-NV-1", "territorial_expressway", "peaks") },
-  { key: "territorialHighway", style: (m) => m.territorialExpressway, sample: sampleRoute("legend:p", "S-NV-201", "territorial_highway", "lighthouse"), height: 14 },
+  { key: "territorialExpressway", style: (m) => m.territorialExpressway, sample: sampleRoute("legend:s", "S-NV-1", "territorial_expressway", "wheat") },
+  { key: "territorialHighway", style: (m) => m.territorialExpressway, sample: sampleRoute("legend:p", "S-NV-101", "territorial_highway", "lighthouse"), height: 14 },
   { key: "cityRoads", style: (m) => m.cityRoad },
 ];
 
@@ -128,7 +128,6 @@ function LegendBody({ m, layers, lang }: { m: MapTheme; layers: LayerToggles; la
       <section>
         <Heading>{t("places", lang)}</Heading>
         <ul className="space-y-0.5">
-          <Row label={t("capital", lang)} swatch={<span className="size-2.5 rounded-full" style={{ background: m.cityDot.capital, boxShadow: `0 0 0 1.5px ${m.cityDot.fill}` }} />} />
           <Row label={t("city", lang)} swatch={<span className="size-2.5 rounded-full" style={{ background: m.cityDot.fill, boxShadow: `0 0 0 1.5px ${m.cityDot.stroke}` }} />} />
           {layers.boundaries && <Row label={t("boundaryCity", lang)} swatch={<LineSwatch color={m.cityLine.color} width={1.4} />} />}
           {layers.boundaries && <Row label={t("boundaryDistrict", lang)} swatch={<LineSwatch color={m.districtLine.color} width={1.2} dash="3 2" />} />}

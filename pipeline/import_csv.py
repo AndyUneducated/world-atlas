@@ -40,7 +40,7 @@ NETWORKS = {
     "national_expressway": ("motorway", r"G-NV-\d{1,2}"),
     "national_highway": ("trunk", r"G-NV-1\d{2}"),
     "territorial_expressway": ("motorway", r"S-NV-\d{1,2}"),
-    "territorial_highway": ("primary", r"S-NV-2\d{2}"),
+    "territorial_highway": ("primary", r"S-NV-[1-9]\d{2}"),
     "municipal_road": ("secondary", r"X-NV-\d{3}"),
     "township_road": ("tertiary", r"Y-NV-\d{3}"),
 }

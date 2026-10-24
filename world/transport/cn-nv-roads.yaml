@@ -4,7 +4,7 @@
 #   G-NV-1..99    national expressway    (class motorway)
 #   G-NV-101..    national highway       (class trunk)
 #   S-NV-1..99    territorial expressway (class motorway)
-#   S-NV-201..    territorial highway    (class primary)
+#   S-NV-101..    territorial highway    (class primary)
 #   X-NV-001..    municipal road         (class secondary)
 #   Y-NV-001..    township road          (class tertiary)
 # class uses Overture Maps / OSM highway=* road classes.
@@ -70,8 +70,8 @@ routes:
     tunnel_cost: 3.5
     via: [div_yjghe9, div_prcxzt]
   - id: rte_dprjx3
-    ref: S-NV-1
-    network: territorial_expressway
+    ref: G-NV-4
+    network: national_expressway
     class: motorway
     status: generated
     names:
@@ -81,10 +81,9 @@ routes:
       zh: 从环岛高速伸入马斯林山盆地的支线
       en: Spur from the ring expressway into the Maslin basin.
     ends_at_network: true
-    shield: peaks
     via: [div_rdypg7, div_ygk521]
   - id: rte_2w74xj
-    ref: S-NV-2
+    ref: S-NV-1
     network: territorial_expressway
     class: motorway
     status: generated
@@ -94,7 +93,7 @@ routes:
     shield: wheat
     via: [div_nbrnfr, div_yjghe9]
   - id: rte_72cfce
-    ref: S-NV-3
+    ref: S-NV-2
     network: territorial_expressway
     class: motorway
     status: generated
@@ -104,7 +103,7 @@ routes:
     shield: compass
     via: [div_0yef9a, div_q4d6n6]
   - id: rte_5r9t2v
-    ref: S-NV-4
+    ref: S-NV-3
     network: territorial_expressway
     class: motorway
     status: generated
@@ -117,7 +116,7 @@ routes:
     shield: star
     via: [div_z29w6h, div_t3bfmm, div_7rk2mh, div_16cxr8, div_fr1vq9, div_g27nda, div_s8f4kt]
   - id: rte_9f3k6w
-    ref: S-NV-5
+    ref: S-NV-4
     network: territorial_expressway
     class: motorway
     status: generated
@@ -134,7 +133,7 @@ routes:
   # 省道 (territorial highways, class primary): dual carriageways threading district centres, so
   # that every district centre lies on a territorial route.
   - id: rte_p3w6nd
-    ref: S-NV-201
+    ref: S-NV-101
     network: territorial_highway
     class: primary
     status: generated
@@ -147,7 +146,7 @@ routes:
     shield: lighthouse
     via: [div_z29w6h, div_k1yr6m, div_pkfa1g, div_zs7kjk, div_479xae]
   - id: rte_c8j4ya
-    ref: S-NV-202
+    ref: S-NV-102
     network: territorial_highway
     class: primary
     status: generated
@@ -160,7 +159,7 @@ routes:
     shield: salmon
     via: [div_b3qw9e, div_g4a8q0, div_16cxr8, div_b1dx32, div_mpfctv, div_davn2j, div_0wvh63]
   - id: rte_m2q7xb
-    ref: S-NV-203
+    ref: S-NV-103
     network: territorial_highway
     class: primary
     status: generated
@@ -173,7 +172,7 @@ routes:
     shield: fir
     via: [div_rzw76f, div_k5f1mz, div_j82dgm, div_t8bg0d]
   - id: rte_t6h2pe
-    ref: S-NV-204
+    ref: S-NV-104
     network: territorial_highway
     class: primary
     status: generated
@@ -186,7 +185,7 @@ routes:
     shield: reindeer
     via: [div_s1qwxh, div_4vnc7y, div_1qm5cj, div_e2pk5r, div_qpyn9e]
   - id: rte_x4b8rn
-    ref: S-NV-205
+    ref: S-NV-105
     network: territorial_highway
     class: primary
     status: generated
@@ -199,7 +198,7 @@ routes:
     shield: swallow
     via: [div_z8yxye, div_hyxnpg, div_8njcs3, div_8m0jx4, div_e6pc44, div_8p9k5t, div_f9x3wn, div_ts5cw5]
   - id: rte_2d7v5m
-    ref: S-NV-206
+    ref: S-NV-106
     network: territorial_highway
     class: primary
     status: generated
@@ -212,7 +211,7 @@ routes:
     shield: sunrise
     via: [div_6byxb5, div_w1ea18, div_f5s7ax, div_ts88e3, div_tc0ngk]
   - id: rte_7k2m9q
-    ref: S-NV-207
+    ref: S-NV-107
     network: territorial_highway
     class: primary
     status: generated

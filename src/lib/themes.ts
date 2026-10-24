@@ -39,7 +39,7 @@ export interface MapTheme {
   nationalExpressway: RoadStyle;
   territorialExpressway: RoadStyle;
   cityRoad: RoadStyle;
-  /** City streets: arterials (主干道), collectors (次干道), local streets (支路). */
+  /** City streets: arterials (???), collectors (???), local streets (??). */
   street: { arterial: RoadStyle; collector: RoadStyle; local: RoadStyle; label: string };
   /** Generated building footprints by class, parks, and landmark sites with their own buildings. */
   building: {
@@ -57,7 +57,7 @@ export interface MapTheme {
   /** Intercity rail drawn as a dark line with light ticks; metro lines in their own colours. */
   rail: { casing: string; fill: string; station: string; stationStroke: string; label: string; metroCasing: string };
   label: { text: string; halo: string; minor: string; water: string; terrain: string; territory: string };
-  cityDot: { fill: string; stroke: string; capital: string };
+  cityDot: { fill: string; stroke: string };
   focus: { mask: string; maskOpacity: number; line: string; glow: string };
   hover: string;
   choropleth: [string, string, string, string, string, string];
@@ -74,7 +74,7 @@ export interface Theme {
 export const THEMES: Record<ThemeId, Theme> = {
   light: {
     id: "light",
-    label: { zh: "浅色", en: "Light" },
+    label: { zh: "??", en: "Light" },
     dark: false,
     map: {
       background: "#c4dceb",
@@ -133,7 +133,7 @@ export const THEMES: Record<ThemeId, Theme> = {
       },
       rail: { casing: "#5b6472", fill: "#ffffff", station: "#ffffff", stationStroke: "#3b4452", label: "#2f3a48", metroCasing: "#ffffff" },
       label: { text: "#1c2533", halo: "rgba(255,255,255,0.92)", minor: "#5d6b7c", water: "#4a83a8", terrain: "#7a6a58", territory: "#45566b" },
-      cityDot: { fill: "#ffffff", stroke: "#1c2533", capital: "#e5484d" },
+      cityDot: { fill: "#ffffff", stroke: "#1c2533" },
       focus: { mask: "#0f1b2a", maskOpacity: 0.22, line: "#2563eb", glow: "rgba(37,99,235,0.35)" },
       hover: "#2563eb",
       choropleth: ["#f1f5f9", "#dbeafe", "#93c5fd", "#3b82f6", "#1d4ed8", "#172554"],
@@ -142,7 +142,7 @@ export const THEMES: Record<ThemeId, Theme> = {
   },
   dark: {
     id: "dark",
-    label: { zh: "深色", en: "Dark" },
+    label: { zh: "??", en: "Dark" },
     dark: true,
     map: {
       background: "#05080f",
@@ -201,7 +201,7 @@ export const THEMES: Record<ThemeId, Theme> = {
       },
       rail: { casing: "#8b97ab", fill: "#0f1624", station: "#0f1624", stationStroke: "#cbd5e1", label: "#cbd5e1", metroCasing: "#05080f" },
       label: { text: "#e6edf7", halo: "rgba(5,8,15,0.9)", minor: "#8394ab", water: "#4fa6d6", terrain: "#8b9bb3", territory: "#6b7d96" },
-      cityDot: { fill: "#0f1624", stroke: "#e6edf7", capital: "#f472b6" },
+      cityDot: { fill: "#0f1624", stroke: "#e6edf7" },
       focus: { mask: "#000000", maskOpacity: 0.5, line: "#5eead4", glow: "rgba(94,234,212,0.45)" },
       hover: "#5eead4",
       choropleth: ["#0f1624", "#123046", "#155e75", "#0e7490", "#14b8a6", "#99f6e4"],

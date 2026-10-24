@@ -38,7 +38,7 @@ function MiniMap({ theme }: { theme: ThemeId }) {
       <path d={LAND} fill={m.land} stroke={m.coast.color} strokeWidth="0.8" />
       <path d="M50 18 C 52 30, 46 40, 52 54" fill="none" stroke={m.cityLine.color} strokeWidth="0.8" strokeDasharray="2 1.5" />
       <path d="M14 42 C 30 36, 46 34, 62 38 S 84 34, 90 30" fill="none" stroke={m.nationalExpressway.fill} strokeWidth="2.2" strokeLinecap="round" />
-      <circle cx="40" cy="34" r="2.6" fill={m.cityDot.capital} stroke={m.cityDot.fill} strokeWidth="1" />
+      <circle cx="40" cy="34" r="2.6" fill={m.cityDot.fill} stroke={m.cityDot.stroke} strokeWidth="1" />
     </>
   );
 }
