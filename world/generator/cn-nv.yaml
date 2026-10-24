@@ -78,16 +78,16 @@ layout:
     div_rdypg7: [240, 82]    # 马斯林山市
     div_8emjne: [194, 108]   # 厄定河市
   districts:
-    div_16cxr8: [0, 0]       # 中央行政区
+    div_16cxr8: [0, 0]       # 白桦区
     div_b1dx32: [0, 1]       # 北河区
-    div_g4a8q0: [0, -1]      # 联合区
-    div_z29w6h: [0.2, -1]    # 南港区
-    div_pkfa1g: [0.2, 1]     # 北港区
-    div_t3bfmm: [0.7, 0]     # 维京区
+    div_g4a8q0: [0, -1]      # 沙洲区
+    div_z29w6h: [0.2, -1]    # 瓦尔维克区
+    div_pkfa1g: [0.2, 1]     # 菲尔内斯区
+    div_t3bfmm: [0.7, 0]     # 斯坦堡区
     div_k1yr6m: [-0.8, 0.1]  # 海门区
-    div_zs7kjk: [0, 0]       # 中央区
-    div_g27nda: [1, 0]       # 科学区
-    div_fr1vq9: [0, -1]      # 学院区
+    div_zs7kjk: [0, 0]       # 鹿鸣区
+    div_g27nda: [1, 0]       # 望星区
+    div_fr1vq9: [0, -1]      # 林道区
     div_479xae: [-0.3, 1]    # 寒岭区
     div_0wvh63: [0, 1]       # 勒北区
     div_davn2j: [-0.8, -0.6] # 丰谷区
@@ -97,23 +97,23 @@ layout:
     div_j82dgm: [0, 1]       # 龙关区
     div_k5f1mz: [-0.6, -0.2] # 杉岭区
     div_0t2t36: [0.6, -0.6]  # 深峡区
-    div_z8yxye: [0, 0]       # 中轴区
+    div_z8yxye: [0, 0]       # 青坪区
     div_s1qwxh: [0, 1]       # 北苑区
     div_hyxnpg: [0.8, -0.6]  # 南驿区
     div_w1ea18: [-0.8, 0]    # 天台区
     div_f5s7ax: [0.2, -0.9]  # 银滩区
     div_ts88e3: [0.6, 0.8]   # 岚山区
-    div_6byxb5: [1, 0]       # 新厂区
+    div_6byxb5: [1, 0]       # 铁岗区
     div_8m0jx4: [0, 0]       # 萨科区
-    div_8njcs3: [-1, 0]      # 站前区
-    div_e6pc44: [0, -1]      # 港门区
-    div_8p9k5t: [0, 0.6]     # 汇兑区
-    div_ts5cw5: [1, 0]       # 保税区
-    div_nvrjpg: [0, 0]       # 和平大区
-    div_nytsvb: [0.5, 1]     # 星港大区
-    div_tc0ngk: [1, 0]       # 东营大区
-    div_nwke3f: [-1, 0]      # 西坪大区
-    div_0tsyzy: [0, -1]      # 联训大区
+    div_8njcs3: [-1, 0]      # 罗卡区
+    div_e6pc44: [0, -1]      # 卡波区
+    div_8p9k5t: [0, 0.6]     # 镜湾区
+    div_ts5cw5: [1, 0]       # 燕礁区
+    div_nvrjpg: [0, 0]       # 和平区
+    div_nytsvb: [0.5, 1]     # 星港区
+    div_tc0ngk: [1, 0]       # 东营区
+    div_nwke3f: [-1, 0]      # 西坪区
+    div_0tsyzy: [0, -1]      # 雪谷区
     div_qpyn9e: [0.1, 0.7]   # 厄定区
     div_1qm5cj: [-0.1, -0.7] # 旧府区
   boundary_warp_km: 4
