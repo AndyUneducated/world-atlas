@@ -1,5 +1,5 @@
 import {
-  Anchor, Building2, Castle, Droplets, Factory, FerrisWheel, Flag, FlaskConical, Footprints, GraduationCap, Grape, Hotel, Landmark, LandPlot, MapPin, Mountain, Navigation2,
+  Anchor, Building2, Castle, Droplets, Factory, FerrisWheel, Flag, FlaskConical, Footprints, GraduationCap, Grape, Hotel, Landmark, LandPlot, MapPin, Mountain, MountainSnow, Navigation2,
   Plane, Rocket, Route, Ship, Shell, Snowflake, Telescope, TrainFront, TramFront, Trees, Warehouse, Waves,
 } from "lucide-react";
 import type { Entity } from "../lib/types";
@@ -39,6 +39,8 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
         return <Hotel {...props} />;
       case "golf_course":
         return <LandPlot {...props} />;
+      case "ski_resort":
+        return <MountainSnow {...props} />;
       case "research_institute":
         return <FlaskConical {...props} />;
       case "observatory":

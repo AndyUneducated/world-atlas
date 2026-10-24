@@ -120,6 +120,7 @@ relief:
 landcover:
   urban_density_per_km2: 4000   # built-up area around each district centre = population / this
   urban_max_slope_deg: 12
+  urban_terrace_slope_deg: 22   # mountain towns with no gentler ground near their centre
   wetland_max_elev_m: 90
   wetland_wetness: 2.4          # log(upstream area) − 0.6 × slope, plus noise
   farm_max_elev_m: 300
@@ -137,7 +138,7 @@ landcover:
 # podium, industrial, civic, park). named: fixed names for grid arterials (planned and mixed
 # styles); axis 0/1 and line n count from the district centre.
 streets:
-  cities: [div_nbrnfr, div_m41gwn, div_0yef9a, div_k4s990, div_yjghe9, div_k4hg7b, div_da3s38, div_q4d6n6, div_ygk521]
+  cities: [div_nbrnfr, div_m41gwn, div_0yef9a, div_k4s990, div_yjghe9, div_k4hg7b, div_da3s38, div_q4d6n6, div_ygk521, div_prcxzt, div_rdypg7, div_8emjne]
   arterial_spacing_km: 1.5
   neighbourhood_km: 1.3
   local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
@@ -178,6 +179,19 @@ streets:
     div_w1ea18: { style: mixed, mix: { podium: 1.5, towers: 1.2, park: 1.6, industrial: 0.2 } }  # 天台区：阶地上的度假集群与会议中心
     div_f5s7ax: { style: mixed, mix: { towers: 1.4, podium: 1.3, park: 1.8, industrial: 0.1 } }  # 银滩区：海滩、主题乐园与酒店群
     div_ts88e3: { style: organic, mix: { houses: 2.4, park: 2.5, industrial: 0.1, towers: 0.1 } }  # 岚山区：低密度高端住宅
+    div_j82dgm: { style: organic, mix: { houses: 1.8, industrial: 0.8, podium: 0.6 } }  # 龙关区：隘口集镇与公路枢纽
+    div_k5f1mz: { style: organic, mix: { houses: 2.2, park: 1.5, industrial: 0.6 } }   # 杉岭区：林业与护林站
+    div_0t2t36: { style: organic, mix: { houses: 2.2, park: 2.0, industrial: 0.1 } }   # 深峡区：峡谷村落与观光步道
+    div_nvrjpg: { style: planned, mix: { civic: 2.0, slabs: 1.2, industrial: 0.3 } }   # 和平区：维和部队指挥部与市政府
+    div_nytsvb: { style: planned, mix: { civic: 1.6, industrial: 1.0, slabs: 1.0 } }   # 星港区：太空军指挥中心与航天港
+    div_tc0ngk: { style: planned, mix: { civic: 1.8, slabs: 1.3, industrial: 0.6 } }   # 东营区：士官学校与河口港
+    div_nwke3f: { style: planned, mix: { industrial: 1.6, civic: 1.2, slabs: 0.8 } }   # 西坪区：发射与降落中心的保障区
+    div_0tsyzy: { style: organic, mix: { houses: 1.8, civic: 1.0, park: 1.4 } }        # 雪谷区：高山谷地、联合训练基地与滑雪场
+    div_q5h8zp: { style: organic, mix: { houses: 1.5, civic: 1.0 } }                   # 群峰训练管理区：驻地职工与家属
+    div_qpyn9e: { style: mixed, mix: { houses: 1.8, industrial: 1.0, podium: 0.6 } }   # 厄定区：河畔集镇与农业
+    div_1qm5cj: { style: organic, mix: { houses: 1.6, civic: 1.6, park: 1.2 } }        # 旧府区：旧机关与博物馆
+    div_4vnc7y: { style: organic, mix: { houses: 2.0, industrial: 0.3 } }              # 上厄定改良区：无建制荒野中的服务点
+    div_e2pk5r: { style: organic, mix: { houses: 2.0, industrial: 0.3 } }              # 驯鹿原牧区：牧民定居点
   named:
     - { district: div_16cxr8, axis: 0, line: 0, status: canon, names: { zh: 人民大道, en: People's Avenue, art-x-viking: Volksallee, art-x-buckham: Viale del Popolo } }
     - { district: div_16cxr8, axis: 1, line: 0, status: generated, names: { zh: 自由大道, en: Liberty Avenue, art-x-viking: Freiheitsallee, art-x-buckham: Viale della Libertà } }
@@ -211,6 +225,11 @@ streets:
     - { district: div_mpfctv, axis: 1, line: 0, status: generated, names: { zh: 两镇路, en: Twin Towns Road, art-x-viking: Zweistädteweg, art-x-buckham: Via delle Due Città } }
     - { district: div_w1ea18, axis: 0, line: 0, status: generated, names: { zh: 天台大道, en: Sky Terrace Avenue, art-x-viking: Himmelterrassenallee, art-x-buckham: Viale Terrazza Cielo } }
     - { district: div_f5s7ax, axis: 0, line: 0, status: generated, names: { zh: 滨海大道, en: Seafront Avenue, art-x-viking: Strandallee, art-x-buckham: Viale Lungomare } }
+    - { district: div_nvrjpg, axis: 0, line: 0, status: generated, names: { zh: 和平大道, en: Peace Avenue, art-x-viking: Friedensallee, art-x-buckham: Viale della Pace } }
+    - { district: div_nytsvb, axis: 0, line: 0, status: generated, names: { zh: 星港大道, en: Starport Avenue, art-x-viking: Sternhafenallee, art-x-buckham: Viale Porto Stella } }
+    - { district: div_tc0ngk, axis: 0, line: 0, status: generated, names: { zh: 东营路, en: East Camp Road, art-x-viking: Ostlagerstraße, art-x-buckham: Via Campo Est } }
+    - { district: div_nwke3f, axis: 0, line: 0, status: generated, names: { zh: 航天路, en: Spaceflight Road, art-x-viking: Raumfahrtstraße, art-x-buckham: Via dello Spazio } }
+    - { district: div_qpyn9e, axis: 0, line: 0, status: generated, names: { zh: 厄定大街, en: Erding High Street, art-x-viking: Erdinger Hauptstraße, art-x-buckham: Corso di Erding } }
 
 # City metro systems (real km; see build_metro in pipeline/build.py). Each line runs straight along
 # street-grid axis 0 or 1 of a district (the main axis of its built-up area where it has no streets

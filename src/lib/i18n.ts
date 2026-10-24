@@ -201,6 +201,7 @@ const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
   theme_park: { zh: "主题乐园", en: "Theme park" },
   hotel: { zh: "酒店", en: "Hotel" },
   golf_course: { zh: "高尔夫球场", en: "Golf course" },
+  ski_resort: { zh: "滑雪场", en: "Ski area" },
   park: { zh: "公园", en: "Park" },
   station: { zh: "车站", en: "Station" },
   airport: { zh: "机场", en: "Airport" },

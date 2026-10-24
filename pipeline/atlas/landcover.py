@@ -22,17 +22,27 @@ def classify(elev, land, g, real_km_per_cell, km_per_design, seed, settlements, 
     n2 = value_noise(seed + 402, 7, 4, 0.5, ext, g.shape)
 
     # Each settlement's built-up area is a noisy disc on buildable land, sized to its population.
+    # Mountain towns with no gentle ground near their centre build on steeper terraces instead.
     buildable = land & (slope < p["urban_max_slope_deg"])
+    terraced = land & (slope < p.get("urban_terrace_slope_deg", p["urban_max_slope_deg"]))
     cell_km2 = (g.res * km_per_design) ** 2
     urban = np.zeros(g.shape, bool)
+    small = np.zeros(g.shape, bool)  # towns too small to survive the speckle filter
     for x, y, pop in settlements:
-        target = pop / p["urban_density_per_km2"]
+        target = max(pop / p["urban_density_per_km2"], cell_km2)
         d = np.hypot(g.X - x, g.Y - y) / np.clip(1 + 0.6 * n2, 0.35, None)
-        r = np.sqrt(target / np.pi) / km_per_design
-        for _ in range(5):
-            area = np.count_nonzero(buildable & (d < r)) * cell_km2
-            r *= 2.0 if area == 0 else min(2.0, max(0.5, np.sqrt(target / area)))
-        urban |= buildable & (d < r)
+        r0 = np.sqrt(target / np.pi) / km_per_design
+        for ground in (buildable, terraced):
+            r = r0
+            for _ in range(5):
+                area = np.count_nonzero(ground & (d < r)) * cell_km2
+                r *= 2.0 if area == 0 else min(2.0, max(0.5, np.sqrt(target / area)))
+            disc = ground & (d < r)
+            if r <= 3 * r0 and np.count_nonzero(disc) * cell_km2 >= 0.5 * target:
+                break
+        urban |= disc
+        if np.count_nonzero(disc) < 9:
+            small |= disc
     reach = ndimage.distance_transform_edt(~urban) * g.res * km_per_design
 
     wet = np.log1p(acc) - 0.6 * slope
@@ -46,7 +56,9 @@ def classify(elev, land, g, real_km_per_cell, km_per_design, seed, settlements, 
     out[land] = CLASSES.index("forest")
     for name, m in (("tundra", tundra), ("rock", rock), ("farmland", farmland), ("wetland", wetland), ("urban", urban)):
         out[m] = CLASSES.index(name)
-    return _majority(out, land)
+    out = _majority(out, land)
+    out[small] = CLASSES.index("urban")
+    return out
 
 
 def _majority(classes: np.ndarray, land: np.ndarray, size: int = 3) -> np.ndarray:

@@ -1222,3 +1222,186 @@ places:
     in: div_ts88e3
     offset_km: [-1.0, 0.6]
     site: { layout: park, size_m: [900, 600] }
+  # ── 洛龙山市、马斯林山市与厄定河市地标（M17）──
+  - id: bld_tvkhgs
+    subtype: townhall
+    status: generated
+    names:
+      zh: 洛龙山市人民政府
+      en: Lorond Mountain City Government
+      art-x-viking: Stadtregierung Lorondberg
+      art-x-buckham: Governo Cittadino di Lorond Tehee
+    notes:
+      zh: 龙关集镇上的市政府，山区三区的公路在此交汇
+      en: The city government in the Dragon Pass market town, where the roads of the three mountain districts meet.
+    in: div_j82dgm
+    offset_km: [0.2, 0.2]
+    site: { layout: complex, size_m: [260, 200] }
+  - id: bld_6kad04
+    subtype: museum
+    status: generated
+    names:
+      zh: 龙关驿站博物馆
+      en: Dragon Pass Post House Museum
+      art-x-viking: Museum Posthaus Drachenpass
+      art-x-buckham: Museo della Stazione di Posta di Passo Drago
+    notes:
+      zh: 由翻越龙关的老驿站改建，展出驮队、雪橇与早年的山路
+      en: The old post house below the pass, with pack trains, sledges and the mountain roads of early days.
+    in: div_j82dgm
+    offset_km: [-0.6, 0.5]
+    site: { layout: hall, size_m: [160, 100] }
+  - id: poi_reffw3
+    subtype: research_institute
+    status: generated
+    names:
+      zh: 杉岭林业研究所
+      en: Fir Ridge Forestry Institute
+      art-x-viking: Forstinstitut Fichtenkamm
+      art-x-buckham: Istituto Forestale di Abete Tehee
+    notes:
+      zh: 研究云杉林培育、防火与护林的研究所，兼管杉岭的护林站
+      en: Studies spruce forestry, fire prevention and forest care, and runs the Fir Ridge ranger stations.
+    in: div_k5f1mz
+    offset_km: [0.6, 0.4]
+    site: { layout: campus, size_m: [400, 300] }
+  - id: poi_p5y5cj
+    subtype: park
+    status: generated
+    names:
+      zh: 杉岭森林公园
+      en: Fir Ridge Forest Park
+      art-x-viking: Waldpark Fichtenkamm
+      art-x-buckham: Parco Forestale di Abete Tehee
+    notes:
+      zh: 杉岭峰山腰以下的云杉林，林间步道通往杉岭冰川
+      en: The spruce forest below the shoulder of Fir Ridge Peak, with trails up towards the Fir Ridge Glacier.
+    in: div_k5f1mz
+    offset_km: [-1.0, 0.8]
+    site: { layout: park, size_m: [1200, 800] }
+  - id: poi_883hrs
+    subtype: park
+    status: generated
+    names:
+      zh: 深峡瀑布公园
+      en: Deep Gorge Falls Park
+      art-x-viking: Wasserfallpark Talschlucht
+      art-x-buckham: Parco delle Cascate di Gola Profonda
+    notes:
+      zh: 深峡观光步道的起点，栈道沿峡谷通往一连串瀑布
+      en: The start of the Deep Gorge trail, where boardwalks follow the gorge past a chain of waterfalls.
+    in: div_0t2t36
+    offset_km: [0.8, 0.6]
+    site: { layout: park, size_m: [800, 500] }
+  - id: bld_y0390a
+    subtype: townhall
+    status: generated
+    names:
+      zh: 马斯林山市人民政府
+      en: Maslin Mountain City Government
+      art-x-viking: Stadtregierung Maslinberg
+      art-x-buckham: Governo Cittadino di Maslin Tehee
+    notes:
+      zh: 和平区的市政府，1990 年市府从厄定河迁来
+      en: The city government in Peace District, moved here from Erding River in 1990.
+    in: div_nvrjpg
+    offset_km: [0.2, 0.2]
+    site: { layout: complex, size_m: [260, 200] }
+  - id: bld_c3021p
+    subtype: government
+    status: generated
+    names:
+      zh: 北维京岛维和部队指挥部
+      en: North Viking Island Peacekeeping Command
+      art-x-viking: Friedenstruppenkommando Hea Veiling
+      art-x-buckham: Comando di Pace di Veiling Nord
+    notes:
+      zh: 领地维和部队的指挥部，和平区因此得名
+      en: Headquarters of the territory's peacekeeping force, after which Peace District is named.
+    in: div_nvrjpg
+    offset_km: [1.0, -0.6]
+    site: { layout: complex, size_m: [500, 400] }
+  - id: poi_yje60z
+    subtype: college
+    status: generated
+    names:
+      zh: 深空太空军士官学校
+      en: Deep Space Force NCO Academy
+      art-x-viking: Unteroffiziersschule der Tiefraumstreitkräfte
+      art-x-buckham: Scuola Sottufficiali della Forza Spaziale Profonda
+    notes:
+      zh: 东营区的士官学校，培养航天发射、测控与地勤士官
+      en: The academy in East Camp that trains NCOs for launch, tracking and ground crews.
+    in: div_tc0ngk
+    offset_km: [0.6, 0.6]
+    site: { layout: campus, size_m: [800, 600] }
+  - id: bld_hq9qhr
+    subtype: museum
+    status: generated
+    names:
+      zh: 星港航天博物馆
+      en: Starport Space Museum
+      art-x-viking: Raumfahrtmuseum Sternhafen
+      art-x-buckham: Museo dello Spazio di Porto Stella
+    notes:
+      zh: 展出退役火箭、返回舱与星港历次发射的博物馆，对公众开放
+      en: Retired rockets, return capsules and the record of every Starport launch, open to the public.
+    in: div_nytsvb
+    offset_km: [-0.2, 0.15]
+    site: { layout: hall, size_m: [260, 160] }
+  - id: poi_6v4hsc
+    subtype: ski_resort
+    status: generated
+    names:
+      zh: 雪谷滑雪场
+      en: Snow Valley Ski Area
+      art-x-viking: Skigebiet Schneetal
+      art-x-buckham: Comprensorio Sciistico di Valle Neve
+    notes:
+      zh: 终年积雪的谷地上的滑雪场，冬季雪谷公路封闭时只能乘缆车上山
+      en: Ski slopes in the snowbound valley; when the Snow Valley Highway closes in winter the only way up is by cable car.
+    in: div_0tsyzy
+    offset_km: [1.4, 1.0]
+    site: { layout: park, size_m: [1400, 900] }
+  - id: bld_xv9d1f
+    subtype: townhall
+    status: generated
+    names:
+      zh: 厄定河市人民政府
+      en: Erding River City Government
+      art-x-viking: Stadtregierung Erding Fluß
+      art-x-buckham: Governo Cittadino di Erding Rivo
+    notes:
+      zh: 厄定河畔集镇上的市政府
+      en: The city government in the market town on the Erding.
+    in: div_qpyn9e
+    offset_km: [0.2, 0.2]
+    site: { layout: complex, size_m: [220, 160] }
+  - id: bld_tkc5zs
+    subtype: museum
+    status: generated
+    names:
+      zh: 旧府博物馆
+      en: Old Prefecture Museum
+      art-x-viking: Museum Althaupt
+      art-x-buckham: Museo di Palazzo Vecchio
+    notes:
+      zh: 1990 年拆市前马斯林山市的市府旧址，现为讲述东北部开发与驯鹿牧业的博物馆
+      en: The seat of the old Maslin Mountain City before the 1990 split, now a museum of the settlement of the north-east and its reindeer herding.
+    in: div_1qm5cj
+    offset_km: [0.2, 0.2]
+    site: { layout: complex, size_m: [240, 180] }
+  - id: bld_6jc5a2
+    subtype: marketplace
+    status: generated
+    names:
+      zh: 驯鹿原牧民集市
+      en: Reindeer Range Herders' Market
+      art-x-viking: Rentierhirtenmarkt
+      art-x-buckham: Mercato dei Pastori di Renne
+    notes:
+      zh: 牧民秋季下山时的集市，交易驯鹿肉、皮毛与手工艺品
+      en: The market held when the herders come down in autumn, trading reindeer meat, hides and handicrafts.
+    in: div_e2pk5r
+    offset_km: [0.1, -0.1]
+    site: { layout: market, size_m: [200, 140] }
