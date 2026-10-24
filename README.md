@@ -44,7 +44,9 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
 
 - **IDs.** Each entity has a permanent ID (`div_…`, `nat_…`, `rte_…`, `poi_…`, `bld_…`)
   that never changes. Business codes (division codes, ISO codes, route numbers) are
-  separate fields and may change.
+  separate fields and may change. They always run in order with no gaps: when a route or
+  division is added, removed or regraded, the numbers after it close up, and freed numbers
+  are reused.
 - **Status.** `canon` comes from the world setting. `generated` was filled in by the
   generator or an assistant and is pending review.
 - **Names.** BCP 47 keys: `zh`, `en`, `art-x-viking`, `art-x-buckham`.

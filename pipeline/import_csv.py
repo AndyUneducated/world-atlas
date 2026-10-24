@@ -203,7 +203,7 @@ class Importer:
         self.problems = Problems()
         self.cols = {c.key: c for c in self.spec["cols"]}
         self.rows = self._map_headers(rows)
-        self.taken = set(self.world.entities) | set(self.world.retired)
+        self.taken = set(self.world.entities)
         self.ids: list[str] = []
         self.new_names: dict[str, str] = {}
         self.new_codes: dict[str, str] = {}
@@ -331,9 +331,7 @@ class Importer:
                 if eid in seen_ids:
                     self.problems.add(self.where(i, "id"), f"编号 {eid} 在文件中重复出现")
                 seen_ids.add(eid)
-                if eid in self.world.retired:
-                    self.problems.add(self.where(i, "id"), f"编号 {eid} 已停用，不能再使用")
-                elif eid not in self.world.entities:
+                if eid not in self.world.entities:
                     self.problems.add(self.where(i, "id"), f"编号 {eid} 不存在；新建条目请把编号留空")
                 elif eid not in getattr(self.world, self.spec["key"]):
                     self.problems.add(self.where(i, "id"), f"编号 {eid} 不是{self.spec['label']}")

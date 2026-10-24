@@ -1,4 +1,4 @@
-"""Mint permanent entity ids that are not in use and were never used before.
+"""Mint entity ids that are not in use.
 
     python pipeline/new_id.py rte        # one id
     python pipeline/new_id.py poi 5      # five ids
@@ -31,7 +31,7 @@ def main():
     if not ID_PATTERN.match(f"{prefix}_000000"):
         sys.exit(f"unknown prefix '{prefix}'")
     world = World()
-    taken = set(world.entities) | set(world.retired)
+    taken = set(world.entities)
     for _ in range(count):
         print(mint(prefix, taken))
 

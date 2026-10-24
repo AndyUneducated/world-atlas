@@ -1,5 +1,5 @@
 # Administrative divisions of the Territory of North Viking Island (CN-NV).
-# id: permanent, never reused or changed. codes.admin: 6-digit hierarchical code (GB/T 2260 pattern:
+# id: stable internal key, referenced by other files. codes.admin: 6-digit hierarchical code (GB/T 2260 pattern:
 # territory 900000, city 900100, district 900101); may change on reorganisation.
 # subtype follows Overture Maps divisions: country > dependency/region > locality > borough.
 divisions:

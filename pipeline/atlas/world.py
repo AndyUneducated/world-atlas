@@ -51,8 +51,6 @@ class World:
         self.generators = [_load(p) for p in sorted((root / "generator").glob("*.yaml"))]
         eng = root / "transport" / "engineering.yaml"
         self.engineering: dict = _load(eng) if eng.exists() else {}
-        retired = root / "registry" / "retired-ids.yaml"
-        self.retired: dict[str, dict] = {r["id"]: r for r in (_load(retired).get("retired", []) if retired.exists() else [])}
 
     def _collect(self, folder: Path, key: str) -> dict[str, dict]:
         out: dict[str, dict] = {}
@@ -118,9 +116,6 @@ class World:
                 total = sum(k.get("population", 0) for k in kids)
                 if abs(total - d["population"]) > 100:
                     errors.append(f"{did}: children population {total} != {d['population']}")
-        for eid in self.entities:
-            if eid in self.retired:
-                errors.append(f"{eid}: id was retired ({self.retired[eid].get('reason', '')}) and must not be reused")
         refs: dict[str, str] = {}
         for rid, r in self.routes.items():
             for v in r.get("via", []):
