@@ -8,7 +8,7 @@ import { MapView } from "./components/MapView";
 import { RoutePanel } from "./components/RoutePanel";
 import { SearchBox } from "./components/SearchBox";
 import { StatusBar } from "./components/StatusBar";
-import { LangToggle, ThemeSwitcher } from "./components/TopBar";
+import { AppearanceSwitcher, LangToggle } from "./components/TopBar";
 import { loadAtlas } from "./lib/data";
 import { t } from "./lib/i18n";
 import { useAtlas } from "./store";
@@ -73,7 +73,7 @@ export default function App() {
 
           <div className="absolute top-3 right-3 flex items-center gap-2 max-md:top-auto max-md:right-auto max-md:bottom-14 max-md:left-3">
             <LangToggle />
-            <ThemeSwitcher />
+            <AppearanceSwitcher />
           </div>
 
           <div className="absolute top-1/2 right-3 -translate-y-1/2 max-md:top-20 max-md:translate-y-0">

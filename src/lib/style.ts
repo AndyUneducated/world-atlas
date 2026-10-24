@@ -17,6 +17,13 @@ export interface FocusData {
 
 export const EMPTY_FC: FeatureCollection = { type: "FeatureCollection", features: [] };
 
+/** Road network values (GB/T 917 administrative grades) behind each road layer toggle. */
+export const ROAD_NETWORKS = {
+  nationalExpressway: ["national_expressway", "national_highway"],
+  territorialExpressway: ["territorial_expressway", "territorial_highway"],
+  cityRoads: ["municipal_road", "township_road"],
+};
+
 /** Population density class breaks, people per km². */
 export const DENSITY_BREAKS = [50, 150, 400, 1200, 3000];
 
@@ -110,11 +117,11 @@ export function buildStyle(opts: {
     { id: "land", type: "fill", source: "divisions", filter: isSubtype("dependency"), paint: { "fill-color": m.land } },
   ];
 
-  if (m.colorRelief) {
-    style.push({
+  style.push({
       id: "color-relief",
       type: "color-relief",
       source: "dem",
+      layout: { visibility: visible(layers.terrain) },
       paint: {
         "color-relief-color": [
           "interpolate",
@@ -124,21 +131,18 @@ export function buildStyle(opts: {
           "rgba(0,0,0,0)",
           -1,
           "rgba(0,0,0,0)",
-          ...m.colorRelief.flat(),
+          ...m.terrain.relief.flat(),
         ] as unknown as ExpressionSpecification,
-        "color-relief-opacity": 0.92,
+        "color-relief-opacity": m.terrain.opacity,
       },
     } as LayerSpecification);
-  }
-  if (m.tintOpacity > 0) {
-    style.push({
-      id: "city-tint",
-      type: "fill",
-      source: "divisions",
-      filter: isSubtype("locality"),
-      paint: { "fill-color": paletteColor(m.land), "fill-opacity": m.tintOpacity },
-    });
-  }
+  style.push({
+    id: "city-tint",
+    type: "fill",
+    source: "divisions",
+    filter: isSubtype("locality"),
+    paint: { "fill-color": paletteColor(m.land), "fill-opacity": layers.terrain ? m.terrain.tintOpacity : m.tintOpacity },
+  });
 
   const [c0, c1, c2, c3, c4, c5] = m.choropleth;
   style.push(
@@ -157,12 +161,11 @@ export function buildStyle(opts: {
       id: "hillshade",
       type: "hillshade",
       source: "dem",
-      layout: { visibility: visible(layers.hillshade) },
       paint: {
         "hillshade-shadow-color": m.hillshade.shadow,
         "hillshade-highlight-color": m.hillshade.highlight,
         "hillshade-accent-color": m.hillshade.accent,
-        "hillshade-exaggeration": m.hillshade.exaggeration,
+        "hillshade-exaggeration": layers.terrain ? m.terrain.exaggeration : m.hillshade.exaggeration,
         "hillshade-illumination-direction": 315,
       },
     },
@@ -255,54 +258,29 @@ export function buildStyle(opts: {
     15,
     base * 10,
   ];
-  const roadLayout = { visibility: visible(layers.roads), "line-cap": "round", "line-join": "round" } as const;
-  style.push(
-    {
-      id: "secondary-casing",
-      type: "line",
-      source: "roads",
-      minzoom: 7.6,
-      filter: isClass("secondary"),
-      layout: roadLayout,
-      paint: { "line-color": m.secondary.casing, "line-width": roadWidth(1.2), "line-gap-width": 0 },
-    },
-    {
-      id: "secondary",
-      type: "line",
-      source: "roads",
-      minzoom: 7.6,
-      filter: isClass("secondary"),
-      layout: roadLayout,
-      paint: { "line-color": m.secondary.fill, "line-width": roadWidth(0.7) },
-    },
-  );
-  if (m.motorway.glow) {
-    style.push({
-      id: "motorway-glow",
-      type: "line",
-      source: "roads",
-      filter: isClass("motorway"),
-      layout: roadLayout,
-      paint: { "line-color": m.motorway.glow, "line-width": roadWidth(3), "line-blur": 3 },
-    });
+  const roadLayout = (on: boolean) => ({ visibility: visible(on), "line-cap": "round", "line-join": "round" }) as const;
+  const roadTiers = [
+    { id: "city-road", network: ROAD_NETWORKS.cityRoads, s: m.cityRoad, on: layers.cityRoads, casing: 1.2, fill: 0.7, minzoom: 7.6 },
+    { id: "territorial-expressway", network: ROAD_NETWORKS.territorialExpressway, s: m.territorialExpressway, on: layers.territorialExpressway, casing: 1.6, fill: 1, minzoom: 0 },
+    { id: "national-expressway", network: ROAD_NETWORKS.nationalExpressway, s: m.nationalExpressway, on: layers.nationalExpressway, casing: 1.8, fill: 1.2, minzoom: 0 },
+  ];
+  for (const r of roadTiers) {
+    const filter: ExpressionSpecification = ["in", ["get", "network"], ["literal", r.network]];
+    if (r.s.glow) {
+      style.push({ id: `${r.id}-glow`, type: "line", source: "roads", minzoom: r.minzoom, filter, layout: roadLayout(r.on), paint: { "line-color": r.s.glow, "line-width": roadWidth(r.casing * 1.8), "line-blur": 3 } });
+    }
+    style.push(
+      { id: `${r.id}-casing`, type: "line", source: "roads", minzoom: r.minzoom, filter, layout: roadLayout(r.on), paint: { "line-color": r.s.casing, "line-width": roadWidth(r.casing) } },
+      { id: r.id, type: "line", source: "roads", minzoom: r.minzoom, filter, layout: roadLayout(r.on), paint: { "line-color": r.s.fill, "line-width": roadWidth(r.fill) } },
+    );
   }
+  const shownNetworks = [
+    ...(layers.nationalExpressway ? ROAD_NETWORKS.nationalExpressway : []),
+    ...(layers.territorialExpressway ? ROAD_NETWORKS.territorialExpressway : []),
+    ...(layers.cityRoads ? ROAD_NETWORKS.cityRoads : []),
+  ];
+  const roadShown: ExpressionSpecification = ["in", ["get", "network"], ["literal", shownNetworks]];
   style.push(
-    {
-      id: "motorway-casing",
-      type: "line",
-      source: "roads",
-      filter: isClass("motorway"),
-      layout: roadLayout,
-      paint: { "line-color": m.motorway.casing, "line-width": roadWidth(1.7) },
-    },
-    {
-      id: "motorway",
-      type: "line",
-      source: "roads",
-      filter: isClass("motorway"),
-      layout: roadLayout,
-      paint: { "line-color": m.motorway.fill, "line-width": roadWidth(1.1) },
-    },
     {
       id: "hover-line",
       type: "line",
@@ -357,7 +335,7 @@ export function buildStyle(opts: {
       id: HIT_LAYERS.road,
       type: "line",
       source: "roads",
-      layout: { visibility: visible(layers.roads) },
+      filter: roadShown,
       paint: { "line-width": 12, "line-opacity": 0 },
     },
     { id: HIT_LAYERS.river, type: "line", source: "rivers-named", minzoom: 7, paint: { "line-width": 10, "line-opacity": 0 } },
@@ -423,9 +401,8 @@ export function buildStyle(opts: {
       type: "symbol",
       source: "roads",
       minzoom: 6.6,
-      filter: isClass("motorway"),
+      filter: ["all", isClass("motorway"), roadShown],
       layout: {
-        visibility: visible(layers.roads),
         "symbol-placement": "line",
         "symbol-spacing": 280,
         "text-field": ["get", "ref"],
@@ -433,11 +410,17 @@ export function buildStyle(opts: {
         "text-size": 10,
         "text-rotation-alignment": "viewport",
         "icon-rotation-alignment": "viewport",
-        "icon-image": shieldImageId(m.shield.fill, m.shield.stroke),
+        "icon-image": [
+          "match",
+          ["get", "network"],
+          "national_expressway",
+          shieldImageId(m.shield.national.fill, m.shield.national.stroke),
+          shieldImageId(m.shield.territorial.fill, m.shield.territorial.stroke),
+        ],
         "icon-text-fit": "both",
         "icon-text-fit-padding": [2, 5, 2, 5],
       },
-      paint: { "text-color": m.shield.text },
+      paint: { "text-color": ["match", ["get", "network"], "national_expressway", m.shield.national.text, m.shield.territorial.text] },
     },
     {
       id: "district-label",

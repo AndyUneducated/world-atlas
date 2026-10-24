@@ -3,8 +3,15 @@ import { Check, Crosshair, Link2, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { accentColor } from "../lib/entity";
-import { displayName, formatNumber, formatPopulation, kindLabel, NAME_LANG_LABELS, otherName, t } from "../lib/i18n";
-import { NAME_LANGS, type AtlasData, type Entity, type Lang } from "../lib/types";
+import { displayName, formatNumber, formatPopulation, kindLabel, NAME_LANG_LABELS, t } from "../lib/i18n";
+import { NAME_LANGS, type AtlasData, type Entity, type Lang, type NameLang } from "../lib/types";
+
+const NAME_TAGS: Record<NameLang, Record<Lang, string>> = {
+  zh: { zh: "中", en: "ZH" },
+  en: { zh: "英", en: "EN" },
+  "art-x-viking": { zh: "维", en: "VIK" },
+  "art-x-buckham": { zh: "巴", en: "BCK" },
+};
 import { useAtlas } from "../store";
 import { EntityIcon } from "./EntityIcon";
 
@@ -128,7 +135,16 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
               </span>
             </div>
             <h2 className="mt-0.5 text-[22px] leading-tight font-semibold tracking-tight text-ink">{displayName(entity, lang)}</h2>
-            <p className="truncate text-[13px] text-muted">{otherName(entity, lang)}</p>
+            <ul className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1" aria-label={t("names", lang)}>
+              {names
+                .filter((l) => l !== lang)
+                .map((l) => (
+                  <li key={l} className="flex min-w-0 items-baseline gap-1.5 text-[12.5px]" title={NAME_LANG_LABELS[l][lang]}>
+                    <span className="shrink-0 text-[10px] font-semibold tracking-wide text-faint">{NAME_TAGS[l][lang]}</span>
+                    <span className="truncate text-muted">{entity.names[l]}</span>
+                  </li>
+                ))}
+            </ul>
           </div>
           <button onClick={() => select(null)} className="grid size-8 shrink-0 place-items-center rounded-full text-muted hover:bg-hover" aria-label={t("close", lang)}>
             <X className="size-4" />
@@ -175,17 +191,6 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
           )}
         </Section>
       )}
-
-      <Section title={t("names", lang)}>
-        <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[13px]">
-          {names.map((l) => (
-            <div key={l} className="contents">
-              <dt className="text-muted">{NAME_LANG_LABELS[l][lang]}</dt>
-              <dd className="text-ink">{entity.names[l]}</dd>
-            </div>
-          ))}
-        </dl>
-      </Section>
 
       <ChildList data={data} entity={entity} lang={lang} />
 

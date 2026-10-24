@@ -47,17 +47,17 @@ divisions:
   parent: div_nbrnfr
   status: canon
   names:
-    zh: 中央行政区
-    en: Central Administrative District
-    art-x-viking: Zentralverwaltung auf Hea
-    art-x-buckham: Central Teatu en Teatu
+    zh: 白桦区
+    en: Birchwood District
+    art-x-viking: Birkenwald
+    art-x-buckham: Betulla
   codes:
     admin: '900101'
   population: 320000
   area_km2: 720.0
   notes:
-    zh: 领地机关驻地
-    en: Seat of the territorial institutions.
+    zh: 领地机关驻地。1990 年首府建在两河之间长满白桦的台地上，区名由此而来
+    en: Seat of the territorial institutions. The capital was built in 1990 on a birch-wooded terrace between the two rivers.
 - id: div_b1dx32
   subtype: borough
   parent: div_nbrnfr
@@ -65,8 +65,8 @@ divisions:
   names:
     zh: 北河区
     en: North River District
-    art-x-viking: Nordfluss auf Hea
-    art-x-buckham: Rivo Nord en Teatu
+    art-x-viking: Nordfluss
+    art-x-buckham: Rivo Nord
   codes:
     admin: '900102'
   population: 150000
@@ -79,17 +79,17 @@ divisions:
   parent: div_nbrnfr
   status: canon
   names:
-    zh: 联合区
-    en: Union District
-    art-x-viking: Vereint auf Hea
-    art-x-buckham: Liga en Teatu
+    zh: 沙洲区
+    en: Sandbar District
+    art-x-viking: Sandbank
+    art-x-buckham: Banco Sabbia
   codes:
     admin: '900103'
   population: 90000
   area_km2: 910.0
   notes:
-    zh: 联合大道以南至自由河入海口，临港配套
-    en: From Union Avenue south to the mouth of the Freedom River; port support zone.
+    zh: 自由河入海口的冲积沙洲，临港配套
+    en: Alluvial sandbars at the mouth of the Freedom River; port support zone.
 - id: div_m41gwn
   subtype: locality
   parent: div_fbfqv9
@@ -112,49 +112,49 @@ divisions:
   parent: div_m41gwn
   status: canon
   names:
-    zh: 南港区
-    en: South Port District
-    art-x-viking: Südhavn auf Hea
-    art-x-buckham: Porto Sud en Teatu
+    zh: 瓦尔维克区
+    en: Walvik District
+    art-x-viking: Walvik
+    art-x-buckham: Baia Balena
   codes:
     admin: '900201'
   population: 1180000
   area_km2: 420.0
   notes:
-    zh: 最大港区与临港产业带
-    en: Largest port area and the port-industry belt.
+    zh: 维京语意为「鲸湾」。旧时捕鲸站所在的海湾，今为最大港区与临港产业带
+    en: Viking for "whale bay". Once a whaling station, now the largest port area and port-industry belt.
 - id: div_pkfa1g
   subtype: borough
   parent: div_m41gwn
   status: canon
   names:
-    zh: 北港区
-    en: North Port District
-    art-x-viking: Nordhavn auf Hea
-    art-x-buckham: Porto Nord en Teatu
+    zh: 菲尔内斯区
+    en: Fyrnes District
+    art-x-viking: Fyrnes
+    art-x-buckham: Capo Faro
   codes:
     admin: '900202'
   population: 860000
   area_km2: 380.0
   notes:
-    zh: 客运码头、邮轮与海关查验区
-    en: Passenger terminals, cruise piers and customs inspection zone.
+    zh: 维京语意为「烽火岬」。客运码头、邮轮与海关查验区
+    en: Viking for "beacon headland". Passenger terminals, cruise piers and customs inspection zone.
 - id: div_t3bfmm
   subtype: borough
   parent: div_m41gwn
   status: canon
   names:
-    zh: 维京区
-    en: Viking District
-    art-x-viking: Veiling auf Hea
-    art-x-buckham: Veiling en Teatu
+    zh: 斯坦堡区
+    en: Steinburg District
+    art-x-viking: Steinburg
+    art-x-buckham: Muro Pietra
   codes:
     admin: '900203'
   population: 680000
   area_km2: 410.0
   notes:
-    zh: 建市初期形成的旧城
-    en: The old town formed in the early years of the city.
+    zh: 维京语意为「石堡」。旧城围绕维京时代的石垒形成
+    en: Viking for "stone fort". The old town grew around a Viking-age stone rampart.
 - id: div_k1yr6m
   subtype: borough
   parent: div_m41gwn
@@ -162,8 +162,8 @@ divisions:
   names:
     zh: 海门区
     en: Seagate District
-    art-x-viking: Seetor auf Hea
-    art-x-buckham: Porta Mar en Teatu
+    art-x-viking: Seetor
+    art-x-buckham: Porta Mar
   codes:
     admin: '900204'
   population: 380000
@@ -193,26 +193,26 @@ divisions:
   parent: div_0yef9a
   status: canon
   names:
-    zh: 中央区
-    en: Central District
-    art-x-viking: Zentral auf Hea
-    art-x-buckham: Central en Teatu
+    zh: 鹿鸣区
+    en: Deersong District
+    art-x-viking: Hirschlied
+    art-x-buckham: Canto Cervo
   codes:
     admin: '900301'
   population: 860000
   area_km2: 580.0
   notes:
-    zh: 市级机关与广电机构集中区
-    en: Municipal institutions and broadcasting organisations.
+    zh: 取「呦呦鹿鸣」之意。市级机关与广电机构集中区
+    en: Named after the classical ode of the calling deer. Municipal institutions and broadcasting organisations.
 - id: div_g27nda
   subtype: borough
   parent: div_0yef9a
   status: canon
   names:
-    zh: 科学区
-    en: Science District
-    art-x-viking: Wissenschaft auf Hea
-    art-x-buckham: Scienza en Teatu
+    zh: 望星区
+    en: Stargaze District
+    art-x-viking: Sternwacht
+    art-x-buckham: Guarda Stella
   codes:
     admin: '900302'
   population: 540000
@@ -225,17 +225,17 @@ divisions:
   parent: div_0yef9a
   status: canon
   names:
-    zh: 学院区
-    en: Academy District
-    art-x-viking: Hochschule auf Hea
-    art-x-buckham: Accademia en Teatu
+    zh: 林道区
+    en: Lindau District
+    art-x-viking: Lindau
+    art-x-buckham: Via Tiglio
   codes:
     admin: '900303'
   population: 380000
   area_km2: 540.0
   notes:
-    zh: 高等教育与附属研发机构
-    en: Higher education and affiliated research institutes.
+    zh: 维京语意为「椴树滩」，中文取「林间小道」之意。高等教育与附属研发机构
+    en: Viking for "linden meadow"; the Chinese name reads "forest path". Higher education and affiliated research institutes.
 - id: div_479xae
   subtype: borough
   parent: div_0yef9a
@@ -243,8 +243,8 @@ divisions:
   names:
     zh: 寒岭区
     en: Frost Ridge District
-    art-x-viking: Frostkamm auf Hea
-    art-x-buckham: Fredd Tehee en Teatu
+    art-x-viking: Frostkamm
+    art-x-buckham: Fredd Tehee
   codes:
     admin: '900304'
   population: 200000
@@ -276,8 +276,8 @@ divisions:
   names:
     zh: 勒北区
     en: Lekor North District
-    art-x-viking: Lekor Nord auf Hea
-    art-x-buckham: Lekor Nord en Teatu
+    art-x-viking: Lekor Nord
+    art-x-buckham: Lekor Nord
   codes:
     admin: '900401'
   population: 420000
@@ -292,8 +292,8 @@ divisions:
   names:
     zh: 丰谷区
     en: Harvest Vale District
-    art-x-viking: Erntegau auf Hea
-    art-x-buckham: Messe Valle en Teatu
+    art-x-viking: Erntegau
+    art-x-buckham: Messe Valle
   codes:
     admin: '900402'
   population: 360000
@@ -308,8 +308,8 @@ divisions:
   names:
     zh: 澄湖区
     en: Clearlake District
-    art-x-viking: Klarsee auf Hea
-    art-x-buckham: Lago Chiaro en Teatu
+    art-x-viking: Klarsee
+    art-x-buckham: Lago Chiaro
   codes:
     admin: '900403'
   population: 180000
@@ -341,31 +341,31 @@ divisions:
   names:
     zh: 奥克区
     en: Ox District
-    art-x-viking: Ox auf Hea
-    art-x-buckham: Ox en Teatu
+    art-x-viking: Ox
+    art-x-buckham: Ox
   codes:
     admin: '900501'
   population: 620000
   area_km2: 650.0
   notes:
-    zh: 机械化农业与农产品集散，取城市名首段
-    en: Mechanised agriculture and produce distribution; named after the first part of the city name.
+    zh: 原奥克镇。1990 年与西诺镇合并设市，市名由两镇名合成。机械化农业与农产品集散
+    en: Formerly the town of Ox, merged with Ino in 1990; the city name joins the two. Mechanised agriculture and produce distribution.
 - id: div_mpfctv
   subtype: borough
   parent: div_q4d6n6
   status: canon
   names:
     zh: 西诺区
-    en: Sino District
-    art-x-viking: Sino auf Hea
-    art-x-buckham: Sino en Teatu
+    en: Ino District
+    art-x-viking: Ino
+    art-x-buckham: Ino
   codes:
     admin: '900502'
   population: 260000
   area_km2: 290.0
   notes:
-    zh: 承接勒克尔方向通勤的居住拓展，取城市名末段
-    en: Residential expansion serving commuters towards Lekor; named after the last part of the city name.
+    zh: 原西诺镇，1990 年与奥克镇合并设市。承接勒克尔方向通勤的居住拓展
+    en: Formerly the town of Ino, merged with Ox in 1990. Residential expansion serving commuters towards Lekor.
 - id: div_prcxzt
   subtype: locality
   parent: div_fbfqv9
@@ -389,9 +389,9 @@ divisions:
   status: canon
   names:
     zh: 龙关区
-    en: Long Pass District
-    art-x-viking: Lorondpass auf Hea
-    art-x-buckham: Porta Lorond en Teatu
+    en: Dragon Pass District
+    art-x-viking: Drachenpass
+    art-x-buckham: Passo Drago
   codes:
     admin: '900601'
   population: 180000
@@ -406,8 +406,8 @@ divisions:
   names:
     zh: 杉岭区
     en: Fir Ridge District
-    art-x-viking: Fichtenkamm auf Hea
-    art-x-buckham: Abete Tehee en Teatu
+    art-x-viking: Fichtenkamm
+    art-x-buckham: Abete Tehee
   codes:
     admin: '900602'
   population: 120000
@@ -422,8 +422,8 @@ divisions:
   names:
     zh: 深峡区
     en: Deep Gorge District
-    art-x-viking: Talschlucht auf Hea
-    art-x-buckham: Gola Profonda en Teatu
+    art-x-viking: Talschlucht
+    art-x-buckham: Gola Profonda
   codes:
     admin: '900603'
   population: 150000
@@ -453,17 +453,17 @@ divisions:
   parent: div_k4s990
   status: canon
   names:
-    zh: 中轴区
-    en: Central Axis District
-    art-x-viking: Achse auf Hea
-    art-x-buckham: Asse en Teatu
+    zh: 青坪区
+    en: Greenmead District
+    art-x-viking: Grünau
+    art-x-buckham: Prato Verde
   codes:
     admin: '900701'
   population: 720000
   area_km2: 520.0
   notes:
-    zh: 高层住宅、商业与轨道交通枢纽
-    en: High-rise housing, commerce and the rail transit hub.
+    zh: 建在原来的青草坪地上。高层住宅、商业与轨道交通枢纽
+    en: Built on former green meadows. High-rise housing, commerce and the rail transit hub.
 - id: div_s1qwxh
   subtype: borough
   parent: div_k4s990
@@ -471,8 +471,8 @@ divisions:
   names:
     zh: 北苑区
     en: North Gardens District
-    art-x-viking: Nordgarten auf Hea
-    art-x-buckham: Giardino Nord en Teatu
+    art-x-viking: Nordgarten
+    art-x-buckham: Giardino Nord
   codes:
     admin: '900702'
   population: 680000
@@ -487,8 +487,8 @@ divisions:
   names:
     zh: 南驿区
     en: South Post District
-    art-x-viking: Südpost auf Hea
-    art-x-buckham: Posta Sud en Teatu
+    art-x-viking: Südpost
+    art-x-buckham: Posta Sud
   codes:
     admin: '900703'
   population: 490000
@@ -520,8 +520,8 @@ divisions:
   names:
     zh: 天台区
     en: Sky Terrace District
-    art-x-viking: Himmelterrasse auf Hea
-    art-x-buckham: Terrazza Cielo en Teatu
+    art-x-viking: Himmelterrasse
+    art-x-buckham: Terrazza Cielo
   codes:
     admin: '900801'
   population: 320000
@@ -536,8 +536,8 @@ divisions:
   names:
     zh: 银滩区
     en: Silver Beach District
-    art-x-viking: Silberstrand auf Hea
-    art-x-buckham: Spiaggia Argento en Teatu
+    art-x-viking: Silberstrand
+    art-x-buckham: Spiaggia Argento
   codes:
     admin: '900802'
   population: 280000
@@ -552,8 +552,8 @@ divisions:
   names:
     zh: 岚山区
     en: Mist Hill District
-    art-x-viking: Nebelhang auf Hea
-    art-x-buckham: Pendio Nebbia en Teatu
+    art-x-viking: Nebelhang
+    art-x-buckham: Pendio Nebbia
   codes:
     admin: '900803'
   population: 180000
@@ -583,17 +583,17 @@ divisions:
   parent: div_da3s38
   status: canon
   names:
-    zh: 新厂区
-    en: New Works District
-    art-x-viking: Neuwerk auf Hea
-    art-x-buckham: Fabbrica Neu en Teatu
+    zh: 铁岗区
+    en: Iron Knoll District
+    art-x-viking: Eisenhügel
+    art-x-buckham: Colle Ferro
   codes:
     admin: '900901'
   population: 380000
   area_km2: 280.0
   notes:
-    zh: 1990 年代起布局的制造业园区
-    en: Manufacturing parks laid out since the 1990s.
+    zh: 岗地曾出产铁矿而得名。1990 年代起布局的制造业园区
+    en: Named after the iron ore once mined from its knolls. Manufacturing parks laid out since the 1990s.
 - id: div_8m0jx4
   subtype: borough
   parent: div_da3s38
@@ -601,31 +601,31 @@ divisions:
   names:
     zh: 萨科区
     en: Sako District
-    art-x-viking: Sako auf Hea
-    art-x-buckham: Sako en Teatu
+    art-x-viking: Sako
+    art-x-buckham: Sako
   codes:
     admin: '900902'
   population: 320000
   area_km2: 310.0
   notes:
-    zh: 拆市前的传统市镇中心，取城市名首段
-    en: The traditional town centre before the split; named after the first part of the city name.
+    zh: 原萨科镇，城市名萨科勒在巴克汉姆语中意为「萨科之地」。拆市前的传统市镇中心
+    en: The old town of Sako; Sakole means "Sako's land" in Buckham. The traditional town centre before the split.
 - id: div_8njcs3
   subtype: borough
   parent: div_da3s38
   status: canon
   names:
-    zh: 站前区
-    en: Stationfront District
-    art-x-viking: Bahnhofvor auf Hea
-    art-x-buckham: Stazione Fronte en Teatu
+    zh: 罗卡区
+    en: Rocca District
+    art-x-viking: Felsburg
+    art-x-buckham: Rocca
   codes:
     admin: '900903'
   population: 200000
   area_km2: 160.0
   notes:
-    zh: 公路货运站与仓储
-    en: Road freight station and warehousing.
+    zh: 巴克汉姆语意为「岩堡」，得名于海边的岩丘。公路货运站与仓储
+    en: Buckham for "rock fort", after a seaside rock outcrop. Road freight station and warehousing.
 - id: div_k4hg7b
   subtype: locality
   parent: div_fbfqv9
@@ -649,49 +649,49 @@ divisions:
   parent: div_k4hg7b
   status: canon
   names:
-    zh: 港门区
-    en: Portgate District
-    art-x-viking: Hafentor auf Hea
-    art-x-buckham: Porta Porto en Teatu
+    zh: 卡波区
+    en: Capo District
+    art-x-viking: Kap
+    art-x-buckham: Capo
   codes:
     admin: '901001'
   population: 280000
   area_km2: 38.0
   notes:
-    zh: 海陆空联运监管与旅客通道
-    en: Sea-land-air intermodal supervision and passenger gateway.
+    zh: 巴克汉姆语意为「海角」。海陆空联运监管与旅客通道
+    en: Buckham for "cape". Sea-land-air intermodal supervision and passenger gateway.
 - id: div_8p9k5t
   subtype: borough
   parent: div_k4hg7b
   status: canon
   names:
-    zh: 汇兑区
-    en: Exchange District
-    art-x-viking: Wechsel auf Hea
-    art-x-buckham: Cambio en Teatu
+    zh: 镜湾区
+    en: Mirror Bay District
+    art-x-viking: Spiegelbucht
+    art-x-buckham: Baia Specchio
   codes:
     admin: '901002'
   population: 410000
   area_km2: 52.0
   notes:
-    zh: 离岸金融、结算与总部经济
-    en: Offshore finance, clearing and headquarters economy.
+    zh: 湾内水面平静如镜。离岸金融、结算与总部经济
+    en: A sheltered bay as still as a mirror. Offshore finance, clearing and headquarters economy.
 - id: div_ts5cw5
   subtype: borough
   parent: div_k4hg7b
   status: canon
   names:
-    zh: 保税区
-    en: Bonded District
-    art-x-viking: Zollfrei auf Hea
-    art-x-buckham: Franco en Teatu
+    zh: 燕礁区
+    en: Swallow Reef District
+    art-x-viking: Schwalbenriff
+    art-x-buckham: Scoglio Rondine
   codes:
     admin: '901003'
   population: 260000
   area_km2: 34.0
   notes:
-    zh: 保税仓储与加工贸易
-    en: Bonded warehousing and processing trade.
+    zh: 包括东南离岛与海燕栖息的礁群。保税仓储与加工贸易
+    en: Includes the south-eastern islet and the reefs where petrels nest. Bonded warehousing and processing trade.
 - id: div_rdypg7
   subtype: locality
   parent: div_fbfqv9
@@ -707,17 +707,17 @@ divisions:
   population: 90000
   area_km2: 2890.0
   notes:
-    zh: 复杂山区，东部为平地，其他三面被高山环绕。军事训练区。市辖单位称「大区」
-    en: 'Complex mountain terrain: flat land to the east, high mountains on the other three sides. Military training area. Its subdivisions are called regions.'
+    zh: 复杂山区，东部为平地，其他三面被高山环绕。军事训练区
+    en: 'Complex mountain terrain: flat land to the east, high mountains on the other three sides. Military training area.'
 - id: div_nvrjpg
   subtype: borough
   parent: div_rdypg7
   status: canon
   names:
-    zh: 和平大区
-    en: Peace Region
-    art-x-viking: Frieden auf Hea
-    art-x-buckham: Pace en Teatu
+    zh: 和平区
+    en: Peace District
+    art-x-viking: Frieden
+    art-x-buckham: Pace
   codes:
     admin: '901101'
   population: 21000
@@ -730,10 +730,10 @@ divisions:
   parent: div_rdypg7
   status: canon
   names:
-    zh: 星港大区
-    en: Starport Region
-    art-x-viking: Sternhafen auf Hea
-    art-x-buckham: Porto Stella en Teatu
+    zh: 星港区
+    en: Starport District
+    art-x-viking: Sternhafen
+    art-x-buckham: Porto Stella
   codes:
     admin: '901102'
   population: 18000
@@ -746,10 +746,10 @@ divisions:
   parent: div_rdypg7
   status: canon
   names:
-    zh: 东营大区
-    en: East Camp Region
-    art-x-viking: Ostlager auf Hea
-    art-x-buckham: Campo Est en Teatu
+    zh: 东营区
+    en: East Camp District
+    art-x-viking: Ostlager
+    art-x-buckham: Campo Est
   codes:
     admin: '901103'
   population: 15000
@@ -762,10 +762,10 @@ divisions:
   parent: div_rdypg7
   status: canon
   names:
-    zh: 西坪大区
-    en: West Heath Region
-    art-x-viking: Westheide auf Hea
-    art-x-buckham: Pianoro Ovest en Teatu
+    zh: 西坪区
+    en: West Heath District
+    art-x-viking: Westheide
+    art-x-buckham: Pianoro Ovest
   codes:
     admin: '901104'
   population: 19000
@@ -778,17 +778,17 @@ divisions:
   parent: div_rdypg7
   status: canon
   names:
-    zh: 联训大区
-    en: Joint Drill Region
-    art-x-viking: Verbundübung auf Hea
-    art-x-buckham: Addestramento en Teatu
+    zh: 雪谷区
+    en: Snow Valley District
+    art-x-viking: Schneetal
+    art-x-buckham: Valle Neve
   codes:
     admin: '901105'
   population: 17000
   area_km2: 540.0
   notes:
-    zh: 解放军马斯林山联合训练基地
-    en: PLA Maslin Mountain Joint Training Base.
+    zh: 终年积雪的高山谷地。解放军马斯林山联合训练基地
+    en: A high valley under snow most of the year. PLA Maslin Mountain Joint Training Base.
 - id: div_8emjne
   subtype: locality
   parent: div_fbfqv9
@@ -813,8 +813,8 @@ divisions:
   names:
     zh: 厄定区
     en: Erding District
-    art-x-viking: Erding auf Hea
-    art-x-buckham: Erding en Teatu
+    art-x-viking: Erding
+    art-x-buckham: Erding
   codes:
     admin: '901201'
   population: 18000
@@ -829,8 +829,8 @@ divisions:
   names:
     zh: 旧府区
     en: Old Prefecture District
-    art-x-viking: Althaupt auf Hea
-    art-x-buckham: Palazzo Vecchio en Teatu
+    art-x-viking: Althaupt
+    art-x-buckham: Palazzo Vecchio
   codes:
     admin: '901202'
   population: 12000

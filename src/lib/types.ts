@@ -1,7 +1,8 @@
 import type { FeatureCollection } from "geojson";
 
 export type Lang = "zh" | "en";
-export type ThemeId = "glacier" | "aurora" | "atlas";
+export type ThemeId = "light" | "dark";
+export type Appearance = "auto" | ThemeId;
 export type BBox = [number, number, number, number];
 export type LngLat = [number, number];
 

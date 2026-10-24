@@ -46,7 +46,6 @@ function syncUrl(map: maplibregl.Map) {
   const c = map.getCenter();
   writeUrl({
     sel: s.selectedId ?? undefined,
-    theme: s.theme,
     lang: s.lang,
     view: { zoom: map.getZoom(), lat: c.lat, lng: c.lng, bearing: map.getBearing() },
   });

@@ -1,12 +1,21 @@
 import clsx from "clsx";
-import { Layers, Maximize, Minus, Navigation2, Plus } from "lucide-react";
+import { Layers, Maximize, Minus, Mountain, Navigation2, Plus } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { t, type StringKey } from "../lib/i18n";
+import { THEMES, type MapTheme } from "../lib/themes";
 import { useAtlas, useCursor, type LayerToggles } from "../store";
 
 const BTN = "grid size-10 place-items-center text-ink transition-colors hover:bg-hover active:scale-95";
-const LAYER_KEYS: (keyof LayerToggles)[] = ["boundaries", "roads", "hillshade", "choropleth"];
+const LAYER_GROUPS: { title: StringKey; keys: (keyof LayerToggles)[] }[] = [
+  { title: "roads", keys: ["nationalExpressway", "territorialExpressway", "cityRoads"] },
+  { title: "mapDetails", keys: ["boundaries", "choropleth"] },
+];
+const ROAD_SWATCH: Partial<Record<keyof LayerToggles, (m: MapTheme) => string>> = {
+  nationalExpressway: (m) => m.nationalExpressway.fill,
+  territorialExpressway: (m) => m.territorialExpressway.fill,
+  cityRoads: (m) => (m.cityRoad.fill === "#ffffff" ? m.cityRoad.casing : m.cityRoad.fill),
+};
 
 function Switch({ on }: { on: boolean }) {
   return (
@@ -22,6 +31,7 @@ export function MapControls() {
   const data = useAtlas((s) => s.data);
   const layers = useAtlas((s) => s.layers);
   const toggleLayer = useAtlas((s) => s.toggleLayer);
+  const mapTheme = THEMES[useAtlas((s) => s.theme)].map;
   const bearing = useCursor((s) => s.bearing);
   const [open, setOpen] = useState(false);
 
@@ -42,14 +52,30 @@ export function MapControls() {
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 8, scale: 0.97 }}
               transition={{ duration: 0.15 }}
-              className="glass absolute top-0 right-12 w-56 rounded-2xl p-1.5"
+              className="glass absolute top-0 right-12 w-60 rounded-2xl p-1.5"
             >
-              <p className="px-2.5 pt-1.5 pb-1 text-[11px] font-semibold tracking-wider text-faint uppercase">{t("layers", lang)}</p>
-              {LAYER_KEYS.map((k) => (
-                <button key={k} onClick={() => toggleLayer(k)} className="flex w-full items-center justify-between rounded-xl px-2.5 py-2 text-[13px] text-ink hover:bg-hover">
-                  {t(k as StringKey, lang)}
-                  <Switch on={layers[k]} />
-                </button>
+              <button
+                onClick={() => toggleLayer("terrain")}
+                className={clsx("flex w-full items-center gap-3 rounded-xl p-2 text-left transition-colors", layers.terrain ? "bg-accent-soft ring-1 ring-accent/40" : "hover:bg-hover")}
+                aria-pressed={layers.terrain}
+              >
+                <span className="grid size-11 shrink-0 place-items-center rounded-lg bg-gradient-to-br from-[#cfe3c4] via-[#e6d5ac] to-[#c9b29c] text-[#5c4a37] shadow-inner">
+                  <Mountain className="size-5" strokeWidth={1.8} />
+                </span>
+                <span className="flex-1 text-[13px] font-medium text-ink">{t("terrain", lang)}</span>
+                <Switch on={layers.terrain} />
+              </button>
+              {LAYER_GROUPS.map((group) => (
+                <div key={group.title} className="mt-1.5">
+                  <p className="px-2.5 pt-1.5 pb-1 text-[11px] font-semibold tracking-wider text-faint uppercase">{t(group.title, lang)}</p>
+                  {group.keys.map((k) => (
+                    <button key={k} onClick={() => toggleLayer(k)} className="flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2 text-[13px] text-ink hover:bg-hover" aria-pressed={layers[k]}>
+                      {ROAD_SWATCH[k] && <span className="h-1.5 w-4 shrink-0 rounded-full" style={{ background: ROAD_SWATCH[k](mapTheme) }} />}
+                      <span className="flex-1 text-left">{t(k as StringKey, lang)}</span>
+                      <Switch on={layers[k]} />
+                    </button>
+                  ))}
+                </div>
               ))}
             </motion.div>
           )}

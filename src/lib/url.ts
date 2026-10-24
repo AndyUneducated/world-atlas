@@ -1,21 +1,16 @@
-import type { Lang, ThemeId } from "./types";
+import type { Lang } from "./types";
 
 export interface UrlState {
   sel?: string;
-  theme?: ThemeId;
   lang?: Lang;
   view?: { zoom: number; lat: number; lng: number; bearing: number };
 }
-
-const THEMES: ThemeId[] = ["glacier", "aurora", "atlas"];
 
 export function readUrl(): UrlState {
   const params = new URLSearchParams(window.location.hash.replace(/^#/, ""));
   const out: UrlState = {};
   const sel = params.get("sel");
   if (sel) out.sel = sel;
-  const theme = params.get("theme") as ThemeId | null;
-  if (theme && THEMES.includes(theme)) out.theme = theme;
   const lang = params.get("lang");
   if (lang === "zh" || lang === "en") out.lang = lang;
   const map = params.get("map")?.split("/").map(Number);
@@ -28,7 +23,6 @@ export function readUrl(): UrlState {
 export function writeUrl(state: UrlState) {
   const params = new URLSearchParams();
   if (state.sel) params.set("sel", state.sel);
-  if (state.theme) params.set("theme", state.theme);
   if (state.lang) params.set("lang", state.lang);
   if (state.view) {
     const v = state.view;

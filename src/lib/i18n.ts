@@ -28,9 +28,17 @@ const STRINGS = {
   adminCode: { zh: "行政区划代码", en: "Division code" },
   layers: { zh: "图层", en: "Layers" },
   choropleth: { zh: "人口密度", en: "Population density" },
-  hillshade: { zh: "地形阴影", en: "Terrain shading" },
+  terrain: { zh: "地形", en: "Terrain" },
   boundaries: { zh: "行政区界", en: "Boundaries" },
   roads: { zh: "道路", en: "Roads" },
+  mapDetails: { zh: "地图细节", en: "Map details" },
+  nationalExpressway: { zh: "国家高速", en: "National expressways" },
+  territorialExpressway: { zh: "领地高速", en: "Territorial expressways" },
+  cityRoads: { zh: "城市道路", en: "City roads" },
+  appearance: { zh: "外观", en: "Appearance" },
+  appearanceAuto: { zh: "跟随系统", en: "Match system" },
+  appearanceLight: { zh: "浅色", en: "Light" },
+  appearanceDark: { zh: "深色", en: "Dark" },
   zoomIn: { zh: "放大", en: "Zoom in" },
   zoomOut: { zh: "缩小", en: "Zoom out" },
   resetNorth: { zh: "指北", en: "Reset north" },
@@ -87,7 +95,6 @@ const NETWORK_LABELS: Record<string, Record<Lang, string>> = {
 export function kindLabel(e: Entity, lang: Lang): string {
   if (e.kind === "route") return NETWORK_LABELS[e.network ?? ""]?.[lang] ?? e.class ?? "";
   if (e.special_status === "free_trade_zone") return lang === "zh" ? "自由贸易区" : "Free trade zone";
-  if (e.subtype === "borough" && e.names.zh.endsWith("大区")) return lang === "zh" ? "大区" : "Region";
   return SUBTYPE_LABELS[e.subtype]?.[lang] ?? e.subtype;
 }
 
