@@ -61,7 +61,7 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   local streets are drawn and labelled only.
 - **Buildings.** The blocks between a city's streets are filled with generated building
   footprints whose type (slab estates, towers, courtyard blocks, shops, houses, sheds, parks)
-  follows the district style. Places with a `site` (size and layout template) are drawn as
+  follows the district style, optionally weighted per district (`mix`). Places with a `site` (size and layout template) are drawn as
   clickable landmarks; streets and generated buildings keep out of their grounds.
   The `airport`, `port` and `spaceport` layouts draw runways, piers and launch pads, and an
   optional `angle_deg` turns a site to an absolute bearing (east = 0°, counter-clockwise).

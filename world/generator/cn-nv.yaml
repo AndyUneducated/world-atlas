@@ -101,9 +101,11 @@ landcover:
 # City street networks inside the built-up land cover (real km; see pipeline/atlas/streets.py).
 # style: planned (regular grid on two axes), mixed (looser grid and a ring road) or organic
 # (radial avenues, a ring, irregular lanes). angle_deg: direction of the first axis, east = 0.
-# named: fixed names for arterials; axis 0/1 and line n count from the district centre.
+# mix: factors on the style's building typology weights (slabs, towers, perimeter, houses,
+# podium, industrial, civic, park). named: fixed names for grid arterials (planned and mixed
+# styles); axis 0/1 and line n count from the district centre.
 streets:
-  cities: [div_nbrnfr]
+  cities: [div_nbrnfr, div_m41gwn, div_0yef9a]
   arterial_spacing_km: 1.5
   neighbourhood_km: 1.3
   local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
@@ -114,6 +116,14 @@ streets:
     div_16cxr8: { style: planned, angle_deg: 33.7 }  # 白桦区：1990 年新建的首府，人民大道从区中心直通议会综合办公区
     div_b1dx32: { style: mixed, angle_deg: -34 }     # 北河区：北河大道与北河流向平行，人民大道与之垂直
     div_g4a8q0: { style: organic }                   # 沙洲区：河口沙洲上的老港区
+    div_z29w6h: { style: mixed, mix: { industrial: 2.5, houses: 0.6 } }      # 瓦尔维克区：鲸湾港区与临港产业带
+    div_pkfa1g: { style: mixed, mix: { podium: 1.4 } }                       # 菲尔内斯区：客运码头、邮轮与海关
+    div_t3bfmm: { style: organic }                                           # 斯坦堡区：围绕维京时代石垒形成的旧城
+    div_k1yr6m: { style: planned, mix: { towers: 1.6, podium: 1.3, industrial: 0.3 } }  # 海门区：二十一世纪的商务居住带
+    div_zs7kjk: { style: planned, mix: { civic: 2.0 } }                      # 鹿鸣区：1990 年建市时规划的市级机关与广电区
+    div_g27nda: { style: planned, mix: { civic: 1.8, industrial: 0.6 } }     # 望星区：科学大道沿线的科研区
+    div_fr1vq9: { style: mixed, mix: { civic: 2.5, park: 1.5 } }             # 林道区：大学城
+    div_479xae: { style: organic, mix: { houses: 1.5, park: 2.5, industrial: 0.3 } }  # 寒岭区：低密度科研居住与生态缓冲带
   named:
     - { district: div_16cxr8, axis: 0, line: 0, status: canon, names: { zh: 人民大道, en: People's Avenue, art-x-viking: Volksallee, art-x-buckham: Viale del Popolo } }
     - { district: div_16cxr8, axis: 1, line: 0, status: generated, names: { zh: 自由大道, en: Liberty Avenue, art-x-viking: Freiheitsallee, art-x-buckham: Viale della Libertà } }
@@ -121,6 +131,12 @@ streets:
     - { district: div_16cxr8, axis: 1, line: 1, status: generated, names: { zh: 博爱大街, en: Fraternity Boulevard, art-x-viking: Brüderlichkeitschaussee, art-x-buckham: Corso della Fraternità } }
     - { district: div_b1dx32, axis: 0, line: 0, status: canon, names: { zh: 北河大道, en: North River Avenue, art-x-viking: Nordflussallee, art-x-buckham: Viale del Rivo Nord } }
     - { district: div_b1dx32, axis: 1, line: 0, status: canon, names: { zh: 人民大道, en: People's Avenue, art-x-viking: Volksallee, art-x-buckham: Viale del Popolo } }
+    - { district: div_z29w6h, axis: 0, line: 0, status: generated, names: { zh: 鲸湾大道, en: Whale Bay Avenue, art-x-viking: Walvikallee, art-x-buckham: Viale Baia Balena } }
+    - { district: div_pkfa1g, axis: 0, line: 0, status: generated, names: { zh: 烽火大道, en: Beacon Avenue, art-x-viking: Leuchtfeuerallee, art-x-buckham: Viale del Faro } }
+    - { district: div_k1yr6m, axis: 0, line: 0, status: generated, names: { zh: 海门大道, en: Seagate Avenue, art-x-viking: Seetorallee, art-x-buckham: Viale Porta Mar } }
+    - { district: div_zs7kjk, axis: 0, line: 0, status: generated, names: { zh: 鹿鸣大道, en: Deersong Avenue, art-x-viking: Hirschliedallee, art-x-buckham: Viale Canto Cervo } }
+    - { district: div_g27nda, axis: 0, line: 0, status: canon, names: { zh: 科学大道, en: Science Avenue, art-x-viking: Wissenschaftsallee, art-x-buckham: Viale della Scienza } }
+    - { district: div_fr1vq9, axis: 0, line: 0, status: generated, names: { zh: 学府路, en: University Road, art-x-viking: Universitätsstraße, art-x-buckham: Via dell'Università } }
 
 # City metro systems (real km; see build_metro in pipeline/build.py). Each line runs straight along
 # street-grid axis 0 or 1 of a district (the main axis of its built-up area where it has no streets

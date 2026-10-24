@@ -70,11 +70,16 @@ def blocks(built, taken) -> list[Polygon]:
     return [p for p in parts if p.geom_type == "Polygon" and p.area >= MIN_BLOCK_KM2]
 
 
-def _grid(bounds, cell, size, rng, jitter=0.0):
-    """Boxes of `size` (w, h) ranges centred on a grid of `cell` (w, h) spacing over `bounds`."""
+def _grid(bounds, cell, size, rng, jitter=0.0, centred=False):
+    """Boxes of `size` (w, h) ranges centred on a grid of `cell` (w, h) spacing over `bounds`.
+    centred: the grid sits symmetrically in the bounds instead of at a random offset."""
     x0, y0, x1, y1 = bounds
-    xs = np.arange(x0 + rng.uniform(0, cell[0]), x1, cell[0])
-    ys = np.arange(y0 + rng.uniform(0, cell[1]), y1, cell[1])
+    if centred:
+        ox, oy = ((x1 - x0) % cell[0] + cell[0]) / 2, ((y1 - y0) % cell[1] + cell[1]) / 2
+    else:
+        ox, oy = rng.uniform(0, cell[0]), rng.uniform(0, cell[1])
+    xs = np.arange(x0 + ox, x1, cell[0])
+    ys = np.arange(y0 + oy, y1, cell[1])
     if not len(xs) or not len(ys):
         return np.array([], dtype=object)
     X, Y = (a.ravel() for a in np.meshgrid(xs, ys))
@@ -99,11 +104,11 @@ def _typology(kind: str, local: Polygon, rng: np.random.Generator, thin: float) 
     if kind == "slabs":
         length = rng.uniform(0.06, 0.09)
         return _within(_grid(b, (length + rng.uniform(0.012, 0.02), rng.uniform(0.04, 0.05)),
-                             ((length, length), (0.012, 0.015)), rng), inset(0.012))
+                             ((length, length), (0.012, 0.015)), rng, centred=True), inset(0.012))
     if kind == "towers":
         side = rng.uniform(0.022, 0.03)
         step = rng.uniform(0.06, 0.075)
-        return _within(_grid(b, (step, step), ((side, side), (side, side)), rng), inset(0.015))
+        return _within(_grid(b, (step, step), ((side, side), (side, side)), rng, centred=True), inset(0.015))
     if kind == "perimeter":
         depth = rng.uniform(0.012, 0.016)
         ring = inset(0.006).difference(inset(0.006 + depth))
@@ -132,7 +137,7 @@ def _typology(kind: str, local: Polygon, rng: np.random.Generator, thin: float) 
             keep = [h for h in keep if not h.intersects(garden)]
         return [h for h in keep if rng.random() > 0.15 + thin]
     if kind == "industrial":
-        boxes = _grid(b, (rng.uniform(0.06, 0.09), rng.uniform(0.05, 0.07)), ((0.035, 0.07), (0.025, 0.05)), rng)
+        boxes = _grid(b, (rng.uniform(0.06, 0.09), rng.uniform(0.05, 0.07)), ((0.035, 0.07), (0.025, 0.05)), rng, centred=True)
         return [h for h in _within(boxes, inset(0.012)) if rng.random() > 0.2]
     if kind == "civic":
         boxes = _grid(b, (0.09, 0.07), ((0.04, 0.06), (0.018, 0.03)), rng)
@@ -146,15 +151,17 @@ def _pick(weights: dict, rng) -> str:
     return names[rng.choice(len(names), p=w / w.sum())]
 
 
-def district_buildings(block_list, style: str, core, angle: float, radius: float, rng) -> tuple[list[Building], list[Polygon]]:
-    """Buildings and parks of one district's blocks."""
+def district_buildings(block_list, style: str, core, angle: float, radius: float, rng,
+                       mix: dict | None = None) -> tuple[list[Building], list[Polygon]]:
+    """Buildings and parks of one district's blocks. mix: factors on the style's typology weights."""
     out: list[Building] = []
     parks: list[Polygon] = []
+    bands = [{k: w * (mix or {}).get(k, 1.0) for k, w in MIX[style][b].items()} for b in range(3)]
     for blk in block_list:
         c = blk.centroid
         r = math.hypot(c.x - core[0], c.y - core[1]) / max(radius, 0.1)
         band = 0 if r < 0.3 else 1 if r < 0.8 else 2
-        kind = _pick(MIX[style][band], rng)
+        kind = _pick(bands[band], rng)
         if blk.area < 0.004 and kind in ("slabs", "industrial", "towers", "park"):
             kind = "houses" if style != "planned" else "podium"
         if kind == "park":

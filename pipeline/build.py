@@ -406,7 +406,7 @@ def build_streets(world, sp, frame, seed, cities, districts, district_city, dist
                     kept.append(st)
             styles[i] = style
             ctx[i] = {"name": d["names"]["zh"], "built": built.intersection(safe_all), "style": style, "angle": angle, "core": core, "lines": real_lines,
-                      "radius": math.sqrt(built.area / math.pi)}
+                      "radius": math.sqrt(built.area / math.pi), "mix": cfg.get("mix")}
             city_sites += [(pid, site, parts, i) for pid, site, parts in sites]
             city_streets += kept
             counts = {c: sum(1 for st in kept if st.cls == c) for c in streets.CLASSES}
@@ -417,7 +417,7 @@ def build_streets(world, sp, frame, seed, cities, districts, district_city, dist
             if nm["district"] in district_index:
                 named[(district_index[nm["district"]], "grid", nm["axis"], nm.get("line", 0))] = nm
         missing = [nm["names"]["zh"] for nm in sp.get("named", []) if nm["district"] in district_index and
-                   not any(st.key == (district_index[nm["district"]], "grid", nm["axis"], nm.get("line", 0)) for st in city_streets)]
+                   district_city[district_index[nm["district"]]] == ci and not any(st.key == (district_index[nm["district"]], "grid", nm["axis"], nm.get("line", 0)) for st in city_streets)]
         for zh in missing:
             log(f"  WARN street {zh}: no arterial at that axis and line")
         rng = np.random.default_rng([seed, 7, ci])
@@ -436,7 +436,7 @@ def build_buildings(street_out, seed) -> tuple[list, list]:
         for i, c in ctx.items():
             blks = buildings.blocks(c["built"], taken)
             rng = np.random.default_rng([seed, 11, i])
-            bl, pk = buildings.district_buildings(blks, c["style"], c["core"], c["angle"], c["radius"], rng)
+            bl, pk = buildings.district_buildings(blks, c["style"], c["core"], c["angle"], c["radius"], rng, c["mix"])
             out += [(b.cls, b.geom) for b in bl]
             parks += pk
             log(f"  {c['name']}: {len(blks)} blocks, {len(bl)} buildings, {len(pk)} parks")

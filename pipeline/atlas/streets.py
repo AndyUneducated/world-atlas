@@ -32,8 +32,20 @@ MIN_PIECE_KM = {"arterial": 0.2, "collector": 0.12, "local": 0.06}
 
 def zh_number(n: int) -> str:
     digits = "〇一二三四五六七八九"
-    tens, ones = divmod(n, 10)
-    return (digits[tens] if tens > 1 else "") + ("十" if tens else "") + (digits[ones] if ones or not tens else "")
+    if n < 100:
+        tens, ones = divmod(n, 10)
+        return (digits[tens] if tens > 1 else "") + ("十" if tens else "") + (digits[ones] if ones or not tens else "")
+    out, zero = "", False
+    for unit, size in (("万", 10000), ("千", 1000), ("百", 100), ("十", 10), ("", 1)):
+        d, n = divmod(n, size)
+        if d >= 10:
+            out += zh_number(d) + unit
+        elif d:
+            out += ("零" if zero else "") + digits[d] + unit
+            zero = False
+        elif out:
+            zero = True
+    return out
 
 
 def roman(n: int) -> str:

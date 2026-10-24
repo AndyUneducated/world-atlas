@@ -16,6 +16,8 @@ DIVISION_SUBTYPES = ("country", "dependency", "region", "locality", "borough")
 SITE_LAYOUTS = ("complex", "hall", "campus", "stadium", "tower", "park", "plaza", "market", "airport", "port", "spaceport")
 FACILITY_LAYOUTS = ("airport", "port", "spaceport")
 RAIL_NETWORKS = ("intercity_rail",)
+STREET_STYLES = ("planned", "mixed", "organic")
+BUILDING_MIX_KEYS = ("slabs", "towers", "perimeter", "houses", "podium", "industrial", "civic", "park")
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
 DETECT_KINDS = ("island", "bay", "fjord", "cape", "strait", "estuary", "river", "peak", "pass", "glacier")
 
@@ -185,4 +187,20 @@ class World:
                     for end in ("from", "to"):
                         if end in ln and ln[end] not in self.places:
                             errors.append(f"generator: metro line {k} of {city}: {end} {ln[end]} is not a place")
+            sp = gen.get("streets", {})
+            for cid in sp.get("cities", []):
+                if self.divisions.get(cid, {}).get("subtype") != "locality":
+                    errors.append(f"generator: streets city {cid} is not a city")
+            for did, cfg in sp.get("districts", {}).items():
+                if self.divisions.get(did, {}).get("subtype") != "borough":
+                    errors.append(f"generator: streets district {did} is not a district")
+                if cfg.get("style", "mixed") not in STREET_STYLES:
+                    errors.append(f"generator: streets district {did}: style must be one of {', '.join(STREET_STYLES)}")
+                for k, f in (cfg.get("mix") or {}).items():
+                    if k not in BUILDING_MIX_KEYS or not isinstance(f, (int, float)) or f < 0:
+                        errors.append(f"generator: streets district {did}: mix {k} must be one of "
+                                      f"{', '.join(BUILDING_MIX_KEYS)} with a factor >= 0")
+            for nm in sp.get("named", []):
+                if self.divisions.get(nm.get("district"), {}).get("subtype") != "borough":
+                    errors.append(f"generator: named street {nm.get('names', {}).get('zh')}: {nm.get('district')} is not a district")
         return errors

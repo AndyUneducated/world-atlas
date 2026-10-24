@@ -420,3 +420,214 @@ places:
     in: div_g4a8q0
     offset_km: [0.44, 2.71]
     site: { size_m: [1200, 500], layout: port, angle_deg: 274 }
+
+  # ── 维京港、西北地标（M9）──
+  - id: bld_hs6snj
+    subtype: townhall
+    status: generated
+    names:
+      zh: 维京港市政厅
+      en: Viking Port City Hall
+      art-x-viking: Rathaus Veiling Havn
+      art-x-buckham: Municipio di Veiling Porto
+    notes:
+      zh: 维京港市政府驻地，石砌的建筑群
+      en: Seat of the Viking Port city government, a stone-built complex.
+    in: div_z29w6h
+    offset_km: [0.4, -0.6]
+    site: { size_m: [300, 220], layout: complex }
+
+  - id: poi_1ac7ar
+    subtype: plaza
+    status: generated
+    names:
+      zh: 维京港中央广场
+      en: Viking Port Central Square
+      art-x-viking: Zentralplatz Veiling Havn
+      art-x-buckham: Piazza Centrale di Veiling Porto
+    in: div_z29w6h
+    offset_km: [-0.6, 0.5]
+    site: { size_m: [260, 200], layout: plaza }
+
+  - id: bld_880zp5
+    subtype: museum
+    status: generated
+    names:
+      zh: 鲸湾捕鲸站博物馆
+      en: Walvik Whaling Station Museum
+      art-x-viking: Walfangstation-Museum Walvik
+      art-x-buckham: Museo della Stazione Baleniera di Baia Balena
+    notes:
+      zh: 由旧捕鲸站改建，讲述鲸湾从捕鲸站到领地最大港口的历史
+      en: The old whaling station, now a museum of how Walvik grew from a whaling post into the territory's largest port.
+    in: div_z29w6h
+    offset_km: [-0.9, -3.6]
+    site: { size_m: [180, 120], layout: hall }
+
+  - id: poi_9jstpd
+    subtype: stadium
+    status: generated
+    names:
+      zh: 维京港体育场
+      en: Viking Port Stadium
+      art-x-viking: Stadion Veiling Havn
+      art-x-buckham: Stadio di Veiling Porto
+    in: div_z29w6h
+    offset_km: [3, -2]
+    site: { size_m: [320, 240], layout: stadium }
+
+  - id: bld_9rfesr
+    subtype: office
+    status: generated
+    names:
+      zh: 菲尔内斯海关大楼
+      en: Fyrnes Customs House
+      art-x-viking: Zollhaus Fyrnes
+      art-x-buckham: Dogana di Capo Faro
+    notes:
+      zh: 客运码头旁的海关与边检办公楼
+      en: Customs and border offices beside the ferry terminal.
+    in: div_pkfa1g
+    offset_km: [4.6, -1.7]
+    site: { size_m: [160, 110], layout: hall }
+
+  - id: poi_vaw6nk
+    subtype: castle
+    status: generated
+    names:
+      zh: 斯坦堡石垒
+      en: Steinburg Stone Fort
+      art-x-viking: Steinburg
+      art-x-buckham: Fortezza di Muro Pietra
+    notes:
+      zh: 维京时代的石垒遗址，斯坦堡旧城围绕它形成，区名由此而来
+      en: Ruins of a Viking-age stone fort; the old town of Steinburg grew up around it and the district is named after it.
+    in: div_t3bfmm
+    offset_km: [0, 0]
+    site: { size_m: [240, 240], layout: park }
+
+  - id: bld_ggjp3x
+    subtype: tower
+    status: generated
+    names:
+      zh: 海门国际金融中心
+      en: Seagate International Finance Centre
+      art-x-viking: Internationales Finanzzentrum Seetor
+      art-x-buckham: Centro Finanziario Internazionale di Porta Mar
+    notes:
+      zh: 海门商务带的地标塔楼，维京港最高的建筑
+      en: Landmark tower of the Seagate business strip and the tallest building in Viking Port.
+    in: div_k1yr6m
+    offset_km: [0.5, 0.3]
+    site: { size_m: [90, 90], layout: tower }
+
+  - id: bld_fzfqap
+    subtype: townhall
+    status: generated
+    names:
+      zh: 西北市人民政府
+      en: Northwest City Government
+      art-x-viking: Stadtregierung Nordwest
+      art-x-buckham: Governo Cittadino di Nordveste
+    notes:
+      zh: 鹿鸣区的市级机关建筑群
+      en: The city government complex in Deersong District.
+    in: div_zs7kjk
+    offset_km: [0.3, 0.4]
+    site: { size_m: [320, 240], layout: complex }
+
+  - id: bld_6m4rdt
+    subtype: tower
+    status: generated
+    names:
+      zh: 西北广播电视中心
+      en: Northwest Broadcasting Centre
+      art-x-viking: Rundfunkzentrum Nordwest
+      art-x-buckham: Centro Radiotelevisivo di Nordveste
+    notes:
+      zh: 领地广播电视机构的总部与发射塔
+      en: Headquarters and transmitter tower of the territory's broadcasters.
+    in: div_zs7kjk
+    offset_km: [1.8, 1.2]
+    site: { size_m: [120, 120], layout: tower }
+
+  - id: poi_c6abw8
+    subtype: park
+    status: generated
+    names:
+      zh: 鹿鸣公园
+      en: Deersong Park
+      art-x-viking: Hirschliedpark
+      art-x-buckham: Parco di Canto Cervo
+    in: div_zs7kjk
+    offset_km: [-1.2, 1.5]
+    site: { size_m: [600, 450], layout: park }
+
+  - id: poi_h43y8q
+    subtype: research_institute
+    status: canon
+    names:
+      zh: 深空太空军北维京研发中心
+      en: Deep Space Force North Viking Research and Development Centre
+      art-x-viking: Forschungs- und Entwicklungszentrum Hea Veiling der Tiefraumstreitkräfte
+      art-x-buckham: Centro di Ricerca e Sviluppo di Veiling Nord della Forza Spaziale Profonda
+    notes:
+      zh: 科学大道旁的深空太空军研发园区
+      en: The Deep Space Force research campus on Science Avenue.
+    in: div_g27nda
+    offset_km: [2.55, 1.83]
+    site: { size_m: [1400, 900], layout: campus }
+
+  - id: poi_6gr0kg
+    subtype: observatory
+    status: generated
+    names:
+      zh: 望星天文台
+      en: Stargaze Observatory
+      art-x-viking: Sternwarte Sternwacht
+      art-x-buckham: Osservatorio di Guarda Stella
+    notes:
+      zh: 望星区得名于此的天文台
+      en: The observatory that gave Stargaze District its name.
+    in: div_g27nda
+    offset_km: [-2, -1]
+    site: { size_m: [80, 80], layout: tower }
+
+  - id: poi_bjwpzs
+    subtype: university
+    status: generated
+    names:
+      zh: 北维京大学
+      en: University of North Viking
+      art-x-viking: Universität Hea Veiling
+      art-x-buckham: Università di Veiling Nord
+    notes:
+      zh: 领地规模最大的综合性大学
+      en: The territory's largest university.
+    in: div_fr1vq9
+    offset_km: [1.5, -1]
+    site: { size_m: [1600, 1000], layout: campus }
+
+  - id: poi_byj338
+    subtype: college
+    status: generated
+    names:
+      zh: 林道理工学院
+      en: Lindau Institute of Technology
+      art-x-viking: Technische Hochschule Lindau
+      art-x-buckham: Politecnico di Via Tiglio
+    in: div_fr1vq9
+    offset_km: [-2, 1.2]
+    site: { size_m: [900, 600], layout: campus }
+
+  - id: poi_edha0r
+    subtype: research_institute
+    status: generated
+    names:
+      zh: 寒岭生态研究站
+      en: Frost Ridge Ecological Station
+      art-x-viking: Ökologische Station Frostkamm
+      art-x-buckham: Stazione Ecologica di Fredd Tehee
+    in: div_479xae
+    offset_km: [0.8, 0.6]
+    site: { size_m: [500, 400], layout: campus }
