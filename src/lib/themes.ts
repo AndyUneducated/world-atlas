@@ -30,7 +30,14 @@ export interface MapTheme {
   tintOpacity: number;
   hillshade: { shadow: string; highlight: string; accent: string; exaggeration: number };
   /** Terrain layer: hypsometric tint plus stronger relief shading. */
-  terrain: { relief: [number, string][]; opacity: number; exaggeration: number; tintOpacity: number };
+  terrain: {
+    relief: [number, string][];
+    opacity: number;
+    exaggeration: number;
+    tintOpacity: number;
+    shadow: string;
+    highlight: string;
+  };
   water: string;
   river: string;
   coast: { color: string; width: number; glow?: string };
@@ -81,6 +88,8 @@ export const THEMES: Record<ThemeId, Theme> = {
         opacity: 0.85,
         exaggeration: 0.6,
         tintOpacity: 0.05,
+        shadow: "#3d4b5a",
+        highlight: "#ffffff",
       },
       water: "#bcd9e9",
       river: "#8fbfdc",
@@ -115,18 +124,20 @@ export const THEMES: Record<ThemeId, Theme> = {
       hillshade: { shadow: "#000000", highlight: "#3a4d6b", accent: "#1c2a40", exaggeration: 0.55 },
       terrain: {
         relief: [
-          [0, "#13251f"],
-          [150, "#172b22"],
-          [400, "#232d22"],
-          [700, "#2e2c22"],
-          [1100, "#352c25"],
-          [1500, "#3a332f"],
-          [1900, "#4a4d55"],
-          [2300, "#7d8796"],
+          [0, "#173528"],
+          [150, "#1d3c2a"],
+          [400, "#2c412b"],
+          [700, "#41432e"],
+          [1100, "#4d4236"],
+          [1500, "#564c48"],
+          [1900, "#737b88"],
+          [2300, "#c3ccd9"],
         ],
-        opacity: 0.9,
-        exaggeration: 0.75,
+        opacity: 0.92,
+        exaggeration: 0.8,
         tintOpacity: 0.04,
+        shadow: "#000000",
+        highlight: "#7f95b5",
       },
       water: "#0b2236",
       river: "#1d5c85",

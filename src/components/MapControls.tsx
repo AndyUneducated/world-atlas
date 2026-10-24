@@ -5,6 +5,7 @@ import { useState } from "react";
 import { t, type StringKey } from "../lib/i18n";
 import { THEMES, type MapTheme } from "../lib/themes";
 import { useAtlas, useCursor, type LayerToggles } from "../store";
+import { Switch } from "./Switch";
 
 const BTN = "grid size-10 place-items-center text-ink transition-colors hover:bg-hover active:scale-95";
 const LAYER_GROUPS: { title: StringKey; keys: (keyof LayerToggles)[] }[] = [
@@ -16,14 +17,6 @@ const ROAD_SWATCH: Partial<Record<keyof LayerToggles, (m: MapTheme) => string>> 
   territorialExpressway: (m) => m.territorialExpressway.fill,
   cityRoads: (m) => (m.cityRoad.fill === "#ffffff" ? m.cityRoad.casing : m.cityRoad.fill),
 };
-
-function Switch({ on }: { on: boolean }) {
-  return (
-    <span className={clsx("relative h-5 w-9 shrink-0 rounded-full transition-colors", on ? "bg-accent" : "bg-hover ring-1 ring-line")}>
-      <motion.span layout transition={{ type: "spring", stiffness: 600, damping: 34 }} className={clsx("absolute top-0.5 size-4 rounded-full bg-white shadow", on ? "right-0.5" : "left-0.5")} />
-    </span>
-  );
-}
 
 export function MapControls() {
   const map = useAtlas((s) => s.map);

@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { Check, Crosshair, Link2, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -99,7 +98,6 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
   const routable = data.graph.places[entity.id] !== undefined;
   const [copied, setCopied] = useState(false);
   const accent = accentColor(data, entity) ?? "var(--ui-accent)";
-  const statusKey = entity.status === "canon" ? "canon" : entity.status === "draft" ? "draft" : "generated";
   const items = stats(entity, lang);
   const codeRows = codes(entity, lang);
   const names = NAME_LANGS.filter((l) => entity.names[l]);
@@ -122,18 +120,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
             <EntityIcon entity={entity} className="size-5" />
           </span>
           <div className="min-w-0 flex-1">
-            <div className="flex items-center gap-2 text-[11px] font-medium tracking-wide text-muted">
-              <span className="uppercase">{kindLabel(entity, lang)}</span>
-              <span
-                title={t(statusKey === "canon" ? "canonHint" : "generatedHint", lang)}
-                className={clsx(
-                  "rounded-full px-1.5 py-px text-[10px] font-semibold",
-                  statusKey === "canon" ? "bg-emerald-500/15 text-emerald-600" : "bg-amber-500/15 text-amber-600",
-                )}
-              >
-                {t(statusKey, lang)}
-              </span>
-            </div>
+            <div className="text-[11px] font-medium tracking-wide text-muted uppercase">{kindLabel(entity, lang)}</div>
             <h2 className="mt-0.5 text-[22px] leading-tight font-semibold tracking-tight text-ink">{displayName(entity, lang)}</h2>
             <ul className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1" aria-label={t("names", lang)}>
               {names
@@ -207,10 +194,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
         </Section>
       )}
 
-      <div className="border-t border-line px-5 py-3 font-mono text-[10.5px] text-faint">
-        {entity.id}
-        {entity.source ? ` · ${entity.source}` : ""}
-      </div>
+      <div className="border-t border-line px-5 py-3 font-mono text-[10.5px] text-faint">{entity.id}</div>
     </>
   );
 }

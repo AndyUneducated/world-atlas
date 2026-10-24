@@ -24,6 +24,7 @@ function dms(v: number, pos: string, neg: string) {
 export function StatusBar() {
   const data = useAtlas((s) => s.data);
   const lang = useAtlas((s) => s.lang);
+  const display = useAtlas((s) => s.display);
   const { lngLat, zoom, metersPerPixel } = useCursor();
   const bar = scaleBar(metersPerPixel);
   const planet = data?.manifest.planet.names;
@@ -34,15 +35,23 @@ export function StatusBar() {
         <Globe2 className="size-3.5 text-accent" />
         {(lang === "zh" ? planet?.zh : planet?.en) ?? planet?.en}
       </span>
-      <span className="h-3 w-px bg-line" />
-      <span className="flex items-center gap-2">
-        <span className="relative h-1.5 border-x border-b border-current transition-[width] duration-150" style={{ width: bar.px }} />
-        {bar.label}
-      </span>
-      <span className="h-3 w-px bg-line max-sm:hidden" />
-      <span className="max-sm:hidden">{lngLat ? `${dms(lngLat[1], "N", "S")}  ${dms(lngLat[0], "E", "W")}` : "—"}</span>
-      <span className="h-3 w-px bg-line max-sm:hidden" />
-      <span className="max-sm:hidden">z {formatNumber(zoom, "en", 1)}</span>
+      {display.scale && (
+        <>
+          <span className="h-3 w-px bg-line" />
+          <span className="flex items-center gap-2">
+            <span className="relative h-1.5 border-x border-b border-current transition-[width] duration-150" style={{ width: bar.px }} />
+            {bar.label}
+          </span>
+        </>
+      )}
+      {display.coordinates && (
+        <>
+          <span className="h-3 w-px bg-line max-sm:hidden" />
+          <span className="max-sm:hidden">{lngLat ? `${dms(lngLat[1], "N", "S")}  ${dms(lngLat[0], "E", "W")}` : "—"}</span>
+          <span className="h-3 w-px bg-line max-sm:hidden" />
+          <span className="max-sm:hidden">z {formatNumber(zoom, "en", 1)}</span>
+        </>
+      )}
     </div>
   );
 }

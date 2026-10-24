@@ -12,6 +12,13 @@ export interface LayerToggles {
   cityRoads: boolean;
 }
 
+/** On-screen map furniture the user can hide from the settings panel. */
+export interface DisplayToggles {
+  legend: boolean;
+  scale: boolean;
+  coordinates: boolean;
+}
+
 interface AtlasState {
   data: AtlasData | null;
   map: MaplibreMap | null;
@@ -23,6 +30,7 @@ interface AtlasState {
   /** Bumped on every selection so the map re-focuses even when re-selecting the same id. */
   selectionNonce: number;
   layers: LayerToggles;
+  display: DisplayToggles;
   route: { from: string | null; to: string | null };
   setRoute: (patch: Partial<{ from: string | null; to: string | null }>) => void;
   setData: (data: AtlasData) => void;
@@ -31,10 +39,11 @@ interface AtlasState {
   setLang: (lang: Lang) => void;
   select: (id: string | null) => void;
   toggleLayer: (key: keyof LayerToggles) => void;
+  toggleDisplay: (key: keyof DisplayToggles) => void;
 }
 
 const initial = readUrl();
-const STORAGE = { appearance: "atlas.appearance", layers: "atlas.layers" };
+const STORAGE = { appearance: "atlas.appearance", layers: "atlas.layers", display: "atlas.display" };
 const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
 function readStored<T>(key: string, fallback: T): T {
@@ -58,6 +67,7 @@ const DEFAULT_LAYERS: LayerToggles = {
   territorialExpressway: true,
   cityRoads: true,
 };
+const DEFAULT_DISPLAY: DisplayToggles = { legend: true, scale: true, coordinates: true };
 
 export const useAtlas = create<AtlasState>((set) => ({
   data: null,
@@ -68,6 +78,7 @@ export const useAtlas = create<AtlasState>((set) => ({
   selectedId: initial.sel ?? null,
   selectionNonce: 0,
   layers: readStored(STORAGE.layers, DEFAULT_LAYERS),
+  display: readStored(STORAGE.display, DEFAULT_DISPLAY),
   route: { from: null, to: null },
   setRoute: (patch) => set((s) => ({ route: { ...s.route, ...patch } })),
   setData: (data) => set({ data }),
@@ -83,6 +94,12 @@ export const useAtlas = create<AtlasState>((set) => ({
       const layers = { ...s.layers, [key]: !s.layers[key] };
       localStorage.setItem(STORAGE.layers, JSON.stringify(layers));
       return { layers };
+    }),
+  toggleDisplay: (key) =>
+    set((s) => {
+      const display = { ...s.display, [key]: !s.display[key] };
+      localStorage.setItem(STORAGE.display, JSON.stringify(display));
+      return { display };
     }),
 }));
 

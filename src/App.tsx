@@ -8,7 +8,7 @@ import { MapView } from "./components/MapView";
 import { RoutePanel } from "./components/RoutePanel";
 import { SearchBox } from "./components/SearchBox";
 import { StatusBar } from "./components/StatusBar";
-import { AppearanceSwitcher, LangToggle } from "./components/TopBar";
+import { SettingsMenu } from "./components/SettingsMenu";
 import { loadAtlas } from "./lib/data";
 import { t } from "./lib/i18n";
 import { useAtlas } from "./store";
@@ -64,16 +64,15 @@ export default function App() {
 
       {data && (
         <div className="pointer-events-none absolute inset-0 z-10">
-          <aside className="absolute top-3 bottom-14 left-3 flex w-[min(400px,calc(100vw-24px))] flex-col gap-2">
+          <aside className="absolute top-3 bottom-14 left-3 flex w-[min(400px,calc(100vw-76px))] flex-col gap-2">
             <SearchBox />
             <RoutePanel />
             <Breadcrumbs />
             <InfoCard />
           </aside>
 
-          <div className="absolute top-3 right-3 flex items-center gap-2 max-md:top-auto max-md:right-auto max-md:bottom-14 max-md:left-3">
-            <LangToggle />
-            <AppearanceSwitcher />
+          <div className="absolute top-3 right-3 z-20">
+            <SettingsMenu />
           </div>
 
           <div className="absolute top-1/2 right-3 -translate-y-1/2 max-md:top-20 max-md:translate-y-0">

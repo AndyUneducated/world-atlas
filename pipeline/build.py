@@ -19,7 +19,7 @@ import numpy as np
 import shapely
 from shapely import affinity
 from scipy import ndimage
-from shapely.geometry import LineString, mapping
+from shapely.geometry import LineString, MultiLineString, mapping
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -81,6 +81,27 @@ def smooth_line(pts: np.ndarray, simplify_km: float, iterations: int) -> LineStr
     return LineString(chaikin(coarse, iterations))
 
 
+def owned_runs(path: list[int], ref: str, owner: dict[int, str]) -> list[list[int]]:
+    """Split a route path into the stretches it owns; stretches owned by earlier routes carry only their name.
+
+    Each run keeps one cell of the shared corridor at either end so it still meets the junction.
+    """
+    runs, cur = [], []
+    for i, c in enumerate(path):
+        if owner.get(c, ref) == ref:
+            if not cur and i > 0:
+                cur.append(path[i - 1])
+            cur.append(c)
+        elif cur:
+            cur.append(c)
+            runs.append(cur)
+            cur = []
+    if cur:
+        runs.append(cur)
+    runs = [run for run in runs if len(run) >= 3]
+    return runs or [path]
+
+
 def lake_raster(g: Grid, center, radius, land):
     cx, cy = center
     ang = np.arctan2(g.Y - cy, g.X - cx)
@@ -107,14 +128,13 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
 
     log(f"{territory['names']['en']}: land & terrain")
     land = land_mask(spec, seed, g, total_area)
-    elev, dcoast = elevation(spec, seed, g, land)
 
     log("partitioning divisions")
     warp = layout.get("boundary_warp_km", 4)
     wx = g.X + warp * value_noise(seed + 101, 30, 5, 0.5, (g.w, g.h), g.shape)
     wy = g.Y + warp * value_noise(seed + 202, 30, 5, 0.5, (g.w, g.h), g.shape)
     anchors = [layout["cities"][c["id"]] for c in cities]
-    city_r, city_err = partition(land, wx, wy, anchors, [c["area_km2"] for c in cities], g.cell)
+    city_r, city_err, land = partition(land, wx, wy, anchors, [c["area_km2"] for c in cities], g.cell)
     dist_r = np.full(g.shape, -1)
     dist_errs = np.zeros(len(districts))
     for ci, c in enumerate(cities):
@@ -123,13 +143,20 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         ax, ay = anchors[ci]
         r = 0.42 * math.sqrt(c["area_km2"])
         seeds = [(ax + r * layout["districts"][districts[i]["id"]][0], ay + r * layout["districts"][districts[i]["id"]][1]) for i in idx]
-        sub, err = partition(cmask, wx, wy, seeds, [districts[i]["area_km2"] for i in idx], g.cell)
+        sub, err, fitted = partition(cmask, wx, wy, seeds, [districts[i]["area_km2"] for i in idx], g.cell, sea=~land)
+        land = (land & ~cmask) | fitted
+        city_r[cmask & ~fitted] = -1
+        city_r[fitted] = ci
         for k, i in enumerate(idx):
             dist_r[sub == k] = i
             dist_errs[i] = err[k]
+    city_t = np.array([c["area_km2"] for c in cities], float)
+    city_t *= land.sum() * g.cell / city_t.sum()
+    city_err = np.abs(np.bincount(city_r[land], minlength=len(cities)) * g.cell - city_t) / city_t
     city_err, dist_err = float(city_err.max()), float(dist_errs.max())
     worst = ", ".join(f"{districts[i]['names']['zh']} {dist_errs[i] * 100:.1f}%" for i in np.argsort(-dist_errs)[:3])
     log(f"  max area deviation: cities {city_err * 100:.2f}%, districts {dist_err * 100:.2f}% ({worst})")
+    elev, dcoast = elevation(spec, seed, g, land)
 
     poles = [pole_of_inaccessibility(dist_r == i, g.xs, g.ys) for i in range(len(districts))]
     city_poles = [pole_of_inaccessibility(city_r == ci, g.xs, g.ys) for ci in range(len(cities))]
@@ -195,9 +222,9 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     for r in routes:
         path = []
         for a, b in zip(r["via"][:-1], r["via"][1:]):
-            leg = router.route(node[city_index[a]], node[city_index[b]], r.get("tunnel_cost"))
+            leg = router.route(node[city_index[a]], node[city_index[b]], r.get("tunnel_cost"), ref=r["ref"])
             path += leg if not path else leg[1:]
-        router.commit(path, r["class"])
+        router.commit(path, r["class"], ref=r["ref"])
         road_out.append((r, path))
     feeder_seq = 0
     for i, d in enumerate(districts):
@@ -306,15 +333,17 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
 
     road_features = []
     for r, path in road_out:
-        line = smooth_line(np.array([router.xy(c) for c in path]), 0.7, 4)
-        geom = to_lonlat(line, frame)
+        lines = [smooth_line(np.array([router.xy(c) for c in run]), 0.7, 4) for run in owned_runs(path, r["ref"], router.owner)]
+        geom_km = lines[0] if len(lines) == 1 else MultiLineString(lines)
+        geom = to_lonlat(geom_km, frame)
         road_features.append(feature(geom, {
             "id": r["id"], "ref": r["ref"], "class": r["class"], "network": r["network"],
             "name_zh": r["names"]["zh"], "name_en": r["names"]["en"]}))
+        longest = max(lines, key=lambda ln: ln.length)
         ent = entities.setdefault(r["id"], {**r, "source": "generated:feeder-roads"})
         ent.update({"kind": "route", "bbox": bbox_lonlat(geom),
-                    "center": list(point_lonlat(frame, *line.interpolate(0.5, normalized=True).coords[0]).coords[0]),
-                    "stats": {"length_km": round(line_length_km(line.coords), 1)}})
+                    "center": list(point_lonlat(frame, *longest.interpolate(0.5, normalized=True).coords[0]).coords[0]),
+                    "stats": {"length_km": round(sum(line_length_km(ln.coords) for ln in lines), 1)}})
 
     terminals = {c["id"]: node[ci] for ci, c in enumerate(cities)}
     terminals.update({d["id"]: node[district_city[i]] if i == core[district_city[i]] else router.cell(*poles[i])

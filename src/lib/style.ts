@@ -162,8 +162,8 @@ export function buildStyle(opts: {
       type: "hillshade",
       source: "dem",
       paint: {
-        "hillshade-shadow-color": m.hillshade.shadow,
-        "hillshade-highlight-color": m.hillshade.highlight,
+        "hillshade-shadow-color": layers.terrain ? m.terrain.shadow : m.hillshade.shadow,
+        "hillshade-highlight-color": layers.terrain ? m.terrain.highlight : m.hillshade.highlight,
         "hillshade-accent-color": m.hillshade.accent,
         "hillshade-exaggeration": layers.terrain ? m.terrain.exaggeration : m.hillshade.exaggeration,
         "hillshade-illumination-direction": 315,
@@ -349,7 +349,7 @@ export function buildStyle(opts: {
       type: "symbol",
       source: "context",
       layout: {
-        "text-field": ["format", name(lang), {}, "\n", {}, lang === "zh" ? "轮廓示意" : "outline sketch", { "font-scale": 0.75 }],
+        "text-field": name(lang),
         "text-font": FONT.italic,
         "text-size": 12,
       },

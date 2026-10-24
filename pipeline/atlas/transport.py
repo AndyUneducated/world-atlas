@@ -20,6 +20,7 @@ class Router:
         self.base = cost.ravel().copy()
         self.cost = cost.ravel().tolist()
         self.used: dict[int, str] = {}
+        self.owner: dict[int, str] = {}
 
     def cell(self, x_km, y_km) -> int:
         ix = min(max(int(x_km / self.res), 0), self.nx - 1)
@@ -30,10 +31,30 @@ class Router:
         cy, cx = divmod(c, self.nx)
         return ((cx + 0.5) * self.res, (cy + 0.5) * self.res)
 
-    def route(self, start: int, goal: int, tunnel_cost: float | None = None) -> list[int]:
-        """Least-cost path. With tunnel_cost, steep terrain costs at most that much per km."""
+    def route(self, start: int, goal: int, tunnel_cost: float | None = None, ref: str | None = None,
+              shared_factor=1.3, buffer_factor=1.15) -> list[int]:
+        """Least-cost path. With tunnel_cost, steep terrain costs at most that much per km.
+
+        With ref, the corridors of other trunk routes cost slightly more than open terrain, so
+        each route builds its own line (every road segment carries one route) and only joins
+        another where the terrain leaves no cheaper way through.
+        """
         nx, ny = self.nx, self.ny
-        cost = self.cost if tunnel_cost is None else [min(c, tunnel_cost) if b < 40 else c for c, b in zip(self.cost, self.base)]
+        cost = self.cost
+        if ref is not None and self.owner:
+            cost = list(cost)
+            foreign = [c for c, o in self.owner.items() if o != ref]
+            for c in foreign:
+                cy, cx = divmod(c, nx)
+                for dy, dx, _ in NB8:
+                    y, x = cy + dy, cx + dx
+                    n = y * nx + x
+                    if 0 <= y < ny and 0 <= x < nx and self.owner.get(n) != ref:
+                        cost[n] = max(cost[n], self.base[n] * buffer_factor)
+            for c in foreign:
+                cost[c] = self.base[c] * shared_factor
+        if tunnel_cost is not None:
+            cost = [min(c, tunnel_cost) if b < 40 else c for c, b in zip(cost, self.base)]
         gy, gx = divmod(goal, nx)
         dist, prev = {start: 0.0}, {}
         heap = [(0.0, 0.0, start)]
@@ -59,10 +80,12 @@ class Router:
             path.append(c)
         return path[::-1]
 
-    def commit(self, path: list[int], road_class: str, discount=0.55):
+    def commit(self, path: list[int], road_class: str, discount=0.55, ref: str | None = None):
         for c in path:
             self.cost[c] = min(self.cost[c], discount)
             self.used.setdefault(c, road_class)
+            if ref is not None:
+                self.owner.setdefault(c, ref)
 
     def trim_to_network(self, path: list[int]) -> list[int]:
         """Cut a feeder path at the first cell already on the network."""

@@ -1,40 +1,153 @@
 import { AnimatePresence, motion } from "motion/react";
-import { t } from "../lib/i18n";
+import { t, type StringKey } from "../lib/i18n";
 import { DENSITY_BREAKS } from "../lib/style";
-import { THEMES } from "../lib/themes";
-import { useAtlas } from "../store";
+import { THEMES, type MapTheme } from "../lib/themes";
+import type { Lang } from "../lib/types";
+import { useAtlas, type LayerToggles } from "../store";
+
+function Heading({ children, unit }: { children: React.ReactNode; unit?: string }) {
+  return (
+    <div className="mb-1.5 flex items-baseline justify-between text-[10.5px] font-semibold tracking-wider text-faint uppercase">
+      <span>{children}</span>
+      {unit && <span className="font-normal tracking-normal normal-case">{unit}</span>}
+    </div>
+  );
+}
+
+function Row({ swatch, label }: { swatch: React.ReactNode; label: string }) {
+  return (
+    <li className="flex items-center gap-2.5 text-[12px] text-ink">
+      <span className="flex w-7 shrink-0 justify-center">{swatch}</span>
+      <span className="truncate">{label}</span>
+    </li>
+  );
+}
+
+function LineSwatch({ color, casing, width = 3, dash }: { color: string; casing?: string; width?: number; dash?: string }) {
+  return (
+    <svg width="28" height="10" aria-hidden>
+      {casing && <line x1="2" y1="5" x2="26" y2="5" stroke={casing} strokeWidth={width + 2} strokeLinecap="round" />}
+      <line x1="2" y1="5" x2="26" y2="5" stroke={color} strokeWidth={width} strokeLinecap="round" strokeDasharray={dash} />
+    </svg>
+  );
+}
+
+function Shield({ fill, stroke, text, label }: { fill: string; stroke: string; text: string; label: string }) {
+  return (
+    <span className="rounded-[4px] px-1 text-[9px] leading-[14px] font-semibold" style={{ background: fill, color: text, boxShadow: `inset 0 0 0 1.2px ${stroke}` }}>
+      {label}
+    </span>
+  );
+}
+
+function Ramp({ colors, ticks }: { colors: string[]; ticks: string[] }) {
+  return (
+    <>
+      <div className="flex h-2 overflow-hidden rounded-full ring-1 ring-line">
+        {colors.map((c, i) => (
+          <span key={i} className="flex-1" style={{ background: c }} />
+        ))}
+      </div>
+      <div className="mt-1 flex text-[10px] text-muted tabular-nums">
+        <span className="flex-1" />
+        {ticks.map((b) => (
+          <span key={b} className="flex-1 -translate-x-1/2 text-left">
+            {b}
+          </span>
+        ))}
+      </div>
+    </>
+  );
+}
+
+function ElevationRamp({ relief }: { relief: [number, string][] }) {
+  const max = relief[relief.length - 1][0];
+  const gradient = relief.map(([e, c]) => `${c} ${(100 * e) / max}%`).join(", ");
+  return (
+    <>
+      <div className="h-2 rounded-full ring-1 ring-line" style={{ background: `linear-gradient(90deg, ${gradient})` }} />
+      <div className="relative mt-1 h-3 text-[10px] text-muted tabular-nums">
+        {[0, 1000, 2000].map((e) => (
+          <span key={e} className="absolute -translate-x-1/2 first:translate-x-0" style={{ left: `${(100 * e) / max}%` }}>
+            {e}
+          </span>
+        ))}
+      </div>
+    </>
+  );
+}
+
+const ROADS: { key: keyof LayerToggles; style: (m: MapTheme) => { fill: string; casing: string }; shield?: (m: MapTheme) => MapTheme["shield"]["national"]; ref?: string }[] = [
+  { key: "nationalExpressway", style: (m) => m.nationalExpressway, shield: (m) => m.shield.national, ref: "G" },
+  { key: "territorialExpressway", style: (m) => m.territorialExpressway, shield: (m) => m.shield.territorial, ref: "S" },
+  { key: "cityRoads", style: (m) => m.cityRoad },
+];
+
+function LegendBody({ m, layers, lang }: { m: MapTheme; layers: LayerToggles; lang: Lang }) {
+  const roads = ROADS.filter((r) => layers[r.key]);
+  return (
+    <div className="space-y-2.5">
+      {roads.length > 0 && (
+        <section>
+          <Heading>{t("roads", lang)}</Heading>
+          <ul className="space-y-1">
+            {roads.map((r) => {
+              const s = r.style(m);
+              const sh = r.shield?.(m);
+              return (
+                <Row
+                  key={r.key}
+                  label={t(r.key as StringKey, lang)}
+                  swatch={sh ? <Shield {...sh} text={sh.text} label={r.ref!} /> : <LineSwatch color={s.fill} casing={s.casing} width={2.5} />}
+                />
+              );
+            })}
+          </ul>
+        </section>
+      )}
+      <section>
+        <Heading>{t("places", lang)}</Heading>
+        <ul className="space-y-1">
+          <Row label={t("capital", lang)} swatch={<span className="size-2.5 rounded-full" style={{ background: m.cityDot.capital, boxShadow: `0 0 0 1.5px ${m.cityDot.fill}` }} />} />
+          <Row label={t("city", lang)} swatch={<span className="size-2.5 rounded-full" style={{ background: m.cityDot.fill, boxShadow: `0 0 0 1.5px ${m.cityDot.stroke}` }} />} />
+          {layers.boundaries && <Row label={t("boundaryCity", lang)} swatch={<LineSwatch color={m.cityLine.color} width={1.4} />} />}
+          {layers.boundaries && <Row label={t("boundaryDistrict", lang)} swatch={<LineSwatch color={m.districtLine.color} width={1.2} dash="3 2" />} />}
+        </ul>
+      </section>
+      {layers.terrain && (
+        <section>
+          <Heading unit="m">{t("elevation", lang)}</Heading>
+          <ElevationRamp relief={m.terrain.relief} />
+        </section>
+      )}
+      {layers.choropleth && (
+        <section>
+          <Heading unit={t("perKm2", lang)}>{t("choropleth", lang)}</Heading>
+          <Ramp colors={m.choropleth} ticks={DENSITY_BREAKS.map((b) => (b >= 1000 ? `${b / 1000}k` : String(b)))} />
+        </section>
+      )}
+    </div>
+  );
+}
 
 export function Legend() {
-  const on = useAtlas((s) => s.layers.choropleth);
+  const on = useAtlas((s) => s.display.legend);
+  const layers = useAtlas((s) => s.layers);
   const theme = useAtlas((s) => s.theme);
   const lang = useAtlas((s) => s.lang);
-  const ramp = THEMES[theme].map.choropleth;
   return (
     <AnimatePresence>
       {on && (
         <motion.div
+          layout
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 8 }}
-          className="glass pointer-events-auto w-64 rounded-2xl px-3.5 py-3"
+          transition={{ type: "spring", stiffness: 420, damping: 34 }}
+          className="glass pointer-events-auto w-52 rounded-2xl px-3.5 py-3 max-md:hidden"
+          aria-label={t("legend", lang)}
         >
-          <div className="mb-2 flex items-baseline justify-between text-[11px]">
-            <span className="font-semibold text-ink">{t("choropleth", lang)}</span>
-            <span className="text-faint">{t("perKm2", lang)}</span>
-          </div>
-          <div className="flex h-2 overflow-hidden rounded-full">
-            {ramp.map((c) => (
-              <span key={c} className="flex-1" style={{ background: c }} />
-            ))}
-          </div>
-          <div className="mt-1 flex text-[10px] text-muted tabular-nums">
-            <span className="flex-1" />
-            {DENSITY_BREAKS.map((b) => (
-              <span key={b} className="flex-1 -translate-x-1/2 text-left">
-                {b >= 1000 ? `${b / 1000}k` : b}
-              </span>
-            ))}
-          </div>
+          <LegendBody m={THEMES[theme].map} layers={layers} lang={lang} />
         </motion.div>
       )}
     </AnimatePresence>
