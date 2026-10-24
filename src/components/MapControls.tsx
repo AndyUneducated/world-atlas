@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { t, type StringKey } from "../lib/i18n";
 import { THEMES, type MapTheme } from "../lib/themes";
+import { homePadding } from "../lib/viewport";
 import { useAtlas, useCursor, type LayerToggles } from "../store";
 import { Switch } from "./Switch";
 
@@ -31,7 +32,7 @@ export function MapControls() {
   const [open, setOpen] = useState(false);
 
   const home = () => {
-    if (map && data) map.fitBounds(data.manifest.regions[0].bounds, { padding: 80, bearing: 0, duration: 1200 });
+    if (map && data) map.fitBounds(data.manifest.regions[0].bounds, { padding: homePadding(), bearing: 0, duration: 1200 });
   };
 
   return (

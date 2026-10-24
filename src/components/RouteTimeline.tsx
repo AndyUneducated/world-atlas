@@ -4,13 +4,14 @@ import { useMemo } from "react";
 import { accentColor, chainage } from "../lib/entity";
 import { displayName, formatNumber, t } from "../lib/i18n";
 import type { AtlasData, BBox, Entity, Lang, LngLat, RouteSegment } from "../lib/types";
+import { cardPadding } from "../lib/viewport";
 import { useAtlas } from "../store";
 import { CityEmblem } from "./Emblem";
 
 interface Group {
   key: string;
   city: Entity | undefined;
-  rows: { seg: RouteSegment; district: Entity | undefined; key: string }[];
+  rows: { seg: RouteSegment; district: Entity | undefined; key: string; end: number }[];
   km: number;
 }
 
@@ -20,7 +21,7 @@ function groupByCity(data: AtlasData, segments: RouteSegment[]): Group[] {
     const district = seg.division ? data.entities[seg.division] : undefined;
     const city = district?.parent ? data.entities[district.parent] : undefined;
     const last = groups[groups.length - 1];
-    const row = { seg, district, key: `s${i}` };
+    const row = { seg, district, key: `s${i}`, end: segments[i + 1]?.from_km ?? seg.from_km + seg.km };
     if (last && last.city?.id === city?.id) {
       last.rows.push(row);
       last.km += seg.km;
@@ -54,9 +55,8 @@ export function RouteTimeline({ data, entity, lang }: { data: AtlasData; entity:
 
   const locate = (key: string, lines: LngLat[][], bbox: BBox) => {
     setHighlight({ key, lines });
-    const wide = window.innerWidth >= 768;
     map?.fitBounds(bbox, {
-      padding: wide ? { left: 460, top: 110, right: 120, bottom: 110 } : { left: 40, top: 120, right: 40, bottom: Math.round(window.innerHeight * 0.55) },
+      padding: cardPadding(20),
       maxZoom: 11,
       duration: 900,
     });
@@ -122,7 +122,7 @@ export function RouteTimeline({ data, entity, lang }: { data: AtlasData; entity:
                 </span>
               </button>
               <ol className="pb-1.5">
-                {g.rows.map(({ seg, district, key }) => (
+                {g.rows.map(({ seg, district, key, end }) => (
                   <li key={key}>
                     <button
                       onClick={() => locate(`pin:${key}`, [seg.line], seg.bbox)}
@@ -143,7 +143,7 @@ export function RouteTimeline({ data, entity, lang }: { data: AtlasData; entity:
                       <span className="min-w-0 flex-1">
                         <span className="block truncate text-[13px] text-ink">{district ? displayName(district, lang) : t("route_water", lang)}</span>
                         <span className="block font-mono text-[10.5px] text-faint">
-                          {chainage(seg.from_km)} – {chainage(seg.from_km + seg.km)}
+                          {chainage(seg.from_km)} – {chainage(end)}
                         </span>
                       </span>
                       <span className="relative h-1 w-12 overflow-hidden rounded-full bg-hover">

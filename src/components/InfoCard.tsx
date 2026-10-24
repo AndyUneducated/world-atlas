@@ -1,9 +1,10 @@
 import clsx from "clsx";
 import { Check, Crosshair, Link2, Star, X } from "lucide-react";
-import { AnimatePresence, motion, useSpring } from "motion/react";
+import { AnimatePresence, motion, useDragControls, useSpring, type PanInfo } from "motion/react";
 import { useState } from "react";
 import { CityEmblem, Emblem, hasEmblem } from "./Emblem";
 import { RouteTimeline } from "./RouteTimeline";
+import { cardPadding, useMobile } from "../lib/viewport";
 import { accentColor } from "../lib/entity";
 import { displayName, formatNumber, formatPopulation, kindLabel, NAME_LANG_LABELS, t } from "../lib/i18n";
 import { NAME_LANGS, type AtlasData, type Entity, type Lang, type NameLang } from "../lib/types";
@@ -140,7 +141,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
     setTimeout(() => setCopied(false), 1500);
   };
   const zoomTo = () => {
-    if (map && entity.bbox) map.fitBounds(entity.bbox, { padding: { left: 460, top: 90, right: 100, bottom: 90 }, duration: 900 });
+    if (map && entity.bbox) map.fitBounds(entity.bbox, { padding: cardPadding(), duration: 900 });
   };
 
   const badgeOwner = entity.kind === "place" && entity.emblem_of ? data.entities[entity.emblem_of] : entity;
@@ -266,21 +267,67 @@ export function InfoCard() {
   const lang = useAtlas((s) => s.lang);
   const selectedId = useAtlas((s) => s.selectedId);
   const entity = selectedId && data ? data.entities[selectedId] : undefined;
+  const mobile = useMobile();
 
   return (
     <AnimatePresence mode="wait">
-      {data && entity && (
+      {data && entity && (mobile ? <BottomSheet key={entity.id} data={data} entity={entity} lang={lang} /> : (
         <motion.article
           key={entity.id}
           initial={{ opacity: 0, y: 12, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 8, scale: 0.98 }}
           transition={{ type: "spring", stiffness: 380, damping: 32 }}
-          className="glass scrollbar-thin pointer-events-auto min-h-0 overflow-y-auto rounded-3xl max-md:fixed max-md:inset-x-2 max-md:bottom-2 max-md:max-h-[52vh]"
+          className="glass scrollbar-thin pointer-events-auto min-h-0 overflow-y-auto rounded-3xl"
         >
           <CardBody data={data} entity={entity} lang={lang} />
         </motion.article>
-      )}
+      ))}
     </AnimatePresence>
+  );
+}
+
+/** Phone layout: the card is a sheet that peeks from the bottom and drags up to full height. */
+function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
+  const select = useAtlas((s) => s.select);
+  const [full, setFull] = useState(false);
+  const drag = useDragControls();
+  const onDragEnd = (_: unknown, info: PanInfo) => {
+    if (info.offset.y < -40 || info.velocity.y < -500) setFull(true);
+    else if (info.offset.y > 60 || info.velocity.y > 500) {
+      if (full) setFull(false);
+      else select(null);
+    }
+  };
+  return (
+    <motion.article
+      initial={{ y: "100%" }}
+      animate={{ y: 0 }}
+      exit={{ y: "100%" }}
+      transition={{ type: "spring", stiffness: 340, damping: 34 }}
+      drag="y"
+      dragControls={drag}
+      dragListener={false}
+      dragConstraints={{ top: 0, bottom: 0 }}
+      dragElastic={{ top: 0.08, bottom: 0.6 }}
+      onDragEnd={onDragEnd}
+      className={clsx(
+        "glass pointer-events-auto fixed inset-x-0 bottom-0 z-30 flex flex-col rounded-t-[28px] border-b-0 pb-[env(safe-area-inset-bottom)] transition-[height] duration-300 ease-out",
+        full ? "h-[88dvh]" : "h-[46dvh]",
+      )}
+    >
+      <div
+        onPointerDown={(e) => drag.start(e)}
+        onClick={() => setFull((f) => !f)}
+        className="flex shrink-0 cursor-grab touch-none justify-center pt-2.5 pb-1 active:cursor-grabbing"
+        role="button"
+        aria-label={t(full ? "collapse" : "expand", lang)}
+      >
+        <span className="h-1.5 w-11 rounded-full bg-faint/50" />
+      </div>
+      <div className="scrollbar-thin min-h-0 flex-1 overflow-y-auto overscroll-contain">
+        <CardBody data={data} entity={entity} lang={lang} />
+      </div>
+    </motion.article>
   );
 }

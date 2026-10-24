@@ -4,6 +4,7 @@ import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import { useEffect, useMemo, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import type { FeatureCollection, Point } from "geojson";
+import { cardPadding, homePadding } from "../lib/viewport";
 import { PlaceMarker } from "./PlaceMarker";
 import { BASE_URL } from "../lib/data";
 import { buildFocus, indexFeatures } from "../lib/focus";
@@ -102,7 +103,7 @@ export function MapView() {
       style: buildStyle(styleOpts()),
       ...(initialView
         ? { center: [initialView.lng, initialView.lat], zoom: initialView.zoom, bearing: initialView.bearing }
-        : { bounds: region.bounds, fitBoundsOptions: { padding: 80 } }),
+        : { bounds: region.bounds, fitBoundsOptions: { padding: homePadding() } }),
       minZoom: 1.2,
       maxZoom: 15,
       maxPitch: 0,
@@ -215,11 +216,8 @@ export function MapView() {
 
     const entity = selectedId ? data.entities[selectedId] : undefined;
     if (entity?.bbox && nonce > 0) {
-      const wide = window.innerWidth >= 768;
       map.fitBounds(entity.bbox, {
-        padding: wide
-          ? { left: 460, top: 90, right: 100, bottom: 90 }
-          : { left: 30, top: 110, right: 30, bottom: Math.round(window.innerHeight * 0.5) },
+        padding: cardPadding(),
         maxZoom: entity.kind === "division" && entity.subtype === "borough" ? 11 : 10.5,
         duration: 1200,
         essential: true,
@@ -238,9 +236,8 @@ export function MapView() {
     if (coords?.length) {
       const lngs = coords.map((c) => c[0]);
       const lats = coords.map((c) => c[1]);
-      const wide = window.innerWidth >= 768;
       map.fitBounds([Math.min(...lngs), Math.min(...lats), Math.max(...lngs), Math.max(...lats)], {
-        padding: wide ? { left: 460, top: 90, right: 100, bottom: 90 } : { left: 30, top: 110, right: 30, bottom: Math.round(window.innerHeight * 0.5) },
+        padding: cardPadding(),
         duration: 1000,
       });
     }

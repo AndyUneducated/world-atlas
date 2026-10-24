@@ -78,11 +78,15 @@ body,
   outline: none;
 }
 
-.atlas-marker-layer {
-  transition: opacity 0.3s ease;
+/* MapLibre writes an inline opacity on the marker element itself, so fade its child instead. */
+.atlas-marker-layer > * {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
-.atlas-marker-layer.is-hidden {
+.atlas-marker-layer.is-hidden > * {
   opacity: 0;
+  transform: scale(0.6);
   pointer-events: none;
 }
 

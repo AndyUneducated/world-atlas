@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Breadcrumbs } from "./components/Breadcrumbs";
@@ -34,6 +35,7 @@ export default function App() {
   const setData = useAtlas((s) => s.setData);
   const theme = useAtlas((s) => s.theme);
   const lang = useAtlas((s) => s.lang);
+  const selectedId = useAtlas((s) => s.selectedId);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -89,7 +91,7 @@ export default function App() {
             <MeasurePanel />
           </div>
 
-          <div className="absolute right-3 bottom-3">
+          <div className={clsx("absolute right-3 bottom-3", selectedId && "max-md:hidden")}>
             <StatusBar />
           </div>
         </div>
