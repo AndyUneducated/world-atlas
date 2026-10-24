@@ -75,9 +75,10 @@ function ElevationRamp({ relief }: { relief: [number, string][] }) {
   );
 }
 
-const ROADS: { key: keyof LayerToggles; style: (m: MapTheme) => { fill: string; casing: string }; sample?: Entity }[] = [
+const ROADS: { key: keyof LayerToggles; style: (m: MapTheme) => { fill: string; casing: string }; sample?: Entity; height?: number }[] = [
   { key: "nationalExpressway", style: (m) => m.nationalExpressway, sample: sampleRoute("legend:g", "G-NV-1", "national_expressway") },
   { key: "territorialExpressway", style: (m) => m.territorialExpressway, sample: sampleRoute("legend:s", "S-NV-1", "territorial_expressway", "peaks") },
+  { key: "territorialHighway", style: (m) => m.territorialExpressway, sample: sampleRoute("legend:p", "S-NV-201", "territorial_highway", "lighthouse"), height: 14 },
   { key: "cityRoads", style: (m) => m.cityRoad },
 ];
 
@@ -95,7 +96,7 @@ function LegendBody({ m, layers, lang }: { m: MapTheme; layers: LayerToggles; la
                 <Row
                   key={r.key}
                   label={t(r.key as StringKey, lang)}
-                  swatch={r.sample ? <RouteShield entity={r.sample} height={16} /> : <LineSwatch color={s.fill} casing={s.casing} width={2.5} />}
+                  swatch={r.sample ? <RouteShield entity={r.sample} height={r.height ?? 16} /> : <LineSwatch color={s.fill} casing={s.casing} width={2.5} />}
                 />
               );
             })}

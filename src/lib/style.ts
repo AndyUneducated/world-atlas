@@ -21,7 +21,8 @@ export const EMPTY_FC: FeatureCollection = { type: "FeatureCollection", features
 /** Road network values (GB/T 917 administrative grades) behind each road layer toggle. */
 export const ROAD_NETWORKS = {
   nationalExpressway: ["national_expressway", "national_highway"],
-  territorialExpressway: ["territorial_expressway", "territorial_highway"],
+  territorialExpressway: ["territorial_expressway"],
+  territorialHighway: ["territorial_highway"],
   cityRoads: ["municipal_road", "township_road"],
 };
 
@@ -450,8 +451,8 @@ export function buildStyle(opts: {
   }
   const roadTiers = [
     { id: "city-road", network: ROAD_NETWORKS.cityRoads, s: m.cityRoad, on: layers.cityRoads, casing: 1.2, fill: 0.7, minzoom: 7.6 },
-    { id: "territorial-highway", network: ["territorial_highway"], s: m.territorialExpressway, on: layers.territorialExpressway, casing: 1.3, fill: 0.75, minzoom: 0 },
-    { id: "territorial-expressway", network: ["territorial_expressway"], s: m.territorialExpressway, on: layers.territorialExpressway, casing: 1.6, fill: 1, minzoom: 0 },
+    { id: "territorial-highway", network: ROAD_NETWORKS.territorialHighway, s: m.territorialExpressway, on: layers.territorialHighway, casing: 1.3, fill: 0.75, minzoom: 0 },
+    { id: "territorial-expressway", network: ROAD_NETWORKS.territorialExpressway, s: m.territorialExpressway, on: layers.territorialExpressway, casing: 1.6, fill: 1, minzoom: 0 },
     { id: "national-expressway", network: ROAD_NETWORKS.nationalExpressway, s: m.nationalExpressway, on: layers.nationalExpressway, casing: 1.8, fill: 1.2, minzoom: 0 },
   ];
   for (const r of roadTiers) {
@@ -481,6 +482,7 @@ export function buildStyle(opts: {
   const shownNetworks = [
     ...(layers.nationalExpressway ? ROAD_NETWORKS.nationalExpressway : []),
     ...(layers.territorialExpressway ? ROAD_NETWORKS.territorialExpressway : []),
+    ...(layers.territorialHighway ? ROAD_NETWORKS.territorialHighway : []),
     ...(layers.cityRoads ? ROAD_NETWORKS.cityRoads : []),
   ];
   const roadShown: ExpressionSpecification = ["in", ["get", "network"], ["literal", shownNetworks]];

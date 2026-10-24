@@ -1,16 +1,18 @@
+import clsx from "clsx";
+import { Check } from "lucide-react";
 import type { CSSProperties } from "react";
 import { t, type StringKey } from "../../lib/i18n";
 import { THEMES, type MapTheme } from "../../lib/themes";
 import { useAtlas, type LayerToggles } from "../../store";
 import { Switch } from "../Switch";
 
-const GROUPS: { title: StringKey; keys: (keyof LayerToggles)[] }[] = [
-  { title: "roads", keys: ["nationalExpressway", "territorialExpressway", "cityRoads"] },
+const GROUPS: { title: StringKey; keys: (keyof LayerToggles)[]; cards?: boolean }[] = [
+  { title: "roads", keys: ["nationalExpressway", "territorialExpressway", "territorialHighway", "cityRoads"] },
   { title: "transit", keys: ["railways", "metro"] },
-  { title: "mapDetails", keys: ["terrain", "landcover", "buildings", "boundaries", "choropleth"] },
+  { title: "mapDetails", keys: ["terrain", "landcover", "buildings", "boundaries", "choropleth"], cards: true },
 ];
 
-const bar = (background: string): CSSProperties => ({ background, height: 5, top: "calc(50% - 2.5px)" });
+const bar = (background: string, height = 5): CSSProperties => ({ background, height, top: `calc(50% - ${height / 2}px)` });
 
 /** A thumbnail of how each layer draws: lines across the tile for networks, fills for area layers. */
 function swatch(k: keyof LayerToggles, m: MapTheme): CSSProperties {
@@ -19,6 +21,8 @@ function swatch(k: keyof LayerToggles, m: MapTheme): CSSProperties {
       return bar(m.nationalExpressway.fill);
     case "territorialExpressway":
       return bar(m.territorialExpressway.fill);
+    case "territorialHighway":
+      return bar(m.territorialExpressway.fill, 3);
     case "cityRoads":
       return bar(m.cityRoad.fill === "#ffffff" ? m.cityRoad.casing : m.cityRoad.fill);
     case "railways":
@@ -51,20 +55,53 @@ export function LayersTab() {
   const toggleLayer = useAtlas((s) => s.toggleLayer);
   const map = THEMES[useAtlas((s) => s.theme)].map;
 
+  const thumb = (k: keyof LayerToggles, size: string) => (
+    <span className={clsx("relative block shrink-0 overflow-hidden rounded-lg ring-1 ring-line transition-opacity", size)} style={{ background: map.land, opacity: layers[k] ? 1 : 0.55 }}>
+      <span className="absolute inset-x-0" style={swatch(k, map)} />
+    </span>
+  );
+
   return (
     <>
       {GROUPS.map((group) => (
         <div key={group.title} className="not-first:mt-1.5">
           <p className="px-2.5 pt-1.5 pb-1 text-[11px] font-semibold tracking-wider text-faint uppercase">{t(group.title, lang)}</p>
-          {group.keys.map((k) => (
-            <button key={k} onClick={() => toggleLayer(k)} className="flex w-full items-center gap-3 rounded-xl px-2 py-1.5 text-[13px] text-ink hover:bg-hover" aria-pressed={layers[k]}>
-              <span className="relative size-7 shrink-0 overflow-hidden rounded-lg ring-1 ring-line" style={{ background: map.land, opacity: layers[k] ? 1 : 0.55 }}>
-                <span className="absolute inset-x-0" style={swatch(k, map)} />
-              </span>
-              <span className="flex-1 text-left">{t(k as StringKey, lang)}</span>
-              <Switch on={layers[k]} />
-            </button>
-          ))}
+          {group.cards ? (
+            <div className="grid grid-cols-2 gap-1.5 px-1 pb-1">
+              {group.keys.map((k) => (
+                <button
+                  key={k}
+                  onClick={() => toggleLayer(k)}
+                  aria-pressed={layers[k]}
+                  className={clsx(
+                    "flex min-w-0 items-center gap-2 rounded-xl p-1.5 text-left ring-1 transition-colors",
+                    layers[k] ? "bg-accent-soft ring-accent/35" : "ring-line hover:bg-hover",
+                  )}
+                >
+                  <span className="relative shrink-0">
+                    {thumb(k, "size-8")}
+                    <span
+                      className={clsx(
+                        "absolute -top-1 -right-1 grid size-3.5 place-items-center rounded-full bg-accent text-on-accent shadow-sm ring-2 ring-panel-solid transition-transform duration-200",
+                        layers[k] ? "scale-100" : "scale-0",
+                      )}
+                    >
+                      <Check className="size-2" strokeWidth={4} />
+                    </span>
+                  </span>
+                  <span className={clsx("line-clamp-2 min-w-0 flex-1 text-[12px] leading-tight", layers[k] ? "font-medium text-ink" : "text-muted")}>{t(k as StringKey, lang)}</span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            group.keys.map((k) => (
+              <button key={k} onClick={() => toggleLayer(k)} className="flex w-full items-center gap-3 rounded-xl px-2 py-1.5 text-[13px] text-ink hover:bg-hover" aria-pressed={layers[k]}>
+                {thumb(k, "size-7")}
+                <span className="flex-1 text-left">{t(k as StringKey, lang)}</span>
+                <Switch on={layers[k]} />
+              </button>
+            ))
+          )}
         </div>
       ))}
     </>

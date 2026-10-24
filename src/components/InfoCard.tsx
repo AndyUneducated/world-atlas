@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { Check, ChevronRight, Crosshair, Link2, Star, X } from "lucide-react";
 import { AnimatePresence, motion, useDragControls, useSpring, type PanInfo } from "motion/react";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { CityEmblem, Emblem, hasEmblem } from "./Emblem";
 import { RouteTimeline } from "./RouteTimeline";
 import { cardPadding, useMobile } from "../lib/viewport";
@@ -273,6 +273,20 @@ function Lineage({ data, entity, lang }: { data: AtlasData; entity: Entity; lang
   );
 }
 
+function CardAction({ onClick, accent, icon, label }: { onClick: () => void; accent: string; icon: ReactNode; label: string }) {
+  return (
+    <button onClick={onClick} className="group flex flex-1 items-center justify-center gap-2 py-2.5 text-[12.5px] font-medium text-ink transition-colors hover:bg-hover">
+      <span
+        className="grid size-6 place-items-center rounded-full transition-transform duration-200 group-hover:scale-110"
+        style={{ background: `color-mix(in srgb, ${accent} 16%, transparent)`, color: accent }}
+      >
+        {icon}
+      </span>
+      {label}
+    </button>
+  );
+}
+
 function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
   const select = useAtlas((s) => s.select);
   const map = useAtlas((s) => s.map);
@@ -353,27 +367,18 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
             <X className="size-4" />
           </button>
         </div>
-        <div className="relative mt-4 flex flex-wrap gap-2">
-          <button onClick={zoomTo} className="flex items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 text-[12px] font-medium text-on-accent shadow-sm hover:opacity-90">
-            <Crosshair className="size-3.5" />
-            {t("zoomTo", lang)}
-          </button>
-          {routable && (
-            <>
-              <button onClick={() => setRoute({ from: entity.id })} className="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[12px] font-medium text-ink hover:bg-hover">
-                <span className="size-2 rounded-full bg-emerald-500" />
-                {t("routeFrom", lang)}
-              </button>
-              <button onClick={() => setRoute({ to: entity.id })} className="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[12px] font-medium text-ink hover:bg-hover">
-                <span className="size-2 rounded-full bg-rose-500" />
-                {t("routeTo", lang)}
-              </button>
-            </>
-          )}
-          <button onClick={copy} className="grid size-[30px] place-items-center rounded-full border border-line text-ink hover:bg-hover" title={t(copied ? "copied" : "share", lang)} aria-label={t("share", lang)}>
-            {copied ? <Check className="size-3.5" /> : <Link2 className="size-3.5" />}
-          </button>
-        </div>
+        {routable && (
+          <div className="relative mt-4 flex flex-wrap gap-2">
+            <button onClick={() => setRoute({ from: entity.id })} className="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[12px] font-medium text-ink hover:bg-hover">
+              <span className="size-2 rounded-full bg-emerald-500" />
+              {t("routeFrom", lang)}
+            </button>
+            <button onClick={() => setRoute({ to: entity.id })} className="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[12px] font-medium text-ink hover:bg-hover">
+              <span className="size-2 rounded-full bg-rose-500" />
+              {t("routeTo", lang)}
+            </button>
+          </div>
+        )}
       </div>
 
       {items.length > 0 && (
@@ -415,7 +420,19 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
         </Section>
       )}
 
-      <div className="border-t border-line px-5 py-3 font-mono text-[10.5px] text-faint">{entity.id}</div>
+      <footer className="border-t border-line px-4 pt-3.5 pb-4">
+        <div className="flex overflow-hidden rounded-2xl border border-line bg-hover">
+          <CardAction onClick={zoomTo} accent={accent} icon={<Crosshair className="size-3.5" />} label={t("zoomTo", lang)} />
+          <span className="my-2 w-px shrink-0 bg-line" aria-hidden />
+          <CardAction
+            onClick={copy}
+            accent={copied ? "#10b981" : accent}
+            icon={copied ? <Check className="size-3.5" /> : <Link2 className="size-3.5" />}
+            label={t(copied ? "copied" : "share", lang)}
+          />
+        </div>
+        <p className="mt-2.5 text-center font-mono text-[10px] tracking-wider text-faint select-all">{entity.id}</p>
+      </footer>
     </>
   );
 }

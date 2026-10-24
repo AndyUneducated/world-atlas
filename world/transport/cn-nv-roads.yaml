@@ -103,6 +103,33 @@ routes:
       en: Northwest–Oxino Expressway
     shield: compass
     via: [div_0yef9a, div_q4d6n6]
+  - id: rte_5r9t2v
+    ref: S-NV-4
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 观星高速
+      en: Stargazer Expressway
+    notes:
+      zh: 自维京港斯坦堡老城经奥斯特海姆、首府白桦区、林道区，通往望星区的天文台和科学城；首府与西北之间的直达高速
+      en: From the old town of Steinburg in Viking Port through Osterheim, the capital's Birchwood District and Lindau to the observatory at Stargaze and on to Science City; the direct expressway between the capital and Northwest.
+    shield: star
+    via: [div_z29w6h, div_t3bfmm, div_7rk2mh, div_16cxr8, div_fr1vq9, div_g27nda, div_s8f4kt]
+  - id: rte_9f3k6w
+    ref: S-NV-5
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 深峡高速
+      en: Deep Gorge Expressway
+    notes:
+      zh: 自新城米特、青坪北上，经北苑、深峡区的瀑布峡谷到洛龙山龙关，是新城通往洛龙山的直达高速
+      en: North from Mitte and Greenmead in New City through North Gardens and the waterfall gorges of Deep Gorge to Dragon Pass in Lorond Mountain; the direct expressway from New City to Lorond Mountain.
+    tunnel_cost: 3.5
+    shield: waterfall
+    via: [div_m2tz6c, div_z8yxye, div_s1qwxh, div_0t2t36, div_j82dgm]
 
   # 省道 (territorial highways, class primary): dual carriageways threading district centres, so
   # that every district centre lies on a territorial route.
@@ -119,21 +146,8 @@ routes:
       en: Up the west coast from Viking Port through Seagate, Fyrnes and Deersong to the fjords of Frost Ridge, past a string of lighthouses.
     shield: lighthouse
     via: [div_z29w6h, div_k1yr6m, div_pkfa1g, div_zs7kjk, div_479xae]
-  - id: rte_5r9t2v
-    ref: S-NV-202
-    network: territorial_highway
-    class: primary
-    status: generated
-    names:
-      zh: 观星公路
-      en: Stargazer Highway
-    notes:
-      zh: 自维京港斯坦堡老城经奥斯特海姆、首府白桦区、林道区，通往望星区的天文台和科学城
-      en: From the old town of Steinburg in Viking Port through Osterheim, the capital's Birchwood District and Lindau to the observatory at Stargaze and on to Science City.
-    shield: star
-    via: [div_z29w6h, div_t3bfmm, div_7rk2mh, div_16cxr8, div_fr1vq9, div_g27nda, div_s8f4kt]
   - id: rte_c8j4ya
-    ref: S-NV-203
+    ref: S-NV-202
     network: territorial_highway
     class: primary
     status: generated
@@ -146,7 +160,7 @@ routes:
     shield: salmon
     via: [div_b3qw9e, div_g4a8q0, div_16cxr8, div_b1dx32, div_mpfctv, div_davn2j, div_0wvh63]
   - id: rte_m2q7xb
-    ref: S-NV-204
+    ref: S-NV-203
     network: territorial_highway
     class: primary
     status: generated
@@ -158,21 +172,8 @@ routes:
       en: From Oxino through the conifer forests of Fir Ridge and over Dragon Pass to Clearlake in Lekor.
     shield: fir
     via: [div_rzw76f, div_k5f1mz, div_j82dgm, div_t8bg0d]
-  - id: rte_9f3k6w
-    ref: S-NV-205
-    network: territorial_highway
-    class: primary
-    status: generated
-    names:
-      zh: 深峡公路
-      en: Deep Gorge Highway
-    notes:
-      zh: 自新城米特、青坪北上，经北苑、深峡区的瀑布峡谷到洛龙山龙关
-      en: North from Mitte and Greenmead in New City through North Gardens and the waterfall gorges of Deep Gorge to Dragon Pass in Lorond Mountain.
-    shield: waterfall
-    via: [div_m2tz6c, div_z8yxye, div_s1qwxh, div_0t2t36, div_j82dgm]
   - id: rte_t6h2pe
-    ref: S-NV-206
+    ref: S-NV-204
     network: territorial_highway
     class: primary
     status: generated
@@ -185,7 +186,7 @@ routes:
     shield: reindeer
     via: [div_s1qwxh, div_4vnc7y, div_1qm5cj, div_e2pk5r, div_qpyn9e]
   - id: rte_x4b8rn
-    ref: S-NV-207
+    ref: S-NV-205
     network: territorial_highway
     class: primary
     status: generated
@@ -198,7 +199,7 @@ routes:
     shield: swallow
     via: [div_z8yxye, div_hyxnpg, div_8njcs3, div_8m0jx4, div_e6pc44, div_8p9k5t, div_f9x3wn, div_ts5cw5]
   - id: rte_2d7v5m
-    ref: S-NV-208
+    ref: S-NV-206
     network: territorial_highway
     class: primary
     status: generated
@@ -211,7 +212,7 @@ routes:
     shield: sunrise
     via: [div_6byxb5, div_w1ea18, div_f5s7ax, div_ts88e3, div_tc0ngk]
   - id: rte_7k2m9q
-    ref: S-NV-209
+    ref: S-NV-207
     network: territorial_highway
     class: primary
     status: generated

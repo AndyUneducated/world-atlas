@@ -10,6 +10,7 @@ export interface LayerToggles {
   boundaries: boolean;
   nationalExpressway: boolean;
   territorialExpressway: boolean;
+  territorialHighway: boolean;
   cityRoads: boolean;
   railways: boolean;
   metro: boolean;
@@ -80,6 +81,7 @@ const DEFAULT_LAYERS: LayerToggles = {
   boundaries: true,
   nationalExpressway: true,
   territorialExpressway: true,
+  territorialHighway: true,
   cityRoads: true,
   railways: false,
   metro: false,
