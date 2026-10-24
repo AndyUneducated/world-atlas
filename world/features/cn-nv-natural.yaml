@@ -1,0 +1,74 @@
+# Named natural features of North Viking Island.
+# subtype follows OSM natural=* / waterway=* values. Geometry is produced by the
+# generator (see world/generator/cn-nv.yaml); this file only holds identity and semantics.
+features:
+  - id: nat_b9bmz2
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 洛龙山脉
+      en: Lorond Range
+      art-x-viking: Lorondgebirge
+    notes:
+      zh: 纵贯全岛中部的主山脉，1990 年原勒克尔市与原马斯林山市大致以其山脊为界。
+      en: The main range running through the centre of the island. Its crest roughly marked the boundary between the former Lekor and Maslin Mountain cities.
+  - id: nat_qsrakx
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 马斯林山脉
+      en: Maslin Range
+      art-x-viking: Maslingebirge
+    notes:
+      zh: 呈马蹄形环绕马斯林山盆地的北、西、南三面，东侧向海岸平原敞开。
+      en: Horseshoe-shaped range enclosing the Maslin basin on the north, west and south, open to the coastal plain in the east.
+  - id: nat_papy7d
+    subtype: ridge
+    status: generated
+    names:
+      zh: 寒岭
+      en: Frost Ridge
+      art-x-viking: Frostkamm
+    notes:
+      zh: 西北市北部的低山丘陵，冬季积雪期长。
+      en: Low hills in the north of Northwest City with a long winter snow season.
+  - id: nat_x9bmeh
+    subtype: river
+    status: generated
+    names:
+      zh: 自由河
+      en: Freedom River
+      art-x-viking: Freifluss
+    notes:
+      zh: 自由市的母亲河，向南注入大海，入海口位于联合区。
+      en: The mother river of Freedom City, flowing south to the sea; its mouth lies in Union District.
+  - id: nat_9h7mcd
+    subtype: river
+    status: generated
+    names:
+      zh: 北河
+      en: North River
+      art-x-viking: Nordfluss
+    notes:
+      zh: 流经自由市北河区，北河大道因此得名。
+      en: Flows through North River District; North River Avenue is named after it.
+  - id: nat_ww491j
+    subtype: river
+    status: generated
+    names:
+      zh: 厄定河
+      en: Erding River
+      art-x-viking: Erding Fluß
+    notes:
+      zh: 岛屿东北部的主要河流，冲积出厄定河谷平原。
+      en: The main river of the north-east, which formed the Erding valley plain.
+  - id: nat_jaxtgn
+    subtype: lake
+    status: generated
+    names:
+      zh: 澄湖
+      en: Clear Lake
+      art-x-viking: Klarsee
+    notes:
+      zh: 勒克尔市澄湖区的湖泊，以湖水清澈著称，环湖分布有集镇与水上休闲设施。
+      en: Lake in Clearlake District, Lekor, known for its clear water and ringed by lakeside towns and water recreation.

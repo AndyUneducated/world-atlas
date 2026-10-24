@@ -1,0 +1,90 @@
+import type { FeatureCollection } from "geojson";
+
+export type Lang = "zh" | "en";
+export type ThemeId = "glacier" | "aurora" | "atlas";
+export type BBox = [number, number, number, number];
+export type LngLat = [number, number];
+
+export const NAME_LANGS = ["zh", "en", "art-x-viking", "art-x-buckham"] as const;
+export type NameLang = (typeof NAME_LANGS)[number];
+export type Names = Partial<Record<NameLang, string>> & { zh: string; en: string };
+export type Localized = { zh: string; en: string };
+
+export type EntityKind = "division" | "natural" | "route";
+export type EntityStatus = "canon" | "draft" | "generated";
+
+export interface EntityStats {
+  area_km2_mapped?: number;
+  elev_max_m?: number;
+  elev_mean_m?: number;
+  density_per_km2?: number;
+  length_km?: number;
+  drainage_km2?: number;
+}
+
+export interface Entity {
+  id: string;
+  kind: EntityKind;
+  subtype: string;
+  status: EntityStatus;
+  names: Names;
+  short_names?: Localized;
+  codes?: {
+    admin?: string;
+    iso3166_2?: string;
+    unlocode?: string;
+    iso3166_1?: { alpha2: string; alpha3: string; numeric: string };
+  };
+  population?: number;
+  area_km2?: number;
+  notes?: Localized;
+  motto?: Localized;
+  parent?: string;
+  ancestors?: string[];
+  children?: string[];
+  capital?: string | null;
+  special_status?: string;
+  bbox?: BBox;
+  center?: LngLat;
+  stats?: EntityStats;
+  ref?: string;
+  network?: string;
+  class?: string;
+  via?: string[];
+  source?: string;
+}
+
+export interface Region {
+  id: string;
+  bounds: BBox;
+  frame_bounds: BBox;
+  center: LngLat;
+}
+
+export interface Manifest {
+  generated_at: string;
+  planet: { id: string; names: { en: string; zh?: string } };
+  home: string;
+  regions: Region[];
+  dem: { tiles: string; encoding: "terrarium"; tileSize: number; minzoom: number; maxzoom: number; bounds: BBox };
+}
+
+export const LAYER_FILES = [
+  "divisions",
+  "labels",
+  "water",
+  "rivers",
+  "rivers-named",
+  "ridges",
+  "roads",
+  "bathymetry",
+  "context",
+] as const;
+export type LayerFile = (typeof LAYER_FILES)[number];
+
+export interface AtlasData {
+  manifest: Manifest;
+  entities: Record<string, Entity>;
+  layers: Record<LayerFile, FeatureCollection>;
+  palette: Record<string, number>;
+}

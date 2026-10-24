@@ -1,0 +1,71 @@
+# Road routes of North Viking Island.
+#
+# Route numbering follows the GB/T 917 pattern with a territory infix:
+#   G-NV-1..99    national expressway    (class motorway)
+#   G-NV-101..    national highway       (class trunk)
+#   S-NV-1..99    territorial expressway (class motorway)
+#   S-NV-201..    territorial highway    (class primary)
+#   X-NV-001..    municipal road         (class secondary)
+#   Y-NV-001..    township road          (class tertiary)
+# class uses Overture Maps / OSM highway=* road classes.
+#
+# via: ordered list of divisions; the generator routes between their urban cores
+# over the terrain. Municipal roads to every district are derived automatically.
+# tunnel_cost (optional): caps the per-km cost of steep terrain, letting the route
+# tunnel through mountains instead of detouring around them.
+routes:
+  - id: rte_tb40gm
+    ref: G-NV-1
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 北岸高速
+      en: North Shore Expressway
+    via: [div_m41gwn, div_0yef9a, div_yjghe9, div_8emjne]
+  - id: rte_r8td20
+    ref: G-NV-2
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 南岸高速
+      en: South Shore Expressway
+    tunnel_cost: 3.5
+    via: [div_m41gwn, div_nbrnfr, div_q4d6n6, div_k4s990, div_da3s38, div_k4hg7b, div_ygk521]
+  - id: rte_cs3vnw
+    ref: G-NV-3
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 龙关高速
+      en: Long Pass Expressway
+    via: [div_yjghe9, div_q4d6n6, div_prcxzt, div_k4s990]
+  - id: rte_dprjx3
+    ref: S-NV-1
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 马斯林山高速
+      en: Maslin Expressway
+    via: [div_8emjne, div_rdypg7, div_ygk521]
+  - id: rte_2w74xj
+    ref: S-NV-2
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 自勒高速
+      en: Freedom–Lekor Expressway
+    via: [div_nbrnfr, div_yjghe9]
+  - id: rte_72cfce
+    ref: S-NV-3
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 西奥高速
+      en: Northwest–Oxino Expressway
+    via: [div_0yef9a, div_q4d6n6]

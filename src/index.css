@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+@theme {
+  --font-sans: "Inter Variable", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  --color-panel: var(--ui-panel);
+  --color-panel-solid: var(--ui-panel-solid);
+  --color-line: var(--ui-line);
+  --color-ink: var(--ui-ink);
+  --color-muted: var(--ui-muted);
+  --color-faint: var(--ui-faint);
+  --color-accent: var(--ui-accent);
+  --color-accent-soft: var(--ui-accent-soft);
+  --color-hover: var(--ui-hover);
+  --color-canvas: var(--ui-canvas);
+}
+
+:root[data-theme="glacier"] {
+  --ui-canvas: #c4dceb;
+  --ui-panel: rgba(255, 255, 255, 0.74);
+  --ui-panel-solid: #ffffff;
+  --ui-line: rgba(15, 23, 42, 0.08);
+  --ui-ink: #0f172a;
+  --ui-muted: #475569;
+  --ui-faint: #94a3b8;
+  --ui-accent: #2563eb;
+  --ui-accent-soft: rgba(37, 99, 235, 0.1);
+  --ui-hover: rgba(15, 23, 42, 0.05);
+  --ui-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 12px 32px -12px rgba(15, 23, 42, 0.28), 0 2px 6px -2px rgba(15, 23, 42, 0.08);
+  color-scheme: light;
+}
+
+:root[data-theme="aurora"] {
+  --ui-canvas: #05080f;
+  --ui-panel: rgba(13, 19, 32, 0.72);
+  --ui-panel-solid: #0d1320;
+  --ui-line: rgba(148, 197, 255, 0.12);
+  --ui-ink: #e6edf7;
+  --ui-muted: #9aabc2;
+  --ui-faint: #5b6b82;
+  --ui-accent: #5eead4;
+  --ui-accent-soft: rgba(94, 234, 212, 0.12);
+  --ui-hover: rgba(148, 197, 255, 0.07);
+  --ui-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 16px 40px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(94, 234, 212, 0.04);
+  color-scheme: dark;
+}
+
+:root[data-theme="atlas"] {
+  --ui-canvas: #8fb8c9;
+  --ui-panel: rgba(251, 248, 240, 0.8);
+  --ui-panel-solid: #fbf8f0;
+  --ui-line: rgba(70, 50, 30, 0.12);
+  --ui-ink: #2b2118;
+  --ui-muted: #5e4d3c;
+  --ui-faint: #a08f7b;
+  --ui-accent: #c0392b;
+  --ui-accent-soft: rgba(192, 57, 43, 0.1);
+  --ui-hover: rgba(70, 50, 30, 0.06);
+  --ui-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 12px 32px -12px rgba(60, 40, 20, 0.35), 0 2px 6px -2px rgba(60, 40, 20, 0.1);
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--ui-canvas);
+  color: var(--ui-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+@utility glass {
+  background: var(--ui-panel);
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  border: 1px solid var(--ui-line);
+  box-shadow: var(--ui-shadow);
+}
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ui-line) transparent;
+}
+
+.maplibregl-canvas:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

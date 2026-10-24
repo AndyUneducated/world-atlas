@@ -1,0 +1,13 @@
+# The planet that hosts the atlas. Geography is entirely fictional; only the
+# reference ellipsoid matches WGS 84 so that standard GIS tooling (MapLibre,
+# turf, PMTiles) measures distances and areas correctly.
+planet:
+  id: planet_homeworld
+  names:
+    en: Homeworld
+  ellipsoid:
+    model: WGS84-compatible sphere
+    radius_m: 6371008.8
+  crs:
+    storage: EPSG:4326
+    display: EPSG:3857

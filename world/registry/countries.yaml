@@ -1,0 +1,17 @@
+# Country registry, modelled on ISO 3166-1 (alpha-2 / alpha-3 / numeric).
+# Codes are allocated by this atlas and are independent of any real-world registry.
+countries:
+  - id: country:CN
+    subtype: country
+    status: canon
+    names:
+      zh: 中华人民共和国
+      en: People's Republic of China
+    short_names:
+      zh: 中国
+      en: China
+    codes:
+      iso3166_1:
+        alpha2: CN
+        alpha3: CHN
+        numeric: "156"

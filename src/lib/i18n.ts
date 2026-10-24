@@ -1,0 +1,100 @@
+import type { Entity, Lang, NameLang } from "./types";
+
+const STRINGS = {
+  searchPlaceholder: { zh: "搜索地点、道路、山川", en: "Search places, roads, landforms" },
+  noResults: { zh: "没有找到匹配的结果", en: "No matching results" },
+  explore: { zh: "探索城市", en: "Explore cities" },
+  population: { zh: "人口", en: "Population" },
+  area: { zh: "面积", en: "Area" },
+  density: { zh: "人口密度", en: "Density" },
+  maxElevation: { zh: "最高海拔", en: "Highest point" },
+  length: { zh: "长度", en: "Length" },
+  drainage: { zh: "流域面积", en: "Drainage basin" },
+  names: { zh: "名称", en: "Names" },
+  codes: { zh: "编码", en: "Codes" },
+  about: { zh: "概况", en: "Overview" },
+  motto: { zh: "格言", en: "Motto" },
+  subdivisions: { zh: "下辖", en: "Subdivisions" },
+  passesThrough: { zh: "途经", en: "Passes through" },
+  share: { zh: "复制链接", en: "Copy link" },
+  copied: { zh: "已复制", en: "Copied" },
+  zoomTo: { zh: "定位", en: "Zoom to" },
+  close: { zh: "关闭", en: "Close" },
+  canon: { zh: "设定", en: "Canon" },
+  generated: { zh: "生成", en: "Generated" },
+  draft: { zh: "草稿", en: "Draft" },
+  canonHint: { zh: "来自世界观设定", en: "Defined by the world setting" },
+  generatedHint: { zh: "由生成器补全，待审阅", en: "Filled in by the generator, pending review" },
+  adminCode: { zh: "行政区划代码", en: "Division code" },
+  layers: { zh: "图层", en: "Layers" },
+  choropleth: { zh: "人口密度", en: "Population density" },
+  hillshade: { zh: "地形阴影", en: "Terrain shading" },
+  boundaries: { zh: "行政区界", en: "Boundaries" },
+  roads: { zh: "道路", en: "Roads" },
+  zoomIn: { zh: "放大", en: "Zoom in" },
+  zoomOut: { zh: "缩小", en: "Zoom out" },
+  resetNorth: { zh: "指北", en: "Reset north" },
+  home: { zh: "全岛视图", en: "Whole island" },
+  theme: { zh: "风格", en: "Style" },
+  perKm2: { zh: "人/km²", en: "/km²" },
+  source: { zh: "数据源", en: "Source" },
+  sketch: { zh: "轮廓示意", en: "Outline sketch" },
+  loading: { zh: "正在载入地图", en: "Loading map" },
+} satisfies Record<string, Record<Lang, string>>;
+
+export type StringKey = keyof typeof STRINGS;
+export const t = (key: StringKey, lang: Lang) => STRINGS[key][lang];
+
+export const NAME_LANG_LABELS: Record<NameLang, Record<Lang, string>> = {
+  zh: { zh: "中文", en: "Chinese" },
+  en: { zh: "英语", en: "English" },
+  "art-x-viking": { zh: "维京语", en: "Viking" },
+  "art-x-buckham": { zh: "巴克汉姆语", en: "Buckham" },
+};
+
+const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
+  country: { zh: "国家", en: "Country" },
+  dependency: { zh: "领地", en: "Territory" },
+  region: { zh: "省", en: "Province" },
+  locality: { zh: "市", en: "City" },
+  borough: { zh: "区", en: "District" },
+  mountain_range: { zh: "山脉", en: "Mountain range" },
+  ridge: { zh: "山岭", en: "Ridge" },
+  river: { zh: "河流", en: "River" },
+  lake: { zh: "湖泊", en: "Lake" },
+};
+
+const NETWORK_LABELS: Record<string, Record<Lang, string>> = {
+  national_expressway: { zh: "国家高速", en: "National expressway" },
+  national_highway: { zh: "国道", en: "National highway" },
+  territorial_expressway: { zh: "领地高速", en: "Territorial expressway" },
+  territorial_highway: { zh: "领地道", en: "Territorial highway" },
+  municipal_road: { zh: "市道", en: "Municipal road" },
+  township_road: { zh: "乡道", en: "Township road" },
+};
+
+export function kindLabel(e: Entity, lang: Lang): string {
+  if (e.kind === "route") return NETWORK_LABELS[e.network ?? ""]?.[lang] ?? e.class ?? "";
+  if (e.special_status === "free_trade_zone") return lang === "zh" ? "自由贸易区" : "Free trade zone";
+  if (e.subtype === "borough" && e.names.zh.endsWith("大区")) return lang === "zh" ? "大区" : "Region";
+  return SUBTYPE_LABELS[e.subtype]?.[lang] ?? e.subtype;
+}
+
+export function displayName(e: Entity, lang: Lang): string {
+  return e.names[lang] ?? e.names.zh;
+}
+
+export function otherName(e: Entity, lang: Lang): string {
+  return lang === "zh" ? e.names.en : e.names.zh;
+}
+
+export function formatNumber(n: number, lang: Lang, digits = 0): string {
+  return n.toLocaleString(lang === "zh" ? "zh-CN" : "en-US", { maximumFractionDigits: digits });
+}
+
+export function formatPopulation(n: number, lang: Lang): string {
+  if (lang === "zh") return n >= 10000 ? `${formatNumber(n / 10000, lang, 1)} 万` : formatNumber(n, lang);
+  if (n >= 1_000_000) return `${formatNumber(n / 1_000_000, lang, 2)} M`;
+  if (n >= 1000) return `${formatNumber(n / 1000, lang, 1)} k`;
+  return formatNumber(n, lang);
+}

@@ -1,0 +1,840 @@
+# Administrative divisions of the Territory of North Viking Island (CN-NV).
+# id: permanent, never reused or changed. codes.admin: hierarchical code, may change on reorganisation.
+# subtype follows Overture Maps divisions: country > dependency/region > locality > borough.
+divisions:
+- id: div_fbfqv9
+  subtype: dependency
+  parent: country:CN
+  status: canon
+  names:
+    zh: 北维京岛领地
+    en: Territory of North Viking Island
+    art-x-viking: Subleland auf Hea Veiling Ysea
+    art-x-buckham: Smalaland en Teatu Viking Ete Teheetro
+  short_names:
+    zh: 北维京岛
+    en: North Viking Island
+  codes:
+    iso3166_1:
+      alpha2: NV
+      alpha3: NVI
+      numeric: '901'
+    iso3166_2: CN-NV
+    admin: '90'
+  motto:
+    zh: 自由，平等，博爱
+    en: Liberty, Equality, Fraternity
+  capital: div_nbrnfr
+- id: div_nbrnfr
+  subtype: locality
+  parent: div_fbfqv9
+  status: canon
+  names:
+    zh: 自由市
+    en: Freedom City
+    art-x-viking: Freistad auf Hea
+    art-x-buckham: Frei en Teatu
+  codes:
+    admin: '9001'
+    unlocode: NV FRD
+  population: 560000
+  area_km2: 2210.0
+  notes:
+    zh: 领地首府。1990 年在原勒克尔市基础上拆分建成
+    en: Territorial capital. Formed in 1990 by splitting the former Lekor City.
+- id: div_16cxr8
+  subtype: borough
+  parent: div_nbrnfr
+  status: canon
+  names:
+    zh: 中央行政区
+    en: Central Administrative District
+    art-x-viking: Zentralverwaltung auf Hea
+    art-x-buckham: Central Teatu en Teatu
+  codes:
+    admin: '900101'
+  population: 320000
+  area_km2: 720.0
+  notes:
+    zh: 领地机关驻地
+    en: Seat of the territorial institutions.
+- id: div_b1dx32
+  subtype: borough
+  parent: div_nbrnfr
+  status: canon
+  names:
+    zh: 北河区
+    en: North River District
+    art-x-viking: Nordfluss auf Hea
+    art-x-buckham: Rivo Nord en Teatu
+  codes:
+    admin: '900102'
+  population: 150000
+  area_km2: 580.0
+  notes:
+    zh: 北河大道、人民大道沿线商住区
+    en: Commercial and residential corridor along North River Avenue and People's Avenue.
+- id: div_g4a8q0
+  subtype: borough
+  parent: div_nbrnfr
+  status: canon
+  names:
+    zh: 联合区
+    en: Union District
+    art-x-viking: Vereint auf Hea
+    art-x-buckham: Liga en Teatu
+  codes:
+    admin: '900103'
+  population: 90000
+  area_km2: 910.0
+  notes:
+    zh: 联合大道以南至自由河入海口，临港配套
+    en: From Union Avenue south to the mouth of the Freedom River; port support zone.
+- id: div_m41gwn
+  subtype: locality
+  parent: div_fbfqv9
+  status: canon
+  names:
+    zh: 维京港市
+    en: Viking Port City
+    art-x-viking: Veiling Havn auf Hea
+    art-x-buckham: Veiling Porto en Teatu
+  codes:
+    admin: '9002'
+    unlocode: NV VKP
+  population: 3100000
+  area_km2: 1540.0
+  notes:
+    zh: 维京岛领地最早建成的城市，坐落在维京岛西部。目前为人口最多的城市、经济中心、最大港口
+    en: The oldest city of the territory, on the west coast. Largest population, economic centre and largest port.
+- id: div_z29w6h
+  subtype: borough
+  parent: div_m41gwn
+  status: canon
+  names:
+    zh: 南港区
+    en: South Port District
+    art-x-viking: Südhavn auf Hea
+    art-x-buckham: Porto Sud en Teatu
+  codes:
+    admin: '900201'
+  population: 1180000
+  area_km2: 420.0
+  notes:
+    zh: 最大港区与临港产业带
+    en: Largest port area and the port-industry belt.
+- id: div_pkfa1g
+  subtype: borough
+  parent: div_m41gwn
+  status: canon
+  names:
+    zh: 北港区
+    en: North Port District
+    art-x-viking: Nordhavn auf Hea
+    art-x-buckham: Porto Nord en Teatu
+  codes:
+    admin: '900202'
+  population: 860000
+  area_km2: 380.0
+  notes:
+    zh: 客运码头、邮轮与海关查验区
+    en: Passenger terminals, cruise piers and customs inspection zone.
+- id: div_t3bfmm
+  subtype: borough
+  parent: div_m41gwn
+  status: canon
+  names:
+    zh: 维京区
+    en: Viking District
+    art-x-viking: Veiling auf Hea
+    art-x-buckham: Veiling en Teatu
+  codes:
+    admin: '900203'
+  population: 680000
+  area_km2: 410.0
+  notes:
+    zh: 建市初期形成的旧城
+    en: The old town formed in the early years of the city.
+- id: div_k1yr6m
+  subtype: borough
+  parent: div_m41gwn
+  status: canon
+  names:
+    zh: 海门区
+    en: Seagate District
+    art-x-viking: Seetor auf Hea
+    art-x-buckham: Porta Mar en Teatu
+  codes:
+    admin: '900204'
+  population: 380000
+  area_km2: 330.0
+  notes:
+    zh: 二十一世纪沿西岸扩展的商务居住带
+    en: Business and residential strip developed along the west coast in the 21st century.
+- id: div_0yef9a
+  subtype: locality
+  parent: div_fbfqv9
+  status: canon
+  names:
+    zh: 西北市
+    en: Northwest City
+    art-x-viking: Nordwest auf Hea
+    art-x-buckham: Nordveste en Teatu
+  codes:
+    admin: '9003'
+    unlocode: NV NWS
+  population: 1980000
+  area_km2: 2300.0
+  notes:
+    zh: 科研中心，教育中心。1990 年在原勒克尔市拆分建成
+    en: Centre of research and education. Formed in 1990 by splitting the former Lekor City.
+- id: div_zs7kjk
+  subtype: borough
+  parent: div_0yef9a
+  status: canon
+  names:
+    zh: 中央区
+    en: Central District
+    art-x-viking: Zentral auf Hea
+    art-x-buckham: Central en Teatu
+  codes:
+    admin: '900301'
+  population: 860000
+  area_km2: 580.0
+  notes:
+    zh: 市级机关与广电机构集中区
+    en: Municipal institutions and broadcasting organisations.
+- id: div_g27nda
+  subtype: borough
+  parent: div_0yef9a
+  status: canon
+  names:
+    zh: 科学区
+    en: Science District
+    art-x-viking: Wissenschaft auf Hea
+    art-x-buckham: Scienza en Teatu
+  codes:
+    admin: '900302'
+  population: 540000
+  area_km2: 720.0
+  notes:
+    zh: 科学大道沿线，深空太空军北维京研发中心等科研设施所在
+    en: Research facilities along Science Avenue, including the Deep Space Force North Viking R&D Centre.
+- id: div_fr1vq9
+  subtype: borough
+  parent: div_0yef9a
+  status: canon
+  names:
+    zh: 学院区
+    en: Academy District
+    art-x-viking: Hochschule auf Hea
+    art-x-buckham: Accademia en Teatu
+  codes:
+    admin: '900303'
+  population: 380000
+  area_km2: 540.0
+  notes:
+    zh: 高等教育与附属研发机构
+    en: Higher education and affiliated research institutes.
+- id: div_479xae
+  subtype: borough
+  parent: div_0yef9a
+  status: canon
+  names:
+    zh: 寒岭区
+    en: Frost Ridge District
+    art-x-viking: Frostkamm auf Hea
+    art-x-buckham: Fredd Tehee en Teatu
+  codes:
+    admin: '900304'
+  population: 200000
+  area_km2: 460.0
+  notes:
+    zh: 低密度科研居住与生态缓冲带
+    en: Low-density research housing and ecological buffer zone.
+- id: div_yjghe9
+  subtype: locality
+  parent: div_fbfqv9
+  status: canon
+  names:
+    zh: 勒克尔市
+    en: Lekor City
+    art-x-viking: Lekor auf Hea
+    art-x-buckham: Lekor en Teatu
+  codes:
+    admin: '9004'
+    unlocode: NV LKR
+  population: 960000
+  area_km2: 1559.0
+  notes:
+    zh: 农业中心、旅游度假区。在领地刚刚建成阶段曾覆盖维京港以东的大片地区，后逐渐被拆分为其他城市，目前仅保留原勒克尔市北部的五分之一领土
+    en: Agricultural centre and resort area. Once covered most of the land east of Viking Port; now retains only the northern fifth of its former territory.
+- id: div_0wvh63
+  subtype: borough
+  parent: div_yjghe9
+  status: canon
+  names:
+    zh: 勒北区
+    en: Lekor North District
+    art-x-viking: Lekor Nord auf Hea
+    art-x-buckham: Lekor Nord en Teatu
+  codes:
+    admin: '900401'
+  population: 420000
+  area_km2: 620.0
+  notes:
+    zh: 拆市后保留的北部农牧核心
+    en: The northern farming and pastoral core retained after the 1990 split.
+- id: div_davn2j
+  subtype: borough
+  parent: div_yjghe9
+  status: canon
+  names:
+    zh: 丰谷区
+    en: Harvest Vale District
+    art-x-viking: Erntegau auf Hea
+    art-x-buckham: Messe Valle en Teatu
+  codes:
+    admin: '900402'
+  population: 360000
+  area_km2: 580.0
+  notes:
+    zh: 酒庄、民宿与勒克尔丰收节主会场
+    en: Wineries, guesthouses and the main venue of the Lekor Harvest Festival.
+- id: div_t8bg0d
+  subtype: borough
+  parent: div_yjghe9
+  status: canon
+  names:
+    zh: 澄湖区
+    en: Clearlake District
+    art-x-viking: Klarsee auf Hea
+    art-x-buckham: Lago Chiaro en Teatu
+  codes:
+    admin: '900403'
+  population: 180000
+  area_km2: 359.0
+  notes:
+    zh: 环湖集镇与水上休闲
+    en: Lakeside towns and water recreation.
+- id: div_q4d6n6
+  subtype: locality
+  parent: div_fbfqv9
+  status: canon
+  names:
+    zh: 奥克西诺市
+    en: Oxino City
+    art-x-viking: Oxino auf Hea
+    art-x-buckham: Oxino en Teatu
+  codes:
+    admin: '9005'
+    unlocode: NV OXN
+  population: 880000
+  area_km2: 940.0
+  notes:
+    zh: 平原地区。1990 年在原勒克尔市拆分建成
+    en: Plains region. Formed in 1990 by splitting the former Lekor City.
+- id: div_rzw76f
+  subtype: borough
+  parent: div_q4d6n6
+  status: canon
+  names:
+    zh: 奥克区
+    en: Ox District
+    art-x-viking: Ox auf Hea
+    art-x-buckham: Ox en Teatu
+  codes:
+    admin: '900501'
+  population: 620000
+  area_km2: 650.0
+  notes:
+    zh: 机械化农业与农产品集散，取城市名首段
+    en: Mechanised agriculture and produce distribution; named after the first part of the city name.
+- id: div_mpfctv
+  subtype: borough
+  parent: div_q4d6n6
+  status: canon
+  names:
+    zh: 西诺区
+    en: Sino District
+    art-x-viking: Sino auf Hea
+    art-x-buckham: Sino en Teatu
+  codes:
+    admin: '900502'
+  population: 260000
+  area_km2: 290.0
+  notes:
+    zh: 承接勒克尔方向通勤的居住拓展，取城市名末段
+    en: Residential expansion serving commuters towards Lekor; named after the last part of the city name.
+- id: div_prcxzt
+  subtype: locality
+  parent: div_fbfqv9
+  status: canon
+  names:
+    zh: 洛龙山市
+    en: Lorond Mountain City
+    art-x-viking: Lorondberg auf Hea
+    art-x-buckham: Lorond Tehee en Teatu
+  codes:
+    admin: '9006'
+    unlocode: NV LRD
+  population: 450000
+  area_km2: 2998.0
+  notes:
+    zh: 复杂山区。1990 年在原勒克尔市拆分建成
+    en: Complex mountain terrain. Formed in 1990 by splitting the former Lekor City.
+- id: div_j82dgm
+  subtype: borough
+  parent: div_prcxzt
+  status: canon
+  names:
+    zh: 龙关区
+    en: Long Pass District
+    art-x-viking: Lorondpass auf Hea
+    art-x-buckham: Porta Lorond en Teatu
+  codes:
+    admin: '900601'
+  population: 180000
+  area_km2: 380.0
+  notes:
+    zh: 洛龙山隘口集镇与公路枢纽
+    en: Mountain-pass town and highway hub of the Lorond Mountains.
+- id: div_k5f1mz
+  subtype: borough
+  parent: div_prcxzt
+  status: canon
+  names:
+    zh: 杉岭区
+    en: Fir Ridge District
+    art-x-viking: Fichtenkamm auf Hea
+    art-x-buckham: Abete Tehee en Teatu
+  codes:
+    admin: '900602'
+  population: 120000
+  area_km2: 1420.0
+  notes:
+    zh: 林业、护林与少量季节性驻地
+    en: Forestry, forest protection and a few seasonal settlements.
+- id: div_0t2t36
+  subtype: borough
+  parent: div_prcxzt
+  status: canon
+  names:
+    zh: 深峡区
+    en: Deep Gorge District
+    art-x-viking: Talschlucht auf Hea
+    art-x-buckham: Gola Profonda en Teatu
+  codes:
+    admin: '900603'
+  population: 150000
+  area_km2: 1198.0
+  notes:
+    zh: 高山峡谷村落与观光步道
+    en: Alpine gorge villages and scenic trails.
+- id: div_k4s990
+  subtype: locality
+  parent: div_fbfqv9
+  status: canon
+  names:
+    zh: 新城市
+    en: New City
+    art-x-viking: Neustad auf Hea
+    art-x-buckham: Neu Teatu en Teatu
+  codes:
+    admin: '9007'
+    unlocode: NV NEW
+  population: 1890000
+  area_km2: 1500.0
+  notes:
+    zh: 新建成的现代化居住中心，居民多通勤于萨科勒市。1990 年拆分自马斯林山市
+    en: Newly built modern residential centre; most residents commute to Sakole. Split from Maslin Mountain City in 1990.
+- id: div_z8yxye
+  subtype: borough
+  parent: div_k4s990
+  status: canon
+  names:
+    zh: 中轴区
+    en: Central Axis District
+    art-x-viking: Achse auf Hea
+    art-x-buckham: Asse en Teatu
+  codes:
+    admin: '900701'
+  population: 720000
+  area_km2: 520.0
+  notes:
+    zh: 高层住宅、商业与轨道交通枢纽
+    en: High-rise housing, commerce and the rail transit hub.
+- id: div_s1qwxh
+  subtype: borough
+  parent: div_k4s990
+  status: canon
+  names:
+    zh: 北苑区
+    en: North Gardens District
+    art-x-viking: Nordgarten auf Hea
+    art-x-buckham: Giardino Nord en Teatu
+  codes:
+    admin: '900702'
+  population: 680000
+  area_km2: 540.0
+  notes:
+    zh: 成片新建社区与学校
+    en: Large new residential communities and schools.
+- id: div_hyxnpg
+  subtype: borough
+  parent: div_k4s990
+  status: canon
+  names:
+    zh: 南驿区
+    en: South Post District
+    art-x-viking: Südpost auf Hea
+    art-x-buckham: Posta Sud en Teatu
+  codes:
+    admin: '900703'
+  population: 490000
+  area_km2: 440.0
+  notes:
+    zh: 面向萨科勒方向的快速路与公交走廊
+    en: Expressway and bus corridor towards Sakole.
+- id: div_ygk521
+  subtype: locality
+  parent: div_fbfqv9
+  status: canon
+  names:
+    zh: 天城市
+    en: Skytown City
+    art-x-viking: Himmelstad auf Hea
+    art-x-buckham: Cielo en Teatu
+  codes:
+    admin: '9008'
+    unlocode: NV SKY
+  population: 780000
+  area_km2: 950.0
+  notes:
+    zh: 度假区。1990 年拆分自马斯林山市
+    en: Resort area. Split from Maslin Mountain City in 1990.
+- id: div_w1ea18
+  subtype: borough
+  parent: div_ygk521
+  status: canon
+  names:
+    zh: 天台区
+    en: Sky Terrace District
+    art-x-viking: Himmelterrasse auf Hea
+    art-x-buckham: Terrazza Cielo en Teatu
+  codes:
+    admin: '900801'
+  population: 320000
+  area_km2: 320.0
+  notes:
+    zh: 主度假集群与会议中心
+    en: Main resort cluster and convention centre.
+- id: div_f5s7ax
+  subtype: borough
+  parent: div_ygk521
+  status: canon
+  names:
+    zh: 银滩区
+    en: Silver Beach District
+    art-x-viking: Silberstrand auf Hea
+    art-x-buckham: Spiaggia Argento en Teatu
+  codes:
+    admin: '900802'
+  population: 280000
+  area_km2: 380.0
+  notes:
+    zh: 海滩、主题乐园与酒店群
+    en: Beaches, theme parks and hotels.
+- id: div_ts88e3
+  subtype: borough
+  parent: div_ygk521
+  status: canon
+  names:
+    zh: 岚山区
+    en: Mist Hill District
+    art-x-viking: Nebelhang auf Hea
+    art-x-buckham: Pendio Nebbia en Teatu
+  codes:
+    admin: '900803'
+  population: 180000
+  area_km2: 250.0
+  notes:
+    zh: 低密度高端住宅
+    en: Low-density high-end residences.
+- id: div_da3s38
+  subtype: locality
+  parent: div_fbfqv9
+  status: canon
+  names:
+    zh: 萨科勒市
+    en: Sakole City
+    art-x-viking: Sakole auf Hea
+    art-x-buckham: Sakole en Teatu
+  codes:
+    admin: '9009'
+    unlocode: NV SKL
+  population: 900000
+  area_km2: 750.0
+  notes:
+    zh: 建设有新工业区。1990 年拆分自马斯林山市
+    en: Home to a new industrial zone. Split from Maslin Mountain City in 1990.
+- id: div_6byxb5
+  subtype: borough
+  parent: div_da3s38
+  status: canon
+  names:
+    zh: 新厂区
+    en: New Works District
+    art-x-viking: Neuwerk auf Hea
+    art-x-buckham: Fabbrica Neu en Teatu
+  codes:
+    admin: '900901'
+  population: 380000
+  area_km2: 280.0
+  notes:
+    zh: 1990 年代起布局的制造业园区
+    en: Manufacturing parks laid out since the 1990s.
+- id: div_8m0jx4
+  subtype: borough
+  parent: div_da3s38
+  status: canon
+  names:
+    zh: 萨科区
+    en: Sako District
+    art-x-viking: Sako auf Hea
+    art-x-buckham: Sako en Teatu
+  codes:
+    admin: '900902'
+  population: 320000
+  area_km2: 310.0
+  notes:
+    zh: 拆市前的传统市镇中心，取城市名首段
+    en: The traditional town centre before the split; named after the first part of the city name.
+- id: div_8njcs3
+  subtype: borough
+  parent: div_da3s38
+  status: canon
+  names:
+    zh: 站前区
+    en: Stationfront District
+    art-x-viking: Bahnhofvor auf Hea
+    art-x-buckham: Stazione Fronte en Teatu
+  codes:
+    admin: '900903'
+  population: 200000
+  area_km2: 160.0
+  notes:
+    zh: 公路货运站与仓储
+    en: Road freight station and warehousing.
+- id: div_k4hg7b
+  subtype: locality
+  parent: div_fbfqv9
+  status: canon
+  names:
+    zh: 贝克勒自由贸易区
+    en: Beckerle Free Trade Zone
+    art-x-viking: Beckerle Frei auf Hea
+    art-x-buckham: Beckerle Libre en Teatu
+  codes:
+    admin: '9010'
+    unlocode: NV BKL
+  population: 950000
+  area_km2: 124.0
+  notes:
+    zh: 自由贸易试验区，拥有极端自由的经济政策。1990 年拆分自马斯林山市
+    en: Free trade pilot zone with extremely liberal economic policies. Split from Maslin Mountain City in 1990.
+  special_status: free_trade_zone
+- id: div_e6pc44
+  subtype: borough
+  parent: div_k4hg7b
+  status: canon
+  names:
+    zh: 港门区
+    en: Portgate District
+    art-x-viking: Hafentor auf Hea
+    art-x-buckham: Porta Porto en Teatu
+  codes:
+    admin: '901001'
+  population: 280000
+  area_km2: 38.0
+  notes:
+    zh: 海陆空联运监管与旅客通道
+    en: Sea-land-air intermodal supervision and passenger gateway.
+- id: div_8p9k5t
+  subtype: borough
+  parent: div_k4hg7b
+  status: canon
+  names:
+    zh: 汇兑区
+    en: Exchange District
+    art-x-viking: Wechsel auf Hea
+    art-x-buckham: Cambio en Teatu
+  codes:
+    admin: '901002'
+  population: 410000
+  area_km2: 52.0
+  notes:
+    zh: 离岸金融、结算与总部经济
+    en: Offshore finance, clearing and headquarters economy.
+- id: div_ts5cw5
+  subtype: borough
+  parent: div_k4hg7b
+  status: canon
+  names:
+    zh: 保税区
+    en: Bonded District
+    art-x-viking: Zollfrei auf Hea
+    art-x-buckham: Franco en Teatu
+  codes:
+    admin: '901003'
+  population: 260000
+  area_km2: 34.0
+  notes:
+    zh: 保税仓储与加工贸易
+    en: Bonded warehousing and processing trade.
+- id: div_rdypg7
+  subtype: locality
+  parent: div_fbfqv9
+  status: canon
+  names:
+    zh: 马斯林山市
+    en: Maslin Mountain City
+    art-x-viking: Maslinberg auf Hea
+    art-x-buckham: Maslin Tehee en Teatu
+  codes:
+    admin: '9011'
+    unlocode: NV MSL
+  population: 90000
+  area_km2: 2890.0
+  notes:
+    zh: 复杂山区，东部为平地，其他三面被高山环绕。军事训练区。市辖单位称「大区」
+    en: 'Complex mountain terrain: flat land to the east, high mountains on the other three sides. Military training area. Its subdivisions are called regions.'
+- id: div_nvrjpg
+  subtype: borough
+  parent: div_rdypg7
+  status: canon
+  names:
+    zh: 和平大区
+    en: Peace Region
+    art-x-viking: Frieden auf Hea
+    art-x-buckham: Pace en Teatu
+  codes:
+    admin: '901101'
+  population: 21000
+  area_km2: 520.0
+  notes:
+    zh: 领地维和部队指挥部驻地
+    en: Headquarters of the Territorial Peacekeeping Force.
+- id: div_nytsvb
+  subtype: borough
+  parent: div_rdypg7
+  status: canon
+  names:
+    zh: 星港大区
+    en: Starport Region
+    art-x-viking: Sternhafen auf Hea
+    art-x-buckham: Porto Stella en Teatu
+  codes:
+    admin: '901102'
+  population: 18000
+  area_km2: 610.0
+  notes:
+    zh: 深空太空军马斯林山指挥中心
+    en: Deep Space Force Maslin Mountain Command Centre.
+- id: div_tc0ngk
+  subtype: borough
+  parent: div_rdypg7
+  status: canon
+  names:
+    zh: 东营大区
+    en: East Camp Region
+    art-x-viking: Ostlager auf Hea
+    art-x-buckham: Campo Est en Teatu
+  codes:
+    admin: '901103'
+  population: 15000
+  area_km2: 580.0
+  notes:
+    zh: 深空太空军士官学校
+    en: Deep Space Force NCO Academy.
+- id: div_nwke3f
+  subtype: borough
+  parent: div_rdypg7
+  status: canon
+  names:
+    zh: 西坪大区
+    en: West Heath Region
+    art-x-viking: Westheide auf Hea
+    art-x-buckham: Pianoro Ovest en Teatu
+  codes:
+    admin: '901104'
+  population: 19000
+  area_km2: 640.0
+  notes:
+    zh: 维京-马斯林山发射与降落中心
+    en: Viking–Maslin Mountain Launch and Landing Centre.
+- id: div_0tsyzy
+  subtype: borough
+  parent: div_rdypg7
+  status: canon
+  names:
+    zh: 联训大区
+    en: Joint Drill Region
+    art-x-viking: Verbundübung auf Hea
+    art-x-buckham: Addestramento en Teatu
+  codes:
+    admin: '901105'
+  population: 17000
+  area_km2: 540.0
+  notes:
+    zh: 解放军马斯林山联合训练基地
+    en: PLA Maslin Mountain Joint Training Base.
+- id: div_8emjne
+  subtype: locality
+  parent: div_fbfqv9
+  status: canon
+  names:
+    zh: 厄定河市
+    en: Erding River City
+    art-x-viking: Erding Fluß auf Hea
+    art-x-buckham: Erding Rivo en Teatu
+  codes:
+    admin: '9012'
+    unlocode: NV ERD
+  population: 30000
+  area_km2: 890.0
+  notes:
+    zh: 维京岛东北地区的河谷平原。原为马斯林山市首府
+    en: River valley plain in the north-east of the island. Formerly the seat of Maslin Mountain City.
+- id: div_qpyn9e
+  subtype: borough
+  parent: div_8emjne
+  status: canon
+  names:
+    zh: 厄定区
+    en: Erding District
+    art-x-viking: Erding auf Hea
+    art-x-buckham: Erding en Teatu
+  codes:
+    admin: '901201'
+  population: 18000
+  area_km2: 520.0
+  notes:
+    zh: 厄定河沿岸农业与小型集镇
+    en: Farming and small towns along the Erding River.
+- id: div_1qm5cj
+  subtype: borough
+  parent: div_8emjne
+  status: canon
+  names:
+    zh: 旧府区
+    en: Old Prefecture District
+    art-x-viking: Althaupt auf Hea
+    art-x-buckham: Palazzo Vecchio en Teatu
+  codes:
+    admin: '901202'
+  population: 12000
+  area_km2: 370.0
+  notes:
+    zh: 马斯林山拆市前的机关旧址与博物馆
+    en: Former government seat of Maslin Mountain City before the split, now museums.
