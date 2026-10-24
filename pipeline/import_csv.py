@@ -30,7 +30,7 @@ from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas.world import CODE_DIGITS, DETECT_KINDS, RAIL_NETWORKS, ROOT, SITE_LAYOUTS, WORLD_DIR, World  # noqa: E402
+from atlas.world import CODE_DIGITS, DETECT_KINDS, HARBOUR_TERMINALS, RAIL_NETWORKS, ROOT, SITE_LAYOUTS, WORLD_DIR, World  # noqa: E402
 from new_id import mint  # noqa: E402
 
 DELETE = object()
@@ -137,6 +137,8 @@ KINDS = {
             Col("site_layout", "占地布局", "site.layout", "choice", SITE_LAYOUTS),
             Col("site_along_m", "占地长米"), Col("site_across_m", "占地宽米"),
             Col("site_angle_deg", "占地朝向度", "site.angle_deg", "angle"),
+            Col("site_terminals", "港区码头", "site.terminals", "choices", HARBOUR_TERMINALS),
+            Col("site_bridge_to", "大桥连接", "site.bridge_to", "ref"),
             *NOTES,
         ],
     },
@@ -287,6 +289,13 @@ class Importer:
         if c.type == "choice" and raw not in c.choices:
             self.problems.add(self.where(i, c.key), f"“{raw}”不是可选值（{'、'.join(c.choices)}）")
             return None
+        if c.type == "choices":
+            parts = [p.strip() for p in re.split(r"[;；,，、]", raw) if p.strip()]
+            bad = [p for p in parts if p not in c.choices]
+            if bad:
+                self.problems.add(self.where(i, c.key), f"“{'、'.join(bad)}”不是可选值（{'、'.join(c.choices)}），多个用分号分隔")
+                return None
+            return CommentedSeq(parts)
         if c.type == "color" and not re.fullmatch(r"#[0-9A-Fa-f]{6}", raw):
             self.problems.add(self.where(i, c.key), f"“{raw}”应为 #RRGGBB 格式的颜色")
             return None

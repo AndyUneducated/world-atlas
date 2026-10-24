@@ -15,9 +15,12 @@ DIVISION_SUBTYPES = ("country", "dependency", "region", "locality", "borough")
 # Division codes (GB/T 2260): six digits, of which a territory uses the first two, a city four
 # and a district all six; the rest are zeros (900000 → 900100 → 900101).
 CODE_DIGITS = {"dependency": 2, "locality": 4, "borough": 6}
-# Landmark footprint templates (see pipeline/atlas/buildings.py); the last three are transport facilities.
-SITE_LAYOUTS = ("complex", "hall", "campus", "stadium", "tower", "park", "plaza", "market", "airport", "port", "spaceport")
-FACILITY_LAYOUTS = ("airport", "port", "spaceport")
+# Landmark footprint templates (see pipeline/atlas/buildings.py); the last five are transport facilities.
+SITE_LAYOUTS = ("complex", "hall", "campus", "stadium", "tower", "park", "plaza", "market",
+                "airport", "port", "harbour", "offshore_port", "spaceport")
+FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport")
+COASTAL_LAYOUTS = ("port", "harbour")  # sites centred on the shore
+HARBOUR_TERMINALS = ("container", "bulk", "oil", "roro")
 RAIL_NETWORKS = ("intercity_rail",)
 STREET_STYLES = ("planned", "mixed", "organic")
 BUILDING_MIX_KEYS = ("slabs", "towers", "perimeter", "houses", "podium", "industrial", "civic", "park")
@@ -157,6 +160,14 @@ class World:
                     errors.append(f"{pid}: site angle_deg must be a number (degrees, east = 0, counter-clockwise)")
                 if self.divisions.get(p.get("in"), {}).get("subtype") != "borough":
                     errors.append(f"{pid}: a place with a site must be 'in' a district")
+                if site.get("layout") == "harbour":
+                    terms = site.get("terminals")
+                    if not (isinstance(terms, list) and len(terms) >= 2 and all(t in HARBOUR_TERMINALS for t in terms)):
+                        errors.append(f"{pid}: harbour terminals must list 2 or more of {', '.join(HARBOUR_TERMINALS)} (one per mole, along the quay)")
+                if site.get("layout") == "offshore_port" and "bridge_to" in site:
+                    to = self.places.get(site["bridge_to"], {})
+                    if to.get("in") != p.get("in") or to.get("site", {}).get("layout") not in COASTAL_LAYOUTS:
+                        errors.append(f"{pid}: bridge_to must name a port or harbour in the same district")
         for rid, r in self.railways.items():
             if r.get("network") not in RAIL_NETWORKS:
                 errors.append(f"{rid}: railway network must be one of {', '.join(RAIL_NETWORKS)}")

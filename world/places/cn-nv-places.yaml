@@ -331,11 +331,26 @@ places:
       art-x-viking: Hafen Walvik
       art-x-buckham: Porto di Baia Balena
     notes:
-      zh: 领地最大的港口，集装箱与散货码头连成一片
-      en: The territory's largest port, a continuous front of container and bulk berths.
+      zh: 领地最大的港口。自鲸湾老岸线向外填出码头前沿，再向内陆挖出四座港池；五座突堤自南向北依次为油品、散货、两座集装箱和滚装码头，油品码头的栈桥伸出防波堤外。后方是铁路编组站与物流仓库
+      en: The territory's largest port. The quay front was reclaimed out from the old Walvik shore and four basins were dug back inland; from south to north the five moles hold the oil, bulk, two container and ro-ro terminals, and the oil jetty reaches out beyond the breakwaters. A rail yard and logistics warehouses lie behind.
     in: div_z29w6h
     offset_km: [-1.73, -5.86]
-    site: { size_m: [2400, 900], layout: port, angle_deg: 92 }
+    site: { size_m: [8000, 4400], layout: harbour, angle_deg: 100, terminals: [oil, bulk, container, container, roro] }
+
+  - id: poi_w5k2rt
+    subtype: port
+    status: generated
+    names:
+      zh: 外礁深水港
+      en: Outer Skerry Deep-Water Port
+      art-x-viking: Tiefwasserhafen Außenschären
+      art-x-buckham: Porto d'Acque Profonde dello Scoglio Esterno
+    notes:
+      zh: 鲸湾外二十多公里的礁群上填海建成的深水集装箱港，水深可停靠最大的集装箱船；经鲸湾跨海大桥与鲸湾港相连
+      en: Deep-water container port reclaimed on a group of skerries more than 20 km off Walvik, deep enough for the largest container ships; the Walvik Sea Bridge joins it to Walvik Harbour.
+    in: div_z29w6h
+    offset_km: [-22.9, -11.8]
+    site: { size_m: [5000, 1500], layout: offshore_port, angle_deg: 100, bridge_to: poi_jc0fe5 }
 
   - id: poi_z7m0xm
     subtype: ferry_terminal
@@ -461,7 +476,7 @@ places:
       zh: 由旧捕鲸站改建，讲述鲸湾从捕鲸站到领地最大港口的历史
       en: The old whaling station, now a museum of how Walvik grew from a whaling post into the territory's largest port.
     in: div_z29w6h
-    offset_km: [-0.9, -3.6]
+    offset_km: [-1.0, -0.9]
     site: { size_m: [180, 120], layout: hall }
 
   - id: poi_9jstpd

@@ -24,6 +24,8 @@ export interface EntityStats {
   drainage_km2?: number;
   elevation_m?: number;
   prominence_m?: number;
+  /** Length of the sea bridge joining an offshore port to the shore. */
+  bridge_km?: number;
 }
 
 export interface Entity {

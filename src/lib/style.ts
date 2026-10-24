@@ -188,22 +188,49 @@ export function buildStyle(opts: {
     },
   });
 
-  /** Parks, landmark grounds and building footprints, fading in as the city streets fill in. */
-  function buildingLayers(): LayerSpecification[] {
+  const buildingsLayout = { visibility: visible(layers.buildings) };
+  const fadeIn = (z: number, to = 1): ExpressionSpecification => ["interpolate", ["linear"], ["zoom"], z, 0, z + 0.8, to];
+  const isFacility: ExpressionSpecification = ["==", ["get", "facility"], true];
+
+  /** Facility grounds and their parts, above the coast line since harbours and offshore ports are reclaimed from the sea. */
+  function facilityLayers(): LayerSpecification[] {
     const b = m.building;
-    const layout = { visibility: visible(layers.buildings) };
-    const fadeIn = (z: number, to = 1): ExpressionSpecification => ["interpolate", ["linear"], ["zoom"], z, 0, z + 0.8, to];
-    const isFacility: ExpressionSpecification = ["==", ["get", "facility"], true];
-    const isSite: ExpressionSpecification = ["all", ["has", "id"], ["!", isFacility]];
-    const isPart = (kind: string): ExpressionSpecification => ["all", isFacility, ["==", ["get", "part"], kind]];
     const f = b.facility;
+    const layout = buildingsLayout;
+    const isPart = (kind: string): ExpressionSpecification => ["all", isFacility, ["==", ["get", "part"], kind]];
     return [
-      { id: "park", type: "fill", ...from("parks"), minzoom: 12, layout, paint: { "fill-color": b.park, "fill-opacity": fadeIn(12) } },
       { id: "facility-grounds", type: "fill", source: "landmarks", minzoom: 9.4, filter: ["all", ["has", "id"], isFacility], layout, paint: { "fill-color": f.grounds, "fill-opacity": fadeIn(9.4, 0.9) } },
+      { id: "facility-basin", type: "fill", source: "landmarks", minzoom: 9.4, filter: isPart("basin"), layout, paint: { "fill-color": m.water, "fill-opacity": fadeIn(9.4) } },
+      { id: "facility-breakwater", type: "fill", source: "landmarks", minzoom: 9.4, filter: isPart("breakwater"), layout, paint: { "fill-color": f.breakwater, "fill-opacity": fadeIn(9.4) } },
       { id: "facility-paved", type: "fill", source: "landmarks", minzoom: 10.2, filter: isPart("paved"), layout, paint: { "fill-color": f.paved, "fill-opacity": fadeIn(10.2) } },
+      { id: "facility-lot", type: "fill", source: "landmarks", minzoom: 11.5, filter: isPart("lot"), layout, paint: { "fill-color": f.lot, "fill-opacity": fadeIn(11.5), "fill-outline-color": f.paved } },
+      { id: "facility-bulk", type: "fill", source: "landmarks", minzoom: 11, filter: isPart("bulk"), layout, paint: { "fill-color": f.bulk, "fill-opacity": fadeIn(11) } },
+      { id: "facility-stack", type: "fill", source: "landmarks", minzoom: 11.5, filter: isPart("stack"), layout, paint: { "fill-color": f.stack, "fill-opacity": fadeIn(11.5) } },
+      { id: "facility-rail", type: "fill", source: "landmarks", minzoom: 12, filter: isPart("rail"), layout, paint: { "fill-color": f.rail, "fill-opacity": fadeIn(12) } },
+      { id: "facility-tank", type: "fill", source: "landmarks", minzoom: 11.5, filter: isPart("tank"), layout, paint: { "fill-color": f.tank, "fill-opacity": fadeIn(11.5), "fill-outline-color": f.tankLine } },
+      { id: "facility-bridge", type: "fill", source: "landmarks", minzoom: 12, filter: isPart("bridge"), layout, paint: { "fill-color": f.paved, "fill-opacity": fadeIn(12) } },
+      {
+        id: "facility-bridge-line",
+        type: "line",
+        source: "landmarks",
+        minzoom: 8,
+        filter: isPart("bridge"),
+        layout,
+        paint: { "line-color": f.bridge, "line-width": ["interpolate", ["linear"], ["zoom"], 8, 0.8, 12, 1.4, 15, 2], "line-opacity": fadeIn(8) },
+      },
       { id: "facility-runway", type: "fill", source: "landmarks", minzoom: 9.4, filter: isPart("runway"), layout, paint: { "fill-color": f.runway, "fill-opacity": fadeIn(9.4) } },
       { id: "facility-pad", type: "fill", source: "landmarks", minzoom: 10.5, filter: isPart("pad"), layout, paint: { "fill-color": f.pad, "fill-opacity": fadeIn(10.5), "fill-outline-color": f.runway } },
       { id: "facility-building", type: "fill", source: "landmarks", minzoom: 11.5, filter: isPart("building"), layout, paint: { "fill-color": b.landmark.fill, "fill-opacity": fadeIn(11.5), "fill-outline-color": b.landmark.outline } },
+    ] as LayerSpecification[];
+  }
+
+  /** Parks, landmark grounds and building footprints, fading in as the city streets fill in. */
+  function buildingLayers(): LayerSpecification[] {
+    const b = m.building;
+    const layout = buildingsLayout;
+    const isSite: ExpressionSpecification = ["all", ["has", "id"], ["!", isFacility]];
+    return [
+      { id: "park", type: "fill", ...from("parks"), minzoom: 12, layout, paint: { "fill-color": b.park, "fill-opacity": fadeIn(12) } },
       {
         id: "landmark-grounds",
         type: "fill",
@@ -368,6 +395,7 @@ export function buildStyle(opts: {
     layout: { "line-join": "round" },
     paint: { "line-color": m.coast.color, "line-width": ["interpolate", ["linear"], ["zoom"], 4, m.coast.width * 0.6, 10, m.coast.width * 1.6] },
   });
+  style.push(...facilityLayers());
 
   const roadWidth = (base: number): ExpressionSpecification => [
     "interpolate",
@@ -817,7 +845,7 @@ export function buildStyle(opts: {
       type: "symbol",
       source: "landmarks",
       minzoom: 13.4,
-      filter: ["has", "id"],
+      filter: ["all", ["has", "label_of"], ["!", isFacility]],
       layout: {
         visibility: visible(layers.buildings),
         "text-field": name(lang),
@@ -833,7 +861,7 @@ export function buildStyle(opts: {
       type: "symbol",
       source: "landmarks",
       minzoom: 10,
-      filter: ["all", ["has", "id"], ["==", ["get", "facility"], true]],
+      filter: ["all", ["has", "label_of"], isFacility],
       layout: {
         visibility: visible(layers.buildings),
         "text-field": name(lang),

@@ -35,10 +35,11 @@ from atlas.terrain import drainage_surface, elevation, land_mask  # noqa: E402
 from atlas.network import ROAD_RANK, build_graph  # noqa: E402
 from atlas.transport import Router  # noqa: E402
 from atlas.vectorize import point_lonlat, polygonize_labels, to_lonlat  # noqa: E402
-from atlas.world import FACILITY_LAYOUTS, ROOT, World  # noqa: E402
+from atlas.world import COASTAL_LAYOUTS, FACILITY_LAYOUTS, ROOT, World  # noqa: E402
 
 OUT = ROOT / "public" / "data"
 SITE_SNAP_KM = 6.0  # how far (real km) a port or facility site may move to fit the shore
+SEA_BRIDGE_HALF_WIDTH_KM = 0.017  # a six-lane sea bridge deck
 B32 = "0123456789abcdefghjkmnpqrstvwxyz"
 # Road networks whose cards list the districts they pass through.
 SEGMENTED_NETWORKS = {"national_expressway", "national_highway", "territorial_expressway", "territorial_highway"}
@@ -334,19 +335,30 @@ def sea_coast(land):
     return shapely.MultiLineString([p.exterior for p in getattr(land, "geoms", [land])])
 
 
-def fit_site(layout, centre, a, size, land, coast, seed, pid):
-    """Site outline and parts placed at `centre` (real km), then fitted to the shore: a port moves to
-    the nearest sea coast within SITE_SNAP_KM, and a facility steps inland until it is dry. So a site
-    keeps its role when the district centre it is offset from moves after a repartition."""
+def fit_site(cfg, centre, a, size, land, coast, seed, pid, built_sites):
+    """Site outline and parts placed at `centre` (real km), then fitted to the shore: a port or
+    harbour moves to the nearest sea coast within SITE_SNAP_KM, and a facility steps inland until it
+    is dry. So a site keeps its role when the district centre it is offset from moves after a
+    repartition. An offshore port stays at sea, with a bridge to the coast next to the harbour it
+    names in bridge_to (in `built_sites`), or else to the nearest coast."""
+    layout = cfg["layout"]
+
     def build(c):
         rng = np.random.default_rng([seed, int(hashlib.sha1(pid.encode()).hexdigest()[:8], 16)])
-        return buildings.landmark(layout, c, a, size, rng, land)
+        return buildings.landmark(layout, c, a, size, rng, land, cfg.get("terminals", ()))
 
     p = Point(centre)
-    if layout == "port":
+    if layout in COASTAL_LAYOUTS:
         q = nearest_points(coast, p)[0]
         return build((q.x, q.y) if q.distance(p) <= SITE_SNAP_KM else centre)
     site, parts = build(centre)
+    if layout == "offshore_port":
+        to = built_sites.get(cfg.get("bridge_to"))
+        shore = coast.difference(to.buffer(0.3)) if to is not None else coast
+        land_at = nearest_points(shore, to.centroid if to is not None else site.centroid)[0]
+        start = nearest_points(site.exterior, land_at)[0]
+        deck = LineString([start, land_at])
+        return site, parts + [("bridge", deck.buffer(SEA_BRIDGE_HALF_WIDTH_KM, cap_style="flat"))]
     if layout in FACILITY_LAYOUTS and site.intersection(land).area < 0.95 * site.area:
         q = nearest_points(coast, p)[0]
         ux, uy = (p.x - q.x, p.y - q.y) if land.contains(p) else (q.x - p.x, q.y - p.y)
@@ -375,11 +387,15 @@ def landmark_sites(world, d, core, angle, built, land, seed):
         a = math.radians(cfg["angle_deg"]) if "angle_deg" in cfg else angle
         if cfg["layout"] in FACILITY_LAYOUTS:
             coast = coast or sea_coast(land)
-        site, parts = fit_site(cfg["layout"], (core[0] + ox, core[1] + oy), a, size, land, coast, seed, pid)
+        site, parts = fit_site(cfg, (core[0] + ox, core[1] + oy), a, size, land, coast, seed, pid, {o: s for o, s, _ in out})
         zh = pl["names"]["zh"]
-        if cfg["layout"] == "port":
-            if not any(k == "paved" for k, _ in parts) or site.intersection(land).area < 0.25 * size[0] * size[1]:
+        if cfg["layout"] in COASTAL_LAYOUTS:
+            dry = site.intersection(land).area
+            if not any(k == "paved" for k, _ in parts) or dry < 0.25 * size[0] * size[1] or dry > 0.95 * site.area:
                 log(f"  WARN {zh}: port site does not straddle the coast")
+        elif cfg["layout"] == "offshore_port":
+            if site.intersection(land).area > 0.05 * site.area:
+                log(f"  WARN {zh}: offshore port site runs onto land")
         elif cfg["layout"] in FACILITY_LAYOUTS:
             if site.intersection(land).area < 0.95 * site.area:
                 log(f"  WARN {zh}: site runs into water")
@@ -1067,12 +1083,23 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             site, parts = sites[pid]
             geom = to_lonlat(affinity.scale(site, 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6)
             facility = p["site"]["layout"] in FACILITY_LAYOUTS
-            landmark_features.append(feature(geom, {"id": pid, "subtype": p["subtype"], "layout": p["site"]["layout"], "facility": facility,
-                                                    "name_zh": p["names"]["zh"], "name_en": p["names"]["en"]}))
-            for kind, part in parts:
-                part_geom = to_lonlat(affinity.scale(part, 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6)
+            props = {"id": pid, "subtype": p["subtype"], "layout": p["site"]["layout"], "facility": facility,
+                     "name_zh": p["names"]["zh"], "name_en": p["names"]["en"]}
+            landmark_features.append(feature(geom, props))
+            # one label point, or a site spanning several tiles is labelled once per tile
+            label = {"label_of": pid, "facility": facility, "layout": props["layout"], "name_zh": props["name_zh"], "name_en": props["name_en"]}
+            landmark_features.append(feature(to_lonlat(affinity.scale(site.representative_point(), 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6), label))
+            by_kind: dict[str, list] = {}
+            for kind, part in parts:  # one feature per part kind keeps big facilities light to render
+                by_kind.setdefault(kind, []).append(part)
+            for kind, ps in by_kind.items():
+                part_geom = to_lonlat(affinity.scale(shapely.union_all(ps), 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6)
                 landmark_features.append(feature(part_geom, {"part": kind, "of": pid, "facility": facility}))
-            entities[pid].update({"bbox": bbox_lonlat(geom), "stats": {"area_km2_mapped": round(site.area, 2)}})
+            stats = {"area_km2_mapped": round(site.area, 2)}
+            if bridges := by_kind.get("bridge"):
+                stats["bridge_km"] = round(sum(b.area for b in bridges) / (2 * SEA_BRIDGE_HALF_WIDTH_KM), 1)
+                geom = shapely.union_all([geom, *[to_lonlat(affinity.scale(b, 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6) for b in bridges]])
+            entities[pid].update({"bbox": bbox_lonlat(geom), "stats": stats})
 
     water_features = []
     for fid, m in lakes:

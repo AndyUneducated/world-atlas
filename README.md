@@ -22,7 +22,7 @@ world/*.yaml  ──►  pipeline/build.py  ──►  public/data/*.geojson, de
 | `world/divisions/` | Administrative divisions: territory, cities, districts |
 | `world/features/` | Natural features: mountain ranges, rivers, lakes, coastal landforms (bays, fjords, capes, straits, islands, river mouths), peaks, passes and glaciers |
 | `world/transport/` | Numbered routes (expressways, highways) and intercity railways |
-| `world/places/` | Landmarks, buildings and transport facilities (airports, ports, spaceports) |
+| `world/places/` | Landmarks, buildings and transport facilities (airports, ports, harbours, spaceports) |
 | `world/generator/` | Layout parameters: coastline, terrain, city anchors, seeds |
 | `pipeline/` | Python generator |
 | `src/` | Web app |
@@ -72,6 +72,11 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   clickable landmarks; streets and generated buildings keep out of their grounds.
   The `airport`, `port` and `spaceport` layouts draw runways, piers and launch pads, and an
   optional `angle_deg` turns a site to an absolute bearing (east = 0°, counter-clockwise).
+  A `harbour` is a dug-basin port: its `terminals` (`container`, `bulk`, `oil`, `roro`) fill
+  the moles between the basins in order, behind breakwaters and in front of a rail yard. An
+  `offshore_port` is a reclaimed island whose sea bridge lands next to the harbour named in
+  `bridge_to`. Ports and harbours snap to the nearest coast and airports and spaceports step
+  inland off the water, so sites stay in place when the districts are repartitioned.
 - **Railways.** Intercity lines in `world/transport/*-rail.yaml` list their stops (cities
   or districts) and are laid over the terrain with gentler gradients than roads; `tech`
   sets their operating and design speeds. City metro

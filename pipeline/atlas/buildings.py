@@ -13,7 +13,9 @@ Each block gets one typology, drawn in the block's own frame aligned with the st
 Which typology a block gets depends on the district style and the block's distance from the
 district centre. Landmark sites (from the places list) are laid out by their own templates,
 including the transport facilities: airports (runways, taxiways, apron, terminal), ports (quay,
-piers, sheds; clipped to the coast) and spaceports (launch and landing pads, assembly hall).
+piers, sheds; clipped to the coast), dug-basin harbours (moles with container, bulk, oil and
+ro-ro terminals, rail yard, breakwaters), offshore island ports (joined to the shore by a sea
+bridge, see build.fit_site) and spaceports (launch and landing pads, assembly hall).
 """
 from __future__ import annotations
 
@@ -226,6 +228,100 @@ def _port(site, local_land, cx, cy, W, D, rng) -> tuple[Polygon, list[tuple[str,
     return outline, parts
 
 
+HARBOUR_BASIN_KM = 0.42  # width of a dug basin between two moles
+APRON_KM = 0.06          # quay apron along the water's edge
+
+
+def _terminal(kind: str, x0, x1, y0, y1) -> list[tuple[str, Polygon]]:
+    """Yard of one harbour terminal on a mole [x0, x1] × [y0, y1] (local km, quay front at y1,
+    a rail spur up the middle)."""
+    xm = (x0 + x1) / 2
+    parts = [("paved", box(x0, y0, x0 + APRON_KM, y1)), ("paved", box(x1 - APRON_KM, y0, x1, y1)),
+             ("paved", box(x0, y1 - APRON_KM, x1, y1))]
+    ix0, ix1, iy0, iy1 = x0 + APRON_KM + 0.05, x1 - APRON_KM - 0.05, y0 + 0.08, y1 - APRON_KM - 0.06
+    if kind == "container":
+        xs = np.arange(ix0, ix1 - 0.03, 0.046)
+        xs = xs[np.abs(xs + 0.015 - xm) > 0.045]
+        ys = np.arange(iy0, iy1 - 0.24, 0.27)
+        X, Y = (a.ravel() for a in np.meshgrid(xs, ys))
+        parts += [("stack", b) for b in shapely.box(X, Y, X + 0.03, Y + 0.24)]
+        parts += [("building", box(xm + 0.06, iy0 - 0.06, xm + 0.2, iy0 - 0.01))]
+    elif kind == "bulk":
+        for x in np.arange(ix0, ix1 - 0.12, 0.17):
+            if abs(x + 0.06 - xm) < 0.08:
+                continue
+            parts.append(("bulk", box(x + 0.03, iy0 + 0.1, x + 0.09, iy1 - 0.3).buffer(0.03, quad_segs=4)))
+            parts.append(("paved", box(x + 0.135, iy0 + 0.05, x + 0.143, y1 - APRON_KM)))
+        parts += [("tank", Point(x, iy1 - 0.12).buffer(0.024, quad_segs=6)) for x in np.arange(ix0 + 0.03, ix1, 0.07)]
+    elif kind == "oil":
+        X, Y = (a.ravel() for a in np.meshgrid(np.arange(ix0 + 0.05, ix1 - 0.04, 0.13), np.arange(iy0 + 0.05, iy1 - 0.04, 0.13)))
+        parts += [("tank", Point(x, y).buffer(0.045, quad_segs=8)) for x, y in zip(X, Y) if abs(x - xm) > 0.07]
+    elif kind == "roro":
+        X, Y = (a.ravel() for a in np.meshgrid(np.arange(ix0, ix1 - 0.18, 0.21), np.arange(iy0 + 0.25, iy1 - 0.12, 0.16)))
+        parts += [("lot", b) for b in shapely.box(X, Y, X + 0.19, Y + 0.14) if abs(b.centroid.x - xm) > 0.1]
+        parts += [("building", box(x, iy0, x + 0.24, iy0 + 0.16)) for x in (ix0, ix1 - 0.24)]
+        parts += [("paved", box(x0 - 0.05, y1 - 0.16, x0, y1 - 0.04)), ("paved", box(x1, y1 - 0.16, x1 + 0.05, y1 - 0.04))]
+    return parts
+
+
+def _harbour(cx, cy, W, D, terminals, rng) -> tuple[Polygon, list[tuple[str, Polygon]]]:
+    """Dug-basin harbour: a quay front reclaimed out from the shore (+y is the sea), basins cut back
+    into it between moles (one terminal each, in `terminals` order along local x), a rail yard and
+    warehouses behind, and breakwaters enclosing the outer harbour. An oil terminal at either end
+    is left outside the breakwaters with its own jetty."""
+    yq, yb = cy + 0.2 * D, cy - 0.23 * D
+    xa, xz = cx - 0.46 * W, cx + 0.46 * W
+    m = len(terminals)
+    mw = (xz - xa - (m - 1) * HARBOUR_BASIN_KM) / m
+    parts: list[tuple[str, Polygon]] = []
+    moles = []
+    for k, kind in enumerate(terminals):
+        x0 = xa + k * (mw + HARBOUR_BASIN_KM)
+        moles.append((x0, x0 + mw))
+        parts += _terminal(kind, x0, x0 + mw, yb, yq)
+        xm = x0 + mw / 2
+        parts.append(("rail", box(xm - 0.006, yb - 0.14, xm + 0.006, yq - 0.15)))
+        if k < m - 1:
+            parts.append(("basin", box(x0 + mw, yb, x0 + mw + HARBOUR_BASIN_KM, yq + 0.01)))
+    for k in range(6):
+        y = yb - 0.14 - 0.028 * k
+        parts.append(("rail", box(xa, y - 0.006, xz, y + 0.006)))
+    back = box(xa, cy - D / 2 + 0.08, xz, yb - 0.36)
+    parts += [("building", b) for b in _within(_grid(back.bounds, (0.2, 0.12), ((0.14, 0.18), (0.07, 0.09)), rng, centred=True), back)]
+
+    yw, top = yq + 0.5 * (cy + D / 2 - yq), cy + 0.48 * D
+    bx0, bx1 = xa - 0.2, xz + 0.2
+    jetties = []
+    for k in (0, m - 1):
+        if terminals[k] == "oil" and m > 2:
+            x0, x1 = moles[k]
+            xm = (x0 + x1) / 2
+            jetties += [box(xm - 0.012, yq, xm + 0.012, top), box(xm - 0.28, top - 0.05, xm + 0.28, top)]
+            if k == 0:
+                bx0 = x1 + HARBOUR_BASIN_KM / 2
+            else:
+                bx1 = x0 - HARBOUR_BASIN_KM / 2
+    mid = (bx0 + bx1) / 2
+    walls = [box(bx0 - 0.025, yq, bx0 + 0.025, yw), box(bx1 - 0.025, yq, bx1 + 0.025, yw),
+             box(bx0 - 0.025, yw - 0.025, mid - 0.2, yw + 0.025), box(mid + 0.2, yw - 0.025, bx1 + 0.025, yw + 0.025)]
+    parts += [("breakwater", w) for w in walls] + [("paved", j) for j in jetties]
+    platform = box(cx - W / 2, cy - D / 2, cx + W / 2, yq)
+    return shapely.union_all([platform, *walls, *jetties]), parts
+
+
+def _offshore(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+    """Deep-water container terminal on a reclaimed island: berths along the seaward +y side,
+    stacks behind, gate and offices on the -y side (where the bridge lands)."""
+    parts = [("paved", box(cx - W / 2, cy + D / 2 - 0.09, cx + W / 2, cy + D / 2))]
+    xs = np.arange(cx - W / 2 + 0.12, cx + W / 2 - 0.15, 0.046)
+    ys = np.arange(cy - D / 2 + 0.25, cy + D / 2 - 0.4, 0.27)
+    X, Y = (a.ravel() for a in np.meshgrid(xs, ys))
+    parts += [("stack", b) for b in shapely.box(X, Y, X + 0.03, Y + 0.24)]
+    parts += [("paved", box(cx - W / 2, cy - D / 2, cx + W / 2, cy - D / 2 + 0.12))]
+    parts += [("building", box(cx + x, cy - D / 2 + 0.14, cx + x + 0.16, cy - D / 2 + 0.22)) for x in (-0.5, -0.2, 0.1)]
+    return parts
+
+
 def _spaceport(site, cx, cy, W, D, rng) -> list[tuple[str, Polygon]]:
     """Launch pads along the +y side, landing pads, assembly hall and control centre on -y,
     a crawlerway linking them; large sites add a runway for spaceplanes."""
@@ -253,11 +349,12 @@ def _spaceport(site, cx, cy, W, D, rng) -> list[tuple[str, Polygon]]:
     return parts
 
 
-def landmark(layout: str, center, angle: float, size, rng, land=None) -> tuple[Polygon, list[tuple[str, Polygon]]]:
+def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=()) -> tuple[Polygon, list[tuple[str, Polygon]]]:
     """Site outline and parts [(kind, polygon)] of a landmark; kind is building, or for transport
-    facilities runway, pad or paved (aprons, taxiways, quays, piers). Local x points along `angle`;
-    the front of a city landmark is at -x, a port faces the sea on +y. `land` (needed by ports)
-    is the land area around the site."""
+    facilities runway, pad, paved (aprons, taxiways, quays, piers), basin (dug harbour water),
+    breakwater, stack (containers), bulk (stockpiles), tank, lot (vehicle parking) or rail.
+    Local x points along `angle`; the front of a city landmark is at -x, a port faces the sea on +y.
+    `land` (needed by ports) is the land area around the site; `terminals` lists a harbour's moles."""
     W, D = size
     cx, cy = center
     site = box(cx - W / 2, cy - D / 2, cx + W / 2, cy + D / 2)
@@ -286,4 +383,8 @@ def landmark(layout: str, center, angle: float, size, rng, land=None) -> tuple[P
     elif layout == "port":
         local_land = rotate(land.intersection(rotate(site, angle, center).buffer(0.2)), -angle, center) if land is not None else site
         outline, parts = _port(site, local_land, cx, cy, W, D, rng)
+    elif layout == "harbour":
+        outline, parts = _harbour(cx, cy, W, D, list(terminals), rng)
+    elif layout == "offshore_port":
+        parts = _offshore(cx, cy, W, D)
     return rotate(outline, angle, center), [(k, rotate(p, angle, center)) for k, p in parts]

@@ -47,8 +47,12 @@ export interface MapTheme {
     outline: string;
     park: string;
     landmark: { fill: string; outline: string; grounds: string; park: string; plaza: string; label: string };
-    /** Transport facilities: aprons, taxiways and quays; runways; launch and landing pads. */
-    facility: { grounds: string; paved: string; runway: string; pad: string; label: string };
+    /** Transport facilities: aprons, taxiways and quays; runways; launch and landing pads; harbour
+     * breakwaters, container stacks, bulk stockpiles, tanks, vehicle lots, rail sidings and sea bridges. */
+    facility: {
+      grounds: string; paved: string; runway: string; pad: string; label: string;
+      breakwater: string; stack: string; bulk: string; tank: string; tankLine: string; lot: string; rail: string; bridge: string;
+    };
   };
   /** Intercity rail drawn as a dark line with light ticks; metro lines in their own colours. */
   rail: { casing: string; fill: string; station: string; stationStroke: string; label: string; metroCasing: string };
@@ -122,7 +126,10 @@ export const THEMES: Record<ThemeId, Theme> = {
         outline: "#c7bfb5",
         park: "#cfe5c0",
         landmark: { fill: "#f1d9b3", outline: "#c49a5c", grounds: "#efe6d6", park: "#c6e2b5", plaza: "#ece5d9", label: "#7a4f17" },
-        facility: { grounds: "#e4e7ea", paved: "#cfd4da", runway: "#9aa3ad", pad: "#b8c0c9", label: "#3b4a5c" },
+        facility: {
+          grounds: "#e4e7ea", paved: "#cfd4da", runway: "#9aa3ad", pad: "#b8c0c9", label: "#3b4a5c",
+          breakwater: "#8f99a4", stack: "#9fb2c6", bulk: "#b9a68e", tank: "#f7f8f9", tankLine: "#8e99a5", lot: "#d9dee4", rail: "#7d8794", bridge: "#8a949f",
+        },
       },
       rail: { casing: "#5b6472", fill: "#ffffff", station: "#ffffff", stationStroke: "#3b4452", label: "#2f3a48", metroCasing: "#ffffff" },
       label: { text: "#1c2533", halo: "rgba(255,255,255,0.92)", minor: "#5d6b7c", water: "#4a83a8", terrain: "#7a6a58", territory: "#45566b" },
@@ -187,7 +194,10 @@ export const THEMES: Record<ThemeId, Theme> = {
         outline: "#2d3b52",
         park: "#13302a",
         landmark: { fill: "#1f3d4f", outline: "#5eead4", grounds: "#152233", park: "#123a30", plaza: "#1a2638", label: "#99f6e4" },
-        facility: { grounds: "#141c2a", paved: "#222d3e", runway: "#3a475c", pad: "#2f3c52", label: "#a5b4cb" },
+        facility: {
+          grounds: "#141c2a", paved: "#222d3e", runway: "#3a475c", pad: "#2f3c52", label: "#a5b4cb",
+          breakwater: "#44526a", stack: "#2f4a66", bulk: "#4a4234", tank: "#2a3648", tankLine: "#5f6f86", lot: "#1d2738", rail: "#5a6880", bridge: "#55647c",
+        },
       },
       rail: { casing: "#8b97ab", fill: "#0f1624", station: "#0f1624", stationStroke: "#cbd5e1", label: "#cbd5e1", metroCasing: "#05080f" },
       label: { text: "#e6edf7", halo: "rgba(5,8,15,0.9)", minor: "#8394ab", water: "#4fa6d6", terrain: "#8b9bb3", territory: "#6b7d96" },

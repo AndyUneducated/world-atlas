@@ -15,6 +15,7 @@ const STRINGS = {
   density: { zh: "人口密度", en: "Density" },
   maxElevation: { zh: "最高海拔", en: "Highest point" },
   length: { zh: "长度", en: "Length" },
+  seaBridge: { zh: "跨海大桥", en: "Sea bridge" },
   width: { zh: "最窄处", en: "Narrowest" },
   drainage: { zh: "流域面积", en: "Drainage basin" },
   names: { zh: "名称", en: "Names" },
