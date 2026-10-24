@@ -5,6 +5,7 @@ import { InfoCard } from "./components/InfoCard";
 import { Legend } from "./components/Legend";
 import { MapControls } from "./components/MapControls";
 import { MapView } from "./components/MapView";
+import { RoutePanel } from "./components/RoutePanel";
 import { SearchBox } from "./components/SearchBox";
 import { StatusBar } from "./components/StatusBar";
 import { LangToggle, ThemeSwitcher } from "./components/TopBar";
@@ -65,6 +66,7 @@ export default function App() {
         <div className="pointer-events-none absolute inset-0 z-10">
           <aside className="absolute top-3 bottom-14 left-3 flex w-[min(400px,calc(100vw-24px))] flex-col gap-2">
             <SearchBox />
+            <RoutePanel />
             <Breadcrumbs />
             <InfoCard />
           </aside>

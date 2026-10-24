@@ -29,14 +29,13 @@ from atlas.grid import Frame, Grid, block_reduce, chaikin, line_length_km, polyl
 from atlas.hydro import Drainage  # noqa: E402
 from atlas.noise import value_noise  # noqa: E402
 from atlas.terrain import drainage_surface, elevation, land_mask  # noqa: E402
+from atlas.network import ROAD_RANK, build_graph  # noqa: E402
 from atlas.transport import Router  # noqa: E402
 from atlas.vectorize import point_lonlat, polygonize_labels, to_lonlat  # noqa: E402
 from atlas.world import ROOT, World  # noqa: E402
 
 OUT = ROOT / "public" / "data"
 B32 = "0123456789abcdefghjkmnpqrstvwxyz"
-ROAD_RANK = {"motorway": 0, "trunk": 1, "primary": 2, "secondary": 3, "tertiary": 4}
-
 
 def log(msg):
     print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)
@@ -89,7 +88,7 @@ def lake_raster(g: Grid, center, radius, land):
     return (np.hypot(g.X - cx, g.Y - cy) < rr) & land
 
 
-def build_region(world: World, spec: dict, entities: dict, layers: dict):
+def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: dict):
     seed = spec["seed"]
     frame = Frame(spec["frame"]["origin_lonlat"], spec["frame"]["size_km"])
     g = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"])
@@ -317,6 +316,26 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict):
                     "center": list(point_lonlat(frame, *line.interpolate(0.5, normalized=True).coords[0]).coords[0]),
                     "stats": {"length_km": round(line_length_km(line.coords), 1)}})
 
+    terminals = {c["id"]: node[ci] for ci, c in enumerate(cities)}
+    terminals.update({d["id"]: node[district_city[i]] if i == core[district_city[i]] else router.cell(*poles[i])
+                      for i, d in enumerate(districts)})
+    node_cells, edges, places = build_graph(
+        [(ri, r["class"], path) for ri, (r, path) in enumerate(road_out)], terminals, router.nx, router.res)
+
+    def ll(xy):
+        return [round(v, 5) for v in frame.to_lonlat(np.asarray(xy))]
+
+    graph["roads"] += [r["id"] for r, _ in road_out]
+    offset_n, offset_r = len(graph["nodes"]), len(graph["roads"]) - len(road_out)
+    graph["nodes"] += [ll(router.xy(c)) for c in node_cells]
+    for a, b, length, minutes, ri, chain in edges:
+        pts = np.array([router.xy(c) for c in chain])
+        line = smooth_line(pts, 0.7, 3) if len(pts) > 2 else LineString(pts)
+        graph["edges"].append([a + offset_n, b + offset_n, length, minutes, ri + offset_r,
+                               [ll(p) for p in line.coords]])
+    graph["places"].update({eid: n + offset_n for eid, n in places.items()})
+    log(f"  road graph: {len(node_cells)} nodes, {len(edges)} edges")
+
     bath_features = [feature(to_lonlat(p, frame), {"band": int(b)}) for b, p in sorted(bath_polys.items()) if b < 3]
 
     ctx_features = []
@@ -394,9 +413,12 @@ def main():
     OUT.mkdir(parents=True)
     entities = base_entities(world)
     layers = {k: [] for k in ("divisions", "labels", "water", "rivers", "rivers-named", "ridges", "roads", "bathymetry", "context")}
-    regions = [build_region(world, spec, entities, layers) for spec in world.generators]
+    graph = {"nodes": [], "edges": [], "roads": [], "places": {}}
+    regions = [build_region(world, spec, entities, layers, graph) for spec in world.generators]
     for name, feats in layers.items():
         write_geojson(f"{name}.geojson", feats)
+    with open(OUT / "graph.json", "w", encoding="utf-8") as f:
+        json.dump(graph, f, separators=(",", ":"))
     with open(OUT / "entities.json", "w", encoding="utf-8") as f:
         json.dump(entities, f, ensure_ascii=False, separators=(",", ":"))
     manifest = {

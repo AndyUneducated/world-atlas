@@ -88,6 +88,8 @@ function ChildList({ data, entity, lang }: { data: AtlasData; entity: Entity; la
 function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
   const select = useAtlas((s) => s.select);
   const map = useAtlas((s) => s.map);
+  const setRoute = useAtlas((s) => s.setRoute);
+  const routable = data.graph.places[entity.id] !== undefined;
   const [copied, setCopied] = useState(false);
   const accent = accentColor(data, entity) ?? "var(--ui-accent)";
   const statusKey = entity.status === "canon" ? "canon" : entity.status === "draft" ? "draft" : "generated";
@@ -132,14 +134,25 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
             <X className="size-4" />
           </button>
         </div>
-        <div className="relative mt-4 flex gap-2">
+        <div className="relative mt-4 flex flex-wrap gap-2">
           <button onClick={zoomTo} className="flex items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 text-[12px] font-medium text-white shadow-sm hover:opacity-90">
             <Crosshair className="size-3.5" />
             {t("zoomTo", lang)}
           </button>
-          <button onClick={copy} className="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[12px] font-medium text-ink hover:bg-hover">
+          {routable && (
+            <>
+              <button onClick={() => setRoute({ from: entity.id })} className="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[12px] font-medium text-ink hover:bg-hover">
+                <span className="size-2 rounded-full bg-emerald-500" />
+                {t("routeFrom", lang)}
+              </button>
+              <button onClick={() => setRoute({ to: entity.id })} className="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[12px] font-medium text-ink hover:bg-hover">
+                <span className="size-2 rounded-full bg-rose-500" />
+                {t("routeTo", lang)}
+              </button>
+            </>
+          )}
+          <button onClick={copy} className="grid size-[30px] place-items-center rounded-full border border-line text-ink hover:bg-hover" title={t(copied ? "copied" : "share", lang)} aria-label={t("share", lang)}>
             {copied ? <Check className="size-3.5" /> : <Link2 className="size-3.5" />}
-            {t(copied ? "copied" : "share", lang)}
           </button>
         </div>
       </div>

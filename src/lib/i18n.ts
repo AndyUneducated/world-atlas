@@ -40,6 +40,17 @@ const STRINGS = {
   source: { zh: "数据源", en: "Source" },
   sketch: { zh: "轮廓示意", en: "Outline sketch" },
   loading: { zh: "正在载入地图", en: "Loading map" },
+  routeFrom: { zh: "从这里出发", en: "Directions from" },
+  routeTo: { zh: "到这里去", en: "Directions to" },
+  directions: { zh: "路线", en: "Directions" },
+  origin: { zh: "起点", en: "Start" },
+  destination: { zh: "终点", en: "Destination" },
+  pickOnCard: { zh: "在地图上选择一个市或区，点击卡片上的按钮", en: "Pick a city or district and use the button on its card" },
+  noRoute: { zh: "两地之间没有道路连通", en: "No road connects these places" },
+  swap: { zh: "交换起终点", en: "Swap" },
+  fastest: { zh: "最快路线", en: "Fastest route" },
+  hour: { zh: "小时", en: "h" },
+  minute: { zh: "分钟", en: "min" },
 } satisfies Record<string, Record<Lang, string>>;
 
 export type StringKey = keyof typeof STRINGS;

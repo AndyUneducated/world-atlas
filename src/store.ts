@@ -19,6 +19,8 @@ interface AtlasState {
   /** Bumped on every selection so the map re-focuses even when re-selecting the same id. */
   selectionNonce: number;
   layers: LayerToggles;
+  route: { from: string | null; to: string | null };
+  setRoute: (patch: Partial<{ from: string | null; to: string | null }>) => void;
   setData: (data: AtlasData) => void;
   setMap: (map: MaplibreMap | null) => void;
   setTheme: (theme: ThemeId) => void;
@@ -37,6 +39,8 @@ export const useAtlas = create<AtlasState>((set) => ({
   selectedId: initial.sel ?? null,
   selectionNonce: 0,
   layers: { choropleth: false, hillshade: true, boundaries: true, roads: true },
+  route: { from: null, to: null },
+  setRoute: (patch) => set((s) => ({ route: { ...s.route, ...patch } })),
   setData: (data) => set({ data }),
   setMap: (map) => set({ map }),
   setTheme: (theme) => set({ theme }),

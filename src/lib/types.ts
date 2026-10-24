@@ -82,9 +82,22 @@ export const LAYER_FILES = [
 ] as const;
 export type LayerFile = (typeof LAYER_FILES)[number];
 
+/** Edge: [from node, to node, length km, minutes, road index, geometry]. */
+export type GraphEdge = [number, number, number, number, number, LngLat[]];
+
+export interface RoadGraph {
+  nodes: LngLat[];
+  edges: GraphEdge[];
+  /** Road entity ids, indexed by GraphEdge[4]. */
+  roads: string[];
+  /** Division id -> node index. */
+  places: Record<string, number>;
+}
+
 export interface AtlasData {
   manifest: Manifest;
   entities: Record<string, Entity>;
   layers: Record<LayerFile, FeatureCollection>;
   palette: Record<string, number>;
+  graph: RoadGraph;
 }

@@ -57,8 +57,9 @@ export function buildStyle(opts: {
   data: AtlasData;
   layers: LayerToggles;
   focus: FocusData;
+  route: FeatureCollection;
 }): StyleSpecification {
-  const { theme, lang, data, layers, focus } = opts;
+  const { theme, lang, data, layers, focus, route } = opts;
   const m = theme.map;
   const dem = data.manifest.dem;
   const other: Lang = lang === "zh" ? "en" : "zh";
@@ -75,6 +76,7 @@ export function buildStyle(opts: {
     context: { type: "geojson", data: data.layers.context },
     "focus-mask": { type: "geojson", data: focus.mask },
     "focus-outline": { type: "geojson", data: focus.outline },
+    route: { type: "geojson", data: route },
     dem: {
       type: "raster-dem",
       tiles: [`${BASE_URL}data/${dem.tiles}`],
@@ -331,6 +333,20 @@ export function buildStyle(opts: {
       source: "focus-outline",
       layout: { "line-join": "round", "line-cap": "round" },
       paint: { "line-color": m.focus.line, "line-width": 2.2 },
+    },
+    {
+      id: "route-casing",
+      type: "line",
+      source: "route",
+      layout: { "line-join": "round", "line-cap": "round" },
+      paint: { "line-color": m.focus.glow, "line-width": ["interpolate", ["linear"], ["zoom"], 6, 9, 12, 16], "line-blur": 2 },
+    },
+    {
+      id: "route-line",
+      type: "line",
+      source: "route",
+      layout: { "line-join": "round", "line-cap": "round" },
+      paint: { "line-color": m.focus.line, "line-width": ["interpolate", ["linear"], ["zoom"], 6, 4, 12, 8] },
     },
   );
 

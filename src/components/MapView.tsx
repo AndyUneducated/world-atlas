@@ -2,7 +2,9 @@ import * as maplibregl from "maplibre-gl";
 import type { GeoJSONSource, MapGeoJSONFeature } from "maplibre-gl";
 import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import { useEffect, useMemo, useRef } from "react";
+import type { FeatureCollection } from "geojson";
 import { buildFocus, indexFeatures } from "../lib/focus";
+import { useRoute } from "../lib/useRoute";
 import { buildStyle, HIT_LAYERS, type FocusData } from "../lib/style";
 import { THEMES } from "../lib/themes";
 import { writeUrl } from "../lib/url";
@@ -70,13 +72,18 @@ export function MapView() {
   const features = useMemo(() => indexFeatures(data), [data]);
   const region = data.manifest.regions[0];
 
+  const route = useRoute();
+  const routeFc: FeatureCollection = useMemo(() => ({ type: "FeatureCollection", features: route ? [route.line] : [] }), [route]);
+  const routeRef = useRef(routeFc);
+  routeRef.current = routeFc;
+
   const currentFocus = () => focusRef.current ?? buildFocus(features.get(useAtlas.getState().selectedId ?? ""), region.bounds);
 
   useEffect(() => {
     const s = useAtlas.getState();
     const map = new maplibregl.Map({
       container: container.current!,
-      style: buildStyle({ theme: THEMES[s.theme], lang: s.lang, data, layers: s.layers, focus: currentFocus() }),
+      style: buildStyle({ theme: THEMES[s.theme], lang: s.lang, data, layers: s.layers, focus: currentFocus(), route: routeRef.current }),
       ...(initialView
         ? { center: [initialView.lng, initialView.lat], zoom: initialView.zoom, bearing: initialView.bearing }
         : { bounds: region.bounds, fitBoundsOptions: { padding: 80 } }),
@@ -152,7 +159,7 @@ export function MapView() {
       styledRef.current = true;
       return;
     }
-    map.setStyle(buildStyle({ theme: THEMES[theme], lang, data, layers, focus: currentFocus() }), { diff: true });
+    map.setStyle(buildStyle({ theme: THEMES[theme], lang, data, layers, focus: currentFocus(), route: routeRef.current }), { diff: true });
     syncUrl(map);
   }, [theme, lang, layers, data]);
 
@@ -183,6 +190,24 @@ export function MapView() {
     }
     syncUrl(map);
   }, [selectedId, nonce, features, data, region.bounds]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    const apply = () => (map.getSource("route") as GeoJSONSource | undefined)?.setData(routeFc);
+    if (map.isStyleLoaded()) apply();
+    else map.once("idle", apply);
+    const coords = routeFc.features[0]?.geometry.type === "LineString" ? routeFc.features[0].geometry.coordinates : null;
+    if (coords?.length) {
+      const lngs = coords.map((c) => c[0]);
+      const lats = coords.map((c) => c[1]);
+      const wide = window.innerWidth >= 768;
+      map.fitBounds([Math.min(...lngs), Math.min(...lats), Math.max(...lngs), Math.max(...lats)], {
+        padding: wide ? { left: 460, top: 90, right: 100, bottom: 90 } : { left: 30, top: 110, right: 30, bottom: Math.round(window.innerHeight * 0.5) },
+        duration: 1000,
+      });
+    }
+  }, [routeFc]);
 
   return (
     <div className="absolute inset-0">
