@@ -60,9 +60,10 @@ npm run data                                    # 重新生成地图
 | 等级 | network | `national_expressway`、`national_highway`、`territorial_expressway`、`territorial_highway`、`municipal_road`、`township_road` |
 | 道路类别 | class | 留空时按等级自动填写 |
 | 中文名 … 巴克汉姆语名 | name_zh … name_buckham | |
-| 途经 | via | 依次经过的市，用分号分隔，至少两个 |
-| 环线、支线 | ring、ends_at_network | 是/否。支线从第一个市出发，接入已有路网即止 |
+| 途经 | via | 依次经过的市或区，用分号分隔，至少两个。经过市时走该市中心，经过区时走区中心 |
+| 环线、笔直、支线 | ring、straight、ends_at_network | 是/否。笔直的道路每段都是直线，遇山开隧道、遇水架桥；支线从第一个市出发，接入已有路网即止 |
 | 隧道成本 | tunnel_cost | 越小越倾向于打隧道穿山 |
+| 路牌图案 | shield | 省道（`S-NV-…`）必填，路牌上部的图案：`lighthouse`、`star`、`salmon`、`fir`、`waterfall`、`reindeer`、`swallow`、`sunrise`、`snowflake`、`peaks`、`wheat`、`compass` |
 | 徽标图案、徽标底纹 | emblem_motif、emblem_pattern | |
 | 中文简介、英文简介 | notes_zh、notes_en | |
 
@@ -77,6 +78,7 @@ npm run data                                    # 重新生成地图
 | 中文名 … 巴克汉姆语名 | name_zh … name_buckham | |
 | 停靠 | via | 依次停靠的市或区，用分号分隔，至少两个。停靠市时车站设在该市人口最多的区 |
 | 线路色 | color | `#RRGGBB`，用于线路卡片和车站列表 |
+| 运营速度、设计速度 | operating_speed、design_speed | km/h，运营速度 160–400；轨距、供电、信号、编组统一见 `world/transport/engineering.yaml` |
 | 隧道成本 | tunnel_cost | 默认 2.5，越小越倾向于打隧道穿山 |
 | 中文简介、英文简介 | notes_zh、notes_en | |
 

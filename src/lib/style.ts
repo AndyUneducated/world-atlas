@@ -7,6 +7,7 @@ import type {
 import type { FeatureCollection } from "geojson";
 import type { LayerToggles } from "../store";
 import { BASE_URL } from "./data";
+import { shieldImageId } from "./shields";
 import { BUILDING_CLASSES, LANDCOVER_CLASSES, type Theme } from "./themes";
 import type { AtlasData, Lang, LayerFile } from "./types";
 
@@ -65,10 +66,6 @@ const FONT = {
 const name = (lang: Lang): ExpressionSpecification => ["coalesce", ["get", `name_${lang}`], ["get", "name_zh"]];
 
 const visible = (on: boolean) => (on ? "visible" : "none") as "visible" | "none";
-
-export function shieldImageId(fill: string, stroke: string) {
-  return `shield|${fill}|${stroke}`;
-}
 
 /** Map symbol drawn on demand by the map view: a summit triangle or a pass mark. */
 export function symbolImageId(kind: "peak" | "pass", color: string) {
@@ -412,7 +409,8 @@ export function buildStyle(opts: {
   }
   const roadTiers = [
     { id: "city-road", network: ROAD_NETWORKS.cityRoads, s: m.cityRoad, on: layers.cityRoads, casing: 1.2, fill: 0.7, minzoom: 7.6 },
-    { id: "territorial-expressway", network: ROAD_NETWORKS.territorialExpressway, s: m.territorialExpressway, on: layers.territorialExpressway, casing: 1.6, fill: 1, minzoom: 0 },
+    { id: "territorial-highway", network: ["territorial_highway"], s: m.territorialExpressway, on: layers.territorialExpressway, casing: 1.3, fill: 0.75, minzoom: 0 },
+    { id: "territorial-expressway", network: ["territorial_expressway"], s: m.territorialExpressway, on: layers.territorialExpressway, casing: 1.6, fill: 1, minzoom: 0 },
     { id: "national-expressway", network: ROAD_NETWORKS.nationalExpressway, s: m.nationalExpressway, on: layers.nationalExpressway, casing: 1.8, fill: 1.2, minzoom: 0 },
   ];
   for (const r of roadTiers) {
@@ -743,33 +741,23 @@ export function buildStyle(opts: {
     summitLabel("pass-label", "pass", false, 8.6),
   );
 
-  style.push(
-    {
-      id: "road-shield",
-      type: "symbol",
-      source: "roads",
-      minzoom: 6.6,
-      filter: ["all", isClass("motorway"), roadShown],
-      layout: {
-        "symbol-placement": "line",
-        "symbol-spacing": 280,
-        "text-field": ["get", "ref"],
-        "text-font": FONT.medium,
-        "text-size": 10,
-        "text-rotation-alignment": "viewport",
-        "icon-rotation-alignment": "viewport",
-        "icon-image": [
-          "match",
-          ["get", "network"],
-          "national_expressway",
-          shieldImageId(m.shield.national.fill, m.shield.national.stroke),
-          shieldImageId(m.shield.territorial.fill, m.shield.territorial.stroke),
-        ],
-        "icon-text-fit": "both",
-        "icon-text-fit-padding": [2, 5, 2, 5],
-      },
-      paint: { "text-color": ["match", ["get", "network"], "national_expressway", m.shield.national.text, m.shield.territorial.text] },
+  const shieldLayer = (id: string, cls: string, minzoom: number, spacing: number): LayerSpecification => ({
+    id,
+    type: "symbol",
+    source: "roads",
+    minzoom,
+    filter: ["all", isClass(cls), roadShown, ["has", "ref"]],
+    layout: {
+      "symbol-placement": "line",
+      "symbol-spacing": spacing,
+      "icon-image": ["concat", shieldImageId(""), ["get", "ref"]],
+      "icon-rotation-alignment": "viewport",
+      "icon-size": ["interpolate", ["linear"], ["zoom"], minzoom, 0.85, 10, 1],
     },
+  });
+  style.push(
+    shieldLayer("road-shield", "motorway", 6.6, 300),
+    shieldLayer("road-shield-primary", "primary", 7.8, 340),
     {
       id: "district-label",
       type: "symbol",

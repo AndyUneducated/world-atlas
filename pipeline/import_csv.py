@@ -48,13 +48,14 @@ BUILDING_SUBTYPES = ("government", "building", "civic", "office", "museum", "the
                      "tower", "hospital", "marketplace")
 
 
-def _emblem_names(const: str) -> tuple[str, ...]:
-    src = (ROOT / "src" / "lib" / "emblems.tsx").read_text(encoding="utf-8")
+def _emblem_names(const: str, file: str = "emblems.tsx") -> tuple[str, ...]:
+    src = (ROOT / "src" / "lib" / file).read_text(encoding="utf-8")
     block = src.split(f"export const {const}", 1)[1].split("\n};", 1)[0]
     return tuple(re.findall(r"^  (\w+):", block, flags=re.M))
 
 
-MOTIFS, PATTERNS = _emblem_names("MOTIFS"), _emblem_names("PATTERNS")
+GLYPHS = _emblem_names("GLYPHS", "glyphs.ts")
+MOTIFS, PATTERNS = _emblem_names("MOTIFS") + tuple(g for g in GLYPHS if g not in _emblem_names("MOTIFS")), _emblem_names("PATTERNS")
 
 
 @dataclass
@@ -115,8 +116,10 @@ KINDS = {
             *NAMES,
             Col("via", "途经", "via", "refs", required=True),
             Col("ring", "环线", "ring", "bool"),
+            Col("straight", "笔直", "straight", "bool"),
             Col("ends_at_network", "支线", "ends_at_network", "bool"),
             Col("tunnel_cost", "隧道成本", "tunnel_cost", "float"),
+            Col("shield", "路牌图案", "shield", "choice", GLYPHS),
             Col("emblem_motif", "徽标图案", "emblem.motif", "choice", MOTIFS),
             Col("emblem_pattern", "徽标底纹", "emblem.pattern", "choice", PATTERNS),
             *NOTES,
@@ -144,6 +147,8 @@ KINDS = {
             *NAMES,
             Col("via", "停靠", "via", "refs", required=True),
             Col("color", "线路色", "color", "color"),
+            Col("operating_speed", "运营速度", "tech.operating_speed_kmh", "int"),
+            Col("design_speed", "设计速度", "tech.design_speed_kmh", "int"),
             Col("tunnel_cost", "隧道成本", "tunnel_cost", "float"),
             *NOTES,
         ],
@@ -428,10 +433,12 @@ class Importer:
         via = changes.get("via")
         for v in via if isinstance(via, list) else []:
             d = self.world.divisions[v]
-            if d["subtype"] != "locality":
-                self.problems.add(self.where(i, "via"), f"途经只能填市（{d['names']['zh']} 不是市）")
+            if d["subtype"] not in ("locality", "borough"):
+                self.problems.add(self.where(i, "via"), f"途经只能填市或区（{d['names']['zh']} 不是市或区）")
         if changes.get("ring") is True and isinstance(via, list) and len(via) < 3:
-            self.problems.add(self.where(i, "ring"), "环线至少需要三个途经城市")
+            self.problems.add(self.where(i, "ring"), "环线至少需要三个途经城市或区")
+        if network in ("territorial_expressway", "territorial_highway") and not changes.get("shield", cur.get("shield")):
+            self.problems.add(self.where(i, "shield"), "省道必须指定路牌图案")
 
     def check_railways(self, i, row, eid, is_new, changes, extras):
         via = changes.get("via")
@@ -461,13 +468,13 @@ ORDER = {
     "divisions": ["id", "subtype", "parent", "status", "names", "short_names", "codes", "population", "area_km2", "color",
                   "emblem", "notes"],
     "features": ["id", "subtype", "status", "detect", "names", "notes"],
-    "routes": ["id", "ref", "network", "class", "status", "names", "notes", "ring", "ends_at_network", "tunnel_cost",
-               "emblem", "via"],
+    "routes": ["id", "ref", "network", "class", "status", "names", "notes", "ring", "straight", "ends_at_network",
+               "tunnel_cost", "legs", "emblem", "shield", "via"],
     "places": ["id", "subtype", "status", "names", "notes", "in", "offset_km", "marker", "emblem_of", "site"],
-    "railways": ["id", "network", "status", "names", "notes", "color", "tunnel_cost", "via", "station_names"],
+    "railways": ["id", "network", "status", "names", "notes", "color", "tech", "tunnel_cost", "via", "station_names"],
 }
 FLOW = {"divisions": (), "features": ("detect", "names"), "routes": ("emblem", "via"), "places": ("site",),
-        "railways": ("via",)}
+        "railways": ("tech", "via")}
 
 
 def yaml_for(text: str) -> YAML:

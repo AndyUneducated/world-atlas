@@ -1,6 +1,7 @@
 import type { Feature, MultiPolygon, Polygon, Position } from "geojson";
 import { useId, useMemo } from "react";
 import { MOTIFS, PATTERNS, ROUTE_COLORS, shade, TERRITORY_COLOR } from "../lib/emblems";
+import { GLYPHS } from "../lib/glyphs";
 import type { AtlasData, Entity } from "../lib/types";
 import { useAtlas } from "../store";
 
@@ -69,12 +70,30 @@ function Body({ id, shape, color, pattern, detail, sheen }: { id: string; shape:
   );
 }
 
+/** A shield glyph (24 box) scaled into the 48 box the emblem motifs use. */
+function glyphMotif(name: string) {
+  const parts = GLYPHS[name];
+  if (!parts) return null;
+  return (
+    <g transform="translate(6 6) scale(1.5)">
+      {parts.map((p, i) =>
+        p.stroke ? (
+          <path key={i} d={p.d} fill="none" stroke="#fff" strokeWidth={p.stroke} strokeLinecap="round" strokeLinejoin="round" />
+        ) : (
+          <path key={i} d={p.d} fill="#fff" fillRule="evenodd" />
+        ),
+      )}
+    </g>
+  );
+}
+
 function Glyph({ id, motif, ink, x, y, scale }: { id: string; motif?: string; ink: string; x: number; y: number; scale: number }) {
   const draw = MOTIFS[motif ?? ""];
-  if (!draw) return null;
+  const art = draw ? draw(ink) : glyphMotif(motif ?? "");
+  if (!art) return null;
   return (
     <g filter={`url(#${id}-shadow)`} transform={`translate(${x - 24 * scale} ${y - 24 * scale}) scale(${scale})`}>
-      {draw(ink)}
+      {art}
     </g>
   );
 }

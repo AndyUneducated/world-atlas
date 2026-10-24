@@ -43,6 +43,8 @@ class World:
         self.railways = self._collect(root / "transport", "railways")
         self.places = self._collect(root / "places", "places")
         self.generators = [_load(p) for p in sorted((root / "generator").glob("*.yaml"))]
+        eng = root / "transport" / "engineering.yaml"
+        self.engineering: dict = _load(eng) if eng.exists() else {}
         retired = root / "registry" / "retired-ids.yaml"
         self.retired: dict[str, dict] = {r["id"]: r for r in (_load(retired).get("retired", []) if retired.exists() else [])}
 
@@ -119,6 +121,13 @@ class World:
             refs[r["ref"]] = rid
             if r.get("ring") and len(r.get("via", [])) < 3:
                 errors.append(f"{rid}: a ring needs at least three via divisions")
+            for v in r.get("legs", {}):
+                if v not in r.get("via", []):
+                    errors.append(f"{rid}: legs entry {v} is not one of the via divisions")
+            if r.get("network") not in self.engineering.get("standards", {}):
+                errors.append(f"{rid}: no engineering standard for network {r.get('network')} (world/transport/engineering.yaml)")
+            if str(r.get("network", "")).startswith("territorial_") and not r.get("shield"):
+                errors.append(f"{rid}: a territorial route needs a shield symbol (shield: <glyph>, see src/lib/shields.ts)")
         for fid, f in self.features.items():
             det = f.get("detect")
             if det is None:
@@ -155,6 +164,9 @@ class World:
                     errors.append(f"{rid}: station_names entry {v} is not one of the stops")
             if r.get("color") and not re.match(r"^#[0-9A-Fa-f]{6}$", str(r["color"])):
                 errors.append(f"{rid}: color must be #RRGGBB")
+            speed = r.get("tech", {}).get("operating_speed_kmh")
+            if speed is not None and not (isinstance(speed, int) and 160 <= speed <= 400):
+                errors.append(f"{rid}: tech.operating_speed_kmh must be a whole number of km/h, 160–400")
         for gen in self.generators:
             layout = gen.get("layout", {})
             for c in self.children(gen.get("territory", "")):

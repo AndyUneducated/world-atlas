@@ -24,7 +24,7 @@ from shapely.ops import nearest_points
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas import buildings, coast, landcover, relief, streets  # noqa: E402
+from atlas import buildings, coast, engineering, landcover, relief, streets  # noqa: E402
 from atlas.cache import CACHE_DIR, stage  # noqa: E402
 from atlas.dem_tiles import write_dem_tiles  # noqa: E402
 from atlas.divisions import partition, pole_of_inaccessibility  # noqa: E402
@@ -194,6 +194,7 @@ def route_segments(path: list[int], router: Router, dist_r: np.ndarray, factor: 
             "km": round(km, 1),
             "bbox": bbox_lonlat(geom),
             "line": [[round(x, 4), round(y, 4)] for x, y in geom.coords],
+            "_span": (i0, min(i1 + 1, len(path) - 1)),
         })
         chainage += km
     return segments
@@ -880,16 +881,25 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         water_r = water_r | shapely.contains_xy(shapely.union_all(airfields).buffer(0.5 * gr.res), gr.X, gr.Y)
     router = Router(elev_r, land_r & ~water_r, gr.res)
     node = [router.cell(*poles[core[ci]]) for ci in range(len(cities))]
+    district_index = {d["id"]: i for i, d in enumerate(districts)}
+
+    def stop_cell(v):  # a city stops at its core, a district at its own centre
+        return node[city_index[v]] if v in city_index else router.cell(*poles[district_index[v]])
+
     road_out = []
     routes = sorted(
-        (r for r in world.routes.values() if all(v in city_index for v in r["via"])),
+        (r for r in world.routes.values() if all(v in city_index or v in district_index for v in r["via"])),
         key=lambda r: (ROAD_RANK[r["class"]], r["ref"]),
     )
     for r in routes:
         via = r["via"] + r["via"][:1] if r.get("ring") else r["via"]
         path = []
         for a, b in zip(via[:-1], via[1:]):
-            leg = router.route(node[city_index[a]], node[city_index[b]], r.get("tunnel_cost"), ref=r["ref"])
+            if r.get("straight"):
+                leg = router.straight(stop_cell(a), stop_cell(b))
+            else:
+                tunnel_cost = r.get("legs", {}).get(b, {}).get("tunnel_cost", r.get("tunnel_cost"))
+                leg = router.route(stop_cell(a), stop_cell(b), tunnel_cost, ref=r["ref"])
             path += leg if not path else leg[1:]
         if r.get("ends_at_network"):
             path = router.trim_to_network(path)
@@ -915,8 +925,14 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         }
         road_out.append((r, path))
 
+    if nets := spec.get("expect", {}).get("district_centres_on"):
+        on = {c for r, path in road_out if r["network"] in nets for c in path}
+        near = lambda c: any(c + dy * router.nx + dx in on for dy in (-1, 0, 1) for dx in (-1, 0, 1))
+        missing = [d["names"]["zh"] for i, d in enumerate(districts) if not near(stop_cell(d["id"]))]
+        log(f"  {'ok  ' if not missing else 'FAIL'} every district centre on {' / '.join(nets)}"
+            + (f": missing {', '.join(missing)}" if missing else ""))
+
     log("routing railways")
-    district_index = {d["id"]: i for i, d in enumerate(districts)}
     rail_router = Router(elev_r, land_r & ~water_r, gr.res, slope_weight=150)
     stop_index = {**district_index, **{c["id"]: core[ci] for ci, c in enumerate(cities)}}
     rail_out = route_railways(world, rail_router, poles, stop_index)
@@ -1059,6 +1075,36 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         entities[fid].update({"bbox": bbox_lonlat(geom), "center": list(point_lonlat(frame, cpt.x, cpt.y).coords[0]),
                               "stats": {"elev_max_m": int(elev[mask & land].max())}})
 
+    eng = world.engineering
+    standards, climate = eng.get("standards", {}), eng.get("climate", {})
+    speed_rules = {"urban_density": eng.get("urban_density", 250), "mountain_structure_share": eng.get("mountain_structure_share", 0.35)}
+    wet_r = ~land_r | block_reduce(water, 4, "mode_bool")
+    crossing_min = eng.get("river_min_drainage_km2", 150)
+    river_geom = shapely.union_all([line for _, line, _, _ in named_rivers] + [line for line, acc in stream_lines if acc >= crossing_min])
+    density_of = lambda did: entities.get(did or "", {}).get("stats", {}).get("density_per_km2", 0)
+    urban_r = np.zeros(elev_r.shape, bool)
+    built = block_reduce(cover == landcover.CLASSES.index("urban"), 2, "mode_bool")
+    h, w = min(built.shape[0], urban_r.shape[0]), min(built.shape[1], urban_r.shape[1])
+    urban_r[:h, :w] = built[:h, :w]
+    urban_depth_r = ndimage.distance_transform_edt(urban_r) * frame.km(gr.res)
+
+    def engineer(ent, path, std, rt, ref=None, stations=0):
+        """Structure profile, cost estimate and (for roads) speed limits of a routed line."""
+        line_km = LineString([rt.xy(c) for c in path])
+        prof = engineering.profile(path, rt, elev_r, wet_r, frame.km(rt.res), std, line_km, river_geom, ref, urban_depth_r,
+                                   fine=(elev, g.res))
+        ent["engineering"] = engineering.estimate(prof, std, climate, stations)
+        if "speed" not in std:
+            return
+        limits = []
+        for sg in ent.get("segments", []):
+            i0, i1 = sg.pop("_span")
+            sg["speed_kmh"] = engineering.segment_speed(prof, std, i0, i1, density_of(sg["division"]), speed_rules)
+            limits.append(sg["speed_kmh"])
+        if not limits:
+            limits = [engineering.segment_speed(prof, std, 0, len(path) - 1, max(density_of(v) for v in ent.get("via", [None])), speed_rules)]
+        ent["speed"] = engineering.speed_summary(limits, std)
+
     road_features = []
     for r, path in road_out:
         lines = [smooth_line(np.array([router.xy(c) for c in run]), 0.7, 4) for run in owned_runs(path, r["ref"], router.owner)]
@@ -1076,6 +1122,17 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             ent["segments"] = route_segments(path, router, dist_r, 4, frame, [d["id"] for d in districts])
             # travel length, including junction stretches drawn under another route's number
             ent["stats"]["length_km"] = round(sum(s["km"] for s in ent["segments"]), 1)
+        if r["network"] in standards:
+            engineer(ent, path, standards[r["network"]], router, r["ref"] if r["network"] != "municipal_road" else None)
+        for sg in ent.get("segments", []):
+            sg.pop("_span", None)
+
+    ss = eng.get("street_speed", {})
+
+    def street_speed(st):
+        if st.cls == "arterial" and density_of(districts[st.district]["id"]) < ss.get("outer_density", 0):
+            return ss.get("arterial_outer")
+        return ss.get(st.cls)
 
     street_features, street_named, named_parts = [], [], {}
     for city, sts, _, _ in street_out:
@@ -1104,6 +1161,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             "bbox": bbox_lonlat(geom),
             "center": list(point_lonlat(frame, *longest.interpolate(0.5, normalized=True).coords[0]).coords[0]),
             "stats": {"length_km": round(frame.km(geom_km.length), 2)},
+            "speed": {"limits": [street_speed(st)]},
         }
     if street_out:
         log(f"  {len(street_features)} streets, {len(street_named)} named arterials and collectors")
@@ -1123,14 +1181,22 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         return {"bbox": bbox_lonlat(geom), "center": list(point_lonlat(frame, mid.x, mid.y).coords[0]),
                 "stats": {"length_km": round(frame.km(line_km.length), 1)}}
 
+    rail_std = standards.get("intercity_rail")
+    rail_paths = {r["id"]: path for r, _, path in rail_out}
     for r, full, ids in rail_lines:
-        entities[r["id"]].update({"class": "rail", "via": ids, **add_line(r["id"], full, {"network": r["network"], "color": r.get("color"),
-                                                                         "name_zh": r["names"]["zh"], "name_en": r["names"]["en"]})})
+        ent = entities[r["id"]]
+        ent.update({"class": "rail", "via": ids, **add_line(r["id"], full, {"network": r["network"], "color": r.get("color"),
+                                                                        "name_zh": r["names"]["zh"], "name_en": r["names"]["en"]})})
+        if rail_std:
+            built_here = sum(1 for sid in dict.fromkeys(ids) if stations[sid]["lines"][0] == r["id"])
+            engineer(ent, rail_paths[r["id"]], rail_std, rail_router, r["id"], built_here)
+            ent["tech"] = {**rail_std.get("tech", {}), **r.get("tech", {})}
     for ml in metro_lines:
         line_km = affinity.scale(ml["geom"], 1 / s, 1 / s, origin=(0, 0))
         entities[ml["id"]] = {
             "id": ml["id"], "kind": "route", "network": "metro", "class": "metro", "status": "generated", "names": ml["names"],
             "color": ml["color"], "via": ml["stations"], "ancestors": [ml["city"], *world.ancestors(ml["city"])], "source": "generated:metro",
+            "tech": {**eng.get("metro_tech", {}), **(spec.get("metro") or {}).get("tech", {})},
             **add_line(ml["id"], line_km, {"network": "metro", "color": ml["color"], "ref": str(ml["n"]),
                                            "name_zh": ml["names"]["zh"], "name_en": ml["names"]["en"]}, 6),
         }

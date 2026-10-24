@@ -118,6 +118,32 @@ const STRINGS = {
   noRoute: { zh: "两地之间没有道路连通", en: "No road connects these places" },
   swap: { zh: "交换起终点", en: "Swap" },
   fastest: { zh: "最快路线", en: "Fastest route" },
+  speedLimit: { zh: "限速", en: "Speed limit" },
+  noLimit: { zh: "不限速", en: "No limit" },
+  advisory: { zh: "建议", en: "advisory" },
+  inPlaces: { zh: "局部", en: "in places" },
+  engineeringTitle: { zh: "工程与投资", en: "Engineering & cost" },
+  bridges: { zh: "桥梁", en: "Bridges" },
+  tunnels: { zh: "隧道", en: "Tunnels" },
+  riverBridges: { zh: "座跨河桥", en: "river bridges" },
+  builtHere: { zh: "本线新建", en: "Built for this route" },
+  construction: { zh: "修建投资", en: "Construction" },
+  upkeep: { zh: "年度维护", en: "Upkeep" },
+  perYear: { zh: "/年", en: "/yr" },
+  perKmCost: { zh: "每公里", en: "per km" },
+  stationsIncluded: { zh: "含车站", en: "incl. stations" },
+  costNote: { zh: "按地形与桥隧比例估算，2026 年美元", en: "Estimated from terrain and structures, in 2026 US dollars" },
+  straightLine: { zh: "全线笔直", en: "Straight end to end" },
+  techTitle: { zh: "技术标准", en: "Technical data" },
+  operatingSpeed: { zh: "运营速度", en: "Operating speed" },
+  designSpeed: { zh: "设计速度", en: "Design speed" },
+  gauge: { zh: "轨距", en: "Gauge" },
+  standardGauge: { zh: "标准轨", en: "standard gauge" },
+  power: { zh: "供电", en: "Power" },
+  overhead: { zh: "架空接触网", en: "overhead line" },
+  thirdRail: { zh: "第三轨", en: "third rail" },
+  formation: { zh: "编组", en: "Train formation" },
+  signalling: { zh: "信号", en: "Signalling" },
   hour: { zh: "小时", en: "h" },
   minute: { zh: "分钟", en: "min" },
 } satisfies Record<string, Record<Lang, string>>;
@@ -206,6 +232,19 @@ export function otherName(e: Entity, lang: Lang): string {
 
 export function formatNumber(n: number, lang: Lang, digits = 0): string {
   return n.toLocaleString(lang === "zh" ? "zh-CN" : "en-US", { maximumFractionDigits: digits });
+}
+
+/** US dollars at a readable precision: "31.2 亿美元" / "US$3.12 billion". */
+export function formatUsd(n: number, lang: Lang): string {
+  const sig = (v: number) => formatNumber(v, lang, v >= 100 ? 0 : v >= 10 ? 1 : 2);
+  if (lang === "zh") {
+    if (n >= 1e8) return `${sig(n / 1e8)} 亿美元`;
+    if (n >= 1e4) return `${sig(n / 1e4)} 万美元`;
+    return `${formatNumber(n, lang)} 美元`;
+  }
+  if (n >= 1e9) return `US$${sig(n / 1e9)} billion`;
+  if (n >= 1e6) return `US$${sig(n / 1e6)} million`;
+  return `US$${formatNumber(n, lang)}`;
 }
 
 export function formatPopulation(n: number, lang: Lang): string {

@@ -5,6 +5,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { accentColor, pathLabel } from "../lib/entity";
 import { displayName, formatNumber, otherName, t, type StringKey } from "../lib/i18n";
 import { SearchIndex } from "../lib/search";
+import { hasShield } from "../lib/shields";
+import { RouteShield } from "./RouteShield";
 import type { Entity } from "../lib/types";
 import { useAtlas } from "../store";
 import { Emblem, hasEmblem } from "./Emblem";
@@ -192,7 +194,12 @@ export function SearchBox() {
                             </span>
                             <span className="block truncate text-[12px] text-muted">{pathLabel(data, e, lang)}</span>
                           </span>
-                          {e.ref && <span className="rounded-md border border-line px-1.5 py-0.5 text-[11px] font-medium text-muted">{e.ref}</span>}
+                          {e.ref &&
+                            (hasShield(e) ? (
+                              <RouteShield entity={e} height={20} />
+                            ) : (
+                              <span className="rounded-md border border-line px-1.5 py-0.5 text-[11px] font-medium text-muted">{e.ref}</span>
+                            ))}
                         </button>
                       </li>
                     );
@@ -219,8 +226,8 @@ export function SearchBox() {
                             {g === "cities" ? (
                               <Emblem entity={e} size={20} className="shrink-0" />
                             ) : (
-                              <span className="w-[68px] shrink-0 rounded-md px-1.5 py-0.5 text-center text-[11px] font-semibold text-white tabular-nums" style={{ background: accentColor(data, e) }}>
-                                {e.ref}
+                              <span className="flex w-9 shrink-0 justify-center">
+                                <RouteShield entity={e} height={g === "national" ? 20 : 22} />
                               </span>
                             )}
                             <span className="truncate">{displayName(e, lang)}</span>

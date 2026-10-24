@@ -52,7 +52,6 @@ export interface MapTheme {
   };
   /** Intercity rail drawn as a dark line with light ticks; metro lines in their own colours. */
   rail: { casing: string; fill: string; station: string; stationStroke: string; label: string; metroCasing: string };
-  shield: { national: { fill: string; text: string; stroke: string }; territorial: { fill: string; text: string; stroke: string } };
   label: { text: string; halo: string; minor: string; water: string; terrain: string; territory: string };
   cityDot: { fill: string; stroke: string; capital: string };
   focus: { mask: string; maskOpacity: number; line: string; glow: string };
@@ -125,10 +124,6 @@ export const THEMES: Record<ThemeId, Theme> = {
         facility: { grounds: "#e4e7ea", paved: "#cfd4da", runway: "#9aa3ad", pad: "#b8c0c9", label: "#3b4a5c" },
       },
       rail: { casing: "#5b6472", fill: "#ffffff", station: "#ffffff", stationStroke: "#3b4452", label: "#2f3a48", metroCasing: "#ffffff" },
-      shield: {
-        national: { fill: "#1f7a4d", text: "#ffffff", stroke: "#c8312b" },
-        territorial: { fill: "#ffffff", text: "#8a5a00", stroke: "#d9b04a" },
-      },
       label: { text: "#1c2533", halo: "rgba(255,255,255,0.92)", minor: "#5d6b7c", water: "#4a83a8", terrain: "#7a6a58", territory: "#45566b" },
       cityDot: { fill: "#ffffff", stroke: "#1c2533", capital: "#e5484d" },
       focus: { mask: "#0f1b2a", maskOpacity: 0.22, line: "#2563eb", glow: "rgba(37,99,235,0.35)" },
@@ -193,10 +188,6 @@ export const THEMES: Record<ThemeId, Theme> = {
         facility: { grounds: "#141c2a", paved: "#222d3e", runway: "#3a475c", pad: "#2f3c52", label: "#a5b4cb" },
       },
       rail: { casing: "#8b97ab", fill: "#0f1624", station: "#0f1624", stationStroke: "#cbd5e1", label: "#cbd5e1", metroCasing: "#05080f" },
-      shield: {
-        national: { fill: "#0f3b2a", text: "#e6fff2", stroke: "#f87171" },
-        territorial: { fill: "#111a2b", text: "#fde68a", stroke: "#fde68a" },
-      },
       label: { text: "#e6edf7", halo: "rgba(5,8,15,0.9)", minor: "#8394ab", water: "#4fa6d6", terrain: "#8b9bb3", territory: "#6b7d96" },
       cityDot: { fill: "#0f1624", stroke: "#e6edf7", capital: "#f472b6" },
       focus: { mask: "#000000", maskOpacity: 0.5, line: "#5eead4", glow: "rgba(94,234,212,0.45)" },

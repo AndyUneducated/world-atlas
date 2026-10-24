@@ -68,6 +68,35 @@ export interface Entity {
   /** Stations: the railway and metro lines that stop there. */
   lines?: string[];
   source?: string;
+  /** Territorial routes: the symbol on the route shield (see glyphs.ts). */
+  shield?: string;
+  /** The route runs in a straight line end to end. */
+  straight?: boolean;
+  engineering?: Engineering;
+  /** Limits along the route, km/h, highest first; null means no limit. */
+  speed?: { limits: (number | null)[]; advisory?: number | null };
+  tech?: RailTech;
+}
+
+/** Structure profile and cost estimate of the stretches built under a route (2026 USD). */
+export interface Engineering {
+  length_km: number;
+  bridge_km: number;
+  tunnel_km: number;
+  river_bridges: number;
+  stations?: number;
+  construction_usd: number;
+  upkeep_usd_per_year: number;
+}
+
+export interface RailTech {
+  operating_speed_kmh?: number;
+  design_speed_kmh?: number;
+  gauge_mm?: number;
+  electrification?: string;
+  signalling?: string;
+  formation?: { cars: number; coupled?: number; type?: string };
+  power?: { voltage: string; supply: "overhead" | "third_rail" };
 }
 
 /** One stretch of a route inside a single district, in travel order. */
@@ -77,6 +106,8 @@ export interface RouteSegment {
   km: number;
   bbox: BBox;
   line: LngLat[];
+  /** km/h; null means no limit. */
+  speed_kmh?: number | null;
 }
 
 export interface Region {

@@ -1,0 +1,103 @@
+# Engineering standards behind the route cards: structure profile, cost estimate, speed limits
+# and technical data. Used by pipeline/atlas/engineering.py.
+#
+# Profile: the generator fits a grade line to the terrain along each route (moving average over
+#   smooth_km, then clamped to max_grade). Where the ground stands more than tunnel_above_m
+#   above the grade line the route is in tunnel; where it lies more than bridge_below_m below,
+#   or over water, the route is on a bridge or viaduct. Every river crossing adds
+#   river_bridge_km of bridge.
+# urban (optional): new-built stretches through built-up land are grade-separated, on viaduct
+#   near the edge of the town and in cut-and-cover tunnel more than tunnel_depth_km inside it.
+# Costs are 2026 US dollars, per km of route by structure type (grade, bridge, tunnel), checked
+#   against recent Chinese and European projects. At-grade cost rises with the relief of the
+#   ground (hill_factor at 60 m of rise per km and above). climate scales everything for a
+#   subarctic island: frost-proof foundations, snow galleries, winter maintenance.
+# speed: limits by setting, km/h; null means no limit (advisory speed applies).
+#   urban: districts with at least urban_density people per km²
+#   mountain: stretches where bridges and tunnels make up at least mountain_structure_share
+climate: { construction: 1.10, upkeep: 1.30 }
+urban_density: 250
+mountain_structure_share: 0.35
+river_min_drainage_km2: 150
+
+standards:
+  national_expressway:
+    lanes: 4
+    smooth_km: 4
+    max_grade: 0.04
+    tunnel_above_m: 45
+    bridge_below_m: 20
+    river_bridge_km: 0.4
+    urban: { tunnel_depth_km: 5 }
+    hill_factor: 1.6
+    cost_musd_per_km: { grade: 16, bridge: 60, tunnel: 110 }
+    upkeep_kusd_per_km: { grade: 120, bridge: 350, tunnel: 800 }
+    speed: { rural: null, advisory: 130, urban: 120, mountain: 120 }
+  territorial_expressway:
+    lanes: 4
+    smooth_km: 3
+    max_grade: 0.045
+    tunnel_above_m: 45
+    bridge_below_m: 20
+    river_bridge_km: 0.35
+    urban: { tunnel_depth_km: 6 }
+    hill_factor: 1.6
+    cost_musd_per_km: { grade: 14, bridge: 50, tunnel: 95 }
+    upkeep_kusd_per_km: { grade: 100, bridge: 300, tunnel: 700 }
+    speed: { rural: null, advisory: 130, urban: 140, mountain: 140 }
+  # 省道: dual carriageways (一级公路) with grade-separated main junctions.
+  territorial_highway:
+    lanes: 4
+    smooth_km: 2
+    max_grade: 0.06
+    tunnel_above_m: 55
+    bridge_below_m: 25
+    river_bridge_km: 0.25
+    hill_factor: 1.5
+    cost_musd_per_km: { grade: 7, bridge: 30, tunnel: 60 }
+    upkeep_kusd_per_km: { grade: 50, bridge: 200, tunnel: 500 }
+    speed: { rural: null, advisory: 120, urban: 140, mountain: 140 }
+  municipal_road:
+    lanes: 2
+    smooth_km: 1.5
+    max_grade: 0.07
+    tunnel_above_m: 60
+    bridge_below_m: 25
+    river_bridge_km: 0.15
+    hill_factor: 1.4
+    cost_musd_per_km: { grade: 3, bridge: 18, tunnel: 40 }
+    upkeep_kusd_per_km: { grade: 25, bridge: 120, tunnel: 350 }
+    speed: { rural: null, advisory: 100, urban: 80, mountain: 100 }
+  # Double-track high-speed line, 25 kV, slab track; stations are costed per stop.
+  intercity_rail:
+    smooth_km: 8
+    max_grade: 0.025
+    tunnel_above_m: 30
+    bridge_below_m: 15
+    river_bridge_km: 0.5
+    urban: { tunnel_depth_km: 5 }
+    hill_factor: 1.5
+    cost_musd_per_km: { grade: 18, bridge: 32, tunnel: 55 }
+    upkeep_kusd_per_km: { grade: 180, bridge: 300, tunnel: 600 }
+    station_musd: 150
+    station_upkeep_musd: 3
+    tech:
+      gauge_mm: 1435
+      electrification: 25 kV 50 Hz AC
+      signalling: CTCS-3 + ATO
+      formation: { cars: 8, coupled: 16 }
+
+# City streets (主干道 / 次干道 / 支路), km/h; arterials outside the dense core have no limit.
+street_speed:
+  local: 80
+  collector: 100
+  arterial: 120
+  arterial_outer: null
+  outer_density: 150
+
+metro_tech:
+  design_speed_kmh: 100
+  gauge_mm: 1435
+  power: { voltage: DC 1500 V, supply: overhead }
+  formation: { cars: 6, type: B }
+  signalling: CBTC GoA4

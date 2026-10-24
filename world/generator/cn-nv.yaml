@@ -169,6 +169,7 @@ metro:
 expect:
   longest_river: nat_ww491j
   largest_cities_by_area: [div_8emjne, div_rdypg7, div_prcxzt]
+  district_centres_on: [territorial_expressway, territorial_highway]
   lakes:
     - { feature: nat_jaxtgn, in: div_t8bg0d, radius_km: 4.2 }
     - { feature: nat_kxhv1k, in: div_0tsyzy, radius_km: 3.0 }

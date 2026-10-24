@@ -52,7 +52,14 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   (`borough`), following the Overture Maps division subtypes. Division codes follow the
   GB/T 2260 pattern (`90` → `9001` → `900101`).
 - **Routes.** `G-NV-n` national, `S-NV-n` territorial, `X-NV-n` municipal and
-  `Y-NV-n` township roads (GB/T 917 numbering, with the territory infix `NV`).
+  `Y-NV-n` township roads (GB/T 917 numbering, with the territory infix `NV`). A route's
+  `via` lists cities or districts; `ring`, `straight` (straight legs, crossing hills and
+  water on structures) and per-leg `legs` overrides shape the path. Territorial routes name
+  a `shield` glyph for their BC-style sign.
+- **Engineering.** `world/transport/engineering.yaml` holds the standard of each road and
+  rail network: grade limits, bridge and tunnel thresholds, unit costs in US dollars, speed
+  limits and technical data. The generator derives each route's bridge and tunnel lengths,
+  construction cost, yearly upkeep and per-segment speed limits from it.
 - **Streets.** City streets are generated from the `streets` section of a generator file:
   each district's built-up area gets arterials (主干道), collectors (次干道) and local
   streets (支路) in a planned, mixed or organic style. Fixed names such as 人民大道 are
@@ -66,7 +73,8 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   The `airport`, `port` and `spaceport` layouts draw runways, piers and launch pads, and an
   optional `angle_deg` turns a site to an absolute bearing (east = 0°, counter-clockwise).
 - **Railways.** Intercity lines in `world/transport/*-rail.yaml` list their stops (cities
-  or districts) and are laid over the terrain with gentler gradients than roads. City metro
+  or districts) and are laid over the terrain with gentler gradients than roads; `tech`
+  sets their operating and design speeds. City metro
   lines come from the `metro` section of a generator file and stay inside a district's
   built-up area. Stations are places of subtype `station`; lines and stations get IDs
   derived from stable keys, so they survive rebuilds.

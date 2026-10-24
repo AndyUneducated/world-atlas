@@ -6,7 +6,9 @@ import { CityEmblem, Emblem, hasEmblem } from "./Emblem";
 import { RouteTimeline } from "./RouteTimeline";
 import { cardPadding, useMobile } from "../lib/viewport";
 import { accentColor, lineage } from "../lib/entity";
-import { displayName, formatNumber, formatPopulation, kindLabel, NAME_LANG_LABELS, t } from "../lib/i18n";
+import { displayName, formatNumber, formatPopulation, formatUsd, kindLabel, NAME_LANG_LABELS, t } from "../lib/i18n";
+import { hasShield } from "../lib/shields";
+import { RouteShield } from "./RouteShield";
 import { NAME_LANGS, type AtlasData, type Entity, type Lang, type NameLang } from "../lib/types";
 
 const NAME_TAGS: Record<NameLang, Record<Lang, string>> = {
@@ -76,7 +78,107 @@ function stats(e: Entity, lang: Lang) {
   if (e.stats?.width_km) out.push({ label: t("width", lang), value: formatNumber(e.stats.width_km, lang, 1), unit: "km" });
   if (e.stats?.drainage_km2) out.push({ label: t("drainage", lang), value: formatNumber(e.stats.drainage_km2, lang), unit: "km²" });
   if (e.stats?.elev_max_m) out.push({ label: t("maxElevation", lang), value: formatNumber(e.stats.elev_max_m, lang), unit: "m" });
+  if (e.tech?.operating_speed_kmh) out.push({ label: t("operatingSpeed", lang), value: String(e.tech.operating_speed_kmh), unit: "km/h" });
+  if (e.speed?.limits.length) out.push(speedStat(e.speed, lang));
   return out.slice(0, 4);
+}
+
+function speedStat(speed: NonNullable<Entity["speed"]>, lang: Lang) {
+  const nums = speed.limits.filter((v): v is number => v !== null);
+  const label = t("speedLimit", lang);
+  const tagged = (tag: string, v: number) => (lang === "zh" ? `${tag} ${v}` : `${v} ${tag}`);
+  if (speed.limits.includes(null)) {
+    const unit = nums.length ? tagged(t("inPlaces", lang), Math.min(...nums)) : speed.advisory ? tagged(t("advisory", lang), speed.advisory) : undefined;
+    return { label, value: t("noLimit", lang), unit };
+  }
+  const [lo, hi] = [Math.min(...nums), Math.max(...nums)];
+  return { label, value: lo === hi ? String(lo) : `${lo}–${hi}`, unit: "km/h" };
+}
+
+const pct = (part: number, whole: number) => (whole > 0 ? Math.round((100 * part) / whole) : 0);
+
+function EngineeringSection({ entity, lang }: { entity: Entity; lang: Lang }) {
+  const eng = entity.engineering;
+  if (!eng) return null;
+  const total = entity.stats?.length_km ?? eng.length_km;
+  const rows: [string, React.ReactNode][] = [];
+  if (Math.abs(total - eng.length_km) > Math.max(1, total * 0.02)) rows.push([t("builtHere", lang), `${formatNumber(eng.length_km, lang, 1)} km`]);
+  rows.push([
+    t("bridges", lang),
+    <>
+      {formatNumber(eng.bridge_km, lang, 1)} km <span className="text-faint">· {pct(eng.bridge_km, eng.length_km)}%</span>
+      {eng.river_bridges > 0 && <span className="text-faint"> · {eng.river_bridges} {t("riverBridges", lang)}</span>}
+    </>,
+  ]);
+  rows.push([t("tunnels", lang), <>{formatNumber(eng.tunnel_km, lang, 1)} km <span className="text-faint">· {pct(eng.tunnel_km, eng.length_km)}%</span></>]);
+  rows.push([
+    t("construction", lang),
+    <>
+      {formatUsd(eng.construction_usd, lang)}
+      <span className="text-faint">
+        {" "}· {t("perKmCost", lang)} {formatUsd(eng.construction_usd / Math.max(eng.length_km, 0.1), lang)}
+        {eng.stations ? ` · ${t("stationsIncluded", lang)} ${eng.stations}` : ""}
+      </span>
+    </>,
+  ]);
+  rows.push([t("upkeep", lang), `${formatUsd(eng.upkeep_usd_per_year, lang)}${t("perYear", lang)}`]);
+  const structures = pct(eng.bridge_km + eng.tunnel_km, eng.length_km);
+  return (
+    <Section title={t("engineeringTitle", lang)}>
+      <div className="mb-3 flex items-center gap-3">
+        <div className="flex h-2 flex-1 overflow-hidden rounded-full bg-hover">
+          <span className="h-full bg-sky-500" style={{ width: `${pct(eng.bridge_km, eng.length_km)}%` }} />
+          <span className="h-full bg-stone-500" style={{ width: `${pct(eng.tunnel_km, eng.length_km)}%` }} />
+        </div>
+        <span className="text-[12px] text-muted tabular-nums">
+          {lang === "zh" ? "桥隧比" : "Structures"} <span className="font-semibold text-ink">{structures}%</span>
+        </span>
+      </div>
+      {entity.straight && <p className="mb-2 text-[12.5px] font-medium text-accent">{t("straightLine", lang)}</p>}
+      <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[13px]">
+        {rows.map(([k, v]) => (
+          <div key={k} className="contents">
+            <dt className="text-muted">{k}</dt>
+            <dd className="text-ink tabular-nums">{v}</dd>
+          </div>
+        ))}
+      </dl>
+      <p className="mt-2.5 text-[11px] text-faint">{t("costNote", lang)}</p>
+    </Section>
+  );
+}
+
+function TechSection({ entity, lang }: { entity: Entity; lang: Lang }) {
+  const tech = entity.tech;
+  if (!tech) return null;
+  const rows: [string, string][] = [];
+  if (tech.operating_speed_kmh) rows.push([t("operatingSpeed", lang), `${tech.operating_speed_kmh} km/h`]);
+  if (tech.design_speed_kmh) rows.push([t("designSpeed", lang), `${tech.design_speed_kmh} km/h`]);
+  if (tech.gauge_mm) rows.push([t("gauge", lang), `${formatNumber(tech.gauge_mm, lang)} mm${tech.gauge_mm === 1435 ? ` · ${t("standardGauge", lang)}` : ""}`]);
+  if (tech.electrification) rows.push([t("power", lang), `${tech.electrification} · ${t("overhead", lang)}`]);
+  if (tech.power) rows.push([t("power", lang), `${tech.power.voltage} · ${t(tech.power.supply === "overhead" ? "overhead" : "thirdRail", lang)}`]);
+  if (tech.formation) {
+    const f = tech.formation;
+    rows.push([
+      t("formation", lang),
+      lang === "zh"
+        ? `${f.cars} 辆${f.type ? ` ${f.type} 型车` : ""}${f.coupled ? `，可重联 ${f.coupled} 辆` : ""}`
+        : `${f.cars} cars${f.type ? `, Type ${f.type}` : ""}${f.coupled ? `, ${f.coupled} coupled` : ""}`,
+    ]);
+  }
+  if (tech.signalling) rows.push([t("signalling", lang), tech.signalling]);
+  return (
+    <Section title={t("techTitle", lang)}>
+      <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[13px]">
+        {rows.map(([k, v]) => (
+          <div key={k} className="contents">
+            <dt className="text-muted">{k}</dt>
+            <dd className="text-ink">{v}</dd>
+          </div>
+        ))}
+      </dl>
+    </Section>
+  );
 }
 
 function codes(e: Entity, lang: Lang) {
@@ -222,6 +324,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
           )}
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-1.5">
+              {hasShield(entity) && <RouteShield entity={entity} height={20} className="-my-0.5" />}
               <span className="text-[11px] font-medium tracking-wide text-muted uppercase">{kindLabel(entity, lang)}</span>
               {isCapital && (
                 <span className="flex items-center gap-1 rounded-full bg-amber-400/15 px-1.5 py-px text-[10.5px] font-semibold text-amber-500">
@@ -289,6 +392,9 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
       )}
 
       {entity.segments?.length ? <RouteTimeline data={data} entity={entity} lang={lang} /> : <ChildList data={data} entity={entity} lang={lang} />}
+
+      <TechSection entity={entity} lang={lang} />
+      <EngineeringSection entity={entity} lang={lang} />
 
       <Lineage data={data} entity={entity} lang={lang} />
 

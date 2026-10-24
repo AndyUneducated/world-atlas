@@ -81,6 +81,17 @@ class Router:
             path.append(c)
         return path[::-1]
 
+    def straight(self, start: int, goal: int) -> list[int]:
+        """Cells of the straight line between two cells, ignoring terrain and water (bridges and tunnels)."""
+        (ay, ax), (by, bx) = divmod(start, self.nx), divmod(goal, self.nx)
+        n = max(abs(bx - ax), abs(by - ay), 1)
+        cells: list[int] = []
+        for k in range(n + 1):
+            c = round(ay + (by - ay) * k / n) * self.nx + round(ax + (bx - ax) * k / n)
+            if not cells or cells[-1] != c:
+                cells.append(c)
+        return cells
+
     def commit(self, path: list[int], road_class: str, discount=0.55, ref: str | None = None):
         for c in path:
             self.cost[c] = min(self.cost[c], discount)

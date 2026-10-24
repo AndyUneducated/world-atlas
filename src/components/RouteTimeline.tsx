@@ -7,6 +7,7 @@ import type { AtlasData, BBox, Entity, Lang, LngLat, RouteSegment } from "../lib
 import { cardPadding } from "../lib/viewport";
 import { useAtlas } from "../store";
 import { CityEmblem } from "./Emblem";
+import { SpeedSign } from "./SpeedSign";
 
 interface Group {
   key: string;
@@ -146,6 +147,7 @@ export function RouteTimeline({ data, entity, lang }: { data: AtlasData; entity:
                           {chainage(seg.from_km)} – {chainage(end)}
                         </span>
                       </span>
+                      {seg.speed_kmh !== undefined && <SpeedSign kmh={seg.speed_kmh} size={18} lang={lang} />}
                       <span className="relative h-1 w-12 overflow-hidden rounded-full bg-hover">
                         <span className="absolute inset-y-0 left-0 rounded-full" style={{ width: `${(100 * seg.km) / longest}%`, background: color }} />
                       </span>

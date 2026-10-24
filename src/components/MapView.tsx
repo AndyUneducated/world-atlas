@@ -12,7 +12,9 @@ import { buildFocus, indexFeatures } from "../lib/focus";
 import { measureFeatures } from "../lib/measure";
 import { useRoute } from "../lib/useRoute";
 import { buildStyle, HIT_LAYERS, LANDFORM_LABEL_LAYERS, type FocusData } from "../lib/style";
+import { drawShield, shieldImageId } from "../lib/shields";
 import { THEMES } from "../lib/themes";
+import type { Entity } from "../lib/types";
 import { writeUrl } from "../lib/url";
 import { initialView, useAtlas, useCursor } from "../store";
 
@@ -24,30 +26,11 @@ const BOROUGH_ZOOM = 8.8;
 /** Below this zoom landmark markers would sit on top of the city labels. */
 const PLACE_MARKER_ZOOM = 7.5;
 
-function drawShield(map: maplibregl.Map, id: string) {
-  const [, fill, stroke] = id.split("|");
-  const ratio = 2;
-  const w = 28 * ratio;
-  const h = 20 * ratio;
-  const canvas = document.createElement("canvas");
-  canvas.width = w;
-  canvas.height = h;
-  const ctx = canvas.getContext("2d")!;
-  const r = 6 * ratio;
-  const lw = 1.5 * ratio;
-  ctx.beginPath();
-  ctx.roundRect(lw / 2, lw / 2, w - lw, h - lw, r);
-  ctx.fillStyle = fill;
-  ctx.fill();
-  ctx.lineWidth = lw;
-  ctx.strokeStyle = stroke;
-  ctx.stroke();
-  map.addImage(id, ctx.getImageData(0, 0, w, h), {
-    pixelRatio: ratio,
-    stretchX: [[r, w - r]],
-    stretchY: [[r, h - r]],
-    content: [r * 0.6, r * 0.5, w - r * 0.6, h - r * 0.5],
-  });
+function addRouteShield(map: maplibregl.Map, id: string, routes: Map<string, Entity>) {
+  const route = routes.get(id.slice(shieldImageId("").length));
+  const s = route && drawShield(route, 2);
+  if (!s) return;
+  map.addImage(id, s.canvas.getContext("2d")!.getImageData(0, 0, s.canvas.width, s.canvas.height), { pixelRatio: s.ratio });
 }
 
 /** Summit triangle with a snow cap, or the pass mark ")(" used on topographic maps. */
@@ -170,9 +153,10 @@ export function MapView() {
       console.error(err ?? e);
     });
 
+    const routesByRef = new Map(Object.values(data.entities).filter((e) => e.kind === "route" && e.ref).map((e) => [e.ref!, e]));
     map.setMissingStyleImageResolver((id) => {
       if (map.hasImage(id)) return;
-      if (id.startsWith("shield|")) drawShield(map, id);
+      if (id.startsWith(shieldImageId(""))) addRouteShield(map, id, routesByRef);
       else if (id.startsWith("peak|") || id.startsWith("pass|")) drawSymbol(map, id);
     });
 

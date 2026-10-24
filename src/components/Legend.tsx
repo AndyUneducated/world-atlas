@@ -2,8 +2,9 @@ import { AnimatePresence, motion } from "motion/react";
 import { t, type StringKey } from "../lib/i18n";
 import { DENSITY_BREAKS } from "../lib/style";
 import { BUILDING_CLASSES, LANDCOVER_CLASSES, THEMES, type MapTheme } from "../lib/themes";
-import type { Lang } from "../lib/types";
+import type { Entity, Lang } from "../lib/types";
 import { useAtlas, type LayerToggles } from "../store";
+import { RouteShield } from "./RouteShield";
 
 function Heading({ children, unit }: { children: React.ReactNode; unit?: string }) {
   return (
@@ -32,13 +33,9 @@ function LineSwatch({ color, casing, width = 3, dash }: { color: string; casing?
   );
 }
 
-function Shield({ fill, stroke, text, label }: { fill: string; stroke: string; text: string; label: string }) {
-  return (
-    <span className="rounded-[4px] px-1 text-[9px] leading-[14px] font-semibold" style={{ background: fill, color: text, boxShadow: `inset 0 0 0 1.2px ${stroke}` }}>
-      {label}
-    </span>
-  );
-}
+const sampleRoute = (id: string, ref: string, network: string, shield?: string): Entity => ({
+  id, kind: "route", subtype: "road", status: "canon", names: { zh: ref, en: ref }, ref, network, shield,
+});
 
 function Ramp({ colors, ticks }: { colors: string[]; ticks: string[] }) {
   return (
@@ -77,9 +74,9 @@ function ElevationRamp({ relief }: { relief: [number, string][] }) {
   );
 }
 
-const ROADS: { key: keyof LayerToggles; style: (m: MapTheme) => { fill: string; casing: string }; shield?: (m: MapTheme) => MapTheme["shield"]["national"]; ref?: string }[] = [
-  { key: "nationalExpressway", style: (m) => m.nationalExpressway, shield: (m) => m.shield.national, ref: "G" },
-  { key: "territorialExpressway", style: (m) => m.territorialExpressway, shield: (m) => m.shield.territorial, ref: "S" },
+const ROADS: { key: keyof LayerToggles; style: (m: MapTheme) => { fill: string; casing: string }; sample?: Entity }[] = [
+  { key: "nationalExpressway", style: (m) => m.nationalExpressway, sample: sampleRoute("legend:g", "G-NV-1", "national_expressway") },
+  { key: "territorialExpressway", style: (m) => m.territorialExpressway, sample: sampleRoute("legend:s", "S-NV-1", "territorial_expressway", "peaks") },
   { key: "cityRoads", style: (m) => m.cityRoad },
 ];
 
@@ -93,12 +90,11 @@ function LegendBody({ m, layers, lang }: { m: MapTheme; layers: LayerToggles; la
           <ul className="space-y-1">
             {roads.map((r) => {
               const s = r.style(m);
-              const sh = r.shield?.(m);
               return (
                 <Row
                   key={r.key}
                   label={t(r.key as StringKey, lang)}
-                  swatch={sh ? <Shield {...sh} text={sh.text} label={r.ref!} /> : <LineSwatch color={s.fill} casing={s.casing} width={2.5} />}
+                  swatch={r.sample ? <RouteShield entity={r.sample} height={16} /> : <LineSwatch color={s.fill} casing={s.casing} width={2.5} />}
                 />
               );
             })}
