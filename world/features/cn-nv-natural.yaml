@@ -30,8 +30,8 @@ features:
       en: Frost Ridge
       art-x-viking: Frostkamm
     notes:
-      zh: 西北市北部的低山丘陵，冬季积雪期长。
-      en: Low hills in the north of Northwest City with a long winter snow season.
+      zh: 西北市北部东西走向的山岭，最高峰霜冠峰，冬季积雪期长。
+      en: East–west ridge in the north of Northwest City, rising to Frostcrown, with a long winter snow season.
   - id: nat_x9bmeh
     subtype: river
     status: generated

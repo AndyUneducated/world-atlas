@@ -22,6 +22,8 @@ export interface EntityStats {
   length_km?: number;
   width_km?: number;
   drainage_km2?: number;
+  elevation_m?: number;
+  prominence_m?: number;
 }
 
 export interface Entity {
@@ -94,8 +96,10 @@ export const LAYER_FILES = [
   "divisions",
   "labels",
   "places",
+  "landcover",
   "water",
   "coast",
+  "glaciers",
   "rivers",
   "rivers-named",
   "ridges",

@@ -1,5 +1,8 @@
 import type { Lang, ThemeId } from "./types";
 
+export const LANDCOVER_CLASSES = ["forest", "tundra", "rock", "farmland", "wetland", "urban"] as const;
+export type LandcoverClass = (typeof LANDCOVER_CLASSES)[number];
+
 interface RoadStyle {
   fill: string;
   casing: string;
@@ -24,6 +27,10 @@ export interface MapTheme {
   };
   water: string;
   river: string;
+  /** Land cover fills by class (see pipeline/atlas/landcover.py), drawn under the relief shading. */
+  landcover: { opacity: number; colors: Record<LandcoverClass, string> };
+  glacier: { fill: string; line: string };
+  peak: string;
   coast: { color: string; width: number; glow?: string };
   cityLine: { color: string; width: number; glow?: string };
   districtLine: { color: string; width: number };
@@ -77,6 +84,12 @@ export const THEMES: Record<ThemeId, Theme> = {
       },
       water: "#bcd9e9",
       river: "#8fbfdc",
+      landcover: {
+        opacity: 0.55,
+        colors: { forest: "#b9d4ad", tundra: "#d9dcc0", rock: "#d2cbc2", farmland: "#ecebc4", wetland: "#bcd8cf", urban: "#e3dcd5" },
+      },
+      glacier: { fill: "#f4f9fd", line: "#b9d3e6" },
+      peak: "#6b5a48",
       coast: { color: "#9bb7c9", width: 1 },
       cityLine: { color: "#8c9aab", width: 1.2 },
       districtLine: { color: "#b7c2ce", width: 0.8 },
@@ -125,6 +138,12 @@ export const THEMES: Record<ThemeId, Theme> = {
       },
       water: "#0b2236",
       river: "#1d5c85",
+      landcover: {
+        opacity: 0.6,
+        colors: { forest: "#12291f", tundra: "#22291f", rock: "#262a30", farmland: "#24261a", wetland: "#0f2a2c", urban: "#2a2433" },
+      },
+      glacier: { fill: "#8aa5c2", line: "#5d7fa3" },
+      peak: "#a8b6c9",
       coast: { color: "#22d3ee", width: 1, glow: "rgba(34,211,238,0.35)" },
       cityLine: { color: "#2dd4bf", width: 1, glow: "rgba(45,212,191,0.28)" },
       districtLine: { color: "#25384d", width: 0.8 },

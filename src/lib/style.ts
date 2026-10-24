@@ -7,7 +7,7 @@ import type {
 import type { FeatureCollection } from "geojson";
 import type { LayerToggles } from "../store";
 import { BASE_URL } from "./data";
-import type { Theme } from "./themes";
+import { LANDCOVER_CLASSES, type Theme } from "./themes";
 import type { AtlasData, Lang } from "./types";
 
 export interface FocusData {
@@ -40,7 +40,16 @@ export const HIT_LAYERS = {
 /** Coastal landform kinds (label `kind`), split by whether they are water or land. */
 export const LANDFORM_KINDS = { water: ["bay", "fjord", "strait", "estuary"], land: ["island", "cape"] } as const;
 /** Landform label layers, which double as their hit targets. */
-export const LANDFORM_LABEL_LAYERS = ["water-label-major", "water-label", "land-label-major", "land-label"];
+export const LANDFORM_LABEL_LAYERS = [
+  "peak-label-major",
+  "peak-label",
+  "pass-label",
+  "glacier-label",
+  "water-label-major",
+  "water-label",
+  "land-label-major",
+  "land-label",
+];
 
 const FONT = {
   regular: ["Noto Sans Regular"],
@@ -54,6 +63,11 @@ const visible = (on: boolean) => (on ? "visible" : "none") as "visible" | "none"
 
 export function shieldImageId(fill: string, stroke: string) {
   return `shield|${fill}|${stroke}`;
+}
+
+/** Map symbol drawn on demand by the map view: a summit triangle or a pass mark. */
+export function symbolImageId(kind: "peak" | "pass", color: string) {
+  return `${kind}|${color}`;
 }
 
 export function buildStyle(opts: {
@@ -88,6 +102,8 @@ export function buildStyle(opts: {
     highlight: { type: "geojson", data: highlight },
     places: { type: "geojson", data: data.layers.places },
     coast: { type: "geojson", data: data.layers.coast, promoteId: "id" },
+    landcover: { type: "geojson", data: data.layers.landcover },
+    glaciers: { type: "geojson", data: data.layers.glaciers },
     dem: {
       type: "raster-dem",
       tiles: [`${BASE_URL}data/${dem.tiles}`],
@@ -148,6 +164,18 @@ export function buildStyle(opts: {
     paint: { "fill-color": ["coalesce", ["get", "color"], m.land], "fill-opacity": layers.terrain ? m.terrain.tintOpacity : m.tintOpacity },
   });
 
+  style.push({
+    id: "landcover",
+    type: "fill",
+    source: "landcover",
+    layout: { visibility: visible(layers.landcover) },
+    paint: {
+      "fill-color": ["match", ["get", "class"], ...LANDCOVER_CLASSES.flatMap((c) => [c, m.landcover.colors[c]]), m.land] as unknown as ExpressionSpecification,
+      "fill-opacity": layers.terrain ? m.landcover.opacity * 0.5 : m.landcover.opacity,
+      "fill-antialias": false,
+    },
+  });
+
   const [c0, c1, c2, c3, c4, c5] = m.choropleth;
   style.push(
     {
@@ -172,6 +200,14 @@ export function buildStyle(opts: {
         "hillshade-exaggeration": layers.terrain ? m.terrain.exaggeration : m.hillshade.exaggeration,
         "hillshade-illumination-direction": 315,
       },
+    },
+    { id: "glacier", type: "fill", source: "glaciers", paint: { "fill-color": m.glacier.fill, "fill-opacity": 0.82 } },
+    {
+      id: "glacier-line",
+      type: "line",
+      source: "glaciers",
+      minzoom: 7,
+      paint: { "line-color": m.glacier.line, "line-width": 0.8, "line-dasharray": [2, 1.5] },
     },
     { id: "water", type: "fill", source: "water", paint: { "fill-color": m.water } },
     {
@@ -434,11 +470,50 @@ export function buildStyle(opts: {
     },
     paint: { "text-color": water ? m.label.water : m.label.terrain, ...halo },
   });
+  const summitLabel = (id: string, kind: "peak" | "pass", major: boolean, minzoom: number): LayerSpecification => ({
+    id,
+    type: "symbol",
+    source: "labels",
+    minzoom,
+    filter: ["all", isKind(kind), ["==", ["coalesce", ["get", "major"], false], major]],
+    layout: {
+      "icon-image": symbolImageId(kind, m.peak),
+      "icon-size": major ? 1 : 0.85,
+      "text-field": [
+        "format",
+        name(lang),
+        {},
+        "\n",
+        {},
+        ["concat", ["number-format", ["get", "elev"], { locale: "en-US" }], " m"],
+        { "font-scale": 0.78, "text-font": ["literal", FONT.regular] },
+      ] as ExpressionSpecification,
+      "text-font": FONT.medium,
+      "text-size": major ? ["interpolate", ["linear"], ["zoom"], minzoom, 11, 11, 13.5] : 11,
+      "text-anchor": "top",
+      "text-offset": [0, 0.75],
+      "text-optional": true,
+      "symbol-sort-key": ["-", 0, ["get", "elev"]],
+    },
+    paint: { "text-color": m.label.terrain, ...halo },
+  });
   style.push(
     landformLabel("water-label-major", LANDFORM_KINDS.water, true, 6.6, true),
     landformLabel("water-label", LANDFORM_KINDS.water, false, 8.4, true),
     landformLabel("land-label-major", LANDFORM_KINDS.land, true, 7.4, false),
     landformLabel("land-label", LANDFORM_KINDS.land, false, 8.8, false),
+    {
+      id: "glacier-label",
+      type: "symbol",
+      source: "labels",
+      minzoom: 8,
+      filter: isKind("glacier"),
+      layout: { "text-field": name(lang), "text-font": FONT.italic, "text-size": 11, "text-letter-spacing": 0.12, "text-max-width": 6 },
+      paint: { "text-color": m.label.water, ...halo },
+    },
+    summitLabel("peak-label-major", "peak", true, 6.8),
+    summitLabel("peak-label", "peak", false, 8.2),
+    summitLabel("pass-label", "pass", false, 8.6),
   );
 
   style.push(

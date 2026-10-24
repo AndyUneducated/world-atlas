@@ -13,7 +13,7 @@ ID_PATTERN = re.compile(r"^(div|nat|rte|poi|bld|ctx)_[0-9a-hjkmnp-tv-z]{6}$|^cou
 REQUIRED_LANGS = ("zh", "en")
 DIVISION_SUBTYPES = ("country", "dependency", "region", "locality", "borough")
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
-DETECT_KINDS = ("island", "bay", "fjord", "cape", "strait", "estuary", "river")
+DETECT_KINDS = ("island", "bay", "fjord", "cape", "strait", "estuary", "river", "peak", "pass", "glacier")
 
 
 def _load(path: Path):

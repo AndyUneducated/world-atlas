@@ -5,6 +5,7 @@ import type { Appearance, AtlasData, Lang, LngLat, ThemeId } from "./lib/types";
 
 export interface LayerToggles {
   terrain: boolean;
+  landcover: boolean;
   choropleth: boolean;
   boundaries: boolean;
   nationalExpressway: boolean;
@@ -67,6 +68,7 @@ const appearance: Appearance = ["auto", "light", "dark"].includes(storedAppearan
 
 const DEFAULT_LAYERS: LayerToggles = {
   terrain: false,
+  landcover: true,
   choropleth: false,
   boundaries: true,
   nationalExpressway: true,

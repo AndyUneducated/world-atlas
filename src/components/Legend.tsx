@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { t, type StringKey } from "../lib/i18n";
 import { DENSITY_BREAKS } from "../lib/style";
-import { THEMES, type MapTheme } from "../lib/themes";
+import { LANDCOVER_CLASSES, THEMES, type MapTheme } from "../lib/themes";
 import type { Lang } from "../lib/types";
 import { useAtlas, type LayerToggles } from "../store";
 
@@ -114,6 +114,30 @@ function LegendBody({ m, layers, lang }: { m: MapTheme; layers: LayerToggles; la
           {layers.boundaries && <Row label={t("boundaryDistrict", lang)} swatch={<LineSwatch color={m.districtLine.color} width={1.2} dash="3 2" />} />}
         </ul>
       </section>
+      {layers.landcover && (
+        <section>
+          <Heading>{t("landcover", lang)}</Heading>
+          <ul className="grid grid-cols-2 gap-x-2 gap-y-1">
+            {LANDCOVER_CLASSES.map((c) => (
+              <li key={c} className="flex items-center gap-1.5 truncate text-[11.5px] text-ink">
+                <span className="size-2.5 shrink-0 rounded-[3px] ring-1 ring-line" style={{ background: m.landcover.colors[c] }} />
+                {t(`lc_${c}` as StringKey, lang)}
+              </li>
+            ))}
+            <li className="flex items-center gap-1.5 truncate text-[11.5px] text-ink">
+              <span className="size-2.5 shrink-0 rounded-[3px]" style={{ background: m.glacier.fill, boxShadow: `inset 0 0 0 1px ${m.glacier.line}` }} />
+              {t("lc_glacier", lang)}
+            </li>
+            <li className="flex items-center gap-1.5 truncate text-[11.5px] text-ink">
+              <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden className="shrink-0">
+                <path d="M5 1 L9.4 9 H0.6 Z" fill={m.peak} />
+                <path d="M5 1 L6.3 3.4 H3.7 Z" fill="#fff" />
+              </svg>
+              {t("peak", lang)}
+            </li>
+          </ul>
+        </section>
+      )}
       {layers.terrain && (
         <section>
           <Heading unit="m">{t("elevation", lang)}</Heading>

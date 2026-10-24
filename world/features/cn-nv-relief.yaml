@@ -1,0 +1,249 @@
+# Peaks, passes and glaciers of North Viking Island found by the generator
+# (pipeline/atlas/relief.py). Each entry names the landform of `detect.kind` nearest to
+# `detect.at_km` (design km). Elevation and prominence come from the generated terrain.
+features:
+  # ── Peaks (highest first) ────────────────────────────────
+  - id: nat_7fcbdm
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [214.8, 111.8] }
+    names: { zh: 王座峰, en: Throne Peak, art-x-viking: Thronspitze }
+    notes:
+      zh: 全岛最高峰，马斯林山脉北翼与西翼交会处的主峰，终年被王座冰原覆盖。
+      en: The highest summit of the island, where the northern and western arms of the Maslin Range meet; capped all year by the Throne Icefield.
+  - id: nat_m9thfe
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [212.8, 67.2] }
+    names: { zh: 南冠峰, en: Southcrown, art-x-viking: Südkrone }
+    notes:
+      zh: 马斯林山脉西翼南端的高峰，峰顶冰川在晴天自新城市清晰可见。
+      en: High summit at the southern end of the Maslin Range's western arm; its ice cap is clearly visible from New City on fine days.
+  - id: nat_4xvk5v
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [148.2, 71.8] }
+    names: { zh: 洛龙峰, en: Lorond Peak, art-x-viking: Lorondspitze }
+    notes:
+      zh: 洛龙山脉最高峰，洛龙山市因其得名。
+      en: The highest summit of the Lorond Range, which gave Lorond Mountain City its name.
+  - id: nat_8ess6e
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [148.2, 111.8] }
+    names: { zh: 龙首峰, en: Dragonhead, art-x-viking: Drachenkopf }
+    notes:
+      zh: 洛龙山脉北段的主峰，与南面的山脊合称"龙脊"，俯瞰龙关。
+      en: The main summit of the northern Lorond Range, overlooking Dragon Pass; with the ridges to the south it forms the "Dragon's Spine".
+  - id: nat_nans6b
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [258.8, 112.8] }
+    names: { zh: 观星峰, en: Starwatch Peak, art-x-viking: Sternwartspitze }
+    notes:
+      zh: 马斯林山脉北翼东端的高峰，俯临星港区。
+      en: High summit at the eastern end of the Maslin Range's northern arm, above Starport District.
+  - id: nat_baqmce
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [146.2, 88.2] }
+    names: { zh: 杉顶, en: Fir Top, art-x-viking: Fichtenkopf }
+    notes:
+      zh: 洛龙山脉中段的山峰，山腰以下为茂密的云杉林，杉岭区因此得名。
+      en: Summit in the middle of the Lorond Range. Dense spruce forest below its shoulders gave Fir Ridge District its name.
+  - id: nat_8e3s2q
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [68.8, 133.2] }
+    names: { zh: 霜冠峰, en: Frostcrown, art-x-viking: Frostkrone }
+    notes:
+      zh: 寒岭最高峰，峰顶冰川终年不化。
+      en: The highest summit of the Frost Ridge, crowned by a permanent glacier.
+  - id: nat_chx2bf
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [52.2, 131.2] }
+    names: { zh: 白狼峰, en: White Wolf Peak, art-x-viking: Weißwolfspitze }
+    notes:
+      zh: 寒岭西段的山峰，传说冬季有白狼出没。
+      en: Summit in the western Frost Ridge, said to be roamed by white wolves in winter.
+  - id: nat_g4572m
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [84.2, 132.2] }
+    names: { zh: 北斗峰, en: Dipper Peak, art-x-viking: Wagenspitze }
+    notes:
+      zh: 寒岭东段的山峰，冬夜北斗七星正悬于峰顶之上。
+      en: Summit in the eastern Frost Ridge; on winter nights the Plough hangs directly above it.
+  - id: nat_reahta
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [256.2, 59.2] }
+    names: { zh: 天台山, en: Sky Terrace Mountain, art-x-viking: Himmelterrassenberg }
+    notes:
+      zh: 马斯林山脉南翼东端的孤峰，山顶平台状，天台区与天城市以其得名。
+      en: Isolated summit at the eastern end of the Maslin Range's southern arm. Its flat, terrace-like top gave Sky Terrace District and Skytown their names.
+  - id: nat_m92aq4
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [229.8, 50.2] }
+    names: { zh: 铁岗山, en: Iron Knoll, art-x-viking: Eisenkopf }
+    notes:
+      zh: 马斯林山脉南翼西端的山峰，山体富含铁矿，铁岗区因此得名。
+      en: Summit at the western end of the Maslin Range's southern arm. Its iron-rich rock gave Iron Knoll District its name.
+  - id: nat_5xevyh
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [97.8, 128.2] }
+    names: { zh: 鹿角山, en: Antler Hill, art-x-viking: Geweihberg }
+    notes:
+      zh: 寒岭东端的山峰，双峰并立形似鹿角。
+      en: Summit at the eastern end of the Frost Ridge, its twin tops shaped like antlers.
+
+  # ── Passes ───────────────────────────────────────────────
+  - id: nat_h9chf5
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [211.2, 94.2] }
+    names: { zh: 马斯林山口, en: Maslin Pass, art-x-viking: Maslinpass }
+    notes:
+      zh: 马斯林山脉西翼的鞍部，分隔王座峰与南冠峰两大山体。
+      en: Saddle in the western arm of the Maslin Range, dividing the Throne Peak and Southcrown massifs.
+  - id: nat_68ggx2
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [146.8, 104.2] }
+    names: { zh: 龙关, en: Dragon Pass, art-x-viking: Drachenpass }
+    notes:
+      zh: 洛龙山脉中北部的山口，自古是翻越洛龙山脉的要道，龙关区因此得名。
+      en: Pass in the north-central Lorond Range, long the main way across the range; Dragon Pass District is named after it.
+  - id: nat_m6jx55
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [243.8, 114.2] }
+    names: { zh: 西坪垭口, en: West Heath Saddle, art-x-viking: Westheidesattel }
+    notes:
+      zh: 马斯林山脉北翼的鞍部，南坡为西坪区的高山草甸。
+      en: Saddle in the northern arm of the Maslin Range, above the alpine meadows of West Heath District.
+  - id: nat_qksmah
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [147.2, 83.8] }
+    names: { zh: 杉岭垭口, en: Fir Ridge Col, art-x-viking: Fichtensattel }
+    notes:
+      zh: 洛龙峰与杉顶之间的高海拔垭口。
+      en: High col between Lorond Peak and Fir Top.
+  - id: nat_ryk6ny
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [61.2, 130.8] }
+    names: { zh: 狼口, en: Wolf Gap, art-x-viking: Wolfsscharte }
+    notes:
+      zh: 白狼峰与霜冠峰之间的山口。
+      en: Gap between White Wolf Peak and Frostcrown.
+  - id: nat_28qqas
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [80.2, 132.8] }
+    names: { zh: 星门, en: Star Gate, art-x-viking: Sterntor }
+    notes:
+      zh: 霜冠峰与北斗峰之间的山口，北望即是望星湾。
+      en: Pass between Frostcrown and Dipper Peak, looking north to Stargaze Bay.
+  - id: nat_6p167r
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [225.2, 48.2] }
+    names: { zh: 萨科山口, en: Sako Pass, art-x-viking: Sakopass }
+    notes:
+      zh: 铁岗山西侧的山口，连接萨科区与东南沿海。
+      en: Pass west of Iron Knoll linking Sako District with the south-east coast.
+  - id: nat_0syp9a
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [96.2, 128.2] }
+    names: { zh: 鹿径, en: Deer Path, art-x-viking: Hirschsteig }
+    notes:
+      zh: 寒岭东端的低山口，鹿群季节迁徙的通道。
+      en: Low pass at the eastern end of the Frost Ridge, used by deer on their seasonal migration.
+
+  # ── Glaciers (largest first) ─────────────────────────────
+  - id: nat_hvjjwy
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [220.6, 115.4] }
+    names: { zh: 王座冰原, en: Throne Icefield, art-x-viking: Throneisfeld }
+    notes:
+      zh: 全岛最大的冰原，覆盖王座峰周围的马斯林山脉北翼，北坡冰舌下伸最低。
+      en: The largest icefield of the island, covering the northern arm of the Maslin Range around Throne Peak; its tongues reach lowest on the north side.
+  - id: nat_62jkkn
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [212.6, 67.1] }
+    names: { zh: 南冠冰川, en: Southcrown Glacier, art-x-viking: Südkronengletscher }
+    notes:
+      zh: 覆盖南冠峰的冰川。
+      en: Glacier capping Southcrown.
+  - id: nat_1r9x72
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [149.6, 75.6] }
+    names: { zh: 洛龙冰川, en: Lorond Glacier, art-x-viking: Lorondgletscher }
+    notes:
+      zh: 洛龙峰北坡的冰川，洛龙山脉最大的冰川。
+      en: Glacier on the north side of Lorond Peak, the largest in the Lorond Range.
+  - id: nat_azh3cs
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [147.6, 114.6] }
+    names: { zh: 龙首冰川, en: Dragonhead Glacier, art-x-viking: Drachenkopfgletscher }
+    notes:
+      zh: 龙首峰周围的冰川。
+      en: Glacier around Dragonhead.
+  - id: nat_af1705
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [146.9, 65.9] }
+    names: { zh: 杉岭冰川, en: Fir Ridge Glacier, art-x-viking: Fichtenkammgletscher }
+    notes:
+      zh: 洛龙峰南侧的冰川。
+      en: Glacier south of Lorond Peak.
+  - id: nat_a0cdp8
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [257.9, 113.4] }
+    names: { zh: 观星冰川, en: Starwatch Glacier, art-x-viking: Sternwartgletscher }
+    notes:
+      zh: 观星峰顶的冰川。
+      en: Glacier on the summit of Starwatch Peak.
+  - id: nat_8n4aee
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [146.4, 122.4] }
+    names: { zh: 勒北冰川, en: Lekor North Glacier, art-x-viking: Lekor-Nordgletscher }
+    notes:
+      zh: 洛龙山脉北端的冰川，冰缘延伸到勒北区。
+      en: Glacier at the northern end of the Lorond Range, reaching into Lekor North District.
+  - id: nat_a7552a
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [147.6, 88.9] }
+    names: { zh: 杉顶冰川, en: Fir Top Glacier, art-x-viking: Fichtenkopfgletscher }
+    notes:
+      zh: 覆盖杉顶的冰川。
+      en: Glacier capping Fir Top.
+  - id: nat_wwyev3
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [71.6, 134.4] }
+    names: { zh: 霜冠冰川, en: Frostcrown Glacier, art-x-viking: Frostkronengletscher }
+    notes:
+      zh: 霜冠峰顶的冰川，寒岭唯一较大的冰川。
+      en: Glacier on the summit of Frostcrown, the only sizeable glacier of the Frost Ridge.
+  - id: nat_6w1rwe
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [207.9, 86.6] }
+    names: { zh: 马斯林冰川, en: Maslin Glacier, art-x-viking: Maslingletscher }
+    notes:
+      zh: 马斯林山口南侧的冰川。
+      en: Glacier south of Maslin Pass.

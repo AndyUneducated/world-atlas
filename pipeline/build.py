@@ -23,7 +23,7 @@ from shapely.geometry import LineString, MultiLineString, mapping
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas import coast  # noqa: E402
+from atlas import coast, landcover, relief  # noqa: E402
 from atlas.cache import CACHE_DIR, stage  # noqa: E402
 from atlas.dem_tiles import write_dem_tiles  # noqa: E402
 from atlas.divisions import partition, pole_of_inaccessibility  # noqa: E402
@@ -43,6 +43,7 @@ SEGMENTED_NETWORKS = {"national_expressway", "national_highway", "territorial_ex
 # Bays and fjords this large (real km²) and capes this prominent (real km) are labelled from lower zooms.
 MAJOR_LANDFORM_KM2 = 200
 MAJOR_CAPE_KM = 12
+MAJOR_PEAK_PROMINENCE_M = 450
 
 def log(msg):
     print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)
@@ -192,8 +193,9 @@ def block_upsample(a: np.ndarray, shape) -> np.ndarray:
 
 
 def detect_landforms(world: World, spec: dict, drain: Drainage, land_c: np.ndarray, gc: Grid, frame: Frame,
-                     named_rivers: list, dist_r: np.ndarray, g: Grid, districts: list[dict]):
-    """Find coastal landforms and river mouths, and pair them with the named entries in world/features.
+                     named_rivers: list, dist_r: np.ndarray, g: Grid, districts: list[dict], extra: list[dict]):
+    """Find coastal landforms and river mouths, and pair them (and the extra candidates, e.g. peaks)
+    with the named entries in world/features.
 
     Returns ({"matched": [(candidate, feature)], "rivers": [(feature, line, drainage, stem)]}, report);
     the report lists every candidate, named or not, for the naming workflow.
@@ -204,7 +206,8 @@ def detect_landforms(world: World, spec: dict, drain: Drainage, land_c: np.ndarr
     cands = (coast.islands(*args, island_min)
              + coast.bays(*args, cp.get("bay_close_km", 5), cp.get("bay_min_km2", 15))
              + coast.capes(*args, cp.get("cape_open_km", 2.5), cp.get("cape_min_prominence_km", 2.5))
-             + coast.straits(*args, cp.get("strait_max_gap_km", 4), island_min))
+             + coast.straits(*args, cp.get("strait_max_gap_km", 4), island_min)
+             + extra)
     landf = land_c.ravel()
 
     def mouth_of(stem):
@@ -364,8 +367,35 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         mouth_acc = float(drain.acc.ravel()[stem[-2]])
         named_rivers.append((fe, line, mouth_acc, stem))
 
-    log("coastal landforms")
-    coast_feats, candidate_report = detect_landforms(world, spec, drain, land_c, gc, frame, named_rivers, dist_r, g, districts)
+    log("mountains")
+    rp = spec.get("relief", {})
+    peak_c = relief.peaks(elev_c, land_c, gc.xs, gc.ys, rp.get("peak_min_elev_m", 700), rp.get("peak_min_prominence_m", 150))
+    pass_c = relief.passes(elev_c, peak_c, gc.xs, gc.ys, rp.get("pass_min_elev_m", 450))
+    elev_top = block_reduce(elev, 2, "max")
+    for p in peak_c:  # summit heights from the full-resolution terrain, as in the division stats
+        rise = float(elev_top.flat[p["cell"]]) - p["metrics"]["elev_m"]
+        p["metrics"]["elev_m"] += rise
+        p["metrics"]["prominence_m"] += rise
+    ice = relief.glaciers(elev, land & ~water, g.xs, g.ys, g.res, frame.km(g.res), rp.get("snowline_m", 2000),
+                          rp.get("snowline_aspect_m", 300), rp.get("glacier_max_slope_deg", 38), rp.get("ice_min_km2", 0.5))
+    glacier_c = [c for c in ice if c["metrics"]["area_km2"] >= rp.get("glacier_min_km2", 4)]
+    log(f"  {len(peak_c)} peaks, {len(pass_c)} passes, {len(ice)} ice fields ({len(glacier_c)} glaciers)")
+
+    log("land cover")
+    water_c = block_reduce(water, 2, "mode_bool")
+    ice_mask = np.any([c["mask"] for c in ice], axis=0) if ice else np.zeros(g.shape, bool)
+    ice_c = block_reduce(ice_mask, 2, "mode_bool")
+    settlements = [(*poles[i], d["population"]) for i, d in enumerate(districts) if d.get("population")]
+    cover = landcover.classify(elev_c, land_c & ~water_c & ~ice_c, gc, frame.km(gc.res), frame.km(1.0), seed,
+                               settlements, drain.acc.reshape(gc.shape), spec["landcover"])
+    cover_polys = polygonize_labels(cover, gc.res, smooth=3, simplify_km=0.12)
+    landcover_features = [feature(to_lonlat(geom, frame), {"class": landcover.CLASSES[k]}) for k, geom in sorted(cover_polys.items())]
+    shares = np.bincount(cover[cover >= 0], minlength=len(landcover.CLASSES)) / max((cover >= 0).sum(), 1)
+    log("  " + ", ".join(f"{name} {s * 100:.0f}%" for name, s in zip(landcover.CLASSES, shares)))
+
+    log("landforms")
+    coast_feats, candidate_report = detect_landforms(world, spec, drain, land_c, gc, frame, named_rivers, dist_r, g, districts,
+                                                     peak_c + pass_c + glacier_c)
     for fe, line, acc, stem in coast_feats.pop("rivers"):
         named_rivers.append((fe, line, acc, stem))
 
@@ -378,7 +408,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     log("routing roads")
     land_r = block_reduce(land, 4, "mode_bool")
     elev_r = block_reduce(elev, 4, "mean")
-    water_r = block_reduce(water, 4, "mode_bool")
+    water_r = block_reduce(water | ice_mask, 4, "mode_bool")  # roads go round lakes and glaciers
     router = Router(elev_r, land_r & ~water_r, gr.res)
     node = [router.cell(*poles[core[ci]]) for ci in range(len(cities))]
     road_out = []
@@ -575,19 +605,34 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             moved = affinity.translate(polys[0], g.w / 2 + ox - cw / 2, g.h / 2 + oy - ch / 2)
             ctx_features.append(feature(to_lonlat(moved, frame), {"id": ctx["id"], "name_zh": ctx["names"]["zh"], "name_en": ctx["names"]["en"]}))
 
-    coast_features = []
+    coast_features, glacier_features = [], []
+    ice_names = {id(c): fe for c, fe in coast_feats["matched"] if c["kind"] == "glacier"}
+    for c in ice:
+        poly = polygonize_labels(np.where(c["mask"], 0, -1), g.res).get(0)
+        if poly is None:
+            continue
+        c["geom"] = poly
+        fe = ice_names.get(id(c))
+        glacier_features.append(feature(to_lonlat(poly, frame), {"id": fe["id"], "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"]} if fe else {}))
     for c, fe in coast_feats["matched"]:
         x, y = c["at"]
         pt = point_lonlat(frame, x, y)
         props = {"id": fe["id"], "kind": fe["subtype"], "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"]}
         m = c["metrics"]
         major = frame.km2(m.get("area_km2", 0)) >= MAJOR_LANDFORM_KM2 if c["kind"] in ("bay", "fjord") else \
-            frame.km(m.get("prominence_km", 0)) >= MAJOR_CAPE_KM if c["kind"] == "cape" else False
-        label_features.append(feature(pt, {**props, "rank": 5, "major": major}))
+            frame.km(m.get("prominence_km", 0)) >= MAJOR_CAPE_KM if c["kind"] == "cape" else \
+            m.get("prominence_m", 0) >= MAJOR_PEAK_PROMINENCE_M if c["kind"] == "peak" else False
+        label_features.append(feature(pt, {**props, "rank": 5, "major": major,
+                                           **({"elev": int(m["elev_m"])} if "elev_m" in m else {})}))
         stats = {}
+        if "elev_m" in m:
+            stats["elevation_m"] = int(m["elev_m"])
+        if "prominence_m" in m:
+            stats["prominence_m"] = int(m["prominence_m"])
         if c.get("geom") is not None:
             geom = to_lonlat(c["geom"], frame)
-            coast_features.append(feature(geom, props))
+            if c["kind"] != "glacier":
+                coast_features.append(feature(geom, props))
             bbox = bbox_lonlat(geom)
             stats["area_km2_mapped"] = round(frame.km2(c["geom"].area), 1)
         else:
@@ -614,6 +659,8 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     layers["places"] += place_features
     layers["water"] += water_features
     layers["coast"] += coast_features
+    layers["glaciers"] += glacier_features
+    layers["landcover"] += landcover_features
     layers["rivers"] += stream_features
     layers["rivers-named"] += named_features
     layers["ridges"] += ridge_features
@@ -672,7 +719,7 @@ def main():
         shutil.rmtree(OUT)
     OUT.mkdir(parents=True)
     entities = base_entities(world)
-    layers = {k: [] for k in ("divisions", "labels", "places", "water", "coast", "rivers", "rivers-named", "ridges", "roads", "bathymetry", "context")}
+    layers = {k: [] for k in ("divisions", "labels", "places", "landcover", "water", "coast", "glaciers", "rivers", "rivers-named", "ridges", "roads", "bathymetry", "context")}
     graph = {"nodes": [], "edges": [], "roads": [], "places": {}}
     regions = [build_region(world, spec, entities, layers, graph, not args.fresh) for spec in world.generators]
     for name, feats in layers.items():

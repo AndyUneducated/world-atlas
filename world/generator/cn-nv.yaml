@@ -73,6 +73,31 @@ coast:
   strait_max_gap_km: 4
   match_radius_km: 10
 
+# Mountain landforms, named the same way as coastal ones (see pipeline/atlas/relief.py).
+relief:
+  peak_min_elev_m: 700
+  peak_min_prominence_m: 150
+  pass_min_elev_m: 450     # key saddles of the peaks above this become passes
+  snowline_m: 2000         # on flat ground; north-facing slopes hold ice down to snowline − aspect
+  snowline_aspect_m: 300
+  glacier_max_slope_deg: 38
+  ice_min_km2: 0.5         # smallest ice field drawn (design km²)
+  glacier_min_km2: 4       # smallest ice field listed for naming
+
+# Land cover rules (real units); see pipeline/atlas/landcover.py.
+landcover:
+  urban_density_per_km2: 4000   # built-up area around each district centre = population / this
+  urban_max_slope_deg: 12
+  wetland_max_elev_m: 90
+  wetland_wetness: 2.4          # log(upstream area) − 0.6 × slope, plus noise
+  farm_max_elev_m: 300
+  farm_max_slope_deg: 5
+  farm_reach_km: 22             # farmland within this distance of a built-up area
+  treeline_m: 800               # lower on north-facing slopes
+  treeline_aspect_m: 150
+  rock_above_treeline_m: 650
+  rock_slope_deg: 31
+
 # Facts the build checks and reports; a failed check is printed as a warning.
 expect:
   longest_river: nat_ww491j

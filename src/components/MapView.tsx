@@ -48,6 +48,53 @@ function drawShield(map: maplibregl.Map, id: string) {
   });
 }
 
+/** Summit triangle with a snow cap, or the pass mark ")(" used on topographic maps. */
+function drawSymbol(map: maplibregl.Map, id: string) {
+  const [kind, color] = id.split("|");
+  const ratio = 2;
+  const s = 14 * ratio;
+  const canvas = document.createElement("canvas");
+  canvas.width = s;
+  canvas.height = s;
+  const ctx = canvas.getContext("2d")!;
+  ctx.lineJoin = "round";
+  ctx.lineCap = "round";
+  if (kind === "peak") {
+    const tri = new Path2D();
+    tri.moveTo(s / 2, s * 0.14);
+    tri.lineTo(s * 0.9, s * 0.84);
+    tri.lineTo(s * 0.1, s * 0.84);
+    tri.closePath();
+    ctx.fillStyle = color;
+    ctx.strokeStyle = "rgba(255,255,255,0.9)";
+    ctx.lineWidth = 1.6 * ratio;
+    ctx.stroke(tri);
+    ctx.fill(tri);
+    ctx.beginPath();
+    ctx.moveTo(s / 2, s * 0.14);
+    ctx.lineTo(s * 0.64, s * 0.38);
+    ctx.lineTo(s * 0.36, s * 0.38);
+    ctx.closePath();
+    ctx.fillStyle = "#ffffff";
+    ctx.fill();
+  } else {
+    ctx.strokeStyle = "rgba(255,255,255,0.9)";
+    ctx.lineWidth = 3.4 * ratio;
+    const arcs = () => {
+      ctx.beginPath();
+      ctx.arc(s * 0.08, s / 2, s * 0.34, -0.8, 0.8);
+      ctx.moveTo(s * 0.92 + s * 0.34 * Math.cos(Math.PI - 0.8), s / 2 + s * 0.34 * Math.sin(Math.PI - 0.8));
+      ctx.arc(s * 0.92, s / 2, s * 0.34, Math.PI - 0.8, Math.PI + 0.8);
+      ctx.stroke();
+    };
+    arcs();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.6 * ratio;
+    arcs();
+  }
+  map.addImage(id, ctx.getImageData(0, 0, s, s), { pixelRatio: ratio });
+}
+
 function syncUrl(map: maplibregl.Map) {
   const s = useAtlas.getState();
   const c = map.getCenter();
@@ -122,7 +169,9 @@ export function MapView() {
     });
 
     map.setMissingStyleImageResolver((id) => {
-      if (id.startsWith("shield|") && !map.hasImage(id)) drawShield(map, id);
+      if (map.hasImage(id)) return;
+      if (id.startsWith("shield|")) drawShield(map, id);
+      else if (id.startsWith("peak|") || id.startsWith("pass|")) drawSymbol(map, id);
     });
 
     const readouts = () => {

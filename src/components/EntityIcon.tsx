@@ -1,4 +1,4 @@
-import { Anchor, Building2, Droplets, Flag, Landmark, MapPin, Mountain, Navigation2, Route, Ship, Shell, Waves } from "lucide-react";
+import { Anchor, Building2, Droplets, Flag, Footprints, Landmark, MapPin, Mountain, Navigation2, Route, Ship, Shell, Snowflake, Waves } from "lucide-react";
 import type { Entity } from "../lib/types";
 
 export function EntityIcon({ entity, className }: { entity: Entity; className?: string }) {
@@ -26,6 +26,10 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
       return <Shell {...props} />;
     case "cape":
       return <Navigation2 {...props} />;
+    case "glacier":
+      return <Snowflake {...props} />;
+    case "pass":
+      return <Footprints {...props} />;
     default:
       return <Mountain {...props} />;
   }
