@@ -1,16 +1,15 @@
 import clsx from "clsx";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { Breadcrumbs } from "./components/Breadcrumbs";
 import { InfoCard } from "./components/InfoCard";
 import { Legend } from "./components/Legend";
 import { MapControls } from "./components/MapControls";
+import { MapMenu } from "./components/MapMenu";
 import { MapView } from "./components/MapView";
 import { MeasurePanel } from "./components/MeasurePanel";
 import { RoutePanel } from "./components/RoutePanel";
 import { SearchBox } from "./components/SearchBox";
 import { StatusBar } from "./components/StatusBar";
-import { SettingsMenu } from "./components/SettingsMenu";
 import { loadAtlas } from "./lib/data";
 import { t } from "./lib/i18n";
 import { useAtlas } from "./store";
@@ -71,12 +70,11 @@ export default function App() {
           <aside className="absolute top-3 bottom-14 left-3 flex w-[min(400px,calc(100vw-76px))] flex-col gap-2">
             <SearchBox />
             <RoutePanel />
-            <Breadcrumbs />
             <InfoCard />
           </aside>
 
           <div className="absolute top-3 right-3 z-20">
-            <SettingsMenu />
+            <MapMenu />
           </div>
 
           <div className="absolute top-1/2 right-3 -translate-y-1/2 max-md:top-20 max-md:translate-y-0">

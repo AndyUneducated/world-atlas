@@ -1,11 +1,11 @@
 import clsx from "clsx";
-import { Check, Crosshair, Link2, Star, X } from "lucide-react";
+import { Check, ChevronRight, Crosshair, Link2, Star, X } from "lucide-react";
 import { AnimatePresence, motion, useDragControls, useSpring, type PanInfo } from "motion/react";
 import { useState } from "react";
 import { CityEmblem, Emblem, hasEmblem } from "./Emblem";
 import { RouteTimeline } from "./RouteTimeline";
 import { cardPadding, useMobile } from "../lib/viewport";
-import { accentColor } from "../lib/entity";
+import { accentColor, lineage } from "../lib/entity";
 import { displayName, formatNumber, formatPopulation, kindLabel, NAME_LANG_LABELS, t } from "../lib/i18n";
 import { NAME_LANGS, type AtlasData, type Entity, type Lang, type NameLang } from "../lib/types";
 
@@ -144,6 +144,32 @@ function ChildList({ data, entity, lang }: { data: AtlasData; entity: Entity; la
   );
 }
 
+/** The entity's place in the hierarchy, outermost first; each level opens its own card. */
+function Lineage({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
+  const select = useAtlas((s) => s.select);
+  const chain = lineage(data, entity).slice(0, -1);
+  if (!chain.length) return null;
+  return (
+    <Section title={t("locatedIn", lang)}>
+      <ol className="-mx-1 flex flex-wrap items-center gap-y-1">
+        {chain.map((e, i) => (
+          <li key={e.id} className="flex items-center">
+            {i > 0 && <ChevronRight className="size-3.5 shrink-0 text-faint" />}
+            <button
+              disabled={!e.bbox}
+              onClick={() => select(e.id)}
+              className={clsx("flex items-center gap-1.5 rounded-lg px-1.5 py-1 text-[13px] text-ink", e.bbox && "hover:bg-hover")}
+            >
+              {hasEmblem(e) && <Emblem entity={e} size={18} className="shrink-0" />}
+              {e.short_names?.[lang] ?? displayName(e, lang)}
+            </button>
+          </li>
+        ))}
+      </ol>
+    </Section>
+  );
+}
+
 function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
   const select = useAtlas((s) => s.select);
   const map = useAtlas((s) => s.map);
@@ -263,6 +289,8 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
       )}
 
       {entity.segments?.length ? <RouteTimeline data={data} entity={entity} lang={lang} /> : <ChildList data={data} entity={entity} lang={lang} />}
+
+      <Lineage data={data} entity={entity} lang={lang} />
 
       {codeRows.length > 0 && (
         <Section title={t("codes", lang)}>

@@ -1,13 +1,42 @@
 import clsx from "clsx";
-import { Search, X } from "lucide-react";
+import { ChevronDown, Search, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { accentColor, pathLabel } from "../lib/entity";
-import { displayName, otherName, t } from "../lib/i18n";
+import { displayName, formatNumber, otherName, t, type StringKey } from "../lib/i18n";
 import { SearchIndex } from "../lib/search";
+import type { Entity } from "../lib/types";
 import { useAtlas } from "../store";
 import { Emblem, hasEmblem } from "./Emblem";
 import { EntityIcon } from "./EntityIcon";
+
+type ExploreGroup = "cities" | "national" | "territorial";
+const EXPLORE_TITLES: Record<ExploreGroup, StringKey> = { cities: "exploreCities", national: "exploreNational", territorial: "exploreTerritorial" };
+const byRef = (a: Entity, b: Entity) => (a.ref ?? "").localeCompare(b.ref ?? "", "en", { numeric: true });
+
+function ExploreSection({ title, count, open, onToggle, children }: { title: string; count: number; open: boolean; onToggle: () => void; children: React.ReactNode }) {
+  return (
+    <div className="not-first:mt-1">
+      <button
+        onMouseDown={(ev) => ev.preventDefault()}
+        onClick={onToggle}
+        aria-expanded={open}
+        className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-[11px] font-semibold tracking-wider text-faint uppercase hover:bg-hover hover:text-muted"
+      >
+        <span className="flex-1 text-left">{title}</span>
+        <span className="rounded-full bg-hover px-1.5 font-medium tabular-nums">{count}</span>
+        <ChevronDown className={clsx("size-3.5 transition-transform duration-200", !open && "-rotate-90")} />
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.18, ease: "easeOut" }} className="overflow-hidden">
+            <div className="pt-1 pb-1.5">{children}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export function SearchBox() {
   const data = useAtlas((s) => s.data);
@@ -29,6 +58,19 @@ export function SearchBox() {
     const home = data.entities[data.manifest.home];
     return (home?.children ?? []).map((id) => data.entities[id]).filter(Boolean);
   }, [data]);
+  const routes = useMemo(() => {
+    const out: Record<"national" | "territorial", Entity[]> = { national: [], territorial: [] };
+    if (!data) return out;
+    for (const e of Object.values(data.entities)) {
+      if (e.kind !== "route" || !e.bbox) continue;
+      if (e.network?.startsWith("national_")) out.national.push(e);
+      else if (e.network?.startsWith("territorial_")) out.territorial.push(e);
+    }
+    out.national.sort(byRef);
+    out.territorial.sort(byRef);
+    return out;
+  }, [data]);
+  const [expanded, setExpanded] = useState<Record<ExploreGroup, boolean>>({ cities: true, national: false, territorial: false });
   const selected = selectedId && data ? data.entities[selectedId] : undefined;
 
   useEffect(() => {
@@ -115,7 +157,7 @@ export function SearchBox() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.98 }}
             transition={{ duration: 0.16, ease: "easeOut" }}
-            className="glass absolute inset-x-0 top-14 z-20 overflow-hidden rounded-2xl p-1.5"
+            className="glass scrollbar-thin absolute inset-x-0 top-14 z-20 max-h-[min(70dvh,560px)] overflow-y-auto rounded-2xl p-1.5"
           >
             {showResults &&
               (hits.length ? (
@@ -160,21 +202,37 @@ export function SearchBox() {
                 <p className="px-3 py-4 text-center text-[13px] text-muted">{t("noResults", lang)}</p>
               ))}
             {showExplore && (
-              <div className="p-2">
-                <p className="mb-2 px-1 text-[11px] font-medium tracking-wider text-faint uppercase">{t("explore", lang)}</p>
-                <div className="grid grid-cols-2 gap-1">
-                  {cities.map((c) => (
-                    <button
-                      key={c.id}
-                      onMouseDown={(ev) => ev.preventDefault()}
-                      onClick={() => choose(c.id)}
-                      className="flex items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] text-ink hover:bg-hover"
-                    >
-                      <Emblem entity={c} size={20} className="shrink-0" />
-                      <span className="truncate">{displayName(c, lang)}</span>
-                    </button>
-                  ))}
-                </div>
+              <div className="p-1">
+                {(["cities", "national", "territorial"] as const).map((g) => {
+                  const items = g === "cities" ? cities : routes[g];
+                  if (!items.length) return null;
+                  return (
+                    <ExploreSection key={g} title={t(EXPLORE_TITLES[g], lang)} count={items.length} open={expanded[g]} onToggle={() => setExpanded((x) => ({ ...x, [g]: !x[g] }))}>
+                      <div className={clsx("grid gap-1", g === "cities" ? "grid-cols-2" : "grid-cols-1")}>
+                        {items.map((e) => (
+                          <button
+                            key={e.id}
+                            onMouseDown={(ev) => ev.preventDefault()}
+                            onClick={() => choose(e.id)}
+                            className="flex min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] text-ink hover:bg-hover"
+                          >
+                            {g === "cities" ? (
+                              <Emblem entity={e} size={20} className="shrink-0" />
+                            ) : (
+                              <span className="w-[68px] shrink-0 rounded-md px-1.5 py-0.5 text-center text-[11px] font-semibold text-white tabular-nums" style={{ background: accentColor(data, e) }}>
+                                {e.ref}
+                              </span>
+                            )}
+                            <span className="truncate">{displayName(e, lang)}</span>
+                            {g !== "cities" && e.stats?.length_km ? (
+                              <span className="ml-auto shrink-0 text-[11.5px] text-faint tabular-nums">{formatNumber(e.stats.length_km, lang, 0)} km</span>
+                            ) : null}
+                          </button>
+                        ))}
+                      </div>
+                    </ExploreSection>
+                  );
+                })}
               </div>
             )}
           </motion.div>

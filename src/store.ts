@@ -21,6 +21,8 @@ export interface DisplayToggles {
   legend: boolean;
   scale: boolean;
   coordinates: boolean;
+  zoomLevel: boolean;
+  zoomButtons: boolean;
 }
 
 interface AtlasState {
@@ -53,7 +55,8 @@ interface AtlasState {
 }
 
 const initial = readUrl();
-const STORAGE = { appearance: "atlas.appearance", layers: "atlas.layers", display: "atlas.display" };
+/** Bump a key's version whenever its defaults change, so returning visitors pick them up. */
+const STORAGE = { appearance: "atlas.appearance", layers: "atlas.layers.v2", display: "atlas.display.v2" };
 const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
 function readStored<T>(key: string, fallback: T): T {
@@ -77,11 +80,11 @@ const DEFAULT_LAYERS: LayerToggles = {
   nationalExpressway: true,
   territorialExpressway: true,
   cityRoads: true,
-  railways: true,
-  metro: true,
+  railways: false,
+  metro: false,
   buildings: true,
 };
-const DEFAULT_DISPLAY: DisplayToggles = { legend: true, scale: true, coordinates: true };
+const DEFAULT_DISPLAY: DisplayToggles = { legend: false, scale: false, coordinates: false, zoomLevel: false, zoomButtons: false };
 
 export const useAtlas = create<AtlasState>((set) => ({
   data: null,
