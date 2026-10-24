@@ -1,6 +1,6 @@
 # CSV 导入
 
-用表格批量新增或修改行政区、自然要素、道路和地标，不必手改 YAML。
+用表格批量新增或修改行政区、自然要素、道路、铁路和地标，不必手改 YAML。
 
 ```sh
 npm run data:import -- 我的地标.csv            # 校验并写入 world/
@@ -8,7 +8,7 @@ npm run data:import -- 我的地标.csv --check    # 只校验，不写入
 npm run data                                    # 重新生成地图
 ```
 
-脚本按文件名判断类型：文件名含 `division`/`行政区`、`feature`/`自然要素`、`route`/`道路`、`place`/`地标`。也可以用 `--kind divisions|features|routes|places` 指定。新条目默认写入该类的主文件，`--into world/features/xxx.yaml` 可改写到别的文件。
+脚本按文件名判断类型：文件名含 `division`/`行政区`、`feature`/`自然要素`、`route`/`道路`、`railway`/`铁路`、`place`/`地标`。也可以用 `--kind divisions|features|routes|railways|places` 指定。新条目默认写入该类的主文件，`--into world/features/xxx.yaml` 可改写到别的文件。
 
 整份文件全部通过才会写入。任何一行有错，都会列出“第 N 行 列名：原因”，不改动任何文件。写入后还会用生成器的完整校验（面积、人口之和，区划代码，道路编号等）再查一遍。
 
@@ -68,6 +68,20 @@ npm run data                                    # 重新生成地图
 
 道路按文件中的顺序生成，新道路追加在最后，会避开已有道路的走廊。
 
+## 铁路 `railways.csv`
+
+| 列 | 英文列名 | 说明 |
+|---|---|---|
+| 编号、状态 | id、status | |
+| 线路类型 | network | `intercity_rail`（城际铁路） |
+| 中文名 … 巴克汉姆语名 | name_zh … name_buckham | |
+| 停靠 | via | 依次停靠的市或区，用分号分隔，至少两个。停靠市时车站设在该市人口最多的区 |
+| 线路色 | color | `#RRGGBB`，用于线路卡片和车站列表 |
+| 隧道成本 | tunnel_cost | 默认 2.5，越小越倾向于打隧道穿山 |
+| 中文简介、英文简介 | notes_zh、notes_en | |
+
+车站默认以所在市（停靠市时）或区命名，如“维京港站”“沙洲站”。要改某个车站的名字，在 `world/transport/cn-nv-rail.yaml` 中给该线路加 `station_names`。城市地铁不在这里导入，由 `world/generator/` 的 `metro` 一节生成。
+
 ## 地标 `places.csv`
 
 | 列 | 英文列名 | 说明 |
@@ -79,12 +93,13 @@ npm run data                                    # 重新生成地图
 | 向东偏移、向北偏移 | offset_east_km、offset_north_km | 相对所在区城区中心的实际 km |
 | 地图符号 | marker | `dot` 或 `emblem` |
 | 徽标来自 | emblem_of | 地图符号为 `emblem` 时必填 |
-| 占地布局 | site_layout | 在有街道的城市里画出地标占地和建筑轮廓：`complex`（建筑群）、`hall`（单体大楼）、`campus`（园区）、`stadium`（体育场）、`tower`（塔）、`park`（公园）、`plaza`（广场）、`market`（市场） |
-| 占地长米、占地宽米 | site_along_m、site_across_m | 占地沿街道方格方向的长、宽（米），与占地布局一起填 |
+| 占地布局 | site_layout | 画出地标占地和建筑轮廓：`complex`（建筑群）、`hall`（单体大楼）、`campus`（园区）、`stadium`（体育场）、`tower`（塔）、`park`（公园）、`plaza`（广场）、`market`（市场）；交通设施 `airport`（机场：跑道、滑行道、航站楼）、`port`（港口：码头、栈桥、仓库）、`spaceport`（发射场：发射台、降落场、总装厂房） |
+| 占地长米、占地宽米 | site_along_m、site_across_m | 占地沿街道方格方向的长、宽（米，10–8000），与占地布局一起填。机场的“长”是跑道方向 |
+| 占地朝向度 | site_angle_deg | 可选。占地长边的绝对朝向，正东为 0°、逆时针，如 90 为正北。不填时沿街道方格 |
 | 中文简介、英文简介 | notes_zh、notes_en | |
 
-有占地的地标必须位于区内（所在区填区）。占地内不再生成街道和普通建筑；占地要落在城区（建成区）内，否则生成时会给出警告。
+有占地的地标必须位于区内（所在区填区）。占地内不再生成街道和普通建筑；普通地标要落在城区（建成区）内，机场和发射场要落在陆地上，港口要跨在海岸线上（栈桥伸向海面），否则生成时会给出警告。交通设施不要求所在区有街道。
 
 ## 示例
 
-`examples/` 下的文件都能通过校验，可以直接用 `--check` 试运行：在两个区之间调整人口、补一个巴克汉姆语名、新增一条领地公路、新增一座灯塔。
+`examples/` 下的文件都能通过校验，可以直接用 `--check` 试运行：在两个区之间调整人口、补一个巴克汉姆语名、新增一条领地公路、新增一座灯塔、新增一条铁路支线。

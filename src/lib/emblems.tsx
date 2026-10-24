@@ -297,6 +297,7 @@ export const ROUTE_COLORS: Record<string, string> = {
   national_highway: "#E5484D",
   territorial_expressway: "#F0A020",
   territorial_highway: "#F0A020",
+  intercity_rail: "#5B6B8C",
 };
 
 export const TERRITORY_COLOR = "#2BB3A3";

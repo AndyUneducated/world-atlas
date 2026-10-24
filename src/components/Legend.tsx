@@ -105,6 +105,28 @@ function LegendBody({ m, layers, lang }: { m: MapTheme; layers: LayerToggles; la
           </ul>
         </section>
       )}
+      {(layers.railways || layers.metro) && (
+        <section>
+          <Heading>{t("transit", lang)}</Heading>
+          <ul className="space-y-1">
+            {layers.railways && (
+              <Row
+                label={t("railways", lang)}
+                swatch={
+                  <svg width="28" height="10" aria-hidden>
+                    <line x1="2" y1="5" x2="26" y2="5" stroke={m.rail.casing} strokeWidth={4} />
+                    <line x1="2" y1="5" x2="26" y2="5" stroke={m.rail.fill} strokeWidth={1.8} strokeDasharray="4 4" />
+                  </svg>
+                }
+              />
+            )}
+            {layers.metro && <Row label={t("metro", lang)} swatch={<LineSwatch color="#E4453A" casing={m.rail.metroCasing} width={2.5} />} />}
+            {layers.railways && <Row label={t("railStation", lang)} swatch={<span className="size-2.5 rounded-full" style={{ background: m.rail.station, boxShadow: `0 0 0 2px ${m.rail.stationStroke}` }} />} />}
+            {layers.metro && <Row label={t("metroStation", lang)} swatch={<span className="size-2 rounded-full" style={{ background: m.rail.station, boxShadow: "0 0 0 1.8px #E4453A" }} />} />}
+            {layers.metro && <Row label={t("transferStation", lang)} swatch={<span className="size-2.5 rounded-full" style={{ background: m.rail.station, boxShadow: `0 0 0 2px ${m.rail.stationStroke}` }} />} />}
+          </ul>
+        </section>
+      )}
       <section>
         <Heading>{t("places", lang)}</Heading>
         <ul className="space-y-1">
@@ -146,6 +168,8 @@ function LegendBody({ m, layers, lang }: { m: MapTheme; layers: LayerToggles; la
               ...BUILDING_CLASSES.map((c) => ({ key: `bc_${c}`, fill: m.building.fill[c], line: m.building.outline })),
               { key: "bc_landmark", fill: m.building.landmark.fill, line: m.building.landmark.outline },
               { key: "bc_park", fill: m.building.park, line: m.building.park },
+              { key: "fc_runway", fill: m.building.facility.runway, line: m.building.facility.runway },
+              { key: "fc_paved", fill: m.building.facility.paved, line: m.building.facility.runway },
             ].map((s) => (
               <li key={s.key} className="flex items-center gap-1.5 truncate text-[11.5px] text-ink">
                 <span className="size-2.5 shrink-0 rounded-[2px]" style={{ background: s.fill, boxShadow: `inset 0 0 0 1px ${s.line}` }} />

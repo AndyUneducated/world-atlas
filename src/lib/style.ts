@@ -33,6 +33,9 @@ export const HIT_LAYERS = {
   road: "hit-road",
   street: "hit-street",
   landmark: "hit-landmark",
+  rail: "hit-rail",
+  station: "hit-station",
+  metroStation: "hit-metro-station",
   river: "hit-river",
   ridge: "hit-ridge",
   lake: "water",
@@ -123,6 +126,8 @@ export function buildStyle(opts: {
   }
   sources["streets-named"] = { type: "geojson", data: data.layers["streets-named"], promoteId: "id" };
   sources.landmarks = { type: "geojson", data: data.layers.landmarks, promoteId: "id" };
+  sources.rail = { type: "geojson", data: data.layers.rail };
+  sources.stations = { type: "geojson", data: data.layers.stations };
   if (tiles) sources.tiles = { type: "vector", url: `pmtiles://${BASE_URL}data/${tiles.url}` };
 
   const isSubtype = (s: string): ExpressionSpecification => ["==", ["get", "subtype"], s];
@@ -191,9 +196,17 @@ export function buildStyle(opts: {
     const b = m.building;
     const layout = { visibility: visible(layers.buildings) };
     const fadeIn = (z: number, to = 1): ExpressionSpecification => ["interpolate", ["linear"], ["zoom"], z, 0, z + 0.8, to];
-    const isSite: ExpressionSpecification = ["has", "id"];
+    const isFacility: ExpressionSpecification = ["==", ["get", "facility"], true];
+    const isSite: ExpressionSpecification = ["all", ["has", "id"], ["!", isFacility]];
+    const isPart = (kind: string): ExpressionSpecification => ["all", isFacility, ["==", ["get", "part"], kind]];
+    const f = b.facility;
     return [
       { id: "park", type: "fill", ...from("parks"), minzoom: 12, layout, paint: { "fill-color": b.park, "fill-opacity": fadeIn(12) } },
+      { id: "facility-grounds", type: "fill", source: "landmarks", minzoom: 9.4, filter: ["all", ["has", "id"], isFacility], layout, paint: { "fill-color": f.grounds, "fill-opacity": fadeIn(9.4, 0.9) } },
+      { id: "facility-paved", type: "fill", source: "landmarks", minzoom: 10.2, filter: isPart("paved"), layout, paint: { "fill-color": f.paved, "fill-opacity": fadeIn(10.2) } },
+      { id: "facility-runway", type: "fill", source: "landmarks", minzoom: 9.4, filter: isPart("runway"), layout, paint: { "fill-color": f.runway, "fill-opacity": fadeIn(9.4) } },
+      { id: "facility-pad", type: "fill", source: "landmarks", minzoom: 10.5, filter: isPart("pad"), layout, paint: { "fill-color": f.pad, "fill-opacity": fadeIn(10.5), "fill-outline-color": f.runway } },
+      { id: "facility-building", type: "fill", source: "landmarks", minzoom: 11.5, filter: isPart("building"), layout, paint: { "fill-color": b.landmark.fill, "fill-opacity": fadeIn(11.5), "fill-outline-color": b.landmark.outline } },
       {
         id: "landmark-grounds",
         type: "fill",
@@ -223,7 +236,7 @@ export function buildStyle(opts: {
         type: "fill",
         source: "landmarks",
         minzoom: 12.5,
-        filter: ["!", isSite],
+        filter: ["all", ["!", ["has", "id"]], ["!", isFacility]],
         layout,
         paint: { "fill-color": b.landmark.fill, "fill-opacity": fadeIn(12.5) },
       },
@@ -241,7 +254,7 @@ export function buildStyle(opts: {
         type: "line",
         source: "landmarks",
         minzoom: 12.5,
-        filter: ["!", isSite],
+        filter: ["all", ["!", ["has", "id"]], ["!", isFacility]],
         layout,
         paint: { "line-color": b.landmark.outline, "line-width": 1.1, "line-opacity": fadeIn(12.5, 0.9) },
       },
@@ -412,6 +425,20 @@ export function buildStyle(opts: {
       { id: r.id, type: "line", source: "roads", minzoom: r.minzoom, filter, layout: roadLayout(r.on), paint: { "line-color": r.s.fill, "line-width": roadWidth(r.fill) } },
     );
   }
+
+  // Metro lines run in their own colours under the intercity rail, which is a dark line with light ticks.
+  const rs = m.rail;
+  const railWidth = (base: number): ExpressionSpecification => ["interpolate", ["exponential", 1.5], ["zoom"], 6, base * 0.45, 10, base, 14, base * 2.2];
+  const metroLine: ExpressionSpecification = ["all", ["==", ["get", "network"], "metro"], ["==", ["get", "role"], "line"]];
+  const railTrack: ExpressionSpecification = ["==", ["get", "role"], "track"];
+  const metroFade: ExpressionSpecification = ["interpolate", ["linear"], ["zoom"], 9.6, 0, 10.4, 1];
+  style.push(
+    { id: "metro-casing", type: "line", source: "rail", minzoom: 9.6, filter: metroLine, layout: roadLayout(layers.metro), paint: { "line-color": rs.metroCasing, "line-width": railWidth(4.6), "line-opacity": metroFade } },
+    { id: "metro-line", type: "line", source: "rail", minzoom: 9.6, filter: metroLine, layout: roadLayout(layers.metro), paint: { "line-color": ["get", "color"], "line-width": railWidth(2.8), "line-opacity": metroFade } },
+    { id: "rail-casing", type: "line", source: "rail", filter: railTrack, layout: { ...roadLayout(layers.railways), "line-cap": "butt" }, paint: { "line-color": rs.casing, "line-width": railWidth(3.4) } },
+    { id: "rail-ticks", type: "line", source: "rail", minzoom: 8, filter: railTrack, layout: { ...roadLayout(layers.railways), "line-cap": "butt" }, paint: { "line-color": rs.fill, "line-width": railWidth(1.6), "line-dasharray": [3, 3] } },
+  );
+
   const shownNetworks = [
     ...(layers.nationalExpressway ? ROAD_NETWORKS.nationalExpressway : []),
     ...(layers.territorialExpressway ? ROAD_NETWORKS.territorialExpressway : []),
@@ -494,10 +521,17 @@ export function buildStyle(opts: {
       id: HIT_LAYERS.landmark,
       type: "fill",
       source: "landmarks",
-      minzoom: 12.5,
+      minzoom: 9.4,
       filter: ["has", "id"],
       layout: { visibility: visible(layers.buildings) },
       paint: { "fill-opacity": 0 },
+    },
+    {
+      id: HIT_LAYERS.rail,
+      type: "line",
+      source: "rail",
+      filter: ["all", ["==", ["get", "role"], "line"], ["in", ["get", "network"], ["literal", [...(layers.railways ? ["intercity_rail"] : []), ...(layers.metro ? ["metro"] : [])]]]],
+      paint: { "line-width": 10, "line-opacity": 0 },
     },
     { id: HIT_LAYERS.street, type: "line", source: "streets-named", minzoom: 11, layout: { visibility: visible(layers.cityRoads) }, paint: { "line-width": 10, "line-opacity": 0 } },
     { id: HIT_LAYERS.river, type: "line", source: "rivers-named", minzoom: 7, paint: { "line-width": 10, "line-opacity": 0 } },
@@ -505,6 +539,67 @@ export function buildStyle(opts: {
   );
 
   const halo = { "text-halo-color": m.label.halo, "text-halo-width": 1.4, "text-halo-blur": 0.4 };
+
+  /** Railway stations from zoom 7.5, metro stations once the city streets show; interchanges are larger. */
+  function stationLayers(): LayerSpecification[] {
+    const tiers = [
+      { id: "rail-station", kind: "rail", on: layers.railways, minzoom: 7.5, label: 9.4, r: [7.5, 2.6, 12, 5, 16, 8] },
+      { id: "metro-station", kind: "metro", on: layers.metro, minzoom: 11.4, label: 12.8, r: [11.4, 2.2, 14, 4.4, 16, 6.5] },
+    ];
+    const out: LayerSpecification[] = [];
+    for (const t of tiers) {
+      const filter: ExpressionSpecification = ["==", ["get", "kind"], t.kind];
+      const [z0, r0, z1, r1, z2, r2] = t.r;
+      const grow = (r: number): ExpressionSpecification => ["case", ["get", "transfer"], r * 1.3, r];
+      out.push(
+        {
+          id: t.id,
+          type: "circle",
+          source: "stations",
+          minzoom: t.minzoom,
+          filter,
+          layout: { visibility: visible(t.on) },
+          paint: {
+            "circle-radius": ["interpolate", ["linear"], ["zoom"], z0, grow(r0), z1, grow(r1), z2, grow(r2)],
+            "circle-color": m.rail.station,
+            "circle-stroke-color": t.kind === "metro" ? ["case", ["get", "transfer"], m.rail.stationStroke, ["coalesce", ["get", "color"], m.rail.stationStroke]] : m.rail.stationStroke,
+            "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], z0, 1.2, z1, 2],
+            "circle-opacity": ["interpolate", ["linear"], ["zoom"], z0, 0, z0 + 0.4, 1],
+            "circle-stroke-opacity": ["interpolate", ["linear"], ["zoom"], z0, 0, z0 + 0.4, 1],
+          },
+        },
+        {
+          id: `${t.id}-label`,
+          type: "symbol",
+          source: "stations",
+          minzoom: t.label,
+          filter,
+          layout: {
+            visibility: visible(t.on),
+            "text-field": name(lang),
+            "text-font": t.kind === "rail" ? FONT.medium : FONT.regular,
+            "text-size": t.kind === "rail" ? ["interpolate", ["linear"], ["zoom"], t.label, 10.5, 13, 12.5] : 10.5,
+            "text-variable-anchor": ["left", "right", "top", "bottom"],
+            "text-radial-offset": 0.9,
+            "text-justify": "auto",
+            "text-max-width": 7,
+            "symbol-sort-key": ["case", ["get", "transfer"], 0, 1],
+          },
+          paint: { "text-color": m.rail.label, ...halo },
+        },
+        {
+          id: t.kind === "rail" ? HIT_LAYERS.station : HIT_LAYERS.metroStation,
+          type: "circle",
+          source: "stations",
+          minzoom: t.minzoom,
+          filter,
+          layout: { visibility: visible(t.on) },
+          paint: { "circle-radius": 9, "circle-opacity": 0 },
+        },
+      );
+    }
+    return out;
+  }
   style.push(
     {
       id: "context-label",
@@ -744,6 +839,22 @@ export function buildStyle(opts: {
       },
       paint: { "text-color": m.building.landmark.label, ...halo, "text-opacity": ["interpolate", ["linear"], ["zoom"], 13.4, 0, 13.9, 1] },
     },
+    {
+      id: "facility-label",
+      type: "symbol",
+      source: "landmarks",
+      minzoom: 10,
+      filter: ["all", ["has", "id"], ["==", ["get", "facility"], true]],
+      layout: {
+        visibility: visible(layers.buildings),
+        "text-field": name(lang),
+        "text-font": FONT.medium,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 10, 10.5, 14, 13],
+        "text-max-width": 8,
+      },
+      paint: { "text-color": m.building.facility.label, ...halo, "text-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0, 10.5, 1] },
+    },
+    ...stationLayers(),
     {
       id: "place-label",
       type: "symbol",

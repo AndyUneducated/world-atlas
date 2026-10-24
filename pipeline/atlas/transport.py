@@ -10,12 +10,13 @@ NB8 = [(-1, -1, 1.4142), (-1, 0, 1.0), (-1, 1, 1.4142), (0, -1, 1.0), (0, 1, 1.0
 
 
 class Router:
-    def __init__(self, elev: np.ndarray, land: np.ndarray, res_km: float, water_cost=40.0):
+    def __init__(self, elev: np.ndarray, land: np.ndarray, res_km: float, water_cost=40.0, slope_weight=60.0):
+        """slope_weight: extra cost per unit gradient (railways use more than roads)."""
         self.res = res_km
         self.ny, self.nx = elev.shape
         gy, gx = np.gradient(elev, res_km * 1000.0)
         slope = np.hypot(gx, gy)
-        cost = 1 + 60 * slope + 0.0004 * elev
+        cost = 1 + slope_weight * slope + 0.0004 * elev
         cost[~land] = water_cost
         self.base = cost.ravel().copy()
         self.cost = cost.ravel().tolist()

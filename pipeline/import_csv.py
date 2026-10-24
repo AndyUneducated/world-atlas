@@ -30,7 +30,7 @@ from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas.world import DETECT_KINDS, ROOT, SITE_LAYOUTS, WORLD_DIR, World  # noqa: E402
+from atlas.world import DETECT_KINDS, RAIL_NETWORKS, ROOT, SITE_LAYOUTS, WORLD_DIR, World  # noqa: E402
 from new_id import mint  # noqa: E402
 
 DELETE = object()
@@ -62,7 +62,7 @@ class Col:
     key: str
     zh: str
     path: str = ""
-    type: str = "str"  # str | int | float | bool | ref | refs | choice | color
+    type: str = "str"  # str | int | float | angle | bool | ref | refs | choice | color
     choices: tuple = ()
     required: bool = False  # for new rows
 
@@ -133,6 +133,18 @@ KINDS = {
             Col("emblem_of", "徽标来自", "emblem_of", "ref"),
             Col("site_layout", "占地布局", "site.layout", "choice", SITE_LAYOUTS),
             Col("site_along_m", "占地长米"), Col("site_across_m", "占地宽米"),
+            Col("site_angle_deg", "占地朝向度", "site.angle_deg", "angle"),
+            *NOTES,
+        ],
+    },
+    "railways": {
+        "label": "铁路", "folder": "transport", "key": "railways", "prefix": "rte", "default": "cn-nv-rail.yaml",
+        "cols": HEAD + [
+            Col("network", "线路类型", "network", "choice", RAIL_NETWORKS, required=True),
+            *NAMES,
+            Col("via", "停靠", "via", "refs", required=True),
+            Col("color", "线路色", "color", "color"),
+            Col("tunnel_cost", "隧道成本", "tunnel_cost", "float"),
             *NOTES,
         ],
     },
@@ -250,8 +262,14 @@ class Importer:
                 if v <= 0:
                     raise ValueError
                 return v
+            if c.type == "angle":
+                v = float(raw.replace("°", ""))
+                if not -360 <= v <= 360:
+                    raise ValueError
+                return int(v) if v.is_integer() else v
         except ValueError:
-            self.problems.add(self.where(i, c.key), f"“{raw}”不是有效的{'整数' if c.type == 'int' else '正数'}")
+            what = {"int": "整数", "angle": "角度（-360 到 360，从正东逆时针）"}.get(c.type, "正数")
+            self.problems.add(self.where(i, c.key), f"“{raw}”不是有效的{what}")
             return None
         if c.type == "bool":
             low = raw.lower()
@@ -273,7 +291,7 @@ class Importer:
             parts = [p.strip() for p in re.split(r"[;；,，、]", raw) if p.strip()]
             got = [self.resolve(p, i, c.key, "division") for p in parts]
             if len(parts) < 2:
-                self.problems.add(self.where(i, c.key), "至少需要两个途经城市，用分号分隔")
+                self.problems.add(self.where(i, c.key), f"至少需要两个{'停靠站' if self.kind == 'railways' else '途经城市'}，用分号分隔")
             return CommentedSeq(got) if None not in got else None
         return raw
 
@@ -415,6 +433,15 @@ class Importer:
         if changes.get("ring") is True and isinstance(via, list) and len(via) < 3:
             self.problems.add(self.where(i, "ring"), "环线至少需要三个途经城市")
 
+    def check_railways(self, i, row, eid, is_new, changes, extras):
+        via = changes.get("via")
+        for v in via if isinstance(via, list) else []:
+            d = self.world.divisions[v]
+            if d["subtype"] not in ("locality", "borough"):
+                self.problems.add(self.where(i, "via"), f"停靠只能填市或区（{d['names']['zh']} 不是市或区）")
+        if isinstance(via, list) and len(set(via)) < len(via):
+            self.problems.add(self.where(i, "via"), "停靠站不能重复")
+
     def check_places(self, i, row, eid, is_new, changes, extras):
         off = self.pair(row, i, "offset_east_km", "offset_north_km")
         if off is not None:
@@ -437,8 +464,10 @@ ORDER = {
     "routes": ["id", "ref", "network", "class", "status", "names", "notes", "ring", "ends_at_network", "tunnel_cost",
                "emblem", "via"],
     "places": ["id", "subtype", "status", "names", "notes", "in", "offset_km", "marker", "emblem_of", "site"],
+    "railways": ["id", "network", "status", "names", "notes", "color", "tunnel_cost", "via", "station_names"],
 }
-FLOW = {"divisions": (), "features": ("detect", "names"), "routes": ("emblem", "via"), "places": ("site",)}
+FLOW = {"divisions": (), "features": ("detect", "names"), "routes": ("emblem", "via"), "places": ("site",),
+        "railways": ("via",)}
 
 
 def yaml_for(text: str) -> YAML:
@@ -530,6 +559,13 @@ def translate(msg: str) -> str:
         (r"(\S+): missing name in '(\w+)'", r"\1：缺少 \2 名称"),
         (r"(\S+): via (\S+) is not a division", r"\1：途经 \2 不是行政区"),
         (r"(\S+): 'in' must name a division", r"\1：所在区必须是行政区"),
+        (r"(\S+): site size_m must be .*", r"\1：占地长米、占地宽米应在 10–8000 之间"),
+        (r"(\S+): site angle_deg must be .*", r"\1：占地朝向度应为数字（正东为 0，逆时针）"),
+        (r"(\S+): a place with a site must be 'in' a district", r"\1：有占地的地标必须位于区内"),
+        (r"(\S+): a railway needs at least two stops in via", r"\1：铁路至少需要两个停靠站"),
+        (r"(\S+): via (\S+) is not a city or district", r"\1：停靠 \2 不是市或区"),
+        (r"(\S+): station_names entry (\S+) is not one of the stops", r"\1：站名覆盖 \2 不在停靠站中"),
+        (r"(\S+): color must be #RRGGBB", r"\1：线路色应为 #RRGGBB 格式"),
         (r"(\S+): detect.at_km must be .*", r"\1：识别坐标应为两个数字"),
         (r"generator: unknown division (\S+)", r"生成器引用了不存在的行政区 \1"),
         (r"(\S+): a city needs a colour.*", r"\1：市必须指定主色"),

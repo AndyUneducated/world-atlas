@@ -12,8 +12,10 @@ WORLD_DIR = ROOT / "world"
 ID_PATTERN = re.compile(r"^(div|nat|rte|poi|bld|ctx)_[0-9a-hjkmnp-tv-z]{6}$|^country:[A-Z]{2}$")
 REQUIRED_LANGS = ("zh", "en")
 DIVISION_SUBTYPES = ("country", "dependency", "region", "locality", "borough")
-# Landmark footprint templates (see pipeline/atlas/buildings.py).
-SITE_LAYOUTS = ("complex", "hall", "campus", "stadium", "tower", "park", "plaza", "market")
+# Landmark footprint templates (see pipeline/atlas/buildings.py); the last three are transport facilities.
+SITE_LAYOUTS = ("complex", "hall", "campus", "stadium", "tower", "park", "plaza", "market", "airport", "port", "spaceport")
+FACILITY_LAYOUTS = ("airport", "port", "spaceport")
+RAIL_NETWORKS = ("intercity_rail",)
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
 DETECT_KINDS = ("island", "bay", "fjord", "cape", "strait", "estuary", "river", "peak", "pass", "glacier")
 
@@ -36,6 +38,7 @@ class World:
         self.divisions = self._collect(root / "divisions", "divisions")
         self.features = self._collect(root / "features", "features")
         self.routes = self._collect(root / "transport", "routes")
+        self.railways = self._collect(root / "transport", "railways")
         self.places = self._collect(root / "places", "places")
         self.generators = [_load(p) for p in sorted((root / "generator").glob("*.yaml"))]
         retired = root / "registry" / "retired-ids.yaml"
@@ -130,10 +133,26 @@ class World:
                 if site.get("layout") not in SITE_LAYOUTS:
                     errors.append(f"{pid}: site layout must be one of {', '.join(SITE_LAYOUTS)}")
                 size = site.get("size_m")
-                if not (isinstance(size, list) and len(size) == 2 and all(isinstance(v, (int, float)) and 10 <= v <= 3000 for v in size)):
-                    errors.append(f"{pid}: site size_m must be [along, across] in metres (10–3000)")
+                if not (isinstance(size, list) and len(size) == 2 and all(isinstance(v, (int, float)) and 10 <= v <= 8000 for v in size)):
+                    errors.append(f"{pid}: site size_m must be [along, across] in metres (10–8000)")
+                if "angle_deg" in site and not isinstance(site["angle_deg"], (int, float)):
+                    errors.append(f"{pid}: site angle_deg must be a number (degrees, east = 0, counter-clockwise)")
                 if self.divisions.get(p.get("in"), {}).get("subtype") != "borough":
                     errors.append(f"{pid}: a place with a site must be 'in' a district")
+        for rid, r in self.railways.items():
+            if r.get("network") not in RAIL_NETWORKS:
+                errors.append(f"{rid}: railway network must be one of {', '.join(RAIL_NETWORKS)}")
+            via = r.get("via", [])
+            if len(via) < 2:
+                errors.append(f"{rid}: a railway needs at least two stops in via")
+            for v in via:
+                if self.divisions.get(v, {}).get("subtype") not in ("locality", "borough"):
+                    errors.append(f"{rid}: via {v} is not a city or district")
+            for v in r.get("station_names", {}):
+                if v not in via:
+                    errors.append(f"{rid}: station_names entry {v} is not one of the stops")
+            if r.get("color") and not re.match(r"^#[0-9A-Fa-f]{6}$", str(r["color"])):
+                errors.append(f"{rid}: color must be #RRGGBB")
         for gen in self.generators:
             layout = gen.get("layout", {})
             for c in self.children(gen.get("territory", "")):
@@ -142,10 +161,28 @@ class World:
             for key in list(layout.get("cities", {})) + list(layout.get("districts", {})):
                 if key not in self.divisions:
                     errors.append(f"generator: unknown division {key}")
+            for did, toward in layout.get("coastal", {}).items():
+                if self.divisions.get(did, {}).get("subtype") != "borough":
+                    errors.append(f"generator: coastal {did} is not a district")
+                rivers = {nr["feature"] for nr in gen.get("hydrology", {}).get("named_rivers", [])}
+                if toward is not None and toward not in rivers and not self.features.get(toward, {}).get("detect"):
+                    errors.append(f"generator: coastal {did}: {toward} is neither a named river nor a detected landform")
             for r in gen.get("terrain", {}).get("ridges", []) + gen.get("terrain", {}).get("valleys", []):
                 if r["feature"] not in self.features:
                     errors.append(f"generator: unknown feature {r['feature']}")
             for nr in gen.get("hydrology", {}).get("named_rivers", []):
                 if nr["through"] not in self.divisions:
                     errors.append(f"generator: named river through unknown division {nr['through']}")
+            for system in gen.get("metro", {}).get("cities", []):
+                city = system.get("city")
+                if self.divisions.get(city, {}).get("subtype") != "locality":
+                    errors.append(f"generator: metro city {city} is not a city")
+                for k, ln in enumerate(system.get("lines", []), 1):
+                    if self.divisions.get(ln.get("district"), {}).get("parent") != city:
+                        errors.append(f"generator: metro line {k} of {city}: district {ln.get('district')} is not in that city")
+                    if ln.get("axis") not in (0, 1):
+                        errors.append(f"generator: metro line {k} of {city}: axis must be 0 or 1")
+                    for end in ("from", "to"):
+                        if end in ln and ln[end] not in self.places:
+                            errors.append(f"generator: metro line {k} of {city}: {end} {ln[end]} is not a place")
         return errors

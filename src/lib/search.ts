@@ -33,6 +33,13 @@ const KIND_WEIGHT: Record<string, number> = {
   arterial: 6,
   secondary: 4,
   collector: 3,
+  rail: 10,
+  metro: 7,
+  airport: 9,
+  spaceport: 9,
+  port: 8,
+  ferry_terminal: 6,
+  station: 6,
 };
 
 const norm = (s: string) => s.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[\s\-–—·]/g, "");

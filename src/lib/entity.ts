@@ -3,7 +3,11 @@ import type { AtlasData, Entity, Lang } from "./types";
 import { displayName } from "./i18n";
 
 export function accentColor(data: AtlasData, e: Entity): string | undefined {
-  if (e.kind === "route") return ROUTE_COLORS[e.network ?? ""];
+  if (e.kind === "route") return e.color ?? ROUTE_COLORS[e.network ?? ""];
+  if (e.subtype === "station") {
+    const line = data.entities[e.lines?.[0] ?? ""];
+    return line?.color ?? ROUTE_COLORS.intercity_rail;
+  }
   if (e.kind === "place" || e.subtype === "dependency") return TERRITORY_COLOR;
   return data.colors[e.id];
 }

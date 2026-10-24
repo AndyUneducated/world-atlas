@@ -122,6 +122,33 @@ streets:
     - { district: div_b1dx32, axis: 0, line: 0, status: canon, names: { zh: 北河大道, en: North River Avenue, art-x-viking: Nordflussallee, art-x-buckham: Viale del Rivo Nord } }
     - { district: div_b1dx32, axis: 1, line: 0, status: canon, names: { zh: 人民大道, en: People's Avenue, art-x-viking: Volksallee, art-x-buckham: Viale del Popolo } }
 
+# City metro systems (real km; see build_metro in pipeline/build.py). Each line runs straight along
+# street-grid axis 0 or 1 of a district (the main axis of its built-up area where it has no streets
+# yet) through the district centre moved by at_km, across the built-up area, and on to the places
+# named by from / to. Stations are about spacing_km apart; crossing lines share a station and a
+# line passing a railway station stops there. Lines are numbered in order.
+metro:
+  spacing_km: 1.2
+  cities:
+    - city: div_nbrnfr   # 自由市
+      names: { zh: 自由市地铁, en: Freedom City Metro, art-x-viking: Freistad U-Bahn, art-x-buckham: Metropolitana di Frei }
+      lines:
+        - { district: div_16cxr8, axis: 0 }                    # 人民大道下，经人民广场至议会综合办公区
+        - { district: div_16cxr8, axis: 1, to: poi_3tcbx9 }    # 自由大道下，南至自由市机场
+    - city: div_m41gwn   # 维京港市
+      names: { zh: 维京港地铁, en: Viking Port Metro, art-x-viking: Veiling Havn U-Bahn, art-x-buckham: Metropolitana di Veiling Porto }
+      lines:
+        - { district: div_z29w6h, axis: 0, at_km: [0.2, -2.7] }                  # 瓦尔维克区西北—东南线
+        - { district: div_z29w6h, axis: 1, to: poi_g4z5j4 }                      # 瓦尔维克区东西线，东至维京港国际机场
+        - { district: div_pkfa1g, axis: 0, at_km: [2.1, 4.4], to: poi_z7m0xm }   # 菲尔内斯区，至客运码头
+        - { district: div_t3bfmm, axis: 0 }                                       # 斯坦堡区
+    - city: div_0yef9a   # 西北市
+      names: { zh: 西北地铁, en: Northwest Metro, art-x-viking: Nordwest U-Bahn, art-x-buckham: Metropolitana di Nordveste }
+      lines:
+        - { district: div_zs7kjk, axis: 1, at_km: [8, 9] }                       # 鹿鸣区南北线
+        - { district: div_zs7kjk, axis: 0, to: poi_1f5czt }                      # 鹿鸣区东西线，西至西北机场
+        - { district: div_g27nda, axis: 0 }                                       # 望星区
+
 # Facts the build checks and reports; a failed check is printed as a warning.
 expect:
   longest_river: nat_ww491j
@@ -187,6 +214,18 @@ layout:
     div_qpyn9e: [0.1, 0.7]   # 厄定区
     div_1qm5cj: [-0.1, -0.7] # 旧府区
   boundary_warp_km: 4
+  # Port towns: the district centre moves to the coast, next to the mouth of the named river or
+  # the named landform (or the nearest stretch of coast), so the town and its harbour meet the sea.
+  coastal:
+    div_g4a8q0: nat_x9bmeh   # 沙洲区，自由河入海口
+    div_z29w6h: null         # 瓦尔维克区，最大港区
+    div_pkfa1g: nat_nwn6ja   # 菲尔内斯区，菲尔内斯湾
+    div_k1yr6m: null         # 海门区，西岸
+    div_f5s7ax: null         # 银滩区，海滩
+    div_8njcs3: null         # 罗卡区，海边岩丘
+    div_e6pc44: nat_7n9nyd   # 卡波区，卡波湾
+    div_8p9k5t: nat_3xvtrb   # 镜湾区，镜湾
+    div_ts5cw5: nat_xfj32x   # 燕礁区，燕礁湾
 
 context:
   # Neighbouring land shown only as a rough outline.

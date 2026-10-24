@@ -11,7 +11,9 @@ Each block gets one typology, drawn in the block's own frame aligned with the st
 - civic: a few mid-sized buildings (schools, offices)
 - park: no buildings; the block becomes a park
 Which typology a block gets depends on the district style and the block's distance from the
-district centre. Landmark sites (from the places list) are laid out by their own templates.
+district centre. Landmark sites (from the places list) are laid out by their own templates,
+including the transport facilities: airports (runways, taxiways, apron, terminal), ports (quay,
+piers, sheds; clipped to the coast) and spaceports (launch and landing pads, assembly hall).
 """
 from __future__ import annotations
 
@@ -166,27 +168,115 @@ def district_buildings(block_list, style: str, core, angle: float, radius: float
     return out, [p for p in parks if not p.is_empty]
 
 
-def landmark(layout: str, center, angle: float, size, rng) -> tuple[Polygon, list[Polygon]]:
-    """Site outline and building footprints of a landmark; local x points along `angle`
-    (away from the district centre for sites on the main axis), the front is at -x."""
+def _airport(site, cx, cy, W, D, rng) -> list[tuple[str, Polygon]]:
+    """Runways along local x; terminal and apron on the -y side (or between two runways)."""
+    strip = lambda y, w, x0=-0.45, x1=0.45: box(cx + x0 * W, cy + y - w / 2, cx + x1 * W, cy + y + w / 2)
+    two = D >= 1.35
+    runways = [0.36 * D, -0.36 * D] if two else [0.3 * D]
+    term_y = 0.0 if two else -0.18 * D
+    parts = [("runway", strip(y, 0.06)) for y in runways]
+    taxi = [y - math.copysign(0.17, y) for y in runways]
+    parts += [("paved", strip(y, 0.025, -0.42, 0.42)) for y in taxi]
+    for x in (-0.42, -0.15, 0.15, 0.42):
+        for y, ty in zip(runways, taxi):
+            parts.append(("paved", box(cx + x * W - 0.0125, cy + min(y, ty), cx + x * W + 0.0125, cy + max(y, ty))))
+    apron_y = (min(taxi) + 0.02, max(taxi) - 0.02) if two else (term_y + 0.04, taxi[0] - 0.0125)
+    parts.append(("paved", box(cx - 0.2 * W, cy + apron_y[0], cx + 0.2 * W, cy + apron_y[1])))
+    if not two:
+        parts.append(("paved", box(cx - 0.2 * W, cy + term_y - 0.05, cx + 0.2 * W, cy + term_y + 0.05)))
+    hall = box(cx - 0.12 * W, cy + term_y - 0.045, cx + 0.12 * W, cy + term_y + 0.045)
+    piers = [box(cx + x * W - 0.012, cy + term_y - 0.11, cx + x * W + 0.012, cy + term_y + 0.11) for x in (-0.08, 0.0, 0.08)]
+    parts.append(("building", shapely.union_all([hall, *piers])))
+    parts.append(("building", Point(cx + 0.15 * W, cy + term_y + 0.1).buffer(0.008, quad_segs=4)))
+    for k in range(3):
+        x = 0.27 + 0.055 * k
+        parts.append(("building", box(cx + x * W - 0.035, cy + term_y - 0.04, cx + x * W + 0.035, cy + term_y + 0.03)))
+    parts.append(("building", box(cx - 0.3 * W - 0.05, cy + term_y - 0.06, cx - 0.3 * W + 0.05, cy + term_y + 0.02)))
+    return parts
+
+
+def _port(site, local_land, cx, cy, W, D, rng) -> tuple[Polygon, list[tuple[str, Polygon]]]:
+    """Quay along the coast, piers out to sea on +y, sheds behind on land; `local_land` in the site frame."""
+    ashore = site.intersection(local_land)
+    sea = site.difference(local_land)
+    quay = ashore.intersection(sea.buffer(0.09)) if not sea.is_empty else Polygon()
+    n = max(1, round(W / 0.45))
+    pw = min(0.07, W / 10)
+    piers = []
+    for k in range(n):
+        x = cx - W / 2 + (k + 0.5) * W / n
+        pier = box(x - pw / 2, cy - 0.1 * D, x + pw / 2, cy + 0.42 * D).intersection(site).difference(local_land.buffer(-0.01))
+        piers += [p for p in getattr(pier, "geoms", [pier]) if p.geom_type == "Polygon" and p.area > 0.002]
+    yard = ashore.difference(quay.buffer(0.02))
+    big = W >= 1.0
+    sheds = []
+    if not yard.is_empty:
+        cells = _grid(yard.bounds, (0.16, 0.1) if big else (0.09, 0.07), ((0.1, 0.13), (0.045, 0.07)) if big else ((0.05, 0.07), (0.03, 0.045)), rng)
+        sheds = [p for p in _within(cells, yard.buffer(-0.015)) if rng.random() > 0.2]
+    outline = shapely.union_all([ashore, *piers])
+    parts = [("paved", q) for q in getattr(quay, "geoms", [quay]) if q.geom_type == "Polygon" and q.area > 0.001]
+    parts += [("paved", p) for p in piers] + [("building", s) for s in sheds]
+    return outline, parts
+
+
+def _spaceport(site, cx, cy, W, D, rng) -> list[tuple[str, Polygon]]:
+    """Launch pads along the +y side, landing pads, assembly hall and control centre on -y,
+    a crawlerway linking them; large sites add a runway for spaceplanes."""
+    r = min(0.12, 0.09 * D)
+    pads = [(cx + x * W, cy + 0.28 * D) for x in (-0.32, 0.0, 0.32)]
+    parts: list[tuple[str, Polygon]] = []
+    hall = (cx - 0.3 * W, cy - 0.3 * D)
+    road = [((hall[0], hall[1]), (hall[0], cy + 0.08 * D)), ((pads[0][0], cy + 0.08 * D), (pads[-1][0], cy + 0.08 * D))]
+    road += [((x, cy + 0.08 * D), (x, y)) for x, y in pads]
+    for a, b in road:
+        parts.append(("paved", shapely.LineString([a, b]).buffer(0.02, cap_style="flat")))
+    for x, y in pads:
+        parts.append(("paved", box(x - 1.7 * r, y - 1.7 * r, x + 1.7 * r, y + 1.7 * r)))
+        parts.append(("pad", Point(x, y).buffer(r, quad_segs=12)))
+        parts.append(("building", box(x + 1.1 * r, y - 0.3 * r, x + 1.5 * r, y + 0.3 * r)))
+    for x in (0.16, -0.16):
+        parts.append(("pad", Point(cx + x * W, cy + 0.02 * D).buffer(0.55 * r, quad_segs=12)))
+    parts.append(("building", box(hall[0] - 0.09, hall[1] - 0.07, hall[0] + 0.09, hall[1] + 0.07)))
+    parts.append(("building", box(cx - 0.05 * W - 0.06, cy - 0.32 * D - 0.035, cx - 0.05 * W + 0.06, cy - 0.32 * D + 0.035)))
+    for k in range(4):
+        x = cx + (0.08 + 0.06 * k) * W
+        parts.append(("building", box(x - 0.04, cy - 0.34 * D - 0.025, x + 0.04, cy - 0.34 * D + 0.025)))
+    if W >= 5:
+        parts.append(("runway", box(cx - 0.05 * W, cy - 0.12 * D - 0.035, cx + 0.45 * W, cy - 0.12 * D + 0.035)))
+    return parts
+
+
+def landmark(layout: str, center, angle: float, size, rng, land=None) -> tuple[Polygon, list[tuple[str, Polygon]]]:
+    """Site outline and parts [(kind, polygon)] of a landmark; kind is building, or for transport
+    facilities runway, pad or paved (aprons, taxiways, quays, piers). Local x points along `angle`;
+    the front of a city landmark is at -x, a port faces the sea on +y. `land` (needed by ports)
+    is the land area around the site."""
     W, D = size
     cx, cy = center
     site = box(cx - W / 2, cy - D / 2, cx + W / 2, cy + D / 2)
     rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
-    parts: list[Polygon] = []
+    parts: list[tuple[str, Polygon]] = []
+    outline = site
     if layout == "complex":
         hall = rel(0.02, -0.16, 0.36, 0.16).union(Point(cx + 0.12 * W, cy).buffer(0.09 * min(W, D), quad_segs=12))
-        parts = [hall, rel(-0.32, 0.3, 0.38, 0.44), rel(-0.32, -0.44, 0.38, -0.3), rel(0.4, -0.3, 0.46, 0.3)]
+        parts = [("building", p) for p in (hall, rel(-0.32, 0.3, 0.38, 0.44), rel(-0.32, -0.44, 0.38, -0.3), rel(0.4, -0.3, 0.46, 0.3))]
     elif layout == "hall":
-        parts = [rel(-0.1, -0.32, 0.38, 0.32)]
+        parts = [("building", rel(-0.1, -0.32, 0.38, 0.32))]
     elif layout == "market":
-        parts = [rel(-0.4, -0.25, 0.4, 0.25)]
+        parts = [("building", rel(-0.4, -0.25, 0.4, 0.25))]
     elif layout == "tower":
-        parts = [Point(cx, cy).buffer(0.22 * min(W, D), quad_segs=2)]
+        parts = [("building", Point(cx, cy).buffer(0.22 * min(W, D), quad_segs=2))]
     elif layout == "stadium":
         oval = lambda f: affinity.scale(Point(cx, cy).buffer(1, quad_segs=24), f * W / 2, f * D / 2 * 0.95)
-        parts = [oval(0.92).difference(oval(0.62))]
+        parts = [("building", oval(0.92).difference(oval(0.62)))]
     elif layout == "campus":
         cells = _grid(site.bounds, (W / 4, D / 3), ((W / 9, W / 6), (D / 10, D / 6)), rng, jitter=0.01)
-        parts = [p for p in _within(cells, site.buffer(-0.03)) if rng.random() > 0.25]
-    return rotate(site, angle, center), [rotate(p, angle, center) for p in parts]
+        parts = [("building", p) for p in _within(cells, site.buffer(-0.03)) if rng.random() > 0.25]
+    elif layout == "airport":
+        parts = _airport(site, cx, cy, W, D, rng)
+    elif layout == "spaceport":
+        parts = _spaceport(site, cx, cy, W, D, rng)
+    elif layout == "port":
+        local_land = rotate(land.intersection(rotate(site, angle, center).buffer(0.2)), -angle, center) if land is not None else site
+        outline, parts = _port(site, local_land, cx, cy, W, D, rng)
+    return rotate(outline, angle, center), [(k, rotate(p, angle, center)) for k, p in parts]

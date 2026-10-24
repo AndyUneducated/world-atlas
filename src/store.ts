@@ -11,6 +11,8 @@ export interface LayerToggles {
   nationalExpressway: boolean;
   territorialExpressway: boolean;
   cityRoads: boolean;
+  railways: boolean;
+  metro: boolean;
   buildings: boolean;
 }
 
@@ -75,6 +77,8 @@ const DEFAULT_LAYERS: LayerToggles = {
   nationalExpressway: true,
   territorialExpressway: true,
   cityRoads: true,
+  railways: true,
+  metro: true,
   buildings: true,
 };
 const DEFAULT_DISPLAY: DisplayToggles = { legend: true, scale: true, coordinates: true };

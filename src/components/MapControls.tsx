@@ -11,12 +11,15 @@ import { Switch } from "./Switch";
 const BTN = "grid size-10 place-items-center text-ink transition-colors hover:bg-hover active:scale-95";
 const LAYER_GROUPS: { title: StringKey; keys: (keyof LayerToggles)[] }[] = [
   { title: "roads", keys: ["nationalExpressway", "territorialExpressway", "cityRoads"] },
+  { title: "transit", keys: ["railways", "metro"] },
   { title: "mapDetails", keys: ["landcover", "buildings", "boundaries", "choropleth"] },
 ];
 const ROAD_SWATCH: Partial<Record<keyof LayerToggles, (m: MapTheme) => string>> = {
   nationalExpressway: (m) => m.nationalExpressway.fill,
   territorialExpressway: (m) => m.territorialExpressway.fill,
   cityRoads: (m) => (m.cityRoad.fill === "#ffffff" ? m.cityRoad.casing : m.cityRoad.fill),
+  railways: (m) => `repeating-linear-gradient(90deg, ${m.rail.casing} 0 4px, ${m.rail.fill} 4px 7px)`,
+  metro: () => "linear-gradient(90deg, #E4453A 0 33%, #2F80ED 33% 66%, #F2A33A 66%)",
 };
 
 export function MapControls() {

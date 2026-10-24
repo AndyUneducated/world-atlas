@@ -65,6 +65,8 @@ export interface Entity {
   in?: string;
   marker?: string;
   emblem_of?: string;
+  /** Stations: the railway and metro lines that stop there. */
+  lines?: string[];
   source?: string;
 }
 
@@ -111,6 +113,8 @@ export const LAYER_FILES = [
   "buildings",
   "parks",
   "landmarks",
+  "rail",
+  "stations",
   "bathymetry",
   "context",
 ] as const;

@@ -47,7 +47,11 @@ export interface MapTheme {
     outline: string;
     park: string;
     landmark: { fill: string; outline: string; grounds: string; park: string; plaza: string; label: string };
+    /** Transport facilities: aprons, taxiways and quays; runways; launch and landing pads. */
+    facility: { grounds: string; paved: string; runway: string; pad: string; label: string };
   };
+  /** Intercity rail drawn as a dark line with light ticks; metro lines in their own colours. */
+  rail: { casing: string; fill: string; station: string; stationStroke: string; label: string; metroCasing: string };
   shield: { national: { fill: string; text: string; stroke: string }; territorial: { fill: string; text: string; stroke: string } };
   label: { text: string; halo: string; minor: string; water: string; terrain: string; territory: string };
   cityDot: { fill: string; stroke: string; capital: string };
@@ -118,7 +122,9 @@ export const THEMES: Record<ThemeId, Theme> = {
         outline: "#c7bfb5",
         park: "#cfe5c0",
         landmark: { fill: "#f1d9b3", outline: "#c49a5c", grounds: "#efe6d6", park: "#c6e2b5", plaza: "#ece5d9", label: "#7a4f17" },
+        facility: { grounds: "#e4e7ea", paved: "#cfd4da", runway: "#9aa3ad", pad: "#b8c0c9", label: "#3b4a5c" },
       },
+      rail: { casing: "#5b6472", fill: "#ffffff", station: "#ffffff", stationStroke: "#3b4452", label: "#2f3a48", metroCasing: "#ffffff" },
       shield: {
         national: { fill: "#1f7a4d", text: "#ffffff", stroke: "#c8312b" },
         territorial: { fill: "#ffffff", text: "#8a5a00", stroke: "#d9b04a" },
@@ -184,7 +190,9 @@ export const THEMES: Record<ThemeId, Theme> = {
         outline: "#2d3b52",
         park: "#13302a",
         landmark: { fill: "#1f3d4f", outline: "#5eead4", grounds: "#152233", park: "#123a30", plaza: "#1a2638", label: "#99f6e4" },
+        facility: { grounds: "#141c2a", paved: "#222d3e", runway: "#3a475c", pad: "#2f3c52", label: "#a5b4cb" },
       },
+      rail: { casing: "#8b97ab", fill: "#0f1624", station: "#0f1624", stationStroke: "#cbd5e1", label: "#cbd5e1", metroCasing: "#05080f" },
       shield: {
         national: { fill: "#0f3b2a", text: "#e6fff2", stroke: "#f87171" },
         territorial: { fill: "#111a2b", text: "#fde68a", stroke: "#fde68a" },

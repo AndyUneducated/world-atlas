@@ -86,31 +86,48 @@ function codes(e: Entity, lang: Lang) {
   if (c.iso3166_2) out.push(["ISO 3166-2", c.iso3166_2]);
   if (c.iso3166_1) out.push(["ISO 3166-1", `${c.iso3166_1.alpha2} · ${c.iso3166_1.alpha3} · ${c.iso3166_1.numeric}`]);
   if (c.unlocode) out.push(["UN/LOCODE", c.unlocode]);
-  if (e.ref) out.push([lang === "zh" ? "路线编号" : "Route number", e.ref]);
+  if (e.ref && e.kind === "route") out.push([lang === "zh" ? "路线编号" : "Route number", e.ref]);
   return out;
 }
 
 function ChildList({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
   const select = useAtlas((s) => s.select);
-  const ids = entity.kind === "route" ? (entity.via ?? []) : (entity.children ?? []);
+  const isLine = entity.network === "intercity_rail" || entity.network === "metro";
+  const isStation = entity.subtype === "station";
+  const ids = entity.kind === "route" ? (entity.via ?? []) : isStation ? (entity.lines ?? []) : (entity.children ?? []);
   const kids = ids.map((id) => data.entities[id]).filter((k): k is Entity => !!k?.bbox);
   if (!kids.length) return null;
   const max = Math.max(...kids.map((k) => k.population ?? 0), 1);
+  const lineColor = accentColor(data, entity) ?? "var(--ui-accent)";
+  const title = isLine
+    ? `${t("stations", lang)} · ${kids.length}`
+    : isStation
+      ? t("servedBy", lang)
+      : entity.kind === "route"
+        ? t("passesThrough", lang)
+        : `${t("subdivisions", lang)} · ${kids.length}`;
   return (
-    <Section title={entity.kind === "route" ? t("passesThrough", lang) : `${t("subdivisions", lang)} · ${kids.length}`}>
-      <ul className="-mx-2 space-y-0.5">
+    <Section title={title}>
+      <ul className={clsx("-mx-2", isLine ? "relative" : "space-y-0.5")}>
+        {isLine && <span className="absolute top-3 bottom-3 left-[11px] w-[3px] rounded-full opacity-70" style={{ background: lineColor }} />}
         {kids.map((k) => {
           const accent = accentColor(data, k) ?? "var(--ui-accent)";
+          const others = isLine ? (k.lines ?? []).filter((l) => l !== entity.id).map((l) => data.entities[l]).filter(Boolean) : [];
           return (
-            <li key={k.id}>
+            <li key={k.id} className="relative">
               <button onClick={() => select(k.id)} className="group w-full rounded-lg px-2 py-1.5 text-left hover:bg-hover">
                 <div className="flex items-center gap-2">
-                  {hasEmblem(k) ? (
+                  {isLine ? (
+                    <span className="relative size-[9px] shrink-0 rounded-full border-2 bg-panel-solid" style={{ borderColor: others.length ? "var(--ui-ink)" : lineColor }} />
+                  ) : hasEmblem(k) ? (
                     <Emblem entity={k} size={22} className="-my-0.5 shrink-0 transition-transform group-hover:scale-110" />
                   ) : (
                     <span className="size-2 shrink-0 rounded-full" style={{ background: accent }} />
                   )}
                   <span className="flex-1 truncate text-[13px] text-ink">{displayName(k, lang)}</span>
+                  {others.map((o) => (
+                    <span key={o.id} title={displayName(o, lang)} className="h-1.5 w-3 shrink-0 rounded-full" style={{ background: accentColor(data, o) }} />
+                  ))}
                   {k.population ? <span className="text-[12px] text-muted tabular-nums">{formatPopulation(k.population, lang)}</span> : null}
                 </div>
                 {entity.kind !== "route" && k.population ? (

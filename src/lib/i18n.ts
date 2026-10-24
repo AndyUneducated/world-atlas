@@ -1,7 +1,7 @@
 import type { Entity, Lang, NameLang } from "./types";
 
 const STRINGS = {
-  searchPlaceholder: { zh: "搜索地点、道路、山川", en: "Search places, roads, landforms" },
+  searchPlaceholder: { zh: "搜索地点、道路、车站、山川", en: "Search places, roads, stations, landforms" },
   noResults: { zh: "没有找到匹配的结果", en: "No matching results" },
   explore: { zh: "探索城市", en: "Explore cities" },
   population: { zh: "人口", en: "Population" },
@@ -40,6 +40,18 @@ const STRINGS = {
   nationalExpressway: { zh: "国家高速", en: "National expressways" },
   territorialExpressway: { zh: "领地高速", en: "Territorial expressways" },
   cityRoads: { zh: "城市道路", en: "City roads" },
+  transit: { zh: "轨道交通", en: "Rail transit" },
+  railways: { zh: "城际铁路", en: "Intercity rail" },
+  metro: { zh: "地铁", en: "Metro" },
+  railStation: { zh: "铁路车站", en: "Railway station" },
+  metroStation: { zh: "地铁站", en: "Metro station" },
+  transferStation: { zh: "换乘站", en: "Interchange" },
+  stations: { zh: "车站", en: "Stations" },
+  servedBy: { zh: "停靠线路", en: "Lines" },
+  facilities: { zh: "交通设施", en: "Transport facilities" },
+  fc_runway: { zh: "跑道", en: "Runway" },
+  fc_paved: { zh: "停机坪、码头", en: "Apron, quay" },
+  fc_pad: { zh: "发射台", en: "Launch pad" },
   buildings: { zh: "建筑与地标", en: "Buildings & landmarks" },
   bc_residential: { zh: "住宅", en: "Residential" },
   bc_commercial: { zh: "商业", en: "Commercial" },
@@ -143,6 +155,11 @@ const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
   stadium: { zh: "体育场馆", en: "Stadium" },
   marketplace: { zh: "市场", en: "Market" },
   park: { zh: "公园", en: "Park" },
+  station: { zh: "车站", en: "Station" },
+  airport: { zh: "机场", en: "Airport" },
+  port: { zh: "港口", en: "Port" },
+  ferry_terminal: { zh: "客运码头", en: "Ferry terminal" },
+  spaceport: { zh: "航天发射场", en: "Spaceport" },
 };
 
 const NETWORK_LABELS: Record<string, Record<Lang, string>> = {
@@ -154,10 +171,14 @@ const NETWORK_LABELS: Record<string, Record<Lang, string>> = {
   township_road: { zh: "乡道", en: "Township road" },
   arterial_street: { zh: "城市主干道", en: "Arterial street" },
   collector_street: { zh: "城市次干道", en: "Collector street" },
+  intercity_rail: { zh: "城际铁路", en: "Intercity railway" },
+  metro: { zh: "地铁线路", en: "Metro line" },
 };
 
 export function kindLabel(e: Entity, lang: Lang): string {
   if (e.kind === "route") return NETWORK_LABELS[e.network ?? ""]?.[lang] ?? e.class ?? "";
+  if (e.subtype === "station" && e.source === "generated:metro") return STRINGS.metroStation[lang];
+  if (e.subtype === "station") return STRINGS.railStation[lang];
   if (e.special_status === "free_trade_zone") return lang === "zh" ? "自由贸易区" : "Free trade zone";
   return SUBTYPE_LABELS[e.subtype]?.[lang] ?? e.subtype;
 }

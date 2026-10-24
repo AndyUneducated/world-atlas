@@ -1,0 +1,98 @@
+# Railways of North Viking Island.
+#
+# network: intercity_rail (城际铁路).
+# via: ordered stops. A city stops at its core district (the most populous one), a district
+#   at its own centre. The generator lays the line over the terrain, keeping to gentler
+#   gradients than roads and tunnelling through mountains (tunnel_cost caps the per-km cost
+#   of steep ground, default 2.5); later lines run on the track of earlier ones where their
+#   corridors meet, and stations are shared.
+# station_names (optional): names for the station of a via entry. By default a city's
+#   station is named after the city (维京港站 / Viking Port Station) and a district's after
+#   the district (沙洲站 / Sandbar Station).
+# color: the line's colour on cards and in station lists.
+# City metro lines are generated from the `metro` section of world/generator/.
+railways:
+  - id: rte_v7khx2
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 维西城际铁路
+      en: Viking Port–Northwest Intercity Railway
+      art-x-viking: Intercity-Bahn Veiling Havn–Nordwest
+      art-x-buckham: Ferrovia Intercity Veiling Porto–Nordveste
+    notes:
+      zh: 连接维京港、自由市与西北三座最大的城市，途经自由市沙洲区
+      en: Links the three largest cities, Viking Port, Freedom City and Northwest, by way of Sandbar District.
+    color: '#3E63DD'
+    via: [div_m41gwn, div_g4a8q0, div_nbrnfr, div_0yef9a]
+    station_names:
+      div_nbrnfr: { zh: 自由市站, en: Freedom City Station }
+  - id: rte_cnfpey
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 维贝铁路
+      en: Viking Port–Beckerle Railway
+      art-x-viking: Bahn Veiling Havn–Beckerle
+      art-x-buckham: Ferrovia Veiling Porto–Beckerle
+    notes:
+      zh: 沿岛南部自西向东，串联维京港、奥克西诺、新城、萨科勒与贝克勒自由贸易区
+      en: Runs west to east across the south of the island through Viking Port, Oxino, New City, Sakole and the Beckerle Free Trade Zone.
+    color: '#E5484D'
+    via: [div_m41gwn, div_q4d6n6, div_k4s990, div_da3s38, div_k4hg7b]
+    station_names:
+      div_k4s990: { en: New City Station }
+  - id: rte_fk2x5w
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 西马铁路
+      en: Northwest–Maslin Mountain Railway
+      art-x-viking: Bahn Nordwest–Maslinberg
+      art-x-buckham: Ferrovia Nordveste–Maslin Tehee
+    notes:
+      zh: 自西北经勒克尔、洛龙山、厄定河通往马斯林山
+      en: From Northwest through Lekor, Lorond Mountain and Erding River to Maslin Mountain.
+    color: '#30A46C'
+    via: [div_0yef9a, div_yjghe9, div_prcxzt, div_8emjne, div_rdypg7]
+  - id: rte_cy9xmf
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 贝马铁路
+      en: Beckerle–Maslin Mountain Railway
+      art-x-viking: Bahn Beckerle–Maslinberg
+      art-x-buckham: Ferrovia Beckerle–Maslin Tehee
+    notes:
+      zh: 自贝克勒自由贸易区经天城北上马斯林山
+      en: North from the Beckerle Free Trade Zone through Skytown to Maslin Mountain.
+    color: '#F76B15'
+    via: [div_k4hg7b, div_ygk521, div_rdypg7]
+  - id: rte_5pkw2p
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 自勒城际铁路
+      en: Freedom City–Lekor Intercity Railway
+      art-x-viking: Intercity-Bahn Freistad–Lekor
+      art-x-buckham: Ferrovia Intercity Frei–Lekor
+    notes:
+      zh: 自首府经北河区通往勒克尔
+      en: From the capital through North River District to Lekor.
+    color: '#8E4EC6'
+    via: [div_nbrnfr, div_b1dx32, div_yjghe9]
+    station_names:
+      div_nbrnfr: { zh: 自由市站, en: Freedom City Station }
+  - id: rte_nx028x
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 新洛铁路
+      en: New City–Lorond Mountain Railway
+      art-x-viking: Bahn Neustad–Lorondberg
+      art-x-buckham: Ferrovia Neu Teatu–Lorond Tehee
+    notes:
+      zh: 自新城青坪区枢纽北上洛龙山
+      en: North from the Greenmead hub of New City to Lorond Mountain.
+    color: '#12A594'
+    via: [div_k4s990, div_prcxzt]

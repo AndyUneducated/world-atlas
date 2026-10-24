@@ -3,10 +3,13 @@
 # in: the division the place lies in. Without explicit coordinates the generator puts
 #   the place at that division's urban core, offset by offset_km (real km, east/north).
 # marker: map symbol; "emblem" draws the logo of the entity named by emblem_of.
-# site: the place's grounds drawn as a landmark in a city with generated streets. size_m is
-#   [along, across] the district's street grid; layout picks the footprint template
-#   (complex, hall, campus, stadium, tower, park, plaza, market); the front faces the
-#   district centre. Streets and generated buildings keep out of the site.
+# site: the place's grounds drawn as a landmark. size_m is [along, across] in metres; layout
+#   picks the footprint template: city landmarks (complex, hall, campus, stadium, tower, park,
+#   plaza, market) or transport facilities (airport: runways along the long side; port: piers
+#   out to sea on the "across" side, sheds ashore; spaceport: launch pads on the "across" side).
+#   angle_deg (optional) turns the long side to that bearing (east = 0, counter-clockwise);
+#   without it the site follows the district's street grid. Streets and generated buildings
+#   keep out of the site.
 places:
   - id: bld_mc71ej
     subtype: government
@@ -201,5 +204,219 @@ places:
       art-x-viking: Sandbankpark
       art-x-buckham: Parco di Banco Sabbia
     in: div_g4a8q0
-    offset_km: [1.2, -0.9]
+    offset_km: [0, -0.5]
     site: { size_m: [500, 380], layout: park }
+
+  # ── 交通设施（M8）──
+  - id: poi_g4z5j4
+    subtype: airport
+    status: generated
+    names:
+      zh: 维京港国际机场
+      en: Viking Port International Airport
+      art-x-viking: Internationaler Flughafen Veiling Havn
+      art-x-buckham: Aeroporto Internazionale di Veiling Porto
+    notes:
+      zh: 领地最繁忙的机场，两条平行跑道，位于瓦尔维克区城区以东的平原上
+      en: The territory's busiest airport, with two parallel runways on the plain east of the Walvik District town.
+    in: div_z29w6h
+    offset_km: [7, 0]
+    site: { size_m: [4200, 1500], layout: airport, angle_deg: 90 }
+
+  - id: poi_3tcbx9
+    subtype: airport
+    status: generated
+    names:
+      zh: 自由市机场
+      en: Freedom City Airport
+      art-x-viking: Flughafen Freistad
+      art-x-buckham: Aeroporto di Frei
+    notes:
+      zh: 首府的机场，在白桦区南郊，地铁 2 号线直达
+      en: The capital's airport on the southern edge of Birchwood District, at the end of Metro Line 2.
+    in: div_16cxr8
+    offset_km: [2.64, -4.24]
+    site: { size_m: [3600, 1300], layout: airport, angle_deg: 15 }
+
+  - id: poi_t9eq1p
+    subtype: airport
+    status: generated
+    names:
+      zh: 卡波国际机场
+      en: Capo International Airport
+      art-x-viking: Internationaler Flughafen Kap
+      art-x-buckham: Aeroporto Internazionale di Capo
+    notes:
+      zh: 贝克勒自由贸易区的国际机场，卡波区海陆空联运的空港
+      en: International airport of the Beckerle Free Trade Zone, the air side of Capo District's sea–land–air hub.
+    in: div_e6pc44
+    offset_km: [5.66, 2]
+    site: { size_m: [4000, 1400], layout: airport, angle_deg: 90 }
+
+  - id: poi_1f5czt
+    subtype: airport
+    status: generated
+    names:
+      zh: 西北机场
+      en: Northwest Airport
+      art-x-viking: Flughafen Nordwest
+      art-x-buckham: Aeroporto di Nordveste
+    in: div_zs7kjk
+    offset_km: [-4.97, -0.51]
+    site: { size_m: [3400, 1200], layout: airport, angle_deg: 105 }
+
+  - id: poi_0efptf
+    subtype: airport
+    status: generated
+    names:
+      zh: 天城机场
+      en: Skytown Airport
+      art-x-viking: Flughafen Himmelstad
+      art-x-buckham: Aeroporto di Cielo
+    notes:
+      zh: 服务天城度假区的机场
+      en: Serves the resorts of Skytown.
+    in: div_w1ea18
+    offset_km: [-15.5, 3.98]
+    site: { size_m: [3000, 1100], layout: airport, angle_deg: 45 }
+
+  - id: poi_h1vjx3
+    subtype: airport
+    status: generated
+    names:
+      zh: 新城机场
+      en: New City Airport
+      art-x-viking: Flughafen Neustad
+      art-x-buckham: Aeroporto di Neu Teatu
+    in: div_hyxnpg
+    offset_km: [2.64, 4.24]
+    site: { size_m: [3400, 1200], layout: airport, angle_deg: 135 }
+
+  - id: poi_dcr8j7
+    subtype: spaceport
+    status: canon
+    names:
+      zh: 维京-马斯林山发射与降落中心
+      en: Viking–Maslin Mountain Launch and Landing Centre
+      art-x-viking: Start- und Landezentrum Veiling-Maslinberg
+      art-x-buckham: Centro di Lancio e Atterraggio Veiling-Maslin Tehee
+    notes:
+      zh: 西坪区高原上的航天发射与回收场，三座发射台、两座垂直降落台与航天飞机跑道
+      en: Launch and recovery site on the West Heath plateau, with three launch pads, two vertical landing pads and a spaceplane runway.
+    in: div_nwke3f
+    offset_km: [4.0, 0.0]
+    site: { size_m: [7000, 3500], layout: spaceport, angle_deg: 60 }
+
+  - id: poi_pa6hny
+    subtype: spaceport
+    status: generated
+    names:
+      zh: 星港
+      en: Starport
+      art-x-viking: Sternhafen
+      art-x-buckham: Porto Stella
+    notes:
+      zh: 星河河口的航天港，发射台面向大海，星港区因此得名
+      en: Spaceport at the mouth of the Star River, its pads facing the sea; Starport District is named after it.
+    in: div_nytsvb
+    offset_km: [34.56, -2.02]
+    site: { size_m: [2500, 800], layout: spaceport, angle_deg: 105 }
+
+  - id: poi_jc0fe5
+    subtype: port
+    status: generated
+    names:
+      zh: 鲸湾港
+      en: Walvik Harbour
+      art-x-viking: Hafen Walvik
+      art-x-buckham: Porto di Baia Balena
+    notes:
+      zh: 领地最大的港口，集装箱与散货码头连成一片
+      en: The territory's largest port, a continuous front of container and bulk berths.
+    in: div_z29w6h
+    offset_km: [-1.73, -5.86]
+    site: { size_m: [2400, 900], layout: port, angle_deg: 92 }
+
+  - id: poi_z7m0xm
+    subtype: ferry_terminal
+    status: generated
+    names:
+      zh: 菲尔内斯客运码头
+      en: Fyrnes Ferry Terminal
+      art-x-viking: Fährterminal Fyrnes
+      art-x-buckham: Terminal Traghetti di Capo Faro
+    notes:
+      zh: 客轮、邮轮与海关查验区
+      en: Ferries, cruise ships and customs.
+    in: div_pkfa1g
+    offset_km: [5.29, -2.5]
+    site: { size_m: [900, 400], layout: port, angle_deg: 177 }
+
+  - id: poi_whsx7x
+    subtype: port
+    status: generated
+    names:
+      zh: 镜湾港
+      en: Mirror Bay Port
+      art-x-viking: Hafen Spiegelbucht
+      art-x-buckham: Porto di Baia Specchio
+    notes:
+      zh: 贝克勒自由贸易区港口群的主港
+      en: Main harbour of the Beckerle Free Trade Zone's port cluster.
+    in: div_8p9k5t
+    offset_km: [-1.14, 1.38]
+    site: { size_m: [2000, 800], layout: port, angle_deg: 7 }
+
+  - id: poi_22gqbc
+    subtype: port
+    status: generated
+    names:
+      zh: 天城港
+      en: Skytown Harbour
+      art-x-viking: Hafen Himmelstad
+      art-x-buckham: Porto di Cielo
+    in: div_w1ea18
+    offset_km: [-15.96, -0.31]
+    site: { size_m: [1200, 500], layout: port, angle_deg: 84 }
+
+  - id: poi_3kt6gb
+    subtype: port
+    status: generated
+    names:
+      zh: 萨科渔港
+      en: Sako Fishing Harbour
+      art-x-viking: Fischereihafen Sako
+      art-x-buckham: Porto Peschereccio di Sako
+    in: div_8m0jx4
+    offset_km: [-11.71, -8.97]
+    site: { size_m: [600, 300], layout: port, angle_deg: 96 }
+
+  - id: poi_dcr97r
+    subtype: port
+    status: canon
+    names:
+      zh: 马斯林河口港
+      en: Maslin Mouth Port
+      art-x-viking: Hafen Maslinmündung
+      art-x-buckham: Porto della Foce del Maslin
+    notes:
+      zh: 马斯林河口的河口港，马斯林山市的货运门户
+      en: Estuary port at the mouth of the Maslin River, the freight gateway of Maslin Mountain City.
+    in: div_tc0ngk
+    offset_km: [-2.49, 62.69]
+    site: { size_m: [800, 400], layout: port, angle_deg: 275 }
+
+  - id: poi_jf2kq4
+    subtype: port
+    status: generated
+    names:
+      zh: 沙洲港
+      en: Sandbar Port
+      art-x-viking: Hafen Sandbank
+      art-x-buckham: Porto di Banco Sabbia
+    notes:
+      zh: 自由河口的港区，自由市的海上门户
+      en: Harbour at the Freedom River mouth, Freedom City's gateway to the sea.
+    in: div_g4a8q0
+    offset_km: [0.44, 2.71]
+    site: { size_m: [1200, 500], layout: port, angle_deg: 274 }

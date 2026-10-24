@@ -19,7 +19,8 @@ import numpy as np
 import shapely
 from shapely import affinity
 from scipy import ndimage
-from shapely.geometry import LineString, MultiLineString, mapping
+from shapely.geometry import LineString, MultiLineString, Point, mapping
+from shapely.ops import nearest_points
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -34,7 +35,7 @@ from atlas.terrain import drainage_surface, elevation, land_mask  # noqa: E402
 from atlas.network import ROAD_RANK, build_graph  # noqa: E402
 from atlas.transport import Router  # noqa: E402
 from atlas.vectorize import point_lonlat, polygonize_labels, to_lonlat  # noqa: E402
-from atlas.world import ROOT, World  # noqa: E402
+from atlas.world import FACILITY_LAYOUTS, ROOT, World  # noqa: E402
 
 OUT = ROOT / "public" / "data"
 B32 = "0123456789abcdefghjkmnpqrstvwxyz"
@@ -326,8 +327,11 @@ def main_axis(poly) -> float:
     return math.atan2(ey, ex)
 
 
-def landmark_sites(world, d, core, angle, built, seed):
-    """Site outlines and footprints (real km) of the places in district `d` that have a `site`."""
+def landmark_sites(world, d, core, angle, built, land, seed):
+    """Site outlines and parts (real km) of the places in district `d` that have a `site`.
+
+    City landmarks follow the street grid `angle`; an explicit site.angle_deg is absolute (east = 0).
+    `built` is the district's built-up area (None without streets), `land` the dry land around it."""
     out = []
     for pid, pl in world.places.items():
         if pl["in"] != d["id"] or not pl.get("site"):
@@ -336,9 +340,17 @@ def landmark_sites(world, d, core, angle, built, seed):
         ox, oy = pl.get("offset_km", (0, 0))
         rng = np.random.default_rng([seed, int(hashlib.sha1(pid.encode()).hexdigest()[:8], 16)])
         size = (cfg["size_m"][0] / 1000, cfg["size_m"][1] / 1000)
-        site, parts = buildings.landmark(cfg["layout"], (core[0] + ox, core[1] + oy), angle + math.radians(cfg.get("angle_deg", 0)), size, rng)
-        if not built.buffer(0.05).contains(site.centroid):
-            log(f"  WARN {pl['names']['zh']}: site lies outside the built-up area")
+        a = math.radians(cfg["angle_deg"]) if "angle_deg" in cfg else angle
+        site, parts = buildings.landmark(cfg["layout"], (core[0] + ox, core[1] + oy), a, size, rng, land)
+        zh = pl["names"]["zh"]
+        if cfg["layout"] == "port":
+            if not any(k == "paved" for k, _ in parts) or site.intersection(land).area < 0.25 * size[0] * size[1]:
+                log(f"  WARN {zh}: port site does not straddle the coast")
+        elif cfg["layout"] in FACILITY_LAYOUTS:
+            if site.intersection(land).area < 0.95 * site.area:
+                log(f"  WARN {zh}: site runs into water")
+        elif built is None or not built.buffer(0.05).contains(site.centroid):
+            log(f"  WARN {zh}: site lies outside the built-up area")
         for other, osite, _ in out:
             if site.intersects(osite):
                 log(f"  WARN {pl['names']['zh']}: site overlaps {world.places[other]['names']['zh']}")
@@ -380,7 +392,7 @@ def build_streets(world, sp, frame, seed, cities, districts, district_city, dist
             core = (poles[i][0] * s, poles[i][1] * s)
             ds = streets.district_streets(built, core, style, angle, rng, sp, i)
             streets.bend(ds, streets.Field(rng, sp["warp_wavelength_km"]), sp["warp_km"][style])
-            sites = landmark_sites(world, d, core, angle, built, seed)
+            sites = landmark_sites(world, d, core, angle, built, safe_all, seed)
             safe = built.buffer(0.05).intersection(safe_all)
             if sites:
                 safe = safe.difference(shapely.union_all([site for _, site, _ in sites]).buffer(0.004))
@@ -429,6 +441,256 @@ def build_buildings(street_out, seed) -> tuple[list, list]:
             parks += pk
             log(f"  {c['name']}: {len(blks)} blocks, {len(bl)} buildings, {len(pk)} parks")
     return out, parks
+
+
+CONLANGS = ("art-x-viking", "art-x-buckham")
+# Administrative suffixes dropped when a station or line is named after a city, longest first.
+CITY_SUFFIXES = {"zh": ("自由贸易区", "市"), "en": (" Free Trade Zone", " City"),
+                 "art-x-viking": (" Frei auf Hea", " auf Hea"), "art-x-buckham": (" Libre en Teatu", " en Teatu")}
+METRO_COLORS = ("#E4453A", "#2F80ED", "#F2A33A", "#27AE60", "#9B51E0", "#00A3A3", "#EB5E9B", "#8D6E63")
+
+
+def bare_name(d: dict) -> dict:
+    """A city's or district's name without its administrative suffix (维京港市 -> 维京港, 沙洲区 -> 沙洲)."""
+    if d["subtype"] == "borough":
+        return {**short_name(d["names"]), **{k: d["names"][k] for k in CONLANGS if d["names"].get(k)}}
+    out = {}
+    for lang, sufs in CITY_SUFFIXES.items():
+        v = d["names"].get(lang)
+        if v:
+            out[lang] = next((v[: -len(s)] for s in sufs if v.endswith(s) and len(v) > len(s)), v)
+    return out
+
+
+def rail_station_names(stem: dict) -> dict:
+    out = {"zh": stem["zh"] + "站", "en": f"{stem['en']} Station"}
+    if stem.get("art-x-viking"):
+        out["art-x-viking"] = f"Bahnhof {stem['art-x-viking']}"
+    if stem.get("art-x-buckham"):
+        out["art-x-buckham"] = f"Stazione di {stem['art-x-buckham']}"
+    return out
+
+
+def metro_station_names(stem: dict) -> dict:
+    """Metro stations take the name of the square, street or landmark above them (人民广场站, People's Square)."""
+    zh = stem["zh"] if stem["zh"].endswith("站") else stem["zh"] + "站"
+    return {"zh": zh, "en": stem["en"], **{k: stem[k] for k in CONLANGS if stem.get(k)}}
+
+
+def points_of(geom) -> list:
+    out = []
+    for g in shapely.get_parts(geom):
+        out.append(g if g.geom_type == "Point" else g.representative_point())
+    return [p for p in out if not p.is_empty]
+
+
+def through(line: LineString, p: Point) -> LineString:
+    """The line with p inserted as a vertex where it projects, so the line passes through p."""
+    t, cs = line.project(p), list(line.coords)
+    if t <= 1e-9:
+        return LineString([p.coords[0], *cs])
+    acc = 0.0
+    for q in range(1, len(cs)):
+        acc += math.dist(cs[q - 1], cs[q])
+        if acc >= t:
+            return LineString([*cs[:q], p.coords[0], *cs[q:]])
+    return LineString([*cs, p.coords[0]])
+
+
+def route_railways(world: World, router: Router, poles, stop_index: dict) -> list:
+    """Route each railway between its stops, [(railway, stop district indices, path)]. Later lines run on
+    the track of earlier ones wherever that is cheaper than new track."""
+    out = []
+    for r in world.railways.values():
+        if not all(v in stop_index for v in r["via"]):
+            continue
+        stops = [stop_index[v] for v in r["via"]]
+        path = []
+        for a, b in zip(stops[:-1], stops[1:]):
+            leg = router.route(router.cell(*poles[a]), router.cell(*poles[b]), r.get("tunnel_cost", 2.5))
+            path += leg if not path else leg[1:]
+        router.commit(path, "rail", discount=0.45, ref=r["id"])
+        out.append((r, stops, path))
+    return out
+
+
+def build_metro(mp: dict, world: World, seed, s, cities, districts, district_city, dist_polys, poles, urban, land_r,
+                street_out, sites, stations: dict, street_cfg: dict) -> list[dict]:
+    """City metro lines (real km) and their stations, added to `stations` (design km, shared with rail).
+
+    Each line runs straight along one street-grid axis of a district through its centre (moved by
+    at_km), across the built-up area, and on to the places named by from / to. Lines that cross
+    share a station, and a line passing a railway station stops there."""
+    real = lambda g: affinity.scale(g, s, s, origin=(0, 0))
+    spacing = mp.get("spacing_km", 1.2)
+    ctx_all = {i: c for _, _, ctx, _ in street_out for i, c in ctx.items()}
+    named_streets = {city["id"]: [(st.names, real(st.geom)) for st in sts if st.cls != "local"] for city, sts, _, _ in street_out}
+    dist_index = {d["id"]: i for i, d in enumerate(districts)}
+
+    def place_xy(pid):
+        pl = world.places[pid]
+        i = dist_index[pl["in"]]
+        ox, oy = pl.get("offset_km", (0, 0))
+        return Point(poles[i][0] * s + ox, poles[i][1] * s + oy)
+
+    out = []
+    for system in mp.get("cities", []):
+        cid = system["city"]
+        ci = next((k for k, c in enumerate(cities) if c["id"] == cid), None)
+        if ci is None:
+            continue
+        namer = streets.Namer(ROOT / "world" / "names" / "streets.yaml", [])
+        rng = np.random.default_rng([seed, 13, ci])
+        geoms, specs = [], []
+        for k, ln in enumerate(system["lines"], 1):
+            i = dist_index[ln["district"]]
+            built = real(dist_polys[i].intersection(urban)).intersection(land_r)
+            cfg = street_cfg.get("districts", {}).get(ln["district"], {})
+            if i in ctx_all:
+                angle = ctx_all[i]["angle"]
+            elif "angle_deg" in cfg:
+                angle = math.radians(cfg["angle_deg"])
+            else:
+                angle = main_axis(max(getattr(built, "geoms", [built]), key=lambda p: p.area))
+            angle += ln["axis"] * math.pi / 2
+            ox, oy = ln.get("at_km", (0, 0))
+            ax, ay = poles[i][0] * s + ox, poles[i][1] * s + oy
+            ux, uy = math.cos(angle), math.sin(angle)
+            seg = LineString([(ax - 100 * ux, ay - 100 * uy), (ax + 100 * ux, ay + 100 * uy)])
+            spans = sorted(sorted((seg.project(Point(p.coords[0])), seg.project(Point(p.coords[-1]))))
+                           for p in streets.pieces(seg.intersection(built)))
+            if not spans:
+                log(f"  WARN metro {cities[ci]['names']['zh']} line {k}: axis misses the built-up area")
+                continue
+            j = min(range(len(spans)), key=lambda q: 0 if spans[q][0] <= 100 <= spans[q][1] else min(abs(spans[q][0] - 100), abs(spans[q][1] - 100)))
+            lo = hi = j
+            while lo > 0 and spans[lo][0] - spans[lo - 1][1] < 1.0:
+                lo -= 1
+            while hi + 1 < len(spans) and spans[hi + 1][0] - spans[hi][1] < 1.0:
+                hi += 1
+            t0, t1 = spans[lo][0] + 0.3, spans[hi][1] - 0.3
+            coords = [seg.interpolate(t0).coords[0], seg.interpolate(t1).coords[0]]
+            if "to" in ln:
+                p = place_xy(ln["to"])
+                if Point(coords[0]).distance(p) < Point(coords[-1]).distance(p):
+                    coords.reverse()
+                coords.append(p.coords[0])
+            if "from" in ln:
+                p = place_xy(ln["from"])
+                if "to" not in ln and Point(coords[-1]).distance(p) < Point(coords[0]).distance(p):
+                    coords.reverse()
+                coords.insert(0, p.coords[0])
+            geoms.append(LineString(coords))
+            specs.append((k, ln, i))
+
+        # stations: railway stations next to a line (the line bends through them), transfers at
+        # crossings, then evenly in between
+        keyed: dict = {}
+        anchors = {a: [] for a in range(len(geoms))}
+        for sid, st in stations.items():
+            if district_city[st["district"]] != ci:
+                continue
+            p = Point(st["xy"][0] * s, st["xy"][1] * s)
+            for a, g in enumerate(geoms):
+                if g.distance(p) < 0.6:
+                    keyed[sid] = p
+                    geoms[a] = through(g, p)
+        rail_keyed = dict(keyed)
+        for a in range(len(geoms)):
+            for sid, p in rail_keyed.items():
+                if geoms[a].distance(p) < 1e-6:
+                    anchors[a].append((geoms[a].project(p), sid))
+            for b in range(a + 1, len(geoms)):
+                for p in points_of(geoms[a].intersection(geoms[b])):
+                    if any(p.distance(q) < 0.3 for q in rail_keyed.values()):
+                        continue
+                    key = ("x", a, b, round(p.x, 3), round(p.y, 3))
+                    keyed[key] = p
+                    anchors[a].append((geoms[a].project(p), key))
+                    anchors[b].append((geoms[b].project(p), key))
+        for a, (_, ln, _) in enumerate(specs):
+            for end in ("to", "from"):
+                if end in ln:
+                    key = ("p", ln[end])
+                    keyed[key] = place_xy(ln[end])
+                    anchors[a].append((geoms[a].project(keyed[key]), key))
+        plain = lambda key: isinstance(key, tuple) and key[0] in ("s", "e")
+        line_keys = []
+        for a, g in enumerate(geoms):
+            ts = sorted(anchors[a], key=lambda v: v[0])
+            for t in (0.0, g.length):
+                if all(abs(t - u) > 0.5 for u, _ in ts):
+                    ts.append((t, ("e", a, round(t, 3))))
+            ts.sort(key=lambda v: v[0])
+            filled = []
+            for (t0, k0), (t1, _) in zip(ts[:-1], ts[1:]):
+                filled.append((t0, k0))
+                n = max(1, round((t1 - t0) / spacing))
+                filled += [(t0 + (t1 - t0) * q / n, ("s", a, round(t0, 3), q)) for q in range(1, n)]
+            filled.append(ts[-1])
+            merged = []
+            for t, key in filled:
+                if merged and t - merged[-1][0] < 0.45 and (plain(key) or plain(merged[-1][1])):
+                    if plain(merged[-1][1]) and not plain(key):
+                        merged[-1] = (t, key)
+                    continue
+                merged.append((t, key))
+            for t, key in merged:
+                keyed.setdefault(key, g.interpolate(t))
+            line_keys.append([key for _, key in merged])
+
+        line_ids = [derived_id("rte", f"metro:{cid}:{k}") for k, _, _ in specs]
+        users: dict = {}
+        for a, keys in enumerate(line_keys):
+            for key in keys:
+                users.setdefault(key, []).append(a)
+        site_pool = [(pid, poly) for pid, poly, _, i in sites if district_city[i] == ci]
+        used = {st["names"]["zh"] for st in stations.values()}
+        sid_of = {}
+        for key, p in keyed.items():
+            if key not in users:
+                continue
+            if key in stations:
+                stations[key]["lines"] += [line_ids[a] for a in users[key]]
+                sid_of[key] = key
+                continue
+            cands = [(-1.0, world.places[key[1]]["names"])] if isinstance(key, tuple) and key[0] == "p" else []
+            cands += [(poly.distance(p), world.places[pid]["names"]) for pid, poly in site_pool if poly.distance(p) < 0.3]
+            for names, sg in named_streets.get(cid, []):
+                for a in users[key]:
+                    if sg.buffer(0.05).intersection(geoms[a]).length > 0.4:
+                        continue
+                    cands += [(q.distance(p) + 0.05, names) for q in points_of(sg.intersection(geoms[a])) if q.distance(p) < 0.3]
+            cands.sort(key=lambda c: c[0])
+            names = next((metro_station_names(n) for _, n in cands if metro_station_names(n)["zh"] not in used), None)
+            for _ in range(80):
+                if names is not None:
+                    break
+                theme = namer.theme("mixed", rng)
+                if theme not in ("numbered", "places"):
+                    cand = metro_station_names(namer.stem(theme, rng))
+                    names = cand if cand["zh"] not in used else None
+            used.add(names["zh"])
+            sid = derived_id("poi", f"metro:{cid}:{names['zh']}")
+            dpt = Point(p.x / s, p.y / s)
+            home = next((i for i, dc in enumerate(district_city) if dc == ci and dist_polys[i].contains(dpt)), specs[users[key][0]][2])
+            stations[sid] = {"names": names, "xy": (dpt.x, dpt.y), "district": home, "lines": [line_ids[a] for a in users[key]]}
+            sid_of[key] = sid
+
+        sysn = system["names"]
+        for a, (k, ln, i) in enumerate(specs):
+            names = {"zh": f"{sysn['zh']}{k}号线", "en": f"{sysn['en']} Line {k}"}
+            if sysn.get("art-x-viking"):
+                names["art-x-viking"] = f"{sysn['art-x-viking']} Linie {k}"
+            if sysn.get("art-x-buckham"):
+                names["art-x-buckham"] = f"{sysn['art-x-buckham']} Linea {k}"
+            out.append({"id": line_ids[a], "city": cid, "n": k, "names": names, "geom": geoms[a],
+                        "color": ln.get("color", METRO_COLORS[(k - 1) % len(METRO_COLORS)]),
+                        "stations": [sid_of[key] for key in line_keys[a]]})
+        n_st = len({sid_of[key] for keys in line_keys for key in keys})
+        log(f"  {cities[ci]['names']['zh']}: {len(specs)} metro lines, {n_st} stations, "
+            f"{sum(g.length for g in geoms):.0f} km")
+    return out
 
 
 def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: dict, use_cache: bool = True):
@@ -503,7 +765,6 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     water = np.zeros(g.shape, bool)
     for _, m in lakes:
         water |= m
-
     log("vectorising boundaries")
     dist_polys = polygonize_labels(dist_r, g.res)
     city_polys = [shapely.union_all([dist_polys[i] for i, dc in enumerate(district_city) if dc == ci]) for ci in range(len(cities))]
@@ -535,6 +796,18 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         fe = world.features[nr["feature"]]
         mouth_acc = float(drain.acc.ravel()[stem[-2]])
         named_rivers.append((fe, line, mouth_acc, stem))
+
+    # Port towns: the district centre (and so the town) moves to the coast, 1.7–3 real km inland,
+    # next to the mouth of the named river, the named landform, or else the stretch of coast
+    # nearest the inland centre.
+    mouths = {fe["id"]: line.coords[-1] for fe, line, _, _ in named_rivers}
+    for did, toward in layout.get("coastal", {}).items():
+        i = next(k for k, d in enumerate(districts) if d["id"] == did)
+        tx, ty = mouths.get(toward) or (world.features[toward]["detect"]["at_km"] if toward else poles[i])
+        cy_, cx_ = np.nonzero((dist_r == i) & land & ~water & (dcoast >= 0.6) & (dcoast <= 1.1))
+        if len(cx_):
+            k = int(np.argmin((g.xs[cx_] - tx) ** 2 + (g.ys[cy_] - ty) ** 2))
+            poles[i] = (float(g.xs[cx_[k]]), float(g.ys[cy_[k]]))
 
     log("mountains")
     rp = spec.get("relief", {})
@@ -575,9 +848,14 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     bath_polys = polygonize_labels(bands, gc.res, smooth=3, simplify_km=0.1)
 
     street_out, building_out, park_out = [], [], []
+    lake_polys = [p for _, m in lakes if (p := polygonize_labels(np.where(m, 0, -1), g.res).get(0)) is not None]
+    s = frame.scale
+    land_real = affinity.scale(terr_poly, s, s, origin=(0, 0))
+    if lake_polys:
+        land_real = land_real.difference(affinity.scale(shapely.union_all(lake_polys), s, s, origin=(0, 0)))
+    urban_poly = cover_polys.get(landcover.CLASSES.index("urban"))
     if spec.get("streets"):
         log("streets")
-        lake_polys = [p for _, m in lakes if (p := polygonize_labels(np.where(m, 0, -1), g.res).get(0)) is not None]
         sp = spec["streets"]
         river_lines = [line for _, line, _, _ in named_rivers] + \
                       [line for line, acc in stream_lines if acc >= sp.get("river_gap_min_km2", 60)]
@@ -585,11 +863,21 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
                                    cover_polys.get(landcover.CLASSES.index("urban")), terr_poly, lake_polys, river_lines)
         log("buildings")
         building_out, park_out = build_buildings(street_out, seed)
+    with_streets = {i for _, _, ctx, _ in street_out for i in ctx}
+    all_sites = [site for *_, city_sites in street_out for site in city_sites]
+    for i, d in enumerate(districts):
+        if i not in with_streets:
+            core_r = (poles[i][0] * s, poles[i][1] * s)
+            all_sites += [(pid, site, parts, i) for pid, site, parts in landmark_sites(world, d, core_r, 0.0, None, land_real, seed)]
 
     log("routing roads")
     land_r = block_reduce(land, 4, "mode_bool")
     elev_r = block_reduce(elev, 4, "mean")
     water_r = block_reduce(water | ice_mask, 4, "mode_bool")  # roads go round lakes and glaciers
+    airfields = [shapely.transform(site, lambda c: c / s) for pid, site, _, _ in all_sites
+                 if world.places[pid]["site"]["layout"] in ("airport", "spaceport")]
+    if airfields:  # roads and railways go round runways and launch pads
+        water_r = water_r | shapely.contains_xy(shapely.union_all(airfields).buffer(0.5 * gr.res), gr.X, gr.Y)
     router = Router(elev_r, land_r & ~water_r, gr.res)
     node = [router.cell(*poles[core[ci]]) for ci in range(len(cities))]
     road_out = []
@@ -626,6 +914,38 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             "names": {"zh": f"{a['zh']}—{b['zh']}公路", "en": f"{a['en']}–{b['en']} Road"},
         }
         road_out.append((r, path))
+
+    log("routing railways")
+    district_index = {d["id"]: i for i, d in enumerate(districts)}
+    rail_router = Router(elev_r, land_r & ~water_r, gr.res, slope_weight=150)
+    stop_index = {**district_index, **{c["id"]: core[ci] for ci, c in enumerate(cities)}}
+    rail_out = route_railways(world, rail_router, poles, stop_index)
+    rail_xy = lambda cells: np.array([rail_router.xy(c) for c in cells])
+    rail_tracks = [smooth_line(rail_xy(run), 0.35, 4) for r, _, path in rail_out for run in owned_runs(path, r["id"], rail_router.owner)]
+    track_union = shapely.union_all(rail_tracks) if rail_tracks else None
+    stations: dict[str, dict] = {}
+    rail_lines = []
+    for r, stops, path in rail_out:
+        ids = []
+        for v, i in zip(r["via"], stops):
+            sid = derived_id("poi", f"rail:{districts[i]['id']}")
+            if sid not in stations:
+                ci = district_city[i]
+                pt = nearest_points(track_union, Point(poles[i]))[0]
+                stations[sid] = {"names": rail_station_names(bare_name(cities[ci] if i == core[ci] else districts[i])),
+                                 "xy": (pt.x, pt.y), "district": i, "lines": []}
+            stations[sid]["names"].update(r.get("station_names", {}).get(v, {}))
+            stations[sid]["lines"].append(r["id"])
+            ids.append(sid)
+        rail_lines.append((r, smooth_line(rail_xy(path), 0.35, 4), ids))
+    if rail_out:
+        log(f"  {len(rail_out)} railways, {len(stations)} stations, "
+            f"{frame.km(sum(t.length for t in rail_tracks)):.0f} km of track")
+    metro_lines = []
+    if spec.get("metro") and urban_poly is not None:
+        log("metro")
+        metro_lines = build_metro(spec["metro"], world, seed, s, cities, districts, district_city, dist_polys, poles, urban_poly,
+                                  land_real, street_out, all_sites, stations, spec.get("streets") or {})
 
     log("exporting")
     div_features, label_features = [], []
@@ -671,8 +991,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             "population": d["population"], "color": cities[ci]["color"], "rank": 4}))
 
     place_features, landmark_features = [], []
-    district_index = {d["id"]: i for i, d in enumerate(districts)}
-    sites = {pid: (site, parts) for _, _, _, city_sites in street_out for pid, site, parts, _ in city_sites}
+    sites = {pid: (site, parts) for pid, site, parts, _ in all_sites}
     for pid, p in world.places.items():
         if p["in"] in district_index:
             x, y = poles[district_index[p["in"]]]
@@ -691,11 +1010,12 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         if pid in sites:
             site, parts = sites[pid]
             geom = to_lonlat(affinity.scale(site, 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6)
-            landmark_features.append(feature(geom, {"id": pid, "subtype": p["subtype"], "layout": p["site"]["layout"],
+            facility = p["site"]["layout"] in FACILITY_LAYOUTS
+            landmark_features.append(feature(geom, {"id": pid, "subtype": p["subtype"], "layout": p["site"]["layout"], "facility": facility,
                                                     "name_zh": p["names"]["zh"], "name_en": p["names"]["en"]}))
-            for part in parts:
+            for kind, part in parts:
                 part_geom = to_lonlat(affinity.scale(part, 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6)
-                landmark_features.append(feature(part_geom, {"part": "building", "of": pid}))
+                landmark_features.append(feature(part_geom, {"part": kind, "of": pid, "facility": facility}))
             entities[pid].update({"bbox": bbox_lonlat(geom), "stats": {"area_km2_mapped": round(site.area, 2)}})
 
     water_features = []
@@ -792,6 +1112,44 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     park_features = [tile_minzoom(feature(to_map(g), {"class": "park"}), BUILDING_MINZOOM) for g in park_out]
     if building_out:
         log(f"  {len(building_features)} buildings, {len(park_features)} parks, {len(sites)} landmark sites")
+
+    rail_features = [feature(to_lonlat(t, frame), {"network": "intercity_rail", "role": "track"}) for t in rail_tracks]
+    station_features = []
+
+    def add_line(eid, line_km, props, decimals=5):
+        geom = to_lonlat(line_km, frame, decimals)
+        rail_features.append(feature(geom, {"id": eid, "role": "line", **props}))
+        mid = line_km.interpolate(0.5, normalized=True)
+        return {"bbox": bbox_lonlat(geom), "center": list(point_lonlat(frame, mid.x, mid.y).coords[0]),
+                "stats": {"length_km": round(frame.km(line_km.length), 1)}}
+
+    for r, full, ids in rail_lines:
+        entities[r["id"]].update({"class": "rail", "via": ids, **add_line(r["id"], full, {"network": r["network"], "color": r.get("color"),
+                                                                         "name_zh": r["names"]["zh"], "name_en": r["names"]["en"]})})
+    for ml in metro_lines:
+        line_km = affinity.scale(ml["geom"], 1 / s, 1 / s, origin=(0, 0))
+        entities[ml["id"]] = {
+            "id": ml["id"], "kind": "route", "network": "metro", "class": "metro", "status": "generated", "names": ml["names"],
+            "color": ml["color"], "via": ml["stations"], "ancestors": [ml["city"], *world.ancestors(ml["city"])], "source": "generated:metro",
+            **add_line(ml["id"], line_km, {"network": "metro", "color": ml["color"], "ref": str(ml["n"]),
+                                           "name_zh": ml["names"]["zh"], "name_en": ml["names"]["en"]}, 6),
+        }
+    rail_ids = {r["id"] for r, _, _ in rail_lines}
+    metro_color = {ml["id"]: ml["color"] for ml in metro_lines}
+    for sid, st in stations.items():
+        pt = point_lonlat(frame, *st["xy"])
+        lon, lat = pt.coords[0]
+        lines = list(dict.fromkeys(st["lines"]))
+        rail = any(ln in rail_ids for ln in lines)
+        metro = [ln for ln in lines if ln in metro_color]
+        station_features.append(feature(pt, {"id": sid, "kind": "rail" if rail else "metro", "transfer": len(lines) > 1,
+                                             "color": metro_color[metro[0]] if metro else None,
+                                             "name_zh": st["names"]["zh"], "name_en": st["names"]["en"]}))
+        d = districts[st["district"]]
+        entities[sid] = {"id": sid, "kind": "place", "subtype": "station", "status": "generated", "names": st["names"], "in": d["id"],
+                         "lines": lines, "ancestors": [d["id"], *world.ancestors(d["id"])],
+                         "source": "generated:railways" if rail else "generated:metro",
+                         "center": [lon, lat], "bbox": [lon - 0.004, lat - 0.002, lon + 0.004, lat + 0.002]}
 
     terminals = {c["id"]: node[ci] for ci, c in enumerate(cities)}
     terminals.update({d["id"]: node[district_city[i]] if i == core[district_city[i]] else router.cell(*poles[i])
@@ -897,6 +1255,8 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     layers["buildings"] += building_features
     layers["parks"] += park_features
     layers["landmarks"] += landmark_features
+    layers["rail"] += rail_features
+    layers["stations"] += station_features
     layers["bathymetry"] += bath_features
     layers["context"] += ctx_features
 
@@ -924,7 +1284,7 @@ def base_entities(world: World) -> dict:
             ent["children"] = [c["id"] for c in sorted(world.children(eid), key=lambda d: d.get("codes", {}).get("admin", ""))]
         elif eid in world.features:
             ent["kind"] = "natural"
-        elif eid in world.routes:
+        elif eid in world.routes or eid in world.railways:
             ent["kind"] = "route"
         elif eid in world.places:
             ent["kind"] = "place"
@@ -944,14 +1304,15 @@ def main():
         for e in errors:
             print("  -", e)
         sys.exit(1)
-    log(f"sources ok: {len(world.divisions)} divisions, {len(world.features)} features, {len(world.routes)} routes")
+    log(f"sources ok: {len(world.divisions)} divisions, {len(world.features)} features, {len(world.routes)} routes, "
+        f"{len(world.railways)} railways, {len(world.places)} places")
     if args.check:
         return
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir(parents=True)
     entities = base_entities(world)
-    layers = {k: [] for k in ("divisions", "labels", "places", "landcover", "water", "coast", "glaciers", "rivers", "rivers-named", "ridges", "roads", "streets", "streets-named", "buildings", "parks", "landmarks", "bathymetry", "context")}
+    layers = {k: [] for k in ("divisions", "labels", "places", "landcover", "water", "coast", "glaciers", "rivers", "rivers-named", "ridges", "roads", "streets", "streets-named", "buildings", "parks", "landmarks", "rail", "stations", "bathymetry", "context")}
     graph = {"nodes": [], "edges": [], "roads": [], "places": {}}
     regions = [build_region(world, spec, entities, layers, graph, not args.fresh) for spec in world.generators]
     for name, feats in layers.items():

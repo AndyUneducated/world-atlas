@@ -1,10 +1,29 @@
-import { Anchor, Building2, Droplets, Flag, Footprints, Landmark, MapPin, Mountain, Navigation2, Route, Ship, Shell, Snowflake, Waves } from "lucide-react";
+import { Anchor, Building2, Droplets, Flag, Footprints, Landmark, MapPin, Mountain, Navigation2, Plane, Rocket, Route, Ship, Shell, Snowflake, TrainFront, TramFront, Waves } from "lucide-react";
 import type { Entity } from "../lib/types";
 
 export function EntityIcon({ entity, className }: { entity: Entity; className?: string }) {
   const props = { className, strokeWidth: 1.8 };
-  if (entity.kind === "route") return <Route {...props} />;
-  if (entity.kind === "place") return <Landmark {...props} />;
+  if (entity.kind === "route") {
+    if (entity.network === "intercity_rail") return <TrainFront {...props} />;
+    if (entity.network === "metro") return <TramFront {...props} />;
+    return <Route {...props} />;
+  }
+  if (entity.kind === "place") {
+    switch (entity.subtype) {
+      case "station":
+        return entity.source === "generated:metro" ? <TramFront {...props} /> : <TrainFront {...props} />;
+      case "airport":
+        return <Plane {...props} />;
+      case "port":
+        return <Anchor {...props} />;
+      case "ferry_terminal":
+        return <Ship {...props} />;
+      case "spaceport":
+        return <Rocket {...props} />;
+      default:
+        return <Landmark {...props} />;
+    }
+  }
   switch (entity.subtype) {
     case "dependency":
       return <Flag {...props} />;

@@ -21,7 +21,8 @@ world/*.yaml  ──►  pipeline/build.py  ──►  public/data/*.geojson, de
 | `world/registry/` | Countries (ISO 3166-1) |
 | `world/divisions/` | Administrative divisions: territory, cities, districts |
 | `world/features/` | Natural features: mountain ranges, rivers, lakes, coastal landforms (bays, fjords, capes, straits, islands, river mouths), peaks, passes and glaciers |
-| `world/transport/` | Numbered routes (expressways, highways) |
+| `world/transport/` | Numbered routes (expressways, highways) and intercity railways |
+| `world/places/` | Landmarks, buildings and transport facilities (airports, ports, spaceports) |
 | `world/generator/` | Layout parameters: coastline, terrain, city anchors, seeds |
 | `pipeline/` | Python generator |
 | `src/` | Web app |
@@ -62,6 +63,13 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   footprints whose type (slab estates, towers, courtyard blocks, shops, houses, sheds, parks)
   follows the district style. Places with a `site` (size and layout template) are drawn as
   clickable landmarks; streets and generated buildings keep out of their grounds.
+  The `airport`, `port` and `spaceport` layouts draw runways, piers and launch pads, and an
+  optional `angle_deg` turns a site to an absolute bearing (east = 0°, counter-clockwise).
+- **Railways.** Intercity lines in `world/transport/*-rail.yaml` list their stops (cities
+  or districts) and are laid over the terrain with gentler gradients than roads. City metro
+  lines come from the `metro` section of a generator file and stay inside a district's
+  built-up area. Stations are places of subtype `station`; lines and stations get IDs
+  derived from stable keys, so they survive rebuilds.
 
 ## Development
 
