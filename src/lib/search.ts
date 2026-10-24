@@ -30,7 +30,9 @@ const KIND_WEIGHT: Record<string, number> = {
   strait: 9,
   estuary: 8,
   motorway: 12,
+  arterial: 6,
   secondary: 4,
+  collector: 3,
 };
 
 const norm = (s: string) => s.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[\s\-–—·]/g, "");

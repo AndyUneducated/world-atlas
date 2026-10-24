@@ -2,7 +2,7 @@ import type { Feature, Polygon, Position } from "geojson";
 import { EMPTY_FC, type FocusData } from "./style";
 import type { AtlasData, BBox, LayerFile } from "./types";
 
-const FOCUSABLE: LayerFile[] = ["divisions", "water", "coast", "glaciers", "roads", "rivers-named", "ridges"];
+const FOCUSABLE: LayerFile[] = ["divisions", "water", "coast", "glaciers", "roads", "streets-named", "rivers-named", "ridges"];
 
 export function indexFeatures(data: AtlasData): Map<string, Feature> {
   const out = new Map<string, Feature>();

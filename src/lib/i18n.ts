@@ -134,6 +134,8 @@ const NETWORK_LABELS: Record<string, Record<Lang, string>> = {
   territorial_highway: { zh: "领地道", en: "Territorial highway" },
   municipal_road: { zh: "市道", en: "Municipal road" },
   township_road: { zh: "乡道", en: "Township road" },
+  arterial_street: { zh: "城市主干道", en: "Arterial street" },
+  collector_street: { zh: "城市次干道", en: "Collector street" },
 };
 
 export function kindLabel(e: Entity, lang: Lang): string {

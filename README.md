@@ -52,6 +52,12 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   GB/T 2260 pattern (`90` → `9001` → `900101`).
 - **Routes.** `G-NV-n` national, `S-NV-n` territorial, `X-NV-n` municipal and
   `Y-NV-n` township roads (GB/T 917 numbering, with the territory infix `NV`).
+- **Streets.** City streets are generated from the `streets` section of a generator file:
+  each district's built-up area gets arterials (主干道), collectors (次干道) and local
+  streets (支路) in a planned, mixed or organic style. Fixed names such as 人民大道 are
+  pinned to grid lines under `named`; all other names are composed from the stems and
+  suffixes in `world/names/streets.yaml`. Arterials and collectors are clickable routes;
+  local streets are drawn and labelled only.
 
 ## Development
 
@@ -67,7 +73,7 @@ npm run dev         # http://localhost:5173
 `npm run data:check` validates the YAML without generating anything. Pushing to `main`
 runs the pipeline and deploys to GitHub Pages through `.github/workflows/deploy.yml`.
 
-Display-only layers with many features (land cover, streams, sea depth) are packed into a
+Display-only layers with many features (land cover, streams, sea depth, streets) are packed into a
 [PMTiles](https://docs.protomaps.com/pmtiles/) vector tile archive by `pipeline/tiles.py`
 with [tippecanoe](https://github.com/felt/tippecanoe), and the site reads them tile by tile.
 CI always builds the archive; locally it is optional, and without tippecanoe the site loads

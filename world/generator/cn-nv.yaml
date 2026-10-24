@@ -98,6 +98,28 @@ landcover:
   rock_above_treeline_m: 650
   rock_slope_deg: 31
 
+# City street networks inside the built-up land cover (real km; see pipeline/atlas/streets.py).
+# style: planned (regular grid on two axes), mixed (looser grid and a ring road) or organic
+# (radial avenues, a ring, irregular lanes). angle_deg: direction of the first axis, east = 0.
+# named: fixed names for arterials; axis 0/1 and line n count from the district centre.
+streets:
+  cities: [div_nbrnfr]
+  arterial_spacing_km: 1.5
+  neighbourhood_km: 1.3
+  local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
+  warp_km: { planned: 0.02, mixed: 0.05, organic: 0.09 }
+  warp_wavelength_km: 1.6
+  river_gap_km: 0.05
+  districts:
+    div_16cxr8: { style: planned, angle_deg: 33.7 }  # 白桦区：1990 年新建的首府，人民大道从区中心直通议会综合办公区
+    div_b1dx32: { style: mixed }                     # 北河区
+    div_g4a8q0: { style: organic }                   # 沙洲区：河口沙洲上的老港区
+  named:
+    - { district: div_16cxr8, axis: 0, line: 0, status: canon, names: { zh: 人民大道, en: People's Avenue, art-x-viking: Volksallee, art-x-buckham: Viale del Popolo } }
+    - { district: div_16cxr8, axis: 1, line: 0, status: generated, names: { zh: 自由大道, en: Liberty Avenue, art-x-viking: Freiheitsallee, art-x-buckham: Viale della Libertà } }
+    - { district: div_16cxr8, axis: 1, line: -1, status: generated, names: { zh: 平等大街, en: Equality Boulevard, art-x-viking: Gleichheitschaussee, art-x-buckham: Corso dell'Uguaglianza } }
+    - { district: div_16cxr8, axis: 1, line: 1, status: generated, names: { zh: 博爱大街, en: Fraternity Boulevard, art-x-viking: Brüderlichkeitschaussee, art-x-buckham: Corso della Fraternità } }
+
 # Facts the build checks and reports; a failed check is printed as a warning.
 expect:
   longest_river: nat_ww491j

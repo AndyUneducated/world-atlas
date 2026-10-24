@@ -1,0 +1,221 @@
+# Street name parts for generated city streets (pipeline/atlas/streets.py).
+#
+# Each entry is "zh | en | viking | buckham". A street name is a stem plus a suffix of its
+# class, e.g. 松林 + 巷 = 松林巷 / Pinewood Lane / Kiefernweg / Vicolo dei Pini.
+#   viking: stems are in compounding form and the suffix is joined to them (Birken + allee);
+#           a stem with a space is joined with hyphens (Freistad-auf-Hea-Straße).
+#   buckham: the suffix comes first (Viale + del Popolo).
+# Parallel streets of one neighbourhood may share a stem with an ordinal: 松林二巷 /
+# Pinewood Lane 2 / Kiefernweg II / Vicolo dei Pini II.
+# Themes are chosen per neighbourhood, weighted by the district's street style.
+
+suffixes:
+  arterial:
+    - 大道 | Avenue | allee | Viale
+    - 大街 | Boulevard | chaussee | Corso
+    - 路 | Road | straße | Via
+  collector:
+    - 路 | Road | straße | Via
+    - 街 | Street | gasse | Strada
+    - 大街 | High Street | markt | Corso
+  local:
+    - 街 | Street | gasse | Via
+    - 巷 | Lane | weg | Vicolo
+    - 里 | Close | hof | Corte
+    - 弄 | Alley | gang | Calle
+    - 坊 | Row | zeile | Borgo
+    - 路 | Way | pfad | Salita
+
+themes:
+  # 理念与公共生活
+  civic:
+    - 人民 | People's | Volks | del Popolo
+    - 自由 | Liberty | Freiheits | della Libertà
+    - 平等 | Equality | Gleichheits | dell'Uguaglianza
+    - 博爱 | Fraternity | Brüderlichkeits | della Fraternità
+    - 和平 | Peace | Friedens | della Pace
+    - 团结 | Unity | Einheits | dell'Unità
+    - 友谊 | Friendship | Freundschafts | dell'Amicizia
+    - 共和 | Republic | Republik | della Repubblica
+    - 宪章 | Charter | Verfassungs | della Costituzione
+    - 议会 | Parliament | Parlaments | del Parlamento
+    - 建设 | Progress | Aufbau | del Progresso
+    - 繁荣 | Prosperity | Wohlstands | della Prosperità
+    - 光明 | Bright | Licht | della Luce
+    - 同心 | Concord | Eintrachts | della Concordia
+    - 公园 | Park | Park | del Parco
+    - 广场 | Square | Platz | della Piazza
+  # 学校、文化
+  culture:
+    - 学府 | College | Hochschul | dell'Ateneo
+    - 书院 | Academy | Akademie | dell'Accademia
+    - 图书馆 | Library | Bibliotheks | della Biblioteca
+    - 剧院 | Theatre | Theater | del Teatro
+    - 博物馆 | Museum | Museums | del Museo
+    - 音乐厅 | Concert Hall | Konzerthaus | dell'Auditorium
+    - 画廊 | Gallery | Galerie | della Galleria
+    - 钟楼 | Clock Tower | Uhrturm | della Torre
+    - 体育场 | Stadium | Stadion | dello Stadio
+    - 天文台 | Observatory | Sternwarten | dell'Osservatorio
+    - 诗人 | Poets' | Dichter | dei Poeti
+    - 工匠 | Artisans' | Handwerker | degli Artigiani
+  # 树木与花草
+  trees:
+    - 白桦 | Birch | Birken | delle Betulle
+    - 松林 | Pinewood | Kiefern | dei Pini
+    - 云杉 | Spruce | Fichten | degli Abeti
+    - 落叶松 | Larch | Lärchen | dei Larici
+    - 花楸 | Rowan | Ebereschen | dei Sorbi
+    - 椴树 | Linden | Linden | dei Tigli
+    - 枫林 | Maple | Ahorn | degli Aceri
+    - 柳岸 | Willow | Weiden | dei Salici
+    - 榛子 | Hazel | Hasel | dei Noccioli
+    - 杜松 | Juniper | Wacholder | dei Ginepri
+    - 越橘 | Lingonberry | Preiselbeer | dei Mirtilli
+    - 石楠 | Heather | Heide | dell'Erica
+    - 丁香 | Lilac | Flieder | dei Lillà
+    - 苹果园 | Orchard | Obstgarten | del Frutteto
+    - 蔷薇 | Rose | Rosen | delle Rose
+    - 苔原 | Tundra | Tundra | della Tundra
+    - 樱桃 | Cherry | Kirsch | dei Ciliegi
+    - 橡树 | Oak | Eichen | delle Querce
+  # 鸟兽鱼虫
+  animals:
+    - 鹿鸣 | Deer Call | Hirschruf | del Cervo
+    - 苍鹰 | Goshawk | Habicht | dell'Astore
+    - 驯鹿 | Reindeer | Rentier | delle Renne
+    - 白狐 | Arctic Fox | Polarfuchs | della Volpe
+    - 海鸥 | Gull | Möwen | dei Gabbiani
+    - 鲑鱼 | Salmon | Lachs | dei Salmoni
+    - 海燕 | Petrel | Sturmvogel | delle Procellarie
+    - 苍鹭 | Heron | Reiher | degli Aironi
+    - 天鹅 | Swan | Schwanen | dei Cigni
+    - 棕熊 | Bear | Bären | dell'Orso
+    - 灰狼 | Wolf | Wolfs | del Lupo
+    - 云雀 | Lark | Lerchen | delle Allodole
+    - 雪鸮 | Snowy Owl | Schneeeulen | della Civetta
+    - 海豹 | Seal | Robben | delle Foche
+    - 鲸歌 | Whalesong | Walgesang | delle Balene
+    - 蜂房 | Beehive | Bienenkorb | delle Api
+  # 天象与星空
+  sky:
+    - 极光 | Aurora | Polarlicht | dell'Aurora
+    - 北辰 | Pole Star | Polarstern | della Stella Polare
+    - 银河 | Galaxy | Galaxie | della Galassia
+    - 晨星 | Morning Star | Morgenstern | della Stella del Mattino
+    - 月光 | Moonlight | Mondschein | del Chiaro di Luna
+    - 彗星 | Comet | Kometen | della Cometa
+    - 轨道 | Orbit | Orbit | dell'Orbita
+    - 星港 | Starport | Sternhafen | del Porto Stellare
+    - 日晷 | Sundial | Sonnenuhr | della Meridiana
+    - 极昼 | Midnight Sun | Mitternachtssonnen | del Sole di Mezzanotte
+    - 夏至 | Midsummer | Mittsommer | del Solstizio
+    - 春晓 | Spring Dawn | Frühlingsmorgen | dell'Alba
+    - 暮光 | Twilight | Dämmerungs | del Crepuscolo
+    - 冬雪 | Winter Snow | Winterschnee | della Neve
+    - 星图 | Star Chart | Sternkarten | della Carta Celeste
+    - 新月 | Crescent | Mondsichel | della Luna Nuova
+  # 港口、手艺与老行当
+  trades:
+    - 渔市 | Fish Market | Fischmarkt | della Pescheria
+    - 盐仓 | Salt Store | Salzspeicher | del Sale
+    - 缆绳 | Ropewalk | Reeper | dei Cordai
+    - 铁匠 | Smithy | Schmiede | dei Fabbri
+    - 船坞 | Dockyard | Werft | del Cantiere
+    - 灯塔 | Lighthouse | Leuchtturm | del Faro
+    - 码头 | Quay | Kai | del Molo
+    - 鱼骨 | Fishbone | Fischgrat | della Lisca
+    - 桶匠 | Cooper | Böttcher | dei Bottai
+    - 帆布 | Sailcloth | Segeltuch | delle Vele
+    - 铁锚 | Anchor | Anker | dell'Ancora
+    - 潮汐 | Tide | Gezeiten | della Marea
+    - 贝壳 | Seashell | Muschel | delle Conchiglie
+    - 磨坊 | Mill | Mühlen | del Mulino
+    - 面包房 | Bakehouse | Backhaus | dei Fornai
+    - 茶馆 | Teahouse | Teehaus | della Sala da Tè
+    - 织布 | Weavers' | Weber | dei Tessitori
+    - 皮匠 | Tanners' | Gerber | dei Conciatori
+  # 维京旧俗与传说
+  norse:
+    - 奥丁 | Odin | Odins | di Odino
+    - 托尔 | Thor | Thors | di Thor
+    - 弗蕾亚 | Freya | Freya | di Freia
+    - 瓦尔哈拉 | Valhalla | Walhall | del Valhalla
+    - 长船 | Longship | Langschiff | del Drakkar
+    - 符文 | Rune | Runen | delle Rune
+    - 圆盾 | Shield | Schild | degli Scudi
+    - 萨迦 | Saga | Saga | della Saga
+    - 世界树 | World Tree | Weltenbaum | dell'Albero del Mondo
+    - 渡鸦 | Raven | Raben | dei Corvi
+    - 峡湾 | Fjord | Fjord | del Fiordo
+    - 议事石 | Thing Stone | Thingstein | della Pietra del Consiglio
+    - 号角 | Horn | Horn | del Corno
+    - 龙首 | Dragon Prow | Drachenkopf | della Prua
+    - 冰巨人 | Frost Giant | Frostriesen | dei Giganti
+    - 彩虹桥 | Bifrost | Bifröst | del Bifrost
+  # 定居家族
+  families:
+    - 汉森 | Hansen | Hansen | Hansen
+    - 约翰森 | Johansen | Johansen | Johansen
+    - 拉森 | Larsen | Larsen | Larsen
+    - 奥尔森 | Olsen | Olsen | Olsen
+    - 林德 | Lind | Lind | Lind
+    - 贝里 | Berg | Berg | Berg
+    - 斯特兰德 | Strand | Strand | Strand
+    - 达尔 | Dahl | Dahl | Dahl
+    - 王家 | Wangjia | Wangjia | Wangjia
+    - 李家 | Lijia | Lijia | Lijia
+    - 陈家 | Chenjia | Chenjia | Chenjia
+    - 林家 | Linjia | Linjia | Linjia
+    - 赵家 | Zhaojia | Zhaojia | Zhaojia
+    - 许家 | Xujia | Xujia | Xujia
+    - 卡尔松 | Karlsson | Karlsson | Karlsson
+    - 阿蒙森 | Amundsen | Amundsen | Amundsen
+  # 祖国城市（中国城市常见的以地名命名街道）
+  china:
+    - 北京 | Beijing | Peking | Pechino
+    - 上海 | Shanghai | Shanghai | Shanghai
+    - 南京 | Nanjing | Nanking | Nanchino
+    - 广州 | Guangzhou | Kanton | Canton
+    - 杭州 | Hangzhou | Hangzhou | Hangzhou
+    - 西安 | Xi'an | Xi'an | Xi'an
+    - 成都 | Chengdu | Chengdu | Chengdu
+    - 武汉 | Wuhan | Wuhan | Wuhan
+    - 青岛 | Qingdao | Tsingtau | Tsingtao
+    - 大连 | Dalian | Dalian | Dalian
+    - 厦门 | Xiamen | Amoy | Amoy
+    - 昆明 | Kunming | Kunming | Kunming
+    - 哈尔滨 | Harbin | Harbin | Harbin
+    - 拉萨 | Lhasa | Lhasa | Lhasa
+    - 长沙 | Changsha | Changsha | Changsha
+    - 苏州 | Suzhou | Suzhou | Suzhou
+  # 方位与地形
+  landscape:
+    - 北坡 | North Slope | Nordhang | del Versante Nord
+    - 南岸 | South Bank | Südufer | della Riva Sud
+    - 东岗 | East Ridge | Ostkamm | della Cresta Est
+    - 西湾 | West Cove | Westbucht | dell'Insenatura Ovest
+    - 上坡 | Uphill | Bergauf | della Salita
+    - 河畔 | Riverside | Flussufer | del Lungofiume
+    - 滨海 | Seafront | Strand | del Lungomare
+    - 高地 | Highland | Hochland | dell'Altopiano
+    - 石桥 | Stone Bridge | Steinbrücken | del Ponte di Pietra
+    - 泉水 | Spring | Quell | della Fonte
+    - 风车 | Windmill | Windmühlen | del Mulino a Vento
+    - 沙丘 | Dune | Dünen | delle Dune
+    - 草甸 | Meadow | Wiesen | del Prato
+    - 瀑布 | Waterfall | Wasserfall | della Cascata
+    - 雾岬 | Misty Point | Nebelkap | del Capo Nebbioso
+    - 回声 | Echo | Echo | dell'Eco
+
+# Numbered street grids of planned districts: 经一路 … / 纬一路 …
+numbered:
+  - 经 | Meridian | Längs | Longitudinale
+  - 纬 | Parallel | Quer | Trasversale
+
+# Theme weights by district street style; "places" uses the names of the territory's cities,
+# districts and named landforms, "numbered" the grids above.
+styles:
+  planned: { civic: 3, culture: 3, numbered: 2, china: 2, sky: 2, trees: 1, places: 2 }
+  mixed: { trees: 2, animals: 2, sky: 2, china: 2, landscape: 2, families: 1, culture: 1, places: 2, norse: 1 }
+  organic: { trades: 3, norse: 2, families: 2, landscape: 2, animals: 1, trees: 1, places: 1 }

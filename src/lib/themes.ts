@@ -37,6 +37,8 @@ export interface MapTheme {
   nationalExpressway: RoadStyle;
   territorialExpressway: RoadStyle;
   cityRoad: RoadStyle;
+  /** City streets: arterials (主干道), collectors (次干道), local streets (支路). */
+  street: { arterial: RoadStyle; collector: RoadStyle; local: RoadStyle; label: string };
   shield: { national: { fill: string; text: string; stroke: string }; territorial: { fill: string; text: string; stroke: string } };
   label: { text: string; halo: string; minor: string; water: string; terrain: string; territory: string };
   cityDot: { fill: string; stroke: string; capital: string };
@@ -96,6 +98,12 @@ export const THEMES: Record<ThemeId, Theme> = {
       nationalExpressway: { fill: "#ffb84d", casing: "#dc8f2a" },
       territorialExpressway: { fill: "#ffe08a", casing: "#d9b04a" },
       cityRoad: { fill: "#ffffff", casing: "#d3d8de" },
+      street: {
+        arterial: { fill: "#fdf3cf", casing: "#dcc993" },
+        collector: { fill: "#ffffff", casing: "#cdd4dc" },
+        local: { fill: "#ffffff", casing: "#dde2e8" },
+        label: "#4b5563",
+      },
       shield: {
         national: { fill: "#1f7a4d", text: "#ffffff", stroke: "#c8312b" },
         territorial: { fill: "#ffffff", text: "#8a5a00", stroke: "#d9b04a" },
@@ -150,6 +158,12 @@ export const THEMES: Record<ThemeId, Theme> = {
       nationalExpressway: { fill: "#fbbf24", casing: "#0f1624", glow: "rgba(251,191,36,0.35)" },
       territorialExpressway: { fill: "#fde68a", casing: "#0f1624", glow: "rgba(253,230,138,0.2)" },
       cityRoad: { fill: "#475569", casing: "#0f1624" },
+      street: {
+        arterial: { fill: "#3d4b63", casing: "#0a101b" },
+        collector: { fill: "#2e3b50", casing: "#0a101b" },
+        local: { fill: "#243044", casing: "#0a101b" },
+        label: "#94a3b8",
+      },
       shield: {
         national: { fill: "#0f3b2a", text: "#e6fff2", stroke: "#f87171" },
         territorial: { fill: "#111a2b", text: "#fde68a", stroke: "#fde68a" },

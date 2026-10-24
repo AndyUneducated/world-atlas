@@ -106,6 +106,8 @@ export const LAYER_FILES = [
   "rivers-named",
   "ridges",
   "roads",
+  "streets",
+  "streets-named",
   "bathymetry",
   "context",
 ] as const;

@@ -31,6 +31,7 @@ export const DENSITY_BREAKS = [50, 150, 400, 1200, 3000];
 export const HIT_LAYERS = {
   division: "hit-division",
   road: "hit-road",
+  street: "hit-street",
   river: "hit-river",
   ridge: "hit-ridge",
   lake: "water",
@@ -116,9 +117,10 @@ export function buildStyle(opts: {
       bounds: dem.bounds,
     },
   };
-  for (const name of ["bathymetry", "landcover", "rivers"] as const) {
+  for (const name of ["bathymetry", "landcover", "rivers", "streets"] as const) {
     if (!tiled.has(name)) sources[name] = { type: "geojson", data: data.layers[name] };
   }
+  sources["streets-named"] = { type: "geojson", data: data.layers["streets-named"], promoteId: "id" };
   if (tiles) sources.tiles = { type: "vector", url: `pmtiles://${BASE_URL}data/${tiles.url}` };
 
   const isSubtype = (s: string): ExpressionSpecification => ["==", ["get", "subtype"], s];
@@ -305,6 +307,31 @@ export function buildStyle(opts: {
     base * 10,
   ];
   const roadLayout = (on: boolean) => ({ visibility: visible(on), "line-cap": "round", "line-join": "round" }) as const;
+
+  // City streets sit under the numbered roads and show with the city road layer.
+  const streetWidth = (base: number): ExpressionSpecification => ["interpolate", ["exponential", 1.8], ["zoom"], 10, base * 0.35, 13, base * 1.6, 15, base * 5];
+  const streetTiers = [
+    { cls: "local", s: m.street.local, minzoom: 12, w: 1 },
+    { cls: "collector", s: m.street.collector, minzoom: 11, w: 1.5 },
+    { cls: "arterial", s: m.street.arterial, minzoom: 10, w: 2.2 },
+  ];
+  for (const part of ["casing", "fill"] as const) {
+    for (const t of streetTiers) {
+      style.push({
+        id: `street-${t.cls}${part === "casing" ? "-casing" : ""}`,
+        type: "line",
+        ...from("streets"),
+        minzoom: t.minzoom,
+        filter: isClass(t.cls),
+        layout: roadLayout(layers.cityRoads),
+        paint: {
+          "line-color": t.s[part],
+          "line-width": streetWidth(part === "casing" ? t.w + 0.9 : t.w),
+          "line-opacity": ["interpolate", ["linear"], ["zoom"], t.minzoom, 0, t.minzoom + 0.6, 1],
+        },
+      } as LayerSpecification);
+    }
+  }
   const roadTiers = [
     { id: "city-road", network: ROAD_NETWORKS.cityRoads, s: m.cityRoad, on: layers.cityRoads, casing: 1.2, fill: 0.7, minzoom: 7.6 },
     { id: "territorial-expressway", network: ROAD_NETWORKS.territorialExpressway, s: m.territorialExpressway, on: layers.territorialExpressway, casing: 1.6, fill: 1, minzoom: 0 },
@@ -398,6 +425,7 @@ export function buildStyle(opts: {
       filter: roadShown,
       paint: { "line-width": 12, "line-opacity": 0 },
     },
+    { id: HIT_LAYERS.street, type: "line", source: "streets-named", minzoom: 11, layout: { visibility: visible(layers.cityRoads) }, paint: { "line-width": 10, "line-opacity": 0 } },
     { id: HIT_LAYERS.river, type: "line", source: "rivers-named", minzoom: 7, paint: { "line-width": 10, "line-opacity": 0 } },
     { id: HIT_LAYERS.ridge, type: "line", source: "ridges", minzoom: 6.5, paint: { "line-width": 14, "line-opacity": 0 } },
   );
@@ -447,6 +475,30 @@ export function buildStyle(opts: {
       },
       paint: { "text-color": m.label.water, ...halo },
     },
+    ...[
+      { id: "street-label-major", filter: ["!=", ["get", "class"], "local"] as ExpressionSpecification, minzoom: 11.6, size: 11.5 },
+      { id: "street-label", filter: isClass("local"), minzoom: 13.6, size: 10.5 },
+    ].map(
+      (l) =>
+        ({
+          id: l.id,
+          type: "symbol",
+          ...from("streets"),
+          minzoom: l.minzoom,
+          filter: l.filter,
+          layout: {
+            visibility: visible(layers.cityRoads),
+            "symbol-placement": "line",
+            "text-field": name(lang),
+            "text-font": FONT.regular,
+            "text-size": l.size,
+            "symbol-spacing": 260,
+            "text-max-angle": 30,
+            "text-padding": 4,
+          },
+          paint: { "text-color": m.street.label, ...halo },
+        }) as LayerSpecification,
+    ),
     {
       id: "lake-label",
       type: "symbol",
