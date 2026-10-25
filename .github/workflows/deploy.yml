@@ -35,6 +35,15 @@ jobs:
       - name: Install pipeline dependencies
         run: pip install -r pipeline/requirements.txt
 
+      # Region and stage results; build.py checks each one's inputs and code itself, so a stale
+      # restore is safe and only the regions that changed are rebuilt.
+      - name: Cache pipeline results
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: atlas-${{ hashFiles('pipeline/**', 'world/**') }}
+          restore-keys: atlas-
+
       - name: Build map data
         run: python pipeline/build.py
 

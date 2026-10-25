@@ -1,5 +1,15 @@
 # World Atlas · 世界地图
 
+[![Deploy](https://github.com/AndyUneducated/world-atlas/actions/workflows/deploy.yml/badge.svg)](https://github.com/AndyUneducated/world-atlas/actions/workflows/deploy.yml)
+![React 19](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=white)
+![TypeScript 7](https://img.shields.io/badge/TypeScript-7-3178c6?logo=typescript&logoColor=white)
+![MapLibre GL 6](https://img.shields.io/badge/MapLibre_GL-6-396cb2?logo=maplibre&logoColor=white)
+![Vite 8](https://img.shields.io/badge/Vite-8-646cff?logo=vite&logoColor=white)
+![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4-06b6d4?logo=tailwindcss&logoColor=white)
+![Python 3.13](https://img.shields.io/badge/Python-3.13-3776ab?logo=python&logoColor=white)
+![NumPy · SciPy · Shapely](https://img.shields.io/badge/NumPy_·_SciPy_·_Shapely-2-013243?logo=numpy&logoColor=white)
+![PMTiles](https://img.shields.io/badge/tiles-PMTiles_·_tippecanoe-f97316)
+
 An interactive atlas of **Homeworld**, a fictional planet. The mapped regions are the
 Territory of North Viking Island (北维京岛领地) and the Territory of the Viking Islands
 (维京群岛领地), China.
@@ -11,10 +21,23 @@ Live site: https://andyuneducated.github.io/world-atlas/
 Everything on the map is generated from the YAML files in `world/`. Nothing in
 `public/data/` is edited by hand.
 
+```mermaid
+flowchart LR
+  W["world/*.yaml<br/>canon and generator parameters"] --> B["pipeline/build.py"]
+  B --> R1["region: North Viking Island"]
+  B --> R2["region: Viking Islands"]
+  R1 & R2 <-.-> C[(".cache/regions<br/>one result per region")]
+  R1 & R2 --> M["merge: crossings,<br/>traffic and service"]
+  M --> D["public/data<br/>GeoJSON, entities, terrain tiles"]
+  D --> T["pipeline/tiles.py<br/>tippecanoe → PMTiles"]
+  D & T --> A["React + MapLibre app"]
 ```
-world/*.yaml  ──►  pipeline/build.py  ──►  public/data/*.geojson, dem/  ──►  React + MapLibre app
- (canon)            (deterministic)          (build artifacts)
-```
+
+Each region (territory) is built on its own from its generator file. Its terrain, coast,
+districts, roads, railways, streets and buildings come out as one result, which is cached
+under the hash of its inputs and the pipeline code. The regions are then merged: lines
+between territories are joined through their undersea tunnels, and the traffic and service
+figures on the route cards are computed over the whole map.
 
 | Path | Contents |
 |:--|:--|
@@ -65,8 +88,12 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   a `shield` glyph for the upper half of their sign.
 - **Engineering.** `world/transport/engineering.yaml` holds the standard of each road and
   rail network: grade limits, bridge and tunnel thresholds, unit costs in US dollars, speed
-  limits and technical data. The generator derives each route's bridge and tunnel lengths,
-  construction cost, yearly upkeep and per-segment speed limits from it.
+  limits, cross-sections and technical data. The generator derives each route's bridge and
+  tunnel lengths (and names its longest bridge and tunnel), construction cost, yearly upkeep
+  and per-segment speed limits from it. Daily traffic, lanes, railway ridership and headways
+  come from gravity models over the people along each line. Expressways, territorial
+  highways and railways carry a `background` (why and how they were built), and each
+  territory names the `operators` of its expressways, highways and railways.
 - **Streets.** City streets are generated from the `streets` section of a generator file:
   each district's built-up area gets arterials (主干道), collectors (次干道) and local
   streets (支路) in a planned, mixed or organic style. Fixed names such as 人民大道 are
@@ -98,12 +125,22 @@ Requirements: Node 22+ and Python 3.12+.
 ```sh
 pip install -r pipeline/requirements.txt
 npm install
-npm run data        # generate public/data (about 2 minutes)
+npm run data        # generate public/data
 npm run dev         # http://localhost:5173
 ```
 
-`npm run data:check` validates the YAML without generating anything. Pushing to `main`
-runs the pipeline and deploys to GitHub Pages through `.github/workflows/deploy.yml`.
+A full build from scratch takes about 25 minutes; with an unchanged region taken from the
+cache, about 11. Options of `pipeline/build.py`:
+
+| Option | Effect |
+|:--|:--|
+| `--check` | Validate the YAML without generating anything (`npm run data:check`) |
+| `--only <region> …` | Rebuild only the named regions (`cn-nv`, `cn-vk`); the others come from their last cached result, even if out of date |
+| `--fresh` | Ignore the cache |
+
+The build fails if two territories' land overlaps. Pushing to `main` runs the pipeline and
+deploys to GitHub Pages through `.github/workflows/deploy.yml`; CI keeps `.cache` between
+runs, so only the regions that changed are rebuilt.
 
 Display-only layers with many features (land cover, streams, sea depth, streets, buildings) are packed into a
 [PMTiles](https://docs.protomaps.com/pmtiles/) vector tile archive by `pipeline/tiles.py`

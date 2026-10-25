@@ -36,6 +36,9 @@ routes:
     notes:
       zh: 环绕全岛，串联除马斯林山、洛龙山两座山城以外的所有城市，是领地交通的主骨架；洛龙山经龙关高速接入
       en: Circles the island and links every city but the two mountain towns, Maslin Mountain and Lorond Mountain (reached by the Long Pass Expressway); the backbone of the territory's road network.
+    background:
+      zh: 北维京岛的城市沿海岸分布，过去城市之间多靠沿岸航运和山间便道往来，冬季海面结冰、山路积雪，一些城市每年都有数月几乎与外界隔绝。领地成立后，把一条环岛高速定为交通建设的第一要务，分段同时开工：南岸平原段最先通车，北岸峡湾段工程最难，需要连续跨越峡湾并开凿穿山隧道。由于冬季只能在隧道内施工，北段工期远长于南段。全线贯通后，岛上所有城市第一次可以全年通行，其余高速和领道大多以它为骨架向内陆延伸。
+      en: North Viking Island's cities lie along its coast. They used to depend on coastal shipping and mountain tracks, and in winter, with ice on the sea and snow on the passes, some were cut off for months. When the territory was founded, a ring expressway became its first transport priority, built in many sections at once. The southern plain sections opened first; the northern fjord sections were the hardest, with one fjord crossing and mountain tunnel after another, and since only tunnel work can go on in winter they took far longer. Once the ring was closed every city on the island could be reached all year, and most later expressways and territorial highways branch off it.
     ring: true
     tunnel_cost: 3.5
     legs:
@@ -53,6 +56,9 @@ routes:
     notes:
       zh: 首府与最大城市之间的直达高速，全线一条直线，遇山开隧道、遇水架桥
       en: The direct expressway between the capital and the largest city, one straight line from end to end, tunnelling through hills and bridging water.
+    background:
+      zh: 首府自由市与最大城市维京港相距不远，环岛高速在两地之间却要绕行贝格兰丘陵，政府机关、企业总部和机场旅客每天往返两城，旧路早已不堪重负。领地议会决定另修一条直线高速，选线不避山水：贝格兰丘陵以隧道穿过，沙洲区的河口湿地全线架设高架桥，桥下保留原有水道和候鸟栖息地。通车后两城车程大为缩短，沿线的贝格兰、沙洲成为两城共同的通勤带，这条路也成为全岛最繁忙的高速之一。
+      en: The capital, Freedom City, and the largest city, Viking Port, are close neighbours, yet the ring expressway between them winds around the Bergland Hills, and the daily flow of officials, company staff and air travellers had long outgrown it. The territorial assembly chose a second, straight expressway that goes through whatever lies in its way. It tunnels under the Bergland Hills and crosses the Sandbar estuary wetlands on viaduct from end to end, leaving the old channels and the bird habitat beneath untouched. It cut the drive between the two cities sharply, turned Bergland and Sandbar into a shared commuter belt, and is now one of the busiest expressways on the island.
     straight: true
     via: [div_nbrnfr, div_m41gwn]
   - id: rte_cs3vnw
@@ -66,6 +72,9 @@ routes:
     notes:
       zh: 经龙关穿越洛龙山脉，连接北岸的勒克尔与山区腹地的洛龙山
       en: Crosses the Lorond Range through Dragon Pass, linking Lekor on the north coast with Lorond Mountain in the interior.
+    background:
+      zh: 洛龙山市深居洛龙山脉腹地，过去只有一条翻越龙关的盘山公路通往北岸，冬季积雪和雪崩常使山城与外界断绝数周。为让山城全年通行，领地把龙关高速列为国家高速，与环岛高速在勒克尔相接。线路自勒北区沿澄湖南岸上行，湖岸陡峭处以连续桥梁贴山而过，越岭段以长隧道从龙关垭口下方穿过，洞口加建防雪长廊。通车后山城到北岸港口的车程大大缩短，洛龙山的木材、矿产和冬季旅游都靠这条路运出运进。
+      en: Lorond Mountain City lies deep in the Lorond Range. Its only road to the north coast used to be a hairpin route over Dragon Pass, and snow and avalanches often cut the city off for weeks each winter. To keep it open all year the territory made the Long Pass Expressway a national expressway, joining the ring expressway at Lekor. From Lekor North it climbs along the south shore of Clear Lake, on a chain of bridges where the shore is steep, then passes beneath Dragon Pass in a long tunnel with snow galleries at its portals. The mountain city's timber, minerals and winter visitors now all travel this road.
     tunnel_cost: 3.5
     via: [div_yjghe9, div_prcxzt]
   - id: rte_dprjx3
@@ -79,6 +88,9 @@ routes:
     notes:
       zh: 从环岛高速经马斯林山市区横贯盆地，直达西坪区的发射与降落中心
       en: Leaves the ring expressway through Maslin Mountain and crosses the basin to the launch and landing centre in Xiping.
+    background:
+      zh: 西坪区的发射与降落中心建成后，火箭部件、燃料和每次发射前后的大批人员都要经马斯林山市进出，原有的盆地公路穿城而过，既慢又不安全。领地因此修建马斯林山高速，从环岛高速分出，横贯马斯林盆地直达西坪。盆地地势平坦，线路以路堤为主，跨越马斯林河及其支流时架设多座桥梁；为运送大型火箭部件，全线桥梁按超重超宽车辆设计，净空也高于一般高速。通车后，发射中心的物资可以全天候运抵，马斯林山也因此成为航天配套产业的聚集地。
+      en: Once the launch and landing centre at West Heath was built, rocket stages, propellant and the crowds that come with every launch all had to pass through Maslin Mountain City, on a basin road that ran through the town, slow and unsafe. The territory built the Maslin Expressway to fix this, branching off the ring expressway and crossing the Maslin basin straight to West Heath. The basin is flat, so most of the line runs on embankment, with bridges over the Maslin River and its tributaries. Every bridge is rated for oversize, overweight loads and the clearances are higher than usual, so whole rocket stages can travel by road. The launch centre is now supplied in any weather, and Maslin has become a hub for space industry suppliers.
     ends_at_network: true
     via: [div_nwke3f, div_rdypg7, div_ygk521]
   - id: rte_2w74xj
@@ -89,6 +101,9 @@ routes:
     names:
       zh: 自勒高速
       en: Freedom–Lekor Expressway
+    background:
+      zh: 勒克尔是北岸最大的港口，北河谷地和丰谷是全岛的粮仓，但从首府到勒克尔走环岛高速要绕岛西北一大圈。领地高速网规划中，自勒高速是第一条贯穿内陆的线路，沿北河谷地北上，经林道、西诺和丰谷到勒克尔。谷地开阔平坦，线路几乎全为路堤，桥梁主要用于跨越北河及其支流。为不打扰谷地的农田灌溉，沿线修建了大量涵洞和农机通道；跨北河的桥梁不设水中桥墩，保证鲑鱼洄游不受阻挡。通车后谷地的粮食和乳制品可以当天运抵首府和勒克尔港。
+      en: Lekor is the largest port on the north coast and the North River valley and Harvest Vale are the island's granary, but from the capital to Lekor the ring expressway makes a long loop round the north-west. The Freedom–Lekor Expressway was the first inland line in the territorial expressway plan, running up the North River valley through Lindau, Ino and Harvest Vale to Lekor. The valley is wide and flat, so the road is almost all embankment, with bridges mainly over the North River and its tributaries. Many culverts and farm underpasses keep the irrigation and field access intact, and the North River bridges stand clear of the water so the salmon runs are not blocked. Grain and dairy from the valley now reach the capital and Lekor's port the same day.
     shield: wheat
     via: [div_nbrnfr, div_yjghe9]
   - id: rte_72cfce
@@ -99,6 +114,9 @@ routes:
     names:
       zh: 西奥高速
       en: Northwest–Oxino Expressway
+    background:
+      zh: 西北市与奥克西诺分处岛的西北和西南，两城之间原本只能经环岛高速沿西海岸绕行，奥克西诺的林产品运往西北港口要多走很长的路。西奥高速作为领地高速网的南北纵线，自西北鹿鸣区南下，穿过林道、北河谷地到奥克区，把岛西部的内陆串成一线。沿线河流众多，线路多次跨越北河水系，桥梁都不长但数量多；经过鹿鸣湖周边的驯鹿迁徙通道时，设置了专用的动物天桥和下穿通道。通车后，西部内陆的林场和乡镇第一次有了直通南北两座城市的高速。
+      en: Northwest City and Oxino sit at the north-west and south-west of the island, and the only road between them was the ring expressway along the west coast, so Oxino's timber took a long way round to the north-west's ports. The Northwest–Oxino Expressway was built as the north–south spine of the territorial network, running south from Deersong through Lindau and the North River valley to Ox District and tying the western interior together. It crosses the North River system again and again on many short bridges, and where it passes the reindeer migration routes around Deersong Lake it has dedicated wildlife overpasses and underpasses. The forest settlements of the western interior now have a direct expressway to both cities.
     shield: compass
     via: [div_0yef9a, div_q4d6n6]
   - id: rte_5r9t2v
@@ -112,6 +130,9 @@ routes:
     notes:
       zh: 自维京港斯坦堡老城经奥斯特海姆、首府白桦区、林道区，通往望星区的天文台和科学城；首府与西北之间的直达高速
       en: From the old town of Steinburg in Viking Port through Osterheim, the capital's Birchwood District and Lindau to the observatory at Stargaze and on to Science City; the direct expressway between the capital and Northwest.
+    background:
+      zh: 望星区的天文台和科学城选址在岛西北的高原，那里夜空黑暗、空气干冷，但离各大城市都很远，科研人员和设备进出全靠一条山区公路。为支撑科学城的建设，领地修建观星高速，自维京港斯坦堡老城出发，经奥斯特海姆、首府白桦区和林道区直达望星。线路翻越高原边缘时以连续桥隧爬升；为避免车灯和路灯干扰观测，望星区段不设路灯，采用低位反光标志，隧道洞口朝向也避开天文台。通车后科学城迅速发展，这条路也成为首府通往西北的最快通道。
+      en: The observatory and Science City at Stargaze were sited on the north-western plateau for its dark, dry, cold skies, far from every large city, with only a mountain road for staff and equipment. To build Science City the territory laid the Stargazer Expressway from Viking Port's old Steinburg district through Osterheim, the capital's Birchwood district and Lindau to Stargaze. It climbs the edge of the plateau on a run of bridges and tunnels. To keep headlights and street lighting from spoiling the observations, the Stargaze section has no lighting and uses low reflective markers, and the tunnel portals face away from the observatory. Science City grew quickly once the road opened, and it is also the fastest route from the capital to the north-west.
     shield: star
     via: [div_z29w6h, div_t3bfmm, div_7rk2mh, div_16cxr8, div_fr1vq9, div_g27nda, div_s8f4kt]
   - id: rte_9f3k6w
@@ -125,6 +146,9 @@ routes:
     notes:
       zh: 自新城米特、青坪北上，经北苑、深峡区的瀑布峡谷到洛龙山龙关，是新城通往洛龙山的直达高速
       en: North from Mitte and Greenmead in New City through North Gardens and the waterfall gorges of Deep Gorge to Dragon Pass in Lorond Mountain; the direct expressway from New City to Lorond Mountain.
+    background:
+      zh: 新城是南岸新兴的工业城市，洛龙山则是内陆的山城，两者之间的货运原本要经环岛高速绕行勒克尔。深峡高速自新城米特区出发，经青坪、北苑北上，沿深峡区的瀑布峡谷穿越山地，直达洛龙山龙关区。峡谷两岸绝壁陡立，线路多处以高墩桥梁跨越支谷；为保护瀑布景观，主桥避开瀑布正面，观景台与服务区合建。冬季在峡谷内施工风大雪急，高墩和桥面大量采用工厂预制、现场拼装。通车后新城的工业品可以直接运往山区，深峡瀑布也成了岛上最热门的自驾目的地之一。
+      en: New City is a young industrial city on the south coast and Lorond Mountain a city deep inland, and freight between them used to go round by Lekor on the ring expressway. The Deep Gorge Expressway runs north from New City's Mitte through Greenmead and North Gardens, then up the waterfall gorge of Deep Gorge District to Dragon Pass. The gorge walls are sheer, so the road crosses side valleys on tall-pier bridges in many places. To spare the view of the falls the main bridge stands to one side of them, with a lookout built into the service area. Winter work in the gorge meant high winds and heavy snow, so the piers and decks were largely prefabricated and assembled on site. New City's goods now go straight into the mountains, and the gorge falls have become one of the island's favourite drives.
     tunnel_cost: 3.5
     shield: waterfall
     via: [div_m2tz6c, div_z8yxye, div_s1qwxh, div_0t2t36, div_j82dgm]
@@ -142,6 +166,9 @@ routes:
     notes:
       zh: 沿岛西岸自维京港北上，经海门、菲尔内斯、鹿鸣到寒岭峡湾，沿途灯塔林立
       en: Up the west coast from Viking Port through Seagate, Fyrnes and Deersong to the fjords of Frost Ridge, past a string of lighthouses.
+    background:
+      zh: 岛西岸峡湾密布，沿岸的渔村和灯塔站过去只能靠渔船和补给船往来。西岸公路是领地修建的第一批领道之一，自维京港瓦尔维克区北上，经海门、菲尔内斯、鹿鸣直到寒岭峡湾。线路紧贴海岸，在岬角之间以隧道穿过山嘴，避免盘山绕行；靠海路段加高路基并设置防浪墙，以抵御冬季风暴潮。沿线灯塔站改建为观景点和小型博物馆。通车后西岸渔获可以连夜运到维京港鱼市，这条风景优美的海岸公路也吸引了大批自驾游客。
+      en: The west coast is cut by fjords, and its fishing villages and lighthouse stations once relied on fishing boats and supply ships. The West Coast Highway was among the first territorial highways, running north from Walvik in Viking Port through Seagate, Fyrnes and Deersong to Frost Fjord. It keeps close to the shore and tunnels through the headlands between capes instead of climbing over them; on the seaward stretches the roadbed is raised and walled against winter storm surges. Lighthouse stations along the way have become lookouts and small museums. The west coast's catch now reaches the Viking Port fish market overnight, and the scenic shore road draws many touring drivers.
     shield: lighthouse
     via: [div_z29w6h, div_k1yr6m, div_pkfa1g, div_zs7kjk, div_479xae]
   - id: rte_c8j4ya
@@ -155,6 +182,9 @@ routes:
     notes:
       zh: 自贝格兰丘陵下到沙洲，经首府、北河谷地、西诺与丰谷抵达勒克尔；北河是岛上鲑鱼洄游最盛的河
       en: From the Bergland Hills down to Sandbar, then through the capital, the North River valley, Ino and Harvest Vale to Lekor; the North River has the island's largest salmon run.
+    background:
+      zh: 北河是岛上鲑鱼洄游最盛的河，谷地两岸是密集的农庄和渔场。在自勒高速建成之前，北河公路就已是谷地的主要通道，后经领地全线改建为双向分隔的领道。线路自贝格兰丘陵下到沙洲，经首府白桦区沿北河上行，过西诺、丰谷抵达勒克尔。改建时线路尽量远离河岸，众多跨河桥全部改为大跨度桥梁，河中不留桥墩；沿河设置的观鱼台和钓鱼停车区保留了老公路的生活气息。如今它与自勒高速并行，承担谷地内部的短途交通。
+      en: The North River has the island's richest salmon runs, and its valley is lined with farms and fisheries. The North River Highway was the valley's main road well before the Freedom–Lekor Expressway, and the territory later rebuilt it throughout as a divided territorial highway. It drops from the Bergland Hills to Sandbar, passes the capital's Birchwood district and follows the North River up through Ino and Harvest Vale to Lekor. The rebuilt line keeps away from the banks, and every one of its many river crossings was replaced with a long-span bridge with no piers in the water. Fish-watching platforms and anglers' lay-bys keep something of the old road's character. Today it runs alongside the expressway and carries the valley's local traffic.
     shield: salmon
     via: [div_b3qw9e, div_g4a8q0, div_16cxr8, div_b1dx32, div_mpfctv, div_davn2j, div_0wvh63]
   - id: rte_m2q7xb
@@ -168,6 +198,9 @@ routes:
     notes:
       zh: 自奥克西诺穿过杉岭的针叶林海，翻越龙关，到达勒克尔的澄湖
       en: From Oxino through the conifer forests of Fir Ridge and over Dragon Pass to Clearlake in Lekor.
+    background:
+      zh: 杉岭是全岛最大的针叶林区，林场分散在山谷之中，木材过去靠河道放排运出，季节性强、损耗也大。杉岭公路自奥克西诺的奥克区出发，穿过杉岭林海，翻越龙关到勒克尔的澄湖，把林区与南北两岸的港口连了起来。翻越杉岭垭口和龙关时，线路以隧道代替盘山道，桥梁跨越林间深谷；为防止森林火灾，沿线设置防火隔离带和消防取水点。修路时砍伐的林木全部就地用于施工便道和护坡。通车后放排逐渐停止，林区的木材加工厂也沿公路集中起来。
+      en: Fir Ridge is the island's largest conifer forest, its logging camps scattered through the valleys, and timber used to be floated out by river, a seasonal and wasteful trade. The Fir Ridge Highway runs from Ox District in Oxino through the forest and over Dragon Pass to Clearlake in Lekor, linking the forest to ports on both coasts. At Fir Ridge Col and Dragon Pass it tunnels rather than climbing in hairpins, and bridges carry it over the deep forest valleys. Firebreaks and fire-fighting water points line the route, and the timber felled to clear it was all used on site for haul roads and slope protection. River floating died out after it opened, and the sawmills have gathered along the road.
     shield: fir
     via: [div_rzw76f, div_k5f1mz, div_j82dgm, div_t8bg0d]
   - id: rte_t6h2pe
@@ -181,6 +214,9 @@ routes:
     notes:
       zh: 自新城北苑北上，经厄定河上游、旧府和驯鹿原的冬季牧场到厄定河口
       en: North from North Gardens in New City through the upper Erding, Old Prefecture and the reindeer's winter pastures to the mouth of the Erding.
+    background:
+      zh: 厄定河自内陆高原流向北岸，上游是待开发的改良区，中游有旧府古城，下游是驯鹿原的冬季牧场。厄定河公路是全岛最长的领道，自新城北苑北上，沿厄定河谷一路到河口，把南岸工业区与北部的农牧区连在一起。线路穿越大片冻土，路基下铺设通风管和隔热层，防止冻土融化导致路面沉陷；穿过驯鹿牧场时，按牧民的转场路线设置了宽阔的动物通道，迁徙季节还会临时限速。这条路的修通，使上厄定改良区得以大规模垦殖，旧府也重新成为河谷的集散中心。
+      en: The Erding River flows from the inland plateau to the north coast, past the Upper Erding Improvement District, the old town of Old Prefecture and the winter pastures of the Reindeer Range. The Erding River Highway is the island's longest territorial highway, running north from New City's North Gardens down the Erding valley to the river mouth and linking the southern industrial belt with the farming and herding north. Much of it crosses permafrost, so the roadbed has ventilation ducts and insulation to keep the ground frozen and the surface from sinking. Through the reindeer pastures it has wide animal crossings on the herders' migration routes, with temporary limits in the migration season. The road opened Upper Erding to large-scale farming and made Old Prefecture the valley's market town again.
     shield: reindeer
     via: [div_s1qwxh, div_4vnc7y, div_1qm5cj, div_e2pk5r, div_qpyn9e]
   - id: rte_x4b8rn
@@ -194,6 +230,9 @@ routes:
     notes:
       zh: 沿岛南岸自新城经南驿、萨科勒的罗卡与萨科，经卡波、镜湾、保税港区到贝克勒自由贸易区的燕礁
       en: Along the south coast from New City through South Post, Sakole's Rocca and Sako districts, Capo, Mirror Bay and the Bonded Port Zone to Swallow Reef in the Beckerle Free Trade Zone.
+    background:
+      zh: 岛南岸地势平缓，城镇和港口一个接一个，是全岛人口最密的地带。南岸公路在环岛高速之外为沿海城镇提供一条不收费的平行通道，自新城青坪出发，经南驿、萨科勒的罗卡与萨科、卡波、镜湾和保税港区，到贝克勒自由贸易区的燕礁。线路串联多个港区，路面按重载货车标准加厚，港区路段设置独立的集装箱车道；穿过镇区时改为林荫大道式断面，两侧设自行车道。它分担了大量短途货运和通勤车流，让环岛高速得以专注于长途交通。
+      en: The south coast is gentle country, town after town and port after port, and the most densely settled part of the island. The South Coast Highway gives these towns a toll-free road parallel to the ring expressway, running from Greenmead in New City through South Post, Sakole's Rocca and Sako, Capo, Mirror Bay and the Bonded Port Zone to Swallow Reef in the Beckerle Free Trade Zone. It links several port areas, so the pavement is built for heavy trucks and the port stretches have separate container lanes; through the towns it becomes a tree-lined boulevard with cycle tracks on both sides. It carries much of the short freight and commuter traffic and leaves the ring expressway to long-distance trips.
     shield: swallow
     via: [div_z8yxye, div_hyxnpg, div_8njcs3, div_8m0jx4, div_e6pc44, div_8p9k5t, div_f9x3wn, div_ts5cw5]
   - id: rte_2d7v5m
@@ -207,6 +246,9 @@ routes:
     notes:
       zh: 自萨科勒铁岗经天城的天台、银滩、岚山北上马斯林山东营，是全岛最先迎来日出的公路
       en: From Iron Knoll in Sakole through Skytown's Sky Terrace, Silver Beach and Mist Hill north to East Camp in Maslin Mountain; the first road on the island to see the sunrise.
+    background:
+      zh: 岛东岸面向开阔的大洋，是全岛最先迎来日出的地方，沿岸散布着矿镇、海滩和渔港。东岸公路自萨科勒铁岗区的矿区出发，经天城天台、银滩、岚山北上到马斯林山东营区，把东海岸的城镇第一次用公路连成一线。线路大部分沿海岸阶地修筑，地势较平，工程量不大，但冬季海风强劲，沿线种植了多排防风林，并在风口路段设置挡风墙。铁岗的矿石经这条路运往南岸港口，银滩和岚山的海滨度假区也因它兴起，每到清晨常有游客驱车看日出。
+      en: The east coast faces the open ocean and sees the sunrise before anywhere else on the island, with mining towns, beaches and fishing harbours along its shore. The East Coast Highway runs from the mines of Iron Knoll in Sakole through Skytown's Sky Terrace, Silver Beach and Mist Hill north to East Camp in Maslin, the first road to link the east coast's towns. Most of it runs on the coastal terraces, easy ground, but the winter sea winds are fierce, so it is lined with rows of shelter belts and has wind walls at the gaps. Iron Knoll's ore travels it to the southern ports, the beach resorts at Silver Beach and Mist Hill grew up along it, and at dawn there are always cars out to watch the sunrise.
     shield: sunrise
     via: [div_6byxb5, div_w1ea18, div_f5s7ax, div_ts88e3, div_tc0ngk]
   - id: rte_7k2m9q
@@ -220,5 +262,8 @@ routes:
     notes:
       zh: 自天城天台北上，经雪谷、马斯林山和平区、西坪，穿过群峰训练管理区到星港，冬季常因大雪封闭
       en: North from Sky Terrace in Skytown through Snow Valley, Peace in Maslin Mountain and West Heath, across the High Peaks Training Area to Starport; often closed by snow in winter.
+    background:
+      zh: 雪谷公路是岛东北部山区唯一的南北通道，自天城天台北上，经雪谷、马斯林山和平区、西坪，穿过群峰训练管理区到达星港。它主要为发射中心和群峰训练管理区提供后勤保障，也服务沿线的山区牧场。线路海拔高、积雪期长，全线设置多段防雪长廊和融雪路面，但冬季暴雪时仍常需封闭。穿越训练管理区的路段由管理部门统一管控，平时对民用车辆开放，演训期间临时封闭。为在短暂的夏季完成施工，工程大量采用预制构件，桥梁和隧道同时开工。
+      en: The Snow Valley Highway is the only north–south road through the island's north-eastern mountains, running north from Sky Terrace in Skytown through Snow Valley, Maslin's Peace District and West Heath, across the High Peaks Training Area to Starport. It mainly supplies the launch centre and the training area, and it also serves the mountain pastures along the way. It runs high and the snow lies long, so it has several snow galleries and heated pavement, yet heavy snowstorms still close it in winter. The stretch across the training area is controlled by the area's authority, open to civilian traffic most of the time and closed during exercises. To finish within the short summers it was built largely from prefabricated parts, with the bridges and tunnels started at the same time.
     shield: snowflake
     via: [div_w1ea18, div_0tsyzy, div_nvrjpg, div_nwke3f, div_q5h8zp, div_nytsvb]

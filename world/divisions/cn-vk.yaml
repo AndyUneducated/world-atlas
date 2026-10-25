@@ -26,6 +26,11 @@ divisions:
     zh: 向海而生
     en: Born of the Sea
   capital: div_3cvg2q
+  route_shield: maritime
+  operators:
+    expressway: { zh: 维京群岛跨海交通集团, en: Viking Islands Sea Crossings Group }
+    highway: { zh: 维京群岛公路局, en: Viking Islands Highways Authority }
+    rail: { zh: 维京群岛铁路公司, en: Viking Islands Railway Company }
   emblem:
     motif: longship
     pattern: waves

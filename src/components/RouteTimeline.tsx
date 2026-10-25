@@ -51,8 +51,8 @@ export function RouteTimeline({ data, entity, lang }: { data: AtlasData; entity:
 
   const total = segments.reduce((s, x) => s + x.km, 0);
   const longest = Math.max(...segments.map((s) => s.km));
-  const districtCount = new Set(segments.map((s) => s.division)).size;
-  const cityCount = new Set(groups.map((g) => g.city?.id)).size;
+  const districtCount = new Set(segments.flatMap((s) => (s.division ? [s.division] : []))).size;
+  const cityCount = new Set(groups.flatMap((g) => (g.city ? [g.city.id] : []))).size;
 
   const locate = (key: string, lines: LngLat[][], bbox: BBox) => {
     setHighlight({ key, lines });
@@ -93,7 +93,7 @@ export function RouteTimeline({ data, entity, lang }: { data: AtlasData; entity:
       <ol className="relative -mx-2">
         {groups.map((g, gi) => {
           const color = (g.city && accentColor(data, g.city)) ?? "var(--ui-accent)";
-          const groupLines = g.rows.map((r) => r.seg.line);
+          const groupLines = g.rows.flatMap((r) => r.seg.lines);
           const groupBox = union(g.rows.map((r) => r.seg.bbox));
           const isLast = gi === groups.length - 1;
           return (
@@ -117,7 +117,7 @@ export function RouteTimeline({ data, entity, lang }: { data: AtlasData; entity:
                 <span className="relative grid size-[26px] shrink-0 place-items-center">
                   {g.city?.emblem ? <CityEmblem entity={g.city} size={26} /> : <span className="size-3 rounded-full" style={{ background: color }} />}
                 </span>
-                <span className="min-w-0 flex-1 truncate text-[13.5px] font-semibold text-ink">{g.city ? displayName(g.city, lang) : "—"}</span>
+                <span className="min-w-0 flex-1 truncate text-[13.5px] font-semibold text-ink">{g.city ? displayName(g.city, lang) : t("route_water", lang)}</span>
                 <span className="text-[12px] font-medium text-muted tabular-nums">
                   {formatNumber(g.km, lang, 1)} <span className="text-faint">km</span>
                 </span>
@@ -126,8 +126,8 @@ export function RouteTimeline({ data, entity, lang }: { data: AtlasData; entity:
                 {g.rows.map(({ seg, district, key, end }) => (
                   <li key={key}>
                     <button
-                      onClick={() => locate(`pin:${key}`, [seg.line], seg.bbox)}
-                      onMouseEnter={() => preview(key, [seg.line])}
+                      onClick={() => locate(`pin:${key}`, seg.lines, seg.bbox)}
+                      onMouseEnter={() => preview(key, seg.lines)}
                       onMouseLeave={endPreview}
                       className={clsx(
                         "group relative flex w-full items-center gap-2.5 rounded-lg py-1 pr-2 pl-[36px] text-left transition-colors hover:bg-hover",
@@ -145,6 +145,9 @@ export function RouteTimeline({ data, entity, lang }: { data: AtlasData; entity:
                         <span className="block truncate text-[13px] text-ink">{district ? displayName(district, lang) : t("route_water", lang)}</span>
                         <span className="block font-mono text-[10.5px] text-faint">
                           {chainage(seg.from_km)} – {chainage(end)}
+                          {seg.lanes && entity.road && seg.lanes > entity.road.lanes[0] && (
+                            <span className="text-accent"> · {lang === "zh" ? `每向 ${seg.lanes} 车道` : `${seg.lanes} lanes each way`}</span>
+                          )}
                         </span>
                       </span>
                       {seg.speed_kmh !== undefined && <SpeedSign kmh={seg.speed_kmh} size={18} lang={lang} />}

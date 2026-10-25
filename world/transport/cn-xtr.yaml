@@ -17,13 +17,18 @@ routes:
       art-x-viking: Autobahn Veiling Havn–Langskip
       art-x-buckham: Autostrada Veiling Porto–Navelunga
     notes:
-      zh: 两领地之间唯一的陆路。自维京港瓦尔维克区出发，经约 130 km 长的维京海底隧道笔直穿过海峡，在船首岬登上长船岛，经北岬区的国际机场到首府长船；隧道内与维长城际铁路并行
-      en: The only land link between the two territories. From Walvik in Viking Port it runs straight under the strait through the Viking Undersea Tunnel, about 130 km long, comes ashore at Prow Point on Longship Island and goes on past the international airport in North Cape to the capital, Longship; in the tunnel it runs alongside the Viking Port–Longship Intercity Railway.
-    tunnel_cost: 3.5
+      zh: 两领地之间唯一的陆路。自维京港瓦尔维克区出发，一条直线直达长船古城区，中间全程走维京海底公路隧道，不在途中任何岛岬登陆
+      en: The only land link between the two territories. One straight line from Walvik in Viking Port to the old town of Longship, under the sea for almost all of the way in the Viking Undersea Road Tunnel, with no landfall on any island or cape in between.
+    background:
+      zh: 北维京岛与维京群岛隔着宽阔的海峡，两领地之间长期只能依靠海运和航空往来，冬季风暴期间渡轮常常停航。两领地共同出资成立维京海峡通道公司，建设一条全天候的陆路通道。经过多方案比选，最终放弃在沿途岛岬登陆的方案，选定一条直线：自维京港瓦尔维克区入地，以维京海底公路隧道一路穿越海峡，直达长船古城区。隧道按双洞单向设计，中间设置服务隧道，每隔一段设置横通道和紧急避难所。直线方案使两座城市之间的车程最短，也免去了在途经岛岬修建大型登陆工程。
+      en: Open sea separates North Viking Island from the Viking Islands, and for a long time the two territories were linked only by sea and air, with the ferries often stopped by winter storms. The two territories set up the Viking Strait Link Company together to build an all-weather land link. Of the routes they compared, they dropped those that came ashore on the islands and capes along the way and chose a straight line, going underground at Walvik in Viking Port and running all the way across the strait in the Viking Undersea Road Tunnel to the old town of Longship. The tunnel has twin one-way bores with a service tunnel between them, and refuges and cross-passages at regular intervals. The straight line gives the shortest drive between the two cities and spared the islands and capes on the way any large landfall works.
+    tunnel_names: { zh: 维京海底公路隧道, en: Viking Undersea Road Tunnel }
+    operator: { zh: 维京海峡通道公司, en: Viking Strait Link Company }
+    straight: true
     crossing:
-      div_fbfqv9: [30.7, 63.3]
-      div_raat4g: [188.5, 181.4]
-    via: [div_m41gwn, div_xps98r, div_3cvg2q]
+      div_fbfqv9: [31.1, 63.2]
+      div_raat4g: [188.3, 148.7]
+    via: [div_m41gwn, div_g2g1yc]
 
 railways:
   - id: rte_yn834s
@@ -35,10 +40,15 @@ railways:
       art-x-viking: Intercity-Bahn Veiling Havn–Langskip
       art-x-buckham: Ferrovia Intercity Veiling Porto–Navelunga
     notes:
-      zh: 维京群岛唯一的铁路，经维京海底隧道连接维京港与首府长船，与维长高速并行
-      en: The only railway in the Viking Islands, linking Viking Port with the capital Longship through the Viking Undersea Tunnel, alongside the Viking Port–Longship Expressway.
+      zh: 维京群岛唯一的铁路，经维京海底铁路隧道连接维京港与首府长船，在船首岬出海底隧道后穿过北岬区到长船
+      en: The only railway in the Viking Islands, linking Viking Port with the capital Longship through the Viking Undersea Rail Tunnel, which comes ashore at Prow Point; from there the line crosses North Cape to Longship.
+    background:
+      zh: 维长城际铁路是维京群岛唯一的铁路，也是两领地之间唯一的铁路通道，由两领地合资的维京海峡通道公司建设和运营。它与维长高速同期规划，但没有照搬公路的直线方案：铁路隧道对坡度、通风和疏散的要求更严，为缩短海底段，维京海底铁路隧道在船首岬出地面，再经北岬区的地面线进入长船。海底隧道按单洞双线设计，两侧设置疏散通道，列车在隧道内全速运行；船首岬登陆段以高架桥上岸。开通后，维京港与长船之间的旅客大多改乘火车。
+      en: The Viking Port–Longship Intercity Railway is the only railway in the Viking Islands and the only rail link between the two territories, built and run by the Viking Strait Link Company that the two territories own together. It was planned with the road crossing but does not copy its straight line. A rail tunnel is far stricter about gradients, ventilation and evacuation, so to shorten the undersea section the Viking Undersea Rail Tunnel surfaces at Prow Point, and the line reaches Longship over land through North Cape. The undersea tunnel is a single double-track bore with escape passages on both sides, and trains run through it at full speed; at Prow Point the line comes ashore on viaduct. Since it opened most travellers between Viking Port and Longship have taken the train.
     color: '#12A594'
     tech: { operating_speed_kmh: 350, design_speed_kmh: 400 }
+    tunnel_names: { zh: 维京海底铁路隧道, en: Viking Undersea Rail Tunnel }
+    operator: { zh: 维京海峡通道公司, en: Viking Strait Link Company }
     crossing:
       div_fbfqv9: [31.3, 62.5]
       div_raat4g: [189.1, 180.6]

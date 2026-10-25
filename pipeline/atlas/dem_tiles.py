@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import math
+import shutil
 from pathlib import Path
 
 import numpy as np
@@ -23,9 +24,35 @@ def _tile_range(bounds, z):
     return range(tx(w), tx(e) + 1), range(ty(n), ty(s) + 1)
 
 
+def _decode(path: Path) -> np.ndarray:
+    rgb = np.asarray(Image.open(path).convert("RGB"), float)
+    return rgb[..., 0] * 256 + rgb[..., 1] + rgb[..., 2] / 256 - 32768.0
+
+
+def _encode(e: np.ndarray, path: Path):
+    v = e + 32768.0
+    rgb = np.stack([np.floor(v / 256), np.floor(v % 256), np.floor((v - np.floor(v)) * 256)], axis=-1)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    Image.fromarray(rgb.astype(np.uint8), "RGB").save(path, optimize=True)
+
+
+def merge_dem_tiles(src_dir: Path, out_dir: Path) -> int:
+    """Add one region's tiles to out_dir; a tile another region already wrote keeps the higher of the two elevations."""
+    count = 0
+    for src in src_dir.rglob("*.png"):
+        dst = out_dir / src.relative_to(src_dir)
+        if dst.exists():
+            _encode(np.maximum(_decode(src), _decode(dst)), dst)
+        else:
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(src, dst)
+        count += 1
+    return count
+
+
 def write_dem_tiles(out_dir: Path, elev: np.ndarray, grid, frame, bounds, zooms=range(3, 11), size=256, sea_level_m=-40.0):
     """sea_level_m: elevation written for open water, below 0 so styles can mask the sea.
-    A tile already written by another region keeps the higher of the two elevations."""
+    A tile already written keeps the higher of the two elevations."""
     count = 0
     for z in zooms:
         k = 2 ** z
@@ -38,14 +65,10 @@ def write_dem_tiles(out_dir: Path, elev: np.ndarray, grid, frame, bounds, zooms=
                 LON, LAT = np.meshgrid(lon, lat)
                 x, y = frame.from_lonlat(LON, LAT)
                 e = ndimage.map_coordinates(elev, [y / grid.res - 0.5, x / grid.res - 0.5], order=1, mode="constant", cval=sea_level_m)
-                path = out_dir / str(z) / str(tx)
-                if (path / f"{ty}.png").exists():
-                    old = np.asarray(Image.open(path / f"{ty}.png").convert("RGB"), float)
-                    e = np.maximum(e, old[..., 0] * 256 + old[..., 1] + old[..., 2] / 256 - 32768.0)
-                v = e + 32768.0
-                rgb = np.stack([np.floor(v / 256), np.floor(v % 256), np.floor((v - np.floor(v)) * 256)], axis=-1)
-                path.mkdir(parents=True, exist_ok=True)
-                Image.fromarray(rgb.astype(np.uint8), "RGB").save(path / f"{ty}.png", optimize=True)
+                path = out_dir / str(z) / str(tx) / f"{ty}.png"
+                if path.exists():
+                    e = np.maximum(e, _decode(path))
+                _encode(e, path)
                 count += 1
     return count
 

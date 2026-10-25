@@ -18,6 +18,9 @@ class Profile:
     river_bridges: int
     own: np.ndarray  # bool per sample: built under this route (not riding on an earlier one)
     cell: np.ndarray  # path index of each sample, non-decreasing
+    grade: np.ndarray  # m, the fitted grade line
+    wet: np.ndarray  # bool per sample: over sea or lake
+    urban: np.ndarray  # bool per sample: inside the built-up area
 
     @property
     def km(self) -> float:
@@ -82,8 +85,8 @@ def profile(path: list[int], router, elev: np.ndarray, water: np.ndarray, km_per
     grade = _fit_grade(ground, np.maximum(step, 1e-6), std["smooth_km"], std["max_grade"])
     tunnel = ~wet & (ground - grade > std["tunnel_above_m"])
     bridge = wet | (grade - ground > std["bridge_below_m"])
-    if (urban := std.get("urban")) and urban_depth is not None:
-        depth = urban_depth[cy, cx][cell]
+    depth = urban_depth[cy, cx][cell] if urban_depth is not None else np.zeros(len(cell))
+    if urban := std.get("urban"):
         tunnel |= ~wet & (depth >= urban.get("tunnel_depth_km", math.inf))
         bridge |= (depth > 0) & ~tunnel
     rise = float(np.abs(np.diff(grade)).sum() / max(step.sum(), 1e-6))
@@ -91,7 +94,31 @@ def profile(path: list[int], router, elev: np.ndarray, water: np.ndarray, km_per
     if line_km is not None and rivers is not None:
         hit = line_km.intersection(rivers)
         crossings = 0 if hit.is_empty else len(shapely.get_parts(hit))
-    return Profile(step, bridge, tunnel, rise, crossings, own[cell], cell)
+    return Profile(step, bridge, tunnel, rise, crossings, own[cell], cell, grade, wet, depth > 0)
+
+
+def longest_structures(p: Profile) -> dict[str, tuple[float, int, int]]:
+    """The longest unbroken bridge and tunnel built under this route: {kind: (real km, first sample, last sample)}."""
+    out = {}
+    for kind, mask in (("bridge", p.bridge & p.own), ("tunnel", p.tunnel & p.own)):
+        best, start, acc, prev = (0.0, 0, 0), None, 0.0, -2
+        for i in np.flatnonzero(mask):
+            if i != prev + 1:
+                start, acc = i, 0.0
+            acc += float(p.step_km[i])
+            prev = i
+            if acc > best[0]:
+                best = (acc, int(start), int(i))
+        if best[0] > 0:
+            out[kind] = best
+    return out
+
+
+def max_grade(p: Profile) -> float:
+    """Steepest gradient of the grade line along the stretches built under this route (rise per run)."""
+    rise = np.abs(np.diff(p.grade)) / np.maximum(p.step_km[1:] * 1000, 1e-6)
+    rise = rise[p.own[1:] & (p.step_km[1:] > 0.02)]
+    return float(rise.max()) if rise.size else 0.0
 
 
 def structure_km(p: Profile, std: dict, i0: int = 0, i1: int | None = None, owned: bool = False) -> tuple[float, float, float]:

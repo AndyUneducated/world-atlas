@@ -16,14 +16,40 @@
 #   mountain stretches are limited to the floor, so no posted limit is ever lower.
 #   urban: districts with at least urban_density people per km²
 #   mountain: stretches where bridges and tunnels make up at least mountain_structure_share
+# cross_section: lanes per direction (grow: busy stretches get more, one per lane_capacity_vpd
+#   of daily traffic each way), lane, emergency lane (shoulder_m), inner shoulder, verge and
+#   median widths in m. cruise_kmh: the driving speed on stretches without a limit.
 climate: { construction: 1.10, upkeep: 1.30 }
 urban_density: 250
 mountain_structure_share: 0.35
 river_min_drainage_km2: 150
 
+# Traffic and service (pipeline/atlas/traffic.py), gravity models over the places along each line.
+# Roads: daily vehicles on a stretch = base_vpd + local_trips_per_person of the district it runs
+#   through + gravity × people × people / km between the districts on either side. A district
+#   counts in full once the route runs full_share_km through it.
+# Rail: daily trips between two stations = gravity × people × people / km, a city's people shared
+#   among its stations; the busiest stretch in the peak hour sets the headway.
+traffic:
+  base_vpd: { national_expressway: 15000, territorial_expressway: 10000, territorial_highway: 6000 }
+  local_trips_per_person: 0.03
+  gravity: 4.0e-7
+  min_km: 15
+  full_share_km: 6
+rail_service:
+  gravity: 1.2e-6
+  min_km: 20
+  peak_hour_share: 0.11
+  peak_direction_share: 0.6
+  load_factor: 0.85
+  headways_min: [3, 4, 5, 6, 8, 10, 12, 15, 20, 30]
+  start_stop_min: 4
+
 standards:
   national_expressway:
-    lanes: 4
+    cross_section: { lanes: 6, grow: true, lane_m: 3.75, shoulder_m: 3.5, inner_shoulder_m: 0.75, verge_m: 0.75, median_m: 4.5 }
+    lane_capacity_vpd: 16000
+    cruise_kmh: 160
     smooth_km: 4
     max_grade: 0.04
     tunnel_above_m: 45
@@ -35,7 +61,9 @@ standards:
     upkeep_kusd_per_km: { grade: 120, bridge: 350, tunnel: 800 }
     speed: { min: 140 }
   territorial_expressway:
-    lanes: 4
+    cross_section: { lanes: 6, grow: true, lane_m: 3.75, shoulder_m: 3.5, inner_shoulder_m: 0.75, verge_m: 0.75, median_m: 4.5 }
+    lane_capacity_vpd: 16000
+    cruise_kmh: 160
     smooth_km: 3
     max_grade: 0.045
     tunnel_above_m: 45
@@ -48,7 +76,9 @@ standards:
     speed: { min: 140 }
   # 领道: dual carriageways (一级公路) with grade-separated main junctions.
   territorial_highway:
-    lanes: 4
+    cross_section: { lanes: 4, lane_m: 3.75, shoulder_m: 3.0, inner_shoulder_m: 0.75, verge_m: 0.75, median_m: 3.0 }
+    lane_capacity_vpd: 18000
+    cruise_kmh: 130
     smooth_km: 2
     max_grade: 0.06
     tunnel_above_m: 55
@@ -59,7 +89,6 @@ standards:
     upkeep_kusd_per_km: { grade: 50, bridge: 200, tunnel: 500 }
     speed: { min: 120 }
   municipal_road:
-    lanes: 2
     smooth_km: 1.5
     max_grade: 0.07
     tunnel_above_m: 60
@@ -87,6 +116,9 @@ standards:
       electrification: 25 kV 50 Hz AC
       signalling: CTCS-3 + ATO
       formation: { cars: 8, coupled: 16 }
+      tracks: 2
+      min_curve_radius_m: 7000
+      train: { names: { zh: 北辰 400 型, en: Polaris 400 }, seats: 576 }
 
 # City streets (主干道 / 次干道 / 支路), km/h; arterials outside the dense core have no limit.
 street_speed:

@@ -26,6 +26,10 @@ divisions:
     zh: 自由，平等，博爱
     en: Liberty, Equality, Fraternity
   capital: div_nbrnfr
+  operators:
+    expressway: { zh: 北维京岛高速公路集团, en: North Viking Island Expressway Group }
+    highway: { zh: 北维京岛公路局, en: North Viking Island Highways Authority }
+    rail: { zh: 北维京岛铁路公司, en: North Viking Island Railway Company }
   emblem:
     motif: aurora
     pattern: stars

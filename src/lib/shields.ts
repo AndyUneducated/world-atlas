@@ -6,8 +6,9 @@ import type { Entity } from "./types";
  * National routes follow the mainland-China expressway sign: a green plate under a red header,
  * with the territory code in the header where the sign would carry Chinese text. Territorial
  * routes follow the British Columbia highway shield: the route's own symbol in a dark crest
- * above the number. The Viking Islands' territorial routes have their own maritime shield: an
- * oval, sea-blue above a wave line, with the route's sea symbol over the number.
+ * above the number. A territory may choose another design for its routes (route_shield in its
+ * division record): "maritime" is an oval, sea-blue above a wave line, with the route's symbol
+ * over the number.
  */
 const FONT = "'Bahnschrift', 'DIN Alternate', 'Roboto Condensed', 'Segoe UI', Arial, sans-serif";
 const NATIONAL = { plate: "#00753A", header: "#D7261E", edge: "#ffffff", text: "#ffffff" };
@@ -181,7 +182,7 @@ export function drawShield(route: Entity, ratio = 2): Shield | null {
   const p = route.ref ? parseRef(route.ref) : null;
   if (!p) return null;
   if (route.network?.startsWith("national_")) return national(p.series, p.region, p.number, ratio);
-  return (p.region === "VK" ? maritime : territorial)(p.number, route.shield, ratio);
+  return (route.shield_style === "maritime" ? maritime : territorial)(p.number, route.shield, ratio);
 }
 
 /** Map style image id of a route's shield; resolved on demand by MapView. */

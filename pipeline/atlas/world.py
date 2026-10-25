@@ -22,6 +22,10 @@ FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport")
 COASTAL_LAYOUTS = ("port", "harbour")  # sites centred on the shore
 HARBOUR_TERMINALS = ("container", "bulk", "oil", "roro")
 RAIL_NETWORKS = ("intercity_rail",)
+# Lines whose cards carry a construction background, and who runs them (operators in the territory record).
+BACKGROUND_NETWORKS = ("national_expressway", "territorial_expressway", "territorial_highway", "intercity_rail")
+OPERATOR_KINDS = ("expressway", "highway", "rail")
+ROUTE_SHIELDS = ("crest", "maritime")  # territorial route shield designs, see src/lib/shields.ts
 STREET_STYLES = ("planned", "mixed", "organic")
 BUILDING_MIX_KEYS = ("slabs", "towers", "perimeter", "houses", "podium", "industrial", "civic", "park")
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
@@ -77,6 +81,23 @@ class World:
             cur = self.entities[cur].get("parent")
         return chain
 
+    def region_sources(self, spec: dict) -> dict:
+        """Every source a region's build reads: its generator, the divisions, places, features and lines
+        in or reaching its territory, engineering standards and name lists. Unchanged sources, unchanged region."""
+        tid = spec["territory"]
+        inside, todo = set(), [tid]
+        while todo:
+            inside.add(cur := todo.pop())
+            todo += [d["id"] for d in self.children(cur)]
+        places = {pid for pid, p in self.places.items() if p["in"] in inside}
+        lines = {r["id"] for r in [*self.routes.values(), *self.railways.values()]
+                 if tid in r.get("crossing", {}) or any(v in inside or v in places for v in r["via"])}
+        named = str(spec)
+        features = {f["id"] for f in self.region_features(spec)} | {fid for fid in self.features if fid in named}
+        ids = inside | set(self.ancestors(tid)) | places | lines | features
+        names = {p.name: p.read_text(encoding="utf-8") for p in sorted((self.root / "names").glob("*.yaml"))}
+        return {"spec": spec, "entities": {i: self.entities[i] for i in sorted(ids)}, "engineering": self.engineering, "names": names}
+
     def validate(self) -> list[str]:
         errors: list[str] = []
         for eid, e in self.entities.items():
@@ -109,6 +130,8 @@ class World:
                 parent_level = CODE_DIGITS.get(parent["subtype"])
                 if parent_admin and parent_level and not admin.startswith(parent_admin[:parent_level]):
                     errors.append(f"{did}: admin code {admin} does not extend parent code {parent_admin}")
+            if d.get("route_shield", "crest") not in ROUTE_SHIELDS:
+                errors.append(f"{did}: route_shield must be one of {', '.join(ROUTE_SHIELDS)}")
             if d["subtype"] == "locality" and not re.match(r"^#[0-9A-Fa-f]{6}$", str(d.get("color", ""))):
                 errors.append(f"{did}: a city needs a colour (#RRGGBB) for its map tint and emblem")
             kids = self.children(did)
@@ -137,6 +160,9 @@ class World:
                 errors.append(f"{rid}: no engineering standard for network {r.get('network')} (world/transport/engineering.yaml)")
             if str(r.get("network", "")).startswith("territorial_") and not r.get("shield"):
                 errors.append(f"{rid}: a territorial route needs a shield symbol (shield: <glyph>, see src/lib/shields.ts)")
+        for rid, r in [*self.routes.items(), *self.railways.items()]:
+            if r.get("network") in BACKGROUND_NETWORKS and not all(r.get("background", {}).get(lang) for lang in REQUIRED_LANGS):
+                errors.append(f"{rid}: an expressway, territorial highway or railway needs a background (zh, en): why and how it was built")
         for fid, f in self.features.items():
             det = f.get("detect")
             if det is None:
@@ -193,10 +219,17 @@ class World:
                     and all(isinstance(p, list) and len(p) == 2 for p in portals.values())):
                 errors.append(f"{rid}: crossing must give a portal [x, y] (design km) in each of two generated territories")
                 continue
+            for key in ("tunnel_names", "operator"):
+                if not all(r.get(key, {}).get(lang) for lang in REQUIRED_LANGS):
+                    errors.append(f"{rid}: a crossing line needs {key} (zh, en)")
             home = [next((t for t in portals if t == v or t in self.ancestors(self.places.get(v, {}).get("in", v))), None) for v in r["via"]]
             if None in home or sum(a != b for a, b in zip(home, home[1:])) != 1:
                 errors.append(f"{rid}: via must run through one crossing territory, then the other")
         for gen in self.generators:
+            ops = self.divisions.get(gen.get("territory", ""), {}).get("operators", {})
+            for k in OPERATOR_KINDS:
+                if not all(ops.get(k, {}).get(lang) for lang in REQUIRED_LANGS):
+                    errors.append(f"{gen.get('territory')}: operators.{k} needs a name (zh, en): who runs the territory's {k} lines")
             layout = gen.get("layout", {})
             for c in self.children(gen.get("territory", "")):
                 if c["subtype"] == "locality" and c["id"] not in layout.get("cities", {}):

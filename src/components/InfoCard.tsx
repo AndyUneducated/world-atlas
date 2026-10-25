@@ -9,6 +9,7 @@ import { accentColor, lineage } from "../lib/entity";
 import { displayName, formatNumber, formatPopulation, formatUsd, kindLabel, NAME_LANG_LABELS, t } from "../lib/i18n";
 import { hasShield } from "../lib/shields";
 import { RouteShield } from "./RouteShield";
+import { formatDuration } from "./RoutePanel";
 import { NAME_LANGS, type AtlasData, type Entity, type Lang, type NameLang } from "../lib/types";
 
 const NAME_TAGS: Record<NameLang, Record<Lang, string>> = {
@@ -104,6 +105,12 @@ const pct = (part: number, whole: number) => (whole > 0 ? Math.round((100 * part
 function EngineeringSection({ entity, lang }: { entity: Entity; lang: Lang }) {
   const eng = entity.engineering;
   if (!eng) return null;
+  if (!eng.length_km)
+    return (
+      <Section title={t("engineeringTitle", lang)}>
+        <p className="text-[13px] text-muted">{t("nothingBuilt", lang)}</p>
+      </Section>
+    );
   const total = entity.stats?.length_km ?? eng.length_km;
   const rows: [string, React.ReactNode][] = [];
   if (Math.abs(total - eng.length_km) > Math.max(1, total * 0.02)) rows.push([t("builtHere", lang), `${formatNumber(eng.length_km, lang, 1)} km`]);
@@ -126,6 +133,11 @@ function EngineeringSection({ entity, lang }: { entity: Entity; lang: Lang }) {
     </>,
   ]);
   rows.push([t("upkeep", lang), `${formatUsd(eng.upkeep_usd_per_year, lang)}${t("perYear", lang)}`]);
+  for (const [kind, key] of [["bridge", "longestBridge"], ["tunnel", "longestTunnel"]] as const) {
+    const s = entity.structures?.[kind];
+    if (s) rows.push([t(key, lang), <>{s.names[lang]} <span className="text-faint">· {formatNumber(s.km, lang, 1)} km</span></>]);
+  }
+  if (entity.tech && eng.max_grade_permille) rows.push([t("maxGrade", lang), `${formatNumber(eng.max_grade_permille, lang)}‰`]);
   const structures = pct(eng.bridge_km + eng.tunnel_km, eng.length_km);
   return (
     <Section title={t("engineeringTitle", lang)}>
@@ -171,16 +183,84 @@ function TechSection({ entity, lang }: { entity: Entity; lang: Lang }) {
     ]);
   }
   if (tech.signalling) rows.push([t("signalling", lang), tech.signalling]);
+  if (tech.tracks) rows.push([t("tracks", lang), lang === "zh" ? (tech.tracks === 2 ? "双线" : `${tech.tracks} 线`) : tech.tracks === 2 ? "Double track" : `${tech.tracks} tracks`]);
+  if (tech.min_curve_radius_m) rows.push([t("minCurve", lang), `${formatNumber(tech.min_curve_radius_m, lang)} m`]);
+  if (tech.train && tech.formation) {
+    const { names, seats } = tech.train;
+    const f = tech.formation;
+    const coupled = f.coupled ? Math.round((seats * f.coupled) / f.cars) : 0;
+    rows.push([
+      t("trainModel", lang),
+      lang === "zh"
+        ? `${names.zh} · ${f.cars} 辆 ${formatNumber(seats, lang)} 座${coupled ? `，重联 ${formatNumber(coupled, lang)} 座` : ""}`
+        : `${names.en} · ${formatNumber(seats, lang)} seats in ${f.cars} cars${coupled ? `, ${formatNumber(coupled, lang)} coupled` : ""}`,
+    ]);
+  }
   return (
     <Section title={t("techTitle", lang)}>
-      <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[13px]">
-        {rows.map(([k, v]) => (
-          <div key={k} className="contents">
-            <dt className="text-muted">{k}</dt>
-            <dd className="text-ink">{v}</dd>
-          </div>
-        ))}
-      </dl>
+      <Rows rows={rows} />
+    </Section>
+  );
+}
+
+function Rows({ rows }: { rows: [string, React.ReactNode][] }) {
+  return (
+    <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[13px]">
+      {rows.map(([k, v]) => (
+        <div key={k} className="contents">
+          <dt className="text-muted">{k}</dt>
+          <dd className="text-ink tabular-nums">{v}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+const span = ([lo, hi]: [number, number], f: (v: number) => string) => (lo === hi ? f(lo) : `${f(lo)}–${f(hi)}`);
+
+function RoadSection({ entity, lang }: { entity: Entity; lang: Lang }) {
+  const road = entity.road;
+  if (!road) return null;
+  const [lo, hi] = road.lanes;
+  const xs = road.cross_section;
+  const rows: [string, React.ReactNode][] = [
+    [
+      t("lanes", lang),
+      <>
+        {lang === "zh" ? `双向 ${lo * 2} 车道 + ${t("emergencyLane", lang)}` : `${lo} each way + ${t("emergencyLane", lang)}`}
+        {hi > lo && <span className="text-faint"> · {t("busiest", lang)} {lang === "zh" ? `双向 ${hi * 2} 车道` : `${hi} each way`}</span>}
+      </>,
+    ],
+    [
+      t("crossSection", lang),
+      `${t("laneWidth", lang)} ${xs.lane_m} m · ${t("emergencyLane", lang)} ${xs.shoulder_m} m · ${t("median", lang)} ${xs.median_m} m`,
+    ],
+    [t("roadbedWidth", lang), `${span(road.width_m, (v) => formatNumber(v, lang, 1))} m`],
+    [t("driveTime", lang), formatDuration(road.drive_min, lang)],
+    [t("dailyTraffic", lang), `${span(road.aadt, (v) => formatPopulation(v, lang))} ${t("vehiclesPerDay", lang)}`],
+  ];
+  if (road.operator) rows.push([t("roadOperator", lang), road.operator[lang]]);
+  return (
+    <Section title={t("roadTitle", lang)}>
+      <Rows rows={rows} />
+      <p className="mt-2.5 text-[11px] text-faint">{t("trafficNote", lang)}</p>
+    </Section>
+  );
+}
+
+function ServiceSection({ entity, lang }: { entity: Entity; lang: Lang }) {
+  const s = entity.service;
+  if (!s) return null;
+  const rows: [string, React.ReactNode][] = [
+    [t("fastestRun", lang), <>{formatDuration(s.fastest_min, lang)} <span className="text-faint">· {t("nonStop", lang)}</span></>],
+    [t("peakHeadway", lang), lang === "zh" ? `每 ${s.peak_headway_min} 分钟一班` : `every ${s.peak_headway_min} min`],
+    [t("ridership", lang), lang === "zh" ? `${formatPopulation(s.ridership_per_year, lang)}人次` : formatPopulation(s.ridership_per_year, lang)],
+  ];
+  if (s.operator) rows.push([t("railOperator", lang), s.operator[lang]]);
+  return (
+    <Section title={t("serviceTitle", lang)}>
+      <Rows rows={rows} />
+      <p className="mt-2.5 text-[11px] text-faint">{t("serviceNote", lang)}</p>
     </Section>
   );
 }
@@ -392,9 +472,15 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
         </div>
       )}
 
-      {(entity.notes || entity.motto) && (
+      {(entity.notes || entity.motto || entity.background) && (
         <Section title={t("about", lang)}>
           {entity.notes && <p className="text-[13.5px] leading-relaxed text-ink">{entity.notes[lang]}</p>}
+          {entity.background && (
+            <>
+              <h4 className="mt-3 mb-1 text-[11px] font-semibold text-faint">{t("background", lang)}</h4>
+              <p className="text-[13px] leading-relaxed text-muted">{entity.background[lang]}</p>
+            </>
+          )}
           {entity.motto && (
             <p className="mt-2 text-[13px] text-muted">
               {t("motto", lang)} · <span className="italic">{entity.motto[lang]}</span>
@@ -405,6 +491,8 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
 
       {entity.segments?.length ? <RouteTimeline data={data} entity={entity} lang={lang} /> : <ChildList data={data} entity={entity} lang={lang} />}
 
+      <RoadSection entity={entity} lang={lang} />
+      <ServiceSection entity={entity} lang={lang} />
       <TechSection entity={entity} lang={lang} />
       <EngineeringSection entity={entity} lang={lang} />
 

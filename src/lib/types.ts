@@ -74,14 +74,22 @@ export interface Entity {
   source?: string;
   /** Territorial routes: the symbol on the route shield (see glyphs.ts). */
   shield?: string;
+  /** Territorial routes: the shield design of their territory (route_shield in its division record); default crest. */
+  shield_style?: "crest" | "maritime";
   /** The route runs in a straight line end to end. */
   straight?: boolean;
   /** Routes between territories: the two territories they join (their ancestors stop at the country). */
   territories?: string[];
   engineering?: Engineering;
+  /** Expressways, territorial highways and railways: why and how the line was built. */
+  background?: Record<Lang, string>;
+  /** The longest bridge and tunnel built under the line. */
+  structures?: Partial<Record<"bridge" | "tunnel", { names: Record<Lang, string>; km: number }>>;
   /** Limits along the route, km/h, highest first; null means no limit. */
   speed?: { limits: (number | null)[] };
   tech?: RailTech;
+  road?: RoadFacts;
+  service?: RailService;
 }
 
 /** Structure profile and cost estimate of the stretches built under a route (2026 USD). */
@@ -93,6 +101,30 @@ export interface Engineering {
   stations?: number;
   construction_usd: number;
   upkeep_usd_per_year: number;
+  /** ‰, steepest stretch of the grade line. */
+  max_grade_permille?: number;
+}
+
+/** Expressways and territorial highways: lanes and traffic from the traffic model, [least, most] along the route. */
+export interface RoadFacts {
+  /** Lanes in each direction. */
+  lanes: [number, number];
+  cross_section: { lane_m: number; shoulder_m: number; median_m: number };
+  width_m: [number, number];
+  /** Vehicles per day, both directions. */
+  aadt: [number, number];
+  /** End to end at the limits, cruise_kmh where there is none. */
+  drive_min: number;
+  cruise_kmh: number;
+  operator?: Record<Lang, string> | null;
+}
+
+export interface RailService {
+  fastest_min: number;
+  peak_headway_min: number;
+  trains_per_peak_hour: number;
+  ridership_per_year: number;
+  operator?: Record<Lang, string> | null;
 }
 
 export interface RailTech {
@@ -103,6 +135,10 @@ export interface RailTech {
   signalling?: string;
   formation?: { cars: number; coupled?: number; type?: string };
   power?: { voltage: string; supply: "overhead" | "third_rail" };
+  tracks?: number;
+  min_curve_radius_m?: number;
+  /** Seats per formation of `formation.cars` cars. */
+  train?: { names: Record<Lang, string>; seats: number };
 }
 
 /** One stretch of a route inside a single district, in travel order. */
@@ -111,9 +147,13 @@ export interface RouteSegment {
   from_km: number;
   km: number;
   bbox: BBox;
-  line: LngLat[];
+  /** The stretch as drawn on the map (cut from the road lines, which may run under other routes' ids). */
+  lines: LngLat[][];
   /** km/h; null means no limit. */
   speed_kmh?: number | null;
+  /** Expressways and territorial highways: lanes each way and vehicles per day. */
+  lanes?: number;
+  aadt?: number;
 }
 
 export interface Region {
@@ -145,6 +185,7 @@ export const LAYER_FILES = [
   "rivers-named",
   "ridges",
   "roads",
+  "route-shared",
   "streets",
   "streets-named",
   "buildings",
