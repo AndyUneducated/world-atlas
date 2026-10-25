@@ -166,24 +166,24 @@ features:
     detect: { kind: island, at_km: [99.8, 14.2] }
     names: { zh: 远望岛, en: Farsight Isle, art-x-viking: Fernsichtinsel, art-x-buckham: Isola Lungimirante }
     notes:
-      zh: 群岛最南的小岛，四面开阔的海天。
-      en: The southernmost islet, with open sea and sky on every side.
+      zh: 群岛最南的小岛，四面开阔的海天，岛上建有航天测控站。
+      en: The southernmost islet, with open sea and sky on every side and a spacecraft tracking station.
   - id: nat_bnz64a
     subtype: island
     status: generated
     detect: { kind: island, at_km: [185.8, 15.8] }
     names: { zh: 牡蛎岛, en: Oyster Isle, art-x-viking: Austerninsel, art-x-buckham: Isola delle Ostriche }
     notes:
-      zh: 桅岛东南的小岛，岛周浅滩养殖牡蛎。
-      en: Islet south-east of Mast Island, with oyster beds on the shallows around it.
+      zh: 桅岛东南的小岛，岛上的渔村在周围浅滩养殖牡蛎。
+      en: Islet south-east of Mast Island, whose village farms oysters on the shallows around it.
   - id: nat_sfcte5
     subtype: island
     status: generated
     detect: { kind: island, at_km: [258.2, 13.8] }
     names: { zh: 海豹岛, en: Seal Isle, art-x-viking: Robbeninsel, art-x-buckham: Isola delle Foche }
     notes:
-      zh: 南星岛东南的无人岛，灰海豹在礁石上产仔。
-      en: Uninhabited islet south-east of Southstar Island, where grey seals pup on the rocks.
+      zh: 南星岛东南的无人岛，灰海豹在礁石上产仔，全岛为自然保护区。
+      en: Uninhabited islet south-east of Southstar Island, where grey seals pup on the rocks; the whole island is a nature reserve.
   - id: nat_bs1dbj
     subtype: island
     status: generated
@@ -206,8 +206,8 @@ features:
     detect: { kind: island, at_km: [289.8, 151.8] }
     names: { zh: 哨岛, en: Sentinel Isle, art-x-viking: Wachposteninsel, art-x-buckham: Isola della Sentinella }
     notes:
-      zh: 群岛东北外海的小岛，扼守从东方进入群岛的航路。
-      en: Islet in the open sea north-east of the islands, guarding the way in from the east.
+      zh: 群岛东北外海的小岛，扼守从东方进入群岛的航路，山顶有雷达站。
+      en: Islet in the open sea north-east of the islands, guarding the way in from the east, with a radar station on its summit.
   - id: nat_0j0p38
     subtype: island
     status: generated

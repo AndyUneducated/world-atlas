@@ -97,11 +97,24 @@ places:
       art-x-viking: Internationaler Flughafen Langskip
       art-x-buckham: Aeroporto Internazionale di Navelunga
     notes:
-      zh: 群岛唯一的机场，跑道顺着长船岛的走向
-      en: The islands' only airport, its runway along the length of Longship Island.
+      zh: 群岛的国际枢纽机场，跑道顺着长船岛的走向；白帆、锚港与暖泉的机场只飞岛际与近程航线
+      en: The islands' international hub, its runway along the length of Longship Island; the White Sail, Anchorhaven and Warmspring airports fly only inter-island and short-haul routes.
     in: div_xps98r
     offset_km: [-3, -2]
     site: { size_m: [3200, 1100], layout: airport, angle_deg: 32 }
+  - id: poi_hjf6h0
+    subtype: port
+    status: generated
+    names:
+      zh: 东港集装箱码头
+      en: East Harbour Container Terminal
+      art-x-viking: Containerterminal Osthafen
+      art-x-buckham: Terminal Container di Porto Est
+    notes:
+      zh: 长船的货运港，三座突堤为两座集装箱和一座滚装码头，东港港口高速从这里直通汇金
+      en: Longship's cargo port; its three moles hold two container terminals and a ro-ro terminal, and the East Harbour Port Expressway runs straight from here to Goldmark.
+    in: div_j6mw1m
+    site: { size_m: [4500, 2600], layout: harbour, terminals: [container, container, roro] }
 
   # ── 白帆市 ──
   - id: poi_yvdm1z
@@ -129,7 +142,7 @@ places:
       zh: 邮轮码头旁的免税购物城，离港旅客的必经之地
       en: The duty-free shopping town beside the cruise piers, on every departing passenger's way.
     in: div_tkvfsx
-    offset_km: [0.4, 0.5]
+    offset_km: [1.0, -0.6]
     site: { layout: market, size_m: [320, 180] }
   - id: bld_tb1eh5
     subtype: tower
@@ -145,6 +158,20 @@ places:
     in: div_8a2hzm
     offset_km: [0.4, 0.3]
     site: { layout: tower, size_m: [40, 40] }
+  - id: poi_kqtf3b
+    subtype: airport
+    status: generated
+    names:
+      zh: 白帆机场
+      en: White Sail Airport
+      art-x-viking: Flughafen Weißsegel
+      art-x-buckham: Aeroporto di Velabianca
+    notes:
+      zh: 帆城北面台地上的机场，夏季有包机把游客直接送到邮轮母港
+      en: The airport on the terrace north of Sail Town; in summer charter flights bring visitors straight to the cruise port.
+    in: div_vhsby1
+    offset_km: [-5.7, 21.2]
+    site: { size_m: [2800, 900], layout: airport, angle_deg: 105 }
 
   # ── 暖泉市 ──
   - id: poi_v2pw1f
@@ -162,7 +189,7 @@ places:
     offset_km: [0.4, 0.4]
     site: { layout: park, size_m: [600, 400] }
   - id: poi_pz8sfs
-    subtype: industrial_park
+    subtype: power_station
     status: generated
     names:
       zh: 黑沙地热电站
@@ -189,6 +216,136 @@ places:
     in: div_v2tq1k
     offset_km: [-0.5, -0.4]
     site: { layout: park, size_m: [900, 250] }
+  - id: poi_gsnass
+    subtype: airport
+    status: generated
+    names:
+      zh: 暖泉机场
+      en: Warmspring Airport
+      art-x-viking: Flughafen Warmquell
+      art-x-buckham: Aeroporto di Fontecalda
+    notes:
+      zh: 温泉区北面海滨平原上的机场，冬季迎来看极光、泡温泉的游客
+      en: The airport on the coastal plain north of Hot Springs, busy in winter with visitors who come for the aurora and the hot pools.
+    in: div_cz7sch
+    offset_km: [4.2, 9.2]
+    site: { size_m: [2800, 900], layout: airport, angle_deg: 60 }
+
+  # ── 锚港市 ──
+  - id: poi_grh5jd
+    subtype: port
+    status: generated
+    names:
+      zh: 锚港集装箱港
+      en: Port of Anchorhaven
+      art-x-viking: Hafen Ankerhafen
+      art-x-buckham: Porto di Portancora
+    notes:
+      zh: 群岛最大的港口，在锚岛两爪之间的锚湾里；五座突堤为油品、散货、两座集装箱和滚装码头，岛际货轮从这里分拨到各岛
+      en: The largest port in the islands, in Anchor Bay between the two flukes of Anchor Island; its five moles hold the oil, bulk, two container and ro-ro terminals, and inter-island freighters distribute cargo from here to every island.
+    in: div_a2n8cw
+    offset_km: [-3.1, -1.8]
+    site: { size_m: [5000, 3000], layout: harbour, terminals: [oil, bulk, container, container, roro] }
+  - id: poi_a7t36e
+    subtype: industrial_park
+    status: generated
+    names:
+      zh: 锚港造船厂
+      en: Anchorhaven Shipyard
+      art-x-viking: Werft Ankerhafen
+      art-x-buckham: Cantiere Navale di Portancora
+    notes:
+      zh: 群岛最大的造船厂，船台与干船坞建造渡轮、渔船和海上风电安装船，船厂区由此得名
+      en: The largest shipyard in the islands, whose slipways and dry docks build ferries, fishing boats and offshore wind installation vessels; the Shipyard District is named after it.
+    in: div_qyhvjj
+    offset_km: [0.7, -4.9]
+    site: { size_m: [2000, 700], layout: port }
+  - id: bld_77hf7p
+    subtype: office
+    status: generated
+    names:
+      zh: 群岛航运交易所
+      en: Islands Shipping Exchange
+      art-x-viking: Schifffahrtsbörse der Inseln
+      art-x-buckham: Borsa Marittima delle Isole
+    notes:
+      zh: 船舶租赁与运费交易的大厅，与船级社一起坐落在锚链大道上
+      en: The hall where ships are chartered and freight is traded, on Cable Avenue next to the classification society.
+    in: div_b569a2
+    offset_km: [0.3, 0.3]
+    site: { layout: hall, size_m: [200, 140] }
+  - id: poi_1b074w
+    subtype: airport
+    status: generated
+    names:
+      zh: 锚港机场
+      en: Anchorhaven Airport
+      art-x-viking: Flughafen Ankerhafen
+      art-x-buckham: Aeroporto di Portancora
+    notes:
+      zh: 链城南面平地上的机场，锚岛的航空门户
+      en: The airport on the flat ground south of Chain Town, the air gateway of Anchor Island.
+    in: div_b569a2
+    offset_km: [0.7, -10.6]
+    site: { size_m: [3000, 900], layout: airport, angle_deg: 60 }
+
+  # ── 其他城市 ──
+  - id: poi_grhsm8
+    subtype: power_station
+    status: generated
+    names:
+      zh: 潮湾潮汐电站
+      en: Tidebay Tidal Power Station
+      art-x-viking: Gezeitenkraftwerk Gezeitenbucht
+      art-x-buckham: Centrale Mareomotrice di Baiamarea
+    notes:
+      zh: 横跨潮湾湾口的潮汐坝，涨落潮推动坝下的水轮机组，坝顶兼作海堤
+      en: A tidal barrage across the mouth of Tidebay; the rising and falling tide drives the turbines in the dam, whose crest doubles as a sea wall.
+    in: div_0yqqc3
+    offset_km: [-1.4, 2.8]
+    site: { size_m: [1200, 300], layout: port }
+  - id: poi_642znz
+    subtype: ski_resort
+    status: generated
+    names:
+      zh: 龙骨山滑雪场
+      en: Keel Mountain Ski Area
+      art-x-viking: Skigebiet Kielberg
+      art-x-buckham: Comprensorio Sciistico di Monte Chiglia
+    notes:
+      zh: 龙骨区背后山坡上的滑雪场，缆车从镇边出发，冬季雪道直通海岸
+      en: The ski area on the slopes behind the Keel District; its lifts start at the edge of town and in winter the runs reach down towards the coast.
+    in: div_drqyc2
+    offset_km: [0.6, 0.6]
+    site: { layout: park, size_m: [900, 600] }
+  - id: poi_bey42c
+    subtype: hotel
+    status: generated
+    names:
+      zh: 南星海滨度假村
+      en: Southstar Beach Resort
+      art-x-viking: Strandresort Südstern
+      art-x-buckham: Resort di Spiaggia di Stellasud
+    notes:
+      zh: 群岛最南端的海滨度假村，夏季白夜里可在沙滩上看午夜的落日
+      en: The beach resort at the southern end of the islands, where on summer white nights guests watch the midnight sunset from the sand.
+    in: div_ht5w2y
+    offset_km: [0.4, 0.4]
+    site: { layout: park, size_m: [600, 400] }
+  - id: bld_n1tznn
+    subtype: marketplace
+    status: generated
+    names:
+      zh: 渔港鱼市
+      en: Fishing Harbour Fish Market
+      art-x-viking: Fischmarkt Fischerhafen
+      art-x-buckham: Mercato del Pesce di Porto Pescatori
+    notes:
+      zh: 群岛最大的鲜鱼拍卖市场，渔船清晨靠岸后当场竞拍鳕鱼与鲱鱼
+      en: The largest fresh-fish auction in the islands; boats land at dawn and the cod and herring are auctioned on the spot.
+    in: div_z1y7bz
+    offset_km: [0.3, 0.2]
+    site: { layout: market, size_m: [200, 120] }
 
   # ── 外屿市 ──
   - id: poi_5w25ae
@@ -219,7 +376,7 @@ places:
     offset_km: [0.3, 0.3]
     site: { layout: hall, size_m: [140, 90] }
   - id: poi_jv4zc1
-    subtype: park
+    subtype: nature_reserve
     status: generated
     names:
       zh: 鸟崖海鸟保护区
@@ -290,3 +447,83 @@ places:
     in: div_72h3ge
     offset_km: [5.7, -41.7]
     site: { size_m: [700, 300], layout: port }
+
+  # ── 外围小岛 ──
+  - id: poi_qgq5hp
+    subtype: tracking_station
+    status: generated
+    names:
+      zh: 远望航天测控站
+      en: Farsight Tracking Station
+      art-x-viking: Bodenstation Fernsicht
+      art-x-buckham: Stazione di Controllo di Lungimirante
+    notes:
+      zh: 远望岛上的航天测控站，几面大型天线跟踪从北维京岛发射的航天器，四面开阔的海天没有遮挡
+      en: A spacecraft tracking station on Farsight Isle; its large dishes follow the launches from North Viking Island across an open horizon on every side.
+    in: div_v2tq1k
+    offset_km: [19.6, -76.2]
+  - id: poi_vh8f5f
+    subtype: radar_station
+    status: generated
+    names:
+      zh: 哨岛雷达站
+      en: Sentinel Isle Radar Station
+      art-x-viking: Radarstation Wachposteninsel
+      art-x-buckham: Stazione Radar di Isola della Sentinella
+    notes:
+      zh: 哨岛山顶的海事与气象雷达，监视从东方进入群岛的航路
+      en: The maritime and weather radar on the summit of Sentinel Isle, watching the sea lanes into the islands from the east.
+    in: div_72h3ge
+    offset_km: [111.9, 0.9]
+  - id: poi_93y3rq
+    subtype: lighthouse
+    status: generated
+    names:
+      zh: 北门岛灯塔
+      en: Northgate Lighthouse
+      art-x-viking: Leuchtturm Nordtor
+      art-x-buckham: Faro di Porta Nord
+    notes:
+      zh: 群岛最北的灯塔，标出从北方进入群岛的航路，也是从北维京岛驶来的船只最先望见的灯光
+      en: The northernmost lighthouse of the islands, marking the way in from the north and the first light seen by ships coming from North Viking Island.
+    in: div_kecby5
+    offset_km: [17.2, 132.1]
+  - id: poi_2tkpby
+    subtype: lighthouse
+    status: generated
+    names:
+      zh: 灯塔岛灯塔
+      en: Lighthouse Isle Light
+      art-x-viking: Leuchtfeuer Leuchtturminsel
+      art-x-buckham: Faro dell'Isola del Faro
+    notes:
+      zh: 白帆岛东端外的老灯塔，为进出帆港湾的邮轮与渔船引航
+      en: The old lighthouse off the east end of White Sail Island, guiding cruise ships and fishing boats in and out of Sail Harbour Bay.
+    in: div_8a2hzm
+    offset_km: [50.2, -2.9]
+  - id: poi_4gy708
+    subtype: nature_reserve
+    status: generated
+    names:
+      zh: 霜岛自然保护区
+      en: Frost Isle Nature Reserve
+      art-x-viking: Naturschutzgebiet Frostinsel
+      art-x-buckham: Riserva Naturale dell'Isola del Gelo
+    notes:
+      zh: 覆盖全岛的自然保护区，苔原与海鸟崖保持原貌，只允许科考人员登岛
+      en: A nature reserve covering the whole island, its tundra and seabird cliffs left untouched; only researchers may land.
+    in: div_k4wvwe
+    offset_km: [-13.2, 88.9]
+  - id: poi_5fyhtm
+    subtype: nature_reserve
+    status: generated
+    names:
+      zh: 海豹岛自然保护区
+      en: Seal Isle Nature Reserve
+      art-x-viking: Naturschutzgebiet Robbeninsel
+      art-x-buckham: Riserva Naturale dell'Isola delle Foche
+    notes:
+      zh: 灰海豹的繁殖地，产仔季节禁止船只靠近礁石
+      en: A breeding ground of grey seals; boats must keep clear of the rocks in the pupping season.
+    in: div_ht5w2y
+    offset_km: [73.0, -34.9]

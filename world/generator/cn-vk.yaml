@@ -112,7 +112,7 @@ landcover:
   rock_slope_deg: 31
 
 streets:
-  cities: [div_3cvg2q, div_x22naa, div_qjzmw5, div_87ygkn]
+  cities: [div_3cvg2q, div_x22naa, div_zg05xa, div_qjzmw5, div_87ygkn]
   arterial_spacing_km: 1.5
   neighbourhood_km: 1.3
   local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
@@ -131,6 +131,7 @@ streets:
     div_v2tq1k: { style: organic, detail_km2: 15, mix: { houses: 2.0, industrial: 0.8 } }                  # 黑沙区：黑沙滩与地热电站
     div_khmgcq: { style: organic, mix: { houses: 2.2, industrial: 0.6 } }                  # 鲸岛区：渔村与观鲸码头
     div_5p2a2d: { style: organic, mix: { houses: 2.2, park: 1.0 } }                        # 鸟崖区：保护区小镇
+    div_b569a2: { style: planned, detail_km2: 30, mix: { towers: 2.0, podium: 1.6, civic: 0.5, industrial: 0.2 } }  # 链城区：航运交易所与船级社
     # main_only: arterials and collectors, no local streets or generic buildings
     div_j6mw1m: { style: planned, main_only: true }   # 东港区：集装箱码头
     div_kecby5: { style: mixed, main_only: true }     # 西岸区：住宅区
@@ -138,11 +139,16 @@ streets:
     div_vhsby1: { style: organic, main_only: true }   # 帆城区：白帆老城
     div_5rbg50: { style: mixed, main_only: true }     # 望海区
     div_vk1835: { style: mixed, main_only: true }     # 暖河区：河口港区
+    div_a2n8cw: { style: planned, main_only: true }   # 锚湾区：集装箱港
+    div_qyhvjj: { style: planned, main_only: true }   # 船厂区：船厂与干船坞
+    div_j1czet: { style: mixed, main_only: true }     # 西爪区：住宅区
   named:
     - { district: div_jzqknb, axis: 0, line: 0, status: generated, names: { zh: 汇金大道, en: Goldmark Avenue, art-x-viking: Goldmarkallee, art-x-buckham: Viale Marcoro } }
     - { district: div_jzqknb, axis: 1, line: 0, status: generated, names: { zh: 信托街, en: Trust Street, art-x-viking: Treuhandstraße, art-x-buckham: Via del Trust } }
     - { district: div_xps98r, axis: 0, line: 0, status: generated, names: { zh: 北岬大道, en: North Cape Avenue, art-x-viking: Nordkapallee, art-x-buckham: Viale Capo Nord } }
     - { district: div_tkvfsx, axis: 0, line: 0, status: generated, names: { zh: 邮轮大道, en: Cruise Avenue, art-x-viking: Kreuzfahrtallee, art-x-buckham: Viale delle Crociere } }
+    - { district: div_b569a2, axis: 0, line: 0, status: generated, names: { zh: 锚链大道, en: Cable Avenue, art-x-viking: Ankerkettenallee, art-x-buckham: Viale della Catena } }
+    - { district: div_b569a2, axis: 1, line: 0, status: generated, names: { zh: 船级社街, en: Register Street, art-x-viking: Klassifikationsstraße, art-x-buckham: Via del Registro } }
 
 expect:
   district_centres_on: [territorial_expressway, territorial_highway]

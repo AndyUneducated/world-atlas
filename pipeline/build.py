@@ -404,7 +404,7 @@ def landmark_sites(world, d, core, angle, built, land, seed):
     """Site outlines and parts (real km) of the places in district `d` that have a `site`.
 
     City landmarks follow the street grid `angle`; an explicit site.angle_deg is absolute (east = 0).
-    `built` is the district's built-up area (None without streets), `land` the dry land around it."""
+    `built` is the district's built-up area (None without urban cover), `land` the dry land around it."""
     out, coast = [], None
     for pid, pl in world.places.items():
         if pl["in"] != d["id"] or not pl.get("site"):
@@ -1070,7 +1070,8 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     for i, d in enumerate(districts):
         if i not in with_streets:
             core_r = (poles[i][0] * s, poles[i][1] * s)
-            all_sites += [(pid, site, parts, i) for pid, site, parts in landmark_sites(world, d, core_r, 0.0, None, land_real, seed)]
+            built = affinity.scale(dist_polys[i].intersection(urban_poly), s, s, origin=(0, 0)) if urban_poly is not None else None
+            all_sites += [(pid, site, parts, i) for pid, site, parts in landmark_sites(world, d, core_r, 0.0, built, land_real, seed)]
 
     log("routing roads")
     land_r = block_reduce(land, 4, "mode_bool")

@@ -1,6 +1,6 @@
 import {
-  Anchor, Building2, Castle, Droplets, Factory, FerrisWheel, Flag, FlaskConical, Footprints, GraduationCap, Grape, Hotel, Landmark, LandPlot, MapPin, Mountain, MountainSnow, Navigation2,
-  Plane, Rocket, Route, Ship, Shell, Snowflake, Telescope, TrainFront, TramFront, Trees, Warehouse, Waves,
+  Anchor, Bird, Building2, Castle, Droplets, Factory, FerrisWheel, Flag, FlaskConical, Footprints, GraduationCap, Grape, Hotel, Landmark, LandPlot, Lighthouse, MapPin, Mountain, MountainSnow,
+  Navigation2, Plane, Radar, Rocket, Route, SatelliteDish, Ship, Shell, Snowflake, Telescope, TrainFront, TramFront, Trees, Warehouse, Waves, Zap,
 } from "lucide-react";
 import type { Entity } from "../lib/types";
 
@@ -47,6 +47,16 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
         return <Telescope {...props} />;
       case "park":
         return <Trees {...props} />;
+      case "nature_reserve":
+        return <Bird {...props} />;
+      case "lighthouse":
+        return <Lighthouse {...props} />;
+      case "power_station":
+        return <Zap {...props} />;
+      case "tracking_station":
+        return <SatelliteDish {...props} />;
+      case "radar_station":
+        return <Radar {...props} />;
       case "castle":
         return <Castle {...props} />;
       default:
