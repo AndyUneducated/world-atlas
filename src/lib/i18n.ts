@@ -5,6 +5,8 @@ const STRINGS = {
   noResults: { zh: "没有找到匹配的结果", en: "No matching results" },
   explore: { zh: "探索", en: "Explore" },
   exploreCities: { zh: "城市", en: "Cities" },
+  allTerritories: { zh: "全部", en: "All" },
+  territoryScope: { zh: "搜索范围", en: "Search in" },
   locatedIn: { zh: "所属", en: "Part of" },
   menu: { zh: "图层、工具与设置", en: "Layers, tools & settings" },
   tools: { zh: "工具", en: "Tools" },

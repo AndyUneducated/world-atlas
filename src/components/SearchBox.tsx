@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { ChevronDown, Search, X } from "lucide-react";
+import { Check, ChevronDown, Search, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { accentColor, pathLabel } from "../lib/entity";
@@ -58,22 +58,27 @@ export function SearchBox() {
   useEffect(() => {
     if (data) SearchIndex.create(Object.values(data.entities)).then(setIndex);
   }, [data]);
-  const hits = useMemo(() => (index ? index.search(query) : []), [index, query]);
+  /** Territory the search and explore lists are limited to; null for every territory. */
+  const [scope, setScope] = useState<string | null>(null);
+  const [scopeOpen, setScopeOpen] = useState(false);
+  const territories = useMemo(() => (data ? data.manifest.regions.map((r) => data.entities[r.id]).filter(Boolean) : []), [data]);
+  const inScope = useMemo(() => (e: Entity) => !scope || e.id === scope || !!e.ancestors?.includes(scope), [scope]);
+  const hits = useMemo(() => (index ? index.search(query, 8, inScope) : []), [index, query, inScope]);
   const cities = useMemo(() => {
     if (!data) return [];
-    return data.manifest.regions.flatMap((r) => data.entities[r.id]?.children ?? []).map((id) => data.entities[id]).filter(Boolean);
-  }, [data]);
+    return territories.filter(inScope).flatMap((r) => r.children ?? []).map((id) => data.entities[id]).filter(Boolean);
+  }, [data, territories, inScope]);
   const routes = useMemo(() => {
     const out: Record<RoadGroup, Entity[]> = { nationalExpressway: [], territorialExpressway: [], territorialHighway: [] };
     if (!data) return out;
     for (const e of Object.values(data.entities)) {
-      if (e.kind !== "route" || !e.bbox) continue;
+      if (e.kind !== "route" || !e.bbox || !inScope(e)) continue;
       const g = ROAD_GROUPS.find((k) => (ROAD_NETWORKS[k] as readonly string[]).includes(e.network ?? ""));
       if (g) out[g].push(e);
     }
     for (const g of ROAD_GROUPS) out[g].sort(byRef);
     return out;
-  }, [data]);
+  }, [data, inScope]);
   const [expanded, setExpanded] = useState<Record<ExploreGroup, boolean>>({ cities: true, nationalExpressway: false, territorialExpressway: false, territorialHighway: false });
   const selected = selectedId && data ? data.entities[selectedId] : undefined;
 
@@ -93,6 +98,16 @@ export function SearchBox() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  const scopeBox = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!scopeOpen) return;
+    const onDown = (e: MouseEvent) => {
+      if (!scopeBox.current?.contains(e.target as Node)) setScopeOpen(false);
+    };
+    window.addEventListener("mousedown", onDown);
+    return () => window.removeEventListener("mousedown", onDown);
+  }, [scopeOpen]);
 
   const choose = (id: string) => {
     select(id);
@@ -118,10 +133,67 @@ export function SearchBox() {
     }
   };
 
+  const scopeEntity = scope && data ? data.entities[scope] : undefined;
+  const territoryLabel = (e: Entity) => e.short_names?.[lang] ?? displayName(e, lang);
+
   return (
     <div className="pointer-events-auto relative">
-      <div className={clsx("glass flex h-12 items-center gap-3 rounded-2xl px-4 transition-shadow", open && "ring-2 ring-accent/40")}>
-        <Search className="size-[18px] shrink-0 text-muted" strokeWidth={2} />
+      <div className={clsx("glass flex h-12 items-center gap-2 rounded-2xl pr-4 pl-1.5 transition-shadow", open && "ring-2 ring-accent/40")}>
+        <div ref={scopeBox} className="relative shrink-0">
+          <button
+            onMouseDown={(ev) => ev.preventDefault()}
+            onClick={() => setScopeOpen((o) => !o)}
+            aria-haspopup="listbox"
+            aria-expanded={scopeOpen}
+            aria-label={t("territoryScope", lang)}
+            className={clsx(
+              "flex h-9 max-w-[9.5rem] items-center gap-1.5 rounded-xl px-2.5 text-[13px] font-medium transition-colors",
+              scope ? "bg-accent-soft text-accent" : "text-muted hover:bg-hover hover:text-ink",
+            )}
+          >
+            {scopeEntity && hasEmblem(scopeEntity) ? <Emblem entity={scopeEntity} size={16} className="shrink-0" /> : <Search className="size-4 shrink-0" strokeWidth={2} />}
+            <span className="truncate">{scopeEntity ? territoryLabel(scopeEntity) : t("allTerritories", lang)}</span>
+            <ChevronDown className={clsx("size-3.5 shrink-0 transition-transform duration-200", scopeOpen && "rotate-180")} />
+          </button>
+          <AnimatePresence>
+            {scopeOpen && (
+              <motion.ul
+                role="listbox"
+                initial={{ opacity: 0, y: -4, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -4, scale: 0.97 }}
+                transition={{ duration: 0.14, ease: "easeOut" }}
+                className="glass absolute top-11 left-0 z-30 min-w-48 origin-top-left rounded-xl p-1"
+              >
+                {[null, ...territories].map((e) => {
+                  const id = e?.id ?? null;
+                  return (
+                    <li key={id ?? "all"} role="option" aria-selected={scope === id}>
+                      <button
+                        onMouseDown={(ev) => ev.preventDefault()}
+                        onClick={() => {
+                          setScope(id);
+                          setScopeOpen(false);
+                          setCursor(0);
+                          setOpen(true);
+                          input.current?.focus();
+                        }}
+                        className={clsx("flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-[13px] text-ink hover:bg-hover", scope === id && "font-medium")}
+                      >
+                        <span className="grid size-5 shrink-0 place-items-center">
+                          {e && hasEmblem(e) ? <Emblem entity={e} size={20} /> : <Search className="size-4 text-muted" strokeWidth={2} />}
+                        </span>
+                        <span className="flex-1 truncate">{e ? territoryLabel(e) : t("allTerritories", lang)}</span>
+                        {scope === id && <Check className="size-3.5 shrink-0 text-accent" strokeWidth={3} />}
+                      </button>
+                    </li>
+                  );
+                })}
+              </motion.ul>
+            )}
+          </AnimatePresence>
+        </div>
+        <span className="h-5 w-px shrink-0 bg-line" />
         <input
           ref={input}
           value={query}

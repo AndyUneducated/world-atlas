@@ -87,11 +87,12 @@ export class SearchIndex {
       });
   }
 
-  search(query: string, limit = 8): SearchHit[] {
+  search(query: string, limit = 8, accept: (e: Entity) => boolean = () => true): SearchHit[] {
     const q = norm(query.trim());
     if (!q) return [];
+    const docs = this.docs.filter((d) => accept(d.entity));
     const hits: SearchHit[] = [];
-    for (const d of this.docs) {
+    for (const d of docs) {
       let best = 0;
       for (const k of d.keys) {
         if (k === q) best = Math.max(best, 100);
@@ -101,7 +102,7 @@ export class SearchIndex {
       if (best) hits.push({ entity: d.entity, score: best + d.weight });
     }
     if (!hits.length && q.length >= 3) {
-      for (const d of this.docs) if (d.latin.some((k) => isSubsequence(q, k))) hits.push({ entity: d.entity, score: 25 + d.weight });
+      for (const d of docs) if (d.latin.some((k) => isSubsequence(q, k))) hits.push({ entity: d.entity, score: 25 + d.weight });
     }
     return hits.sort((a, b) => b.score - a.score).slice(0, limit);
   }
