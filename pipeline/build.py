@@ -427,6 +427,9 @@ def landmark_sites(world, d, core, angle, built, land, seed):
         elif cfg["layout"] in FACILITY_LAYOUTS:
             if site.intersection(land).area < 0.95 * site.area:
                 log(f"  WARN {zh}: site runs into water")
+        elif cfg["layout"] == "park":  # reserves, ski areas and waterfalls may lie outside town
+            if not land.contains(site.centroid):
+                log(f"  WARN {zh}: park site lies in water")
         elif built is None or not built.buffer(0.05).contains(site.centroid):
             log(f"  WARN {zh}: site lies outside the built-up area")
         for other, osite, _ in out:
