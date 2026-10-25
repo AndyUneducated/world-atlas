@@ -1,0 +1,45 @@
+# Cross-territory routes (跨领地通道). National expressways between territories are numbered in
+# their own series, G-XTR-1.., under the national expressway sign with XTR in the header.
+#
+# crossing: the straight undersea tunnel between the two territories, given by its portal in each
+#   territory ([x, y] design km in that territory's generator frame, snapped to the nearest land).
+#   via runs through the stops of one territory, then the other; each territory routes its own
+#   stops to its portal, and the tunnel joins the two parts.
+routes:
+  - id: rte_fk0z8e
+    ref: G-XTR-1
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 维长高速
+      en: Viking Port–Longship Expressway
+      art-x-viking: Autobahn Veiling Havn–Langskip
+      art-x-buckham: Autostrada Veiling Porto–Navelunga
+    notes:
+      zh: 两领地之间唯一的陆路。自维京港瓦尔维克区出发，经约 130 km 长的维京海底隧道笔直穿过海峡，在船首岬登上长船岛，经北岬区的国际机场到首府长船；隧道内与维长城际铁路并行
+      en: The only land link between the two territories. From Walvik in Viking Port it runs straight under the strait through the Viking Undersea Tunnel, about 130 km long, comes ashore at Prow Point on Longship Island and goes on past the international airport in North Cape to the capital, Longship; in the tunnel it runs alongside the Viking Port–Longship Intercity Railway.
+    tunnel_cost: 3.5
+    crossing:
+      div_fbfqv9: [30.7, 63.3]
+      div_raat4g: [188.5, 181.4]
+    via: [div_m41gwn, div_xps98r, div_3cvg2q]
+
+railways:
+  - id: rte_yn834s
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 维长城际铁路
+      en: Viking Port–Longship Intercity Railway
+      art-x-viking: Intercity-Bahn Veiling Havn–Langskip
+      art-x-buckham: Ferrovia Intercity Veiling Porto–Navelunga
+    notes:
+      zh: 维京群岛唯一的铁路，经维京海底隧道连接维京港与首府长船，与维长高速并行
+      en: The only railway in the Viking Islands, linking Viking Port with the capital Longship through the Viking Undersea Tunnel, alongside the Viking Port–Longship Expressway.
+    color: '#12A594'
+    tech: { operating_speed_kmh: 350, design_speed_kmh: 400 }
+    crossing:
+      div_fbfqv9: [31.3, 62.5]
+      div_raat4g: [189.1, 180.6]
+    via: [div_m41gwn, div_3cvg2q]

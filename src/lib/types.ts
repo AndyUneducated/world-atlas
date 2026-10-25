@@ -26,6 +26,8 @@ export interface EntityStats {
   prominence_m?: number;
   /** Length of the sea bridge joining an offshore port to the shore. */
   bridge_km?: number;
+  /** Routes between territories: length of the undersea tunnel. */
+  undersea_tunnel_km?: number;
 }
 
 export interface Entity {
@@ -74,6 +76,8 @@ export interface Entity {
   shield?: string;
   /** The route runs in a straight line end to end. */
   straight?: boolean;
+  /** Routes between territories: the two territories they join (their ancestors stop at the country). */
+  territories?: string[];
   engineering?: Engineering;
   /** Limits along the route, km/h, highest first; null means no limit. */
   speed?: { limits: (number | null)[] };

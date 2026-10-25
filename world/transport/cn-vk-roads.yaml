@@ -141,25 +141,10 @@ routes:
       en: From Anchor Bay at the southern end of Anchor Island across the mouth of Anchor Strait to Rudderhaven; the short way between Anchor Island and Longship Island's stern.
     via: [div_a2n8cw, div_er5g6j]
 
-  # 领地高速 (territorial expressways, class motorway): from the big cities to their airport,
-  # ports and suburbs.
-  - id: rte_p3r778
-    ref: S-VK-1
-    network: territorial_expressway
-    class: motorway
-    status: generated
-    names:
-      zh: 长船机场高速
-      en: Longship Airport Expressway
-      art-x-viking: Flughafenautobahn Langskip
-      art-x-buckham: Autostrada dell'Aeroporto di Navelunga
-    notes:
-      zh: 自长船古城北上到北岬区的长船国际机场与群岛大学
-      en: North from Longship's old town to Longship International Airport and the University of the Islands in North Cape.
-    shield: gull
-    via: [div_g2g1yc, div_xps98r]
+  # 领地高速 (territorial expressways, class motorway): from the big cities to their ports and
+  # suburbs. Longship's airport lies on G-XTR-1 (cn-xtr.yaml).
   - id: rte_tjbqng
-    ref: S-VK-2
+    ref: S-VK-1
     network: territorial_expressway
     class: motorway
     status: generated
@@ -169,12 +154,12 @@ routes:
       art-x-viking: Hafenautobahn Osthafen
       art-x-buckham: Autostrada Portuale di Porto Est
     notes:
-      zh: 自汇金金融区到东港区的集装箱码头，货车不必穿过老城
-      en: From the Goldmark financial district to the container terminals of East Harbour, keeping lorries out of the old town.
+      zh: 自古城边缘经汇金金融区到东港区的集装箱码头，长船市区南北向的快速通道，货车不必穿过老城
+      en: From the edge of the old town through the Goldmark financial district to the container terminals of East Harbour, Longship's north–south urban expressway; lorries need not cross the old town.
     shield: ship
-    via: [div_jzqknb, div_j6mw1m]
+    via: [div_g2g1yc, div_jzqknb, div_j6mw1m]
   - id: rte_d67xzw
-    ref: S-VK-3
+    ref: S-VK-2
     network: territorial_expressway
     class: motorway
     status: generated
@@ -190,7 +175,7 @@ routes:
     shield: anchor
     via: [div_b569a2, div_3zqdra]
   - id: rte_zc14xp
-    ref: S-VK-4
+    ref: S-VK-3
     network: territorial_expressway
     class: motorway
     status: generated
@@ -205,7 +190,7 @@ routes:
     shield: sailboat
     via: [div_vhsby1, div_tkvfsx]
   - id: rte_7r6n3d
-    ref: S-VK-5
+    ref: S-VK-4
     network: territorial_expressway
     class: motorway
     status: generated

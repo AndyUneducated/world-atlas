@@ -457,14 +457,16 @@ export function buildStyle(opts: {
     { id: "territorial-expressway", network: ROAD_NETWORKS.territorialExpressway, s: m.territorialExpressway, on: layers.territorialExpressway, casing: 1.6, fill: 1, minzoom: 0 },
     { id: "national-expressway", network: ROAD_NETWORKS.nationalExpressway, s: m.nationalExpressway, on: layers.nationalExpressway, casing: 1.8, fill: 1.2, minzoom: 0 },
   ];
+  // Undersea tunnels between territories show faded.
+  const tunnelFade: ExpressionSpecification = ["case", ["==", ["get", "tunnel"], true], 0.45, 1];
   for (const r of roadTiers) {
     const filter: ExpressionSpecification = ["in", ["get", "network"], ["literal", r.network]];
     if (r.s.glow) {
-      style.push({ id: `${r.id}-glow`, type: "line", source: "roads", minzoom: r.minzoom, filter, layout: roadLayout(r.on), paint: { "line-color": r.s.glow, "line-width": roadWidth(r.casing * 1.8), "line-blur": 3 } });
+      style.push({ id: `${r.id}-glow`, type: "line", source: "roads", minzoom: r.minzoom, filter, layout: roadLayout(r.on), paint: { "line-color": r.s.glow, "line-width": roadWidth(r.casing * 1.8), "line-blur": 3, "line-opacity": tunnelFade } });
     }
     style.push(
-      { id: `${r.id}-casing`, type: "line", source: "roads", minzoom: r.minzoom, filter, layout: roadLayout(r.on), paint: { "line-color": r.s.casing, "line-width": roadWidth(r.casing) } },
-      { id: r.id, type: "line", source: "roads", minzoom: r.minzoom, filter, layout: roadLayout(r.on), paint: { "line-color": r.s.fill, "line-width": roadWidth(r.fill) } },
+      { id: `${r.id}-casing`, type: "line", source: "roads", minzoom: r.minzoom, filter, layout: roadLayout(r.on), paint: { "line-color": r.s.casing, "line-width": roadWidth(r.casing), "line-opacity": tunnelFade } },
+      { id: r.id, type: "line", source: "roads", minzoom: r.minzoom, filter, layout: roadLayout(r.on), paint: { "line-color": r.s.fill, "line-width": roadWidth(r.fill), "line-opacity": tunnelFade } },
     );
   }
 
@@ -477,8 +479,8 @@ export function buildStyle(opts: {
   style.push(
     { id: "metro-casing", type: "line", source: "rail", minzoom: 9.6, filter: metroLine, layout: roadLayout(layers.metro), paint: { "line-color": rs.metroCasing, "line-width": railWidth(4.6), "line-opacity": metroFade } },
     { id: "metro-line", type: "line", source: "rail", minzoom: 9.6, filter: metroLine, layout: roadLayout(layers.metro), paint: { "line-color": ["get", "color"], "line-width": railWidth(2.8), "line-opacity": metroFade } },
-    { id: "rail-casing", type: "line", source: "rail", filter: railTrack, layout: { ...roadLayout(layers.railways), "line-cap": "butt" }, paint: { "line-color": rs.casing, "line-width": railWidth(3.4) } },
-    { id: "rail-ticks", type: "line", source: "rail", minzoom: 8, filter: railTrack, layout: { ...roadLayout(layers.railways), "line-cap": "butt" }, paint: { "line-color": rs.fill, "line-width": railWidth(1.6), "line-dasharray": [3, 3] } },
+    { id: "rail-casing", type: "line", source: "rail", filter: railTrack, layout: { ...roadLayout(layers.railways), "line-cap": "butt" }, paint: { "line-color": rs.casing, "line-width": railWidth(3.4), "line-opacity": tunnelFade } },
+    { id: "rail-ticks", type: "line", source: "rail", minzoom: 8, filter: railTrack, layout: { ...roadLayout(layers.railways), "line-cap": "butt" }, paint: { "line-color": rs.fill, "line-width": railWidth(1.6), "line-dasharray": [3, 3], "line-opacity": tunnelFade } },
   );
 
   const shownNetworks = [

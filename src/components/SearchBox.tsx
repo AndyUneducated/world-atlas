@@ -62,7 +62,7 @@ export function SearchBox() {
   const [scope, setScope] = useState<string | null>(null);
   const [scopeOpen, setScopeOpen] = useState(false);
   const territories = useMemo(() => (data ? data.manifest.regions.map((r) => data.entities[r.id]).filter(Boolean) : []), [data]);
-  const inScope = useMemo(() => (e: Entity) => !scope || e.id === scope || !!e.ancestors?.includes(scope), [scope]);
+  const inScope = useMemo(() => (e: Entity) => !scope || e.id === scope || !!e.ancestors?.includes(scope) || !!e.territories?.includes(scope), [scope]);
   const hits = useMemo(() => (index ? index.search(query, 8, inScope) : []), [index, query, inScope]);
   const cities = useMemo(() => {
     if (!data) return [];
