@@ -42,7 +42,10 @@ SITE_SNAP_KM = 6.0  # how far (real km) a port or facility site may move to fit 
 SEA_BRIDGE_HALF_WIDTH_KM = 0.017  # a six-lane sea bridge deck
 B32 = "0123456789abcdefghjkmnpqrstvwxyz"
 # Road networks whose cards list the districts they pass through.
-SEGMENTED_NETWORKS = {"national_expressway", "national_highway", "territorial_expressway", "territorial_highway"}
+SEGMENTED_NETWORKS = {"national_expressway", "territorial_expressway", "territorial_highway"}
+# How far a route terminus reaches to join the network: expressway to expressway, else to any road.
+JOIN_MOTORWAY_KM = 20
+JOIN_ROAD_KM = 5
 # Bays and fjords this large (real km²) and capes this prominent (real km) are labelled from lower zooms.
 MAJOR_LANDFORM_KM2 = 200
 MAJOR_CAPE_KM = 12
@@ -987,7 +990,6 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         path = router.trim_to_network(router.route(start, node[ci]))
         if len(path) < 3:
             continue
-        router.commit(path, "secondary", discount=0.8)
         feeder_seq += 1
         a, b = short_name(districts[core[ci]]["names"]), short_name(d["names"])
         rid = derived_id("rte", f"feeder:{d['id']}")
@@ -996,7 +998,48 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             "status": "generated", "via": [districts[core[ci]]["id"], d["id"]],
             "names": {"zh": f"{a['zh']}—{b['zh']}公路", "en": f"{a['en']}–{b['en']} Road"},
         }
+        router.commit(path, "secondary", discount=0.8, ref=r["ref"])
         road_out.append((r, path))
+
+    # Termini join the network: an expressway end runs on to the nearest other expressway (an
+    # interchange, so traffic changes routes without leaving the expressway), any other end to the
+    # nearest road, whichever is cheapest to build within reach (plus a cell, as drawn lines are
+    # smoothed off the cell centres). Ends on another route stay as they are. A joining leg takes
+    # over the cells it shares with lower routes, so an expressway never runs on as a city road.
+    route_rank = {r["ref"]: ROAD_RANK[r["class"]] for r, _ in road_out}
+    for k, (r, path) in enumerate(road_out):
+        if r.get("ring"):
+            continue
+        ref = r["ref"]
+        foreign = {c for c in router.used if router.owner.get(c) != ref}
+        motorway = {c for c in foreign if router.used[c] == "motorway"}
+        own = set(path)
+        for at_start in (True, False):
+            end = path[0] if at_start else path[-1]
+            leg = None
+            for targets, reach_km in ((motorway, JOIN_MOTORWAY_KM), (foreign, JOIN_ROAD_KM)):
+                if targets is motorway and r["class"] != "motorway":
+                    continue
+                if end in targets:
+                    break
+                reach = reach_km / frame.scale + router.res
+                if r.get("straight"):
+                    target = router.nearest(end, targets, reach)
+                    leg = router.straight(end, target) if target is not None else None
+                else:
+                    leg = router.route_to_any(end, targets, reach, own - {end}, r.get("tunnel_cost"))
+                if leg:
+                    break
+            if not leg:
+                continue
+            router.commit(leg, r["class"], ref=ref)
+            for c in leg[1:-1]:  # the last cell is the junction, kept by the route joined
+                if route_rank.get(router.owner.get(c), -1) > route_rank[ref]:
+                    router.owner[c], router.used[c] = ref, r["class"]
+            own.update(leg)
+            path = leg[::-1] + path[1:] if at_start else path + leg[1:]
+            log(f"  {ref} {'start' if at_start else 'end'} joined {router.owner.get(leg[-1])} ({frame.km(LineString([router.xy(c) for c in leg]).length):.1f} km)")
+        road_out[k] = (r, path)
 
     if nets := spec.get("expect", {}).get("district_centres_on"):
         on = {c for r, path in road_out if r["network"] in nets for c in path}
@@ -1194,11 +1237,37 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             limits.append(sg["speed_kmh"])
         if not limits:
             limits = [engineering.segment_speed(prof, std, 0, len(path) - 1, max(density_of(v) for v in ent.get("via", [None])), speed_rules)]
-        ent["speed"] = engineering.speed_summary(limits, std)
+        ent["speed"] = engineering.speed_summary(limits)
+
+    road_runs = {r["ref"]: owned_runs(path, r["ref"], router.owner) for r, path in road_out}
+    # Junctions (where any drawn run starts or ends) stay pinned to their cell centres while the
+    # stretches between them are smoothed, so every route meeting there passes the same point.
+    pins = {c for runs in road_runs.values() for run in runs for c in (run[0], run[-1])}
+
+    def smooth_pinned(run: list[int]) -> LineString:
+        cuts = [i for i in range(1, len(run) - 1) if run[i] in pins] + [len(run) - 1]
+        coords, start = [router.xy(run[0])], 0
+        for i in cuts:
+            coords += list(smooth_line(np.array([router.xy(c) for c in run[start:i + 1]]), 0.7, 4).coords)[1:]
+            start = i
+        return LineString(coords)
+
+    smoothed = {ref: [smooth_pinned(run) for run in runs] for ref, runs in road_runs.items()}
+
+    def meet_host(line: LineString, run: list[int], ref: str) -> LineString:
+        """Move each end that lies on another route's corridor onto that route's drawn line, so the two meet."""
+        coords = list(line.coords)
+        for i, c in ((0, run[0]), (-1, run[-1])):
+            host = router.owner.get(c)
+            if host != ref and host in smoothed:
+                p = nearest_points(MultiLineString(smoothed[host]), Point(coords[i]))[0]
+                if p.distance(Point(coords[i])) <= 2 * router.res:
+                    coords[i] = (p.x, p.y)
+        return LineString(coords)
 
     road_features = []
     for r, path in road_out:
-        lines = [smooth_line(np.array([router.xy(c) for c in run]), 0.7, 4) for run in owned_runs(path, r["ref"], router.owner)]
+        lines = [meet_host(line, run, r["ref"]) for line, run in zip(smoothed[r["ref"]], road_runs[r["ref"]])]
         geom_km = lines[0] if len(lines) == 1 else MultiLineString(lines)
         geom = to_lonlat(geom_km, frame)
         road_features.append(feature(geom, {

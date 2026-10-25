@@ -1,12 +1,11 @@
 # Road routes of North Viking Island.
 #
-# Route numbering follows the GB/T 917 pattern with a territory infix:
-#   G-NV-1..99    national expressway    (class motorway)
-#   G-NV-101..    national highway       (class trunk)
-#   S-NV-1..99    territorial expressway (class motorway)
-#   S-NV-101..    territorial highway    (class primary)
-#   X-NV-001..    municipal road         (class secondary)
-#   Y-NV-001..    township road          (class tertiary)
+# Four grades, the same in every territory; route numbers carry the territory infix:
+#   G-NV-1..99    国家高速 national expressway    (class motorway)
+#   S-NV-1..99    领地高速 territorial expressway (class motorway)
+#   S-NV-101..    领道 territorial highway        (class primary)
+#   X-NV-001..    市道 city road                  (class secondary)
+# There are no national roads below expressway grade and no township roads.
 # class uses Overture Maps / OSM highway=* road classes.
 #
 # via: ordered list of divisions; the generator routes between their urban cores
@@ -78,10 +77,10 @@ routes:
       zh: 马斯林山高速
       en: Maslin Expressway
     notes:
-      zh: 从环岛高速伸入马斯林山盆地的支线
-      en: Spur from the ring expressway into the Maslin basin.
+      zh: 从环岛高速经马斯林山市区横贯盆地，直达西坪区的发射与降落中心
+      en: Leaves the ring expressway through Maslin Mountain and crosses the basin to the launch and landing centre in Xiping.
     ends_at_network: true
-    via: [div_rdypg7, div_ygk521]
+    via: [div_nwke3f, div_rdypg7, div_ygk521]
   - id: rte_2w74xj
     ref: S-NV-1
     network: territorial_expressway
@@ -130,7 +129,7 @@ routes:
     shield: waterfall
     via: [div_m2tz6c, div_z8yxye, div_s1qwxh, div_0t2t36, div_j82dgm]
 
-  # 省道 (territorial highways, class primary): dual carriageways threading district centres, so
+  # 领道 (territorial highways, class primary): dual carriageways threading district centres, so
   # that every district centre lies on a territorial route.
   - id: rte_p3w6nd
     ref: S-NV-101

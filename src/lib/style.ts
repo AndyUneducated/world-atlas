@@ -20,10 +20,10 @@ export const EMPTY_FC: FeatureCollection = { type: "FeatureCollection", features
 
 /** Road network values (GB/T 917 administrative grades) behind each road layer toggle. */
 export const ROAD_NETWORKS = {
-  nationalExpressway: ["national_expressway", "national_highway"],
+  nationalExpressway: ["national_expressway"],
   territorialExpressway: ["territorial_expressway"],
   territorialHighway: ["territorial_highway"],
-  cityRoads: ["municipal_road", "township_road"],
+  cityRoads: ["municipal_road"],
 };
 
 /** Population density class breaks, people per km². */

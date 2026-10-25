@@ -7,8 +7,8 @@ import { useAtlas, type LayerToggles } from "../../store";
 import { Switch } from "../Switch";
 
 const GROUPS: { title: StringKey; keys: (keyof LayerToggles)[]; cards?: boolean }[] = [
-  { title: "roads", keys: ["nationalExpressway", "territorialExpressway", "territorialHighway", "cityRoads"] },
-  { title: "transit", keys: ["railways", "metro"] },
+  { title: "roads", keys: ["nationalExpressway", "territorialExpressway", "territorialHighway", "cityRoads"], cards: true },
+  { title: "transit", keys: ["railways", "metro"], cards: true },
   { title: "mapDetails", keys: ["terrain", "landcover", "buildings", "boundaries", "choropleth"], cards: true },
 ];
 

@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { accentColor, pathLabel } from "../lib/entity";
 import { displayName, formatNumber, otherName, t, type StringKey } from "../lib/i18n";
 import { SearchIndex } from "../lib/search";
+import { ROAD_NETWORKS } from "../lib/style";
 import { hasShield } from "../lib/shields";
 import { RouteShield } from "./RouteShield";
 import type { Entity } from "../lib/types";
@@ -12,8 +13,11 @@ import { useAtlas } from "../store";
 import { Emblem, hasEmblem } from "./Emblem";
 import { EntityIcon } from "./EntityIcon";
 
-type ExploreGroup = "cities" | "national" | "territorial";
-const EXPLORE_TITLES: Record<ExploreGroup, StringKey> = { cities: "exploreCities", national: "exploreNational", territorial: "exploreTerritorial" };
+const ROAD_GROUPS = ["nationalExpressway", "territorialExpressway", "territorialHighway"] as const;
+type RoadGroup = (typeof ROAD_GROUPS)[number];
+type ExploreGroup = "cities" | RoadGroup;
+const EXPLORE_GROUPS: ExploreGroup[] = ["cities", ...ROAD_GROUPS];
+const EXPLORE_TITLES: Record<ExploreGroup, StringKey> = { cities: "exploreCities", nationalExpressway: "nationalExpressway", territorialExpressway: "territorialExpressway", territorialHighway: "territorialHighway" };
 const byRef = (a: Entity, b: Entity) => (a.ref ?? "").localeCompare(b.ref ?? "", "en", { numeric: true });
 
 function ExploreSection({ title, count, open, onToggle, children }: { title: string; count: number; open: boolean; onToggle: () => void; children: React.ReactNode }) {
@@ -60,18 +64,17 @@ export function SearchBox() {
     return data.manifest.regions.flatMap((r) => data.entities[r.id]?.children ?? []).map((id) => data.entities[id]).filter(Boolean);
   }, [data]);
   const routes = useMemo(() => {
-    const out: Record<"national" | "territorial", Entity[]> = { national: [], territorial: [] };
+    const out: Record<RoadGroup, Entity[]> = { nationalExpressway: [], territorialExpressway: [], territorialHighway: [] };
     if (!data) return out;
     for (const e of Object.values(data.entities)) {
       if (e.kind !== "route" || !e.bbox) continue;
-      if (e.network?.startsWith("national_")) out.national.push(e);
-      else if (e.network?.startsWith("territorial_")) out.territorial.push(e);
+      const g = ROAD_GROUPS.find((k) => (ROAD_NETWORKS[k] as readonly string[]).includes(e.network ?? ""));
+      if (g) out[g].push(e);
     }
-    out.national.sort(byRef);
-    out.territorial.sort(byRef);
+    for (const g of ROAD_GROUPS) out[g].sort(byRef);
     return out;
   }, [data]);
-  const [expanded, setExpanded] = useState<Record<ExploreGroup, boolean>>({ cities: true, national: false, territorial: false });
+  const [expanded, setExpanded] = useState<Record<ExploreGroup, boolean>>({ cities: true, nationalExpressway: false, territorialExpressway: false, territorialHighway: false });
   const selected = selectedId && data ? data.entities[selectedId] : undefined;
 
   useEffect(() => {
@@ -209,7 +212,7 @@ export function SearchBox() {
               ))}
             {showExplore && (
               <div className="p-1">
-                {(["cities", "national", "territorial"] as const).map((g) => {
+                {EXPLORE_GROUPS.map((g) => {
                   const items = g === "cities" ? cities : routes[g];
                   if (!items.length) return null;
                   return (
@@ -226,7 +229,7 @@ export function SearchBox() {
                               <Emblem entity={e} size={20} className="shrink-0" />
                             ) : (
                               <span className="flex w-9 shrink-0 justify-center">
-                                <RouteShield entity={e} height={g === "national" ? 20 : 22} />
+                                <RouteShield entity={e} height={g === "nationalExpressway" ? 20 : 22} />
                               </span>
                             )}
                             <span className="truncate">{displayName(e, lang)}</span>

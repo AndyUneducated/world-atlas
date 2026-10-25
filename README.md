@@ -57,8 +57,9 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
 - **Regions.** Each territory has one generator file, `world/generator/<region>.yaml`
   (`cn-nv`, `cn-vk`); its natural features live in `world/features/<region>-*.yaml` and are
   only matched and used for street names inside that region.
-- **Routes.** `G-NV-n` national, `S-NV-n` territorial, `X-NV-n` municipal and
-  `Y-NV-n` township roads (GB/T 917 numbering, with the territory infix: `NV`, `VK`). A route's
+- **Routes.** Four grades, the same in every territory: national expressways `G-NV-1…`,
+  territorial expressways `S-NV-1…`, territorial highways `S-NV-101…` and city roads
+  `X-NV-001…` (with the territory infix: `NV`, `VK`). A route's
   `via` lists cities or districts; `ring`, `straight` (straight legs, crossing hills and
   water on structures) and per-leg `legs` overrides shape the path. Territorial routes name
   a `shield` glyph for the upper half of their sign.

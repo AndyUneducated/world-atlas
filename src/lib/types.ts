@@ -76,7 +76,7 @@ export interface Entity {
   straight?: boolean;
   engineering?: Engineering;
   /** Limits along the route, km/h, highest first; null means no limit. */
-  speed?: { limits: (number | null)[]; advisory?: number | null };
+  speed?: { limits: (number | null)[] };
   tech?: RailTech;
 }
 

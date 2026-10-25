@@ -56,14 +56,14 @@ npm run data                                    # 重新生成地图
 | 列 | 英文列名 | 说明 |
 |---|---|---|
 | 编号、状态 | id、status | |
-| 编号牌 | ref | 按等级：`G-NV-1`、`G-NV-101`、`S-NV-1`、`S-NV-101`、`X-NV-001`、`Y-NV-001` |
-| 等级 | network | `national_expressway`、`national_highway`、`territorial_expressway`、`territorial_highway`、`municipal_road`、`township_road` |
+| 编号牌 | ref | 按等级：`G-NV-1`、`S-NV-1`、`S-NV-101`、`X-NV-001` |
+| 等级 | network | `national_expressway`（国家高速）、`territorial_expressway`（领地高速）、`territorial_highway`（领道）、`municipal_road`（市道） |
 | 道路类别 | class | 留空时按等级自动填写 |
 | 中文名 … 巴克汉姆语名 | name_zh … name_buckham | |
 | 途经 | via | 依次经过的市或区，用分号分隔，至少两个。经过市时走该市中心，经过区时走区中心 |
 | 环线、笔直、支线 | ring、straight、ends_at_network | 是/否。笔直的道路每段都是直线，遇山开隧道、遇水架桥；支线从第一个市出发，接入已有路网即止 |
 | 隧道成本 | tunnel_cost | 越小越倾向于打隧道穿山 |
-| 路牌图案 | shield | 省道（`S-NV-…`）必填，路牌上部的图案：`lighthouse`、`star`、`salmon`、`fir`、`waterfall`、`reindeer`、`swallow`、`sunrise`、`snowflake`、`peaks`、`wheat`、`compass` |
+| 路牌图案 | shield | 领地高速与领道（`S-NV-…`）必填，路牌上部的图案：`lighthouse`、`star`、`salmon`、`fir`、`waterfall`、`reindeer`、`swallow`、`sunrise`、`snowflake`、`peaks`、`wheat`、`compass` |
 | 中文简介、英文简介 | notes_zh、notes_en | |
 
 道路按文件中的顺序生成，新道路追加在最后，会避开已有道路的走廊。
@@ -105,4 +105,4 @@ npm run data                                    # 重新生成地图
 
 ## 示例
 
-`examples/` 下的文件都能通过校验，可以直接用 `--check` 试运行：在两个区之间调整人口、补一个巴克汉姆语名、新增一条领地公路、新增一座灯塔、新增一条铁路支线。
+`examples/` 下的文件都能通过校验，可以直接用 `--check` 试运行：在两个区之间调整人口、补一个巴克汉姆语名、新增一条领道、新增一座灯塔、新增一条铁路支线。

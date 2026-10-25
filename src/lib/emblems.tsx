@@ -294,7 +294,6 @@ export function withAlpha(hex: string, alpha: number) {
 /** Network colours for route emblems, after the GB 5768 sign scheme (red national, amber territorial). */
 export const ROUTE_COLORS: Record<string, string> = {
   national_expressway: "#E5484D",
-  national_highway: "#E5484D",
   territorial_expressway: "#F0A020",
   territorial_highway: "#F0A020",
   intercity_rail: "#5B6B8C",

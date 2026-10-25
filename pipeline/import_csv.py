@@ -38,11 +38,9 @@ STATUSES = ("canon", "draft", "generated")
 FEATURE_SUBTYPES = ("mountain_range", "ridge", "volcano", "river", "lake", *DETECT_KINDS)
 NETWORKS = {  # the infix is the territory's ISO 3166-2 suffix (NV, VK, …)
     "national_expressway": ("motorway", r"G-[A-Z]{2}-\d{1,2}"),
-    "national_highway": ("trunk", r"G-[A-Z]{2}-1\d{2}"),
     "territorial_expressway": ("motorway", r"S-[A-Z]{2}-\d{1,2}"),
     "territorial_highway": ("primary", r"S-[A-Z]{2}-[1-9]\d{2}"),
     "municipal_road": ("secondary", r"X-[A-Z]{2}-\d{3}"),
-    "township_road": ("tertiary", r"Y-[A-Z]{2}-\d{3}"),
 }
 BUILDING_SUBTYPES = ("government", "building", "civic", "office", "museum", "theatre", "library", "townhall",
                      "tower", "hospital", "marketplace", "exhibition_centre")
@@ -444,7 +442,7 @@ class Importer:
         if changes.get("ring") is True and isinstance(via, list) and len(via) < 3:
             self.problems.add(self.where(i, "ring"), "环线至少需要三个途经城市或区")
         if network in ("territorial_expressway", "territorial_highway") and not changes.get("shield", cur.get("shield")):
-            self.problems.add(self.where(i, "shield"), "省道必须指定路牌图案")
+            self.problems.add(self.where(i, "shield"), "领地高速与领道必须指定路牌图案")
 
     def check_railways(self, i, row, eid, is_new, changes, extras):
         via = changes.get("via")

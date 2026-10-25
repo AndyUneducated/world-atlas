@@ -12,7 +12,8 @@
 #   against recent Chinese and European projects. At-grade cost rises with the relief of the
 #   ground (hill_factor at 60 m of rise per km and above). climate scales everything for a
 #   subarctic island: frost-proof foundations, snow galleries, winter maintenance.
-# speed: limits by setting, km/h; null means no limit (advisory speed applies).
+# speed: each grade sets only a floor (min, km/h). Rural stretches have no limit; urban and
+#   mountain stretches are limited to the floor, so no posted limit is ever lower.
 #   urban: districts with at least urban_density people per km²
 #   mountain: stretches where bridges and tunnels make up at least mountain_structure_share
 climate: { construction: 1.10, upkeep: 1.30 }
@@ -32,7 +33,7 @@ standards:
     hill_factor: 1.6
     cost_musd_per_km: { grade: 16, bridge: 60, tunnel: 110 }
     upkeep_kusd_per_km: { grade: 120, bridge: 350, tunnel: 800 }
-    speed: { rural: null, advisory: 130, urban: 120, mountain: 120 }
+    speed: { min: 140 }
   territorial_expressway:
     lanes: 4
     smooth_km: 3
@@ -44,8 +45,8 @@ standards:
     hill_factor: 1.6
     cost_musd_per_km: { grade: 14, bridge: 50, tunnel: 95 }
     upkeep_kusd_per_km: { grade: 100, bridge: 300, tunnel: 700 }
-    speed: { rural: null, advisory: 130, urban: 140, mountain: 140 }
-  # 省道: dual carriageways (一级公路) with grade-separated main junctions.
+    speed: { min: 140 }
+  # 领道: dual carriageways (一级公路) with grade-separated main junctions.
   territorial_highway:
     lanes: 4
     smooth_km: 2
@@ -56,7 +57,7 @@ standards:
     hill_factor: 1.5
     cost_musd_per_km: { grade: 7, bridge: 30, tunnel: 60 }
     upkeep_kusd_per_km: { grade: 50, bridge: 200, tunnel: 500 }
-    speed: { rural: null, advisory: 120, urban: 140, mountain: 140 }
+    speed: { min: 120 }
   municipal_road:
     lanes: 2
     smooth_km: 1.5
@@ -67,7 +68,7 @@ standards:
     hill_factor: 1.4
     cost_musd_per_km: { grade: 3, bridge: 18, tunnel: 40 }
     upkeep_kusd_per_km: { grade: 25, bridge: 120, tunnel: 350 }
-    speed: { rural: null, advisory: 100, urban: 80, mountain: 100 }
+    speed: { min: 100 }
   # Double-track high-speed line, 25 kV, slab track; stations are costed per stop.
   intercity_rail:
     smooth_km: 8

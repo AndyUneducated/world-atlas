@@ -92,8 +92,7 @@ function speedStat(speed: NonNullable<Entity["speed"]>, lang: Lang) {
   const label = t("speedLimit", lang);
   const tagged = (tag: string, v: number) => (lang === "zh" ? `${tag} ${v}` : `${v} ${tag}`);
   if (speed.limits.includes(null)) {
-    const unit = nums.length ? tagged(t("inPlaces", lang), Math.min(...nums)) : speed.advisory ? tagged(t("advisory", lang), speed.advisory) : undefined;
-    return { label, value: t("noLimit", lang), unit };
+    return { label, value: t("noLimit", lang), unit: nums.length ? tagged(t("inPlaces", lang), Math.min(...nums)) : undefined };
   }
   const [lo, hi] = [Math.min(...nums), Math.max(...nums)];
   return { label, value: lo === hi ? String(lo) : `${lo}–${hi}`, unit: "km/h" };

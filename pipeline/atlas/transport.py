@@ -99,6 +99,51 @@ class Router:
             if ref is not None:
                 self.owner.setdefault(c, ref)
 
+    def nearest(self, c: int, cells, max_dist: float) -> int | None:
+        """The cell of `cells` closest to c, if within max_dist (grid units)."""
+        cells = np.fromiter(cells, int)
+        if not len(cells):
+            return None
+        cy, cx = divmod(c, self.nx)
+        ys, xs = np.divmod(cells, self.nx)
+        d = np.hypot(ys - cy, xs - cx) * self.res
+        i = int(np.argmin(d))
+        return int(cells[i]) if d[i] <= max_dist else None
+
+    def route_to_any(self, start: int, targets: set[int], max_dist: float, blocked: set[int] = frozenset(),
+                     tunnel_cost: float | None = None) -> list[int] | None:
+        """Cheapest path from start to whichever of `targets` it reaches first, searching only within
+        max_dist (grid units, straight line) of start and never through `blocked`; None if out of reach."""
+        nx, ny = self.nx, self.ny
+        sy, sx = divmod(start, nx)
+        reach = max_dist / self.res
+        cost, base = self.cost, self.base
+        step_cost = (lambda i: min(cost[i], tunnel_cost) if base[i] < 40 else cost[i]) if tunnel_cost is not None else cost.__getitem__
+        dist, prev = {start: 0.0}, {}
+        heap = [(0.0, start)]
+        while heap:
+            d, c = heapq.heappop(heap)
+            if c in targets:
+                path = [c]
+                while c != start:
+                    c = prev[c]
+                    path.append(c)
+                return path[::-1]
+            if d > dist[c]:
+                continue
+            cy, cx = divmod(c, nx)
+            for dy, dx, step in NB8:
+                y, x = cy + dy, cx + dx
+                n = y * nx + x
+                if not (0 <= y < ny and 0 <= x < nx) or n in blocked or math.hypot(y - sy, x - sx) > reach:
+                    continue
+                nd = d + step * 0.5 * (step_cost(c) + step_cost(n))
+                if nd < dist.get(n, 1e30):
+                    dist[n] = nd
+                    prev[n] = c
+                    heapq.heappush(heap, (nd, n))
+        return None
+
     def trim_to_network(self, path: list[int]) -> list[int]:
         """Cut a feeder path at the first cell already on the network."""
         for i, c in enumerate(path):

@@ -8,7 +8,7 @@ alwaysApply: true
 The owner is the only user and never shares links, so no number is kept for old links.
 
 - Route numbers (`G-NV-1`, `S-NV-101`), division codes (`900101`) and metro line numbers always run in order with no gaps.
-- Each grade has its own series: expressways from 1, highways from 101 (`G-NV-101…`, `S-NV-101…`).
+- Each grade has its own series: expressways from 1 (`G-NV-1…`, `S-NV-1…`), territorial highways from 101 (`S-NV-101…`), city roads from 001 (`X-NV-001…`).
 - When something is added, removed, merged or regraded, renumber so the sequence closes up; freed numbers are reused.
 - Never retire a number or keep a "retired" registry.
 

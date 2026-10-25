@@ -20,7 +20,7 @@ routes:
     straight: true
     via: [div_qjzmw5, div_3cvg2q, div_x22naa]
 
-  # 省道 (territorial highways, class primary): every district centre lies on one.
+  # 领道 (territorial highways, class primary): every district centre lies on one.
   - id: rte_cx8xa1
     ref: S-VK-101
     network: territorial_highway

@@ -138,17 +138,15 @@ def _round_money(v: float) -> int:
 
 
 def segment_speed(p: Profile, std: dict, i0: int, i1: int, density: float, rules: dict) -> int | None:
-    """Speed limit of one stretch, km/h; None for no limit."""
+    """Speed limit of one stretch, km/h: the grade's floor in towns and mountains, else None (no limit)."""
     total, bridge, tunnel = structure_km(p, std, i0, i1)
-    sp = std["speed"]
     if density >= rules["urban_density"]:
-        return sp["urban"]
+        return std["speed"]["min"]
     if total > 0 and (bridge + tunnel) / total >= rules["mountain_structure_share"]:
-        return sp["mountain"]
-    return sp["rural"]
+        return std["speed"]["min"]
+    return None
 
 
-def speed_summary(limits: list[int | None], std: dict) -> dict:
+def speed_summary(limits: list[int | None]) -> dict:
     """Card summary: the limits that apply along the route, highest first; None (no limit) leads."""
-    seen = sorted(set(limits), key=lambda v: -1 if v is None else -v)
-    return {"limits": seen, "advisory": std["speed"].get("advisory")}
+    return {"limits": sorted(set(limits), key=lambda v: -1 if v is None else -v)}
