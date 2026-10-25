@@ -327,8 +327,8 @@ places:
       art-x-viking: Strandresort Südstern
       art-x-buckham: Resort di Spiaggia di Stellasud
     notes:
-      zh: 群岛最南端的海滨度假村，夏季白夜里可在沙滩上看午夜的落日
-      en: The beach resort at the southern end of the islands, where on summer white nights guests watch the midnight sunset from the sand.
+      zh: 群岛最南端的海滨度假村，夏季日落很晚，晚上十点仍可在沙滩上看落日
+      en: The beach resort at the southern end of the islands; summer sunsets come late, and guests still watch them from the sand at ten in the evening.
     in: div_ht5w2y
     offset_km: [0.4, 0.4]
     site: { layout: park, size_m: [600, 400] }
