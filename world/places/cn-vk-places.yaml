@@ -232,3 +232,61 @@ places:
     in: div_5p2a2d
     offset_km: [0.6, 0.5]
     site: { layout: park, size_m: [800, 600] }
+
+  # ── 外岛渡口 ──
+  - id: poi_khwt70
+    subtype: ferry_terminal
+    status: generated
+    names:
+      zh: 南星渡轮码头
+      en: Southstar Ferry Terminal
+      art-x-viking: Fährterminal Südstern
+      art-x-buckham: Terminal Traghetti di Stellasud
+    notes:
+      zh: 南星岛北岸的渡口，渡轮往返白帆岛盐湾，南星公路从镇上翻过全岛到这里
+      en: The ferry landing on the north shore of Southstar Island, with ferries to Saltbay on White Sail Island; the Southstar Road crosses the island from the town to here.
+    in: div_ht5w2y
+    offset_km: [-9.9, 61.5]
+    site: { size_m: [500, 260], layout: port }
+  - id: poi_jvgsbc
+    subtype: ferry_terminal
+    status: generated
+    names:
+      zh: 晨光渡轮码头
+      en: Dawnlight Ferry Terminal
+      art-x-viking: Fährterminal Morgenlicht
+      art-x-buckham: Terminal Traghetti di Aurora
+    notes:
+      zh: 晨光岛西岸的渡口，渡轮往返白帆灯塔区
+      en: The ferry landing on the west shore of Dawnlight Island, with ferries to the Lighthouse District of White Sail.
+    in: div_f07nky
+    offset_km: [-47.4, 14.8]
+    site: { size_m: [500, 260], layout: port }
+  - id: poi_bw56b6
+    subtype: ferry_terminal
+    status: generated
+    names:
+      zh: 鳕港渡轮码头
+      en: Codhaven Ferry Terminal
+      art-x-viking: Fährterminal Dorschhafen
+      art-x-buckham: Terminal Traghetti di Portomerluzzo
+    notes:
+      zh: 鳕岛东岸的渡口，渡轮往返锚岛松林
+      en: The ferry landing on the east shore of Cod Island, with ferries to Pinewood on Anchor Island.
+    in: div_7pf4qf
+    offset_km: [65.8, 17.7]
+    site: { size_m: [500, 260], layout: port }
+  - id: poi_p3cv8y
+    subtype: port
+    status: generated
+    names:
+      zh: 风港风电运维港
+      en: Windhaven Wind Service Port
+      art-x-viking: Windpark-Servicehafen Windhafen
+      art-x-buckham: Porto di Servizio Eolico di Portovento
+    notes:
+      zh: 风岛南岸的运维港，海上风电场的运维船与往返白帆的渡轮在此停靠
+      en: The service port on the south shore of Wind Isle, used by the offshore wind farm's service vessels and the ferries to White Sail.
+    in: div_72h3ge
+    offset_km: [5.7, -41.7]
+    site: { size_m: [700, 300], layout: port }

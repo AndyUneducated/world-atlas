@@ -123,8 +123,8 @@ class World:
         refs: dict[str, str] = {}
         for rid, r in self.routes.items():
             for v in r.get("via", []):
-                if v not in self.divisions:
-                    errors.append(f"{rid}: via {v} is not a division")
+                if v not in self.divisions and not self.places.get(v, {}).get("site"):
+                    errors.append(f"{rid}: via {v} is not a division or a place with a site")
             if r["ref"] in refs:
                 errors.append(f"{rid}: route number {r['ref']} already used by {refs[r['ref']]}")
             refs[r["ref"]] = rid
@@ -184,6 +184,18 @@ class World:
             speed = r.get("tech", {}).get("operating_speed_kmh")
             if speed is not None and not (isinstance(speed, int) and 160 <= speed <= 400):
                 errors.append(f"{rid}: tech.operating_speed_kmh must be a whole number of km/h, 160–400")
+        territories = {g["territory"] for g in self.generators}
+        for rid, r in [*self.routes.items(), *self.railways.items()]:
+            if "crossing" not in r:
+                continue
+            portals = r["crossing"]
+            if not (isinstance(portals, dict) and len(portals) == 2 and set(portals) <= territories
+                    and all(isinstance(p, list) and len(p) == 2 for p in portals.values())):
+                errors.append(f"{rid}: crossing must give a portal [x, y] (design km) in each of two generated territories")
+                continue
+            home = [next((t for t in portals if t == v or t in self.ancestors(self.places.get(v, {}).get("in", v))), None) for v in r["via"]]
+            if None in home or sum(a != b for a, b in zip(home, home[1:])) != 1:
+                errors.append(f"{rid}: via must run through one crossing territory, then the other")
         for gen in self.generators:
             layout = gen.get("layout", {})
             for c in self.children(gen.get("territory", "")):

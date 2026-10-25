@@ -6,11 +6,13 @@ import type { Entity } from "./types";
  * National routes follow the mainland-China expressway sign: a green plate under a red header,
  * with the territory code in the header where the sign would carry Chinese text. Territorial
  * routes follow the British Columbia highway shield: the route's own symbol in a dark crest
- * above the number.
+ * above the number. The Viking Islands' territorial routes have their own maritime shield: an
+ * oval, sea-blue above a wave line, with the route's sea symbol over the number.
  */
 const FONT = "'Bahnschrift', 'DIN Alternate', 'Roboto Condensed', 'Segoe UI', Arial, sans-serif";
 const NATIONAL = { plate: "#00753A", header: "#D7261E", edge: "#ffffff", text: "#ffffff" };
 const TERRITORIAL = { crest: "#1D3557", body: "#ffffff", text: "#1D3557" };
+const MARITIME = { sea: "#0B5C99", foam: "#5BB8E8", body: "#ffffff", text: "#0B5C99" };
 
 export interface Shield {
   canvas: HTMLCanvasElement;
@@ -131,10 +133,55 @@ function territorial(number: string, glyph: string | undefined, ratio: number): 
   return { canvas: c, width: w, height: h, ratio };
 }
 
+function maritime(number: string, glyph: string | undefined, ratio: number): Shield {
+  const font = `700 ${number.length > 2 ? 9.6 : 10.8}px ${FONT}`;
+  const h = 28;
+  const w = Math.max(26, Math.ceil(textWidth(number, font)) + 12);
+  const { c, ctx } = canvas(w, h, ratio);
+  const shape = new Path2D();
+  shape.ellipse(w / 2, h / 2, w / 2 - 1, h / 2 - 1, 0, 0, Math.PI * 2);
+  ctx.fillStyle = MARITIME.body;
+  ctx.fill(shape);
+  const sea = h * 0.5;
+  const wave = (y: number) => {
+    const p = new Path2D();
+    p.moveTo(0, y);
+    for (let k = 0; k < 3; k++) {
+      const x = (w / 3) * k;
+      p.quadraticCurveTo(x + w / 12, y - 1.6, x + w / 6, y);
+      p.quadraticCurveTo(x + w / 4, y + 1.6, x + w / 3, y);
+    }
+    return p;
+  };
+  ctx.save();
+  ctx.clip(shape);
+  const top = wave(sea);
+  top.lineTo(w, 0);
+  top.lineTo(0, 0);
+  top.closePath();
+  ctx.fillStyle = MARITIME.sea;
+  ctx.fill(top);
+  ctx.strokeStyle = MARITIME.foam;
+  ctx.lineWidth = 1.1;
+  ctx.stroke(wave(sea + 2.2));
+  ctx.restore();
+  ctx.strokeStyle = MARITIME.sea;
+  ctx.lineWidth = 1.4;
+  ctx.stroke(shape);
+  if (glyph) drawGlyph(ctx, glyph, w / 2, h * 0.27, h * 0.36, "#ffffff");
+  ctx.fillStyle = MARITIME.text;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.font = font;
+  ctx.fillText(number, w / 2, h * 0.73);
+  return { canvas: c, width: w, height: h, ratio };
+}
+
 export function drawShield(route: Entity, ratio = 2): Shield | null {
   const p = route.ref ? parseRef(route.ref) : null;
   if (!p) return null;
-  return route.network?.startsWith("national_") ? national(p.series, p.region, p.number, ratio) : territorial(p.number, route.shield, ratio);
+  if (route.network?.startsWith("national_")) return national(p.series, p.region, p.number, ratio);
+  return (p.region === "VK" ? maritime : territorial)(p.number, route.shield, ratio);
 }
 
 /** Map style image id of a route's shield; resolved on demand by MapView. */

@@ -32,7 +32,7 @@ from atlas.grid import Frame, Grid, block_reduce, chaikin, line_length_km, polyl
 from atlas.hydro import Drainage  # noqa: E402
 from atlas.noise import value_noise  # noqa: E402
 from atlas.terrain import drainage_surface, elevation, land_mask  # noqa: E402
-from atlas.network import ROAD_RANK, build_graph  # noqa: E402
+from atlas.network import ROAD_RANK, SPEED_KMH, build_graph  # noqa: E402
 from atlas.transport import Router  # noqa: E402
 from atlas.vectorize import point_lonlat, polygonize_labels, to_lonlat  # noqa: E402
 from atlas.world import COASTAL_LAYOUTS, FACILITY_LAYOUTS, ROOT, World  # noqa: E402
@@ -352,6 +352,13 @@ def sea_coast(land):
     return shapely.MultiLineString([p.exterior for p in getattr(land, "geoms", [land])])
 
 
+def seaward(land, q: Point, r=0.4) -> float | None:
+    """Direction (radians, east = 0) from the shore point q out to sea, or None inland."""
+    t = np.linspace(0, 2 * np.pi, 32, endpoint=False)
+    wet = ~shapely.contains_xy(land, q.x + r * np.cos(t), q.y + r * np.sin(t))
+    return math.atan2(np.sin(t[wet]).sum(), np.cos(t[wet]).sum()) if wet.any() else None
+
+
 def fit_site(cfg, centre, a, size, land, coast, seed, pid, built_sites):
     """Site outline and parts placed at `centre` (real km), then fitted to the shore: a port or
     harbour moves to the nearest sea coast within SITE_SNAP_KM, and a facility steps inland until it
@@ -367,7 +374,11 @@ def fit_site(cfg, centre, a, size, land, coast, seed, pid, built_sites):
     p = Point(centre)
     if layout in COASTAL_LAYOUTS:
         q = nearest_points(coast, p)[0]
-        return build((q.x, q.y) if q.distance(p) <= SITE_SNAP_KM else centre)
+        if q.distance(p) > SITE_SNAP_KM:
+            return build(centre)
+        if "angle_deg" not in cfg and (out := seaward(land, q)) is not None:
+            a = out - math.pi / 2  # the layout's +y faces the sea
+        return build((q.x, q.y))
     site, parts = build(centre)
     if layout == "offshore_port":
         to = built_sites.get(cfg.get("bridge_to"))
@@ -582,17 +593,113 @@ def through(line: LineString, p: Point) -> LineString:
     return LineString([*cs, p.coords[0]])
 
 
-def route_railways(world: World, router: Router, poles, stop_index: dict) -> list:
+PORTAL = "portal"
+
+
+def stops_here(r: dict, territory: str, is_stop) -> list | None:
+    """The stops of route or railway r built in this territory: all its via, or for a line crossing
+    to another territory (r["crossing"]: tunnel portal per territory) the stops here plus PORTAL on
+    the side facing the other territory. None if the line is not built here."""
+    if "crossing" not in r:
+        return r["via"] if all(is_stop(v) for v in r["via"]) else None
+    here = [v for v in r["via"] if is_stop(v)]
+    if territory not in r["crossing"] or not here:
+        return None
+    return here + [PORTAL] if is_stop(r["via"][0]) else [PORTAL] + here
+
+
+def land_cell(land: np.ndarray, res: float, x: float, y: float) -> int:
+    """Index of the land cell of a coarse grid nearest the point (x, y), design km."""
+    iy, ix = np.nonzero(land)
+    k = int(np.argmin((ix + 0.5 - x / res) ** 2 + (iy + 0.5 - y / res) ** 2))
+    return int(iy[k] * land.shape[1] + ix[k])
+
+
+def cross_part(ent: dict, territory: str, via: list, path: list[int], router: Router, frame: Frame) -> dict:
+    """A fresh record, filed under ent["_parts"], for this territory's part of a crossing line; its
+    portal end (lon/lat) is where the tunnel to the other territory's part begins."""
+    first = via[-1] == PORTAL
+    end = path[-1] if first else path[0]
+    part = {"territory": territory, "first": first, "portal": [round(float(v), 5) for v in frame.to_lonlat(np.asarray(router.xy(end)))]}
+    ent.setdefault("_parts", []).append(part)
+    return part
+
+
+def merge_crossings(world: World, entities: dict, layers: dict, graph: dict):
+    """Join the two territory parts of each crossing line through its straight undersea tunnel: one
+    entity (length, sections, cost, stations), the tunnel on the map, and a tunnel edge in the road graph."""
+    standards, climate = world.engineering.get("standards", {}), world.engineering.get("climate", {})
+    frames = {s["territory"]: Frame(s["frame"]["origin_lonlat"], s["frame"]["size_km"], s["frame"].get("scale", 1.0)) for s in world.generators}
+    for r in [*world.routes.values(), *world.railways.values()]:
+        if "crossing" not in r:
+            continue
+        ent = entities[r["id"]]
+        parts = ent.pop("_parts", [])
+        if len(parts) != 2:
+            log(f"  WARN {r['names']['zh']}: built in {len(parts)} of the 2 territories it crosses")
+            continue
+        a, b = sorted(parts, key=lambda p: not p["first"])
+        f = frames[a["territory"]]
+        (ax, bx), (ay, by) = f.from_lonlat([a["portal"][0], b["portal"][0]], [a["portal"][1], b["portal"][1]])
+        km = float(math.hypot(bx - ax, by - ay) * f.scale)
+        tunnel = LineString([a["portal"], b["portal"]])
+        names = {"name_zh": r["names"]["zh"], "name_en": r["names"]["en"]}
+        if r["id"] in world.railways:
+            layers["rail"] += [feature(tunnel, {"network": r["network"], "role": "track", "tunnel": True}),
+                               feature(tunnel, {"id": r["id"], "role": "line", "network": r["network"], "color": r.get("color"), "tunnel": True, **names})]
+        else:
+            layers["roads"].append(feature(tunnel, {"id": r["id"], "ref": r["ref"], "class": r["class"], "network": r["network"], "tunnel": True, **names}))
+        std = standards.get(r["network"], {})
+        a_km = a["stats"]["length_km"]
+        ent.update({k: a[k] for k in ("kind", "class", "tech") if k in a})
+        ent.update({
+            "bbox": [min(a["bbox"][0], b["bbox"][0]), min(a["bbox"][1], b["bbox"][1]), max(a["bbox"][2], b["bbox"][2]), max(a["bbox"][3], b["bbox"][3])],
+            "center": list(tunnel.interpolate(0.5, normalized=True).coords[0]),
+            "ancestors": world.ancestors(a["territory"]),
+            "territories": [a["territory"], b["territory"]],
+            "stats": {"length_km": round(a_km + km + b["stats"]["length_km"], 1), "undersea_tunnel_km": round(km, 1)},
+        })
+        if "via" in a:
+            ent["via"] = a["via"] + b["via"]
+        if "segments" in a:
+            under = {"division": None, "from_km": round(a_km, 1), "km": round(km, 1), "bbox": bbox_lonlat(tunnel),
+                     "line": [[round(x, 4), round(y, 4)] for x, y in tunnel.coords]}
+            if "speed" in std:
+                under["speed_kmh"] = std["speed"]["min"]
+            ent["segments"] = a["segments"] + [under] + [{**sg, "from_km": round(sg["from_km"] + a_km + km, 1)} for sg in b["segments"]]
+        if "speed" in a:
+            ent["speed"] = engineering.speed_summary([sg.get("speed_kmh") for sg in ent["segments"]])
+        if "engineering" in a:
+            ea, eb = a["engineering"], b["engineering"]
+            merged = {k: ea.get(k, 0) + eb.get(k, 0) for k in ea.keys() | eb.keys()}
+            c, u = std["cost_musd_per_km"], std["upkeep_kusd_per_km"]
+            merged["length_km"] = round(merged["length_km"] + km, 1)
+            merged["tunnel_km"] = round(merged["tunnel_km"] + km, 1)
+            merged["bridge_km"] = round(merged["bridge_km"], 1)
+            merged["construction_usd"] = engineering.round_money(merged["construction_usd"] + km * c["tunnel"] * 1e6 * climate.get("construction", 1))
+            merged["upkeep_usd_per_year"] = engineering.round_money(merged["upkeep_usd_per_year"] + km * u["tunnel"] * 1e3 * climate.get("upkeep", 1))
+            ent["engineering"] = merged
+        ends = [graph["places"].pop(f"{PORTAL}:{p['territory']}:{r['id']}", None) for p in (a, b)]
+        if None not in ends:
+            graph["edges"].append([ends[0], ends[1], round(km, 2), round(km / SPEED_KMH[r["class"]] * 60, 2), graph["roads"].index(r["id"]),
+                                   [a["portal"], b["portal"]]])
+        log(f"  {r.get('ref', r['names']['zh'])}: {km:.0f} km undersea tunnel between {entities[a['territory']]['names']['zh']} "
+            f"and {entities[b['territory']]['names']['zh']}, {ent['stats']['length_km']:.0f} km in all")
+
+
+def route_railways(world: World, router: Router, poles, stop_index: dict, territory: str, land: np.ndarray) -> list:
     """Route each railway between its stops, [(railway, stop district indices, path)]. Later lines run on
     the track of earlier ones wherever that is cheaper than new track."""
     out = []
     for r in world.railways.values():
-        if not all(v in stop_index for v in r["via"]):
+        via = stops_here(r, territory, lambda v: v in stop_index)
+        if not via:
             continue
-        stops = [stop_index[v] for v in r["via"]]
+        stops = [stop_index[v] for v in via if v != PORTAL]
+        cells = [land_cell(land, router.res, *r["crossing"][territory]) if v == PORTAL else router.cell(*poles[stop_index[v]]) for v in via]
         path = []
-        for a, b in zip(stops[:-1], stops[1:]):
-            leg = router.route(router.cell(*poles[a]), router.cell(*poles[b]), r.get("tunnel_cost", 2.5))
+        for a, b in zip(cells[:-1], cells[1:]):
+            leg = router.route(a, b, r.get("tunnel_cost", 2.5))
             path += leg if not path else leg[1:]
         router.commit(path, "rail", discount=0.45, ref=r["id"])
         out.append((r, stops, path))
@@ -977,23 +1084,33 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     node = [router.cell(*poles[core[ci]]) for ci in range(len(cities))]
     district_index = {d["id"]: i for i, d in enumerate(districts)}
 
+    def dry_centre(site):  # a ferry pier half out at sea is reached on its landward side
+        dry = site.intersection(land_real)
+        c = (site if dry.is_empty else dry).centroid
+        return (c.x / s, c.y / s)
+
+    place_at = {pid: dry_centre(site) for pid, site, _, _ in all_sites}
+
     def stop_cell(v):  # a city stops at its core, a district at its own centre
+        if v in place_at:
+            return router.cell(*place_at[v])
         return node[city_index[v]] if v in city_index else router.cell(*poles[district_index[v]])
 
-    road_out = []
-    routes = sorted(
-        (r for r in world.routes.values() if all(v in city_index or v in district_index for v in r["via"])),
-        key=lambda r: (ROAD_RANK[r["class"]], r["ref"]),
-    )
+    road_out, road_via = [], {}
+    road_stop = lambda v: v in city_index or v in district_index or v in place_at
+    routes = sorted((r for r in world.routes.values() if stops_here(r, territory["id"], road_stop)), key=lambda r: (ROAD_RANK[r["class"]], r["ref"]))
     for r in routes:
-        via = r["via"] + r["via"][:1] if r.get("ring") else r["via"]
+        via = stops_here(r, territory["id"], road_stop)
+        via = via + via[:1] if r.get("ring") else via
+        road_via[r["id"]] = via
+        cells = [land_cell(land_r, gr.res, *r["crossing"][territory["id"]]) if v == PORTAL else stop_cell(v) for v in via]
         path = []
-        for a, b in zip(via[:-1], via[1:]):
+        for (a, b), (ca, cb) in zip(zip(via[:-1], via[1:]), zip(cells[:-1], cells[1:])):
             if r.get("straight"):
-                leg = router.straight(stop_cell(a), stop_cell(b))
+                leg = router.straight(ca, cb)
             else:
                 tunnel_cost = r.get("legs", {}).get(b, {}).get("tunnel_cost", r.get("tunnel_cost"))
-                leg = router.route(stop_cell(a), stop_cell(b), tunnel_cost, ref=r["ref"])
+                leg = router.route(ca, cb, tunnel_cost, ref=r["ref"])
             path += leg if not path else leg[1:]
         if r.get("ends_at_network"):
             path = router.trim_to_network(path)
@@ -1031,14 +1148,19 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
         ref = r["ref"]
         foreign = {c for c in router.used if router.owner.get(c) != ref}
         motorway = {c for c in foreign if router.used[c] == "motorway"}
+        # another route passing through the end meets it there, even where this route owns the cell
+        passing = {c for j, (r2, p2) in enumerate(road_out) if j != k for c in p2}
+        passing_mw = {c for j, (r2, p2) in enumerate(road_out) if j != k and r2["class"] == "motorway" for c in p2}
         own = set(path)
         for at_start in (True, False):
+            if road_via.get(r["id"], [None])[0 if at_start else -1] == PORTAL:
+                continue  # the route goes on through the tunnel
             end = path[0] if at_start else path[-1]
             leg = None
             for targets, reach_km in ((motorway, JOIN_MOTORWAY_KM), (foreign, JOIN_ROAD_KM)):
                 if targets is motorway and r["class"] != "motorway":
                     continue
-                if end in targets:
+                if end in targets or end in (passing_mw if targets is motorway else passing):
                     break
                 reach = reach_km / frame.scale + router.res
                 if r.get("straight"):
@@ -1069,7 +1191,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     log("routing railways")
     rail_router = Router(elev_r, land_r & ~water_r, gr.res, slope_weight=150)
     stop_index = {**district_index, **{c["id"]: core[ci] for ci, c in enumerate(cities)}}
-    rail_out = route_railways(world, rail_router, poles, stop_index)
+    rail_out = route_railways(world, rail_router, poles, stop_index, territory["id"], land_r & ~water_r)
     rail_xy = lambda cells: np.array([rail_router.xy(c) for c in cells])
     rail_tracks = [smooth_line(rail_xy(run), 0.35, 4) for r, _, path in rail_out for run in owned_runs(path, r["id"], rail_router.owner)]
     track_union = shapely.union_all(rail_tracks) if rail_tracks else None
@@ -1077,7 +1199,7 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     rail_lines = []
     for r, stops, path in rail_out:
         ids = []
-        for v, i in zip(r["via"], stops):
+        for v, i in zip([v for v in r["via"] if v in stop_index], stops):
             sid = derived_id("poi", f"rail:{districts[i]['id']}")
             if sid not in stations:
                 ci = district_city[i]
@@ -1293,6 +1415,8 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
             "name_zh": r["names"]["zh"], "name_en": r["names"]["en"]}))
         longest = max(lines, key=lambda ln: ln.length)
         ent = entities.setdefault(r["id"], {**r, "source": "generated:feeder-roads"})
+        if "crossing" in r:  # this territory's part, joined to the other's through the tunnel by merge_crossings
+            ent = cross_part(ent, territory["id"], road_via[r["id"]], path, router, frame)
         ent.update({"kind": "route", "bbox": bbox_lonlat(geom), "ancestors": in_territory,
                     "center": list(point_lonlat(frame, *longest.interpolate(0.5, normalized=True).coords[0]).coords[0]),
                     "stats": {"length_km": round(frame.km(sum(line_length_km(ln.coords) for ln in lines)), 1)}})
@@ -1363,6 +1487,8 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     rail_paths = {r["id"]: path for r, _, path in rail_out}
     for r, full, ids in rail_lines:
         ent = entities[r["id"]]
+        if "crossing" in r:
+            ent = cross_part(ent, territory["id"], stops_here(r, territory["id"], lambda v: v in stop_index), rail_paths[r["id"]], rail_router, frame)
         ent.update({"class": "rail", "via": ids, **add_line(r["id"], full, {"network": r["network"], "color": r.get("color"),
                                                                         "name_zh": r["names"]["zh"], "name_en": r["names"]["en"]})})
         if rail_std:
@@ -1398,6 +1524,8 @@ def build_region(world: World, spec: dict, entities: dict, layers: dict, graph: 
     terminals = {c["id"]: node[ci] for ci, c in enumerate(cities)}
     terminals.update({d["id"]: node[district_city[i]] if i == core[district_city[i]] else router.cell(*poles[i])
                       for i, d in enumerate(districts)})
+    terminals.update({f"{PORTAL}:{territory['id']}:{r['id']}": path[-1] if road_via[r["id"]][-1] == PORTAL else path[0]
+                      for r, path in road_out if PORTAL in road_via.get(r["id"], ())})
     node_cells, edges, places = build_graph(
         [(ri, r["class"], path) for ri, (r, path) in enumerate(road_out)], terminals, router.nx, frame.km(router.res))
 
@@ -1559,6 +1687,7 @@ def main():
     layers = {k: [] for k in ("divisions", "labels", "places", "landcover", "water", "coast", "glaciers", "rivers", "rivers-named", "ridges", "roads", "streets", "streets-named", "buildings", "parks", "landmarks", "rail", "stations", "bathymetry", "context")}
     graph = {"nodes": [], "edges": [], "roads": [], "places": {}}
     regions = [build_region(world, spec, entities, layers, graph, not args.fresh) for spec in world.generators]
+    merge_crossings(world, entities, layers, graph)
     dem_bounds = [f(r["frame_bounds"][i] for r in regions) for i, f in enumerate((min, min, max, max))]
     log(f"  {fill_sea_tiles(OUT / 'dem', dem_bounds)} open-water terrain tiles")
     for name, feats in layers.items():

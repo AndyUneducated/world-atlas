@@ -1,9 +1,15 @@
 # Road routes of the Viking Islands. Same conventions as cn-nv-roads.yaml, with the
 # territory infix VK:
-#   G-VK-1..99    national expressway    (class motorway)
-#   S-VK-101..    territorial highway    (class primary)
-#   X-VK-001..    municipal road         (class secondary, derived)
+#   G-VK-1..99    国家高速 national expressway    (class motorway)
+#   S-VK-1..99    领地高速 territorial expressway (class motorway)
+#   S-VK-101..    领道 territorial highway        (class primary)
+#   X-VK-001..    市道 city road                  (class secondary, derived)
+# via entries may also be places with a site (e.g. a ferry terminal): the route stops at the
+# landward side of the site.
+# shield (territorial routes): sea-themed symbol on the Viking Islands' oval shield.
 routes:
+  # 国家高速: the trunk along the main-island chain, sea crossings between the main islands and
+  # spines inside them.
   - id: rte_6mvf59
     ref: G-VK-1
     network: national_expressway
@@ -15,25 +21,221 @@ routes:
       art-x-viking: Inselkettenautobahn
       art-x-buckham: Autostrada delle Isole
     notes:
-      zh: 自暖泉经长船到白帆，一条直线串起三座主岛，海峡上架桥、遇山开隧道
-      en: From Warmspring through Longship to White Sail, one straight line linking the three main islands, bridging the straits and tunnelling through the hills.
-    straight: true
-    via: [div_qjzmw5, div_3cvg2q, div_x22naa]
+      zh: 群岛的主干高速，自暖泉岛西岸的岩港横贯暖泉岛，跨海到长船岛船尾的舵港，再沿龙骨山东南麓直到长船
+      en: The trunk expressway of the islands, from Rockhaven on the west coast of Warmspring Island across the island, over the sea to Rudderhaven at Longship Island's stern, then along the south-east foot of the Keel Hills to Longship.
+    tunnel_cost: 3.5
+    via: [div_6930nk, div_qjzmw5, div_er5g6j, div_33vctd, div_3cvg2q]
+  - id: rte_1htwsa
+    ref: G-VK-2
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 长白跨海高速
+      en: Longship–White Sail Sea Crossing
+      art-x-viking: Meeresautobahn Langskip–Weißsegel
+      art-x-buckham: Autostrada sul Mare Navelunga–Velabianca
+    notes:
+      zh: 以跨海大桥横越白帆海峡，连接首府长船与白帆
+      en: Spans White Sail Strait on a sea bridge, linking the capital Longship with White Sail.
+    via: [div_3cvg2q, div_x22naa]
+  - id: rte_zxcxr7
+    ref: G-VK-3
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 锚岛跨海高速
+      en: Anchor Strait Crossing
+      art-x-viking: Ankerstraßenautobahn
+      art-x-buckham: Autostrada dello Stretto dell'Ancora
+    notes:
+      zh: 横越锚岛海峡，连接长船岛西北岸的潮湾与锚岛的锚港
+      en: Crosses Anchor Strait, linking Tidebay on the north-west shore of Longship Island with Anchorhaven on Anchor Island.
+    via: [div_x20mfy, div_zg05xa]
+  - id: rte_pb0tnq
+    ref: G-VK-4
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 白帆纵贯高速
+      en: White Sail Spine Expressway
+      art-x-viking: Weißsegel-Längsautobahn
+      art-x-buckham: Autostrada Dorsale di Velabianca
+    notes:
+      zh: 沿白帆岛东南岸纵贯全岛，自西南端的银鸥经盐湾到白帆
+      en: Runs the length of White Sail Island along its south-east shore, from Silvergull at the south-west end through Saltbay to White Sail.
+    tunnel_cost: 3.5
+    via: [div_0770jy, div_ewqq3p, div_x22naa]
+  - id: rte_v17pgv
+    ref: G-VK-5
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 锚岛纵贯高速
+      en: Anchor Island Spine Expressway
+      art-x-viking: Ankerinsel-Längsautobahn
+      art-x-buckham: Autostrada Dorsale dell'Isola dell'Ancora
+    notes:
+      zh: 自锚岛南端的锚湾北上，经锚港市区到东北端的松林
+      en: North from Anchor Bay at the southern end of Anchor Island through central Anchorhaven to Pinewood at the north-east end.
+    tunnel_cost: 3.5
+    via: [div_a2n8cw, div_zg05xa, div_bbmwea]
+  - id: rte_bd7834
+    ref: G-VK-6
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 暖泉南环高速
+      en: Warmspring Southern Arc Expressway
+      art-x-viking: Warmquell-Südbogenautobahn
+      art-x-buckham: Autostrada dell'Arco Sud di Fontecalda
+    notes:
+      zh: 绕暖泉火山南麓，自暖泉经硫磺湾到岩港，与群岛跨海高速合成环岛高速
+      en: Round the southern foot of Warmspring Volcano from Warmspring through Sulphur Bay to Rockhaven; with the Island Chain Expressway it makes a ring round the island.
+    via: [div_qjzmw5, div_bsbr5w, div_6930nk]
+  - id: rte_2bcpa1
+    ref: G-VK-7
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 长船西岸高速
+      en: Longship West Shore Expressway
+      art-x-viking: Langskip-Westküstenautobahn
+      art-x-buckham: Autostrada della Costa Ovest di Navelunga
+    notes:
+      zh: 沿长船岛西北岸自舵港经潮湾到长船，与群岛跨海高速分走龙骨山两侧
+      en: Along the north-west shore of Longship Island from Rudderhaven through Tidebay to Longship, taking the other side of the Keel Hills from the Island Chain Expressway.
+    tunnel_cost: 3.5
+    via: [div_er5g6j, div_x20mfy, div_3cvg2q]
+  - id: rte_za26jr
+    ref: G-VK-8
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 桅岛跨海高速
+      en: Mast Island Sea Crossing
+      art-x-viking: Mastinsel-Meeresautobahn
+      art-x-buckham: Autostrada sul Mare dell'Isola dell'Albero
+    notes:
+      zh: 自暖泉跨海经桅岛的桅港到白帆岛西南端的银鸥，是暖泉岛与白帆岛之间的直达高速
+      en: From Warmspring over the sea through Masthaven on Mast Island to Silvergull at the south-west end of White Sail Island; the direct expressway between Warmspring and White Sail islands.
+    via: [div_qjzmw5, div_esaav7, div_0770jy]
+  - id: rte_33tmrb
+    ref: G-VK-9
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 锚舵跨海高速
+      en: Anchor–Rudder Sea Crossing
+      art-x-viking: Meeresautobahn Anker–Ruder
+      art-x-buckham: Autostrada sul Mare Ancora–Timone
+    notes:
+      zh: 自锚岛南端的锚湾跨越锚岛海峡口到舵港，锚岛与长船岛船尾之间的捷径
+      en: From Anchor Bay at the southern end of Anchor Island across the mouth of Anchor Strait to Rudderhaven; the short way between Anchor Island and Longship Island's stern.
+    via: [div_a2n8cw, div_er5g6j]
 
-  # 领道 (territorial highways, class primary): every district centre lies on one.
+  # 领地高速 (territorial expressways, class motorway): from the big cities to their airport,
+  # ports and suburbs.
+  - id: rte_p3r778
+    ref: S-VK-1
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 长船机场高速
+      en: Longship Airport Expressway
+      art-x-viking: Flughafenautobahn Langskip
+      art-x-buckham: Autostrada dell'Aeroporto di Navelunga
+    notes:
+      zh: 自长船古城北上到北岬区的长船国际机场与群岛大学
+      en: North from Longship's old town to Longship International Airport and the University of the Islands in North Cape.
+    shield: gull
+    via: [div_g2g1yc, div_xps98r]
+  - id: rte_tjbqng
+    ref: S-VK-2
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 东港港口高速
+      en: East Harbour Port Expressway
+      art-x-viking: Hafenautobahn Osthafen
+      art-x-buckham: Autostrada Portuale di Porto Est
+    notes:
+      zh: 自汇金金融区到东港区的集装箱码头，货车不必穿过老城
+      en: From the Goldmark financial district to the container terminals of East Harbour, keeping lorries out of the old town.
+    shield: ship
+    via: [div_jzqknb, div_j6mw1m]
+  - id: rte_d67xzw
+    ref: S-VK-3
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 锚雾高速
+      en: Anchorhaven–Mistbay Expressway
+      art-x-viking: Autobahn Ankerhafen–Nebelbucht
+      art-x-buckham: Autostrada Portancora–Baianebbia
+    notes:
+      zh: 自锚港链城区横穿锚岛到西岸的雾湾
+      en: From Chain Town in Anchorhaven across Anchor Island to Mistbay on the west coast.
+    tunnel_cost: 3.5
+    shield: anchor
+    via: [div_b569a2, div_3zqdra]
+  - id: rte_zc14xp
+    ref: S-VK-4
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 帆港邮轮高速
+      en: Sail Harbour Cruise Expressway
+      art-x-viking: Kreuzfahrtautobahn Segelhafen
+      art-x-buckham: Autostrada delle Crociere di Velabianca
+    notes:
+      zh: 自白帆老城帆城区到帆港区的邮轮母港与免税城
+      en: From the old town of White Sail in Sail Town to the cruise home port and duty-free mall in Sail Harbour.
+    shield: sailboat
+    via: [div_vhsby1, div_tkvfsx]
+  - id: rte_7r6n3d
+    ref: S-VK-5
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 暖河高速
+      en: Warm River Expressway
+      art-x-viking: Warmfluss-Autobahn
+      art-x-buckham: Autostrada del Fiume Caldo
+    notes:
+      zh: 自暖泉温泉区沿东岸北上到暖河区的河口新城
+      en: North along the east coast from Hot Springs in Warmspring to the new town at the mouth of the Warm River.
+    shield: crab
+    via: [div_cz7sch, div_vk1835]
+
+  # 领道 (territorial highways, class primary): every district centre lies on a territorial route.
   - id: rte_cx8xa1
     ref: S-VK-101
     network: territorial_highway
     class: primary
     status: generated
     names:
-      zh: 长船环岛公路
-      en: Longship Island Road
+      zh: 龙骨山公路
+      en: Keel Hills Road
+      art-x-viking: Kielberg-Landstraße
+      art-x-buckham: Strada dei Monti Chiglia
     notes:
-      zh: 自古城区经汇金区到北岸的北岬区，串起长船岛的三个区
-      en: From Old Town through Goldmark to North Cape on the north shore, linking the three districts of Longship Island.
-    shield: peaks
-    via: [div_g2g1yc, div_jzqknb, div_xps98r]
+      zh: 自长船岛船尾经舵港、龙骨山下的山城到长滩，串起长船岛中段的乡镇
+      en: From Longship Island's stern through Rudderhaven and the hill towns below the Keel Hills to Longbeach, linking the towns of the middle of the island.
+    shield: wave
+    via: [div_1tva4b, div_ej0v6c, div_drqyc2, div_dtk19k]
   - id: rte_15zjhp
     ref: S-VK-102
     network: territorial_highway
@@ -42,6 +244,8 @@ routes:
     names:
       zh: 白帆灯塔公路
       en: White Sail Lighthouse Road
+      art-x-viking: Leuchtturmstraße Weißsegel
+      art-x-buckham: Strada del Faro di Velabianca
     notes:
       zh: 从邮轮港所在的帆港区通往东北端的灯塔区
       en: From the cruise port in Sail Harbour to the Lighthouse District at the north-east tip.
@@ -55,11 +259,13 @@ routes:
     names:
       zh: 暖泉环山公路
       en: Warmspring Volcano Road
+      art-x-viking: Warmquell-Vulkanstraße
+      art-x-buckham: Strada del Vulcano di Fontecalda
     notes:
-      zh: 绕过暖泉火山山麓，连接温泉区与黑沙区
-      en: Round the foot of Warmspring Volcano, linking Hot Springs and Black Sand.
-    shield: sunrise
-    via: [div_cz7sch, div_v2tq1k]
+      zh: 绕暖泉火山山麓，自温泉经黑沙、硫磺湾、岩港到看落日的落日区
+      en: Round the foot of Warmspring Volcano from Hot Springs through Black Sand, Sulphur Bay and Rockhaven to Sunset, where people watch the sun go down.
+    shield: shell
+    via: [div_cz7sch, div_v2tq1k, div_k0zt4f, div_ghpaw7, div_b4by9r]
   - id: rte_f4nr9s
     ref: S-VK-104
     network: territorial_highway
@@ -68,8 +274,160 @@ routes:
     names:
       zh: 外屿跨海公路
       en: Outer Isles Causeway
+      art-x-viking: Außeninsel-Damm
+      art-x-buckham: Diga delle Isole Esterne
     notes:
       zh: 以一座跨海桥连接鲸岛与鸟崖岛，是外屿两岛之间唯一的陆路
       en: Joins Whale Isle and Bird Cliff Isle over a sea bridge, the only land link between the two outer isles.
-    shield: swallow
+    shield: whale
     via: [div_khmgcq, div_5p2a2d]
+  - id: rte_gp49t9
+    ref: S-VK-105
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 长船西北岸公路
+      en: Longship North-West Shore Road
+      art-x-viking: Langskip-Nordwestküstenstraße
+      art-x-buckham: Strada della Costa Nord-Ovest di Navelunga
+    notes:
+      zh: 沿长船岛西北岸自潮湾经西岸的住宅区与海滨公园到北岬
+      en: Along the north-west shore of Longship Island from Tidebay through the neighbourhoods and seafront parks of West Shore to North Cape.
+    shield: dolphin
+    via: [div_0yqqc3, div_kecby5, div_xps98r]
+  - id: rte_v97vbz
+    ref: S-VK-106
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 帆影岭公路
+      en: Sailshadow Ridge Road
+      art-x-viking: Segelschattenkamm-Straße
+      art-x-buckham: Strada della Cresta di Ombravela
+    notes:
+      zh: 沿白帆岛西北岸自银鸥经白岭、帆影岭下的林场小镇到白帆老城
+      en: Along the north-west shore of White Sail Island from Silvergull through Whiteridge and the forest towns below the Sailshadow Ridge to the old town of White Sail.
+    shield: starfish
+    via: [div_rvrs7v, div_v3mfeg, div_bs2e6p, div_vhsby1]
+  - id: rte_mdpeba
+    ref: S-VK-107
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 盐湾海滨公路
+      en: Salt Bay Coast Road
+      art-x-viking: Salzbucht-Küstenstraße
+      art-x-buckham: Strada Costiera di Baiasale
+    notes:
+      zh: 沿白帆岛东南岸自渔港经盐湾的盐场到望海的果园
+      en: Along the south-east shore of White Sail Island from Fishing Harbour past the salt works of Saltbay to the orchards of Seawatch.
+    shield: fish
+    via: [div_z1y7bz, div_626x3f, div_5rbg50]
+  - id: rte_pytm4p
+    ref: S-VK-108
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 锚湾公路
+      en: Anchor Bay Road
+      art-x-viking: Ankerbucht-Straße
+      art-x-buckham: Strada della Baia dell'Ancora
+    notes:
+      zh: 绕锚湾自西爪经锚湾老港到东岸的船厂
+      en: Round Anchor Bay from West Fluke through the old harbour of Anchor Bay to the shipyards on the east shore.
+    shield: helm
+    via: [div_j1czet, div_a2n8cw, div_qyhvjj]
+  - id: rte_ga64q4
+    ref: S-VK-109
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 锚岛峡湾公路
+      en: Anchor Island Fjord Road
+      art-x-viking: Ankerinsel-Fjordstraße
+      art-x-buckham: Strada dei Fiordi dell'Isola dell'Ancora
+    notes:
+      zh: 自链城到西岸的雾湾，再沿峡湾北上，绕到东北端的松林
+      en: From Chain Town to Mistbay on the west coast, then north along the fjords and round to Pinewood at the north-east end.
+    shield: buoy
+    via: [div_b569a2, div_6ajqsc, div_27g39m, div_k4wvwe]
+  - id: rte_3wg1t6
+    ref: S-VK-110
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 桅岛公路
+      en: Mast Island Road
+      art-x-viking: Mastinsel-Straße
+      art-x-buckham: Strada dell'Isola dell'Albero
+    notes:
+      zh: 穿过桅岛笔直的松林，连接南桅与桅港
+      en: Through the straight pines of Mast Island, linking South Mast and Masthaven.
+    shield: knot
+    via: [div_berjt2, div_2q2fcx]
+  - id: rte_cgwhfz
+    ref: S-VK-111
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 南星公路
+      en: Southstar Road
+      art-x-viking: Südstern-Straße
+      art-x-buckham: Strada di Stellasud
+    notes:
+      zh: 自南星镇翻过全岛到北岸的渡轮码头
+      en: From the town of Southstar over the island to the ferry terminal on the north shore.
+    shield: coral
+    via: [div_ht5w2y, poi_khwt70]
+  - id: rte_1znwx2
+    ref: S-VK-112
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 晨光公路
+      en: Dawnlight Road
+      art-x-viking: Morgenlicht-Straße
+      art-x-buckham: Strada di Aurora
+    notes:
+      zh: 自晨光镇横穿晨光岛到西岸的渡轮码头
+      en: From the town of Dawnlight across Dawnlight Island to the ferry terminal on the west shore.
+    shield: jellyfish
+    via: [div_f07nky, poi_jvgsbc]
+  - id: rte_n6fxbt
+    ref: S-VK-113
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 鳕岛公路
+      en: Cod Island Road
+      art-x-viking: Dorschinsel-Straße
+      art-x-buckham: Strada dell'Isola del Merluzzo
+    notes:
+      zh: 自鳕港的鱼干架旁横穿鳕岛到东岸的渡轮码头
+      en: From the drying racks of Codhaven across Cod Island to the ferry terminal on the east shore.
+    shield: fishhook
+    via: [div_7pf4qf, poi_bw56b6]
+  - id: rte_j3v7pf
+    ref: S-VK-114
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 风岛公路
+      en: Wind Isle Road
+      art-x-viking: Windinsel-Straße
+      art-x-buckham: Strada dell'Isola del Vento
+    notes:
+      zh: 自风港镇沿风机林立的山脊到南岸的风电运维港
+      en: From the town of Windhaven along the turbine-lined ridge to the wind service port on the south shore.
+    shield: octopus
+    via: [div_72h3ge, poi_p3cv8y]

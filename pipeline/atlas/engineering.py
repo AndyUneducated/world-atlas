@@ -125,12 +125,12 @@ def estimate(p: Profile, std: dict, climate: dict, stations: int = 0) -> dict:
         "tunnel_km": round(tunnel, 1),
         "river_bridges": p.river_bridges,
         **({"stations": stations} if stations else {}),
-        "construction_usd": _round_money(build),
-        "upkeep_usd_per_year": _round_money(upkeep),
+        "construction_usd": round_money(build),
+        "upkeep_usd_per_year": round_money(upkeep),
     }
 
 
-def _round_money(v: float) -> int:
+def round_money(v: float) -> int:
     if v <= 0:
         return 0
     digits = int(math.floor(math.log10(v))) - 2
