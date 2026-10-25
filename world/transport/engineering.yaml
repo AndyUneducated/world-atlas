@@ -9,7 +9,7 @@
 # urban (optional): new-built stretches through built-up land are grade-separated, on viaduct
 #   near the edge of the town and in cut-and-cover tunnel more than tunnel_depth_km inside it.
 # Costs are 2026 US dollars, per km of route by structure type (grade, bridge, tunnel), checked
-#   against recent Chinese and European projects. At-grade cost rises with the relief of the
+#   against recent projects of the same kind. At-grade cost rises with the relief of the
 #   ground (hill_factor at 60 m of rise per km and above). climate scales everything for a
 #   subarctic island: frost-proof foundations, snow galleries, winter maintenance.
 # speed: each grade sets only a floor (min, km/h). Rural stretches have no limit; urban and
