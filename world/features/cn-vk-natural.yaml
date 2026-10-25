@@ -35,3 +35,14 @@ features:
     notes:
       zh: 白帆岛中部的山岭，从海上望去如一面鼓满的帆。
       en: The ridge along the middle of White Sail Island; seen from the sea it looks like a full sail.
+  - id: nat_9bt7gf
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 锚链山
+      en: Anchor Chain Mountains
+      art-x-viking: Ankerkettengebirge
+      art-x-buckham: Monti della Catena
+    notes:
+      zh: 纵贯锚岛的山脉，群岛除暖泉火山外最高的山地，一串山峰如出水的锚链。山下的峡湾是天然避风锚地。
+      en: The range along Anchor Island, the highest ground in the islands after Warmspring Volcano; its line of summits looks like an anchor chain rising from the sea. The fjords below are natural sheltered anchorages.

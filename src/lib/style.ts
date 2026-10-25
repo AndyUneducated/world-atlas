@@ -150,6 +150,8 @@ export function buildStyle(opts: {
       id: "bathymetry",
       type: "fill",
       ...from("bathymetry"),
+      // territories' depth bands overlap in the straits between them: the shallowest band wins
+      layout: { "fill-sort-key": ["-", 0, ["get", "band"]] },
       paint: { "fill-color": ["match", ["get", "band"], 0, m.bathymetry[0], 1, m.bathymetry[1], m.bathymetry[2]], "fill-antialias": false },
     },
     { id: "context-fill", type: "fill", source: "context", paint: { "fill-color": m.context.fill } },

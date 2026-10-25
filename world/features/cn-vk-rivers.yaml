@@ -1,0 +1,19 @@
+# Rivers of the Viking Islands found by the generator, matched by the position of their mouth
+# (`detect.at_km`, design km).
+features:
+  - id: nat_pw8474
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [93.8, 71.2] }
+    names: { zh: 暖河, en: Warm River, art-x-viking: Warmfluss, art-x-buckham: Fiume Caldo }
+    notes:
+      zh: 群岛最长的河，发源于暖泉火山东北坡，温泉水汇入后冬季也不封冻，河口正对长船岛的船尾。
+      en: The longest river of the islands. It rises on the north-east slope of Warmspring Volcano and, fed by hot springs, never freezes even in winter; its mouth faces Longship Island's stern.
+  - id: nat_n7yk9p
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [36.2, 23.8] }
+    names: { zh: 灰河, en: Ash River, art-x-viking: Aschefluss, art-x-buckham: Fiume della Cenere }
+    notes:
+      zh: 暖泉火山西南坡的河，河水带着火山灰，入海处冲出黑色的沙洲。
+      en: The river of Warmspring Volcano's south-west slope. Its water carries volcanic ash and has built black sandbars at its mouth.

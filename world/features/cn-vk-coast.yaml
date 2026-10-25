@@ -3,162 +3,510 @@
 # landform of `detect.kind` nearest to `detect.at_km` (design km, x east, y north).
 # Unnamed landforms are listed in .cache/candidates-div_raat4g.json after a build.
 features:
-  # ── Islands ──────────────────────────────────────────────
+  # ── Main islands ─────────────────────────────────────────
   - id: nat_170rsf
     subtype: island
     status: generated
-    detect: { kind: island, at_km: [132.2, 79.2] }
+    detect: { kind: island, at_km: [148.2, 130.2] }
     names: { zh: 长船岛, en: Longship Island, art-x-viking: Langskipinsel, art-x-buckham: Isola Navelunga }
     notes:
-      zh: 群岛最大的岛，狭长如一艘长船，船首朝东北，船尾朝西南。
-      en: The largest of the islands, long and narrow like a longship, its bow to the north-east and its stern to the south-west.
+      zh: 群岛最大的岛，狭长如一艘长船，船首朝东北指向北维京岛，船尾朝西南。
+      en: The largest of the islands, long and narrow like a longship, its bow to the north-east pointing at North Viking Island and its stern to the south-west.
   - id: nat_2p2v9m
     subtype: island
     status: generated
-    detect: { kind: island, at_km: [198.2, 118.8] }
+    detect: { kind: island, at_km: [206.8, 101.2] }
     names: { zh: 白帆岛, en: White Sail Island, art-x-viking: Weißsegelinsel, art-x-buckham: Isola Velabianca }
     notes:
-      zh: 群岛东北端的大岛，远望山岭如一面白帆。
-      en: The large island at the north-east end of the chain; from afar its ridge looks like a white sail.
+      zh: 长船岛东南的大岛，隔白帆海峡与长船岛平行；远望山岭如一面白帆。
+      en: The large island south-east of Longship Island, lying alongside it across White Sail Strait; from afar its ridge looks like a white sail.
+  - id: nat_bcjvmn
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [101.8, 162.8] }
+    names: { zh: 锚岛, en: Anchor Island, art-x-viking: Ankerinsel, art-x-buckham: Isola dell'Ancora }
+    notes:
+      zh: 长船岛西北的大岛，西岸峡湾深入，南端的锚湾是群岛最好的避风锚地，岛名由此而来。
+      en: The large island north-west of Longship Island. Fjords cut deep into its west coast, and Anchor Bay at its southern end is the best sheltered anchorage in the islands, which gave the island its name.
   - id: nat_9ajbb1
     subtype: island
     status: generated
-    detect: { kind: island, at_km: [51.2, 35.2] }
+    detect: { kind: island, at_km: [62.2, 48.8] }
     names: { zh: 暖泉岛, en: Warmspring Island, art-x-viking: Warmquellinsel, art-x-buckham: Isola Fontecalda }
     notes:
-      zh: 群岛西南端的圆形火山岛，岛心是暖泉火山。
-      en: The round volcanic island at the south-west end of the chain, with Warmspring Volcano at its heart.
+      zh: 群岛西南端的圆形火山岛，岛心是暖泉火山，河流从火山向四面流入大海。
+      en: The round volcanic island at the south-west end of the islands, with Warmspring Volcano at its heart and rivers running from it to the sea on every side.
+
+  # ── Medium islands ───────────────────────────────────────
+  - id: nat_h86h79
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [136.2, 33.8] }
+    names: { zh: 桅岛, en: Mast Island, art-x-viking: Mastinsel, art-x-buckham: Isola dell'Albero }
+    notes:
+      zh: 长船岛船尾以南的岛，岛上松林笔直如桅杆，旧时为长船港的船坞供应桅木。
+      en: The island south of Longship Island's stern. Its pines grow straight as masts, and once supplied mast timber to the Longship yards.
+  - id: nat_0zxng2
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [232.8, 36.2] }
+    names: { zh: 南星岛, en: Southstar Island, art-x-viking: Südsterninsel, art-x-buckham: Isola Stella del Sud }
+    notes:
+      zh: 群岛东南的岛，维京航海者以岛顶上方的南天星辰定向。
+      en: The island in the south-east of the islands; Viking navigators steered by the southern stars above its summit.
   - id: nat_43xwsq
     subtype: island
     status: generated
-    detect: { kind: island, at_km: [56.2, 90.2] }
+    detect: { kind: island, at_km: [22.8, 138.8] }
     names: { zh: 鲸岛, en: Whale Isle, art-x-viking: Walinsel, art-x-buckham: Isola Balena }
     notes:
       zh: 外屿最大的岛，夏季座头鲸在岛外洄游。
       en: The largest of the outer isles; humpbacks pass it every summer.
+  - id: nat_n4g4mt
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [283.8, 109.8] }
+    names: { zh: 晨光岛, en: Dawnlight Island, art-x-viking: Morgenlichtinsel, art-x-buckham: Isola dell'Aurora }
+    notes:
+      zh: 群岛最东的中等岛屿，每天最早迎来日出。
+      en: The easternmost of the medium islands, the first to see the sunrise each day.
+  - id: nat_g7hv2z
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [49.2, 221.8] }
+    names: { zh: 鳕岛, en: Cod Island, art-x-viking: Dorschinsel, art-x-buckham: Isola del Merluzzo }
+    notes:
+      zh: 群岛西北的渔岛，岛外是鳕鱼渔场，港边成排的鱼干架。
+      en: The fishing island in the north-west of the islands, off the cod grounds, with rows of drying racks along its harbour.
+  - id: nat_dvayg1
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [254.8, 146.8] }
+    names: { zh: 风岛, en: Wind Isle, art-x-viking: Windinsel, art-x-buckham: Isola del Vento }
+    notes:
+      zh: 白帆岛东北的岛，离北维京岛最近的中等岛屿，终年大风。
+      en: The island north-east of White Sail Island, the medium island nearest North Viking Island, windswept all year.
   - id: nat_nwd97h
     subtype: island
     status: generated
-    detect: { kind: island, at_km: [40.2, 108.2] }
+    detect: { kind: island, at_km: [23.8, 196.8] }
     names: { zh: 鸟崖岛, en: Bird Cliff Isle, art-x-viking: Vogelklippeninsel, art-x-buckham: Isola Scogliera Uccelli }
     notes:
       zh: 四周是海鸟筑巢的悬崖，岛北设海鸟保护区。
       en: Ringed by cliffs where seabirds nest, with a seabird reserve in the north.
+
+  # ── Small islands ────────────────────────────────────────
   - id: nat_d329td
     subtype: island
     status: generated
-    detect: { kind: island, at_km: [103.8, 38.2] }
+    detect: { kind: island, at_km: [199.8, 166.8] }
     names: { zh: 守望岛, en: Watch Isle, art-x-viking: Wachtinsel, art-x-buckham: Isola della Vedetta }
     notes:
-      zh: 长船港外的小岛，维京时代在岛顶点烽火，预警来船。
-      en: Small island off Longship harbour; in the Viking age a beacon on its top warned of approaching ships.
+      zh: 长船岛船首外的小岛，维京时代在岛顶点烽火，预警北方来船。
+      en: Small island off Longship Island's bow; in the Viking age a beacon on its top warned of ships approaching from the north.
   - id: nat_37jgdq
     subtype: island
     status: generated
-    detect: { kind: island, at_km: [166.8, 105.2] }
+    detect: { kind: island, at_km: [130.2, 58.2] }
     names: { zh: 中流岛, en: Midway Isle, art-x-viking: Mittelinsel, art-x-buckham: Isola di Mezzo }
     notes:
-      zh: 长船岛与白帆岛之间的小岛，群岛跨海高速在岛上落脚。
-      en: Small island between Longship and White Sail islands, where the Island Chain Expressway touches down.
+      zh: 长船岛船尾、白帆岛与桅岛之间的小岛，三岛之间的航道在此交汇。
+      en: Small island between Longship Island's stern, White Sail Island and Mast Island, where the channels between the three meet.
   - id: nat_myqvrf
     subtype: island
     status: generated
-    detect: { kind: island, at_km: [24.2, 123.8] }
+    detect: { kind: island, at_km: [14.2, 228.2] }
     names: { zh: 孤礁岛, en: Lone Skerry, art-x-viking: Einsamer Schären, art-x-buckham: Scoglio Solitario }
     notes:
       zh: 群岛最西北的无人小岛。
-      en: The uninhabited islet at the far north-west of the chain.
+      en: The uninhabited islet at the far north-west of the islands.
+  - id: nat_k3jb4e
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [170.2, 211.8] }
+    names: { zh: 北门岛, en: Northgate Isle, art-x-viking: Nordtorinsel, art-x-buckham: Isola Porta Nord }
+    notes:
+      zh: 群岛最北的小岛，离北维京岛最近，岛上的灯塔标出从北方进入群岛的航路。
+      en: The northernmost islet and the nearest to North Viking Island; its lighthouse marks the way into the islands from the north.
+  - id: nat_zr2zjt
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [120.2, 227.8] }
+    names: { zh: 霜岛, en: Frost Isle, art-x-viking: Frostinsel, art-x-buckham: Isola del Gelo }
+    notes:
+      zh: 锚岛以北的无人岛，冬季最早结霜，全岛为自然保护区。
+      en: Uninhabited island north of Anchor Island, the first to frost over each winter; the whole island is a nature reserve.
+  - id: nat_eb28w4
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [16.2, 157.8] }
+    names: { zh: 海雀岛, en: Puffin Isle, art-x-viking: Lundinsel, art-x-buckham: Isola delle Pulcinelle }
+    notes:
+      zh: 鲸岛北面的小岛，夏季数万只海雀在草坡上筑巢。
+      en: Islet just north of Whale Isle, where tens of thousands of puffins nest on its grassy slopes in summer.
+  - id: nat_ra0qnz
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [51.2, 10.8] }
+    names: { zh: 灰岛, en: Ash Isle, art-x-viking: Ascheinsel, art-x-buckham: Isola della Cenere }
+    notes:
+      zh: 暖泉岛南岸外的小岛，覆盖着暖泉火山喷出的火山灰。
+      en: Islet off the south coast of Warmspring Island, covered in ash from Warmspring Volcano.
+  - id: nat_vvd2md
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [101.8, 49.8] }
+    names: { zh: 浮石岛, en: Pumice Isle, art-x-viking: Bimssteininsel, art-x-buckham: Isola della Pomice }
+    notes:
+      zh: 暖泉岛东岸外的小岛，海滩上堆满火山浮石。
+      en: Islet off the east coast of Warmspring Island, its beaches heaped with volcanic pumice.
+  - id: nat_5zcers
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [99.8, 14.2] }
+    names: { zh: 远望岛, en: Farsight Isle, art-x-viking: Fernsichtinsel, art-x-buckham: Isola Lungimirante }
+    notes:
+      zh: 群岛最南的小岛，四面开阔的海天。
+      en: The southernmost islet, with open sea and sky on every side.
+  - id: nat_bnz64a
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [185.8, 15.8] }
+    names: { zh: 牡蛎岛, en: Oyster Isle, art-x-viking: Austerninsel, art-x-buckham: Isola delle Ostriche }
+    notes:
+      zh: 桅岛东南的小岛，岛周浅滩养殖牡蛎。
+      en: Islet south-east of Mast Island, with oyster beds on the shallows around it.
+  - id: nat_sfcte5
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [258.2, 13.8] }
+    names: { zh: 海豹岛, en: Seal Isle, art-x-viking: Robbeninsel, art-x-buckham: Isola delle Foche }
+    notes:
+      zh: 南星岛东南的无人岛，灰海豹在礁石上产仔。
+      en: Uninhabited islet south-east of Southstar Island, where grey seals pup on the rocks.
+  - id: nat_bs1dbj
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [251.8, 82.2] }
+    names: { zh: 鲱鱼岛, en: Herring Isle, art-x-viking: Heringsinsel, art-x-buckham: Isola delle Aringhe }
+    notes:
+      zh: 白帆岛东南外的小岛，鲱鱼渔村。
+      en: Islet off the south-east of White Sail Island, a herring-fishing village.
+  - id: nat_v3sgfp
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [299.8, 61.8] }
+    names: { zh: 东极岛, en: Eastmost Isle, art-x-viking: Ostendinsel, art-x-buckham: Isola Estrema }
+    notes:
+      zh: 群岛最东的小岛。
+      en: The easternmost islet of the islands.
+  - id: nat_kt82ch
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [289.8, 151.8] }
+    names: { zh: 哨岛, en: Sentinel Isle, art-x-viking: Wachposteninsel, art-x-buckham: Isola della Sentinella }
+    notes:
+      zh: 群岛东北外海的小岛，扼守从东方进入群岛的航路。
+      en: Islet in the open sea north-east of the islands, guarding the way in from the east.
+  - id: nat_0j0p38
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [246.2, 114.8] }
+    names: { zh: 灯塔岛, en: Lighthouse Isle, art-x-viking: Leuchtturminsel, art-x-buckham: Isola del Faro }
+    notes:
+      zh: 白帆岛东端外的小岛，岛上的老灯塔为进出帆港湾的船只引航。
+      en: Islet off the east end of White Sail Island; its old lighthouse guides ships in and out of Sail Harbour Bay.
+  - id: nat_36qzhj
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [75.2, 101.8] }
+    names: { zh: 潮汇岛, en: Tidemeet Isle, art-x-viking: Gezeiteninsel, art-x-buckham: Isola delle Maree }
+    notes:
+      zh: 锚岛南端外的小岛，锚岛海峡与暖泉方向的潮流在此交汇。
+      en: Islet off the southern end of Anchor Island, where the tides of Anchor Strait meet those from Warmspring.
+  - id: nat_yk9yaz
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [129.2, 66.8] }
+    names: { zh: 引水岛, en: Pilot Isle, art-x-viking: Lotseninsel, art-x-buckham: Isola dei Piloti }
+    notes:
+      zh: 中流岛北面的小岛，港口引航员在此登船，带大船驶入白帆海峡。
+      en: Islet north of Midway Isle, where harbour pilots board the large ships bound up White Sail Strait.
 
   # ── Bays ─────────────────────────────────────────────────
   - id: nat_zgv4r2
     subtype: bay
     status: generated
-    detect: { kind: bay, at_km: [118.2, 49.8] }
+    detect: { kind: bay, at_km: [189.8, 149.2] }
     names: { zh: 长船湾, en: Longship Bay, art-x-viking: Langskipbucht, art-x-buckham: Baia Navelunga }
     notes:
-      zh: 古城区南岸的海湾，维京长船曾在此停泊，湾畔是长船古城。
-      en: Bay on the south shore of Old Town where the Viking longships once lay; the old town of Longship stands on its shore.
-  - id: nat_1abejp
-    subtype: bay
-    status: generated
-    detect: { kind: bay, at_km: [106.2, 43.8] }
-    names: { zh: 守望湾, en: Watch Bay, art-x-viking: Wachtbucht, art-x-buckham: Baia della Vedetta }
-    notes:
-      zh: 长船岛南岸与守望岛之间的海湾。
-      en: Bay between the south coast of Longship Island and Watch Isle.
+      zh: 长船岛东岸的海湾，维京长船曾在此停泊，湾畔是长船古城。
+      en: Bay on the east coast of Longship Island where the Viking longships once lay; the old town of Longship stands on its shore.
   - id: nat_h3knsp
     subtype: bay
     status: generated
-    detect: { kind: bay, at_km: [155.8, 86.2] }
+    detect: { kind: bay, at_km: [189.2, 136.2] }
     names: { zh: 汇金湾, en: Goldmark Bay, art-x-viking: Goldmarkbucht, art-x-buckham: Baia Marcoro }
     notes:
-      zh: 汇金区玻璃塔楼环抱的小海湾。
-      en: Small bay ringed by the glass towers of Goldmark.
+      zh: 长船湾以南的小海湾，汇金区的玻璃塔楼环湾而立。
+      en: Small bay south of Longship Bay, ringed by the glass towers of Goldmark.
+  - id: nat_1abejp
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [192.2, 169.8] }
+    names: { zh: 守望湾, en: Watch Bay, art-x-viking: Wachtbucht, art-x-buckham: Baia della Vedetta }
+    notes:
+      zh: 长船岛船首南侧的海湾，湾口外是守望岛。
+      en: Bay on the south side of Longship Island's bow, with Watch Isle off its mouth.
+  - id: nat_az5da5
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [190.8, 177.2] }
+    names: { zh: 船首湾, en: Prow Bay, art-x-viking: Bugbucht, art-x-buckham: Baia di Prua }
+    notes:
+      zh: 长船岛船首尖端的海湾，面向北维京岛。
+      en: Bay at the very tip of Longship Island's bow, facing North Viking Island.
+  - id: nat_r2hpck
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [176.8, 173.2] }
+    names: { zh: 北岬湾, en: North Cape Bay, art-x-viking: Nordkapbucht, art-x-buckham: Baia di Capo Nord }
+    notes:
+      zh: 北岬环抱的海湾，长船岛西北岸最大的湾。
+      en: The bay sheltered by North Cape, the largest on the north-west coast of Longship Island.
   - id: nat_dw7pxt
     subtype: bay
     status: generated
-    detect: { kind: bay, at_km: [172.2, 105.2] }
+    detect: { kind: bay, at_km: [241.2, 113.8] }
     names: { zh: 帆港湾, en: Sail Harbour Bay, art-x-viking: Segelhafenbucht, art-x-buckham: Baia Porto Vela }
     notes:
-      zh: 白帆岛西南的海湾，邮轮母港在湾内。
-      en: Bay at the south-west of White Sail Island, home of the cruise port.
+      zh: 白帆岛东端的深水大湾，邮轮母港在湾内。
+      en: The large deep-water bay at the east end of White Sail Island, home of the cruise port.
   - id: nat_ht8qd3
     subtype: bay
     status: generated
-    detect: { kind: bay, at_km: [212.2, 115.2] }
+    detect: { kind: bay, at_km: [230.8, 122.2] }
     names: { zh: 灯塔湾, en: Lighthouse Bay, art-x-viking: Leuchtturmbucht, art-x-buckham: Baia del Faro }
     notes:
-      zh: 灯塔区南岸的海湾。
-      en: Bay on the south shore of Lighthouse District.
+      zh: 帆港湾以北的小海湾，湾畔是海滨别墅。
+      en: Small bay north of Sail Harbour Bay, lined with seaside villas.
+  - id: nat_1q1ey6
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [140.8, 69.8] }
+    names: { zh: 银鸥湾, en: Silvergull Bay, art-x-viking: Silbermöwenbucht, art-x-buckham: Baia dei Gabbiani }
+    notes:
+      zh: 白帆岛西南端的海湾，银鸥成群。
+      en: Bay at the south-west end of White Sail Island, full of herring gulls.
+  - id: nat_c4cftd
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [227.2, 82.2] }
+    names: { zh: 盐湾, en: Salt Bay, art-x-viking: Salzbucht, art-x-buckham: Baia del Sale }
+    notes:
+      zh: 白帆岛东南岸的海湾，旧时在湾畔晒盐腌鱼。
+      en: Bay on the south-east coast of White Sail Island, where salt was once panned to cure fish.
+  - id: nat_gd3pyt
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [71.8, 107.8] }
+    names: { zh: 锚湾, en: Anchor Bay, art-x-viking: Ankerbucht, art-x-buckham: Baia dell'Ancora }
+    notes:
+      zh: 锚岛南端两岬之间的大湾，水深浪静，是群岛最好的天然良港。
+      en: The large bay between the two capes at the southern end of Anchor Island; deep and calm, the finest natural harbour in the islands.
+  - id: nat_6r8rng
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [65.2, 146.2] }
+    names: { zh: 雾湾, en: Mist Bay, art-x-viking: Nebelbucht, art-x-buckham: Baia della Nebbia }
+    notes:
+      zh: 锚岛西岸的海湾，夏日清晨常被海雾笼罩。
+      en: Bay on the west coast of Anchor Island, often shrouded in sea mist on summer mornings.
+  - id: nat_3w3ayk
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [126.2, 198.2] }
+    names: { zh: 松湾, en: Pine Bay, art-x-viking: Kiefernbucht, art-x-buckham: Baia dei Pini }
+    notes:
+      zh: 锚岛东北端的海湾，四周松林环绕。
+      en: Bay at the north-east end of Anchor Island, ringed by pine forest.
+  - id: nat_nzwany
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [97.2, 50.8] }
+    names: { zh: 温泉湾, en: Hot Springs Bay, art-x-viking: Thermenbucht, art-x-buckham: Baia delle Terme }
+    notes:
+      zh: 暖泉岛东岸的海湾，湾畔的海滩下涌出温泉。
+      en: Bay on the east coast of Warmspring Island, where hot springs well up beneath the beach.
+  - id: nat_qq80wg
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [49.8, 15.8] }
+    names: { zh: 硫磺湾, en: Sulphur Bay, art-x-viking: Schwefelbucht, art-x-buckham: Baia dello Zolfo }
+    notes:
+      zh: 暖泉岛南岸的海湾，湾底的喷气孔让海水泛着硫磺味。
+      en: Bay on the south coast of Warmspring Island; vents on its floor give the water a smell of sulphur.
+  - id: nat_k4q61d
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [14.8, 153.2] }
+    names: { zh: 观鲸湾, en: Whalewatch Bay, art-x-viking: Walschaubucht, art-x-buckham: Baia delle Balene }
+    notes:
+      zh: 鲸岛北岸的海湾，观鲸船从这里出海。
+      en: Bay on the north coast of Whale Isle, where the whale-watching boats set out.
 
   # ── Capes ────────────────────────────────────────────────
+  - id: nat_6tf7yp
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [188.2, 181.2] }
+    names: { zh: 船首岬, en: Prow Point, art-x-viking: Bugkap, art-x-buckham: Capo di Prua }
+    notes:
+      zh: 长船岛的东北端，即"船首"，群岛离维京港最近的地方。
+      en: The north-east tip of Longship Island, its "prow", the point of the islands nearest Viking Port.
+  - id: nat_1da50f
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [196.2, 166.8] }
+    names: { zh: 北岬, en: North Cape, art-x-viking: Nordkap, art-x-buckham: Capo Nord }
+    notes:
+      zh: 船首以南的宽大岬角，隔守望水道与守望岛相望，北岬区因此得名。
+      en: The broad headland south of the prow, facing Watch Isle across Watch Sound, which gives North Cape District its name.
   - id: nat_m5r3gc
-    subtype: cape
+    subtype: island
     status: generated
-    detect: { kind: cape, at_km: [80.8, 50.2] }
-    names: { zh: 船尾岬, en: Stern Point, art-x-viking: Heckspitze, art-x-buckham: Punta di Poppa }
+    detect: { kind: island, at_km: [91.8, 90.2] }
+    names: { zh: 船尾岛, en: Stern Isle, art-x-viking: Heckinsel, art-x-buckham: Isola di Poppa }
     notes:
-      zh: 长船岛的西南端，即"船尾"，隔暖泉海峡与暖泉岛相望。
-      en: The south-west tip of Longship Island, its "stern", facing Warmspring Island across Warmspring Strait.
-  - id: nat_x8bkdv
-    subtype: cape
-    status: generated
-    detect: { kind: cape, at_km: [68.2, 48.8] }
-    names: { zh: 温泉岬, en: Hot Springs Point, art-x-viking: Thermenspitze, art-x-buckham: Punta delle Terme }
-    notes:
-      zh: 暖泉岛东北端，群岛跨海高速由此上岛。
-      en: The north-east tip of Warmspring Island, where the Island Chain Expressway comes ashore.
+      zh: 长船岛西南端，即"船尾"外的小岛，隔一道窄水与长船岛相连，隔水与暖泉岛相望。
+      en: A small island off the south-west tip of Longship Island, its "stern", separated by a narrow channel and facing Warmspring Island across the water.
   - id: nat_3r1gvb
     subtype: cape
     status: generated
-    detect: { kind: cape, at_km: [149.2, 69.8] }
+    detect: { kind: cape, at_km: [192.2, 137.2] }
     names: { zh: 金角, en: Gold Point, art-x-viking: Goldspitze, art-x-buckham: Punta d'Oro }
     notes:
-      zh: 汇金区南端的岬角。
-      en: Headland at the southern end of Goldmark.
+      zh: 汇金湾南侧的岬角。
+      en: Headland on the south side of Goldmark Bay.
+  - id: nat_x8bkdv
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [104.8, 59.2] }
+    names: { zh: 温泉岬, en: Hot Springs Point, art-x-viking: Thermenspitze, art-x-buckham: Punta delle Terme }
+    notes:
+      zh: 暖泉岛的东端，与长船岛船尾隔水相望。
+      en: The eastern tip of Warmspring Island, facing Longship Island's stern across the water.
+  - id: nat_xet2vm
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [30.8, 69.2] }
+    names: { zh: 落日岬, en: Sunset Point, art-x-viking: Abendspitze, art-x-buckham: Punta del Tramonto }
+    notes:
+      zh: 暖泉岛的西端，看海上落日的地方。
+      en: The western tip of Warmspring Island, where people watch the sun set over the sea.
+  - id: nat_emve42
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [65.8, 107.2] }
+    names: { zh: 西爪岬, en: West Fluke, art-x-viking: Westflunke, art-x-buckham: Marra Ovest }
+    notes:
+      zh: 锚湾西侧的岬角，与东爪岬一起如锚的两爪抱住锚湾。
+      en: The cape on the west side of Anchor Bay; with East Fluke it holds the bay like the two flukes of an anchor.
+  - id: nat_11r771
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [80.8, 104.2] }
+    names: { zh: 东爪岬, en: East Fluke, art-x-viking: Ostflunke, art-x-buckham: Marra Est }
+    notes:
+      zh: 锚湾东侧的岬角，面向锚岛海峡口。
+      en: The cape on the east side of Anchor Bay, facing the mouth of Anchor Strait.
+  - id: nat_15mbb9
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [148.2, 52.8] }
+    names: { zh: 桅顶岬, en: Masthead Point, art-x-viking: Mastkorbspitze, art-x-buckham: Punta della Coffa }
+    notes:
+      zh: 桅岛东北端的长岬，深入桅岛海峡。
+      en: The long cape at the north-east end of Mast Island, reaching out into Mast Strait.
+  - id: nat_bqm9rk
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [212.2, 132.8] }
+    names: { zh: 灯塔岬, en: Lighthouse Point, art-x-viking: Leuchtturmspitze, art-x-buckham: Punta del Faro }
+    notes:
+      zh: 白帆岛北岸的岬角，面向白帆海峡。
+      en: Cape on the north coast of White Sail Island, facing White Sail Strait.
 
   # ── Straits ──────────────────────────────────────────────
-  - id: nat_qcp61q
-    subtype: strait
-    status: generated
-    detect: { kind: strait, at_km: [74.5, 49.5] }
-    names: { zh: 暖泉海峡, en: Warmspring Strait, art-x-viking: Warmquellstraße, art-x-buckham: Stretto di Fontecalda }
-    notes:
-      zh: 暖泉岛与长船岛之间的海峡，群岛跨海高速以长桥跨越。
-      en: The strait between Warmspring and Longship islands, crossed by a long bridge of the Island Chain Expressway.
   - id: nat_5h94f5
     subtype: strait
     status: generated
-    detect: { kind: strait, at_km: [174.5, 104.2] }
+    detect: { kind: fjord, at_km: [135.2, 84.8] }
     names: { zh: 白帆海峡, en: White Sail Strait, art-x-viking: Weißsegelstraße, art-x-buckham: Stretto di Velabianca }
     notes:
-      zh: 中流岛与白帆岛之间的海峡，邮轮经此进出帆港湾。
-      en: The strait between Midway Isle and White Sail Island, the cruise ships' way in and out of Sail Harbour Bay.
+      zh: 长船岛与白帆岛之间狭长的内海，长约 300 km，两岸港口与大船航道都在海峡里。
+      en: The long, narrow inland sea between Longship and White Sail islands, some 300 km long; the ports on both shores and the deep-sea fairways all lie within it.
+  - id: nat_rssv0a
+    subtype: strait
+    status: generated
+    detect: { kind: fjord, at_km: [106.8, 124.8] }
+    names: { zh: 锚岛海峡, en: Anchor Strait, art-x-viking: Ankerstraße, art-x-buckham: Stretto dell'Ancora }
+    notes:
+      zh: 锚岛与长船岛之间的海峡，长约 140 km。
+      en: The strait between Anchor and Longship islands, some 140 km long.
+  - id: nat_qcp61q
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [99.8, 51.8] }
+    names: { zh: 暖泉海峡, en: Warmspring Strait, art-x-viking: Warmquellstraße, art-x-buckham: Stretto di Fontecalda }
+    notes:
+      zh: 暖泉岛东岸与浮石岛之间的海峡，从长船岛船尾前往暖泉的航道。
+      en: The strait between the east coast of Warmspring Island and Pumice Isle, the way by sea from Longship Island's stern to Warmspring.
   - id: nat_pf80ey
     subtype: strait
     status: generated
-    detect: { kind: strait, at_km: [102.5, 42.5] }
+    detect: { kind: strait, at_km: [198.8, 166.2] }
     names: { zh: 守望水道, en: Watch Sound, art-x-viking: Wachtsund, art-x-buckham: Canale della Vedetta }
     notes:
-      zh: 守望岛与长船岛之间的水道，进出长船港的航道。
-      en: The channel between Watch Isle and Longship Island, the fairway into Longship harbour.
+      zh: 守望岛与长船岛之间的水道，从北方进出长船的航道。
+      en: The channel between Watch Isle and Longship Island, the way in to Longship from the north.
+  - id: nat_cyt4bq
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [146.2, 58.0] }
+    names: { zh: 桅岛海峡, en: Mast Strait, art-x-viking: Maststraße, art-x-buckham: Stretto dell'Albero }
+    notes:
+      zh: 桅岛与白帆岛西南端之间的海峡，白帆海峡的南口。
+      en: The strait between Mast Island and the south-west end of White Sail Island, the southern mouth of White Sail Strait.
+  - id: nat_t6kg3e
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [248.8, 120.2] }
+    names: { zh: 灯塔水道, en: Lighthouse Sound, art-x-viking: Leuchtturmsund, art-x-buckham: Canale del Faro }
+    notes:
+      zh: 灯塔岛与白帆岛之间的水道，进出帆港湾的航道。
+      en: The channel between Lighthouse Isle and White Sail Island, the fairway into Sail Harbour Bay.
+  - id: nat_vtgsq9
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [267.0, 110.2] }
+    names: { zh: 晨光海峡, en: Dawnlight Strait, art-x-viking: Morgenlichtstraße, art-x-buckham: Stretto dell'Aurora }
+    notes:
+      zh: 白帆岛与晨光岛之间的海峡。
+      en: The strait between White Sail Island and Dawnlight Island.
+  - id: nat_jrnd2d
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [36.0, 209.8] }
+    names: { zh: 外屿海峡, en: Outer Isles Strait, art-x-viking: Außeninselstraße, art-x-buckham: Stretto delle Isole Esterne }
+    notes:
+      zh: 鸟崖岛与鳕岛之间的海峡，外屿渔船的主航道。
+      en: The strait between Bird Cliff Isle and Cod Island, the main channel of the outer isles' fishing boats.
+  - id: nat_rhtezf
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [19.2, 155.2] }
+    names: { zh: 海雀水道, en: Puffin Sound, art-x-viking: Lundsund, art-x-buckham: Canale delle Pulcinelle }
+    notes:
+      zh: 鲸岛与海雀岛之间的窄水道。
+      en: The narrow channel between Whale Isle and Puffin Isle.

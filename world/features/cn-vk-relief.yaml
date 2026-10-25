@@ -1,62 +1,96 @@
-# Peaks and passes of the Viking Islands found by the generator (pipeline/atlas/relief.py).
+# Peaks, passes and glaciers of the Viking Islands found by the generator (pipeline/atlas/relief.py).
 # Each entry names the landform of `detect.kind` nearest to `detect.at_km` (design km).
 features:
   # ── Peaks (highest first) ────────────────────────────────
   - id: nat_242405
     subtype: peak
     status: generated
-    detect: { kind: peak, at_km: [47.8, 33.8] }
+    detect: { kind: peak, at_km: [65.2, 45.8] }
     names: { zh: 火口峰, en: Crater Peak, art-x-viking: Kraterspitze, art-x-buckham: Picco del Cratere }
     notes:
-      zh: 暖泉火山的火口缘最高点，群岛最高峰，火口内终年冒着蒸汽。
-      en: The highest point of Warmspring Volcano's crater rim and of the islands; steam rises from the crater all year.
+      zh: 暖泉火山的火口缘最高点，群岛最高峰，顶上是群岛唯一的冰帽，火口内终年冒着蒸汽。
+      en: The highest point of Warmspring Volcano's crater rim and of the islands, capped by the islands' only ice cap; steam rises from the crater all year.
+  - id: nat_fxqmaw
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [105.8, 179.2] }
+    names: { zh: 铁锚峰, en: Iron Anchor Peak, art-x-viking: Eisenankerspitze, art-x-buckham: Picco dell'Ancora di Ferro }
+    notes:
+      zh: 锚链山的主峰，锚岛最高点，北坡挂着一条小冰川。
+      en: The main summit of the Anchor Chain Mountains and the highest point of Anchor Island, with a small glacier on its north face.
+  - id: nat_n4vs23
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [79.8, 131.2] }
+    names: { zh: 绞盘峰, en: Capstan Peak, art-x-viking: Spillspitze, art-x-buckham: Picco dell'Argano }
+    notes:
+      zh: 锚链山南段的高峰，圆顶如船上的绞盘，俯瞰锚湾。
+      en: The high summit of the southern Anchor Chain Mountains, its rounded top like a ship's capstan, above Anchor Bay.
+  - id: nat_msexyn
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [233.2, 112.2] }
+    names: { zh: 帆影峰, en: Sailshadow Peak, art-x-viking: Segelschattenspitze, art-x-buckham: Picco Ombra di Vela }
+    notes:
+      zh: 帆影岭的最高峰，白帆岛最高点，耸立在帆港湾畔。
+      en: The highest summit of Sailshadow Ridge and of White Sail Island, rising above Sail Harbour Bay.
+  - id: nat_1cqe9c
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [201.8, 95.8] }
+    names: { zh: 望海峰, en: Seawatch Peak, art-x-viking: Seewachtspitze, art-x-buckham: Picco Guardamare }
+    notes:
+      zh: 帆影岭中段的山峰，可同时眺望白帆海峡与东南外海。
+      en: Summit on the middle of Sailshadow Ridge, looking over both White Sail Strait and the open sea to the south-east.
+  - id: nat_fczk77
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [150.8, 133.8] }
+    names: { zh: 船首峰, en: Prow Peak, art-x-viking: Bugspitze, art-x-buckham: Picco di Prua }
+    notes:
+      zh: 龙骨山的主峰，长船岛最高点。
+      en: The main summit of the Keel Hills and the highest point of Longship Island.
   - id: nat_pqybvd
     subtype: peak
     status: generated
-    detect: { kind: peak, at_km: [92.2, 54.8] }
+    detect: { kind: peak, at_km: [121.8, 104.2] }
     names: { zh: 舵峰, en: Rudder Peak, art-x-viking: Ruderspitze, art-x-buckham: Picco del Timone }
     notes:
       zh: 龙骨山西南端的高峰，在长船岛的"船尾"如一把船舵。
       en: The high summit at the south-west end of the Keel Hills, standing at Longship Island's "stern" like a rudder.
-  - id: nat_fczk77
-    subtype: peak
-    status: generated
-    detect: { kind: peak, at_km: [137.8, 82.8] }
-    names: { zh: 船首峰, en: Prow Peak, art-x-viking: Bugspitze, art-x-buckham: Picco di Prua }
-    notes:
-      zh: 龙骨山东北段的主峰，俯瞰汇金区。
-      en: The main summit of the north-eastern Keel Hills, above Goldmark.
-  - id: nat_msexyn
-    subtype: peak
-    status: generated
-    detect: { kind: peak, at_km: [185.8, 115.2] }
-    names: { zh: 帆影峰, en: Sailshadow Peak, art-x-viking: Segelschattenspitze, art-x-buckham: Picco Ombra di Vela }
-    notes:
-      zh: 帆影岭的最高峰，白帆岛最高点。
-      en: The highest summit of Sailshadow Ridge and of White Sail Island.
-  - id: nat_1cqe9c
-    subtype: peak
-    status: generated
-    detect: { kind: peak, at_km: [205.2, 125.2] }
-    names: { zh: 望海峰, en: Seawatch Peak, art-x-viking: Seewachtspitze, art-x-buckham: Picco Guardamare }
-    notes:
-      zh: 帆影岭东北段的山峰，可眺望灯塔区与外海。
-      en: Summit on the north-eastern Sailshadow Ridge, looking over Lighthouse District and the open sea.
 
   # ── Passes ───────────────────────────────────────────────
   - id: nat_02xmec
     subtype: pass
     status: generated
-    detect: { kind: pass, at_km: [128.8, 76.2] }
+    detect: { kind: pass, at_km: [130.2, 113.8] }
     names: { zh: 龙骨口, en: Keel Gap, art-x-viking: Kielscharte, art-x-buckham: Passo della Chiglia }
     notes:
-      zh: 龙骨山中段的山口，群岛跨海高速经此翻越龙骨山。
-      en: The gap in the middle of the Keel Hills, where the Island Chain Expressway crosses them.
+      zh: 龙骨山西南段最低的山口，长船岛两岸由此往来。
+      en: The lowest gap in the south-western Keel Hills, the way between the two coasts of Longship Island.
   - id: nat_7xxwr5
     subtype: pass
     status: generated
-    detect: { kind: pass, at_km: [195.8, 120.2] }
+    detect: { kind: pass, at_km: [221.2, 106.8] }
     names: { zh: 帆影垭口, en: Sailshadow Saddle, art-x-viking: Segelschattensattel, art-x-buckham: Sella Ombra di Vela }
     notes:
       zh: 帆影峰与望海峰之间的鞍部。
       en: The saddle between Sailshadow Peak and Seawatch Peak.
+
+  # ── Glaciers ─────────────────────────────────────────────
+  - id: nat_baz8zx
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [64.6, 50.6] }
+    names: { zh: 暖泉冰帽, en: Warmspring Ice Cap, art-x-viking: Warmquell-Eiskappe, art-x-buckham: Calotta di Fontecalda }
+    notes:
+      zh: 覆盖暖泉火山山顶的冰帽，火口的地热让冰帽中央终年融出一圈湖水。
+      en: The ice cap over the summit of Warmspring Volcano; the crater's heat keeps a ring of meltwater open in its middle all year.
+  - id: nat_fhe7tf
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [105.6, 180.4] }
+    names: { zh: 锚链冰川, en: Anchor Chain Glacier, art-x-viking: Ankerkettengletscher, art-x-buckham: Ghiacciaio della Catena }
+    notes:
+      zh: 铁锚峰北坡的小冰川，群岛唯一的山岳冰川。
+      en: The small glacier on the north face of Iron Anchor Peak, the only mountain glacier in the islands.
