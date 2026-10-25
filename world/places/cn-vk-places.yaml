@@ -203,8 +203,7 @@ places:
       zh: 往返长船古城的渡轮与观鲸船在此停靠
       en: Ferries to Longship's old town and the whale-watching boats call here.
     in: div_khmgcq
-    offset_km: [0.1, -1.39]
-    site: { size_m: [600, 300], layout: port, angle_deg: 270 }
+    site: { size_m: [600, 300], layout: port }
   - id: bld_may0w4
     subtype: museum
     status: generated

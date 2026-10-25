@@ -30,8 +30,10 @@ divisions:
     motif: longship
     pattern: waves
   notes:
-    zh: 北维京岛西南外海的七座岛屿，维京时代的长船航路由此北上。以旅游、邮轮与离岸金融为主，一条串起三座主岛的跨海高速连通全境
-    en: Seven islands off the south-west of North Viking Island, on the longship route north in the Viking age. Lives on tourism, cruises and offshore finance; one sea-crossing expressway links the three main islands.
+    zh: 北维京岛西南外海的群岛，长船、白帆、锚岛、暖泉四座大岛与三十多座中小岛屿。航运与造船、离岸金融与总部经济、海上风电与地热、渔业和邮轮旅游是群岛的支柱；首府长船是人口最多的城市
+    en: An archipelago off the south-west of North Viking Island, four large islands (Longship, White Sail, Anchor and Warmspring) and more than thirty smaller ones. Shipping and shipbuilding, offshore finance and head offices, offshore wind and geothermal power, fishing and cruise tourism keep the islands going; the capital, Longship, is the most populous city.
+
+# ── 长船岛 ──
 - id: div_3cvg2q
   subtype: locality
   parent: div_raat4g
@@ -44,15 +46,15 @@ divisions:
   codes:
     admin: '910100'
     unlocode: VK LGS
-  population: 380000
-  area_km2: 80000.0
+  population: 11500000
+  area_km2: 15650.0
   color: '#2E86AB'
   emblem:
     motif: longship
     pattern: waves
   notes:
-    zh: 领地首府，建在维京时代的长船港上。石砌老城与离岸金融区隔湾相望
-    en: The territorial capital, built on the longship harbour of the Viking age. The stone old town and the offshore finance district face each other across the bay.
+    zh: 领地首府与群岛最大的城市，建在维京时代的长船港上。石砌老城与汇金金融区隔湾相望，航运、保险与银行的总部集中于此
+    en: The territorial capital and the largest city of the islands, built on the longship harbour of the Viking age. The stone old town and the Goldmark finance district face each other across the bay, and the head offices of shipping lines, insurers and banks cluster here.
 - id: div_g2g1yc
   subtype: borough
   parent: div_3cvg2q
@@ -64,8 +66,8 @@ divisions:
     art-x-buckham: Città Vecchia
   codes:
     admin: '910101'
-  population: 120000
-  area_km2: 8000.0
+  population: 2400000
+  area_km2: 600.0
   notes:
     zh: 长船港周围的石砌老城，城墙内只许步行，是邮轮游客必到之处
     en: The stone old town around the longship harbour; inside the walls it is pedestrians only, and every cruise passenger comes here.
@@ -80,8 +82,8 @@ divisions:
     art-x-buckham: Marcoro
   codes:
     admin: '910102'
-  population: 160000
-  area_km2: 10000.0
+  population: 2100000
+  area_km2: 900.0
   notes:
     zh: 离岸银行、信托与基金公司聚集的新城区，玻璃塔楼沿海湾排开
     en: The new district of offshore banks, trusts and funds, its glass towers lined up along the bay.
@@ -96,11 +98,188 @@ divisions:
     art-x-buckham: Capo Nord
   codes:
     admin: '910103'
-  population: 100000
-  area_km2: 62000.0
+  population: 1400000
+  area_km2: 3500.0
   notes:
-    zh: 长船岛北部的居住区与牧羊草场，领地机场在此
-    en: Homes and sheep pastures in the north of Longship Island, and the territory's airport.
+    zh: 长船岛东北端的船首一带，住宅区、牧羊草场与领地的国际机场
+    en: The prow at the north-east end of Longship Island, with homes, sheep pastures and the territory's international airport.
+- id: div_j6mw1m
+  subtype: borough
+  parent: div_3cvg2q
+  status: generated
+  names:
+    zh: 东港区
+    en: East Harbour District
+    art-x-viking: Osthafen
+    art-x-buckham: Porto Est
+  codes:
+    admin: '910104'
+  population: 2200000
+  area_km2: 1800.0
+  notes:
+    zh: 长船岛东南岸的集装箱码头、物流园与船员新村
+    en: Container terminals, logistics parks and seafarers' housing on the south-east shore of Longship Island.
+- id: div_kecby5
+  subtype: borough
+  parent: div_3cvg2q
+  status: generated
+  names:
+    zh: 西岸区
+    en: West Shore District
+    art-x-viking: Westufer
+    art-x-buckham: Riva Ovest
+  codes:
+    admin: '910105'
+  population: 2000000
+  area_km2: 2500.0
+  notes:
+    zh: 长船岛西北岸成片的住宅区与海滨公园
+    en: Wide residential neighbourhoods and seafront parks on the north-west shore of Longship Island.
+- id: div_dtk19k
+  subtype: borough
+  parent: div_3cvg2q
+  status: generated
+  names:
+    zh: 长滩区
+    en: Longbeach District
+    art-x-viking: Langstrand
+    art-x-buckham: Spiaggialunga
+  codes:
+    admin: '910106'
+  population: 1400000
+  area_km2: 6350.0
+  notes:
+    zh: 龙骨山东北麓直到两岸长滩的郊区，农场、高尔夫球场与新住宅区
+    en: Suburbs from the north-east foot of the Keel Hills down to the long beaches on both shores, with farms, golf courses and new housing.
+- id: div_er5g6j
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 舵港市
+    en: Rudderhaven City
+    art-x-viking: Ruderhafen auf Ysear
+    art-x-buckham: Portotimone en Etei
+  codes:
+    admin: '910600'
+    unlocode: VK RUD
+  population: 1300000
+  area_km2: 8950.0
+  color: '#457B9D'
+  emblem:
+    motif: helm
+    pattern: waves
+  notes:
+    zh: 长船岛西南部的港城，扼守长船、暖泉与白帆三岛之间的水道
+    en: The port city of south-west Longship Island, guarding the waters between Longship, Warmspring and White Sail.
+- id: div_ej0v6c
+  subtype: borough
+  parent: div_er5g6j
+  status: generated
+  names:
+    zh: 舵港区
+    en: Rudderhaven District
+    art-x-viking: Ruderhafen
+    art-x-buckham: Portotimone
+  codes:
+    admin: '910601'
+  population: 900000
+  area_km2: 4000.0
+  notes:
+    zh: 舵港市的中心城区与渡轮码头，渡轮通往暖泉岛与白帆岛
+    en: The centre of Rudderhaven and its ferry quays, with ferries to Warmspring and White Sail.
+- id: div_1tva4b
+  subtype: borough
+  parent: div_er5g6j
+  status: generated
+  names:
+    zh: 船尾区
+    en: Stern District
+    art-x-viking: Heck
+    art-x-buckham: Poppa
+  codes:
+    admin: '910602'
+  population: 400000
+  area_km2: 4950.0
+  notes:
+    zh: 长船岛西南端的渔村、牧场与船尾岛
+    en: Fishing villages, pastures and Stern Isle at the south-west tip of Longship Island.
+- id: div_33vctd
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 龙骨市
+    en: Keel City
+    art-x-viking: Kiel auf Ysear
+    art-x-buckham: Chiglia en Etei
+  codes:
+    admin: '910700'
+    unlocode: VK KEL
+  population: 600000
+  area_km2: 9400.0
+  color: '#6D597A'
+  emblem:
+    motif: pass
+    pattern: furrows
+  notes:
+    zh: 龙骨山东南麓的山区城市，以林业、滑雪与山地旅游为生
+    en: A mountain city on the south-east slopes of the Keel Hills, living on forestry, skiing and mountain tourism.
+- id: div_drqyc2
+  subtype: borough
+  parent: div_33vctd
+  status: generated
+  names:
+    zh: 龙骨区
+    en: Keel District
+    art-x-viking: Kiel
+    art-x-buckham: Chiglia
+  codes:
+    admin: '910701'
+  population: 600000
+  area_km2: 9400.0
+  notes:
+    zh: 龙骨山下的山城、林场与滑雪场
+    en: Hill towns, forests and ski slopes below the Keel Hills.
+- id: div_x20mfy
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 潮湾市
+    en: Tidebay City
+    art-x-viking: Gezeitenbucht auf Ysear
+    art-x-buckham: Baiamarea en Etei
+  codes:
+    admin: '910800'
+    unlocode: VK TID
+  population: 800000
+  area_km2: 7400.0
+  color: '#3D8A8A'
+  emblem:
+    motif: river
+    pattern: flow
+  notes:
+    zh: 长船岛西北岸面向锚岛海峡的城市，以潮汐电站与海鲜市场闻名
+    en: A city on the north-west shore of Longship Island facing Anchor Strait, known for its tidal power station and seafood markets.
+- id: div_0yqqc3
+  subtype: borough
+  parent: div_x20mfy
+  status: generated
+  names:
+    zh: 潮湾区
+    en: Tidebay District
+    art-x-viking: Gezeitenbucht
+    art-x-buckham: Baiamarea
+  codes:
+    admin: '910801'
+  population: 800000
+  area_km2: 7400.0
+  notes:
+    zh: 海峡沿岸的潮汐电站、海鲜市场与渔港
+    en: The tidal power station, seafood markets and fishing harbours along the strait.
+
+# ── 白帆岛 ──
 - id: div_x22naa
   subtype: locality
   parent: div_raat4g
@@ -113,15 +292,15 @@ divisions:
   codes:
     admin: '910200'
     unlocode: VK WSL
-  population: 220000
-  area_km2: 48000.0
+  population: 3000000
+  area_km2: 11250.0
   color: '#E9A23B'
   emblem:
     motif: compass
     pattern: waves
   notes:
-    zh: 邮轮母港与免税购物城，离北维京岛最近
-    en: Cruise home port and duty-free shopping town, the closest of the islands to North Viking Island.
+    zh: 白帆岛东北部的邮轮母港与免税购物城，群岛第三大城市
+    en: Cruise home port and duty-free shopping town in the north-east of White Sail Island, the third city of the islands.
 - id: div_tkvfsx
   subtype: borough
   parent: div_x22naa
@@ -133,8 +312,8 @@ divisions:
     art-x-buckham: Porto Vela
   codes:
     admin: '910201'
-  population: 140000
-  area_km2: 15000.0
+  population: 1000000
+  area_km2: 1500.0
   notes:
     zh: 邮轮码头、免税商业街与渡轮枢纽
     en: Cruise piers, duty-free shopping streets and the ferry hub.
@@ -149,11 +328,365 @@ divisions:
     art-x-buckham: Faro
   codes:
     admin: '910202'
-  population: 80000
-  area_km2: 33000.0
+  population: 400000
+  area_km2: 3350.0
   notes:
     zh: 白帆岛东北端的老灯塔、海滨别墅与观鲸码头
     en: The old lighthouse at the north-east tip of White Sail Island, seaside villas and whale-watching piers.
+- id: div_vhsby1
+  subtype: borough
+  parent: div_x22naa
+  status: generated
+  names:
+    zh: 帆城区
+    en: Sail Town District
+    art-x-viking: Segelstadt
+    art-x-buckham: Città Vela
+  codes:
+    admin: '910203'
+  population: 1100000
+  area_km2: 2000.0
+  notes:
+    zh: 白帆市的老城与市政中心，帆船俱乐部与造帆作坊
+    en: The old town and civic centre of White Sail, with sailing clubs and sail lofts.
+- id: div_5rbg50
+  subtype: borough
+  parent: div_x22naa
+  status: generated
+  names:
+    zh: 望海区
+    en: Seawatch District
+    art-x-viking: Seewacht
+    art-x-buckham: Guardamare
+  codes:
+    admin: '910204'
+  population: 500000
+  area_km2: 4400.0
+  notes:
+    zh: 帆影岭东麓的住宅区、果园与观景山道
+    en: Homes, orchards and scenic mountain roads on the eastern slopes of the Sailshadow Ridge.
+- id: div_qy1rtm
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 帆影市
+    en: Sailshadow City
+    art-x-viking: Segelschatten auf Ysear
+    art-x-buckham: Ombravela en Etei
+  codes:
+    admin: '910900'
+    unlocode: VK SSH
+  population: 300000
+  area_km2: 8300.0
+  color: '#B08968'
+  emblem:
+    motif: peaks
+    pattern: contours
+  notes:
+    zh: 白帆岛中部帆影岭下的山区城市，林业与登山
+    en: A mountain city below the Sailshadow Ridge in the middle of White Sail Island, living on forestry and climbing.
+- id: div_bs2e6p
+  subtype: borough
+  parent: div_qy1rtm
+  status: generated
+  names:
+    zh: 帆影区
+    en: Sailshadow District
+    art-x-viking: Segelschatten
+    art-x-buckham: Ombravela
+  codes:
+    admin: '910901'
+  population: 300000
+  area_km2: 8300.0
+  notes:
+    zh: 帆影岭西北麓的林场与山区小镇
+    en: Forests and mountain towns on the north-west slopes of the Sailshadow Ridge.
+- id: div_ewqq3p
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 盐湾市
+    en: Saltbay City
+    art-x-viking: Salzbucht auf Ysear
+    art-x-buckham: Baiasale en Etei
+  codes:
+    admin: '911000'
+    unlocode: VK SLT
+  population: 900000
+  area_km2: 8650.0
+  color: '#8AB17D'
+  emblem:
+    motif: basin
+    pattern: grid
+  notes:
+    zh: 白帆岛东南岸的海盐与海上风电城市
+    en: A city of sea salt and offshore wind on the south-east shore of White Sail Island.
+- id: div_626x3f
+  subtype: borough
+  parent: div_ewqq3p
+  status: generated
+  names:
+    zh: 盐湾区
+    en: Saltbay District
+    art-x-viking: Salzbucht
+    art-x-buckham: Baiasale
+  codes:
+    admin: '911001'
+  population: 600000
+  area_km2: 3950.0
+  notes:
+    zh: 盐湾畔的海盐场与海上风电运维港
+    en: Sea-salt works and the service port of the offshore wind farms, on Salt Bay.
+- id: div_z1y7bz
+  subtype: borough
+  parent: div_ewqq3p
+  status: generated
+  names:
+    zh: 渔港区
+    en: Fishing Harbour District
+    art-x-viking: Fischerhafen
+    art-x-buckham: Porto Pescatori
+  codes:
+    admin: '911002'
+  population: 300000
+  area_km2: 4700.0
+  notes:
+    zh: 白帆岛东南岸的渔港与冷链加工
+    en: Fishing harbours and cold-chain processing on the south-east shore of White Sail Island.
+- id: div_0770jy
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 银鸥市
+    en: Silvergull City
+    art-x-viking: Silbermöwe auf Ysear
+    art-x-buckham: Gabbiano en Etei
+  codes:
+    admin: '911100'
+    unlocode: VK GUL
+  population: 800000
+  area_km2: 8600.0
+  color: '#8D99AE'
+  emblem:
+    motif: gull
+    pattern: waves
+  notes:
+    zh: 白帆岛西南端的海滨度假城市
+    en: A seaside resort city at the south-west end of White Sail Island.
+- id: div_rvrs7v
+  subtype: borough
+  parent: div_0770jy
+  status: generated
+  names:
+    zh: 银鸥区
+    en: Silvergull District
+    art-x-viking: Silbermöwe
+    art-x-buckham: Gabbiano
+  codes:
+    admin: '911101'
+  population: 600000
+  area_km2: 4400.0
+  notes:
+    zh: 银鸥湾畔的海滨度假区与观鸟步道
+    en: Seaside resorts and birdwatching trails on Silvergull Bay.
+- id: div_v3mfeg
+  subtype: borough
+  parent: div_0770jy
+  status: generated
+  names:
+    zh: 白岭区
+    en: Whiteridge District
+    art-x-viking: Weißgrat
+    art-x-buckham: Crestabianca
+  codes:
+    admin: '911102'
+  population: 200000
+  area_km2: 4200.0
+  notes:
+    zh: 帆影岭西南段的林场与牧场
+    en: Forests and pastures along the south-western Sailshadow Ridge.
+
+# ── 锚岛 ──
+- id: div_zg05xa
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 锚港市
+    en: Anchorhaven City
+    art-x-viking: Ankerhafen auf Ysear
+    art-x-buckham: Portancora en Etei
+  codes:
+    admin: '910500'
+    unlocode: VK ANC
+  population: 3500000
+  area_km2: 13000.0
+  color: '#1D3557'
+  emblem:
+    motif: anchor
+    pattern: stripes
+  notes:
+    zh: 锚岛西南部的港口城市，群岛最大的集装箱港与造船基地，群岛第二大城市
+    en: A port city in the south-west of Anchor Island, with the largest container port and shipyards in the islands; the second city of the islands.
+- id: div_a2n8cw
+  subtype: borough
+  parent: div_zg05xa
+  status: generated
+  names:
+    zh: 锚湾区
+    en: Anchor Bay District
+    art-x-viking: Ankerbucht
+    art-x-buckham: Baia dell'Ancora
+  codes:
+    admin: '910501'
+  population: 900000
+  area_km2: 1900.0
+  notes:
+    zh: 锚岛西南端两爪之间的锚湾，群岛最大的集装箱港
+    en: Anchor Bay between the two flukes at the south-west tip of Anchor Island, the largest container port in the islands.
+- id: div_qyhvjj
+  subtype: borough
+  parent: div_zg05xa
+  status: generated
+  names:
+    zh: 船厂区
+    en: Shipyard District
+    art-x-viking: Werft
+    art-x-buckham: Cantiere
+  codes:
+    admin: '910502'
+  population: 800000
+  area_km2: 2700.0
+  notes:
+    zh: 锚岛东南岸的造船厂、船坞与海工装备基地
+    en: Shipyards, dry docks and offshore-engineering yards on the south-east shore of Anchor Island.
+- id: div_b569a2
+  subtype: borough
+  parent: div_zg05xa
+  status: generated
+  names:
+    zh: 链城区
+    en: Chain Town District
+    art-x-viking: Kettenstadt
+    art-x-buckham: Città Catena
+  codes:
+    admin: '910503'
+  population: 1300000
+  area_km2: 2700.0
+  notes:
+    zh: 锚港市的中心城区，航运交易所与船级社在此
+    en: The centre of Anchorhaven, home of the shipping exchange and the classification society.
+- id: div_j1czet
+  subtype: borough
+  parent: div_zg05xa
+  status: generated
+  names:
+    zh: 西爪区
+    en: West Fluke District
+    art-x-viking: Westflunke
+    art-x-buckham: Marra Ovest
+  codes:
+    admin: '910504'
+  population: 500000
+  area_km2: 5700.0
+  notes:
+    zh: 西爪岬一带的住宅区、牧场与海岸步道
+    en: Homes, pastures and coastal paths around the West Fluke.
+- id: div_3zqdra
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 雾湾市
+    en: Mistbay City
+    art-x-viking: Nebelbucht auf Ysear
+    art-x-buckham: Baianebbia en Etei
+  codes:
+    admin: '911200'
+    unlocode: VK MST
+  population: 900000
+  area_km2: 12150.0
+  color: '#5E6472'
+  emblem:
+    motif: lighthouse
+    pattern: halo
+  notes:
+    zh: 锚岛西岸多雾的城市，渔业、海上风电与峡湾旅游
+    en: A misty city on the west shore of Anchor Island, living on fishing, offshore wind and fjord tourism.
+- id: div_6ajqsc
+  subtype: borough
+  parent: div_3zqdra
+  status: generated
+  names:
+    zh: 雾湾区
+    en: Mistbay District
+    art-x-viking: Nebelbucht
+    art-x-buckham: Baianebbia
+  codes:
+    admin: '911201'
+  population: 600000
+  area_km2: 5300.0
+  notes:
+    zh: 雾湾畔的渔港、灯塔与海上风电运维码头
+    en: The fishing harbour, lighthouse and offshore-wind service quay on Mist Bay.
+- id: div_27g39m
+  subtype: borough
+  parent: div_3zqdra
+  status: generated
+  names:
+    zh: 峡湾区
+    en: Fjord District
+    art-x-viking: Fjord
+    art-x-buckham: Fiordo
+  codes:
+    admin: '911202'
+  population: 300000
+  area_km2: 6850.0
+  notes:
+    zh: 锚链山西北麓的峡湾与森林，徒步与游船
+    en: Fjords and forests below the north-west slopes of the Anchor Chain Mountains, for hiking and boat trips.
+- id: div_bbmwea
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 松林市
+    en: Pinewood City
+    art-x-viking: Kiefernwald auf Ysear
+    art-x-buckham: Pineta en Etei
+  codes:
+    admin: '911300'
+    unlocode: VK PIN
+  population: 500000
+  area_km2: 11900.0
+  color: '#2D6A4F'
+  emblem:
+    motif: pine
+    pattern: furrows
+  notes:
+    zh: 锚岛东北部的林业城市
+    en: A forestry city in the north-east of Anchor Island.
+- id: div_k4wvwe
+  subtype: borough
+  parent: div_bbmwea
+  status: generated
+  names:
+    zh: 松林区
+    en: Pinewood District
+    art-x-viking: Kiefernwald
+    art-x-buckham: Pineta
+  codes:
+    admin: '911301'
+  population: 500000
+  area_km2: 11900.0
+  notes:
+    zh: 松林、木材加工与松湾海滨
+    en: Pine forests, timber mills and the shore of Pine Bay.
+
+# ── 暖泉岛 ──
 - id: div_qjzmw5
   subtype: locality
   parent: div_raat4g
@@ -166,8 +699,8 @@ divisions:
   codes:
     admin: '910300'
     unlocode: VK WSP
-  population: 130000
-  area_km2: 40000.0
+  population: 2200000
+  area_km2: 12450.0
   color: '#E76F51'
   emblem:
     motif: sun
@@ -186,8 +719,8 @@ divisions:
     art-x-buckham: Terme
   codes:
     admin: '910301'
-  population: 85000
-  area_km2: 18000.0
+  population: 900000
+  area_km2: 3000.0
   notes:
     zh: 火山脚下的温泉酒店、疗养院与会议度假村
     en: Hot-spring hotels, spas and conference resorts at the foot of the volcano.
@@ -202,11 +735,119 @@ divisions:
     art-x-buckham: Sabbianera
   codes:
     admin: '910302'
-  population: 45000
-  area_km2: 22000.0
+  population: 500000
+  area_km2: 4500.0
   notes:
     zh: 火山黑沙滩、熔岩地貌步道与地热电站
     en: Black volcanic beaches, lava-field trails and the geothermal power station.
+- id: div_vk1835
+  subtype: borough
+  parent: div_qjzmw5
+  status: generated
+  names:
+    zh: 暖河区
+    en: Warm River District
+    art-x-viking: Warmfluss
+    art-x-buckham: Fiumecaldo
+  codes:
+    admin: '910303'
+  population: 800000
+  area_km2: 4950.0
+  notes:
+    zh: 暖河河口的港口新区与水产加工
+    en: The new harbour district at the mouth of the Warm River, with fish processing.
+- id: div_bsbr5w
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 硫磺湾市
+    en: Sulphur Bay City
+    art-x-viking: Schwefelbucht auf Ysear
+    art-x-buckham: Baiazolfo en Etei
+  codes:
+    admin: '911400'
+    unlocode: VK SUL
+  population: 600000
+  area_km2: 10300.0
+  color: '#D4A017'
+  emblem:
+    motif: volcano
+    pattern: rays
+  notes:
+    zh: 暖泉岛南部的城市，地热温室农业与火山观光
+    en: A city in the south of Warmspring Island, with geothermal greenhouses and volcano tours.
+- id: div_k0zt4f
+  subtype: borough
+  parent: div_bsbr5w
+  status: generated
+  names:
+    zh: 硫磺湾区
+    en: Sulphur Bay District
+    art-x-viking: Schwefelbucht
+    art-x-buckham: Baiazolfo
+  codes:
+    admin: '911401'
+  population: 600000
+  area_km2: 10300.0
+  notes:
+    zh: 暖泉火山南麓的硫磺湾，地热温室与喷气孔步道
+    en: Sulphur Bay below the southern slopes of Warmspring Volcano, with geothermal greenhouses and fumarole trails.
+- id: div_6930nk
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 岩港市
+    en: Rockhaven City
+    art-x-viking: Felshafen auf Ysear
+    art-x-buckham: Portoroccia en Etei
+  codes:
+    admin: '911500'
+    unlocode: VK RKH
+  population: 800000
+  area_km2: 11300.0
+  color: '#9C6644'
+  emblem:
+    motif: gear
+    pattern: hex
+  notes:
+    zh: 暖泉岛西部的石料港与地热工业城市
+    en: A city of stone quays and geothermal industry in the west of Warmspring Island.
+- id: div_ghpaw7
+  subtype: borough
+  parent: div_6930nk
+  status: generated
+  names:
+    zh: 岩港区
+    en: Rockhaven District
+    art-x-viking: Felshafen
+    art-x-buckham: Portoroccia
+  codes:
+    admin: '911501'
+  population: 550000
+  area_km2: 4900.0
+  notes:
+    zh: 玄武岩石料码头与地热工业园
+    en: Basalt quarry quays and the geothermal industrial park.
+- id: div_b4by9r
+  subtype: borough
+  parent: div_6930nk
+  status: generated
+  names:
+    zh: 落日区
+    en: Sunset District
+    art-x-viking: Abendrot
+    art-x-buckham: Tramonto
+  codes:
+    admin: '911502'
+  population: 250000
+  area_km2: 6400.0
+  notes:
+    zh: 落日岬一带的海崖、渔村与看日落的步道
+    en: Sea cliffs, fishing villages and sunset trails around Sunset Point.
+
+# ── 中小岛屿 ──
 - id: div_87ygkn
   subtype: locality
   parent: div_raat4g
@@ -219,8 +860,8 @@ divisions:
   codes:
     admin: '910400'
     unlocode: VK OUT
-  population: 70000
-  area_km2: 10000.0
+  population: 250000
+  area_km2: 7450.0
   color: '#2A9D8F'
   emblem:
     motif: ring
@@ -239,8 +880,8 @@ divisions:
     art-x-buckham: Isola Balena
   codes:
     admin: '910401'
-  population: 45000
-  area_km2: 6000.0
+  population: 170000
+  area_km2: 5250.0
   notes:
     zh: 观鲸船的母港与渔村，每年夏季座头鲸在岛外洄游
     en: Home port of the whale-watching boats and fishing villages; humpbacks pass the isle every summer.
@@ -255,8 +896,209 @@ divisions:
     art-x-buckham: Scogliera Uccelli
   codes:
     admin: '910402'
-  population: 25000
-  area_km2: 4000.0
+  population: 80000
+  area_km2: 2200.0
   notes:
     zh: 海鸟栖息的悬崖小岛，自然保护区与灯塔
     en: A small isle of seabird cliffs, with a nature reserve and a lighthouse.
+- id: div_esaav7
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 桅港市
+    en: Masthaven City
+    art-x-viking: Masthafen auf Ysear
+    art-x-buckham: Portalbero en Etei
+  codes:
+    admin: '911600'
+    unlocode: VK MAS
+  population: 700000
+  area_km2: 6300.0
+  color: '#C9A227'
+  emblem:
+    motif: sail
+    pattern: diagonal
+  notes:
+    zh: 桅岛上的渔港与帆船城市，周围的小岛靠渡轮相连
+    en: The fishing and sailing city of Mast Island; ferries link it to the small islands around.
+- id: div_2q2fcx
+  subtype: borough
+  parent: div_esaav7
+  status: generated
+  names:
+    zh: 桅港区
+    en: Masthaven District
+    art-x-viking: Masthafen
+    art-x-buckham: Portalbero
+  codes:
+    admin: '911601'
+  population: 500000
+  area_km2: 2950.0
+  notes:
+    zh: 桅岛北岸的渔港、游艇码头与客运码头
+    en: The fishing harbour, marina and passenger quay on the north shore of Mast Island.
+- id: div_berjt2
+  subtype: borough
+  parent: div_esaav7
+  status: generated
+  names:
+    zh: 南桅区
+    en: South Mast District
+    art-x-viking: Südmast
+    art-x-buckham: Albero Sud
+  codes:
+    admin: '911602'
+  population: 200000
+  area_km2: 3350.0
+  notes:
+    zh: 桅岛南部的牧场与海鸟保护区
+    en: Pastures and a seabird reserve in the south of Mast Island.
+- id: div_5ab7n6
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 南星市
+    en: Southstar City
+    art-x-viking: Südstern auf Ysear
+    art-x-buckham: Stellasud en Etei
+  codes:
+    admin: '911700'
+    unlocode: VK SST
+  population: 450000
+  area_km2: 5300.0
+  color: '#4361EE'
+  emblem:
+    motif: star
+    pattern: dots
+  notes:
+    zh: 群岛东南的南星岛上的度假城市
+    en: The resort city of Southstar Island in the south-east of the islands.
+- id: div_ht5w2y
+  subtype: borough
+  parent: div_5ab7n6
+  status: generated
+  names:
+    zh: 南星区
+    en: Southstar District
+    art-x-viking: Südstern
+    art-x-buckham: Stellasud
+  codes:
+    admin: '911701'
+  population: 450000
+  area_km2: 5300.0
+  notes:
+    zh: 海滨度假村、潜水基地与海豹岛保护区
+    en: Seaside resorts, dive centres and the Seal Isle reserve.
+- id: div_px9s45
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 晨光市
+    en: Dawnlight City
+    art-x-viking: Morgenlicht auf Ysear
+    art-x-buckham: Aurora en Etei
+  codes:
+    admin: '911800'
+    unlocode: VK DWN
+  population: 350000
+  area_km2: 4000.0
+  color: '#F4A261'
+  emblem:
+    motif: dawn
+    pattern: stripes
+  notes:
+    zh: 群岛最东端晨光岛上的城市，群岛每天第一缕阳光照到这里
+    en: The city on Dawnlight Island, the easternmost of the islands, where each day's first sunlight reaches them.
+- id: div_f07nky
+  subtype: borough
+  parent: div_px9s45
+  status: generated
+  names:
+    zh: 晨光区
+    en: Dawnlight District
+    art-x-viking: Morgenlicht
+    art-x-buckham: Aurora
+  codes:
+    admin: '911801'
+  population: 350000
+  area_km2: 4000.0
+  notes:
+    zh: 日出观景台、渔村与海上风电场
+    en: Sunrise viewpoints, fishing villages and offshore wind farms.
+- id: div_4vcskg
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 鳕港市
+    en: Codhaven City
+    art-x-viking: Dorschhafen auf Ysear
+    art-x-buckham: Portomerluzzo en Etei
+  codes:
+    admin: '911900'
+    unlocode: VK COD
+  population: 300000
+  area_km2: 3250.0
+  color: '#5FA8D3'
+  emblem:
+    motif: fish
+    pattern: waves
+  notes:
+    zh: 群岛西北鳕岛上的渔业城市
+    en: The fishing city of Cod Island in the north-west of the islands.
+- id: div_7pf4qf
+  subtype: borough
+  parent: div_4vcskg
+  status: generated
+  names:
+    zh: 鳕港区
+    en: Codhaven District
+    art-x-viking: Dorschhafen
+    art-x-buckham: Portomerluzzo
+  codes:
+    admin: '911901'
+  population: 300000
+  area_km2: 3250.0
+  notes:
+    zh: 捕鳕船队的母港与鱼干晾架
+    en: Home port of the cod fleet, with its stockfish drying racks.
+- id: div_47173y
+  subtype: locality
+  parent: div_raat4g
+  status: generated
+  names:
+    zh: 风港市
+    en: Windhaven City
+    art-x-viking: Windhafen auf Ysear
+    art-x-buckham: Portovento en Etei
+  codes:
+    admin: '912000'
+    unlocode: VK WND
+  population: 250000
+  area_km2: 2400.0
+  color: '#90BE6D'
+  emblem:
+    motif: turbine
+    pattern: stripes
+  notes:
+    zh: 风岛上的城市，群岛的海上风电基地
+    en: The city of Wind Isle, base of the islands' offshore wind farms.
+- id: div_72h3ge
+  subtype: borough
+  parent: div_47173y
+  status: generated
+  names:
+    zh: 风港区
+    en: Windhaven District
+    art-x-viking: Windhafen
+    art-x-buckham: Portovento
+  codes:
+    admin: '912001'
+  population: 250000
+  area_km2: 2400.0
+  notes:
+    zh: 海上风电运维码头、风机组装厂与渔村
+    en: The offshore-wind service quay, a turbine assembly plant and fishing villages.

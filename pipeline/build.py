@@ -425,6 +425,18 @@ def landmark_sites(world, d, core, angle, built, land, seed):
     return out
 
 
+def core_zone(built, core, km2: float):
+    """The part of the built-up area `built` (real km) nearest `core` that covers about km2."""
+    r = math.sqrt(km2 / math.pi)
+    zone = built
+    for _ in range(8):
+        zone = built.intersection(Point(core).buffer(r, quad_segs=32))
+        if zone.area >= 0.97 * min(km2, built.area):
+            break
+        r *= min(2.0, math.sqrt(km2 / zone.area)) if zone.area > 0 else 2.0
+    return zone
+
+
 def build_streets(world, sp, features, frame, seed, cities, districts, district_city, dist_polys, poles, urban, land, lake_polys, river_lines):
     """Street networks of the cities listed in the generator's `streets` section.
 
@@ -457,13 +469,16 @@ def build_streets(world, sp, features, frame, seed, cities, districts, district_
             rng = np.random.default_rng([seed, int(hashlib.sha1(d["id"].encode()).hexdigest()[:8], 16)])
             angle = math.radians(cfg["angle_deg"]) if "angle_deg" in cfg else main_axis(built)
             core = (poles[i][0] * s, poles[i][1] * s)
-            ds = streets.district_streets(built, core, style, angle, rng, sp, i)
+            ds = streets.district_streets(built, core, style, angle, rng, sp, i, cfg.get("main_only", False))
             streets.bend(ds, streets.Field(rng, sp["warp_wavelength_km"]), sp["warp_km"][style])
             sites = landmark_sites(world, d, core, angle, built, safe_all, seed)
             safe = built.buffer(0.05).intersection(safe_all)
             if sites:
                 safe = safe.difference(shapely.union_all([site for _, site, _ in sites]).buffer(0.004))
             dry = safe.difference(rivers_r) if rivers_r is not None else safe
+            detail = core_zone(built, core, cfg["detail_km2"]) if "detail_km2" in cfg else None
+            if detail is not None:
+                dry = dry.intersection(detail.buffer(0.05))
             kept, real_lines = [], []
             for st in ds:
                 g = streets.keep(st.geom.intersection(dry if st.cls == "local" else safe).simplify(0.004), st.cls)
@@ -473,7 +488,8 @@ def build_streets(world, sp, features, frame, seed, cities, districts, district_
                     kept.append(st)
             styles[i] = style
             ctx[i] = {"name": d["names"]["zh"], "built": built.intersection(safe_all), "style": style, "angle": angle, "core": core, "lines": real_lines,
-                      "radius": math.sqrt(built.area / math.pi), "mix": cfg.get("mix")}
+                      "radius": math.sqrt(built.area / math.pi), "mix": cfg.get("mix"), "main_only": cfg.get("main_only", False),
+                      "detail": detail}
             city_sites += [(pid, site, parts, i) for pid, site, parts in sites]
             city_streets += kept
             counts = {c: sum(1 for st in kept if st.cls == c) for c in streets.CLASSES}
@@ -501,7 +517,9 @@ def build_buildings(street_out, seed) -> tuple[list, list]:
         if sites:
             taken = taken.union(shapely.union_all([site.buffer(0.01) for _, site, _, _ in sites]))
         for i, c in ctx.items():
-            blks = buildings.blocks(c["built"], taken)
+            if c["main_only"]:
+                continue
+            blks = buildings.blocks(c["built"] if c["detail"] is None else c["built"].intersection(c["detail"]), taken)
             rng = np.random.default_rng([seed, 11, i])
             bl, pk = buildings.district_buildings(blks, c["style"], c["core"], c["angle"], c["radius"], rng, c["mix"])
             out += [(b.cls, b.geom) for b in bl]

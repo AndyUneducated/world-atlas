@@ -62,7 +62,12 @@ terrain:
     - { feature: nat_1kngjx, path: [[62, 47], [62.5, 47.5]], height_m: 3200, width_km: 10 }             # 暖泉火山
     - { feature: nat_kdza0d, path: [[161, 75], [196, 93], [231, 113]], height_m: 550, width_km: 8 }     # 帆影岭
     - { feature: nat_9bt7gf, path: [[76, 130], [94, 160], [112, 190]], height_m: 1300, width_km: 10 }   # 锚链山
-  plains: []
+  # City-centre lowlands on the harbours: Longship, Anchorhaven, Sail Harbour, Hot Springs
+  plains:
+    - [186, 146, 12, 0.75]
+    - [74, 112, 9, 0.7]
+    - [245, 112, 6, 0.7]
+    - [97, 55, 7, 0.6]
 
 hydrology:
   river_min_drainage_km2: 25
@@ -93,7 +98,7 @@ relief:
 # Cool-temperate maritime islands: lowland forest and farmland, moorland above the treeline,
 # ice only on the summit of Warmspring Volcano.
 landcover:
-  urban_density_per_km2: 4000
+  urban_density_per_km2: 6000   # flat land is scarce on the islands: denser, taller towns than North Viking Island
   urban_max_slope_deg: 12
   urban_terrace_slope_deg: 22
   wetland_max_elev_m: 80
@@ -114,16 +119,25 @@ streets:
   warp_km: { planned: 0.02, mixed: 0.05, organic: 0.09 }
   warp_wavelength_km: 1.6
   river_gap_km: 0.05
+  # detail_km2: local streets and generic buildings only in the district's core zone of that size
+  # (around its centre); the rest of the built-up area gets arterials and collectors.
   districts:
-    div_g2g1yc: { style: organic, mix: { perimeter: 1.8, houses: 1.2, industrial: 0.2 } }   # 古城区：城墙内的石砌老城
-    div_jzqknb: { style: planned, mix: { towers: 2.4, podium: 1.8, civic: 0.6, industrial: 0.1 } }  # 汇金区：离岸金融
-    div_xps98r: { style: mixed, mix: { houses: 2.0, park: 1.2, industrial: 0.4 } }         # 北岬区：居住与草场
-    div_tkvfsx: { style: mixed, mix: { podium: 1.8, towers: 0.8, industrial: 0.5 } }       # 帆港区：邮轮码头与免税街
-    div_8a2hzm: { style: organic, mix: { houses: 2.4, park: 1.5, industrial: 0.1 } }       # 灯塔区：海滨别墅
-    div_cz7sch: { style: organic, mix: { podium: 1.2, houses: 1.6, park: 2.0, industrial: 0.1 } }  # 温泉区：温泉酒店与疗养院
-    div_v2tq1k: { style: organic, mix: { houses: 2.0, industrial: 0.8 } }                  # 黑沙区：黑沙滩与地热电站
+    div_g2g1yc: { style: organic, detail_km2: 30, mix: { perimeter: 1.8, houses: 1.2, industrial: 0.2 } }   # 古城区：城墙内的石砌老城
+    div_jzqknb: { style: planned, detail_km2: 60, mix: { towers: 2.4, podium: 1.8, civic: 0.6, industrial: 0.1 } }  # 汇金区：离岸金融
+    div_xps98r: { style: mixed, detail_km2: 25, mix: { houses: 2.0, park: 1.2, industrial: 0.4 } }         # 北岬区：居住与草场
+    div_tkvfsx: { style: mixed, detail_km2: 40, mix: { podium: 1.8, towers: 0.8, industrial: 0.5 } }       # 帆港区：邮轮码头与免税街
+    div_8a2hzm: { style: organic, detail_km2: 20, mix: { houses: 2.4, park: 1.5, industrial: 0.1 } }       # 灯塔区：海滨别墅
+    div_cz7sch: { style: organic, detail_km2: 20, mix: { podium: 1.2, houses: 1.6, park: 2.0, industrial: 0.1 } }  # 温泉区：温泉酒店与疗养院
+    div_v2tq1k: { style: organic, detail_km2: 15, mix: { houses: 2.0, industrial: 0.8 } }                  # 黑沙区：黑沙滩与地热电站
     div_khmgcq: { style: organic, mix: { houses: 2.2, industrial: 0.6 } }                  # 鲸岛区：渔村与观鲸码头
     div_5p2a2d: { style: organic, mix: { houses: 2.2, park: 1.0 } }                        # 鸟崖区：保护区小镇
+    # main_only: arterials and collectors, no local streets or generic buildings
+    div_j6mw1m: { style: planned, main_only: true }   # 东港区：集装箱码头
+    div_kecby5: { style: mixed, main_only: true }     # 西岸区：住宅区
+    div_dtk19k: { style: mixed, main_only: true }     # 长滩区：郊区
+    div_vhsby1: { style: organic, main_only: true }   # 帆城区：白帆老城
+    div_5rbg50: { style: mixed, main_only: true }     # 望海区
+    div_vk1835: { style: mixed, main_only: true }     # 暖河区：河口港区
   named:
     - { district: div_jzqknb, axis: 0, line: 0, status: generated, names: { zh: 汇金大道, en: Goldmark Avenue, art-x-viking: Goldmarkallee, art-x-buckham: Viale Marcoro } }
     - { district: div_jzqknb, axis: 1, line: 0, status: generated, names: { zh: 信托街, en: Trust Street, art-x-viking: Treuhandstraße, art-x-buckham: Via del Trust } }
@@ -133,27 +147,97 @@ streets:
 expect:
   district_centres_on: [territorial_expressway, territorial_highway]
 
+# City areas match the land each city's cell covers: a city that owns whole islands can only
+# reach its area by moving its coastline, and cities on one main island only trade land there.
 layout:
   cities:
-    div_3cvg2q: [146, 128]   # 长船市
-    div_x22naa: [194, 92]    # 白帆市
-    div_qjzmw5: [62, 48]     # 暖泉市
-    div_87ygkn: [22, 140]    # 外屿市
+    # 长船岛：首府在东北的船首，向西南依次是西北岸的潮湾、东南岸的龙骨、船尾的舵港
+    div_3cvg2q: [173.5, 155.5]   # 长船市
+    div_x20mfy: [133.1, 130.7]   # 潮湾市
+    div_33vctd: [148, 115.9]     # 龙骨市
+    div_er5g6j: [116.2, 98.2]    # 舵港市
+    # 白帆岛：东北的白帆，中部西北岸的帆影、东南岸的盐湾，西南端的银鸥
+    div_x22naa: [235.1, 116.5]   # 白帆市
+    div_qy1rtm: [202.2, 112.5]   # 帆影市
+    div_ewqq3p: [213.4, 91.3]    # 盐湾市
+    div_0770jy: [177.7, 86]      # 银鸥市
+    # 锚岛：西南的锚港，西岸的雾湾，东北的松林
+    div_zg05xa: [88.8, 135.7]    # 锚港市
+    div_3zqdra: [79.3, 158.1]    # 雾湾市
+    div_bbmwea: [116.5, 195]     # 松林市
+    # 暖泉岛：东部的暖泉，南部的硫磺湾，西部的岩港
+    div_qjzmw5: [85, 54]         # 暖泉市
+    div_bsbr5w: [52, 24]         # 硫磺湾市
+    div_6930nk: [38, 58]         # 岩港市
+    # 中等岛
+    div_87ygkn: [22, 172]        # 外屿市：鲸岛与鸟崖岛之间
+    div_esaav7: [136, 34]        # 桅港市
+    div_5ab7n6: [232, 36]        # 南星市
+    div_px9s45: [284, 110]       # 晨光市
+    div_4vcskg: [49, 222]        # 鳕港市
+    div_47173y: [255, 147]       # 风港市
+  # Seed offsets in units of 0.42·sqrt(city area); not normalised, so an outer-isle district can
+  # reach its own island.
   districts:
-    div_g2g1yc: [0.3, -0.8]  # 古城区：长船岛东南岸
-    div_jzqknb: [0.9, -0.1]  # 汇金区：古城以东
-    div_xps98r: [-0.6, 0.6]  # 北岬区：长船岛西北大半
-    div_tkvfsx: [-0.7, -0.5] # 帆港区：白帆岛西南，面向长船
-    div_8a2hzm: [0.8, 0.5]   # 灯塔区：白帆岛东北
-    div_cz7sch: [0.5, 0.5]   # 温泉区：暖泉岛东北
-    div_v2tq1k: [-0.5, -0.6] # 黑沙区：暖泉岛西南
-    div_khmgcq: [0.6, -0.8]  # 鲸岛区
-    div_5p2a2d: [-0.75, 0.65] # 鸟崖区
+    div_g2g1yc: [0.65, -0.27]    # 古城区：长船湾
+    div_jzqknb: [0.45, -0.76]    # 汇金区：汇金湾
+    div_xps98r: [0.8, 0.8]       # 北岬区：船首
+    div_j6mw1m: [0.07, -1.22]    # 东港区：东南岸
+    div_kecby5: [-0.46, 0.61]    # 西岸区：西北岸
+    div_dtk19k: [-0.88, -0.58]   # 长滩区：龙骨山东北麓
+    div_ej0v6c: [0.65, 0.15]     # 舵港区
+    div_1tva4b: [-0.51, -0.51]   # 船尾区：西南端
+    div_tkvfsx: [0.53, -0.58]    # 帆港区：帆港湾
+    div_8a2hzm: [0.84, 0.44]     # 灯塔区：白帆岛东北端
+    div_vhsby1: [-0.68, 0.35]    # 帆城区
+    div_5rbg50: [-0.42, -0.94]   # 望海区：帆影岭东麓
+    div_626x3f: [0.83, -0.45]    # 盐湾区
+    div_z1y7bz: [-0.57, -0.47]   # 渔港区
+    div_rvrs7v: [-0.6, -0.3]     # 银鸥区：银鸥湾
+    div_v3mfeg: [0.5, 0.3]       # 白岭区
+    div_a2n8cw: [-0.77, -1.3]    # 锚湾区：西南端两爪之间
+    div_qyhvjj: [0.84, -0.03]    # 船厂区：东南岸
+    div_b569a2: [0.55, 0.87]     # 链城区
+    div_j1czet: [-1.14, -0.65]   # 西爪区
+    div_6ajqsc: [-0.58, -0.51]   # 雾湾区
+    div_27g39m: [0.44, 1.06]     # 峡湾区
+    div_cz7sch: [0.6, -0.25]     # 温泉区：温泉湾
+    div_v2tq1k: [0.0, -0.9]      # 黑沙区：东南岸
+    div_vk1835: [0.35, 0.8]      # 暖河区：暖河口
+    div_ghpaw7: [-0.3, -0.6]     # 岩港区
+    div_b4by9r: [-0.2, 0.8]      # 落日区：落日岬
+    div_khmgcq: [0.0, -2.5]      # 鲸岛区
+    div_5p2a2d: [0.16, 1.9]      # 鸟崖区
+    div_2q2fcx: [0.6, 0.4]       # 桅港区：北岸
+    div_berjt2: [-0.6, -0.4]     # 南桅区
   boundary_warp_km: 4
   coastal:
-    div_g2g1yc: null         # 古城区，长船港
-    div_jzqknb: null         # 汇金区，海湾
-    div_xps98r: null         # 北岬区，长船岛北岸
-    div_tkvfsx: null         # 帆港区，邮轮码头
-    div_v2tq1k: null         # 黑沙区，黑沙滩
-    div_khmgcq: null         # 鲸岛区，渔港
+    div_g2g1yc: nat_zgv4r2       # 古城区，长船湾
+    div_jzqknb: nat_h3knsp       # 汇金区，汇金湾
+    div_xps98r: nat_r2hpck       # 北岬区，北岬湾
+    div_j6mw1m: null             # 东港区，集装箱码头
+    div_kecby5: null             # 西岸区
+    div_ej0v6c: null             # 舵港区
+    div_1tva4b: null             # 船尾区
+    div_0yqqc3: null             # 潮湾区
+    div_tkvfsx: nat_dw7pxt       # 帆港区，帆港湾
+    div_8a2hzm: null             # 灯塔区
+    div_626x3f: nat_c4cftd       # 盐湾区，盐湾
+    div_z1y7bz: null             # 渔港区
+    div_rvrs7v: nat_1q1ey6       # 银鸥区，银鸥湾
+    div_a2n8cw: nat_gd3pyt       # 锚湾区，锚湾
+    div_qyhvjj: null             # 船厂区
+    div_6ajqsc: nat_6r8rng       # 雾湾区，雾湾
+    div_k4wvwe: nat_3w3ayk       # 松林区，松湾
+    div_cz7sch: nat_nzwany       # 温泉区，温泉湾
+    div_v2tq1k: null             # 黑沙区，黑沙滩
+    div_vk1835: nat_pw8474       # 暖河区，暖河口
+    div_k0zt4f: nat_qq80wg       # 硫磺湾区，硫磺湾
+    div_ghpaw7: null             # 岩港区
+    div_b4by9r: nat_xet2vm       # 落日区，落日岬
+    div_khmgcq: null             # 鲸岛区，渔港
+    div_2q2fcx: null             # 桅港区
+    div_ht5w2y: null             # 南星区
+    div_f07nky: null             # 晨光区
+    div_7pf4qf: null             # 鳕港区
+    div_72h3ge: null             # 风港区

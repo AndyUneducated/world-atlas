@@ -204,6 +204,113 @@ export const MOTIFS: Record<string, (ink: string) => ReactNode> = {
       <circle cx="24" cy="24" r="2.2" fill={ink} />
     </g>
   ),
+  anchor: () => (
+    <g>
+      <circle cx="24" cy="9.6" r="3.6" {...line(2.4)} />
+      <path d="M24 13.2V40" {...line(3)} />
+      <path d="M16 19h16" {...line(2.8)} />
+      <path d="M9.2 28.5c1.2 7.2 7.4 11.8 14.8 11.8s13.6-4.6 14.8-11.8" {...line(3)} />
+      <path d="M5.4 31.6L9 24.6l4.6 5.2z" fill={W} />
+      <path d="M42.6 31.6L39 24.6l-4.6 5.2z" fill={W} />
+    </g>
+  ),
+  helm: (ink) => (
+    <g>
+      {Array.from({ length: 8 }, (_, k) => {
+        const [x0, y0] = polar(k * 45, 4);
+        const [x1, y1] = polar(k * 45, 16);
+        const [hx, hy] = polar(k * 45, 17.4);
+        return (
+          <g key={k}>
+            <path d={`M${x0} ${y0}L${x1} ${y1}`} {...line(2.2)} />
+            <circle cx={hx} cy={hy} r="2.2" fill={W} />
+          </g>
+        );
+      })}
+      <circle cx="24" cy="24" r="11" {...line(3)} />
+      <circle cx="24" cy="24" r="4.4" fill={W} />
+      <circle cx="24" cy="24" r="1.7" fill={ink} />
+    </g>
+  ),
+  gull: () => (
+    <g>
+      <path d="M5 21c5.5-4.6 12-4.4 19 2.8 7-7.2 13.5-7.4 19-2.8-6.2-1-11.8 1.6-19 9.4C16.8 22.6 11.2 20 5 21z" fill={W} />
+      <path d="M8 37c3-2 6-2 9 0s6 2 9 0 6-2 9 0 4 1.6 5 1.6" {...line(1.8, 0.75)} />
+    </g>
+  ),
+  lighthouse: (ink) => (
+    <g>
+      <path d="M19 40l2.6-22h4.8L29 40z" fill={W} />
+      <path d="M20.7 25.5h6.6M20.1 32.5h7.8" stroke={ink} strokeOpacity="0.4" strokeWidth="2.2" />
+      <rect x="20.5" y="12.5" width="7" height="5" rx="1" fill={W} />
+      <path d="M19.5 12.5h9L24 8.3z" fill={W} />
+      <circle cx="24" cy="15" r="1.4" fill={ink} />
+      <path d="M17 13.5L6.5 9.8M17 16.5L6.5 20.2M31 13.5l10.5-3.7M31 16.5l10.5 3.7" {...line(2, 0.8)} />
+      <path d="M12 40.6h24" {...line(2.4)} />
+    </g>
+  ),
+  pine: () => (
+    <g fill={W}>
+      <path d="M24 5L31.5 15H28L35.5 24.5H31.5L40 35H8L16.5 24.5H12.5L20 15H16.5Z" />
+      <rect x="21.6" y="34.5" width="4.8" height="7.5" rx="1" />
+    </g>
+  ),
+  volcano: (ink) => (
+    <g>
+      <path d="M4.5 40L18 20.5h12L43.5 40z" fill={W} />
+      <path d="M18 20.5l3 3.2 3-2.2 3 2.2 3-3.2" fill="none" stroke={ink} strokeOpacity="0.5" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M24 17c-2.5-2.6-1.2-5.6 1.8-6.2-.6-3.2 2.6-5.4 5.6-3.8 2-2.4 6.4-1.6 6.8 1.6" {...line(2.2, 0.85)} />
+    </g>
+  ),
+  sail: () => (
+    <g>
+      <rect x="22.8" y="5" width="2.2" height="30" rx="1" fill={W} />
+      <path d="M26.6 7c7 6 11 15.5 11.5 26H26.6z" fill={W} />
+      <path d="M21.2 11L10 33h11.2z" fill={W} fillOpacity="0.85" />
+      <path d="M7 36h34l-4.5 5.5h-25z" fill={W} />
+    </g>
+  ),
+  star: (ink) => {
+    const pts = Array.from({ length: 10 }, (_, k) => polar(k * 36 - 90, k % 2 ? 6.8 : 15.5, 24, 25));
+    return (
+      <g>
+        <path d={`M${pts.map((p) => p.map((v) => v.toFixed(2)).join(" ")).join("L")}Z`} fill={W} />
+        <circle cx="24" cy="25" r="2" fill={ink} fillOpacity="0.4" />
+        <path d="M39 6v6M36 9h6M9 37v4M7 39h4" {...line(1.4, 0.8)} />
+      </g>
+    );
+  },
+  dawn: () => (
+    <g>
+      <path d="M13 31a11 11 0 0 1 22 0z" fill={W} />
+      {[-162, -135, -108, -90, -72, -45, -18].map((a) => {
+        const [x0, y0] = polar(a, 13.6, 24, 31);
+        const [x1, y1] = polar(a, a === -90 ? 20.5 : 19, 24, 31);
+        return <path key={a} d={`M${x0} ${y0}L${x1} ${y1}`} {...line(2.3)} />;
+      })}
+      <path d="M5 31h38" {...line(2.6)} />
+      <path d="M10 36.5h28M16 41h16" {...line(2, 0.7)} />
+    </g>
+  ),
+  fish: (ink) => (
+    <g>
+      <path d="M13 24c4-7 10-10.5 16.5-10.5S40 18 43 24c-3 6-7.5 10.5-13.5 10.5S17 31 13 24z" fill={W} />
+      <path d="M14.5 24L5 15.5v17z" fill={W} />
+      <path d="M31 17.5c-2 4-2 9 0 13" fill="none" stroke={ink} strokeOpacity="0.35" strokeWidth="1.4" strokeLinecap="round" />
+      <circle cx="36.5" cy="22" r="1.5" fill={ink} />
+    </g>
+  ),
+  turbine: (ink) => (
+    <g>
+      <path d="M22.4 42.5L23.3 18h1.4l.9 24.5z" fill={W} />
+      {[10, 130, 250].map((a) => (
+        <path key={a} d="M24 17c-1.6-3-2-9-.4-14.5.9-.6 1.6-.4 1.9.4.9 4.4.6 10.2-1.5 14.1z" fill={W} transform={`rotate(${a} 24 17)`} />
+      ))}
+      <circle cx="24" cy="17" r="2.4" fill={W} />
+      <circle cx="24" cy="17" r="1" fill={ink} />
+      <path d="M14 42.6h20" {...line(2)} />
+    </g>
+  ),
 };
 
 /** Background textures on the 64×64 emblem box. */

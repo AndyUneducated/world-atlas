@@ -129,8 +129,10 @@ def mostly_inside(lines: list, area, share: float) -> np.ndarray:
     return inside > share * shapely.length(arr)
 
 
-def district_streets(built, core, style: str, angle: float, rng: np.random.Generator, p: dict, di: int) -> list[Street]:
-    """Unbent street network of one district's built-up area `built` (real km)."""
+def district_streets(built, core, style: str, angle: float, rng: np.random.Generator, p: dict, di: int,
+                     main_only: bool = False) -> list[Street]:
+    """Unbent street network of one district's built-up area `built` (real km); with main_only,
+    arterials and collectors only."""
     out: list[Street] = []
     radius = math.sqrt(built.area / math.pi)
 
@@ -177,8 +179,10 @@ def district_streets(built, core, style: str, angle: float, rng: np.random.Gener
     else:
         cells = [built]
     major_zone = shapely.union_all([s.geom for s in out]) if out else None
+    majors = [s.geom for s in out]
+    major_tree = shapely.STRtree(majors) if majors else None
 
-    if style == "planned":
+    if style == "planned" and not main_only:
         # one continuous grid; lines divide each half-block evenly and are grouped per band between majors
         lo, hi = p["local_spacing_km"][style]
         per = max(2, round(spacing / 2 / rng.uniform(lo, hi)))
@@ -202,12 +206,21 @@ def district_streets(built, core, style: str, angle: float, rng: np.random.Gener
         sp = rng.uniform(lo, hi)
         origin = np.array(cell.representative_point().coords[0]) + rng.uniform(-sp / 2, sp / 2, 2)
         axes = (0, 1) if style != "organic" or rng.random() < 0.65 else (0,)
-        near = major_zone.buffer(0.45 * sp) if major_zone is not None else None
+        near = None
+        if major_tree is not None:
+            # the major streets within reach of this cell; buffering the whole zone per cell is quadratic
+            x0, y0, x1, y1 = cell.bounds
+            r = 0.45 * sp
+            idx = major_tree.query(shapely.box(x0 - r, y0 - r, x1 + r, y1 + r))
+            if len(idx):
+                near = shapely.union_all([majors[i] for i in idx]).buffer(r)
         for axis in axes:
             step = sp if axis == 0 else sp * rng.choice([1.0, 1.0, 1.5, 2.2])
             cand = []
             for k, ln in parallel_lines(cell, origin, a + axis * math.pi / 2, step):
                 cls = "collector" if k == 0 and cell.area > 0.6 else "local"
+                if main_only and cls == "local":
+                    continue
                 g = keep(ln.intersection(cell), cls)
                 if g is None:
                     continue
