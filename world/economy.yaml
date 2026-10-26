@@ -1,0 +1,73 @@
+# Economy and population model. Every city and district names a few traits in world/divisions
+# (`traits: { industries: [...], heritage: ..., age: ... }`; districts inherit what they leave out from
+# their city). The pipeline (pipeline/atlas/economy.py) turns them into GDP, GDP per head, the three-sector
+# mix, the age structure and first languages of each district, then adds up cities and territories.
+# Each district gets a fixed perturbation from its id, so two districts with the same traits still differ.
+#
+# GDP per head = territory base x mean productivity of the leading industries x density factor x perturbation.
+# Leading industries count by rank: weights 1, 0.6, 0.4, 0.3 for the first four.
+
+currency: USD  # 2026 US dollars, as world/transport/engineering.yaml
+base_gdp_per_capita:
+  div_fbfqv9: 61000  # North Viking Island
+  div_raat4g: 68000  # Viking Islands
+rank_weights: [1.0, 0.6, 0.4, 0.3]
+density_elasticity: 0.05  # per-head GDP x (density / 100 per km²) ^ e
+perturbation: { gdp_per_capita: 0.08, sectors: 0.15, age: 1.5, languages: 0.12 }
+base_sectors: { primary: 2, secondary: 16, tertiary: 50 }
+
+# sectors: points added to the mix at full rank weight; productivity: GDP per head multiplier;
+# age: points moved into [young, working, old] (positive adds, the shares are renormalised).
+industries:
+  government:    { zh: 行政与公共服务, en: Government, sectors: { tertiary: 40 }, productivity: 1.10, age: [0, 3, 0] }
+  finance:       { zh: 金融, en: Finance, sectors: { tertiary: 55 }, productivity: 1.55, age: [-1, 4, -1] }
+  trade:         { zh: 自由贸易与离岸业务, en: Free trade, sectors: { tertiary: 45, secondary: 8 }, productivity: 1.60, age: [-1, 5, -2] }
+  commerce:      { zh: 商贸, en: Commerce, sectors: { tertiary: 40 }, productivity: 1.00, age: [0, 1, 0] }
+  retail:        { zh: 免税零售, en: Duty-free retail, sectors: { tertiary: 45 }, productivity: 1.10, age: [0, 2, 0] }
+  port:          { zh: 港口航运, en: Port and shipping, sectors: { tertiary: 28, secondary: 14 }, productivity: 1.20, age: [0, 2, 0] }
+  logistics:     { zh: 物流仓储, en: Logistics, sectors: { tertiary: 28, secondary: 10 }, productivity: 1.05, age: [0, 2, 0] }
+  aviation:      { zh: 航空与机场, en: Aviation, sectors: { tertiary: 30, secondary: 10 }, productivity: 1.20, age: [0, 3, -1] }
+  shipbuilding:  { zh: 船舶与海工装备, en: Shipbuilding, sectors: { secondary: 45 }, productivity: 1.15, age: [0, 2, 0] }
+  manufacturing: { zh: 制造业, en: Manufacturing, sectors: { secondary: 45 }, productivity: 1.10, age: [1, 2, -1] }
+  food:          { zh: 食品与水产加工, en: Food processing, sectors: { secondary: 30, primary: 8 }, productivity: 0.90, age: [0, 1, 0] }
+  mining:        { zh: 采矿与石料, en: Mining and quarrying, sectors: { secondary: 40, primary: 6 }, productivity: 1.15, age: [0, 2, -1] }
+  geothermal:    { zh: 地热能源, en: Geothermal energy, sectors: { secondary: 38 }, productivity: 1.25, age: [0, 1, 0] }
+  wind:          { zh: 海上风电, en: Offshore wind, sectors: { secondary: 35, tertiary: 8 }, productivity: 1.25, age: [0, 2, -1] }
+  tidal:         { zh: 潮汐发电, en: Tidal power, sectors: { secondary: 35 }, productivity: 1.20, age: [0, 1, 0] }
+  agriculture:   { zh: 种植业, en: Farming, sectors: { primary: 30, secondary: 6 }, productivity: 0.80, age: [0, -2, 3] }
+  dairy:         { zh: 乳业与畜牧, en: Dairy and livestock, sectors: { primary: 26, secondary: 10 }, productivity: 0.85, age: [0, -2, 3] }
+  herding:       { zh: 驯鹿放牧, en: Reindeer herding, sectors: { primary: 40 }, productivity: 0.65, age: [2, -3, 2] }
+  greenhouse:    { zh: 地热温室农业, en: Geothermal greenhouses, sectors: { primary: 24, secondary: 8 }, productivity: 0.95, age: [0, 0, 1] }
+  wine:          { zh: 酒庄与葡萄种植, en: Wine, sectors: { primary: 16, secondary: 10, tertiary: 10 }, productivity: 0.95, age: [0, -1, 2] }
+  fishing:       { zh: 渔业, en: Fishing, sectors: { primary: 28, secondary: 8 }, productivity: 0.85, age: [0, -2, 3] }
+  forestry:      { zh: 林业与木材加工, en: Forestry and timber, sectors: { primary: 20, secondary: 18 }, productivity: 0.85, age: [0, -1, 2] }
+  salt:          { zh: 海盐, en: Sea salt, sectors: { primary: 14, secondary: 20 }, productivity: 0.85, age: [0, -1, 2] }
+  tourism:       { zh: 旅游度假, en: Tourism, sectors: { tertiary: 42 }, productivity: 0.95, age: [0, 0, 1] }
+  cruise:        { zh: 邮轮, en: Cruise, sectors: { tertiary: 42 }, productivity: 1.05, age: [0, 1, 0] }
+  conference:    { zh: 会展, en: Conferences, sectors: { tertiary: 40 }, productivity: 1.10, age: [0, 2, 0] }
+  heritage:      { zh: 文化遗产与博物馆, en: Heritage, sectors: { tertiary: 38 }, productivity: 0.95, age: [0, 0, 1] }
+  healthcare:    { zh: 医疗与疗养, en: Healthcare and spas, sectors: { tertiary: 40 }, productivity: 1.00, age: [0, -1, 4] }
+  education:     { zh: 高等教育, en: Higher education, sectors: { tertiary: 40 }, productivity: 1.05, age: [-1, 6, -2] }
+  research:      { zh: 科研, en: Research, sectors: { tertiary: 38, secondary: 8 }, productivity: 1.40, age: [-1, 5, -2] }
+  tech:          { zh: 信息技术, en: Information technology, sectors: { tertiary: 40, secondary: 6 }, productivity: 1.45, age: [0, 5, -2] }
+  media:         { zh: 广电传媒, en: Media, sectors: { tertiary: 40 }, productivity: 1.15, age: [0, 3, -1] }
+  aerospace:     { zh: 航天, en: Aerospace, sectors: { secondary: 42, tertiary: 10 }, productivity: 1.45, age: [-1, 6, -3] }
+  defence:       { zh: 国防, en: Defence, sectors: { tertiary: 45 }, productivity: 1.05, age: [-2, 10, -6] }
+  residential:   { zh: 居住与社区服务, en: Residential services, sectors: { tertiary: 30, secondary: 6 }, productivity: 0.75, age: [3, 0, 0] }
+  ski:           { zh: 冰雪运动, en: Winter sports, sectors: { tertiary: 38 }, productivity: 0.95, age: [0, 1, 0] }
+
+# First-language shares (%), by heritage: the Chinese-planned new towns, the old Viking and Buckham
+# settlements and ports, and the international cities in between.
+languages: [zh, art-x-viking, art-x-buckham, en]
+heritage:
+  chinese: { zh: 74, art-x-viking: 12, art-x-buckham: 6, en: 6 }
+  viking:  { zh: 36, art-x-viking: 52, art-x-buckham: 5, en: 6 }
+  buckham: { zh: 34, art-x-viking: 10, art-x-buckham: 48, en: 7 }
+  mixed:   { zh: 48, art-x-viking: 28, art-x-buckham: 14, en: 9 }
+  global:  { zh: 42, art-x-viking: 30, art-x-buckham: 6, en: 20 }
+
+# Age structure (%): under 15, 15–64, 65 and over.
+age:
+  young:    [20, 68, 12]
+  balanced: [15, 66, 19]
+  old:      [12, 60, 28]

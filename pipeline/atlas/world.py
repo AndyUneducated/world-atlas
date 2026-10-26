@@ -31,6 +31,10 @@ RAIL_NETWORKS = ("intercity_rail",)
 # Lines whose cards carry a construction background, and who runs them (operators in the territory record).
 BACKGROUND_NETWORKS = ("national_expressway", "territorial_expressway", "territorial_highway", "intercity_rail")
 OPERATOR_KINDS = ("expressway", "highway", "rail")
+# Card text and traits: no region build reads them, so they stay out of a region's cache key and
+# build.py takes them from the sources after the regions are merged.
+TEXT_KEYS = ("notes", "background", "motto", "military", "traits")
+TRAIT_KEYS = ("industries", "heritage", "age", "income")
 ROUTE_SHIELDS = ("crest", "maritime")  # territorial route shield designs, see src/lib/shields.ts
 STREET_STYLES = ("planned", "mixed", "organic")
 BUILDING_MIX_KEYS = ("slabs", "towers", "perimeter", "houses", "podium", "industrial", "civic", "park")
@@ -62,6 +66,8 @@ class World:
         self.generators = [{**_load(p), "_region": p.stem} for p in sorted((root / "generator").glob("*.yaml"))]
         eng = root / "transport" / "engineering.yaml"
         self.engineering: dict = _load(eng) if eng.exists() else {}
+        econ = root / "economy.yaml"
+        self.economy: dict = _load(econ) if econ.exists() else {}
 
     def _collect(self, folder: Path, key: str) -> dict[str, dict]:
         out: dict[str, dict] = {}
@@ -102,7 +108,8 @@ class World:
         features = {f["id"] for f in self.region_features(spec)} | {fid for fid in self.features if fid in named}
         ids = inside | set(self.ancestors(tid)) | places | lines | features
         names = {p.name: p.read_text(encoding="utf-8") for p in sorted((self.root / "names").glob("*.yaml"))}
-        return {"spec": spec, "entities": {i: self.entities[i] for i in sorted(ids)}, "engineering": self.engineering, "names": names}
+        entities = {i: {k: v for k, v in self.entities[i].items() if k not in TEXT_KEYS} for i in sorted(ids)}
+        return {"spec": spec, "entities": entities, "engineering": self.engineering, "names": names}
 
     def validate(self) -> list[str]:
         errors: list[str] = []
@@ -149,6 +156,19 @@ class World:
                 total = sum(k.get("population", 0) for k in kids)
                 if abs(total - d["population"]) > 100:
                     errors.append(f"{did}: children population {total} != {d['population']}")
+            if traits := d.get("traits"):
+                econ = self.economy
+                if extra := set(traits) - set(TRAIT_KEYS):
+                    errors.append(f"{did}: unknown traits {', '.join(sorted(extra))} (use {', '.join(TRAIT_KEYS)})")
+                if bad := [i for i in traits.get("industries", []) if i not in econ.get("industries", {})]:
+                    errors.append(f"{did}: industries {', '.join(bad)} not in world/economy.yaml")
+                for key, table in (("heritage", "heritage"), ("age", "age")):
+                    if key in traits and traits[key] not in econ.get(table, {}):
+                        errors.append(f"{did}: {key} {traits[key]} not in world/economy.yaml")
+            if d["subtype"] in ("locality", "borough") and self.economy:
+                merged = {**parent.get("traits", {}), **d.get("traits", {})} if d["subtype"] == "borough" else d.get("traits", {})
+                if missing := [k for k in ("industries", "heritage", "age") if k not in merged]:
+                    errors.append(f"{did}: traits need {', '.join(missing)} (here or in the city)")
         refs: dict[str, str] = {}
         for rid, r in self.routes.items():
             for v in r.get("via", []):

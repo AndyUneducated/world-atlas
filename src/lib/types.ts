@@ -91,6 +91,25 @@ export interface Entity {
   road?: RoadFacts;
   service?: RailService;
   military?: MilitaryFacts;
+  economy?: Economy;
+  demographics?: Demographics;
+}
+
+/** Cities, districts and territories, from the economy model (world/economy.yaml; 2026 USD). */
+export interface Economy {
+  gdp_usd: number;
+  gdp_per_capita_usd: number;
+  /** % of GDP, summing to 100. */
+  sectors: { primary: number; secondary: number; tertiary: number };
+  /** Leading industries, most important first. */
+  industries: Localized[];
+}
+
+export interface Demographics {
+  /** % under 15, 15–64, 65 and over. */
+  age: [number, number, number];
+  /** % of residents by first language. */
+  languages: Partial<Record<NameLang, number>>;
 }
 
 /** Military and space facilities: the unit stationed there and what the public may see of it. */

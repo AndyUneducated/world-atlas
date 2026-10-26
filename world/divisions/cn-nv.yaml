@@ -33,6 +33,7 @@ divisions:
   emblem:
     motif: aurora
     pattern: stars
+  traits: { industries: [port, trade, research, aerospace] }
 - id: div_nbrnfr
   subtype: locality
   parent: div_fbfqv9
@@ -51,9 +52,10 @@ divisions:
   emblem:
     motif: capitol
     pattern: rays
+  traits: { industries: [government, education, logistics], heritage: chinese, age: balanced }
   notes:
-    zh: 领地首府。1990 年在原勒克尔市基础上拆分建成
-    en: Territorial capital. Formed in 1990 by splitting the former Lekor City.
+    zh: 北维京岛领地首府，坐落在自由河与北河之间的台地上，领地建立之初从原勒克尔市析出、按规划新建。城市因行政而生：领地政府、议会综合办公区、领地博物馆、领地图书馆和自由市大剧院围绕人民广场排开，自由塔是城中最高的建筑。全市人口只有五十多万，却集中了领地最主要的公共机构、北维京岛大学和自由市中心医院，公务员、教师和医护人员是就业的主体，物流仓储依托港口和铁路成为第二支柱。白桦区是机关与文化设施集中的核心；北河区沿北河大道和人民大道展开，是商业与住宅走廊，城北的牧场为全城供应鲜奶；沙洲区守着自由河入海口，沙洲港和老渔市延续着城市的港口传统。环北维京岛高速、自维高速、自勒高速和观星高速在城郊交会，自由市机场、维西城际铁路和自勒城际铁路把首府同维京港、勒克尔和西北市连在一起。居民大多以中文为母语，维京语和巴克汉姆语在街头也很常见；街道宽阔，绿地成片，生活节奏平稳，是全岛最安静的城市之一。
+    en: Capital of the Territory of North Viking Island, laid out on the terrace between the Freedom River and the North River. It was carved out of the old Lekor City when the territory was founded and built to a plan, and government is its reason for being. The territorial government, the Parliament Complex, the Territorial Museum, the Territorial Library and the Grand Theatre stand around People's Square, and Liberty Tower is the tallest building in town. With little more than half a million people, the city still holds most of the territory's public institutions, the University of North Viking Island and the Central Hospital; civil servants, teachers and health workers make up much of the workforce, and logistics around the port and the railways comes second. Birchwood is the core of offices and culture. North River runs along North River Avenue and People's Avenue as a corridor of shops and homes, with dairy farms on its northern edge. Sandbar guards the mouth of the Freedom River, where Sandbar Port and the old fish market keep a harbour tradition alive. The ring expressway and the expressways to Viking Port, Lekor and the Stargazer corridor meet on the outskirts, and Freedom City Airport and two intercity railways tie the capital to Viking Port, Lekor and Northwest City. Most residents grew up speaking Chinese, though Viking and Buckham are common on the street. Broad avenues, open green space and an even pace make it one of the quietest cities on the island.
 - id: div_16cxr8
   subtype: borough
   parent: div_nbrnfr
@@ -67,9 +69,10 @@ divisions:
     admin: '900101'
   population: 320000
   area_km2: 5760.0
+  traits: { industries: [government, finance, healthcare] }
   notes:
-    zh: 领地机关驻地。1990 年首府建在两河之间长满白桦的台地上，区名由此而来
-    en: Seat of the territorial institutions. The capital was built in 1990 on a birch-wooded terrace between the two rivers.
+    zh: 自由市的行政与文化核心，建在两河之间长满白桦的台地上，区名由此而来。领地政府、议会综合办公区和自由市政厅都在区内，人民广场是全领地举行庆典和集会的地方，广场四周依次排开领地博物馆、领地图书馆和自由市大剧院，自由塔在广场东侧拔地而起，登顶可以望见两条河流和远处的贝格兰丘陵。北维京岛大学的主校区和自由市中心医院也设在这里，因此区里的居民以公务员、教师、医护人员和学生为主，金融机构则围绕领地政府设立分支，管理领地的财政与公共基金。自由市体育中心承办全领地的运动会，自由市机场位于台地边缘，主要飞往维京港、天城和马斯林山。观星高速从区内穿过，向西通往维京港，向东经林道、望星直达科学城；北河公路连接沙洲与北河两区。区内道路按棋盘格规划，主干道两旁种着成排的白桦，机关大院之间穿插着社区公园。这里人口不到全市的六成，却承担了首府的大部分职能，白天上班人潮涌入，夜晚则安静下来。
+    en: The administrative and cultural core of Freedom City, built on a birch-covered terrace between the two rivers, which gives the district its name. The territorial government, the Parliament Complex and Freedom City Hall are all here. People's Square, where the territory holds its ceremonies and rallies, is lined by the Territorial Museum, the Territorial Library and the Grand Theatre, and Liberty Tower rises on its east side; from the top you can see both rivers and the Bergland Hills beyond. The main campus of the University of North Viking Island and the Central Hospital are also in the district, so most residents are civil servants, teachers, health workers and students, while banks keep branches next to the government to handle the territory's finances and public funds. The Freedom City Sports Centre hosts the territorial games, and Freedom City Airport, on the edge of the terrace, flies mainly to Viking Port, Skytown and Maslin Mountain. The Stargazer Expressway crosses the district, running west to Viking Port and east through Lindau and Stargaze to Science City, while the North River Highway links Sandbar and North River. Streets follow a grid, the main avenues are lined with birches, and neighbourhood parks sit between the government compounds. Fewer than six in ten of the city's people live here, yet it carries most of the capital's work; it fills with commuters by day and falls quiet at night.
 - id: div_b1dx32
   subtype: borough
   parent: div_nbrnfr
@@ -83,9 +86,10 @@ divisions:
     admin: '900102'
   population: 150000
   area_km2: 4640.0
+  traits: { industries: [commerce, residential, dairy] }
   notes:
-    zh: 北河大道、人民大道沿线商住区
-    en: Commercial and residential corridor along North River Avenue and People's Avenue.
+    zh: 自由市北部沿北河展开的商住区，北河大道和人民大道两条林荫干道贯穿全区，沿线是成片的住宅小区、商场和社区服务中心，首府的大部分日常消费都发生在这里。北河市场是全市最大的综合市场，周末有来自北部牧场的奶酪、黄油和时令蔬菜，也是外地游客品尝本地乳制品的去处。区的北半部仍是开阔的草场和奶牛场，乳业合作社为首府和维京港供应鲜奶，形成城乡交错的景观。自勒城际铁路在区内设站，直通勒克尔，北河公路向北经西诺、丰谷通往勒北，承担着农产品进城的运输。居民以在白桦区上班的公务员家庭和本地商户为主，人口结构比全市略年轻，学校、托育和社区医院配套齐全。区内建筑多为四到六层的公寓和联排住宅，很少高楼，北河两岸修有滨河步道和自行车道，夏夜常有露天集市。与白桦区的机关气氛不同，北河区更像首府的生活后院，热闹而不拥挤，是许多家庭选择安家的地方。
+    en: "The shopping and residential district of northern Freedom City, strung along the North River. North River Avenue and People's Avenue, both tree-lined, run its length past housing estates, shopping centres and community service centres, and most of the capital's everyday spending happens here. North River Market is the largest general market in town; at weekends it fills with cheese, butter and seasonal vegetables from the northern farms, and visitors come to taste the local dairy. The northern half of the district is still open grassland and dairy farms, and the dairy co-operatives supply fresh milk to the capital and to Viking Port, so town and country interlock. The Freedom City–Lekor Intercity Railway stops here on its way to Lekor, and the North River Highway runs north through Ino and Harvest Vale to Lekor North, carrying farm produce into town. Residents are mostly families of civil servants who work in Birchwood and local shopkeepers, a little younger than the city as a whole, with schools, childcare and community clinics close at hand. Buildings are mostly four- to six-storey flats and terraces, with few towers, and riverside walks and cycle paths run along both banks, where open-air markets set up on summer evenings. Where Birchwood feels official, North River is the capital's lived-in back garden: lively but never crowded, and a favourite place for families to settle."
 - id: div_g4a8q0
   subtype: borough
   parent: div_nbrnfr
@@ -99,9 +103,10 @@ divisions:
     admin: '900103'
   population: 90000
   area_km2: 7280.0
+  traits: { industries: [port, logistics, fishing], heritage: mixed }
   notes:
-    zh: 自由河入海口的冲积沙洲，临港配套
-    en: Alluvial sandbars at the mouth of the Freedom River; port support zone.
+    zh: 自由河入海口的冲积沙洲，自由市唯一临海的区，也是首府的港口门户。沙洲港是一座中型港口，承担首府的散货、建材与燃料进口，旁边的物流园为城区和北部农牧区中转货物；维西城际铁路在沙洲站停靠，使这里成为铁路与海运的交汇点。区里最古老的地方是沙洲老渔市，木构的鱼棚沿码头排开，清晨渔船靠岸后就开始叫卖鳕鱼、鲱鱼和贝类；老渔市旁边的沙洲钟楼是港区的地标，钟声曾为出海的渔民报时。沙洲公园建在河口的沙丘上，可以观看候鸟和潮水涨落。由于渔港比首府更早存在，这里的居民中维京语和中文并用的家庭比例明显高于城区，港口工人、渔民和物流从业者构成了社区的主体。区内地势低平，大片土地仍是湿地和沙丘，人口只有约九万，是全市密度最低的区。北河公路从区内经过，向南穿过贝格兰丘陵通往维京港。沙洲区以朴素的港口生活和海鲜闻名，周末常有首府居民来这里吃海鲜、看日落。
+    en: "The alluvial sandbars at the mouth of the Freedom River: Freedom City's only district on the sea and the capital's harbour gateway. Sandbar Port is a mid-sized port that brings in bulk cargo, building materials and fuel for the capital, and the logistics park next to it moves goods on to the city and the farmland to the north. The Viking Port–Northwest Intercity Railway stops at Sandbar Station, so rail and shipping meet here. The oldest corner of the district is the Sandbar Old Fish Market, a row of timber fish sheds along the quay where cod, herring and shellfish go on sale as soon as the boats come in at dawn. The Sandbar Clock Tower beside it is the landmark of the waterfront, and its bell once kept time for fishermen heading out to sea. Sandbar Park sits on the dunes of the estuary, a place to watch migrating birds and the turn of the tide. The fishing harbour is older than the capital, so far more households here speak both Viking and Chinese than in the city proper, and dockers, fishermen and logistics workers make up most of the community. The land is low and flat, much of it still wetland and dunes, and with only about ninety thousand people it is the most thinly settled district in the city. The North River Highway passes through on its way south across the Bergland Hills to Viking Port. Sandbar is known for its plain harbour life and its seafood, and people from the capital come at weekends to eat by the water and watch the sunset."
 - id: div_m41gwn
   subtype: locality
   parent: div_fbfqv9
@@ -120,9 +125,10 @@ divisions:
   emblem:
     motif: longship
     pattern: waves
+  traits: { industries: [port, finance, manufacturing, tourism], heritage: viking, age: balanced }
   notes:
-    zh: 维京岛领地最早建成的城市，坐落在维京岛西部。目前为人口最多的城市、经济中心、最大港口
-    en: The oldest city of the territory, on the west coast. Largest population, economic centre and largest port.
+    zh: 北维京岛最早建成的城市，坐落在维京岛西岸，至今仍是领地人口最多的城市、经济中心和最大的港口。城市起源于鲸湾畔的捕鲸站和斯坦堡的维京石垒，维京语至今是一半居民的母语，街名、商号与节庆都带着浓厚的北方色彩。港口是城市的命脉：瓦尔维克区的鲸湾港与外礁深水港承担领地大部分集装箱与散货运输，临港带布满船舶修造、冷链和机械制造工厂，维京港国际机场也设在这里；菲尔内斯区的客运码头迎送渡轮与邮轮旅客；海门区沿西岸兴起的商务带聚集了银行、保险与软件企业，海门国际金融中心是领地的金融地标。斯坦堡区的石砌老城保留着窄街与市集，是游客必到之处；奥斯特海姆区是东部成片的新住宅区；贝格兰区则是丘陵上的森林公园与低密度住宅。环北维京岛高速、自维高速、观星高速和西岸公路在这里汇合，维西城际铁路北上自由市和西北市，维贝铁路南下贝克勒；维长高速和维长城际铁路经海底隧道直通维京群岛的长船市。
+    en: The first city built on North Viking Island, on the island's west coast, and still the territory's largest city, its economic centre and its biggest port. It grew from a whaling station on Whale Bay and the Viking stone fort at Steinburg; Viking is still the first language of about half its people, and street names, shop signs and festivals all have a strong northern flavour. The port is the city's lifeblood. In Walvik, Walvik Harbour and the Outer Skerry Deep-Water Port handle most of the territory's containers and bulk cargo, the waterfront is lined with ship repair yards, cold stores and machinery plants, and Viking Port International Airport sits nearby. The ferry terminal in Fyrnes serves ferry and cruise passengers, and in Seagate a business belt along the west shore gathers banks, insurers and software companies around the Seagate International Finance Centre, the territory's financial landmark. Steinburg's stone-built old town keeps its narrow lanes and markets and draws every visitor; Osterheim is a spread of newer housing to the east, and Bergland is forest park and scattered homes in the hills. The ring expressway, the Freedom–Viking Port and Stargazer expressways and the West Coast Highway all meet here. Intercity trains run north to Freedom City and Northwest City and south to Beckerle, and the Viking Port–Longship expressway and railway run through the undersea tunnel straight to Longship in the Viking Islands.
 - id: div_z29w6h
   subtype: borough
   parent: div_m41gwn
@@ -136,9 +142,10 @@ divisions:
     admin: '900201'
   population: 1020000
   area_km2: 2600.0
+  traits: { industries: [port, logistics, manufacturing] }
   notes:
-    zh: 维京语意为「鲸湾」。旧时捕鲸站所在的海湾，今为最大港区与临港产业带
-    en: Viking for "whale bay". Once a whaling station, now the largest port area and port-industry belt.
+    zh: 维京语意为「鲸湾」，旧时捕鲸站所在的海湾，如今是维京港市人口最多的区和领地最大的港区。鲸湾港沿湾岸排开集装箱、散货和滚装码头，湾口外的外礁深水港可停靠最大的远洋货轮，两港合起来承担领地大部分进出口货物。临港产业带布满船舶修理厂、冷链仓库、机械与电气设备工厂，港口、物流和制造业养活了区里的大部分家庭。维京港国际机场建在湾北的平地上，是领地最繁忙的机场，也是飞往维京群岛和远方的主要门户。维京港市政厅和中央广场位于区中心，鲸湾捕鲸站博物馆保留着旧捕鲸站的砖砌炼油房、绞盘和捕鲸船，讲述城市的起源；维京港体育场是全领地最大的球场。观星高速与西岸公路在区内交会，维长高速与维长城际铁路从这里进入海底隧道，向东南直达长船市。区内老港工住宅与新建公寓并存，维京语在码头和市场上最常听到，港口夜班让这里成为全岛少有的不夜之地。
+    en: Walvik means "whale bay" in Viking. The bay where the old whaling station stood is now the most populous district of Viking Port and the territory's largest port area. Walvik Harbour lines the bay with container, bulk and ro-ro berths, and the Outer Skerry Deep-Water Port beyond the bay mouth takes the largest ocean freighters; between them they handle most of the territory's imports and exports. The waterfront industrial belt is packed with ship repair yards, cold stores and machinery and electrical plants, and the port, logistics and manufacturing support most households in the district. Viking Port International Airport, on flat land north of the bay, is the territory's busiest airport and its main gateway to the Viking Islands and further afield. Viking Port City Hall and the Central Square stand at the centre of the district. The Walvik Whaling Station Museum keeps the old station's brick try-works, capstans and whaleboats and tells the story of how the city began, and Viking Port Stadium is the largest ground in the territory. The Stargazer Expressway and the West Coast Highway meet here, and the Viking Port–Longship expressway and railway enter the undersea tunnel in Walvik and run south-east to Longship. Old dockworkers' housing stands beside new flats, Viking is the language heard most on the quays and in the markets, and night shifts at the port keep the district awake around the clock, a rare thing on the island.
 - id: div_pkfa1g
   subtype: borough
   parent: div_m41gwn
@@ -152,9 +159,10 @@ divisions:
     admin: '900202'
   population: 800000
   area_km2: 2500.0
+  traits: { industries: [cruise, tourism, retail] }
   notes:
-    zh: 维京语意为「烽火岬」。客运码头、邮轮与海关查验区
-    en: Viking for "beacon headland". Passenger terminals, cruise piers and customs inspection zone.
+    zh: 维京语意为「烽火岬」，得名于岬角上旧时为归航船只点燃的烽火。如今这里是维京港的海上客运门户：菲尔内斯客运码头有渡轮通往沙洲、萨科和维京群岛，夏季的邮轮也在此靠岸，码头旁的菲尔内斯海关大楼负责旅客与行李查验。客流带动了区里的零售与服务业，码头背后的步行街集中了免税店、海鲜餐馆、纪念品商店和酒店，夏天游客如织。菲尔内斯湾风平浪静，湾畔修有长长的滨海步道，岬角顶端仍保留着烽火台遗址，是看日落和眺望船只进出的好地方。区里的居民多在码头、酒店和商店工作，季节性明显：夏季人手紧张，冬季则安静许多，不少店铺歇业。西岸公路沿海岸穿过全区，北接海门区，南通瓦尔维克，向北还可一直开到西北市。区内保留了许多维京式木屋和石砌仓库，有的改成了咖啡馆和画廊，维京语招牌随处可见。菲尔内斯是许多游客对维京港的第一印象，也是本地人周末散步、吃海鲜的去处。
+    en: "Fyrnes means \"beacon cape\" in Viking, after the fires once lit on the headland to guide ships home. Today it is Viking Port's passenger gateway by sea. Ferries leave the Fyrnes Ferry Terminal for Sandbar, Sako and the Viking Islands, cruise ships call in summer, and the Fyrnes Customs House next to the terminal checks passengers and luggage. The traffic feeds the district's shops and services: the pedestrian streets behind the terminal are full of duty-free shops, seafood restaurants, souvenir stalls and hotels, and crowded with visitors all summer. Fyrnes Bay is calm, a long seafront promenade runs round it, and the old beacon platform still stands on the tip of the cape, a fine place to watch the sunset and the ships coming and going. Most residents work at the terminal, in hotels and in shops, and the rhythm is seasonal: short of hands in summer, much quieter in winter, when many shops close. The West Coast Highway runs the length of the district along the shore, north to Seagate and south to Walvik, and on up the coast to Northwest City. Many Viking-style timber houses and stone warehouses survive, some turned into cafés and galleries, and Viking shop signs are everywhere. For many visitors Fyrnes is their first impression of Viking Port, and for locals it is where they come at weekends to stroll and eat seafood."
 - id: div_t3bfmm
   subtype: borough
   parent: div_m41gwn
@@ -168,9 +176,10 @@ divisions:
     admin: '900203'
   population: 580000
   area_km2: 2200.0
+  traits: { industries: [heritage, tourism, commerce], age: old }
   notes:
-    zh: 维京语意为「石堡」。旧城围绕维京时代的石垒形成
-    en: Viking for "stone fort". The old town grew around a Viking-age stone rampart.
+    zh: 维京语意为「石堡」，维京港的老城区，围绕维京时代修筑的斯坦堡石垒逐渐形成。石垒建在俯瞰鲸湾的高地上，城墙、望楼和地下粮仓保存完好，如今辟为遗址公园，夏季有维京长船节和中世纪市集表演。石垒脚下是迷宫般的石板窄街，两旁是陡坡屋顶的石屋、手工作坊、旧书店和老酒馆，很多店铺由同一家族经营了好几代。文化遗产和旅游是区里的主业，博物馆、民宿和导览服务吸引着来自群岛和本岛各地的游客，传统集市每周开放，售卖羊毛织物、木雕和熏鱼。由于老城建筑受到严格保护，区里少有新建高楼，年轻人多搬到奥斯特海姆和海门，留下的居民年龄偏大，老年人比例全市最高。观星高速从区内经过，向东通往奥斯特海姆和自由市。维京语在这里使用最普遍，街名、门牌和教堂铭文都以维京语书写。斯坦堡是维京港最有历史感的地方，也是市民心中城市的根。
+    en: Steinburg means "stone fort" in Viking. It is Viking Port's old town, which grew up around the stone fort built in Viking times. The fort stands on high ground above Whale Bay, its walls, watchtowers and underground granaries well preserved; it is now a heritage park, with a longship festival and medieval market shows in summer. Below it lies a maze of narrow flagstone lanes lined with steep-roofed stone houses, craft workshops, second-hand bookshops and old taverns, many run by the same family for generations. Heritage and tourism are the district's living. Museums, guesthouses and guides draw visitors from the islands and from all over North Viking Island, and the traditional market opens every week with woollens, wood carvings and smoked fish. Because the old buildings are strictly protected, there are few new towers; young people tend to move out to Osterheim and Seagate, and those who stay are older, giving Steinburg the highest share of elderly residents in the city. The Stargazer Expressway passes through on its way east to Osterheim and Freedom City. Viking is spoken here more than anywhere else in the city, and street names, door numbers and church inscriptions are all written in it. Steinburg is the most historic corner of Viking Port, and for its citizens the place where the city has its roots.
 - id: div_k1yr6m
   subtype: borough
   parent: div_m41gwn
@@ -184,9 +193,10 @@ divisions:
     admin: '900204'
   population: 380000
   area_km2: 2200.0
+  traits: { industries: [finance, tech, commerce], heritage: mixed }
   notes:
-    zh: 二十一世纪沿西岸扩展的商务居住带
-    en: Business and residential strip developed along the west coast in the 21st century.
+    zh: 沿维京港西岸向北扩展形成的商务居住带，因位于入港航道的「海门」而得名。区的南端是维京港的中央商务区，海门国际金融中心是维京港最高的写字楼，周围聚集了银行、保险、航运金融和律师事务所，领地大部分企业总部也设在这里；北段是软件、数据服务和设计公司聚集的科技园，吸引了大量从大学毕业的年轻专业人士。高收入岗位使海门成为维京港人均产出最高的区，滨海一线是全市最贵的公寓和餐厅。区里居民来源多元，说中文、维京语和巴克汉姆语的家庭大致相当，国际学校和多语种社区中心随处可见。海门角伸入海中，角上的灯塔与观景平台可以眺望进出鲸湾的船只，海岸修有自行车道和沙滩。西岸公路纵贯全区，南接瓦尔维克，北经菲尔内斯通往西北市。区内建筑以玻璃幕墙写字楼和高层公寓为主，与斯坦堡的石屋形成鲜明对比。海门代表着维京港的现代一面，是领地商业最活跃的地方。
+    en: "A belt of offices and homes that spread north along Viking Port's west shore, named for the \"sea gate\" of the harbour channel it overlooks. The southern end is Viking Port's central business district. The Seagate International Finance Centre, the tallest office tower in Viking Port, is surrounded by banks, insurers, shipping financiers and law firms, and most of the territory's company headquarters are here too. The northern stretch is a technology park of software, data-services and design firms that draws many young graduates. Well-paid jobs make Seagate the district with the highest output per head in Viking Port, and the seafront has the city's most expensive flats and restaurants. Residents come from everywhere: Chinese-, Viking- and Buckham-speaking households are roughly balanced, and international schools and multilingual community centres are easy to find. Seagate Cape juts into the sea; its lighthouse and viewing platform look out over ships entering and leaving Whale Bay, and cycle paths and beaches run along the shore. The West Coast Highway runs the length of the district, south to Walvik and north through Fyrnes to Northwest City. Glass office towers and high-rise flats set the skyline, in sharp contrast with the stone houses of Steinburg. Seagate is the modern face of Viking Port and the busiest place for business in the territory."
 - id: div_7rk2mh
   subtype: borough
   parent: div_m41gwn
@@ -200,9 +210,10 @@ divisions:
     admin: '900205'
   population: 240000
   area_km2: 1300.0
+  traits: { industries: [residential, commerce, education], heritage: mixed, age: young }
   notes:
-    zh: 维京语意为「东家园」。二十一世纪兴建的东部住宅新城，承接瓦尔维克与斯坦堡外溢的人口
-    en: "Viking for \"east home\". A 21st-century residential new town in the east that takes the overflow from Walvik and Steinburg."
+    zh: 维京语意为「东家园」，维京港东部成片兴建的住宅新城，承接了瓦尔维克和斯坦堡外溢的人口。区内按社区单元规划，每个单元都有学校、托儿所、超市和社区中心，步行十分钟即可满足日常所需，轻轨和公交线路把各社区与市中心相连。由于房价比老城和海门低，这里吸引了大量年轻家庭，儿童比例在全市最高，周末的公园和运动场总是满满当当。区里也有不少中小学、职业学校和一所大学分校，教育成了重要的就业来源，社区商业中心则汇集了超市、餐馆和电影院。观星高速从区北穿过，西连斯坦堡和瓦尔维克，东通自由市，许多居民每天沿这条走廊通勤上班。居民来源多样，说中文、维京语和巴克汉姆语的家庭混居，社区活动常常使用两三种语言。区内建筑以五到十层的公寓和联排住宅为主，楼间留有宽敞的绿地和雨水花园，东侧是通往贝格兰丘陵的林地。奥斯特海姆没有老城的古迹，却是维京港最有活力、最年轻的区之一。
+    en: Osterheim means "east home" in Viking. It is the new town of housing built on Viking Port's east side to take the people spilling out of Walvik and Steinburg. It is planned in neighbourhood units, each with its own school, nursery, supermarket and community centre, so daily needs are a ten-minute walk away, and light rail and bus lines tie the neighbourhoods to the city centre. Homes cost less than in the old town or Seagate, so the district has drawn many young families; it has the highest share of children in the city, and the parks and playing fields are full at weekends. There are also many schools, a vocational college and a branch campus of a university, so education is a major employer, while neighbourhood centres gather supermarkets, restaurants and cinemas. The Stargazer Expressway crosses the north of the district, west to Steinburg and Walvik and east to Freedom City, and many residents commute along it every day. Households of Chinese, Viking and Buckham speakers live side by side, and community events often run in two or three languages. Buildings are mostly five- to ten-storey flats and terraces with generous green space and rain gardens between them, and woodland to the east leads up into the Bergland Hills. Osterheim has none of the old town's monuments, but it is one of the liveliest and youngest districts in Viking Port.
 - id: div_b3qw9e
   subtype: borough
   parent: div_m41gwn
@@ -216,9 +227,10 @@ divisions:
     admin: '900206'
   population: 80000
   area_km2: 1520.0
+  traits: { industries: [residential, forestry, tourism], age: old }
   notes:
-    zh: 维京语意为「山地」。维京港与自由市之间的贝格兰丘陵，森林公园与低密度住宅，自维高速以隧道穿山而过
-    en: "Viking for \"hill country\". The Bergland Hills between Viking Port and Freedom City: forest parks and low-density housing, crossed in tunnel by the Freedom–Viking Port Expressway."
+    zh: 维京语意为「山地」，是维京港与自由市之间的贝格兰丘陵，也是维京港市人口最少的区。丘陵上覆盖着云杉、桦树和松树的混交林，大部分划为森林公园，林间有徒步道、山地自行车道和湖泊，周末是两座城市居民的后花园。区里只有零散的村镇和低密度别墅区，许多退休人员和在维京港工作的家庭选择住在这里，享受安静的山林生活，居民年龄明显偏大。林业仍是传统产业，林场采伐与苗圃培育在严格的轮作制度下进行，木材加工厂为全岛供应建材和家具板材；旅游业则依靠林间木屋、乡村餐馆和冬季越野滑雪道。自维高速以隧道穿过丘陵，十几分钟即可往返维京港与自由市，北河公路则沿丘陵东缘通往沙洲。区内保存着许多维京式农庄和石砌围栏，维京语仍是日常用语。贝格兰为两座城市提供了水源、木材和休闲空间，被视为城市之间珍贵的绿色屏障，新的开发受到严格限制。
+    en: "Bergland means \"hill country\" in Viking. The district is the Bergland Hills between Viking Port and Freedom City, the least populated district of Viking Port. The hills are covered with mixed forest of spruce, birch and pine, most of it a forest park with hiking trails, mountain-bike routes and lakes, the weekend back garden of both cities. There are only scattered villages and low-density homes, and many retirees and families who work in Viking Port choose to live here for the quiet of the woods, so residents are noticeably older than the city average. Forestry remains the traditional trade: logging and nurseries run on strict rotation, and timber mills supply building materials and furniture board to the whole island. Tourism relies on forest cabins, country restaurants and cross-country ski trails in winter. The Freedom–Viking Port Expressway crosses the hills in a tunnel, putting the two cities a quarter of an hour apart, and the North River Highway follows the eastern edge of the hills to Sandbar. Many Viking-style farmsteads and stone field walls survive, and Viking is still the everyday language. Bergland gives both cities water, timber and room to breathe, and is valued as a green barrier between them; new development is strictly limited."
 - id: div_0yef9a
   subtype: locality
   parent: div_fbfqv9
@@ -237,9 +249,10 @@ divisions:
   emblem:
     motif: orbit
     pattern: dots
+  traits: { industries: [research, education, media], heritage: mixed, age: balanced }
   notes:
-    zh: 科研中心，教育中心。1990 年在原勒克尔市拆分建成
-    en: Centre of research and education. Formed in 1990 by splitting the former Lekor City.
+    zh: 北维京岛的科研与教育中心，坐落在本岛西北部，领地建立之初从原勒克尔市析出设市。全市的经济建立在知识之上：北维京大学、林道理工学院和众多国家实验室、研究所分布在科学大道两侧，深空太空军北维京研发中心、望星天文台和科学城的航天企业构成领地最重要的科研集群，研究人员、教师和学生在居民中占很大比例。鹿鸣区是市政中心，西北市人民政府和西北广播电视中心都在那里，领地的电视台和电台从这里向全岛播出；望星区和科学城沿科学大道向东延伸，是实验室和高科技企业的聚集地；林道区是大学城；寒岭区则是山岭间的生态研究站和低密度住宅。由于研究岗位多、薪酬高，西北市的人均产出位居全岛前列，居民的平均年龄也比其他城市年轻。环北维京岛高速、西奥高速、观星高速和西岸公路在这里交会，西北机场、维西城际铁路和西马铁路通往维京港、自由市和马斯林山。城市里中文、维京语和巴克汉姆语并用，学术交流频繁，是领地最国际化的城市之一。
+    en: North Viking Island's centre of research and education, in the north-west of the island; it was carved out of the old Lekor City when the territory was founded. The city's economy rests on knowledge. The University of North Viking, the Lindau Institute of Technology and many national laboratories and institutes line Science Avenue, and the Deep Space Force North Viking Research and Development Centre, the Stargaze Observatory and the aerospace firms of Science City form the territory's most important research cluster; researchers, teachers and students are a large part of the population. Deersong is the civic centre, home to the city government and the Northwest Broadcasting Centre, from which the territory's television and radio stations broadcast to the whole island. Stargaze and Science City stretch east along Science Avenue as a corridor of laboratories and high-tech firms, Lindau is the university town, and Frost Ridge is ecological research stations and scattered homes in the hills. With many well-paid research jobs, Northwest City ranks near the top of the island for output per head, and its people are younger on average than in other cities. The ring expressway, the Northwest–Oxino and Stargazer expressways and the West Coast Highway meet here, and Northwest Airport and two railways connect the city with Viking Port, Freedom City and Maslin Mountain. Chinese, Viking and Buckham are all in daily use and academic visitors come and go, making it one of the most international cities in the territory.
 - id: div_zs7kjk
   subtype: borough
   parent: div_0yef9a
@@ -253,9 +266,10 @@ divisions:
     admin: '900301'
   population: 820000
   area_km2: 4640.0
+  traits: { industries: [government, media, commerce] }
   notes:
-    zh: 取「呦呦鹿鸣」之意。市级机关与广电机构集中区
-    en: Named after the classical ode of the calling deer. Municipal institutions and broadcasting organisations.
+    zh: 区名取自「呦呦鹿鸣」，是西北市的市政与传媒中心。西北市人民政府、市议会和主要公共机构集中在区中心，周围是商业街、酒店和写字楼；西北广播电视中心的发射塔是全市最高的建筑，领地电视台、广播电台和多家报社、出版社都设在这里，传媒与文化产业是区里的特色。鹿鸣公园环绕鹿鸣湖而建，湖边常有野鹿出没，公园里的露天剧场每年夏天举办音乐节和电影节，吸引全岛的年轻人。西北机场位于区的西侧，有航班通往维京港、自由市、天城和维京群岛，方便科研人员往来。区内商业发达，购物中心、餐馆和书店沿主干道排开，是西北市最繁华的地方。西岸公路从区内经过，南下菲尔内斯和维京港，北上寒岭。居民中公务员、媒体从业者和商户较多，说中文、维京语和巴克汉姆语的家庭混居，多语种的电视频道和报纸就在这里制作。鹿鸣区人口约八十万，占全市四成以上，是西北市的门面和最热闹的城区。
+    en: "Named after a line of classical poetry about deer calling to one another, Deersong is Northwest City's civic and media centre. The city government, the city council and the main public bodies are grouped at its heart, surrounded by shopping streets, hotels and offices. The mast of the Northwest Broadcasting Centre is the tallest structure in the city, and the territory's television and radio stations, several newspapers and publishers are based here, so media and culture give the district its character. Deersong Park wraps around Deersong Lake, where wild deer often come down to the water, and every summer its open-air theatre hosts music and film festivals that draw young people from across the island. Northwest Airport, on the west side of the district, has flights to Viking Port, Freedom City, Skytown and the Viking Islands, which suits the researchers who travel a great deal. Shops thrive: malls, restaurants and bookshops line the main roads, and this is the busiest part of the city. The West Coast Highway passes through, south to Fyrnes and Viking Port and north to Frost Ridge. Many residents are civil servants, media workers and shopkeepers, and Chinese-, Viking- and Buckham-speaking households live side by side; the territory's multilingual channels and papers are made here. With about eight hundred thousand people, more than four in ten of the city's total, Deersong is Northwest City's front door and its liveliest quarter."
 - id: div_g27nda
   subtype: borough
   parent: div_0yef9a
@@ -269,9 +283,10 @@ divisions:
     admin: '900302'
   population: 420000
   area_km2: 3860.0
+  traits: { industries: [research, aerospace, defence] }
   notes:
-    zh: 科学大道沿线，深空太空军北维京研发中心等科研设施所在；东部 2010 年析出设科学城
-    en: Research facilities along Science Avenue, including the Deep Space Force North Viking R&D Centre. Its eastern part became Science City in 2010.
+    zh: 西北市的科研核心，沿科学大道展开，深空太空军北维京研发中心等重要科研设施都在区内。研发中心的园区占地广阔，负责深空探测器、测控系统和航天材料的研究，与马斯林山的发射场、测控站紧密合作；望星天文台建在望星湾畔的高地上，拥有领地最大的民用光学望远镜，晴朗的夜晚向公众开放观星。国家实验室、航天研究所和配套的精密仪器企业聚集在大道两侧，科研和航天工业使望星成为全岛人均产出最高的区之一。居民以科研人员、工程师和军方技术人员为主，劳动年龄人口比例很高，社区配有国际学校和外国专家公寓。望星湾和望星角是区里的海岸风景，海湾平静，夜空清澈，是北维京岛观测极光的热门地点。观星高速从区内穿过，西接林道和自由市，东到科学城，科研通勤车每天在这条走廊上往返。区里的东部曾析出设立科学城，两地如今连成一片科研走廊。望星区以「仰望星空」的科学精神为荣，街道名称多取自星座和天文学名词。
+    en: The research heart of Northwest City, laid out along Science Avenue, with the Deep Space Force North Viking Research and Development Centre and other major research facilities. The centre's wide campus works on deep-space probes, tracking systems and spacecraft materials, in close partnership with the launch site and tracking stations at Maslin Mountain. The Stargaze Observatory stands on high ground above Stargaze Bay with the territory's largest civilian optical telescope and opens to the public on clear nights. National laboratories, aerospace institutes and precision-instrument makers line the avenue, and research and the space industry make Stargaze one of the districts with the highest output per head on the island. Residents are mostly scientists, engineers and military technical staff, with a very high share of working-age adults, and the district has international schools and flats for visiting experts. Stargaze Bay and Cape Stargaze give the district its coastline; the calm bay and clear skies make it a favourite place to watch the aurora. The Stargazer Expressway runs through, west to Lindau and Freedom City and east to Science City, and research shuttle buses ply the corridor every day. The eastern part of the district was split off to form Science City, and the two now form a single research corridor. Stargaze is proud of its spirit of looking up at the stars, and many of its streets are named after constellations and astronomical terms.
 - id: div_fr1vq9
   subtype: borough
   parent: div_0yef9a
@@ -285,9 +300,10 @@ divisions:
     admin: '900303'
   population: 380000
   area_km2: 4320.0
+  traits: { industries: [education, research, residential], age: young }
   notes:
-    zh: 维京语意为「椴树滩」，中文取「林间小道」之意。高等教育与附属研发机构
-    en: Viking for "linden meadow"; the Chinese name reads "forest path". Higher education and affiliated research institutes.
+    zh: 维京语意为「椴树滩」，中文取「林间小道」之意，是西北市的大学城。北维京大学的主校区和林道理工学院都在区内，两校的教学楼、图书馆和实验室散布在椴树林间，校园之间有林荫步道和自行车道相连，形成一片开放的学术园区。大学附属的研究所、孵化器和技术转移中心沿校园外围分布，许多科技企业由师生创办，教育与科研是区里最大的雇主。学生和年轻教师占居民很大比例，儿童和老人较少，是全岛平均年龄最年轻的区之一，咖啡馆、书店、学生公寓和小剧场让街区充满朝气。区里的住宅以低层公寓和教职工住宅为主，周边保留着大片森林和草地，环境安静。观星高速从区内穿过，西接自由市白桦区，东通望星区和科学城，构成首府与科研走廊之间的纽带。学期中校园里能听到多种语言，国际学生和访问学者常年往来，大学的公开讲座和音乐会向全体市民开放。林道区以开放的学风和优美的校园闻名，是北维京岛最重要的人才培养基地。
+    en: Lindau means "linden meadow" in Viking, and its Chinese name means "path through the woods". It is Northwest City's university town. The main campus of the University of North Viking and the Lindau Institute of Technology are both here, their teaching blocks, libraries and laboratories scattered among linden groves and joined by shaded footpaths and cycle tracks into one open academic park. University institutes, incubators and technology-transfer offices ring the campuses, many tech firms have been founded by staff and students, and education and research are the district's biggest employers. Students and young lecturers make up a large share of residents, with few children or old people, so this is one of the youngest districts on the island, and cafés, bookshops, student housing and small theatres keep the streets lively. Housing is mostly low-rise flats and staff homes, with large stretches of forest and meadow left around them. The Stargazer Expressway crosses the district, west to Birchwood in Freedom City and east to Stargaze and Science City, tying the capital to the research corridor. During term many languages are heard on campus, international students and visiting scholars come and go all year, and the universities' public lectures and concerts are open to everyone. Lindau is known for its open spirit of learning and its beautiful campuses, and it is the island's most important training ground for talent.
 - id: div_479xae
   subtype: borough
   parent: div_0yef9a
@@ -301,9 +317,10 @@ divisions:
     admin: '900304'
   population: 200000
   area_km2: 3680.0
+  traits: { industries: [research, forestry, tourism], age: old }
   notes:
-    zh: 低密度科研居住与生态缓冲带
-    en: Low-density research housing and ecological buffer zone.
+    zh: 西北市北部山岭间的区，以寒岭和寒岭峡湾为界，是低密度的科研居住与生态缓冲带。寒岭生态研究站是区里最重要的机构，长期监测森林、冰川、峡湾水体和野生动物，为领地的环境保护和气候研究提供数据，许多大学的野外实习也在这里进行。区内大部分土地是原始森林和高山草甸，林业在严格的配额下进行，主要供应建材和造纸原料；生态旅游近年兴起，峡湾游船、徒步路线、冰川观光和冬季越野滑雪吸引了不少游客。居民分散在峡湾沿岸的小镇和山谷村落，许多是研究站的职工和退休的科研人员，老年人比例较高。西岸公路的终点就在区内，从这里南下可到鹿鸣区和维京港。寒岭峡湾两岸是陡峭的山崖和瀑布，峡湾深处水面平静，是北维京岛最美的峡湾之一。区里的生活节奏缓慢，冬季漫长，极光常见，许多居民以手工艺和民宿为副业。寒岭被视为西北市的生态屏障，新的开发受到严格控制。
+    en: A district in the hills of northern Northwest City, framed by Frost Ridge and Frost Fjord, serving as a low-density belt of research, homes and protected nature. The Frost Ridge Ecological Station is its most important institution, with long-running monitoring of forests, glaciers, fjord waters and wildlife that feeds the territory's environmental protection and climate research; many universities send students here for fieldwork. Most of the land is old-growth forest and alpine meadow. Forestry runs on strict quotas, mainly for building timber and pulp, and ecotourism has grown, with fjord cruises, hiking routes, glacier trips and cross-country skiing in winter drawing a steady stream of visitors. People live in small towns along the fjord and in valley villages; many work at the station or are retired scientists, so the share of older residents is high. The West Coast Highway ends in the district, and from here it runs south to Deersong and Viking Port. Frost Fjord is walled by steep cliffs and waterfalls, its inner reaches mirror-calm, one of the most beautiful fjords on North Viking Island. Life moves slowly, winters are long and the aurora is common, and many residents run crafts or guesthouses on the side. Frost Ridge is treated as Northwest City's ecological buffer, and new development is tightly controlled.
 - id: div_s8f4kt
   subtype: borough
   parent: div_0yef9a
@@ -317,9 +334,10 @@ divisions:
     admin: '900305'
   population: 160000
   area_km2: 1900.0
+  traits: { industries: [research, aerospace, tech], age: young }
   notes:
-    zh: 科学大道向东延伸形成的科研新城，聚集国家实验室、大学分校与航天企业；2010 年自望星区析出
-    en: "Research new town grown along the eastern extension of Science Avenue: national laboratories, university campuses and space companies. Split from Stargaze District in 2010."
+    zh: 科学大道向东延伸形成的科研新城，从望星区析出单独设区，是北维京岛最年轻的城区之一。区内聚集了国家实验室、北维京大学的分校、航天企业和高科技公司，研究方向涵盖航天动力、卫星通信、新材料、人工智能和量子技术，许多成果直接用于马斯林山的航天发射和深空任务。航天器部件、精密仪器和软件企业沿科学大道排开，研发与制造并重，使科学城的人均产出位居领地前列。居民以年轻的科研人员、工程师和研究生为主，劳动年龄人口比例极高，老年人很少；社区配有国际学校、人才公寓和创新孵化中心。城区按照紧凑的规划建设，实验楼、住宅和公园相互穿插，步行和自行车出行很方便，街道以科学家和星座命名。观星高速的终点设在区内，向西经望星、林道直达自由市，科研人员在首府与科学城之间往返只需很短时间。科学城面积不大，却是领地创新最集中的地方，被视为北维京岛面向未来的窗口。
+    en: The research new town that grew where Science Avenue runs east, split off from Stargaze as a district of its own and one of the newest urban districts on North Viking Island. National laboratories, a branch campus of the University of North Viking, aerospace firms and high-tech companies are concentrated here, working on space propulsion, satellite communications, new materials, artificial intelligence and quantum technology, and much of what they produce goes straight into the launches and deep-space missions at Maslin Mountain. Spacecraft parts, precision instruments and software firms line Science Avenue, with research and manufacturing side by side, putting Science City near the top of the territory for output per head. Residents are mostly young researchers, engineers and postgraduates, the share of working-age adults is very high and there are few elderly people; neighbourhoods have international schools, housing for skilled newcomers and innovation incubators. The town is built compactly, with laboratories, homes and parks woven together, easy to get around on foot or by bike, and streets named after scientists and constellations. The Stargazer Expressway ends here and runs west through Stargaze and Lindau to Freedom City, so researchers can move between the capital and Science City quickly. Science City is small, but no place in the territory is more concentrated on innovation, and it is seen as North Viking Island's window on the future.
 - id: div_yjghe9
   subtype: locality
   parent: div_fbfqv9
@@ -338,9 +356,10 @@ divisions:
   emblem:
     motif: wheat
     pattern: furrows
+  traits: { industries: [agriculture, dairy, tourism, port], heritage: viking, age: old }
   notes:
-    zh: 农业中心、旅游度假区。在领地刚刚建成阶段曾覆盖维京港以东的大片地区，后逐渐被拆分为其他城市，目前仅保留原勒克尔市北部的五分之一领土
-    en: Agricultural centre and resort area. Once covered most of the land east of Viking Port; now retains only the northern fifth of its former territory.
+    zh: 北维京岛的农业中心和乡村度假地，位于维京港以东、勒河流经的丘陵与河谷之间。领地刚建立时，勒克尔市曾覆盖本岛东部的大片土地，此后自由市、西北市、奥克西诺市和洛龙山市相继从中析出，如今只保留原来北部约五分之一的领土。勒克尔仍是全岛最重要的粮仓和奶源地：麦田、油菜田和牧场沿河谷铺开，乳业合作社、农产品交易中心和食品加工厂支撑着地方经济；丰谷的酒庄、澄湖的湖滨集镇则让旅游业成为第二支柱，每年秋天的勒克尔丰收节是全岛最热闹的乡村节日。勒北区是市政中心，市政府、农产品交易中心和农业博物馆都在那里，北岸的小港口出口奶制品和粮食；丰谷区以葡萄园和民宿闻名；澄湖区围绕澄湖分布，是钓鱼、划船和森林徒步的好去处。环北维京岛高速、自勒高速和龙关高速在这里交会，自勒城际铁路以勒克尔站为终点，西马铁路经过市区通往洛龙山和马斯林山。居民以维京语为主要母语，许多家庭世代务农，老年人比例较高，乡村生活节奏舒缓。
+    en: North Viking Island's farming centre and a country holiday region, east of Viking Port among the hills and valleys of the Lek River. When the territory was founded, Lekor City covered a large part of the island's east; Freedom City, Northwest City, Oxino and Lorond Mountain were later carved out of it, and today it keeps only about a fifth of its old land, in the north. Lekor is still the island's most important granary and source of milk. Wheat, rapeseed and pasture spread along the valleys, and dairy co-operatives, the produce exchange and food plants carry the local economy; the wineries of Harvest Vale and the lakeside towns of Clearlake make tourism the second pillar, and the Lekor harvest festival each autumn is the liveliest country fair on the island. Lekor North is the civic centre, with the city government, the produce exchange and the farming museum, and a small harbour on its north shore that ships dairy and grain. Harvest Vale is known for its vineyards and guesthouses, and Clearlake, spread around Clear Lake, is a place for fishing, boating and forest walks. The ring expressway and the expressways to Freedom City and Lorond Mountain meet here; the Freedom City–Lekor Intercity Railway ends at Lekor Station, and the Northwest–Maslin Mountain Railway passes through on its way to Lorond Mountain and Maslin Mountain. Most residents speak Viking as their first language, many families have farmed for generations, the share of older people is high and country life moves at an easy pace.
 - id: div_0wvh63
   subtype: borough
   parent: div_yjghe9
@@ -354,9 +373,10 @@ divisions:
     admin: '900401'
   population: 420000
   area_km2: 4960.0
+  traits: { industries: [port, agriculture, dairy] }
   notes:
-    zh: 拆市后保留的北部农牧核心
-    en: The northern farming and pastoral core retained after the 1990 split.
+    zh: 勒克尔市拆分后保留的北部农牧核心，也是全市的行政中心。勒克尔市人民政府坐落在区中心的老镇上，周围是石砌的旧市政厅、教堂和集市广场；勒克尔农产品交易中心是全岛粮食、奶制品和肉类的定价与批发市场，每天清晨卡车从各地运来货物，再分送到维京港、自由市和维京群岛。勒克尔农业博物馆展示了从维京时代的木犁到现代联合收割机的农具演变，是学生和游客了解本岛农业历史的地方。区内大部分土地是麦田和牧场，奶牛场和乳品厂分布在村镇之间，乳业合作社生产的黄油和奶酪远销群岛。北岸的勒北角附近有一座小港，冬季不冻，出口粮食和奶制品，也停靠渔船。北河公路的终点就在区内，向西经丰谷、西诺通往自由市，勒克尔站则是自勒城际铁路的终点站。居民多以维京语为母语，许多家庭经营农场已有好几代，年轻人有不少到维京港或自由市工作，周末再回乡帮忙。勒北的田园风光和农家集市吸引着城里人前来度周末。
+    en: The farming and grazing heartland of the north that Lekor City kept after it was divided, and the city's administrative centre. The city government sits in the old town at the heart of the district, among the stone-built old town hall, the church and the market square. The Lekor Produce Exchange sets the price and handles the wholesale trade for the island's grain, dairy and meat; lorries arrive from all over at dawn and the goods go on to Viking Port, Freedom City and the Viking Islands. The Lekor Farming Museum traces farm tools from the wooden ploughs of Viking times to the modern combine harvester and is where pupils and visitors learn the island's farming history. Most of the land is wheat and pasture, with dairy farms and creameries between the villages, and the butter and cheese of the dairy co-operatives sell as far as the islands. Near Lekor North Cape on the north shore a small ice-free harbour ships grain and dairy and shelters fishing boats. The North River Highway ends in the district and runs west through Harvest Vale and Ino to Freedom City, and Lekor Station is the terminus of the intercity railway from the capital. Most residents speak Viking at home, many families have run their farms for generations, and plenty of young people work in Viking Port or Freedom City and come home at weekends to help. Its farmland scenery and farmers' markets bring city people out for the weekend.
 - id: div_davn2j
   subtype: borough
   parent: div_yjghe9
@@ -370,9 +390,10 @@ divisions:
     admin: '900402'
   population: 360000
   area_km2: 4640.0
+  traits: { industries: [wine, tourism, agriculture] }
   notes:
-    zh: 酒庄、民宿与勒克尔丰收节主会场
-    en: Wineries, guesthouses and the main venue of the Lekor Harvest Festival.
+    zh: 勒克尔市南部的河谷，土壤肥沃、日照充足，是北维京岛唯一成规模的葡萄酒产区。丰谷酒庄和数十家家庭酒庄沿着向阳的坡地种植耐寒的葡萄品种，酿造白葡萄酒、冰酒和苹果酒，酒窖参观和品酒是游客最喜欢的活动。谷地里还有大片果园、蔬菜田和蜂场，农家民宿和乡村餐馆以本地食材为特色，周末常有维京港和自由市的家庭驾车前来。丰谷丰收广场是勒克尔丰收节的主会场，每年秋收时节，广场上举行农产品评比、民族舞蹈、拖拉机巡游和篝火晚会，吸引全岛乃至群岛的游客。区里的居民以维京语为主要母语，许多家庭兼营农场和民宿，旅游旺季时人手紧张，冬季则回归宁静的农耕生活，老人和返乡退休者较多。北河公路穿过谷地，向西通往西诺区和自由市，向北通往勒北区。谷地两侧是低缓的丘陵和桦树林，秋天层林尽染，是摄影爱好者的去处。丰谷将农业、酿酒和旅游结合在一起，是北维京岛乡村振兴的样板。
+    en: "A fertile, sunny valley in the south of Lekor City and the only wine region of any size on North Viking Island. Harvest Vale Winery and dozens of family estates grow hardy vines on the south-facing slopes, making white wine, ice wine and cider, and cellar tours and tastings are visitors' favourite pastime. The valley also has wide orchards, vegetable fields and apiaries, and farm guesthouses and country restaurants cook with local produce; families from Viking Port and Freedom City drive out at weekends. Harvest Vale Festival Square is the main venue of the Lekor harvest festival: each autumn it fills with produce shows, folk dancing, tractor parades and bonfires that draw visitors from all over the island and from the Viking Islands. Most residents speak Viking at home, many families run a farm and a guesthouse together, short of hands in the busy season and back to quiet farming in winter, and there are many older people and returning retirees. The North River Highway runs through the valley, west to Ino and Freedom City and north to Lekor North. Low hills and birch woods line both sides and blaze with colour in autumn, a draw for photographers. By bringing farming, wine-making and tourism together, Harvest Vale has become the island's model for reviving the countryside."
 - id: div_t8bg0d
   subtype: borough
   parent: div_yjghe9
@@ -386,9 +407,10 @@ divisions:
     admin: '900403'
   population: 180000
   area_km2: 2872.0
+  traits: { industries: [tourism, fishing, forestry] }
   notes:
-    zh: 环湖集镇与水上休闲
-    en: Lakeside towns and water recreation.
+    zh: 环绕澄湖分布的湖滨区，以清澈的湖水和环湖集镇得名，是勒克尔市的休闲度假地。澄湖是北维京岛最大的湖泊之一，湖水来自洛龙山脉的融雪，水质极清，夏季可以划船、游泳、帆板和垂钓，冬季湖面结冰后则成为冰钓和滑冰的乐园。澄湖湖滨公园沿湖岸修建了步道、观鸟台和露营地，湖边的木屋酒店和家庭旅馆常年接待游客。湖里出产鳟鱼和白鲑，渔民用传统方法捕捞，烟熏鳟鱼是当地的特产；周围的山坡覆盖着针叶林，林业和木材加工仍是许多村镇的生计。区内人口分散在湖岸的几座小镇上，居民以维京语为母语，老年人和退休移居者较多，生活安静。杉岭公路的终点就在区内，向西经龙关、杉岭通往奥克西诺，是从平原进入山区的必经之路。湖的北岸可以远眺洛龙山脉的雪峰，日出和日落时湖光山色倒映在水中，是全岛最受欢迎的风景之一。澄湖区严格控制湖岸开发，保护水源和湿地。
+    en: The lakeside district around Clear Lake, named for its clear water and the towns on its shores, and Lekor City's holiday resort. Clear Lake is one of the largest lakes on North Viking Island. Its water comes from snowmelt off the Lorond Range and is exceptionally clear; in summer there is boating, swimming, windsurfing and angling, and in winter the frozen lake becomes a place for ice fishing and skating. Clearlake Shore Park runs footpaths, bird hides and campsites along the shore, and lakeside lodges and family guesthouses take visitors all year. The lake yields trout and whitefish, still caught the traditional way, and smoked trout is the local speciality; the slopes around are covered with conifers, and forestry and sawmills remain the living of many villages. People are spread among a few small towns on the shore; most speak Viking at home, many are older or retired incomers, and life is quiet. The Fir Ridge Highway ends in the district, running west through Dragon Pass and Fir Ridge to Oxino, the main road from the plains into the mountains. From the north shore you can see the snow peaks of the Lorond Range, and at sunrise and sunset the lake mirrors the mountains, one of the best-loved views on the island. Building on the shore is tightly limited to protect the water supply and the wetlands.
 - id: div_q4d6n6
   subtype: locality
   parent: div_fbfqv9
@@ -407,9 +429,10 @@ divisions:
   emblem:
     motif: ox
     pattern: stripes
+  traits: { industries: [agriculture, food, forestry, logistics], heritage: mixed, age: balanced }
   notes:
-    zh: 平原地区。1990 年在原勒克尔市拆分建成
-    en: Plains region. Formed in 1990 by splitting the former Lekor City.
+    zh: 北维京岛中部的平原城市，领地建立之初从原勒克尔市析出，由奥克镇和西诺镇合并设市，市名由两镇名合成。全市地势平坦、土壤深厚，是本岛机械化程度最高的粮食和饲料产区，大型农场种植小麦、大麦、油菜和土豆，农产品加工、食品制造和农机维修构成地方工业；牛角湾沿岸的林地和木材加工厂提供了另一部分就业。奥克区是市政与商贸中心，奥克农产品集散中心把全市的粮食、蔬菜和肉类运往维京港和新城，奥克西诺农机博物馆展示了平原农业的发展历程；西诺区承接了来自勒克尔和新城方向的通勤人口，新住宅区和奥克西诺农业学院让这里更加年轻。牛角湾海滨公园是全市居民夏季消暑的去处。环北维京岛高速、西奥高速、杉岭公路和北河公路在市内交会，维贝铁路在奥克西诺站停靠，使这里成为本岛中部的交通枢纽和物流节点。居民来源多元，中文、维京语和巴克汉姆语家庭都很多，城镇规划整齐，生活成本较低，吸引了不少年轻家庭。
+    en: "A city of the plains in the middle of North Viking Island. It was carved out of the old Lekor City when the territory was founded by merging the towns of Ox and Ino, and its name joins the two. The land is flat and the soil deep, making it the most mechanised grain and fodder region on the island: large farms grow wheat, barley, rapeseed and potatoes, and food processing, food manufacturing and farm-machinery repair form the local industry, while woodland and sawmills along Oxhorn Bay provide more jobs. Ox is the civic and trading centre; the Ox Produce Distribution Centre sends the city's grain, vegetables and meat to Viking Port and New City, and the Oxino Farm Machinery Museum tells the story of farming on the plain. Ino takes commuters from the direction of Lekor and New City, and its new housing estates and the Oxino Agricultural College keep it young. Oxhorn Bay Seaside Park is where the whole city goes to cool off in summer. The ring expressway, the Northwest–Oxino Expressway, the Fir Ridge Highway and the North River Highway meet in the city, and the Viking Port–Beckerle Railway stops at Oxino Station, making it a transport hub and logistics node for the middle of the island. Residents come from many backgrounds, with plenty of Chinese-, Viking- and Buckham-speaking households, the towns are neatly planned, and the low cost of living attracts many young families."
 - id: div_rzw76f
   subtype: borough
   parent: div_q4d6n6
@@ -423,9 +446,10 @@ divisions:
     admin: '900501'
   population: 620000
   area_km2: 5200.0
+  traits: { industries: [agriculture, food, logistics] }
   notes:
-    zh: 原奥克镇。1990 年与西诺镇合并设市，市名由两镇名合成。机械化农业与农产品集散
-    en: Formerly the town of Ox, merged with Ino in 1990; the city name joins the two. Mechanised agriculture and produce distribution.
+    zh: 原奥克镇，与西诺镇合并设立奥克西诺市后成为市政与商贸中心。区内是一望无际的平原农田，大型家庭农场和农业合作社使用联合收割机和精准灌溉系统种植小麦、大麦和土豆，秋收时节田野里机声隆隆。奥克农产品集散中心是本岛中部最大的批发市场，粮库、冷库和分拣中心沿铁路和公路排开，每天把粮食、蔬菜和肉类运往维京港、新城和萨科勒；周边还有面粉厂、饲料厂、肉类和乳品加工厂，食品工业是区里最大的雇主。奥克西诺市人民政府和奥克西诺农机博物馆都在老镇中心，博物馆收藏了上百台各个时期的拖拉机和收割机。区的东部濒临牛角湾，牛角湾海滨公园有沙滩、草坪和野餐区，牛角岬上的灯塔是附近渔船的航标。杉岭公路从这里出发，向东经杉岭、龙关通往澄湖，是平原通往洛龙山区的主要道路。居民以农民、食品工人和物流从业者为主，中文、维京语和巴克汉姆语家庭混居，老镇里保留着两镇合并前的教堂和集市。奥克区踏实勤劳的农业传统是全市的根基。
+    en: "The former town of Ox, which became the civic and trading centre of Oxino City when it merged with Ino. The district is open plain to the horizon. Large family farms and co-operatives grow wheat, barley and potatoes with combine harvesters and precision irrigation, and at harvest the fields hum with machines. The Ox Produce Distribution Centre is the largest wholesale market in the middle of the island: granaries, cold stores and sorting halls line the railway and the roads, and every day grain, vegetables and meat leave for Viking Port, New City and Sakole. Flour mills, feed mills and meat and dairy plants surround it, and the food industry is the district's biggest employer. The city government and the Oxino Farm Machinery Museum stand in the old town centre; the museum keeps more than a hundred tractors and harvesters from every period. To the east the district meets Oxhorn Bay, where Oxhorn Bay Seaside Park has beaches, lawns and picnic grounds and the lighthouse on Oxhorn Point guides the local fishing boats. The Fir Ridge Highway starts here and runs east through Fir Ridge and Dragon Pass to Clearlake, the main road from the plains into the Lorond mountains. Residents are mostly farmers, food workers and logistics staff, Chinese-, Viking- and Buckham-speaking households live side by side, and the old town keeps the church and market of the days before the merger. Ox's down-to-earth farming tradition is the foundation of the whole city."
 - id: div_mpfctv
   subtype: borough
   parent: div_q4d6n6
@@ -439,9 +463,10 @@ divisions:
     admin: '900502'
   population: 260000
   area_km2: 2320.0
+  traits: { industries: [residential, commerce, agriculture], age: young }
   notes:
-    zh: 原西诺镇，1990 年与奥克镇合并设市。承接勒克尔方向通勤的居住拓展
-    en: Formerly the town of Ino, merged with Ox in 1990. Residential expansion serving commuters towards Lekor.
+    zh: 原西诺镇，与奥克镇合并设市，如今是奥克西诺市的居住拓展区。随着北河公路和环岛高速的修通，从勒克尔、新城和自由市方向迁来的通勤家庭在这里落户，成片的新住宅区围绕老镇展开，年轻家庭和儿童比例在全市最高，学校、幼儿园和社区中心不断增加。两镇广场位于老镇与新区之间，广场上的纪念碑记载着奥克和西诺两镇合并的经过，是市民集会和节日庆典的场所，每周的农夫市集售卖附近农场的新鲜产品。奥克西诺农业学院是全岛农业教育的中心，开设农学、畜牧、农机和食品工程专业，学生在周边的示范农场实习，也为本地农户提供技术推广服务。区内仍保留着不少农田和牧场，商业以社区超市、餐馆和建材市场为主。北河公路从区内穿过，向东通往丰谷和勒北，向西经白桦区通往自由市，许多居民沿这条路通勤。居民来源多元，说中文、维京语和巴克汉姆语的家庭大致相当，社区活动丰富。西诺区以宜居和实惠著称，是奥克西诺发展最快的地方。
+    en: The former town of Ino, which merged with Ox to form the city and is now Oxino's area of new housing. Once the North River Highway and the ring expressway opened, commuting families from the direction of Lekor, New City and Freedom City settled here, and new estates spread around the old town. Young families and children make up a larger share than anywhere else in the city, and schools, nurseries and community centres keep multiplying. Twin Towns Square lies between the old town and the new estates; its monument records how Ox and Ino came together, it hosts gatherings and festivals, and a weekly farmers' market sells fresh produce from the surrounding farms. The Oxino Agricultural College is the island's centre of farm education, teaching agronomy, animal husbandry, farm machinery and food engineering; students train on nearby demonstration farms and the college runs advisory services for local farmers. Plenty of fields and pasture remain, and shops are mostly neighbourhood supermarkets, restaurants and builders' merchants. The North River Highway crosses the district, east to Harvest Vale and Lekor North and west through Birchwood to Freedom City, and many residents commute along it. Chinese-, Viking- and Buckham-speaking households are roughly balanced and community life is busy. Ino is known for being pleasant and affordable, and it is the fastest-growing part of Oxino.
 - id: div_prcxzt
   subtype: locality
   parent: div_fbfqv9
@@ -460,9 +485,10 @@ divisions:
   emblem:
     motif: peaks
     pattern: contours
+  traits: { industries: [forestry, ski, mining], heritage: viking, age: old }
   notes:
-    zh: 复杂山区。1990 年在原勒克尔市拆分建成
-    en: Complex mountain terrain. Formed in 1990 by splitting the former Lekor City.
+    zh: 北维京岛中部的山地城市，全市被洛龙山脉的群峰、冰川和峡谷覆盖，领地建立之初从原勒克尔市析出设市。全市面积广阔，人口只有四十多万，主要集中在龙关、深峡等山谷集镇里。地形复杂使这里成为本岛的天然屏障和交通咽喉：龙关是穿越洛龙山的唯一隘口，龙关高速、深峡高速和杉岭公路都在这里交会，西马铁路和新洛铁路在洛龙山站汇合。林业是传统支柱，杉岭的云杉林和冷杉林在严格的采伐配额下经营，木材加工厂和护林站遍布山间；冬季运动是新的增长点，龙关附近的滑雪场和山间木屋吸引着全岛的滑雪者；山中的石料和矿产开采规模不大，但仍为本地提供就业。洛龙峰是洛龙山脉的主峰，上千平方公里的洛龙冰川、杉岭冰川和深峡湖等景观让这里成为登山和徒步的胜地，深峡瀑布公园更是全岛最壮观的瀑布群。居民以维京语为主要母语，许多家庭世代居住在山谷里，老年人比例较高。洛龙山的生活节奏缓慢，冬季漫长，是北维京岛最原始、最壮美的地区。
+    en: "A mountain city in the middle of North Viking Island, covered by the peaks, glaciers and gorges of the Lorond Range; it was carved out of the old Lekor City when the territory was founded. The city is vast but has only some four hundred and fifty thousand people, mostly in valley towns such as Dragon Pass and Deep Gorge. Its rough country makes it the island's natural barrier and its transport bottleneck: Dragon Pass is the only gap through the Lorond mountains, the Long Pass and Deep Gorge expressways and the Fir Ridge Highway all meet there, and two railways come together at Lorond Mountain Station. Forestry is the traditional mainstay; the spruce and fir forests of Fir Ridge are worked under strict felling quotas, and sawmills and ranger stations are scattered through the hills. Winter sports are the new growth: ski areas and mountain cabins near Dragon Pass draw skiers from across the island, and small quarries and mines still give local jobs. Lorond Peak crowns the range, and the Lorond Glacier, more than a thousand square kilometres of ice, the Fir Ridge Glacier and Gorge Lake make the city a favourite for climbing and hiking, while Deep Gorge Falls Park has the most spectacular waterfalls on the island. Most residents speak Viking at home, many families have lived in the valleys for generations, and the share of older people is high. Life is slow and winters are long in the wildest and grandest corner of North Viking Island."
 - id: div_j82dgm
   subtype: borough
   parent: div_prcxzt
@@ -476,9 +502,10 @@ divisions:
     admin: '900601'
   population: 180000
   area_km2: 3042.0
+  traits: { industries: [logistics, ski, commerce] }
   notes:
-    zh: 洛龙山隘口集镇与公路枢纽
-    en: Mountain-pass town and highway hub of the Lorond Mountains.
+    zh: 洛龙山隘口上的集镇，是全市的行政中心和本岛中部最重要的公路枢纽。龙关自古就是翻越洛龙山脉的必经之路，旧时的驿站、马厩和关卡至今保存在龙关驿站博物馆里，讲述着商队和邮差冒雪翻山的故事。如今龙关高速从勒克尔方向来到这里，深峡高速从新城方向经深峡区抵达，杉岭公路则把奥克西诺平原和澄湖连在一起，三条道路在隘口下的谷地交会，物流园、加油站和公路服务区沿路排开，过境货运是区里的重要收入。洛龙山市人民政府、医院、学校和商业街集中在集镇中心，为整个山区提供服务。冬季运动是龙关的另一张名片：隘口两侧的山坡上建有多条雪道，滑雪场、雪具店和山间旅馆在冬季人满为患，夏季则转为徒步和山地自行车基地。居民以维京语为母语，许多人从事运输、旅游和公共服务，老年人比例较高。龙关集镇建在狭长的山谷里，石砌房屋依坡而建，四周雪峰环绕，景色壮丽，是穿越洛龙山的旅客停留休整的地方。
+    en: "The town on the Lorond pass, the city's administrative centre and the most important road junction in the middle of the island. Dragon Pass has always been the way over the Lorond Range. The old post house, stables and toll gate survive in the Dragon Pass Post House Museum, which tells of caravans and postmen crossing the mountains in the snow. Today the Long Pass Expressway arrives from Lekor, the Deep Gorge Expressway comes up from New City through Deep Gorge, and the Fir Ridge Highway links the Oxino plain with Clearlake; the three meet in the valley below the pass, where logistics yards, filling stations and service areas line the roads and through freight is a major source of income. The city government, the hospital, schools and the shopping street are grouped in the town centre and serve the whole mountain region. Winter sports are the other side of Dragon Pass: runs are laid out on the slopes on both sides of the pass, and ski areas, ski shops and mountain inns are packed in winter, becoming a base for hiking and mountain biking in summer. Residents speak Viking at home, many work in transport, tourism and public services, and the share of older people is high. The town fills a long, narrow valley, its stone houses climbing the slopes and snow peaks all around, and travellers crossing the Lorond mountains stop here to rest."
 - id: div_k5f1mz
   subtype: borough
   parent: div_prcxzt
@@ -492,9 +519,10 @@ divisions:
     admin: '900602'
   population: 120000
   area_km2: 11367.6
+  traits: { industries: [forestry] }
   notes:
-    zh: 林业、护林与少量季节性驻地
-    en: Forestry, forest protection and a few seasonal settlements.
+    zh: 洛龙山市面积最大、人口最稀少的区，覆盖杉岭、杉顶和杉岭冰川一带的高山森林，每平方公里只有约十人。区内大部分土地是云杉和冷杉组成的原始针叶林，林业是唯一的支柱产业：林场按照严格的轮伐制度采伐，伐后及时补种，木材经杉岭公路运往奥克西诺和维京港加工。杉岭林业研究所是全岛森林研究的中心，研究树种培育、病虫害防治和森林防火，所里的科研人员和护林员是区里最主要的常住人口。杉岭森林公园保护着最古老的一片原始林，园内有高大的冷杉、苔藓覆盖的岩石和清澈的溪流，徒步道通往杉岭垭口和杉岭冰川的冰舌。冬季大雪封山，部分林区只有季节性驻地，伐木工和护林员夏季上山、冬季下山。杉岭公路从区内穿过，西接奥克区，东通龙关，是沿途村落与外界联系的唯一道路。居民以维京语为母语，生活简朴，护林防火是全区最重要的公共事务。杉岭的森林为本岛涵养水源、调节气候，被视为北维京岛的绿色心脏。
+    en: "The largest and most thinly peopled district of Lorond Mountain City, covering the high forests of Fir Ridge, Fir Top and the Fir Ridge Glacier, with only about ten people per square kilometre. Most of the land is old-growth conifer forest of spruce and fir, and forestry is the one mainstay: plantations are felled on a strict rotation and replanted at once, and the timber goes down the Fir Ridge Highway to be processed in Oxino and Viking Port. The Fir Ridge Forestry Institute is the island's centre of forest research, working on tree breeding, pest control and fire prevention, and its scientists and rangers are most of the district's year-round population. Fir Ridge Forest Park protects the oldest stand of virgin forest, with towering firs, moss-covered boulders and clear streams, and trails climb to Fir Ridge Col and the snout of the Fir Ridge Glacier. Heavy snow closes the high ground in winter, and parts of the forest have only seasonal camps: loggers and rangers go up in summer and come down in winter. The Fir Ridge Highway crosses the district, west to Ox and east to Dragon Pass, the only road linking its villages with the outside world. Residents speak Viking at home and live simply, and guarding the forest against fire is the district's most important public duty. Fir Ridge's forests hold the island's water and temper its climate, and they are thought of as the green heart of North Viking Island."
 - id: div_0t2t36
   subtype: borough
   parent: div_prcxzt
@@ -508,9 +536,10 @@ divisions:
     admin: '900603'
   population: 150000
   area_km2: 9590.4
+  traits: { industries: [tourism, forestry] }
   notes:
-    zh: 高山峡谷村落与观光步道
-    en: Alpine gorge villages and scenic trails.
+    zh: 洛龙山南部的高山峡谷区，深峡在群峰之间切出数十公里长的谷地，谷底散布着古老的山村和梯田，以壮丽的峡谷风光和瀑布闻名。深峡瀑布公园是全岛最著名的自然景区，峡谷两壁的冰川融水汇成多级瀑布，最高一级落差上百米，夏季水量最大时轰鸣声在谷中回荡；谷底的深峡湖是一座冰川堰塞湖，湖水呈碧绿色，四周是陡峭的岩壁。景区内修建了栈道、吊桥和观景台，观光步道沿峡谷延伸，是徒步者和摄影爱好者的天堂，旅游业是区里最主要的收入来源。山坡上的森林由村民和林场共同经营，木材和木工艺品是传统的副业。深峡高速从区内穿过，北接龙关，南经北苑、青坪通往新城，高速在峡谷中以一连串桥梁和隧道穿行，本身也是一道风景。居民以维京语为母语，许多村落只有几十户人家，年轻人多外出工作，老人留守，夏季游客到来时村里才热闹起来。深峡的山村保留着传统的木屋和石墙，冬季大雪覆盖时宛如童话世界。
+    en: "The high gorge country of southern Lorond Mountain. The Deep Gorge cuts a valley tens of kilometres long between the peaks, and its floor is dotted with old mountain villages and terraced fields; the district is famous for its gorge scenery and waterfalls. Deep Gorge Falls Park is the best-known natural attraction on the island: meltwater from the glaciers above pours down the gorge walls in a staircase of falls, the highest dropping more than a hundred metres, and when the flow peaks in summer the roar echoes down the valley. Gorge Lake on the valley floor is a glacial lake dammed by debris, emerald green and walled by sheer cliffs. Boardwalks, suspension bridges and viewpoints run through the park and trails follow the gorge, a paradise for hikers and photographers, and tourism is the district's main income. Villagers and forestry companies share the forests on the slopes, and timber and woodcraft are traditional sidelines. The Deep Gorge Expressway runs through the district, north to Dragon Pass and south through North Gardens and Greenmead to New City, threading the gorge on a chain of bridges and tunnels that is a sight in itself. Residents speak Viking at home; many villages have only a few dozen households, young people mostly work elsewhere and the old stay behind, and the villages only come alive when summer visitors arrive. With their traditional timber houses and stone walls, the gorge villages look like something from a fairy tale under winter snow."
 - id: div_k4s990
   subtype: locality
   parent: div_fbfqv9
@@ -529,9 +558,10 @@ divisions:
   emblem:
     motif: skyline
     pattern: grid
+  traits: { industries: [residential, commerce, manufacturing], heritage: chinese, age: young }
   notes:
-    zh: 新建成的现代化居住中心，居民多通勤于萨科勒市。1990 年拆分自马斯林山市
-    en: Newly built modern residential centre; most residents commute to Sakole. Split from Maslin Mountain City in 1990.
+    zh: 北维京岛南部新建成的现代化居住中心，领地建立之初从原马斯林山市析出设市，居民多在邻近的萨科勒市和贝克勒自由贸易区工作。全市按照统一规划建设，高层住宅、学校、医院、公园和轨道交通同步配套，是全岛最年轻的城市之一，儿童和年轻家庭比例很高，平均年龄远低于全岛水平。经济以居住服务、商贸和轻工业为主：青坪区是商业和交通枢纽，青坪购物中心和新城体育中心是全市最热闹的地方；北苑区是成片的新社区和学校，新城第一中学和新城师范学院在全岛享有盛名；南驿区面向萨科勒方向，新城机场和南驿物流园带动了物流和制造业；米特区是从青坪区析出的新市中心，市政府、新城国际会展中心和米特中央公园都在这里，会展和商务服务日益兴旺。环北维京岛高速、深峡高速、南岸公路和厄定河公路在市内交会，维贝铁路在新城站停靠，新洛铁路从这里出发通往洛龙山。居民大多以中文为母语，城市干净整洁、生活便利，是年轻人在本岛安家的首选之一。
+    en: A modern residential centre built new in the south of North Viking Island, carved out of the old Maslin Mountain City when the territory was founded; many residents work in neighbouring Sakole and the Beckerle Free Trade Zone. The city was built to a single plan, with high-rise housing, schools, hospitals, parks and rail transit delivered together. It is one of the youngest cities on the island, with many children and young families and an average age well below the island's. The economy rests on residential services, commerce and light industry. Greenmead is the shopping and transport hub, where Greenmead Shopping Centre and the New City Sports Centre are the busiest places in town. North Gardens is a spread of new neighbourhoods and schools, and New City No. 1 High School and New City Normal College are known across the island. South Post faces Sakole, and New City Airport and the South Post Logistics Park bring logistics and manufacturing. Mitte, split off from Greenmead, is the new city centre, with the city government, the New City International Exhibition Centre and Mitte Central Park, and conferences and business services are growing fast. The ring expressway, the Deep Gorge Expressway and the South Coast and Erding River highways meet in the city; the Viking Port–Beckerle Railway stops at New City Station, and the New City–Lorond Mountain Railway starts here. Most residents grew up speaking Chinese, and the clean, convenient city is one of the first choices for young people setting up home on the island.
 - id: div_z8yxye
   subtype: borough
   parent: div_k4s990
@@ -545,9 +575,10 @@ divisions:
     admin: '900701'
   population: 480000
   area_km2: 3360.0
+  traits: { industries: [commerce, residential, logistics] }
   notes:
-    zh: 建在原来的青草坪地上。高层住宅、商业与轨道交通枢纽；北部 2000 年代析出设米特区
-    en: Built on former green meadows. High-rise housing, commerce and the rail transit hub. Its northern part became Mitte District in the 2000s.
+    zh: 建在原来的青草坪地上，区名由此而来，是新城市的商业中心和交通枢纽。区内以高层住宅和大型商业综合体为主，青坪购物中心是本岛南部最大的购物中心，集商场、影院、餐饮和室内游乐场于一体，周末吸引着新城、萨科勒和贝克勒的居民。区内的公交枢纽和长途客运站与北苑区的新城站相接，每天有大量通勤者从这里前往萨科勒和贝克勒上班。新城体育中心拥有体育场、游泳馆和综合训练馆，承办过全领地的运动会，也是社区居民健身的去处。深峡高速和南岸公路在区内交会，前者向北经北苑、深峡通往洛龙山，后者向南经南驿、罗卡通往萨科勒和贝克勒。区的北部析出设立了米特区，两区如今连成一片城市中心。居民以年轻的通勤家庭为主，大多以中文为母语，物流配送和零售服务提供了大量就业。青坪的街道宽阔、绿化良好，高层住宅之间留有大片草坪，延续着地名中的青草意象，是新城市最繁忙的地方。
+    en: Built on what were once green meadows, which give it its name, Greenmead is New City's commercial centre and transport hub. High-rise housing and large mixed-use complexes dominate. Greenmead Shopping Centre is the largest in the south of the island, with shops, cinemas, restaurants and an indoor play centre, and at weekends it draws people from New City, Sakole and Beckerle. The district's bus hub and coach station connect with New City Station in neighbouring North Gardens, and every day crowds of commuters leave from here for work in Sakole and Beckerle. The New City Sports Centre, with a stadium, a swimming hall and a multi-sports hall, has hosted the territorial games and is where local residents come to keep fit. The Deep Gorge Expressway and the South Coast Highway meet in the district, the first running north through North Gardens and Deep Gorge to Lorond Mountain, the second south through South Post and Rocca to Sakole and Beckerle. The northern part of the district was split off to form Mitte, and together the two now make up the city centre. Residents are mostly young commuting families who speak Chinese at home, and delivery and retail provide many jobs. Greenmead's streets are broad and green, with wide lawns left between the towers in keeping with its name, and it is the busiest place in New City.
 - id: div_s1qwxh
   subtype: borough
   parent: div_k4s990
@@ -561,9 +592,10 @@ divisions:
     admin: '900702'
   population: 680000
   area_km2: 4320.0
+  traits: { industries: [residential, education, commerce] }
   notes:
-    zh: 成片新建社区与学校
-    en: Large new residential communities and schools.
+    zh: 新城市人口最多的区，由成片新建的社区和学校组成，是全市最典型的居住区。区内按照「十五分钟生活圈」规划，每个社区都有幼儿园、小学、社区医院、菜市场和小公园，住宅以中高层公寓为主，楼宇之间绿树成荫。教育是北苑的名片：新城第一中学是全岛升学率最高的中学之一，新城师范学院为全领地培养中小学教师，许多家庭为了孩子上学专门搬到这里，儿童比例在全市名列前茅。区里的商业以社区商业街和超市为主，居民大多在青坪、米特或萨科勒上班，早晚高峰时通勤车流密集。深峡高速纵贯全区，向南通往青坪，向北经深峡通往洛龙山；厄定河公路从这里出发，向东北经上厄定、旧府通往厄定河市，是新城通往东北部的主要道路。居民大多以中文为母语，社区活动丰富，周末的公园和体育场里满是带孩子的家庭。维贝铁路和新洛铁路在区内的新城站交会；区的北部是南冠峰和南冠冰川所在的高山，山脚下的森林和溪谷成为居民徒步和野餐的去处。北苑安静、有序，是新城年轻家庭安居乐业的地方。
+    en: "New City's most populous district, made up of new neighbourhoods and schools, and the city's typical residential quarter. It is planned around a fifteen-minute neighbourhood: every community has a nursery, a primary school, a clinic, a food market and a small park, and the mid- and high-rise flats stand among shady trees. Education is what North Gardens is known for. New City No. 1 High School sends more pupils on to university than almost any school on the island, and New City Normal College trains teachers for the whole territory; many families move here for their children's schooling, and the share of children is among the highest in the city. Shops are mostly neighbourhood high streets and supermarkets, and most residents work in Greenmead, Mitte or Sakole, so traffic is heavy at rush hour. The Deep Gorge Expressway runs the length of the district, south to Greenmead and north through Deep Gorge to Lorond Mountain, and the Erding River Highway starts here and runs north-east through Upper Erding and Old Prefecture to Erding River City, New City's main road to the north-east. Most residents speak Chinese at home, community life is busy, and at weekends the parks and sports grounds are full of families with children. The Viking Port–Beckerle and New City–Lorond Mountain railways meet at New City Station in the district. To the north rise Southcrown and the great Southcrown Glacier, and the forests and valleys at their foot are where people go walking and picnicking. Calm and orderly, North Gardens is where New City's young families settle down."
 - id: div_hyxnpg
   subtype: borough
   parent: div_k4s990
@@ -577,9 +609,10 @@ divisions:
     admin: '900703'
   population: 490000
   area_km2: 3520.0
+  traits: { industries: [logistics, residential, manufacturing] }
   notes:
-    zh: 面向萨科勒方向的快速路与公交走廊
-    en: Expressway and bus corridor towards Sakole.
+    zh: 新城市南部面向萨科勒方向的区，区名取自旧时的驿站，如今是连接新城与萨科勒、贝克勒的快速路和公交走廊。南岸公路纵贯全区，沿线有密集的公交专用道和通勤班车，每天早晚大批居民经这里往返萨科勒的工厂和贝克勒的写字楼。新城机场位于区的南部，有航班通往维京港、自由市、西北市和维京群岛，也是本岛南部的航空货运站；南驿物流园紧邻机场和公路，仓储、配送和电商分拣中心聚集，物流业是区里最大的雇主。区内还有一批为萨科勒工业园配套的零部件、包装和印刷工厂，轻工业与物流相互依存。住宅区沿走廊两侧分布，房价比青坪和米特低，吸引了大量年轻工人家庭，是全市儿童比例最高的区之一。居民大多以中文为母语，社区里有许多新开的学校、诊所和超市。区的西南部仍保留着一些农田和苗圃，为城市提供蔬菜和花木。南驿以交通便利和就业机会多著称，是新城与南部工业区之间的纽带，也是全市发展最快的地方之一。
+    en: The district in the south of New City facing Sakole. Its name recalls an old post station, and today it is the expressway and bus corridor linking New City with Sakole and Beckerle. The South Coast Highway runs its length, with bus lanes and commuter coaches, and every morning and evening crowds of residents travel this way to the factories of Sakole and the offices of Beckerle. New City Airport, in the south of the district, has flights to Viking Port, Freedom City, Northwest City and the Viking Islands and is the air-freight station for the south of the island. The South Post Logistics Park next to the airport and the highway gathers warehouses, distribution centres and parcel sorting halls, and logistics is the district's biggest employer. There are also parts, packaging and printing plants serving the Sakole industrial parks, so light industry and logistics depend on each other. Housing lines both sides of the corridor; homes cost less than in Greenmead and Mitte, so many young working families live here, and it has one of the highest shares of children in the city. Most residents speak Chinese at home, and the neighbourhoods are full of new schools, clinics and supermarkets. Farmland and nurseries survive in the south-west, supplying the city with vegetables, flowers and trees. South Post is known for good connections and plentiful jobs, the link between New City and the industrial south, and one of the fastest-growing parts of the city.
 - id: div_m2tz6c
   subtype: borough
   parent: div_k4s990
@@ -593,9 +626,10 @@ divisions:
     admin: '900704'
   population: 240000
   area_km2: 800.0
+  traits: { industries: [government, conference, finance], heritage: mixed, age: balanced }
   notes:
-    zh: 维京语意为「中心」。2000 年代自青坪区析出的新市中心，市政府、会展中心与商务区所在
-    en: "Viking for \"centre\". The new city centre split from Greenmead District in the 2000s, home to the city government, the exhibition centre and the business district."
+    zh: 维京语意为「中心」，从青坪区北部析出设立的新市中心，也是新城市面积最小、密度最高的区。新城市人民政府、市议会和主要公共机构集中在米特中央公园周围，政务中心采用开放式设计，市民可以自由进出办事。新城国际会展中心是本岛南部最大的会展场馆，常年举办工业博览会、教育展、汽车展和国际会议，与周边的酒店、写字楼和餐饮街共同形成了会展商务区；银行、保险和律师事务所也纷纷在此设立分支机构，服务新城和萨科勒的企业。米特中央公园是全市最大的城市公园，园内有人工湖、草坪、音乐厅和儿童乐园，夏季的露天音乐会吸引大量市民。深峡高速从区内出发，向北经青坪、北苑和深峡通往洛龙山。由于商务和公务人员来自各地，米特区说中文、维京语和巴克汉姆语的人都很多，是新城市最多元的区。区内建筑以现代风格的写字楼、公寓和公共建筑为主，街道整洁宽阔，夜景明亮。米特承载着新城从卧城走向独立城市的愿景，是全市的门面。
+    en: Mitte means "centre" in Viking. Split off from the north of Greenmead, it is New City's new downtown and the city's smallest and most densely settled district. The city government, the city council and the main public bodies stand around Mitte Central Park, and the civic centre is open in design, so residents can walk in to deal with their affairs. The New City International Exhibition Centre is the largest venue of its kind in the south of the island, holding industrial fairs, education and motor shows and international conferences all year, and with the hotels, offices and restaurant streets around it forms a conference and business quarter. Banks, insurers and law firms have opened branches here to serve companies in New City and Sakole. Mitte Central Park is the largest park in the city, with a lake, lawns, a concert hall and a playground, and its open-air concerts draw big crowds in summer. The Deep Gorge Expressway starts in the district and runs north through Greenmead, North Gardens and Deep Gorge to Lorond Mountain. Because business and government staff come from everywhere, many people here speak Chinese, Viking or Buckham, making Mitte the most varied district in the city. Modern offices, flats and public buildings line clean, broad streets that are brightly lit at night. Mitte carries New City's hope of growing from a commuter town into a city in its own right, and it is the city's showcase.
 - id: div_ygk521
   subtype: locality
   parent: div_fbfqv9
@@ -614,9 +648,10 @@ divisions:
   emblem:
     motif: sun
     pattern: halo
+  traits: { industries: [tourism, conference, residential], heritage: chinese, age: old }
   notes:
-    zh: 度假区。1990 年拆分自马斯林山市
-    en: Resort area. Split from Maslin Mountain City in 1990.
+    zh: 北维京岛东南海岸的度假城市，领地建立之初从原马斯林山市析出设市，以天台山、天河湾和绵长的沙滩闻名。全市的经济围绕旅游和会议展开：天台区是主要的度假酒店群和会议中心所在地，天台国际会议中心常年举办领地和国际会议；银滩区拥有全岛最好的海滩、银滩主题乐园和成排的海滨酒店；岚山区则是山间的高端住宅、疗养院和高尔夫球场。天城机场和天城港把游客从维京港、维京群岛和远方带到这里，夏季航班和客轮络绎不绝，冬季则以温泉疗养、雪景和会议淡季促销吸引客人。由于气候温和、风景秀丽，许多退休人员从全岛各地移居天城，老年人比例在全岛名列前茅，医疗和养老服务因此发达。环北维京岛高速、马斯林山高速和东岸公路在市内交会，雪谷公路从天台出发通往马斯林山，贝马铁路在天城站停靠。居民大多以中文为母语，城市以干净、安静和服务周到著称，是北维京岛最受欢迎的度假地，也是很多人心中理想的养老之地。
+    en: A resort city on the south-east coast of North Viking Island, carved out of the old Maslin Mountain City when the territory was founded and known for Sky Terrace Mountain, Sky River Bay and its long beaches. The economy revolves around tourism and conferences. Sky Terrace holds the main cluster of resort hotels and the Sky Terrace International Convention Centre, which hosts territorial and international meetings all year. Silver Beach has the best beaches on the island, the Silver Beach Theme Park and rows of seafront hotels, and Mist Hill is upmarket homes, sanatoriums and a golf course in the hills. Skytown Airport and Skytown Harbour bring visitors from Viking Port, the Viking Islands and further afield; flights and passenger ships are busy all summer, and in winter the city draws guests with spa cures, snow scenery and off-season conference offers. The mild climate and fine scenery have drawn retirees from all over the island, so the share of older people is among the highest anywhere, and healthcare and care services are well developed. The ring expressway, the Maslin Expressway and the East Coast Highway meet in the city, the Snow Valley Highway starts at Sky Terrace and climbs to Maslin Mountain, and the Beckerle–Maslin Mountain Railway stops at Skytown Station. Most residents speak Chinese at home. Known for being clean, quiet and welcoming, Skytown is the island's favourite holiday destination and, for many, the ideal place to retire.
 - id: div_w1ea18
   subtype: borough
   parent: div_ygk521
@@ -630,9 +665,10 @@ divisions:
     admin: '900801'
   population: 320000
   area_km2: 2560.0
+  traits: { industries: [tourism, conference] }
   notes:
-    zh: 主度假集群与会议中心
-    en: Main resort cluster and convention centre.
+    zh: 天城市的主度假区和会议中心，也是全市的行政中心，坐落在天台山脚下、天河湾畔。度假酒店、公寓式酒店和度假村沿着海湾和山坡层层排开，酒店前是游艇码头和海滨长廊，背后是天台山的森林和步道，登山缆车可以把游客送上山顶观赏日出和天台峡湾。天台国际会议中心是全领地规格最高的会议场馆，拥有大型会议厅、展厅和同声传译设施，领地的大型会议、学术会议和国际论坛常在这里举行，会议和商务旅游是区里与度假并重的支柱。天城机场位于区的北部，天城港则停靠来自维京港和维京群岛的客轮和邮轮，天城市人民政府也设在区内。东岸公路和雪谷公路都从这里出发，前者一头经银滩、岚山通往马斯林山的东营，另一头通往萨科勒的铁岗，后者向西深入马斯林山。居民大多在酒店、餐饮、会议和公共服务部门工作，以中文为母语的家庭占多数，退休移居者也不少。天台区四季都有游客，夏季看海、秋季赏枫、冬季泡温泉看雪，是北维京岛最繁忙的度假区。
+    en: "Skytown's main resort and conference district and the seat of the city government, at the foot of Sky Terrace Mountain on Sky River Bay. Resort hotels, apartment hotels and holiday villages climb the bay and the slopes in tiers, with a marina and seafront promenade in front and the forests and trails of Sky Terrace Mountain behind; a cable car takes visitors to the summit to watch the sunrise and look down on the Sky Terrace Fjord. The Sky Terrace International Convention Centre is the territory's most prestigious meeting venue, with large halls, exhibition space and simultaneous interpretation; the territory's major meetings, academic conferences and international forums are often held here, and business and conference travel is as important to the district as holidays. Skytown Airport lies in the north of the district, and Skytown Harbour takes ferries and cruise ships from Viking Port and the Viking Islands. The East Coast Highway and the Snow Valley Highway both start here: the first runs one way through Silver Beach and Mist Hill to East Camp in Maslin Mountain and the other way to Iron Knoll in Sakole, the second climbs west into the Maslin mountains. Most residents work in hotels, restaurants, conferences and public services; Chinese-speaking households are the majority, and many retirees have moved in. Sky Terrace has visitors all year round, for the sea in summer, the autumn colours and hot springs and snow in winter, and it is the busiest resort district on the island."
 - id: div_f5s7ax
   subtype: borough
   parent: div_ygk521
@@ -646,9 +682,10 @@ divisions:
     admin: '900802'
   population: 280000
   area_km2: 3040.0
+  traits: { industries: [tourism, commerce] }
   notes:
-    zh: 海滩、主题乐园与酒店群
-    en: Beaches, theme parks and hotels.
+    zh: 天城市的海滨娱乐区，拥有北维京岛最长、最白的沙滩，区名由此而来。银滩沿海岸绵延十几公里，沙质细软、海水清澈，夏季是全岛游泳、冲浪、沙滩排球和帆船运动的中心，海滨步道两旁是咖啡馆、冰淇淋店和海鲜餐厅。银滩主题乐园是全岛最大的游乐园，有过山车、水上乐园和以维京传说为主题的园区，暑假期间全岛的家庭都会带孩子来这里；银滩大酒店是滨海地标，周围还有数十家度假酒店、汽车营地和度假公寓。银滩海滨公园保护着沙丘和海岸草地，春季有候鸟在此停歇。旅游和商业是区里最主要的产业，大部分居民在酒店、餐饮、零售和娱乐场所工作，旺季时还会有大批季节工从全岛各地赶来。东岸公路沿海岸穿过全区，一头连接天台，另一头经岚山通往东营。区里的常住居民以中文为母语的家庭为主，许多人经营家庭旅馆和小店，也有不少退休移居者在海边安度晚年。银滩以阳光、沙滩和欢乐的度假氛围著称，是天城最热闹的地方。
+    en: Skytown's seaside playground, with the longest and whitest beach on North Viking Island, which gives the district its name. The silver sand stretches for more than ten kilometres, fine and soft, and the water is clear; in summer this is the island's centre for swimming, surfing, beach volleyball and sailing, and cafés, ice-cream parlours and seafood restaurants line the promenade. The Silver Beach Theme Park is the largest amusement park on the island, with roller coasters, a water park and a section themed on Viking legends, and in the school holidays families from all over the island bring their children. The Silver Beach Grand Hotel is the landmark of the seafront, surrounded by dozens of resort hotels, campsites and holiday flats. Silver Beach Seafront Park protects the dunes and coastal grassland, where migrating birds rest in spring. Tourism and commerce are the main trades; most residents work in hotels, restaurants, shops and entertainment, and in the high season seasonal workers pour in from across the island. The East Coast Highway runs along the coast through the district, one way to Sky Terrace and the other through Mist Hill to East Camp. Year-round residents are mostly Chinese-speaking families; many run guesthouses and small shops, and a good number of retirees have settled by the sea. Silver Beach is known for sun, sand and a cheerful holiday mood, and it is the liveliest part of Skytown.
 - id: div_ts88e3
   subtype: borough
   parent: div_ygk521
@@ -662,9 +699,10 @@ divisions:
     admin: '900803'
   population: 180000
   area_km2: 2000.0
+  traits: { industries: [residential, healthcare, tourism] }
   notes:
-    zh: 低密度高端住宅
-    en: Low-density high-end residences.
+    zh: 天城市北部丘陵上的低密度高端住宅区，因山间常年云雾缭绕而得名。区内多为独栋别墅和低层公寓，掩映在森林和草坡之间，住户中有许多从维京港、自由市和维京群岛移居而来的退休人员、企业家和艺术家，老年人比例很高。岚山的空气清新、气候温和，疗养院、康复中心和高端养老社区沿山坡分布，医疗和养老服务是区里最重要的产业，吸引着全岛需要康复和疗养的人前来。岚山高尔夫球场是全岛最好的球场之一，十八洞球道依山傍海，每年举办领地高尔夫公开赛；岚山森林公园保护着大片的原始阔叶林和山溪，园内的步道可以登上山顶眺望天河湾和远处的马斯林山脉。东岸公路从区内穿过，一头经银滩通往天台，另一头通往马斯林山的东营。区里的商业以精品店、画廊、餐厅和葡萄酒吧为主，节奏悠闲，没有大型商场。居民大多以中文为母语，社区安静，治安良好。岚山代表着天城宁静高雅的一面，是全岛最理想的养老和疗养之地之一。
+    en: An upmarket, low-density residential district in the hills of northern Skytown, named for the mist that hangs over the hills most of the year. Most homes are detached villas and low-rise flats hidden among forest and grassy slopes, and many residents are retirees, business people and artists who moved here from Viking Port, Freedom City and the Viking Islands, so the share of older people is high. The air is fresh and the climate mild; sanatoriums, rehabilitation centres and upmarket retirement communities spread over the slopes, healthcare and care are the district's most important trades, and people from across the island come here to recover and recuperate. Mist Hill Golf Club is one of the best courses on the island, its eighteen holes set between hills and sea, and it hosts the territory's open championship every year. Mist Hill Forest Park protects a large stand of old broadleaf forest and mountain streams, and its trails climb to the summit for views over Sky River Bay and the distant Maslin Range. The East Coast Highway runs through the district, one way through Silver Beach to Sky Terrace and the other to East Camp in Maslin Mountain. Shops are boutiques, galleries, restaurants and wine bars, with no big malls, and the pace is unhurried. Most residents speak Chinese at home, and the neighbourhoods are quiet and safe. Mist Hill is the calm, refined side of Skytown and one of the best places on the island to retire or convalesce.
 - id: div_da3s38
   subtype: locality
   parent: div_fbfqv9
@@ -683,9 +721,10 @@ divisions:
   emblem:
     motif: gear
     pattern: hex
+  traits: { industries: [manufacturing, mining, logistics], heritage: buckham, age: young }
   notes:
-    zh: 建设有新工业区。1990 年拆分自马斯林山市
-    en: Home to a new industrial zone. Split from Maslin Mountain City in 1990.
+    zh: 北维京岛南部的工业城市，领地建立之初从原马斯林山市析出设市，城市名在巴克汉姆语中意为「萨科之地」。全市的经济以制造业为主：铁岗区的先进制造产业园集中了机械装备、电子元件、新能源设备和船舶配件工厂，是全岛最大的工业基地；铁岗山一带的铁矿和石料开采历史悠久，如今规模缩小，转向精深加工；罗卡区的公路货运站和仓储园区把工厂的产品运往维京港、贝克勒和全岛各地。萨科区是城市的发祥地和市政中心，萨科渔港、萨科鱼市和萨科老镇广场保留着巴克汉姆渔镇的风貌。萨科勒的工厂吸引了大量来自新城和本岛各地的年轻工人，劳动年龄人口比例很高，城市充满活力。巴克汉姆语是全市过半居民的母语，街名、商店招牌和学校课程都使用巴克汉姆语和中文双语。环北维京岛高速、南岸公路和东岸公路在市内交会，维贝铁路在铁岗区的萨科勒站停靠。萨科勒以务实、勤劳的工业传统和地道的巴克汉姆风情著称，是本岛南部的经济引擎。
+    en: An industrial city in the south of North Viking Island, carved out of the old Maslin Mountain City when the territory was founded; in Buckham its name means "the land of Sako". Manufacturing drives the economy. The Iron Knoll Advanced Manufacturing Park gathers makers of machinery, electronic components, clean-energy equipment and ship parts and is the largest industrial base on the island. Iron ore and stone have long been dug around Iron Knoll; the mines are smaller now and have moved into higher-value processing. The road freight terminal and warehouse parks of Rocca carry the factories' goods to Viking Port, Beckerle and the rest of the island. Sako is where the city began and its civic centre, and Sako Fishing Harbour, the fish market and the old town square keep the look of a Buckham fishing town. Sakole's factories have drawn many young workers from New City and across the island, so the share of working-age adults is high and the city feels energetic. Buckham is the first language of more than half the people, and street names, shop signs and school lessons are in Buckham and Chinese. The ring expressway and the South Coast and East Coast highways meet in the city, and the Viking Port–Beckerle Railway stops at Sakole Station in Iron Knoll. Sakole is known for its practical, hard-working industrial tradition and its genuine Buckham character, and it is the economic engine of the south of the island.
 - id: div_6byxb5
   subtype: borough
   parent: div_da3s38
@@ -699,9 +738,10 @@ divisions:
     admin: '900901'
   population: 380000
   area_km2: 2240.0
+  traits: { industries: [manufacturing, mining] }
   notes:
-    zh: 岗地曾出产铁矿而得名。1990 年代起布局的制造业园区
-    en: Named after the iron ore once mined from its knolls. Manufacturing parks laid out since the 1990s.
+    zh: 区名得自岗地上曾经出产的铁矿，是萨科勒市的工业核心。铁岗山的露天矿坑和竖井曾是全岛最主要的铁矿来源，矿石经铁路运往港口出口；矿藏逐渐采尽后，矿区转型为工业区，铁岗先进制造产业园在旧矿区周围铺开，集中了机床、工程机械、电子元件、风电与储能设备、船舶配件等数百家企业，是北维京岛最大的制造业基地。部分矿山仍在开采石料和建筑骨料，规模已大为缩小。铁岗矿业博物馆利用旧矿井和选矿厂改建，游客可以乘坐矿车深入地下巷道，了解矿工的生活与采矿技术的演变。萨科勒职业技术学院与产业园紧密合作，培养机械、电气和自动化技术工人，毕业生大多直接进入园区工作。东岸公路从这里出发，向东北经天台、银滩通往岚山和东营。区内居民以年轻工人家庭为主，劳动年龄人口比例全市最高，巴克汉姆语和中文并用。工厂的轮班让街区昼夜都有人气，社区里有许多工人食堂、职工宿舍和体育场。铁岗是萨科勒从矿业走向现代制造业的缩影。
+    en: Named after the iron ore once dug from its knoll, Iron Knoll is Sakole's industrial core. The open pits and shafts of Iron Knoll were once the island's main source of iron ore, which went by rail to the port for export. As the deposits ran out, the mining area turned into an industrial zone. The Iron Knoll Advanced Manufacturing Park now spreads around the old workings, with hundreds of firms making machine tools, construction machinery, electronic components, wind-power and storage equipment and ship parts, the largest manufacturing base on North Viking Island. Some pits still produce stone and aggregate, on a much smaller scale. The Iron Knoll Mining Museum, built in an old shaft and dressing plant, takes visitors underground in mine cars to learn about miners' lives and how mining changed. Sakole Polytechnic works closely with the park to train machinists, electricians and automation technicians, and most graduates go straight to jobs there. The East Coast Highway starts here and runs north-east through Sky Terrace and Silver Beach to Mist Hill and East Camp. Residents are mostly young working families, the share of working-age adults is the highest in the city, and Buckham and Chinese are both in daily use. Factory shifts keep the streets busy day and night, and the neighbourhoods are full of works canteens, staff housing and sports grounds. Iron Knoll sums up Sakole's journey from mining to modern manufacturing.
 - id: div_8m0jx4
   subtype: borough
   parent: div_da3s38
@@ -715,9 +755,10 @@ divisions:
     admin: '900902'
   population: 320000
   area_km2: 2480.0
+  traits: { industries: [commerce, heritage, fishing], age: balanced }
   notes:
-    zh: 原萨科镇，城市名萨科勒在巴克汉姆语中意为「萨科之地」。拆市前的传统市镇中心
-    en: The old town of Sako; Sakole means "Sako's land" in Buckham. The traditional town centre before the split.
+    zh: 原萨科镇，城市名萨科勒在巴克汉姆语中意为「萨科之地」，这里是全市的发祥地和行政中心。萨科镇原是萨科湾畔的巴克汉姆渔镇，彩色的石屋沿港湾排开，萨科渔港至今仍是本岛南部最繁忙的渔港之一，渔船每天清晨把鳕鱼、鲭鱼和贝类送到萨科鱼市，鱼市旁的小餐馆以巴克汉姆风味的海鲜汤闻名。萨科老镇广场是城市的心脏，广场周围是旧市政厅、钟楼和石砌教堂，萨科勒市人民政府和主要商业街也集中在老镇附近。区内的商贸和服务业发达，商场、银行和餐馆为全市居民服务；文化遗产与旅游业也日益兴旺，老镇的巴克汉姆传统节庆、手工艺作坊和海港风光吸引着全岛游客。南岸公路从区内穿过，西接罗卡和新城，东通贝克勒。萨科湾和萨科角是区里的海岸景观，内陆的萨科山口是登山者喜爱的去处。居民大多以巴克汉姆语为母语，老镇里人们见面用巴克汉姆语问候，传统音乐和舞蹈代代相传。萨科区是萨科勒巴克汉姆文化的根，也是全市最有烟火气的地方。
+    en: The former town of Sako; in Buckham the city's name Sakole means "the land of Sako", and this is where the city began and where it is governed. Sako was a Buckham fishing town on Sako Bay, its coloured stone houses lining the harbour, and Sako Fishing Harbour is still one of the busiest fishing ports in the south of the island; every dawn the boats land cod, mackerel and shellfish at the Sako Fish Market, and the little restaurants beside it are known for their Buckham fish soup. Sako Old Town Square is the heart of the city, framed by the old town hall, the clock tower and the stone church, and the city government and main shopping streets are close by. Trade and services thrive, with shops, banks and restaurants serving the whole city, and heritage and tourism are growing too, as the old town's Buckham festivals, craft workshops and harbour views draw visitors from across the island. The South Coast Highway runs through the district, west to Rocca and New City and east to Beckerle. Sako Bay and Cape Sako give the district its coastline, and inland the Sako Pass is a favourite with walkers. Most residents speak Buckham as their first language; in the old town people greet each other in Buckham, and traditional music and dance pass from one generation to the next. Sako is the root of Sakole's Buckham culture and its most lived-in, homely quarter.
 - id: div_8njcs3
   subtype: borough
   parent: div_da3s38
@@ -731,9 +772,10 @@ divisions:
     admin: '900903'
   population: 200000
   area_km2: 1280.0
+  traits: { industries: [logistics, manufacturing] }
   notes:
-    zh: 巴克汉姆语意为「岩堡」，得名于海边的岩丘。公路货运站与仓储
-    en: Buckham for "rock fort", after a seaside rock outcrop. Road freight station and warehousing.
+    zh: 巴克汉姆语意为「岩堡」，得名于海边一座形如城堡的岩丘，是萨科勒市的物流与仓储区。罗卡公路货运站是本岛南部最大的公路货运枢纽，萨科勒工厂生产的机械、电子和船舶配件在这里集装分拨，经南岸公路和环岛高速运往维京港、贝克勒保税港和全岛各地；周边的仓储园区、冷链中心和配送中心为新城和萨科勒的商店供货。区内还有不少为铁岗产业园配套的零部件、包装和金属加工厂，物流与制造相互依存，吸引了大量年轻工人和卡车司机。岩堡公园围绕那座海边岩丘而建，岩丘上的观景台可以眺望萨科湾和来往的船只，岩丘脚下的海滩是附近居民夏季游泳的地方。南岸公路纵贯全区，西接南驿和新城，东通萨科和贝克勒，货车和通勤车流昼夜不息。罗卡区面积不大，人口约二十万，以巴克汉姆语和中文为母语的居民混居，年轻家庭多，社区里有新建的学校和体育场。罗卡是萨科勒工业的「后勤基地」，也是全市交通最繁忙的地方。
+    en: Rocca means "rock fort" in Buckham, after a castle-shaped knoll of rock by the sea, and it is Sakole's logistics and warehouse district. The Rocca Road Freight Terminal is the largest road freight hub in the south of the island. Machinery, electronics and ship parts from the Sakole factories are consolidated and dispatched here, travelling by the South Coast Highway and the ring expressway to Viking Port, the Beckerle bonded port and the rest of the island, while the surrounding warehouse parks, cold stores and distribution centres stock the shops of New City and Sakole. There are also many parts, packaging and metalworking plants serving the Iron Knoll park, so logistics and manufacturing depend on each other and draw young workers and lorry drivers in large numbers. Rocca Park is built around the seaside knoll; its viewpoint looks out over Sako Bay and the passing ships, and the beach below is where local people swim in summer. The South Coast Highway runs the length of the district, west to South Post and New City and east to Sako and Beckerle, and lorries and commuters stream along it day and night. Rocca is small, with about two hundred thousand people; Buckham- and Chinese-speaking residents live side by side, young families are many, and the neighbourhoods have new schools and sports grounds. Rocca is the supply base of Sakole's industry and the city's busiest place for traffic.
 - id: div_k4hg7b
   subtype: locality
   parent: div_fbfqv9
@@ -752,9 +794,10 @@ divisions:
   emblem:
     motif: exchange
     pattern: diagonal
+  traits: { industries: [trade, finance, port, aviation], heritage: global, age: balanced, income: 1.2 }
   notes:
-    zh: 自由贸易试验区，拥有极端自由的经济政策。1990 年拆分自马斯林山市
-    en: Free trade pilot zone with extremely liberal economic policies. Split from Maslin Mountain City in 1990.
+    zh: 北维京岛南端的自由贸易试验区，领地建立之初从原马斯林山市析出设立，实行全领地最自由的经济政策：货物进出免征关税，资本自由流动，企业注册和外籍人员居留手续极其简便，税率很低。贝克勒面积不到一千平方公里，却聚集了近百万人口，是全岛人口最密集、人均产出最高的地方。区内分为四个功能区：卡波区以卡波国际机场为核心，承担海陆空联运和旅客通道；镜湾区是离岸金融、贸易结算和企业总部聚集地，镜湾国际金融中心和贝克勒国际商品交易所是全领地的金融高地；燕礁区以保税仓储和加工贸易为主；保税港区则是镜湾外填海建成的集装箱码头和转口加工区。自由的政策吸引了来自世界各地的企业和人才，区内中文、维京语、巴克汉姆语和英语并用，英语使用比例全领地最高，国际学校、外资银行和各国餐厅随处可见。环北维京岛高速和南岸公路在这里交会，维贝铁路以贝克勒站为终点，贝马铁路从这里出发通往天城和马斯林山。贝克勒是北维京岛连接世界的窗口，也是领地经济最活跃的地方。
+    en: A free trade zone at the southern tip of North Viking Island, carved out of the old Maslin Mountain City when the territory was founded and given the freest economic rules in the territory. Goods come and go free of duty, capital moves freely, registering a company or a foreign resident is remarkably simple, and taxes are low. Beckerle covers less than a thousand square kilometres yet holds nearly a million people, the most densely settled place on the island and the one with the highest output per head. It has four districts. Capo is built around Capo International Airport and handles sea–land–air transfers and passengers. Mirror Bay gathers offshore finance, trade settlement and head offices, and the Mirror Bay International Finance Centre and the Beckerle International Commodity Exchange are the territory's financial high ground. Swallow Reef specialises in bonded warehousing and processing trade, and the Bonded Port Zone is a container terminal and re-export processing area on land reclaimed outside Mirror Bay. Its free rules draw companies and talent from all over the world; Chinese, Viking, Buckham and English are all in use, English more than anywhere else in the territory, and international schools, foreign banks and restaurants from every country are everywhere. The ring expressway and the South Coast Highway meet here, the Viking Port–Beckerle Railway ends at Beckerle Station, and the Beckerle–Maslin Mountain Railway starts here for Skytown and Maslin Mountain. Beckerle is North Viking Island's window on the world and the most dynamic part of the territory's economy.
   special_status: free_trade_zone
 - id: div_e6pc44
   subtype: borough
@@ -769,9 +812,10 @@ divisions:
     admin: '901001'
   population: 280000
   area_km2: 304.0
+  traits: { industries: [aviation, logistics, trade], heritage: buckham }
   notes:
-    zh: 巴克汉姆语意为「海角」。海陆空联运监管与旅客通道
-    en: Buckham for "cape". Sea-land-air intermodal supervision and passenger gateway.
+    zh: 巴克汉姆语意为「海角」，位于卡波角一带，是贝克勒自由贸易区的空港与联运枢纽。卡波国际机场是北维京岛最繁忙的国际航空货运机场，货运航班把电子产品、精密仪器、生鲜食品和快递包裹运往世界各地，机场旁的海关监管区实行「一次申报、一次查验」，货物可以在海运、陆运和空运之间快速转运；客运航站楼则是外国商务旅客进入贝克勒的主要门户。航空物流、货运代理、飞机维修和机场服务是区里最大的产业，许多国际物流公司在此设立区域枢纽。贝克勒国际医院是全领地设备最先进的医院之一，接待来自全岛和海外的病人。南岸公路从区内穿过，西接萨科，东通镜湾和保税港区。区里的居民以巴克汉姆语为母语的老住户和来自各地的航空、物流从业者为主，多种语言并用。卡波角上的灯塔和海崖步道可以眺望卡波湾的船只和起降的飞机，是区里最受欢迎的观景点。卡波区节奏快、效率高，是贝克勒连接世界的空中桥梁。
+    en: "Capo means \"cape\" in Buckham. Lying around Cape Capo, it is the Beckerle Free Trade Zone's airport and transfer hub. Capo International Airport is the busiest international air-cargo airport on North Viking Island: freighters carry electronics, precision instruments, fresh food and parcels around the world, and in the bonded customs area next to the airport goods are declared and inspected once and can switch quickly between sea, road and air. The passenger terminal is the main gateway for foreign business travellers coming to Beckerle. Air logistics, freight forwarding, aircraft maintenance and airport services are the district's biggest trades, and many international logistics companies run their regional hubs here. Beckerle International Hospital is one of the best-equipped hospitals in the territory and takes patients from across the island and overseas. The South Coast Highway runs through the district, west to Sako and east to Mirror Bay and the Bonded Port Zone. Residents are a mix of long-settled Buckham-speaking families and aviation and logistics workers from everywhere, and many languages are spoken. The lighthouse and clifftop path on Cape Capo look out over the ships in Capo Bay and the aircraft coming and going, the district's favourite viewpoint. Fast-moving and efficient, Capo is Beckerle's bridge to the world through the air."
 - id: div_8p9k5t
   subtype: borough
   parent: div_k4hg7b
@@ -785,9 +829,10 @@ divisions:
     admin: '901002'
   population: 330000
   area_km2: 306.0
+  traits: { industries: [finance, trade, commerce] }
   notes:
-    zh: 湾内水面平静如镜。离岸金融、结算与总部经济
-    en: A sheltered bay as still as a mirror. Offshore finance, clearing and headquarters economy.
+    zh: 湾内水面平静如镜，区名由此而来，是贝克勒自由贸易区的金融与行政中心，也是全领地人均产出最高的区。镜湾国际金融中心的双塔矗立在湾畔，周围聚集了离岸银行、财富管理公司、保险、再保险和航运金融机构，许多跨国企业的区域总部和结算中心设在这里；贝克勒国际商品交易所进行金属、粮食和能源期货交易，是领地最重要的大宗商品定价中心。贝克勒自由贸易区管理委员会负责区内的政策制定和企业服务，企业注册、外汇结算和签证都可以在一站式服务中心办理。镜湾港停靠游艇和高速客轮，镜湾滨海公园沿湾岸修建了长廊、草坪和露天剧场，是金融从业者午休和周末散步的地方。湾口的镜岛和镜岛水道把镜湾与外海隔开，保护着湾内的平静水面。南岸公路从区内经过，西接卡波，东通保税港区和燕礁。区内居民来自世界各地，中文、维京语、巴克汉姆语和英语都很常见，国际学校和外国人社区集中。镜湾高楼林立、夜景璀璨，是北维京岛最国际化的城区。
+    en: The water of the bay lies as still as a mirror, which gives the district its name. It is the financial and administrative centre of the Beckerle Free Trade Zone and the district with the highest output per head in the territory. The twin towers of the Mirror Bay International Finance Centre stand on the shore, surrounded by offshore banks, wealth managers, insurers, reinsurers and shipping financiers, and many multinationals run their regional head offices and settlement centres here. The Beckerle International Commodity Exchange trades metal, grain and energy futures and is the territory's most important price-setter for commodities. The Free Trade Zone Administration sets policy and serves companies, and registration, foreign-exchange settlement and visas can all be handled at a one-stop service centre. Mirror Bay Port takes yachts and fast ferries, and Mirror Bay Waterfront Park runs a promenade, lawns and an open-air theatre along the shore where finance workers spend their lunch breaks and weekends. Mirror Isle and Mirror Sound at the mouth of the bay shelter it from the open sea and keep the water calm. The South Coast Highway passes through, west to Capo and east to the Bonded Port Zone and Swallow Reef. Residents come from all over the world; Chinese, Viking, Buckham and English are all common, and international schools and expatriate neighbourhoods are concentrated here. With its forest of towers and brilliant night skyline, Mirror Bay is the most international quarter of North Viking Island.
 - id: div_ts5cw5
   subtype: borough
   parent: div_k4hg7b
@@ -801,9 +846,10 @@ divisions:
     admin: '901003'
   population: 260000
   area_km2: 272.0
+  traits: { industries: [trade, manufacturing, logistics], heritage: buckham }
   notes:
-    zh: 包括东南离岛与海燕栖息的礁群。保税仓储与加工贸易
-    en: Includes the south-eastern islet and the reefs where petrels nest. Bonded warehousing and processing trade.
+    zh: 包括贝克勒东南的离岛和海燕栖息的礁群，区名由此而来，是自由贸易区的保税仓储与加工贸易基地。燕礁保税物流园是全岛最大的保税仓库群，进口的原材料、零部件和消费品可以在园内免税存储、分拣、包装和再出口；园区周围的加工贸易工厂把进口零部件组装成电子产品、医疗器械和精密仪器，再经保税港区和卡波机场运往海外，加工贸易与物流是区里的主要产业。燕礁湾里的离岛和礁石是海燕和燕鸥的繁殖地，每年春夏数以万计的海鸟在礁上筑巢，部分岛礁划为保护区，乘船观鸟是区里独特的旅游项目。燕礁湾和燕尾角构成区里曲折的海岸线。南岸公路的终点就在区内，向西经保税港区、镜湾和卡波通往萨科勒和新城。区里的居民以巴克汉姆语为母语的老渔民家庭和在工厂、仓库工作的年轻人为主，劳动年龄人口比例高。燕礁将繁忙的保税工业和宁静的海鸟礁群结合在一起，是贝克勒最有特色的区。
+    en: "Taking in the islets south-east of Beckerle and the reefs where storm petrels nest, which give it its name, Swallow Reef is the free trade zone's base for bonded warehousing and processing trade. The Swallow Reef Bonded Logistics Park is the largest group of bonded warehouses on the island: imported raw materials, parts and consumer goods can be stored, sorted, packed and re-exported here free of duty. Around the park, processing plants assemble imported parts into electronics, medical devices and precision instruments, which leave through the Bonded Port Zone and Capo airport for overseas markets, so processing trade and logistics are the district's main business. The islets and rocks of Swallow Reef Bay are breeding grounds for petrels and terns; every spring and summer tens of thousands of seabirds nest on the reefs, some of which are protected, and birdwatching by boat is the district's own kind of tourism. Swallow Reef Bay and Swallowtail Point make up its winding coastline. The South Coast Highway ends in the district and runs west through the Bonded Port Zone, Mirror Bay and Capo to Sakole and New City. Residents are mostly long-established Buckham-speaking fishing families and young people working in the factories and warehouses, with a high share of working-age adults. Swallow Reef sets busy bonded industry beside quiet seabird reefs, and it is Beckerle's most distinctive district."
 - id: div_f9x3wn
   subtype: borough
   parent: div_k4hg7b
@@ -817,9 +863,10 @@ divisions:
     admin: '901004'
   population: 80000
   area_km2: 110.0
+  traits: { industries: [port, trade, logistics] }
   notes:
-    zh: 镜湾外填海建成的保税港区：集装箱码头、保税仓储与转口加工，货物进出不征关税
-    en: "Bonded port on land reclaimed outside Mirror Bay: container terminals, bonded warehouses and re-export processing, with no customs duty on goods passing through."
+    zh: 镜湾外填海建成的保税港区，是贝克勒自由贸易区面积最小的区，也是领地最开放的港口。港区内建有深水集装箱码头、滚装码头和保税仓储区，大型集装箱船可以直接靠泊，货物进出不征关税，转口货物可以在港内拆拼、加工后再出口，通关时间以小时计。转口贸易、集装箱运输和保税加工是港区的全部经济，码头作业实行全天候自动化，远程控制的岸桥和无人驾驶的集卡日夜运转，使这里成为全岛装卸效率最高的港口。港区常住人口只有约八万，多是港口工程师、报关员、船员和物流公司职员，劳动年龄人口占绝大多数，居住区集中在港区西侧的人工岛上，配有学校、医院和商业中心。南岸公路从港区经过，西接镜湾，东通燕礁，集装箱卡车经这条路把货物运往全岛；海上航线则连接维京港、维京群岛和世界各大港口。区内中文、巴克汉姆语和英语并用，国际船员服务中心和海员俱乐部是港区特色。保税港区是贝克勒自由贸易政策最直接的体现，也是北维京岛面向远洋的门户。
+    en: The bonded port built on land reclaimed outside Mirror Bay, the smallest district of the Beckerle Free Trade Zone and the most open port in the territory. It has deep-water container berths, ro-ro berths and bonded storage; the largest container ships can berth directly, goods come and go free of duty, transit cargo can be broken down, consolidated or processed in the port and re-exported, and customs clearance is measured in hours. Re-export trade, container shipping and bonded processing are the port's whole economy. The terminals are automated around the clock, with remote-controlled cranes and driverless trucks working day and night, making it the most efficient port on the island. Only about eighty thousand people live here, mostly port engineers, customs brokers, seafarers and logistics staff, so working-age adults are the great majority; housing is grouped on an artificial island on the west side of the port, with schools, a hospital and a shopping centre. The South Coast Highway passes through, west to Mirror Bay and east to Swallow Reef, and container trucks carry goods along it to the rest of the island, while sea routes link the port with Viking Port, the Viking Islands and the world's great ports. Chinese, Buckham and English are all in use, and the international seafarers' centre and seamen's club are features of the port. The Bonded Port Zone is the most direct expression of Beckerle's free-trade rules and North Viking Island's gateway to the deep sea.
 - id: div_rdypg7
   subtype: locality
   parent: div_fbfqv9
@@ -838,9 +885,10 @@ divisions:
   emblem:
     motif: basin
     pattern: contours
+  traits: { industries: [defence, aerospace, research], heritage: chinese, age: young }
   notes:
-    zh: 复杂山区，东部为平地，其他三面被高山环绕。空军、深空太空军与陆军在此驻有三十多处基地与设施
-    en: 'Complex mountain terrain: flat land to the east, high mountains on the other three sides. The Air Force, the Deep Space Force and the Army have more than thirty bases and facilities here.'
+    zh: 北维京岛东部的山地军事城市，三面被马斯林山脉的雪峰环绕，只有东部是通向海岸的平地。全市面积广阔，常住人口只有约十八万，其中驻军约五万人，空军、深空太空军和陆军在这里驻有三十多处基地与设施，是领地最重要的国防和航天基地。深空太空军的指挥中心、深空测控站和维京-马斯林山发射与降落中心构成了领地航天活动的核心，火箭从西坪的发射场升空，飞船在这里降落、整修后再次出发；空军的作战机场、预警雷达和飞行学院守护着全岛的天空；陆军的联合训练基地和寒区训练场则在雪谷和群峰之间展开。国防、航天和科研是全市经济的全部支柱，大量的工程师、技术员、军人和家属构成了居民的主体，劳动年龄人口比例全岛最高，老年人很少。和平区是市政中心；星港、东营、西坪、雪谷四区各有分工；群峰训练管理区由领地与驻军共管。马斯林山高速、马斯林山空天高速、东岸公路和雪谷公路连通各区，西马铁路和贝马铁路在这里交会，马斯林山航天铁路把东营港与西坪发射场连在一起。居民大多以中文为母语，城市秩序井然，部分地区对公众开放参观。
+    en: "A military city in the mountains of eastern North Viking Island, ringed on three sides by the snow peaks of the Maslin Range, with only its eastern edge opening onto flat land by the coast. The city is vast, but only about a hundred and eighty thousand people live here, some fifty thousand of them service personnel. The Air Force, the Deep Space Force and the Army keep more than thirty bases and facilities here, making it the territory's most important defence and space base. The Deep Space Force command centre, the deep-space tracking station and the Viking–Maslin Mountain Launch and Landing Centre are the core of the territory's space activity: rockets lift off from West Heath, and spacecraft land here, are refurbished and fly again. Air Force fighter bases, early-warning radars and the flight academy guard the island's skies, and the Army's joint training base and cold-weather ranges spread between Snow Valley and the high peaks. Defence, space and research are the whole economy; engineers, technicians, service members and their families make up most of the population, the share of working-age adults is the highest on the island and there are few elderly people. Peace is the civic centre, Starport, East Camp, West Heath and Snow Valley each have their own role, and the High Peaks Training Area is run jointly by the territory and the garrison. Expressways and highways tie the districts together, two railways meet here, and the Maslin Mountain Aerospace Railway links the port at East Camp with the launch site at West Heath. Most residents speak Chinese at home; the city is orderly, and parts of it are open to visitors."
 - id: div_nvrjpg
   subtype: borough
   parent: div_rdypg7
@@ -854,9 +902,10 @@ divisions:
     admin: '901101'
   population: 46000
   area_km2: 4300.0
+  traits: { industries: [defence, education, healthcare] }
   notes:
-    zh: 领地维和部队指挥部驻地，另有飞行学院、航天员训练中心与军医院
-    en: Headquarters of the Territorial Peacekeeping Force, with the flight academy, the astronaut training centre and the military hospital.
+    zh: 马斯林山市的市政中心和生活中心，也是全市人口最多的区，区名寄托着守护和平的愿望。马斯林山市人民政府、学校、商场和主要的居民社区都在区内，驻军家属和地方居民在这里生活、上学和就医。北维京岛维和部队指挥部是领地维和部队的指挥机关，负责全岛的联合防务和应急救援；马斯林山飞行学院培养空军和深空太空军的飞行员，教练机每天在区内的机场起降；和平航天员训练中心拥有离心机、失重模拟舱和水下训练池，是领地航天员的摇篮；马斯林山军医院是全市规模最大的医院，同时向地方居民开放。和平卫星地面站、和平防空阵地和和平直升机场分布在区的外围。国防、教育和医疗是区里最大的雇主，劳动年龄人口比例很高。马斯林山空天高速和雪谷公路在区内交会，前者东接东营、西通雪谷，后者连接天台、雪谷、西坪和星港。居民大多以中文为母语，社区里军地融合，周末的广场和体育馆里常能看到穿便装的军人和家人。和平区背靠雪山、面向平原，是这座军事城市里最有烟火气的地方。
+    en: "The civic and everyday centre of Maslin Mountain City and its most populous district, named in the hope of keeping the peace. The city government, schools, shops and the main residential neighbourhoods are here, and service families and local residents live, study and see their doctors in the district. The North Viking Island Peacekeeping Command directs the territory's peacekeeping forces and is responsible for the island's joint defence and emergency relief. The Maslin Mountain Flight Academy trains pilots for the Air Force and the Deep Space Force, and its trainers take off and land at the district airfield every day. The Peace Astronaut Training Centre, with its centrifuge, weightlessness simulators and underwater training pool, is the cradle of the territory's astronauts, and the Maslin Mountain Military Hospital, the largest hospital in the city, is open to civilians too. The Peace Satellite Ground Station, the Peace Air Defence Site and the Peace Heliport lie on the edges of the district. Defence, education and healthcare are the biggest employers, and the share of working-age adults is high. The Maslin Aerospace Expressway and the Snow Valley Highway meet here: the first runs east to East Camp and west to Snow Valley, the second links Sky Terrace, Snow Valley, West Heath and Starport. Most residents speak Chinese at home, military and civilian life are woven together, and at weekends the squares and sports halls are full of off-duty service members and their families. With snow mountains behind it and the plain in front, Peace is the most homely place in this military city."
 - id: div_nytsvb
   subtype: borough
   parent: div_rdypg7
@@ -870,9 +919,10 @@ divisions:
     admin: '901102'
   population: 32000
   area_km2: 4300.0
+  traits: { industries: [defence, aerospace, research] }
   notes:
-    zh: 深空太空军马斯林山指挥中心驻地，另有深空测控站、无人机基地与发动机试车台
-    en: Home of the Deep Space Force Maslin Mountain Command Centre, with the deep space station, the drone base and the engine test stands.
+    zh: 深空太空军马斯林山指挥中心的驻地，是领地航天与深空活动的指挥中枢。星港指挥中心负责航天发射、在轨飞行器和深空探测任务的指挥调度，全天候运转；星港深空测控站的大口径天线阵追踪着飞往月球和行星际空间的探测器，接收来自深空的信号。星港是一座航天港，拥有发射工位和着陆场，星港发动机试车台进行火箭发动机的地面点火试验，试车时轰鸣声在山谷中回荡数十公里；星港无人机基地起降侦察与中继无人机，星港海岸雷达站和星港防空阵地守卫着东部海岸。星港航天博物馆是区里唯一向公众常年开放的设施，展出退役的火箭、返回舱和深空探测器模型，每逢发射日都有大批游客和航天爱好者前来。区内常住人口约三万多，绝大多数是军人、航天工程师和他们的家属，劳动年龄人口比例极高。雪谷公路的终点就在区内，经群峰、西坪通往和平区和天台。马斯林河在区内汇入大海。居民大多以中文为母语，街道以航天器和星座命名。星港是北维京岛通往深空的大门，也是全领地科技最尖端的地方之一。
+    en: Home of the Deep Space Force's Maslin Mountain command centre and the nerve centre of the territory's space and deep-space activity. The Starport Command Centre directs launches, spacecraft in orbit and deep-space missions around the clock, and the large dishes of the Starport Deep Space Station track probes bound for the Moon and interplanetary space and listen for their signals. Starport itself is a spaceport with launch pads and a landing zone. At the Starport Engine Test Stands rocket engines are fired on the ground, and during a test the roar echoes for tens of kilometres through the valleys. The Starport Drone Base flies reconnaissance and relay drones, and the Starport Coastal Radar Station and the Starport Air Defence Site guard the eastern coast. The Starport Space Museum is the only facility open to the public all year, showing retired rockets, return capsules and models of deep-space probes, and on launch days crowds of visitors and space fans arrive. Some thirty thousand people live here, nearly all service members, space engineers and their families, with a very high share of working-age adults. The Snow Valley Highway ends in the district and runs through the High Peaks and West Heath to Peace and Sky Terrace. The Maslin River reaches the sea in the district. Most residents speak Chinese at home, and the streets are named after spacecraft and constellations. Starport is North Viking Island's door to deep space and one of the most technologically advanced places in the territory.
 - id: div_tc0ngk
   subtype: borough
   parent: div_rdypg7
@@ -886,9 +936,10 @@ divisions:
     admin: '901103'
   population: 30000
   area_km2: 4700.0
+  traits: { industries: [defence, aviation, logistics] }
   notes:
-    zh: 深空太空军士官学校所在地，另有东营空军基地、航空修理厂与后勤基地
-    en: Home of the Deep Space Force NCO Academy, with East Camp Air Base, the aircraft repair plant and the supply depot.
+    zh: 马斯林山东部临海的平地，是深空太空军士官学校所在地，也是全市的后勤和航空保障基地。深空太空军士官学校培养航天测控、发射保障和装备维修的士官，校园与训练场占据了区的中部；东营空军基地是全岛最重要的作战机场之一，驻有战斗机和预警机部队，东营航空修理厂负责全领地军用飞机的大修和改装。东营后勤基地储存和分发全市驻军的油料、弹药、食品和装备，马斯林河口港是全市唯一的港口，大宗物资和大型航天部件经海路运抵后，再由马斯林山航天铁路转运到西坪发射场。东岭相控阵雷达站建在东部的山岭上，是领地远程预警网络的重要节点。航空、物流和国防是区里的全部产业，居民以军人、工程师、技工和家属为主，劳动年龄人口比例很高。马斯林山空天高速从东营空军基地出发向西延伸，东岸公路的终点也在区内，向南经岚山、银滩通往天城；马斯林山航天铁路以东营站为起点。东营湾和营盘岛构成区里的海岸风景。东营是马斯林山连接外界的门户，也是这座军事城市的「后勤心脏」。
+    en: "The flat coastal land on the east side of Maslin Mountain, home of the Deep Space Force NCO Academy and the city's logistics and aviation support base. The academy trains non-commissioned officers in tracking, launch support and equipment maintenance, and its campus and training grounds fill the middle of the district. East Camp Air Base is one of the most important combat airfields on the island, home to fighter and early-warning units, and the East Camp Aircraft Repair Plant overhauls and upgrades military aircraft for the whole territory. The East Camp Supply Depot stores and issues fuel, ammunition, food and equipment for the garrison. Maslin Mouth Port is the city's only port: bulk supplies and large spacecraft components arrive by sea and go on to the launch site at West Heath by the Maslin Mountain Aerospace Railway. The East Ridge Phased-Array Radar Station stands on the eastern ridge and is a key node of the territory's long-range early-warning network. Aviation, logistics and defence are the whole economy, residents are mostly service members, engineers, technicians and their families, and the share of working-age adults is high. The Maslin Aerospace Expressway starts at East Camp Air Base and runs west, the East Coast Highway ends in the district and runs south through Mist Hill and Silver Beach to Skytown, and the aerospace railway starts at East Camp Station. East Camp Bay and Camp Island make up the district's coast. East Camp is Maslin Mountain's gateway to the outside world and the logistics heart of the military city."
 - id: div_nwke3f
   subtype: borough
   parent: div_rdypg7
@@ -902,9 +953,10 @@ divisions:
     admin: '901104'
   population: 36000
   area_km2: 4200.0
+  traits: { industries: [aerospace, defence, manufacturing] }
   notes:
-    zh: 维京-马斯林山发射与降落中心所在地，周边是火箭总装、推进剂、飞船整修与风洞组成的航天产业区
-    en: Home of the Viking–Maslin Mountain Launch and Landing Centre, surrounded by a space industry zone of rocket assembly, propellant, spacecraft refurbishment and wind tunnels.
+    zh: 马斯林山西部的高原台地，维京-马斯林山发射与降落中心所在地，周围是由火箭总装、推进剂、飞船整修和风洞组成的航天产业区。发射与降落中心拥有多个发射工位和可重复使用飞船的着陆场，火箭从这里升空把卫星和飞船送入轨道，返回的飞船和助推器也在这里降落；西坪火箭总装厂把来自科学城和全岛各地的部件组装成火箭，西坪推进剂厂生产液氧、液氢和甲烷燃料，西坪飞船整修厂对回收的飞船进行检修，西坪风洞群为飞行器进行气动试验。西坪量子通信站和西坪防空阵地分布在台地边缘。航天制造是区里最大的产业，工程师、技工和军人构成了居民的主体，劳动年龄人口占八成。区内交通四通八达：马斯林山高速从这里出发，经马斯林山市区通往天城；雪谷公路连接和平与群峰；西岭公路从这里通往群峰的拦截弹阵地、寒区训练场和西岭雷达站；马斯林山航天铁路的终点也在区内，把大型部件从东营港运来。每逢发射日，台地上空的火箭尾焰在数十公里外都能看到。西坪是北维京岛航天梦想起飞的地方。
+    en: A high plateau in the west of Maslin Mountain, home of the Viking–Maslin Mountain Launch and Landing Centre, surrounded by a space-industry zone of rocket assembly, propellant production, spacecraft refurbishment and wind tunnels. The centre has several launch pads and landing zones for reusable spacecraft. Rockets lift satellites and spacecraft into orbit from here, and returning spacecraft and boosters land here too. The West Heath Rocket Assembly Plant puts together rockets from parts made in Science City and across the island, the West Heath Propellant Plant makes liquid oxygen, hydrogen and methane, the Spacecraft Refurbishment Plant overhauls recovered spacecraft, and the West Heath Wind Tunnels test vehicles' aerodynamics. The West Heath Quantum Station and the West Heath Air Defence Site stand on the edges of the plateau. Space manufacturing is the largest trade; engineers, technicians and service members make up most of the population, and four in five residents are of working age. Roads run in every direction. The Maslin Expressway starts here and runs through the city to Skytown, the Snow Valley Highway links Peace with the High Peaks, and the West Ridge Highway runs from here to the interceptor field, the cold-weather training ground and the West Ridge Radar Station in the High Peaks. The aerospace railway ends here, bringing large components from the port at East Camp. On launch days the rocket plumes over the plateau can be seen tens of kilometres away. West Heath is where North Viking Island's space dreams take off.
 - id: div_0tsyzy
   subtype: borough
   parent: div_rdypg7
@@ -918,9 +970,10 @@ divisions:
     admin: '901105'
   population: 28000
   area_km2: 3300.0
+  traits: { industries: [defence, aviation, aerospace] }
   notes:
-    zh: 终年积雪的高山谷地。解放军马斯林山联合训练基地，另有雪谷空军基地与空天飞机基地
-    en: A high valley under snow most of the year. PLA Maslin Mountain Joint Training Base, with Snow Valley Air Base and the spaceplane base.
+    zh: 马斯林山脉中终年积雪的高山谷地，是解放军马斯林山联合训练基地所在地，也是空军和空天力量的重要基地。雪谷营区驻有陆军寒区部队，负责高寒山地作战和雪地救援训练，雪谷装甲训练场在谷底的冻土和雪原上为装甲部队提供演练场地；雪谷空军基地是全岛海拔最高的作战机场，雪谷空天飞机基地则起降可往返大气层内外的空天飞机，是领地最新锐的航空航天设施。谷地中央的雪湖终年冰封，四周是陡峭的雪峰和冰川，景色壮丽。雪谷滑雪场是区里唯一面向公众的设施，拥有全岛雪期最长、落差最大的雪道，冬季吸引着滑雪高手前来，夏季则仍可在高处的冰川上滑雪。国防、航空和航天是区里的主要产业，常住人口不到三万，大多是军人和家属，劳动年龄人口比例极高。马斯林山空天高速的终点设在区内的雪谷空军基地，向东经和平区通往东营；雪谷公路则把雪谷与天台、和平、西坪连在一起。居民大多以中文为母语。雪谷的冬天漫长而严寒，但这里的人们以坚韧著称，守卫着北维京岛的天空和山川。
+    en: A high valley of year-round snow in the Maslin Range, home of the PLA's Maslin Mountain Joint Training Base and an important base for air and aerospace forces. Army cold-weather units at the Snow Valley Garrison train for high-mountain warfare and snow rescue, and the Snow Valley Armour Range gives armoured units room to manoeuvre on the frozen ground and snowfields of the valley floor. Snow Valley Air Base is the highest combat airfield on the island, and the Snow Valley Spaceplane Base flies spaceplanes that travel in and out of the atmosphere, the territory's newest air and space facility. Snow Lake in the middle of the valley is frozen all year, ringed by steep snow peaks and glaciers in a magnificent setting. The Snow Valley Ski Area is the only facility open to the public, with the longest season and the greatest vertical drop on the island; it draws expert skiers in winter, and in summer you can still ski on the glacier above. Defence, aviation and space are the main trades; fewer than thirty thousand people live here, mostly service members and their families, with a very high share of working-age adults. The Maslin Aerospace Expressway ends at Snow Valley Air Base and runs east through Peace to East Camp, and the Snow Valley Highway links Snow Valley with Sky Terrace, Peace and West Heath. Most residents speak Chinese at home. Winters are long and bitter, but the people here are known for their toughness as they guard the skies and mountains of North Viking Island.
 - id: div_q5h8zp
   subtype: borough
   parent: div_rdypg7
@@ -934,9 +987,10 @@ divisions:
     admin: '901106'
   population: 8000
   area_km2: 6200.0
+  traits: { industries: [defence, research] }
   notes:
-    zh: 马斯林山脉北翼与西翼之间的军事训练区，由领地与驻军共管，电磁发射场、地下指挥城、拦截弹阵地与高山观测站都在区内；常住人口只有驻地官兵、职工和家属，每平方公里约 1.3 人
-    en: Military training area between the northern and western arms of the Maslin Range, run jointly by the territory and the garrison, home to the electromagnetic launcher, the underground command complex, the interceptor field and the mountain observatories. Only service members, base staff and their families live here, about 1.3 people per km².
+    zh: 马斯林山脉北翼与西翼之间的军事训练区，由领地与驻军共管，不设区议会。区内是连绵的雪峰、冰川和高山荒原，常住人口只有驻地官兵、职工和家属约八千人，每平方公里约一点三人，是马斯林山市最荒凉的地方。领地最重要的国防设施多集中在这里：群峰地下指挥城深藏在山体之中，是领地战时的指挥中枢；群峰电磁发射场的长轨道沿山坡铺设，用电磁力把飞行器推向高空；群峰拦截弹阵地的发射井群守护着全岛免受导弹威胁；群峰空军靶场和群峰寒区训练场供空军和陆军进行实弹演练。观星峰是全岛最高峰，观星峰光学观测站和北冕峰激光站就建在这些高峰之巅，监视和测量在轨卫星与太空碎片，不通公路，人员和物资靠直升机运送；西岭雷达站则守望着西部天空。国防和科研是区里的全部产业。雪谷公路从区内穿过，连接西坪与星港；西岭公路从西坪延伸到拦截弹阵地、寒区训练场和西岭雷达站。区内大部分地方禁止公众进入，只有沿公路的少数观景点开放。群峰沉默而神秘，是北维京岛最坚固的屏障。
+    en: The military training area between the northern and western arms of the Maslin Range, run jointly by the territory and the garrison, with no district council. It is a land of snow peaks, glaciers and high barrens; only about eight thousand people live here, service members, staff and their families, roughly 1.3 per square kilometre, the emptiest part of Maslin Mountain City. Many of the territory's most important defence facilities are here. The High Peaks Underground Command Complex is buried deep in the mountain, the territory's wartime command centre. The long track of the High Peaks Electromagnetic Launcher climbs the slope, hurling vehicles skyward with electromagnetic force, and the silos of the High Peaks Interceptor Field guard the island against missile attack. The High Peaks Air Weapons Range and the Cold-Weather Training Ground serve the Air Force and the Army for live-fire exercises. Starwatch Peak is the highest point on the island, and the Starwatch Peak Optical Station and the Northcrown Laser Station stand on these summits, watching and measuring satellites and space debris; no road reaches them, and people and supplies arrive by helicopter. The West Ridge Radar Station watches the western sky. Defence and research are the district's whole economy. The Snow Valley Highway crosses it between West Heath and Starport, and the West Ridge Highway runs from West Heath to the interceptor field, the training ground and the West Ridge radar. Most of the district is closed to the public, with only a few viewpoints along the roads open. Silent and mysterious, the High Peaks are North Viking Island's strongest bulwark.
 - id: div_8emjne
   subtype: locality
   parent: div_fbfqv9
@@ -955,9 +1009,10 @@ divisions:
   emblem:
     motif: river
     pattern: flow
+  traits: { industries: [agriculture, herding, heritage], heritage: viking, age: old }
   notes:
-    zh: 维京岛东北地区的河谷平原。原为马斯林山市首府
-    en: River valley plain in the north-east of the island. Formerly the seat of Maslin Mountain City.
+    zh: 维京岛东北部的河谷平原城市，厄定河从马斯林山脉北麓流出，在这里蜿蜒穿过平原注入大海。厄定河原是旧马斯林山市的首府，领地建立后马斯林山市拆分，首府迁往和平区，厄定河另设一市。全市面积三万多平方公里，是全岛面积最大的城市，人口却只有约三万，是全岛人口最少、密度最低的城市，大片土地仍是荒野、森林和高原牧场。经济以农牧业为主：厄定河沿岸的冲积平原种植麦类和饲草，东岸高原上的驯鹿原是驯鹿的冬季牧场，牧民随季节迁徙；旧府区的机关旧址和博物馆讲述着这片土地的历史，文化遗产和生态旅游逐渐兴起。厄定区是市政中心和主要集镇，上厄定改良区是厄定河上游的无建制荒野，由领地直接提供公共服务。环北维京岛高速和厄定河公路贯穿全市，前者连接天城和勒克尔，后者向西南通往新城；西马铁路在厄定河站停靠。居民以维京语为主要母语，许多家庭世代务农放牧，老年人比例很高。厄定河的天地辽阔、人烟稀少，夏季白夜、冬季极光，是北维京岛最原始的地方之一。
+    en: A city of river valley and plain in the north-east of the island. The Erding River flows out of the northern foothills of the Maslin Range and winds across the plain to the sea. Erding River was once the seat of the old Maslin Mountain City; after the territory was founded that city was divided, its seat moved to Peace, and Erding River became a city of its own. At more than thirty thousand square kilometres it is the largest city on the island, yet it has only about thirty thousand people, the fewest and the most thinly spread of any city, and much of its land is still wilderness, forest and upland pasture. Farming and herding are the economy. The alluvial plain along the river grows cereals and fodder, the Reindeer Range on the eastern upland is the herds' winter pasture, and herders move with the seasons. The old government buildings and museum of Old Prefecture tell the story of the land, and heritage and nature tourism are slowly growing. Erding is the civic centre and the main town, and Upper Erding is unincorporated wilderness on the upper river where the territory provides public services directly. The ring expressway and the Erding River Highway cross the city, the first linking Skytown and Lekor and the second running south-west to New City, and the Northwest–Maslin Mountain Railway stops at Erding River Station. Most residents speak Viking at home, many families have farmed and herded for generations, and the share of older people is high. Vast and almost empty, with white nights in summer and the aurora in winter, Erding River is one of the wildest places on North Viking Island.
 - id: div_qpyn9e
   subtype: borough
   parent: div_8emjne
@@ -971,9 +1026,10 @@ divisions:
     admin: '901201'
   population: 15000
   area_km2: 8500.0
+  traits: { industries: [agriculture, commerce] }
   notes:
-    zh: 厄定河沿岸农业与小型集镇
-    en: Farming and small towns along the Erding River.
+    zh: 厄定河下游沿岸的农业区和全市的主要集镇，厄定河市人民政府设在这里。厄定河在区内流过宽阔的冲积平原，河岸两侧是麦田、饲草地和奶牛场，农场多由家庭经营，规模不大但历史悠久；厄定河口有一座小渔港，渔船在河口和近海捕捞鲑鱼和鳕鱼。厄定集镇是全市唯一的城镇，镇上有市政府、医院、学校、超市、农机站和每周一次的集市，为整个厄定河流域的农户、牧民和游客提供服务，商贸和公共服务是镇上的主要就业来源。厄定河公路的终点就在区内，向西经驯鹿原、旧府和上厄定通往新城北苑；环北维京岛高速经过厄定河市，南连天城，西接勒克尔；西马铁路的厄定河站也在附近。区内常住人口约一万五千，居民以维京语为母语，许多家庭世代在河边耕种，年轻人有不少外出到新城和维京港工作，老年人比例较高。夏季的河谷绿草如茵，鲑鱼洄游季节吸引着垂钓者；冬季大雪覆盖平原，镇上的木屋炊烟袅袅。厄定区是这片辽阔土地上最温暖的人间烟火。
+    en: The farming district along the lower Erding River and the city's main town, seat of the Erding River City government. The river crosses a broad alluvial plain here, and its banks are lined with wheat, fodder fields and dairy farms, mostly small family farms with long histories. A small fishing harbour at the Erding Mouth sends boats after salmon and cod in the estuary and the near sea. Erding is the only town in the city, with the city government, a hospital, schools, a supermarket, a farm-machinery depot and a weekly market serving the farmers, herders and visitors of the whole Erding basin, and trade and public services provide most jobs. The Erding River Highway ends in the district and runs west through the Reindeer Range, Old Prefecture and Upper Erding to North Gardens in New City; the ring expressway serves the city on its way between Skytown and Lekor; and Erding River Station on the Northwest–Maslin Mountain Railway is close by. About fifteen thousand people live here. Most speak Viking at home, many families have farmed by the river for generations, plenty of young people have left for jobs in New City and Viking Port, and the share of older people is high. In summer the valley is lush and green and the salmon run draws anglers; in winter snow covers the plain and smoke curls from the chimneys of the timber houses. Erding is the warm, lived-in heart of this vast land.
 - id: div_1qm5cj
   subtype: borough
   parent: div_8emjne
@@ -987,9 +1043,10 @@ divisions:
     admin: '901202'
   population: 9500
   area_km2: 6500.0
+  traits: { industries: [heritage, tourism, government] }
   notes:
-    zh: 马斯林山拆市前的机关旧址与博物馆
-    en: Former government seat of Maslin Mountain City before the split, now museums.
+    zh: 马斯林山拆市前的机关旧址所在地，区名由此而来，如今是全市的文化遗产中心。旧马斯林山市的市政府、法院、学校和官员宅邸建在厄定河中游的一片河阶地上，拆市、迁府之后，旧机关大楼和建筑群被完整保留下来，改建为旧府博物馆，展示这片土地从维京人定居、垦荒放牧到领地建立的历史，以及马斯林山地区的军事与航天发展。博物馆群包括旧议事厅、档案馆、民俗馆和露天建筑博物馆，露天馆里迁建了厄定河流域各地的传统农舍、谷仓和教堂，夏季有身着传统服装的讲解员演示纺织、打铁和制作奶酪。文化遗产和旅游是区里的主要产业，部分领地机构的档案中心和培训基地也设在这里。区内常住人口不到一万，大多是博物馆职员、教师、农户和退休人员，以维京语为母语，老年人比例较高。厄定河公路从区内穿过，西接上厄定和新城，东通驯鹿原和厄定。旧府的石砌建筑、老街和古树保持着往日的庄重，河阶地上可以远眺马斯林山脉的雪峰，是追寻北维京岛历史的必到之地。
+    en: The site of the old government buildings from before Maslin Mountain was divided, which gives it its name, and today the city's heritage centre. The old Maslin Mountain City government, courthouse, schools and officials' houses stood on a river terrace on the middle Erding. When the city was divided and the seat moved away, the buildings were kept intact and turned into the Old Prefecture Museum, which tells the story of this land from Viking settlement, clearing and herding to the founding of the territory, and of the military and space history of the Maslin Mountain region. The museum includes the old council hall, an archive, a folk museum and an open-air museum of buildings, where traditional farmhouses, barns and churches from across the Erding basin have been rebuilt; in summer guides in traditional dress demonstrate weaving, smithing and cheese-making. Heritage and tourism are the main trades, and some territorial archives and training centres are also based here. Fewer than ten thousand people live in the district, mostly museum staff, teachers, farmers and retirees; most speak Viking at home, and the share of older people is high. The Erding River Highway runs through the district, west to Upper Erding and New City and east to the Reindeer Range and Erding. Old Prefecture's stone buildings, old streets and ancient trees keep their former dignity, and from the river terrace you can see the snow peaks of the Maslin Range. It is the place to come for the history of North Viking Island.
 - id: div_4vnc7y
   subtype: borough
   parent: div_8emjne
@@ -1003,9 +1060,10 @@ divisions:
     admin: '901203'
   population: 2400
   area_km2: 9000.0
+  traits: { industries: [agriculture, forestry] }
   notes:
-    zh: 厄定河上游的无建制荒野。不设区议会，道路、消防与学校由领地直接提供
-    en: Unincorporated wilderness on the upper Erding. It has no district council; roads, fire service and schools are provided directly by the territory.
+    zh: 厄定河上游的无建制荒野，面积九千平方公里，常住人口只有约两千四百人，是全岛人口最稀少的地区之一。这里不设区议会，道路养护、消防、学校和医疗等公共服务由领地政府直接提供，「改良区」之名源于领地对这片土地进行垦荒和改良的长期计划。区内是厄定河上游的河谷、沼泽、针叶林和苔原，零散分布着几处农场、林场和护林站，少数居民在河谷平地上种植耐寒的大麦和饲草，或在森林中从事伐木和狩猎向导，许多家庭靠领地的补贴和季节性工作维持生计。上厄定的荒野保存着全岛最完整的原始生态，驼鹿、狼、熊和猛禽在此栖息，厄定河的上游河段是鲑鱼的产卵地，吸引着野外探险者、垂钓者和摄影师。厄定河公路是区内唯一的公路，从新城北苑出发，沿河谷向东北通往旧府和厄定，沿途设有几处加油站和应急避难所。居民以维京语为母语，老年人比例较高，冬季大雪封路时，居民依靠雪地摩托和直升机与外界联系。上厄定荒凉而纯净，是北维京岛最后的荒野之一。
+    en: "Unincorporated wilderness on the upper Erding River, nine thousand square kilometres with only about two thousand four hundred residents, one of the emptiest parts of the island. There is no district council: road maintenance, firefighting, schools and healthcare are provided directly by the territorial government, and the name \"improvement district\" comes from the territory's long-running plan to clear and improve the land. The district is the valleys, marshes, conifer forests and tundra of the upper Erding, dotted with a few farms, forestry camps and ranger stations. A handful of residents grow hardy barley and fodder on the valley floor or work as loggers and hunting guides, and many families get by on territorial support and seasonal work. Upper Erding keeps the most intact natural ecosystem on the island: moose, wolves, bears and birds of prey live here, and the upper river is a salmon spawning ground that draws wilderness travellers, anglers and photographers. The Erding River Highway is the only road, running from North Gardens in New City north-east up the valley to Old Prefecture and Erding, with a few filling stations and emergency shelters along the way. Residents speak Viking at home and the share of older people is high; when snow closes the road in winter, people keep in touch with the outside world by snowmobile and helicopter. Desolate and pure, Upper Erding is one of the last wildernesses of North Viking Island."
 - id: div_e2pk5r
   subtype: borough
   parent: div_8emjne
@@ -1019,6 +1077,7 @@ divisions:
     admin: '901204'
   population: 3100
   area_km2: 8000.0
+  traits: { industries: [herding], age: balanced }
   notes:
-    zh: 厄定河东岸高原上的驯鹿冬季牧场，牧民随季节迁徙，常住人口每平方公里不到 0.4 人
-    en: Winter reindeer pastures on the plateau east of the Erding; herders move with the seasons, and fewer than 0.4 people per km² live here year-round.
+    zh: 厄定河东岸高原上的驯鹿冬季牧场，常住人口每平方公里不到零点四人，是全岛唯一以游牧为主要生计的地区。每年秋季，牧民赶着驯鹿群从北部的夏季牧场南迁到这片高原，在苔原和疏林间度过冬天，春天再随着冰雪消融北上，这种迁徙方式已经延续了许多代。驯鹿放牧是区里最主要的产业，驯鹿肉、鹿皮、鹿角工艺品和熏制鹿肉是牧民的主要收入，驯鹿原牧民集市每年冬季开市，牧民在这里出售产品、交换物资，也是游客体验牧民文化的窗口。近年来，牧区发展起生态旅游，游客可以乘坐驯鹿雪橇、住进牧民的帐篷、观赏极光，收入补充了牧民的生计。牧区的公共服务由领地提供，流动学校和流动诊所随牧民一起迁徙。维京语和中文母语者大约各占一半，年轻人和儿童的比例比周边地区略高，许多年轻牧民在学习现代牧业技术的同时坚持传统。牧场边缘连着五千多平方公里的王座冰原。厄定河公路从区内穿过，西接旧府，东通厄定。驯鹿原的冬天寂静辽阔，鹿群在雪原上缓缓移动，是北维京岛最独特的风景。
+    en: "The winter reindeer pastures on the upland east of the Erding River, with fewer than 0.4 residents per square kilometre, the only part of the island where herding is the main way of life. Every autumn the herders drive their reindeer south from the summer pastures in the north to this upland, where the herds winter among tundra and open woodland before heading north again in spring as the snow melts; this migration has gone on for many generations. Reindeer herding is the main trade: meat, hides, antler crafts and smoked reindeer are the herders' chief income. The Reindeer Range Herders' Market opens every winter, where herders sell their produce and trade supplies, and it is also visitors' window on herding culture. Nature tourism has grown up on the range; visitors ride reindeer sleds, stay in herders' tents and watch the aurora, and the income helps the herders get by. Public services come from the territory, with mobile schools and clinics that move with the herders. Viking and Chinese speakers are roughly even in number, and young people and children make up a slightly larger share than in the surrounding districts; many young herders learn modern herding methods while keeping the old ways. At the edge of the pastures lies the Throne Icefield, more than five thousand square kilometres of ice. The Erding River Highway crosses the district, west to Old Prefecture and east to Erding. In the silent, wide-open winter, with herds drifting slowly across the snowfields, the Reindeer Range is the most distinctive landscape on North Viking Island."

@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import {
+  Banknote,
   Car,
   ChartNoAxesColumn,
   Check,
@@ -116,8 +117,17 @@ function areaStat(e: Entity, lang: Lang): StatItem[] {
   return [{ label, value: formatNumber(mapped, lang, 1), unit: "km²", icon: LandPlot }];
 }
 
+function gdpStat(usd: number, lang: Lang): StatItem {
+  const [div, unit] =
+    lang === "zh"
+      ? usd >= 1e12 ? [1e12, "万亿美元"] : usd >= 1e8 ? [1e8, "亿美元"] : [1e4, "万美元"]
+      : usd >= 1e12 ? [1e12, "trillion USD"] : usd >= 1e9 ? [1e9, "billion USD"] : [1e6, "million USD"];
+  const v = usd / div;
+  return { label: t("gdp", lang), value: formatNumber(v, lang, v >= 100 ? 0 : v >= 10 ? 1 : 2), unit, icon: Banknote };
+}
+
 /** The headline figures: roads by length, lanes and traffic; railways by length, speed and riders;
- * divisions by people and area; natural features and places by what they are measured in. */
+ * divisions by people, area and GDP; natural features and places by what they are measured in. */
 function stats(e: Entity, lang: Lang): StatItem[] {
   if (e.road) {
     const [lo, hi] = e.road.lanes;
@@ -139,6 +149,7 @@ function stats(e: Entity, lang: Lang): StatItem[] {
   const out: StatItem[] = [];
   if (e.population) out.push({ label: t("population", lang), value: formatPopulation(e.population, lang), icon: Users });
   out.push(...areaStat(e, lang));
+  if (e.economy) out.push(gdpStat(e.economy.gdp_usd, lang));
   if (e.kind === "division" && e.stats?.density_per_km2)
     out.push({ label: t("density", lang), value: formatNumber(e.stats.density_per_km2, lang, e.stats.density_per_km2 < 10 ? 1 : 0), unit: t("perKm2", lang), icon: ChartNoAxesColumn });
   out.push(...lengthStat(e, lang));
@@ -342,6 +353,139 @@ function MilitarySection({ entity, lang }: { entity: Entity; lang: Lang }) {
   return (
     <Section title={t("militaryTitle", lang)}>
       <Rows rows={rows} />
+    </Section>
+  );
+}
+
+const SHARE_TONES = [100, 58, 28];
+const tone = (accent: string, i: number) => `color-mix(in srgb, ${accent} ${SHARE_TONES[i % SHARE_TONES.length]}%, var(--ui-hover))`;
+
+function Sub({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <div className="mt-3.5 first:mt-0">
+      <h4 className="mb-1.5 text-[11px] font-semibold text-faint">{label}</h4>
+      {children}
+    </div>
+  );
+}
+
+/** Shares of a whole as one segmented bar, with the legend under it; the largest share is the strongest tone. */
+function ShareBar({ parts, accent }: { parts: { label: string; value: number }[]; accent: string }) {
+  const rank = parts.map((p) => parts.filter((q) => q.value > p.value).length);
+  return (
+    <>
+      <div className="flex h-2 gap-[2px] overflow-hidden rounded-full">
+        {parts.map((p, i) => (
+          <motion.span
+            key={p.label}
+            className="h-full first:rounded-l-full last:rounded-r-full"
+            style={{ background: tone(accent, rank[i]) }}
+            initial={{ width: 0 }}
+            animate={{ width: `${p.value}%` }}
+            transition={{ duration: 0.6, delay: 0.05 * i, ease: "easeOut" }}
+          />
+        ))}
+      </div>
+      <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[12px]">
+        {parts.map((p, i) => (
+          <span key={p.label} className="flex items-center gap-1.5 text-muted">
+            <span className="size-2 rounded-full" style={{ background: tone(accent, rank[i]) }} />
+            {p.label}
+            <span className="text-ink tabular-nums">{p.value}%</span>
+          </span>
+        ))}
+      </div>
+    </>
+  );
+}
+
+/** One thin bar per share, largest first. */
+function ShareRows({ rows, accent }: { rows: { label: string; value: number }[]; accent: string }) {
+  return (
+    <div className="space-y-1.5">
+      {rows.map((r, i) => (
+        <div key={r.label} className="grid grid-cols-[6rem_1fr_2.25rem] items-center gap-2.5 text-[12px]">
+          <span className="truncate text-muted">{r.label}</span>
+          <span className="h-1.5 overflow-hidden rounded-full bg-hover">
+            <motion.span
+              className="block h-full rounded-full"
+              style={{ background: accent }}
+              initial={{ width: 0 }}
+              animate={{ width: `${r.value}%` }}
+              transition={{ duration: 0.6, delay: 0.05 * i, ease: "easeOut" }}
+            />
+          </span>
+          <span className="text-right text-ink tabular-nums">{r.value}%</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function EconomySection({ entity, lang, accent }: { entity: Entity; lang: Lang; accent: string }) {
+  const ec = entity.economy;
+  if (!ec) return null;
+  const s = ec.sectors;
+  return (
+    <Section title={t("economyTitle", lang)}>
+      <Rows
+        rows={[
+          [t("gdp", lang), formatUsd(ec.gdp_usd, lang)],
+          [t("gdpPerCapita", lang), formatUsd(ec.gdp_per_capita_usd, lang)],
+        ]}
+      />
+      <Sub label={t("sectorMix", lang)}>
+        <ShareBar
+          accent={accent}
+          parts={[
+            { label: t("primarySector", lang), value: s.primary },
+            { label: t("secondarySector", lang), value: s.secondary },
+            { label: t("tertiarySector", lang), value: s.tertiary },
+          ]}
+        />
+      </Sub>
+      {ec.industries.length > 0 && (
+        <Sub label={t("leadingIndustries", lang)}>
+          <ul className="flex flex-wrap gap-1.5">
+            {ec.industries.map((ind) => (
+              <li
+                key={ind.en}
+                className="rounded-full border px-2.5 py-0.5 text-[12px] text-ink"
+                style={{ background: `color-mix(in srgb, ${accent} 7%, transparent)`, borderColor: `color-mix(in srgb, ${accent} 22%, transparent)` }}
+              >
+                {ind[lang]}
+              </li>
+            ))}
+          </ul>
+        </Sub>
+      )}
+    </Section>
+  );
+}
+
+function PeopleSection({ entity, lang, accent }: { entity: Entity; lang: Lang; accent: string }) {
+  const dm = entity.demographics;
+  if (!dm) return null;
+  const [young, working, old] = dm.age;
+  const langs = NAME_LANGS.filter((l) => dm.languages[l] !== undefined)
+    .map((l) => ({ label: NAME_LANG_LABELS[l][lang], value: dm.languages[l]! }))
+    .sort((a, b) => b.value - a.value);
+  return (
+    <Section title={t("peopleTitle", lang)}>
+      <Sub label={t("ageStructure", lang)}>
+        <ShareBar
+          accent={accent}
+          parts={[
+            { label: t("ageYoung", lang), value: young },
+            { label: t("ageWorking", lang), value: working },
+            { label: t("ageOld", lang), value: old },
+          ]}
+        />
+      </Sub>
+      <Sub label={t("firstLanguage", lang)}>
+        <ShareRows rows={langs} accent={accent} />
+      </Sub>
+      <p className="mt-3 text-[11px] text-faint">{t("economyNote", lang)}</p>
     </Section>
   );
 }
@@ -569,6 +713,9 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
           )}
         </Section>
       )}
+
+      <EconomySection entity={entity} lang={lang} accent={accent} />
+      <PeopleSection entity={entity} lang={lang} accent={accent} />
 
       {entity.segments?.length ? <RouteTimeline data={data} entity={entity} lang={lang} /> : <ChildList data={data} entity={entity} lang={lang} />}
 

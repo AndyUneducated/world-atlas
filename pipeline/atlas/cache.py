@@ -12,6 +12,8 @@ ROOT = Path(__file__).resolve().parents[2]
 CACHE_DIR = ROOT / ".cache"
 REGION_DIR = CACHE_DIR / "regions"
 CODE_DIR = Path(__file__).resolve().parent
+# Run by build.py on the merged world after the regions; no region build imports them.
+POST_MERGE = ("traffic", "economy")
 
 
 def _code_digest(modules: tuple[str, ...] | None) -> str:
@@ -47,10 +49,11 @@ def stage(name: str, inputs: Any, compute: Callable[[], Any], enabled: bool = Tr
 def region(name: str, inputs: Any, compute: Callable[[Path], Any], enabled: bool = True,
            stale_ok: bool = False) -> tuple[Any, Path, str] | None:
     """A whole region's result, the folder holding the files it wrote (compute(folder) writes them) and
-    whether it was "built", "cached" or "stale". Rebuilt when its inputs or any atlas code change.
+    whether it was "built", "cached" or "stale". Rebuilt when its inputs or any atlas code but POST_MERGE change.
 
     stale_ok: never compute; take the stored result even if out of date (None if there is none)."""
-    path = REGION_DIR / f"{name}-{_key(inputs, None)}"
+    modules = tuple(p.stem for p in sorted(CODE_DIR.glob("*.py")) if p.stem not in POST_MERGE)
+    path = REGION_DIR / f"{name}-{_key(inputs, modules)}"
     stored = path / "result.pkl"
     if stale_ok and not stored.exists():
         older = sorted(REGION_DIR.glob(f"{name}-*/result.pkl"), key=lambda p: p.stat().st_mtime)

@@ -182,6 +182,21 @@ const STRINGS = {
   bothWays: { zh: "双向", en: "both directions" },
   railOperator: { zh: "运营单位", en: "Operator" },
   serviceNote: { zh: "客流与班次按沿线城市人口估算", en: "Ridership and headways estimated from the cities along the line" },
+  economyTitle: { zh: "经济", en: "Economy" },
+  gdp: { zh: "地区生产总值", en: "GDP" },
+  gdpPerCapita: { zh: "人均", en: "Per head" },
+  sectorMix: { zh: "三次产业", en: "Sectors" },
+  primarySector: { zh: "第一产业", en: "Primary" },
+  secondarySector: { zh: "第二产业", en: "Secondary" },
+  tertiarySector: { zh: "第三产业", en: "Services" },
+  leadingIndustries: { zh: "主要产业", en: "Leading industries" },
+  peopleTitle: { zh: "人口结构", en: "People" },
+  ageStructure: { zh: "年龄", en: "Age" },
+  ageYoung: { zh: "0–14 岁", en: "Under 15" },
+  ageWorking: { zh: "15–64 岁", en: "15–64" },
+  ageOld: { zh: "65 岁以上", en: "65 and over" },
+  firstLanguage: { zh: "母语", en: "First language" },
+  economyNote: { zh: "经济与人口结构为按主导产业与人口来源估算的模型数据", en: "Economy and population mix are model estimates from each place's leading industries and origins" },
 } satisfies Record<string, Record<Lang, string>>;
 
 export type StringKey = keyof typeof STRINGS;
