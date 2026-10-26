@@ -122,3 +122,20 @@ railways:
     color: '#12A594'
     tech: { operating_speed_kmh: 300, design_speed_kmh: 350 }
     via: [div_k4s990, div_prcxzt]
+  - id: rte_0qtt3d
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 马斯林山航天铁路
+      en: Maslin Mountain Aerospace Railway
+      art-x-viking: Raumfahrtbahn Maslinberg
+      art-x-buckham: Ferrovia Aerospaziale di Maslin Tehee
+    notes:
+      zh: 自东营经马斯林山城区西行到西坪，服务发射与降落中心和西坪航天产业区
+      en: West from East Camp through the city of Maslin Mountain to West Heath, serving the launch and landing centre and the West Heath space industry zone.
+    background:
+      zh: 西坪区的发射与降落中心和周边的火箭总装厂、推进剂厂、飞船整修厂聚集了上万名职工，每逢发射日还有大批观众涌来，马斯林山高速常常拥堵。马斯林山航天铁路自东营区出发，经马斯林山城区西行到西坪，把东营的空军基地、后勤基地与西坪的航天产业区连在一起。线路穿越平坦的马斯林盆地，以路基和低桥为主，建设难度不大；为配合发射，沿线的信号系统与发射中心联动，发射前后可以加开密集的班次。航天产业区的铁路专用线与正线相接，夜间客车停运后，货运列车把箭体、发动机和推进剂槽车直接送进工厂。开通后，西坪与城区之间形成了半小时通勤圈，西坪人口随之快速增长。
+      en: The launch and landing centre in West Heath and the rocket assembly, propellant and spacecraft refurbishment plants around it employ more than ten thousand people, and launch days bring crowds of spectators on top, so the Maslin Expressway was often jammed. The Maslin Mountain Aerospace Railway runs west from East Camp through the city of Maslin Mountain to West Heath, joining the air base and supply depot at East Camp to the West Heath space industry zone. It crosses the flat Maslin basin mostly on embankment and low bridges and was not hard to build. Its signalling is linked to the launch centre so that a dense timetable of extra trains can run before and after each launch. The space industry zone's sidings join the main line, and at night, once passenger trains have stopped, freight trains take rocket stages, engines and propellant tankers straight into the plants. Since it opened West Heath has been within half an hour of the city, and its population has grown fast.
+    color: '#0090FF'
+    tech: { operating_speed_kmh: 300, design_speed_kmh: 350 }
+    via: [div_tc0ngk, div_rdypg7, div_nwke3f]

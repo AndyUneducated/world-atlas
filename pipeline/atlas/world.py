@@ -16,9 +16,15 @@ DIVISION_SUBTYPES = ("country", "dependency", "region", "locality", "borough")
 # and a district all six; the rest are zeros (900000 → 900100 → 900101).
 CODE_DIGITS = {"dependency": 2, "locality": 4, "borough": 6}
 # Landmark footprint templates (see pipeline/atlas/buildings.py); the last five are transport facilities.
+MILITARY_VARIANTS = {  # military and space facility layouts and the kinds each draws (first is the default)
+    "airbase": ("fighter", "heavy", "uav", "school"), "radar": ("dome", "array", "domes"), "antenna": ("small", "large"),
+    "sam": (), "range": ("air", "armor", "cold"), "plant": ("depot", "assembly", "propellant", "tunnel", "hangar", "engine"),
+    "test_stand": (), "silo": (), "bunker": (), "launch_track": (), "camp": ("barracks", "hq", "hospital", "training"), "heliport": (),
+}
 SITE_LAYOUTS = ("complex", "hall", "campus", "stadium", "tower", "park", "plaza", "market",
-                "airport", "port", "harbour", "offshore_port", "spaceport")
-FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport")
+                "airport", "port", "harbour", "offshore_port", "spaceport", *MILITARY_VARIANTS)
+FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport", *MILITARY_VARIANTS)
+RUNWAY_LAYOUTS = ("airport", "spaceport", "airbase", "launch_track")  # roads and railways go round these
 COASTAL_LAYOUTS = ("port", "harbour")  # sites centred on the shore
 HARBOUR_TERMINALS = ("container", "bulk", "oil", "roro")
 RAIL_NETWORKS = ("intercity_rail",)
@@ -175,12 +181,23 @@ class World:
         for pid, p in self.places.items():
             if p.get("in") not in self.divisions:
                 errors.append(f"{pid}: 'in' must name a division")
+            if "access_road" in p and not (p["access_road"] is True and p.get("site")):
+                errors.append(f"{pid}: access_road: true needs a site (a city road is built from it to the network)")
+            if mil := p.get("military"):
+                for k in ("unit", "branch", "equipment", "access"):
+                    if not (isinstance(mil.get(k), dict) and mil[k].get("zh") and mil[k].get("en")):
+                        errors.append(f"{pid}: military.{k} needs zh and en")
+                if not (isinstance(mil.get("personnel"), int) and mil["personnel"] > 0):
+                    errors.append(f"{pid}: military.personnel must be a whole number of people")
             if site := p.get("site"):
                 if site.get("layout") not in SITE_LAYOUTS:
                     errors.append(f"{pid}: site layout must be one of {', '.join(SITE_LAYOUTS)}")
                 size = site.get("size_m")
-                if not (isinstance(size, list) and len(size) == 2 and all(isinstance(v, (int, float)) and 10 <= v <= 8000 for v in size)):
-                    errors.append(f"{pid}: site size_m must be [along, across] in metres (10–8000)")
+                top = 40000 if site.get("layout") == "launch_track" else 8000
+                if not (isinstance(size, list) and len(size) == 2 and all(isinstance(v, (int, float)) and 10 <= v <= top for v in size)):
+                    errors.append(f"{pid}: site size_m must be [along, across] in metres (10–{top})")
+                if "variant" in site and site["variant"] not in MILITARY_VARIANTS.get(site.get("layout"), ()):
+                    errors.append(f"{pid}: site variant must be one of {', '.join(MILITARY_VARIANTS.get(site.get('layout'), ())) or 'none for this layout'}")
                 if "angle_deg" in site and not isinstance(site["angle_deg"], (int, float)):
                     errors.append(f"{pid}: site angle_deg must be a number (degrees, east = 0, counter-clockwise)")
                 if self.divisions.get(p.get("in"), {}).get("subtype") != "borough":

@@ -9,7 +9,12 @@
 #   out to sea on the "across" side, sheds ashore; spaceport: launch pads on the "across" side).
 #   angle_deg (optional) turns the long side to that bearing (east = 0, counter-clockwise);
 #   without it the site follows the district's street grid. Streets and generated buildings
-#   keep out of the site.
+#   keep out of the site. Military and space facilities have their own layouts (airbase,
+#   radar, antenna, sam, range, plant, test_stand, silo, bunker, launch_track, camp,
+#   heliport) and variant picks the kind (see MILITARY_VARIANTS in pipeline/atlas/world.py).
+# military (optional): unit designation, branch, main equipment, personnel and public access,
+#   shown on the card; the map shows the place name.
+# access_road (optional, true): a city road is built from the site's gate to the nearest road.
 places:
   - id: bld_mc71ej
     subtype: government
@@ -1405,3 +1410,791 @@ places:
     in: div_e2pk5r
     offset_km: [0.1, -0.1]
     site: { layout: market, size_m: [200, 140] }
+
+  # ── 马斯林山军事与航天设施（M25）：空军 ──
+  - id: poi_f12qtt
+    subtype: air_base
+    status: generated
+    names:
+      zh: 东营空军基地
+      en: East Camp Air Base
+      art-x-viking: Luftwaffenstützpunkt Ostlager
+      art-x-buckham: Base Aerea di Campo Est
+    notes:
+      zh: 东营空军基地位于东营区北部的平原上，是马斯林山上空防空作战的主基地，担负发射与降落中心、深空太空军指挥中心和整个马斯林盆地的空中掩护。基地有两条平行跑道，一条供日常起降，另一条兼作备用跑道和夜航训练；滑行道外侧分布着数十座加固机库，以环形滑行道相连，战机可以从机库直接滑出起飞。机务区、油库和塔台集中在跑道的另一侧，弹药库分散在远离跑道的土堤后面。马斯林山冬季漫长，跑道和滑行道铺设了融雪系统，除雪车队可在暴雪停止后一小时内恢复起降。每逢发射窗口，基地都会派出战斗机在发射场上空轮流巡逻，确保空域内没有不明飞行器。基地经马斯林山空天高速与城区和雪谷的两座基地相连，负责大修的东营航空修理厂就在跑道附近。
+      en: East Camp Air Base stands on the plain in the north of East Camp District and is the main base for air defence over Maslin Mountain, covering the launch and landing centre, the Deep Space Force command centre and the whole Maslin basin. It has two parallel runways, one for everyday traffic and one kept as a spare and for night training. Beyond the taxiway stand dozens of hardened shelters on looping taxiways, so fighters can roll straight out of cover and take off. Maintenance, the fuel farm and the tower are grouped on the other side of the runways, and the ammunition stores are scattered behind earth banks well away from them. Winters at Maslin are long, so the runways and taxiways have built-in snow melting and the clearing teams can reopen the field within an hour of a blizzard ending. In every launch window the base keeps fighters on patrol over the launch site so that no unknown aircraft enters the airspace. The Maslin Aerospace Expressway links it to the city and the two bases in Snow Valley, and the East Camp Aircraft Repair Plant, which overhauls its aircraft, is close by.
+    in: div_tc0ngk
+    offset_km: [2.83, 17.68]
+    site: { size_m: [4200, 2400], layout: airbase, variant: fighter, angle_deg: 120 }
+    military:
+      unit:
+        zh: 空军第七航空基地（歼击航空兵第 71 旅）
+        en: 7th Air Base, Air Force (71st Fighter Brigade)
+      branch: { zh: 空军, en: Air Force }
+      equipment:
+        zh: 多用途歼击机两个大队约 48 架，另有教练机与联络机若干
+        en: Two groups of multirole fighters, about 48 aircraft, plus trainers and liaison aircraft
+      personnel: 4800
+      access:
+        zh: 军事禁区，不对外开放；每年航空开放日对公众开放一天
+        en: Restricted military area, closed to the public except for one open day a year
+  - id: poi_ez2t6k
+    subtype: air_base
+    status: generated
+    names:
+      zh: 雪谷空军基地
+      en: Snow Valley Air Base
+      art-x-viking: Luftwaffenstützpunkt Schneetal
+      art-x-buckham: Base Aerea di Valle Neve
+    notes:
+      zh: 雪谷空军基地位于雪谷区南部的开阔谷底，驻有预警指挥机、空中加油机和大型运输机，是马斯林山空中力量的后方基地。预警指挥机升空后可以监视全岛及周边海域的空情，与西岭和星港的雷达站一起组成高低搭配的多层预警网；加油机让东营的战斗机能在发射窗口期间长时间留空巡逻。运输机承担部队机动、航天员转运和紧急物资空运，必要时也能把较小的航天器部件直接运往西坪。基地有两条平行跑道，宽大的停机坪旁是能容纳大型飞机的机库。雪谷积雪期长，机库全部采用保温设计，飞机出库前先在除冰坪上喷洒除冰液。基地与东侧的空天飞机基地共用油库和消防力量，两者都在马斯林山空天高速的南端。
+      en: Snow Valley Air Base lies on the open valley floor in the south of Snow Valley District and is home to airborne early-warning aircraft, tankers and heavy transports, the rear base of Maslin Mountain's air power. Once airborne, the early-warning aircraft watch the air over the whole island and the surrounding seas, forming a layered warning net with the radar stations at West Ridge and Starport. The tankers let the East Camp fighters stay on patrol for hours during launch windows. The transports move troops, astronauts and urgent supplies, and can fly smaller spacecraft parts straight to West Heath. The base has two parallel runways and wide aprons beside hangars big enough for large aircraft. Snow lies long in the valley, so every hangar is insulated and aircraft are sprayed on a de-icing pad before take-off. It shares its fuel farm and fire service with the spaceplane base to the east, and both sit at the southern end of the Maslin Aerospace Expressway.
+    in: div_0tsyzy
+    offset_km: [2.12, -9.9]
+    site: { size_m: [4400, 1800], layout: airbase, variant: heavy, angle_deg: 0 }
+    military:
+      unit:
+        zh: 空军第八航空基地（特种航空兵第 82 团、运输航空兵第 83 团）
+        en: 8th Air Base, Air Force (82nd Special Mission and 83rd Airlift Regiments)
+      branch: { zh: 空军, en: Air Force }
+      equipment:
+        zh: 预警指挥机 4 架、空中加油机 6 架、大型运输机 12 架
+        en: 4 airborne early-warning and control aircraft, 6 tankers and 12 heavy transports
+      personnel: 3600
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_4mbfqk
+    subtype: air_base
+    status: generated
+    names:
+      zh: 星港无人机基地
+      en: Starport Drone Base
+      art-x-viking: Drohnenbasis Sternhafen
+      art-x-buckham: Base Droni di Porto Stella
+    notes:
+      zh: 星港无人机基地位于星港区西北的台地上，是马斯林山唯一的无人机基地。高空长航时无人机从这里起飞后，可以连续一两天在北部海域和马斯林山脉上空巡航，把图像实时传回指挥中心，弥补地面雷达在深谷和山背后的盲区。基地只有一条较短的跑道，跑道旁成排的小型机库各停放一架无人机；操作员并不登机，而是在地下控制室里轮班操纵，一个机组可以同时照看多架飞机。无人机对结冰十分敏感，基地配有专门的除冰坪和气象站，遇到冻雾天气会暂停起飞。这里也是空军试飞新型无人机和自主飞行软件的场所。
+      en: Starport Drone Base sits on a terrace in the north-west of Starport District and is Maslin Mountain's only drone base. High-altitude long-endurance drones take off here and can cruise for a day or two over the northern seas and the Maslin Range, sending pictures back to the command centre in real time and covering the deep valleys and back slopes that ground radars cannot see. The base has a single short runway lined with small hangars, one aircraft to each. The operators never board; they fly the drones in shifts from an underground control room, each crew minding several aircraft at once. Drones are very sensitive to icing, so the base has its own de-icing pad and weather station and stops flying in freezing fog. It is also where the air force flight-tests new drones and autonomous flight software.
+    in: div_nytsvb
+    offset_km: [-9.19, 16.26]
+    site: { size_m: [2600, 1000], layout: airbase, variant: uav, angle_deg: 15 }
+    access_road: true
+    military:
+      unit: { zh: 空军无人机第 93 团, en: "93rd Unmanned Aircraft Regiment, Air Force" }
+      branch: { zh: 空军, en: Air Force }
+      equipment:
+        zh: 高空长航时侦察无人机 8 架、察打一体无人机 16 架
+        en: 8 high-altitude long-endurance reconnaissance drones and 16 armed reconnaissance drones
+      personnel: 1500
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_qtkddv
+    subtype: college
+    status: generated
+    names:
+      zh: 马斯林山飞行学院
+      en: Maslin Mountain Flight Academy
+      art-x-viking: Flugakademie Maslinberg
+      art-x-buckham: Accademia di Volo di Maslin Tehee
+    notes:
+      zh: 马斯林山飞行学院位于和平区东北部的平原上，培养空军和深空太空军的飞行员，空天飞机的驾驶员也都从这里毕业。学员先在校园里完成理论学习和模拟器训练，再到跑道旁的停机坪驾驶初级教练机，最后改飞高级教练机。马斯林盆地东部地势平坦、空域开阔，周边又有山区、海岸和雪原，几乎所有复杂气象都能在一天之内遇到，是练习全天候飞行的理想场所。学院与城南的航天员训练中心合开空天飞行课程，部分优秀学员毕业后直接进入航天员选拔。每年夏季，学院的特技飞行队会在城区上空做公开表演。
+      en: The Maslin Mountain Flight Academy, on the plain in the north-east of Peace District, trains pilots for the Air Force and the Deep Space Force, and every spaceplane pilot is a graduate. Cadets first study theory and train in simulators on the campus, then fly basic trainers from the ramp beside the runway, and finally move on to advanced trainers. The eastern Maslin basin is flat with open airspace, yet mountains, coast and snowfields are all close by, so almost every kind of difficult weather can be met within a single day, which makes it ideal for all-weather training. The academy runs a spaceflight course with the astronaut training centre south of the city, and some of its best graduates go straight into astronaut selection. Each summer its aerobatic team gives a public display over the city.
+    in: div_nvrjpg
+    offset_km: [8.49, 16.26]
+    site: { size_m: [3200, 1500], layout: airbase, variant: school, angle_deg: 0 }
+    access_road: true
+    military:
+      unit: { zh: 空军马斯林山飞行学院, en: Air Force Maslin Mountain Flight Academy }
+      branch: { zh: 空军, en: Air Force }
+      equipment:
+        zh: 初级教练机 40 架、高级教练机 24 架、飞行模拟器 18 台
+        en: 40 basic and 24 advanced trainers, 18 flight simulators
+      personnel: 2600
+      access:
+        zh: 每年招生开放日对考生和家长开放
+        en: Open to applicants and their families on the annual admissions day
+  - id: poi_davyy1
+    subtype: factory
+    status: generated
+    names:
+      zh: 东营航空修理厂
+      en: East Camp Aircraft Repair Plant
+      art-x-viking: Flugzeugwerft Ostlager
+      art-x-buckham: Officina Aeronautica di Campo Est
+    notes:
+      zh: 东营航空修理厂紧邻东营空军基地，负责马斯林山各空军基地飞机和发动机的大修。战斗机和运输机每飞满规定的小时数，就要拖进这里的大修机库，拆开检查机体结构，更换老化的线缆和部件；发动机则送到厂区一侧的试车间，修好后在消音试车间里连续运转数小时，确认推力和振动都合格才交还部队。修理厂也为空天飞机检修喷气发动机和起落架。厂区有一条铁路专用线，大型部件可以用火车运进运出。工厂的许多技师是在东营本地招收和培养的，修理厂也是东营区最大的雇主之一。
+      en: The East Camp Aircraft Repair Plant stands next to East Camp Air Base and overhauls the aircraft and engines of every air base at Maslin Mountain. Each time a fighter or transport reaches its set number of flying hours it is towed into one of the overhaul hangars, opened up to check the airframe, and given new wiring and parts where they have aged. Engines go to the test cells on one side of the plant, and after repair each runs for hours in a silenced cell until its thrust and vibration pass. The plant also overhauls the spaceplanes' jet engines and landing gear. A rail siding lets large parts come and go by train. Many of its technicians were recruited and trained locally, and it is one of East Camp's largest employers.
+    in: div_tc0ngk
+    offset_km: [7.44, 21.98]
+    site: { size_m: [1600, 900], layout: plant, variant: engine, angle_deg: 105 }
+    access_road: true
+    military:
+      unit: { zh: 空军第 5714 航空修理厂, en: Air Force Aircraft Repair Plant 5714 }
+      branch: { zh: 空军, en: Air Force }
+      equipment:
+        zh: 整机大修线 2 条、发动机试车间 4 座
+        en: 2 airframe overhaul lines and 4 engine test cells
+      personnel: 2200
+      access: { zh: 不对外开放, en: Closed to the public }
+  - id: poi_2b8f1g
+    subtype: radar_station
+    status: generated
+    names:
+      zh: 西岭雷达站
+      en: West Ridge Radar Station
+      art-x-viking: Radarstation Westkamm
+      art-x-buckham: Stazione Radar della Cresta Ovest
+    notes:
+      zh: 西岭雷达站建在群峰训练管理区西部一道海拔一千六百多米的山岭上，是马斯林山最重要的远程警戒雷达站。站在山岭上，雷达可以越过马斯林山脉北翼，看到北部海域和全岛西部的空中目标，再把数据实时传给星港指挥中心和东营空军基地。三座白色雷达罩远远就能望见，罩内的天线昼夜不停地旋转。山岭上冬季风大雪厚，站内备有发电机组和足够一个月的燃料与食品，西岭公路被大雪封闭时，官兵也能照常值守。雷达站四周的山坡上埋设了避雷网，夏季雷暴频繁时尤其重要。
+      en: West Ridge Radar Station stands on a ridge more than 1,600 m high in the west of the High Peaks Training Area and is Maslin Mountain's most important long-range surveillance radar. From the ridge its radars look over the northern arm of the Maslin Range to the northern seas and the air over the west of the island, passing their data in real time to the Starport command centre and East Camp Air Base. Its three white radomes can be seen from far away, the antennas inside turning day and night. Winter on the ridge brings strong winds and deep snow, so the station keeps generators and a month of fuel and food, and the crews stay on watch even when the West Ridge Highway is closed by snow. A lightning grid is buried in the slopes around it, much needed in the frequent summer thunderstorms.
+    in: div_q5h8zp
+    offset_km: [-38.89, 1.41]
+    site: { size_m: [600, 400], layout: radar, variant: dome, angle_deg: 0 }
+    military:
+      unit: { zh: 空军雷达第 46 旅第一站, en: "1st Station, 46th Radar Brigade, Air Force" }
+      branch: { zh: 空军, en: Air Force }
+      equipment:
+        zh: 远程警戒雷达 2 部、低空补盲雷达 1 部
+        en: 2 long-range surveillance radars and 1 low-altitude gap-filler
+      personnel: 220
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_mk34my
+    subtype: radar_station
+    status: generated
+    names:
+      zh: 星港海岸雷达站
+      en: Starport Coastal Radar Station
+      art-x-viking: Küstenradar Sternhafen
+      art-x-buckham: Radar Costiero di Porto Stella
+    notes:
+      zh: 星港海岸雷达站位于星港区北部临海的一座小山上，监视北部海域和低空飞行的目标。山地雷达站居高临下，却难以发现贴着海面飞行的飞机和小船，海岸雷达站正好弥补这一点：站内的超低空雷达能看到海平面附近的目标，与西岭雷达站一高一低，共同织成马斯林山的雷达网。每次火箭发射前，雷达站还负责确认落区海域没有船只进入，必要时通知海事部门疏导。站区规模不大，只有几十名官兵轮换值守；冬季海风夹着冰粒，雷达罩需要定期除冰。
+      en: Starport Coastal Radar Station sits on a small hill by the sea in the north of Starport District, watching the northern seas and low-flying targets. The mountain radars look down from on high but struggle to see aircraft and small boats skimming the sea, and this station fills that gap. Its very-low-altitude radar sees targets near sea level, and together with West Ridge, one high and one low, it completes Maslin Mountain's radar net. Before every launch it also confirms that no ships have entered the splashdown zone, calling in the maritime authority to clear them if needed. The station is small, with a few dozen crew on rotation, and in winter, when the sea wind carries ice, the radomes have to be de-iced regularly.
+    in: div_nytsvb
+    offset_km: [-5.66, 33.94]
+    site: { size_m: [400, 300], layout: radar, variant: dome, angle_deg: 0 }
+    access_road: true
+    military:
+      unit: { zh: 空军雷达第 46 旅第三站, en: "3rd Station, 46th Radar Brigade, Air Force" }
+      branch: { zh: 空军, en: Air Force }
+      equipment:
+        zh: 对海对空警戒雷达 2 部、超低空补盲雷达 1 部
+        en: 2 sea and air surveillance radars and 1 very-low-altitude gap-filler
+      personnel: 180
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_m4ryp1
+    subtype: missile_site
+    status: generated
+    names:
+      zh: 西坪防空阵地
+      en: West Heath Air Defence Site
+      art-x-viking: Flugabwehrstellung Westheide
+      art-x-buckham: Postazione Contraerea di Pianoro Ovest
+    notes:
+      zh: 西坪防空阵地位于发射与降落中心南面的高原上，是守护发射场的地空导弹阵地。阵地呈环形布置，六个发射车位分布在环形道路上，中央是制导雷达和指挥所；导弹发射车平时停在掩体内，警报响起后几分钟内就能进入发射位置。发射窗口期间，阵地进入最高战备，与东营的战斗机和西岭的雷达站协同，确保发射场上空没有任何不明飞行器。马斯林山共有三座这样的阵地，分别位于西坪、星港和和平，各自守卫一个方向，射程相互重叠，形成环绕发射中心和指挥中心的防空圈。
+      en: West Heath Air Defence Site is on the plateau south of the launch and landing centre, a surface-to-air missile site guarding the launch site. It is laid out as a ring, with six launcher positions on a ring road around the guidance radar and command post in the middle. The launchers normally wait under cover and can be in position within minutes of an alert. During launch windows the site goes to its highest readiness, working with the East Camp fighters and the West Ridge radar so that nothing unidentified flies over the launch site. Maslin Mountain has three such sites, at West Heath, Starport and Peace, each guarding one direction, and their overlapping ranges form an air defence ring around the launch and command centres.
+    in: div_nwke3f
+    offset_km: [1.41, -10.61]
+    site: { size_m: [900, 900], layout: sam, angle_deg: 15 }
+    access_road: true
+    military:
+      unit: { zh: 地空导弹第 31 旅第一营, en: "1st Battalion, 31st Surface-to-Air Missile Brigade, Air Force" }
+      branch: { zh: 空军, en: Air Force }
+      equipment:
+        zh: 中远程地空导弹发射车 6 辆、制导雷达 1 部
+        en: 6 medium-to-long-range missile launchers and 1 guidance radar
+      personnel: 260
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_c83h0h
+    subtype: missile_site
+    status: generated
+    names:
+      zh: 星港防空阵地
+      en: Starport Air Defence Site
+      art-x-viking: Flugabwehrstellung Sternhafen
+      art-x-buckham: Postazione Contraerea di Porto Stella
+    notes:
+      zh: 星港防空阵地位于星港区东部，在深空太空军马斯林山指挥中心东南不远处，是保卫指挥中心的地空导弹阵地。阵地布局与西坪、和平两座阵地相同，环形道路上分布六个发射车位，中央是制导雷达和指挥所。指挥中心是马斯林山最重要的目标之一，这座阵地因此常年保持较高的战备等级，发射车轮流值班，雷达昼夜开机。阵地还与群峰地下指挥城的防空系统联网，一旦星港方向发现威胁，地下指挥城也可以直接调用阵地的火力。冬季阵地内的道路和发射位都铺设了融雪设施，保证随时可以展开。
+      en: Starport Air Defence Site is in the east of Starport District, a short way south-east of the Deep Space Force command centre it protects. Its layout matches the sites at West Heath and Peace, six launcher positions on a ring road around a guidance radar and command post. The command centre is one of Maslin Mountain's most important targets, so this site is kept at high readiness all year, with launchers on duty in turn and the radar running day and night. It is networked with the air defences of the underground command complex in the High Peaks, which can also call on its missiles directly if a threat appears from the Starport side. In winter its roads and launch positions are heated so the site can deploy at any time.
+    in: div_nytsvb
+    offset_km: [7.07, 2.83]
+    site: { size_m: [900, 900], layout: sam, angle_deg: 15 }
+    access_road: true
+    military:
+      unit: { zh: 地空导弹第 31 旅第二营, en: "2nd Battalion, 31st Surface-to-Air Missile Brigade, Air Force" }
+      branch: { zh: 空军, en: Air Force }
+      equipment:
+        zh: 中远程地空导弹发射车 6 辆、制导雷达 1 部
+        en: 6 medium-to-long-range missile launchers and 1 guidance radar
+      personnel: 260
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_z7rtqh
+    subtype: missile_site
+    status: generated
+    names:
+      zh: 和平防空阵地
+      en: Peace Air Defence Site
+      art-x-viking: Flugabwehrstellung Frieden
+      art-x-buckham: Postazione Contraerea di Pace
+    notes:
+      zh: 和平防空阵地位于和平区南部，负责马斯林山城区、航天员训练中心和南面雪谷方向的空中防御。三座地空导弹阵地中，它离居民区最近，因此射击扇区和残骸落区受到严格限制，只朝城区以外的方向拦截目标。阵地平时进行大量模拟训练：控制车里的模拟系统会生成各种来袭目标，操作员反复练习发现、跟踪和拦截。每年夏季，三座阵地的部队会到群峰空军靶场与战斗机进行联合演练。阵地周边种植了防护林，从城区方向几乎看不到阵地内的设施。
+      en: Peace Air Defence Site lies in the south of Peace District and defends the city of Maslin Mountain, the astronaut training centre and the approaches from Snow Valley to the south. Of the three missile sites it is the closest to where people live, so its firing sectors and debris zones are tightly limited and it engages targets only away from the city. Most of its training is simulated, with the control vehicle generating every kind of incoming target for the operators to detect, track and engage again and again. Each summer the crews of all three sites join the fighters for combined exercises at the High Peaks Air Weapons Range. A shelterbelt of trees around the site hides almost all of it from the city side.
+    in: div_nvrjpg
+    offset_km: [4.24, -11.31]
+    site: { size_m: [900, 900], layout: sam, angle_deg: 15 }
+    access_road: true
+    military:
+      unit: { zh: 地空导弹第 31 旅第三营, en: "3rd Battalion, 31st Surface-to-Air Missile Brigade, Air Force" }
+      branch: { zh: 空军, en: Air Force }
+      equipment:
+        zh: 中远程地空导弹发射车 6 辆、制导雷达 1 部
+        en: 6 medium-to-long-range missile launchers and 1 guidance radar
+      personnel: 260
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_4pegdx
+    subtype: training_range
+    status: generated
+    names:
+      zh: 群峰空军靶场
+      en: High Peaks Air Weapons Range
+      art-x-viking: Luftwaffenschießplatz Gipfel
+      art-x-buckham: Poligono Aereo delle Vette
+    notes:
+      zh: 群峰空军靶场位于群峰训练管理区西南部的山麓地带，是马斯林山唯一可以投放实弹的空军靶场。靶场中散布着一组组环形靶标，分别模拟机场、车队和阵地；边缘的观察塔用激光测距仪和摄像机记录每一次投弹的落点，飞行员落地后就能看到自己的成绩。靶场还设有电子对抗训练区，几座模拟站会发出各种雷达信号，让飞行员练习识别和干扰。每次演训前，管理区会封闭靶场周边的道路，并在附近空域划设临时禁飞区。靶场远离城镇，背靠群峰，即使弹药偏离目标也不会危及居民。
+      en: The High Peaks Air Weapons Range lies in the foothills in the south-west of the High Peaks Training Area and is the only range at Maslin Mountain where aircraft may drop live weapons. Groups of ring-shaped targets are scattered across it, standing in for airfields, convoys and gun positions. Observation towers on its edge record every impact with laser rangefinders and cameras, so pilots see their scores as soon as they land. It also has an electronic warfare area where simulator stations send out all kinds of radar signals for pilots to identify and jam. Before each exercise the training area authority closes the roads around the range and declares a temporary no-fly zone overhead. The range is far from any town with the High Peaks behind it, so even a stray weapon puts no one at risk.
+    in: div_q5h8zp
+    offset_km: [-21.92, -26.16]
+    site: { size_m: [8000, 6000], layout: range, variant: air, angle_deg: 0 }
+    access_road: true
+    military:
+      unit: { zh: 空军马斯林山综合训练靶场, en: Air Force Maslin Mountain Combined Training Range }
+      branch: { zh: 空军, en: Air Force }
+      equipment:
+        zh: 地面靶标 9 组、电子对抗模拟站 3 座、观察塔 3 座
+        en: 9 ground target groups, 3 electronic warfare simulator stations and 3 observation towers
+      personnel: 350
+      access:
+        zh: 演训期间封闭，上空划设临时禁飞区
+        en: Closed during exercises, with a temporary no-fly zone overhead
+
+  # ── 马斯林山军事与航天设施（M25）：深空太空军 ──
+  - id: poi_bwm8fb
+    subtype: command_centre
+    status: generated
+    names:
+      zh: 星港指挥中心
+      en: Starport Command Centre
+      art-x-viking: Kommandozentrale Sternhafen
+      art-x-buckham: Centro di Comando di Porto Stella
+    notes:
+      zh: 星港指挥中心位于星港区东北部，是深空太空军在马斯林山的最高指挥机构，统一指挥马斯林山的航天发射、在轨航天器管理、太空监视和反导作战。主楼里是一座巨大的指挥大厅，正面的屏幕墙实时显示轨道上数万个目标的位置和每一次发射的飞行轨迹；东岭相控阵雷达、观星峰光学观测站、星港深空测控站和各卫星地面站的数据都汇集到这里，经计算机融合后形成一张完整的太空态势图。主楼周围是参谋机关、通信枢纽、营房和训练场，构成一座完整的营区。指挥中心与群峰地下指挥城同步值班、互为备份，任何一处受损，另一处都能立即接管指挥。星港区以航天港得名，指挥中心是区内最大的单位，许多军官的家属就住在附近的城区，营区东南不远处的星港防空阵地专门负责它的空中防御。
+      en: Starport Command Centre, in the north-east of Starport District, is the Deep Space Force's highest command at Maslin Mountain, directing launches, the management of spacecraft in orbit, space surveillance and missile defence. Its main building holds a vast command hall whose screen wall shows, in real time, tens of thousands of objects in orbit and the track of every launch. Data from the East Ridge phased-array radar, the Starwatch Peak optical station, the Starport deep space station and the satellite ground stations all arrive here and are fused by computer into a single picture of what is happening in space. Around the main building are the staff offices, a communications hub, barracks and a training ground, a garrison in its own right. The centre keeps watch in step with the underground command complex in the High Peaks; either can take over at once if the other is lost. Starport District is named after its spaceport, and the command centre is the district's largest employer, with many officers' families living in the town nearby. The Starport Air Defence Site, a short way to the south-east, exists to protect it from the air.
+    in: div_nytsvb
+    offset_km: [4.95, 7.07]
+    site: { size_m: [1200, 800], layout: camp, variant: hq, angle_deg: 30 }
+    access_road: true
+    military:
+      unit: { zh: 深空太空军马斯林山指挥中心, en: Deep Space Force Maslin Mountain Command Centre }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment:
+        zh: 联合指挥大厅、空间态势显示中心、通信枢纽
+        en: Joint command hall, space situation centre and communications hub
+      personnel: 3200
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_bkhms6
+    subtype: command_centre
+    status: generated
+    names:
+      zh: 群峰地下指挥城
+      en: High Peaks Underground Command Complex
+      art-x-viking: Unterirdische Kommandostadt Gipfel
+      art-x-buckham: Città di Comando Sotterranea delle Vette
+    notes:
+      zh: 群峰地下指挥城开凿在群峰训练管理区东南部的山体深处，是深空太空军在马斯林山的备用指挥所。地面上只能看到几处隧道口、通风竖井、一座直升机坪和几副天线，主体全部藏在数百米厚的岩层之下：长长的隧道通往指挥大厅、数据中心、宿舍、食堂、医院和仓库，像一座地下的小城。山体内建有独立的电站、蓄水池和空气过滤系统，即使与外界完全隔绝，也能维持两千人在里面生活和工作数月。平时这里与星港指挥中心同步值班，一旦指挥中心受损或通信中断，指挥权会立即转到这里。指挥城对外的通信经由多条不同走向的光缆和卫星链路，任何一条中断都不影响指挥。隧道口开在朝向山坡的一侧，冬季积雪时由专门的除雪设备保持畅通。
+      en: The High Peaks Underground Command Complex is cut deep into the mountains in the south-east of the High Peaks Training Area and is the Deep Space Force's alternate command post at Maslin Mountain. On the surface there is little to see beyond a few tunnel portals, ventilation shafts, a helipad and some antennas; everything else lies under hundreds of metres of rock, where long tunnels lead to a command hall, a data centre, dormitories, canteens, a hospital and stores, a small town underground. It has its own power plant, water reservoirs and air filtration, so two thousand people could live and work inside for months cut off from the outside world. In normal times it keeps watch alongside the Starport Command Centre, and if that centre is damaged or loses contact, command passes here at once. Its links to the outside run over several fibre routes in different directions and over satellite, so no single break can cut it off. The portals open into the hillside, and in winter dedicated snow clearing equipment keeps them free.
+    in: div_q5h8zp
+    offset_km: [12.73, -6.36]
+    site: { size_m: [1400, 900], layout: bunker, angle_deg: 0 }
+    access_road: true
+    military:
+      unit: { zh: 深空太空军马斯林山备用指挥所, en: Deep Space Force Maslin Mountain Alternate Command Post }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment:
+        zh: 山体内的指挥大厅、数据中心与独立电站、水源，可供两千人连续生活三个月
+        en: A command hall, data centre and its own power and water inside the mountain, enough for 2,000 people for three months
+      personnel: 2400
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_z3t3wk
+    subtype: ground_station
+    status: generated
+    names:
+      zh: 星港深空测控站
+      en: Starport Deep Space Station
+      art-x-viking: Tiefraumstation Sternhafen
+      art-x-buckham: Stazione di Spazio Profondo di Porto Stella
+    notes:
+      zh: 星港深空测控站建在星港区西南的山谷里，四周被群峰的山梁环抱，远离城镇和电台的干扰，是深空太空军与远航航天器保持联系的主要地面站。站内最大的一副天线反射面直径数十米，能接收来自遥远行星际空间的微弱信号；其余五副较小的天线跟踪轨道上的卫星和飞船。火箭从西坪或星港升空后，测控站要在几分钟内捕获目标，接收遥测数据并发送指令；对于飞往深空的探测器，它在此后的数年里一直是地面上倾听它的耳朵。山谷的地形天然屏蔽了电磁干扰，测控站周围数公里划为无线电静默区，禁止使用大功率发射设备。站区还有一座数据处理中心，接收的数据经专用光缆实时传往星港指挥中心。冬季天线面板容易结霜，大天线配有加热系统，保证全年不间断工作。
+      en: Starport Deep Space Station lies in a valley in the south-west of Starport District, ringed by the ridges of the High Peaks and far from the interference of towns and transmitters, and is the Deep Space Force's main ground station for keeping in touch with spacecraft on long voyages. Its largest antenna has a dish tens of metres across that can pick up faint signals from deep interplanetary space, while five smaller antennas track satellites and crewed ships in orbit. When a rocket lifts off from West Heath or Starport the station must acquire it within minutes, receiving telemetry and sending commands, and for a probe bound for deep space it remains the ear on the ground for years afterwards. The valley shields the site from electromagnetic noise, and several kilometres around it are a radio quiet zone where high-power transmitters are banned. A data processing centre on site sends everything it receives over a dedicated fibre line to the Starport command centre in real time. In winter the dish panels frost easily, so the big antenna is heated to keep working all year.
+    in: div_nytsvb
+    offset_km: [-9.19, -4.24]
+    site: { size_m: [2400, 1400], layout: antenna, variant: large, angle_deg: 0 }
+    access_road: true
+    military:
+      unit: { zh: 深空太空军第三测控站, en: "3rd Tracking Station, Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment:
+        zh: 深空测控天线 6 副，其中大口径天线 1 副
+        en: 6 deep-space antennas, including one very large dish
+      personnel: 450
+      access: { zh: 每年航天日向公众开放, en: Open to the public on Space Day each year }
+  - id: poi_211t54
+    subtype: ground_station
+    status: generated
+    names:
+      zh: 和平卫星地面站
+      en: Peace Satellite Ground Station
+      art-x-viking: Satellitenbodenstation Frieden
+      art-x-buckham: Stazione Satellitare di Pace
+    notes:
+      zh: 和平卫星地面站位于和平区北部的平原上，是马斯林山驻军与外界之间的主要卫星通信枢纽。八副天线分别对准不同的通信卫星，承担指挥中心、各基地与领地首府之间的话音、数据和视频传输；当海底光缆或山区线路中断时，这里就是马斯林山与外界最可靠的联系。地面站同时接收气象卫星的云图，为全岛的天气预报和每次发射的气象保障提供资料。站区的天线排成两列，以道路相连，一侧是机房和发电站，备用电源能让设备在停电后独立运行数天。
+      en: Peace Satellite Ground Station, on the plain in the north of Peace District, is the main satellite communications hub between the Maslin Mountain garrison and the outside world. Its eight antennas each point at a different communications satellite, carrying voice, data and video between the command centre, the bases and the territorial capital, and when an undersea cable or a mountain line fails it is Maslin's most dependable link. It also receives cloud images from weather satellites for the island's forecasts and the weather support of every launch. The antennas stand in two rows joined by roads, with the equipment rooms and a power station to one side; the backup supply can keep everything running for days if the grid goes down.
+    in: div_nvrjpg
+    offset_km: [2.83, 12.02]
+    site: { size_m: [1000, 600], layout: antenna, variant: small, angle_deg: 0 }
+    access_road: true
+    military:
+      unit: { zh: 深空太空军卫星通信第 12 站, en: "12th Satellite Communications Station, Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment: { zh: 卫星通信天线 8 副, en: 8 satellite communications antennas }
+      personnel: 300
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_b36nyv
+    subtype: ground_station
+    status: generated
+    names:
+      zh: 西坪量子通信站
+      en: West Heath Quantum Station
+      art-x-viking: Quantenstation Westheide
+      art-x-buckham: Stazione Quantistica di Pianoro Ovest
+    notes:
+      zh: 西坪量子通信站建在西坪区北部一座海拔九百多米的山顶上，是领地第一座量子通信地面站。站内的四座圆顶里装着光学望远镜，夜间对准过顶的量子通信卫星，接收由单个光子携带的密钥。这种密钥一旦被人窃听就会留下痕迹，因此被用来加密指挥中心与各基地之间最重要的通信。山顶空气干净、远离城市灯光，适合光学通信；但云雾天无法工作，所以站内还配有激光通信终端和普通卫星天线作为补充。站区规模很小，常驻的技术人员大多是从深空太空军士官学校毕业的士官。
+      en: West Heath Quantum Station stands on a summit more than 900 m high in the north of West Heath District and was the territory's first quantum communications ground station. Its four domes house optical telescopes that, at night, follow quantum communications satellites overhead and receive encryption keys carried by single photons. Anyone eavesdropping on such a key leaves a trace, so the keys are used to encrypt the most important traffic between the command centre and the bases. The clean air and the distance from city lights suit optical links, but the station cannot work in cloud or fog, so it also has laser communication terminals and ordinary satellite dishes. It is a small station, and most of its resident technicians are NCOs from the Deep Space Force NCO Academy.
+    in: div_nwke3f
+    offset_km: [-12.02, 41.01]
+    site: { size_m: [500, 400], layout: radar, variant: domes, angle_deg: 0 }
+    access_road: true
+    military:
+      unit: { zh: 深空太空军量子通信第一站, en: "1st Quantum Communications Station, Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment:
+        zh: 量子通信光学望远镜 4 台、激光通信终端 2 套
+        en: 4 quantum-link optical telescopes and 2 laser communication terminals
+      personnel: 120
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_fsxvms
+    subtype: observatory
+    status: generated
+    names:
+      zh: 观星峰光学观测站
+      en: Starwatch Peak Optical Station
+      art-x-viking: Optische Station Sternwachtgipfel
+      art-x-buckham: Stazione Ottica di Vetta Stellare
+    notes:
+      zh: 观星峰光学观测站位于全岛最高峰观星峰的峰顶，海拔四千三百多米，是深空太空军观测轨道目标的光学站。峰顶常在云层之上，空气稀薄干燥，夜空极为清澈，望远镜可以拍摄到很暗的卫星和碎片，测定它们的轨道。站内还装有一套卫星激光测距仪，向装有反射器的卫星发射激光脉冲，测量光脉冲往返的时间，把距离精确到厘米，为导航卫星和测地卫星校准轨道。峰顶气候严酷，终年被冰雪包围，值守人员每隔数周轮换一次；站房采用保温密封设计，室内补充氧气，以减轻高山反应。
+      en: Starwatch Peak Optical Station sits on the summit of Starwatch Peak, the island's highest mountain at more than 4,300 m, and is the Deep Space Force's optical station for watching objects in orbit. The summit is often above the clouds and the air is thin and dry, so the night sky is exceptionally clear and the telescopes can image very faint satellites and debris to fix their orbits. The station also has a satellite laser ranging system that fires laser pulses at satellites carrying reflectors and times their return, measuring the distance to the centimetre to calibrate the orbits of navigation and geodesy satellites. Conditions at the top are harsh, with ice and snow all year, and the crew changes every few weeks. The buildings are insulated and sealed, with extra oxygen indoors to ease altitude sickness.
+    in: div_q5h8zp
+    offset_km: [13.4, 15.6]
+    site: { size_m: [400, 300], layout: radar, variant: domes, angle_deg: 0 }
+    military:
+      unit: { zh: 深空太空军空间目标光学观测站, en: "Space Object Optical Observatory, Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment:
+        zh: 光学望远镜 3 台、卫星激光测距仪 1 套
+        en: 3 optical telescopes and a satellite laser ranging system
+      personnel: 60
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_em72p8
+    subtype: laser_station
+    status: generated
+    names:
+      zh: 北冕峰激光站
+      en: Northcrown Laser Station
+      art-x-viking: Laserstation Nordkrone
+      art-x-buckham: Stazione Laser di Corona Nord
+    notes:
+      zh: 北冕峰激光站位于观星峰西北的北冕峰峰顶，海拔四千二百多米，是深空太空军的地基激光试验站。高山上大气稀薄，激光穿过大气时的衰减和抖动都比平地小得多；站内的自适应光学系统还会实时测量大气扰动，用可变形的镜面加以抵消，把光束精确地聚焦到轨道上的目标。激光站的主要任务是与卫星进行激光通信和能量传输试验，也可以用激光轻推小块太空碎片，使其降低轨道、坠入大气层烧毁。每次试验前都要通报航空管理部门，确保光束经过的空域没有飞机。峰顶三面冰斗环抱，站房与观星峰光学观测站同样采用保温密封设计。
+      en: Northcrown Laser Station stands on the summit of Northcrown, north-west of Starwatch Peak, at more than 4,200 m, and is the Deep Space Force's ground-based laser test station. At this height the air is thin, so a laser beam is far less weakened and blurred than at ground level, and the station's adaptive optics measure the turbulence that remains in real time and cancel it with deformable mirrors, focusing the beam precisely on targets in orbit. Its main work is laser communication and power-beaming trials with satellites, and it can also nudge small pieces of space debris with its laser so that they drop into the atmosphere and burn up. Before every trial the aviation authority is notified to make sure no aircraft is in the beam's path. Cirques surround the summit on three sides, and like the Starwatch station its buildings are insulated and sealed.
+    in: div_q5h8zp
+    offset_km: [-2.12, 24.75]
+    site: { size_m: [500, 400], layout: radar, variant: domes, angle_deg: 0 }
+    military:
+      unit: { zh: 深空太空军地基激光试验站, en: "Ground-Based Laser Test Station, Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment:
+        zh: 大功率激光发射望远镜 2 台、自适应光学系统
+        en: 2 high-power laser telescopes with adaptive optics
+      personnel: 90
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_9xzf7s
+    subtype: radar_station
+    status: generated
+    names:
+      zh: 东岭相控阵雷达站
+      en: East Ridge Phased-Array Radar Station
+      art-x-viking: Phased-Array-Radar Ostkamm
+      art-x-buckham: Radar a Schiera di Fase della Cresta Est
+    notes:
+      zh: 东岭相控阵雷达站位于东营区南部的最高山岭上，是深空太空军的空间监视雷达。雷达的天线不是旋转的碟形，而是一面巨大的倾斜墙体，墙上排列着数千个小型收发单元，靠电子方式在瞬间改变波束指向，可以同时跟踪数百个目标。它日夜扫描马斯林山上空的轨道，发现并编目经过的卫星、火箭残骸和碎片，计算它们是否会与在轨航天器相撞；火箭发射时，它全程跟踪火箭飞行，确认各级分离是否正常。雷达耗电量很大，站内建有专用变电站，由东营电网双回路供电。阵面前方划定了电磁辐射防护区，区内不得建房。
+      en: East Ridge Phased-Array Radar Station stands on the highest ridge in the south of East Camp District and is the Deep Space Force's space surveillance radar. Its antenna is not a turning dish but a huge sloping wall set with thousands of small transmit and receive modules that steer the beam electronically in an instant, so it can track hundreds of targets at once. Day and night it sweeps the orbits over Maslin Mountain, finding and cataloguing passing satellites, spent rocket stages and debris and working out whether any of them might hit a spacecraft. During a launch it follows the rocket all the way up, confirming that each stage separates as it should. The radar uses a great deal of power, so the station has its own substation fed by two separate lines from the East Camp grid. The ground in front of the array face is a radiation safety zone where no building is allowed.
+    in: div_tc0ngk
+    offset_km: [3.02, -13.58]
+    site: { size_m: [900, 600], layout: radar, variant: array, angle_deg: 105 }
+    access_road: true
+    military:
+      unit: { zh: 深空太空军空间态势感知第二站, en: "2nd Space Situational Awareness Station, Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment: { zh: 大型相控阵雷达 1 部, en: 1 large phased-array radar }
+      personnel: 400
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_x6a913
+    subtype: factory
+    status: generated
+    names:
+      zh: 西坪火箭总装厂
+      en: West Heath Rocket Assembly Plant
+      art-x-viking: Raketenendmontage Westheide
+      art-x-buckham: Stabilimento di Assemblaggio Razzi di Pianoro Ovest
+    notes:
+      zh: 西坪火箭总装厂位于发射与降落中心东侧数公里处，是马斯林山最大的工厂，负责重型运载火箭的总装和测试。火箭的各级箭体、发动机和整流罩由铁路运进厂区，先在三座长长的对接厂房里水平组装，检查管路和电缆，再吊进高耸的垂直总装厂房，竖立起来与有效载荷对接，完成整箭测试。垂直总装厂房是西坪高原上最醒目的建筑，几十公里外都能看到。总装好的火箭由专用运输平台沿加固的道路缓缓运往发射台，路面的承重和转弯半径都按火箭的重量和长度设计。工厂紧邻马斯林山航天铁路，铁路专用线直通厂内；附近还有推进剂厂和飞船整修厂，共同组成西坪航天产业区。总装厂的技术工人大多住在西坪城区，西坪也因此成为马斯林山人口增长最快的区。
+      en: The West Heath Rocket Assembly Plant, a few kilometres east of the launch and landing centre, is Maslin Mountain's largest factory and assembles and tests heavy launch vehicles. Rocket stages, engines and fairings arrive by rail and are first joined horizontally in three long integration halls, where the pipework and cabling are checked. Each rocket is then lifted into the towering vertical assembly building, stood upright, mated with its payload and tested as a whole. The vertical assembly building is the most striking structure on the West Heath plateau, visible tens of kilometres away. Finished rockets travel slowly to the pads on a dedicated transporter along a reinforced road whose strength and curves were designed around the rockets' weight and length. The plant sits beside the Maslin Mountain Aerospace Railway, with a siding running straight inside, and together with the propellant plant and the spacecraft refurbishment plant nearby it forms the West Heath space industry zone. Most of its skilled workers live in West Heath, which has become Maslin Mountain's fastest-growing district.
+    in: div_nwke3f
+    offset_km: [10.61, 0.0]
+    site: { size_m: [2400, 1400], layout: plant, variant: assembly, angle_deg: 30 }
+    access_road: true
+    military:
+      unit: { zh: 深空太空军装备部第 801 总装厂, en: "Plant 801 (Final Assembly), Equipment Department, Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment:
+        zh: 垂直总装厂房 1 座、箭体对接厂房 3 座、铁路专用线 1 条
+        en: 1 vertical assembly building, 3 stage integration halls and a rail siding
+      personnel: 5200
+      access: { zh: 每年航天日组织预约参观, en: Guided visits by appointment on Space Day each year }
+  - id: poi_jfpwb6
+    subtype: factory
+    status: generated
+    names:
+      zh: 西坪推进剂厂
+      en: West Heath Propellant Plant
+      art-x-viking: Treibstoffwerk Westheide
+      art-x-buckham: Impianto Propellenti di Pianoro Ovest
+    notes:
+      zh: 西坪推进剂厂位于发射与降落中心南面，生产火箭使用的液氢和液氧。空气分离装置把空气冷却到极低温度，分离出液氧；电解水得到的氢气则在液化装置中冷却成液氢。两种推进剂储存在厂区一排排保温储罐和球罐里，发射前由专用槽车和管道输往发射台，也供应星港的发动机试车台。液氢极易挥发、遇火即燃，工厂与城镇和其他设施保持着足够的安全距离，厂区内严禁明火，所有设备都按防爆标准设计。工厂用电很大一部分来自高原上的风电场，制氢过程几乎不排放温室气体。
+      en: The West Heath Propellant Plant, south of the launch and landing centre, makes the liquid hydrogen and liquid oxygen that the rockets burn. Air separation units chill air until the oxygen can be drawn off as a liquid, while hydrogen from the electrolysis of water is cooled to a liquid in a liquefier. Both are stored in rows of insulated tanks and spheres and sent to the pads by tanker and pipeline before each launch; the plant also supplies the engine test stands at Starport. Liquid hydrogen evaporates easily and burns at the slightest spark, so the plant keeps a wide safety distance from towns and other facilities, open flames are banned throughout, and all its equipment is built to explosion-proof standards. Much of its electricity comes from the wind farms on the plateau, so making the hydrogen releases almost no greenhouse gases.
+    in: div_nwke3f
+    offset_km: [4.24, -9.19]
+    site: { size_m: [1600, 1000], layout: plant, variant: propellant, angle_deg: 30 }
+    access_road: true
+    military:
+      unit: { zh: 深空太空军第 802 推进剂厂, en: "Plant 802 (Propellants), Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment:
+        zh: 液氢液氧生产线 2 条、低温储罐 20 座
+        en: 2 liquid hydrogen and oxygen production lines and 20 cryogenic tanks
+      personnel: 900
+      access: { zh: 不对外开放, en: Closed to the public }
+  - id: poi_gttgzg
+    subtype: factory
+    status: generated
+    names:
+      zh: 西坪飞船整修厂
+      en: West Heath Spacecraft Refurbishment Plant
+      art-x-viking: Raumschiffwerft Westheide
+      art-x-buckham: Officina Veicoli Spaziali di Pianoro Ovest
+    notes:
+      zh: 西坪飞船整修厂位于发射与降落中心北面，负责可重复使用航天器的检修和翻新。在降落台回收的火箭助推级、从轨道返回的飞船和空天飞机，都会被送进这里宽大的机库，拆下发动机，检查箭体结构和隔热层，更换受损的零部件，再重新测试。经过整修，同一枚助推级和同一艘飞船可以重复飞行十几次，大大降低了发射成本。整修厂还承担在轨服务飞行器的总装：这类飞行器上天后能为卫星加注推进剂、更换模块，延长卫星的寿命。厂区与总装厂、推进剂厂之间以厂区道路和铁路专用线相连。
+      en: The West Heath Spacecraft Refurbishment Plant, north of the launch and landing centre, inspects and refurbishes reusable spacecraft. Booster stages recovered on the landing pads, ships back from orbit and spaceplanes all come into its wide hangars, where their engines are removed, their structures and heat shields checked and damaged parts replaced before everything is tested again. With this work the same booster or ship can fly a dozen times or more, which greatly lowers the cost of a launch. The plant also builds orbital servicing craft, which refuel satellites and swap their modules in orbit to extend their working lives. Plant roads and a rail siding join it to the assembly and propellant plants.
+    in: div_nwke3f
+    offset_km: [5.01, 8.89]
+    site: { size_m: [1800, 1200], layout: plant, variant: hangar, angle_deg: 45 }
+    access_road: true
+    military:
+      unit: { zh: 深空太空军第 804 修理厂, en: "Plant 804 (Spacecraft Refurbishment), Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment:
+        zh: 大型整修机库 3 座、隔热层检测线 1 条
+        en: 3 large refurbishment hangars and a heat-shield inspection line
+      personnel: 2400
+      access: { zh: 不对外开放, en: Closed to the public }
+  - id: poi_qjektd
+    subtype: test_site
+    status: generated
+    names:
+      zh: 西坪风洞群
+      en: West Heath Wind Tunnels
+      art-x-viking: Windkanäle Westheide
+      art-x-buckham: Gallerie del Vento di Pianoro Ovest
+    notes:
+      zh: 西坪风洞群位于西坪区西部的高原上，是研究高超声速飞行的试验基地。长长的风洞管道横卧在厂区里，一端是巨大的高压储气罐和真空球罐；试验时高压气体冲过喷管，在几毫秒到几秒内加速到声速的十几倍，吹过固定在试验段里的模型，传感器和高速摄像机记录下模型表面的压力、温度和激波形态。空天飞机、返回舱和电磁发射滑车的气动外形都在这里反复试验。电弧加热风洞能产生数千摄氏度的高温气流，用来考验隔热材料能否承受返回大气层时的灼烧。风洞运行时耗电极大，试验通常安排在夜间用电低谷进行。
+      en: The West Heath Wind Tunnels, on the plateau in the west of West Heath District, are a test centre for hypersonic flight. Long tunnel tubes lie across the site with huge high-pressure tanks and vacuum spheres at their ends. In a run, high-pressure gas bursts through a nozzle and reaches more than ten times the speed of sound within milliseconds to seconds, flowing over a model held in the test section while sensors and high-speed cameras record the pressure, heat and shock waves on its surface. The shapes of the spaceplanes, the return capsules and the electromagnetic launch sleds have all been tested here over and over. An arc-heated tunnel makes gas thousands of degrees hot to see whether heat-shield materials can survive the fire of re-entry. The tunnels draw enormous power, so runs are usually scheduled at night when demand on the grid is low.
+    in: div_nwke3f
+    offset_km: [-16.97, 1.41]
+    site: { size_m: [2200, 1000], layout: plant, variant: tunnel, angle_deg: 60 }
+    access_road: true
+    military:
+      unit: { zh: 深空太空军气动研究中心, en: "Aerodynamics Research Centre, Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment:
+        zh: 高超声速风洞 3 座、电弧加热风洞 1 座
+        en: 3 hypersonic wind tunnels and 1 arc-heated tunnel
+      personnel: 700
+      access: { zh: 不对外开放, en: Closed to the public }
+  - id: poi_6tvqdn
+    subtype: test_site
+    status: generated
+    names:
+      zh: 星港发动机试车台
+      en: Starport Engine Test Stands
+      art-x-viking: Triebwerksprüfstände Sternhafen
+      art-x-buckham: Banchi Prova Motori di Porto Stella
+    notes:
+      zh: 星港发动机试车台建在星港区南部群峰脚下的一处山谷里，三座高大的钢架试车台背靠山坡，发动机固定在架子上点火，火焰冲进下方的导流槽，被大量喷水冷却后沿山谷排出。每台新发动机在装上火箭之前都要在这里点火，长时间满功率运转，确认推力、温度和振动都在规定范围内。试车时轰鸣声在山谷中回荡，数公里外都能感到地面震动，所以试车台选在远离城镇的山谷，控制室建在安全距离以外的掩体里。试车所用的液氢液氧由西坪推进剂厂用槽车运来，储存在试车台旁的储罐中。
+      en: The Starport Engine Test Stands are in a valley at the foot of the High Peaks in the south of Starport District. Three tall steel stands back onto the hillside, each holding an engine that fires down into a flame trench, where the exhaust is cooled by floods of water and carried away down the valley. Every new engine is fired here before it goes on a rocket, running at full power for a long time to confirm that its thrust, temperatures and vibration stay within limits. A firing roars around the valley and shakes the ground kilometres away, which is why the stands are in a valley far from any town and the control room is in a bunker at a safe distance. The liquid hydrogen and oxygen they burn come by tanker from the West Heath Propellant Plant and are stored in tanks beside the stands.
+    in: div_nytsvb
+    offset_km: [-2.83, -16.97]
+    site: { size_m: [1600, 1000], layout: test_stand, angle_deg: 180 }
+    access_road: true
+    military:
+      unit: { zh: 深空太空军第 803 试验站, en: "Test Station 803, Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment: { zh: 大型液体火箭发动机试车台 3 座, en: 3 large liquid rocket engine test stands }
+      personnel: 600
+      access:
+        zh: 不对外开放；试车时周边道路临时封闭
+        en: Closed to the public; nearby roads close during firings
+  - id: poi_1e99xq
+    subtype: air_base
+    status: generated
+    names:
+      zh: 雪谷空天飞机基地
+      en: Snow Valley Spaceplane Base
+      art-x-viking: Raumflugzeugbasis Schneetal
+      art-x-buckham: Base Spazioplani di Valle Neve
+    notes:
+      zh: 雪谷空天飞机基地位于雪谷区东部平坦的谷底，拥有马斯林山最长的跑道，长五千多米，专为空天飞机起降而建。空天飞机像普通飞机一样从跑道起飞，借助运载母机或自身的发动机爬升到高空，再点燃火箭发动机进入轨道，完成任务后滑翔返回，降落在同一条跑道上。返航的空天飞机速度很快，又没有动力，只有一次着陆机会，因此跑道又长又宽，两端还留有很长的安全区；跑道上的融雪系统和全天候着陆引导设备保证冬季也能使用。着陆后，空天飞机被拖进大型机库，检查隔热层、加注推进剂，几周后就能再次飞行；需要大修时，再经公路送往西坪的飞船整修厂。基地与西侧的雪谷空军基地相邻，两者共用油库和消防力量，并经马斯林山空天高速与城区相连。
+      en: The Snow Valley Spaceplane Base lies on the flat valley floor in the east of Snow Valley District and has the longest runway at Maslin Mountain, more than 5 km, built for spaceplanes. A spaceplane takes off from the runway like an ordinary aircraft, climbs high on a carrier aircraft or its own engines, then lights its rocket engines to reach orbit, and when its mission is done it glides home to land on the same runway. A returning spaceplane is fast and unpowered and has only one chance to land, so the runway is long and wide with long safety areas at both ends, and snow melting and all-weather landing guidance keep it usable in winter. After landing the spaceplane is towed into a large hangar where its heat shield is inspected and it is refuelled, ready to fly again within weeks; for a major overhaul it goes by road to the refurbishment plant at West Heath. The base adjoins Snow Valley Air Base to the west, sharing its fuel farm and fire service, and the Maslin Aerospace Expressway links both to the city.
+    in: div_0tsyzy
+    offset_km: [19.09, -3.54]
+    site: { size_m: [6000, 1400], layout: airbase, variant: heavy, angle_deg: 90 }
+    military:
+      unit: { zh: 深空太空军空天飞行第一联队, en: "1st Spaceplane Wing, Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment:
+        zh: 可重复使用空天飞机 4 架、运载母机 2 架
+        en: 4 reusable spaceplanes and 2 carrier aircraft
+      personnel: 2600
+      access:
+        zh: 不对外开放；空天飞机返航时可在基地外的观景台观看
+        en: Closed to the public; returning spaceplanes can be watched from a viewing area outside the gate
+  - id: poi_1403nv
+    subtype: training_centre
+    status: generated
+    names:
+      zh: 和平航天员训练中心
+      en: Peace Astronaut Training Centre
+      art-x-viking: Raumfahrerzentrum Frieden
+      art-x-buckham: Centro Addestramento Astronauti di Pace
+    notes:
+      zh: 和平航天员训练中心位于和平区南部，负责航天员的选拔和训练。圆形的离心机大厅里，长长的转臂带着座舱高速旋转，让航天员体验火箭上升和返回时数倍于体重的过载；巨大的中性浮力水池里沉放着空间站和飞船的等大模型，航天员穿上航天服在水下练习出舱作业。模拟器大厅里有各型飞船和空天飞机的驾驶舱模拟器，航天员在这里反复演练从发射到着陆的每一个步骤。马斯林山的雪原和群峰也是天然的训练场，航天员要在这里进行冬季野外生存训练，以应对返回舱落在荒野的情况。
+      en: The Peace Astronaut Training Centre, in the south of Peace District, selects and trains astronauts. In the round centrifuge hall a long arm swings a cabin at high speed so that astronauts feel the many times their body weight they will meet during launch and re-entry. A huge neutral buoyancy pool holds full-size models of a space station and spacecraft, where astronauts in pressure suits practise spacewalks underwater. The simulator hall has cockpit simulators of every ship and spaceplane, in which crews rehearse each step from launch to landing again and again. Maslin Mountain's snowfields and peaks are a training ground too, where astronauts learn to survive in the winter wild in case a capsule comes down far from help.
+    in: div_nvrjpg
+    offset_km: [-2.12, -8.49]
+    site: { size_m: [1200, 800], layout: camp, variant: training, angle_deg: 15 }
+    access_road: true
+    military:
+      unit: { zh: 深空太空军航天员训练中心, en: "Astronaut Training Centre, Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment:
+        zh: 载人离心机 1 台、中性浮力水池 1 座、飞船模拟器 6 台
+        en: 1 human centrifuge, 1 neutral buoyancy pool and 6 spacecraft simulators
+      personnel: 900
+      access: { zh: 每年航天日开放部分场馆, en: Some halls open to the public on Space Day }
+  - id: poi_s0e4tf
+    subtype: launch_track
+    status: generated
+    names:
+      zh: 群峰电磁发射场
+      en: High Peaks Electromagnetic Launcher
+      art-x-viking: Elektromagnetische Startbahn Gipfel
+      art-x-buckham: Lanciatore Elettromagnetico delle Vette
+    notes:
+      zh: 群峰电磁发射场是马斯林山最引人注目的未来设施：一条长约三十公里的电磁导轨，从群峰训练管理区南缘的山麓起步，沿着山坡一路向北爬升，出口海拔将近两千米。导轨的原理与磁悬浮列车相似，载着小型运载火箭或货运舱的滑车在强大磁场的推动下悬浮加速，离开导轨时速度已达声速的数倍，再由火箭发动机接力送入轨道。火箭因此可以省下大量推进剂，向轨道运送补给和小卫星的成本大大降低。导轨起点设有装载站和储能电站，发射前储能装置用数小时蓄满电能，再在几十秒内一次释放；沿线每隔一段设有维护站。出口建在高处，是为了让滑车离开导轨时周围空气已较为稀薄，减少阻力和发热。发射时滑车划过山坡的呼啸声，远在雪谷都能听到。
+      en: The High Peaks Electromagnetic Launcher is the most remarkable of Maslin Mountain's new facilities, an electromagnetic guideway about 30 km long that starts in the foothills on the southern edge of the High Peaks Training Area and climbs north up the mountainside to an exit nearly 2,000 m high. It works much like a maglev train. A sled carrying a small launch vehicle or cargo pod floats on a powerful magnetic field and is driven faster and faster until it leaves the guideway at several times the speed of sound, when a rocket engine takes over and carries it into orbit. The rocket needs far less propellant this way, which makes sending supplies and small satellites to orbit much cheaper. At the foot of the guideway are the loading terminal and an energy storage power station that charges for hours before a launch and releases it all within tens of seconds, and maintenance stations stand at intervals along the line. The exit is high up so that the sled leaves the guideway in thinner air, with less drag and heating. When a sled flies, its roar up the mountainside can be heard as far away as Snow Valley.
+    in: div_q5h8zp
+    offset_km: [-7.07, -13.99]
+    site: { size_m: [30000, 1500], layout: launch_track, angle_deg: 90 }
+    access_road: true
+    military:
+      unit: { zh: 深空太空军电磁发射试验中心, en: "Electromagnetic Launch Test Centre, Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment:
+        zh: 电磁导轨约 29 公里、储能电站 1 座、装载站 1 座
+        en: About 29 km of electromagnetic guideway, an energy storage power station and a loading terminal
+      personnel: 1300
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_ncp61s
+    subtype: missile_site
+    status: generated
+    names:
+      zh: 群峰拦截弹阵地
+      en: High Peaks Interceptor Field
+      art-x-viking: Abfangraketenfeld Gipfel
+      art-x-buckham: Campo Intercettori delle Vette
+    notes:
+      zh: 群峰拦截弹阵地位于群峰训练管理区西部的山坡上，是保卫马斯林山发射中心、指挥中心乃至整个北维京岛的反导阵地。二十座发射井按网格排列，以检修道路相连，井盖平时紧闭，地面上只能看到一排排圆形井口。井中竖立着拦截弹，接到东岭相控阵雷达和预警卫星发来的目标数据后，可在数分钟内发射，在大气层外拦截来袭目标。阵地选在山坡上，周围的山体能遮挡来自侧面的冲击；支援区设在阵地下方，经西岭公路与西坪相连。冬季阵地要定期除雪，确保井盖随时可以开启。
+      en: The High Peaks Interceptor Field lies on a mountainside in the west of the High Peaks Training Area and is the missile defence site protecting Maslin Mountain's launch and command centres and the whole of North Viking Island. Twenty silos stand in a grid joined by service roads; their lids stay shut, so from the ground there is little to see but rows of round hatches. Each silo holds an interceptor that can launch within minutes of receiving target data from the East Ridge phased-array radar and warning satellites, meeting incoming threats above the atmosphere. The mountainside site lets the surrounding slopes shield it from blasts from the side, and its support area lies below the silos on the West Ridge Highway to West Heath. In winter the site is cleared of snow regularly so that the lids can open at any moment.
+    in: div_q5h8zp
+    offset_km: [-24.75, -1.41]
+    site: { size_m: [2500, 1800], layout: silo, angle_deg: 120 }
+    military:
+      unit: { zh: 深空太空军反导拦截第五旅, en: "5th Missile Defence Brigade, Deep Space Force" }
+      branch: { zh: 深空太空军, en: Deep Space Force }
+      equipment: { zh: 拦截弹发射井 20 座, en: 20 interceptor silos }
+      personnel: 500
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+
+  # ── 马斯林山军事与航天设施（M25）：陆军与联勤 ──
+  - id: poi_e9jwd7
+    subtype: military_base
+    status: generated
+    names:
+      zh: 雪谷营区
+      en: Snow Valley Garrison
+      art-x-viking: Garnison Schneetal
+      art-x-buckham: Guarnigione di Valle Neve
+    notes:
+      zh: 雪谷营区是解放军马斯林山联合训练基地的本部，也是马斯林山最大的陆军营区。营区内一排排营房围绕着中央的阅兵场，四周是车场、仓库、室内训练馆和模拟训练中心。来自各地的部队轮流到这里驻训数月，在雪谷装甲训练场、群峰寒区训练场和群峰空军靶场与空军、深空太空军进行联合演练。马斯林山冬季漫长、地形复杂，从平原、高原到冰川应有尽有，部队可以在一次演习中经历多种环境。基地还负责发射中心外围的地面警戒和航天器落区的搜救保障：返回舱一旦偏离预定落点，营区的越野车队会同和平直升机场的陆航部队第一时间出动。官兵家属大多住在雪谷城区，营区的商店、学校和体育馆也向当地居民开放。
+      en: Snow Valley Garrison is the headquarters of the PLA Maslin Mountain Joint Training Base and the largest army garrison at Maslin Mountain. Rows of barracks surround a central parade ground, with motor pools, stores, indoor training halls and a simulation centre around them. Units from across the territory rotate through for months at a time, exercising with the Air Force and the Deep Space Force at the Snow Valley armour range, the High Peaks cold-weather ground and the High Peaks air weapons range. Maslin Mountain has long winters and every kind of ground from plain and plateau to glacier, so a single exercise can take troops through many environments. The base also guards the outer perimeter of the launch centre and supports search and rescue in the landing zones, and if a return capsule comes down off target its cross-country convoys set out at once with the army aviation crews from Peace Heliport. Most service families live in the town of Snow Valley, and the garrison's shops, school and sports hall are open to local people too.
+    in: div_0tsyzy
+    offset_km: [6.41, -7.05]
+    site: { size_m: [1600, 1100], layout: camp, variant: barracks, angle_deg: 30 }
+    access_road: true
+    military:
+      unit: { zh: 解放军马斯林山联合训练基地, en: PLA Maslin Mountain Joint Training Base }
+      branch: { zh: 陆军, en: Army }
+      equipment:
+        zh: 合成营营房与车场、室内训练馆、模拟训练中心
+        en: Barracks and motor pools for combined-arms battalions, indoor training halls and a simulation centre
+      personnel: 6000
+      access: { zh: 每年开放日向公众开放部分区域, en: Parts open to the public on the annual open day }
+  - id: poi_rmf9wx
+    subtype: training_range
+    status: generated
+    names:
+      zh: 群峰寒区训练场
+      en: High Peaks Cold-Weather Training Ground
+      art-x-viking: Kälteübungsplatz Gipfel
+      art-x-buckham: Campo Addestramento Invernale delle Vette
+    notes:
+      zh: 群峰寒区训练场位于群峰训练管理区西部海拔一千七百米左右的高山上，冬季积雪可达数米深，是陆军进行寒区作战训练的场所。士兵在这里学习滑雪机动，在雪地中构筑工事，在零下数十度的严寒中生存和战斗；营地里的小木屋供训练间隙取暖休整。训练场也为航天员和空军飞行员提供冬季野外生存训练，模拟返回舱或飞机在雪原上迫降后的自救。夏季积雪融化后，这里改为高原适应和山地攀登训练。训练场经西岭公路与西坪相连，冬季公路由驻训部队负责除雪。
+      en: The High Peaks Cold-Weather Training Ground lies about 1,700 m up in the west of the High Peaks Training Area, where winter snow can be several metres deep, and is where the army trains for cold-weather warfare. Soldiers learn to move on skis, dig defences in the snow, and survive and fight at tens of degrees below zero, warming up between sessions in the camp's log huts. Astronauts and air force pilots come here for winter survival training too, rehearsing what to do after a capsule or aircraft comes down on a snowfield. When the snow melts in summer the ground is used for altitude acclimatisation and mountaineering. The West Ridge Highway links it to West Heath, and in winter the troops in training keep the road clear themselves.
+    in: div_q5h8zp
+    offset_km: [-28.99, 5.66]
+    site: { size_m: [3000, 2000], layout: range, variant: cold, angle_deg: 0 }
+    military:
+      unit: { zh: 陆军寒区训练中心, en: Army Cold-Weather Training Centre }
+      branch: { zh: 陆军, en: Army }
+      equipment:
+        zh: 滑雪训练道、雪地战术训练区、野外生存营地
+        en: Ski training runs, snow tactics areas and survival camps
+      personnel: 700
+      access: { zh: 训练期间封闭, en: Closed during training }
+  - id: poi_6pdsh9
+    subtype: training_range
+    status: generated
+    names:
+      zh: 雪谷装甲训练场
+      en: Snow Valley Armour Range
+      art-x-viking: Panzerübungsplatz Schneetal
+      art-x-buckham: Poligono Corazzati di Valle Neve
+    notes:
+      zh: 雪谷装甲训练场位于雪谷区西北部的开阔谷地，是马斯林山唯一的装甲兵训练场。场内一圈圈坦克环道穿过丘陵、壕沟、水坑和雪地，驾驶员在这里练习各种地形下的驾驶；射击阵地正对着远处的靶区，坦克和步兵战车在行进中射击移动靶。训练场一角还有一片模拟街区，用来训练装甲部队与步兵协同作战。冬季冻土坚硬、积雪很厚，是检验车辆寒区性能的最好时机，许多新型车辆都在这里完成寒区试验。训练场边缘的营区由合成旅驻守，平时与雪谷营区共用后勤保障。
+      en: The Snow Valley Armour Range lies in an open valley in the north-west of Snow Valley District and is Maslin Mountain's only armour training range. Loop after loop of tank track runs through hills, ditches, water splashes and snow, where drivers learn to handle every kind of ground. From the firing points tanks and infantry fighting vehicles shoot on the move at moving targets in the impact area beyond. In one corner a mock town is used to train armour and infantry to fight together. In winter the frozen ground is hard and the snow deep, the best time to prove vehicles in the cold, and many new vehicles have finished their cold-weather trials here. A brigade camp on the edge of the range shares its logistics with Snow Valley Garrison.
+    in: div_0tsyzy
+    offset_km: [-11.78, 5.22]
+    site: { size_m: [6000, 4000], layout: range, variant: armor, angle_deg: 30 }
+    access_road: true
+    military:
+      unit: { zh: 陆军合成第 34 旅装甲训练场, en: "Armour Training Range, 34th Combined Arms Brigade, Army" }
+      branch: { zh: 陆军, en: Army }
+      equipment:
+        zh: 坦克训练环道、射击阵地 12 处、模拟街区 1 片
+        en: Tank training circuits, 12 firing points and a mock town
+      personnel: 900
+      access:
+        zh: 演训期间封闭，周边道路临时管制
+        en: Closed during exercises, with nearby roads under temporary control
+  - id: poi_f5nggh
+    subtype: heliport
+    status: generated
+    names:
+      zh: 和平直升机场
+      en: Peace Heliport
+      art-x-viking: Hubschrauberplatz Frieden
+      art-x-buckham: Eliporto di Pace
+    notes:
+      zh: 和平直升机场位于和平区北部，是陆军航空兵在马斯林山的基地。两排直升机停机坪整齐排列，后面是机库、维修车间和塔台。运输直升机承担部队在山区的快速机动和物资补给，可以把人员和装备直接送到高山上的站点；武装直升机则与雪谷的装甲部队协同训练。机场常备救援直升机，负责返回舱的搜索和回收，以及山区演训和民间登山事故的紧急救援。冬季山区风雪大，直升机只能在严格的气象条件下飞行，机库内配有暖气和除冰设备。飞行员还要定期在群峰的高海拔起降场练习山地起降，适应稀薄空气中的操纵。
+      en: Peace Heliport, in the north of Peace District, is the army aviation base at Maslin Mountain. Two rows of helipads stand in neat lines in front of the hangars, workshops and tower. Transport helicopters move troops and supplies quickly around the mountains and can set people and equipment down at stations high in the peaks, while attack helicopters train alongside the armoured units in Snow Valley. Rescue helicopters are kept on standby to search for and recover return capsules and to answer emergencies on exercises and civilian climbing accidents. Winter brings strong winds and snow to the mountains, so flying is allowed only within strict weather limits, and the hangars are heated and fitted for de-icing. Pilots also practise mountain landings regularly at high landing sites in the High Peaks to learn to fly in thin air.
+    in: div_nvrjpg
+    offset_km: [2.12, 9.19]
+    site: { size_m: [1200, 700], layout: heliport, angle_deg: 0 }
+    access_road: true
+    military:
+      unit: { zh: 陆军航空兵第 15 旅, en: 15th Army Aviation Brigade }
+      branch: { zh: 陆军, en: Army }
+      equipment:
+        zh: 运输直升机 16 架、武装直升机 12 架、救援直升机 4 架
+        en: 16 transport, 12 attack and 4 rescue helicopters
+      personnel: 1100
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_8xze08
+    subtype: depot
+    status: generated
+    names:
+      zh: 东营后勤基地
+      en: East Camp Supply Depot
+      art-x-viking: Versorgungsdepot Ostlager
+      art-x-buckham: Deposito Logistico di Campo Est
+    notes:
+      zh: 东营后勤基地位于东营区北部，是马斯林山各驻军单位的物资供应中心。经马斯林河口港和铁路运来的燃料、弹药、食品、被装和零部件，先集中存放在这里成排的仓库里，再由卡车队分送到各个基地和站点。基地有铁路专用线，货运列车可以直接开进库区装卸；冬季公路积雪时，库存的物资足够马斯林山驻军维持数月。每年入冬前，基地还要为高山站点囤积燃料和食品，确保它们在大雪封山期间正常运转。基地的车队也承担民用救灾物资的运输，暴雪成灾时常为周边村镇送去燃料和食品。
+      en: The East Camp Supply Depot, in the north of East Camp District, is the supply centre for every unit at Maslin Mountain. Fuel, ammunition, food, clothing and spare parts arriving through Maslin Mouth Port and by rail are gathered in its rows of warehouses and sent on by truck convoy to the bases and stations. A rail siding lets freight trains run right into the depot to load and unload, and when snow blocks the roads in winter its stocks can keep the garrison going for months. Before each winter it also stocks the mountain stations with fuel and food so they keep working while snow closes the passes. Its convoys carry civilian relief supplies too, often taking fuel and food to nearby towns and villages when blizzards strike.
+    in: div_tc0ngk
+    offset_km: [2.87, 11.36]
+    site: { size_m: [2000, 1200], layout: plant, variant: depot, angle_deg: 75 }
+    access_road: true
+    military:
+      unit: { zh: 联勤保障部队马斯林山供应站, en: "Maslin Mountain Supply Station, Joint Logistic Support Force" }
+      branch: { zh: 联勤保障部队, en: Joint Logistic Support Force }
+      equipment:
+        zh: 仓库 18 座、油料库 1 座、铁路专用线 1 条
+        en: 18 warehouses, a fuel depot and a rail siding
+      personnel: 1800
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_esz4d7
+    subtype: hospital
+    status: generated
+    names:
+      zh: 马斯林山军医院
+      en: Maslin Mountain Military Hospital
+      art-x-viking: Militärkrankenhaus Maslinberg
+      art-x-buckham: Ospedale Militare di Maslin Tehee
+    notes:
+      zh: 马斯林山军医院位于和平区城区西北侧，是马斯林山规模最大的医院，既为驻军服务，也向地方居民开放。医院除普通科室外，还设有航天医学、高原医学和冻伤等特色科室：航天员每次飞行前后都在这里体检和康复，高山站点和寒区训练的伤病员也送到这里救治。医院院内设有直升机停机坪，急救直升机可以把山区的病人直接送进急诊。随着马斯林山人口增长，医院也承担了城区大部分的专科诊疗，许多居民不必再远赴首府看病。医院还与飞行学院和航天员训练中心合作开展航空航天医学研究。
+      en: Maslin Mountain Military Hospital, on the north-western edge of the town in Peace District, is the largest hospital at Maslin Mountain, serving the garrison and open to local residents. Besides the usual departments it specialises in aerospace medicine, altitude medicine and frostbite. Astronauts have their check-ups and recovery here before and after every flight, and the sick and injured from the mountain stations and cold-weather training are brought here for treatment. A helipad in the grounds lets air ambulances fly patients from the mountains straight to the emergency department. As Maslin Mountain has grown, the hospital has also taken on most of the city's specialist care, so many residents no longer travel to the capital for treatment. It also carries out aerospace medical research with the flight academy and the astronaut training centre.
+    in: div_nvrjpg
+    offset_km: [-3.54, 5.66]
+    site: { size_m: [600, 400], layout: camp, variant: hospital, angle_deg: 0 }
+    access_road: true
+    military:
+      unit: { zh: 解放军第 977 医院, en: PLA Hospital 977 }
+      branch: { zh: 联勤保障部队, en: Joint Logistic Support Force }
+      equipment:
+        zh: 床位 600 张，设航天医学、高原医学与冻伤专科
+        en: 600 beds, with aerospace medicine, altitude medicine and frostbite departments
+      personnel: 1400
+      access: { zh: 对军人和地方居民开放就诊, en: Open to service members and local residents }

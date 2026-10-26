@@ -832,15 +832,15 @@ divisions:
   codes:
     admin: '901100'
     unlocode: NV MSL
-  population: 90000
+  population: 180000
   area_km2: 27000.0
   color: '#9A8F7E'
   emblem:
     motif: basin
     pattern: contours
   notes:
-    zh: 复杂山区，东部为平地，其他三面被高山环绕。军事训练区
-    en: 'Complex mountain terrain: flat land to the east, high mountains on the other three sides. Military training area.'
+    zh: 复杂山区，东部为平地，其他三面被高山环绕。空军、深空太空军与陆军在此驻有三十多处基地与设施
+    en: 'Complex mountain terrain: flat land to the east, high mountains on the other three sides. The Air Force, the Deep Space Force and the Army have more than thirty bases and facilities here.'
 - id: div_nvrjpg
   subtype: borough
   parent: div_rdypg7
@@ -852,11 +852,11 @@ divisions:
     art-x-buckham: Pace
   codes:
     admin: '901101'
-  population: 20600
+  population: 46000
   area_km2: 4300.0
   notes:
-    zh: 领地维和部队指挥部驻地
-    en: Headquarters of the Territorial Peacekeeping Force.
+    zh: 领地维和部队指挥部驻地，另有飞行学院、航天员训练中心与军医院
+    en: Headquarters of the Territorial Peacekeeping Force, with the flight academy, the astronaut training centre and the military hospital.
 - id: div_nytsvb
   subtype: borough
   parent: div_rdypg7
@@ -868,11 +868,11 @@ divisions:
     art-x-buckham: Porto Stella
   codes:
     admin: '901102'
-  population: 17600
+  population: 32000
   area_km2: 4300.0
   notes:
-    zh: 深空太空军马斯林山指挥中心
-    en: Deep Space Force Maslin Mountain Command Centre.
+    zh: 深空太空军马斯林山指挥中心驻地，另有深空测控站、无人机基地与发动机试车台
+    en: Home of the Deep Space Force Maslin Mountain Command Centre, with the deep space station, the drone base and the engine test stands.
 - id: div_tc0ngk
   subtype: borough
   parent: div_rdypg7
@@ -884,11 +884,11 @@ divisions:
     art-x-buckham: Campo Est
   codes:
     admin: '901103'
-  population: 15000
+  population: 30000
   area_km2: 4700.0
   notes:
-    zh: 深空太空军士官学校
-    en: Deep Space Force NCO Academy.
+    zh: 深空太空军士官学校所在地，另有东营空军基地、航空修理厂与后勤基地
+    en: Home of the Deep Space Force NCO Academy, with East Camp Air Base, the aircraft repair plant and the supply depot.
 - id: div_nwke3f
   subtype: borough
   parent: div_rdypg7
@@ -900,11 +900,11 @@ divisions:
     art-x-buckham: Pianoro Ovest
   codes:
     admin: '901104'
-  population: 18600
+  population: 36000
   area_km2: 4200.0
   notes:
-    zh: 维京-马斯林山发射与降落中心
-    en: Viking–Maslin Mountain Launch and Landing Centre.
+    zh: 维京-马斯林山发射与降落中心所在地，周边是火箭总装、推进剂、飞船整修与风洞组成的航天产业区
+    en: Home of the Viking–Maslin Mountain Launch and Landing Centre, surrounded by a space industry zone of rocket assembly, propellant, spacecraft refurbishment and wind tunnels.
 - id: div_0tsyzy
   subtype: borough
   parent: div_rdypg7
@@ -916,11 +916,11 @@ divisions:
     art-x-buckham: Valle Neve
   codes:
     admin: '901105'
-  population: 17000
+  population: 28000
   area_km2: 3300.0
   notes:
-    zh: 终年积雪的高山谷地。解放军马斯林山联合训练基地
-    en: A high valley under snow most of the year. PLA Maslin Mountain Joint Training Base.
+    zh: 终年积雪的高山谷地。解放军马斯林山联合训练基地，另有雪谷空军基地与空天飞机基地
+    en: A high valley under snow most of the year. PLA Maslin Mountain Joint Training Base, with Snow Valley Air Base and the spaceplane base.
 - id: div_q5h8zp
   subtype: borough
   parent: div_rdypg7
@@ -932,11 +932,11 @@ divisions:
     art-x-buckham: Poligono delle Vette
   codes:
     admin: '901106'
-  population: 1200
+  population: 8000
   area_km2: 6200.0
   notes:
-    zh: 马斯林山脉北翼与西翼之间的军事训练区，由领地与驻军共管，常住人口只有驻地职工和家属，每平方公里不到 0.2 人
-    en: Military training area between the northern and western arms of the Maslin Range, run jointly by the territory and the garrison. Only base staff and their families live here, fewer than 0.2 people per km².
+    zh: 马斯林山脉北翼与西翼之间的军事训练区，由领地与驻军共管，电磁发射场、地下指挥城、拦截弹阵地与高山观测站都在区内；常住人口只有驻地官兵、职工和家属，每平方公里约 1.3 人
+    en: Military training area between the northern and western arms of the Maslin Range, run jointly by the territory and the garrison, home to the electromagnetic launcher, the underground command complex, the interceptor field and the mountain observatories. Only service members, base staff and their families live here, about 1.3 people per km².
 - id: div_8emjne
   subtype: locality
   parent: div_fbfqv9

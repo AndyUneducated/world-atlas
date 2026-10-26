@@ -15,7 +15,9 @@ district centre. Landmark sites (from the places list) are laid out by their own
 including the transport facilities: airports (runways, taxiways, apron, terminal), ports (quay,
 piers, sheds; clipped to the coast), dug-basin harbours (moles with container, bulk, oil and
 ro-ro terminals, rail yard, breakwaters), offshore island ports (joined to the shore by a sea
-bridge, see build.fit_site) and spaceports (launch and landing pads, assembly hall).
+bridge, see build.fit_site) and spaceports (launch and landing pads, assembly hall), and the
+military and space facilities: airbases, radars, antenna arrays, air-defence sites, training ranges,
+plants, engine test stands, silo fields, bunkers, launch tracks, camps and heliports.
 """
 from __future__ import annotations
 
@@ -349,12 +351,264 @@ def _spaceport(site, cx, cy, W, D, rng) -> list[tuple[str, Polygon]]:
     return parts
 
 
-def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=()) -> tuple[Polygon, list[tuple[str, Polygon]]]:
+def _road(a, b, w=0.012):
+    return ("paved", shapely.LineString([a, b]).buffer(w, cap_style="flat"))
+
+
+def _airbase(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
+    """Military airfield: runways along local x with a parallel taxiway on -y. fighter: hardened
+    shelters on loops behind the taxiway; heavy: wide apron and big hangars; uav: one short runway
+    and rows of small hangars; school: one runway, a ramp of trainers and a campus."""
+    two = D >= 1.6 and variant in ("fighter", "heavy")
+    ys = [0.3 * D, 0.3 * D - 0.42] if two else [0.32 * D]
+    width = 0.06 if variant != "uav" else 0.035
+    parts = [("runway", box(cx - 0.46 * W, cy + y - width / 2, cx + 0.46 * W, cy + y + width / 2)) for y in ys]
+    ty = cy + min(ys) - 0.2
+    parts.append(("paved", box(cx - 0.44 * W, ty - 0.0125, cx + 0.44 * W, ty + 0.0125)))
+    for x in (-0.44, -0.2, 0.0, 0.2, 0.44):
+        parts.append(("paved", box(cx + x * W - 0.0125, ty, cx + x * W + 0.0125, cy + max(ys))))
+    base = cy - 0.5 * D + 0.06  # back edge of the base, -y
+    if variant == "fighter":
+        for side in (-1, 1):  # dispersal loops with shelters
+            lx = cx + side * 0.28 * W
+            loop = box(lx - 0.12 * W, base + 0.08, lx + 0.12 * W, ty - 0.1).exterior
+            parts.append(("paved", loop.buffer(0.01)))
+            parts.append(_road((lx, ty - 0.1), (lx, ty)))
+            for k in range(10):
+                p = loop.interpolate(k / 10, normalized=True)
+                parts.append(("building", Point(p.x, p.y).buffer(0.024, quad_segs=6).intersection(box(p.x - 0.03, p.y - 0.018, p.x + 0.03, p.y + 0.03))))
+        apron = box(cx - 0.12 * W, ty - 0.22, cx + 0.12 * W, ty - 0.02)
+    else:
+        apron = box(cx - 0.3 * W, ty - 0.3, cx + 0.3 * W, ty - 0.02) if variant == "heavy" else box(cx - 0.2 * W, ty - 0.16, cx + 0.2 * W, ty - 0.02)
+    parts.append(("paved", apron))
+    ax0, ay0, ax1, _ = apron.bounds
+    if variant == "heavy":
+        parts += [("building", box(x - 0.09, ay0 - 0.16, x + 0.09, ay0 - 0.01)) for x in np.linspace(ax0 + 0.1, ax1 - 0.1, 4)]
+    elif variant == "uav":
+        parts += [("building", box(x - 0.025, ay0 - 0.06, x + 0.025, ay0 - 0.01)) for x in np.arange(ax0 + 0.03, ax1 - 0.03, 0.07)]
+        parts += [("building", box(x - 0.025, ay0 - 0.14, x + 0.025, ay0 - 0.09)) for x in np.arange(ax0 + 0.03, ax1 - 0.03, 0.07)]
+    else:
+        parts += [("building", box(x - 0.05, ay0 - 0.09, x + 0.05, ay0 - 0.01)) for x in (ax0 + 0.06, ax1 - 0.06)]
+    parts.append(("building", Point(cx, ty - 0.27 if variant == "heavy" else ty - 0.2).buffer(0.01, quad_segs=4)))  # tower
+    tx = cx + 0.4 * W
+    parts += [("tank", Point(tx + dx, base + 0.06 + dy).buffer(0.018, quad_segs=6)) for dx in (-0.05, 0, 0.05) for dy in (0, 0.05)]
+    if variant in ("fighter", "heavy"):  # ammunition bunkers in a fenced corner
+        bx = cx - 0.42 * W
+        parts += [("building", box(bx + i * 0.05, base + j * 0.05, bx + i * 0.05 + 0.025, base + j * 0.05 + 0.02)) for i in range(4) for j in range(2)]
+    if variant == "school":
+        cells = _grid((cx - 0.15 * W, base, cx + 0.15 * W, ty - 0.2), (0.08, 0.07), ((0.03, 0.05), (0.025, 0.04)), rng, jitter=0.005)
+        parts += [("building", p) for p in cells if rng.random() > 0.3]
+    else:  # living area
+        cells = _grid((cx + 0.05 * W, base, cx + 0.3 * W, base + 0.14), (0.07, 0.06), ((0.035, 0.05), (0.015, 0.02)), rng)
+        parts += [("building", p) for p in cells]
+    return parts
+
+
+def _radar(cx, cy, W, D, variant) -> list[tuple[str, Polygon]]:
+    """Radomes (dome) or a phased-array face (array) on a levelled pad; domes: telescope domes."""
+    m = min(W, D)
+    parts = [("paved", box(cx - 0.42 * W, cy - 0.42 * D, cx + 0.42 * W, cy + 0.42 * D))]
+    if variant == "array":
+        parts.append(("building", box(cx - 0.3 * W, cy + 0.05 * D, cx + 0.3 * W, cy + 0.25 * D)))
+        parts.append(("building", box(cx - 0.12 * W, cy - 0.3 * D, cx + 0.12 * W, cy - 0.1 * D)))
+        parts += [("dish", Point(cx + x * W, cy - 0.3 * D).buffer(0.05 * m, quad_segs=8)) for x in (-0.3, 0.3)]
+    else:
+        n = 3 if variant == "dome" else 4
+        parts += [("dish", Point(cx + (k - (n - 1) / 2) * 0.24 * W, cy + 0.12 * D).buffer(0.1 * m, quad_segs=10)) for k in range(n)]
+        parts.append(("building", box(cx - 0.2 * W, cy - 0.3 * D, cx + 0.2 * W, cy - 0.12 * D)))
+    return parts
+
+
+def _antenna(cx, cy, W, D, variant) -> list[tuple[str, Polygon]]:
+    """Dish antennas on a grid with an operations building; large: deep-space dishes (one big)."""
+    parts: list[tuple[str, Polygon]] = []
+    big = variant == "large"
+    cols, rows = (3, 2) if big else (4, 2)
+    for i in range(cols):
+        for j in range(rows):
+            x, y = cx + (i - (cols - 1) / 2) * W / cols * 0.9, cy + (j - (rows - 1) / 2) * D / rows * 0.7 + 0.08 * D
+            r = (0.04 if big else 0.018) * (1.6 if big and i == 0 and j == 0 else 1)
+            parts.append(("paved", box(x - 1.3 * r, y - 1.3 * r, x + 1.3 * r, y + 1.3 * r)))
+            parts.append(("dish", Point(x, y).buffer(r, quad_segs=10)))
+            parts.append(_road((x, y - 1.3 * r), (x, cy - 0.32 * D), 0.006))
+    parts.append(_road((cx - 0.42 * W, cy - 0.32 * D), (cx + 0.42 * W, cy - 0.32 * D), 0.008))
+    parts.append(("building", box(cx - 0.12 * W, cy - 0.46 * D, cx + 0.12 * W, cy - 0.36 * D)))
+    return parts
+
+
+def _sam(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+    """Air-defence missile site: six launcher pads on a ring road around a radar and command post."""
+    R = 0.36 * min(W, D)
+    ring = Point(cx, cy).buffer(R, quad_segs=6).exterior
+    parts = [("paved", ring.buffer(0.007))]
+    for k in range(6):
+        a = k * math.pi / 3
+        x, y = cx + R * math.cos(a), cy + R * math.sin(a)
+        parts.append(("pad", Point(x, y).buffer(0.03, quad_segs=6)))
+        parts.append(_road((cx, cy), (x, y), 0.005))
+    parts.append(("dish", Point(cx, cy).buffer(0.035, quad_segs=10)))
+    parts.append(("building", box(cx + 0.05, cy - 0.06, cx + 0.12, cy - 0.02)))
+    return parts
+
+
+def _range(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
+    """Training range: a camp and observation posts on the -y edge; air: target rings scattered
+    across the ground; armor: looping tank tracks and firing points; cold: ski runs and huts."""
+    parts: list[tuple[str, Polygon]] = []
+    camp = (cx - 0.38 * W, cy - 0.42 * D)
+    cells = _grid((camp[0] - 0.08 * W, camp[1] - 0.05 * D, camp[0] + 0.08 * W, camp[1] + 0.04 * D), (0.07, 0.05), ((0.03, 0.05), (0.015, 0.025)), rng)
+    parts += [("building", p) for p in cells]
+    if variant == "air":
+        for _ in range(9):
+            x, y = cx + rng.uniform(-0.35, 0.4) * W, cy + rng.uniform(-0.2, 0.4) * D
+            parts += [("pad", Point(x, y).buffer(r, quad_segs=12).exterior.buffer(0.008)) for r in (0.05, 0.12)]
+        parts += [("building", Point(cx + x * W, cy - 0.3 * D).buffer(0.012, quad_segs=4)) for x in (-0.1, 0.15, 0.4)]
+    elif variant == "armor":
+        for k in range(3):
+            loop = affinity.scale(Point(cx + (k - 1) * 0.28 * W, cy + 0.05 * D).buffer(1, quad_segs=10), 0.12 * W, 0.3 * D).exterior
+            parts.append(("paved", loop.buffer(0.012)))
+        parts += [("paved", box(cx + x * W - 0.04, cy - 0.34 * D, cx + x * W + 0.04, cy - 0.3 * D)) for x in (-0.2, 0.0, 0.2)]
+        parts.append(("lot", box(camp[0] + 0.1 * W, camp[1] - 0.04 * D, camp[0] + 0.2 * W, camp[1] + 0.03 * D)))
+    else:  # cold-weather
+        for k in range(5):
+            x = cx + (k - 2) * 0.16 * W
+            parts.append(("paved", shapely.LineString([(x, cy + 0.4 * D), (x + 0.04 * W, cy - 0.2 * D)]).buffer(0.018)))
+        parts += [("building", box(cx + x * W - 0.02, cy + 0.38 * D, cx + x * W + 0.02, cy + 0.42 * D)) for x in (-0.3, 0.0, 0.3)]
+    parts.append(_road(camp, (cx + 0.3 * W, cy - 0.42 * D)))
+    return parts
+
+
+def _plant(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
+    """Industrial plants with a rail siding along -y. assembly: a tall vertical assembly building and
+    long halls; propellant: tank farms and spheres; tunnel: wind tunnels as long tubes with spheres;
+    hangar: wide hangars on an apron; depot: rows of warehouses; engine: hangars and test cells."""
+    parts = [("rail", box(cx - 0.48 * W, cy - 0.44 * D - 0.006, cx + 0.48 * W, cy - 0.44 * D + 0.006))]
+    parts.append(_road((cx - 0.48 * W, cy - 0.36 * D), (cx + 0.48 * W, cy - 0.36 * D), 0.01))
+    if variant == "assembly":
+        parts.append(("building", box(cx - 0.4 * W, cy - 0.25 * D, cx - 0.15 * W, cy + 0.3 * D)))
+        parts += [("building", box(cx - 0.08 * W, y - 0.05 * D, cx + 0.42 * W, y + 0.05 * D)) for y in (cy - 0.15 * D, cy + 0.05 * D, cy + 0.25 * D)]
+    elif variant == "propellant":
+        X, Y = np.meshgrid(np.linspace(cx - 0.35 * W, cx + 0.1 * W, 5), np.linspace(cy - 0.15 * D, cy + 0.35 * D, 4))
+        parts += [("tank", Point(x, y).buffer(0.035, quad_segs=8)) for x, y in zip(X.ravel(), Y.ravel())]
+        parts += [("building", box(cx + 0.2 * W, cy - 0.25 * D, cx + 0.42 * W, cy + 0.0 * D)), ("building", box(cx + 0.2 * W, cy + 0.1 * D, cx + 0.42 * W, cy + 0.3 * D))]
+    elif variant == "tunnel":
+        for k, y in enumerate((cy - 0.15 * D, cy + 0.05 * D, cy + 0.25 * D)):
+            parts.append(("building", box(cx - 0.42 * W, y - 0.012, cx + (0.25 - 0.1 * k) * W, y + 0.012)))
+            parts.append(("tank", Point(cx + (0.33 - 0.1 * k) * W, y).buffer(0.05, quad_segs=10)))
+        parts.append(("building", box(cx + 0.3 * W, cy - 0.3 * D, cx + 0.45 * W, cy - 0.2 * D)))
+    elif variant == "hangar":
+        parts.append(("paved", box(cx - 0.45 * W, cy + 0.1 * D, cx + 0.45 * W, cy + 0.45 * D)))
+        parts += [("building", box(x - 0.11 * W, cy - 0.28 * D, x + 0.11 * W, cy + 0.08 * D)) for x in (cx - 0.3 * W, cx, cx + 0.3 * W)]
+    elif variant == "engine":
+        parts += [("building", box(x - 0.1 * W, cy - 0.25 * D, x + 0.1 * W, cy + 0.15 * D)) for x in (cx - 0.3 * W, cx)]
+        parts += [("building", box(cx + 0.25 * W, y - 0.03, cx + 0.42 * W, y + 0.03)) for y in (cy - 0.1 * D, cy + 0.2 * D)]
+    else:  # depot
+        for y in np.arange(cy - 0.26 * D, cy + 0.4 * D, 0.13 * D):
+            parts += [("building", box(x, y, x + 0.18 * W, y + 0.07 * D)) for x in (cx - 0.44 * W, cx - 0.22 * W, cx + 0.04 * W, cx + 0.26 * W)]
+            parts.append(("rail", box(cx - 0.46 * W, y - 0.025 * D - 0.004, cx + 0.46 * W, y - 0.025 * D + 0.004)))
+    return parts
+
+
+def _test_stand(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+    """Rocket engine test stands against the +y slope with flame trenches, propellant tanks and a
+    control bunker at a safe distance on -y."""
+    parts: list[tuple[str, Polygon]] = []
+    for x in (-0.25, 0.05, 0.32):
+        sx = cx + x * W
+        parts.append(("building", box(sx - 0.03, cy + 0.2 * D, sx + 0.03, cy + 0.3 * D)))
+        parts.append(("paved", box(sx - 0.012, cy + 0.3 * D, sx + 0.012, cy + 0.45 * D)))
+        parts += [("tank", Point(sx + dx, cy + 0.1 * D).buffer(0.02, quad_segs=6)) for dx in (-0.04, 0.04)]
+        parts.append(_road((sx, cy + 0.2 * D), (sx, cy - 0.3 * D), 0.008))
+    parts.append(_road((cx - 0.4 * W, cy - 0.3 * D), (cx + 0.4 * W, cy - 0.3 * D), 0.01))
+    parts.append(("building", box(cx - 0.1 * W, cy - 0.45 * D, cx + 0.1 * W, cy - 0.36 * D)))
+    return parts
+
+
+def _silo(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+    """Interceptor silos on a grid of service roads, with a support compound on -y."""
+    parts: list[tuple[str, Polygon]] = []
+    xs, ys = np.linspace(cx - 0.36 * W, cx + 0.36 * W, 5), np.linspace(cy - 0.15 * D, cy + 0.38 * D, 4)
+    for y in ys:
+        parts.append(_road((xs[0], y), (xs[-1], y), 0.006))
+        parts += [("pad", Point(x, y).buffer(0.014, quad_segs=8)) for x in xs]
+    parts.append(_road((cx, ys[0]), (cx, cy - 0.38 * D), 0.008))
+    parts += [("building", box(cx + x * W - 0.04, cy - 0.46 * D, cx + x * W + 0.04, cy - 0.38 * D)) for x in (-0.15, 0.0, 0.15)]
+    return parts
+
+
+def _bunker(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+    """Surface of an underground command centre: portals in the +y hillside, vent shafts, a helipad,
+    antennas and a guard post."""
+    parts: list[tuple[str, Polygon]] = []
+    for x in (-0.3, 0.0, 0.3):
+        px = cx + x * W
+        parts.append(("paved", box(px - 0.03, cy + 0.15 * D, px + 0.03, cy + 0.42 * D)))
+        parts.append(("building", box(px - 0.04, cy + 0.38 * D, px + 0.04, cy + 0.44 * D)))
+    parts.append(_road((cx - 0.3 * W, cy + 0.15 * D), (cx + 0.3 * W, cy + 0.15 * D)))
+    parts.append(_road((cx, cy + 0.15 * D), (cx, cy - 0.45 * D)))
+    parts += [("building", box(cx + x * W - 0.008, cy + 0.0 - 0.008, cx + x * W + 0.008, cy + 0.008)) for x in (-0.38, -0.15, 0.15, 0.38)]
+    parts.append(("pad", Point(cx - 0.28 * W, cy - 0.25 * D).buffer(0.03, quad_segs=10)))
+    parts += [("dish", Point(cx + x * W, cy - 0.25 * D).buffer(0.02, quad_segs=8)) for x in (0.2, 0.32)]
+    parts.append(("building", box(cx - 0.03, cy - 0.45 * D, cx + 0.03, cy - 0.4 * D)))
+    return parts
+
+
+def _launch_track(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+    """Electromagnetic launch track up the slope along local x: a loading terminal, power plant and
+    capacitor halls at the low -x end, the guideway, and the exit portal at the high +x end."""
+    x0, x1 = cx - 0.5 * W + 0.6, cx + 0.5 * W - 0.15
+    parts = [("track", box(x0, cy - 0.012, x1, cy + 0.012))]
+    parts += [("building", box(cx - 0.5 * W + 0.05, cy + y - 0.04, cx - 0.5 * W + 0.5, cy + y + 0.04)) for y in (-0.12, 0.12)]
+    parts += [("tank", Point(cx - 0.5 * W + 0.1 + 0.08 * k, cy - 0.24).buffer(0.025, quad_segs=6)) for k in range(5)]
+    parts.append(("building", box(x0 - 0.1, cy - 0.03, x0, cy + 0.03)))
+    parts += [("building", box(x - 0.015, cy + 0.03, x + 0.015, cy + 0.06)) for x in np.linspace(x0 + 1.0, x1 - 0.5, max(2, int((x1 - x0) / 3)))]
+    parts.append(("pad", box(x1, cy - 0.04, x1 + 0.1, cy + 0.04)))
+    return parts
+
+
+def _camp(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
+    """Barracks compound: rows of barracks around a parade ground, motor pool and depots; hq adds a
+    large headquarters building; hospital: a hospital block with a helipad; training: a centrifuge,
+    a neutral-buoyancy pool and simulator halls."""
+    parts = [("paved", box(cx - 0.12 * W, cy - 0.1 * D, cx + 0.12 * W, cy + 0.1 * D))]
+    if variant == "training":
+        parts.append(("building", Point(cx - 0.3 * W, cy + 0.25 * D).buffer(0.12 * min(W, D), quad_segs=16)))
+        parts.append(("basin", box(cx + 0.18 * W, cy + 0.15 * D, cx + 0.4 * W, cy + 0.35 * D)))
+        parts.append(("building", box(cx + 0.15 * W, cy - 0.38 * D, cx + 0.42 * W, cy - 0.18 * D)))
+    elif variant == "hospital":
+        parts.append(("building", box(cx - 0.35 * W, cy + 0.15 * D, cx + 0.35 * W, cy + 0.3 * D)))
+        parts += [("building", box(cx + x * W - 0.06 * W, cy + 0.3 * D, cx + x * W + 0.06 * W, cy + 0.42 * D)) for x in (-0.25, 0.0, 0.25)]
+        parts.append(("pad", Point(cx + 0.35 * W, cy - 0.3 * D).buffer(0.025, quad_segs=10)))
+    else:
+        if variant == "hq":
+            parts.append(("building", box(cx - 0.1 * W, cy + 0.14 * D, cx + 0.1 * W, cy + 0.3 * D)))
+        for side in (-1, 1):
+            for k in range(4):
+                x = cx + side * (0.2 + 0.07 * k) * W
+                parts.append(("building", box(x - 0.025 * W, cy - 0.3 * D, x + 0.025 * W, cy + 0.3 * D)))
+        parts.append(("lot", box(cx - 0.4 * W, cy - 0.45 * D, cx - 0.15 * W, cy - 0.35 * D)))
+        parts += [("building", box(cx + x * W, cy - 0.45 * D, cx + (x + 0.08) * W, cy - 0.37 * D)) for x in (0.15, 0.27)]
+    return parts
+
+
+def _heliport(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+    """Army aviation heliport: rows of helipads on a paved field, hangars and a tower on -y."""
+    parts = [("paved", box(cx - 0.42 * W, cy - 0.05 * D, cx + 0.42 * W, cy + 0.4 * D))]
+    for y in (cy + 0.07 * D, cy + 0.27 * D):
+        parts += [("pad", Point(x, y).buffer(0.02, quad_segs=10)) for x in np.linspace(cx - 0.35 * W, cx + 0.35 * W, 6)]
+    parts += [("building", box(x - 0.07 * W, cy - 0.35 * D, x + 0.07 * W, cy - 0.12 * D)) for x in (cx - 0.3 * W, cx - 0.1 * W, cx + 0.1 * W)]
+    parts.append(("building", Point(cx + 0.32 * W, cy - 0.25 * D).buffer(0.01, quad_segs=4)))
+    return parts
+
+
+def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=(), variant=None) -> tuple[Polygon, list[tuple[str, Polygon]]]:
     """Site outline and parts [(kind, polygon)] of a landmark; kind is building, or for transport
-    facilities runway, pad, paved (aprons, taxiways, quays, piers), basin (dug harbour water),
-    breakwater, stack (containers), bulk (stockpiles), tank, lot (vehicle parking) or rail.
+    and military facilities runway, pad, paved (aprons, taxiways, quays, piers), basin (dug harbour
+    water, pools), breakwater, stack (containers), bulk (stockpiles), tank, dish (antennas and
+    radomes), lot (vehicle parking), rail or track (an electromagnetic launch guideway).
     Local x points along `angle`; the front of a city landmark is at -x, a port faces the sea on +y.
-    `land` (needed by ports) is the land area around the site; `terminals` lists a harbour's moles."""
+    `land` (needed by ports) is the land area around the site; `terminals` lists a harbour's moles;
+    `variant` picks a military layout's kind (see MILITARY_VARIANTS in world.py)."""
     W, D = size
     cx, cy = center
     site = box(cx - W / 2, cy - D / 2, cx + W / 2, cy + D / 2)
@@ -387,4 +641,29 @@ def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=
         outline, parts = _harbour(cx, cy, W, D, list(terminals), rng)
     elif layout == "offshore_port":
         parts = _offshore(cx, cy, W, D)
+    elif layout == "airbase":
+        parts = _airbase(cx, cy, W, D, variant or "fighter", rng)
+    elif layout == "radar":
+        parts = _radar(cx, cy, W, D, variant or "dome")
+    elif layout == "antenna":
+        parts = _antenna(cx, cy, W, D, variant or "small")
+    elif layout == "sam":
+        parts = _sam(cx, cy, W, D)
+    elif layout == "range":
+        parts = _range(cx, cy, W, D, variant or "air", rng)
+    elif layout == "plant":
+        parts = _plant(cx, cy, W, D, variant or "depot", rng)
+    elif layout == "test_stand":
+        parts = _test_stand(cx, cy, W, D)
+    elif layout == "silo":
+        parts = _silo(cx, cy, W, D)
+    elif layout == "bunker":
+        parts = _bunker(cx, cy, W, D)
+    elif layout == "launch_track":
+        parts = _launch_track(cx, cy, W, D)
+    elif layout == "camp":
+        parts = _camp(cx, cy, W, D, variant or "barracks", rng)
+    elif layout == "heliport":
+        parts = _heliport(cx, cy, W, D)
+    parts = [(k, p) for k, p in parts if not p.is_empty]
     return rotate(outline, angle, center), [(k, rotate(p, angle, center)) for k, p in parts]

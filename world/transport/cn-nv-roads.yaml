@@ -152,6 +152,22 @@ routes:
     tunnel_cost: 3.5
     shield: waterfall
     via: [div_m2tz6c, div_z8yxye, div_s1qwxh, div_0t2t36, div_j82dgm]
+  - id: rte_45kxch
+    ref: S-NV-5
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 马斯林山空天高速
+      en: Maslin Aerospace Expressway
+    notes:
+      zh: 自东营空军基地经东营、马斯林山城区南下雪谷，连接空天飞机基地与雪谷空军基地
+      en: From East Camp Air Base through East Camp and the city of Maslin Mountain south to Snow Valley, linking the spaceplane base and Snow Valley Air Base.
+    background:
+      zh: 马斯林山的空军和深空太空军基地分散在盆地东部和南部的平原上，过去彼此之间只能走城市道路和雪谷公路，运送大型航空器部件和推进剂的车辆不得不穿过城区。马斯林山空天高速自东营空军基地出发，经东营区和马斯林山城区南下雪谷，直达空天飞机基地和雪谷空军基地，把几座机场连成一条走廊。线路全程位于平原和缓丘上，以路堤和低桥为主，桥梁按超重超宽车辆设计；靠近机场的路段降低了灯杆高度，并与跑道保持安全距离，以免干扰飞机起降。通车后，各基地之间的人员和物资往来不再穿城，城区的交通压力也随之缓解。
+      en: Maslin Mountain's air force and Deep Space Force bases are spread across the plains in the east and south of the basin, and they used to be linked only by city streets and the Snow Valley Highway, so vehicles carrying large aircraft parts and propellant had to cross the town. The Maslin Aerospace Expressway runs from East Camp Air Base through East Camp District and the city of Maslin Mountain south to Snow Valley, ending at the spaceplane base and Snow Valley Air Base, and turns the airfields into a single corridor. The whole line crosses plain and gentle hills, mostly on embankment and low bridges, with every bridge rated for oversize and overweight loads. Near the airfields the lighting columns are kept low and the road keeps a safe distance from the runways so as not to disturb flying. Since it opened, traffic between the bases no longer passes through the town, easing the pressure on the city's streets.
+    shield: rocket
+    via: [poi_f12qtt, div_tc0ngk, div_nvrjpg, poi_1e99xq, poi_ez2t6k]
 
   # 领道 (territorial highways, class primary): dual carriageways threading district centres, so
   # that every district centre lies on a territorial route.
@@ -267,3 +283,19 @@ routes:
       en: The Snow Valley Highway is the only north–south road through the island's north-eastern mountains, running north from Sky Terrace in Skytown through Snow Valley, Maslin's Peace District and West Heath, across the High Peaks Training Area to Starport. It mainly supplies the launch centre and the training area, and it also serves the mountain pastures along the way. It runs high and the snow lies long, so it has several snow galleries and heated pavement, yet heavy snowstorms still close it in winter. The stretch across the training area is controlled by the area's authority, open to civilian traffic most of the time and closed during exercises. To finish within the short summers it was built largely from prefabricated parts, with the bridges and tunnels started at the same time.
     shield: snowflake
     via: [div_w1ea18, div_0tsyzy, div_nvrjpg, div_nwke3f, div_q5h8zp, div_nytsvb]
+  - id: rte_jd77nt
+    ref: S-NV-108
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 西岭公路
+      en: West Ridge Highway
+    notes:
+      zh: 自西坪北上群峰训练管理区西部，经拦截弹阵地、寒区训练场到西岭雷达站
+      en: North from West Heath into the western High Peaks Training Area, past the interceptor field and the cold-weather training ground to West Ridge Radar Station.
+    background:
+      zh: 群峰训练管理区西部的山地上分布着拦截弹阵地、寒区训练场和西岭雷达站，过去只有简易的山间土路相通，冬季大雪后常常数周无法通行，高山站点的补给只能等待天晴。西岭公路自西坪区城区北上，沿山谷逐段爬升，经拦截弹阵地和寒区训练场，最终到达海拔一千六百多米的西岭雷达站。线路在陡坡处以回头弯盘旋而上，易发雪崩的路段修建了防雪长廊，山岭附近的路面铺设了融雪设施。公路由训练管理区统一管理，平时允许民用车辆通行，演训期间临时封闭。通车后，各站点在冬季也能定期补给，官兵轮换也不再受天气限制。
+      en: The mountains in the west of the High Peaks Training Area hold the interceptor field, the cold-weather training ground and West Ridge Radar Station, which used to be reached only by rough tracks that heavy snow could close for weeks, leaving the high stations waiting for clear weather to be resupplied. The West Ridge Highway runs north from the town of West Heath and climbs the valleys stage by stage past the interceptor field and the cold-weather ground to West Ridge Radar Station, more than 1,600 m up. It zigzags up the steepest slopes on hairpin bends, avalanche-prone stretches run through snow galleries, and the pavement near the ridge is heated. The training area authority runs the road, open to civilian traffic most of the time and closed during exercises. Since it opened the stations can be resupplied regularly through the winter, and crews can rotate whatever the weather.
+    shield: peaks
+    via: [div_nwke3f, poi_ncp61s, poi_rmf9wx, poi_2b8f1g]

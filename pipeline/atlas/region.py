@@ -24,7 +24,7 @@ from .terrain import drainage_surface, elevation, land_mask
 from .network import ROAD_RANK, build_graph
 from .transport import Router
 from .vectorize import point_lonlat, polygonize_labels, to_lonlat
-from .world import FACILITY_LAYOUTS, World
+from .world import FACILITY_LAYOUTS, MILITARY_VARIANTS, RUNWAY_LAYOUTS, World
 from .common import (BUILDING_MINZOOM, STREET_MINZOOM, bbox_lonlat, derived_id, drawn_along, feature, fill_undrawn, log, owned_runs, short_name, undrawn_steps,
                      smooth_line, tile_minzoom)
 from .sites import SEA_BRIDGE_HALF_WIDTH_KM, landmark_sites
@@ -380,7 +380,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     elev_r = block_reduce(elev, 4, "mean")
     water_r = block_reduce(water | ice_mask, 4, "mode_bool")  # roads go round lakes and glaciers
     airfields = [shapely.transform(site, lambda c: c / s) for pid, site, _, _ in all_sites
-                 if world.places[pid]["site"]["layout"] in ("airport", "spaceport")]
+                 if world.places[pid]["site"]["layout"] in RUNWAY_LAYOUTS]
     if airfields:  # roads and railways go round runways and launch pads
         water_r = water_r | shapely.contains_xy(shapely.union_all(airfields).buffer(0.5 * gr.res), gr.X, gr.Y)
     router = Router(elev_r, land_r & ~water_r, gr.res)
@@ -392,7 +392,20 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         c = (site if dry.is_empty else dry).centroid
         return (c.x / s, c.y / s)
 
-    place_at = {pid: dry_centre(site) for pid, site, _, _ in all_sites}
+    def gate(cfg, site, i):  # a military site is entered on the side facing its district centre, clear of the runways
+        c = site.centroid
+        if cfg["layout"] == "launch_track":  # entered at the loading terminal, the low -x end
+            a, h = math.radians(cfg.get("angle_deg", 0)), cfg["size_m"][0] / 2000
+            target = Point(c.x - h * math.cos(a), c.y - h * math.sin(a))
+        else:
+            target = Point(poles[i][0] * s, poles[i][1] * s)
+        q = nearest_points(site.exterior, target)[0]
+        n = math.hypot(q.x - c.x, q.y - c.y) or 1.0
+        out = 1.5 * gr.res * s
+        return ((q.x + (q.x - c.x) / n * out) / s, (q.y + (q.y - c.y) / n * out) / s)
+
+    place_at = {pid: gate(cfg, site, i) if (cfg := world.places[pid]["site"])["layout"] in MILITARY_VARIANTS else dry_centre(site)
+                for pid, site, _, i in all_sites}
 
     def stop_cell(v):  # a city stops at its core, a district at its own centre
         if v in place_at:
@@ -438,6 +451,24 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         }
         router.commit(path, "secondary", discount=0.8, ref=r["ref"])
         road_out.append((r, path))
+    dead_ends = set()
+    for pid, p in world.places.items():  # facilities with an access road, from the gate to the nearest road
+        if not p.get("access_road") or pid not in place_at:
+            continue
+        i = district_index[p["in"]]
+        path = router.trim_to_network(router.route(router.cell(*place_at[pid]), router.cell(*poles[i])))
+        if len(path) < 2:
+            continue
+        feeder_seq += 1
+        rid = derived_id("rte", f"access:{pid}")
+        r = {
+            "id": rid, "ref": f"X-{infix}-{feeder_seq:03d}", "network": "municipal_road", "class": "secondary",
+            "status": "generated", "via": [p["in"], pid],
+            "names": {"zh": f"{p['names']['zh']}公路", "en": f"{p['names']['en']} Road"},
+        }
+        router.commit(path, "secondary", discount=0.8, ref=r["ref"])
+        road_out.append((r, path[::-1]))
+        dead_ends.add(rid)
 
     # Termini join the network: an expressway end runs on to the nearest other expressway (an
     # interchange, so traffic changes routes without leaving the expressway), any other end to the
@@ -446,7 +477,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     # over the cells it shares with lower routes, so an expressway never runs on as a city road.
     route_rank = {r["ref"]: ROAD_RANK[r["class"]] for r, _ in road_out}
     for k, (r, path) in enumerate(road_out):
-        if r.get("ring"):
+        if r.get("ring") or r["id"] in dead_ends:
             continue
         ref = r["ref"]
         foreign = {c for c in router.used if router.owner.get(c) != ref}

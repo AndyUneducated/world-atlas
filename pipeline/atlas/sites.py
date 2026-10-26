@@ -47,7 +47,7 @@ def fit_site(cfg, centre, a, size, land, coast, seed, pid, built_sites):
 
     def build(c):
         rng = np.random.default_rng([seed, int(hashlib.sha1(pid.encode()).hexdigest()[:8], 16)])
-        return buildings.landmark(layout, c, a, size, rng, land, cfg.get("terminals", ()))
+        return buildings.landmark(layout, c, a, size, rng, land, cfg.get("terminals", ()), cfg.get("variant"))
 
     p = Point(centre)
     if layout in COASTAL_LAYOUTS:

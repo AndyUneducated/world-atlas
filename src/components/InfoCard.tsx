@@ -1,5 +1,23 @@
 import clsx from "clsx";
-import { Check, ChevronRight, Crosshair, Link2, Star, X } from "lucide-react";
+import {
+  Car,
+  ChartNoAxesColumn,
+  Check,
+  ChevronRight,
+  Columns3,
+  Crosshair,
+  Droplets,
+  Gauge,
+  LandPlot,
+  Link2,
+  Mountain,
+  Ruler,
+  Star,
+  TrainFront,
+  Users,
+  X,
+  type LucideIcon,
+} from "lucide-react";
 import { AnimatePresence, motion, useDragControls, useSpring, type PanInfo } from "motion/react";
 import { useState, type ReactNode } from "react";
 import { CityEmblem, Emblem, hasEmblem } from "./Emblem";
@@ -46,14 +64,21 @@ function TiltBadge({ glow, children }: { glow: string; children: React.ReactNode
   );
 }
 
-function Stat({ label, value, unit }: { label: string; value: string; unit?: string }) {
+type StatItem = { label: string; value: string; unit?: string; icon: LucideIcon };
+
+function Stat({ label, value, unit, icon: Icon, accent }: StatItem & { accent: string }) {
   return (
-    <div className="rounded-xl bg-hover px-3 py-2.5">
-      <div className="text-[11px] text-muted">{label}</div>
-      <div className="mt-0.5 flex items-baseline gap-1">
-        <span className="text-[17px] font-semibold tracking-tight text-ink tabular-nums">{value}</span>
-        {unit && <span className="text-[11px] text-faint">{unit}</span>}
+    <div
+      className="relative overflow-hidden rounded-2xl border px-3 pt-2.5 pb-2"
+      style={{ background: `color-mix(in srgb, ${accent} 7%, var(--ui-hover))`, borderColor: `color-mix(in srgb, ${accent} 16%, transparent)` }}
+    >
+      <span className="absolute inset-x-3 top-0 h-px opacity-70" style={{ background: `linear-gradient(90deg, ${accent}, transparent)` }} />
+      <div className="flex items-center gap-1.5 text-[11px] text-muted">
+        <Icon className="size-3 shrink-0" style={{ color: accent }} />
+        <span className="truncate">{label}</span>
       </div>
+      <div className="mt-1 text-[18px] leading-tight font-semibold tracking-tight text-ink tabular-nums">{value}</div>
+      {unit && <div className="truncate text-[10.5px] text-faint">{unit}</div>}
     </div>
   );
 }
@@ -67,37 +92,75 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-function stats(e: Entity, lang: Lang) {
-  const out: { label: string; value: string; unit?: string }[] = [];
-  if (e.population) out.push({ label: t("population", lang), value: formatPopulation(e.population, lang) });
-  if (e.area_km2) out.push({ label: t("area", lang), value: formatNumber(e.area_km2, lang), unit: "km²" });
-  else if (e.stats?.area_km2_mapped && e.stats.area_km2_mapped < 1) {
-    const ha = e.stats.area_km2_mapped * 100;
-    out.push({ label: t("area", lang), value: formatNumber(ha, lang, ha < 10 ? 1 : 0), unit: t("hectares", lang) });
-  } else if (e.stats?.area_km2_mapped) out.push({ label: t("area", lang), value: formatNumber(e.stats.area_km2_mapped, lang, 1), unit: "km²" });
-  if (e.stats?.density_per_km2) out.push({ label: t("density", lang), value: formatNumber(e.stats.density_per_km2, lang, e.stats.density_per_km2 < 10 ? 1 : 0), unit: t("perKm2", lang) });
-  if (e.stats?.length_km) out.push({ label: t("length", lang), value: formatNumber(e.stats.length_km, lang, 1), unit: "km" });
-  if (e.stats?.bridge_km) out.push({ label: t("seaBridge", lang), value: formatNumber(e.stats.bridge_km, lang, 1), unit: "km" });
-  if (e.stats?.undersea_tunnel_km) out.push({ label: t("underseaTunnel", lang), value: formatNumber(e.stats.undersea_tunnel_km, lang, 1), unit: "km" });
-  if (e.stats?.elevation_m) out.push({ label: t("elevation", lang), value: formatNumber(e.stats.elevation_m, lang), unit: "m" });
-  if (e.stats?.prominence_m) out.push({ label: t("prominence", lang), value: formatNumber(e.stats.prominence_m, lang), unit: "m" });
-  if (e.stats?.width_km) out.push({ label: t("width", lang), value: formatNumber(e.stats.width_km, lang, 1), unit: "km" });
-  if (e.stats?.drainage_km2) out.push({ label: t("drainage", lang), value: formatNumber(e.stats.drainage_km2, lang), unit: "km²" });
-  if (e.stats?.elev_max_m) out.push({ label: t("maxElevation", lang), value: formatNumber(e.stats.elev_max_m, lang), unit: "m" });
-  if (e.tech?.operating_speed_kmh) out.push({ label: t("operatingSpeed", lang), value: String(e.tech.operating_speed_kmh), unit: "km/h" });
-  if (e.speed?.limits.length) out.push(speedStat(e.speed, lang));
-  return out.slice(0, 4);
+/** A range of large counts on one shared scale, "1.2–3.4" with the scale moved into the unit ("万辆/日"). */
+function scaledSpan([lo, hi]: [number, number], lang: Lang, unit: string): { value: string; unit: string } {
+  const [div, scale] =
+    lang === "zh" ? (hi >= 1e8 ? [1e8, "亿"] : hi >= 1e4 ? [1e4, "万"] : [1, ""]) : hi >= 1e6 ? [1e6, "million "] : hi >= 1e3 ? [1e3, "thousand "] : [1, ""];
+  const f = (v: number) => formatNumber(v / div, lang, div > 1 && v / div < 100 ? 1 : 0);
+  return { value: lo === hi ? f(lo) : `${f(lo)}–${f(hi)}`, unit: `${scale}${unit}` };
 }
 
-function speedStat(speed: NonNullable<Entity["speed"]>, lang: Lang) {
+function lengthStat(e: Entity, lang: Lang): StatItem[] {
+  return e.stats?.length_km ? [{ label: t("length", lang), value: formatNumber(e.stats.length_km, lang, 1), unit: "km", icon: Ruler }] : [];
+}
+
+function areaStat(e: Entity, lang: Lang): StatItem[] {
+  const label = t("area", lang);
+  if (e.area_km2) return [{ label, value: formatNumber(e.area_km2, lang), unit: "km²", icon: LandPlot }];
+  const mapped = e.stats?.area_km2_mapped;
+  if (!mapped) return [];
+  if (mapped < 1) {
+    const ha = mapped * 100;
+    return [{ label, value: formatNumber(ha, lang, ha < 10 ? 1 : 0), unit: t("hectares", lang), icon: LandPlot }];
+  }
+  return [{ label, value: formatNumber(mapped, lang, 1), unit: "km²", icon: LandPlot }];
+}
+
+/** The headline figures: roads by length, lanes and traffic; railways by length, speed and riders;
+ * divisions by people and area; natural features and places by what they are measured in. */
+function stats(e: Entity, lang: Lang): StatItem[] {
+  if (e.road) {
+    const [lo, hi] = e.road.lanes;
+    return [
+      ...lengthStat(e, lang),
+      { label: t("lanes", lang), value: lo === hi ? String(lo * 2) : `${lo * 2}–${hi * 2}`, unit: t("bothWays", lang), icon: Columns3 },
+      { label: t("dailyTraffic", lang), ...scaledSpan(e.road.aadt, lang, t("vehiclesPerDay", lang)), icon: Car },
+    ];
+  }
+  if (e.tech || e.service) {
+    const out = lengthStat(e, lang);
+    if (e.tech?.operating_speed_kmh) out.push({ label: t("operatingSpeed", lang), value: String(e.tech.operating_speed_kmh), unit: "km/h", icon: Gauge });
+    if (e.service) {
+      const n = e.service.ridership_per_year;
+      out.push({ label: t("ridership", lang), ...scaledSpan([n, n], lang, t("tripsPerYear", lang)), icon: TrainFront });
+    }
+    return out;
+  }
+  const out: StatItem[] = [];
+  if (e.population) out.push({ label: t("population", lang), value: formatPopulation(e.population, lang), icon: Users });
+  out.push(...areaStat(e, lang));
+  if (e.kind === "division" && e.stats?.density_per_km2)
+    out.push({ label: t("density", lang), value: formatNumber(e.stats.density_per_km2, lang, e.stats.density_per_km2 < 10 ? 1 : 0), unit: t("perKm2", lang), icon: ChartNoAxesColumn });
+  out.push(...lengthStat(e, lang));
+  if (e.stats?.bridge_km) out.push({ label: t("seaBridge", lang), value: formatNumber(e.stats.bridge_km, lang, 1), unit: "km", icon: Ruler });
+  if (e.stats?.undersea_tunnel_km) out.push({ label: t("underseaTunnel", lang), value: formatNumber(e.stats.undersea_tunnel_km, lang, 1), unit: "km", icon: Ruler });
+  if (e.stats?.elevation_m) out.push({ label: t("elevation", lang), value: formatNumber(e.stats.elevation_m, lang), unit: "m", icon: Mountain });
+  if (e.stats?.prominence_m) out.push({ label: t("prominence", lang), value: formatNumber(e.stats.prominence_m, lang), unit: "m", icon: Mountain });
+  if (e.stats?.width_km) out.push({ label: t("width", lang), value: formatNumber(e.stats.width_km, lang, 1), unit: "km", icon: Ruler });
+  if (e.stats?.drainage_km2) out.push({ label: t("drainage", lang), value: formatNumber(e.stats.drainage_km2, lang), unit: "km²", icon: Droplets });
+  if (e.stats?.elev_max_m) out.push({ label: t("maxElevation", lang), value: formatNumber(e.stats.elev_max_m, lang), unit: "m", icon: Mountain });
+  return out.slice(0, 3);
+}
+
+function speedText(speed: NonNullable<Entity["speed"]>, lang: Lang) {
   const nums = speed.limits.filter((v): v is number => v !== null);
-  const label = t("speedLimit", lang);
-  const tagged = (tag: string, v: number) => (lang === "zh" ? `${tag} ${v}` : `${v} ${tag}`);
   if (speed.limits.includes(null)) {
-    return { label, value: t("noLimit", lang), unit: nums.length ? tagged(t("inPlaces", lang), Math.min(...nums)) : undefined };
+    if (!nums.length) return t("noLimit", lang);
+    const lo = Math.min(...nums);
+    return `${t("noLimit", lang)} · ${lang === "zh" ? `${t("inPlaces", lang)} ${lo} km/h` : `${lo} km/h ${t("inPlaces", lang)}`}`;
   }
   const [lo, hi] = [Math.min(...nums), Math.max(...nums)];
-  return { label, value: lo === hi ? String(lo) : `${lo}–${hi}`, unit: "km/h" };
+  return `${lo === hi ? lo : `${lo}–${hi}`} km/h`;
 }
 
 const pct = (part: number, whole: number) => (whole > 0 ? Math.round((100 * part) / whole) : 0);
@@ -231,6 +294,7 @@ function RoadSection({ entity, lang }: { entity: Entity; lang: Lang }) {
         {hi > lo && <span className="text-faint"> · {t("busiest", lang)} {lang === "zh" ? `双向 ${hi * 2} 车道` : `${hi} each way`}</span>}
       </>,
     ],
+    ...(entity.speed?.limits.length ? [[t("speedLimit", lang), speedText(entity.speed, lang)] as [string, string]] : []),
     [
       t("crossSection", lang),
       `${t("laneWidth", lang)} ${xs.lane_m} m · ${t("emergencyLane", lang)} ${xs.shoulder_m} m · ${t("median", lang)} ${xs.median_m} m`,
@@ -261,6 +325,23 @@ function ServiceSection({ entity, lang }: { entity: Entity; lang: Lang }) {
     <Section title={t("serviceTitle", lang)}>
       <Rows rows={rows} />
       <p className="mt-2.5 text-[11px] text-faint">{t("serviceNote", lang)}</p>
+    </Section>
+  );
+}
+
+function MilitarySection({ entity, lang }: { entity: Entity; lang: Lang }) {
+  const m = entity.military;
+  if (!m) return null;
+  const rows: [string, React.ReactNode][] = [
+    [t("unit", lang), m.unit[lang]],
+    [t("branch", lang), m.branch[lang]],
+    [t("equipment", lang), m.equipment[lang]],
+    [t("personnel", lang), lang === "zh" ? `约 ${formatPopulation(m.personnel, lang)}人` : `about ${formatPopulation(m.personnel, lang)}`],
+    [t("publicAccess", lang), m.access[lang]],
+  ];
+  return (
+    <Section title={t("militaryTitle", lang)}>
+      <Rows rows={rows} />
     </Section>
   );
 }
@@ -465,9 +546,9 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
       </div>
 
       {items.length > 0 && (
-        <div className="grid grid-cols-2 gap-2 px-5 pb-4">
+        <div className={clsx("grid gap-2 px-5 pb-4", items.length >= 3 ? "grid-cols-3" : "grid-cols-2")}>
           {items.map((s) => (
-            <Stat key={s.label} {...s} />
+            <Stat key={s.label} accent={accent} {...s} />
           ))}
         </div>
       )}
@@ -491,6 +572,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
 
       {entity.segments?.length ? <RouteTimeline data={data} entity={entity} lang={lang} /> : <ChildList data={data} entity={entity} lang={lang} />}
 
+      <MilitarySection entity={entity} lang={lang} />
       <RoadSection entity={entity} lang={lang} />
       <ServiceSection entity={entity} lang={lang} />
       <TechSection entity={entity} lang={lang} />

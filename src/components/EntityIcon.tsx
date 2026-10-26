@@ -1,6 +1,7 @@
 import {
-  Anchor, Bird, Building2, Castle, Droplets, Factory, FerrisWheel, Flag, FlaskConical, Footprints, GraduationCap, Grape, Hotel, Landmark, LandPlot, Lighthouse, MapPin, Mountain, MountainSnow,
-  Navigation2, Plane, Radar, Rocket, Route, SatelliteDish, Ship, Shell, Snowflake, Telescope, TrainFront, TramFront, Trees, Warehouse, Waves, Zap,
+  Anchor, Bird, Building2, Castle, Crosshair, Droplets, Factory, FerrisWheel, Flag, Flame, FlaskConical, Footprints, GraduationCap, Grape, Helicopter, Hospital, Hotel, Landmark, LandPlot,
+  Lighthouse, Magnet, MapPin, Mountain, MountainSnow, Navigation2, Orbit, Plane, PlaneTakeoff, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship, Shell, Snowflake,
+  Sparkles, Target, Telescope, TrainFront, TramFront, Trees, Warehouse, Waves, Zap,
 } from "lucide-react";
 import type { Entity } from "../lib/types";
 
@@ -57,6 +58,34 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
         return <SatelliteDish {...props} />;
       case "radar_station":
         return <Radar {...props} />;
+      case "air_base":
+        return <PlaneTakeoff {...props} />;
+      case "missile_site":
+        return <Crosshair {...props} />;
+      case "ground_station":
+        return <Satellite {...props} />;
+      case "laser_station":
+        return <Sparkles {...props} />;
+      case "command_centre":
+        return <Shield {...props} />;
+      case "military_base":
+        return <ShieldHalf {...props} />;
+      case "training_range":
+        return <Target {...props} />;
+      case "training_centre":
+        return <Orbit {...props} />;
+      case "test_site":
+        return <Flame {...props} />;
+      case "factory":
+        return <Factory {...props} />;
+      case "depot":
+        return <Warehouse {...props} />;
+      case "heliport":
+        return <Helicopter {...props} />;
+      case "launch_track":
+        return <Magnet {...props} />;
+      case "hospital":
+        return <Hospital {...props} />;
       case "castle":
         return <Castle {...props} />;
       default:

@@ -222,7 +222,16 @@ export function buildStyle(opts: {
       { id: "facility-bulk", type: "fill", source: "landmarks", minzoom: 11, filter: isPart("bulk"), layout, paint: { "fill-color": f.bulk, "fill-opacity": fadeIn(11) } },
       { id: "facility-stack", type: "fill", source: "landmarks", minzoom: 11.5, filter: isPart("stack"), layout, paint: { "fill-color": f.stack, "fill-opacity": fadeIn(11.5) } },
       { id: "facility-rail", type: "fill", source: "landmarks", minzoom: 12, filter: isPart("rail"), layout, paint: { "fill-color": f.rail, "fill-opacity": fadeIn(12) } },
-      { id: "facility-tank", type: "fill", source: "landmarks", minzoom: 11.5, filter: isPart("tank"), layout, paint: { "fill-color": f.tank, "fill-opacity": fadeIn(11.5), "fill-outline-color": f.tankLine } },
+      {
+        id: "facility-tank",
+        type: "fill",
+        source: "landmarks",
+        minzoom: 11,
+        filter: ["any", isPart("tank"), isPart("dish")],
+        layout,
+        paint: { "fill-color": f.tank, "fill-opacity": fadeIn(11), "fill-outline-color": f.tankLine },
+      },
+      { id: "facility-track", type: "fill", source: "landmarks", minzoom: 9, filter: isPart("track"), layout, paint: { "fill-color": f.runway, "fill-opacity": fadeIn(9) } },
       { id: "facility-bridge", type: "fill", source: "landmarks", minzoom: 12, filter: isPart("bridge"), layout, paint: { "fill-color": f.paved, "fill-opacity": fadeIn(12) } },
       {
         id: "facility-bridge-line",

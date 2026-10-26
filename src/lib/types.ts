@@ -90,6 +90,16 @@ export interface Entity {
   tech?: RailTech;
   road?: RoadFacts;
   service?: RailService;
+  military?: MilitaryFacts;
+}
+
+/** Military and space facilities: the unit stationed there and what the public may see of it. */
+export interface MilitaryFacts {
+  unit: Record<Lang, string>;
+  branch: Record<Lang, string>;
+  equipment: Record<Lang, string>;
+  personnel: number;
+  access: Record<Lang, string>;
 }
 
 /** Structure profile and cost estimate of the stretches built under a route (2026 USD). */
