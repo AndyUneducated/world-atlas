@@ -10,8 +10,8 @@ features:
       en: Lorond Range
       art-x-viking: Lorondgebirge
     notes:
-      zh: 纵贯全岛中部的主山脉，1990 年原勒克尔市与原马斯林山市大致以其山脊为界。
-      en: The main range running through the centre of the island. Its crest roughly marked the boundary between the former Lekor and Maslin Mountain cities.
+      zh: 纵贯北维京岛中部的主山脉，南起杉岭冰川一带，北到龙首峰和澄湖南面，长一百五十公里左右，最高峰洛龙峰海拔两千七百多米。山脊上自南向北依次排列着洛龙峰、杉顶和龙首峰，其间的杉岭垭口和龙关是翻越山脉的两处山口；洛龙冰川面积上千平方公里，是山脉中最大的冰川，杉顶、龙首和杉岭冰川较小。厄定河发源于山脉东坡，澄湖则汇集北段的融雪。山脉把全岛分成东西两半，原勒克尔市与原马斯林山市曾大致以山脊为界。如今杉岭公路以洛龙山脉隧道从杉岭垭口附近穿山，环北维京岛高速也在那一带越岭，龙关高速则在龙首峰以北穿过主脊。
+      en: The main range of North Viking Island, running through the middle of the island from the Fir Ridge Glacier in the south to Dragonhead and the country south of Clear Lake in the north, some 150 km in all; its highest summit, Lorond Peak, rises to just over 2,700 m. Along the crest from south to north stand Lorond Peak, Fir Top and Dragonhead, with Fir Ridge Col and Dragon Pass as the two passes between them. The Lorond Glacier, more than a thousand square kilometres of ice, is the largest in the range; the Fir Top, Dragonhead and Fir Ridge glaciers are smaller. The Erding River rises on its eastern slopes, and Clear Lake gathers the snowmelt of its northern end. The range divides the island into east and west, and its crest once roughly marked the line between the former Lekor and Maslin Mountain cities. Today the Fir Ridge Highway tunnels through near Fir Ridge Col, where the ring expressway also crosses, and the Long Pass Expressway passes beneath the main ridge north of Dragonhead.
   - id: nat_qsrakx
     subtype: mountain_range
     status: generated
@@ -20,8 +20,8 @@ features:
       en: Maslin Range
       art-x-viking: Maslingebirge
     notes:
-      zh: 呈马蹄形环绕马斯林山盆地的北、西、南三面，东侧向海岸平原敞开。
-      en: Horseshoe-shaped range enclosing the Maslin basin on the north, west and south, open to the coastal plain in the east.
+      zh: 北维京岛东部的大山脉，呈马蹄形从北、西、南三面环抱马斯林山盆地，只在东面向海岸平原敞开，全岛最高峰观星峰就在山脉之中，海拔四千三百多米。北翼最高最险，自王座峰向东依次是西坪垭口、极光峰、北冕峰和观星峰，四千米级的高峰连成一线，五千多平方公里的王座冰原覆盖其上；西翼经马斯林山口南延到南冠峰，南冠冰川沿山脊铺展；南翼较低，西起铁岗山，东到天台山。北翼与西翼之间是群峰训练管理区，观星峰光学观测站和北冕峰激光站建在峰顶，监视和测量在轨卫星与太空碎片。马斯林河汇集盆地众水向东入海，天河和台河则从盆地南部流向东南海岸。
+      en: "The great range of eastern North Viking Island, a horseshoe enclosing the Maslin basin on the north, west and south and open only to the coastal plain in the east; Starwatch Peak, the island's highest summit at just over 4,300 m, stands on it. The northern arm is the highest and wildest: from Throne Peak eastwards come West Heath Saddle, Aurora Peak, Northcrown and Starwatch Peak, a line of four-thousand-metre summits under the more than 5,000 km² of the Throne Icefield. The western arm runs south over Maslin Pass to Southcrown, along whose crest the Southcrown Glacier spreads, and the lower southern arm reaches from Iron Knoll in the west to Sky Terrace Mountain in the east. Between the northern and western arms lies the High Peaks Training Area, and the Starwatch Peak Optical Station and the Northcrown Laser Station on their summits track satellites and space debris. The Maslin River gathers the waters of the basin and flows east to the sea, while the Sky and Terrace rivers run from the south of the basin to the south-east coast."
   - id: nat_papy7d
     subtype: ridge
     status: generated
@@ -30,8 +30,8 @@ features:
       en: Frost Ridge
       art-x-viking: Frostkamm
     notes:
-      zh: 西北市北部东西走向的山岭，最高峰霜冠峰，冬季积雪期长。
-      en: East–west ridge in the north of Northwest City, rising to Frostcrown, with a long winter snow season.
+      zh: 西北市北部东西走向的山岭，西起白狼峰，东到鹿角山，长一百四十公里左右，最高峰霜冠峰海拔两千四百多米，峰顶的霜冠冰川是山岭唯一较大的冰川。山脊自西向东依次排列着白狼峰、狼口、霜冠峰、星门和北斗峰，东端的鹿径和鹿角山已降为低山，是鹿群季节迁徙的通道。山岭北坡直落北海岸的鲸背湾和望星湾，南坡是寒岭区的原始森林和高山草甸，冬季积雪期长，越野滑雪和冰川观光吸引着不少游客。寒岭被视为西北市的生态屏障，新的开发受到严格控制，寒岭生态研究站常年在这里监测森林、冰川和野生动物。西岸公路的终点也在寒岭区内。
+      en: An east–west ridge across the north of Northwest City, from White Wolf Peak in the west to Antler Hill in the east, some 140 km long. Its highest summit is Frostcrown, just over 2,400 m, whose summit glacier is the only sizeable glacier on the ridge. Along the crest from west to east come White Wolf Peak, Wolf Gap, Frostcrown, Star Gate and Dipper Peak; at the eastern end Deer Path and Antler Hill drop to low hills where the deer cross on their seasonal migration. The north side falls straight to Whaleback Bay and Stargaze Bay on the north coast, and the south side is the old-growth forest and alpine meadow of Frost Ridge District; the snow lies long in winter, and cross-country skiing and glacier trips draw a steady flow of visitors. The ridge is treated as Northwest City's ecological buffer, new development is tightly controlled, and the Frost Ridge Ecological Station monitors its forests, glaciers and wildlife all year. The West Coast Highway also ends in Frost Ridge District.
   - id: nat_h7v2kd
     subtype: ridge
     status: generated
@@ -41,8 +41,8 @@ features:
       art-x-viking: Berglandhügel
       art-x-buckham: Colli di Bergland
     notes:
-      zh: 维京港与自由市之间西北—东南走向的低山，把两座城市所在的滨海平原隔开，自维高速以隧道穿过。
-      en: Low hills running north-west to south-east between Viking Port and Freedom City, separating the two cities' coastal plains; the Freedom–Viking Port Expressway tunnels through them.
+      zh: 维京港与自由市之间西北—东南走向的低山，最高处海拔七百八十多米，把两座城市所在的滨海平原隔开。维京语中「贝格兰」意为「山地」，丘陵的大部分属维京港市的贝格兰区，多划为森林公园，只有零散的村镇和别墅区，是维京港人口最少的区；东南端伸入自由市的沙洲区。环北维京岛高速绕行丘陵，自维高速则以四公里长的贝格兰丘陵隧道直穿而过，北河公路沿丘陵东缘下到沙洲。丘陵上是成片的云杉林和桦树林，林间步道和自行车道纵横，周末是两座城市居民共同的后花园。丘陵为两座城市提供水源、木材和休闲空间，新的开发受到严格限制。
+      en: Low hills running north-west to south-east between Viking Port and Freedom City, rising to just under 790 m and separating the coastal plains of the two cities. "Bergland" means "hill country" in Viking. Most of the hills belong to Bergland District of Viking Port, mostly forest park with scattered villages and houses, and the least populous district in the city, while the south-eastern end reaches into Sandbar District of Freedom City. The ring expressway goes round the hills, but the Freedom–Viking Port Expressway runs straight through them in the 4 km Bergland Hills Tunnel, and the North River Highway comes down their eastern edge to Sandbar. The hills are clothed in spruce and birch, criss-crossed by footpaths and cycle trails, and at weekends they are the shared back garden of both cities. The hills supply both with water, timber and room to breathe, and new building is tightly restricted.
   - id: nat_x9bmeh
     subtype: river
     status: generated
@@ -51,8 +51,8 @@ features:
       en: Freedom River
       art-x-viking: Freifluss
     notes:
-      zh: 自由市的母亲河，向南注入大海，入海口位于沙洲区。
-      en: The mother river of Freedom City, flowing south to the sea; its mouth lies in Sandbar District.
+      zh: 自由市的母亲河，全长两百三十多公里，流域面积两万五千多平方公里，是北维京岛第二长的河流。自由河发源于首府北面的北河区，先向西流入西北市林道区的森林谷地，再折向南，流过首府所在的台地，在沙洲区注入大海，入海处冲积出连绵的沙洲，沙洲区因此得名。首府坐落在自由河与北河之间的台地上，北维京岛大学、沙洲老渔市和沙洲钟楼都离河不远，滨河地带是首府居民最喜欢的散步去处。环北维京岛高速、自勒高速、西奥高速和观星高速都在河上架桥，北河公路也在河口一带经过。
+      en: The mother river of Freedom City, a little over 230 km long with a basin of more than 25,000 km², the second longest river on North Viking Island. It rises in North River District north of the capital, first flows west into the forested valleys of Lindau District in Northwest City, then turns south across the terrace on which the capital stands and reaches the sea in Sandbar District, where it has built a long chain of sandbars that gave the district its name. The capital lies on the terrace between the Freedom and North rivers; the University of North Viking Island, the Sandbar Old Fish Market and the Sandbar Clock Tower are all close to the river, and its banks are the capital's favourite place for a walk. The ring expressway and the Freedom–Lekor, Northwest–Oxino and Stargazer expressways all bridge the river, and the North River Highway passes near its mouth.
   - id: nat_9h7mcd
     subtype: river
     status: generated
@@ -61,8 +61,8 @@ features:
       en: North River
       art-x-viking: Nordfluss
     notes:
-      zh: 流经自由市北河区，北河大道因此得名。
-      en: Flows through North River District; North River Avenue is named after it.
+      zh: 自由市的两条大河之一，全长一百三十公里左右，流域面积近两万平方公里。北河源出首府北部的北河区，向东南流去，中游一段贴着奥克西诺市的奥克区流过，再经首府白桦区一带，在沙洲区东部的北河口入海。首府坐落在北河与自由河之间的台地上，北河区沿河展开，北河大道因此得名，两岸修有滨河步道和自行车道，夏夜常有露天集市。北河水流平缓，北河区北半部的河谷里仍是草场和奶牛场，为首府供应鲜奶；北河公路沿河谷上行，承担着北部农产品进城的运输，环北维京岛高速和西奥高速都从河上经过。
+      en: One of Freedom City's two great rivers, some 130 km long with a basin of nearly 20,000 km². It rises in North River District in the north of the capital and flows south-east, skirting Ox District of Oxino along part of its middle course, then passes the Birchwood District area of the capital and reaches the sea at North River Mouth in the east of Sandbar District. The capital stands on the terrace between the North and Freedom rivers. North River District spreads along its banks and North River Avenue is named after it, with riverside walks and cycle paths on both banks and open-air markets on summer evenings. The river flows gently, and in the north of North River District its valley is still pasture and dairy farms that supply the capital with fresh milk; the North River Highway follows the valley and carries farm produce into the city, and the ring expressway and the Northwest–Oxino Expressway both cross the river.
   - id: nat_ww491j
     subtype: river
     status: generated
@@ -71,8 +71,8 @@ features:
       en: Erding River
       art-x-viking: Erding Fluß
     notes:
-      zh: 岛屿东北部的主要河流，冲积出厄定河谷平原。
-      en: The main river of the north-east, which formed the Erding valley plain.
+      zh: 北维京岛最长、流域最广的河流，全长三百五十多公里，流域面积四万五千多平方公里。厄定河发源于洛龙山脉东坡的杉岭区，先向东流出山地，穿过新城市的米特区和北苑区，再折向北进入深峡区的峡谷，在谷底汇成碧绿的深峡湖，然后流经上厄定改良区的荒野，汇集洛龙、马斯林两山之间的众水，进入厄定河市的冲积平原，在厄定区的厄定河口注入北部海域。下游平原上是麦田、饲草地和家庭奶牛场，河口宽阔的三角洲湿地是候鸟迁徙的重要停歇地。厄定河公路自新城沿河谷北上直到下游的厄定区，是全岛最长的领道。
+      en: The longest river on North Viking Island and the one with the largest basin, a little over 350 km long and draining more than 45,000 km². The Erding rises on the eastern slopes of the Lorond Range in Fir Ridge District and first flows east out of the mountains through Mitte and North Gardens districts of New City. It then turns north into the gorge of Deep Gorge District, where it fills the emerald Gorge Lake on the valley floor, crosses the wilderness of the Upper Erding Improvement District, gathering the waters between the Lorond and Maslin ranges, and enters the alluvial plain of Erding River City to reach the northern sea at Erding Mouth in Erding District. On the lower plain are cereal fields, fodder meadows and family dairy farms, and the broad delta wetlands at the mouth are a major stopover for migrating birds. The Erding River Highway, the longest territorial highway on the island, follows the valley north from New City to Erding District on the lower river.
   - id: nat_jaxtgn
     subtype: lake
     status: generated
@@ -81,5 +81,5 @@ features:
       en: Clear Lake
       art-x-viking: Klarsee
     notes:
-      zh: 勒克尔市澄湖区的湖泊，以湖水清澈著称，环湖分布有集镇与水上休闲设施。
-      en: Lake in Clearlake District, Lekor, known for its clear water and ringed by lakeside towns and water recreation.
+      zh: 北维京岛面积最大的湖泊，面积两百三十多平方公里，位于勒克尔市澄湖区，北端伸入勒北区。湖水来自洛龙山脉北段的融雪和冰川融水，水质极清，晴天时可以看到几米深的湖底，湖名由此而来。环湖分布着几座小镇和木屋酒店，夏季可以划船、游泳、帆板和垂钓，冬季湖面封冻后成为冰钓和滑冰的乐园；湖里出产鳟鱼和白鲑，烟熏鳟鱼是当地特产。杉岭公路从洛龙山区下来，在湖的南岸到达终点。湖岸的澄湖湖滨公园修有步道、观鸟台和露营地；从北岸南望，龙首峰一带的雪峰倒映湖中，日出和日落时尤其动人。
+      en: The largest lake on North Viking Island, a little over 230 km², lying in Clearlake District of Lekor with its northern end reaching into Lekor North. It is fed by snowmelt and glacier water from the northern Lorond Range and is exceptionally clear; on a sunny day you can see several metres down to the bottom, hence its name. A few small towns and lakeside lodges ring the shore. In summer there is boating, swimming, windsurfing and angling, and in winter the frozen lake becomes a place for ice fishing and skating; trout and whitefish are caught here, and smoked trout is the local speciality. The Fir Ridge Highway comes down from the mountains to end on the south shore. Clearlake Shore Park has footpaths, bird hides and campsites along the shore, and from the north shore the snow peaks around Dragonhead are mirrored in the water, loveliest at sunrise and sunset.

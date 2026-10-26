@@ -1279,8 +1279,8 @@ places:
       art-x-viking: Waldpark Fichtenkamm
       art-x-buckham: Parco Forestale di Abete Tehee
     notes:
-      zh: 杉岭峰山腰以下的云杉林，林间步道通往杉岭冰川
-      en: The spruce forest below the shoulder of Fir Ridge Peak, with trails up towards the Fir Ridge Glacier.
+      zh: 杉岭山坡上的云杉原始林，林间步道通往杉岭冰川
+      en: Old-growth spruce on the slopes of Fir Ridge, with trails up towards the Fir Ridge Glacier.
     in: div_k5f1mz
     offset_km: [-1.0, 0.8]
     site: { layout: park, size_m: [1200, 800] }

@@ -9,112 +9,112 @@ features:
     detect: { kind: peak, at_km: [258.8, 113.2] }
     names: { zh: 观星峰, en: Starwatch Peak, art-x-viking: Sternwartspitze }
     notes:
-      zh: 全岛最高峰，马斯林山脉北翼东端高山群的主峰，俯临星港区；峰顶设有高山天文台。
-      en: The highest summit of the island, the main peak of the high massif at the eastern end of the Maslin Range's northern arm, above Starport District; an alpine observatory stands on its top.
+      zh: 北维京岛最高峰，海拔四千三百一十三米，是马斯林山脉北翼东端高山群的主峰，属马斯林山市群峰训练管理区，东面俯临星港区。峰顶被王座冰原东端的冰雪覆盖，西接北冕峰和极光峰，三座四千米级高峰连成一线。峰顶建有深空太空军的观星峰光学观测站：这里常在云层之上，空气稀薄干燥，夜空极为清澈，望远镜可以拍摄很暗的卫星和太空碎片，测定它们的轨道，站内的激光测距仪还为导航卫星校准轨道。观星峰不通公路，值守人员靠直升机轮换，峰顶不对公众开放，从星港区和西坪台地都能望见它的雪顶。
+      en: "The highest summit on North Viking Island, 4,313 m, the main peak of the high massif at the eastern end of the Maslin Range's northern arm, in the High Peaks Training Area of Maslin Mountain City and looking down on Starport District to the east. Its summit lies under the snow of the eastern Throne Icefield, with Northcrown and Aurora Peak to the west forming a line of three four-thousand-metre peaks. On the top stands the deep-space force's Starwatch Peak Optical Station: often above the clouds, in thin, dry air and very clear skies, its telescopes can photograph faint satellites and debris and measure their orbits, and its laser ranging system calibrates the orbits of navigation satellites. No road reaches the summit; the crew rotates by helicopter, the summit is closed to the public, and its snowy top can be seen from Starport and the West Heath plateau."
   - id: nat_w3c8nk
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [253.2, 116.8] }
     names: { zh: 北冕峰, en: Northcrown, art-x-viking: Nordkrone, art-x-buckham: Corona del Nord }
     notes:
-      zh: 马斯林山脉北翼东段高山群的中峰，三面冰斗环抱，形如冠冕，与西南的南冠峰南北相对。
-      en: The central summit of the high massif on the eastern part of the Maslin Range's northern arm, ringed on three sides by cirques like a crown; it faces Southcrown to the south-west.
+      zh: 马斯林山脉北翼东段高山群的中峰，海拔四千二百三十多米，是北维京岛第二高峰，位于观星峰西北，属群峰训练管理区。峰顶三面冰斗环抱，形如冠冕，与西南方的南冠峰遥遥相对，两峰一北一南，因此得名。峰顶建有深空太空军的北冕峰激光站：高山上大气稀薄，激光衰减小，站内的自适应光学系统可以把光束精确地聚焦到轨道上的目标，用于激光通信、能量传输试验和清除小块太空碎片。北冕峰不通公路，人员和物资靠直升机运送，四周是王座冰原的冰川，峰顶也不对公众开放。
+      en: "The central summit of the high massif on the eastern part of the Maslin Range's northern arm, a little over 4,230 m and the second highest peak on North Viking Island, lying north-west of Starwatch Peak in the High Peaks Training Area. Cirques ring its summit on three sides like a crown, and it faces Southcrown far to the south-west, one crown in the north and one in the south, hence the name. On its summit stands the deep-space force's Northcrown Laser Station: the thin air at altitude weakens the beam far less, and adaptive optics focus it precisely on targets in orbit for laser communication, power-beaming tests and nudging small pieces of space debris out of orbit. No road reaches it; staff and supplies come by helicopter, the summit is surrounded by the ice of the Throne Icefield, and it is closed to the public."
   - id: nat_r6y4ex
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [245.2, 115.8] }
     names: { zh: 极光峰, en: Aurora Peak, art-x-viking: Nordlichtspitze, art-x-buckham: Picco dell'Aurora }
     notes:
-      zh: 北冕峰西侧的四千米级高峰，冬夜极光常在峰顶上空出现。
-      en: A 4000-metre summit west of Northcrown; on winter nights the aurora often hangs above its top.
+      zh: 马斯林山脉北翼的四千米级高峰，海拔四千二百一十多米，是北维京岛第三高峰，位于北冕峰西侧、西坪垭口以东，属马斯林山市群峰训练管理区。峰顶被王座冰原覆盖，冰川从峰顶向南北两侧铺展。马斯林山的冬季漫长，夜晚晴朗时，极光常在峰顶上空舞动，从西坪台地或星港区望去，绿色的光带正好悬在峰顶之上，山峰因此得名。极光峰与东面的北冕峰、观星峰连成一线，构成北翼东段的高山群。山峰位于军事训练区内，不通公路，也不对公众开放，只能从远处观赏。
+      en: A four-thousand-metre summit in the northern arm of the Maslin Range, a little over 4,210 m and the third highest peak on North Viking Island, lying west of Northcrown and east of West Heath Saddle in the High Peaks Training Area of Maslin Mountain City. Its top is buried in the Throne Icefield, whose ice spreads from the summit down both sides. Winters in the Maslin Range are long, and on clear nights the aurora often dances above the peak; seen from the West Heath plateau or from Starport, the green curtains hang right over its summit, which gave it its name. With Northcrown and Starwatch Peak to the east it forms the high massif of the eastern northern arm. The peak lies inside the military training area, with no road and no public access, and can only be admired from afar.
   - id: nat_7fcbdm
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [214.8, 111.8] }
     names: { zh: 王座峰, en: Throne Peak, art-x-viking: Thronspitze }
     notes:
-      zh: 马斯林山脉北翼与西翼交会处的主峰，终年被王座冰原覆盖。
-      en: The main summit where the northern and western arms of the Maslin Range meet; capped all year by the Throne Icefield.
+      zh: 马斯林山脉北翼与西翼交会处的主峰，海拔四千零二十米，是北维京岛第四高峰，位于厄定河市旧府区。峰顶终年被王座冰原覆盖，王座冰原就从这里向东铺展到观星峰，因此以王座峰命名。从西面的厄定河谷或旧府的阶地上望去，王座峰巍然端坐在群峰之首，宽阔的山肩如同王座的扶手，山名由此而来。王座峰西坡俯临上厄定改良区的荒野，南面经马斯林山口与南冠峰山体相连，东面是西坪垭口。山峰不通公路，攀登须穿越冰原，是一条艰难的高山路线。
+      en: The main summit where the northern and western arms of the Maslin Range meet, 4,020 m and the fourth highest peak on North Viking Island, in Old Prefecture District of Erding River City. It is capped all year by the Throne Icefield, which spreads east from here to Starwatch Peak and takes its name from the peak. Seen from the Erding valley to the west or from the terraces of Old Prefecture, Throne Peak sits enthroned at the head of the range, its broad shoulders like the arms of a throne, hence the name. Its western slopes look down on the wilderness of the Upper Erding Improvement District; to the south it is linked to the Southcrown massif by Maslin Pass, and to the east lies West Heath Saddle. No road comes near, and the ascent across the icefield is a demanding high-mountain route.
   - id: nat_m9thfe
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [212.8, 67.2] }
     names: { zh: 南冠峰, en: Southcrown, art-x-viking: Südkrone }
     notes:
-      zh: 马斯林山脉西翼南端的高峰，峰顶冰川在晴天自新城市清晰可见。
-      en: High summit at the southern end of the Maslin Range's western arm; its ice cap is clearly visible from New City on fine days.
+      zh: 马斯林山脉西翼南端的高峰，海拔三千零八十多米，相对高度一千三百多米，位于新城市北苑区与南驿区之间的高山上。峰顶被南冠冰川覆盖，冰帽在晴天从新城市清晰可见，是新城的地标，与东北方的北冕峰南北相对，「南冠」之名由此而来。南冠冰川以南冠峰为中心向北铺展到马斯林山口南侧，是全岛第二大的冰川。北苑区北部的山脚下是森林和溪谷，新城居民常来这里徒步和野餐；登顶则须穿越冰川，属于高山探险路线，夏季也须结组并携带冰爪。
+      en: The high summit at the southern end of the Maslin Range's western arm, just over 3,080 m with a prominence of over 1,300 m, standing in the mountains between North Gardens and South Post districts of New City. It is capped by the Southcrown Glacier, whose ice is clearly visible from New City on fine days and serves as the city's landmark, and it faces Northcrown far to the north-east, a southern crown answering a northern one. Centred on the peak, the glacier stretches north to just south of Maslin Pass and is the second largest on the island. The forests and stream valleys at the foot of the mountains in the north of North Gardens are a favourite with New City families for walks and picnics, while the summit itself is a high-mountain expedition across the ice, roped up and with crampons even in summer.
   - id: nat_4xvk5v
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [148.2, 71.8] }
     names: { zh: 洛龙峰, en: Lorond Peak, art-x-viking: Lorondspitze }
     notes:
-      zh: 洛龙山脉最高峰，洛龙山市因其得名。
-      en: The highest summit of the Lorond Range, which gave Lorond Mountain City its name.
+      zh: 洛龙山脉最高峰，海拔两千七百零一米，相对高度两千五百多米，位于洛龙山市杉岭区，洛龙山市因其得名。峰顶和北坡被一千多平方公里的洛龙冰川覆盖，南侧是较小的杉岭冰川，晴天时从奥克西诺平原和新城都能望见它白色的山体。洛龙峰是北维京岛登山者心目中的经典山峰：登顶路线从杉岭区的森林出发，穿过冰川上的冰裂缝区到达峰顶，通常需要两到三天，夏季是唯一适合攀登的季节。上千平方公里的洛龙冰川、杉岭冰川和深峡湖一起，让洛龙山市成为登山和徒步的胜地。
+      en: "The highest summit of the Lorond Range, 2,701 m with a prominence of over 2,500 m, in Fir Ridge District of Lorond Mountain City, which is named after it. Its summit and northern side are covered by the more than 1,000 km² of the Lorond Glacier, with the smaller Fir Ridge Glacier to the south, and on a clear day its white bulk can be seen from the Oxino plain and from New City. Lorond Peak is a classic among North Viking climbers: the route to the top sets out from the forests of Fir Ridge District and crosses the crevasse fields of the glacier, usually taking two or three days, and summer is the only season for an ascent. Together with the Lorond Glacier, the Fir Ridge Glacier and Gorge Lake, it makes Lorond Mountain City a favourite with climbers and walkers."
   - id: nat_8ess6e
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [148.2, 111.8] }
     names: { zh: 龙首峰, en: Dragonhead, art-x-viking: Drachenkopf }
     notes:
-      zh: 洛龙山脉北段的主峰，与南面的山脊合称"龙脊"，俯瞰龙关。
-      en: The main summit of the northern Lorond Range, overlooking Dragon Pass; with the ridges to the south it forms the "Dragon's Spine".
+      zh: 洛龙山脉北段的主峰，海拔两千二百六十多米，位于洛龙山市龙关区，南面俯瞰龙关山口，峰顶周围是近一百平方公里的龙首冰川。山峰形似昂起的龙头，与南面的山脊合称「龙脊」，龙关和龙关区也都与这条「龙」有关。龙首峰北面不远是澄湖，晴天时从澄湖北岸南望，雪峰倒映湖中，是全岛最受欢迎的风景之一；龙关高速在龙首峰以北穿过洛龙山脉主脊。夏季登山者从龙关集镇出发，由向导带领穿越龙首冰川登顶。
+      en: The main summit of the northern Lorond Range, a little over 2,260 m, in Dragon Pass District of Lorond Mountain City, looking south over Dragon Pass and ringed by the nearly 100 km² of the Dragonhead Glacier. Shaped like a dragon's raised head, it forms the "Dragon's Spine" with the ridges to the south, and both Dragon Pass and the district carry on the dragon theme. Clear Lake lies a short way north, and from its north shore on a fine day the snow peak is mirrored in the water, one of the best-loved views on the island; the Long Pass Expressway passes beneath the main ridge north of the peak. In summer climbers set out from the town of Dragon Pass and cross the Dragonhead Glacier to the summit with a guide.
   - id: nat_baqmce
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [146.2, 88.2] }
     names: { zh: 杉顶, en: Fir Top, art-x-viking: Fichtenkopf }
     notes:
-      zh: 洛龙山脉中段的山峰，山腰以下为茂密的云杉林，杉岭区因此得名。
-      en: Summit in the middle of the Lorond Range. Dense spruce forest below its shoulders gave Fir Ridge District its name.
+      zh: 洛龙山脉中段的山峰，海拔两千三百七十多米，位于洛龙山市杉岭区，杉岭垭口以北。峰顶覆盖着一百二十多平方公里的杉顶冰川，山腰以下是茂密的云杉林，林海一直铺到山脚，杉岭区就因这片林海得名，「杉顶」则意为杉林之上的山顶。杉顶南面是杉岭垭口，杉岭公路和环北维京岛高速都在那一带经过洛龙山脉，晴天时从公路上就能望见杉顶的冰帽。杉岭林业研究所长期在杉顶的山坡上研究树种培育和林线变化，杉顶也是杉岭森林公园徒步路线的远景。
+      en: A summit in the middle of the Lorond Range, a little over 2,370 m, in Fir Ridge District of Lorond Mountain City, north of Fir Ridge Col. Its summit carries the more than 120 km² of the Fir Top Glacier, and below its shoulders a dense spruce forest runs right down to the foot of the mountain; Fir Ridge District takes its name from the forest, and Fir Top means the summit above the firs. Fir Ridge Col lies to the south, where the Fir Ridge Highway and the ring expressway pass through the range, and on a clear day the ice cap of Fir Top can be seen from the road. The Fir Ridge Forestry Institute has long studied tree breeding and the tree line on its slopes, and the peak is the backdrop to the trails of Fir Ridge Forest Park.
   - id: nat_8e3s2q
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [68.8, 133.2] }
     names: { zh: 霜冠峰, en: Frostcrown, art-x-viking: Frostkrone }
     notes:
-      zh: 寒岭最高峰，峰顶冰川终年不化。
-      en: The highest summit of the Frost Ridge, crowned by a permanent glacier.
+      zh: 寒岭最高峰，海拔两千四百一十多米，相对高度两千一百多米，位于西北市寒岭区，峰顶的霜冠冰川终年不化，像一顶白色的霜冠，山名由此而来。霜冠峰西接狼口和白狼峰，东经星门与北斗峰相连，北坡直落北海岸，南坡是寒岭区的原始森林和高山草甸。西岸公路的终点离山峰只有十来公里，从那里徒步上山要穿过森林和草甸，登顶须穿越冰川，夏季有向导带队。寒岭生态研究站长期在霜冠峰一带监测冰川和野生动物，冬季山脚下的越野滑雪道吸引着不少游客。
+      en: The highest summit of the Frost Ridge, a little over 2,410 m with a prominence of more than 2,100 m, in Frost Ridge District of Northwest City. The Frostcrown Glacier on its summit never melts and sits on it like a crown of frost, hence the name. To the west lie Wolf Gap and White Wolf Peak, to the east it connects through Star Gate to Dipper Peak, and its northern side drops straight to the north coast while its southern slopes carry the old-growth forest and alpine meadows of Frost Ridge District. The West Coast Highway ends only ten kilometres or so from the peak; from there the walk up leads through forest and meadow, and the summit itself is reached across the glacier, with guided parties in summer. The Frost Ridge Ecological Station has long monitored the ice and the wildlife around the peak, and in winter the cross-country ski trails at its foot draw many visitors.
   - id: nat_chx2bf
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [52.2, 131.2] }
     names: { zh: 白狼峰, en: White Wolf Peak, art-x-viking: Weißwolfspitze }
     notes:
-      zh: 寒岭西段的山峰，传说冬季有白狼出没。
-      en: Summit in the western Frost Ridge, said to be roamed by white wolves in winter.
+      zh: 寒岭西段的山峰，海拔两千二百四十多米，位于西北市寒岭区，是寒岭的西端。山峰北坡陡峭，冬季积雪厚重，峰顶常年被白雪覆盖，远看像一头蹲伏的白狼。当地传说冬季有白狼在山上出没，山名由此而来，东边的狼口也因此得名。寒岭生态研究站的红外相机确实常在这一带拍到狼的身影，寒岭的狼群主要在西段的原始森林中活动。夏季可以从狼口沿山脊登顶，西南望寒岭峡湾，北望北海岸，是寒岭西段视野最好的山峰之一。
+      en: A summit in the western Frost Ridge, a little over 2,240 m, in Frost Ridge District of Northwest City, marking the western end of the ridge. Its northern face is steep, the winter snow lies deep, and the white-capped summit looks from afar like a crouching white wolf. Local legend tells of white wolves roaming the mountain in winter, which gave it its name, and Wolf Gap to the east takes its name from the same story. The camera traps of the Frost Ridge Ecological Station do often catch wolves here, and the wolf packs of the Frost Ridge range mostly through the old-growth forest of its western part. In summer it can be climbed along the ridge from Wolf Gap, with views south-west to Frost Fjord and north to the coast, one of the finest viewpoints on the western ridge.
   - id: nat_g4572m
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [84.2, 132.2] }
     names: { zh: 北斗峰, en: Dipper Peak, art-x-viking: Wagenspitze }
     notes:
-      zh: 寒岭东段的山峰，冬夜北斗七星正悬于峰顶之上。
-      en: Summit in the eastern Frost Ridge; on winter nights the Plough hangs directly above it.
+      zh: 西北市望星区寒岭东段的山峰，海拔两千一百多米，位于星门以东。冬夜从望星区南望，北斗七星正悬于峰顶之上，山峰因此得名，望星区的居民把它当作冬季夜空的路标。北斗峰西接星门，东面是鹿径和鹿角山，寒岭从这里开始逐渐降低。峰顶是一片碎石和苔原，夏季可以从星门沿山脊徒步登顶，一路俯瞰望星湾和北海岸。望星区夜空清澈，冬季长夜里常有极光掠过北斗峰，天文爱好者喜欢在山脚取景，把山峰、北斗和极光同时摄入画面。
+      en: A summit in the eastern Frost Ridge in Stargaze District of Northwest City, a little over 2,100 m, east of Star Gate. On winter nights, looking south from Stargaze District, the seven stars of the Plough hang directly above its summit, which gave it its name, and local people use it as a landmark in the winter sky. Star Gate lies to the west, and to the east Deer Path and Antler Hill, where the Frost Ridge begins to fall away. The summit is a stretch of scree and tundra, and in summer it can be climbed along the ridge from Star Gate, with views over Stargaze Bay and the north coast all the way. The skies of Stargaze District are clear, the aurora often sweeps over the peak in the long winter nights, and astronomers like to set up at its foot to frame the peak, the Plough and the aurora together.
   - id: nat_reahta
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [256.2, 59.2] }
     names: { zh: 天台山, en: Sky Terrace Mountain, art-x-viking: Himmelterrassenberg }
     notes:
-      zh: 马斯林山脉南翼东端的孤峰，山顶平台状，天台区与天城市以其得名。
-      en: Isolated summit at the eastern end of the Maslin Range's southern arm. Its flat, terrace-like top gave Sky Terrace District and Skytown their names.
+      zh: 马斯林山脉南翼东端的孤峰，海拔一千七百二十多米，相对高度一千五百多米，矗立在天城市天台区的海岸背后。山顶是一片平坦的台地，远看像一座天上的平台，天台区和天城市都由此得名。山坡上是茂密的森林和步道，登山缆车从天台区的度假区出发，把游客送上山顶观赏日出、天河湾和天台峡湾；晴天时山顶视野开阔，东南海岸的度假区和海湾尽收眼底。天台山脚下是度假酒店和天台国际会议中心，山与海相依，是天城最有代表性的风景，四季都有游客登山。
+      en: An isolated summit at the eastern end of the Maslin Range's southern arm, just over 1,720 m with a prominence of more than 1,500 m, rising behind the coast of Sky Terrace District in Skytown. Its top is a flat tableland that looks from afar like a terrace in the sky, and it gave both the district and the city their names. Forests and footpaths cover its slopes, and a cable car from the resorts of Sky Terrace carries visitors to the top to watch the sunrise over Sky River Bay and Sky Terrace Fjord; on a clear day the resorts and bays of the south-east coast are spread out below. Resort hotels and the Sky Terrace International Convention Centre stand at its foot, mountain and sea side by side, the most characteristic view in Skytown, and people climb it in every season.
   - id: nat_m92aq4
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [229.8, 50.2] }
     names: { zh: 铁岗山, en: Iron Knoll, art-x-viking: Eisenkopf }
     notes:
-      zh: 马斯林山脉南翼西端的山峰，山体富含铁矿，铁岗区因此得名。
-      en: Summit at the western end of the Maslin Range's southern arm. Its iron-rich rock gave Iron Knoll District its name.
+      zh: 马斯林山脉南翼西端的山峰，海拔一千三百七十多米，位于萨科勒市铁岗区，山体富含铁矿，铁岗区因此得名。铁岗山一带的铁矿开采历史悠久，山上的露天矿坑和竖井曾是全岛最主要的铁矿来源；矿藏逐渐采尽后，部分矿山仍在开采石料和建筑骨料，规模已大为缩小，旧矿区周围铺开了铁岗先进制造产业园。铁岗矿业博物馆由旧铁矿的选矿厂改建，游客可以乘坐矿车深入地下巷道。山的西侧是萨科山口，古道翻过山口通往萨科湾；从山顶可以望见萨科湾、旧矿坑和山脚下的工业园。
+      en: A summit at the western end of the Maslin Range's southern arm, a little over 1,370 m, in Iron Knoll District of Sakole; its iron-rich rock gave the district its name. Iron has been mined here for a long time, and the open pits and shafts on the mountain were once the island's main source of ore. As the deposits ran out, some quarries carried on producing stone and aggregate on a much smaller scale, and the Iron Knoll Advanced Manufacturing Park has spread around the old mining area. The Iron Knoll Mining Museum, built in the old ore-dressing plant, takes visitors by mine cart into the underground galleries. Sako Pass lies to the west, where an old track crosses to Sako Bay, and from the summit you can see Sako Bay, the old pits and the industrial park at the foot of the mountain.
   - id: nat_5xevyh
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [97.8, 128.2] }
     names: { zh: 鹿角山, en: Antler Hill, art-x-viking: Geweihberg }
     notes:
-      zh: 寒岭东端的山峰，双峰并立形似鹿角。
-      en: Summit at the eastern end of the Frost Ridge, its twin tops shaped like antlers.
+      zh: 寒岭东端的山峰，海拔一千一百六十多米，位于西北市望星区，鹿径以东。山顶两座峰头并立，中间隔着一道浅浅的鞍部，远看形似一对鹿角，山名由此而来，西边的鹿径也与它一起构成寒岭东端的「鹿」系地名。寒岭到这里已降为低缓的丘陵，山坡上是桦树林和苔原，每年春秋两季鹿群经鹿径迁徙时，鹿角山的山坡是观看鹿群的好地方。山顶可以徒步半天往返，北望望星湾，南望西北市的科研走廊，是望星区居民周末常去的地方。
+      en: A summit at the eastern end of the Frost Ridge, a little over 1,160 m, in Stargaze District of Northwest City, east of Deer Path. Two tops stand side by side, separated by a shallow saddle, and from a distance they look like a pair of antlers, hence the name; with Deer Path to the west it gives the eastern end of the ridge its run of deer names. Here the Frost Ridge has fallen to gentle hills, its slopes covered in birch and tundra, and when the herds cross by Deer Path each spring and autumn the slopes of Antler Hill are a good place to watch them. The summit is a half-day walk there and back, with views north to Stargaze Bay and south to Northwest City's research corridor, and Stargaze people often come up at weekends.
 
   # ── Passes ───────────────────────────────────────────────
   - id: nat_h9chf5
@@ -123,64 +123,64 @@ features:
     detect: { kind: pass, at_km: [211.2, 94.2] }
     names: { zh: 马斯林山口, en: Maslin Pass, art-x-viking: Maslinpass }
     notes:
-      zh: 马斯林山脉西翼的鞍部，分隔王座峰与南冠峰两大山体。
-      en: Saddle in the western arm of the Maslin Range, dividing the Throne Peak and Southcrown massifs.
+      zh: 马斯林山脉西翼的鞍部，海拔一千七百六十多米，位于厄定河市上厄定改良区，分隔北面的王座峰山体和南面的南冠峰山体。鞍部以南就是南冠冰川的北缘，以北是王座冰原所在的北翼高山，山口本身则是两片冰原之间一段较低的岩石山脊，夏季积雪融化后露出苔原和碎石坡。山口西侧是厄定河上游的荒野，东侧俯临马斯林山盆地，旧时驯鹿牧民和猎人曾经由这里往来于两地。如今山口仍不通公路，只有护林员和野外探险者偶尔经过，是马斯林山脉最荒凉的地方之一。
+      en: A saddle in the western arm of the Maslin Range, just over 1,760 m high, in the Upper Erding Improvement District of Erding River City, dividing the Throne Peak massif to the north from the Southcrown massif to the south. Just south of it begins the northern edge of the Southcrown Glacier, and to the north rise the high mountains of the northern arm under the Throne Icefield; the pass itself is a lower stretch of rocky ridge between the two icefields, where tundra and scree show through once the snow melts in summer. To the west lies the wilderness of the upper Erding, and to the east it looks down on the Maslin basin; reindeer herders and hunters once crossed here between the two. There is still no road over it, and only forest rangers and the occasional expedition pass by, one of the loneliest places in the Maslin Range.
   - id: nat_68ggx2
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [146.8, 104.2] }
     names: { zh: 龙关, en: Dragon Pass, art-x-viking: Drachenpass }
     notes:
-      zh: 洛龙山脉中北部的山口，自古是翻越洛龙山脉的要道，龙关区因此得名。
-      en: Pass in the north-central Lorond Range, long the main way across the range; Dragon Pass District is named after it.
+      zh: 洛龙山脉中北部的山口，海拔一千七百米，位于洛龙山市杉岭区，龙首峰以南。龙关自古就是翻越洛龙山脉中北段的要道，旧时的驿站、马厩和关卡至今保存在龙关驿站博物馆里，讲述着商队和邮差冒雪翻山的故事，东北麓谷地里的龙关集镇和龙关区都由山口得名。如今的公路都不经过山口：龙关高速改从龙首峰以北穿过主脊，杉岭公路则在南面的杉岭垭口附近以隧道穿山，老山口只剩下一条石砌古道。夏季徒步者沿古道走一整天，可以从山口俯瞰两侧的谷地和远处的澄湖。
+      en: "A pass in the north-central Lorond Range, about 1,700 m high, in Fir Ridge District of Lorond Mountain City, south of Dragonhead. Dragon Pass has long been the main way over the north-central range: its old post house, stables and toll gate survive in the Dragon Pass Post House Museum, which tells of caravans and postmen crossing the mountains in the snow, and the town of Dragon Pass in the valley to the north-east, and Dragon Pass District, take their names from it. No road uses the pass today: the Long Pass Expressway crosses beneath the main ridge north of Dragonhead, and the Fir Ridge Highway tunnels through near Fir Ridge Col to the south, leaving the old pass to a stone-paved track. In summer walkers follow it for a full day, looking down from the pass on the valleys on both sides and the distant Clear Lake."
   - id: nat_m6jx55
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [243.8, 114.2] }
     names: { zh: 西坪垭口, en: West Heath Saddle, art-x-viking: Westheidesattel }
     notes:
-      zh: 马斯林山脉北翼的鞍部，南坡为西坪区的高山草甸。
-      en: Saddle in the northern arm of the Maslin Range, above the alpine meadows of West Heath District.
+      zh: 马斯林山脉北翼王座峰与极光峰之间的鞍部，海拔三千四百九十多米，是北维京岛海拔最高的山口。鞍部被王座冰原覆盖，终年冰雪不化，北侧冰舌下伸到厄定河市驯鹿原牧区的高原，南坡则是马斯林山市西坪区的高山草甸，西坪区和西坪垭口都由这片高原台地得名。垭口不通公路，冰面上暗藏冰裂缝，只有经过训练的登山队和驻军的高山分队才会穿越。站在南坡的西坪台地上，可以看到垭口两侧的王座峰和极光峰，以及每逢发射日从台地上空升起的火箭尾焰。
+      en: A saddle in the northern arm of the Maslin Range between Throne Peak and Aurora Peak, just under 3,500 m and the highest pass on North Viking Island. It lies under the Throne Icefield and is never free of snow and ice; on the north side the ice tongues reach down to the upland of the Reindeer Range Pastoral District in Erding River City, while the southern slope falls to the alpine meadows of West Heath District in Maslin Mountain City, after whose upland plateau both the district and the saddle are named. No road crosses it, and hidden crevasses mean that only trained mountaineering teams and the garrison's alpine units attempt the crossing. From the West Heath plateau below you can see Throne Peak and Aurora Peak on either side of the saddle, and on launch days the trails of rockets climbing above the plateau.
   - id: nat_qksmah
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [147.2, 83.8] }
     names: { zh: 杉岭垭口, en: Fir Ridge Col, art-x-viking: Fichtensattel }
     notes:
-      zh: 洛龙峰与杉顶之间的高海拔垭口。
-      en: High col between Lorond Peak and Fir Top.
+      zh: 洛龙山市杉岭区洛龙峰与杉顶之间的高海拔垭口，海拔两千零八十多米，是洛龙山脉中南段的分水岭。垭口北侧紧邻洛龙冰川，四周是碎石坡和终年积雪，夏季也常有风雪。旧时翻越这里要走险峻的盘山道，如今杉岭公路以隧道代替盘山道，从垭口附近穿过主脊，环北维京岛高速也从垭口近旁通过，把奥克西诺平原与洛龙山东麓连在一起。杉岭森林公园的徒步道从山下的云杉林一路上行到垭口，晴天时可以同时看到洛龙冰川和杉顶的冰帽，是杉岭区最经典的登山路线之一。
+      en: A high col between Lorond Peak and Fir Top in Fir Ridge District of Lorond Mountain City, a little over 2,080 m, on the watershed of the central and southern Lorond Range. The Lorond Glacier lies right against its northern side, and around it are scree slopes and permanent snow, with snow squalls even in summer. In the past the crossing meant a steep zigzag track; today the Fir Ridge Highway tunnels beneath the crest close to the col, and the ring expressway also passes nearby, linking the Oxino plain with the eastern foot of the range. A trail from Fir Ridge Forest Park climbs from the spruce woods below to the col, from which on a clear day you can see both the Lorond Glacier and the ice cap of Fir Top, one of the classic climbs of Fir Ridge District.
   - id: nat_ryk6ny
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [61.2, 130.8] }
     names: { zh: 狼口, en: Wolf Gap, art-x-viking: Wolfsscharte }
     notes:
-      zh: 白狼峰与霜冠峰之间的山口。
-      en: Gap between White Wolf Peak and Frostcrown.
+      zh: 寒岭西段白狼峰与霜冠峰之间的山口，海拔一千八百二十多米，位于西北市寒岭区与鹿鸣区之间。山口两侧是陡峭的岩壁，冬季北风从海上灌入，在狭窄的缺口里呼啸而过，声如狼嚎，山口和西边的白狼峰都因此带上了「狼」字。狼口不通公路，只有一条古老的猎人小道翻越山口，连接寒岭南坡的森林和北海岸，夏季常有徒步者沿这条小道走寒岭西段的穿越路线。山口附近是寒岭生态研究站的野生动物监测区，红外相机常拍到狼、猞猁和驯鹿的身影。
+      en: A pass in the western Frost Ridge between White Wolf Peak and Frostcrown, just over 1,820 m, on the line between Frost Ridge and Deersong districts of Northwest City. Steep rock walls flank it, and in winter the north wind pours in from the sea and howls through the narrow gap like a wolf, which is why both the pass and White Wolf Peak to the west bear the name. No road crosses it; only an old hunters' path climbs over, linking the forests on the south side of the Frost Ridge with the north coast, and in summer walkers follow it on traverses of the western ridge. The area around the pass is a wildlife monitoring zone of the Frost Ridge Ecological Station, whose camera traps often catch wolves, lynx and reindeer.
   - id: nat_28qqas
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [80.2, 132.8] }
     names: { zh: 星门, en: Star Gate, art-x-viking: Sterntor }
     notes:
-      zh: 霜冠峰与北斗峰之间的山口，北望即是望星湾。
-      en: Pass between Frostcrown and Dipper Peak, looking north to Stargaze Bay.
+      zh: 西北市望星区寒岭中段的山口，海拔一千八百五十多米，位于霜冠峰与北斗峰之间。从南面望去，两座山峰之间的缺口像一道敞开的门，晴朗的冬夜，星空和极光从门中透出，山口由此得名；站在山口北望，就是望星湾和北海岸的海面。星门不通公路，一条徒步小道从寒岭南坡的森林上行，越过山口下到望星湾畔，是寒岭最受欢迎的穿越路线之一，夏季要走一整天，冬季积雪深厚时只有经验丰富的越野滑雪者才会尝试。山口附近视野开阔、光污染极少，也是天文爱好者拍摄星空的地方。
+      en: A pass in the middle of the Frost Ridge in Stargaze District of Northwest City, just over 1,850 m high, between Frostcrown and Dipper Peak. Seen from the south, the gap between the two peaks looks like an open gate, and on clear winter nights the stars and the aurora shine through it, which gave the pass its name; from the pass itself the view north is over Stargaze Bay and the sea of the north coast. No road crosses it. A footpath climbs from the forest on the south side of the Frost Ridge, crosses the pass and drops to the shore of Stargaze Bay, one of the most popular traverses of the ridge, a full day's walk in summer, while in deep winter snow only experienced cross-country skiers attempt it. Wide skies and almost no light pollution also make it a place for photographing the night sky.
   - id: nat_6p167r
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [225.2, 48.2] }
     names: { zh: 萨科山口, en: Sako Pass, art-x-viking: Sakopass }
     notes:
-      zh: 铁岗山西侧的山口，连接萨科区与东南沿海。
-      en: Pass west of Iron Knoll linking Sako District with the south-east coast.
+      zh: 萨科勒市铁岗山西侧的山口，海拔一千一百五十多米，位于萨科区与铁岗区之间，是马斯林山脉南翼西端的低鞍部，连接萨科区与东南沿海。旧时萨科镇的渔民和铁岗的矿工就沿着山口的古道往来，把鱼货运进矿区、把铁器带回渔镇。如今山口不通公路，古道成了登山者喜爱的去处，沿途是石楠荒坡和桦树林，山口上可以同时望见萨科湾和铁岗山的旧矿坑。秋季石楠花开时，整片山坡染成紫红色，萨科老镇的巴克汉姆人常在这时结伴上山。
+      en: "A pass west of Iron Knoll in Sakole, a little over 1,150 m, between Sako and Iron Knoll districts: a low saddle at the western end of the Maslin Range's southern arm linking Sako District with the south-east coast. In the past the fishermen of Sako and the miners of Iron Knoll travelled the old track over the pass, carrying fish into the mining country and bringing ironware back to the fishing town. Today no road crosses the pass, and the old track has become a favourite with walkers, climbing through heather and birch to a saddle from which you can see Sako Bay and the old open pits of Iron Knoll at once. When the heather flowers in autumn the hillsides turn purple-red, and Buckham families from the old town of Sako come up together to see it."
   - id: nat_0syp9a
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [96.2, 128.2] }
     names: { zh: 鹿径, en: Deer Path, art-x-viking: Hirschsteig }
     notes:
-      zh: 寒岭东端的低山口，鹿群季节迁徙的通道。
-      en: Low pass at the eastern end of the Frost Ridge, used by deer on their seasonal migration.
+      zh: 西北市望星区寒岭东端的低山口，海拔九百三十多米，位于北斗峰与鹿角山之间，是寒岭最低的山口。寒岭到这里已降为低缓的丘陵，山口两侧是桦树林和苔原，每年春秋两季，鹿群沿着山口翻越寒岭，在南坡的森林和北海岸的夏季草场之间迁徙，山口由此得名。迁徙季节，寒岭生态研究站的研究人员会在山口统计鹿群数量，望星区的居民也常来山坡上远远观看。鹿径不通公路，为了不干扰迁徙，山口一带只开放一条徒步小道，迁徙高峰期还会临时关闭。
+      en: A low pass at the eastern end of the Frost Ridge in Stargaze District of Northwest City, just over 930 m high, between Dipper Peak and Antler Hill, and the lowest pass on the ridge. Here the Frost Ridge has dropped to gentle hills, with birch woods and tundra on either side, and every spring and autumn herds of deer cross the ridge through the pass on their way between the forests of the south side and the summer pastures of the north coast, which gave it its name. In the migration season researchers from the Frost Ridge Ecological Station count the herds at the pass, and people from Stargaze District come to watch from the slopes at a distance. No road crosses it; to avoid disturbing the animals only one footpath is open, and even that is closed at the height of the migration.
 
   # ── Glaciers (largest first) ─────────────────────────────
   - id: nat_hvjjwy
@@ -189,53 +189,53 @@ features:
     detect: { kind: glacier, at_km: [232.6, 114.4] }
     names: { zh: 王座冰原, en: Throne Icefield, art-x-viking: Throneisfeld }
     notes:
-      zh: 全岛最大的冰原，自王座峰向东覆盖马斯林山脉北翼直至观星峰，北坡冰舌下伸最低。
-      en: The largest icefield of the island, covering the northern arm of the Maslin Range from Throne Peak east to Starwatch Peak; its tongues reach lowest on the north side.
+      zh: 北维京岛最大的冰原，面积五千多平方公里，覆盖马斯林山脉北翼，西起王座峰，东到全岛最高峰观星峰，平均海拔三千多米。冰原上耸立着王座峰、极光峰、北冕峰和观星峰四座四千米级高峰，西坪垭口的鞍部也埋在冰雪之下。冰原的北坡朝向驯鹿原，冰舌在这一侧下伸得最低，牧场边缘就与冰原相连；南坡俯临西坪区的高山草甸和群峰训练管理区。冰原东段的峰顶建有观星峰光学观测站和北冕峰激光站，人员和物资只能靠直升机运送。冰原的融水顺南北两坡流下，汇入马斯林河和驯鹿原的河流。
+      en: The largest icefield on North Viking Island, more than 5,000 km² of ice over the northern arm of the Maslin Range from Throne Peak in the west to Starwatch Peak, the island's highest summit, in the east, at a mean height of over 3,000 m. Four four-thousand-metre summits rise from it, Throne Peak, Aurora Peak, Northcrown and Starwatch Peak, and the saddle of West Heath Saddle lies buried beneath its snow. The north side faces the Reindeer Range, where the ice tongues reach lowest and the pastures run right up to the edge of the ice; the south side looks down on the alpine meadows of West Heath District and the High Peaks Training Area. On the summits at its eastern end stand the Starwatch Peak Optical Station and the Northcrown Laser Station, supplied only by helicopter. Its meltwater runs down both sides into the Maslin River and the rivers of the Reindeer Range.
   - id: nat_62jkkn
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [212.6, 67.1] }
     names: { zh: 南冠冰川, en: Southcrown Glacier, art-x-viking: Südkronengletscher }
     notes:
-      zh: 覆盖南冠峰的冰川，沿西翼山脊向北延伸到马斯林山口南侧。
-      en: Glacier capping Southcrown, reaching north along the western arm to just south of Maslin Pass.
+      zh: 覆盖马斯林山脉西翼南段的大冰川，面积一千七百多平方公里，在北维京岛仅次于王座冰原。冰川以南冠峰为中心，沿西翼山脊向北一直延伸到马斯林山口南侧，平均海拔约两千五百米，冰盖边缘伸出多条冰舌，融水向西流入厄定河上游的荒野，向东则汇入马斯林山盆地。南冠峰和它的冰帽在晴天从新城市清晰可见，北苑区北部的山脚下是新城居民徒步和野餐的森林与溪谷。冰川一带不通公路，登山者从北苑或上厄定改良区出发，要徒步一两天才能到达冰缘，夏季也须结组并携带冰爪。
+      en: "The great glacier on the southern part of the Maslin Range's western arm, more than 1,700 km² of ice, second on North Viking Island only to the Throne Icefield. Centred on Southcrown, it stretches north along the crest of the western arm to just south of Maslin Pass at a mean height of about 2,500 m, and many tongues push out from its edges; its meltwater runs west into the wilderness of the upper Erding and east into the Maslin basin. Southcrown and its ice cap are clearly visible from New City on fine days, and the forests and stream valleys at the foot of the mountains in the north of North Gardens District are where New City families go walking and picnicking. No road comes near the ice: climbers set out from North Gardens or the Upper Erding Improvement District and walk a day or two to reach its edge, roped up and with crampons even in summer."
   - id: nat_1r9x72
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [149.6, 75.6] }
     names: { zh: 洛龙冰川, en: Lorond Glacier, art-x-viking: Lorondgletscher }
     notes:
-      zh: 洛龙峰北坡的冰川，洛龙山脉最大的冰川。
-      en: Glacier on the north side of Lorond Peak, the largest in the Lorond Range.
+      zh: 洛龙山脉最大的冰川，面积一千零四十多平方公里，覆盖洛龙山脉最高峰洛龙峰的北坡，最高处就是海拔两千七百零一米的洛龙峰顶，平均海拔两千三百多米。冰川从洛龙峰向北铺展到杉岭垭口一带，冰舌伸入两侧的山谷，环北维京岛高速从冰川边缘附近经过，司机在晴天就能看到冰原和冰舌。洛龙山市以洛龙峰和这片冰原闻名，上千平方公里的洛龙冰川与杉岭冰川、深峡湖一起，让这里成为登山和徒步的胜地。冰川融水是厄定河源头的重要补给。
+      en: The largest glacier in the Lorond Range, more than 1,040 km² of ice covering the northern side of Lorond Peak, the range's highest summit; its top is the 2,701 m summit itself, and its mean height is a little over 2,300 m. The ice spreads north from Lorond Peak towards Fir Ridge Col, with tongues reaching down into the valleys on either side. The ring expressway passes close to its edge, so drivers can see the icefield and its tongues on a clear day. Lorond Mountain City is known for Lorond Peak and this icefield, which together with the Fir Ridge Glacier and Gorge Lake make the area a favourite for climbing and walking. Meltwater from the glacier is an important source of the Erding River.
   - id: nat_azh3cs
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [147.6, 114.6] }
     names: { zh: 龙首冰川, en: Dragonhead Glacier, art-x-viking: Drachenkopfgletscher }
     notes:
-      zh: 龙首峰周围的冰川。
-      en: Glacier around Dragonhead.
+      zh: 洛龙山脉北段主峰龙首峰周围的冰川，面积近一百平方公里，最高处海拔两千两百多米，横跨洛龙山市龙关区和勒克尔市澄湖区。冰川环绕龙首峰顶铺开，从远处看像是龙头上的一圈白鬃，与南面的山脊合称「龙脊」。冰川北面不远是澄湖，晴天时从澄湖北岸南望，龙首峰和它的冰川倒映在湖中；龙关高速则在龙首峰以北穿过洛龙山脉主脊。融雪和冰川融水顺山谷流下，是澄湖的水源之一。冰川一带不通公路，夏季有向导从龙关集镇带领登山者上山。
+      en: The glacier around Dragonhead, the main summit of the northern Lorond Range, nearly 100 km² of ice reaching a little over 2,200 m and spanning Dragon Pass District of Lorond Mountain City and Clearlake District of Lekor. The ice spreads round the summit like a white mane on a dragon's head, and with the ridges to the south it forms the "Dragon's Spine". Clear Lake lies a short way north, and from its north shore on a fine day Dragonhead and its glacier are mirrored in the water; the Long Pass Expressway passes beneath the main ridge north of Dragonhead. Snowmelt and meltwater running down the valleys are among the sources of Clear Lake. No road comes near the ice, and in summer guides from the town of Dragon Pass lead climbers up.
   - id: nat_af1705
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [151.1, 58.9] }
     names: { zh: 杉岭冰川, en: Fir Ridge Glacier, art-x-viking: Fichtenkammgletscher }
     notes:
-      zh: 洛龙峰南侧的冰川。
-      en: Glacier south of Lorond Peak.
+      zh: 洛龙山脉最南端的小冰川，面积约三十五平方公里，位于洛龙峰南侧，平均海拔两千一百多米。冰川所在的山地属洛龙山市杉岭区，四周是云杉和冷杉组成的原始针叶林，冰川与森林之间只隔着一片碎石和高山草甸，冰雪与林海近在咫尺。杉岭森林公园的林间步道从山坡上的云杉原始林一路上行，通往杉岭冰川的冰舌，夏季是徒步者喜爱的一日路线，沿途可以看到冰川退缩后留下的冰碛和冰蚀湖。冰川融水汇成清澈的溪流，流入杉岭的林海，为杉岭区的森林涵养水源。
+      en: A small glacier at the southern end of the Lorond Range, about 35 km², lying south of Lorond Peak at a mean height of just over 2,100 m. The mountains around it belong to Fir Ridge District of Lorond Mountain City and are clothed in old-growth spruce and fir; only a band of scree and alpine meadow separates ice from forest, so the glacier and the trees can be seen side by side. A trail from Fir Ridge Forest Park climbs through the old spruce to the glacier's tongue, a favourite day walk in summer that passes the moraines and small ice-carved lakes left behind as the ice retreated. Its meltwater gathers into clear streams that run down into the forests of Fir Ridge and keep them watered.
   - id: nat_a7552a
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [147.6, 88.9] }
     names: { zh: 杉顶冰川, en: Fir Top Glacier, art-x-viking: Fichtenkopfgletscher }
     notes:
-      zh: 覆盖杉顶的冰川。
-      en: Glacier capping Fir Top.
+      zh: 覆盖洛龙山脉中段杉顶峰顶的冰川，面积一百二十多平方公里，最高处海拔两千三百多米。冰帽从峰顶向四周铺开，在山腰以上与杉顶的岩壁和雪坡相接，山腰以下则是茂密的云杉林，杉岭区的名字就来自这片林海。冰川南面不远是杉岭垭口，杉岭公路和环北维京岛高速都在垭口附近经过洛龙山脉，晴天时从公路上可以望见杉顶白色的冰帽。冰川融水顺山谷流下，汇成杉岭林海里的溪流。冰川一带不通公路，登山者从杉岭的林场出发，沿林道和碎石坡上行，一天可以到达冰缘。
+      en: The glacier capping Fir Top in the middle of the Lorond Range, more than 120 km² of ice reaching just over 2,300 m. The ice cap spreads from the summit to meet the rock walls and snow slopes of the upper mountain, and below its shoulders lies the dense spruce forest that gave Fir Ridge District its name. Fir Ridge Col lies a short way south, where both the Fir Ridge Highway and the ring expressway pass through the range, and on a clear day the white cap of Fir Top can be seen from the road. Its meltwater runs down the valleys into the streams of the Fir Ridge forest. No road comes near the ice; climbers set out from the forestry camps of Fir Ridge and follow forest tracks and scree slopes up to its edge in a day.
   - id: nat_wwyev3
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [71.6, 134.4] }
     names: { zh: 霜冠冰川, en: Frostcrown Glacier, art-x-viking: Frostkronengletscher }
     notes:
-      zh: 霜冠峰顶的冰川，寒岭唯一较大的冰川。
-      en: Glacier on the summit of Frostcrown, the only sizeable glacier of the Frost Ridge.
+      zh: 西北市寒岭区霜冠峰顶的冰川，面积一百三十多平方公里，最高处海拔两千四百一十多米，是寒岭唯一较大的冰川。冰帽终年不化，覆盖着寒岭最高峰霜冠峰的峰顶，「霜冠」之名就来自这顶白色的冰冠；冰舌沿南坡伸入原始森林上方的高山草甸，北坡则俯临北海岸的海湾。寒岭生态研究站长期监测霜冠冰川的进退和融水变化，许多大学的野外实习也在这里进行。冰川观光是寒岭区近年兴起的生态旅游项目，向导带领游客从森林边缘徒步上冰，冬季则有越野滑雪路线绕行冰川脚下。
+      en: The glacier on the summit of Frostcrown in Frost Ridge District of Northwest City, more than 130 km² of ice rising to just over 2,410 m, and the only sizeable glacier on the Frost Ridge. The ice cap never melts and covers the summit of the ridge's highest peak; the name Frostcrown comes from this white crown. Its tongues reach down the southern side to the alpine meadows above the old-growth forest, while the northern side looks out over the bays of the north coast. The Frost Ridge Ecological Station has long monitored the glacier's advance and retreat and its meltwater, and many universities run their field courses here. Glacier walks are one of the eco-tourism trips that have grown up in Frost Ridge District in recent years, with guides leading visitors from the forest edge onto the ice, and in winter cross-country ski trails circle below it.

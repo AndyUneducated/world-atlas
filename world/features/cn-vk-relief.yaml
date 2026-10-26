@@ -8,56 +8,56 @@ features:
     detect: { kind: peak, at_km: [65.2, 45.8] }
     names: { zh: 火口峰, en: Crater Peak, art-x-viking: Kraterspitze, art-x-buckham: Picco del Cratere }
     notes:
-      zh: 暖泉火山的火口缘最高点，群岛最高峰，顶上是群岛唯一的冰帽，火口内终年冒着蒸汽。
-      en: The highest point of Warmspring Volcano's crater rim and of the islands, capped by the islands' only ice cap; steam rises from the crater all year.
+      zh: 暖泉火山的火口缘最高点，海拔两千二百八十多米，是群岛的最高峰，属岩港市岩港区。峰顶覆盖着群岛唯一的冰帽暖泉冰帽，火口内终年冒着蒸汽，冰帽中央被地热融出一圈湖水。登上火口峰可以俯瞰全岛：东面是温泉区的度假村和温泉湾，南面是硫磺湾的地热田，西面是岩港的港口和玄武岩台地，北面是暖河的谷地，晴天时还能望见远处的长船岛和桅岛。登山者从岩港一侧经冰帽边缘攀登，必须由向导带领，火山监测站会根据地震和地表变形情况发布登山通告。夏季是登顶的季节，冬季峰顶常被风雪笼罩。
+      en: "The highest point of Warmspring Volcano's crater rim, a little over 2,280 m and the highest summit in the islands, in Rockhaven District of Rockhaven City. It is capped by the Warmspring Ice Cap, the islands' only ice cap, steam rises from the crater all year, and the heat has melted a ring of water in the middle of the ice. From the top the whole island is laid out: the resorts of Hot Springs District and Hot Springs Bay to the east, the geothermal fields of Sulphur Bay to the south, the harbour and basalt terraces of Rockhaven to the west and the Warm River valley to the north, and on clear days Longship and Mast islands in the distance. Climbers come up from the Rockhaven side across the edge of the ice cap, always with a guide, and the monitoring station issues climbing notices according to earthquakes and ground movement. Summer is the season for the summit; in winter it is often lost in wind and snow."
   - id: nat_fxqmaw
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [105.8, 179.2] }
     names: { zh: 铁锚峰, en: Iron Anchor Peak, art-x-viking: Eisenankerspitze, art-x-buckham: Picco dell'Ancora di Ferro }
     notes:
-      zh: 锚链山的主峰，锚岛最高点，北坡挂着一条小冰川。
-      en: The main summit of the Anchor Chain Mountains and the highest point of Anchor Island, with a small glacier on its north face.
+      zh: 锚链山的主峰，海拔两千零七十多米，是锚岛的最高点，也是群岛仅次于火口峰的第二高峰，属松林市松林区，北坡挂着群岛唯一的山岳冰川锚链冰川。从松林镇出发，林间的伐木道和步道穿过一望无际的松林通往山脚，夏季有向导带领游客上冰，再沿冰川边缘的山脊登顶。峰顶可以俯瞰锚岛东北的林海、松湾和锚链山连绵的山脊，晴天时还能望见远处开阔的海面。山脚的森林木屋和狩猎营地为登山者提供住宿，冬季则有越野滑雪道。松林的冬夜漫长寂静，极光常在铁锚峰的雪顶上空舞动。
+      en: The main summit of the Anchor Chain Mountains, a little over 2,070 m, the highest point of Anchor Island and the second highest in the islands after Crater Peak, in Pinewood District of Pinewood City; the Anchor Chain Glacier, the islands' only mountain glacier, hangs on its north face. From the town of Pinewood, logging tracks and trails run through endless pine forest to its foot, and in summer guides take visitors onto the ice and up the ridge beside the glacier to the top. The summit looks down on the forests of north-eastern Anchor Island, Pine Bay and the long ridge of the range, and on clear days the open sea far beyond. Forest cabins and hunting camps at its foot house climbers, and in winter there are cross-country ski trails. Pinewood's winter nights are long and still, and the aurora often dances over the snowy summit.
   - id: nat_n4vs23
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [79.8, 131.2] }
     names: { zh: 绞盘峰, en: Capstan Peak, art-x-viking: Spillspitze, art-x-buckham: Picco dell'Argano }
     notes:
-      zh: 锚链山南段的高峰，圆顶如船上的绞盘，俯瞰锚湾。
-      en: The high summit of the southern Anchor Chain Mountains, its rounded top like a ship's capstan, above Anchor Bay.
+      zh: 锚链山南段的高峰，海拔一千九百多米，属锚港市西爪区，圆顶如船上的绞盘，是锚港附近最高的山峰。峰顶可以俯瞰锚湾的港口、岸桥和往来的货轮，西北是雾湾的海面，北面是锚链山连绵的山脊。从西爪区的牧场出发，徒步道穿过草坡和碎石坡登上圆顶，是锚港人周末最喜欢的登山路线之一，山脚的牧场民宿和乡村餐馆为登山者提供补给。山坡下部是奶牛和绵羊放牧的草场，上部是高山草甸和裸露的岩石。夏季的傍晚，从峰顶可以看到锚湾的灯火渐次亮起，冬季山顶积雪，从港口望去如一顶白色的圆帽。
+      en: The high summit of the southern Anchor Chain Mountains, a little over 1,900 m, in West Fluke District of Anchorhaven; its rounded top is like a ship's capstan, and it is the highest peak near Anchorhaven. The top looks down on the port of Anchor Bay with its cranes and freighters, north-west over the waters of Mist Bay and north along the long ridge of the range. A trail climbs from the pastures of West Fluke over grassy slopes and scree to the dome, one of Anchorhaven people's favourite weekend climbs, with farm guesthouses and country inns at its foot to feed the walkers. Dairy cows and sheep graze its lower slopes, and alpine meadow and bare rock cover the upper ones. On summer evenings you can watch the lights of Anchor Bay come on one by one from the summit; in winter its snowy top looks from the port like a white cap.
   - id: nat_msexyn
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [233.2, 112.2] }
     names: { zh: 帆影峰, en: Sailshadow Peak, art-x-viking: Segelschattenspitze, art-x-buckham: Picco Ombra di Vela }
     notes:
-      zh: 帆影岭的最高峰，白帆岛最高点，耸立在帆港湾畔。
-      en: The highest summit of Sailshadow Ridge and of White Sail Island, rising above Sail Harbour Bay.
+      zh: 帆影岭的最高峰，海拔一千五百二十多米，是白帆岛的最高点，耸立在帆港湾畔，属白帆市灯塔区。山峰从海边拔地而起，几乎全部的高度都从海面算起，从帆港湾进港的邮轮上可以看到它巨大的山影，白帆岛的帆形轮廓就以它为顶点。登山步道从帆港和灯塔区的海边出发，沿山脊攀登，山顶可以俯瞰帆港湾的邮轮母港、灯塔岛和灯塔水道，晴天时向西眺望白帆海峡，向东眺望晨光岛方向的开阔海面。白帆灯塔公路从山脚的海岸经过。夏季的山顶是看日出的好地方，冬季山峰被白雪覆盖，从海上望去像一面白帆。
+      en: The highest summit of Sailshadow Ridge, a little over 1,520 m and the highest point of White Sail Island, rising above Sail Harbour Bay in Lighthouse District of White Sail City. It climbs almost straight out of the sea, so nearly all its height is seen from sea level; from cruise ships coming into Sail Harbour Bay its great bulk fills the view, and it forms the peak of the island's sail-shaped outline. Trails climb the ridge from the shore at Sail Harbour and Lighthouse District, and the summit looks down on the cruise port, Lighthouse Isle and Lighthouse Sound; on clear days you can see White Sail Strait to the west and the open sea towards Dawnlight to the east. The White Sail Lighthouse Road runs along the coast at its foot. In summer the top is a fine place to watch the sunrise, and in winter, covered in snow, it looks from the sea like a white sail.
   - id: nat_1cqe9c
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [201.8, 95.8] }
     names: { zh: 望海峰, en: Seawatch Peak, art-x-viking: Seewachtspitze, art-x-buckham: Picco Guardamare }
     notes:
-      zh: 帆影岭中段的山峰，可同时眺望白帆海峡与东南外海。
-      en: Summit on the middle of Sailshadow Ridge, looking over both White Sail Strait and the open sea to the south-east.
+      zh: 帆影岭中段的山峰，海拔近一千五百米，属盐湾市盐湾区，矗立在区的西侧，是帆影岭中段的高峰。站在峰顶，西北可以眺望白帆海峡，东南可以俯瞰盐湾的盐田、海上风电场和白帆岛东南的海岸线，望海峰由此得名。山峰北面隔帆影垭口与帆影峰相望，徒步者常从垭口沿山脊攀登。白帆纵贯高速以三公里多长的望海隧道从山脚下穿过，是全线最长的隧道。山坡下部是望海区的果园和牧场，上部是高山草甸和裸露的岩石，夏季野花盛开，秋季山坡被果园和落叶染成金黄。
+      en: A summit in the middle of Sailshadow Ridge, nearly 1,500 m high, in Saltbay District of Saltbay City, rising on the district's western side as the high point of the middle ridge. From the top you can look north-west over White Sail Strait and south-east down on the salt pans of Salt Bay, the offshore wind farm and the south-east coast of White Sail Island, which gave Seawatch Peak its name. To the north it faces Sailshadow Peak across Sailshadow Saddle, and walkers often climb it along the crest from the saddle. The White Sail Spine Expressway passes beneath its foot in the Seawatch Tunnel, a little over 3 km long and the longest on the line. Orchards and pastures cover its lower slopes and alpine meadow and bare rock its upper ones; wild flowers bloom in summer, and in autumn the orchards and turning leaves colour the slopes gold.
   - id: nat_fczk77
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [150.8, 133.8] }
     names: { zh: 船首峰, en: Prow Peak, art-x-viking: Bugspitze, art-x-buckham: Picco di Prua }
     notes:
-      zh: 龙骨山的主峰，长船岛最高点。
-      en: The main summit of the Keel Hills and the highest point of Longship Island.
+      zh: 龙骨山的主峰，海拔一千二百九十多米，是长船岛的最高点，属长船市长滩区，从山顶向四面都没有更高的山，突起高度与海拔相同。山峰位于长船岛中部，周围是龙骨山东北麓的丘陵和谷地，家庭农场种植蔬菜、草莓和饲草，山坡上是云杉和松树林场。登山步道从长滩区的农场出发，穿过林地和高山草甸登顶，山顶可以同时看到长船岛东西两侧的大海，晴天时东望白帆海峡和白帆岛的帆影岭，西望锚岛海峡和锚岛的雪峰。夏季周末许多长船人来这里登山、采摘，冬季山顶积雪，是雪鞋徒步的去处。
+      en: "The main summit of the Keel Hills, a little over 1,290 m and the highest point of Longship Island, in Longbeach District of Longship; no higher ground rises anywhere around it, so its prominence equals its height. It stands in the middle of the island among the foothills and valleys of the north-eastern Keel Hills, where family farms grow vegetables, strawberries and fodder and spruce and pine plantations cover the slopes. A trail climbs from the Longbeach farms through woodland and alpine meadow, and from the top you can see the sea on both sides of the island at once: on clear days White Sail Strait and Sailshadow Ridge to the east, and Anchor Strait and the snowy peaks of Anchor Island to the west. On summer weekends many Longship people come to climb and pick fruit, and in winter the snowy top is a place for snowshoeing."
   - id: nat_pqybvd
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [121.8, 104.2] }
     names: { zh: 舵峰, en: Rudder Peak, art-x-viking: Ruderspitze, art-x-buckham: Picco del Timone }
     notes:
-      zh: 龙骨山西南端的高峰，在长船岛的"船尾"如一把船舵。
-      en: The high summit at the south-west end of the Keel Hills, standing at Longship Island's "stern" like a rudder.
+      zh: 龙骨山西南端的高峰，海拔近千米，属舵港市舵港区，在长船岛的「船尾」如一把船舵，山峰和舵港都由此得名。舵港老城沿港湾和舵峰的山坡展开，彩色木屋和石砌仓库层层叠叠。登上舵峰可以俯瞰三岛交汇的水道和往来的渡轮：西面是锚舵跨海高速伸向锚湾的海面，南面是船尾和暖泉方向的跨海长桥，东面是白帆海峡。登山步道从老城出发，穿过林地和草坡登顶，傍晚常有居民上山看日落。舵港是群岛跨海高速、长船西岸高速和锚舵跨海高速的交汇点，山顶的观景台上可以看到桥上和水道里车船往来不绝。
+      en: "The high summit at the south-west end of the Keel Hills, nearly 1,000 m, in Rudderhaven District of Rudderhaven City; it stands at Longship Island's \"stern\" like a rudder, and both the peak and the town are named for it. The old town of Rudderhaven climbs from the harbour up its slopes in tiers of painted wooden houses and stone warehouses. From the top you look down on the waters where three islands meet and the ferries come and go: to the west the sea crossed by the Anchor–Rudder Sea Crossing towards Anchor Bay, to the south the long bridges towards the stern and Warmspring, and to the east White Sail Strait. A trail climbs from the old town through woodland and grassy slopes, and in the evenings people come up to watch the sunset. Rudderhaven is where three expressways meet, and from the summit lookout the traffic on the bridges and the boats in the channels never seem to stop."
 
   # ── Passes ───────────────────────────────────────────────
   - id: nat_02xmec
@@ -66,16 +66,16 @@ features:
     detect: { kind: pass, at_km: [130.2, 113.8] }
     names: { zh: 龙骨口, en: Keel Gap, art-x-viking: Kielscharte, art-x-buckham: Passo della Chiglia }
     notes:
-      zh: 龙骨山西南段最低的山口，长船岛两岸由此往来。
-      en: The lowest gap in the south-western Keel Hills, the way between the two coasts of Longship Island.
+      zh: 龙骨山西南段最低的山口，海拔只有五百多米，属龙骨市龙骨区，旧时长船岛东西两岸的居民由此翻山往来。山口两侧是龙骨山连绵的林场，云杉和松树林间有古老的驮道和石砌路标，如今山口没有公路，只有徒步道翻过鞍部，是龙骨镇周边最受欢迎的半日徒步路线之一，秋季落叶时节最为美丽。站在山口上，东面是龙骨镇的山谷，西面可以望见长船岛西岸的海面。群岛跨海高速则沿龙骨山东南麓从区内经过，龙骨山公路纵贯山麓，车辆不必再翻越山口。冬季山口积雪较深，是越野滑雪和雪鞋徒步的去处。
+      en: The lowest gap in the south-western Keel Hills, only a little over 500 m high, in Keel District of Keel City, where people once crossed between the east and west coasts of Longship Island. Forest plantations of the Keel Hills cover both sides, with an old packhorse track and stone waymarks among the spruce and pine. No road crosses it today, only a footpath over the saddle, one of the most popular half-day walks around the town of Keel and at its loveliest in autumn. From the gap the valley of Keel lies to the east, and to the west you can see the sea off Longship's west coast. The Island Chain Expressway runs along the south-east foot of the hills through the district and the Keel Hills Road along their flanks, so traffic no longer has to climb over the gap. In winter the snow lies deep, and it becomes a place for cross-country skiing and snowshoeing.
   - id: nat_7xxwr5
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [221.2, 106.8] }
     names: { zh: 帆影垭口, en: Sailshadow Saddle, art-x-viking: Segelschattensattel, art-x-buckham: Sella Ombra di Vela }
     notes:
-      zh: 帆影峰与望海峰之间的鞍部。
-      en: The saddle between Sailshadow Peak and Seawatch Peak.
+      zh: 帆影峰与望海峰之间的鞍部，海拔一千二百多米，属白帆市望海区，是翻越帆影岭的山口。观景山道从望海区的果园间盘旋而上，沿途春季果花盛开、秋季果实累累，垭口的观景台可以眺望白帆港、长船岛和远处的群岛，是白帆最受欢迎的观景点。垭口两侧，北面是白帆岛最高的帆影峰，南面是帆影岭中段的望海峰，徒步者常从这里出发，沿山脊攀登两座山峰。白帆纵贯高速从垭口附近的山脚下经过，望海隧道是全线最长的隧道。夏季的傍晚，垭口上常有人驻足看日落，冬季则有雪鞋徒步者沿山脊行走。
+      en: The saddle between Sailshadow Peak and Seawatch Peak, a little over 1,200 m high, in Seawatch District of White Sail City, and the pass over Sailshadow Ridge. A scenic mountain road climbs to it through the orchards of Seawatch, white with blossom in spring and heavy with fruit in autumn, and the viewpoint at the top looks out over White Sail harbour, Longship Island and the islands beyond, White Sail's most popular viewpoint. To the north rises Sailshadow Peak, the highest on the island, and to the south Seawatch Peak in the middle of the ridge; walkers often set out from here along the crest to climb both. The White Sail Spine Expressway passes close by at the foot of the mountains, where the Seawatch Tunnel is the longest on the line. On summer evenings people stop at the saddle to watch the sunset, and in winter snowshoers walk the ridge.
 
   # ── Glaciers ─────────────────────────────────────────────
   - id: nat_baz8zx
@@ -84,13 +84,13 @@ features:
     detect: { kind: glacier, at_km: [64.6, 50.6] }
     names: { zh: 暖泉冰帽, en: Warmspring Ice Cap, art-x-viking: Warmquell-Eiskappe, art-x-buckham: Calotta di Fontecalda }
     notes:
-      zh: 覆盖暖泉火山山顶的冰帽，火口的地热让冰帽中央终年融出一圈湖水。
-      en: The ice cap over the summit of Warmspring Volcano; the crater's heat keeps a ring of meltwater open in its middle all year.
+      zh: 覆盖暖泉火山山顶的冰帽，面积三百六十多平方公里，平均海拔两千一百多米，是群岛唯一的冰帽，属岩港市岩港区与暖泉市黑沙区。冰帽在火口峰下铺开，火口的地热让冰帽中央终年融出一圈湖水，蒸汽从冰面的裂缝和湖面上袅袅升起，晴天时从温泉区和岩港都能望见山顶的白色冰帽和蒸汽。冰帽与火山相互塑造：冰雪在火山的热力下不断融化又不断积累，融水顺着山坡汇入四面的河流。登山者从岩港一侧经冰帽边缘攀登火口峰，必须由向导带领，并遵守火山监测站的通告。冰与火在这里比邻而居，是暖泉岛最著名的地标之一。
+      en: The ice cap over the summit of Warmspring Volcano, a little over 360 km² with a mean height of over 2,100 m, the only ice cap in the islands, shared between Rockhaven District and Black Sand District. It spreads out below Crater Peak, and the heat of the crater keeps a ring of meltwater open in its middle all year, with steam drifting up from the crevasses and the lake; on clear days the white cap and its plume can be seen from both Hot Springs and Rockhaven. Ice and volcano shape each other here, the snow melting in the volcano's heat and building up again, and the meltwater running down the slopes into the rivers on every side. Climbers reach Crater Peak from the Rockhaven side across the edge of the ice cap, always with a guide and under the notices of the volcano monitoring station. Fire and ice side by side make it one of Warmspring's best-known landmarks.
   - id: nat_fhe7tf
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [105.6, 180.4] }
     names: { zh: 锚链冰川, en: Anchor Chain Glacier, art-x-viking: Ankerkettengletscher, art-x-buckham: Ghiacciaio della Catena }
     notes:
-      zh: 铁锚峰北坡的小冰川，群岛唯一的山岳冰川。
-      en: The small glacier on the north face of Iron Anchor Peak, the only mountain glacier in the islands.
+      zh: 铁锚峰北坡的小冰川，面积三十多平方公里，平均海拔近两千米，是群岛唯一的山岳冰川，属松林市松林区。冰川挂在锚链山主峰的北坡上，冰舌向下伸入松林覆盖的山谷，冰面上布满蓝色的冰裂缝，融水汇成溪流流向松湾。从松林镇出发，林间的伐木道和步道通往铁锚峰和冰川脚下，夏季有向导带领游客穿上冰爪徒步上冰，登上冰川可以眺望锚岛东北的林海和远处的海面。冰川周围是高山草甸和碎石坡，常能看到驯鹿和雷鸟。森林木屋和山间营地为登山者提供住宿，冬季这里是越野滑雪和雪鞋徒步的去处。
+      en: The small glacier on the north face of Iron Anchor Peak, a little over 30 km² and nearly 2,000 m high on average, the only mountain glacier in the islands, in Pinewood District of Pinewood City. It hangs on the north side of the main summit of the Anchor Chain Mountains, its tongue reaching down into pine-covered valleys, its surface laced with blue crevasses, and its meltwater running in streams towards Pine Bay. From the town of Pinewood, logging tracks and trails through the forest lead to Iron Anchor Peak and the foot of the ice, and in summer guides take visitors out onto the glacier in crampons, where they look out over the forests of north-eastern Anchor Island to the sea beyond. Alpine meadows and scree surround it, often with reindeer and ptarmigan. Forest cabins and mountain camps house climbers, and in winter it is a place for cross-country skiing and snowshoeing.

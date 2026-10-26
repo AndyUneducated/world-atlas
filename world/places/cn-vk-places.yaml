@@ -484,8 +484,8 @@ places:
       art-x-viking: Leuchtturm Nordtor
       art-x-buckham: Faro di Porta Nord
     notes:
-      zh: 群岛最北的灯塔，标出从北方进入群岛的航路，也是从北维京岛驶来的船只最先望见的灯光
-      en: The northernmost lighthouse of the islands, marking the way in from the north and the first light seen by ships coming from North Viking Island.
+      zh: 群岛北部的灯塔，标出从北方进入群岛的航路，也是从北维京岛驶来的船只最先望见的灯光
+      en: A lighthouse in the north of the islands, marking the way in from the north and the first light seen by ships coming from North Viking Island.
     in: div_kecby5
     offset_km: [17.2, 132.1]
   - id: poi_2tkpby

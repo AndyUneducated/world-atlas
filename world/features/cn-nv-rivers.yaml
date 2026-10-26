@@ -9,80 +9,80 @@ features:
     detect: { kind: river, at_km: [281.8, 114.2] }
     names: { zh: 马斯林河, en: Maslin River, art-x-viking: Maslinfluss }
     notes:
-      zh: 东部第一大河，汇集马斯林山盆地的众水后向东穿过海岸平原入海。
-      en: The largest river of the east. It gathers the streams of the Maslin basin and crosses the coastal plain to the sea.
+      zh: 马斯林山盆地的主河，全长一百八十多公里，流域面积一万八千多平方公里。马斯林河发源于盆地西部的西坪区，汇集马斯林山脉北、西、南三面流下的众多溪流，向东流过市政中心和平区，再穿过东部的海岸平原，在星港区与东营区之间入海。盆地里的河段水流平缓，马斯林山高速、雪谷公路和西岭公路都在河谷中经过，马斯林山军医院就在河边；下游的东营区是全市的后勤和航空保障基地。河口的马斯林河口港是全市唯一的港口，驻军物资和大型航天部件都从这里上岸。
+      en: The main river of the Maslin basin, a little over 180 km long with a basin of more than 18,000 km². It rises in West Heath District in the west of the basin and gathers the many streams that come down from the northern, western and southern arms of the Maslin Range. It then flows east through Peace District, the civic centre, and across the coastal plain to reach the sea between Starport and East Camp districts. In the basin the river runs gently, the Maslin Expressway and the Snow Valley and West Ridge highways all pass through its valley, and the Maslin Mountain Military Hospital stands near its banks; East Camp District on the lower river is the city's logistics and air-support base. Maslin Mouth Port at the river mouth is the city's only port, where the garrison's supplies and large spacecraft components come ashore.
   - id: nat_bpjv97
     subtype: river
     status: generated
     detect: { kind: river, at_km: [208.8, 148.8] }
     names: { zh: 鹰河, en: Eagle River, art-x-viking: Adlerfluss }
     notes:
-      zh: 厄定河以东向北入海的河流，上游峡谷中栖息着海雕。
-      en: River east of the Erding flowing north to the sea; sea eagles nest in its upper gorges.
+      zh: 厄定河以东的一条河流，全长七十多公里，流域面积三千七百多平方公里，发源于驯鹿原牧区的高原，向西北穿过台地边缘的峡谷，在厄定区注入北部海域。上游峡谷两侧是陡峭的岩壁，海雕在崖顶筑巢，常在河谷上空盘旋，河名由此而来。中游以下河谷开阔，是驯鹿原牧民冬季放牧的谷地，环北维京岛高速和厄定河公路都在下游跨过鹰河。河口两侧是砾石滩和沼泽，秋季有鲑鱼洄游，厄定区的渔民在河口设网捕捞。鹰河峡谷人迹罕至，是北维京岛观察猛禽的好地方。
+      en: A river east of the Erding, a little over 70 km long with a basin of more than 3,700 km². It rises on the upland of the Reindeer Range Pastoral District, cuts north-west through gorges at the upland's edge and reaches the northern sea in Erding District. In the upper gorges sea eagles nest on the cliff tops and circle over the valley, which gave the river its name. Below its middle course the valley opens out into the winter grazing of the Reindeer Range herders, and the ring expressway and the Erding River Highway both cross its lower reaches. Gravel beaches and marsh flank the mouth, salmon run in autumn, and Erding fishermen set nets in the estuary. The gorges see few visitors and are one of the best places on North Viking Island to watch birds of prey.
   - id: nat_34dfkf
     subtype: river
     status: generated
     detect: { kind: river, at_km: [235.8, 64.8] }
     names: { zh: 天河, en: Sky River, art-x-viking: Himmelfluss }
     notes:
-      zh: 发源于马斯林山脉，流入镜湾北端的天河湾，天城市沿河而建。
-      en: Rises in the Maslin Range and flows into Sky River Bay at the northern end of Mirror Bay; Skytown grew along its banks.
+      zh: 发源于马斯林山脉西翼东坡的河流，全长近八十公里，流域面积六千七百多平方公里。天河的源头在厄定河市旧府区的高山上，向东南流过马斯林山盆地西南部的西坪区，再穿过南翼的山地，沿萨科勒市铁岗区与天城市天台区之间南下，在天河口注入镜湾北端的天河湾。河水带下的泥沙在河口淤出浅滩和芦苇荡，下游两岸一边是天城的度假区，一边是铁岗的旧矿区和矿业博物馆。环北维京岛高速和东岸公路都在下游跨过天河，河口的木栈道和观鸟台是天城难得的自然湿地。
+      en: A river rising on the eastern slopes of the western arm of the Maslin Range, nearly 80 km long with a basin of more than 6,700 km². Its headwaters lie high in Old Prefecture District of Erding River City. It flows south-east through West Heath District in the south-west of the Maslin basin, crosses the hills of the southern arm and runs south between Iron Knoll District of Sakole and Sky Terrace District of Skytown to enter Sky River Bay, at the northern end of Mirror Bay, at Sky River Mouth. Its silt has built shoals and reed beds at the mouth, and its lower banks have Skytown's resorts on one side and Iron Knoll's old mining country and mining museum on the other. The ring expressway and the East Coast Highway both cross its lower course, and the boardwalks and bird hides at the mouth are a rare piece of natural wetland in Skytown.
   - id: nat_xwk44c
     subtype: river
     status: generated
     detect: { kind: river, at_km: [113.2, 133.8] }
     names: { zh: 勒河, en: Lek River, art-x-viking: Lekfluss }
     notes:
-      zh: 勒克尔市北部的河流，在勒北区注入北部海域。
-      en: River in the north of Lekor, reaching the northern sea in Lekor North District.
+      zh: 勒克尔市的主要河流，全长七十公里左右，流域面积近四千平方公里。勒河发源于奥克西诺市西诺区的丘陵，向北流经勒克尔市的丰谷区，在勒北区注入北部海域。中游的丰谷土壤肥沃、日照充足，是北维京岛唯一成规模的葡萄酒产区，向阳坡地上的酒庄酿造白葡萄酒、冰酒和苹果酒，丰谷丰收广场是每年秋天勒克尔丰收节的主会场。勒河水流平缓，夏季常有人划独木舟顺流而下，河边的乡村旅馆和农家餐厅接待着来自首府和维京港的周末游客。
+      en: The main river of Lekor, some 70 km long with a basin of nearly 4,000 km². The Lek rises in the hills of Ino District in Oxino, flows north through Harvest Vale District of Lekor and reaches the northern sea in Lekor North District. Harvest Vale on its middle course, fertile and sunny, is the only wine region of any size on North Viking Island, where wineries on the south-facing slopes make white wine, ice wine and cider, and Harvest Vale Festival Square hosts Lekor's harvest festival every autumn. The river runs gently, canoeists often paddle down it in summer, and the country inns and farm restaurants along its banks welcome weekend visitors from the capital and Viking Port.
   - id: nat_sh3rkk
     subtype: river
     status: generated
     detect: { kind: river, at_km: [247.8, 66.2] }
     names: { zh: 台河, en: Terrace River, art-x-viking: Terrassenfluss }
     notes:
-      zh: 流经天台区阶地，注入天台峡湾湾顶。
-      en: Flows across the terraces of Sky Terrace District into the head of Sky Terrace Fjord.
+      zh: 发源于马斯林山盆地西坪区的河流，全长五十多公里，流域面积三千八百多平方公里。台河向东南流过雪谷区的边缘，进入天城市的天台区，在阶地间蜿蜒而下，注入天台峡湾的湾顶。下游河段在天台区切出一级级河岸阶地，阶地上层层排开度假村、公寓式酒店和果园，夏季可以划皮划艇顺流到峡湾。环北维京岛高速和东岸公路都在下游跨过台河。上游的西坪区是航天发射场所在地，河谷两侧是高山草甸，与下游的度假区风光迥异。
+      en: A river rising in West Heath District in the Maslin basin, a little over 50 km long with a basin of more than 3,800 km². The Terrace flows south-east past the edge of Snow Valley District into Sky Terrace District of Skytown, where it winds down between terraces into the head of Sky Terrace Fjord. On its lower course it has cut a staircase of river terraces, now lined tier upon tier with resorts, apartment hotels and orchards, and in summer you can kayak down it to the fjord. The ring expressway and the East Coast Highway both cross its lower reaches. Upstream, West Heath is the home of the launch site, and the alpine meadows of its valley are a world away from the resorts below.
   - id: nat_8va6kk
     subtype: river
     status: generated
     detect: { kind: river, at_km: [270.8, 124.8] }
     names: { zh: 星河, en: Star River, art-x-viking: Sternfluss }
     notes:
-      zh: 星港区的主要河流，河口即星港所在。
-      en: The main river of Starport District; the star port stands at its mouth.
+      zh: 马斯林山市星港区的主要河流，全长二十六公里，流域面积两千多平方公里，全程都在星港区内。河口就是星港，这座航天港的发射台面向大海，星港区由此得名。河口周围是星港指挥中心、星港防空阵地等军事设施，大部分河段属军事管理区，不对公众开放。环北维京岛高速在下游跨过星河。星港航天博物馆是区里唯一向公众常年开放的设施，每逢发射日，都有大批游客和航天爱好者前来。
+      en: "The main river of Starport District in Maslin Mountain City, 26 km long with a basin of more than 2,000 km², lying wholly within Starport District. Its mouth is the Starport itself: the spaceport's launch pads face the sea, and the district takes its name from it. The Starport Command Centre, the Starport Air Defence Site and other military facilities surround the mouth, and most of the river lies within a restricted zone closed to the public. The ring expressway crosses its lower reaches. The Starport Space Museum is the only facility in the district open to the public all year, and on launch days crowds of visitors and space enthusiasts arrive."
   - id: nat_8xkqv5
     subtype: river
     status: generated
     detect: { kind: river, at_km: [32.2, 59.8] }
     names: { zh: 瓦尔河, en: Wal River, art-x-viking: Walfluss }
     notes:
-      zh: 维京港市西南部的河流，在瓦尔维克区入海。
-      en: River in the south-west of Viking Port City, reaching the sea in Walvik District.
+      zh: 维京港市瓦尔维克区的短河，全长二十多公里，在维京港市西南部的瓦尔维克区入海。河名与区名同源，瓦尔维克在维京语中意为「鲸湾」，这里是旧时捕鲸站所在的海湾。河流下游早已被城市包围，两岸是堤岸、公园和老港工住宅，入海处附近是鲸湾港的码头和临港产业带。鲸湾捕鲸站博物馆保留着旧捕鲸站的砖砌炼油房和绞盘，讲述城市的起源。如今瓦尔河两岸修有滨河绿道，是瓦尔维克居民在港区之外难得的一片绿地。
+      en: "A short river in Walvik District of Viking Port, a little over 20 km long, reaching the sea in Walvik District in the south-west of Viking Port. River and district share a name: Walvik means \"whale bay\" in Viking, the bay of the old whaling station. Its lower course has long been surrounded by the city, between embankments, parks and old dockworkers' housing, and near its mouth are the quays and waterfront industry of Walvik Harbour. The Walvik Whaling Station Museum keeps the old station's brick try-house and capstans and tells the story of the city's beginnings. Today a riverside greenway follows both banks, a rare strip of green in Walvik beyond the docks."
   - id: nat_g46cfd
     subtype: river
     status: generated
     detect: { kind: river, at_km: [256.8, 136.8] }
     names: { zh: 鲑河, en: Salmon River, art-x-viking: Lachsfluss }
     notes:
-      zh: 东北海岸的短急河流，秋季有鲑鱼洄游。
-      en: Short, swift river on the north-east coast with an autumn salmon run.
+      zh: 马斯林山市星港区东北海岸的短河，全长十五公里，从海岸丘陵上急泻而下，向东北注入北部海域。河道短而陡，多急流和浅滩，每年秋季鲑鱼从海里逆流而上，跃过一道道岩坎到上游的砾石滩产卵，河名由此而来。鲑鱼洄游时，河岸上常有海雕和水獭守候，星港区的居民也会到下游的观鱼平台观看鲑鱼跳跃。钓鱼须持许可证并遵守禁捕期，洄游季节的河岸步道是区里少有的安静去处。
+      en: A short river on the north-east coast of Starport District in Maslin Mountain City, 15 km long, rushing down from the coastal hills north-east into the northern sea. Its bed is short and steep, full of rapids and riffles, and every autumn salmon run up from the sea, leaping the rock steps to spawn on the gravel beds upstream, which gave the river its name. During the run sea eagles and otters keep watch along the banks, and people from Starport come to the fish-viewing platform on the lower river to watch the salmon jump. Fishing needs a permit and must respect the closed season, and in the run the riverside path is one of the quietest places in the district.
   - id: nat_63q4d4
     subtype: river
     status: generated
     detect: { kind: river, at_km: [235.8, 143.8] }
     names: { zh: 白沙河, en: White Sand River, art-x-viking: Weißsandfluss }
     notes:
-      zh: 厄定区东部的短河，河口两侧为白色沙滩。
-      en: Short river in the east of Erding District, with white sand beaches either side of its mouth.
+      zh: 厄定河市驯鹿原牧区北部的短河，全长三十多公里，从驯鹿原的高原台地流下，向东北注入北部海域。河流切过台地边缘时形成一段段急流，下游河谷变宽，河口两侧是河水冲下的石英砂堆积成的白色沙滩，河名由此而来。驯鹿原是驯鹿的冬季牧场，冬季牧民带着鹿群在河谷里避风，河岸的桦树林是鹿群觅食地衣的地方。环北维京岛高速在下游跨过白沙河，夏季河口的白沙滩上几乎看不到人影，只有海鸟和偶尔下到海边的驯鹿。
+      en: A short river in the north of the Reindeer Range Pastoral District of Erding River City, a little over 30 km long, running down from the Reindeer Range upland and north-east to the northern sea. Where it cuts through the edge of the upland it breaks into a string of rapids; lower down the valley widens, and on both sides of the mouth lie white beaches of quartz sand washed down by the river, which gave it its name. The Reindeer Range is the herds' winter pasture, and in winter the herders bring the reindeer down into the valley out of the wind, where they graze for lichen among the birches on the banks. The ring expressway crosses the lower river, and in summer there is hardly a soul on the white beaches at the mouth, only seabirds and now and then a reindeer come down to the shore.
   - id: nat_dctsdf
     subtype: river
     status: generated
     detect: { kind: river, at_km: [276.2, 49.2] }
     names: { zh: 银溪, en: Silver Brook, art-x-viking: Silberbach }
     notes:
-      zh: 银滩区的山溪，自岚山直落海滨。
-      en: Mountain brook of Silver Beach District, dropping from the Mist Hills straight to the shore.
+      zh: 天城市银滩区的山溪，全长约十公里，发源于北面岚山的阔叶林中，一路跌宕直落海滨，在银角东北的沙滩上入海。溪水清澈见底，中游有几级小瀑布和深潭，夏季是游人戏水和野餐的地方，沿溪修有一条通往岚山森林公园的步道。银溪带下的白色石英砂堆积在溪口两侧，使这一带的沙滩格外洁白。溪口附近的海滨酒店和度假屋沿沙滩排开，是天城度假区里安静的一角。
+      en: A mountain brook in Silver Beach District of Skytown, about 10 km long, rising in the broadleaf woods of the Mist Hills to the north and tumbling straight down to the shore, where it meets the sea on the beach north-east of Silver Cape. Its water is crystal clear, with a few small falls and deep pools on its middle course where people paddle and picnic in summer, and a path follows it up to Mist Hill Forest Park. The white quartz sand it carries down has piled up on either side of its mouth and makes the beaches there especially white. Seaside hotels and holiday cottages line the sand near the mouth, a quiet corner of Skytown's resort coast.
 
   # ── River mouths ─────────────────────────────────────────
   - id: nat_n5s4er
@@ -91,40 +91,40 @@ features:
     detect: { kind: estuary, at_km: [171.8, 138.8] }
     names: { zh: 厄定河口, en: Erding Mouth, art-x-viking: Erdingmündung }
     notes:
-      zh: 全岛最大河流的入海口，宽阔的三角洲湿地是候鸟的重要停歇地。
-      en: Mouth of the island's largest river; its broad delta wetlands are a major stopover for migrating birds.
+      zh: 北维京岛最长的河流厄定河注入北部海域的地方，河口宽阔，分汊的水道、沙洲和芦苇荡铺开成一片三角洲湿地，春秋两季是候鸟迁徙的重要停歇地，成群的雁鸭、鹬类和天鹅在这里觅食休整。河口的一座小渔港停泊着厄定区的渔船，渔民在河口和近海捕捞鲑鱼和鳕鱼，秋季鲑鱼洄游时最为忙碌。三角洲以南是厄定河下游的冲积平原，麦田、饲草地和奶牛场一直延伸到河岸。夏季白夜时，河口的湿地在午夜仍笼罩着淡淡的天光，是北维京岛最原始的景色之一。
+      en: Where the Erding, the longest river on North Viking Island, reaches the northern sea. The mouth is wide, and its branching channels, sandbars and reed beds spread into a delta wetland that is a major stopover for migrating birds in spring and autumn, when flocks of geese, ducks, waders and swans rest and feed here. A small fishing harbour shelters the boats of Erding District, which take salmon and cod in the estuary and inshore and are busiest during the autumn salmon run. South of the delta the alluvial plain of the lower Erding runs right to the riverbanks in fields of cereals, fodder meadows and dairy farms. In the white nights of summer the wetlands still lie under a pale glow at midnight, one of the wildest sights on North Viking Island.
   - id: nat_zawm5e
     subtype: estuary
     status: generated
     detect: { kind: estuary, at_km: [68.8, 65.8] }
     names: { zh: 自由河口, en: Freedom River Mouth, art-x-viking: Freiflussmündung }
     notes:
-      zh: 自由河在沙洲区入海，河口沙洲连绵，沙洲区因此得名。
-      en: Where the Freedom River meets the sea in Sandbar District, among the sandbars that gave the district its name.
+      zh: 自由河注入大海的地方，河口沙洲连绵，沙洲区因此得名。沙洲之间是纵横的水道、湿地和沙丘，候鸟成群栖息，建在河口沙丘上的沙洲公园是观看候鸟和潮水涨落的地方。河口一带是首府的港口门户：沙洲港承担首府的散货、建材与燃料进口，沙洲老渔市的木构鱼棚沿码头排开，旁边的沙洲钟楼是老港区的地标，维西城际铁路在沙洲站停靠。北河公路从河口经过，向南穿过贝格兰丘陵通往维京港。
+      en: "Where the Freedom River meets the sea, among the long chain of sandbars that gave Sandbar District its name. Between the bars lies a maze of channels, wetland and dunes where migrating birds gather in flocks, and Sandbar Park, laid out on the dunes, is the place to watch the birds and the tides. The mouth is the capital's gateway to the sea: Sandbar Port handles the capital's imports of bulk cargo, building materials and fuel, the wooden fish sheds of the Sandbar Old Fish Market line the quay beside the Sandbar Clock Tower, landmark of the old port, and the Viking Port–Northwest intercity railway stops at Sandbar Station. The North River Highway passes the mouth on its way south through the Bergland Hills to Viking Port."
   - id: nat_3xnyt2
     subtype: estuary
     status: generated
     detect: { kind: estuary, at_km: [112.2, 71.2] }
     names: { zh: 北河口, en: North River Mouth, art-x-viking: Nordflussmündung }
     notes:
-      zh: 北河在沙洲区东部入海。
-      en: Where the North River reaches the sea in the east of Sandbar District.
+      zh: 北河在沙洲区东部注入大海的地方，河口两侧是低平的滩涂和盐沼，退潮时露出大片泥滩，是涉禽和野鸭觅食的地方。与西面热闹的自由河口相比，这里安静得多，周末常有首府居民骑车来这里看候鸟。北河流域近两万平方公里，河水平缓，带来的细泥在河口外淤出浅滩，渔民在浅滩上设网捕捞鳗鱼和比目鱼。沙洲区是自由市唯一临海的区，自由河口和北河口这两个河口都在区内。
+      en: Where the North River reaches the sea in the east of Sandbar District. Low mudflats and salt marsh line both sides of the mouth, and at low tide wide flats appear where waders and wild duck feed. It is far quieter than the busy Freedom River Mouth to the west, and at weekends people from the capital cycle out to watch the migrants. The North River drains nearly 20,000 km² and flows gently, and the fine silt it carries has built shoals off the mouth where fishermen set nets for eel and flatfish. Sandbar is Freedom City's only coastal district, and both the Freedom and North river mouths lie within it.
   - id: nat_915gyn
     subtype: estuary
     status: generated
     detect: { kind: estuary, at_km: [281.8, 114.2] }
     names: { zh: 马斯林河口, en: Maslin Mouth, art-x-viking: Maslinmündung }
     notes:
-      zh: 马斯林河在东营区北部入海，河口港是马斯林山市的货运门户。
-      en: Where the Maslin River reaches the sea in the north of East Camp District; its river port handles Maslin Mountain City's freight.
+      zh: 马斯林河注入大海的地方，河口位于马斯林山市星港区与东营区之间。河口港是全市唯一的港口，也是马斯林山市的货运门户：驻军的油料、食品和装备，以及大型航天部件，都经海路运抵这里，再由马斯林山航天铁路转运到西坪发射场，或先存入东营后勤基地，再由卡车分送各个基地。港区码头沿河口南岸排开，配有重型吊机和专供超大件装卸的泊位。河口北面不远是星港区的航天港，南岸的东营区北部则是东营空军基地和东营后勤基地。
+      en: "Where the Maslin River reaches the sea, between Starport and East Camp districts of Maslin Mountain City. The river port here is the city's only port and its freight gateway: fuel, food and equipment for the garrison, as well as large spacecraft components, arrive by sea and go on by the Maslin Mountain Aerospace Railway to the West Heath launch site, or into the East Camp Supply Depot for distribution by lorry. The quays line the south bank of the mouth, with heavy cranes and berths built for outsize loads. The spaceport of Starport District lies a short way north, while the East Camp air base and supply depot occupy the north of East Camp District on the south side."
   - id: nat_3fftzc
     subtype: estuary
     status: generated
     detect: { kind: estuary, at_km: [235.8, 64.8] }
     names: { zh: 天河口, en: Sky River Mouth, art-x-viking: Himmelflussmündung }
     notes:
-      zh: 天河注入天河湾之处。
-      en: Where the Sky River enters Sky River Bay.
+      zh: 天河注入天河湾的地方，位于湾顶，西岸属萨科勒市的铁岗区，东岸属天城市的天台区。天河从马斯林山脉带下的泥沙在河口淤出浅滩、沙洲和芦苇荡，涨潮时海水倒灌入河，退潮后露出大片泥滩，海鸟和涉禽成群觅食。环北维京岛高速在河口附近跨过天河，桥上可以望见天河湾和湾畔的度假酒店。河口两岸修有木栈道和观鸟台，是天城度假区里难得的一片自然湿地，也是附近居民傍晚散步的地方。
+      en: Where the Sky River enters Sky River Bay, at the head of the bay, with Iron Knoll District of Sakole on the west bank and Sky Terrace District of Skytown on the east. Silt brought down from the Maslin Range has built shoals, sandbars and reed beds at the mouth; the rising tide pushes sea water up the river, and at low tide broad mudflats appear where seabirds and waders gather to feed. The ring expressway crosses the river close to the mouth, with a view of the bay and the resort hotels on its shore. Boardwalks and bird hides line both banks, a rare stretch of natural wetland in Skytown's resort district and a favourite evening walk for people who live nearby.
 
   # ── Lakes ────────────────────────────────────────────────
   - id: nat_kxhv1k
@@ -132,19 +132,19 @@ features:
     status: generated
     names: { zh: 雪湖, en: Snow Lake, art-x-viking: Schneesee }
     notes:
-      zh: 雪谷区的冰川湖，每年有半年封冻。
-      en: Glacial lake in Snow Valley District, frozen half the year.
+      zh: 马斯林山市雪谷区中央的冰川湖，面积八十多平方公里，东缘伸入和平区。湖盆由古冰川刨蚀而成，四周是陡峭的雪峰和冰川，气候严寒，湖面终年冰封，只有盛夏时湖岸边会融出一圈窄窄的水面。冰面上积雪皑皑，与周围的雪峰连成一片白色。湖畔是解放军马斯林山联合训练基地的营区和训练场，大部分湖岸不对公众开放；雪谷滑雪场是区里唯一面向公众的设施，从滑雪场的高处可以俯瞰整个雪湖和环绕它的雪峰。
+      en: A glacial lake in the middle of Snow Valley District in Maslin Mountain City, a little over 80 km², its eastern edge reaching into Peace District. The basin was scoured out by ancient glaciers and is ringed by steep snow peaks and ice; the climate is so harsh that the lake stays frozen all year, and only in high summer does a narrow ring of open water appear along the shore. Snow lies deep on the ice, merging with the peaks around into a single sweep of white. The shores are taken up by the camps and ranges of the PLA's Maslin Mountain joint training base and most of them are closed to the public; the Snow Valley Ski Area is the district's only public facility, and from its upper slopes you can see the whole lake and the peaks that surround it.
   - id: nat_9mpvb7
     subtype: lake
     status: generated
     names: { zh: 鹿鸣湖, en: Deersong Lake, art-x-viking: Hirschliedsee }
     notes:
-      zh: 鹿鸣区林间的湖泊，秋季湖畔常闻鹿鸣。
-      en: Forest lake in Deersong District, where stags can be heard calling in autumn.
+      zh: 西北市鹿鸣区林间的湖泊，面积约二十五平方公里，四周是云杉和桦树混交林。秋季发情期，雄鹿在湖畔林中高声鸣叫，湖名和区名都由此而来，湖边常有野鹿出没。鹿鸣公园环湖而建，湖岸有步道、码头和露营地，公园里的露天剧场每年夏天举办音乐节和电影节，吸引全岛的年轻人。鹿鸣区是西北市的市政与传媒中心，湖边步道是市民下班后散步的去处，冬季湖面封冻后还可以滑冰。
+      en: A forest lake in Deersong District of Northwest City, about 25 km², surrounded by mixed spruce and birch. In the autumn rut the stags bell loudly in the woods by the shore, which gave both the lake and the district their names, and deer are often seen at the water's edge. Deersong Park surrounds the lake with footpaths, a landing stage and campsites, and its open-air theatre hosts music and film festivals every summer that draw young people from across the island. Deersong is Northwest City's civic and media centre, people stroll the lakeside paths after work, and in winter the frozen lake is used for skating.
   - id: nat_j67079
     subtype: lake
     status: generated
     names: { zh: 深峡湖, en: Gorge Lake, art-x-viking: Schluchtsee }
     notes:
-      zh: 深峡区峡谷中的狭长湖泊，湖水深而冷。
-      en: Long, deep and cold lake in the gorge of Deep Gorge District.
+      zh: 洛龙山市深峡区峡谷谷底的狭长湖泊，面积约二十平方公里，是厄定河在峡谷中被古冰川的冰碛堵塞后形成的堰塞湖。湖水深而冷，因含有冰川磨细的岩粉而呈碧绿色，四周是数百米高的陡峭岩壁，夏季融雪从崖顶化作瀑布落入湖中。厄定河公路贴着湖岸穿过峡谷，沿途设有观景停车点。湖边只有零星的木屋和一处小码头，夏季可以乘小船游湖；同在深峡区的深峡瀑布公园是全岛最著名的自然景区，与深峡湖一起吸引着徒步和摄影的游客。
+      en: A long, narrow lake on the floor of the gorge in Deep Gorge District of Lorond Mountain City, about 20 km², formed where moraine left by an ancient glacier dammed the Erding River in the gorge. The water is deep and cold and coloured emerald by fine rock flour ground by the ice, and the walls around it rise hundreds of metres; in summer snowmelt spills from the tops in waterfalls straight into the lake. The Erding River Highway runs along the shore through the gorge, with lay-bys for the view. There are only a few cabins and a small landing stage, and in summer you can take a boat out on the lake. Deep Gorge Falls Park in the same district is the best-known natural attraction on the island, and with the lake it draws walkers and photographers.
