@@ -29,7 +29,7 @@ npm run data                                    # 重新生成地图
 | 类型 | subtype | `locality`（市）或 `borough`（区），新建必填 |
 | 上级 | parent | 市的上级是领地，区的上级是市；新建必填 |
 | 中文名、英文名 | name_zh、name_en | 新建必填 |
-| 维京语名、巴克汉姆语名 | name_viking、name_buckham | |
+| 维京语名、巴克汉姆语名、塔夫鲁纳克语名 | name_viking、name_buckham、name_tavrunaq | 只填所在领地使用的语言 |
 | 中文简称、英文简称 | short_zh、short_en | |
 | 区划代码 | admin_code | 6 位数字：领地 `900000`、市 `900100`、区 `900101`。留空时按上级代码自动编下一个 |
 | 人口、面积 | population、area_km2 | 面积为实际 km²；各区之和须等于所属市 |
@@ -47,7 +47,7 @@ npm run data                                    # 重新生成地图
 |---|---|---|
 | 编号、状态 | id、status | |
 | 类型 | subtype | `mountain_range`、`ridge`、`river`、`lake`、`island`、`bay`、`fjord`、`cape`、`strait`、`estuary`、`peak`、`pass`、`glacier` |
-| 中文名 … 巴克汉姆语名 | name_zh … name_buckham | |
+| 中文名 … 塔夫鲁纳克语名 | name_zh … name_tavrunaq | |
 | 识别类型、识别X、识别Y | detect_kind、detect_x_km、detect_y_km | 给生成器识别出的地貌命名：认领该位置 10 km 内最近的同类地貌。候选清单见每次生成后的 `.cache/candidates-<领地编号>.json` |
 | 中文简介、英文简介 | notes_zh、notes_en | |
 
@@ -59,7 +59,7 @@ npm run data                                    # 重新生成地图
 | 编号牌 | ref | 按等级：`G-NV-1`、`S-NV-1`、`S-NV-101`、`X-NV-001` |
 | 等级 | network | `national_expressway`（国家高速）、`territorial_expressway`（领地高速）、`territorial_highway`（领道）、`municipal_road`（市道） |
 | 道路类别 | class | 留空时按等级自动填写 |
-| 中文名 … 巴克汉姆语名 | name_zh … name_buckham | |
+| 中文名 … 塔夫鲁纳克语名 | name_zh … name_tavrunaq | |
 | 途经 | via | 依次经过的市或区，用分号分隔，至少两个。经过市时走该市中心，经过区时走区中心 |
 | 环线、笔直、支线 | ring、straight、ends_at_network | 是/否。笔直的道路每段都是直线，遇山开隧道、遇水架桥；支线从第一个市出发，接入已有路网即止 |
 | 隧道成本 | tunnel_cost | 越小越倾向于打隧道穿山 |
@@ -73,11 +73,12 @@ npm run data                                    # 重新生成地图
 | 列 | 英文列名 | 说明 |
 |---|---|---|
 | 编号、状态 | id、status | |
-| 线路类型 | network | `intercity_rail`（城际铁路） |
-| 中文名 … 巴克汉姆语名 | name_zh … name_buckham | |
+| 线路类型 | network | `intercity_rail`（城际铁路）或 `freight_rail`（重载铁路，只跑货车，停靠处为货运站） |
+| 中文名 … 塔夫鲁纳克语名 | name_zh … name_tavrunaq | |
 | 停靠 | via | 依次停靠的市或区，用分号分隔，至少两个。停靠市时车站设在该市人口最多的区 |
 | 线路色 | color | `#RRGGBB`，用于线路卡片和车站列表 |
-| 运营速度、设计速度 | operating_speed、design_speed | km/h，运营速度 160–400；轨距、供电、信号、编组统一见 `world/transport/engineering.yaml` |
+| 运营速度、设计速度 | operating_speed、design_speed | km/h，运营速度城际铁路 160–400、重载铁路 60–160；轨距、供电、信号、编组统一见 `world/transport/engineering.yaml` |
+| 每天重车列数 | loaded_trains | 只用于重载铁路：每天满载开往终点的列车数，年货运量据此计算 |
 | 隧道成本 | tunnel_cost | 默认 2.5，越小越倾向于打隧道穿山 |
 | 中文简介、英文简介 | notes_zh、notes_en | |
 
@@ -90,7 +91,7 @@ npm run data                                    # 重新生成地图
 | 编号、状态 | id、status | |
 | 类型 | subtype | 采用 OSM / Overture 类别，如 `government`、`lighthouse`、`museum` |
 | 所在区 | in | 新建必填 |
-| 中文名 … 巴克汉姆语名 | name_zh … name_buckham | |
+| 中文名 … 塔夫鲁纳克语名 | name_zh … name_tavrunaq | |
 | 向东偏移、向北偏移 | offset_east_km、offset_north_km | 相对所在区城区中心的实际 km |
 | 地图符号 | marker | `dot` 或 `emblem` |
 | 徽标来自 | emblem_of | 地图符号为 `emblem` 时必填 |

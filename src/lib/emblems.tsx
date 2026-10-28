@@ -311,6 +311,60 @@ export const MOTIFS: Record<string, (ink: string) => ReactNode> = {
       <path d="M14 42.6h20" {...line(2)} />
     </g>
   ),
+  polar_bear: (ink) => (
+    <g>
+      <path
+        d="M5.5 29.5c0-5.6 4.6-9.5 11-9.5h11.2c2.6-2.6 5.6-3.6 8.6-2.8l2.6.8c1.9.6 3 1.9 3.2 3.4l.2 1.2-2.4 1.3h-3.2c-1 1.7-1.7 3.6-1.7 6v8.6h-3.8l-.7-6.2c-1.9.9-4 1.4-6.3 1.4l-.9 4.8h-3.8l.1-5.3c-1.8-.6-3.2-1.6-4.2-3l-2.4 8.3H9.2l1.2-9.4c-1.8-1.2-3.4-2.4-4.3-3.6-.4-.6-.6-1.3-.6-2z"
+        fill={W}
+      />
+      <circle cx="37.6" cy="20.2" r="1.05" fill={ink} />
+      <path d="M8.5 40.8h31" {...line(1.6, 0.6)} />
+    </g>
+  ),
+  dome: (ink) => (
+    <g>
+      <path d="M7.5 34a16.5 16.5 0 0 1 33 0z" fill={W} />
+      <g fill="none" stroke={ink} strokeOpacity="0.4" strokeWidth="1.2">
+        <path d="M24 17.6V34M15.6 34a8.4 16.4 0 0 1 16.8 0M10 26.5h28M8.6 30.5h30.8M13.3 22h21.4" />
+      </g>
+      <rect x="5.5" y="34.6" width="37" height="3" rx="1" fill={W} />
+      <path d="M24 9.5v4M20 11.5h8" {...line(1.6, 0.8)} />
+    </g>
+  ),
+  snowflake: () => (
+    <g>
+      {Array.from({ length: 6 }, (_, k) => {
+        const a = k * 60 - 90;
+        const [x1, y1] = polar(a, 16.5);
+        const [bx, by] = polar(a, 10);
+        const [l1x, l1y] = polar(a - 28, 13.6);
+        const [l2x, l2y] = polar(a + 28, 13.6);
+        return (
+          <g key={k}>
+            <path d={`M24 24L${x1} ${y1}`} {...line(2.4)} />
+            <path d={`M${l1x} ${l1y}L${bx} ${by}L${l2x} ${l2y}`} {...line(2)} />
+          </g>
+        );
+      })}
+      <circle cx="24" cy="24" r="2.6" fill={W} />
+    </g>
+  ),
+  crystal: (ink) => (
+    <g>
+      <path d="M11 19.5l6.5-9h13l6.5 9-13 20z" fill={W} />
+      <path d="M11 19.5h26M17.5 10.5l6.5 9 6.5-9M24 19.5v20M17.5 19.5L24 39.5l6.5-20" fill="none" stroke={ink} strokeOpacity="0.35" strokeWidth="1.2" strokeLinejoin="round" />
+      <path d="M40 7v5M37.5 9.5h5M8 36v3.6M6.2 37.8h3.6" {...line(1.4, 0.8)} />
+    </g>
+  ),
+  drum: (ink) => (
+    <g>
+      <circle cx="21" cy="20.5" r="13" fill={W} />
+      <circle cx="21" cy="20.5" r="10.6" fill="none" stroke={ink} strokeOpacity="0.28" strokeWidth="1.2" />
+      <path d="M21 33.5v9" {...line(3.2)} />
+      <path d="M31.5 31.5l9.5 7.5" {...line(2.4)} />
+      <circle cx="41.4" cy="39.3" r="1.9" fill={W} />
+    </g>
+  ),
 };
 
 /** Background textures on the 64×64 emblem box. */
@@ -377,6 +431,21 @@ export const PATTERNS: Record<string, () => ReactNode> = {
       const y = 2 + k * 7;
       return <path key={k} d={`M-4 ${y}C14 ${y - 8} 26 ${y + 8} 44 ${y}S62 ${y - 6} 70 ${y}`} fill="none" stroke={W} strokeWidth="1.2" />;
     }),
+  ice: () =>
+    [0, 60, 120].map((deg) => (
+      <g key={deg} transform={`rotate(${deg} 32 32)`} stroke={W} strokeWidth="0.8">
+        {Array.from({ length: 19 }, (_, k) => (
+          <path key={k} d={`M-40 ${-38 + k * 7.8}H104`} />
+        ))}
+      </g>
+    )),
+  aurora: () =>
+    Array.from({ length: 9 }, (_, k) => {
+      const x = -6 + k * 9;
+      return (
+        <path key={k} d={`M${x} -4C${x + 10} 10 ${x - 6} 22 ${x + 4} 36S${x + 2} 56 ${x + 8} 70`} fill="none" stroke={W} strokeWidth={k % 2 ? 1 : 1.6} strokeOpacity={k % 3 ? 0.8 : 1} />
+      );
+    }),
 };
 
 function channel(hex: string) {
@@ -404,6 +473,7 @@ export const ROUTE_COLORS: Record<string, string> = {
   territorial_expressway: "#F0A020",
   territorial_highway: "#F0A020",
   intercity_rail: "#5B6B8C",
+  freight_rail: "#8C6B4A",
 };
 
 export const TERRITORY_COLOR = "#2BB3A3";

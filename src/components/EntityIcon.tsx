@@ -8,7 +8,7 @@ import type { Entity } from "../lib/types";
 export function EntityIcon({ entity, className }: { entity: Entity; className?: string }) {
   const props = { className, strokeWidth: 1.8 };
   if (entity.kind === "route") {
-    if (entity.network === "intercity_rail") return <TrainFront {...props} />;
+    if (entity.network === "intercity_rail" || entity.network === "freight_rail") return <TrainFront {...props} />;
     if (entity.network === "metro") return <TramFront {...props} />;
     return <Route {...props} />;
   }
@@ -110,6 +110,7 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
     case "strait":
       return <Ship {...props} />;
     case "island":
+    case "archipelago":
       return <Shell {...props} />;
     case "cape":
       return <Navigation2 {...props} />;

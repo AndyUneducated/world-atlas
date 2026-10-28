@@ -1,30 +1,34 @@
 # Street name parts for generated city streets (pipeline/atlas/streets.py).
 #
-# Each entry is "zh | en | viking | buckham". A street name is a stem plus a suffix of its
-# class, e.g. 松林 + 巷 = 松林巷 / Pinewood Lane / Kiefernweg / Vicolo dei Pini.
+# Each entry is "zh | en | viking | buckham [| tavrunaq]", "-" where an entry has no form in a
+# language. A street name is a stem plus a suffix of its class, e.g. 松林 + 巷 = 松林巷 /
+# Pinewood Lane / Kiefernweg / Vicolo dei Pini. A city's streets are named only in the
+# languages its territory uses (those its cities are named in).
 #   viking: stems are in compounding form and the suffix is joined to them (Birken + allee);
 #           a stem with a space is joined with hyphens (Freistad-auf-Hea-Straße).
 #   buckham: the suffix comes first (Viale + del Popolo).
+#   tavrunaq: the suffix follows as a word (Qavvalu Pirtuar); only stems with a Tavrunaq form
+#           (the polar theme, Arctic place names) get a Tavrunaq name.
 # Parallel streets of one neighbourhood may share a stem with an ordinal: 松林二巷 /
 # Pinewood Lane 2 / Kiefernweg II / Vicolo dei Pini II.
 # Themes are chosen per neighbourhood, weighted by the district's street style.
 
 suffixes:
   arterial:
-    - 大道 | Avenue | allee | Viale
-    - 大街 | Boulevard | chaussee | Corso
-    - 路 | Road | straße | Via
+    - 大道 | Avenue | allee | Viale | Pirtuar
+    - 大街 | Boulevard | chaussee | Corso | Sallituar
+    - 路 | Road | straße | Via | Pirri
   collector:
-    - 路 | Road | straße | Via
-    - 街 | Street | gasse | Strada
-    - 大街 | High Street | markt | Corso
+    - 路 | Road | straße | Via | Pirri
+    - 街 | Street | gasse | Strada | Sallik
+    - 大街 | High Street | markt | Corso | Sallituar
   local:
-    - 街 | Street | gasse | Via
-    - 巷 | Lane | weg | Vicolo
-    - 里 | Close | hof | Corte
-    - 弄 | Alley | gang | Calle
-    - 坊 | Row | zeile | Borgo
-    - 路 | Way | pfad | Salita
+    - 街 | Street | gasse | Via | Sallik
+    - 巷 | Lane | weg | Vicolo | Kippaq
+    - 里 | Close | hof | Corte | Sannuk
+    - 弄 | Alley | gang | Calle | Saqqit
+    - 坊 | Row | zeile | Borgo | Taavrut
+    - 路 | Way | pfad | Salita | Pirriut
 
 themes:
   # 理念与公共生活
@@ -207,11 +211,33 @@ themes:
     - 瀑布 | Waterfall | Wasserfall | della Cascata
     - 雾岬 | Misty Point | Nebelkap | del Capo Nebbioso
     - 回声 | Echo | Echo | dell'Eco
+  # 极地（北冰洋领地）
+  polar:
+    - 极光 | Aurora | - | - | Qavvalu
+    - 冰原 | Icefield | - | - | Sirmipaa
+    - 驯鹿 | Reindeer | - | - | Nirsa
+    - 白熊 | White Bear | - | - | Karuq
+    - 海象 | Walrus | - | - | Uvvaak
+    - 雪鸮 | Snowy Owl | - | - | Tuuppak
+    - 苔原 | Tundra | - | - | Paali
+    - 峡湾 | Fjord | - | - | Suvva
+    - 暖廊 | Skyway | - | - | Tuvvi
+    - 穹顶 | Dome | - | - | Qummar
+    - 白鲸 | Beluga | - | - | Puuqtaq
+    - 北辰 | Pole Star | - | - | Qilliuq
+    - 冰川 | Glacier | - | - | Sirmiq
+    - 石柱 | Pillar | - | - | Tuun
+    - 皮鼓 | Drum | - | - | Qattuk
+    - 永昼 | Midnight Sun | - | - | Kallaaq
+    - 极夜 | Polar Night | - | - | Paarniq
+    - 冰钓 | Ice Fishing | - | - | Saarniq
+    - 雪橇 | Sled | - | - | Sukkiaq
+    - 冰晶 | Ice Crystal | - | - | Kiiqsaq
 
 # Numbered street grids of planned districts: 经一路 … / 纬一路 …
 numbered:
-  - 经 | Meridian | Längs | Longitudinale
-  - 纬 | Parallel | Quer | Trasversale
+  - 经 | Meridian | Längs | Longitudinale | Taqit
+  - 纬 | Parallel | Quer | Trasversale | Sannit
 
 # Theme weights by district street style; "places" uses the names of the territory's cities,
 # districts and named landforms, "numbered" the grids above.

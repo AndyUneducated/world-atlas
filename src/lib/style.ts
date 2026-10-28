@@ -68,6 +68,7 @@ export const LANDFORM_LABEL_LAYERS = [
   "water-label",
   "land-label-major",
   "land-label",
+  "archipelago-label",
 ];
 
 const FONT = {
@@ -583,7 +584,7 @@ export function buildStyle(opts: {
       id: HIT_LAYERS.rail,
       type: "line",
       source: "rail",
-      filter: ["all", ["==", ["get", "role"], "line"], ["in", ["get", "network"], ["literal", [...(layers.railways ? ["intercity_rail"] : []), ...(layers.metro ? ["metro"] : [])]]]],
+      filter: ["all", ["==", ["get", "role"], "line"], ["in", ["get", "network"], ["literal", [...(layers.railways ? ["intercity_rail", "freight_rail"] : []), ...(layers.metro ? ["metro"] : [])]]]],
       paint: { "line-width": 10, "line-opacity": 0 },
     },
     { id: HIT_LAYERS.street, type: "line", source: "streets-named", minzoom: 11, layout: { visibility: visible(layers.cityRoads) }, paint: { "line-width": 10, "line-opacity": 0 } },
@@ -601,7 +602,7 @@ export function buildStyle(opts: {
     ];
     const out: LayerSpecification[] = [];
     for (const t of tiers) {
-      const filter: ExpressionSpecification = ["==", ["get", "kind"], t.kind];
+      const filter: ExpressionSpecification = ["in", ["get", "kind"], ["literal", t.kind === "rail" ? ["rail", "freight"] : [t.kind]]];
       const [z0, r0, z1, r1, z2, r2] = t.r;
       const grow = (r: number): ExpressionSpecification => ["case", ["get", "transfer"], r * 1.3, r];
       out.push(
@@ -782,6 +783,22 @@ export function buildStyle(opts: {
     landformLabel("water-label", LANDFORM_KINDS.water, false, 8.4, true),
     landformLabel("land-label-major", LANDFORM_KINDS.land, true, 7.4, false),
     landformLabel("land-label", LANDFORM_KINDS.land, false, 8.8, false),
+    {
+      id: "archipelago-label",
+      type: "symbol",
+      source: "labels",
+      minzoom: 5.4,
+      maxzoom: 9,
+      filter: isKind("archipelago"),
+      layout: {
+        "text-field": name(lang),
+        "text-font": FONT.medium,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 5.4, 10.5, 9, 13],
+        "text-letter-spacing": 0.22,
+        "text-max-width": 7,
+      },
+      paint: { "text-color": m.label.terrain, ...halo },
+    },
     {
       id: "glacier-label",
       type: "symbol",

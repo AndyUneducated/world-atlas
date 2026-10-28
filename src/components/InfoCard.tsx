@@ -13,6 +13,7 @@ import {
   Link2,
   Mountain,
   Ruler,
+  Shell,
   Star,
   TrainFront,
   Users,
@@ -36,6 +37,7 @@ const NAME_TAGS: Record<NameLang, Record<Lang, string>> = {
   en: { zh: "英", en: "EN" },
   "art-x-viking": { zh: "维", en: "VIK" },
   "art-x-buckham": { zh: "巴", en: "BCK" },
+  "art-x-tavrunaq": { zh: "塔", en: "TAV" },
 };
 import { useAtlas } from "../store";
 import { EntityIcon } from "./EntityIcon";
@@ -140,7 +142,10 @@ function stats(e: Entity, lang: Lang): StatItem[] {
   if (e.tech || e.service) {
     const out = lengthStat(e, lang);
     if (e.tech?.operating_speed_kmh) out.push({ label: t("operatingSpeed", lang), value: String(e.tech.operating_speed_kmh), unit: "km/h", icon: Gauge });
-    if (e.service) {
+    if (e.service?.freight_t_per_year) {
+      const n = e.service.freight_t_per_year;
+      out.push({ label: t("freightVolume", lang), ...scaledSpan([n, n], lang, t("tonnesPerYear", lang)), icon: TrainFront });
+    } else if (e.service?.ridership_per_year) {
       const n = e.service.ridership_per_year;
       out.push({ label: t("ridership", lang), ...scaledSpan([n, n], lang, t("tripsPerYear", lang)), icon: TrainFront });
     }
@@ -149,6 +154,7 @@ function stats(e: Entity, lang: Lang): StatItem[] {
   const out: StatItem[] = [];
   if (e.population) out.push({ label: t("population", lang), value: formatPopulation(e.population, lang), icon: Users });
   out.push(...areaStat(e, lang));
+  if (e.stats?.islands) out.push({ label: t("islands", lang), value: formatNumber(e.stats.islands, lang), icon: Shell });
   if (e.economy) out.push(gdpStat(e.economy.gdp_usd, lang));
   if (e.kind === "division" && e.stats?.density_per_km2)
     out.push({ label: t("density", lang), value: formatNumber(e.stats.density_per_km2, lang, e.stats.density_per_km2 < 10 ? 1 : 0), unit: t("perKm2", lang), icon: ChartNoAxesColumn });
@@ -259,7 +265,17 @@ function TechSection({ entity, lang }: { entity: Entity; lang: Lang }) {
   if (tech.signalling) rows.push([t("signalling", lang), tech.signalling]);
   if (tech.tracks) rows.push([t("tracks", lang), lang === "zh" ? (tech.tracks === 2 ? "双线" : `${tech.tracks} 线`) : tech.tracks === 2 ? "Double track" : `${tech.tracks} tracks`]);
   if (tech.min_curve_radius_m) rows.push([t("minCurve", lang), `${formatNumber(tech.min_curve_radius_m, lang)} m`]);
-  if (tech.train && tech.formation) {
+  if (tech.axle_load_t) rows.push([t("axleLoad", lang), `${formatNumber(tech.axle_load_t, lang, 1)} t`]);
+  if (tech.train?.net_t && tech.train.wagons) {
+    const { names, net_t, wagons } = tech.train;
+    rows.push([
+      t("trainModel", lang),
+      lang === "zh"
+        ? `${names.zh} · ${wagons} 节车皮，每列净载 ${formatNumber(net_t, lang)} 吨`
+        : `${names.en} · ${wagons} wagons, ${formatNumber(net_t, lang)} t net a train`,
+    ]);
+  }
+  if (tech.train?.seats && tech.formation) {
     const { names, seats } = tech.train;
     const f = tech.formation;
     const coupled = f.coupled ? Math.round((seats * f.coupled) / f.cars) : 0;
@@ -326,16 +342,23 @@ function RoadSection({ entity, lang }: { entity: Entity; lang: Lang }) {
 function ServiceSection({ entity, lang }: { entity: Entity; lang: Lang }) {
   const s = entity.service;
   if (!s) return null;
-  const rows: [string, React.ReactNode][] = [
-    [t("fastestRun", lang), <>{formatDuration(s.fastest_min, lang)} <span className="text-faint">· {t("nonStop", lang)}</span></>],
-    [t("peakHeadway", lang), lang === "zh" ? `每 ${s.peak_headway_min} 分钟一班` : `every ${s.peak_headway_min} min`],
-    [t("ridership", lang), lang === "zh" ? `${formatPopulation(s.ridership_per_year, lang)}人次` : formatPopulation(s.ridership_per_year, lang)],
-  ];
+  const freight = s.freight_t_per_year != null;
+  const rows: [string, React.ReactNode][] = freight
+    ? [
+        [t("runTime", lang), formatDuration(s.fastest_min, lang)],
+        [t("loadedTrains", lang), lang === "zh" ? `每天 ${s.loaded_trains_per_day} 列` : `${s.loaded_trains_per_day} a day`],
+        [t("freightVolume", lang), lang === "zh" ? `${formatPopulation(s.freight_t_per_year!, lang)}吨` : `${formatPopulation(s.freight_t_per_year!, lang)} t`],
+      ]
+    : [
+        [t("fastestRun", lang), <>{formatDuration(s.fastest_min, lang)} <span className="text-faint">· {t("nonStop", lang)}</span></>],
+        [t("peakHeadway", lang), lang === "zh" ? `每 ${s.peak_headway_min} 分钟一班` : `every ${s.peak_headway_min} min`],
+        [t("ridership", lang), lang === "zh" ? `${formatPopulation(s.ridership_per_year ?? 0, lang)}人次` : formatPopulation(s.ridership_per_year ?? 0, lang)],
+      ];
   if (s.operator) rows.push([t("railOperator", lang), s.operator[lang]]);
   return (
     <Section title={t("serviceTitle", lang)}>
       <Rows rows={rows} />
-      <p className="mt-2.5 text-[11px] text-faint">{t("serviceNote", lang)}</p>
+      <p className="mt-2.5 text-[11px] text-faint">{t(freight ? "freightNote" : "serviceNote", lang)}</p>
     </Section>
   );
 }
@@ -503,7 +526,7 @@ function codes(e: Entity, lang: Lang) {
 
 function ChildList({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
   const select = useAtlas((s) => s.select);
-  const isLine = entity.network === "intercity_rail" || entity.network === "metro";
+  const isLine = entity.network === "intercity_rail" || entity.network === "freight_rail" || entity.network === "metro";
   const isStation = entity.subtype === "station";
   const ids = entity.kind === "route" ? (entity.via ?? []) : isStation ? (entity.lines ?? []) : (entity.children ?? []);
   const kids = ids.map((id) => data.entities[id]).filter((k): k is Entity => !!k?.bbox);

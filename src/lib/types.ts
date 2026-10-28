@@ -6,7 +6,7 @@ export type Appearance = "auto" | ThemeId;
 export type BBox = [number, number, number, number];
 export type LngLat = [number, number];
 
-export const NAME_LANGS = ["zh", "en", "art-x-viking", "art-x-buckham"] as const;
+export const NAME_LANGS = ["zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq"] as const;
 export type NameLang = (typeof NAME_LANGS)[number];
 export type Names = Partial<Record<NameLang, string>> & { zh: string; en: string };
 export type Localized = { zh: string; en: string };
@@ -22,6 +22,8 @@ export interface EntityStats {
   length_km?: number;
   width_km?: number;
   drainage_km2?: number;
+  /** Archipelagos: number of named islands in the group. */
+  islands?: number;
   elevation_m?: number;
   prominence_m?: number;
   /** Length of the sea bridge joining an offshore port to the shore. */
@@ -75,7 +77,7 @@ export interface Entity {
   /** Territorial routes: the symbol on the route shield (see glyphs.ts). */
   shield?: string;
   /** Territorial routes: the shield design of their territory (route_shield in its division record); default crest. */
-  shield_style?: "crest" | "maritime";
+  shield_style?: "crest" | "maritime" | "polar";
   /** The route runs in a straight line end to end. */
   straight?: boolean;
   /** Routes between territories: the two territories they join (their ancestors stop at the country). */
@@ -150,9 +152,13 @@ export interface RoadFacts {
 
 export interface RailService {
   fastest_min: number;
-  peak_headway_min: number;
-  trains_per_peak_hour: number;
-  ridership_per_year: number;
+  /** Passenger lines. */
+  peak_headway_min?: number;
+  trains_per_peak_hour?: number;
+  ridership_per_year?: number;
+  /** Heavy-haul lines: loaded trains a day and net tonnes a year. */
+  loaded_trains_per_day?: number;
+  freight_t_per_year?: number;
   operator?: Record<Lang, string> | null;
 }
 
@@ -166,8 +172,10 @@ export interface RailTech {
   power?: { voltage: string; supply: "overhead" | "third_rail" };
   tracks?: number;
   min_curve_radius_m?: number;
-  /** Seats per formation of `formation.cars` cars. */
-  train?: { names: Record<Lang, string>; seats: number };
+  axle_load_t?: number;
+  loaded_trains_per_day?: number;
+  /** Passenger trains: seats per formation of `formation.cars` cars. Freight trains: wagons and net tonnes a train. */
+  train?: { names: Record<Lang, string>; seats?: number; wagons?: number; net_t?: number };
 }
 
 /** One stretch of a route inside a single district, in travel order. */

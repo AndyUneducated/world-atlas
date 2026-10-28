@@ -11,7 +11,7 @@ import math
 from .world import World
 
 OPERATOR_KIND = {"national_expressway": "expressway", "territorial_expressway": "expressway",
-                 "territorial_highway": "highway", "intercity_rail": "rail"}
+                 "territorial_highway": "highway", "intercity_rail": "rail", "freight_rail": "rail"}
 
 
 def _haversine_km(a, b) -> float:
@@ -85,7 +85,24 @@ def _road(world: World, ent: dict, r: dict, entities: dict, std: dict, model: di
     }
 
 
+def _freight(world: World, ent: dict, r: dict, entities: dict) -> None:
+    """Heavy-haul lines carry what their loaded trains a day bring down: net tonnes a train × trains × 365."""
+    tech = ent.get("tech") or {}
+    train = tech.get("train") or {}
+    if not train.get("net_t") or not tech.get("loaded_trains_per_day"):
+        return
+    km = ent.get("stats", {}).get("length_km", 0)
+    ent["service"] = {
+        "fastest_min": round(km / tech["operating_speed_kmh"] * 60),
+        "loaded_trains_per_day": tech["loaded_trains_per_day"],
+        "freight_t_per_year": _round_sig(train["net_t"] * tech["loaded_trains_per_day"] * 365),
+        "operator": _operator(world, ent, r, entities),
+    }
+
+
 def _rail(world: World, ent: dict, r: dict, entities: dict, model: dict) -> None:
+    if r["network"] == "freight_rail":
+        return _freight(world, ent, r, entities)
     stops = [s for s in dict.fromkeys(ent.get("via", [])) if s in entities and "center" in entities[s]]
     tech = ent.get("tech") or {}
     if len(stops) < 2 or not tech.get("train"):

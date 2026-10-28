@@ -17,19 +17,23 @@ from .sites import core_zone, landmark_sites, main_axis
 
 def street_place_stems(features: list[dict], cities: list[dict], skip: str) -> list[dict]:
     """Stems for streets named after the territory's other cities and its named landforms."""
-    conlangs = ("art-x-viking", "art-x-buckham")
     out = []
     for c in cities:
         if c["id"] == skip:
             continue
         n = c["names"]
         out.append({"zh": n["zh"].removesuffix("市"), "en": n["en"].removesuffix(" City"),
-                    **{k: n[k] for k in conlangs if n.get(k)}})
+                    **{k: n[k] for k in CONLANGS if n.get(k)}})
     for fe in features:
         if fe["subtype"] in ("bay", "fjord", "peak", "lake", "mountain_range", "island", "cape", "glacier"):
             n = fe["names"]
-            out.append({"zh": n["zh"], "en": n["en"], **{k: n[k] for k in conlangs if n.get(k)}})
+            out.append({"zh": n["zh"], "en": n["en"], **{k: n[k] for k in CONLANGS if n.get(k)}})
     return out
+
+
+def territory_langs(cities: list[dict]) -> tuple[str, ...]:
+    """The constructed languages a territory's names are given in: those its cities are named in."""
+    return tuple(k for k in CONLANGS if any(c["names"].get(k) for c in cities))
 
 
 def build_streets(world, sp, features, frame, seed, cities, districts, district_city, dist_polys, poles, urban, land, lake_polys, river_lines):
@@ -49,7 +53,8 @@ def build_streets(world, sp, features, frame, seed, cities, districts, district_
     out = []
     for cid in sp["cities"]:
         ci = next(i for i, c in enumerate(cities) if c["id"] == cid)
-        namer = streets.Namer(ROOT / "world" / "names" / "streets.yaml", street_place_stems(features, cities, cid))
+        namer = streets.Namer(ROOT / "world" / "names" / "streets.yaml", street_place_stems(features, cities, cid),
+                              territory_langs(cities), sp.get("name_styles"))
         city_streets, styles, named, ctx, city_sites = [], {}, {}, {}, []
         for i, d in enumerate(districts):
             if district_city[i] != ci:
@@ -123,10 +128,16 @@ def build_buildings(street_out, seed) -> tuple[list, list]:
     return out, parks
 
 
-CONLANGS = ("art-x-viking", "art-x-buckham")
+CONLANGS = ("art-x-viking", "art-x-buckham", "art-x-tavrunaq")
 # Administrative suffixes dropped when a station or line is named after a city, longest first.
-CITY_SUFFIXES = {"zh": ("自由贸易区", "市"), "en": (" Free Trade Zone", " City"),
-                 "art-x-viking": (" Frei auf Hea", " auf Hea"), "art-x-buckham": (" Libre en Teatu", " en Teatu")}
+CITY_SUFFIXES = {"zh": ("原住民自治区", "自由贸易区", "金融特区", "市"),
+                 "en": (" Indigenous Autonomous Region", " Free Trade Zone", " Financial Zone", " City"),
+                 "art-x-viking": (" Frei auf Hea", " auf Hea"), "art-x-buckham": (" Libre en Teatu", " en Teatu"),
+                 "art-x-tavrunaq": (" Nalliqut",)}
+# Railway station and metro line names in each constructed language.
+STATION_NAMES = {"art-x-viking": "Bahnhof {}", "art-x-buckham": "Stazione di {}", "art-x-tavrunaq": "{} Sukkaniq"}
+FREIGHT_STATION_NAMES = {"art-x-viking": "Güterbahnhof {}", "art-x-buckham": "Scalo merci di {}", "art-x-tavrunaq": "{} Usirvik"}
+METRO_LINE_NAMES = {"art-x-viking": "{} Linie {}", "art-x-buckham": "{} Linea {}", "art-x-tavrunaq": "{} Ingiut {}"}
 METRO_COLORS = ("#E4453A", "#2F80ED", "#F2A33A", "#27AE60", "#9B51E0", "#00A3A3", "#EB5E9B", "#8D6E63")
 
 
@@ -142,19 +153,23 @@ def bare_name(d: dict) -> dict:
     return out
 
 
-def rail_station_names(stem: dict) -> dict:
-    out = {"zh": stem["zh"] + "站", "en": f"{stem['en']} Station"}
-    if stem.get("art-x-viking"):
-        out["art-x-viking"] = f"Bahnhof {stem['art-x-viking']}"
-    if stem.get("art-x-buckham"):
-        out["art-x-buckham"] = f"Stazione di {stem['art-x-buckham']}"
+def rail_station_names(stem: dict, freight: bool = False) -> dict:
+    if freight:
+        out = {"zh": stem["zh"] + "货运站", "en": f"{stem['en']} Freight Yard"}
+        formats = FREIGHT_STATION_NAMES
+    else:
+        out = {"zh": stem["zh"] + "站", "en": f"{stem['en']} Station"}
+        formats = STATION_NAMES
+    for lang, fmt in formats.items():
+        if stem.get(lang):
+            out[lang] = fmt.format(stem[lang])
     return out
 
 
-def metro_station_names(stem: dict) -> dict:
+def metro_station_names(stem: dict, langs: tuple[str, ...] = CONLANGS) -> dict:
     """Metro stations take the name of the square, street or landmark above them (人民广场站, People's Square)."""
     zh = stem["zh"] if stem["zh"].endswith("站") else stem["zh"] + "站"
-    return {"zh": zh, "en": stem["en"], **{k: stem[k] for k in CONLANGS if stem.get(k)}}
+    return {"zh": zh, "en": stem["en"], **{k: stem[k] for k in langs if stem.get(k)}}
 
 
 def points_of(geom) -> list:
@@ -205,7 +220,8 @@ def build_metro(mp: dict, world: World, seed, s, cities, districts, district_cit
         ci = next((k for k, c in enumerate(cities) if c["id"] == cid), None)
         if ci is None:
             continue
-        namer = streets.Namer(ROOT / "world" / "names" / "streets.yaml", [])
+        langs = territory_langs(cities)
+        namer = streets.Namer(ROOT / "world" / "names" / "streets.yaml", [], langs)
         rng = np.random.default_rng([seed, 13, ci])
         geoms, specs = [], []
         for k, ln in enumerate(system["lines"], 1):
@@ -328,13 +344,13 @@ def build_metro(mp: dict, world: World, seed, s, cities, districts, district_cit
                         continue
                     cands += [(q.distance(p) + 0.05, names) for q in points_of(sg.intersection(geoms[a])) if q.distance(p) < 0.3]
             cands.sort(key=lambda c: c[0])
-            names = next((metro_station_names(n) for _, n in cands if metro_station_names(n)["zh"] not in used), None)
+            names = next((metro_station_names(n, langs) for _, n in cands if metro_station_names(n, langs)["zh"] not in used), None)
             for _ in range(80):
                 if names is not None:
                     break
                 theme = namer.theme("mixed", rng)
                 if theme not in ("numbered", "places"):
-                    cand = metro_station_names(namer.stem(theme, rng))
+                    cand = metro_station_names(namer.stem(theme, rng), langs)
                     names = cand if cand["zh"] not in used else None
             used.add(names["zh"])
             sid = derived_id("poi", f"metro:{cid}:{names['zh']}")
@@ -346,10 +362,9 @@ def build_metro(mp: dict, world: World, seed, s, cities, districts, district_cit
         sysn = system["names"]
         for a, (k, ln, i) in enumerate(specs):
             names = {"zh": f"{sysn['zh']}{k}号线", "en": f"{sysn['en']} Line {k}"}
-            if sysn.get("art-x-viking"):
-                names["art-x-viking"] = f"{sysn['art-x-viking']} Linie {k}"
-            if sysn.get("art-x-buckham"):
-                names["art-x-buckham"] = f"{sysn['art-x-buckham']} Linea {k}"
+            for lang, fmt in METRO_LINE_NAMES.items():
+                if sysn.get(lang):
+                    names[lang] = fmt.format(sysn[lang], k)
             out.append({"id": line_ids[a], "city": cid, "n": k, "names": names, "geom": geoms[a],
                         "color": ln.get("color", METRO_COLORS[(k - 1) % len(METRO_COLORS)]),
                         "stations": [sid_of[key] for key in line_keys[a]]})

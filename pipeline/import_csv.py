@@ -71,6 +71,7 @@ NAMES = [
     Col("name_en", "英文名", "names.en", required=True),
     Col("name_viking", "维京语名", "names.art-x-viking"),
     Col("name_buckham", "巴克汉姆语名", "names.art-x-buckham"),
+    Col("name_tavrunaq", "塔夫鲁纳克语名", "names.art-x-tavrunaq"),
 ]
 NOTES = [Col("notes_zh", "中文简介", "notes.zh"), Col("notes_en", "英文简介", "notes.en")]
 HEAD = [Col("id", "编号"), Col("status", "状态", "status", "choice", STATUSES)]
@@ -147,6 +148,7 @@ KINDS = {
             Col("color", "线路色", "color", "color"),
             Col("operating_speed", "运营速度", "tech.operating_speed_kmh", "int"),
             Col("design_speed", "设计速度", "tech.design_speed_kmh", "int"),
+            Col("loaded_trains", "每天重车列数", "tech.loaded_trains_per_day", "int"),
             Col("tunnel_cost", "隧道成本", "tunnel_cost", "float"),
             *NOTES,
         ],

@@ -53,7 +53,7 @@ def _district(world: World, did: str, model: dict) -> dict:
     sectors = [max(v * (1 + rng.normal(0, noise["sectors"])), 0.3) for v in sectors]
     age = [p + sum(wi * ind[k].get("age", (0, 0, 0))[i] for wi, k in zip(w, lead)) + rng.normal(0, noise["age"])
            for i, p in enumerate(model["age"][t["age"]])]
-    langs = [model["heritage"][t["heritage"]][lg] * float(np.exp(rng.normal(0, noise["languages"]))) for lg in model["languages"]]
+    langs = [model["heritage"][t["heritage"]].get(lg, 0) * float(np.exp(rng.normal(0, noise["languages"]))) for lg in model["languages"]]
     return {"population": d["population"], "gdp": per_head * d["population"], "sectors": sectors,
             "age": [max(a, 3.0) for a in age], "languages": langs, "lead": lead}
 
@@ -75,7 +75,8 @@ def _card(v: dict, lead: list[str], model: dict) -> tuple[dict, dict]:
         "sectors": dict(zip(SECTORS, _percent(v["sectors"]))),
         "industries": [{"zh": ind[k]["zh"], "en": ind[k]["en"]} for k in lead],
     }
-    demographics = {"age": _percent(v["age"]), "languages": dict(zip(model["languages"], _percent(v["languages"])))}
+    langs = {lg: p for lg, p in zip(model["languages"], _percent(v["languages"])) if p}
+    demographics = {"age": _percent(v["age"]), "languages": langs}
     return economy, demographics
 
 

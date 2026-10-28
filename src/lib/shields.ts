@@ -8,12 +8,13 @@ import type { Entity } from "./types";
  * routes follow the British Columbia highway shield: the route's own symbol in a dark crest
  * above the number. A territory may choose another design for its routes (route_shield in its
  * division record): "maritime" is an oval, sea-blue above a wave line, with the route's symbol
- * over the number.
+ * over the number; "polar" is a hexagon, ice-blue with faint ice crystals above the number.
  */
 const FONT = "'Bahnschrift', 'DIN Alternate', 'Roboto Condensed', 'Segoe UI', Arial, sans-serif";
 const NATIONAL = { plate: "#00753A", header: "#D7261E", edge: "#ffffff", text: "#ffffff" };
 const TERRITORIAL = { crest: "#1D3557", body: "#ffffff", text: "#1D3557" };
 const MARITIME = { sea: "#0B5C99", foam: "#5BB8E8", body: "#ffffff", text: "#0B5C99" };
+const POLAR = { ice: "#2F8FCB", frost: "rgba(255,255,255,0.55)", body: "#ffffff", text: "#1B2F5E" };
 
 export interface Shield {
   canvas: HTMLCanvasElement;
@@ -178,11 +179,59 @@ function maritime(number: string, glyph: string | undefined, ratio: number): Shi
   return { canvas: c, width: w, height: h, ratio };
 }
 
+function polar(number: string, glyph: string | undefined, ratio: number): Shield {
+  const font = `700 ${number.length > 2 ? 9.4 : 10.6}px ${FONT}`;
+  const h = 29;
+  const w = Math.max(26, Math.ceil(textWidth(number, font)) + 12);
+  const { c, ctx } = canvas(w, h, ratio);
+  const inset = Math.min(6.5, w * 0.24);
+  const shape = new Path2D();
+  shape.moveTo(inset, 1);
+  shape.lineTo(w - inset, 1);
+  shape.lineTo(w - 1, h / 2);
+  shape.lineTo(w - inset, h - 1);
+  shape.lineTo(inset, h - 1);
+  shape.lineTo(1, h / 2);
+  shape.closePath();
+  ctx.fillStyle = POLAR.body;
+  ctx.fill(shape);
+  ctx.save();
+  ctx.clip(shape);
+  ctx.fillStyle = POLAR.ice;
+  ctx.fillRect(0, 0, w, h * 0.5);
+  // ice crystals: faint six-armed stars in the corners of the blue half
+  ctx.strokeStyle = POLAR.frost;
+  ctx.lineWidth = 0.6;
+  ctx.lineCap = "round";
+  for (const [cx, cy, r] of [[w * 0.17, h * 0.2, 2.6], [w * 0.83, h * 0.2, 2.6], [w * 0.26, h * 0.4, 1.6], [w * 0.74, h * 0.4, 1.6]]) {
+    for (let k = 0; k < 3; k++) {
+      const a = (k * Math.PI) / 3 + Math.PI / 2;
+      ctx.beginPath();
+      ctx.moveTo(cx - r * Math.cos(a), cy - r * Math.sin(a));
+      ctx.lineTo(cx + r * Math.cos(a), cy + r * Math.sin(a));
+      ctx.stroke();
+    }
+  }
+  ctx.restore();
+  ctx.strokeStyle = POLAR.ice;
+  ctx.lineWidth = 1.4;
+  ctx.stroke(shape);
+  if (glyph) drawGlyph(ctx, glyph, w / 2, h * 0.27, h * 0.34, "#ffffff");
+  ctx.fillStyle = POLAR.text;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.font = font;
+  ctx.fillText(number, w / 2, h * 0.71);
+  return { canvas: c, width: w, height: h, ratio };
+}
+
+const STYLES = { crest: territorial, maritime, polar };
+
 export function drawShield(route: Entity, ratio = 2): Shield | null {
   const p = route.ref ? parseRef(route.ref) : null;
   if (!p) return null;
   if (route.network?.startsWith("national_")) return national(p.series, p.region, p.number, ratio);
-  return (route.shield_style === "maritime" ? maritime : territorial)(p.number, route.shield, ratio);
+  return STYLES[route.shield_style ?? "crest"](p.number, route.shield, ratio);
 }
 
 /** Map style image id of a route's shield; resolved on demand by MapView. */

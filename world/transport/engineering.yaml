@@ -119,6 +119,26 @@ standards:
       tracks: 2
       min_curve_radius_m: 7000
       train: { names: { zh: 北辰 400 型, en: Polaris 400 }, seats: 576 }
+  # Double-track heavy-haul freight line, 25 kV, ballasted; driverless trains; yards are costed per stop.
+  freight_rail:
+    smooth_km: 6
+    max_grade: 0.012
+    tunnel_above_m: 25
+    bridge_below_m: 12
+    river_bridge_km: 0.5
+    urban: { tunnel_depth_km: 2 }
+    hill_factor: 1.8
+    cost_musd_per_km: { grade: 9, bridge: 24, tunnel: 45 }
+    upkeep_kusd_per_km: { grade: 150, bridge: 260, tunnel: 520 }
+    station_musd: 60
+    station_upkeep_musd: 2
+    tech:
+      gauge_mm: 1435
+      electrification: 25 kV 50 Hz AC
+      signalling: ETCS Level 3 + ATO GoA4
+      tracks: 2
+      min_curve_radius_m: 1200
+      axle_load_t: 32.5
 
 # City streets (主干道 / 次干道 / 支路), km/h; arterials outside the dense core have no limit.
 street_speed:

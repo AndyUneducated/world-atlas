@@ -11,6 +11,7 @@ currency: USD  # 2026 US dollars, as world/transport/engineering.yaml
 base_gdp_per_capita:
   div_fbfqv9: 61000  # North Viking Island
   div_raat4g: 68000  # Viking Islands
+  div_hpmerr: 70000  # Arctic Ocean Territory
 rank_weights: [1.0, 0.6, 0.4, 0.3]
 density_elasticity: 0.05  # per-head GDP x (density / 100 per km²) ^ e
 perturbation: { gdp_per_capita: 0.08, sectors: 0.15, age: 1.5, languages: 0.12 }
@@ -55,16 +56,27 @@ industries:
   defence:       { zh: 国防, en: Defence, sectors: { tertiary: 45 }, productivity: 1.05, age: [-2, 10, -6] }
   residential:   { zh: 居住与社区服务, en: Residential services, sectors: { tertiary: 30, secondary: 6 }, productivity: 0.75, age: [3, 0, 0] }
   ski:           { zh: 冰雪运动, en: Winter sports, sectors: { tertiary: 38 }, productivity: 0.95, age: [0, 1, 0] }
+  datacenter:    { zh: 数据中心与算力, en: Data centres, sectors: { tertiary: 34, secondary: 14 }, productivity: 1.50, age: [-1, 5, -2] }
+  hydropower:    { zh: 水力发电, en: Hydropower, sectors: { secondary: 38 }, productivity: 1.25, age: [0, 1, 0] }
+  satellite:     { zh: 卫星地面站与遥感, en: Satellite ground stations, sectors: { tertiary: 36, secondary: 8 }, productivity: 1.40, age: [-1, 5, -2] }
+  aquaculture:   { zh: 海水养殖, en: Aquaculture, sectors: { primary: 26, secondary: 10 }, productivity: 0.95, age: [0, -1, 2] }
+  hunting:       { zh: 传统渔猎, en: Traditional hunting and fishing, sectors: { primary: 38, tertiary: 4 }, productivity: 0.60, age: [3, -3, 1] }
+  conservation:  { zh: 自然保护与巡护, en: Conservation, sectors: { tertiary: 36, primary: 4 }, productivity: 0.85, age: [0, 1, 0] }
 
 # First-language shares (%), by heritage: the Chinese-planned new towns, the old Viking and Buckham
-# settlements and ports, and the international cities in between.
-languages: [zh, art-x-viking, art-x-buckham, en]
+# settlements and ports, and the international cities in between; in the Arctic Ocean Territory, the
+# Tavrulit communities, the mixed towns and the international capital. A language a heritage leaves
+# out has no speakers there.
+languages: [zh, art-x-viking, art-x-buckham, en, art-x-tavrunaq]
 heritage:
   chinese: { zh: 74, art-x-viking: 12, art-x-buckham: 6, en: 6 }
   viking:  { zh: 36, art-x-viking: 52, art-x-buckham: 5, en: 6 }
   buckham: { zh: 34, art-x-viking: 10, art-x-buckham: 48, en: 7 }
   mixed:   { zh: 48, art-x-viking: 28, art-x-buckham: 14, en: 9 }
   global:  { zh: 42, art-x-viking: 30, art-x-buckham: 6, en: 20 }
+  tavrulit:     { art-x-tavrunaq: 82, zh: 11, en: 7 }
+  polar_mixed:  { art-x-tavrunaq: 56, zh: 28, en: 16 }
+  polar_global: { art-x-tavrunaq: 34, zh: 36, en: 30 }
 
 # Age structure (%): under 15, 15–64, 65 and over.
 age:

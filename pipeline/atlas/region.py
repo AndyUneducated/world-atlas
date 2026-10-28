@@ -25,7 +25,7 @@ from .network import ROAD_RANK, build_graph
 from .transport import Router
 from .vectorize import point_lonlat, polygonize_labels, to_lonlat
 from .world import FACILITY_LAYOUTS, MILITARY_VARIANTS, RUNWAY_LAYOUTS, World
-from .common import (BUILDING_MINZOOM, STREET_MINZOOM, bbox_lonlat, derived_id, drawn_along, feature, fill_undrawn, log, owned_runs, short_name, undrawn_steps,
+from .common import (BUILDING_MINZOOM, STREET_MINZOOM, bbox_lonlat, derived_id, drawn_along, feature, fill_undrawn, log, owned_runs, run_positions, short_name, undrawn_steps,
                      smooth_line, tile_minzoom)
 from .sites import SEA_BRIDGE_HALF_WIDTH_KM, landmark_sites
 from .city import bare_name, build_buildings, build_metro, build_streets, rail_station_names
@@ -170,6 +170,33 @@ def lake_raster(g: Grid, center, radius, land):
     return (np.hypot(g.X - cx, g.Y - cy) < rr) & land
 
 
+def lake_field(field: dict | None, g: Grid, land, elev, dcoast, dist_r, districts, seed) -> np.ndarray:
+    """Unnamed small lakes scattered over low, flat ground in the given districts (tundra lake country):
+    `count` lobed discs with radii between radius_km[0] and [1] (design km), most of them small."""
+    out = np.zeros(g.shape, bool)
+    if not field:
+        return out
+    ids = {d["id"]: i for i, d in enumerate(districts)}
+    ok = np.isin(dist_r, [ids[d] for d in field["in"]]) & (elev < field.get("max_elev_m", 400)) & (dcoast > field.get("min_coast_km", 2))
+    ys, xs = np.nonzero(ok)
+    if not len(ys):
+        return out
+    rng = np.random.default_rng(seed + 61)
+    r0, r1 = field["radius_km"]
+    for k in rng.choice(len(ys), size=min(field["count"], len(ys)), replace=False):
+        r = r0 * (r1 / r0) ** (rng.random() ** 2.2)
+        cx, cy = g.xs[xs[k]], g.ys[ys[k]]
+        stretch, turn, phase = 1 + 0.9 * rng.random(), rng.random() * np.pi, rng.random() * 6.3
+        pad = int(np.ceil(r * stretch * 1.5 / g.res)) + 1
+        sy, sx = slice(max(ys[k] - pad, 0), ys[k] + pad + 1), slice(max(xs[k] - pad, 0), xs[k] + pad + 1)
+        X, Y = g.X[sy, sx] - cx, g.Y[sy, sx] - cy
+        u, v = X * np.cos(turn) + Y * np.sin(turn), -X * np.sin(turn) + Y * np.cos(turn)
+        ang = np.arctan2(v, u)
+        rr = r * (1 + 0.3 * np.sin(3 * ang + phase) + 0.15 * np.sin(5 * ang + 2 * phase))
+        out[sy, sx] |= np.hypot(u / stretch, v) < rr
+    return out & land & (dcoast > 1)
+
+
 def lake_basins(elev, lakes, res, falloff=0.8):
     """Rendered elevation with each lake flat at its shoreline level and the land around it easing down to it,
     so hillshade shows a basin rather than a pit wall."""
@@ -218,7 +245,12 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         wx = g.X + warp * value_noise(seed + 101, 30, 5, 0.5, (g.w, g.h), g.shape)
         wy = g.Y + warp * value_noise(seed + 202, 30, 5, 0.5, (g.w, g.h), g.shape)
         anchors = [layout["cities"][c["id"]] for c in cities]
-        city_r, _, land = partition(land, wx, wy, anchors, [c["area_km2"] for c in cities], g.cell)
+        anchored = layout.get("anchored", False)
+        claims = layout.get("islands", {})
+        city_claims = [[p for i, d in enumerate(districts) if district_city[i] == ci for p in claims.get(d["id"], [])]
+                       for ci in range(len(cities))]
+        city_r, _, land = partition(land, wx, wy, anchors, [c["area_km2"] for c in cities], g.cell, anchored=anchored,
+                                    claims=city_claims)
         dist_r = np.full(g.shape, -1)
         dist_errs = np.zeros(len(districts))
         for ci, c in enumerate(cities):
@@ -227,7 +259,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             ax, ay = anchors[ci]
             r = 0.42 * math.sqrt(c["area_km2"]) / frame.km(1.0)
             seeds = [(ax + r * dirs[districts[i]["id"]][0], ay + r * dirs[districts[i]["id"]][1]) for i in idx]
-            sub, err, fitted = partition(cmask, wx, wy, seeds, [districts[i]["area_km2"] for i in idx], g.cell, sea=~land)
+            sub, err, fitted = partition(cmask, wx, wy, seeds, [districts[i]["area_km2"] for i in idx], g.cell, sea=~land,
+                                         anchored=anchored, claims=[claims.get(districts[i]["id"], []) for i in idx])
             land = (land & ~cmask) | fitted
             city_r[cmask & ~fitted] = -1
             city_r[fitted] = ci
@@ -261,8 +294,11 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     water = np.zeros(g.shape, bool)
     for _, m in lakes:
         water |= m
+    pond_mask = lake_field(spec.get("hydrology", {}).get("lake_field"), g, land, elev, dcoast, dist_r, districts, seed) & ~water
+    water |= pond_mask
     lake_named = [(fid, p) for fid, m in lakes if (p := polygonize_labels(np.where(m, 0, -1), g.res).get(0)) is not None]
-    lake_polys = [p for _, p in lake_named]
+    ponds = polygonize_labels(np.where(pond_mask, 0, -1), g.res).get(0) if pond_mask.any() else None
+    lake_polys = [p for _, p in lake_named] + ([ponds] if ponds is not None else [])
     lake_union = shapely.union_all(lake_polys) if lake_polys else None
 
     def on_land(line):
@@ -518,7 +554,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     if nets := spec.get("expect", {}).get("district_centres_on"):
         on = {c for r, path in road_out if r["network"] in nets for c in path}
         near = lambda c: any(c + dy * router.nx + dx in on for dy in (-1, 0, 1) for dx in (-1, 0, 1))
-        missing = [d["names"]["zh"] for i, d in enumerate(districts) if not near(stop_cell(d["id"]))]
+        skip = set(spec["expect"].get("district_centres_except", []))
+        missing = [d["names"]["zh"] for i, d in enumerate(districts) if d["id"] not in skip and not near(stop_cell(d["id"]))]
         log(f"  {'ok  ' if not missing else 'FAIL'} every district centre on {' / '.join(nets)}"
             + (f": missing {', '.join(missing)}" if missing else ""))
 
@@ -536,13 +573,15 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     rail_lines = []
     for r, stops, path in rail_out:
         ids = []
+        freight = r["network"] == "freight_rail"
         for v, i in zip([v for v in r["via"] if v in stop_index], stops):
-            sid = derived_id("poi", f"rail:{districts[i]['id']}")
+            # freight yards are their own stations, apart from the passenger station of the same district
+            sid = derived_id("poi", f"{'freight' if freight else 'rail'}:{districts[i]['id']}")
             if sid not in stations:
                 ci = district_city[i]
                 pt = nearest_points(track_union, Point(poles[i]))[0]
-                stations[sid] = {"names": rail_station_names(bare_name(cities[ci] if i == core[ci] else districts[i])),
-                                 "xy": (pt.x, pt.y), "district": i, "lines": []}
+                stations[sid] = {"names": rail_station_names(bare_name(cities[ci] if i == core[ci] else districts[i]), freight),
+                                 "xy": (pt.x, pt.y), "district": i, "lines": [], "freight": freight}
             stations[sid]["names"].update(r.get("station_names", {}).get(v, {}))
             stations[sid]["lines"].append(r["id"])
             ids.append(sid)
@@ -642,7 +681,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                 geom = shapely.union_all([geom, *[to_lonlat(affinity.scale(b, 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6) for b in bridges]])
             entities[pid].update({"bbox": bbox_lonlat(geom), "stats": stats})
 
-    water_features = []
+    water_features = [feature(to_lonlat(ponds, frame), {})] if ponds is not None else []
     for fid, m in lakes:
         poly = polygonize_labels(np.where(m, 0, -1), g.res).get(0)
         if poly is None:
@@ -775,19 +814,27 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         coords = list(line.coords)
         for i, c in ((0, run[0]), (-1, run[-1])):
             host = router.owner.get(c)
-            if host != ref and host in smoothed:
+            if host != ref and smoothed.get(host):
                 p = nearest_points(MultiLineString(smoothed[host]), Point(coords[i]))[0]
                 if p.distance(Point(coords[i])) <= 2 * router.res:
                     coords[i] = (p.x, p.y)
         return LineString(coords)
 
     drawn_roads = {r["ref"]: [meet_host(line, run, r["ref"]) for line, run in zip(smoothed[r["ref"]], road_runs[r["ref"]])] for r, _ in road_out}
-    drawn_all = [(r["ref"], run, line) for r, _ in road_out for run, line in zip(road_runs[r["ref"]], drawn_roads[r["ref"]])]
+    drawn_all = [(r["ref"], run, line, run_positions(run, line, router.xy))
+                 for r, _ in road_out for run, line in zip(road_runs[r["ref"]], drawn_roads[r["ref"]])]
     rail_runs = [run for runs in rail_drawn.values() for run, _ in runs]
-    undrawn = {**{r["ref"]: n for r, path in road_out if (n := undrawn_steps(path, [run for _, run, _ in drawn_all]))},
+    undrawn = {**{r["ref"]: n for r, path in road_out if (n := undrawn_steps(path, [run for _, run, _, _ in drawn_all]))},
                **{r["names"]["zh"]: n for r, _, path in rail_out if (n := undrawn_steps(path, rail_runs))}}
     log(f"  warn undrawn steps, left unlit when clicked: {undrawn}" if undrawn else "  ok   every route and railway drawn end to end")
-    road_features, shared_features = [], []
+    road_features, shared_features, overruns = [], [], {}
+
+    def lit_overrun(key, lit: list[LineString], path: list[int], rt):
+        """A click lights only the drawn lines along the route, so they can't be longer than the route's own path."""
+        path_len = LineString([rt.xy(c) for c in path]).length if len(path) > 1 else 0.0
+        lit_len = sum(ln.length for ln in lit)
+        if lit_len > 1.03 * path_len + 2 * rt.res:
+            overruns[key] = round(lit_len / max(path_len, rt.res), 2)
 
     def drawn_lonlat(lines: list[LineString]) -> list:
         return [[[round(x, 4), round(y, 4)] for x, y in to_lonlat(ln, frame).coords] for ln in lines]
@@ -803,27 +850,33 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                                         "construction_usd": 0, "upkeep_usd_per_year": 0, "max_grade_permille": 0.0}})
             continue
         # stretches drawn under other routes' ids, so the route highlights end to end
-        if shared := drawn_along(set(path), [(run, ln) for ref, run, ln in drawn_all if ref != r["ref"]], router.xy):
+        if shared := drawn_along(path, [(run, ln, pos) for ref, run, ln, pos in drawn_all if ref != r["ref"]]):
             shared_features.append(feature(to_lonlat(MultiLineString(shared), frame), {"id": r["id"]}))
-        geom_km = lines[0] if len(lines) == 1 else MultiLineString(lines)
-        geom = to_lonlat(geom_km, frame)
-        road_features.append(feature(geom, {
-            "id": r["id"], "ref": r["ref"], "class": r["class"], "network": r["network"],
-            "name_zh": r["names"]["zh"], "name_en": r["names"]["en"]}))
-        longest = max(lines, key=lambda ln: ln.length)
+        # a route wholly on other routes' corridors has no line or number of its own on the map
+        lit_overrun(r["ref"], lines + shared, path, router)
+        shown = lines or shared
+        if not shown:
+            log(f"  warn {r['ref']} has nothing drawn")
+            continue
+        geom = to_lonlat(shown[0] if len(shown) == 1 else MultiLineString(shown), frame)
+        if lines:
+            road_features.append(feature(geom, {
+                "id": r["id"], "ref": r["ref"], "class": r["class"], "network": r["network"],
+                "name_zh": r["names"]["zh"], "name_en": r["names"]["en"]}))
+        longest = max(shown, key=lambda ln: ln.length)
         ent = entities.setdefault(r["id"], {**r, "source": "generated:feeder-roads"})
         if "crossing" in r:  # this territory's part, joined to the other's through the tunnel by merge_crossings
             ent = cross_part(ent, territory["id"], road_via[r["id"]], path, router, frame)
         ent.update({"kind": "route", "bbox": bbox_lonlat(geom), "ancestors": in_territory,
                     "center": list(point_lonlat(frame, *longest.interpolate(0.5, normalized=True).coords[0]).coords[0]),
-                    "stats": {"length_km": round(frame.km(sum(line_length_km(ln.coords) for ln in lines)), 1)}})
+                    "stats": {"length_km": round(frame.km(sum(line_length_km(ln.coords) for ln in shown)), 1)}})
         if r["network"].startswith("territorial_") and territory.get("route_shield"):
             ent["shield_style"] = territory["route_shield"]
         if r["network"] in SEGMENTED_NETWORKS:
             ent["segments"] = route_segments(path, router, dist_r, 4, frame, [d["id"] for d in districts])
             for sg in ent["segments"]:
                 i0, i1 = sg["_span"]
-                sg["lines"] = drawn_lonlat(drawn_along(set(path[i0:i1 + 1]), [(run, ln) for _, run, ln in drawn_all], router.xy)) or [sg["line"]]
+                sg["lines"] = drawn_lonlat(drawn_along(path[i0:i1 + 1], [(run, ln, pos) for _, run, ln, pos in drawn_all])) or [sg["line"]]
                 del sg["line"]
             # travel length, including junction stretches drawn under another route's number
             ent["stats"]["length_km"] = round(sum(s["km"] for s in ent["segments"]), 1)
@@ -876,7 +929,9 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     if building_out:
         log(f"  {len(building_features)} buildings, {len(park_features)} parks, {len(sites)} landmark sites")
 
-    rail_features = [feature(to_lonlat(t, frame), {"network": "intercity_rail", "role": "track"}) for t in rail_tracks]
+    rail_network = {r["id"]: r["network"] for r, _, _ in rail_out}
+    rail_features = [feature(to_lonlat(ln, frame), {"network": rail_network[rid], "role": "track"})
+                     for rid, runs in rail_drawn.items() for _, ln in runs]
     station_features = []
 
     def add_line(eid, line_km, props, decimals=5, drawn=None):
@@ -887,22 +942,27 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         return {"bbox": bbox_lonlat(geom), "center": list(point_lonlat(frame, mid.x, mid.y).coords[0]),
                 "stats": {"length_km": round(frame.km(line_km.length), 1)}}
 
-    rail_std = standards.get("intercity_rail")
     rail_paths = {r["id"]: path for r, _, path in rail_out}
+    rail_pos = {rid: [(run, ln, run_positions(run, ln, rail_router.xy)) for run, ln in runs] for rid, runs in rail_drawn.items()}
     for r, full, ids in rail_lines:
         ent = entities[r["id"]]
         if "crossing" in r:
             ent = cross_part(ent, territory["id"], stops_here(r, territory["id"], lambda v: v in stop_index), rail_paths[r["id"]], rail_router, frame)
-        own = MultiLineString([ln for _, ln in rail_drawn[r["id"]]])
-        others = [(run, ln) for rid, runs in rail_drawn.items() if rid != r["id"] for run, ln in runs]
-        if shared := drawn_along(set(rail_paths[r["id"]]), others, rail_router.xy):
+        own_lines = [ln for _, ln in rail_drawn[r["id"]]]
+        others = [(run, ln, pos) for rid, runs in rail_pos.items() if rid != r["id"] for run, ln, pos in runs]
+        shared = drawn_along(rail_paths[r["id"]], others)
+        # a line wholly on other lines' track is clicked and lit on that track
+        lit_overrun(r["names"]["zh"], own_lines + shared if own_lines else shared, rail_paths[r["id"]], rail_router)
+        own = MultiLineString(own_lines or shared)
+        if shared and own_lines:
             shared_features.append(feature(to_lonlat(MultiLineString(shared), frame), {"id": r["id"]}))
         ent.update({"class": "rail", "via": ids, **add_line(r["id"], full, {"network": r["network"], "color": r.get("color"),
                                                                         "name_zh": r["names"]["zh"], "name_en": r["names"]["en"]}, drawn=own)})
-        if rail_std:
+        if rail_std := standards.get(r["network"]):
             built_here = sum(1 for sid in dict.fromkeys(ids) if stations[sid]["lines"][0] == r["id"])
             engineer(ent, rail_paths[r["id"]], rail_std, rail_router, r["id"], built_here)
             ent["tech"] = {**rail_std.get("tech", {}), **r.get("tech", {})}
+    log(f"  FAIL lit beyond its own path when clicked: {overruns}" if overruns else "  ok   every route and railway lit only along its own path")
     for ml in metro_lines:
         line_km = affinity.scale(ml["geom"], 1 / s, 1 / s, origin=(0, 0))
         entities[ml["id"]] = {
@@ -920,7 +980,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         lines = list(dict.fromkeys(st["lines"]))
         rail = any(ln in rail_ids for ln in lines)
         metro = [ln for ln in lines if ln in metro_color]
-        station_features.append(feature(pt, {"id": sid, "kind": "rail" if rail else "metro", "transfer": len(lines) > 1,
+        station_features.append(feature(pt, {"id": sid, "kind": "freight" if st.get("freight") else "rail" if rail else "metro", "transfer": len(lines) > 1,
                                              "color": metro_color[metro[0]] if metro else None,
                                              "name_zh": st["names"]["zh"], "name_en": st["names"]["en"]}))
         d = districts[st["district"]]
@@ -1011,6 +1071,25 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             stats.update(elev_stats(block_upsample(c["mask"], g.shape)))
         entities[fe["id"]].update({"bbox": bbox, "center": list(pt.coords[0]), "stats": stats,
                                    "ancestors": [c["district"], *world.ancestors(c["district"])]})
+    # Archipelagos: a named group of the named islands listed in `islands`.
+    island_of = {fe["id"]: c for c, fe in coast_feats["matched"] if c["kind"] == "island" and c.get("geom") is not None}
+    for fe in world.region_features(spec):
+        if fe["subtype"] != "archipelago":
+            continue
+        members = [island_of[i] for i in fe.get("islands", []) if i in island_of]
+        if not members:
+            log(f"  WARN {fe['id']} {fe['names']['zh']}: none of its islands were found")
+            continue
+        geom = shapely.union_all([c["geom"] for c in members])
+        at = shapely.convex_hull(geom).centroid
+        pt = point_lonlat(frame, at.x, at.y)
+        props = {"id": fe["id"], "kind": "archipelago", "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"]}
+        label_features.append(feature(pt, {**props, "rank": 4, "major": True}))
+        chains = [[c["district"], *world.ancestors(c["district"])] for c in members]
+        common = [a for a in chains[0] if all(a in ch for ch in chains)]
+        entities[fe["id"]].update({"bbox": bbox_lonlat(to_lonlat(geom, frame)), "center": list(pt.coords[0]),
+                                   "stats": {"area_km2_mapped": round(frame.km2(geom.area), 1), "islands": len(members)},
+                                   "ancestors": common})
     check_expectations(spec.get("expect", {}), entities)
 
     layers = {k: [] for k in LAYERS}

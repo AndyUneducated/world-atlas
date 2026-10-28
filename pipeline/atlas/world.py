@@ -27,15 +27,16 @@ FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport", 
 RUNWAY_LAYOUTS = ("airport", "spaceport", "airbase", "launch_track")  # roads and railways go round these
 COASTAL_LAYOUTS = ("port", "harbour")  # sites centred on the shore
 HARBOUR_TERMINALS = ("container", "bulk", "oil", "roro")
-RAIL_NETWORKS = ("intercity_rail",)
+RAIL_NETWORKS = ("intercity_rail", "freight_rail")
+RAIL_SPEED_KMH = {"intercity_rail": (160, 400), "freight_rail": (60, 160)}  # allowed tech.operating_speed_kmh
 # Lines whose cards carry a construction background, and who runs them (operators in the territory record).
-BACKGROUND_NETWORKS = ("national_expressway", "territorial_expressway", "territorial_highway", "intercity_rail")
+BACKGROUND_NETWORKS = ("national_expressway", "territorial_expressway", "territorial_highway", "intercity_rail", "freight_rail")
 OPERATOR_KINDS = ("expressway", "highway", "rail")
 # Card text and traits: no region build reads them, so they stay out of a region's cache key and
 # build.py takes them from the sources after the regions are merged.
 TEXT_KEYS = ("notes", "background", "motto", "military", "traits")
 TRAIT_KEYS = ("industries", "heritage", "age", "income")
-ROUTE_SHIELDS = ("crest", "maritime")  # territorial route shield designs, see src/lib/shields.ts
+ROUTE_SHIELDS = ("crest", "maritime", "polar")  # territorial route shield designs, see src/lib/shields.ts
 STREET_STYLES = ("planned", "mixed", "organic")
 BUILDING_MIX_KEYS = ("slabs", "towers", "perimeter", "houses", "podium", "industrial", "civic", "park")
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
@@ -190,6 +191,9 @@ class World:
             if r.get("network") in BACKGROUND_NETWORKS and not all(r.get("background", {}).get(lang) for lang in REQUIRED_LANGS):
                 errors.append(f"{rid}: an expressway, territorial highway or railway needs a background (zh, en): why and how it was built")
         for fid, f in self.features.items():
+            if f["subtype"] == "archipelago" and not all(self.features.get(i, {}).get("subtype") == "island"
+                                                         for i in f.get("islands") or [None]):
+                errors.append(f"{fid}: an archipelago lists its islands (ids of island features) in 'islands'")
             det = f.get("detect")
             if det is None:
                 continue
@@ -245,8 +249,9 @@ class World:
             if r.get("color") and not re.match(r"^#[0-9A-Fa-f]{6}$", str(r["color"])):
                 errors.append(f"{rid}: color must be #RRGGBB")
             speed = r.get("tech", {}).get("operating_speed_kmh")
-            if speed is not None and not (isinstance(speed, int) and 160 <= speed <= 400):
-                errors.append(f"{rid}: tech.operating_speed_kmh must be a whole number of km/h, 160–400")
+            lo, hi = RAIL_SPEED_KMH.get(r.get("network"), (160, 400))
+            if speed is not None and not (isinstance(speed, int) and lo <= speed <= hi):
+                errors.append(f"{rid}: tech.operating_speed_kmh must be a whole number of km/h, {lo}–{hi}")
         territories = {g["territory"] for g in self.generators}
         for rid, r in [*self.routes.items(), *self.railways.items()]:
             if "crossing" not in r:
@@ -274,6 +279,9 @@ class World:
             for key in list(layout.get("cities", {})) + list(layout.get("districts", {})):
                 if key not in self.divisions:
                     errors.append(f"generator: unknown division {key}")
+            for did in layout.get("islands", {}):
+                if self.divisions.get(did, {}).get("subtype") != "borough":
+                    errors.append(f"generator: islands of {did}: not a district")
             for did, toward in layout.get("coastal", {}).items():
                 if self.divisions.get(did, {}).get("subtype") != "borough":
                     errors.append(f"generator: coastal {did} is not a district")

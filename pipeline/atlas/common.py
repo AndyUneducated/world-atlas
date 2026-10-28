@@ -6,7 +6,7 @@ import json
 import time
 
 import numpy as np
-from shapely.geometry import LineString, Point, mapping
+from shapely.geometry import LineString, mapping
 from shapely.ops import substring
 
 from .grid import chaikin
@@ -89,8 +89,8 @@ def owned_runs(path: list[int], ref: str, owner: dict[int, str]) -> list[list[in
             cur = []
     if cur:
         runs.append(cur)
-    runs = [run for run in runs if len(run) >= 3]
-    return runs or [path]
+    # a route that runs wholly on earlier routes' corridors draws nothing of its own
+    return [run for run in runs if len(run) >= 3]
 
 
 def undrawn_steps(path: list[int], runs: list[list[int]]) -> int:
@@ -116,22 +116,50 @@ def fill_undrawn(paths: dict, runs: dict[str, list[list[int]]]):
                 runs[key].append(prev)
 
 
-def drawn_along(cells: set[int], drawn: list[tuple[list[int], LineString]], xy) -> list[LineString]:
-    """The stretches of the drawn lines that run along `cells`; drawn: [(run of cells, the line drawn for it)],
-    xy(cell): the cell centre. Each stretch is cut out of a drawn line, so it lies exactly on the map's line."""
+def run_positions(run: list[int], line: LineString, xy) -> list[float]:
+    """Distance along `line`, the line drawn for `run`, of each of its cells.
+
+    Each cell is placed just ahead of the previous one rather than at the nearest point of the whole line, so
+    a line that comes back near itself (a ring road, a hairpin) can't put a cell on the wrong stretch."""
+    p = np.asarray(line.coords)[:, :2]
+    seg = p[1:] - p[:-1]
+    seg_len = np.hypot(seg[:, 0], seg[:, 1])
+    cum = np.concatenate([[0.0], np.cumsum(seg_len)])
+    pos, s = [0.0], 0
+    for c0, c1 in zip(run, run[1:]):
+        q = np.asarray(xy(c1), float)
+        reach = pos[-1] + 3 * float(np.hypot(*(q - np.asarray(xy(c0), float)))) + 1e-9
+        e = max(min(int(np.searchsorted(cum, reach)), len(seg)), s + 1)
+        best, at, si = None, pos[-1], s
+        for i in range(s, e):
+            if seg_len[i] == 0:
+                continue
+            t = float(np.clip(np.dot(q - p[i], seg[i]) / seg_len[i] ** 2, 0, 1))
+            d = float(np.hypot(*(p[i] + t * seg[i] - q)))
+            if best is None or d < best:
+                best, at, si = d, cum[i] + t * seg_len[i], i
+        s = si
+        pos.append(max(float(at), pos[-1]))
+    pos[-1] = float(cum[-1])
+    return pos
+
+
+def drawn_along(path: list[int], drawn: list[tuple[list[int], LineString, list[float]]]) -> list[LineString]:
+    """The stretches of the drawn lines that `path` travels along; drawn: [(run of cells, the line drawn for it,
+    run_positions)]. A stretch counts only where the path takes the same steps as the run, and each is cut out
+    of a drawn line, so it lies exactly on the map's line."""
+    steps = {frozenset(p) for p in zip(path, path[1:]) if p[0] != p[1]}
     out = []
-    for run, line in drawn:
+    for run, line, pos in drawn:
         k = 0
-        while k < len(run):
-            if run[k] not in cells:
+        while k < len(run) - 1:
+            if frozenset((run[k], run[k + 1])) not in steps:
                 k += 1
                 continue
-            j = k
-            while j + 1 < len(run) and run[j + 1] in cells:
+            j = k + 1
+            while j + 1 < len(run) and frozenset((run[j], run[j + 1])) in steps:
                 j += 1
-            a = 0.0 if k == 0 else line.project(Point(xy(run[k])))
-            b = line.length if j == len(run) - 1 else line.project(Point(xy(run[j])))
-            if j > k and b > a:
-                out.append(substring(line, a, b))
-            k = j + 1
+            if pos[j] > pos[k]:
+                out.append(substring(line, pos[k], pos[j]))
+            k = j
     return out

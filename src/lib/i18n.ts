@@ -172,6 +172,7 @@ const STRINGS = {
   maxGrade: { zh: "最大坡度", en: "Steepest grade" },
   tracks: { zh: "正线", en: "Main line" },
   minCurve: { zh: "最小曲线半径", en: "Minimum curve radius" },
+  axleLoad: { zh: "轴重", en: "Axle load" },
   trainModel: { zh: "车型", en: "Trains" },
   serviceTitle: { zh: "运营", en: "Service" },
   fastestRun: { zh: "最快全程", en: "Fastest run" },
@@ -179,6 +180,11 @@ const STRINGS = {
   peakHeadway: { zh: "高峰间隔", en: "Peak headway" },
   ridership: { zh: "年客运量", en: "Riders a year" },
   tripsPerYear: { zh: "人次/年", en: "trips/year" },
+  freightVolume: { zh: "年货运量", en: "Freight a year" },
+  tonnesPerYear: { zh: "吨/年", en: "t/year" },
+  runTime: { zh: "全程运行", en: "End to end" },
+  loadedTrains: { zh: "重车列数", en: "Loaded trains" },
+  freightNote: { zh: "货运量按每天的重车列数与每列净载重计算", en: "Freight from the loaded trains a day and the net load of each" },
   bothWays: { zh: "双向", en: "both directions" },
   railOperator: { zh: "运营单位", en: "Operator" },
   serviceNote: { zh: "客流与班次按沿线城市人口估算", en: "Ridership and headways estimated from the cities along the line" },
@@ -196,6 +202,7 @@ const STRINGS = {
   ageWorking: { zh: "15–64 岁", en: "15–64" },
   ageOld: { zh: "65 岁以上", en: "65 and over" },
   firstLanguage: { zh: "母语", en: "First language" },
+  islands: { zh: "岛屿", en: "Islands" },
   economyNote: { zh: "经济与人口结构为按主导产业与人口来源估算的模型数据", en: "Economy and population mix are model estimates from each place's leading industries and origins" },
 } satisfies Record<string, Record<Lang, string>>;
 
@@ -207,6 +214,17 @@ export const NAME_LANG_LABELS: Record<NameLang, Record<Lang, string>> = {
   en: { zh: "英语", en: "English" },
   "art-x-viking": { zh: "维京语", en: "Viking" },
   "art-x-buckham": { zh: "巴克汉姆语", en: "Buckham" },
+  "art-x-tavrunaq": { zh: "塔夫鲁纳克语", en: "Tavrunaq" },
+};
+
+/** Cities and districts under special rules (special_status in world/divisions). */
+const SPECIAL_LABELS: Record<string, Record<Lang, string>> = {
+  free_trade_zone: { zh: "自由贸易区", en: "Free trade zone" },
+  financial_zone: { zh: "金融特区", en: "Financial zone" },
+  autonomous_region: { zh: "原住民自治区", en: "Indigenous autonomous region" },
+  nature_reserve: { zh: "生态保护区", en: "Nature reserve" },
+  ice_cap_zone: { zh: "冰盖管理区", en: "Ice cap zone" },
+  mining_zone: { zh: "矿区管理区", en: "Mining zone" },
 };
 
 const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
@@ -217,6 +235,8 @@ const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
   borough: { zh: "区", en: "District" },
   mountain_range: { zh: "山脉", en: "Mountain range" },
   ridge: { zh: "山岭", en: "Ridge" },
+  plateau: { zh: "高原", en: "Plateau" },
+  archipelago: { zh: "群岛", en: "Archipelago" },
   volcano: { zh: "火山", en: "Volcano" },
   river: { zh: "河流", en: "River" },
   lake: { zh: "湖泊", en: "Lake" },
@@ -288,6 +308,7 @@ const NETWORK_LABELS: Record<string, Record<Lang, string>> = {
   arterial_street: { zh: "城市主干道", en: "Arterial street" },
   collector_street: { zh: "城市次干道", en: "Collector street" },
   intercity_rail: { zh: "城际铁路", en: "Intercity railway" },
+  freight_rail: { zh: "重载铁路", en: "Heavy-haul railway" },
   metro: { zh: "地铁线路", en: "Metro line" },
 };
 
@@ -295,7 +316,7 @@ export function kindLabel(e: Entity, lang: Lang): string {
   if (e.kind === "route") return NETWORK_LABELS[e.network ?? ""]?.[lang] ?? e.class ?? "";
   if (e.subtype === "station" && e.source === "generated:metro") return STRINGS.metroStation[lang];
   if (e.subtype === "station") return STRINGS.railStation[lang];
-  if (e.special_status === "free_trade_zone") return lang === "zh" ? "自由贸易区" : "Free trade zone";
+  if (e.special_status && SPECIAL_LABELS[e.special_status]) return SPECIAL_LABELS[e.special_status][lang];
   return SUBTYPE_LABELS[e.subtype]?.[lang] ?? e.subtype;
 }
 

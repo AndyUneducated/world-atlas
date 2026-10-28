@@ -250,21 +250,26 @@ def bend(streets: list[Street], fld: Field, amp: float, step: float = 0.04):
 # ── names ─────────────────────────────────────────────────────────
 
 
+ROW_LANGS = ("zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq")
+
+
 def _row(s: str) -> dict:
-    zh, en, v, b = (x.strip() for x in s.split("|"))
-    return {"zh": zh, "en": en, "art-x-viking": v, "art-x-buckham": b}
+    """"zh | en | viking | buckham [| tavrunaq]"; "-" for a language the entry has no form in."""
+    return {lang: x.strip() for lang, x in zip(ROW_LANGS, s.split("|")) if x.strip() != "-"}
 
 
 class Namer:
-    """Four-language street names from stems and class suffixes, unique within a city."""
+    """Street names in Chinese, English and the city's own languages, from stems and class suffixes, unique within a city."""
 
-    def __init__(self, path: Path, places: list[dict]):
+    def __init__(self, path: Path, places: list[dict], langs: tuple[str, ...] = ("art-x-viking", "art-x-buckham"),
+                 styles: dict | None = None):
+        self.langs = langs
         data = yaml.safe_load(path.read_text(encoding="utf-8"))
         self.suffixes = {cls: [_row(s) for s in rows] for cls, rows in data["suffixes"].items()}
         self.themes = {t: [_row(s) for s in rows] for t, rows in data["themes"].items()}
         self.themes["places"] = places
         self.numbered = [_row(s) for s in data["numbered"]]
-        self.styles = data["styles"]
+        self.styles = styles or data["styles"]
         self.used: set[str] = set()
         self.used_stems: set[str] = set()
         self.banned_stems: set[str] = set()
@@ -278,19 +283,22 @@ class Namer:
                 self.banned_stems.add(zh.removesuffix(suf))
                 break
 
-    @staticmethod
-    def compose(stem: dict, suffix: dict, n: int = 0) -> dict:
+    def compose(self, stem: dict, suffix: dict, n: int = 0) -> dict:
         zh = stem["zh"] + (zh_number(n) if n else "") + suffix["zh"]
         en = f"{stem['en']} {suffix['en']}" + (f" {n}" if n else "")
         out = {"zh": zh, "en": en}
+        num = f" {roman(n)}" if n else ""
         v = stem.get("art-x-viking")
-        if v:
+        if v and "art-x-viking" in self.langs:
             vs = suffix["art-x-viking"]
             viking = "-".join(v.split()) + "-" + vs.capitalize() if " " in v else v + vs
-            out["art-x-viking"] = viking + (f" {roman(n)}" if n else "")
+            out["art-x-viking"] = viking + num
         b = stem.get("art-x-buckham")
-        if b:
-            out["art-x-buckham"] = f"{suffix['art-x-buckham']} {b}" + (f" {roman(n)}" if n else "")
+        if b and "art-x-buckham" in self.langs:
+            out["art-x-buckham"] = f"{suffix['art-x-buckham']} {b}" + num
+        t = stem.get("art-x-tavrunaq")
+        if t and "art-x-tavrunaq" in self.langs and suffix.get("art-x-tavrunaq"):
+            out["art-x-tavrunaq"] = f"{t} {suffix['art-x-tavrunaq']}" + num
         return out
 
     def theme(self, style: str, rng: np.random.Generator) -> str:
