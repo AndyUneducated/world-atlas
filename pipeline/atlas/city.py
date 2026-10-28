@@ -89,7 +89,7 @@ def build_streets(world, sp, features, frame, seed, cities, districts, district_
             styles[i] = style
             ctx[i] = {"name": d["names"]["zh"], "built": built.intersection(safe_all), "style": style, "angle": angle, "core": core, "lines": real_lines,
                       "radius": math.sqrt(built.area / math.pi), "mix": cfg.get("mix"), "main_only": cfg.get("main_only", False),
-                      "detail": detail}
+                      "detail": detail, "skyways_km": cfg.get("skyways_km")}
             city_sites += [(pid, site, parts, i) for pid, site, parts in sites]
             city_streets += kept
             counts = {c: sum(1 for st in kept if st.cls == c) for c in streets.CLASSES}

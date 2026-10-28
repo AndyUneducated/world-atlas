@@ -4,8 +4,8 @@
 #   the place at that division's urban core, offset by offset_km (real km, east/north).
 # marker: map symbol; "emblem" draws the logo of the entity named by emblem_of.
 # site: the place's grounds drawn as a landmark. size_m is [along, across] in metres; layout
-#   picks the footprint template: city landmarks (complex, hall, campus, stadium, tower, park,
-#   plaza, market) or transport facilities (airport: runways along the long side; port: piers
+#   picks the footprint template: city landmarks (complex, hall, campus, stadium, tower, dome
+#   (a round glass dome), park, plaza, market) or transport facilities (airport: runways along the long side; port: piers
 #   out to sea on the "across" side, sheds ashore; spaceport: launch pads on the "across" side).
 #   angle_deg (optional) turns the long side to that bearing (east = 0, counter-clockwise);
 #   without it the site follows the district's street grid. Streets and generated buildings

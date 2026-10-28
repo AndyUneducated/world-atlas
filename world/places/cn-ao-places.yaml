@@ -1,0 +1,186 @@
+# Named places (buildings, landmarks, facilities) of the Arctic Ocean Territory.
+# Same conventions as cn-nv-places.yaml; names are Chinese, English and Tavrunaq.
+places:
+  # ── 帕卢尔尼克金融特区（公共银行区）──
+  - id: bld_d07900
+    subtype: bank
+    status: generated
+    names:
+      zh: 北冰洋公共银行总部大厦
+      en: Arctic Ocean Public Bank Tower
+      art-x-tavrunaq: Aqqimma Pallutuar
+    notes:
+      zh: 领地全资的北冰洋公共银行的总部，金融特区天际线中央的塔楼；银行依《北冰洋公共银行法》设立，号称世界上最自由的银行，利润用于居民分红
+      en: Headquarters of the territory's wholly owned Arctic Ocean Public Bank, the tower at the centre of the financial zone's skyline. Set up under the Arctic Ocean Public Bank Act, it calls itself the freest bank in the world, and its profits are paid out to residents as a dividend.
+    in: div_ga9pxy
+    offset_km: [0.1, 0.1]
+    site: { layout: tower, size_m: [140, 140] }
+  - id: bld_29jpkg
+    subtype: bank
+    status: generated
+    names:
+      zh: 公共商业银行大厦
+      en: Public Commercial Bank Tower
+      art-x-tavrunaq: Pallutuar Mirra
+    notes:
+      zh: 公共银行旗下的商业银行，任何人都可在线即时开户，存取任何货币、黄金与数字资产
+      en: The Public Bank's commercial arm, where anyone can open an account online in moments and hold any currency, gold or digital asset.
+    in: div_ga9pxy
+    offset_km: [0.5, 0.3]
+    site: { layout: tower, size_m: [90, 90] }
+  - id: bld_c5n4zq
+    subtype: bank
+    status: generated
+    names:
+      zh: 公共投资银行大厦
+      en: Public Investment Bank Tower
+      art-x-tavrunaq: Pallutuar Qappi
+    notes:
+      zh: 公共银行旗下的投资银行，为矿业、数据中心与极地航运项目承销和融资
+      en: The Public Bank's investment arm, underwriting and financing mining, data-centre and polar shipping projects.
+    in: div_ga9pxy
+    offset_km: [0.5, -0.2]
+    site: { layout: tower, size_m: [90, 90] }
+  - id: bld_t78tde
+    subtype: bank
+    status: generated
+    names:
+      zh: 公共私人银行大厦
+      en: Public Private Bank Tower
+      art-x-tavrunaq: Pallutuar Kinna
+    notes:
+      zh: 公共银行旗下的私人银行，提供编号与匿名账户，不问资金来源
+      en: The Public Bank's private bank, offering numbered and anonymous accounts with no questions about the source of funds.
+    in: div_ga9pxy
+    offset_km: [-0.3, 0.5]
+    site: { layout: tower, size_m: [90, 90] }
+  - id: bld_ng8j4c
+    subtype: bank
+    status: generated
+    names:
+      zh: 公共托管银行大厦
+      en: Public Custody Bank Tower
+      art-x-tavrunaq: Pallutuar Tuun
+    notes:
+      zh: 公共银行旗下的托管银行，为基金、证券与数字资产提供托管和结算
+      en: The Public Bank's custody bank, holding and settling funds, securities and digital assets.
+    in: div_ga9pxy
+    offset_km: [-0.4, -0.3]
+    site: { layout: tower, size_m: [90, 90] }
+  - id: bld_xy7hhd
+    subtype: office
+    status: generated
+    names:
+      zh: 北冰洋清算所
+      en: Arctic Ocean Clearing House
+      art-x-tavrunaq: Aqqimma Akkarniq
+    notes:
+      zh: 金融特区的清算所与零手续费全球实时支付网络的控制中心，全年无休
+      en: The financial zone's clearing house and the control centre of its fee-free, real-time global payment network, open every day of the year.
+    in: div_ga9pxy
+    offset_km: [0.9, 0.0]
+    site: { layout: hall, size_m: [200, 130] }
+  - id: bld_v2x7ry
+    subtype: government
+    status: generated
+    names:
+      zh: 帕卢尔尼克金融法院
+      en: Pallurniq Financial Court
+      art-x-tavrunaq: Pallurniq Lurraniq
+    notes:
+      zh: 依《金融特区法》设立的金融法院，审理特区内的金融与商事案件，并主持法律沙盒
+      en: The financial court set up under the Financial Zone Act, hearing the zone's financial and commercial cases and running its legal sandbox.
+    in: div_ga9pxy
+    offset_km: [-0.9, 0.2]
+    site: { layout: complex, size_m: [220, 160] }
+  - id: bld_xftrdg
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋国际仲裁中心
+      en: Arctic Ocean International Arbitration Centre
+      art-x-tavrunaq: Aqqimma Lurrakut
+    notes:
+      zh: 受理跨境商事与金融争议的国际仲裁机构，与金融法院相邻
+      en: An international arbitration body for cross-border commercial and financial disputes, next to the financial court.
+    in: div_ga9pxy
+    offset_km: [-0.9, -0.3]
+    site: { layout: hall, size_m: [180, 120] }
+  - id: bld_fcc6wm
+    subtype: government
+    status: generated
+    names:
+      zh: 帕卢尔尼克公司注册处
+      en: Pallurniq Companies Registry
+      art-x-tavrunaq: Pallurniq Qirrutniq
+    notes:
+      zh: 特区的公司注册处与自由经济区管理机构，公司注册全程自动、几分钟办完
+      en: The zone's companies registry and free economic zone authority, where registering a company is fully automatic and takes a few minutes.
+    in: div_ga9pxy
+    offset_km: [0.1, -0.6]
+    site: { layout: hall, size_m: [150, 100] }
+  - id: bld_dz7xn1
+    subtype: office
+    status: generated
+    names:
+      zh: 北冰洋数字资产交易所
+      en: Arctic Ocean Digital Asset Exchange
+      art-x-tavrunaq: Aqqimma Tukkaru Akkarniq
+    notes:
+      zh: 交易数字资产与领地数字货币的交易所，可编程账户与智能合约都在这里结算
+      en: The exchange for digital assets and the territory's digital currency, where programmable accounts and smart contracts settle.
+    in: div_ga9pxy
+    offset_km: [0.6, 0.8]
+    site: { layout: hall, size_m: [200, 140] }
+  - id: bld_atmxv2
+    subtype: data_centre
+    status: generated
+    names:
+      zh: 公共银行极地数据中心
+      en: Public Bank Polar Data Centre
+      art-x-tavrunaq: Pallutuar Tukkaruniq
+    notes:
+      zh: 公共银行的核心数据中心，用极地冷空气冷却，运行账户、支付与 AI 秒批贷款系统
+      en: The Public Bank's core data centre, cooled by polar air, running its accounts, payments and instant AI lending.
+    in: div_ga9pxy
+    offset_km: [0.7, -0.6]
+    site: { layout: complex, size_m: [300, 220] }
+  - id: bld_f595fg
+    subtype: vault
+    status: generated
+    names:
+      zh: 冻土黄金金库
+      en: Permafrost Gold Vault
+      art-x-tavrunaq: Kirri Tuunniq
+    notes:
+      zh: 深埋在冻土层下的黄金金库，地面只有一座出入大楼，存放公共银行与客户的金条
+      en: A gold vault deep in the permafrost, of which only the entrance building shows above ground, holding the bullion of the Public Bank and its clients.
+    in: div_ga9pxy
+    offset_km: [-0.2, -1.0]
+    site: { layout: hall, size_m: [160, 120] }
+  - id: bld_cskfpe
+    subtype: dome
+    status: generated
+    names:
+      zh: 帕卢尔尼克冬季花园
+      en: Pallurniq Winter Garden
+      art-x-tavrunaq: Pallurniq Qummar
+    notes:
+      zh: 金融特区的玻璃穹顶花园，终年保持温暖，种着树木和花卉，与周围塔楼以暖廊相连
+      en: The financial zone's glass-domed garden, kept warm all year and planted with trees and flowers, linked to the towers around it by skyways.
+    in: div_ga9pxy
+    offset_km: [-0.4, 0.9]
+    site: { layout: dome, size_m: [360, 360] }
+  - id: bld_aw19hp
+    subtype: dome
+    status: generated
+    names:
+      zh: 永昼广场
+      en: Midnight Sun Dome
+      art-x-tavrunaq: Kallaaq Qummar
+    notes:
+      zh: 穹顶下的人造日光广场，极夜里按白昼的光照点亮，供人们晒"太阳"、做光照疗法
+      en: An artificial-daylight square under a dome, lit to daytime levels through the polar night for people to sit in the "sun" and take light therapy.
+    in: div_ga9pxy
+    offset_km: [0.0, 0.55]
+    site: { layout: dome, size_m: [280, 280] }

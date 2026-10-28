@@ -624,6 +624,9 @@ def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=
         parts = [("building", rel(-0.4, -0.25, 0.4, 0.25))]
     elif layout == "tower":
         parts = [("building", Point(cx, cy).buffer(0.22 * min(W, D), quad_segs=2))]
+    elif layout == "dome":
+        outline = affinity.scale(Point(cx, cy).buffer(1, quad_segs=24), W / 2, D / 2)
+        parts = [("building", affinity.scale(Point(cx, cy).buffer(1, quad_segs=24), 0.46 * W, 0.46 * D))]
     elif layout == "stadium":
         oval = lambda f: affinity.scale(Point(cx, cy).buffer(1, quad_segs=24), f * W / 2, f * D / 2 * 0.95)
         parts = [("building", oval(0.92).difference(oval(0.62)))]

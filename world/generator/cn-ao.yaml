@@ -178,16 +178,34 @@ landcover:
   rock_slope_deg: 31
 
 streets:
-  cities: []
+  cities: [div_8besy9, div_p808br]
   arterial_spacing_km: 1.5
   neighbourhood_km: 1.3
   local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
   warp_km: { planned: 0.02, mixed: 0.05, organic: 0.09 }
   warp_wavelength_km: 1.6
   river_gap_km: 0.05
-  districts: {}
-  named: []
-
+  # Street name themes: mostly the polar stems and the territory's own place names, which have
+  # Tavrunaq forms; no Norse myths or European family names.
+  name_styles:
+    planned: { polar: 4, civic: 2, culture: 2, numbered: 2, china: 2, sky: 1, places: 3 }
+    mixed: { polar: 4, trees: 1, animals: 1, sky: 2, china: 2, landscape: 1, places: 3 }
+    organic: { polar: 3, trades: 3, landscape: 2, places: 2, china: 1 }
+  # detail_km2: local streets and generic buildings only in the district's core zone of that size
+  districts:
+    div_ga9pxy: { style: planned, mix: { towers: 3.0, podium: 1.4, civic: 0.5, industrial: 0.1 } }    # 公共银行区：塔楼与穹顶
+    div_9s80v8: { style: planned, detail_km2: 60, mix: { towers: 1.8, podium: 1.8, civic: 1.0, industrial: 0.1 } }  # 穹顶区：市中心
+    div_q7cydv: { style: organic, detail_km2: 40, mix: { perimeter: 1.6, houses: 1.4, industrial: 0.6 } }  # 旧港区：老渔港
+    div_j06x18: { style: mixed, detail_km2: 40, mix: { slabs: 1.6, perimeter: 1.0, park: 0.8 } }          # 峡湾区：住宅区
+    div_3b9pkz: { style: planned, detail_km2: 40, mix: { slabs: 1.4, podium: 1.4, civic: 0.6 } }          # 暖廊区：暖廊连起的街坊
+    div_k8cx0t: { style: mixed, main_only: true }     # 白原区
+    div_jvwq60: { style: planned, main_only: true }   # 不冻港区：港区
+    div_k4vyb1: { style: mixed, main_only: true }     # 鹿角区：城东新区
+  named:
+    - { district: div_ga9pxy, axis: 0, line: 0, status: generated, names: { zh: 公共银行大道, en: Public Bank Avenue, art-x-tavrunaq: Pallutuar Pirtuar } }
+    - { district: div_ga9pxy, axis: 1, line: 0, status: generated, names: { zh: 金库街, en: Vault Street, art-x-tavrunaq: Kirri Sallik } }
+    - { district: div_9s80v8, axis: 0, line: 0, status: generated, names: { zh: 穹顶大街, en: Dome Boulevard, art-x-tavrunaq: Qummar Sallituar } }
+    - { district: div_3b9pkz, axis: 0, line: 0, status: generated, names: { zh: 暖廊大道, en: Skyway Avenue, art-x-tavrunaq: Tuvvi Pirtuar } }
 # Uplands above the tundra drift deep in winter storms: roads and railways there run under snow
 # sheds (see world/transport/engineering.yaml).
 snow_sheds: { above_m: 400, min_km: 1, gap_km: 1 }

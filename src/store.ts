@@ -15,6 +15,7 @@ export interface LayerToggles {
   railways: boolean;
   metro: boolean;
   buildings: boolean;
+  skyways: boolean;
 }
 
 /** On-screen map furniture the user can hide from the settings panel. */
@@ -86,6 +87,7 @@ const DEFAULT_LAYERS: LayerToggles = {
   railways: false,
   metro: false,
   buildings: true,
+  skyways: true,
 };
 const DEFAULT_DISPLAY: DisplayToggles = { legend: false, scalePosition: false, zoomButtons: false };
 

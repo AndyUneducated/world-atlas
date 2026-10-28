@@ -43,7 +43,7 @@ NETWORKS = {  # the infix is the territory's ISO 3166-2 suffix (NV, VK, …)
     "municipal_road": ("secondary", r"X-[A-Z]{2,3}-\d{3}"),
 }
 BUILDING_SUBTYPES = ("government", "building", "civic", "office", "museum", "theatre", "library", "townhall",
-                     "tower", "hospital", "marketplace", "exhibition_centre")
+                     "tower", "hospital", "marketplace", "exhibition_centre", "bank", "dome", "data_centre", "vault")
 
 
 def _emblem_names(const: str, file: str = "emblems.tsx") -> tuple[str, ...]:

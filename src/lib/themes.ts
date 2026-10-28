@@ -41,6 +41,8 @@ export interface MapTheme {
   cityRoad: RoadStyle;
   /** City streets: arterials (???), collectors (???), local streets (??). */
   street: { arterial: RoadStyle; collector: RoadStyle; local: RoadStyle; label: string };
+  /** Skyways: enclosed, heated walkways over the streets of polar city centres. */
+  skyway: string;
   /** Generated building footprints by class, parks, and landmark sites with their own buildings. */
   building: {
     fill: Record<BuildingClass, string>;
@@ -121,6 +123,7 @@ export const THEMES: Record<ThemeId, Theme> = {
         local: { fill: "#ffffff", casing: "#dde2e8" },
         label: "#4b5563",
       },
+      skyway: "#e0892b",
       building: {
         fill: { residential: "#ddd7d0", commercial: "#d6d3dc", industrial: "#d5d6d1", civic: "#e3d5c8" },
         outline: "#c7bfb5",
@@ -189,6 +192,7 @@ export const THEMES: Record<ThemeId, Theme> = {
         local: { fill: "#243044", casing: "#0a101b" },
         label: "#94a3b8",
       },
+      skyway: "#f59e0b",
       building: {
         fill: { residential: "#1c2433", commercial: "#21253a", industrial: "#1e252d", civic: "#272839" },
         outline: "#2d3b52",

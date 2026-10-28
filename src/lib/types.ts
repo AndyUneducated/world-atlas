@@ -30,6 +30,8 @@ export interface EntityStats {
   bridge_km?: number;
   /** Routes between territories: length of the undersea tunnel. */
   undersea_tunnel_km?: number;
+  /** Districts: length of the skyway network. */
+  skyways_km?: number;
 }
 
 export interface Entity {
@@ -229,6 +231,7 @@ export const LAYER_FILES = [
   "streets-named",
   "buildings",
   "parks",
+  "skyways",
   "landmarks",
   "rail",
   "stations",

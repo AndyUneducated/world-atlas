@@ -159,6 +159,7 @@ function stats(e: Entity, lang: Lang): StatItem[] {
   if (e.kind === "division" && e.stats?.density_per_km2)
     out.push({ label: t("density", lang), value: formatNumber(e.stats.density_per_km2, lang, e.stats.density_per_km2 < 10 ? 1 : 0), unit: t("perKm2", lang), icon: ChartNoAxesColumn });
   out.push(...lengthStat(e, lang));
+  if (e.stats?.skyways_km) out.push({ label: t("skyways", lang), value: formatNumber(e.stats.skyways_km, lang, 1), unit: "km", icon: Ruler });
   if (e.stats?.bridge_km) out.push({ label: t("seaBridge", lang), value: formatNumber(e.stats.bridge_km, lang, 1), unit: "km", icon: Ruler });
   if (e.stats?.undersea_tunnel_km) out.push({ label: t("underseaTunnel", lang), value: formatNumber(e.stats.undersea_tunnel_km, lang, 1), unit: "km", icon: Ruler });
   if (e.stats?.elevation_m) out.push({ label: t("elevation", lang), value: formatNumber(e.stats.elevation_m, lang), unit: "m", icon: Mountain });

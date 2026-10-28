@@ -9,7 +9,7 @@ import { Switch } from "../Switch";
 const GROUPS: { title: StringKey; keys: (keyof LayerToggles)[]; cards?: boolean }[] = [
   { title: "roads", keys: ["nationalExpressway", "territorialExpressway", "territorialHighway", "cityRoads"], cards: true },
   { title: "transit", keys: ["railways", "metro"], cards: true },
-  { title: "mapDetails", keys: ["terrain", "landcover", "buildings", "boundaries", "choropleth"], cards: true },
+  { title: "mapDetails", keys: ["terrain", "landcover", "buildings", "skyways", "boundaries", "choropleth"], cards: true },
 ];
 
 const bar = (background: string, height = 5): CSSProperties => ({ background, height, top: `calc(50% - ${height / 2}px)` });
@@ -42,6 +42,8 @@ function swatch(k: keyof LayerToggles, m: MapTheme): CSSProperties {
         background: `linear-gradient(${f.residential}, ${f.residential}) 0 0 / 7px 7px no-repeat, linear-gradient(${f.commercial}, ${f.commercial}) 100% 0 / 7px 9px no-repeat, linear-gradient(${f.civic}, ${f.civic}) 0 100% / 9px 6px no-repeat, linear-gradient(${f.industrial}, ${f.industrial}) 100% 100% / 6px 6px no-repeat`,
       };
     }
+    case "skyways":
+      return bar(`repeating-linear-gradient(90deg, ${m.skyway} 0 6px, transparent 6px 9px)`, 3);
     case "boundaries":
       return { inset: 5, border: `1.5px dashed ${m.cityLine.color}`, borderRadius: 4 };
     case "choropleth":

@@ -32,7 +32,8 @@ from .city import bare_name, build_buildings, build_metro, build_streets, rail_s
 from .routes import PORTAL, cross_part, land_cell, route_railways, route_segments, stops_here
 
 LAYERS = ("divisions", "labels", "places", "landcover", "water", "coast", "glaciers", "rivers", "rivers-named", "ridges", "roads",
-          "route-shared", "streets", "streets-named", "buildings", "parks", "landmarks", "rail", "stations", "bathymetry", "context")
+          "route-shared", "streets", "streets-named", "buildings", "parks", "skyways", "landmarks", "rail", "stations", "bathymetry", "context")
+SKYWAY_LINK_KM = 0.6  # a landmark this close to a skyway is joined to it by a short bridge
 
 
 # Road networks whose cards list the districts they pass through.
@@ -938,6 +939,25 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     if building_out:
         log(f"  {len(building_features)} buildings, {len(park_features)} parks, {len(sites)} landmark sites")
 
+    # Skyways: enclosed walkways over the arterials and collectors within skyways_km of a district's
+    # centre, with a short link to each landmark near them.
+    skyway_features = []
+    for _, _, ctx, city_sites in street_out:
+        for i, c in ctx.items():
+            if not c.get("skyways_km"):
+                continue
+            zone = c["built"].intersection(Point(c["core"]).buffer(c["skyways_km"], quad_segs=32))
+            mains = [g for cls, g in c["lines"] if cls in ("arterial", "collector")]
+            net = shapely.union_all(mains).intersection(zone) if mains else None
+            if net is None or net.is_empty:
+                continue
+            links = [LineString(nearest_points(site.exterior, net)) for _, site, _, j in city_sites
+                     if j == i and 0 < site.distance(net) < SKYWAY_LINK_KM]
+            parts = [p for p in streets.pieces(net) if p.length > 0.05] + links
+            skyway_features += [feature(to_map(p), {"class": "skyway"}) for p in parts]
+            entities[districts[i]["id"]].setdefault("stats", {})["skyways_km"] = round(sum(p.length for p in parts), 1)
+            log(f"  {c['name']}: {sum(p.length for p in parts):.0f} km of skyways")
+
     rail_network = {r["id"]: r["network"] for r, _, _ in rail_out}
     rail_features = [feature(to_lonlat(ln, frame), {"network": rail_network[rid], "role": "track"})
                      for rid, runs in rail_drawn.items() for _, ln in runs]
@@ -1118,6 +1138,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     layers["streets-named"] += street_named
     layers["buildings"] += building_features
     layers["parks"] += park_features
+    layers["skyways"] += skyway_features
     layers["landmarks"] += landmark_features
     layers["rail"] += rail_features
     layers["stations"] += station_features

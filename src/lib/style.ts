@@ -137,6 +137,7 @@ export function buildStyle(opts: {
   }
   sources["streets-named"] = { type: "geojson", data: data.layers["streets-named"], promoteId: "id" };
   sources.landmarks = { type: "geojson", data: data.layers.landmarks, promoteId: "id" };
+  sources.skyways = { type: "geojson", data: data.layers.skyways };
   sources.rail = { type: "geojson", data: data.layers.rail };
   sources.stations = { type: "geojson", data: data.layers.stations };
   if (tiles) sources.tiles = { type: "vector", url: `pmtiles://${BASE_URL}data/${tiles.url}` };
@@ -461,6 +462,19 @@ export function buildStyle(opts: {
       } as LayerSpecification);
     }
   }
+  style.push({
+    id: "skyway",
+    type: "line",
+    source: "skyways",
+    minzoom: 11.5,
+    layout: { visibility: visible(layers.skyways), "line-cap": "round", "line-join": "round" },
+    paint: {
+      "line-color": m.skyway,
+      "line-width": ["interpolate", ["linear"], ["zoom"], 11.5, 0.8, 15, 3],
+      "line-dasharray": [2, 1.2],
+      "line-opacity": ["interpolate", ["linear"], ["zoom"], 11.5, 0, 12.2, 0.9],
+    },
+  });
   const roadTiers = [
     { id: "city-road", network: ROAD_NETWORKS.cityRoads, s: m.cityRoad, on: layers.cityRoads, casing: 1.2, fill: 0.7, minzoom: 7.6 },
     { id: "territorial-highway", network: ROAD_NETWORKS.territorialHighway, s: m.territorialExpressway, on: layers.territorialHighway, casing: 1.3, fill: 0.75, minzoom: 0 },
