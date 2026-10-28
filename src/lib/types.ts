@@ -85,8 +85,8 @@ export interface Entity {
   engineering?: Engineering;
   /** Expressways, territorial highways and railways: why and how the line was built. */
   background?: Record<Lang, string>;
-  /** The longest bridge and tunnel built under the line. */
-  structures?: Partial<Record<"bridge" | "tunnel", { names: Record<Lang, string>; km: number }>>;
+  /** The longest bridge, tunnel and snow shed built under the line. */
+  structures?: Partial<Record<"bridge" | "tunnel" | "snow_shed", { names: Record<Lang, string>; km: number }>>;
   /** Limits along the route, km/h, highest first; null means no limit. */
   speed?: { limits: (number | null)[] };
   tech?: RailTech;
@@ -128,6 +128,8 @@ export interface Engineering {
   length_km: number;
   bridge_km: number;
   tunnel_km: number;
+  /** At-grade stretches roofed against drifting snow (territories whose generator sets snow_sheds). */
+  snow_shed_km?: number;
   river_bridges: number;
   stations?: number;
   construction_usd: number;

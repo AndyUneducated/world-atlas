@@ -1,0 +1,40 @@
+# Railways of the Arctic Ocean Territory.
+#
+# network: intercity_rail (城际铁路) or freight_rail (重载铁路: goods trains only, stopping at
+#   freight yards of their own). The other fields are those of world/transport/cn-nv-rail.yaml.
+# A freight line's tech also names its train (wagons, net tonnes a train) and the loaded trains
+#   a day, from which the card works out the freight carried a year.
+railways:
+  - id: rte_7nyk0m
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 南岸高速铁路
+      en: South Coast High-Speed Railway
+      art-x-tavrunaq: Sillua Sukkapirri
+    background:
+      zh: 北冰洋领地的大城市都在南岸，图利瓦克、萨尔瓦克、首府努卡塔克和乌库拉克之间相距数百公里，冬季极夜漫长、暴风雪频繁，公路时常封闭，航班也会因能见度停飞。领地决定修建一条贯通南岸的高速铁路，作为恶劣天气里也能运行的主干。线路自西向东串联四座城市，峡湾口和河口以长桥跨过，山嘴以隧道穿过；全线建在冻土上的路段采用桩基和热棒稳定地基，风口路段加建防雪棚，道岔与接触网全部配有融冰装置。开通后，南岸城市之间的旅行大多改乘火车，极夜里也能准点到达。
+      en: The large cities of the Arctic Ocean Territory all lie on the south coast, and Tullivaq, Saarvaq, the capital Nuqattaaq and Ukkulaaq are hundreds of kilometres apart. Winter brings a long polar night and frequent blizzards, the roads often close and flights are grounded when visibility fails. The territory decided to build a high-speed railway the length of the south coast, a trunk line that keeps running in bad weather. It links the four cities from west to east, crossing fjord mouths and river mouths on long bridges and passing headlands in tunnels. Where it stands on permafrost the ground is held by piles and thermosyphons, the windiest stretches run under snow sheds, and all points and overhead line have de-icing equipment. Since it opened most travel between the south-coast cities has moved to the train, which arrives on time even in the polar night.
+    color: '#1F8FD6'
+    tech:
+      operating_speed_kmh: 350
+      design_speed_kmh: 400
+      train: { names: { zh: 极光 350 型, en: Aurora 350 }, seats: 576 }
+    via: [div_aggzhy, div_nbf1bw, div_8besy9, div_dfmj5f]
+  - id: rte_x0kyvk
+    network: freight_rail
+    status: generated
+    names:
+      zh: 内陆矿区重载铁路
+      en: Inland Mines Heavy-Haul Railway
+      art-x-tavrunaq: Ukkuliit Usirpirri
+    background:
+      zh: 考尔尼克市的内陆矿区出产锂、镍和钻石，过去矿石只能在冬季用卡车车队沿冰路运出，春季冰路解冻后矿山就要停运或囤货。领地修建了这条重载铁路，自内陆矿区管理区出发，经锂湖区到首府的不冻港区，矿石在港口直接装船出口。线路坡度平缓，在锂湖口以隧道穿过，冻土路段以热棒和保温路基防止融沉，风口加建防雪棚。全线由无人驾驶的重载列车运行，调度中心设在不冻港，列车在极夜和暴风雪中照常发车，矿山因此可以全年生产。
+      en: The Inland Mining Administration Zone of Qaurniq City produces lithium, nickel and diamonds, and its ore used to leave only by lorry convoy on winter ice roads; when the ice roads thawed in spring the mines had to stop or stockpile. The territory built this heavy-haul railway from the mining zone through Lithium Lakes District to Openwater District in the capital, where the ore goes straight onto ships. The line keeps to gentle gradients and passes Lithium Pass in a tunnel; on permafrost it stands on thermosyphons and insulated embankment to keep the ground from thawing, and snow sheds cover its windiest stretches. It is worked entirely by driverless heavy-haul trains controlled from Openwater, which run through the polar night and through blizzards, so the mines can produce all year.
+    color: '#8C6B4A'
+    tech:
+      operating_speed_kmh: 80
+      design_speed_kmh: 100
+      train: { names: { zh: 冰原 100 型重载列车, en: Icefield 100 heavy-haul train }, wagons: 100, net_t: 10000 }
+      loaded_trains_per_day: 10
+    via: [div_m541k8, div_qaxzqj, div_jvwq60]

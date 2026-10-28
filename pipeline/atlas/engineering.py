@@ -21,6 +21,8 @@ class Profile:
     grade: np.ndarray  # m, the fitted grade line
     wet: np.ndarray  # bool per sample: over sea or lake
     urban: np.ndarray  # bool per sample: inside the built-up area
+    ground: np.ndarray  # m, the terrain under each sample
+    shed: np.ndarray | None = None  # bool per sample: at grade under a snow shed (see add_snow_sheds)
 
     @property
     def km(self) -> float:
@@ -94,13 +96,42 @@ def profile(path: list[int], router, elev: np.ndarray, water: np.ndarray, km_per
     if line_km is not None and rivers is not None:
         hit = line_km.intersection(rivers)
         crossings = 0 if hit.is_empty else len(shapely.get_parts(hit))
-    return Profile(step, bridge, tunnel, rise, crossings, own[cell], cell, grade, wet, depth > 0)
+    return Profile(step, bridge, tunnel, rise, crossings, own[cell], cell, grade, wet, depth > 0, ground)
+
+
+def _runs(mask: np.ndarray) -> list[tuple[int, int]]:
+    """[start, end) of each run of True."""
+    edges = np.flatnonzero(np.diff(np.concatenate([[0], mask.astype(np.int8), [0]])))
+    return list(zip(edges[::2].tolist(), edges[1::2].tolist()))
+
+
+def add_snow_sheds(p: Profile, rule: dict) -> None:
+    """Roof the exposed at-grade stretches: ground at or above rule['above_m'], gaps shorter than
+    gap_km closed up, galleries shorter than min_km dropped. Bridges, tunnels and towns get none."""
+    open_ground = ~p.bridge & ~p.tunnel & ~p.wet & ~p.urban
+    high = open_ground & (p.ground >= rule["above_m"])
+    dist = np.cumsum(p.step_km)
+    runs = _runs(high)
+    merged: list[list[int]] = []
+    for a, b in runs:
+        if merged and dist[a] - dist[merged[-1][1] - 1] < rule.get("gap_km", 0.5) and open_ground[merged[-1][1]:a].all():
+            merged[-1][1] = b
+        else:
+            merged.append([a, b])
+    shed = np.zeros(len(high), bool)
+    for a, b in merged:
+        if dist[b - 1] - dist[a] + p.step_km[a] >= rule.get("min_km", 0.5):
+            shed[a:b] = True
+    p.shed = shed
 
 
 def longest_structures(p: Profile) -> dict[str, tuple[float, int, int]]:
-    """The longest unbroken bridge and tunnel built under this route: {kind: (real km, first sample, last sample)}."""
+    """The longest unbroken bridge, tunnel and snow shed built under this route: {kind: (real km, first sample, last sample)}."""
     out = {}
-    for kind, mask in (("bridge", p.bridge & p.own), ("tunnel", p.tunnel & p.own)):
+    kinds = [("bridge", p.bridge & p.own), ("tunnel", p.tunnel & p.own)]
+    if p.shed is not None:
+        kinds.append(("snow_shed", p.shed & p.own))
+    for kind, mask in kinds:
         best, start, acc, prev = (0.0, 0, 0), None, 0.0, -2
         for i in np.flatnonzero(mask):
             if i != prev + 1:
@@ -139,17 +170,22 @@ def structure_km(p: Profile, std: dict, i0: int = 0, i1: int | None = None, owne
 def estimate(p: Profile, std: dict, climate: dict, stations: int = 0) -> dict:
     """Construction cost and yearly upkeep in USD of the stretches built under this route."""
     total, bridge, tunnel = structure_km(p, std, owned=True)
-    grade = max(total - bridge - tunnel, 0.0)
+    shed = float(p.step_km[p.shed & p.own].sum()) if p.shed is not None else 0.0
+    shed = min(shed, max(total - bridge - tunnel, 0.0))
+    grade = max(total - bridge - tunnel - shed, 0.0)
     hill = 1 + (std.get("hill_factor", 1.5) - 1) * min(p.rise_m_per_km / 60, 1)
     c, u = std["cost_musd_per_km"], std["upkeep_kusd_per_km"]
-    build = (grade * c["grade"] * hill + bridge * c["bridge"] + tunnel * c["tunnel"] + stations * std.get("station_musd", 0)) * 1e6
-    upkeep = (grade * u["grade"] + bridge * u["bridge"] + tunnel * u["tunnel"]) * 1e3 + stations * std.get("station_upkeep_musd", 0) * 1e6
+    build = (grade * c["grade"] * hill + bridge * c["bridge"] + tunnel * c["tunnel"] + shed * c.get("snow_shed", 0)
+             + stations * std.get("station_musd", 0)) * 1e6
+    upkeep = ((grade * u["grade"] + bridge * u["bridge"] + tunnel * u["tunnel"] + shed * u.get("snow_shed", 0)) * 1e3
+              + stations * std.get("station_upkeep_musd", 0) * 1e6)
     build *= climate.get("construction", 1)
     upkeep *= climate.get("upkeep", 1)
     return {
         "length_km": round(total, 1),
         "bridge_km": round(bridge, 1),
         "tunnel_km": round(tunnel, 1),
+        **({"snow_shed_km": round(shed, 1)} if shed >= 0.05 else {}),
         "river_bridges": p.river_bridges,
         **({"stations": stations} if stations else {}),
         "construction_usd": round_money(build),

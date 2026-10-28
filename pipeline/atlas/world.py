@@ -288,6 +288,8 @@ class World:
                 rivers = {nr["feature"] for nr in gen.get("hydrology", {}).get("named_rivers", [])}
                 if toward is not None and toward not in rivers and not self.features.get(toward, {}).get("detect"):
                     errors.append(f"generator: coastal {did}: {toward} is neither a named river nor a detected landform")
+            if (sheds := gen.get("snow_sheds")) is not None and not isinstance((sheds or {}).get("above_m"), (int, float)):
+                errors.append("generator: snow_sheds needs above_m (m): the ground height above which roads run under sheds")
             for r in gen.get("terrain", {}).get("ridges", []) + gen.get("terrain", {}).get("valleys", []):
                 if r["feature"] not in self.features:
                     errors.append(f"generator: unknown feature {r['feature']}")

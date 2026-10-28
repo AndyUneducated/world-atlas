@@ -16,7 +16,7 @@
 # tunnel_cost (optional): caps the per-km cost of steep terrain, letting the route
 #   tunnel through mountains instead of detouring around them.
 # legs (optional): per-leg overrides keyed by the via the leg arrives at, e.g. a lower
-#   tunnel_cost for a straighter stretch.
+#   tunnel_cost for a straighter stretch, or straight: true for one straight stretch.
 # straight (optional): every leg is a straight line, crossing hills and water on tunnels and bridges.
 # via entries may be cities (the route stops at the city's core) or districts (at the district centre).
 # shield (territorial routes): symbol in the upper half of the route shield (see src/lib/shields.ts);

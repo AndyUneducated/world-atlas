@@ -1,6 +1,8 @@
 """Terrarium-encoded raster-dem tiles (XYZ, Web Mercator) for MapLibre hillshade."""
 from __future__ import annotations
 
+import hashlib
+import io
 import math
 import shutil
 from pathlib import Path
@@ -8,6 +10,8 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 from scipy import ndimage
+
+from .cache import CACHE_DIR
 
 
 def _tile_range(bounds, z):
@@ -73,18 +77,38 @@ def write_dem_tiles(out_dir: Path, elev: np.ndarray, grid, frame, bounds, zooms=
     return count
 
 
+def cached_dem_tiles(out_dir: Path, name: str, elev: np.ndarray, grid, frame, bounds, enabled: bool = True) -> int:
+    """write_dem_tiles, reusing the tiles of an earlier build when the elevation and frame are unchanged."""
+    h = hashlib.sha256(elev.tobytes())
+    h.update(repr((elev.shape, grid.res, frame.lon0, frame.lat0, frame.scale, bounds)).encode())
+    h.update(Path(__file__).read_bytes())
+    store = CACHE_DIR / f"dem-{name}-{h.hexdigest()[:16]}"
+    if enabled and (store / "done").exists():
+        shutil.copytree(store, out_dir, dirs_exist_ok=True, ignore=shutil.ignore_patterns("done"))
+        return sum(1 for _ in out_dir.rglob("*.png"))
+    n = write_dem_tiles(out_dir, elev, grid, frame, bounds)
+    for old in CACHE_DIR.glob(f"dem-{name}-*"):
+        shutil.rmtree(old)
+    shutil.copytree(out_dir, store)
+    (store / "done").touch()
+    return n
+
+
 def fill_sea_tiles(out_dir: Path, bounds, zooms=range(3, 11), size=256, sea_level_m=-40.0):
     """Open-water tiles wherever no region wrote one inside bounds, so every tile the map asks for exists."""
     v = sea_level_m + 32768.0
-    sea = Image.fromarray(np.full((size, size, 3), [v // 256, v % 256, (v % 1) * 256], np.uint8), "RGB")
+    buf = io.BytesIO()
+    Image.fromarray(np.full((size, size, 3), [v // 256, v % 256, (v % 1) * 256], np.uint8), "RGB").save(buf, "PNG", optimize=True)
+    sea = buf.getvalue()
     count = 0
     for z in zooms:
         xs_r, ys_r = _tile_range(bounds, z)
         for tx in xs_r:
+            folder = out_dir / str(z) / str(tx)
+            folder.mkdir(parents=True, exist_ok=True)
             for ty in ys_r:
-                path = out_dir / str(z) / str(tx) / f"{ty}.png"
+                path = folder / f"{ty}.png"
                 if not path.exists():
-                    path.parent.mkdir(parents=True, exist_ok=True)
-                    sea.save(path, optimize=True)
+                    path.write_bytes(sea)
                     count += 1
     return count

@@ -98,6 +98,8 @@ def annotate(world: World, entities: dict) -> None:
     if not model:
         return
     has = {did for did, d in world.divisions.items() if d.get("traits")}
+    # a district without traits of its own takes its city's
+    has |= {did for did, d in world.divisions.items() if d["subtype"] == "borough" and d.get("parent") in has}
     leaves = {did for did in has if not any(c["id"] in has for c in world.children(did))}
     parts = {did: _district(world, did, model) for did in sorted(leaves)}
     for did, p in parts.items():

@@ -1,0 +1,167 @@
+# Road routes of the Arctic Ocean Territory.
+#
+# Four grades, the same in every territory; route numbers carry the territory infix:
+#   G-OT-1..99    国家高速 national expressway    (class motorway)
+#   S-OT-1..99    领地高速 territorial expressway (class motorway)
+#   S-OT-101..    领道 territorial highway        (class primary)
+#   X-OT-001..    市道 city road                  (class secondary)
+# The fields are those of world/transport/cn-nv-roads.yaml. The territory has no road link to
+# the others; the islands have no roads of national or territorial grade.
+routes:
+  - id: rte_bjj6j2
+    ref: G-OT-1
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 南岸高速
+      en: South Coast Expressway
+      art-x-tavrunaq: Sillua Pirrituar
+    background:
+      zh: 北冰洋领地的人口大多住在南岸：暖流让这里的港口终年不冻，图利瓦克、萨尔瓦克、首府努卡塔克和乌库拉克沿海岸自西向东排开。过去城市之间只靠沿岸航运和冬季冰面上的雪橇道往来，一场暴风雪就能让陆路断绝。领地把一条贯通南岸的高速定为第一项交通工程，从首府向东西两头同时修建。线路建在冻土上，路基下铺保温层和通风管，防止路面融沉；峡湾口和河口以桥梁跨过，风口路段加建防雪棚。全线贯通后，南岸各城第一次可以全年通车，其余高速和领道大多从它分出。
+      en: Most of the Arctic Ocean Territory's people live on the south coast, where a warm current keeps the harbours open all year and Tullivaq, Saarvaq, the capital Nuqattaaq and Ukkulaaq lie in a row from west to east. The cities used to depend on coastal shipping and winter sled trails over the ice, and a single blizzard could cut them off by land. The territory made a south-coast expressway its first transport project, built outwards from the capital to the east and the west at once. It stands on permafrost, with insulation and ventilation ducts under the embankment to keep the ground from thawing and sinking; fjord mouths and river mouths are crossed on bridges, and the windiest stretches run under snow sheds. Once it was complete the south-coast cities could be reached by road all year, and most later expressways and territorial highways branch off it.
+    tunnel_cost: 3.5
+    legs:
+      div_jvwq60: { straight: true }  # 旧港—不冻港: across the mouth of the capital's fjord
+    via: [div_79wfwy, div_najb0c, div_3rb2ha, div_qg40vj, div_q7cydv, div_jvwq60, div_yh6ysj]
+  - id: rte_3sphft
+    ref: G-OT-2
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 努基高速
+      en: Nuqattaaq–Kiluktuar Expressway
+      art-x-tavrunaq: Nuqattaaq–Kiluktuar Pirrituar
+    background:
+      zh: 基卢克图阿尔是北岸大河入海处的城市，北岸冬季封冻，它与首府努卡塔克之间又隔着中部高地，过去两城往来只能绕海路或乘飞机。努基高速从首府穹顶区出发，经峡湾区、白原区北上，从两片冰川之间翻过中部高地进入内陆苔原，经考尔尼克晶石区、基卢克图阿尔上游区到河口区，把南北两岸第一次用公路连起来。高地路段海拔高、风雪大，修建了长段防雪棚；苔原段大部分建在冻土路堤上，每隔一段留出涵洞，让融水和驯鹿通过。通车后，北岸的渔获和内陆晶石区的产品都可以由公路运往南岸不冻港。
+      en: Kiluktuar stands where the great river of the north coast meets the sea. The north coast freezes in winter and the central uplands lie between it and the capital, Nuqattaaq, so travel between the two once meant a long voyage or a flight. The Nuqattaaq–Kiluktuar Expressway leaves the capital's Dome District, runs north through Fjordside and Whitemoor, climbs between two glaciers over the central uplands into the inland tundra and continues through Crystal District in Qaurniq and Upriver District in Kiluktuar to Rivermouth, the first road between the two coasts. The high, stormy upland stretch runs under long snow sheds; across the tundra the road is mostly on permafrost embankment, with culverts at intervals for meltwater and migrating reindeer. Since it opened, north-coast catches and the products of inland Crystal District can go by road to the ice-free harbours of the south.
+    via: [div_9s80v8, div_j06x18, div_k8cx0t, div_k66r1n, div_xvm6y0, div_anjqnh]
+  - id: rte_ehrcsn
+    ref: G-OT-3
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 冰原高速
+      en: Icefield Expressway
+      art-x-tavrunaq: Sirmi Pirrituar
+    background:
+      zh: 西尔米瓦克市的城区冰川区在西尔米冰盖东北边缘，观天区的观测站散布在冰盖以东的高地上，过去只有夏季才能通车的砂石路通往南岸。冰原高速自乌库拉克矿港区出发，经镍城区，沿南岸峡湾到东峡区，再绕过冰盖东侧北上，经观天区到冰川区；东峡区的峡湾村镇从此不再依赖夏季的渡船。道路不上冰盖：冰面每年移动、裂隙难测，线路沿冰盖外缘的基岩和冻土布设，并在冰舌附近留出缓冲带。高地路段风大雪深，防雪棚和挡雪墙连绵数十公里。通车后，观天区的科研人员和冰川区的游客可以全年往返南岸。
+      en: Glacier District, the town of Sirmivak City, lies on the north-east edge of the Sirmi Ice Cap, and the observatories of Skywatch District are scattered over the uplands east of it; their only road to the south coast used to be a gravel track open in summer. The Icefield Expressway leaves Ore Harbour District in Ukkulaaq, passes through Nickel Town and along the fjords of the south coast to East Fjord District, then turns north round the eastern side of the ice cap through Skywatch to Glacier District; the fjord villages of East Fjord no longer depend on the summer ferry. It never goes onto the ice, which moves every year and hides crevasses; it keeps to the bedrock and permafrost along the edge of the cap and leaves a buffer zone near the glacier tongues. The upland stretches are windy and snowbound, with snow sheds and snow fences for tens of kilometres. Since it opened, Skywatch's scientists and Glacier District's visitors can travel to and from the south coast all year.
+    via: [div_yh6ysj, div_1d76zf, div_stts1z, div_3j7f20, div_73wt00]
+  - id: rte_642apd
+    ref: G-OT-4
+    network: national_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 苔原高速
+      en: Tundra Expressway
+      art-x-tavrunaq: Vaq Pirrituar
+    background:
+      zh: 苔原高速横贯大陆西部和北部的苔原，自图利瓦克冷风区出发，经塔夫鲁利特原住民自治区的阿卡尼克区，到基卢克图阿尔河口区和冰港区。这片苔原是驯鹿迁徙和原住民狩猎的传统地带，修路前领地与自治区长老议事会逐段商定线路：道路避开产仔地和主要迁徙通道，必须穿过时抬高路堤、加宽涵洞，并在迁徙季节限制夜间车流。线路大部分建在冻土路堤上，河流以短桥跨过。通车后，阿卡尼克与南北两岸都有了全年通行的道路，北岸冰港区的破冰船基地也接入了路网。
+      en: The Tundra Expressway crosses the tundra of the west and north of the mainland, from Coldwind District in Tullivaq through Aqqanik District in the Tavrulit Indigenous Autonomous Region to Rivermouth and Ice Harbour in Kiluktuar. This tundra is the traditional ground of the reindeer migration and of indigenous hunting, and before construction the territory and the autonomous region's council of elders agreed the line section by section. The road avoids the calving grounds and the main migration corridors; where it has to cross them the embankment is raised and the culverts widened, and night traffic is restricted in the migration season. Most of it is on permafrost embankment, with short bridges over the rivers. Since it opened Aqqanik has had an all-year road to both coasts, and the icebreaker base at Ice Harbour on the north coast has joined the road network.
+    via: [div_79wfwy, div_ek897t, div_anjqnh, div_m0b417]
+  - id: rte_6e4v8h
+    ref: S-OT-1
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 金融城高速
+      en: Financial Zone Expressway
+      art-x-tavrunaq: Pallurniq Pirrituar
+    shield: dome
+    background:
+      zh: 帕卢尔尼克金融特区是领地在首府旁新设的金融城，北冰洋公共银行和附属机构都在这里。金融城高速自努卡塔克穹顶区出发，经公共银行区到鹿角区，一头接努基高速的起点，一头接环线，金融城的车流不经首府的城区街道就能驶上干线。线路很短，几乎全程在城区之内，以高架和半地下通道通过，沿线出入口直通塔楼的地下车库和暖廊。领地修建它，是为了让金融城的雇员和访客不必穿过首府市中心，也为金融城以后的扩建预留了通道。
+      en: The Pallurniq Financial Zone is the financial city the territory set up beside its capital, home to the Arctic Ocean Public Bank and its affiliates. The Financial Zone Expressway runs from Dome District in Nuqattaaq through Public Bank District to Antler District, meeting the start of the Nuqattaaq–Kiluktuar Expressway at one end and the ring road at the other, so the zone's traffic reaches the trunk roads without using the capital's streets. It is short and almost entirely built-up, on viaduct or in half-buried cuttings, with exits leading straight into the tower car parks and skyways. The territory built it so that the zone's staff and visitors need not cross the centre of the capital, and it leaves room for the zone to grow.
+    straight: true
+    via: [div_9s80v8, div_ga9pxy, div_k4vyb1]
+  - id: rte_hefmsp
+    ref: S-OT-2
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 努阿高速
+      en: Nuqattaaq–Aqqanik Expressway
+      art-x-tavrunaq: Nuqattaaq–Aqqanik Pirrituar
+    shield: drum
+    background:
+      zh: 阿卡尼克是塔夫鲁利特原住民自治区的首府和长老议事会所在地，与领地首府努卡塔克之间隔着苔原牧区的大片牧场。努阿高速自首府暖廊区出发，向西北穿过苔原牧区到阿卡尼克区，是两座首府之间最直接的公路。路线由领地和自治区共同选定，避开了牧区的冬季草场和传统营地，沿途的石堆路标原样保留，在路旁另设了观景停车点。线路大部分建在冻土路堤上，冬季风口路段加建防雪棚。通车后，议事会成员往返两地开会，牧区的鹿肉和手工艺品运往首府，都只需几个小时。
+      en: Aqqanik is the capital of the Tavrulit Indigenous Autonomous Region and the seat of its council of elders, and the wide pastures of the Tundra Herding District lie between it and the territorial capital, Nuqattaaq. The Nuqattaaq–Aqqanik Expressway runs north-west from Skyway District in the capital across the Tundra Herding District to Aqqanik, the most direct road between the two capitals. The territory and the autonomous region chose its line together, keeping clear of the winter grazing and the traditional camps; the cairns along the way were left where they stood, with lay-bys beside them for travellers to stop. Most of it is on permafrost embankment, with snow sheds on the windiest stretches. Council members travelling to meetings and reindeer meat and crafts bound for the capital now take only a few hours.
+    tunnel_cost: 3.5
+    via: [div_3b9pkz, div_d9hctg, div_ek897t]
+  - id: rte_759zpn
+    ref: S-OT-3
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 努卡塔克环线
+      en: Nuqattaaq Ring Road
+      art-x-tavrunaq: Nuqattaaq Kaaput
+    shield: aurora
+    background:
+      zh: 首府努卡塔克的七个区围绕大峡湾口分布，南岸高速和努基高速都要穿过市中心，早晚高峰车流常常堵到峡湾两岸。领地在城区外围修建了一条环线，经暖廊区、白原区、鹿角区和不冻港区绕城一周，过境车辆和前往港口的货车可以不进市中心。环线跨越峡湾的路段以大桥通过，城区段多为高架和半地下通道，与暖廊和地铁站相接。为了在极夜里保证行车安全，全线照明按冬季标准加密，路面埋设融雪管。
+      en: The seven districts of the capital, Nuqattaaq, are spread around the mouth of its great fjord, and both the South Coast and the Nuqattaaq–Kiluktuar expressways run through the centre, so peak-hour traffic used to back up on both sides of the fjord. The territory built a ring road around the edge of the city, through Skyway, Whitemoor, Antler and Openwater districts, so that through traffic and lorries bound for the harbour can stay out of the centre. It crosses the fjord on bridges, and in the city it is mostly on viaduct or in half-buried cuttings that connect with the skyways and metro stations. For safe driving in the polar night its lighting is denser than usual, built to the winter standard, and heating pipes under the surface keep it clear of snow.
+    ring: true
+    straight: true
+    via: [div_3b9pkz, div_k8cx0t, div_k4vyb1, div_jvwq60]
+  - id: rte_p7t6rv
+    ref: S-OT-4
+    network: territorial_expressway
+    class: motorway
+    status: generated
+    names:
+      zh: 矿区高速
+      en: Mining Expressway
+      art-x-tavrunaq: Ukku Pirrituar
+    shield: pickaxe
+    background:
+      zh: 考尔尼克市的内陆矿区出产锂、镍和钻石，锂湖区的盐湖提锂厂也在附近，矿产大多从首府的不冻港区装船出口。重载铁路通车前，矿石全靠冬季冰路上的卡车车队运出，春季解冻后冰路就无法通行。矿区高速自不冻港区出发，向北经锂湖区到内陆矿区管理区，与重载铁路大体平行，承担人员、设备和零散货物的运输。线路大部分建在冻土路堤上，路基下埋设通风管，防止冻土融化；绕过冰川翻越中部高地的路段建有长段防雪棚。
+      en: The Inland Mining Administration Zone of Qaurniq City produces lithium, nickel and diamonds, the brine lithium plants of Lithium Lakes District are close by, and most of the output is shipped from Openwater District in the capital. Before the heavy-haul railway opened, all the ore left by lorry convoys on winter ice roads, which became impassable once the spring thaw set in. The Mining Expressway runs north from Openwater through Lithium Lakes to the mining zone, roughly parallel to the railway, and carries workers, equipment and smaller freight. Most of it is on permafrost embankment with ventilation ducts underneath to keep the ground frozen, and long snow sheds cover the stretch that climbs round the glaciers over the central uplands.
+    via: [div_jvwq60, div_qaxzqj, div_m541k8]
+  - id: rte_jmx8jy
+    ref: S-OT-101
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 西峡公路
+      en: West Fjord Road
+      art-x-tavrunaq: Pullasuvva Pirri
+    shield: kayak
+    background:
+      zh: 萨尔瓦克市的西峡区地广人稀，居民住在峡湾深处的渔村和小镇里，过去只能乘船出入，冬季风浪大时常常停航。西峡公路自暖流港区出发，向西北深入峡湾地带，到西峡区的镇上。沿途峡湾一条接一条，线路时而沿峡湾岸边修建，时而以短隧道穿过山嘴，在峡湾最窄处架桥跨过。陡坡路段建有防雪棚和落石棚。通车后，峡湾村镇的渔获和养殖产品可以由公路运到暖流港，居民看病和上学也不再依赖渡船。
+      en: West Fjord District in Saarvaq City is large and thinly peopled, with fishing villages and small towns at the heads of its fjords that once could be reached only by boat, often cut off when winter seas ran high. The West Fjord Road runs north-west from Warm Current Harbour into the fjord country to the district's town. Fjord follows fjord along the way; the road clings to the shore, cuts through headlands in short tunnels and bridges each fjord at its narrowest. The steep stretches have snow sheds and rock-fall shelters. Since it opened, the fjord villages' catches and farmed fish go by road to Warm Current Harbour, and people no longer depend on the ferry to see a doctor or go to school.
+    via: [div_3rb2ha, div_hrrg7q]
+  - id: rte_hq1xf6
+    ref: S-OT-102
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 北岸公路
+      en: North Shore Road
+      art-x-tavrunaq: Aqqapituk Pirri
+    shield: harpoon
+    background:
+      zh: 塔夫鲁利特原住民自治区的北岸猎区是传统的海豹与海象猎场，猎人们冬季沿海冰上的雪橇道往来，夏季则靠小船。北岸公路自阿卡尼克区出发，向东经北岸猎区到基卢克图阿尔上游区，与努基高速相接。线路由自治区主持修建，避开海岸的猎场和冰上通道，在雪橇道与公路交叉处设专用通道，冬季雪橇优先通行。道路大部分建在冻土路堤上，河流以短桥跨过。通车后，猎区的猎人和渔民可以全年往返自治区首府和大河沿岸的城镇。
+      en: The North Shore Hunting District of the Tavrulit Indigenous Autonomous Region is a traditional seal and walrus hunting ground, where hunters travel by sled trails on the sea ice in winter and by small boat in summer. The North Shore Road runs east from Aqqanik District through the hunting district to Upriver District in Kiluktuar, where it meets the Nuqattaaq–Kiluktuar Expressway. The autonomous region built it, keeping clear of the coastal hunting grounds and the routes onto the ice; where sled trails cross the road there are dedicated crossings, and in winter sleds have right of way. Most of it is on permafrost embankment, with short bridges over the rivers. Since it opened, the district's hunters and fishers can travel all year to the regional capital and the towns along the great river.
+    via: [div_ek897t, div_m34jqk, div_xvm6y0]
+  - id: rte_e78zxk
+    ref: S-OT-103
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 晶锂公路
+      en: Crystal–Lithium Road
+      art-x-tavrunaq: Qauluk–Illuqsaat Pirri
+    shield: crystal
+    background:
+      zh: 考尔尼克市的晶石区和锂湖区一个在努基高速上，一个在矿区高速上，两区之间隔着内陆的湖泊与苔原，过去往来要先绕回首府。晶锂公路在内陆把两区直接连起来，也把领地的两条南北向干线连成网。线路在湖泊之间的冰碛垄上修建，尽量少占湖岸和湿地，跨湖处以短桥通过。冬季湖面结冰后，这一带原有的冰路仍然开放，供雪地车和雪橇通行。通车后，晶石区的加工厂和锂湖区的提锂厂之间的人员和设备往来不再绕道。
+      en: Crystal District and Lithium Lakes District in Qaurniq City lie one on the Nuqattaaq–Kiluktuar Expressway and the other on the Mining Expressway, with inland lakes and tundra between them, and travel from one to the other used to mean going back through the capital. The Crystal–Lithium Road links them directly inland, and ties the territory's two north–south trunk roads into a network. It runs along the moraine ridges between the lakes, keeping off the shores and wetlands as far as possible, and crosses the narrows on short bridges. In winter, when the lakes freeze, the old ice roads of the area still open for snowmobiles and sleds. Since it opened, staff and equipment move between the processing plants of Crystal District and the lithium works of Lithium Lakes without the detour.
+    via: [div_k66r1n, div_qaxzqj]

@@ -202,6 +202,8 @@ function EngineeringSection({ entity, lang }: { entity: Entity; lang: Lang }) {
     </>,
   ]);
   rows.push([t("tunnels", lang), <>{formatNumber(eng.tunnel_km, lang, 1)} km <span className="text-faint">· {pct(eng.tunnel_km, eng.length_km)}%</span></>]);
+  if (eng.snow_shed_km)
+    rows.push([t("snowSheds", lang), <>{formatNumber(eng.snow_shed_km, lang, 1)} km <span className="text-faint">· {pct(eng.snow_shed_km, eng.length_km)}%</span></>]);
   rows.push([
     t("construction", lang),
     <>
@@ -213,7 +215,7 @@ function EngineeringSection({ entity, lang }: { entity: Entity; lang: Lang }) {
     </>,
   ]);
   rows.push([t("upkeep", lang), `${formatUsd(eng.upkeep_usd_per_year, lang)}${t("perYear", lang)}`]);
-  for (const [kind, key] of [["bridge", "longestBridge"], ["tunnel", "longestTunnel"]] as const) {
+  for (const [kind, key] of [["bridge", "longestBridge"], ["tunnel", "longestTunnel"], ["snow_shed", "longestSnowShed"]] as const) {
     const s = entity.structures?.[kind];
     if (s) rows.push([t(key, lang), <>{s.names[lang]} <span className="text-faint">· {formatNumber(s.km, lang, 1)} km</span></>]);
   }
@@ -225,6 +227,7 @@ function EngineeringSection({ entity, lang }: { entity: Entity; lang: Lang }) {
         <div className="flex h-2 flex-1 overflow-hidden rounded-full bg-hover">
           <span className="h-full bg-sky-500" style={{ width: `${pct(eng.bridge_km, eng.length_km)}%` }} />
           <span className="h-full bg-stone-500" style={{ width: `${pct(eng.tunnel_km, eng.length_km)}%` }} />
+          {eng.snow_shed_km ? <span className="h-full bg-stone-300" style={{ width: `${pct(eng.snow_shed_km, eng.length_km)}%` }} /> : null}
         </div>
         <span className="text-[12px] text-muted tabular-nums">
           {lang === "zh" ? "桥隧比" : "Structures"} <span className="font-semibold text-ink">{structures}%</span>

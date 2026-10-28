@@ -15,7 +15,7 @@ from shapely.ops import nearest_points
 
 from . import coast, engineering, landcover, relief, streets
 from .cache import stage
-from .dem_tiles import write_dem_tiles
+from .dem_tiles import cached_dem_tiles
 from .divisions import partition, pole_of_inaccessibility
 from .grid import Frame, Grid, block_reduce, chaikin, line_length_km, polyline_distance
 from .hydro import Drainage
@@ -458,22 +458,25 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         cells = [land_cell(land_r, gr.res, *r["crossing"][territory["id"]]) if v == PORTAL else stop_cell(v) for v in via]
         path = []
         for (a, b), (ca, cb) in zip(zip(via[:-1], via[1:]), zip(cells[:-1], cells[1:])):
-            if r.get("straight"):
+            spec_b = r.get("legs", {}).get(b, {})
+            if spec_b.get("straight", r.get("straight")):
                 leg = router.straight(ca, cb)
             else:
-                tunnel_cost = r.get("legs", {}).get(b, {}).get("tunnel_cost", r.get("tunnel_cost"))
-                leg = router.route(ca, cb, tunnel_cost, ref=r["ref"])
+                leg = router.route(ca, cb, spec_b.get("tunnel_cost", r.get("tunnel_cost")), ref=r["ref"])
             path += leg if not path else leg[1:]
         if r.get("ends_at_network"):
             path = router.trim_to_network(path)
         router.commit(path, r["class"], ref=r["ref"])
         road_out.append((r, path))
     feeder_seq, infix = 0, territory["codes"]["iso3166_2"].split("-")[1]
+    landmass = ndimage.label(land_r, np.ones((3, 3)))[0].ravel()
     for i, d in enumerate(districts):
         ci = district_city[i]
         if i == core[ci]:
             continue
         start = router.cell(*poles[i])
+        if 0 != landmass[start] != landmass[node[ci]] != 0:  # an island district has no road over the sea to its city
+            continue
         path = router.trim_to_network(router.route(start, node[ci]))
         if len(path) < 3:
             continue
@@ -757,11 +760,15 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         mid = piece.interpolate(0.5, normalized=True) if piece.geom_type == "LineString" else piece
         district = short_name(districts[min(dist_polys, key=lambda i: dist_polys[i].distance(mid))]["names"])
         # the place name alone, without a special district's kind
-        district = {"zh": re.sub(r"(训练管理|改良|牧)$", "", district["zh"]),
-                    "en": re.sub(r" (Training Area|Improvement|Pastoral)$", "", district["en"])}
+        district = {"zh": re.sub(r"(训练管理|改良|牧|猎|管理|生态保护)$", "", district["zh"]),
+                    "en": re.sub(r" (Training Area|Improvement|Pastoral|Herding|Hunting|Ice Administration Zone|Administration Zone|Nature Reserve)$",
+                                 "", district["en"])}
         if kind == "tunnel":
             n = (None if urban else near(relief_marks, 6 / frame.scale)) or district
             return {"zh": f"{n['zh']}隧道", "en": f"{n['en']} Tunnel"}
+        if kind == "snow_shed":
+            n = near(relief_marks, 6 / frame.scale) or district
+            return {"zh": f"{n['zh']}防雪棚", "en": f"{n['en']} Snow Shed"}
         grand = "特大桥" if km >= 1 else "大桥"
         if wet and (n := near(lake_marks, 0.5 / frame.scale)):
             return {"zh": f"{n['zh']}{grand}", "en": f"{n['en']} Bridge"}
@@ -778,6 +785,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         line_km = LineString([rt.xy(c) for c in path])
         prof = engineering.profile(path, rt, elev_r, wet_r, frame.km(rt.res), std, line_km, river_geom, ref, urban_depth_r,
                                    fine=(elev, g.res))
+        if spec.get("snow_sheds"):
+            engineering.add_snow_sheds(prof, spec["snow_sheds"])
         ent["engineering"] = engineering.estimate(prof, std, climate, stations)
         ent["engineering"]["max_grade_permille"] = round(engineering.max_grade(prof) * 1000, 1)
         ent["structures"] = {kind: {"names": structure_name(kind, prof, i0, i1, path, rt, km), "km": round(km, 1)}
@@ -1117,7 +1126,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
 
     log("writing terrain tiles")
     bounds = frame.bounds_lonlat()
-    n = write_dem_tiles(dem_dir, np.where(land, np.maximum(lake_basins(elev, lakes, g.res), 1.0), -40.0), g, frame, bounds)
+    n = cached_dem_tiles(dem_dir, territory["id"], np.where(land, np.maximum(lake_basins(elev, lakes, g.res), 1.0), -40.0), g, frame,
+                         bounds, use_cache)
     log(f"  {n} tiles")
     meta = {
         "id": territory["id"],

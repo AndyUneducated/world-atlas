@@ -8,6 +8,9 @@
 #   river_bridge_km of bridge.
 # urban (optional): new-built stretches through built-up land are grade-separated, on viaduct
 #   near the edge of the town and in cut-and-cover tunnel more than tunnel_depth_km inside it.
+# Snow sheds: where a territory's generator sets snow_sheds {above_m, min_km, gap_km}, at-grade
+#   stretches on ground at or above above_m are roofed (galleries of at least min_km, gaps under
+#   gap_km closed); they cost snow_shed per km instead of grade.
 # Costs are 2026 US dollars, per km of route by structure type (grade, bridge, tunnel), checked
 #   against recent projects of the same kind. At-grade cost rises with the relief of the
 #   ground (hill_factor at 60 m of rise per km and above). climate scales everything for a
@@ -57,8 +60,8 @@ standards:
     river_bridge_km: 0.4
     urban: { tunnel_depth_km: 5 }
     hill_factor: 1.6
-    cost_musd_per_km: { grade: 16, bridge: 60, tunnel: 110 }
-    upkeep_kusd_per_km: { grade: 120, bridge: 350, tunnel: 800 }
+    cost_musd_per_km: { grade: 16, bridge: 60, tunnel: 110, snow_shed: 40 }
+    upkeep_kusd_per_km: { grade: 120, bridge: 350, tunnel: 800, snow_shed: 260 }
     speed: { min: 140 }
   territorial_expressway:
     cross_section: { lanes: 6, grow: true, lane_m: 3.75, shoulder_m: 3.5, inner_shoulder_m: 0.75, verge_m: 0.75, median_m: 4.5 }
@@ -71,8 +74,8 @@ standards:
     river_bridge_km: 0.35
     urban: { tunnel_depth_km: 6 }
     hill_factor: 1.6
-    cost_musd_per_km: { grade: 14, bridge: 50, tunnel: 95 }
-    upkeep_kusd_per_km: { grade: 100, bridge: 300, tunnel: 700 }
+    cost_musd_per_km: { grade: 14, bridge: 50, tunnel: 95, snow_shed: 36 }
+    upkeep_kusd_per_km: { grade: 100, bridge: 300, tunnel: 700, snow_shed: 230 }
     speed: { min: 140 }
   # 领道: dual carriageways (一级公路) with grade-separated main junctions.
   territorial_highway:
@@ -85,8 +88,8 @@ standards:
     bridge_below_m: 25
     river_bridge_km: 0.25
     hill_factor: 1.5
-    cost_musd_per_km: { grade: 7, bridge: 30, tunnel: 60 }
-    upkeep_kusd_per_km: { grade: 50, bridge: 200, tunnel: 500 }
+    cost_musd_per_km: { grade: 7, bridge: 30, tunnel: 60, snow_shed: 20 }
+    upkeep_kusd_per_km: { grade: 50, bridge: 200, tunnel: 500, snow_shed: 150 }
     speed: { min: 120 }
   municipal_road:
     smooth_km: 1.5
@@ -95,8 +98,8 @@ standards:
     bridge_below_m: 25
     river_bridge_km: 0.15
     hill_factor: 1.4
-    cost_musd_per_km: { grade: 3, bridge: 18, tunnel: 40 }
-    upkeep_kusd_per_km: { grade: 25, bridge: 120, tunnel: 350 }
+    cost_musd_per_km: { grade: 3, bridge: 18, tunnel: 40, snow_shed: 10 }
+    upkeep_kusd_per_km: { grade: 25, bridge: 120, tunnel: 350, snow_shed: 90 }
     speed: { min: 100 }
   # Double-track high-speed line, 25 kV, slab track; stations are costed per stop.
   intercity_rail:
@@ -107,8 +110,8 @@ standards:
     river_bridge_km: 0.5
     urban: { tunnel_depth_km: 5 }
     hill_factor: 1.5
-    cost_musd_per_km: { grade: 18, bridge: 32, tunnel: 55 }
-    upkeep_kusd_per_km: { grade: 180, bridge: 300, tunnel: 600 }
+    cost_musd_per_km: { grade: 18, bridge: 32, tunnel: 55, snow_shed: 30 }
+    upkeep_kusd_per_km: { grade: 180, bridge: 300, tunnel: 600, snow_shed: 240 }
     station_musd: 150
     station_upkeep_musd: 3
     tech:
@@ -128,8 +131,8 @@ standards:
     river_bridge_km: 0.5
     urban: { tunnel_depth_km: 2 }
     hill_factor: 1.8
-    cost_musd_per_km: { grade: 9, bridge: 24, tunnel: 45 }
-    upkeep_kusd_per_km: { grade: 150, bridge: 260, tunnel: 520 }
+    cost_musd_per_km: { grade: 9, bridge: 24, tunnel: 45, snow_shed: 22 }
+    upkeep_kusd_per_km: { grade: 150, bridge: 260, tunnel: 520, snow_shed: 200 }
     station_musd: 60
     station_upkeep_musd: 2
     tech:
