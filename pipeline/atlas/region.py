@@ -951,7 +951,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             net = shapely.union_all(mains).intersection(zone) if mains else None
             if net is None or net.is_empty:
                 continue
-            links = [LineString(nearest_points(site.exterior, net)) for _, site, _, j in city_sites
+            links = [LineString(nearest_points(site.boundary, net)) for _, site, _, j in city_sites
                      if j == i and 0 < site.distance(net) < SKYWAY_LINK_KM]
             parts = [p for p in streets.pieces(net) if p.length > 0.05] + links
             skyway_features += [feature(to_map(p), {"class": "skyway"}) for p in parts]

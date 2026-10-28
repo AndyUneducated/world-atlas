@@ -167,6 +167,7 @@ landcover:
   urban_density_per_km2: 6000   # compact cities joined by skyways
   urban_max_slope_deg: 12
   urban_terrace_slope_deg: 22
+  urban_max_area_ratio: 2       # a town whose centre lies by ice or a lake keeps only the nearest buildable ground
   wetland_max_elev_m: 260
   wetland_wetness: 1.8
   farm_max_elev_m: 60
@@ -178,7 +179,7 @@ landcover:
   rock_slope_deg: 31
 
 streets:
-  cities: [div_8besy9, div_p808br]
+  cities: [div_8besy9, div_p808br, div_nbf1bw, div_dfmj5f, div_aggzhy, div_djze5f, div_dk2gh7, div_d48kz7, div_eqzm0n, div_8c2skk]
   arterial_spacing_km: 1.5
   neighbourhood_km: 1.3
   local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
@@ -192,15 +193,61 @@ streets:
     mixed: { polar: 4, trees: 1, animals: 1, sky: 2, china: 2, landscape: 1, places: 3 }
     organic: { polar: 3, trades: 3, landscape: 2, places: 2, china: 1 }
   # detail_km2: local streets and generic buildings only in the district's core zone of that size
+  # skyways_km: enclosed walkways over the arterials and collectors within this distance of the centre
   districts:
-    div_ga9pxy: { style: planned, mix: { towers: 3.0, podium: 1.4, civic: 0.5, industrial: 0.1 } }    # 公共银行区：塔楼与穹顶
-    div_9s80v8: { style: planned, detail_km2: 60, mix: { towers: 1.8, podium: 1.8, civic: 1.0, industrial: 0.1 } }  # 穹顶区：市中心
-    div_q7cydv: { style: organic, detail_km2: 40, mix: { perimeter: 1.6, houses: 1.4, industrial: 0.6 } }  # 旧港区：老渔港
-    div_j06x18: { style: mixed, detail_km2: 40, mix: { slabs: 1.6, perimeter: 1.0, park: 0.8 } }          # 峡湾区：住宅区
-    div_3b9pkz: { style: planned, detail_km2: 40, mix: { slabs: 1.4, podium: 1.4, civic: 0.6 } }          # 暖廊区：暖廊连起的街坊
+    div_ga9pxy: { style: planned, skyways_km: 2.0, mix: { towers: 3.0, podium: 1.4, civic: 0.5, industrial: 0.1 } }    # 公共银行区：塔楼与穹顶
+    div_9s80v8: { style: planned, detail_km2: 60, skyways_km: 2.5, mix: { towers: 1.8, podium: 1.8, civic: 1.0, industrial: 0.1 } }  # 穹顶区：市中心
+    div_q7cydv: { style: organic, detail_km2: 40, skyways_km: 1.2, mix: { perimeter: 1.6, houses: 1.4, industrial: 0.6 } }  # 旧港区：老渔港
+    div_j06x18: { style: mixed, detail_km2: 40, skyways_km: 1.0, mix: { slabs: 1.6, perimeter: 1.0, park: 0.8 } }          # 峡湾区：住宅区
+    div_3b9pkz: { style: planned, detail_km2: 40, skyways_km: 3.5, mix: { slabs: 1.4, podium: 1.4, civic: 0.6 } }          # 暖廊区：暖廊连起的街坊
     div_k8cx0t: { style: mixed, main_only: true }     # 白原区
     div_jvwq60: { style: planned, main_only: true }   # 不冻港区：港区
     div_k4vyb1: { style: mixed, main_only: true }     # 鹿角区：城东新区
+    # 萨尔瓦克市
+    div_3rb2ha: { style: organic, detail_km2: 30, skyways_km: 1.2, mix: { perimeter: 1.4, houses: 1.4, industrial: 0.8 } }  # 暖流港区：渔港与老城
+    div_qg40vj: { style: mixed, main_only: true }     # 渔湾区
+    div_hrrg7q: { style: organic, detail_km2: 15, mix: { houses: 2.4, industrial: 0.6 } }    # 西峡区：峡湾村镇
+    div_2541fx: { style: organic, detail_km2: 15, mix: { houses: 2.0, industrial: 1.0 } }    # 海牧群岛区：养殖与渔村
+    # 乌库拉克市
+    div_yh6ysj: { style: planned, detail_km2: 30, skyways_km: 1.0, mix: { slabs: 1.2, industrial: 1.4 } }  # 矿港区：矿石港
+    div_1d76zf: { style: planned, detail_km2: 20, mix: { slabs: 1.0, industrial: 1.8 } }   # 镍城区：冶炼厂
+    div_stts1z: { style: organic, detail_km2: 15, mix: { houses: 2.4, industrial: 0.4 } }    # 东峡区：峡湾村镇
+    div_7ee7ab: { style: organic, detail_km2: 15, mix: { houses: 1.8, podium: 1.0 } }        # 极光群岛区：旅游小镇
+    # 图利瓦克市
+    div_79wfwy: { style: mixed, detail_km2: 30, skyways_km: 1.0, mix: { slabs: 1.4, industrial: 0.6 } }    # 冷风区
+    div_najb0c: { style: mixed, main_only: true }     # 冷谷区
+    div_3xz1pw: { style: planned, mix: { industrial: 2.2, civic: 0.5 } }     # 数据群岛区：数据中心
+    div_6p8a1q: { style: planned, mix: { industrial: 1.4, civic: 0.8 } }     # 卫星群岛区
+    # 考尔尼克市
+    div_k66r1n: { style: planned, detail_km2: 25, skyways_km: 0.8, mix: { slabs: 1.2, industrial: 1.2 } }  # 晶石区：钻石加工
+    div_qaxzqj: { style: planned, detail_km2: 15, mix: { industrial: 1.8 } }                 # 锂湖区：提锂厂
+    div_m541k8: { style: planned, mix: { industrial: 2.4, slabs: 1.0 } }     # 内陆矿区管理区：矿工镇
+    # 基卢克图阿尔市
+    div_anjqnh: { style: mixed, detail_km2: 30, skyways_km: 1.0, mix: { slabs: 1.2, perimeter: 1.0 } }     # 河口区
+    div_m0b417: { style: planned, detail_km2: 20, mix: { industrial: 1.4, slabs: 1.0 } }     # 冰港区：破冰船基地
+    div_xvm6y0: { style: mixed, main_only: true }     # 上游区
+    div_rcnhch: { style: planned, mix: { civic: 1.6, houses: 1.2 } }         # 科考群岛区：研究所
+    # 西尔米瓦克市
+    div_73wt00: { style: organic, detail_km2: 25, skyways_km: 0.8, mix: { houses: 1.6, podium: 1.0 } }    # 冰川区：冰川旅游
+    div_3j7f20: { style: mixed, detail_km2: 12, mix: { civic: 1.2, houses: 1.6 } }           # 观天区：观测站
+    # 乌维克萨克市
+    div_qj033v: { style: planned, detail_km2: 25, skyways_km: 0.6, mix: { slabs: 1.2, industrial: 1.4 } }  # 稀土港区
+    div_4ymjbf: { style: planned, detail_km2: 12, mix: { industrial: 2.0 } }                 # 稀土群岛矿区管理区
+    # 塔夫鲁利特原住民自治区
+    div_ek897t: { style: organic, detail_km2: 30, skyways_km: 0.8, mix: { houses: 2.0, civic: 0.8 } }     # 阿卡尼克区：自治区首府
+    div_m34jqk: { style: organic, detail_km2: 12, mix: { houses: 2.6 } }                     # 北岸猎区
+    div_d9hctg: { style: organic, detail_km2: 12, mix: { houses: 2.6 } }                     # 苔原牧区
+    div_zq16x4: { style: organic, detail_km2: 10, mix: { houses: 2.4, industrial: 0.4 } }    # 渔猎群岛区
+    # 生态保护区与冰盖管理区：只有主次干道
+    div_jd4ms5: { main_only: true }
+    div_6469m0: { main_only: true }
+    div_5h1yv5: { main_only: true }
+    div_8h5g1g: { main_only: true }
+    div_jyszba: { main_only: true }
+    div_hbdzam: { main_only: true }
+    div_481wnn: { main_only: true }
+    div_81tqya: { main_only: true }
+    div_7b21kg: { main_only: true }
   named:
     - { district: div_ga9pxy, axis: 0, line: 0, status: generated, names: { zh: 公共银行大道, en: Public Bank Avenue, art-x-tavrunaq: Pallutuar Pirtuar } }
     - { district: div_ga9pxy, axis: 1, line: 0, status: generated, names: { zh: 金库街, en: Vault Street, art-x-tavrunaq: Kirri Sallik } }
@@ -209,6 +256,25 @@ streets:
 # Uplands above the tundra drift deep in winter storms: roads and railways there run under snow
 # sheds (see world/transport/engineering.yaml).
 snow_sheds: { above_m: 400, min_km: 1, gap_km: 1 }
+
+metro:
+  spacing_km: 1.2
+  cities:
+    - city: div_8besy9   # 努卡塔克市
+      names: { zh: 努卡塔克地铁, en: Nuqattaaq Metro, art-x-tavrunaq: Nuqattaaq Kuuvvipirri }
+      lines:
+        - { district: div_9s80v8, axis: 0, to: poi_2mw1wp }   # 穹顶大街下，至努卡塔克国际机场
+        - { district: div_3b9pkz, axis: 0 }                   # 暖廊大道下
+        - { district: div_j06x18, axis: 1 }                   # 峡湾区
+        - { district: div_q7cydv, axis: 0 }                   # 旧港区
+    - city: div_nbf1bw   # 萨尔瓦克市
+      names: { zh: 萨尔瓦克地铁, en: Saarvaq Metro, art-x-tavrunaq: Saarvaq Kuuvvipirri }
+      lines:
+        - { district: div_3rb2ha, axis: 0 }                   # 暖流港区
+    - city: div_dfmj5f   # 乌库拉克市
+      names: { zh: 乌库拉克地铁, en: Ukkulaaq Metro, art-x-tavrunaq: Ukkulaaq Kuuvvipirri }
+      lines:
+        - { district: div_yh6ysj, axis: 0 }                   # 矿港区
 
 # Facts the build checks and reports; a failed check is printed as a warning.
 expect:

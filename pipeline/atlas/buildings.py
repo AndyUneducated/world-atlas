@@ -601,6 +601,19 @@ def _heliport(cx, cy, W, D) -> list[tuple[str, Polygon]]:
     return parts
 
 
+def _mine(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+    """Open-pit mine: terraced benches and haul roads round the pit on -x; the processing plant,
+    a stockpile, a vehicle lot and the tailings pond on +x."""
+    pit = lambda f: affinity.scale(Point(cx - 0.18 * W, cy).buffer(1, quad_segs=24), f * 0.3 * W, f * 0.42 * D)
+    parts = [("bulk" if k % 2 == 0 else "paved", pit(1 - 0.18 * k).difference(pit(0.82 - 0.18 * k))) for k in range(5)]
+    parts.append(("building", box(cx + 0.18 * W, cy - 0.3 * D, cx + 0.34 * W, cy - 0.05 * D)))
+    parts += [("building", box(cx + x * W, cy + 0.05 * D, cx + (x + 0.06) * W, cy + 0.2 * D)) for x in (0.18, 0.27)]
+    parts.append(("bulk", Point(cx + 0.42 * W, cy - 0.3 * D).buffer(0.05 * min(W, D), quad_segs=8)))
+    parts.append(("lot", box(cx + 0.38 * W, cy - 0.15 * D, cx + 0.46 * W, cy)))
+    parts.append(("basin", box(cx + 0.18 * W, cy + 0.26 * D, cx + 0.46 * W, cy + 0.44 * D)))
+    return parts
+
+
 def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=(), variant=None) -> tuple[Polygon, list[tuple[str, Polygon]]]:
     """Site outline and parts [(kind, polygon)] of a landmark; kind is building, or for transport
     and military facilities runway, pad, paved (aprons, taxiways, quays, piers), basin (dug harbour
@@ -668,5 +681,7 @@ def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=
         parts = _camp(cx, cy, W, D, variant or "barracks", rng)
     elif layout == "heliport":
         parts = _heliport(cx, cy, W, D)
+    elif layout == "mine":
+        parts = _mine(cx, cy, W, D)
     parts = [(k, p) for k, p in parts if not p.is_empty]
     return rotate(outline, angle, center), [(k, rotate(p, angle, center)) for k, p in parts]

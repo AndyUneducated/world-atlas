@@ -98,7 +98,9 @@ def landmark_sites(world, d, core, angle, built, land, seed):
         if cfg["layout"] in COASTAL_LAYOUTS:
             dry = site.intersection(land).area
             if not any(k == "paved" for k, _ in parts) or dry < 0.25 * size[0] * size[1] or dry > 0.95 * site.area:
-                log(f"  WARN {zh}: port site does not straddle the coast")
+                q = nearest_points(coast, Point(core[0] + ox, core[1] + oy))[0]
+                log(f"  WARN {zh}: port site does not straddle the coast (nearest sea coast "
+                    f"{q.x - core[0]:+.1f}, {q.y - core[1]:+.1f} km from the district centre)")
         elif cfg["layout"] == "offshore_port":
             if site.intersection(land).area > 0.05 * site.area:
                 log(f"  WARN {zh}: offshore port site runs onto land")

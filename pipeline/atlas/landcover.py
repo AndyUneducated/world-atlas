@@ -40,6 +40,11 @@ def classify(elev, land, g, real_km_per_cell, km_per_design, seed, settlements, 
             disc = ground & (d < r)
             if r <= 3 * r0 and np.count_nonzero(disc) * cell_km2 >= 0.5 * target:
                 break
+        cap = p.get("urban_max_area_ratio")
+        if cap and np.count_nonzero(disc) * cell_km2 > cap * target:  # far from buildable ground: keep the nearest
+            idx = np.flatnonzero(disc)
+            disc = np.zeros_like(disc)
+            disc.ravel()[idx[np.argsort(d.ravel()[idx])[:int(np.ceil(target / cell_km2))]]] = True
         urban |= disc
         if np.count_nonzero(disc) < 9:
             small |= disc

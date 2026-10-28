@@ -22,8 +22,8 @@ MILITARY_VARIANTS = {  # military and space facility layouts and the kinds each 
     "test_stand": (), "silo": (), "bunker": (), "launch_track": (), "camp": ("barracks", "hq", "hospital", "training"), "heliport": (),
 }
 SITE_LAYOUTS = ("complex", "hall", "campus", "stadium", "tower", "dome", "park", "plaza", "market",
-                "airport", "port", "harbour", "offshore_port", "spaceport", *MILITARY_VARIANTS)
-FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport", *MILITARY_VARIANTS)
+                "airport", "port", "harbour", "offshore_port", "spaceport", "mine", *MILITARY_VARIANTS)
+FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport", "mine", *MILITARY_VARIANTS)
 RUNWAY_LAYOUTS = ("airport", "spaceport", "airbase", "launch_track")  # roads and railways go round these
 COASTAL_LAYOUTS = ("port", "harbour")  # sites centred on the shore
 HARBOUR_TERMINALS = ("container", "bulk", "oil", "roro")
