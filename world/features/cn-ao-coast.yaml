@@ -1,0 +1,344 @@
+# Coastal landforms of the Arctic Ocean Territory: islands and their archipelagos, bays, fjords, capes
+# and straits. The generator finds them in the coastline (pipeline/atlas/coast.py); each entry names the
+# landform of `detect.kind` nearest to `detect.at_km` (design km, x east, y north). An archipelago is
+# the named islands it lists. Unnamed landforms are listed in .cache/candidates-div_hpmerr.json after a build.
+features:
+  # ── 卫星群岛 ────────────────────────────────────────────
+  - id: nat_dppqz7
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [55, 317] }
+    names: { zh: 天穹岛, en: "Skyvault Island", art-x-tavrunaq: Tauvvaq }
+  - id: nat_rhderc
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [100, 326] }
+    names: { zh: 天线岛, en: "Antenna Isle", art-x-tavrunaq: Tauvvulik }
+
+  # ── 渔猎群岛 ────────────────────────────────────────────
+  - id: nat_b1fv64
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [184, 279] }
+    names: { zh: 大猎岛, en: "Great Hunting Island", art-x-tavrunaq: Pituktuar }
+  - id: nat_dstxyg
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [205, 263] }
+    names: { zh: 鱼叉岛, en: "Harpoon Island", art-x-tavrunaq: Naukkaq }
+
+  # ── 科考群岛 ────────────────────────────────────────────
+  - id: nat_5hdtr2
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [323, 311] }
+    names: { zh: 探知岛, en: "Insight Island", art-x-tavrunaq: Naallutuar }
+  - id: nat_r5e7sa
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [357, 324] }
+    names: { zh: 浮标岛, en: "Buoy Isle", art-x-tavrunaq: Puttaq }
+  - id: nat_2vhfdf
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [278, 347] }
+    names: { zh: 北望岛, en: "Northwatch Isle", art-x-tavrunaq: Aqqaniq }
+
+  # ── 冰川群岛 ────────────────────────────────────────────
+  - id: nat_99nd2b
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [452, 313] }
+    names: { zh: 冰牙岛, en: "Icefang Island", art-x-tavrunaq: Kiiquviq }
+  - id: nat_b3kk8p
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [520, 301] }
+    names: { zh: 冰山岛, en: "Iceberg Island", art-x-tavrunaq: Kiqqulik }
+  - id: nat_tfkcz1
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [570, 318] }
+    names: { zh: 漂冰岛, en: "Drift Ice Island", art-x-tavrunaq: Sirmiaulla }
+
+  # ── 海象熊群岛 ──────────────────────────────────────────
+  - id: nat_zrtk04
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [604, 290] }
+    names: { zh: 乌瓦克岛, en: "Uvvaak Island", art-x-tavrunaq: Uvvaakuviq }
+  - id: nat_6xq372
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [640, 263] }
+    names: { zh: 卡鲁克岛, en: "Karuq Island", art-x-tavrunaq: Karuquviq }
+  - id: nat_6fra25
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [631, 317] }
+    names: { zh: 冰崖岛, en: "Ice Cliff Island", art-x-tavrunaq: Turralik }
+  - id: nat_wbttjv
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [656, 296] }
+    names: { zh: 浮冰岛, en: "Floe Island", art-x-tavrunaq: Puttasirmi }
+
+  # ── 稀土群岛 ────────────────────────────────────────────
+  - id: nat_6y7y3n
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [644, 174] }
+    names: { zh: 乌维克萨克岛, en: "Uviqsaaq Island", art-x-tavrunaq: Uviqsaaq }
+  - id: nat_ps1ygb
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [654, 145] }
+    names: { zh: 南矿岛, en: "South Ore Island", art-x-tavrunaq: Silluaukku }
+  - id: nat_0mnzj7
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [632, 141] }
+    names: { zh: 磁石岛, en: "Lodestone Island", art-x-tavrunaq: Qittilik }
+  - id: nat_wrjnnn
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [660, 203] }
+    names: { zh: 北矿岛, en: "North Ore Island", art-x-tavrunaq: Aqqaukku }
+
+  # ── 极光群岛 ────────────────────────────────────────────
+  - id: nat_vv2c47
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [523, 42] }
+    names: { zh: 光幕岛, en: "Lightcurtain Island", art-x-tavrunaq: Qavvaluktuar }
+  - id: nat_95v2tq
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [574, 51] }
+    names: { zh: 长夜岛, en: "Longnight Island", art-x-tavrunaq: Unnataq }
+  - id: nat_y023md
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [546, 60] }
+    names: { zh: 绿光岛, en: "Greenlight Isle", art-x-tavrunaq: Qurrak }
+
+  # ── 海牧群岛 ────────────────────────────────────────────
+  - id: nat_p61nkb
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [241, 50] }
+    names: { zh: 网箱岛, en: "Netpen Island", art-x-tavrunaq: Ulikniq }
+  - id: nat_qpjgxz
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [211, 57] }
+    names: { zh: 海藻岛, en: "Seaweed Island", art-x-tavrunaq: Kuuqalik }
+  - id: nat_ptewc9
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [292, 72] }
+    names: { zh: 暖潮岛, en: "Warmtide Island", art-x-tavrunaq: Saarimma }
+  - id: nat_9f9td0
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [301, 42] }
+    names: { zh: 南灯岛, en: "South Light Isle", art-x-tavrunaq: Silluaqulli }
+
+  # ── 玄武岩柱群岛 ────────────────────────────────────────
+  - id: nat_mgz2yw
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [94, 85] }
+    names: { zh: 石柱岛, en: "Pillar Island", art-x-tavrunaq: Tuunnaq }
+  - id: nat_ftskb5
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [123, 69] }
+    names: { zh: 黑岩岛, en: "Darkstone Island", art-x-tavrunaq: Mirnik }
+  - id: nat_w4fpp3
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [70, 69] }
+    names: { zh: 风琴岛, en: "Organ Isle", art-x-tavrunaq: Nipaq }
+
+  # ── 数据群岛 ────────────────────────────────────────────
+  - id: nat_3njsdv
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [39, 189] }
+    names: { zh: 冷存岛, en: "Coldvault Island", art-x-tavrunaq: Tukkartuar }
+  - id: nat_x904y1
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [55, 161] }
+    names: { zh: 光缆岛, en: "Cable Isle", art-x-tavrunaq: Aliqtaq }
+  - id: nat_estcp4
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [32, 166] }
+    names: { zh: 白雾岛, en: "Whitefog Isle", art-x-tavrunaq: Paalitaqqu }
+
+  # ── Archipelagos ────────────────────────────────────────
+  - id: nat_fe3007
+    subtype: archipelago
+    status: generated
+    islands: [nat_dppqz7, nat_rhderc]
+    names: { zh: 卫星群岛, en: "Satellite Islands", art-x-tavrunaq: Tauvvuviit }
+  - id: nat_554jpc
+    subtype: archipelago
+    status: generated
+    islands: [nat_b1fv64, nat_dstxyg]
+    names: { zh: 渔猎群岛, en: "Hunting Islands", art-x-tavrunaq: Pitukuviit }
+  - id: nat_3832s0
+    subtype: archipelago
+    status: generated
+    islands: [nat_5hdtr2, nat_r5e7sa, nat_2vhfdf]
+    names: { zh: 科考群岛, en: "Research Islands", art-x-tavrunaq: Naalluviit }
+  - id: nat_8f01h7
+    subtype: archipelago
+    status: generated
+    islands: [nat_99nd2b, nat_b3kk8p, nat_tfkcz1]
+    names: { zh: 冰川群岛, en: "Glacier Islands", art-x-tavrunaq: Sirmiuviit }
+  - id: nat_75d2jp
+    subtype: archipelago
+    status: generated
+    islands: [nat_zrtk04, nat_6xq372, nat_6fra25, nat_wbttjv]
+    names: { zh: 海象熊群岛, en: "Walrus and Bear Islands", art-x-tavrunaq: Uvvaakkaruquviit }
+  - id: nat_m6cr39
+    subtype: archipelago
+    status: generated
+    islands: [nat_6y7y3n, nat_ps1ygb, nat_0mnzj7, nat_wrjnnn]
+    names: { zh: 稀土群岛, en: "Rare Earth Islands", art-x-tavrunaq: Ukkuuviit }
+  - id: nat_vpay49
+    subtype: archipelago
+    status: generated
+    islands: [nat_vv2c47, nat_95v2tq, nat_y023md]
+    names: { zh: 极光群岛, en: "Aurora Islands", art-x-tavrunaq: Qavvaluviit }
+  - id: nat_mhtezd
+    subtype: archipelago
+    status: generated
+    islands: [nat_p61nkb, nat_qpjgxz, nat_ptewc9, nat_9f9td0]
+    names: { zh: 海牧群岛, en: "Sea Pasture Islands", art-x-tavrunaq: Ulikuviit }
+  - id: nat_t8xydj
+    subtype: archipelago
+    status: generated
+    islands: [nat_mgz2yw, nat_ftskb5, nat_w4fpp3]
+    names: { zh: 玄武岩柱群岛, en: "Basalt Pillar Islands", art-x-tavrunaq: Tuunnaquviit }
+  - id: nat_gph7ym
+    subtype: archipelago
+    status: generated
+    islands: [nat_3njsdv, nat_x904y1, nat_estcp4]
+    names: { zh: 数据群岛, en: "Data Islands", art-x-tavrunaq: Tukkaruviit }
+
+  # ── Bays ────────────────────────────────────────────────
+  - id: nat_n1d2p4
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [624.2, 303.2] }
+    names: { zh: 乌瓦克湾, en: "Uvvaak Bay", art-x-tavrunaq: Uvvaakqalla }
+  - id: nat_vd7pkm
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [511.8, 269.2] }
+    names: { zh: 冰舌湾, en: "Icetongue Bay", art-x-tavrunaq: Sirmiqalla }
+  - id: nat_ek0rtm
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [639.2, 149.2] }
+    names: { zh: 稀土湾, en: "Rare Earth Bay", art-x-tavrunaq: Ukkuqalla }
+  - id: nat_7s3g87
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [81.2, 174.8] }
+    names: { zh: 冷风湾, en: "Coldwind Bay", art-x-tavrunaq: Tulliqalla }
+  - id: nat_x9n4a1
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [114.8, 215.2] }
+    names: { zh: 信号湾, en: "Signal Bay", art-x-tavrunaq: Tauvvuqalla }
+  - id: nat_7tv61b
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [504.2, 59.8] }
+    names: { zh: 光幕湾, en: "Lightcurtain Bay", art-x-tavrunaq: Qavvaluqalla }
+  - id: nat_js3ct6
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [289.8, 42.2] }
+    names: { zh: 暖潮湾, en: "Warmtide Bay", art-x-tavrunaq: Saarqalla }
+
+  # ── Fjords ──────────────────────────────────────────────
+  - id: nat_mhybpm
+    subtype: fjord
+    status: generated
+    detect: { kind: fjord, at_km: [330.2, 96.8] }
+    names: { zh: 努卡塔克峡湾, en: "Nuqattaaq Fjord", art-x-tavrunaq: Nuqasuvva }
+  - id: nat_kpg78j
+    subtype: fjord
+    status: generated
+    detect: { kind: fjord, at_km: [457.2, 109.8] }
+    names: { zh: 矿港峡湾, en: "Ore Harbour Fjord", art-x-tavrunaq: Ukkusuvva }
+  - id: nat_xxs71y
+    subtype: fjord
+    status: generated
+    detect: { kind: fjord, at_km: [177.2, 104.8] }
+    names: { zh: 暖流峡湾, en: "Warm Current Fjord", art-x-tavrunaq: Saarsuvva }
+  - id: nat_q1g8ny
+    subtype: fjord
+    status: generated
+    detect: { kind: fjord, at_km: [83.2, 151.2] }
+    names: { zh: 冷谷峡湾, en: "Cold Valley Fjord", art-x-tavrunaq: Tullasuvva }
+  - id: nat_sn5pj0
+    subtype: fjord
+    status: generated
+    detect: { kind: fjord, at_km: [398.2, 114.8] }
+    names: { zh: 深峡湾, en: "Deep Fjord", art-x-tavrunaq: Ittusuvva }
+
+  # ── Capes ───────────────────────────────────────────────
+  - id: nat_yszfzp
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [154.8, 260.8] }
+    names: { zh: 猎人岬, en: "Hunter's Cape", art-x-tavrunaq: Pitukkunnar }
+  - id: nat_tde9rm
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [416.8, 98.8] }
+    names: { zh: 灯岬, en: "Lantern Point", art-x-tavrunaq: Qullikunnar }
+  - id: nat_zjjcjw
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [90.8, 197.8] }
+    names: { zh: 雪岬, en: "Snow Cape", art-x-tavrunaq: Qannikunnar }
+  - id: nat_t51rsa
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [107.8, 123.8] }
+    names: { zh: 雾岬, en: "Fog Point", art-x-tavrunaq: Taqqukunnar }
+  - id: nat_qy2q83
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [508.2, 102.2] }
+    names: { zh: 望光岬, en: "Lightwatch Point", art-x-tavrunaq: Qavvakunnar }
+
+  # ── Straits ─────────────────────────────────────────────
+  - id: nat_7mhm8e
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [179.8, 264.5] }
+    names: { zh: 猎人海峡, en: "Hunters' Strait", art-x-tavrunaq: Pitukmasuq }
+  - id: nat_xjrfve
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [563.2, 57.0] }
+    names: { zh: 极光海峡, en: "Aurora Strait", art-x-tavrunaq: Qavvalumasuq }
+  - id: nat_mdzqmt
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [647.0, 151.8] }
+    names: { zh: 稀土海峡, en: "Rare Earth Strait", art-x-tavrunaq: Ukkumasuq }
+  - id: nat_v5tm5k
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [42.0, 160.5] }
+    names: { zh: 光缆海峡, en: "Cable Strait", art-x-tavrunaq: Aliqmasuq }

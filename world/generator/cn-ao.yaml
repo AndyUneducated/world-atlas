@@ -1,0 +1,290 @@
+# Procedural generator parameters for the Arctic Ocean Territory: one large mainland and ten
+# archipelagos around it, north of North Viking Island.
+#
+# All positions and lengths are in design kilometres inside a local equal-area (sinusoidal) frame
+# whose centre maps to frame.origin_lonlat; frame.scale converts design km to real km (areas by its
+# square). Division areas are taken from world/divisions/cn-ao.yaml (area_km2, real km²) and enforced.
+territory: div_hpmerr
+seed: 29
+frame:
+  origin_lonlat: [12.0, 73.5]
+  size_km: [680, 360]
+  scale: 2.8284  # √8, as North Viking Island
+  resolution_km: 0.25
+
+land:
+  # Gaussian lobes: [cx, cy, rx, ry, rotation_deg, weight]; negative weight carves bays.
+  lobes:
+    # ── mainland ──
+    - [340, 175, 215, 60, 3, 1.0]
+    - [130, 170, 55, 50, -15, 0.75]    # western plateau
+    - [535, 190, 62, 50, 15, 0.8]      # eastern lobe
+    - [280, 235, 55, 28, 0, 0.65]      # Kiluktuar delta on the north coast
+    - [470, 232, 55, 30, 10, 0.7]      # Sirmi highlands
+    - [330, 122, 55, 22, 0, 0.55]      # Nuqattaaq coast
+    - [195, 118, 45, 24, -20, 0.55]    # Saarvaq coast
+    - [460, 128, 45, 22, 15, 0.55]     # Ukkulaaq coast
+    - [385, 266, 32, 44, 0, -1.2]      # 北湾, between the delta and the highlands
+    - [150, 238, 20, 34, 20, 0.6]      # hunting peninsula on the north-west coast
+    - [624, 168, 6, 40, 0, -0.8]       # strait between the mainland and the rare earth islands
+    - [262, 98, 22, 15, 0, -0.65]      # gulf between Saarvaq and Nuqattaaq
+    - [396, 100, 18, 16, 0, -0.6]      # gulf between Nuqattaaq and Ukkulaaq
+    - [228, 250, 14, 18, 0, -0.6]      # bay west of the delta
+    - [76, 207, 18, 14, 0, -0.55]      # bay on the west coast
+    - [548, 240, 20, 14, 30, -0.5]     # bay on the north-east coast
+    # ── 数据群岛 (west) ──
+    - [42, 190, 12.8, 8.5, 20, 1.0]
+    - [55, 160, 7.7, 6.8, -10, 1.0]
+    - [33, 166, 7.7, 5.1, 0, 1.0]
+    - [50, 213, 6, 4.3, 30, 1.0]
+    - [30, 140, 5.1, 4.3, 0, 1.0]
+    # ── 玄武岩柱群岛 (south-west) ──
+    - [95, 85, 14, 9.4, 0, 1.0]
+    - [124, 70, 9.4, 7, 0, 1.0]
+    - [70, 68, 7.8, 6.2, 0, 1.0]
+    - [114, 101, 5.5, 3.9, 0, 1.0]
+    # ── 渔业群岛 (south, in the warm current) ──
+    - [212, 58, 10.1, 5.8, 0, 1.0]
+    - [242, 50, 6.5, 3.6, 0, 1.0]
+    - [188, 45, 5.1, 3.3, 0, 1.0]
+    - [233, 72, 4.3, 2.9, 0, 1.0]
+    - [168, 62, 3.3, 2.5, 0, 1.0]
+    # ── 极光群岛 (south-east) ──
+    - [520, 72, 6.1, 4.1, 0, 1.0]
+    - [546, 60, 3.6, 2.8, 0, 1.0]
+    - [497, 60, 2.8, 2.5, 0, 1.0]
+    - [540, 85, 2, 1.5, 0, 1.0]
+    # ── 稀土群岛 (east) ──
+    - [646, 175, 15, 12, 0, 1.0]
+    - [656, 145, 10, 8, 0, 1.0]
+    - [630, 140, 7, 6, 0, 1.0]
+    - [660, 203, 6, 5, 0, 1.0]
+    # ── 海象熊群岛 (north-east) ──
+    - [600, 287, 26.6, 17.1, -20, 1.0]
+    - [642, 262, 13.3, 9.5, 0, 1.0]
+    - [628, 318, 11.4, 7.6, 0, 1.0]
+    - [568, 318, 8.5, 6.6, 0, 1.0]
+    - [656, 296, 6.6, 4.8, 0, 1.0]
+    # ── 冰川群岛 (north) ──
+    - [450, 314, 52.9, 21.8, 5, 1.1]
+    - [512, 328, 16.1, 9.2, 0, 1.0]
+    - [402, 331, 12.6, 6.9, 0, 1.0]
+    - [520, 302, 10.3, 8, 0, 1.0]
+    # ── 科考群岛 (north) ──
+    - [330, 310, 13.1, 8.7, 0, 1.0]
+    - [358, 324, 8.7, 6.1, 0, 1.0]
+    - [305, 326, 7, 5.2, 0, 1.0]
+    - [347, 294, 5.2, 4.4, 0, 1.0]
+    # ── 渔猎群岛 (north-west) ──
+    - [187, 280, 21.1, 12.2, 15, 1.0]
+    - [218, 291, 13.3, 8.8, 0, 1.0]
+    - [158, 291, 11.1, 7.8, -10, 1.0]
+    - [207, 263, 8.8, 5.5, 0, 1.0]
+    # ── 卫星群岛 (far north-west) ──
+    - [70, 312, 10.1, 7, 10, 1.0]
+    - [100, 326, 5.6, 4.2, 0, 1.0]
+    - [45, 326, 4.8, 3.5, 0, 1.0]
+    - [93, 300, 3.5, 2.8, 0, 1.0]
+  coast_noise: { amplitude: 0.19, scale_km: 55, octaves: 7, detail_amplitude: 0.07, detail_scale_km: 8 }
+  # Fjords: polyline cut into the coast, [path, width_km, depth]. The south coast is a fjord coast
+  # kept open all year by the warm current; the north coast is low tundra that freezes in winter.
+  fjords:
+    - [[[330, 92], [332, 115], [326, 136]], 1.6, 1.0]   # Nuqattaaq fjord
+    - [[[175, 92], [180, 120]], 1.3, 0.9]               # Saarvaq fjord
+    - [[[255, 96], [260, 126]], 1.2, 0.85]
+    - [[[400, 102], [396, 130]], 1.2, 0.85]
+    - [[[455, 100], [460, 126]], 1.3, 0.9]              # Ukkulaaq fjord
+    - [[[512, 134], [502, 156]], 1.2, 0.85]
+    - [[[70, 190], [100, 196]], 1.2, 0.85]
+    - [[[72, 150], [98, 153]], 1.1, 0.8]
+    - [[[522, 268], [502, 248]], 1.2, 0.85]
+
+terrain:
+  max_elevation_m: 2600
+  ridges:
+    - { feature: nat_s1p5cz, path: [[150, 132], [230, 136], [300, 139], [380, 141], [450, 143], [520, 152]], height_m: 1300, width_km: 9 }
+    - { feature: nat_1wpnhj, path: [[430, 215], [470, 228], [510, 222]], height_m: 2300, width_km: 22 }
+    - { feature: nat_1wpnhj, path: [[470, 228], [490, 250]], height_m: 1800, width_km: 15 }
+    - { feature: nat_9zwd86, path: [[105, 150], [125, 185], [150, 200]], height_m: 750, width_km: 18 }
+    - { feature: nat_1ahtkg, path: [[420, 316], [480, 319]], height_m: 1900, width_km: 8 }
+    - { feature: nat_0hg79k, path: [[360, 160], [400, 150]], height_m: 450, width_km: 10 }
+  plains:
+    - [330, 106, 10, 0.95]   # 努卡塔克
+    - [337, 104, 4, 0.9]     # 帕卢尔尼克
+    - [175, 104, 10, 0.9]    # 萨尔瓦克
+    - [455, 110, 10, 0.9]    # 乌库拉克
+    - [92, 172, 9, 0.9]      # 图利瓦克
+    - [280, 252, 18, 0.95]   # 基卢克图阿尔河三角洲
+    - [330, 195, 45, 0.6]    # 内陆大湖苔原
+    - [352, 172, 10, 0.8]    # 考尔尼克
+    - [225, 192, 10, 0.85]   # 阿卡尼克
+  valleys:
+    - { feature: nat_g8qz1t, path: [[420, 178], [382, 196], [332, 214], [294, 238], [282, 262]], width_km: 18, source_m: 260, strength: 0.95 }
+
+hydrology:
+  river_min_drainage_km2: 25
+  river_candidate_km2: 150
+  estuary_km2: 700
+  # Lakes: a lobed disc of radius_km (design km) at offset_km (real km) from the district centre.
+  lakes:
+    - { feature: nat_xdztvm, in: div_8h5g1g, radius_km: 9.0, offset_km: [0, 0] }      # 伊卢克大湖
+    - { feature: nat_16pp3d, in: div_qaxzqj, radius_km: 3.5, offset_km: [8, 0] }      # 锂湖
+    - { feature: nat_bzp202, in: div_d9hctg, radius_km: 4.5, offset_km: [0, 12] }     # 鹿饮湖
+    - { feature: nat_2b0688, in: div_7b21kg, radius_km: 5.0, offset_km: [0, 0] }      # 长湖
+    - { feature: nat_3cy7vg, in: div_3j7f20, radius_km: 2.6, offset_km: [-10, 6] }    # 冰泪湖
+    - { feature: nat_xvz2c8, in: div_k8cx0t, radius_km: 1.8, offset_km: [6, 6] }      # 白原湖
+  # Tundra lake country: unnamed small lakes on low ground away from the coast.
+  lake_field:
+    in: [div_8h5g1g, div_d9hctg, div_7b21kg, div_qaxzqj, div_m34jqk, div_jyszba, div_xvm6y0, div_m541k8, div_k4vyb1, div_hrrg7q]
+    count: 900
+    radius_km: [0.25, 1.6]
+    max_elev_m: 450
+  named_rivers:
+    - { feature: nat_g8qz1t, through: div_xvm6y0 }
+
+coast:
+  island_min_km2: 0.8
+  bay_close_km: 5
+  bay_min_km2: 6
+  cape_open_km: 2.5
+  cape_min_prominence_km: 1.5
+  strait_max_gap_km: 6
+  match_radius_km: 10
+
+relief:
+  peak_min_elev_m: 700
+  peak_min_prominence_m: 150
+  pass_min_elev_m: 450
+  snowline_m: 1250
+  snowline_aspect_m: 250
+  glacier_max_slope_deg: 42
+  ice_min_km2: 0.5
+  glacier_min_km2: 4
+
+# Polar land cover: tundra almost everywhere, birch scrub only in the lowest sheltered valleys of
+# the warm south coast, very little farmland, wet ground and lakes across the low interior.
+landcover:
+  urban_density_per_km2: 6000   # compact cities joined by skyways
+  urban_max_slope_deg: 12
+  urban_terrace_slope_deg: 22
+  wetland_max_elev_m: 260
+  wetland_wetness: 1.8
+  farm_max_elev_m: 60
+  farm_max_slope_deg: 3
+  farm_reach_km: 3
+  treeline_m: 60
+  treeline_aspect_m: 60
+  rock_above_treeline_m: 520
+  rock_slope_deg: 31
+
+streets:
+  cities: []
+  arterial_spacing_km: 1.5
+  neighbourhood_km: 1.3
+  local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
+  warp_km: { planned: 0.02, mixed: 0.05, organic: 0.09 }
+  warp_wavelength_km: 1.6
+  river_gap_km: 0.05
+  districts: {}
+  named: []
+
+# Uplands above the tundra drift deep in winter storms: roads and railways there run under snow
+# sheds (see world/transport/engineering.yaml).
+snow_sheds: { above_m: 400, min_km: 1, gap_km: 1 }
+
+# Facts the build checks and reports; a failed check is printed as a warning.
+expect:
+  longest_river: nat_23cx58
+  largest_cities_by_area: [div_d48kz7, div_8c2skk, div_djze5f]
+  district_centres_on: [national_expressway, territorial_expressway, territorial_highway]
+  # island-only districts have no road link; ice caps and reserves have no road to their centre
+  district_centres_except: [div_2541fx, div_jd4ms5, div_7ee7ab, div_3xz1pw, div_6p8a1q, div_rcnhch, div_481wnn,
+                            div_81tqya, div_qj033v, div_4ymjbf, div_zq16x4, div_hbdzam, div_5h1yv5, div_8h5g1g, div_6469m0,
+                            div_jyszba, div_7b21kg]
+
+layout:
+  # division sizes range from 20 to 163 300 km²: keep every city and district around its own anchor
+  anchored: true
+  cities:
+    div_8besy9: [330, 108]   # 努卡塔克市
+    div_p808br: [337, 106]   # 帕卢尔尼克金融特区
+    div_nbf1bw: [172, 108]   # 萨尔瓦克市
+    div_dfmj5f: [455, 114]   # 乌库拉克市
+    div_aggzhy: [95, 172]    # 图利瓦克市
+    div_djze5f: [352, 172]   # 考尔尼克市
+    div_dk2gh7: [282, 248]   # 基卢克图阿尔市
+    div_d48kz7: [500, 250]   # 西尔米瓦克市
+    div_eqzm0n: [640, 170]   # 乌维克萨克市
+    div_8c2skk: [225, 192]   # 塔夫鲁利特原住民自治区
+  districts:
+    div_q7cydv: [-0.3, -0.6]   # 旧港区
+    div_9s80v8: [0.2, -0.4]    # 穹顶区
+    div_j06x18: [0, 0.4]       # 峡湾区
+    div_3b9pkz: [-0.8, 0]      # 暖廊区
+    div_k8cx0t: [-0.6, 0.9]    # 白原区
+    div_jvwq60: [0.8, -0.2]    # 不冻港区
+    div_k4vyb1: [0.6, 1]       # 鹿角区
+    div_ga9pxy: [0, 0]         # 公共银行区
+    div_3rb2ha: [0, -0.2]      # 暖流港区
+    div_qg40vj: [0.6, -0.1]    # 渔湾区
+    div_hrrg7q: [0, 1]         # 西峡区
+    div_2541fx: [1.2, -1.5]    # 海牧群岛区
+    div_jd4ms5: [-2.2, -0.6]   # 玄武岩柱群岛生态保护区
+    div_yh6ysj: [0, -0.3]      # 矿港区
+    div_1d76zf: [-0.6, 0.3]    # 镍城区
+    div_stts1z: [1, 0.6]       # 东峡区
+    div_7ee7ab: [1.6, -1.1]    # 极光群岛区
+    div_6469m0: [-0.6, 1]      # 南岸峡湾生态保护区
+    div_79wfwy: [0, 0]         # 冷风区
+    div_najb0c: [0.6, -0.7]    # 冷谷区
+    div_3xz1pw: [-1.2, 0.1]    # 数据群岛区
+    div_6p8a1q: [-0.6, 3.3]    # 卫星群岛区
+    div_5h1yv5: [0.9, 0.5]     # 西部高原生态保护区
+    div_k66r1n: [0, 0]         # 晶石区
+    div_qaxzqj: [0.7, -0.4]    # 锂湖区
+    div_m541k8: [0.9, 0.3]     # 内陆矿区管理区
+    div_8h5g1g: [-0.8, 0.4]    # 大湖苔原生态保护区
+    div_anjqnh: [0, 0]         # 河口区
+    div_m0b417: [0.4, 0.3]     # 冰港区
+    div_xvm6y0: [0.6, -1]      # 上游区
+    div_rcnhch: [0.6, 1.6]     # 科考群岛区
+    div_jyszba: [-0.6, -0.1]   # 三角洲湿地生态保护区
+    div_73wt00: [0.2, 0]       # 冰川区
+    div_3j7f20: [0.6, -0.8]    # 观天区
+    div_hbdzam: [-0.7, -0.4]   # 西尔米冰盖管理区
+    div_481wnn: [-0.4, 1.7]    # 冰川群岛冰盖管理区
+    div_81tqya: [2.4, 0.9]     # 海象熊群岛生态保护区
+    div_qj033v: [0, -0.2]      # 稀土港区
+    div_4ymjbf: [0.2, 0.8]     # 稀土群岛矿区管理区
+    div_ek897t: [0, 0]         # 阿卡尼克区
+    div_m34jqk: [0.6, 0.5]     # 北岸猎区
+    div_d9hctg: [0.8, -0.5]    # 苔原牧区
+    div_zq16x4: [0, 1.5]       # 渔猎群岛区
+    div_7b21kg: [-0.3, -0.8]   # 驯鹿迁徙生态保护区
+  # The archipelago each island district is named for: a point on each of its islands (design km).
+  # These go whole to that district and its city; other islands go to the nearest division.
+  islands:
+    div_3xz1pw: [[39, 189], [55, 161], [32, 166], [30, 140], [49, 213], [22, 212], [71, 178], [13, 224],
+                 [30, 208], [30, 201]]                                                   # 数据群岛
+    div_6p8a1q: [[55, 317], [100, 326], [93, 300], [53, 339]]                             # 卫星群岛
+    div_jd4ms5: [[123, 69], [94, 85], [70, 69], [114, 101]]                               # 玄武岩柱群岛
+    div_2541fx: [[241, 50], [211, 57], [257, 25], [234, 72], [236, 60], [188, 45], [168, 62], [244, 20],
+                 [292, 72], [301, 42], [280, 41], [274, 59], [262, 50], [296, 35], [314, 61]]  # 海牧群岛
+    div_7ee7ab: [[523, 42], [574, 51], [546, 60], [497, 60], [593, 52], [541, 85], [558, 72], [557, 64]]  # 极光群岛
+    div_4ymjbf: [[654, 145], [632, 141], [660, 203], [610, 213]]                          # 稀土群岛
+    div_81tqya: [[604, 290], [640, 263], [631, 317], [656, 296], [637, 333], [642, 304], [614, 305],
+                 [628, 298], [652, 279], [645, 327]]                                     # 海象熊群岛
+    div_481wnn: [[452, 313], [520, 301], [570, 318], [511, 275], [517, 270]]              # 冰川群岛
+    div_rcnhch: [[323, 311], [357, 324], [278, 347], [346, 294], [269, 338], [297, 341], [284, 337]]  # 科考群岛
+    div_zq16x4: [[184, 279], [205, 263], [184, 254], [199, 230], [194, 227]]              # 渔猎群岛
+  boundary_warp_km: 6
+  coastal:
+    div_q7cydv: null   # 旧港区，峡湾口的老渔港
+    div_jvwq60: null   # 不冻港区
+    div_3rb2ha: null   # 暖流港区
+    div_yh6ysj: null   # 矿港区
+    div_79wfwy: null   # 冷风区
+    div_anjqnh: null   # 河口区
+    div_m0b417: null   # 冰港区
+    div_73wt00: null   # 冰川区
+    div_qj033v: null   # 稀土港区

@@ -1,0 +1,113 @@
+# Mountain landforms of the Arctic Ocean Territory: peaks, passes and glaciers, found in the
+# terrain by the generator (pipeline/atlas/relief.py) and named by `detect: {kind, at_km}`.
+features:
+  - id: nat_aqrt62
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [470, 228] }
+    names:
+      zh: 西尔米冰盖
+      en: Sirmi Ice Cap
+      art-x-tavrunaq: Sirmitavru
+
+  # ── Peaks, passes and glaciers named in M29 ─────────────
+  - id: nat_c28dp2
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [499.2, 234.8] }
+    names: { zh: 西尔米峰, en: "Mount Sirmi", art-x-tavrunaq: Sirmipirruk }
+  - id: nat_scswkr
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [426.8, 315.8] }
+    names: { zh: 冰牙峰, en: "Icefang Peak", art-x-tavrunaq: Kiiqpirruk }
+  - id: nat_k55z4h
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [451.2, 142.2] }
+    names: { zh: 苍穹峰, en: "Skydome Peak", art-x-tavrunaq: Tauvvupirruk }
+  - id: nat_szhgrt
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [233.8, 137.2] }
+    names: { zh: 驯鹿峰, en: "Reindeer Peak", art-x-tavrunaq: Nirsapirruk }
+  - id: nat_bfyxfg
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [377.8, 140.8] }
+    names: { zh: 极夜峰, en: "Polar Night Peak", art-x-tavrunaq: Unnapirruk }
+  - id: nat_1jamq7
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [147.8, 132.8] }
+    names: { zh: 白冠峰, en: "Whitecrown Peak", art-x-tavrunaq: Paalipirruk }
+  - id: nat_dew0ng
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [508.8, 147.2] }
+    names: { zh: 东峡峰, en: "East Fjord Peak", art-x-tavrunaq: Pivapirruk }
+  - id: nat_8n8hxn
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [142.8, 198.8] }
+    names: { zh: 高原顶, en: "Plateau Crown", art-x-tavrunaq: Pukkapirruk }
+  - id: nat_efvm12
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [342.2, 140.2] }
+    names: { zh: 穹顶口, en: "Dome Pass", art-x-tavrunaq: Qummakatiq }
+  - id: nat_tkxdfd
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [404.2, 144.2] }
+    names: { zh: 锂湖口, en: "Lithium Pass", art-x-tavrunaq: Illuqkatiq }
+  - id: nat_v3jjph
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [191.8, 130.2] }
+    names: { zh: 暖风口, en: "Warmwind Pass", art-x-tavrunaq: Saarkatiq }
+  - id: nat_ztzv82
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [470.2, 145.2] }
+    names: { zh: 镍城口, en: "Nickel Pass", art-x-tavrunaq: Qissarkatiq }
+  - id: nat_9mss07
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [135.8, 143.2] }
+    names: { zh: 冷谷口, en: "Cold Valley Pass", art-x-tavrunaq: Tullakatiq }
+  - id: nat_t34zj9
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [479.8, 225.2] }
+    names: { zh: 冰盖口, en: "Icecap Col", art-x-tavrunaq: Sirmikatiq }
+  - id: nat_pgmb4p
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [261.1, 139.6] }
+    names: { zh: 千峡冰原, en: "Thousand Fjords Icefield", art-x-tavrunaq: Suvvasirmi }
+  - id: nat_sem37w
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [446.9, 319.9] }
+    names: { zh: 冰牙冰帽, en: "Icefang Ice Cap", art-x-tavrunaq: Kiiqsirmi }
+  - id: nat_cyrg37
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [375.4, 143.1] }
+    names: { zh: 极夜冰川, en: "Polar Night Glacier", art-x-tavrunaq: Unnasirmi }
+  - id: nat_abpe0e
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [441.9, 143.9] }
+    names: { zh: 苍穹冰川, en: "Skydome Glacier", art-x-tavrunaq: Tauvvusirmi }
+  - id: nat_32cx7h
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [156.4, 134.1] }
+    names: { zh: 白冠冰川, en: "Whitecrown Glacier", art-x-tavrunaq: Paalisirmi }
+  - id: nat_2efp2e
+    subtype: glacier
+    status: generated
+    detect: { kind: glacier, at_km: [145.9, 203.4] }
+    names: { zh: 高原冰帽, en: "Plateau Ice Cap", art-x-tavrunaq: Pukkasirmi }

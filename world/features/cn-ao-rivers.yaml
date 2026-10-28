@@ -1,0 +1,89 @@
+# Rivers and lakes of the Arctic Ocean Territory. River geometry is traced by the generator from
+# the drainage (named_rivers in world/generator/cn-ao.yaml); lakes are placed by hydrology.lakes.
+features:
+  - id: nat_g8qz1t
+    subtype: river
+    status: generated
+    names:
+      zh: 基卢克图阿尔河
+      en: Kiluktuar River
+      art-x-tavrunaq: Kiluktuar
+  - id: nat_xdztvm
+    subtype: lake
+    status: generated
+    names:
+      zh: 伊卢克大湖
+      en: Great Illuq Lake
+      art-x-tavrunaq: Illuqtuar
+  - id: nat_16pp3d
+    subtype: lake
+    status: generated
+    names:
+      zh: 锂湖
+      en: Lithium Lake
+      art-x-tavrunaq: Illuqqau
+  - id: nat_bzp202
+    subtype: lake
+    status: generated
+    names:
+      zh: 鹿饮湖
+      en: Reindeer Drink Lake
+      art-x-tavrunaq: Nirsaillu
+  - id: nat_2b0688
+    subtype: lake
+    status: generated
+    names:
+      zh: 长湖
+      en: Long Lake
+      art-x-tavrunaq: Illuqtaq
+  - id: nat_3cy7vg
+    subtype: lake
+    status: generated
+    names:
+      zh: 冰泪湖
+      en: Icetear Lake
+      art-x-tavrunaq: Sirmiqulliq
+  - id: nat_xvz2c8
+    subtype: lake
+    status: generated
+    names:
+      zh: 白原湖
+      en: Whitemoor Lake
+      art-x-tavrunaq: Paalillu
+
+  # ── Rivers named by their mouths ────────────────────────
+  - id: nat_23cx58
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [590.2, 154.8] }
+    names: { zh: 西尔米河, en: "Sirmi River", art-x-tavrunaq: Sirmikiluk }
+  - id: nat_y29gc8
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [227.8, 228.2] }
+    names: { zh: 尼尔萨河, en: "Nirsa River", art-x-tavrunaq: Nirsakiluk }
+  - id: nat_e9c7y8
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [295.2, 250.8] }
+    names: { zh: 苔原河, en: "Tundra River", art-x-tavrunaq: Vaqkiluk }
+  - id: nat_f9a92v
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [328.2, 99.8] }
+    names: { zh: 峡湾河, en: "Fjord River", art-x-tavrunaq: Suvvakiluk }
+  - id: nat_ph9ex7
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [85.2, 171.8] }
+    names: { zh: 冷风河, en: "Coldwind River", art-x-tavrunaq: Tullikiluk }
+  - id: nat_fnd27t
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [332.2, 116.2] }
+    names: { zh: 白原河, en: "Whitemoor River", art-x-tavrunaq: Paalikiluk }
+  - id: nat_w4ejk6
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [454.8, 109.2] }
+    names: { zh: 矿港河, en: "Ore Harbour River", art-x-tavrunaq: Ukkukiluk }

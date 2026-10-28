@@ -1,0 +1,40 @@
+# Named natural features of the Arctic Ocean Territory.
+# subtype follows OSM natural=* values. Geometry is produced by the generator
+# (see world/generator/cn-ao.yaml); this file only holds identity and semantics.
+# Names are Chinese, English and Tavrunaq (art-x-tavrunaq).
+features:
+  - id: nat_s1p5cz
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 千峡山脉
+      en: Thousand Fjords Range
+      art-x-tavrunaq: Suvvatuar
+  - id: nat_1wpnhj
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 西尔米高地
+      en: Sirmi Highlands
+      art-x-tavrunaq: Sirmipukka
+  - id: nat_9zwd86
+    subtype: plateau
+    status: generated
+    names:
+      zh: 西部高原
+      en: Western Plateau
+      art-x-tavrunaq: Pullapukka
+  - id: nat_1ahtkg
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 冰牙山
+      en: Icefang Mountains
+      art-x-tavrunaq: Sirmikiiq
+  - id: nat_0hg79k
+    subtype: ridge
+    status: generated
+    names:
+      zh: 晶石丘陵
+      en: Crystal Hills
+      art-x-tavrunaq: Qaulukkat

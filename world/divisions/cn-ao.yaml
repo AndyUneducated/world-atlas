@@ -1,0 +1,824 @@
+# Administrative divisions of the Arctic Ocean Territory (CN-OT).
+# id: stable internal key, referenced by other files. codes.admin: 6-digit hierarchical code (GB/T 2260 pattern:
+# territory 920000, city 920100, district 920101); may change on reorganisation.
+# subtype follows Overture Maps divisions: country > dependency/region > locality > borough.
+# Names are Chinese, English and Tavrunaq (art-x-tavrunaq), the language of the Tavrulit people.
+# Special divisions: the Pallurniq Financial Zone (city level, under the Arctic Ocean Public Bank Act
+# and the Financial Zone Act), the Tavrulit Indigenous Autonomous Region (city level), and nature
+# reserve, ice cap and mining administration zones (district level).
+divisions:
+- id: div_hpmerr
+  subtype: dependency
+  parent: country:CN
+  status: generated
+  names:
+    zh: 北冰洋领地
+    en: Arctic Ocean Territory
+    art-x-tavrunaq: Aqqimma Tavru
+  short_names:
+    zh: 北冰洋
+    en: Arctic Ocean
+  codes:
+    iso3166_1:
+      alpha2: OT
+      alpha3: AOT
+      numeric: '903'
+    iso3166_2: CN-OT
+    admin: '920000'
+  motto:
+    zh: 冰原之上，万物自由
+    en: Above the Ice, All Are Free
+  capital: div_8besy9
+  route_shield: polar
+  operators:
+    expressway: { zh: 北冰洋领地冰原交通集团, en: Arctic Ocean Icefield Transport Group }
+    highway: { zh: 北冰洋领地公路与雪廊局, en: Arctic Ocean Roads and Snowsheds Authority }
+    rail: { zh: 北冰洋领地铁路公司, en: Arctic Ocean Railways }
+  emblem:
+    motif: polar_bear
+    pattern: ice
+  traits: { industries: [finance, datacenter, mining, tourism] }
+
+# ── 努卡塔克市（首府）──
+- id: div_8besy9
+  subtype: locality
+  parent: div_hpmerr
+  status: generated
+  names:
+    zh: 努卡塔克市
+    en: Nuqattaaq City
+    art-x-tavrunaq: Nuqattaaq
+  codes:
+    admin: '920100'
+    unlocode: OT NUQ
+  population: 5000000
+  area_km2: 9000.0
+  color: '#1B2F5E'
+  emblem:
+    motif: dome
+    pattern: aurora
+  traits: { industries: [government, finance, tech, port], heritage: polar_global, age: balanced, income: 1.1 }
+- id: div_q7cydv
+  subtype: borough
+  parent: div_8besy9
+  status: generated
+  names:
+    zh: 旧港区
+    en: Old Harbour District
+    art-x-tavrunaq: Nuqangaq
+  codes:
+    admin: '920101'
+  population: 900000
+  area_km2: 300.0
+  traits: { industries: [government, heritage, tourism], heritage: polar_mixed }
+- id: div_9s80v8
+  subtype: borough
+  parent: div_8besy9
+  status: generated
+  names:
+    zh: 穹顶区
+    en: Dome District
+    art-x-tavrunaq: Qummarniq
+  codes:
+    admin: '920102'
+  population: 1100000
+  area_km2: 250.0
+  traits: { industries: [commerce, finance, tourism], income: 1.15 }
+- id: div_j06x18
+  subtype: borough
+  parent: div_8besy9
+  status: generated
+  names:
+    zh: 峡湾区
+    en: Fjordside District
+    art-x-tavrunaq: Suvvalik
+  codes:
+    admin: '920103'
+  population: 1000000
+  area_km2: 600.0
+  traits: { industries: [residential, education, commerce] }
+- id: div_3b9pkz
+  subtype: borough
+  parent: div_8besy9
+  status: generated
+  names:
+    zh: 暖廊区
+    en: Skyway District
+    art-x-tavrunaq: Tuvvilik
+  codes:
+    admin: '920104'
+  population: 900000
+  area_km2: 700.0
+  traits: { industries: [residential, healthcare, retail] }
+- id: div_k8cx0t
+  subtype: borough
+  parent: div_8besy9
+  status: generated
+  names:
+    zh: 白原区
+    en: Whitemoor District
+    art-x-tavrunaq: Paalivaq
+  codes:
+    admin: '920105'
+  population: 450000
+  area_km2: 2000.0
+  traits: { industries: [aviation, logistics, residential] }
+- id: div_jvwq60
+  subtype: borough
+  parent: div_8besy9
+  status: generated
+  names:
+    zh: 不冻港区
+    en: Openwater District
+    art-x-tavrunaq: Immasaar
+  codes:
+    admin: '920106'
+  population: 500000
+  area_km2: 1200.0
+  traits: { industries: [port, shipbuilding, logistics] }
+- id: div_k4vyb1
+  subtype: borough
+  parent: div_8besy9
+  status: generated
+  names:
+    zh: 鹿角区
+    en: Antler District
+    art-x-tavrunaq: Nirsakut
+  codes:
+    admin: '920107'
+  population: 150000
+  area_km2: 3950.0
+  traits: { industries: [research, education, herding], heritage: polar_mixed, age: young }
+
+# ── 帕卢尔尼克金融特区 ──
+- id: div_p808br
+  subtype: locality
+  parent: div_hpmerr
+  status: generated
+  names:
+    zh: 帕卢尔尼克金融特区
+    en: Pallurniq Financial Zone
+    art-x-tavrunaq: Pallurniq
+  codes:
+    admin: '920200'
+    unlocode: OT PLN
+  population: 60000
+  area_km2: 20.0
+  special_status: financial_zone
+  color: '#B8892B'
+  emblem:
+    motif: exchange
+    pattern: hex
+  traits: { industries: [finance, trade, tech], heritage: polar_global, age: young, income: 1.6 }
+- id: div_ga9pxy
+  subtype: borough
+  parent: div_p808br
+  status: generated
+  names:
+    zh: 公共银行区
+    en: Public Bank District
+    art-x-tavrunaq: Pallukut
+  codes:
+    admin: '920201'
+  population: 60000
+  area_km2: 20.0
+
+# ── 萨尔瓦克市 ──
+- id: div_nbf1bw
+  subtype: locality
+  parent: div_hpmerr
+  status: generated
+  names:
+    zh: 萨尔瓦克市
+    en: Saarvaq City
+    art-x-tavrunaq: Saarvaq
+  codes:
+    admin: '920300'
+    unlocode: OT SRV
+  population: 1700000
+  area_km2: 62000.0
+  color: '#1F7A8C'
+  emblem:
+    motif: fish
+    pattern: flow
+  traits: { industries: [port, fishing, aquaculture, food], heritage: polar_mixed, age: balanced }
+- id: div_3rb2ha
+  subtype: borough
+  parent: div_nbf1bw
+  status: generated
+  names:
+    zh: 暖流港区
+    en: Warm Current Harbour District
+    art-x-tavrunaq: Saarnuqa
+  codes:
+    admin: '920301'
+  population: 750000
+  area_km2: 500.0
+  traits: { industries: [port, commerce, food] }
+- id: div_qg40vj
+  subtype: borough
+  parent: div_nbf1bw
+  status: generated
+  names:
+    zh: 渔湾区
+    en: Fish Bay District
+    art-x-tavrunaq: Ulikkut
+  codes:
+    admin: '920302'
+  population: 400000
+  area_km2: 2500.0
+  traits: { industries: [fishing, food, port] }
+- id: div_hrrg7q
+  subtype: borough
+  parent: div_nbf1bw
+  status: generated
+  names:
+    zh: 西峡区
+    en: West Fjord District
+    art-x-tavrunaq: Pullasuvva
+  codes:
+    admin: '920303'
+  population: 325000
+  area_km2: 38500.0
+  traits: { industries: [aquaculture, tourism, fishing], heritage: tavrulit }
+- id: div_2541fx
+  subtype: borough
+  parent: div_nbf1bw
+  status: generated
+  names:
+    zh: 海牧群岛区
+    en: Sea Pasture Islands District
+    art-x-tavrunaq: Ulikuviit
+  codes:
+    admin: '920304'
+  population: 220000
+  area_km2: 12500.0
+  traits: { industries: [aquaculture, fishing, food] }
+- id: div_jd4ms5
+  subtype: borough
+  parent: div_nbf1bw
+  status: generated
+  names:
+    zh: 玄武岩柱群岛生态保护区
+    en: Basalt Pillar Islands Nature Reserve
+    art-x-tavrunaq: Tuunnaqut
+  codes:
+    admin: '920305'
+  population: 5000
+  area_km2: 8000.0
+  special_status: nature_reserve
+  traits: { industries: [conservation, tourism], heritage: tavrulit }
+
+# ── 乌库拉克市 ──
+- id: div_dfmj5f
+  subtype: locality
+  parent: div_hpmerr
+  status: generated
+  names:
+    zh: 乌库拉克市
+    en: Ukkulaaq City
+    art-x-tavrunaq: Ukkulaaq
+  codes:
+    admin: '920400'
+    unlocode: OT UKL
+  population: 1450000
+  area_km2: 63400.0
+  color: '#7A5C3E'
+  emblem:
+    motif: gear
+    pattern: diagonal
+  traits: { industries: [mining, port, manufacturing], heritage: polar_mixed, age: balanced }
+- id: div_yh6ysj
+  subtype: borough
+  parent: div_dfmj5f
+  status: generated
+  names:
+    zh: 矿港区
+    en: Ore Harbour District
+    art-x-tavrunaq: Ukkunuqa
+  codes:
+    admin: '920401'
+  population: 600000
+  area_km2: 900.0
+  traits: { industries: [port, logistics, mining] }
+- id: div_1d76zf
+  subtype: borough
+  parent: div_dfmj5f
+  status: generated
+  names:
+    zh: 镍城区
+    en: Nickel Town District
+    art-x-tavrunaq: Qissarniq
+  codes:
+    admin: '920402'
+  population: 400000
+  area_km2: 3100.0
+  traits: { industries: [manufacturing, mining] }
+- id: div_stts1z
+  subtype: borough
+  parent: div_dfmj5f
+  status: generated
+  names:
+    zh: 东峡区
+    en: East Fjord District
+    art-x-tavrunaq: Pivasuvva
+  codes:
+    admin: '920403'
+  population: 200000
+  area_km2: 24300.0
+  traits: { industries: [tourism, fishing], heritage: tavrulit }
+- id: div_7ee7ab
+  subtype: borough
+  parent: div_dfmj5f
+  status: generated
+  names:
+    zh: 极光群岛区
+    en: Aurora Islands District
+    art-x-tavrunaq: Qavvaluviit
+  codes:
+    admin: '920404'
+  population: 240000
+  area_km2: 15800.0
+  traits: { industries: [tourism, cruise, fishing] }
+- id: div_6469m0
+  subtype: borough
+  parent: div_dfmj5f
+  status: generated
+  names:
+    zh: 南岸峡湾生态保护区
+    en: South Fjords Nature Reserve
+    art-x-tavrunaq: Silluasuvvat
+  codes:
+    admin: '920405'
+  population: 10000
+  area_km2: 19300.0
+  special_status: nature_reserve
+  traits: { industries: [conservation, tourism], heritage: tavrulit }
+
+# ── 图利瓦克市 ──
+- id: div_aggzhy
+  subtype: locality
+  parent: div_hpmerr
+  status: generated
+  names:
+    zh: 图利瓦克市
+    en: Tullivaq City
+    art-x-tavrunaq: Tullivaq
+  codes:
+    admin: '920500'
+    unlocode: OT TLV
+  population: 900000
+  area_km2: 58300.0
+  color: '#3E6FB0'
+  emblem:
+    motif: snowflake
+    pattern: grid
+  traits: { industries: [datacenter, tech, hydropower], heritage: polar_global, age: young, income: 1.1 }
+- id: div_79wfwy
+  subtype: borough
+  parent: div_aggzhy
+  status: generated
+  names:
+    zh: 冷风区
+    en: Coldwind District
+    art-x-tavrunaq: Tullikut
+  codes:
+    admin: '920501'
+  population: 500000
+  area_km2: 800.0
+  traits: { industries: [datacenter, tech, commerce] }
+- id: div_najb0c
+  subtype: borough
+  parent: div_aggzhy
+  status: generated
+  names:
+    zh: 冷谷区
+    en: Cold Valley District
+    art-x-tavrunaq: Tullakuuk
+  codes:
+    admin: '920502'
+  population: 225000
+  area_km2: 14200.0
+  traits: { industries: [datacenter, hydropower], heritage: polar_mixed }
+- id: div_3xz1pw
+  subtype: borough
+  parent: div_aggzhy
+  status: generated
+  names:
+    zh: 数据群岛区
+    en: Data Islands District
+    art-x-tavrunaq: Tukkaruviit
+  codes:
+    admin: '920503'
+  population: 140000
+  area_km2: 9600.0
+  traits: { industries: [datacenter, tech] }
+- id: div_6p8a1q
+  subtype: borough
+  parent: div_aggzhy
+  status: generated
+  names:
+    zh: 卫星群岛区
+    en: Satellite Islands District
+    art-x-tavrunaq: Tauvvuviit
+  codes:
+    admin: '920504'
+  population: 30000
+  area_km2: 8500.0
+  traits: { industries: [satellite, research] }
+- id: div_5h1yv5
+  subtype: borough
+  parent: div_aggzhy
+  status: generated
+  names:
+    zh: 西部高原生态保护区
+    en: Western Plateau Nature Reserve
+    art-x-tavrunaq: Pullapukkat
+  codes:
+    admin: '920505'
+  population: 5000
+  area_km2: 25200.0
+  special_status: nature_reserve
+  traits: { industries: [conservation, herding], heritage: tavrulit }
+
+# ── 考尔尼克市 ──
+- id: div_djze5f
+  subtype: locality
+  parent: div_hpmerr
+  status: generated
+  names:
+    zh: 考尔尼克市
+    en: Qaurniq City
+    art-x-tavrunaq: Qaurniq
+  codes:
+    admin: '920600'
+    unlocode: OT QRN
+  population: 650000
+  area_km2: 95000.0
+  color: '#6B4FA0'
+  emblem:
+    motif: crystal
+    pattern: rays
+  traits: { industries: [mining, manufacturing, logistics], heritage: polar_mixed, age: young }
+- id: div_k66r1n
+  subtype: borough
+  parent: div_djze5f
+  status: generated
+  names:
+    zh: 晶石区
+    en: Crystal District
+    art-x-tavrunaq: Qauluk
+  codes:
+    admin: '920601'
+  population: 420000
+  area_km2: 1500.0
+  traits: { industries: [mining, manufacturing, commerce] }
+- id: div_qaxzqj
+  subtype: borough
+  parent: div_djze5f
+  status: generated
+  names:
+    zh: 锂湖区
+    en: Lithium Lakes District
+    art-x-tavrunaq: Illuqsaat
+  codes:
+    admin: '920602'
+  population: 150000
+  area_km2: 13500.0
+  traits: { industries: [mining, manufacturing] }
+- id: div_m541k8
+  subtype: borough
+  parent: div_djze5f
+  status: generated
+  names:
+    zh: 内陆矿区管理区
+    en: Inland Mining Administration Zone
+    art-x-tavrunaq: Ukkuliit
+  codes:
+    admin: '920603'
+  population: 70000
+  area_km2: 45000.0
+  special_status: mining_zone
+  traits: { industries: [mining, logistics] }
+- id: div_8h5g1g
+  subtype: borough
+  parent: div_djze5f
+  status: generated
+  names:
+    zh: 大湖苔原生态保护区
+    en: Great Lakes Tundra Nature Reserve
+    art-x-tavrunaq: Illuqtuar
+  codes:
+    admin: '920604'
+  population: 10000
+  area_km2: 35000.0
+  special_status: nature_reserve
+  traits: { industries: [conservation, hunting], heritage: tavrulit }
+
+# ── 基卢克图阿尔市 ──
+- id: div_dk2gh7
+  subtype: locality
+  parent: div_hpmerr
+  status: generated
+  names:
+    zh: 基卢克图阿尔市
+    en: Kiluktuar City
+    art-x-tavrunaq: Kiluktuar
+  codes:
+    admin: '920700'
+    unlocode: OT KLK
+  population: 1000000
+  area_km2: 60000.0
+  color: '#2F7D5B'
+  emblem:
+    motif: river
+    pattern: contours
+  traits: { industries: [port, fishing, commerce], heritage: polar_mixed, age: young }
+- id: div_anjqnh
+  subtype: borough
+  parent: div_dk2gh7
+  status: generated
+  names:
+    zh: 河口区
+    en: Rivermouth District
+    art-x-tavrunaq: Kilukkiaq
+  codes:
+    admin: '920701'
+  population: 520000
+  area_km2: 800.0
+  traits: { industries: [commerce, heritage, government] }
+- id: div_m0b417
+  subtype: borough
+  parent: div_dk2gh7
+  status: generated
+  names:
+    zh: 冰港区
+    en: Ice Harbour District
+    art-x-tavrunaq: Sirminuqa
+  codes:
+    admin: '920702'
+  population: 230000
+  area_km2: 2200.0
+  traits: { industries: [port, shipbuilding, defence] }
+- id: div_xvm6y0
+  subtype: borough
+  parent: div_dk2gh7
+  status: generated
+  names:
+    zh: 上游区
+    en: Upriver District
+    art-x-tavrunaq: Paakiluk
+  codes:
+    admin: '920703'
+  population: 210000
+  area_km2: 31000.0
+  traits: { industries: [herding, fishing, hunting], heritage: tavrulit }
+- id: div_rcnhch
+  subtype: borough
+  parent: div_dk2gh7
+  status: generated
+  names:
+    zh: 科考群岛区
+    en: Research Islands District
+    art-x-tavrunaq: Naalluviit
+  codes:
+    admin: '920704'
+  population: 20000
+  area_km2: 8900.0
+  traits: { industries: [research, education], heritage: polar_global }
+- id: div_jyszba
+  subtype: borough
+  parent: div_dk2gh7
+  status: generated
+  names:
+    zh: 三角洲湿地生态保护区
+    en: Delta Wetlands Nature Reserve
+    art-x-tavrunaq: Marrakiluk
+  codes:
+    admin: '920705'
+  population: 20000
+  area_km2: 17100.0
+  special_status: nature_reserve
+  traits: { industries: [conservation, hunting], heritage: tavrulit }
+
+# ── 西尔米瓦克市 ──
+- id: div_d48kz7
+  subtype: locality
+  parent: div_hpmerr
+  status: generated
+  names:
+    zh: 西尔米瓦克市
+    en: Sirmivak City
+    art-x-tavrunaq: Sirmivak
+  codes:
+    admin: '920800'
+    unlocode: OT SRM
+  population: 420000
+  area_km2: 163300.0
+  color: '#5FA8C8'
+  emblem:
+    motif: peaks
+    pattern: halo
+  traits: { industries: [research, tourism, ski], heritage: polar_mixed, age: balanced }
+- id: div_73wt00
+  subtype: borough
+  parent: div_d48kz7
+  status: generated
+  names:
+    zh: 冰川区
+    en: Glacier District
+    art-x-tavrunaq: Sirmikut
+  codes:
+    admin: '920801'
+  population: 274000
+  area_km2: 1200.0
+  traits: { industries: [tourism, ski, commerce] }
+- id: div_3j7f20
+  subtype: borough
+  parent: div_d48kz7
+  status: generated
+  names:
+    zh: 观天区
+    en: Skywatch District
+    art-x-tavrunaq: Tauvvaniq
+  codes:
+    admin: '920802'
+  population: 140000
+  area_km2: 35000.0
+  traits: { industries: [research, education, satellite], heritage: polar_global }
+- id: div_hbdzam
+  subtype: borough
+  parent: div_d48kz7
+  status: generated
+  names:
+    zh: 西尔米冰盖管理区
+    en: Sirmi Ice Cap Administration Zone
+    art-x-tavrunaq: Sirmitavru
+  codes:
+    admin: '920803'
+  population: 3000
+  area_km2: 72600.0
+  special_status: ice_cap_zone
+  traits: { industries: [research, conservation] }
+- id: div_481wnn
+  subtype: borough
+  parent: div_d48kz7
+  status: generated
+  names:
+    zh: 冰川群岛冰盖管理区
+    en: Glacier Islands Ice Administration Zone
+    art-x-tavrunaq: Sirmiuviit
+  codes:
+    admin: '920804'
+  population: 2000
+  area_km2: 32500.0
+  special_status: ice_cap_zone
+  traits: { industries: [research, cruise] }
+- id: div_81tqya
+  subtype: borough
+  parent: div_d48kz7
+  status: generated
+  names:
+    zh: 海象熊群岛生态保护区
+    en: Walrus and Bear Islands Nature Reserve
+    art-x-tavrunaq: Uvvaakkaruq
+  codes:
+    admin: '920805'
+  population: 1000
+  area_km2: 22000.0
+  special_status: nature_reserve
+  traits: { industries: [conservation, research] }
+
+# ── 乌维克萨克市 ──
+- id: div_eqzm0n
+  subtype: locality
+  parent: div_hpmerr
+  status: generated
+  names:
+    zh: 乌维克萨克市
+    en: Uviqsaaq City
+    art-x-tavrunaq: Uviqsaaq
+  codes:
+    admin: '920900'
+    unlocode: OT UVQ
+  population: 280000
+  area_km2: 10900.0
+  color: '#9C4A5A'
+  emblem:
+    motif: crystal
+    pattern: dots
+  traits: { industries: [mining, port, manufacturing], heritage: polar_mixed, age: young }
+- id: div_qj033v
+  subtype: borough
+  parent: div_eqzm0n
+  status: generated
+  names:
+    zh: 稀土港区
+    en: Rare Earth Harbour District
+    art-x-tavrunaq: Uviqnuqa
+  codes:
+    admin: '920901'
+  population: 250000
+  area_km2: 1500.0
+  traits: { industries: [port, mining, manufacturing] }
+- id: div_4ymjbf
+  subtype: borough
+  parent: div_eqzm0n
+  status: generated
+  names:
+    zh: 稀土群岛矿区管理区
+    en: Rare Earth Islands Mining Administration Zone
+    art-x-tavrunaq: Ukkuuviit
+  codes:
+    admin: '920902'
+  population: 30000
+  area_km2: 9400.0
+  special_status: mining_zone
+  traits: { industries: [mining, logistics] }
+
+# ── 塔夫鲁利特原住民自治区 ──
+- id: div_8c2skk
+  subtype: locality
+  parent: div_hpmerr
+  status: generated
+  names:
+    zh: 塔夫鲁利特原住民自治区
+    en: Tavrulit Indigenous Autonomous Region
+    art-x-tavrunaq: Tavrulit Nalliqut
+  codes:
+    admin: '921000'
+    unlocode: OT AQK
+  population: 1200000
+  area_km2: 131080.0
+  special_status: autonomous_region
+  color: '#B5653A'
+  emblem:
+    motif: drum
+    pattern: furrows
+  traits: { industries: [hunting, herding, heritage, government], heritage: tavrulit, age: young }
+- id: div_ek897t
+  subtype: borough
+  parent: div_8c2skk
+  status: generated
+  names:
+    zh: 阿卡尼克区
+    en: Aqqanik District
+    art-x-tavrunaq: Aqqanik
+  codes:
+    admin: '921001'
+  population: 520000
+  area_km2: 2980.0
+  traits: { industries: [government, heritage, education], heritage: polar_mixed }
+- id: div_m34jqk
+  subtype: borough
+  parent: div_8c2skk
+  status: generated
+  names:
+    zh: 北岸猎区
+    en: North Shore Hunting District
+    art-x-tavrunaq: Aqqapituk
+  codes:
+    admin: '921002'
+  population: 200000
+  area_km2: 28000.0
+  traits: { industries: [hunting, fishing] }
+- id: div_d9hctg
+  subtype: borough
+  parent: div_8c2skk
+  status: generated
+  names:
+    zh: 苔原牧区
+    en: Tundra Herding District
+    art-x-tavrunaq: Nirsavaq
+  codes:
+    admin: '921003'
+  population: 300000
+  area_km2: 37800.0
+  traits: { industries: [herding, hunting] }
+- id: div_zq16x4
+  subtype: borough
+  parent: div_8c2skk
+  status: generated
+  names:
+    zh: 渔猎群岛区
+    en: Hunting Islands District
+    art-x-tavrunaq: Pitukuviit
+  codes:
+    admin: '921004'
+  population: 150000
+  area_km2: 12100.0
+  traits: { industries: [hunting, fishing] }
+- id: div_7b21kg
+  subtype: borough
+  parent: div_8c2skk
+  status: generated
+  names:
+    zh: 驯鹿迁徙生态保护区
+    en: Reindeer Migration Nature Reserve
+    art-x-tavrunaq: Nirsatuvvit
+  codes:
+    admin: '921005'
+  population: 30000
+  area_km2: 50200.0
+  special_status: nature_reserve
+  traits: { industries: [herding, conservation] }
