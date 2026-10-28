@@ -8,6 +8,9 @@ features:
       zh: 基卢克图阿尔河
       en: Kiluktuar River
       art-x-tavrunaq: Kiluktuar
+    notes:
+      zh: 北岸的大河，长约 376 公里，流域面积约 8.5 万平方公里，居领地第二，基卢克图阿尔市因它得名。河流发源于千峡山脉北麓，流经苔原牧区和上游区，向北流向北岸，河谷是内陆与南北两岸之间的交通走廊。
+      en: The great river of the north coast, about 376 km long with a basin of some 85,000 km², the second largest in the territory, which gives Kiluktuar City its name. It rises on the northern side of the Thousand Fjords Range and flows north through the Tundra Herding District and Upriver District towards the north coast, and its valley carries goods between the inland and both coasts.
   - id: nat_xdztvm
     subtype: lake
     status: generated
@@ -15,6 +18,9 @@ features:
       zh: 伊卢克大湖
       en: Great Illuq Lake
       art-x-tavrunaq: Illuqtuar
+    notes:
+      zh: 大湖苔原生态保护区的大湖，面积约 2100 平方公里，是领地最大的湖泊。一条市道以长约 16 公里的伊卢克大湖特大桥跨过湖面，冬季湖面封冻后，冰上还开辟有雪地车道。
+      en: The great lake of the Great Lakes Tundra Nature Reserve, about 2,100 km², the largest lake in the territory. A city road crosses it on the 16 km Great Illuq Lake Viaduct, and when it freezes in winter snowmobile tracks are marked out on the ice.
   - id: nat_16pp3d
     subtype: lake
     status: generated
@@ -22,6 +28,9 @@ features:
       zh: 锂湖
       en: Lithium Lake
       art-x-tavrunaq: Illuqqau
+    notes:
+      zh: 锂湖区的盐湖，面积约 320 平方公里，湖水含锂，锂湖提锂厂从湖中的卤水提取锂，锂湖区因它得名。矿区高速和重载铁路都在约 13 公里外经过。
+      en: The salt lake of Lithium Lakes District, about 320 km², whose brine is rich in lithium; the Lithium Lake works extracts it, and the district is named after the lake. The Mining Expressway and the heavy-haul railway both pass some 13 km away.
   - id: nat_bzp202
     subtype: lake
     status: generated
@@ -29,6 +38,9 @@ features:
       zh: 鹿饮湖
       en: Reindeer Drink Lake
       art-x-tavrunaq: Nirsaillu
+    notes:
+      zh: 苔原牧区的湖泊，面积约 530 平方公里，是领地第三大湖。夏季驯鹿群在湖边饮水和觅食，湖名由此而来；努阿高速在约 13 公里外经过。
+      en: A lake in the Tundra Herding District, about 530 km², the third largest in the territory. In summer reindeer herds come down to drink and graze on its shores, hence the name; the Nuqattaaq–Aqqanik Expressway passes some 13 km away.
   - id: nat_2b0688
     subtype: lake
     status: generated
@@ -36,6 +48,9 @@ features:
       zh: 长湖
       en: Long Lake
       art-x-tavrunaq: Illuqtaq
+    notes:
+      zh: 驯鹿迁徙生态保护区的湖泊，面积约 660 平方公里，是领地第二大湖，湖身狭长，湖名由此而来。驯鹿迁徙时沿湖岸行进，湖周不修道路。
+      en: A lake in the Reindeer Migration Nature Reserve, about 660 km², the second largest in the territory, long and narrow, hence the name. Migrating reindeer follow its shores, and no roads are built around it.
   - id: nat_3cy7vg
     subtype: lake
     status: generated
@@ -43,6 +58,9 @@ features:
       zh: 冰泪湖
       en: Icetear Lake
       art-x-tavrunaq: Sirmiqulliq
+    notes:
+      zh: 观天区的湖泊，面积约 180 平方公里，由西尔米冰盖的融水汇成，湖水清冷，湖名由此而来。冰原高速在约 7 公里外经过。
+      en: A lake in Skywatch District, about 180 km², filled by meltwater from the Sirmi Ice Cap, cold and clear, hence the name. The Icefield Expressway passes some 7 km away.
   - id: nat_xvz2c8
     subtype: lake
     status: generated
@@ -50,6 +68,9 @@ features:
       zh: 白原湖
       en: Whitemoor Lake
       art-x-tavrunaq: Paalillu
+    notes:
+      zh: 首府白原区的湖泊，面积约 87 平方公里，是领地命名湖泊中最小的，离环线和努基高速都只有七八公里，是首府居民夏季划船、冬季冰钓的地方。
+      en: A lake in Whitemoor District of the capital, about 87 km², the smallest of the territory's named lakes, only seven or eight kilometres from the ring road and the Nuqattaaq–Kiluktuar Expressway, where the capital's people go boating in summer and ice fishing in winter.
 
   # ── Rivers named by their mouths ────────────────────────
   - id: nat_23cx58
@@ -57,33 +78,54 @@ features:
     status: generated
     detect: { kind: river, at_km: [590.2, 154.8] }
     names: { zh: 西尔米河, en: "Sirmi River", art-x-tavrunaq: Sirmikiluk }
+    notes:
+      zh: 领地最长的河流，长约 499 公里，流域面积约 10.7 万平方公里，也是领地最大的流域。河流源自西尔米冰盖的融水，向南流经内陆矿区、观天区和东峡区，注入南岸的大海。
+      en: The longest river in the territory, about 499 km, with a basin of some 107,000 km², also the largest in the territory. It rises in the meltwater of the Sirmi Ice Cap and flows south through the inland mining zone, Skywatch and East Fjord to the sea on the south coast.
   - id: nat_y29gc8
     subtype: river
     status: generated
     detect: { kind: river, at_km: [227.8, 228.2] }
     names: { zh: 尼尔萨河, en: "Nirsa River", art-x-tavrunaq: Nirsakiluk }
+    notes:
+      zh: 领地第二长的河流，长约 471 公里，流域面积约 7.6 万平方公里，「尼尔萨」在塔夫鲁纳克语中意为驯鹿。河流自西峡区的山地向北，流经驯鹿迁徙生态保护区和北岸猎区，到阿卡尼克区入海，驯鹿群沿河谷迁徙。
+      en: The second longest river in the territory, about 471 km, with a basin of some 76,000 km²; nirsa is the Tavrunaq word for reindeer. It flows north from the mountains of West Fjord through the Reindeer Migration reserve and the North Shore Hunting District to the sea in Aqqanik District, and reindeer herds migrate along its valley.
   - id: nat_e9c7y8
     subtype: river
     status: generated
     detect: { kind: river, at_km: [295.2, 250.8] }
     names: { zh: 苔原河, en: "Tundra River", art-x-tavrunaq: Vaqkiluk }
+    notes:
+      zh: 基卢克图阿尔市的河流，长约 201 公里，流经上游区的苔原，在冰港区附近入海。
+      en: A river of Kiluktuar City, about 201 km long, flowing across the tundra of Upriver District to the sea near Ice Harbour.
   - id: nat_f9a92v
     subtype: river
     status: generated
     detect: { kind: river, at_km: [328.2, 99.8] }
     names: { zh: 峡湾河, en: "Fjord River", art-x-tavrunaq: Suvvakiluk }
+    notes:
+      zh: 首府北面的河流，长约 156 公里，发源于苔原牧区，流经白原区和峡湾区，注入努卡塔克峡湾。
+      en: A river north of the capital, about 156 km long, rising in the Tundra Herding District and flowing through Whitemoor and Fjordside into Nuqattaaq Fjord.
   - id: nat_ph9ex7
     subtype: river
     status: generated
     detect: { kind: river, at_km: [85.2, 171.8] }
     names: { zh: 冷风河, en: "Coldwind River", art-x-tavrunaq: Tullikiluk }
+    notes:
+      zh: 图利瓦克市的河流，长约 131 公里，发源于西部高原，流经冷谷区和冷风区一带入海，是冷风区的水源。
+      en: A river of Tullivaq City, about 131 km long, rising on the Western Plateau and flowing through Cold Valley and Coldwind districts to the sea; it supplies Coldwind's water.
   - id: nat_fnd27t
     subtype: river
     status: generated
     detect: { kind: river, at_km: [332.2, 116.2] }
     names: { zh: 白原河, en: "Whitemoor River", art-x-tavrunaq: Paalikiluk }
+    notes:
+      zh: 首府东北的河流，长约 78 公里，大部分流经鹿角区，上游在白原区和大湖苔原生态保护区。
+      en: A river north-east of the capital, about 78 km long, flowing mostly through Antler District, with its upper course in Whitemoor and the Great Lakes Tundra Nature Reserve.
   - id: nat_w4ejk6
     subtype: river
     status: generated
     detect: { kind: river, at_km: [454.8, 109.2] }
     names: { zh: 矿港河, en: "Ore Harbour River", art-x-tavrunaq: Ukkukiluk }
+    notes:
+      zh: 乌库拉克市的河流，长约 69 公里，是领地命名河流中最短的，发源于南岸峡湾生态保护区，流经镍城区和矿港区，镍城冶炼厂从河上的水电站取电。
+      en: A river of Ukkulaaq City, about 69 km long, the shortest of the territory's named rivers, rising in the South Fjords Nature Reserve and flowing through Nickel Town and Ore Harbour; the Nickel Town smelter draws power from hydro plants on it.

@@ -15,6 +15,9 @@ divisions:
     zh: 北冰洋领地
     en: Arctic Ocean Territory
     art-x-tavrunaq: Aqqimma Tavru
+  notes:
+    zh: 北冰洋领地在北维京岛以北的北冰洋上，由一块主大陆和周围十个群岛组成，面积约 65 万平方公里，人口 1266 万。南岸有暖流经过，港口终年不冻，首府努卡塔克和萨尔瓦克、乌库拉克、图利瓦克等大城市都在南岸；北岸冬季封冻，靠破冰船通航。内陆是冻土苔原和星罗棋布的湖泊，东北是西尔米冰盖，四成多的土地划为生态保护区和冰盖管理区。冬季有连续数周的极夜，夏季有极昼。塔夫鲁纳克语母语者占人口的 52%，大陆北部和内陆苔原设塔夫鲁利特原住民自治区，长老议事会参与领地治理。经济以金融、数据中心与算力、采矿和旅游为主，人均生产总值约 8.6 万美元；北冰洋公共银行和帕卢尔尼克金融特区设在首府旁。领地与其他领地没有陆路相连，对外只靠航空和破冰海运。
+    en: The Arctic Ocean Territory lies in the Arctic Ocean north of North Viking Island, a mainland and ten archipelagos around it, some 650,000 km² with 12.66 million people. A warm current runs along the south coast and keeps its harbours open all year, and the capital Nuqattaaq and the other large cities (Saarvaq, Ukkulaaq and Tullivaq) all stand on it; the north coast freezes in winter and is kept open by icebreakers. Inland lie permafrost tundra and countless lakes, with the Sirmi Ice Cap in the north-east, and over two-fifths of the land is set aside as nature reserves and ice cap administration zones. Winter brings weeks of polar night and summer the midnight sun. Native Tavrunaq speakers make up 52% of the population; the north of the mainland and the inland tundra form the Tavrulit Indigenous Autonomous Region, whose council of elders takes part in governing the territory. Finance, data centres and computing, mining and tourism lead the economy, with output of about 86,000 dollars a head, and the Arctic Ocean Public Bank and the Pallurniq Financial Zone stand beside the capital. There is no land link to the other territories; the only ways in are by air and by icebreaker-escorted sea.
   short_names:
     zh: 北冰洋
     en: Arctic Ocean
@@ -48,6 +51,9 @@ divisions:
     zh: 努卡塔克市
     en: Nuqattaaq City
     art-x-tavrunaq: Nuqattaaq
+  notes:
+    zh: 领地首府，坐落在南岸努卡塔克峡湾的湾口两岸，全市 500 万人，约占领地人口的四成。领地政府和议会在穹顶区，市中心的中央穹顶和成片的暖廊让市民在极夜和暴风雪里也能步行出门；旧港区是老渔港，峡湾区有北冰洋大学，不冻港区的港区终年不冻，鹿角区有国际机场。冻土上的建筑大多立在桩基上，底层架空让冷风流过，防止冻土融化。地铁四条线、81 座车站，一条通到机场；南岸高速以跨海大桥跨过峡湾口，努基高速、环线和通往金融特区、矿区、阿卡尼克的高速都从这里出发。塔夫鲁纳克语母语者约占四成，外来的金融与科技从业者多住在穹顶区和暖廊区。
+    en: The territorial capital, on both shores of the mouth of Nuqattaaq Fjord on the south coast, with 5 million people, about two-fifths of the territory. The government and assembly sit in Dome District, and the Central Dome and the skyways of the centre let people walk about through the polar night and in blizzards; Old Harbour is the old fishing port, Fjordside has the University of the Arctic Ocean, Openwater has the ice-free harbour and Antler the international airport. Most buildings on the permafrost stand on piles with an open ground floor, so the cold wind passes beneath and the ground stays frozen. The metro has four lines and 81 stations, one of them to the airport; the South Coast Expressway crosses the fjord mouth on a sea bridge, and the Nuqattaaq–Kiluktuar Expressway, the ring road and the expressways to the Financial Zone, the mines and Aqqanik all start here. About two in five residents are native Tavrunaq speakers, and the incoming finance and technology workers mostly live in the Dome and Skyway districts.
   codes:
     admin: '920100'
     unlocode: OT NUQ
@@ -66,6 +72,9 @@ divisions:
     zh: 旧港区
     en: Old Harbour District
     art-x-tavrunaq: Nuqangaq
+  notes:
+    zh: 首府最老的城区，在努卡塔克峡湾口西岸，由老渔港发展而来，木屋街巷、鱼市和船坞沿用有机的老街网，塔夫鲁纳克语母语者过半。全区 300 平方公里住着 90 万人，人口密度在首府仅次于穹顶区。旧港灯光广场是极夜灯光节和冰雕展的主会场，冬季游客在这里看灯、吃烟熏鱼。南岸高速以旧港隧道穿过区内，再经峡湾口跨海大桥通往不冻港区；环线和一条地铁也经过这里，主要街道上方有约 19 公里的暖廊。
+    en: The oldest part of the capital, on the west side of the mouth of Nuqattaaq Fjord, grown out of the old fishing port; its timber houses, fish market and boatyards keep the old organic street pattern, and more than half its people are native Tavrunaq speakers. 900,000 people live in its 300 km², the densest district of the capital after Dome District. Old Harbour Light Square is the main venue of the polar-night light festival and the ice-sculpture show, where winter visitors come for the lights and smoked fish. The South Coast Expressway passes through in the Old Harbour Tunnel and then crosses the fjord mouth to Openwater on the sea bridge; the ring road and a metro line also run through, and some 19 km of skyways cover the main streets.
   codes:
     admin: '920101'
   population: 900000
@@ -79,6 +88,9 @@ divisions:
     zh: 穹顶区
     en: Dome District
     art-x-tavrunaq: Qummarniq
+  notes:
+    zh: 首府的市中心，沿努卡塔克峡湾展开，110 万人住在 250 平方公里内，人口和人口密度都居全领地各区之首。领地政府与议会、中央穹顶、领地的高铁总站努卡塔克站都在区内，穹顶大街两侧是商场、酒店和办公楼，约 53 公里的暖廊把它们连成一片。穹顶大街下的地铁线通往鹿角区的国际机场。努基高速和金融城高速从这里出发，北面紧邻帕卢尔尼克金融特区。居民中外来的金融、科技从业者比例高，人均产值在首府各区中最高。
+    en: The centre of the capital, along Nuqattaaq Fjord, with 1.1 million people in 250 km², the most populous and most densely peopled district in the territory. The government and assembly, the Central Dome and Nuqattaaq station on the high-speed line are all here, Dome Boulevard is lined with shops, hotels and offices, and some 53 km of skyways join them together. The metro line under Dome Boulevard runs to the international airport in Antler District. The Nuqattaaq–Kiluktuar and Financial Zone expressways start here, and the Pallurniq Financial Zone adjoins it to the north. Many residents are incoming finance and technology workers, and output per head is the highest of the capital's districts.
   codes:
     admin: '920102'
   population: 1100000
@@ -92,6 +104,9 @@ divisions:
     zh: 峡湾区
     en: Fjordside District
     art-x-tavrunaq: Suvvalik
+  notes:
+    zh: 首府北部的住宅区，100 万人，以成排的住宅楼和社区服务为主。北冰洋大学在区内，以极地工程、冰川学、金融法和塔夫鲁纳克语研究见长，学生和教师让这里比市中心更年轻；峡湾冰雕园每年冬季用峡湾的冰块雕成城堡和神话人物。努基高速和环线都经过区内，一条地铁线连接市中心。
+    en: The capital's northern residential district, with a million people living mostly in rows of apartment blocks with their community services. The University of the Arctic Ocean is here, known for polar engineering, glaciology, financial law and Tavrunaq studies, and its students and staff make the district younger than the centre; each winter the Fjordside Ice Sculpture Garden turns blocks of fjord ice into castles and mythical figures. The Nuqattaaq–Kiluktuar Expressway and the ring road both pass through, and a metro line links it with the centre.
   codes:
     admin: '920103'
   population: 1000000
@@ -105,6 +120,9 @@ divisions:
     zh: 暖廊区
     en: Skyway District
     art-x-tavrunaq: Tuvvilik
+  notes:
+    zh: 首府西部的住宅与疗养区，90 万人。区内的暖廊全长约 102 公里，是全领地最长的暖廊网络，住宅街坊、医院、商场和地铁站之间不出户外就能往来，老年居民的比例也是首府最高的。暖廊室内海滩一年四季保持夏日的温度和光照，极夜体育场冬季举办冰上运动和灯光节开幕式。南岸高速和环线穿过区内，努阿高速从这里出发通往阿卡尼克。
+    en: The capital's western residential and health district, with 900,000 people. Its skyways run to some 102 km, the longest network in the territory, so homes, hospitals, shops and metro stations can be reached without going outdoors, and it has the highest share of older residents in the capital. The Skyway Indoor Beach keeps summer warmth and light all year, and the Polar Night Arena hosts ice sports and the opening of the light festival in winter. The South Coast Expressway and the ring road cross the district, and the Nuqattaaq–Aqqanik Expressway starts here for Aqqanik.
   codes:
     admin: '920104'
   population: 900000
@@ -118,6 +136,9 @@ divisions:
     zh: 白原区
     en: Whitemoor District
     art-x-tavrunaq: Paalivaq
+  notes:
+    zh: 首府北郊的区，面积 2000 平方公里，45 万人，城区之外是覆着积雪的白色苔原，区名由此而来。白原湖在区内，物流仓库沿努基高速和环线分布；白原垂直农场用人工光照种植蔬菜和浆果，供应首府大部分的新鲜蔬菜。努基高速在区内北上，进入千峡山脉前的最后一段城郊。
+    en: A district on the northern edge of the capital, 2,000 km² with 450,000 people; beyond the town lies snow-covered white tundra, which gives it its name. Whitemoor Lake is here, warehouses line the Nuqattaaq–Kiluktuar Expressway and the ring road, and the Whitemoor Vertical Farm grows vegetables and berries under artificial light, supplying most of the capital's fresh greens. The expressway heads north through the district, the last stretch of suburb before the Thousand Fjords Range.
   codes:
     admin: '920105'
   population: 450000
@@ -131,6 +152,9 @@ divisions:
     zh: 不冻港区
     en: Openwater District
     art-x-tavrunaq: Immasaar
+  notes:
+    zh: 首府的港口区，在努卡塔克峡湾口东岸，50 万人。暖流让港湾终年不冻，不冻港港区的突堤上排着集装箱、矿石、油品和滚装码头，是领地最大的港区；内陆矿区重载铁路在这里的货运站结束，矿石直接装船，无人驾驶列车的调度中心也设在区内。矿区高速从这里北上，南岸高速经峡湾口跨海大桥进入区内，环线绕过港区。冬季冻结的湖面上辟有冰上赛车场。
+    en: The capital's port district, on the east side of the mouth of Nuqattaaq Fjord, with 500,000 people. A warm current keeps the harbour open all year, and the moles of Openwater Harbour, the largest harbour in the territory, hold container, ore, oil and ro-ro terminals; the Inland Mines Heavy-Haul Railway ends at the freight yard here, its ore goes straight onto ships, and the control centre of its driverless trains is in the district. The Mining Expressway heads north from here, the South Coast Expressway arrives over the fjord-mouth sea bridge and the ring road skirts the harbour. In winter an ice speedway is laid out on a frozen lake.
   codes:
     admin: '920106'
   population: 500000
@@ -144,6 +168,9 @@ divisions:
     zh: 鹿角区
     en: Antler District
     art-x-tavrunaq: Nirsakut
+  notes:
+    zh: 首府东北的城郊区，面积近 4000 平方公里，只有 15 万人，大片苔原上仍有驯鹿放牧，塔夫鲁纳克语母语者过半。努卡塔克国际机场在区内，跑道配有融雪加热系统，地铁线从市中心一直通到航站楼；鹿角午夜高尔夫球场在极昼时节午夜也能开球。南岸高速、努基高速、金融城高速、环线和矿区高速都经过区内，是首府外围的交通枢纽。
+    en: The capital's north-eastern outskirts, nearly 4,000 km² with only 150,000 people, where reindeer are still herded on the open tundra and over half the residents are native Tavrunaq speakers. Nuqattaaq International Airport is here, its runways heated against snow, and the metro runs all the way from the centre to the terminal; at the Antler Midnight Sun Golf Course players tee off at midnight in summer. The South Coast, Nuqattaaq–Kiluktuar and Financial Zone expressways, the ring road and the Mining Expressway all pass through, making it the transport hub on the edge of the capital.
   codes:
     admin: '920107'
   population: 150000
@@ -159,6 +186,9 @@ divisions:
     zh: 帕卢尔尼克金融特区
     en: Pallurniq Financial Zone
     art-x-tavrunaq: Pallurniq
+  notes:
+    zh: 依《北冰洋公共银行法》和《金融特区法》在首府穹顶区以北新设的市级金融特区，面积 20 平方公里，约 6 万人，人均产值居领地各市之首。特区只有公共银行区一个区，全是塔楼与穹顶：北冰洋公共银行总部和四家附属银行、清算所、金融法院、国际仲裁中心、公司注册处、数字资产交易所、极地数据中心和冻土黄金金库都在这里。特区以零税率、不设资本管制、线上即时开户和几分钟自动注册公司为号召，银行的利润用于领地居民分红。金融城高速经跨海的公共银行特大桥连接首府和干线高速。
+    en: A city-level financial zone created under the Arctic Ocean Public Bank Act and the Financial Zone Act just north of the capital's Dome District, 20 km² with about 60,000 people and the highest output per head of any city in the territory. Its single district, Public Bank District, is all towers and domes, home to the headquarters of the Arctic Ocean Public Bank and its four affiliate banks, the clearing house, the financial court, the international arbitration centre, the companies registry, the digital asset exchange, the polar data centre and the permafrost gold vault. The zone offers no taxes, no capital controls, instant online accounts and companies registered automatically in minutes, and the bank's profits are paid out as a dividend to the territory's residents. The Financial Zone Expressway links it to the capital and the trunk roads over the Public Bank Sea Bridge.
   codes:
     admin: '920200'
     unlocode: OT PLN
@@ -178,6 +208,9 @@ divisions:
     zh: 公共银行区
     en: Public Bank District
     art-x-tavrunaq: Pallukut
+  notes:
+    zh: 帕卢尔尼克金融特区唯一的区，约 6 万人住在 20 平方公里内，几乎全是塔楼、穹顶和裙楼。公共银行大道两侧依次是北冰洋公共银行总部大厦和商业、投资、私人、托管四座附属银行大厦，金库街通往冻土黄金金库；清算所、金融法院、仲裁中心、公司注册处和数字资产交易所分布在中心周围。帕卢尔尼克冬季花园和永昼广场两座穹顶是员工午休和过冬的去处，约 23 公里的暖廊连起各栋楼。居民以外来的金融、法律和技术人员为主，劳动年龄人口占 76%。
+    en: The only district of the Pallurniq Financial Zone, about 60,000 people in 20 km² of almost nothing but towers, domes and podiums. Public Bank Avenue is lined with the Arctic Ocean Public Bank headquarters and the towers of its four affiliates (commercial, investment, private and custody banking), and Vault Street leads to the permafrost gold vault; the clearing house, financial court, arbitration centre, companies registry and digital asset exchange stand around the centre. The Pallurniq Winter Garden and the Midnight Sun Square are the two domes where staff spend their lunch hours and the winter, and some 23 km of skyways join the buildings. Most residents are incoming finance, legal and technology workers, and 76% are of working age.
   codes:
     admin: '920201'
   population: 60000
@@ -192,6 +225,9 @@ divisions:
     zh: 萨尔瓦克市
     en: Saarvaq City
     art-x-tavrunaq: Saarvaq
+  notes:
+    zh: 南岸人口第二多的城市，在首府以西约 430 公里，170 万人，塔夫鲁纳克语母语者占六成多。城区暖流港区在暖流峡湾口，东边是渔湾区的渔村和加工厂，西北的西峡区占全市六成面积，是峡湾、冰川和山地；南岸外海的海牧群岛是深海养殖基地，西部远海的玄武岩柱群岛划为生态保护区。全市以港口航运、渔业、海水养殖和水产加工为主。南岸高速和南岸高速铁路穿城而过，城区有一条地铁，西峡公路通往峡湾深处的村镇。
+    en: The second most populous city of the south coast, about 430 km west of the capital, with 1.7 million people, over three-fifths of them native Tavrunaq speakers. Its town, Warm Current Harbour, stands at the mouth of Warm Current Fjord, with the fishing villages and processing plants of Fish Bay to the east; West Fjord District to the north-west, three-fifths of the city's area, is fjords, glaciers and mountains. The Sea Pasture Islands off the south coast are a deep-water fish-farming centre, and the Basalt Pillar Islands far to the west are a nature reserve. Shipping, fishing, fish farming and fish processing are the mainstays. The South Coast Expressway and the South Coast High-Speed Railway run through, the town has a metro line, and the West Fjord Road reaches the villages deep in the fjords.
   codes:
     admin: '920300'
     unlocode: OT SRV
@@ -210,6 +246,9 @@ divisions:
     zh: 暖流港区
     en: Warm Current Harbour District
     art-x-tavrunaq: Saarnuqa
+  notes:
+    zh: 萨尔瓦克市的城区，在暖流峡湾口，75 万人，老城的街巷沿港湾自然展开。暖流港渔港是南岸较大的渔港，深海渔船和养殖运输船在这里卸货，周围是冷库和水产加工厂。萨尔瓦克站是南岸高速铁路的车站，城区有一条地铁和约 15 公里的暖廊；南岸高速经过区内，西峡公路从这里向西北通往峡湾村镇。
+    en: The town of Saarvaq City, at the mouth of Warm Current Fjord, with 750,000 people and an old quarter whose streets follow the harbour. Warm Current Fishing Harbour is one of the larger fishing harbours of the south coast, where trawlers and fish-farm carriers land their catch among cold stores and processing plants. Saarvaq station is on the South Coast High-Speed Railway, the town has a metro line and some 15 km of skyways, the South Coast Expressway passes through, and the West Fjord Road sets out north-west from here for the fjord villages.
   codes:
     admin: '920301'
   population: 750000
@@ -223,6 +262,9 @@ divisions:
     zh: 渔湾区
     en: Fish Bay District
     art-x-tavrunaq: Ulikkut
+  notes:
+    zh: 萨尔瓦克城区以东的渔业区，40 万人，海湾沿岸散布着渔村、码头和水产加工厂，第一产业占经济的近四分之一，是南岸渔业最集中的区之一。南岸高速沿区内穿过约 60 公里，把渔获运往暖流港和首府。
+    en: The fishing district east of Saarvaq's town, with 400,000 people; fishing villages, quays and processing plants line its bays, primary industry makes up nearly a quarter of the economy, and it is one of the main fishing districts of the south coast. The South Coast Expressway runs some 60 km through it, carrying the catch to Warm Current Harbour and the capital.
   codes:
     admin: '920302'
   population: 400000
@@ -236,6 +278,9 @@ divisions:
     zh: 西峡区
     en: West Fjord District
     art-x-tavrunaq: Pullasuvva
+  notes:
+    zh: 萨尔瓦克市西部和北部的峡湾山地，面积 38500 平方公里，是领地面积最大的普通区，只有 32.5 万人，塔夫鲁纳克语母语者占 85%。暖流峡湾、白冠冰川和海拔 1879 米的白冠峰都在区内，暖风口是翻越山地的通道。居民住在峡湾深处的渔村和小镇，以海水养殖、渔业和旅游为生。南岸高速、苔原高速和南岸高速铁路穿过区内的山地，铁路的西峡特大桥是全线最长的桥；西峡公路通到区内的镇上。
+    en: The fjord and mountain country of western and northern Saarvaq City, 38,500 km², the largest ordinary district in the territory, with only 325,000 people, 85% of them native Tavrunaq speakers. Warm Current Fjord, the Whitecrown Glacier and the 1,879 m Whitecrown Peak are here, and Warmwind Pass leads over the mountains. People live in fishing villages and small towns at the heads of the fjords, from fish farming, fishing and tourism. The South Coast and Tundra expressways and the high-speed railway cross its mountains, the railway's West Fjord Viaduct being the longest bridge on the line, and the West Fjord Road reaches the district's town.
   codes:
     admin: '920303'
   population: 325000
@@ -249,6 +294,9 @@ divisions:
     zh: 海牧群岛区
     en: Sea Pasture Islands District
     art-x-tavrunaq: Ulikuviit
+  notes:
+    zh: 南岸外海的海牧群岛，由网箱岛、海藻岛、暖潮岛和南灯岛组成，22 万人。群岛间的海湾水深浪静，暖潮湾里布满深海养殖网箱，岸上是孵化场和加工厂，养殖、渔业和水产加工占经济的大半。岛上没有高速公路，与大陆之间靠船只往来。
+    en: The Sea Pasture Islands off the south coast, Netpen, Seaweed, Warmtide and South Light islands, with 220,000 people. The bays between them are deep and sheltered, Warmtide Bay is full of deep-water fish pens, and hatcheries and processing plants stand on shore; farming, fishing and fish processing make up most of the economy. There are no expressways on the islands, and boats link them with the mainland.
   codes:
     admin: '920304'
   population: 220000
@@ -262,6 +310,9 @@ divisions:
     zh: 玄武岩柱群岛生态保护区
     en: Basalt Pillar Islands Nature Reserve
     art-x-tavrunaq: Tuunnaqut
+  notes:
+    zh: 西部远海的玄武岩柱群岛，由石柱岛、黑岩岛和风琴岛组成，整片划为生态保护区，常住人口约 5000 人，多为巡护员和渔民。海岸上成排的六角形玄武岩柱高出海面，崖壁上栖息着海鸦和北极鸥；风浪拍打石柱缝隙的声音像风琴，风琴岛由此得名。游客只能乘船在保护距离外观看。
+    en: The Basalt Pillar Islands far out to the west, Pillar, Darkstone and Organ islands, all of them a nature reserve with about 5,000 residents, mostly rangers and fishers. Rows of hexagonal basalt columns rise from the sea along the shore, guillemots and Arctic gulls nest on the cliffs, and the sound of the waves in the gaps between the columns, like an organ, gave Organ Isle its name. Visitors may only look from boats at a protected distance.
   codes:
     admin: '920305'
   population: 5000
@@ -278,6 +329,9 @@ divisions:
     zh: 乌库拉克市
     en: Ukkulaaq City
     art-x-tavrunaq: Ukkulaaq
+  notes:
+    zh: 南岸东部的工业港口城市，在首府以东约 360 公里，145 万人。城区矿港区在矿港峡湾口，港口运出冶炼产品和矿石；镍城区的冶炼厂冶炼内陆的镍矿，东峡区是沿峡湾分布的村镇，外海的极光群岛以极光旅游闻名，南岸峡湾生态保护区里有海拔 2022 米的苍穹峰。南岸高速和南岸高速铁路在这里到达东端，冰原高速从这里出发通往西尔米瓦克，城区有一条地铁。
+    en: The industrial port city of the eastern south coast, about 360 km east of the capital, with 1.45 million people. Its town, Ore Harbour, stands at the mouth of Ore Harbour Fjord and ships out smelter products and ore; the smelter of Nickel Town refines nickel from the inland mines, East Fjord is a string of fjord villages, the offshore Aurora Islands are known for aurora tourism, and the South Fjords Nature Reserve holds the 2,022 m Skydome Peak. The South Coast Expressway and the high-speed railway reach their eastern end here, the Icefield Expressway sets out for Sirmivak, and the town has a metro line.
   codes:
     admin: '920400'
     unlocode: OT UKL
@@ -296,6 +350,9 @@ divisions:
     zh: 矿港区
     en: Ore Harbour District
     art-x-tavrunaq: Ukkunuqa
+  notes:
+    zh: 乌库拉克市的城区和港口，在矿港峡湾口，60 万人。矿港散货码头装运镍城冶炼厂的产品和东部矿山的矿石，旁边是油品码头和物流仓库。乌库拉克站是南岸高速铁路的东端终点，城区有一条地铁和约 10 公里的暖廊；南岸高速在这里结束，冰原高速从这里出发。
+    en: The town and port of Ukkulaaq City, at the mouth of Ore Harbour Fjord, with 600,000 people. The Ore Harbour Bulk Terminal ships the output of the Nickel Town smelter and the ore of the eastern mines, beside an oil terminal and warehouses. Ukkulaaq station is the eastern terminus of the South Coast High-Speed Railway, the town has a metro line and some 10 km of skyways, the South Coast Expressway ends here and the Icefield Expressway begins.
   codes:
     admin: '920401'
   population: 600000
@@ -309,6 +366,9 @@ divisions:
     zh: 镍城区
     en: Nickel Town District
     art-x-tavrunaq: Qissarniq
+  notes:
+    zh: 矿港区西北的冶炼工业区，40 万人，第二产业占经济的 65%，比重是全领地各区中最高的。镍城冶炼厂冶炼内陆矿区的镍矿石，水电和冶炼余热为镇上供暖。南岸高速和冰原高速都经过区内。
+    en: The smelting district north-west of Ore Harbour, with 400,000 people; industry makes up 65% of its economy, the highest share of any district in the territory. The Nickel Town Smelter refines ore from the inland mines, and its hydro power and waste heat warm the town. Both the South Coast and Icefield expressways pass through.
   codes:
     admin: '920402'
   population: 400000
@@ -322,6 +382,9 @@ divisions:
     zh: 东峡区
     en: East Fjord District
     art-x-tavrunaq: Pivasuvva
+  notes:
+    zh: 乌库拉克市东部的峡湾地带，面积 24300 平方公里，20 万人分散在峡湾两岸的村镇，塔夫鲁纳克语母语者占 85%。海拔 1681 米的东峡峰俯瞰峡湾，渔业和峡湾观光是主要生计。冰原高速在区内沿峡湾延伸近 290 公里，此前村镇之间只能乘夏季的渡船往来。
+    en: The fjord country of eastern Ukkulaaq City, 24,300 km², with 200,000 people scattered in villages along the fjords, 85% of them native Tavrunaq speakers. The 1,681 m East Fjord Peak looks down on the fjords, and fishing and fjord sightseeing are the main livelihoods. The Icefield Expressway runs nearly 290 km through the district along the fjords; before it the villages were linked only by the summer ferry.
   codes:
     admin: '920403'
   population: 200000
@@ -335,6 +398,9 @@ divisions:
     zh: 极光群岛区
     en: Aurora Islands District
     art-x-tavrunaq: Qavvaluviit
+  notes:
+    zh: 南岸东部外海的极光群岛，由光幕岛、长夜岛和绿光岛组成，24 万人。光幕岛面积 1.1 万平方公里，在领地命名岛屿中仅次于冰牙岛。冬季极光常在光幕湾和极光海峡上空出现，望光岬是观赏的去处，岛上的玻璃屋顶度假村让游客躺在床上看极光；旅游和邮轮业占经济的大半。
+    en: The Aurora Islands off the eastern south coast, Lightcurtain, Longnight and Greenlight islands, with 240,000 people. Lightcurtain Island, 11,000 km², is the largest named island in the territory after Icefang Island. In winter the aurora often shimmers over Lightcurtain Bay and Aurora Strait, Lightwatch Point is the place to watch it, and at the glass-roofed lodge guests watch from their beds; tourism and cruises make up most of the economy.
   codes:
     admin: '920404'
   population: 240000
@@ -348,6 +414,9 @@ divisions:
     zh: 南岸峡湾生态保护区
     en: South Fjords Nature Reserve
     art-x-tavrunaq: Silluasuvvat
+  notes:
+    zh: 乌库拉克市北部的峡湾与冰川山地，整片划为生态保护区，面积 19300 平方公里，常住约 1 万人。海拔 2022 米的苍穹峰是领地第三高峰，苍穹冰川从峰顶向四周流下，矿港峡湾深入保护区；镍城口是穿越山地的低口。冰原高速和南岸高速经过保护区边缘，一条市道从矿港区通到保护区，近一半路段建在防雪棚下。
+    en: The fjord and glacier mountains of northern Ukkulaaq City, all of them a nature reserve, 19,300 km² with about 10,000 residents. The 2,022 m Skydome Peak, the territory's third highest, sheds the Skydome Glacier in every direction, Ore Harbour Fjord reaches deep into the reserve, and Nickel Pass is the low way across the mountains. The Icefield and South Coast expressways cross the edge of the reserve, and a city road from Ore Harbour runs into it, nearly half of it under snow sheds.
   codes:
     admin: '920405'
   population: 10000
@@ -364,6 +433,9 @@ divisions:
     zh: 图利瓦克市
     en: Tullivaq City
     art-x-tavrunaq: Tullivaq
+  notes:
+    zh: 大陆西端的城市，在首府以西约 700 公里，90 万人。冷空气和冷谷区的水电让这里成为领地的数据中心与算力基地，数据群岛上的数据中心以海底光缆连到世界各地，卫星群岛的地面站接收极轨卫星的数据。全市人均产值约 11 万美元，在各市中仅次于金融特区，劳动年龄人口占 72%。城区冷风区是南岸高速、苔原高速和南岸高速铁路的西端起点，西部高原生态保护区占全市四成多的面积。
+    en: The city at the western end of the mainland, some 700 km west of the capital, with 900,000 people. Cold air and the hydro power of Cold Valley make it the territory's centre of data centres and computing; the data centres of the Data Islands reach the world through undersea cables, and the ground station on the Satellite Islands downloads data from polar-orbiting satellites. Output per head, about 110,000 dollars, is second only to the Financial Zone among the cities, and 72% of the people are of working age. Its town, Coldwind, is the western start of the South Coast and Tundra expressways and of the high-speed railway, and the Western Plateau Nature Reserve covers over two-fifths of the city.
   codes:
     admin: '920500'
     unlocode: OT TLV
@@ -382,6 +454,9 @@ divisions:
     zh: 冷风区
     en: Coldwind District
     art-x-tavrunaq: Tullikut
+  notes:
+    zh: 图利瓦克市的城区，建在海岸台地上，区名来自终年吹过台地的冷风，50 万人。区内的数据中心和软件公司集中，人均产值在全领地各区中仅次于公共银行区。图利瓦克站是南岸高速铁路的西端终点，南岸高速和苔原高速都从这里出发；城区有约 11 公里的暖廊，冷风河从这里入海，一条市道全程在防雪棚下通往西部高原保护区。
+    en: The town of Tullivaq City, on a windswept coastal terrace that gives it its name, with 500,000 people. Data centres and software firms cluster here, and output per head is second only to Public Bank District among all the territory's districts. Tullivaq station is the western terminus of the South Coast High-Speed Railway, and the South Coast and Tundra expressways both start here; the town has some 11 km of skyways, the Coldwind River reaches the sea here, and a city road runs entirely under snow sheds to the Western Plateau reserve.
   codes:
     admin: '920501'
   population: 500000
@@ -395,6 +470,9 @@ divisions:
     zh: 冷谷区
     en: Cold Valley District
     art-x-tavrunaq: Tullakuuk
+  notes:
+    zh: 图利瓦克城区以东的峡湾河谷，22.5 万人。冷谷峡湾两侧的河流筑有水电站，电力和冷空气吸引了大批数据中心落户，年轻的技术人员多，65 岁以上居民只占 6%，比例是全领地各区中最低的。海拔 502 米的冷谷口是领地最低的命名山口；南岸高速和苔原高速都穿过区内。
+    en: The fjord valley east of Tullivaq's town, with 225,000 people. Hydro stations on the rivers either side of Cold Valley Fjord supply power, and power and cold air have drawn many data centres; young technicians abound, and only 6% of residents are over 65, the lowest share of any district. Cold Valley Pass, at 502 m the lowest named pass in the territory, is here, and both the South Coast and Tundra expressways cross the district.
   codes:
     admin: '920502'
   population: 225000
@@ -408,6 +486,9 @@ divisions:
     zh: 数据群岛区
     en: Data Islands District
     art-x-tavrunaq: Tukkaruviit
+  notes:
+    zh: 大陆西岸外的数据群岛，由冷存岛、光缆岛和白雾岛组成，14 万人。冷存数据中心和北极光算力中心用极地冷空气和海水冷却，余热为岛上的住宅供暖，海底光缆从光缆岛登陆后连到世界各地。光缆海峡宽约 11 公里，是领地最宽的命名海峡。居民多是数据中心的工程师和运维人员。
+    en: The Data Islands off the west coast of the mainland, Coldvault, Cable and Whitefog islands, with 140,000 people. The Coldstore Data Centre and the Northern Lights Compute Centre are cooled by polar air and sea water and warm the islands' homes with their waste heat, and the undersea cables that land on Cable Isle reach around the world. Cable Strait, about 11 km wide, is the widest named strait in the territory. Most residents are engineers and operators at the data centres.
   codes:
     admin: '920503'
   population: 140000
@@ -421,6 +502,9 @@ divisions:
     zh: 卫星群岛区
     en: Satellite Islands District
     art-x-tavrunaq: Tauvvuviit
+  notes:
+    zh: 大陆西北远海的卫星群岛，由天穹岛和天线岛组成，只有 3 万人。极轨卫星每一圈都经过高纬度上空，天穹岛上的地面站天线阵接收卫星数据，再转发到数据群岛；天线岛面积约 340 平方公里，是领地最小的命名岛屿。
+    en: The Satellite Islands far off the north-west of the mainland, Skyvault Island and Antenna Isle, with only 30,000 people. Polar-orbiting satellites pass over the high latitudes on every orbit, and the antenna field of the ground station on Skyvault Island downloads their data and passes it to the Data Islands; Antenna Isle, about 340 km², is the smallest named island in the territory.
   codes:
     admin: '920504'
   population: 30000
@@ -434,6 +518,9 @@ divisions:
     zh: 西部高原生态保护区
     en: Western Plateau Nature Reserve
     art-x-tavrunaq: Pullapukkat
+  notes:
+    zh: 图利瓦克市东北的西部高原，整片划为生态保护区，面积 25200 平方公里，常住约 5000 人，多为驯鹿牧民和巡护员。高原上最高的是海拔 1568 米的高原顶，顶上覆着高原冰帽；高原北缘是信号湾、冷风湾和雪岬。南岸高速和苔原高速以长段防雪棚翻越高原，南岸高速的西部高原防雪棚长约 76 公里。
+    en: The Western Plateau north-east of Tullivaq, all of it a nature reserve, 25,200 km² with about 5,000 residents, mostly reindeer herders and rangers. Its highest point is the 1,568 m Plateau Crown under the Plateau Ice Cap, and its northern edge runs along Signal Bay, Coldwind Bay and Snow Cape. The South Coast and Tundra expressways cross the plateau under long snow sheds; the South Coast Expressway's Western Plateau Snow Shed is about 76 km long.
   codes:
     admin: '920505'
   population: 5000
@@ -450,6 +537,9 @@ divisions:
     zh: 考尔尼克市
     en: Qaurniq City
     art-x-tavrunaq: Qaurniq
+  notes:
+    zh: 大陆内陆的矿业城市，在首府以北约 230 公里，面积 95000 平方公里，在各市中排第三，65 万人。城区晶石区加工钻石，锂湖区从盐湖卤水中提锂，内陆矿区管理区有露天钻石矿和镍矿，大湖苔原生态保护区里是领地最大的命名湖泊伊卢克大湖。第二产业占经济的 54%。努基高速经过晶石区，矿区高速和重载铁路通往锂湖与矿区，晶锂公路在内陆把两条干线连起来。
+    en: The mining city of the inland mainland, about 230 km north of the capital, 95,000 km², the third largest city, with 650,000 people. Its town, Crystal, cuts diamonds, Lithium Lakes draws lithium from salt-lake brine, the Inland Mining Administration Zone has open-pit diamond and nickel mines, and the Great Lakes Tundra Nature Reserve holds Great Illuq Lake, the largest named lake in the territory. Industry makes up 54% of the economy. The Nuqattaaq–Kiluktuar Expressway passes through Crystal, the Mining Expressway and the heavy-haul railway serve Lithium Lakes and the mines, and the Crystal–Lithium Road links the two trunk routes inland.
   codes:
     admin: '920600'
     unlocode: OT QRN
@@ -468,6 +558,9 @@ divisions:
     zh: 晶石区
     en: Crystal District
     art-x-tavrunaq: Qauluk
+  notes:
+    zh: 考尔尼克市的城区，42 万人，以钻石加工和采矿服务为业。晶石钻石切割中心把内陆钻石矿的原石切割、抛光和分级，城区有约 6 公里的暖廊。努基高速从区内穿过，晶锂公路从这里出发通往锂湖区，一条市道以长桥跨过伊卢克大湖通往大湖苔原保护区。
+    en: The town of Qaurniq City, with 420,000 people working in diamond processing and mining services. The Crystal Diamond Cutting Centre cuts, polishes and grades the rough stones of the inland mine, and the town has some 6 km of skyways. The Nuqattaaq–Kiluktuar Expressway runs through, the Crystal–Lithium Road sets out from here for Lithium Lakes, and a city road crosses Great Illuq Lake on a long bridge into the Great Lakes Tundra reserve.
   codes:
     admin: '920601'
   population: 420000
@@ -481,6 +574,9 @@ divisions:
     zh: 锂湖区
     en: Lithium Lakes District
     art-x-tavrunaq: Illuqsaat
+  notes:
+    zh: 考尔尼克市东南的盐湖与山地，从内陆的锂湖一直延伸到南岸的深峡湾，15 万人。锂湖提锂厂从盐湖卤水中提取锂，供应电池工厂；海拔 1887 米的极夜峰和极夜冰川在区内，锂湖口是穿越山地的山口，重载铁路在这里以隧道通过。南岸高速、矿区高速和晶锂公路都经过区内，重载铁路在锂湖货运站停靠。
+    en: The salt lakes and mountains south-east of Qaurniq, reaching from Lithium Lake inland to Deep Fjord on the south coast, with 150,000 people. The Lithium Lakes Brine Works extracts lithium from the brine for battery makers; the 1,887 m Polar Night Peak and the Polar Night Glacier are here, and the heavy-haul railway passes Lithium Pass in a tunnel. The South Coast and Mining expressways and the Crystal–Lithium Road all pass through, and the railway calls at Lithium Lakes freight yard.
   codes:
     admin: '920602'
   population: 150000
@@ -494,6 +590,9 @@ divisions:
     zh: 内陆矿区管理区
     en: Inland Mining Administration Zone
     art-x-tavrunaq: Ukkuliit
+  notes:
+    zh: 考尔尼克市东北的内陆矿区，面积 45000 平方公里，西尔米冰盖的西缘也在区内，常住 7 万人，多为轮班的矿工和物流人员。晶石钻石矿和内陆镍矿是露天矿，各有一条公路接到矿区高速；重载铁路从这里的货运站出发，矿石由无人驾驶列车运往不冻港。
+    en: The inland mining zone north-east of Qaurniq, 45,000 km² and reaching the western edge of the Sirmi Ice Cap, with 70,000 residents, mostly miners on rotation and logistics staff. The Crystal Diamond Mine and the Inland Nickel Mine are open pits, each with a road to the Mining Expressway; the heavy-haul railway starts at the freight yard here, and driverless trains carry the ore to Openwater.
   codes:
     admin: '920603'
   population: 70000
@@ -508,6 +607,9 @@ divisions:
     zh: 大湖苔原生态保护区
     en: Great Lakes Tundra Nature Reserve
     art-x-tavrunaq: Illuqtuar
+  notes:
+    zh: 首府与考尔尼克之间的大湖苔原，整片划为生态保护区，面积 35000 平方公里，常住约 1 万人，以传统渔猎为生。伊卢克大湖面积约 2100 平方公里，是领地最大的命名湖泊，周围散布着无数小湖和湿地；穹顶口在保护区南部。南岸高速、努基高速、矿区高速和晶锂公路都从苔原上穿过，路堤下留有涵洞让融水和动物通过。
+    en: The great-lakes tundra between the capital and Qaurniq, all of it a nature reserve, 35,000 km² with about 10,000 residents who live by traditional fishing and hunting. Great Illuq Lake, about 2,100 km², is the largest named lake in the territory, set among countless small lakes and wetlands, and Dome Pass lies in the south of the reserve. The South Coast, Nuqattaaq–Kiluktuar and Mining expressways and the Crystal–Lithium Road all cross the tundra, with culverts under their embankments for meltwater and wildlife.
   codes:
     admin: '920604'
   population: 10000
@@ -524,6 +626,9 @@ divisions:
     zh: 基卢克图阿尔市
     en: Kiluktuar City
     art-x-tavrunaq: Kiluktuar
+  notes:
+    zh: 北岸的大河城市，在首府以北约 470 公里，基卢克图阿尔河在这里入海，100 万人。城区河口区是商贸与行政中心，冰港区有领地的海警与破冰船基地，上游区沿大河是牧场和渔村，外海的科考群岛有极地研究所，河口三角洲划为湿地保护区。北岸冬季封冻，破冰船为航线开路。努基高速和苔原高速在这里到达北岸，北岸公路沿海岸通往阿卡尼克。
+    en: The great-river city of the north coast, about 470 km north of the capital, where the Kiluktuar River meets the sea, with a million people. Its town, Rivermouth, is the centre of trade and government, Ice Harbour holds the territory's coast guard and icebreaker base, Upriver follows the great river through pastures and fishing villages, the offshore Research Islands host the polar research institute, and the river delta is a wetland reserve. The north coast freezes in winter and icebreakers keep the lanes open. The Nuqattaaq–Kiluktuar and Tundra expressways reach the north coast here, and the North Shore Road runs along the coast towards Aqqanik.
   codes:
     admin: '920700'
     unlocode: OT KLK
@@ -542,6 +647,9 @@ divisions:
     zh: 河口区
     en: Rivermouth District
     art-x-tavrunaq: Kilukkiaq
+  notes:
+    zh: 基卢克图阿尔市的城区，在大河入海处的低地上，最高处海拔只有 41 米，52 万人。城区以商贸、行政和文化遗产为主，有约 8 公里的暖廊；基卢克图阿尔机场在冬季北岸封冻时是城市与外界往来的主要通道。努基高速在这里结束，苔原高速经过区内，一条市道通往三角洲湿地保护区。
+    en: The town of Kiluktuar City, on the lowlands where the great river meets the sea; its highest point is only 41 m above sea level, and it has 520,000 people. Trade, government and heritage lead its economy, and it has some 8 km of skyways; Kiluktuar Airport is the city's main link with the outside world when the north coast freezes. The Nuqattaaq–Kiluktuar Expressway ends here, the Tundra Expressway passes through, and a city road leads to the Delta Wetlands reserve.
   codes:
     admin: '920701'
   population: 520000
@@ -555,6 +663,9 @@ divisions:
     zh: 冰港区
     en: Ice Harbour District
     art-x-tavrunaq: Sirminuqa
+  notes:
+    zh: 河口区以东的港区，23 万人，船舶与海工装备和港口航运是主业。冰港破冰船基地是领地海警与破冰船队的基地，冬季破冰船为北岸航线开路，这也是领地唯一的海上力量。苔原河从区内入海，努基高速和苔原高速都经过这里。
+    en: The harbour district east of Rivermouth, with 230,000 people working mainly in shipbuilding, marine engineering and shipping. The Ice Harbour Icebreaker Base is the home of the territory's coast guard and icebreaker fleet, which clears the north-coast lanes in winter and is the territory's only force at sea. The Tundra River reaches the sea here, and both the Nuqattaaq–Kiluktuar and Tundra expressways pass through.
   codes:
     admin: '920702'
   population: 230000
@@ -568,6 +679,9 @@ divisions:
     zh: 上游区
     en: Upriver District
     art-x-tavrunaq: Paakiluk
+  notes:
+    zh: 基卢克图阿尔河中游的苔原，面积 31000 平方公里，21 万人，塔夫鲁纳克语母语者占 83%。驯鹿放牧、河流渔业和传统渔猎占经济的一半以上，第一产业比重是全领地各区中最高的。基卢克图阿尔河和苔原河在区内流过，努基高速沿大河延伸约 170 公里，北岸公路在这里与它相接。
+    en: The tundra along the middle Kiluktuar River, 31,000 km² with 210,000 people, 83% of them native Tavrunaq speakers. Reindeer herding, river fishing and traditional hunting make up more than half the economy, the highest share of primary industry of any district. The Kiluktuar and Tundra rivers flow through it, the Nuqattaaq–Kiluktuar Expressway follows the great river for some 170 km, and the North Shore Road meets it here.
   codes:
     admin: '920703'
   population: 210000
@@ -581,6 +695,9 @@ divisions:
     zh: 科考群岛区
     en: Research Islands District
     art-x-tavrunaq: Naalluviit
+  notes:
+    zh: 北岸外海的科考群岛，由探知岛、浮标岛和北望岛组成，常住约 2 万人，多为科研人员和他们的家属。北冰洋极地研究所在探知岛上，研究海冰、冻土与北极生态，每年夏季从这里派出科考船；岛上的浮标站和观测塔常年记录海冰与洋流。
+    en: The Research Islands off the north coast, Insight Island, Buoy Isle and Northwatch Isle, with about 20,000 residents, mostly scientists and their families. The Arctic Ocean Polar Research Institute on Insight Island studies sea ice, permafrost and Arctic ecology and sends out research ships each summer, and buoy stations and observation masts on the islands record the ice and currents all year.
   codes:
     admin: '920704'
   population: 20000
@@ -594,6 +711,9 @@ divisions:
     zh: 三角洲湿地生态保护区
     en: Delta Wetlands Nature Reserve
     art-x-tavrunaq: Marrakiluk
+  notes:
+    zh: 基卢克图阿尔河入海处的三角洲，整片划为湿地生态保护区，面积 17100 平方公里，常住约 2 万人，塔夫鲁纳克语母语者占 86%。河道分汊成无数水道和沙洲，夏季成群的水鸟在这里繁殖，居民以传统渔猎为生。苔原高速在三角洲上的路堤延伸约 150 公里，北岸公路和一条市道也经过这里。
+    en: The delta where the Kiluktuar River meets the sea, all of it a wetland nature reserve, 17,100 km² with about 20,000 residents, 86% of them native Tavrunaq speakers. The river splits into countless channels and sandbars, flocks of waterbirds breed here in summer, and people live by traditional fishing and hunting. The Tundra Expressway runs some 150 km across the delta on embankment, and the North Shore Road and a city road also pass through.
   codes:
     admin: '920705'
   population: 20000
@@ -610,6 +730,9 @@ divisions:
     zh: 西尔米瓦克市
     en: Sirmivak City
     art-x-tavrunaq: Sirmivak
+  notes:
+    zh: 领地东北部的冰原城市，面积 164675 平方公里，是领地面积最大的市，约占全领地的四分之一，却只有 42 万人，人口密度在各市中最低。西尔米冰盖和海拔 2506 米的领地最高峰西尔米峰在市境内，外海的冰川群岛和海象熊群岛分别划为冰盖管理区和生态保护区。城区冰川区以冰川旅游和冰雪运动为业，观天区的天文台和观测站散布在冰盖以东的高地上。冰原高速是通往南岸的唯一一条高速。
+    en: The ice-cap city of the territory's north-east, 164,675 km², the largest city in the territory and about a quarter of its area, yet with only 420,000 people, the most thinly peopled city. The Sirmi Ice Cap and Mount Sirmi, at 2,506 m the territory's highest peak, are within it, and the offshore Glacier Islands and Walrus and Bear Islands are an ice administration zone and a nature reserve. Its town, Glacier District, lives from glacier tourism and snow sports, and the observatories of Skywatch are scattered over the uplands east of the ice cap. The Icefield Expressway is its only expressway to the south coast.
   codes:
     admin: '920800'
     unlocode: OT SRM
@@ -628,6 +751,9 @@ divisions:
     zh: 冰川区
     en: Glacier District
     art-x-tavrunaq: Sirmikut
+  notes:
+    zh: 西尔米瓦克市的城区，在西尔米冰盖东北边缘，27.4 万人，平均海拔 956 米，是全领地地势最高的区。冰川游客中心是冰川徒步和冰洞游览的起点，北冰洋种子与基因库凿进城外的冻土山体，保存世界各地的作物种子和基因样本；冰川机场在旅游旺季有包机从南岸飞来。冰原高速在这里结束，一条市道大半在防雪棚下通往冰盖管理区。
+    en: The town of Sirmivak City, on the north-east edge of the Sirmi Ice Cap, with 274,000 people and an average elevation of 956 m, the highest of any district in the territory. The Glacier Visitor Centre is where glacier walks and ice-cave tours set out, the Arctic Ocean Seed and Gene Vault is cut into a permafrost hillside outside town, holding crop seeds and genetic samples from around the world, and charter flights from the south coast land at the glacier airport in the tourist season. The Icefield Expressway ends here, and a city road runs, mostly under snow sheds, into the ice cap zone.
   codes:
     admin: '920801'
   population: 274000
@@ -641,6 +767,9 @@ divisions:
     zh: 观天区
     en: Skywatch District
     art-x-tavrunaq: Tauvvaniq
+  notes:
+    zh: 西尔米冰盖以东的高地，面积 35000 平方公里，14 万人，以科研和卫星遥感为业。冬季连续数月的黑夜和干冷的空气适合天文观测，观天天文台和极光观测站散布在高地上，冰泪湖在区内。冰原高速在区内延伸约 195 公里，观天防雪棚长约 42 公里，沿线不设路灯以免影响观测。
+    en: The uplands east of the Sirmi Ice Cap, 35,000 km² with 140,000 people working in research and satellite remote sensing. Months of night in winter and the dry cold air suit astronomy, the Skywatch Observatory and the aurora stations are scattered over the uplands, and Icetear Lake is here. The Icefield Expressway runs some 195 km through the district, with the 42 km Skywatch Snow Shed, and has no street lighting so as not to disturb the observatories.
   codes:
     admin: '920802'
   population: 140000
@@ -654,6 +783,9 @@ divisions:
     zh: 西尔米冰盖管理区
     en: Sirmi Ice Cap Administration Zone
     art-x-tavrunaq: Sirmitavru
+  notes:
+    zh: 西尔米冰盖所在的冰盖管理区，面积 72600 平方公里，是领地面积最大的区，常住只有约 3000 人。西尔米冰盖面积约 2.9 万平方公里，是领地最大的冰川，顶部的西尔米峰海拔 2506 米，是领地最高点；冰盖口海拔 2102 米，是最高的命名山口，西尔米河从冰盖流出，是领地最长的河流。冰芯钻探站在冰盖深处，夏季才有飞机往返。冰原高速沿冰盖外缘的基岩修建，不上冰面。
+    en: The ice administration zone of the Sirmi Ice Cap, 72,600 km², the largest district in the territory, with only about 3,000 residents. The ice cap, some 29,000 km², is the territory's largest glacier, and Mount Sirmi on its crown, 2,506 m, is the highest point; Icecap Col, at 2,102 m, is the highest named pass, and the Sirmi River, the longest river in the territory, flows from the ice. The ice core station deep on the cap is reached by air only in summer. The Icefield Expressway keeps to the bedrock round the edge of the cap and never goes onto the ice.
   codes:
     admin: '920803'
   population: 3000
@@ -668,6 +800,9 @@ divisions:
     zh: 冰川群岛冰盖管理区
     en: Glacier Islands Ice Administration Zone
     art-x-tavrunaq: Sirmiuviit
+  notes:
+    zh: 北部外海的冰川群岛，由冰牙岛、冰山岛和漂冰岛组成，整片划为冰盖管理区，常住约 2000 人。冰牙岛面积约 2.9 万平方公里，是领地最大的命名岛屿，岛上的冰牙山覆盖着冰牙冰帽，主峰冰牙峰海拔 2236 米，是领地第二高峰。冰川入海处不断崩落冰山，冰山观测站为南岸航线发布冰山预报，夏季有邮轮前来观赏。
+    en: The Glacier Islands off the north, Icefang, Iceberg and Drift Ice islands, all of them an ice administration zone with about 2,000 residents. Icefang Island, some 29,000 km², is the largest named island in the territory; its Icefang Mountains carry the Icefang Ice Cap, and Icefang Peak, 2,236 m, is the territory's second highest. Where the glaciers meet the sea they calve icebergs continually, the iceberg station issues warnings for the south-coast shipping lanes, and cruise ships come to watch in summer.
   codes:
     admin: '920804'
   population: 2000
@@ -682,6 +817,9 @@ divisions:
     zh: 海象熊群岛生态保护区
     en: Walrus and Bear Islands Nature Reserve
     art-x-tavrunaq: Uvvaakkaruq
+  notes:
+    zh: 东北远海的海象熊群岛，由乌瓦克岛、卡鲁克岛、冰崖岛和浮冰岛组成，整片划为生态保护区，常住只有约 1000 人，是全领地人口最少的区。乌瓦克湾面积约 6100 平方公里，是领地最大的命名海湾，岸边是海象的栖息地，北极熊在浮冰和岛屿之间迁移；保护站的巡护员常年监测它们。
+    en: The Walrus and Bear Islands far off the north-east, Uvvaak, Karuq, Ice Cliff and Floe islands, all of them a nature reserve with only about 1,000 residents, the fewest of any district. Uvvaak Bay, about 6,100 km², is the largest named bay in the territory; walruses haul out on its shores and polar bears roam between the floes and the islands, watched all year by the rangers of the reserve station.
   codes:
     admin: '920805'
   population: 1000
@@ -698,6 +836,9 @@ divisions:
     zh: 乌维克萨克市
     en: Uviqsaaq City
     art-x-tavrunaq: Uviqsaaq
+  notes:
+    zh: 大陆以东远海的群岛城市，在首府以东约 930 公里，28 万人，全市都在稀土群岛上。稀土群岛的露天矿出产稀土精矿，在稀土港装船外运，采矿、港口和制造业是主业，第二产业占经济的四成多。全市没有通往大陆的公路，对外靠船只和乌维克萨克机场的航班。
+    en: The island city far east of the mainland, about 930 km east of the capital, with 280,000 people, all of it on the Rare Earth Islands. The open pit on the islands produces rare-earth concentrate, shipped out from Rare Earth Harbour, and mining, the port and manufacturing are the mainstays, industry making up over two-fifths of the economy. There is no road to the mainland; ships and the flights from Uviqsaaq Airport are the only links.
   codes:
     admin: '920900'
     unlocode: OT UVQ
@@ -716,6 +857,9 @@ divisions:
     zh: 稀土港区
     en: Rare Earth Harbour District
     art-x-tavrunaq: Uviqnuqa
+  notes:
+    zh: 乌维克萨克市的城区，在乌维克萨克岛上，25 万人。稀土港码头运出稀土精矿，运进燃料和补给；乌维克萨克机场有航班飞往首府和西尔米瓦克。城外的稀土海峡宽约 2 公里，是领地最窄的命名海峡。
+    en: The town of Uviqsaaq City, on Uviqsaaq Island, with 250,000 people. The Rare Earth Harbour Quay ships out the concentrate and brings in fuel and supplies, and Uviqsaaq Airport has flights to the capital and Sirmivak. Rare Earth Strait outside the town, about 2 km wide, is the narrowest named strait in the territory.
   codes:
     admin: '920901'
   population: 250000
@@ -729,6 +873,9 @@ divisions:
     zh: 稀土群岛矿区管理区
     en: Rare Earth Islands Mining Administration Zone
     art-x-tavrunaq: Ukkuuviit
+  notes:
+    zh: 稀土群岛的矿区管理区，包括乌维克萨克岛的大部分和南矿岛、磁石岛、北矿岛，常住约 3 万人，多为矿工。稀土群岛露天矿在岛上，精矿运往稀土港；稀土湾在群岛之间。
+    en: The mining administration zone of the Rare Earth Islands, covering most of Uviqsaaq Island and South Ore, Lodestone and North Ore islands, with about 30,000 residents, mostly miners. The open pit is on the islands and its concentrate goes to Rare Earth Harbour; Rare Earth Bay lies between the islands.
   codes:
     admin: '920902'
   population: 30000
@@ -745,6 +892,9 @@ divisions:
     zh: 塔夫鲁利特原住民自治区
     en: Tavrulit Indigenous Autonomous Region
     art-x-tavrunaq: Tavrulit Nalliqut
+  notes:
+    zh: 塔夫鲁利特人的原住民自治区，覆盖大陆北部和内陆的大片苔原，面积 131080 平方公里，在各市级区划中排第二，120 万人，塔夫鲁纳克语母语者占 72%，比例是各市中最高的。自治区的长老议事会参与领地治理，涉及土地、狩猎与迁徙路线的领地法案须经它同意。驯鹿放牧、传统渔猎和文化遗产是经济的特色，狗拉雪橇赛、鼓舞、口述史诗和岩雕骨雕代代相传。首府阿卡尼克有努阿高速通往领地首府，苔原高速和北岸公路连接南北两岸。
+    en: The indigenous autonomous region of the Tavrulit people, covering the north of the mainland and much of the inland tundra, 131,080 km², the second largest city-level division, with 1.2 million people; 72% are native Tavrunaq speakers, the highest share of any city. The region's council of elders takes part in governing the territory, and territorial laws on land, hunting and migration routes need its consent. Reindeer herding, traditional hunting and fishing and heritage give the economy its character, and dog-sled racing, drum dancing, the oral epics and rock and bone carving are handed down through the generations. The Nuqattaaq–Aqqanik Expressway links its capital, Aqqanik, with the territorial capital, and the Tundra Expressway and North Shore Road connect it with both coasts.
   codes:
     admin: '921000'
     unlocode: OT AQK
@@ -764,6 +914,9 @@ divisions:
     zh: 阿卡尼克区
     en: Aqqanik District
     art-x-tavrunaq: Aqqanik
+  notes:
+    zh: 塔夫鲁利特原住民自治区的首府，52 万人，以行政、文化遗产和教育为主。塔夫鲁利特长老议事会、文化中心和雪橇赛场都在区内：文化中心收藏岩雕、骨雕与皮鼓，每年冬至举办鼓舞节；狗拉雪橇赛从这里出发，沿传统雪橇道穿越苔原。阿卡尼克机场有航班飞往首府和苔原上的牧区小镇。努阿高速在这里结束，苔原高速以阿卡尼克高架桥经过区内，北岸公路从这里出发，一条市道通往驯鹿迁徙保护区。
+    en: The capital of the Tavrulit Indigenous Autonomous Region, with 520,000 people working mainly in government, heritage and education. The Tavrulit Council of Elders, the cultural centre and the sled race grounds are all here; the cultural centre holds rock and bone carvings and skin drums and hosts a drum-dance festival every midwinter, and the dog-sled races set out from here along the old sled trails across the tundra. Aqqanik Airport has flights to the capital and the herding towns of the tundra. The Nuqattaaq–Aqqanik Expressway ends here, the Tundra Expressway crosses the district on the Aqqanik Viaduct, the North Shore Road begins here, and a city road leads into the Reindeer Migration reserve.
   codes:
     admin: '921001'
   population: 520000
@@ -777,6 +930,9 @@ divisions:
     zh: 北岸猎区
     en: North Shore Hunting District
     art-x-tavrunaq: Aqqapituk
+  notes:
+    zh: 自治区北部沿海的传统猎场，面积 28000 平方公里，20 万人，塔夫鲁纳克语母语者占 81%。冬季猎人沿海冰上的雪橇道猎海豹和海象、凿冰捕鱼，夏季划皮划艇和小船出海，渔猎占经济的三分之一以上。北岸公路在区内延伸约 115 公里，雪橇道与公路交叉处冬季雪橇优先；努基高速和苔原高速也经过区内。
+    en: The traditional hunting ground along the region's northern coast, 28,000 km² with 200,000 people, 81% of them native Tavrunaq speakers. In winter hunters travel the sled trails on the sea ice after seal and walrus and fish through holes in the ice, and in summer they go out by kayak and small boat; hunting and fishing make up over a third of the economy. The North Shore Road runs some 115 km through the district, with sleds given right of way at the trail crossings in winter, and the Nuqattaaq–Kiluktuar and Tundra expressways also pass through.
   codes:
     admin: '921002'
   population: 200000
@@ -790,6 +946,9 @@ divisions:
     zh: 苔原牧区
     en: Tundra Herding District
     art-x-tavrunaq: Nirsavaq
+  notes:
+    zh: 首府西北的大片牧场，面积 37800 平方公里，30 万人，驯鹿放牧和传统渔猎占经济的一半，人均产值是全领地各区中最低的。千峡冰原近一半的面积和鹿饮湖在区内，苔原上散布着古老的石人和石堆路标。努阿高速在区内延伸约 360 公里，沿途保留了石堆路标；南岸高速也从区南部穿过。
+    en: The wide pastures north-west of the capital, 37,800 km² with 300,000 people; reindeer herding and traditional hunting make up half the economy, and output per head is the lowest of any district. Nearly half of the Thousand Fjords Icefield and Reindeer Drink Lake are here, and ancient stone figures and cairns stand on the tundra. The Nuqattaaq–Aqqanik Expressway runs some 360 km through the district, leaving the cairns where they stood, and the South Coast Expressway crosses its south.
   codes:
     admin: '921003'
   population: 300000
@@ -803,6 +962,9 @@ divisions:
     zh: 渔猎群岛区
     en: Hunting Islands District
     art-x-tavrunaq: Pitukuviit
+  notes:
+    zh: 北岸外海的渔猎群岛，由大猎岛和鱼叉岛组成，15 万人，是塔夫鲁利特人传统的海上猎场。大猎岛面积约 1 万平方公里，在领地命名岛屿中排第三；海岸岩石上刻着鲸、海豹与皮划艇的岩雕。猎人海峡宽约 5 公里，猎人岬是出海的地标。
+    en: The Hunting Islands off the north coast, Great Hunting Island and Harpoon Island, with 150,000 people, the traditional sea-hunting grounds of the Tavrulit. Great Hunting Island, about 10,000 km², is the third largest named island in the territory, and carvings of whales, seals and kayaks cover the shore rocks. Hunters' Strait is about 5 km wide, and Hunter's Cape is the landmark for putting out to sea.
   codes:
     admin: '921004'
   population: 150000
@@ -816,6 +978,9 @@ divisions:
     zh: 驯鹿迁徙生态保护区
     en: Reindeer Migration Nature Reserve
     art-x-tavrunaq: Nirsatuvvit
+  notes:
+    zh: 驯鹿迁徙路线所在的生态保护区，面积 50200 平方公里，是领地面积第二大的区，常住约 3 万人，多为随鹿群迁徙的牧民。驯鹿每年春季回到驯鹿产仔地产仔，产仔季节禁止车辆和飞机靠近；海拔 1950 米的驯鹿峰和长湖在区内。南岸高速和苔原高速穿过保护区时抬高路堤、加宽涵洞，并在迁徙季节限制夜间车流。
+    en: The nature reserve of the reindeer migration routes, 50,200 km², the second largest district in the territory, with about 30,000 residents, mostly herders who follow the herds. The reindeer return to the calving grounds each spring, when vehicles and aircraft must keep away; the 1,950 m Reindeer Peak and Long Lake are here. Where the South Coast and Tundra expressways cross the reserve, their embankments are raised and culverts widened, and night traffic is restricted in the migration season.
   codes:
     admin: '921005'
   population: 30000

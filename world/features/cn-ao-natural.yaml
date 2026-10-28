@@ -10,6 +10,9 @@ features:
       zh: 千峡山脉
       en: Thousand Fjords Range
       art-x-tavrunaq: Suvvatuar
+    notes:
+      zh: 横贯大陆南部的山脉，在南岸背后东西绵延数百公里，跨越西峡区、苔原牧区、锂湖区、南岸峡湾生态保护区和东峡区等多个区，最高峰是东段的苍穹峰，海拔 2022 米。山脉把南岸的城市与内陆苔原隔开，努基高速、努阿高速、矿区高速和西峡公路都以长段防雪棚翻越，南岸高速铁路以千峡山脉隧道穿过。
+      en: The range that runs across the south of the mainland, stretching for hundreds of kilometres from west to east behind the south coast through many districts, among them West Fjord, the Tundra Herding District, Lithium Lakes, the South Fjords Nature Reserve and East Fjord; its highest summit is Skydome Peak in the east, 2,022 m. It separates the south-coast cities from the inland tundra, and the Nuqattaaq–Kiluktuar, Nuqattaaq–Aqqanik and Mining expressways and the West Fjord Road all cross it under long snow sheds, while the South Coast High-Speed Railway passes through it in the Thousand Fjords Range Tunnel.
   - id: nat_1wpnhj
     subtype: mountain_range
     status: generated
@@ -17,6 +20,9 @@ features:
       zh: 西尔米高地
       en: Sirmi Highlands
       art-x-tavrunaq: Sirmipukka
+    notes:
+      zh: 西尔米冰盖之下的高地，几乎全部在西尔米冰盖管理区内，最高点西尔米峰海拔 2506 米，是领地地势最高的山地。高地终年被冰盖覆盖，只有边缘的山峰露出冰面。
+      en: The highlands beneath the Sirmi Ice Cap, almost entirely within the Sirmi Ice Cap Administration Zone; their highest point, Mount Sirmi at 2,506 m, makes them the highest ground in the territory. They lie under the ice all year, with only peaks at the edges showing through.
   - id: nat_9zwd86
     subtype: plateau
     status: generated
@@ -24,6 +30,9 @@ features:
       zh: 西部高原
       en: Western Plateau
       art-x-tavrunaq: Pullapukka
+    notes:
+      zh: 图利瓦克市以东的高原，大部分在西部高原生态保护区，南缘伸入冷谷区，最高点高原顶海拔 1568 米，顶上覆盖着高原冰帽。高原上风大雪深，南岸高速以长约 76 公里的西部高原防雪棚翻越，苔原高速以西部高原隧道穿过。
+      en: The plateau east of Tullivaq City, mostly in the Western Plateau Nature Reserve with its southern edge in Cold Valley District; its highest point, Plateau Crown at 1,568 m, is capped by the Plateau Ice Cap. It is windy and deep in snow, and the South Coast Expressway crosses it under the 76 km Western Plateau Snow Shed while the Tundra Expressway passes through it in the Western Plateau Tunnel.
   - id: nat_1ahtkg
     subtype: mountain_range
     status: generated
@@ -31,6 +40,9 @@ features:
       zh: 冰牙山
       en: Icefang Mountains
       art-x-tavrunaq: Sirmikiiq
+    notes:
+      zh: 纵贯冰牙岛的山脉，全部在冰川群岛冰盖管理区内，主峰冰牙峰海拔 2236 米，山顶覆盖着冰牙冰帽，冰川从山上流入四周的海中。
+      en: The mountains that run the length of Icefang Island, entirely within the Glacier Islands Ice Cap Administration Zone; their summit, Icefang Peak, reaches 2,236 m under the Icefang Ice Cap, and glaciers flow from them into the surrounding sea.
   - id: nat_0hg79k
     subtype: ridge
     status: generated
@@ -38,3 +50,6 @@ features:
       zh: 晶石丘陵
       en: Crystal Hills
       art-x-tavrunaq: Qaulukkat
+    notes:
+      zh: 锂湖区与大湖苔原生态保护区之间的丘陵，最高处海拔近 1700 米。内陆矿区重载铁路以长约 28 公里的晶石丘陵隧道穿过，这是领地最长的隧道；矿区高速也以隧道穿过，晶锂公路则以防雪棚翻越。
+      en: The hills between Lithium Lakes District and the Great Lakes Tundra Nature Reserve, rising to nearly 1,700 m. The Inland Mines Heavy-Haul Railway passes beneath them in the 28 km Crystal Hills Tunnel, the longest tunnel in the territory; the Mining Expressway also tunnels through, while the Crystal–Lithium Road crosses them under a snow shed.
