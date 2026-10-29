@@ -316,7 +316,7 @@ places:
       zh: 冬季在冻结的湖面上开辟的赛车场，举办冰上赛车和雪地摩托比赛
       en: A racetrack laid out on a frozen lake each winter for ice racing and snowmobile events.
     in: div_jvwq60
-    offset_km: [3, 2]
+    offset_km: [-1.5, 2]
     site: { layout: park, size_m: [1500, 700] }
   - id: poi_2mw1wp
     subtype: airport

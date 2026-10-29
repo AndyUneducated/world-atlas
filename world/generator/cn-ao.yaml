@@ -164,7 +164,7 @@ relief:
 # Polar land cover: tundra almost everywhere, birch scrub only in the lowest sheltered valleys of
 # the warm south coast, very little farmland, wet ground and lakes across the low interior.
 landcover:
-  urban_density_per_km2: 6000   # compact cities joined by skyways
+  urban_density_per_km2: 4000   # compact cities joined by skyways
   urban_max_slope_deg: 12
   urban_terrace_slope_deg: 22
   urban_max_area_ratio: 2       # a town whose centre lies by ice or a lake keeps only the nearest buildable ground

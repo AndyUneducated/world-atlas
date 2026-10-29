@@ -57,8 +57,8 @@ divisions:
   codes:
     admin: '920100'
     unlocode: AO NUQ
-  population: 5000000
-  area_km2: 9000.0
+  population: 1500000
+  area_km2: 8960.0
   color: '#1B2F5E'
   emblem:
     motif: dome
@@ -77,7 +77,7 @@ divisions:
     en: The oldest part of the capital, on the west side of the mouth of Nuqattaaq Fjord, grown out of the old fishing port; its timber houses, fish market and boatyards keep the old organic street pattern, and more than half its people are native Tavrunaq speakers. 900,000 people live in its 300 km², the densest district of the capital after Dome District. Old Harbour Light Square is the main venue of the polar-night light festival and the ice-sculpture show, where winter visitors come for the lights and smoked fish. The South Coast Expressway passes through in the Old Harbour Tunnel and then crosses the fjord mouth to Openwater on the sea bridge; the ring road and a metro line also run through, and some 19 km of skyways cover the main streets.
   codes:
     admin: '920101'
-  population: 900000
+  population: 270000
   area_km2: 300.0
   traits: { industries: [government, heritage, tourism], heritage: polar_mixed }
 - id: div_9s80v8
@@ -93,7 +93,7 @@ divisions:
     en: The centre of the capital, along Nuqattaaq Fjord, with 1.1 million people in 250 km², the most populous and most densely peopled district in the territory. The government and assembly, the Central Dome and Nuqattaaq station on the high-speed line are all here, Dome Boulevard is lined with shops, hotels and offices, and some 53 km of skyways join them together. The metro line under Dome Boulevard runs to the international airport in Antler District. The Nuqattaaq–Kiluktuar and Financial Zone expressways start here, and the Pallurniq Financial Zone adjoins it to the north. Many residents are incoming finance and technology workers, and output per head is the highest of the capital's districts.
   codes:
     admin: '920102'
-  population: 1100000
+  population: 330000
   area_km2: 250.0
   traits: { industries: [commerce, finance, tourism], income: 1.15 }
 - id: div_j06x18
@@ -109,7 +109,7 @@ divisions:
     en: The capital's northern residential district, with a million people living mostly in rows of apartment blocks with their community services. The University of the Arctic Ocean is here, known for polar engineering, glaciology, financial law and Tavrunaq studies, and its students and staff make the district younger than the centre; each winter the Fjordside Ice Sculpture Garden turns blocks of fjord ice into castles and mythical figures. The Nuqattaaq–Kiluktuar Expressway and the ring road both pass through, and a metro line links it with the centre.
   codes:
     admin: '920103'
-  population: 1000000
+  population: 300000
   area_km2: 600.0
   traits: { industries: [residential, education, commerce] }
 - id: div_3b9pkz
@@ -125,7 +125,7 @@ divisions:
     en: The capital's western residential and health district, with 900,000 people. Its skyways run to some 102 km, the longest network in the territory, so homes, hospitals, shops and metro stations can be reached without going outdoors, and it has the highest share of older residents in the capital. The Skyway Indoor Beach keeps summer warmth and light all year, and the Polar Night Arena hosts ice sports and the opening of the light festival in winter. The South Coast Expressway and the ring road cross the district, and the Nuqattaaq–Aqqanik Expressway starts here for Aqqanik.
   codes:
     admin: '920104'
-  population: 900000
+  population: 270000
   area_km2: 700.0
   traits: { industries: [residential, healthcare, retail] }
 - id: div_k8cx0t
@@ -141,7 +141,7 @@ divisions:
     en: A district on the northern edge of the capital, 2,000 km² with 450,000 people; beyond the town lies snow-covered white tundra, which gives it its name. Whitemoor Lake is here, warehouses line the Nuqattaaq–Kiluktuar Expressway and the ring road, and the Whitemoor Vertical Farm grows vegetables and berries under artificial light, supplying most of the capital's fresh greens. The expressway heads north through the district, the last stretch of suburb before the Thousand Fjords Range.
   codes:
     admin: '920105'
-  population: 450000
+  population: 135000
   area_km2: 2000.0
   traits: { industries: [aviation, logistics, residential] }
 - id: div_jvwq60
@@ -157,7 +157,7 @@ divisions:
     en: The capital's port district, on the east side of the mouth of Nuqattaaq Fjord, with 500,000 people. A warm current keeps the harbour open all year, and the moles of Openwater Harbour, the largest harbour in the territory, hold container, ore, oil and ro-ro terminals; the Inland Mines Heavy-Haul Railway ends at the freight yard here, its ore goes straight onto ships, and the control centre of its driverless trains is in the district. The Mining Expressway heads north from here, the South Coast Expressway arrives over the fjord-mouth sea bridge and the ring road skirts the harbour. In winter an ice speedway is laid out on a frozen lake.
   codes:
     admin: '920106'
-  population: 500000
+  population: 150000
   area_km2: 1200.0
   traits: { industries: [port, shipbuilding, logistics] }
 - id: div_k4vyb1
@@ -173,8 +173,8 @@ divisions:
     en: The capital's north-eastern outskirts, nearly 4,000 km² with only 150,000 people, where reindeer are still herded on the open tundra and over half the residents are native Tavrunaq speakers. Nuqattaaq International Airport is here, its runways heated against snow, and the metro runs all the way from the centre to the terminal; at the Antler Midnight Sun Golf Course players tee off at midnight in summer. The South Coast, Nuqattaaq–Kiluktuar and Financial Zone expressways, the ring road and the Mining Expressway all pass through, making it the transport hub on the edge of the capital.
   codes:
     admin: '920107'
-  population: 150000
-  area_km2: 3950.0
+  population: 45000
+  area_km2: 3910.0
   traits: { industries: [research, education, herding], heritage: polar_mixed, age: young }
 
 # ── 帕卢尔尼克金融特区 ──
@@ -192,14 +192,14 @@ divisions:
   codes:
     admin: '920200'
     unlocode: AO PLN
-  population: 60000
-  area_km2: 20.0
+  population: 180000
+  area_km2: 60.0
   special_status: financial_zone
   color: '#B8892B'
   emblem:
     motif: exchange
     pattern: hex
-  traits: { industries: [finance, trade, tech], heritage: polar_global, age: young, income: 1.6 }
+  traits: { industries: [finance, trade, tech], heritage: polar_global, age: young, income: 6.4 }
 - id: div_ga9pxy
   subtype: borough
   parent: div_p808br
@@ -213,8 +213,8 @@ divisions:
     en: The only district of the Pallurniq Financial Zone, about 60,000 people in 20 km² of almost nothing but towers, domes and podiums. Public Bank Avenue is lined with the Arctic Ocean Public Bank headquarters and the towers of its four affiliates (commercial, investment, private and custody banking), and Vault Street leads to the permafrost gold vault; the clearing house, financial court, arbitration centre, companies registry and digital asset exchange stand around the centre. The Pallurniq Winter Garden and the Midnight Sun Square are the two domes where staff spend their lunch hours and the winter, and some 23 km of skyways join the buildings. Most residents are incoming finance, legal and technology workers, and 76% are of working age.
   codes:
     admin: '920201'
-  population: 60000
-  area_km2: 20.0
+  population: 180000
+  area_km2: 60.0
 
 # ── 萨尔瓦克市 ──
 - id: div_nbf1bw
@@ -231,7 +231,7 @@ divisions:
   codes:
     admin: '920300'
     unlocode: AO SRV
-  population: 1700000
+  population: 592800
   area_km2: 62000.0
   color: '#1F7A8C'
   emblem:
@@ -251,7 +251,7 @@ divisions:
     en: The town of Saarvaq City, at the mouth of Warm Current Fjord, with 750,000 people and an old quarter whose streets follow the harbour. Warm Current Fishing Harbour is one of the larger fishing harbours of the south coast, where trawlers and fish-farm carriers land their catch among cold stores and processing plants. Saarvaq station is on the South Coast High-Speed Railway, the town has a metro line and some 15 km of skyways, the South Coast Expressway passes through, and the West Fjord Road sets out north-west from here for the fjord villages.
   codes:
     admin: '920301'
-  population: 750000
+  population: 260000
   area_km2: 500.0
   traits: { industries: [port, commerce, food] }
 - id: div_qg40vj
@@ -267,7 +267,7 @@ divisions:
     en: The fishing district east of Saarvaq's town, with 400,000 people; fishing villages, quays and processing plants line its bays, primary industry makes up nearly a quarter of the economy, and it is one of the main fishing districts of the south coast. The South Coast Expressway runs some 60 km through it, carrying the catch to Warm Current Harbour and the capital.
   codes:
     admin: '920302'
-  population: 400000
+  population: 140000
   area_km2: 2500.0
   traits: { industries: [fishing, food, port] }
 - id: div_hrrg7q
@@ -283,7 +283,7 @@ divisions:
     en: The fjord and mountain country of western and northern Saarvaq City, 38,500 km², the largest ordinary district in the territory, with only 325,000 people, 85% of them native Tavrunaq speakers. Warm Current Fjord, the Whitecrown Glacier and the 1,879 m Whitecrown Peak are here, and Warmwind Pass leads over the mountains. People live in fishing villages and small towns at the heads of the fjords, from fish farming, fishing and tourism. The South Coast and Tundra expressways and the high-speed railway cross its mountains, the railway's West Fjord Viaduct being the longest bridge on the line, and the West Fjord Road reaches the district's town.
   codes:
     admin: '920303'
-  population: 325000
+  population: 114000
   area_km2: 38500.0
   traits: { industries: [aquaculture, tourism, fishing], heritage: tavrulit }
 - id: div_2541fx
@@ -299,7 +299,7 @@ divisions:
     en: The Sea Pasture Islands off the south coast, Netpen, Seaweed, Warmtide and South Light islands, with 220,000 people. The bays between them are deep and sheltered, Warmtide Bay is full of deep-water fish pens, and hatcheries and processing plants stand on shore; farming, fishing and fish processing make up most of the economy. There are no expressways on the islands, and boats link them with the mainland.
   codes:
     admin: '920304'
-  population: 220000
+  population: 77000
   area_km2: 12500.0
   traits: { industries: [aquaculture, fishing, food] }
 - id: div_jd4ms5
@@ -315,7 +315,7 @@ divisions:
     en: The Basalt Pillar Islands far out to the west, Pillar, Darkstone and Organ islands, all of them a nature reserve with about 5,000 residents, mostly rangers and fishers. Rows of hexagonal basalt columns rise from the sea along the shore, guillemots and Arctic gulls nest on the cliffs, and the sound of the waves in the gaps between the columns, like an organ, gave Organ Isle its name. Visitors may only look from boats at a protected distance.
   codes:
     admin: '920305'
-  population: 5000
+  population: 1800
   area_km2: 8000.0
   special_status: nature_reserve
   traits: { industries: [conservation, tourism], heritage: tavrulit }
@@ -335,7 +335,7 @@ divisions:
   codes:
     admin: '920400'
     unlocode: AO UKL
-  population: 1450000
+  population: 507500
   area_km2: 63400.0
   color: '#7A5C3E'
   emblem:
@@ -355,7 +355,7 @@ divisions:
     en: The town and port of Ukkulaaq City, at the mouth of Ore Harbour Fjord, with 600,000 people. The Ore Harbour Bulk Terminal ships the output of the Nickel Town smelter and the ore of the eastern mines, beside an oil terminal and warehouses. Ukkulaaq station is the eastern terminus of the South Coast High-Speed Railway, the town has a metro line and some 10 km of skyways, the South Coast Expressway ends here and the Icefield Expressway begins.
   codes:
     admin: '920401'
-  population: 600000
+  population: 210000
   area_km2: 900.0
   traits: { industries: [port, logistics, mining] }
 - id: div_1d76zf
@@ -371,7 +371,7 @@ divisions:
     en: The smelting district north-west of Ore Harbour, with 400,000 people; industry makes up 65% of its economy, the highest share of any district in the territory. The Nickel Town Smelter refines ore from the inland mines, and its hydro power and waste heat warm the town. Both the South Coast and Icefield expressways pass through.
   codes:
     admin: '920402'
-  population: 400000
+  population: 140000
   area_km2: 3100.0
   traits: { industries: [manufacturing, mining] }
 - id: div_stts1z
@@ -387,7 +387,7 @@ divisions:
     en: The fjord country of eastern Ukkulaaq City, 24,300 km², with 200,000 people scattered in villages along the fjords, 85% of them native Tavrunaq speakers. The 1,681 m East Fjord Peak looks down on the fjords, and fishing and fjord sightseeing are the main livelihoods. The Icefield Expressway runs nearly 290 km through the district along the fjords; before it the villages were linked only by the summer ferry.
   codes:
     admin: '920403'
-  population: 200000
+  population: 70000
   area_km2: 24300.0
   traits: { industries: [tourism, fishing], heritage: tavrulit }
 - id: div_7ee7ab
@@ -403,7 +403,7 @@ divisions:
     en: The Aurora Islands off the eastern south coast, Lightcurtain, Longnight and Greenlight islands, with 240,000 people. Lightcurtain Island, 11,000 km², is the largest named island in the territory after Icefang Island. In winter the aurora often shimmers over Lightcurtain Bay and Aurora Strait, Lightwatch Point is the place to watch it, and at the glass-roofed lodge guests watch from their beds; tourism and cruises make up most of the economy.
   codes:
     admin: '920404'
-  population: 240000
+  population: 84000
   area_km2: 15800.0
   traits: { industries: [tourism, cruise, fishing] }
 - id: div_6469m0
@@ -419,7 +419,7 @@ divisions:
     en: The fjord and glacier mountains of northern Ukkulaaq City, all of them a nature reserve, 19,300 km² with about 10,000 residents. The 2,022 m Skydome Peak, the territory's third highest, sheds the Skydome Glacier in every direction, Ore Harbour Fjord reaches deep into the reserve, and Nickel Pass is the low way across the mountains. The Icefield and South Coast expressways cross the edge of the reserve, and a city road from Ore Harbour runs into it, nearly half of it under snow sheds.
   codes:
     admin: '920405'
-  population: 10000
+  population: 3500
   area_km2: 19300.0
   special_status: nature_reserve
   traits: { industries: [conservation, tourism], heritage: tavrulit }
@@ -439,7 +439,7 @@ divisions:
   codes:
     admin: '920500'
     unlocode: AO TLV
-  population: 900000
+  population: 315300
   area_km2: 58300.0
   color: '#3E6FB0'
   emblem:
@@ -459,7 +459,7 @@ divisions:
     en: The town of Tullivaq City, on a windswept coastal terrace that gives it its name, with 500,000 people. Data centres and software firms cluster here, and output per head is second only to Public Bank District among all the territory's districts. Tullivaq station is the western terminus of the South Coast High-Speed Railway, and the South Coast and Tundra expressways both start here; the town has some 11 km of skyways, the Coldwind River reaches the sea here, and a city road runs entirely under snow sheds to the Western Plateau reserve.
   codes:
     admin: '920501'
-  population: 500000
+  population: 175000
   area_km2: 800.0
   traits: { industries: [datacenter, tech, commerce] }
 - id: div_najb0c
@@ -475,7 +475,7 @@ divisions:
     en: The fjord valley east of Tullivaq's town, with 225,000 people. Hydro stations on the rivers either side of Cold Valley Fjord supply power, and power and cold air have drawn many data centres; young technicians abound, and only 6% of residents are over 65, the lowest share of any district. Cold Valley Pass, at 502 m the lowest named pass in the territory, is here, and both the South Coast and Tundra expressways cross the district.
   codes:
     admin: '920502'
-  population: 225000
+  population: 79000
   area_km2: 14200.0
   traits: { industries: [datacenter, hydropower], heritage: polar_mixed }
 - id: div_3xz1pw
@@ -491,7 +491,7 @@ divisions:
     en: The Data Islands off the west coast of the mainland, Coldvault, Cable and Whitefog islands, with 140,000 people. The Coldstore Data Centre and the Northern Lights Compute Centre are cooled by polar air and sea water and warm the islands' homes with their waste heat, and the undersea cables that land on Cable Isle reach around the world. Cable Strait, about 11 km wide, is the widest named strait in the territory. Most residents are engineers and operators at the data centres.
   codes:
     admin: '920503'
-  population: 140000
+  population: 49000
   area_km2: 9600.0
   traits: { industries: [datacenter, tech] }
 - id: div_6p8a1q
@@ -507,7 +507,7 @@ divisions:
     en: The Satellite Islands far off the north-west of the mainland, Skyvault Island and Antenna Isle, with only 30,000 people. Polar-orbiting satellites pass over the high latitudes on every orbit, and the antenna field of the ground station on Skyvault Island downloads their data and passes it to the Data Islands; Antenna Isle, about 340 km², is the smallest named island in the territory.
   codes:
     admin: '920504'
-  population: 30000
+  population: 10500
   area_km2: 8500.0
   traits: { industries: [satellite, research] }
 - id: div_5h1yv5
@@ -523,7 +523,7 @@ divisions:
     en: The Western Plateau north-east of Tullivaq, all of it a nature reserve, 25,200 km² with about 5,000 residents, mostly reindeer herders and rangers. Its highest point is the 1,568 m Plateau Crown under the Plateau Ice Cap, and its northern edge runs along Signal Bay, Coldwind Bay and Snow Cape. The South Coast and Tundra expressways cross the plateau under long snow sheds; the South Coast Expressway's Western Plateau Snow Shed is about 76 km long.
   codes:
     admin: '920505'
-  population: 5000
+  population: 1800
   area_km2: 25200.0
   special_status: nature_reserve
   traits: { industries: [conservation, herding], heritage: tavrulit }
@@ -543,7 +543,7 @@ divisions:
   codes:
     admin: '920600'
     unlocode: AO QRN
-  population: 650000
+  population: 357500
   area_km2: 95000.0
   color: '#6B4FA0'
   emblem:
@@ -563,7 +563,7 @@ divisions:
     en: The town of Qaurniq City, with 420,000 people working in diamond processing and mining services. The Crystal Diamond Cutting Centre cuts, polishes and grades the rough stones of the inland mine, and the town has some 6 km of skyways. The Nuqattaaq–Kiluktuar Expressway runs through, the Crystal–Lithium Road sets out from here for Lithium Lakes, and a city road crosses Great Illuq Lake on a long bridge into the Great Lakes Tundra reserve.
   codes:
     admin: '920601'
-  population: 420000
+  population: 230000
   area_km2: 1500.0
   traits: { industries: [mining, manufacturing, commerce] }
 - id: div_qaxzqj
@@ -579,7 +579,7 @@ divisions:
     en: The salt lakes and mountains south-east of Qaurniq, reaching from Lithium Lake inland to Deep Fjord on the south coast, with 150,000 people. The Lithium Lakes Brine Works extracts lithium from the brine for battery makers; the 1,887 m Polar Night Peak and the Polar Night Glacier are here, and the heavy-haul railway passes Lithium Pass in a tunnel. The South Coast and Mining expressways and the Crystal–Lithium Road all pass through, and the railway calls at Lithium Lakes freight yard.
   codes:
     admin: '920602'
-  population: 150000
+  population: 83000
   area_km2: 13500.0
   traits: { industries: [mining, manufacturing] }
 - id: div_m541k8
@@ -595,7 +595,7 @@ divisions:
     en: The inland mining zone north-east of Qaurniq, 45,000 km² and reaching the western edge of the Sirmi Ice Cap, with 70,000 residents, mostly miners on rotation and logistics staff. The Crystal Diamond Mine and the Inland Nickel Mine are open pits, each with a road to the Mining Expressway; the heavy-haul railway starts at the freight yard here, and driverless trains carry the ore to Openwater.
   codes:
     admin: '920603'
-  population: 70000
+  population: 39000
   area_km2: 45000.0
   special_status: mining_zone
   traits: { industries: [mining, logistics] }
@@ -612,7 +612,7 @@ divisions:
     en: The great-lakes tundra between the capital and Qaurniq, all of it a nature reserve, 35,000 km² with about 10,000 residents who live by traditional fishing and hunting. Great Illuq Lake, about 2,100 km², is the largest named lake in the territory, set among countless small lakes and wetlands, and Dome Pass lies in the south of the reserve. The South Coast, Nuqattaaq–Kiluktuar and Mining expressways and the Crystal–Lithium Road all cross the tundra, with culverts under their embankments for meltwater and wildlife.
   codes:
     admin: '920604'
-  population: 10000
+  population: 5500
   area_km2: 35000.0
   special_status: nature_reserve
   traits: { industries: [conservation, hunting], heritage: tavrulit }
@@ -632,7 +632,7 @@ divisions:
   codes:
     admin: '920700'
     unlocode: AO KLK
-  population: 1000000
+  population: 555200
   area_km2: 60000.0
   color: '#2F7D5B'
   emblem:
@@ -652,7 +652,7 @@ divisions:
     en: The town of Kiluktuar City, on the lowlands where the great river meets the sea; its highest point is only 41 m above sea level, and it has 520,000 people. Trade, government and heritage lead its economy, and it has some 8 km of skyways; Kiluktuar Airport is the city's main link with the outside world when the north coast freezes. The Nuqattaaq–Kiluktuar Expressway ends here, the Tundra Expressway passes through, and a city road leads to the Delta Wetlands reserve.
   codes:
     admin: '920701'
-  population: 520000
+  population: 290000
   area_km2: 800.0
   traits: { industries: [commerce, heritage, government] }
 - id: div_m0b417
@@ -668,7 +668,7 @@ divisions:
     en: The harbour district east of Rivermouth, with 230,000 people working mainly in shipbuilding, marine engineering and shipping. The Ice Harbour Icebreaker Base is the home of the territory's coast guard and icebreaker fleet, which clears the north-coast lanes in winter and is the territory's only force at sea. The Tundra River reaches the sea here, and both the Nuqattaaq–Kiluktuar and Tundra expressways pass through.
   codes:
     admin: '920702'
-  population: 230000
+  population: 127000
   area_km2: 2200.0
   traits: { industries: [port, shipbuilding, defence] }
 - id: div_xvm6y0
@@ -684,7 +684,7 @@ divisions:
     en: The tundra along the middle Kiluktuar River, 31,000 km² with 210,000 people, 83% of them native Tavrunaq speakers. Reindeer herding, river fishing and traditional hunting make up more than half the economy, the highest share of primary industry of any district. The Kiluktuar and Tundra rivers flow through it, the Nuqattaaq–Kiluktuar Expressway follows the great river for some 170 km, and the North Shore Road meets it here.
   codes:
     admin: '920703'
-  population: 210000
+  population: 116000
   area_km2: 31000.0
   traits: { industries: [herding, fishing, hunting], heritage: tavrulit }
 - id: div_rcnhch
@@ -700,7 +700,7 @@ divisions:
     en: The Research Islands off the north coast, Insight Island, Buoy Isle and Northwatch Isle, with about 20,000 residents, mostly scientists and their families. The Arctic Ocean Polar Research Institute on Insight Island studies sea ice, permafrost and Arctic ecology and sends out research ships each summer, and buoy stations and observation masts on the islands record the ice and currents all year.
   codes:
     admin: '920704'
-  population: 20000
+  population: 11100
   area_km2: 8900.0
   traits: { industries: [research, education], heritage: polar_global }
 - id: div_jyszba
@@ -716,7 +716,7 @@ divisions:
     en: The delta where the Kiluktuar River meets the sea, all of it a wetland nature reserve, 17,100 km² with about 20,000 residents, 86% of them native Tavrunaq speakers. The river splits into countless channels and sandbars, flocks of waterbirds breed here in summer, and people live by traditional fishing and hunting. The Tundra Expressway runs some 150 km across the delta on embankment, and the North Shore Road and a city road also pass through.
   codes:
     admin: '920705'
-  population: 20000
+  population: 11100
   area_km2: 17100.0
   special_status: nature_reserve
   traits: { industries: [conservation, hunting], heritage: tavrulit }
@@ -736,7 +736,7 @@ divisions:
   codes:
     admin: '920800'
     unlocode: AO SRM
-  population: 420000
+  population: 233400
   area_km2: 163300.0
   color: '#5FA8C8'
   emblem:
@@ -756,7 +756,7 @@ divisions:
     en: The town of Sirmivak City, on the north-east edge of the Sirmi Ice Cap, with 274,000 people and an average elevation of 956 m, the highest of any district in the territory. The Glacier Visitor Centre is where glacier walks and ice-cave tours set out, the Arctic Ocean Seed and Gene Vault is cut into a permafrost hillside outside town, holding crop seeds and genetic samples from around the world, and charter flights from the south coast land at the glacier airport in the tourist season. The Icefield Expressway ends here, and a city road runs, mostly under snow sheds, into the ice cap zone.
   codes:
     admin: '920801'
-  population: 274000
+  population: 152000
   area_km2: 1200.0
   traits: { industries: [tourism, ski, commerce] }
 - id: div_3j7f20
@@ -772,7 +772,7 @@ divisions:
     en: The uplands east of the Sirmi Ice Cap, 35,000 km² with 140,000 people working in research and satellite remote sensing. Months of night in winter and the dry cold air suit astronomy, the Skywatch Observatory and the aurora stations are scattered over the uplands, and Icetear Lake is here. The Icefield Expressway runs some 195 km through the district, with the 42 km Skywatch Snow Shed, and has no street lighting so as not to disturb the observatories.
   codes:
     admin: '920802'
-  population: 140000
+  population: 78000
   area_km2: 35000.0
   traits: { industries: [research, education, satellite], heritage: polar_global }
 - id: div_hbdzam
@@ -788,7 +788,7 @@ divisions:
     en: The ice administration zone of the Sirmi Ice Cap, 72,600 km², the largest district in the territory, with only about 3,000 residents. The ice cap, some 29,000 km², is the territory's largest glacier, and Mount Sirmi on its crown, 2,506 m, is the highest point; Icecap Col, at 2,102 m, is the highest named pass, and the Sirmi River, the longest river in the territory, flows from the ice. The ice core station deep on the cap is reached by air only in summer. The Icefield Expressway keeps to the bedrock round the edge of the cap and never goes onto the ice.
   codes:
     admin: '920803'
-  population: 3000
+  population: 1700
   area_km2: 72600.0
   special_status: ice_cap_zone
   traits: { industries: [research, conservation] }
@@ -805,7 +805,7 @@ divisions:
     en: The Glacier Islands off the north, Icefang, Iceberg and Drift Ice islands, all of them an ice administration zone with about 2,000 residents. Icefang Island, some 29,000 km², is the largest named island in the territory; its Icefang Mountains carry the Icefang Ice Cap, and Icefang Peak, 2,236 m, is the territory's second highest. Where the glaciers meet the sea they calve icebergs continually, the iceberg station issues warnings for the south-coast shipping lanes, and cruise ships come to watch in summer.
   codes:
     admin: '920804'
-  population: 2000
+  population: 1100
   area_km2: 32500.0
   special_status: ice_cap_zone
   traits: { industries: [research, cruise] }
@@ -822,7 +822,7 @@ divisions:
     en: The Walrus and Bear Islands far off the north-east, Uvvaak, Karuq, Ice Cliff and Floe islands, all of them a nature reserve with only about 1,000 residents, the fewest of any district. Uvvaak Bay, about 6,100 km², is the largest named bay in the territory; walruses haul out on its shores and polar bears roam between the floes and the islands, watched all year by the rangers of the reserve station.
   codes:
     admin: '920805'
-  population: 1000
+  population: 600
   area_km2: 22000.0
   special_status: nature_reserve
   traits: { industries: [conservation, research] }
@@ -842,7 +842,7 @@ divisions:
   codes:
     admin: '920900'
     unlocode: AO UVQ
-  population: 280000
+  population: 154600
   area_km2: 10900.0
   color: '#9C4A5A'
   emblem:
@@ -862,7 +862,7 @@ divisions:
     en: The town of Uviqsaaq City, on Uviqsaaq Island, with 250,000 people. The Rare Earth Harbour Quay ships out the concentrate and brings in fuel and supplies, and Uviqsaaq Airport has flights to the capital and Sirmivak. Rare Earth Strait outside the town, about 2 km wide, is the narrowest named strait in the territory.
   codes:
     admin: '920901'
-  population: 250000
+  population: 138000
   area_km2: 1500.0
   traits: { industries: [port, mining, manufacturing] }
 - id: div_4ymjbf
@@ -878,7 +878,7 @@ divisions:
     en: The mining administration zone of the Rare Earth Islands, covering most of Uviqsaaq Island and South Ore, Lodestone and North Ore islands, with about 30,000 residents, mostly miners. The open pit is on the islands and its concentrate goes to Rare Earth Harbour; Rare Earth Bay lies between the islands.
   codes:
     admin: '920902'
-  population: 30000
+  population: 16600
   area_km2: 9400.0
   special_status: mining_zone
   traits: { industries: [mining, logistics] }
@@ -898,7 +898,7 @@ divisions:
   codes:
     admin: '921000'
     unlocode: AO AQK
-  population: 1200000
+  population: 667700
   area_km2: 131080.0
   special_status: autonomous_region
   color: '#B5653A'
@@ -919,7 +919,7 @@ divisions:
     en: The capital of the Tavrulit Indigenous Autonomous Region, with 520,000 people working mainly in government, heritage and education. The Tavrulit Council of Elders, the cultural centre and the sled race grounds are all here; the cultural centre holds rock and bone carvings and skin drums and hosts a drum-dance festival every midwinter, and the dog-sled races set out from here along the old sled trails across the tundra. Aqqanik Airport has flights to the capital and the herding towns of the tundra. The Nuqattaaq–Aqqanik Expressway ends here, the Tundra Expressway crosses the district on the Aqqanik Viaduct, the North Shore Road begins here, and a city road leads into the Reindeer Migration reserve.
   codes:
     admin: '921001'
-  population: 520000
+  population: 291100
   area_km2: 2980.0
   traits: { industries: [government, heritage, education], heritage: polar_mixed }
 - id: div_m34jqk
@@ -935,7 +935,7 @@ divisions:
     en: The traditional hunting ground along the region's northern coast, 28,000 km² with 200,000 people, 81% of them native Tavrunaq speakers. In winter hunters travel the sled trails on the sea ice after seal and walrus and fish through holes in the ice, and in summer they go out by kayak and small boat; hunting and fishing make up over a third of the economy. The North Shore Road runs some 115 km through the district, with sleds given right of way at the trail crossings in winter, and the Nuqattaaq–Kiluktuar and Tundra expressways also pass through.
   codes:
     admin: '921002'
-  population: 200000
+  population: 111000
   area_km2: 28000.0
   traits: { industries: [hunting, fishing] }
 - id: div_d9hctg
@@ -951,7 +951,7 @@ divisions:
     en: The wide pastures north-west of the capital, 37,800 km² with 300,000 people; reindeer herding and traditional hunting make up half the economy, and output per head is the lowest of any district. Nearly half of the Thousand Fjords Icefield and Reindeer Drink Lake are here, and ancient stone figures and cairns stand on the tundra. The Nuqattaaq–Aqqanik Expressway runs some 360 km through the district, leaving the cairns where they stood, and the South Coast Expressway crosses its south.
   codes:
     admin: '921003'
-  population: 300000
+  population: 166000
   area_km2: 37800.0
   traits: { industries: [herding, hunting] }
 - id: div_zq16x4
@@ -967,7 +967,7 @@ divisions:
     en: The Hunting Islands off the north coast, Great Hunting Island and Harpoon Island, with 150,000 people, the traditional sea-hunting grounds of the Tavrulit. Great Hunting Island, about 10,000 km², is the third largest named island in the territory, and carvings of whales, seals and kayaks cover the shore rocks. Hunters' Strait is about 5 km wide, and Hunter's Cape is the landmark for putting out to sea.
   codes:
     admin: '921004'
-  population: 150000
+  population: 83000
   area_km2: 12100.0
   traits: { industries: [hunting, fishing] }
 - id: div_7b21kg
@@ -983,7 +983,7 @@ divisions:
     en: The nature reserve of the reindeer migration routes, 50,200 km², the second largest district in the territory, with about 30,000 residents, mostly herders who follow the herds. The reindeer return to the calving grounds each spring, when vehicles and aircraft must keep away; the 1,950 m Reindeer Peak and Long Lake are here. Where the South Coast and Tundra expressways cross the reserve, their embankments are raised and culverts widened, and night traffic is restricted in the migration season.
   codes:
     admin: '921005'
-  population: 30000
+  population: 16600
   area_km2: 50200.0
   special_status: nature_reserve
   traits: { industries: [herding, conservation] }

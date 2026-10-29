@@ -52,7 +52,7 @@ divisions:
   codes:
     admin: '910100'
     unlocode: VK LGS
-  population: 11500000
+  population: 2300000
   area_km2: 15650.0
   color: '#2E86AB'
   emblem:
@@ -73,7 +73,7 @@ divisions:
     art-x-buckham: Città Vecchia
   codes:
     admin: '910101'
-  population: 2400000
+  population: 480000
   area_km2: 600.0
   traits: { industries: [tourism, heritage, government] }
   notes:
@@ -90,7 +90,7 @@ divisions:
     art-x-buckham: Marcoro
   codes:
     admin: '910102'
-  population: 2100000
+  population: 420000
   area_km2: 900.0
   traits: { industries: [finance, commerce, tech], income: 1.15 }
   notes:
@@ -107,7 +107,7 @@ divisions:
     art-x-buckham: Capo Nord
   codes:
     admin: '910103'
-  population: 1400000
+  population: 280000
   area_km2: 3500.0
   traits: { industries: [aviation, education, residential], heritage: mixed }
   notes:
@@ -124,7 +124,7 @@ divisions:
     art-x-buckham: Porto Est
   codes:
     admin: '910104'
-  population: 2200000
+  population: 440000
   area_km2: 1800.0
   traits: { industries: [port, logistics, shipbuilding] }
   notes:
@@ -141,7 +141,7 @@ divisions:
     art-x-buckham: Riva Ovest
   codes:
     admin: '910105'
-  population: 2000000
+  population: 400000
   area_km2: 2500.0
   traits: { industries: [residential, commerce], heritage: mixed, age: young }
   notes:
@@ -158,7 +158,7 @@ divisions:
     art-x-buckham: Spiaggialunga
   codes:
     admin: '910106'
-  population: 1400000
+  population: 280000
   area_km2: 6350.0
   traits: { industries: [residential, agriculture, tourism], heritage: mixed }
   notes:
@@ -176,7 +176,7 @@ divisions:
   codes:
     admin: '910600'
     unlocode: VK RUD
-  population: 1300000
+  population: 685000
   area_km2: 8950.0
   color: '#457B9D'
   emblem:
@@ -197,7 +197,7 @@ divisions:
     art-x-buckham: Portotimone
   codes:
     admin: '910601'
-  population: 900000
+  population: 485000
   area_km2: 4000.0
   traits: { industries: [port, commerce, logistics] }
   notes:
@@ -214,7 +214,7 @@ divisions:
     art-x-buckham: Poppa
   codes:
     admin: '910602'
-  population: 400000
+  population: 200000
   area_km2: 4950.0
   traits: { industries: [fishing, dairy, tourism], age: old }
   notes:
@@ -232,7 +232,7 @@ divisions:
   codes:
     admin: '910700'
     unlocode: VK KEL
-  population: 600000
+  population: 300000
   area_km2: 9400.0
   color: '#6D597A'
   emblem:
@@ -253,7 +253,7 @@ divisions:
     art-x-buckham: Chiglia
   codes:
     admin: '910701'
-  population: 600000
+  population: 300000
   area_km2: 9400.0
   traits: { industries: [forestry, ski, tourism] }
   notes:
@@ -271,7 +271,7 @@ divisions:
   codes:
     admin: '910800'
     unlocode: VK TID
-  population: 800000
+  population: 400000
   area_km2: 7400.0
   color: '#3D8A8A'
   emblem:
@@ -292,7 +292,7 @@ divisions:
     art-x-buckham: Baiamarea
   codes:
     admin: '910801'
-  population: 800000
+  population: 400000
   area_km2: 7400.0
   traits: { industries: [tidal, fishing, commerce] }
   notes:
@@ -312,7 +312,7 @@ divisions:
   codes:
     admin: '910200'
     unlocode: VK WSL
-  population: 3000000
+  population: 600000
   area_km2: 11250.0
   color: '#E9A23B'
   emblem:
@@ -333,7 +333,7 @@ divisions:
     art-x-buckham: Porto Vela
   codes:
     admin: '910201'
-  population: 1000000
+  population: 200000
   area_km2: 1500.0
   traits: { industries: [cruise, retail, port] }
   notes:
@@ -350,7 +350,7 @@ divisions:
     art-x-buckham: Faro
   codes:
     admin: '910202'
-  population: 400000
+  population: 80000
   area_km2: 3350.0
   traits: { industries: [tourism, fishing], age: old }
   notes:
@@ -367,7 +367,7 @@ divisions:
     art-x-buckham: Città Vela
   codes:
     admin: '910203'
-  population: 1100000
+  population: 220000
   area_km2: 2000.0
   traits: { industries: [government, heritage, manufacturing], heritage: viking }
   notes:
@@ -384,7 +384,7 @@ divisions:
     art-x-buckham: Guardamare
   codes:
     admin: '910204'
-  population: 500000
+  population: 100000
   area_km2: 4400.0
   traits: { industries: [residential, agriculture, tourism] }
   notes:
@@ -402,7 +402,7 @@ divisions:
   codes:
     admin: '910900'
     unlocode: VK SSH
-  population: 300000
+  population: 152000
   area_km2: 8300.0
   color: '#B08968'
   emblem:
@@ -423,7 +423,7 @@ divisions:
     art-x-buckham: Ombravela
   codes:
     admin: '910901'
-  population: 300000
+  population: 152000
   area_km2: 8300.0
   traits: { industries: [forestry, tourism] }
   notes:
@@ -441,7 +441,7 @@ divisions:
   codes:
     admin: '911000'
     unlocode: VK SLT
-  population: 900000
+  population: 452000
   area_km2: 8650.0
   color: '#8AB17D'
   emblem:
@@ -462,7 +462,7 @@ divisions:
     art-x-buckham: Baiasale
   codes:
     admin: '911001'
-  population: 600000
+  population: 300000
   area_km2: 3950.0
   traits: { industries: [salt, wind] }
   notes:
@@ -479,7 +479,7 @@ divisions:
     art-x-buckham: Porto Pescatori
   codes:
     admin: '911002'
-  population: 300000
+  population: 152000
   area_km2: 4700.0
   traits: { industries: [fishing, food] }
   notes:
@@ -497,7 +497,7 @@ divisions:
   codes:
     admin: '911100'
     unlocode: VK GUL
-  population: 800000
+  population: 401000
   area_km2: 8600.0
   color: '#8D99AE'
   emblem:
@@ -518,7 +518,7 @@ divisions:
     art-x-buckham: Gabbiano
   codes:
     admin: '911101'
-  population: 600000
+  population: 300000
   area_km2: 4400.0
   traits: { industries: [tourism, residential] }
   notes:
@@ -535,7 +535,7 @@ divisions:
     art-x-buckham: Crestabianca
   codes:
     admin: '911102'
-  population: 200000
+  population: 101000
   area_km2: 4200.0
   traits: { industries: [forestry, dairy] }
   notes:
@@ -555,7 +555,7 @@ divisions:
   codes:
     admin: '910500'
     unlocode: VK ANC
-  population: 3500000
+  population: 700000
   area_km2: 13000.0
   color: '#1D3557'
   emblem:
@@ -576,7 +576,7 @@ divisions:
     art-x-buckham: Baia dell'Ancora
   codes:
     admin: '910501'
-  population: 900000
+  population: 180000
   area_km2: 1900.0
   traits: { industries: [port, logistics] }
   notes:
@@ -593,7 +593,7 @@ divisions:
     art-x-buckham: Cantiere
   codes:
     admin: '910502'
-  population: 800000
+  population: 160000
   area_km2: 2700.0
   traits: { industries: [shipbuilding, manufacturing] }
   notes:
@@ -610,7 +610,7 @@ divisions:
     art-x-buckham: Città Catena
   codes:
     admin: '910503'
-  population: 1300000
+  population: 260000
   area_km2: 2700.0
   traits: { industries: [finance, commerce, government] }
   notes:
@@ -627,7 +627,7 @@ divisions:
     art-x-buckham: Marra Ovest
   codes:
     admin: '910504'
-  population: 500000
+  population: 100000
   area_km2: 5700.0
   traits: { industries: [residential, dairy, tourism] }
   notes:
@@ -645,7 +645,7 @@ divisions:
   codes:
     admin: '911200'
     unlocode: VK MST
-  population: 900000
+  population: 452000
   area_km2: 12150.0
   color: '#5E6472'
   emblem:
@@ -666,7 +666,7 @@ divisions:
     art-x-buckham: Baianebbia
   codes:
     admin: '911201'
-  population: 600000
+  population: 300000
   area_km2: 5300.0
   traits: { industries: [fishing, wind] }
   notes:
@@ -683,7 +683,7 @@ divisions:
     art-x-buckham: Fiordo
   codes:
     admin: '911202'
-  population: 300000
+  population: 152000
   area_km2: 6850.0
   traits: { industries: [tourism, forestry] }
   notes:
@@ -701,7 +701,7 @@ divisions:
   codes:
     admin: '911300'
     unlocode: VK PIN
-  population: 500000
+  population: 250000
   area_km2: 11900.0
   color: '#2D6A4F'
   emblem:
@@ -722,7 +722,7 @@ divisions:
     art-x-buckham: Pineta
   codes:
     admin: '911301'
-  population: 500000
+  population: 250000
   area_km2: 11900.0
   traits: { industries: [forestry, tourism] }
   notes:
@@ -742,7 +742,7 @@ divisions:
   codes:
     admin: '910300'
     unlocode: VK WSP
-  population: 2200000
+  population: 440000
   area_km2: 12450.0
   color: '#E76F51'
   emblem:
@@ -763,7 +763,7 @@ divisions:
     art-x-buckham: Terme
   codes:
     admin: '910301'
-  population: 900000
+  population: 180000
   area_km2: 3000.0
   traits: { industries: [tourism, healthcare, conference] }
   notes:
@@ -780,7 +780,7 @@ divisions:
     art-x-buckham: Sabbianera
   codes:
     admin: '910302'
-  population: 500000
+  population: 100000
   area_km2: 4500.0
   traits: { industries: [tourism, geothermal] }
   notes:
@@ -797,7 +797,7 @@ divisions:
     art-x-buckham: Fiumecaldo
   codes:
     admin: '910303'
-  population: 800000
+  population: 160000
   area_km2: 4950.0
   traits: { industries: [port, food, residential], age: young }
   notes:
@@ -815,7 +815,7 @@ divisions:
   codes:
     admin: '911400'
     unlocode: VK SUL
-  population: 600000
+  population: 300000
   area_km2: 10300.0
   color: '#D4A017'
   emblem:
@@ -836,7 +836,7 @@ divisions:
     art-x-buckham: Baiazolfo
   codes:
     admin: '911401'
-  population: 600000
+  population: 300000
   area_km2: 10300.0
   traits: { industries: [greenhouse, tourism, geothermal] }
   notes:
@@ -854,7 +854,7 @@ divisions:
   codes:
     admin: '911500'
     unlocode: VK RKH
-  population: 800000
+  population: 406000
   area_km2: 11300.0
   color: '#9C6644'
   emblem:
@@ -875,7 +875,7 @@ divisions:
     art-x-buckham: Portoroccia
   codes:
     admin: '911501'
-  population: 550000
+  population: 280000
   area_km2: 4900.0
   traits: { industries: [mining, geothermal, port] }
   notes:
@@ -892,7 +892,7 @@ divisions:
     art-x-buckham: Tramonto
   codes:
     admin: '911502'
-  population: 250000
+  population: 126000
   area_km2: 6400.0
   traits: { industries: [tourism, fishing], age: old }
   notes:
@@ -912,7 +912,7 @@ divisions:
   codes:
     admin: '910400'
     unlocode: VK OUT
-  population: 250000
+  population: 126000
   area_km2: 7450.0
   color: '#2A9D8F'
   emblem:
@@ -933,7 +933,7 @@ divisions:
     art-x-buckham: Isola Balena
   codes:
     admin: '910401'
-  population: 170000
+  population: 86000
   area_km2: 5250.0
   traits: { industries: [tourism, fishing] }
   notes:
@@ -950,7 +950,7 @@ divisions:
     art-x-buckham: Scogliera Uccelli
   codes:
     admin: '910402'
-  population: 80000
+  population: 40000
   area_km2: 2200.0
   traits: { industries: [tourism, fishing] }
   notes:
@@ -968,7 +968,7 @@ divisions:
   codes:
     admin: '911600'
     unlocode: VK MAS
-  population: 700000
+  population: 351000
   area_km2: 6300.0
   color: '#C9A227'
   emblem:
@@ -989,7 +989,7 @@ divisions:
     art-x-buckham: Portalbero
   codes:
     admin: '911601'
-  population: 500000
+  population: 250000
   area_km2: 2950.0
   traits: { industries: [fishing, port, tourism] }
   notes:
@@ -1006,7 +1006,7 @@ divisions:
     art-x-buckham: Albero Sud
   codes:
     admin: '911602'
-  population: 200000
+  population: 101000
   area_km2: 3350.0
   traits: { industries: [dairy, tourism, forestry] }
   notes:
@@ -1024,7 +1024,7 @@ divisions:
   codes:
     admin: '911700'
     unlocode: VK SST
-  population: 450000
+  population: 230000
   area_km2: 5300.0
   color: '#4361EE'
   emblem:
@@ -1045,7 +1045,7 @@ divisions:
     art-x-buckham: Stellasud
   codes:
     admin: '911701'
-  population: 450000
+  population: 230000
   area_km2: 5300.0
   traits: { industries: [tourism, fishing] }
   notes:
@@ -1063,7 +1063,7 @@ divisions:
   codes:
     admin: '911800'
     unlocode: VK DWN
-  population: 350000
+  population: 177000
   area_km2: 4000.0
   color: '#F4A261'
   emblem:
@@ -1084,7 +1084,7 @@ divisions:
     art-x-buckham: Aurora
   codes:
     admin: '911801'
-  population: 350000
+  population: 177000
   area_km2: 4000.0
   traits: { industries: [tourism, wind, fishing] }
   notes:
@@ -1102,7 +1102,7 @@ divisions:
   codes:
     admin: '911900'
     unlocode: VK COD
-  population: 300000
+  population: 152000
   area_km2: 3250.0
   color: '#5FA8D3'
   emblem:
@@ -1123,7 +1123,7 @@ divisions:
     art-x-buckham: Portomerluzzo
   codes:
     admin: '911901'
-  population: 300000
+  population: 152000
   area_km2: 3250.0
   traits: { industries: [fishing, food] }
   notes:
@@ -1141,7 +1141,7 @@ divisions:
   codes:
     admin: '912000'
     unlocode: VK WND
-  population: 250000
+  population: 126000
   area_km2: 2400.0
   color: '#90BE6D'
   emblem:
@@ -1162,7 +1162,7 @@ divisions:
     art-x-buckham: Portovento
   codes:
     admin: '912001'
-  population: 250000
+  population: 126000
   area_km2: 2400.0
   traits: { industries: [wind, manufacturing, fishing] }
   notes:

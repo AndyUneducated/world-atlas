@@ -634,7 +634,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         label_features.append(feature(point_lonlat(frame, *poles[core[ci]]), {
             "id": c["id"], "kind": "locality", "name_zh": c["names"]["zh"], "name_en": c["names"]["en"],
             "capital": is_capital, "population": c["population"], "color": c["color"],
-            "rank": 1 if is_capital else (2 if c["population"] >= 1_000_000 else 3)}))
+            "rank": 1 if is_capital else (2 if c["population"] >= 500_000 else 3)}))
     for i, d in enumerate(districts):
         ci = district_city[i]
         add_division(d, dist_polys[i], poles[i], dist_r == i, {"color": cities[ci]["color"], "city": cities[ci]["id"], "rank": 2})

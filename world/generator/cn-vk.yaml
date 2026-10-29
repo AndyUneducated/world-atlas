@@ -98,9 +98,10 @@ relief:
 # Cool-temperate maritime islands: lowland forest and farmland, moorland above the treeline,
 # ice only on the summit of Warmspring Volcano.
 landcover:
-  urban_density_per_km2: 6000   # flat land is scarce on the islands: denser, taller towns than North Viking Island
+  urban_density_per_km2: 4500   # flat land is scarce on the islands: denser, taller towns than North Viking Island
   urban_max_slope_deg: 12
   urban_terrace_slope_deg: 22
+  urban_max_area_ratio: 2
   wetland_max_elev_m: 80
   wetland_wetness: 2.4
   farm_max_elev_m: 250

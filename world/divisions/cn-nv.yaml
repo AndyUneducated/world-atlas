@@ -46,7 +46,7 @@ divisions:
   codes:
     admin: '900100'
     unlocode: NV FRD
-  population: 560000
+  population: 385000
   area_km2: 17680.0
   color: '#E9B949'
   emblem:
@@ -67,7 +67,7 @@ divisions:
     art-x-buckham: Betulla
   codes:
     admin: '900101'
-  population: 320000
+  population: 220000
   area_km2: 5760.0
   traits: { industries: [government, finance, healthcare] }
   notes:
@@ -84,7 +84,7 @@ divisions:
     art-x-buckham: Rivo Nord
   codes:
     admin: '900102'
-  population: 150000
+  population: 103000
   area_km2: 4640.0
   traits: { industries: [commerce, residential, dairy] }
   notes:
@@ -101,7 +101,7 @@ divisions:
     art-x-buckham: Banco Sabbia
   codes:
     admin: '900103'
-  population: 90000
+  population: 62000
   area_km2: 7280.0
   traits: { industries: [port, logistics, fishing], heritage: mixed }
   notes:
@@ -119,7 +119,7 @@ divisions:
   codes:
     admin: '900200'
     unlocode: NV VKP
-  population: 3100000
+  population: 934000
   area_km2: 12320.0
   color: '#4C8BF5'
   emblem:
@@ -140,7 +140,7 @@ divisions:
     art-x-buckham: Baia Balena
   codes:
     admin: '900201'
-  population: 1020000
+  population: 310000
   area_km2: 2600.0
   traits: { industries: [port, logistics, manufacturing] }
   notes:
@@ -157,7 +157,7 @@ divisions:
     art-x-buckham: Capo Faro
   codes:
     admin: '900202'
-  population: 800000
+  population: 240000
   area_km2: 2500.0
   traits: { industries: [cruise, tourism, retail] }
   notes:
@@ -174,7 +174,7 @@ divisions:
     art-x-buckham: Muro Pietra
   codes:
     admin: '900203'
-  population: 580000
+  population: 174000
   area_km2: 2200.0
   traits: { industries: [heritage, tourism, commerce], age: old }
   notes:
@@ -191,7 +191,7 @@ divisions:
     art-x-buckham: Porta Mar
   codes:
     admin: '900204'
-  population: 380000
+  population: 114000
   area_km2: 2200.0
   traits: { industries: [finance, tech, commerce], heritage: mixed }
   notes:
@@ -208,7 +208,7 @@ divisions:
     art-x-buckham: "Dimora d'Oriente"
   codes:
     admin: '900205'
-  population: 240000
+  population: 72000
   area_km2: 1300.0
   traits: { industries: [residential, commerce, education], heritage: mixed, age: young }
   notes:
@@ -225,7 +225,7 @@ divisions:
     art-x-buckham: Terra dei Colli
   codes:
     admin: '900206'
-  population: 80000
+  population: 24000
   area_km2: 1520.0
   traits: { industries: [residential, forestry, tourism], age: old }
   notes:
@@ -243,7 +243,7 @@ divisions:
   codes:
     admin: '900300'
     unlocode: NV NWS
-  population: 1980000
+  population: 598000
   area_km2: 18400.0
   color: '#36B37E'
   emblem:
@@ -264,7 +264,7 @@ divisions:
     art-x-buckham: Canto Cervo
   codes:
     admin: '900301'
-  population: 820000
+  population: 250000
   area_km2: 4640.0
   traits: { industries: [government, media, commerce] }
   notes:
@@ -281,7 +281,7 @@ divisions:
     art-x-buckham: Guarda Stella
   codes:
     admin: '900302'
-  population: 420000
+  population: 126000
   area_km2: 3860.0
   traits: { industries: [research, aerospace, defence] }
   notes:
@@ -298,7 +298,7 @@ divisions:
     art-x-buckham: Via Tiglio
   codes:
     admin: '900303'
-  population: 380000
+  population: 114000
   area_km2: 4320.0
   traits: { industries: [education, research, residential], age: young }
   notes:
@@ -315,7 +315,7 @@ divisions:
     art-x-buckham: Fredd Tehee
   codes:
     admin: '900304'
-  population: 200000
+  population: 60000
   area_km2: 3680.0
   traits: { industries: [research, forestry, tourism], age: old }
   notes:
@@ -332,7 +332,7 @@ divisions:
     art-x-buckham: Città della Scienza
   codes:
     admin: '900305'
-  population: 160000
+  population: 48000
   area_km2: 1900.0
   traits: { industries: [research, aerospace, tech], age: young }
   notes:
@@ -350,7 +350,7 @@ divisions:
   codes:
     admin: '900400'
     unlocode: NV LKR
-  population: 960000
+  population: 647800
   area_km2: 12472.0
   color: '#9BC53D'
   emblem:
@@ -371,7 +371,7 @@ divisions:
     art-x-buckham: Lekor Nord
   codes:
     admin: '900401'
-  population: 420000
+  population: 273800
   area_km2: 4960.0
   traits: { industries: [port, agriculture, dairy] }
   notes:
@@ -388,7 +388,7 @@ divisions:
     art-x-buckham: Messe Valle
   codes:
     admin: '900402'
-  population: 360000
+  population: 250000
   area_km2: 4640.0
   traits: { industries: [wine, tourism, agriculture] }
   notes:
@@ -405,7 +405,7 @@ divisions:
     art-x-buckham: Lago Chiaro
   codes:
     admin: '900403'
-  population: 180000
+  population: 124000
   area_km2: 2872.0
   traits: { industries: [tourism, fishing, forestry] }
   notes:
@@ -423,7 +423,7 @@ divisions:
   codes:
     admin: '900500'
     unlocode: NV OXN
-  population: 880000
+  population: 609000
   area_km2: 7520.0
   color: '#E3C567'
   emblem:
@@ -444,7 +444,7 @@ divisions:
     art-x-buckham: Ox
   codes:
     admin: '900501'
-  population: 620000
+  population: 430000
   area_km2: 5200.0
   traits: { industries: [agriculture, food, logistics] }
   notes:
@@ -461,7 +461,7 @@ divisions:
     art-x-buckham: Ino
   codes:
     admin: '900502'
-  population: 260000
+  population: 179000
   area_km2: 2320.0
   traits: { industries: [residential, commerce, agriculture], age: young }
   notes:
@@ -479,7 +479,7 @@ divisions:
   codes:
     admin: '900600'
     unlocode: NV LRD
-  population: 450000
+  population: 309000
   area_km2: 24000.0
   color: '#5E9E6E'
   emblem:
@@ -500,7 +500,7 @@ divisions:
     art-x-buckham: Passo Drago
   codes:
     admin: '900601'
-  population: 180000
+  population: 124000
   area_km2: 3042.0
   traits: { industries: [logistics, ski, commerce] }
   notes:
@@ -517,7 +517,7 @@ divisions:
     art-x-buckham: Abete Tehee
   codes:
     admin: '900602'
-  population: 120000
+  population: 82000
   area_km2: 11367.6
   traits: { industries: [forestry] }
   notes:
@@ -534,7 +534,7 @@ divisions:
     art-x-buckham: Gola Profonda
   codes:
     admin: '900603'
-  population: 150000
+  population: 103000
   area_km2: 9590.4
   traits: { industries: [tourism, forestry] }
   notes:
@@ -552,7 +552,7 @@ divisions:
   codes:
     admin: '900700'
     unlocode: NV NEW
-  population: 1890000
+  population: 563000
   area_km2: 12000.0
   color: '#E5739D'
   emblem:
@@ -573,7 +573,7 @@ divisions:
     art-x-buckham: Prato Verde
   codes:
     admin: '900701'
-  population: 480000
+  population: 144000
   area_km2: 3360.0
   traits: { industries: [commerce, residential, logistics] }
   notes:
@@ -590,7 +590,7 @@ divisions:
     art-x-buckham: Giardino Nord
   codes:
     admin: '900702'
-  population: 680000
+  population: 200000
   area_km2: 4320.0
   traits: { industries: [residential, education, commerce] }
   notes:
@@ -607,7 +607,7 @@ divisions:
     art-x-buckham: Posta Sud
   codes:
     admin: '900703'
-  population: 490000
+  population: 147000
   area_km2: 3520.0
   traits: { industries: [logistics, residential, manufacturing] }
   notes:
@@ -624,7 +624,7 @@ divisions:
     art-x-buckham: Centro
   codes:
     admin: '900704'
-  population: 240000
+  population: 72000
   area_km2: 800.0
   traits: { industries: [government, conference, finance], heritage: mixed, age: balanced }
   notes:
@@ -642,7 +642,7 @@ divisions:
   codes:
     admin: '900800'
     unlocode: NV SKY
-  population: 780000
+  population: 536000
   area_km2: 7600.0
   color: '#F29E4C'
   emblem:
@@ -663,7 +663,7 @@ divisions:
     art-x-buckham: Terrazza Cielo
   codes:
     admin: '900801'
-  population: 320000
+  population: 220000
   area_km2: 2560.0
   traits: { industries: [tourism, conference] }
   notes:
@@ -680,7 +680,7 @@ divisions:
     art-x-buckham: Spiaggia Argento
   codes:
     admin: '900802'
-  population: 280000
+  population: 192000
   area_km2: 3040.0
   traits: { industries: [tourism, commerce] }
   notes:
@@ -697,7 +697,7 @@ divisions:
     art-x-buckham: Pendio Nebbia
   codes:
     admin: '900803'
-  population: 180000
+  population: 124000
   area_km2: 2000.0
   traits: { industries: [residential, healthcare, tourism] }
   notes:
@@ -715,7 +715,7 @@ divisions:
   codes:
     admin: '900900'
     unlocode: NV SKL
-  population: 900000
+  population: 617000
   area_km2: 6000.0
   color: '#8E7CC3'
   emblem:
@@ -736,7 +736,7 @@ divisions:
     art-x-buckham: Colle Ferro
   codes:
     admin: '900901'
-  population: 380000
+  population: 260000
   area_km2: 2240.0
   traits: { industries: [manufacturing, mining] }
   notes:
@@ -753,7 +753,7 @@ divisions:
     art-x-buckham: Sako
   codes:
     admin: '900902'
-  population: 320000
+  population: 220000
   area_km2: 2480.0
   traits: { industries: [commerce, heritage, fishing], age: balanced }
   notes:
@@ -770,7 +770,7 @@ divisions:
     art-x-buckham: Rocca
   codes:
     admin: '900903'
-  population: 200000
+  population: 137000
   area_km2: 1280.0
   traits: { industries: [logistics, manufacturing] }
   notes:
@@ -788,7 +788,7 @@ divisions:
   codes:
     admin: '901000'
     unlocode: NV BKL
-  population: 950000
+  population: 656000
   area_km2: 992.0
   color: '#E5534B'
   emblem:
@@ -810,7 +810,7 @@ divisions:
     art-x-buckham: Capo
   codes:
     admin: '901001'
-  population: 280000
+  population: 192000
   area_km2: 304.0
   traits: { industries: [aviation, logistics, trade], heritage: buckham }
   notes:
@@ -827,7 +827,7 @@ divisions:
     art-x-buckham: Baia Specchio
   codes:
     admin: '901002'
-  population: 330000
+  population: 230000
   area_km2: 306.0
   traits: { industries: [finance, trade, commerce] }
   notes:
@@ -844,7 +844,7 @@ divisions:
     art-x-buckham: Scoglio Rondine
   codes:
     admin: '901003'
-  population: 260000
+  population: 179000
   area_km2: 272.0
   traits: { industries: [trade, manufacturing, logistics], heritage: buckham }
   notes:
@@ -861,7 +861,7 @@ divisions:
     art-x-buckham: Porto Franco
   codes:
     admin: '901004'
-  population: 80000
+  population: 55000
   area_km2: 110.0
   traits: { industries: [port, trade, logistics] }
   notes:
@@ -879,7 +879,7 @@ divisions:
   codes:
     admin: '901100'
     unlocode: NV MSL
-  population: 180000
+  population: 124700
   area_km2: 27000.0
   color: '#9A8F7E'
   emblem:
@@ -900,7 +900,7 @@ divisions:
     art-x-buckham: Pace
   codes:
     admin: '901101'
-  population: 46000
+  population: 32000
   area_km2: 4300.0
   traits: { industries: [defence, education, healthcare] }
   notes:
@@ -917,7 +917,7 @@ divisions:
     art-x-buckham: Porto Stella
   codes:
     admin: '901102'
-  population: 32000
+  population: 22000
   area_km2: 4300.0
   traits: { industries: [defence, aerospace, research] }
   notes:
@@ -934,7 +934,7 @@ divisions:
     art-x-buckham: Campo Est
   codes:
     admin: '901103'
-  population: 30000
+  population: 21000
   area_km2: 4700.0
   traits: { industries: [defence, aviation, logistics] }
   notes:
@@ -951,7 +951,7 @@ divisions:
     art-x-buckham: Pianoro Ovest
   codes:
     admin: '901104'
-  population: 36000
+  population: 25000
   area_km2: 4200.0
   traits: { industries: [aerospace, defence, manufacturing] }
   notes:
@@ -968,7 +968,7 @@ divisions:
     art-x-buckham: Valle Neve
   codes:
     admin: '901105'
-  population: 28000
+  population: 19200
   area_km2: 3300.0
   traits: { industries: [defence, aviation, aerospace] }
   notes:
@@ -985,7 +985,7 @@ divisions:
     art-x-buckham: Poligono delle Vette
   codes:
     admin: '901106'
-  population: 8000
+  population: 5500
   area_km2: 6200.0
   traits: { industries: [defence, research] }
   notes:
@@ -1003,7 +1003,7 @@ divisions:
   codes:
     admin: '901200'
     unlocode: NV ERD
-  population: 30000
+  population: 20500
   area_km2: 32000.0
   color: '#3FB6C6'
   emblem:
@@ -1024,7 +1024,7 @@ divisions:
     art-x-buckham: Erding
   codes:
     admin: '901201'
-  population: 15000
+  population: 10300
   area_km2: 8500.0
   traits: { industries: [agriculture, commerce] }
   notes:
@@ -1041,7 +1041,7 @@ divisions:
     art-x-buckham: Palazzo Vecchio
   codes:
     admin: '901202'
-  population: 9500
+  population: 6500
   area_km2: 6500.0
   traits: { industries: [heritage, tourism, government] }
   notes:
@@ -1058,7 +1058,7 @@ divisions:
     art-x-buckham: Alto Erding
   codes:
     admin: '901203'
-  population: 2400
+  population: 1600
   area_km2: 9000.0
   traits: { industries: [agriculture, forestry] }
   notes:
@@ -1075,7 +1075,7 @@ divisions:
     art-x-buckham: Pascoli delle Renne
   codes:
     admin: '901204'
-  population: 3100
+  population: 2100
   area_km2: 8000.0
   traits: { industries: [herding], age: balanced }
   notes:

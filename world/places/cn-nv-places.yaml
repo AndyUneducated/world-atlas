@@ -678,7 +678,7 @@ places:
       zh: 领地最大的会展场馆，千禧大道旁
       en: The territory's largest exhibition halls, on Millennium Avenue.
     in: div_m2tz6c
-    offset_km: [1.6, -0.7]
+    offset_km: [0.8, -0.5]
     site: { layout: hall, size_m: [520, 300] }
   - id: poi_4atna2
     subtype: park
@@ -1381,7 +1381,7 @@ places:
       zh: 厄定河畔集镇上的市政府
       en: The city government in the market town on the Erding.
     in: div_qpyn9e
-    offset_km: [0.2, 0.2]
+    offset_km: [0.05, 0.05]
     site: { layout: complex, size_m: [220, 160] }
   - id: bld_tkc5zs
     subtype: museum
