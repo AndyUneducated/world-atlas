@@ -1,4 +1,4 @@
-# Administrative divisions of the Arctic Ocean Territory (CN-OT).
+# Administrative divisions of the Arctic Ocean Territory (CN-AO).
 # id: stable internal key, referenced by other files. codes.admin: 6-digit hierarchical code (GB/T 2260 pattern:
 # territory 920000, city 920100, district 920101); may change on reorganisation.
 # subtype follows Overture Maps divisions: country > dependency/region > locality > borough.
@@ -23,10 +23,10 @@ divisions:
     en: Arctic Ocean
   codes:
     iso3166_1:
-      alpha2: OT
+      alpha2: AO
       alpha3: AOT
       numeric: '903'
-    iso3166_2: CN-OT
+    iso3166_2: CN-AO
     admin: '920000'
   motto:
     zh: 冰原之上，万物自由
@@ -56,7 +56,7 @@ divisions:
     en: The territorial capital, on both shores of the mouth of Nuqattaaq Fjord on the south coast, with 5 million people, about two-fifths of the territory. The government and assembly sit in Dome District, and the Central Dome and the skyways of the centre let people walk about through the polar night and in blizzards; Old Harbour is the old fishing port, Fjordside has the University of the Arctic Ocean, Openwater has the ice-free harbour and Antler the international airport. Most buildings on the permafrost stand on piles with an open ground floor, so the cold wind passes beneath and the ground stays frozen. The metro has four lines and 81 stations, one of them to the airport; the South Coast Expressway crosses the fjord mouth on a sea bridge, and the Nuqattaaq–Kiluktuar Expressway, the ring road and the expressways to the Financial Zone, the mines and Aqqanik all start here. About two in five residents are native Tavrunaq speakers, and the incoming finance and technology workers mostly live in the Dome and Skyway districts.
   codes:
     admin: '920100'
-    unlocode: OT NUQ
+    unlocode: AO NUQ
   population: 5000000
   area_km2: 9000.0
   color: '#1B2F5E'
@@ -191,7 +191,7 @@ divisions:
     en: A city-level financial zone created under the Arctic Ocean Public Bank Act and the Financial Zone Act just north of the capital's Dome District, 20 km² with about 60,000 people and the highest output per head of any city in the territory. Its single district, Public Bank District, is all towers and domes, home to the headquarters of the Arctic Ocean Public Bank and its four affiliate banks, the clearing house, the financial court, the international arbitration centre, the companies registry, the digital asset exchange, the polar data centre and the permafrost gold vault. The zone offers no taxes, no capital controls, instant online accounts and companies registered automatically in minutes, and the bank's profits are paid out as a dividend to the territory's residents. The Financial Zone Expressway links it to the capital and the trunk roads over the Public Bank Sea Bridge.
   codes:
     admin: '920200'
-    unlocode: OT PLN
+    unlocode: AO PLN
   population: 60000
   area_km2: 20.0
   special_status: financial_zone
@@ -230,7 +230,7 @@ divisions:
     en: The second most populous city of the south coast, about 430 km west of the capital, with 1.7 million people, over three-fifths of them native Tavrunaq speakers. Its town, Warm Current Harbour, stands at the mouth of Warm Current Fjord, with the fishing villages and processing plants of Fish Bay to the east; West Fjord District to the north-west, three-fifths of the city's area, is fjords, glaciers and mountains. The Sea Pasture Islands off the south coast are a deep-water fish-farming centre, and the Basalt Pillar Islands far to the west are a nature reserve. Shipping, fishing, fish farming and fish processing are the mainstays. The South Coast Expressway and the South Coast High-Speed Railway run through, the town has a metro line, and the West Fjord Road reaches the villages deep in the fjords.
   codes:
     admin: '920300'
-    unlocode: OT SRV
+    unlocode: AO SRV
   population: 1700000
   area_km2: 62000.0
   color: '#1F7A8C'
@@ -334,7 +334,7 @@ divisions:
     en: The industrial port city of the eastern south coast, about 360 km east of the capital, with 1.45 million people. Its town, Ore Harbour, stands at the mouth of Ore Harbour Fjord and ships out smelter products and ore; the smelter of Nickel Town refines nickel from the inland mines, East Fjord is a string of fjord villages, the offshore Aurora Islands are known for aurora tourism, and the South Fjords Nature Reserve holds the 2,022 m Skydome Peak. The South Coast Expressway and the high-speed railway reach their eastern end here, the Icefield Expressway sets out for Sirmivak, and the town has a metro line.
   codes:
     admin: '920400'
-    unlocode: OT UKL
+    unlocode: AO UKL
   population: 1450000
   area_km2: 63400.0
   color: '#7A5C3E'
@@ -438,7 +438,7 @@ divisions:
     en: The city at the western end of the mainland, some 700 km west of the capital, with 900,000 people. Cold air and the hydro power of Cold Valley make it the territory's centre of data centres and computing; the data centres of the Data Islands reach the world through undersea cables, and the ground station on the Satellite Islands downloads data from polar-orbiting satellites. Output per head, about 110,000 dollars, is second only to the Financial Zone among the cities, and 72% of the people are of working age. Its town, Coldwind, is the western start of the South Coast and Tundra expressways and of the high-speed railway, and the Western Plateau Nature Reserve covers over two-fifths of the city.
   codes:
     admin: '920500'
-    unlocode: OT TLV
+    unlocode: AO TLV
   population: 900000
   area_km2: 58300.0
   color: '#3E6FB0'
@@ -542,7 +542,7 @@ divisions:
     en: The mining city of the inland mainland, about 230 km north of the capital, 95,000 km², the third largest city, with 650,000 people. Its town, Crystal, cuts diamonds, Lithium Lakes draws lithium from salt-lake brine, the Inland Mining Administration Zone has open-pit diamond and nickel mines, and the Great Lakes Tundra Nature Reserve holds Great Illuq Lake, the largest named lake in the territory. Industry makes up 54% of the economy. The Nuqattaaq–Kiluktuar Expressway passes through Crystal, the Mining Expressway and the heavy-haul railway serve Lithium Lakes and the mines, and the Crystal–Lithium Road links the two trunk routes inland.
   codes:
     admin: '920600'
-    unlocode: OT QRN
+    unlocode: AO QRN
   population: 650000
   area_km2: 95000.0
   color: '#6B4FA0'
@@ -631,7 +631,7 @@ divisions:
     en: The great-river city of the north coast, about 470 km north of the capital, where the Kiluktuar River meets the sea, with a million people. Its town, Rivermouth, is the centre of trade and government, Ice Harbour holds the territory's coast guard and icebreaker base, Upriver follows the great river through pastures and fishing villages, the offshore Research Islands host the polar research institute, and the river delta is a wetland reserve. The north coast freezes in winter and icebreakers keep the lanes open. The Nuqattaaq–Kiluktuar and Tundra expressways reach the north coast here, and the North Shore Road runs along the coast towards Aqqanik.
   codes:
     admin: '920700'
-    unlocode: OT KLK
+    unlocode: AO KLK
   population: 1000000
   area_km2: 60000.0
   color: '#2F7D5B'
@@ -735,7 +735,7 @@ divisions:
     en: The ice-cap city of the territory's north-east, 164,675 km², the largest city in the territory and about a quarter of its area, yet with only 420,000 people, the most thinly peopled city. The Sirmi Ice Cap and Mount Sirmi, at 2,506 m the territory's highest peak, are within it, and the offshore Glacier Islands and Walrus and Bear Islands are an ice administration zone and a nature reserve. Its town, Glacier District, lives from glacier tourism and snow sports, and the observatories of Skywatch are scattered over the uplands east of the ice cap. The Icefield Expressway is its only expressway to the south coast.
   codes:
     admin: '920800'
-    unlocode: OT SRM
+    unlocode: AO SRM
   population: 420000
   area_km2: 163300.0
   color: '#5FA8C8'
@@ -841,7 +841,7 @@ divisions:
     en: The island city far east of the mainland, about 930 km east of the capital, with 280,000 people, all of it on the Rare Earth Islands. The open pit on the islands produces rare-earth concentrate, shipped out from Rare Earth Harbour, and mining, the port and manufacturing are the mainstays, industry making up over two-fifths of the economy. There is no road to the mainland; ships and the flights from Uviqsaaq Airport are the only links.
   codes:
     admin: '920900'
-    unlocode: OT UVQ
+    unlocode: AO UVQ
   population: 280000
   area_km2: 10900.0
   color: '#9C4A5A'
@@ -897,7 +897,7 @@ divisions:
     en: The indigenous autonomous region of the Tavrulit people, covering the north of the mainland and much of the inland tundra, 131,080 km², the second largest city-level division, with 1.2 million people; 72% are native Tavrunaq speakers, the highest share of any city. The region's council of elders takes part in governing the territory, and territorial laws on land, hunting and migration routes need its consent. Reindeer herding, traditional hunting and fishing and heritage give the economy its character, and dog-sled racing, drum dancing, the oral epics and rock and bone carving are handed down through the generations. The Nuqattaaq–Aqqanik Expressway links its capital, Aqqanik, with the territorial capital, and the Tundra Expressway and North Shore Road connect it with both coasts.
   codes:
     admin: '921000'
-    unlocode: OT AQK
+    unlocode: AO AQK
   population: 1200000
   area_km2: 131080.0
   special_status: autonomous_region

@@ -1,15 +1,15 @@
 # Road routes of the Arctic Ocean Territory.
 #
 # Four grades, the same in every territory; route numbers carry the territory infix:
-#   G-OT-1..99    国家高速 national expressway    (class motorway)
-#   S-OT-1..99    领地高速 territorial expressway (class motorway)
-#   S-OT-101..    领道 territorial highway        (class primary)
-#   X-OT-001..    市道 city road                  (class secondary)
+#   G-AO-1..99    国家高速 national expressway    (class motorway)
+#   S-AO-1..99    领地高速 territorial expressway (class motorway)
+#   S-AO-101..    领道 territorial highway        (class primary)
+#   X-AO-001..    市道 city road                  (class secondary)
 # The fields are those of world/transport/cn-nv-roads.yaml. The territory has no road link to
 # the others; the islands have no roads of national or territorial grade.
 routes:
   - id: rte_bjj6j2
-    ref: G-OT-1
+    ref: G-AO-1
     network: national_expressway
     class: motorway
     status: generated
@@ -28,7 +28,7 @@ routes:
       div_jvwq60: { straight: true }  # 旧港—不冻港: across the mouth of the capital's fjord
     via: [div_79wfwy, div_najb0c, div_3rb2ha, div_qg40vj, div_q7cydv, div_jvwq60, div_yh6ysj]
   - id: rte_3sphft
-    ref: G-OT-2
+    ref: G-AO-2
     network: national_expressway
     class: motorway
     status: generated
@@ -44,7 +44,7 @@ routes:
       en: Kiluktuar stands where the great river of the north coast meets the sea. The north coast freezes in winter and the central uplands lie between it and the capital, Nuqattaaq, so travel between the two once meant a long voyage or a flight. The Nuqattaaq–Kiluktuar Expressway leaves the capital's Dome District, runs north through Fjordside and Whitemoor, climbs between two glaciers over the central uplands into the inland tundra and continues through Crystal District in Qaurniq and Upriver District in Kiluktuar to Rivermouth, the first road between the two coasts. The high, stormy upland stretch runs under long snow sheds; across the tundra the road is mostly on permafrost embankment, with culverts at intervals for meltwater and migrating reindeer. Since it opened, north-coast catches and the products of inland Crystal District can go by road to the ice-free harbours of the south.
     via: [div_9s80v8, div_j06x18, div_k8cx0t, div_k66r1n, div_xvm6y0, div_anjqnh]
   - id: rte_ehrcsn
-    ref: G-OT-3
+    ref: G-AO-3
     network: national_expressway
     class: motorway
     status: generated
@@ -60,7 +60,7 @@ routes:
       en: Glacier District, the town of Sirmivak City, lies on the north-east edge of the Sirmi Ice Cap, and the observatories of Skywatch District are scattered over the uplands east of it; their only road to the south coast used to be a gravel track open in summer. The Icefield Expressway leaves Ore Harbour District in Ukkulaaq, passes through Nickel Town and along the fjords of the south coast to East Fjord District, then turns north round the eastern side of the ice cap through Skywatch to Glacier District; the fjord villages of East Fjord no longer depend on the summer ferry. It never goes onto the ice, which moves every year and hides crevasses; it keeps to the bedrock and permafrost along the edge of the cap and leaves a buffer zone near the glacier tongues. The upland stretches are windy and snowbound, with snow sheds and snow fences for tens of kilometres. Since it opened, Skywatch's scientists and Glacier District's visitors can travel to and from the south coast all year.
     via: [div_yh6ysj, div_1d76zf, div_stts1z, div_3j7f20, div_73wt00]
   - id: rte_642apd
-    ref: G-OT-4
+    ref: G-AO-4
     network: national_expressway
     class: motorway
     status: generated
@@ -76,7 +76,7 @@ routes:
       en: The Tundra Expressway crosses the tundra of the west and north of the mainland, from Coldwind District in Tullivaq through Aqqanik District in the Tavrulit Indigenous Autonomous Region to Rivermouth and Ice Harbour in Kiluktuar. This tundra is the traditional ground of the reindeer migration and of indigenous hunting, and before construction the territory and the autonomous region's council of elders agreed the line section by section. The road avoids the calving grounds and the main migration corridors; where it has to cross them the embankment is raised and the culverts widened, and night traffic is restricted in the migration season. Most of it is on permafrost embankment, with short bridges over the rivers. Since it opened Aqqanik has had an all-year road to both coasts, and the icebreaker base at Ice Harbour on the north coast has joined the road network.
     via: [div_79wfwy, div_ek897t, div_anjqnh, div_m0b417]
   - id: rte_6e4v8h
-    ref: S-OT-1
+    ref: S-AO-1
     network: territorial_expressway
     class: motorway
     status: generated
@@ -94,7 +94,7 @@ routes:
     straight: true
     via: [div_9s80v8, div_ga9pxy, div_k4vyb1]
   - id: rte_hefmsp
-    ref: S-OT-2
+    ref: S-AO-2
     network: territorial_expressway
     class: motorway
     status: generated
@@ -112,7 +112,7 @@ routes:
     tunnel_cost: 3.5
     via: [div_3b9pkz, div_d9hctg, div_ek897t]
   - id: rte_759zpn
-    ref: S-OT-3
+    ref: S-AO-3
     network: territorial_expressway
     class: motorway
     status: generated
@@ -131,7 +131,7 @@ routes:
     straight: true
     via: [div_3b9pkz, div_k8cx0t, div_k4vyb1, div_jvwq60]
   - id: rte_p7t6rv
-    ref: S-OT-4
+    ref: S-AO-4
     network: territorial_expressway
     class: motorway
     status: generated
@@ -148,7 +148,7 @@ routes:
       en: The Inland Mining Administration Zone of Qaurniq City produces lithium, nickel and diamonds, the brine lithium plants of Lithium Lakes District are close by, and most of the output is shipped from Openwater District in the capital. Before the heavy-haul railway opened, all the ore left by lorry convoys on winter ice roads, which became impassable once the spring thaw set in. The Mining Expressway runs north from Openwater through Lithium Lakes to the mining zone, roughly parallel to the railway, and carries workers, equipment and smaller freight. Most of it is on permafrost embankment with ventilation ducts underneath to keep the ground frozen, and long snow sheds cover the stretch that climbs round the glaciers over the central uplands.
     via: [div_jvwq60, div_qaxzqj, div_m541k8]
   - id: rte_jmx8jy
-    ref: S-OT-101
+    ref: S-AO-101
     network: territorial_highway
     class: primary
     status: generated
@@ -165,7 +165,7 @@ routes:
       en: West Fjord District in Saarvaq City is large and thinly peopled, with fishing villages and small towns at the heads of its fjords that once could be reached only by boat, often cut off when winter seas ran high. The West Fjord Road runs north-west from Warm Current Harbour into the fjord country to the district's town. Fjord follows fjord along the way; the road clings to the shore, cuts through headlands in short tunnels and bridges each fjord at its narrowest. The steep stretches have snow sheds and rock-fall shelters. Since it opened, the fjord villages' catches and farmed fish go by road to Warm Current Harbour, and people no longer depend on the ferry to see a doctor or go to school.
     via: [div_3rb2ha, div_hrrg7q]
   - id: rte_hq1xf6
-    ref: S-OT-102
+    ref: S-AO-102
     network: territorial_highway
     class: primary
     status: generated
@@ -182,7 +182,7 @@ routes:
       en: The North Shore Hunting District of the Tavrulit Indigenous Autonomous Region is a traditional seal and walrus hunting ground, where hunters travel by sled trails on the sea ice in winter and by small boat in summer. The North Shore Road runs east from Aqqanik District through the hunting district to Upriver District in Kiluktuar, where it meets the Nuqattaaq–Kiluktuar Expressway. The autonomous region built it, keeping clear of the coastal hunting grounds and the routes onto the ice; where sled trails cross the road there are dedicated crossings, and in winter sleds have right of way. Most of it is on permafrost embankment, with short bridges over the rivers. Since it opened, the district's hunters and fishers can travel all year to the regional capital and the towns along the great river.
     via: [div_ek897t, div_m34jqk, div_xvm6y0]
   - id: rte_e78zxk
-    ref: S-OT-103
+    ref: S-AO-103
     network: territorial_highway
     class: primary
     status: generated
