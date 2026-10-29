@@ -32,13 +32,13 @@ land:
     - [228, 250, 14, 18, 0, -0.6]      # bay west of the delta
     - [76, 207, 18, 14, 0, -0.55]      # bay on the west coast
     - [548, 240, 20, 14, 30, -0.5]     # bay on the north-east coast
-    # ── 数据群岛 (west) ──
+    # ── 图卡鲁维特群岛 (west) ──
     - [42, 190, 12.8, 8.5, 20, 1.0]
     - [55, 160, 7.7, 6.8, -10, 1.0]
     - [33, 166, 7.7, 5.1, 0, 1.0]
     - [50, 213, 6, 4.3, 30, 1.0]
     - [30, 140, 5.1, 4.3, 0, 1.0]
-    # ── 玄武岩柱群岛 (south-west) ──
+    # ── 通纳库维特群岛 (south-west) ──
     - [95, 85, 14, 9.4, 0, 1.0]
     - [124, 70, 9.4, 7, 0, 1.0]
     - [70, 68, 7.8, 6.2, 0, 1.0]
@@ -49,38 +49,38 @@ land:
     - [188, 45, 5.1, 3.3, 0, 1.0]
     - [233, 72, 4.3, 2.9, 0, 1.0]
     - [168, 62, 3.3, 2.5, 0, 1.0]
-    # ── 极光群岛 (south-east) ──
+    # ── 卡瓦卢维特群岛 (south-east) ──
     - [520, 72, 6.1, 4.1, 0, 1.0]
     - [546, 60, 3.6, 2.8, 0, 1.0]
     - [497, 60, 2.8, 2.5, 0, 1.0]
     - [540, 85, 2, 1.5, 0, 1.0]
-    # ── 稀土群岛 (east) ──
+    # ── 乌库乌维特群岛 (east) ──
     - [646, 175, 15, 12, 0, 1.0]
     - [656, 145, 10, 8, 0, 1.0]
     - [630, 140, 7, 6, 0, 1.0]
     - [660, 203, 6, 5, 0, 1.0]
-    # ── 海象熊群岛 (north-east) ──
+    # ── 乌瓦卡鲁库维特群岛 (north-east) ──
     - [600, 287, 26.6, 17.1, -20, 1.0]
     - [642, 262, 13.3, 9.5, 0, 1.0]
     - [628, 318, 11.4, 7.6, 0, 1.0]
     - [568, 318, 8.5, 6.6, 0, 1.0]
     - [656, 296, 6.6, 4.8, 0, 1.0]
-    # ── 冰川群岛 (north) ──
+    # ── 西尔米乌维特群岛 (north) ──
     - [450, 314, 52.9, 21.8, 5, 1.1]
     - [512, 328, 16.1, 9.2, 0, 1.0]
     - [402, 331, 12.6, 6.9, 0, 1.0]
     - [520, 302, 10.3, 8, 0, 1.0]
-    # ── 科考群岛 (north) ──
+    # ── 纳卢维特群岛 (north) ──
     - [330, 310, 13.1, 8.7, 0, 1.0]
     - [358, 324, 8.7, 6.1, 0, 1.0]
     - [305, 326, 7, 5.2, 0, 1.0]
     - [347, 294, 5.2, 4.4, 0, 1.0]
-    # ── 渔猎群岛 (north-west) ──
+    # ── 皮图库维特群岛 (north-west) ──
     - [187, 280, 21.1, 12.2, 15, 1.0]
     - [218, 291, 13.3, 8.8, 0, 1.0]
     - [158, 291, 11.1, 7.8, -10, 1.0]
     - [207, 263, 8.8, 5.5, 0, 1.0]
-    # ── 卫星群岛 (far north-west) ──
+    # ── 陶武维特群岛 (far north-west) ──
     - [70, 312, 10.1, 7, 10, 1.0]
     - [100, 326, 5.6, 4.2, 0, 1.0]
     - [45, 326, 4.8, 3.5, 0, 1.0]
@@ -127,12 +127,12 @@ hydrology:
   estuary_km2: 700
   # Lakes: a lobed disc of radius_km (design km) at offset_km (real km) from the district centre.
   lakes:
-    - { feature: nat_xdztvm, in: div_8h5g1g, radius_km: 9.0, offset_km: [0, 0] }      # 伊卢克大湖
-    - { feature: nat_16pp3d, in: div_qaxzqj, radius_km: 3.5, offset_km: [8, 0] }      # 锂湖
-    - { feature: nat_bzp202, in: div_d9hctg, radius_km: 4.5, offset_km: [0, 12] }     # 鹿饮湖
-    - { feature: nat_2b0688, in: div_7b21kg, radius_km: 5.0, offset_km: [0, 0] }      # 长湖
-    - { feature: nat_3cy7vg, in: div_3j7f20, radius_km: 2.6, offset_km: [-10, 6] }    # 冰泪湖
-    - { feature: nat_xvz2c8, in: div_k8cx0t, radius_km: 1.8, offset_km: [6, 6] }      # 白原湖
+    - { feature: nat_xdztvm, in: div_8h5g1g, radius_km: 9.0, offset_km: [0, 0] }      # 伊卢尔尤阿克湖
+    - { feature: nat_16pp3d, in: div_qaxzqj, radius_km: 3.5, offset_km: [8, 0] }      # 伊卢考湖
+    - { feature: nat_bzp202, in: div_d9hctg, radius_km: 4.5, offset_km: [0, 12] }     # 尼尔赛卢湖
+    - { feature: nat_2b0688, in: div_7b21kg, radius_km: 5.0, offset_km: [0, 0] }      # 伊卢克塔克湖
+    - { feature: nat_3cy7vg, in: div_3j7f20, radius_km: 2.6, offset_km: [-10, 6] }    # 西尔米库利克图克湖
+    - { feature: nat_xvz2c8, in: div_k8cx0t, radius_km: 1.8, offset_km: [6, 6] }      # 帕利卢湖
   # Tundra lake country: unnamed small lakes on low ground away from the coast.
   lake_field:
     in: [div_8h5g1g, div_d9hctg, div_7b21kg, div_qaxzqj, div_m34jqk, div_jyszba, div_xvm6y0, div_m541k8, div_k4vyb1, div_hrrg7q]
@@ -186,58 +186,58 @@ streets:
   warp_km: { planned: 0.02, mixed: 0.05, organic: 0.09 }
   warp_wavelength_km: 1.6
   river_gap_km: 0.05
-  # Street name themes: mostly the polar stems and the territory's own place names, which have
-  # Tavrunaq forms; no Norse myths or European family names.
+  # Street name themes: mostly the polar stems and the territory's own place names, which are
+  # native Tavrunaq names; no Norse myths or European family names.
   name_styles:
-    planned: { polar: 4, civic: 2, culture: 2, numbered: 2, china: 2, sky: 1, places: 3 }
-    mixed: { polar: 4, trees: 1, animals: 1, sky: 2, china: 2, landscape: 1, places: 3 }
-    organic: { polar: 3, trades: 3, landscape: 2, places: 2, china: 1 }
+    planned: { polar: 5, places: 4, civic: 1, culture: 1, numbered: 2, china: 2, sky: 1 }
+    mixed: { polar: 5, places: 4, trees: 1, animals: 1, sky: 1, china: 2, landscape: 1 }
+    organic: { polar: 4, places: 3, trades: 2, landscape: 1, china: 1 }
   # detail_km2: local streets and generic buildings only in the district's core zone of that size
   # skyways_km: enclosed walkways over the arterials and collectors within this distance of the centre
   districts:
-    div_ga9pxy: { style: planned, skyways_km: 2.0, mix: { towers: 3.0, podium: 1.4, civic: 0.5, industrial: 0.1 } }    # 公共银行区：塔楼与穹顶
-    div_9s80v8: { style: planned, detail_km2: 60, skyways_km: 2.5, mix: { towers: 1.8, podium: 1.8, civic: 1.0, industrial: 0.1 } }  # 穹顶区：市中心
-    div_q7cydv: { style: organic, detail_km2: 40, skyways_km: 1.2, mix: { perimeter: 1.6, houses: 1.4, industrial: 0.6 } }  # 旧港区：老渔港
-    div_j06x18: { style: mixed, detail_km2: 40, skyways_km: 1.0, mix: { slabs: 1.6, perimeter: 1.0, park: 0.8 } }          # 峡湾区：住宅区
-    div_3b9pkz: { style: planned, detail_km2: 40, skyways_km: 3.5, mix: { slabs: 1.4, podium: 1.4, civic: 0.6 } }          # 暖廊区：暖廊连起的街坊
-    div_k8cx0t: { style: mixed, main_only: true }     # 白原区
-    div_jvwq60: { style: planned, main_only: true }   # 不冻港区：港区
-    div_k4vyb1: { style: mixed, main_only: true }     # 鹿角区：城东新区
+    div_ga9pxy: { style: planned, skyways_km: 2.0, mix: { towers: 3.0, podium: 1.4, civic: 0.5, industrial: 0.1 } }    # 帕卢库特区：塔楼与穹顶
+    div_9s80v8: { style: planned, detail_km2: 60, skyways_km: 2.5, mix: { towers: 1.8, podium: 1.8, civic: 1.0, industrial: 0.1 } }  # 库马尔维克区：市中心
+    div_q7cydv: { style: organic, detail_km2: 40, skyways_km: 1.2, mix: { perimeter: 1.6, houses: 1.4, industrial: 0.6 } }  # 努坎加克区：老渔港
+    div_j06x18: { style: mixed, detail_km2: 40, skyways_km: 1.0, mix: { slabs: 1.6, perimeter: 1.0, park: 0.8 } }          # 苏瓦利克区：住宅区
+    div_3b9pkz: { style: planned, detail_km2: 40, skyways_km: 3.5, mix: { slabs: 1.4, podium: 1.4, civic: 0.6 } }          # 图维尔尤阿克区：暖廊连起的街坊
+    div_k8cx0t: { style: mixed, main_only: true }     # 帕利瓦克区
+    div_jvwq60: { style: planned, main_only: true }   # 伊马萨尔维克区：港区
+    div_k4vyb1: { style: mixed, main_only: true }     # 尼尔萨库特区：城东新区
     # 萨尔瓦克市
-    div_3rb2ha: { style: organic, detail_km2: 30, skyways_km: 1.2, mix: { perimeter: 1.4, houses: 1.4, industrial: 0.8 } }  # 暖流港区：渔港与老城
-    div_qg40vj: { style: mixed, main_only: true }     # 渔湾区
-    div_hrrg7q: { style: organic, detail_km2: 15, mix: { houses: 2.4, industrial: 0.6 } }    # 西峡区：峡湾村镇
-    div_2541fx: { style: organic, detail_km2: 15, mix: { houses: 2.0, industrial: 1.0 } }    # 海牧群岛区：养殖与渔村
+    div_3rb2ha: { style: organic, detail_km2: 30, skyways_km: 1.2, mix: { perimeter: 1.4, houses: 1.4, industrial: 0.8 } }  # 萨尔努卡区：渔港与老城
+    div_qg40vj: { style: mixed, main_only: true }     # 乌利图克区
+    div_hrrg7q: { style: organic, detail_km2: 15, mix: { houses: 2.4, industrial: 0.6 } }    # 普拉苏瓦米乌特区：峡湾村镇
+    div_2541fx: { style: organic, detail_km2: 15, mix: { houses: 2.0, industrial: 1.0 } }    # 乌利库维特区：养殖与渔村
     # 乌库拉克市
-    div_yh6ysj: { style: planned, detail_km2: 30, skyways_km: 1.0, mix: { slabs: 1.2, industrial: 1.4 } }  # 矿港区：矿石港
-    div_1d76zf: { style: planned, detail_km2: 20, mix: { slabs: 1.0, industrial: 1.8 } }   # 镍城区：冶炼厂
-    div_stts1z: { style: organic, detail_km2: 15, mix: { houses: 2.4, industrial: 0.4 } }    # 东峡区：峡湾村镇
-    div_7ee7ab: { style: organic, detail_km2: 15, mix: { houses: 1.8, podium: 1.0 } }        # 极光群岛区：旅游小镇
+    div_yh6ysj: { style: planned, detail_km2: 30, skyways_km: 1.0, mix: { slabs: 1.2, industrial: 1.4 } }  # 乌库努卡区：矿石港
+    div_1d76zf: { style: planned, detail_km2: 20, mix: { slabs: 1.0, industrial: 1.8 } }   # 基萨尔维克区：冶炼厂
+    div_stts1z: { style: organic, detail_km2: 15, mix: { houses: 2.4, industrial: 0.4 } }    # 皮瓦苏瓦区：峡湾村镇
+    div_7ee7ab: { style: organic, detail_km2: 15, mix: { houses: 1.8, podium: 1.0 } }        # 卡瓦卢维特区：旅游小镇
     # 图利瓦克市
-    div_79wfwy: { style: mixed, detail_km2: 30, skyways_km: 1.0, mix: { slabs: 1.4, industrial: 0.6 } }    # 冷风区
-    div_najb0c: { style: mixed, main_only: true }     # 冷谷区
-    div_3xz1pw: { style: planned, mix: { industrial: 2.2, civic: 0.5 } }     # 数据群岛区：数据中心
-    div_6p8a1q: { style: planned, mix: { industrial: 1.4, civic: 0.8 } }     # 卫星群岛区
+    div_79wfwy: { style: mixed, detail_km2: 30, skyways_km: 1.0, mix: { slabs: 1.4, industrial: 0.6 } }    # 图利亚利维克区
+    div_najb0c: { style: mixed, main_only: true }     # 图拉卡特区
+    div_3xz1pw: { style: planned, mix: { industrial: 2.2, civic: 0.5 } }     # 图卡鲁维特区：数据中心
+    div_6p8a1q: { style: planned, mix: { industrial: 1.4, civic: 0.8 } }     # 陶武维特区
     # 考尔尼克市
-    div_k66r1n: { style: planned, detail_km2: 25, skyways_km: 0.8, mix: { slabs: 1.2, industrial: 1.2 } }  # 晶石区：钻石加工
-    div_qaxzqj: { style: planned, detail_km2: 15, mix: { industrial: 1.8 } }                 # 锂湖区：提锂厂
-    div_m541k8: { style: planned, mix: { industrial: 2.4, slabs: 1.0 } }     # 内陆矿区管理区：矿工镇
+    div_k66r1n: { style: planned, detail_km2: 25, skyways_km: 0.8, mix: { slabs: 1.2, industrial: 1.2 } }  # 考卢尤阿克区：钻石加工
+    div_qaxzqj: { style: planned, detail_km2: 15, mix: { industrial: 1.8 } }                 # 伊卢克萨特区：提锂厂
+    div_m541k8: { style: planned, mix: { industrial: 2.4, slabs: 1.0 } }     # 乌库利特矿区管理区：矿工镇
     # 基卢克图阿尔市
-    div_anjqnh: { style: mixed, detail_km2: 30, skyways_km: 1.0, mix: { slabs: 1.2, perimeter: 1.0 } }     # 河口区
-    div_m0b417: { style: planned, detail_km2: 20, mix: { industrial: 1.4, slabs: 1.0 } }     # 冰港区：破冰船基地
-    div_xvm6y0: { style: mixed, main_only: true }     # 上游区
-    div_rcnhch: { style: planned, mix: { civic: 1.6, houses: 1.2 } }         # 科考群岛区：研究所
+    div_anjqnh: { style: mixed, detail_km2: 30, skyways_km: 1.0, mix: { slabs: 1.2, perimeter: 1.0 } }     # 基卢基亚克区
+    div_m0b417: { style: planned, detail_km2: 20, mix: { industrial: 1.4, slabs: 1.0 } }     # 西尔米努卡区：破冰船基地
+    div_xvm6y0: { style: mixed, main_only: true }     # 帕基卢克区
+    div_rcnhch: { style: planned, mix: { civic: 1.6, houses: 1.2 } }         # 纳卢维特区：研究所
     # 西尔米瓦克市
-    div_73wt00: { style: organic, detail_km2: 25, skyways_km: 0.8, mix: { houses: 1.6, podium: 1.0 } }    # 冰川区：冰川旅游
-    div_3j7f20: { style: mixed, detail_km2: 12, mix: { civic: 1.2, houses: 1.6 } }           # 观天区：观测站
+    div_73wt00: { style: organic, detail_km2: 25, skyways_km: 0.8, mix: { houses: 1.6, podium: 1.0 } }    # 西尔米卡尔维克区：冰川旅游
+    div_3j7f20: { style: mixed, detail_km2: 12, mix: { civic: 1.2, houses: 1.6 } }           # 陶瓦尼克区：观测站
     # 乌维克萨克市
-    div_qj033v: { style: planned, detail_km2: 25, skyways_km: 0.6, mix: { slabs: 1.2, industrial: 1.4 } }  # 稀土港区
-    div_4ymjbf: { style: planned, detail_km2: 12, mix: { industrial: 2.0 } }                 # 稀土群岛矿区管理区
+    div_qj033v: { style: planned, detail_km2: 25, skyways_km: 0.6, mix: { slabs: 1.2, industrial: 1.4 } }  # 乌维克努卡区
+    div_4ymjbf: { style: planned, detail_km2: 12, mix: { industrial: 2.0 } }                 # 乌库乌维特矿区管理区
     # 塔夫鲁利特原住民自治区
     div_ek897t: { style: organic, detail_km2: 30, skyways_km: 0.8, mix: { houses: 2.0, civic: 0.8 } }     # 阿卡尼克区：自治区首府
-    div_m34jqk: { style: organic, detail_km2: 12, mix: { houses: 2.6 } }                     # 北岸猎区
-    div_d9hctg: { style: organic, detail_km2: 12, mix: { houses: 2.6 } }                     # 苔原牧区
-    div_zq16x4: { style: organic, detail_km2: 10, mix: { houses: 2.4, industrial: 0.4 } }    # 渔猎群岛区
+    div_m34jqk: { style: organic, detail_km2: 12, mix: { houses: 2.6 } }                     # 阿卡皮图米乌特区
+    div_d9hctg: { style: organic, detail_km2: 12, mix: { houses: 2.6 } }                     # 尼尔萨瓦克区
+    div_zq16x4: { style: organic, detail_km2: 10, mix: { houses: 2.4, industrial: 0.4 } }    # 皮图库维特区
     # 生态保护区与冰盖管理区：只有主次干道
     div_jd4ms5: { main_only: true }
     div_6469m0: { main_only: true }
@@ -249,10 +249,10 @@ streets:
     div_81tqya: { main_only: true }
     div_7b21kg: { main_only: true }
   named:
-    - { district: div_ga9pxy, axis: 0, line: 0, status: generated, names: { zh: 公共银行大道, en: Public Bank Avenue, art-x-tavrunaq: Pallutuar Pirtuar } }
-    - { district: div_ga9pxy, axis: 1, line: 0, status: generated, names: { zh: 金库街, en: Vault Street, art-x-tavrunaq: Kirri Sallik } }
-    - { district: div_9s80v8, axis: 0, line: 0, status: generated, names: { zh: 穹顶大街, en: Dome Boulevard, art-x-tavrunaq: Qummar Sallituar } }
-    - { district: div_3b9pkz, axis: 0, line: 0, status: generated, names: { zh: 暖廊大道, en: Skyway Avenue, art-x-tavrunaq: Tuvvi Pirtuar } }
+    - { district: div_ga9pxy, axis: 0, line: 0, status: generated, names: { zh: 帕卢图阿尔大道, en: Pallutuar Avenue, art-x-tavrunaq: Pallutuar Pirtuar } }
+    - { district: div_ga9pxy, axis: 1, line: 0, status: generated, names: { zh: 基里街, en: Kirri Street, art-x-tavrunaq: Kirri Sallik } }
+    - { district: div_9s80v8, axis: 0, line: 0, status: generated, names: { zh: 库马尔大街, en: Qummar Boulevard, art-x-tavrunaq: Qummar Sallituar } }
+    - { district: div_3b9pkz, axis: 0, line: 0, status: generated, names: { zh: 图维大道, en: Tuvvi Avenue, art-x-tavrunaq: Tuvvi Pirtuar } }
 # Uplands above the tundra drift deep in winter storms: roads and railways there run under snow
 # sheds (see world/transport/engineering.yaml).
 snow_sheds: { above_m: 400, min_km: 1, gap_km: 1 }
@@ -263,18 +263,18 @@ metro:
     - city: div_8besy9   # 努卡塔克市
       names: { zh: 努卡塔克地铁, en: Nuqattaaq Metro, art-x-tavrunaq: Nuqattaaq Kuuvvipirri }
       lines:
-        - { district: div_9s80v8, axis: 0, to: poi_2mw1wp }   # 穹顶大街下，至努卡塔克国际机场
-        - { district: div_3b9pkz, axis: 0 }                   # 暖廊大道下
-        - { district: div_j06x18, axis: 1 }                   # 峡湾区
-        - { district: div_q7cydv, axis: 0 }                   # 旧港区
+        - { district: div_9s80v8, axis: 0, to: poi_2mw1wp }   # 库马尔大街下，至努卡塔克国际机场
+        - { district: div_3b9pkz, axis: 0 }                   # 图维大道下
+        - { district: div_j06x18, axis: 1 }                   # 苏瓦利克区
+        - { district: div_q7cydv, axis: 0 }                   # 努坎加克区
     - city: div_nbf1bw   # 萨尔瓦克市
       names: { zh: 萨尔瓦克地铁, en: Saarvaq Metro, art-x-tavrunaq: Saarvaq Kuuvvipirri }
       lines:
-        - { district: div_3rb2ha, axis: 0 }                   # 暖流港区
+        - { district: div_3rb2ha, axis: 0 }                   # 萨尔努卡区
     - city: div_dfmj5f   # 乌库拉克市
       names: { zh: 乌库拉克地铁, en: Ukkulaaq Metro, art-x-tavrunaq: Ukkulaaq Kuuvvipirri }
       lines:
-        - { district: div_yh6ysj, axis: 0 }                   # 矿港区
+        - { district: div_yh6ysj, axis: 0 }                   # 乌库努卡区
 
 # Facts the build checks and reports; a failed check is printed as a warning.
 expect:
@@ -301,74 +301,74 @@ layout:
     div_eqzm0n: [640, 170]   # 乌维克萨克市
     div_8c2skk: [225, 192]   # 塔夫鲁利特原住民自治区
   districts:
-    div_q7cydv: [-0.3, -0.6]   # 旧港区
-    div_9s80v8: [0.2, -0.4]    # 穹顶区
-    div_j06x18: [0, 0.4]       # 峡湾区
-    div_3b9pkz: [-0.8, 0]      # 暖廊区
-    div_k8cx0t: [-0.6, 0.9]    # 白原区
-    div_jvwq60: [0.8, -0.2]    # 不冻港区
-    div_k4vyb1: [0.6, 1]       # 鹿角区
-    div_ga9pxy: [0, 0]         # 公共银行区
-    div_3rb2ha: [0, -0.2]      # 暖流港区
-    div_qg40vj: [0.6, -0.1]    # 渔湾区
-    div_hrrg7q: [0, 1]         # 西峡区
-    div_2541fx: [1.2, -1.5]    # 海牧群岛区
-    div_jd4ms5: [-2.2, -0.6]   # 玄武岩柱群岛生态保护区
-    div_yh6ysj: [0, -0.3]      # 矿港区
-    div_1d76zf: [-0.6, 0.3]    # 镍城区
-    div_stts1z: [1, 0.6]       # 东峡区
-    div_7ee7ab: [1.6, -1.1]    # 极光群岛区
-    div_6469m0: [-0.6, 1]      # 南岸峡湾生态保护区
-    div_79wfwy: [0, 0]         # 冷风区
-    div_najb0c: [0.6, -0.7]    # 冷谷区
-    div_3xz1pw: [-1.2, 0.1]    # 数据群岛区
-    div_6p8a1q: [-0.6, 3.3]    # 卫星群岛区
-    div_5h1yv5: [0.9, 0.5]     # 西部高原生态保护区
-    div_k66r1n: [0, 0]         # 晶石区
-    div_qaxzqj: [0.7, -0.4]    # 锂湖区
-    div_m541k8: [0.9, 0.3]     # 内陆矿区管理区
-    div_8h5g1g: [-0.8, 0.4]    # 大湖苔原生态保护区
-    div_anjqnh: [0, 0]         # 河口区
-    div_m0b417: [0.4, 0.3]     # 冰港区
-    div_xvm6y0: [0.6, -1]      # 上游区
-    div_rcnhch: [0.6, 1.6]     # 科考群岛区
-    div_jyszba: [-0.6, -0.1]   # 三角洲湿地生态保护区
-    div_73wt00: [0.2, 0]       # 冰川区
-    div_3j7f20: [0.6, -0.8]    # 观天区
+    div_q7cydv: [-0.3, -0.6]   # 努坎加克区
+    div_9s80v8: [0.2, -0.4]    # 库马尔维克区
+    div_j06x18: [0, 0.4]       # 苏瓦利克区
+    div_3b9pkz: [-0.8, 0]      # 图维尔尤阿克区
+    div_k8cx0t: [-0.6, 0.9]    # 帕利瓦克区
+    div_jvwq60: [0.8, -0.2]    # 伊马萨尔维克区
+    div_k4vyb1: [0.6, 1]       # 尼尔萨库特区
+    div_ga9pxy: [0, 0]         # 帕卢库特区
+    div_3rb2ha: [0, -0.2]      # 萨尔努卡区
+    div_qg40vj: [0.6, -0.1]    # 乌利图克区
+    div_hrrg7q: [0, 1]         # 普拉苏瓦米乌特区
+    div_2541fx: [1.2, -1.5]    # 乌利库维特区
+    div_jd4ms5: [-2.2, -0.6]   # 通纳库特生态保护区
+    div_yh6ysj: [0, -0.3]      # 乌库努卡区
+    div_1d76zf: [-0.6, 0.3]    # 基萨尔维克区
+    div_stts1z: [1, 0.6]       # 皮瓦苏瓦区
+    div_7ee7ab: [1.6, -1.1]    # 卡瓦卢维特区
+    div_6469m0: [-0.6, 1]      # 西卢阿苏瓦特生态保护区
+    div_79wfwy: [0, 0]         # 图利亚利维克区
+    div_najb0c: [0.6, -0.7]    # 图拉卡特区
+    div_3xz1pw: [-1.2, 0.1]    # 图卡鲁维特区
+    div_6p8a1q: [-0.6, 3.3]    # 陶武维特区
+    div_5h1yv5: [0.9, 0.5]     # 普拉普卡特生态保护区
+    div_k66r1n: [0, 0]         # 考卢尤阿克区
+    div_qaxzqj: [0.7, -0.4]    # 伊卢克萨特区
+    div_m541k8: [0.9, 0.3]     # 乌库利特矿区管理区
+    div_8h5g1g: [-0.8, 0.4]    # 伊卢克图克生态保护区
+    div_anjqnh: [0, 0]         # 基卢基亚克区
+    div_m0b417: [0.4, 0.3]     # 西尔米努卡区
+    div_xvm6y0: [0.6, -1]      # 帕基卢克区
+    div_rcnhch: [0.6, 1.6]     # 纳卢维特区
+    div_jyszba: [-0.6, -0.1]   # 马拉基卢克生态保护区
+    div_73wt00: [0.2, 0]       # 西尔米卡尔维克区
+    div_3j7f20: [0.6, -0.8]    # 陶瓦尼克区
     div_hbdzam: [-0.7, -0.4]   # 西尔米冰盖管理区
-    div_481wnn: [-0.4, 1.7]    # 冰川群岛冰盖管理区
-    div_81tqya: [2.4, 0.9]     # 海象熊群岛生态保护区
-    div_qj033v: [0, -0.2]      # 稀土港区
-    div_4ymjbf: [0.2, 0.8]     # 稀土群岛矿区管理区
+    div_481wnn: [-0.4, 1.7]    # 西尔米乌维特冰盖管理区
+    div_81tqya: [2.4, 0.9]     # 乌瓦卡鲁克生态保护区
+    div_qj033v: [0, -0.2]      # 乌维克努卡区
+    div_4ymjbf: [0.2, 0.8]     # 乌库乌维特矿区管理区
     div_ek897t: [0, 0]         # 阿卡尼克区
-    div_m34jqk: [0.6, 0.5]     # 北岸猎区
-    div_d9hctg: [0.8, -0.5]    # 苔原牧区
-    div_zq16x4: [0, 1.5]       # 渔猎群岛区
-    div_7b21kg: [-0.3, -0.8]   # 驯鹿迁徙生态保护区
+    div_m34jqk: [0.6, 0.5]     # 阿卡皮图米乌特区
+    div_d9hctg: [0.8, -0.5]    # 尼尔萨瓦克区
+    div_zq16x4: [0, 1.5]       # 皮图库维特区
+    div_7b21kg: [-0.3, -0.8]   # 尼尔萨图维特生态保护区
   # The archipelago each island district is named for: a point on each of its islands (design km).
   # These go whole to that district and its city; other islands go to the nearest division.
   islands:
     div_3xz1pw: [[39, 189], [55, 161], [32, 166], [30, 140], [49, 213], [22, 212], [71, 178], [13, 224],
-                 [30, 208], [30, 201]]                                                   # 数据群岛
-    div_6p8a1q: [[55, 317], [100, 326], [93, 300], [53, 339]]                             # 卫星群岛
-    div_jd4ms5: [[123, 69], [94, 85], [70, 69], [114, 101]]                               # 玄武岩柱群岛
+                 [30, 208], [30, 201]]                                                   # 图卡鲁维特群岛
+    div_6p8a1q: [[55, 317], [100, 326], [93, 300], [53, 339]]                             # 陶武维特群岛
+    div_jd4ms5: [[123, 69], [94, 85], [70, 69], [114, 101]]                               # 通纳库维特群岛
     div_2541fx: [[241, 50], [211, 57], [257, 25], [234, 72], [236, 60], [188, 45], [168, 62], [244, 20],
-                 [292, 72], [301, 42], [280, 41], [274, 59], [262, 50], [296, 35], [314, 61]]  # 海牧群岛
-    div_7ee7ab: [[523, 42], [574, 51], [546, 60], [497, 60], [593, 52], [541, 85], [558, 72], [557, 64]]  # 极光群岛
-    div_4ymjbf: [[654, 145], [632, 141], [660, 203], [610, 213]]                          # 稀土群岛
+                 [292, 72], [301, 42], [280, 41], [274, 59], [262, 50], [296, 35], [314, 61]]  # 乌利库维特群岛
+    div_7ee7ab: [[523, 42], [574, 51], [546, 60], [497, 60], [593, 52], [541, 85], [558, 72], [557, 64]]  # 卡瓦卢维特群岛
+    div_4ymjbf: [[654, 145], [632, 141], [660, 203], [610, 213]]                          # 乌库乌维特群岛
     div_81tqya: [[604, 290], [640, 263], [631, 317], [656, 296], [637, 333], [642, 304], [614, 305],
-                 [628, 298], [652, 279], [645, 327]]                                     # 海象熊群岛
-    div_481wnn: [[452, 313], [520, 301], [570, 318], [511, 275], [517, 270]]              # 冰川群岛
-    div_rcnhch: [[323, 311], [357, 324], [278, 347], [346, 294], [269, 338], [297, 341], [284, 337]]  # 科考群岛
-    div_zq16x4: [[184, 279], [205, 263], [184, 254], [199, 230], [194, 227]]              # 渔猎群岛
+                 [628, 298], [652, 279], [645, 327]]                                     # 乌瓦卡鲁库维特群岛
+    div_481wnn: [[452, 313], [520, 301], [570, 318], [511, 275], [517, 270]]              # 西尔米乌维特群岛
+    div_rcnhch: [[323, 311], [357, 324], [278, 347], [346, 294], [269, 338], [297, 341], [284, 337]]  # 纳卢维特群岛
+    div_zq16x4: [[184, 279], [205, 263], [184, 254], [199, 230], [194, 227]]              # 皮图库维特群岛
   boundary_warp_km: 6
   coastal:
-    div_q7cydv: null   # 旧港区，峡湾口的老渔港
-    div_jvwq60: null   # 不冻港区
-    div_3rb2ha: null   # 暖流港区
-    div_yh6ysj: null   # 矿港区
-    div_79wfwy: null   # 冷风区
-    div_anjqnh: null   # 河口区
-    div_m0b417: null   # 冰港区
-    div_73wt00: null   # 冰川区
-    div_qj033v: null   # 稀土港区
+    div_q7cydv: null   # 努坎加克区，峡湾口的老渔港
+    div_jvwq60: null   # 伊马萨尔维克区
+    div_3rb2ha: null   # 萨尔努卡区
+    div_yh6ysj: null   # 乌库努卡区
+    div_79wfwy: null   # 图利亚利维克区
+    div_anjqnh: null   # 基卢基亚克区
+    div_m0b417: null   # 西尔米努卡区
+    div_73wt00: null   # 西尔米卡尔维克区
+    div_qj033v: null   # 乌维克努卡区

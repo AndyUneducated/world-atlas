@@ -7,9 +7,9 @@ features:
     subtype: mountain_range
     status: generated
     names:
-      zh: 千峡山脉
-      en: Thousand Fjords Range
-      art-x-tavrunaq: Suvvatuar
+      zh: 苏瓦尔尤伊特山脉
+      en: Suvvarjuit Mountains
+      art-x-tavrunaq: Suvvarjuit
     notes:
       zh: 横贯大陆南部的山脉，在南岸背后东西绵延数百公里，跨越西峡区、苔原牧区、锂湖区、南岸峡湾生态保护区和东峡区等多个区，最高峰是东段的苍穹峰，海拔 2022 米。山脉把南岸的城市与内陆苔原隔开，努基高速、努阿高速、矿区高速和西峡公路都以长段防雪棚翻越，南岸高速铁路以千峡山脉隧道穿过。
       en: The range that runs across the south of the mainland, stretching for hundreds of kilometres from west to east behind the south coast through many districts, among them West Fjord, the Tundra Herding District, Lithium Lakes, the South Fjords Nature Reserve and East Fjord; its highest summit is Skydome Peak in the east, 2,022 m. It separates the south-coast cities from the inland tundra, and the Nuqattaaq–Kiluktuar, Nuqattaaq–Aqqanik and Mining expressways and the West Fjord Road all cross it under long snow sheds, while the South Coast High-Speed Railway passes through it in the Thousand Fjords Range Tunnel.
@@ -27,8 +27,8 @@ features:
     subtype: plateau
     status: generated
     names:
-      zh: 西部高原
-      en: Western Plateau
+      zh: 普拉普卡高原
+      en: Pullapukka Plateau
       art-x-tavrunaq: Pullapukka
     notes:
       zh: 图利瓦克市以东的高原，大部分在西部高原生态保护区，南缘伸入冷谷区，最高点高原顶海拔 1568 米，顶上覆盖着高原冰帽。高原上风大雪深，南岸高速以长约 76 公里的西部高原防雪棚翻越，苔原高速以西部高原隧道穿过。
@@ -37,8 +37,8 @@ features:
     subtype: mountain_range
     status: generated
     names:
-      zh: 冰牙山
-      en: Icefang Mountains
+      zh: 西尔米基克山
+      en: Sirmikiiq Mountains
       art-x-tavrunaq: Sirmikiiq
     notes:
       zh: 纵贯冰牙岛的山脉，全部在冰川群岛冰盖管理区内，主峰冰牙峰海拔 2236 米，山顶覆盖着冰牙冰帽，冰川从山上流入四周的海中。
@@ -47,8 +47,8 @@ features:
     subtype: ridge
     status: generated
     names:
-      zh: 晶石丘陵
-      en: Crystal Hills
+      zh: 考卢卡特丘陵
+      en: Qaulukkat Hills
       art-x-tavrunaq: Qaulukkat
     notes:
       zh: 锂湖区与大湖苔原生态保护区之间的丘陵，最高处海拔近 1700 米。内陆矿区重载铁路以长约 28 公里的晶石丘陵隧道穿过，这是领地最长的隧道；矿区高速也以隧道穿过，晶锂公路则以防雪棚翻越。

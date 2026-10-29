@@ -1,7 +1,7 @@
 # Named places (buildings, landmarks, facilities) of the Arctic Ocean Territory.
 # Same conventions as cn-nv-places.yaml; names are Chinese, English and Tavrunaq.
 places:
-  # ── 帕卢尔尼克金融特区（公共银行区）──
+  # ── 帕卢尔尼克金融特区（帕卢库特区）──
   - id: bld_d07900
     subtype: bank
     status: generated
@@ -73,7 +73,7 @@ places:
     names:
       zh: 北冰洋清算所
       en: Arctic Ocean Clearing House
-      art-x-tavrunaq: Aqqimma Akkarniq
+      art-x-tavrunaq: Aqqimma Akkarvik
     notes:
       zh: 金融特区的清算所与零手续费全球实时支付网络的控制中心，全年无休
       en: The financial zone's clearing house and the control centre of its fee-free, real-time global payment network, open every day of the year.
@@ -86,7 +86,7 @@ places:
     names:
       zh: 帕卢尔尼克金融法院
       en: Pallurniq Financial Court
-      art-x-tavrunaq: Pallurniq Lurraniq
+      art-x-tavrunaq: Pallurniq Lurravik
     notes:
       zh: 依《金融特区法》设立的金融法院，审理特区内的金融与商事案件，并主持法律沙盒
       en: The financial court set up under the Financial Zone Act, hearing the zone's financial and commercial cases and running its legal sandbox.
@@ -112,7 +112,7 @@ places:
     names:
       zh: 帕卢尔尼克公司注册处
       en: Pallurniq Companies Registry
-      art-x-tavrunaq: Pallurniq Qirrutniq
+      art-x-tavrunaq: Pallurniq Qirruvik
     notes:
       zh: 特区的公司注册处与自由经济区管理机构，公司注册全程自动、几分钟办完
       en: The zone's companies registry and free economic zone authority, where registering a company is fully automatic and takes a few minutes.
@@ -125,7 +125,7 @@ places:
     names:
       zh: 北冰洋数字资产交易所
       en: Arctic Ocean Digital Asset Exchange
-      art-x-tavrunaq: Aqqimma Tukkaru Akkarniq
+      art-x-tavrunaq: Aqqimma Tukkaru Akkarvik
     notes:
       zh: 交易数字资产与领地数字货币的交易所，可编程账户与智能合约都在这里结算
       en: The exchange for digital assets and the territory's digital currency, where programmable accounts and smart contracts settle.
@@ -138,7 +138,7 @@ places:
     names:
       zh: 公共银行极地数据中心
       en: Public Bank Polar Data Centre
-      art-x-tavrunaq: Pallutuar Tukkaruniq
+      art-x-tavrunaq: Pallutuar Tukkaruvik
     notes:
       zh: 公共银行的核心数据中心，用极地冷空气冷却，运行账户、支付与 AI 秒批贷款系统
       en: The Public Bank's core data centre, cooled by polar air, running its accounts, payments and instant AI lending.
@@ -151,7 +151,7 @@ places:
     names:
       zh: 冻土黄金金库
       en: Permafrost Gold Vault
-      art-x-tavrunaq: Kirri Tuunniq
+      art-x-tavrunaq: Kirri Tuunnivik
     notes:
       zh: 深埋在冻土层下的黄金金库，地面只有一座出入大楼，存放公共银行与客户的金条
       en: A gold vault deep in the permafrost, of which only the entrance building shows above ground, holding the bullion of the Public Bank and its clients.
@@ -175,8 +175,8 @@ places:
     subtype: dome
     status: generated
     names:
-      zh: 永昼广场
-      en: Midnight Sun Dome
+      zh: 卡拉克穹顶
+      en: Kallaaq Dome
       art-x-tavrunaq: Kallaaq Qummar
     notes:
       zh: 穹顶下的人造日光广场，极夜里按白昼的光照点亮，供人们晒"太阳"、做光照疗法
@@ -192,7 +192,7 @@ places:
     names:
       zh: 北冰洋领地政府
       en: Government of the Arctic Ocean Territory
-      art-x-tavrunaq: Aqqimma Tavru Aaqqiniq
+      art-x-tavrunaq: Aqqimma Tavru Aaqqivik
     notes:
       zh: 领地议会与领地政府所在的建筑群，在首府穹顶区，与中央穹顶以暖廊相连
       en: The buildings of the territorial assembly and government in the capital's Dome District, joined to the Central Dome by skyways.
@@ -218,9 +218,9 @@ places:
     subtype: dome
     status: generated
     names:
-      zh: 暖廊室内海滩
-      en: Skyway Indoor Beach
-      art-x-tavrunaq: Tuvvilik Qummar
+      zh: 图维尔尤阿克室内海滩
+      en: Tuvvirjuaq Indoor Beach
+      art-x-tavrunaq: Tuvvirjuaq Qummar
     notes:
       zh: 穹顶下的人造沙滩与温水泳池，四季保持夏日的温度与光照
       en: An artificial beach and warm pool under a dome, kept at summer warmth and light all year round.
@@ -231,8 +231,8 @@ places:
     subtype: stadium
     status: generated
     names:
-      zh: 极夜体育场
-      en: Polar Night Arena
+      zh: 帕尔尼克体育场
+      en: Paarniq Arena
       art-x-tavrunaq: Paarniq Qummar
     notes:
       zh: 带可开合穹顶的体育场，冬季举办冰上运动和极夜灯光节的开幕式，夏季开顶举办午夜马拉松的终点仪式
@@ -244,9 +244,9 @@ places:
     subtype: industrial_park
     status: generated
     names:
-      zh: 白原垂直农场
-      en: Whitemoor Vertical Farm
-      art-x-tavrunaq: Paalivaq Pukkuniq
+      zh: 帕利瓦克垂直农场
+      en: Paalivaq Vertical Farm
+      art-x-tavrunaq: Paalivaq Pukkuvik
     notes:
       zh: 多层室内农场，用人工光照种植蔬菜和浆果，供应首府大部分的新鲜蔬菜
       en: A many-storeyed indoor farm growing vegetables and berries under artificial light, supplying most of the capital's fresh greens.
@@ -259,7 +259,7 @@ places:
     names:
       zh: 北冰洋大学
       en: University of the Arctic Ocean
-      art-x-tavrunaq: Aqqimma Saalluniq
+      art-x-tavrunaq: Aqqimma Saalluvik
     notes:
       zh: 领地的综合大学，以极地工程、冰川学、金融法和塔夫鲁纳克语研究见长
       en: The territory's university, known for polar engineering, glaciology, financial law and Tavrunaq studies.
@@ -270,8 +270,8 @@ places:
     subtype: plaza
     status: generated
     names:
-      zh: 旧港灯光广场
-      en: Old Harbour Light Square
+      zh: 努坎加克灯光广场
+      en: Nuqangaq Light Square
       art-x-tavrunaq: Nuqangaq Qavvalu
     notes:
       zh: 老渔港旁的广场，每年极夜灯光节时布满灯光装置，也是冰雕展的主会场
@@ -283,9 +283,9 @@ places:
     subtype: park
     status: generated
     names:
-      zh: 峡湾冰雕园
-      en: Fjordside Ice Sculpture Garden
-      art-x-tavrunaq: Sirmi Kirraniq
+      zh: 苏瓦利克冰雕园
+      en: Suvvalik Ice Sculpture Garden
+      art-x-tavrunaq: Suvvalik Kirravik
     notes:
       zh: 峡湾岸边的冰雕园，冬季用峡湾的冰块雕成城堡、动物和塔夫鲁纳克神话人物
       en: An ice-sculpture garden on the fjord shore, where blocks cut from the fjord become castles, animals and figures from Tavrunaq myth each winter.
@@ -296,9 +296,9 @@ places:
     subtype: golf_course
     status: generated
     names:
-      zh: 鹿角午夜高尔夫球场
-      en: Antler Midnight Sun Golf Course
-      art-x-tavrunaq: Kallaaq Puttuniq
+      zh: 尼尔萨库特午夜高尔夫球场
+      en: Nirsakut Midnight Sun Golf Course
+      art-x-tavrunaq: Kallaaq Puttuvik
     notes:
       zh: 建在苔原上的高尔夫球场，极昼时节午夜也能开球
       en: A golf course laid out on the tundra, where in the season of the midnight sun players tee off at midnight.
@@ -309,9 +309,9 @@ places:
     subtype: stadium
     status: generated
     names:
-      zh: 不冻港冰上赛车场
-      en: Openwater Ice Speedway
-      art-x-tavrunaq: Sirmi Sukkaniq
+      zh: 伊马萨尔维克冰上赛车场
+      en: Immasaarvik Ice Speedway
+      art-x-tavrunaq: Sirmi Sukkavik
     notes:
       zh: 冬季在冻结的湖面上开辟的赛车场，举办冰上赛车和雪地摩托比赛
       en: A racetrack laid out on a frozen lake each winter for ice racing and snowmobile events.
@@ -324,7 +324,7 @@ places:
     names:
       zh: 努卡塔克国际机场
       en: Nuqattaaq International Airport
-      art-x-tavrunaq: Nuqattaaq Tirraaniq
+      art-x-tavrunaq: Nuqattaaq Tirravik
     notes:
       zh: 领地的国际枢纽机场，跑道配有融雪加热系统，极夜和暴风雪中也能起降
       en: The territory's international hub, its runways heated against snow so that flights operate through the polar night and blizzards.
@@ -336,9 +336,9 @@ places:
     subtype: port
     status: generated
     names:
-      zh: 不冻港港区
-      en: Openwater Harbour
-      art-x-tavrunaq: Immasaar Nuqa
+      zh: 伊马萨尔维克港区
+      en: Immasaarvik Harbour
+      art-x-tavrunaq: Immasaarvik Nuqa
     notes:
       zh: 暖流让港湾终年不冻，突堤上有集装箱、矿石、油品和滚装码头，重载铁路运来的矿石在这里装船
       en: A warm current keeps the harbour open all year; its moles hold container, ore, oil and ro-ro terminals, and the ore brought by the heavy-haul railway is loaded here.
@@ -350,8 +350,8 @@ places:
     subtype: port
     status: generated
     names:
-      zh: 暖流港渔港
-      en: Warm Current Fishing Harbour
+      zh: 萨尔努卡渔港
+      en: Saarnuqa Fishing Harbour
       art-x-tavrunaq: Ulik Nuqa
     notes:
       zh: 南岸最大的渔港之一，深海渔船和养殖运输船在这里卸货
@@ -362,9 +362,9 @@ places:
     subtype: industrial_park
     status: generated
     names:
-      zh: 海牧深海养殖基地
-      en: Sea Pasture Aquaculture Base
-      art-x-tavrunaq: Ulikuviit Pukkuniq
+      zh: 乌利库维特深海养殖基地
+      en: Ulikuviit Aquaculture Base
+      art-x-tavrunaq: Ulikuviit Pukkuvik
     notes:
       zh: 群岛间海湾里的深海网箱养殖基地，岸上是孵化场与加工厂
       en: Deep-water fish pens in the bays between the islands, with hatcheries and processing plants on shore.
@@ -375,8 +375,8 @@ places:
     subtype: nature_reserve
     status: generated
     names:
-      zh: 玄武岩柱自然保护区
-      en: Basalt Pillars Nature Reserve
+      zh: 通纳库特玄武岩柱保护区
+      en: Tuunnaqut Basalt Pillars Reserve
       art-x-tavrunaq: Tuunnaqut
     notes:
       zh: 海岸上成排的六角形玄武岩柱，崖上栖息着海鸦与北极鸥
@@ -390,8 +390,8 @@ places:
     subtype: port
     status: generated
     names:
-      zh: 矿港散货码头
-      en: Ore Harbour Bulk Terminal
+      zh: 乌库努卡散货码头
+      en: Ukkunuqa Bulk Terminal
       art-x-tavrunaq: Ukkunuqa
     notes:
       zh: 镍城冶炼厂的产品和东部矿山的矿石从这里装船，另有一座油品码头
@@ -402,9 +402,9 @@ places:
     subtype: factory
     status: generated
     names:
-      zh: 镍城冶炼厂
-      en: Nickel Town Smelter
-      art-x-tavrunaq: Qissarniq Ukkuniq
+      zh: 基萨尔维克冶炼厂
+      en: Qissarvik Smelter
+      art-x-tavrunaq: Qissarvik Ukkuvik
     notes:
       zh: 冶炼内陆矿区的镍矿石，用水电和余热为镍城供暖
       en: Smelts the nickel ore of the inland mines, its hydro power and waste heat warming Nickel Town.
@@ -415,9 +415,9 @@ places:
     subtype: hotel
     status: generated
     names:
-      zh: 极光群岛观光度假村
-      en: Aurora Islands Lodge
-      art-x-tavrunaq: Qavvalu Tuqqaniq
+      zh: 卡瓦卢维特观光度假村
+      en: Qavvaluviit Lodge
+      art-x-tavrunaq: Qavvalu Tuqqavik
     notes:
       zh: 玻璃屋顶的客房散布在岛上，冬季躺在床上就能看极光
       en: Glass-roofed cabins scattered over the island, where guests watch the aurora from their beds in winter.
@@ -430,9 +430,9 @@ places:
     subtype: data_centre
     status: generated
     names:
-      zh: 冷存数据中心
-      en: Coldstore Data Centre
-      art-x-tavrunaq: Tukkaruniq Tulli
+      zh: 图卡尔尤阿克数据中心
+      en: Tukkarjuaq Data Centre
+      art-x-tavrunaq: Tukkaruvik Tulli
     notes:
       zh: 数据群岛上最大的数据中心，用极地冷空气和海水冷却，余热为岛上的住宅供暖
       en: The largest data centre on the Data Islands, cooled by polar air and sea water, its waste heat warming the island's homes.
@@ -445,7 +445,7 @@ places:
     names:
       zh: 北极光算力中心
       en: Northern Lights Compute Centre
-      art-x-tavrunaq: Qavvalu Tukkaruniq
+      art-x-tavrunaq: Qavvalu Tukkaruvik
     notes:
       zh: 为人工智能训练出租算力的数据中心，海底光缆从这里连到世界各地
       en: A data centre renting out computing power for training artificial intelligence, linked to the world by undersea cables.
@@ -456,9 +456,9 @@ places:
     subtype: ground_station
     status: generated
     names:
-      zh: 卫星群岛地面站
-      en: Satellite Islands Ground Station
-      art-x-tavrunaq: Tauvvu Saqqaniq
+      zh: 陶武维特地面站
+      en: Tauvvuviit Ground Station
+      art-x-tavrunaq: Tauvvu Saqqavik
     notes:
       zh: 极轨卫星每一圈都经过高纬度上空，这里的天线阵接收卫星数据并转发到数据群岛
       en: Polar-orbiting satellites pass over the high latitudes on every orbit; the antenna field here downloads their data and passes it to the Data Islands.
@@ -471,9 +471,9 @@ places:
     subtype: mine
     status: generated
     names:
-      zh: 晶石钻石矿
-      en: Crystal Diamond Mine
-      art-x-tavrunaq: Qauluk Ukkuniq
+      zh: 考卢尤阿克钻石矿
+      en: Qaulujjuaq Diamond Mine
+      art-x-tavrunaq: Qauluk Ukkuvik
     notes:
       zh: 内陆矿区的露天钻石矿，矿石在晶石区切割加工
       en: An open-pit diamond mine in the inland mining zone; its stones are cut and polished in Crystal District.
@@ -485,9 +485,9 @@ places:
     subtype: mine
     status: generated
     names:
-      zh: 内陆镍矿
-      en: Inland Nickel Mine
-      art-x-tavrunaq: Qissar Ukkuniq
+      zh: 乌库利特镍矿
+      en: Ukkuliit Nickel Mine
+      art-x-tavrunaq: Qissar Ukkuvik
     notes:
       zh: 露天镍矿，矿石由无人驾驶的重载列车运往不冻港
       en: An open-pit nickel mine whose ore travels to Openwater on driverless heavy-haul trains.
@@ -499,9 +499,9 @@ places:
     subtype: factory
     status: generated
     names:
-      zh: 锂湖提锂厂
-      en: Lithium Lakes Brine Works
-      art-x-tavrunaq: Illuqsaat Ukkuniq
+      zh: 伊卢克萨特提锂厂
+      en: Illuqsaat Brine Works
+      art-x-tavrunaq: Illuqsaat Ukkuvik
     notes:
       zh: 从盐湖卤水中提取锂，产品供应电池工厂
       en: Extracts lithium from the brine of the salt lakes for battery makers.
@@ -512,9 +512,9 @@ places:
     subtype: factory
     status: generated
     names:
-      zh: 晶石钻石切割中心
-      en: Crystal Diamond Cutting Centre
-      art-x-tavrunaq: Qauluk Kirraniq
+      zh: 考卢尤阿克钻石切割中心
+      en: Qaulujjuaq Diamond Cutting Centre
+      art-x-tavrunaq: Qauluk Kirravik
     notes:
       zh: 内陆钻石矿的原石在这里切割、抛光和分级
       en: Where the rough stones of the inland mine are cut, polished and graded.
@@ -527,9 +527,9 @@ places:
     subtype: port
     status: generated
     names:
-      zh: 冰港破冰船基地
-      en: Ice Harbour Icebreaker Base
-      art-x-tavrunaq: Sirmi Pakkaniq
+      zh: 西尔米努卡破冰船基地
+      en: Sirminuqa Icebreaker Base
+      art-x-tavrunaq: Sirmi Pakkavik
     notes:
       zh: 领地海警与破冰船队的基地，冬季破冰船为北岸航线开路
       en: The base of the territory's coast guard and icebreaker fleet, whose ships clear the north-coast lanes in winter.
@@ -541,7 +541,7 @@ places:
     names:
       zh: 基卢克图阿尔机场
       en: Kiluktuar Airport
-      art-x-tavrunaq: Kiluktuar Tirraaniq
+      art-x-tavrunaq: Kiluktuar Tirravik
     notes:
       zh: 北岸的机场，冬季北岸封冻时是基卢克图阿尔与外界往来的主要通道
       en: The north coast's airport, the main way in and out of Kiluktuar when the coast freezes in winter.
@@ -555,7 +555,7 @@ places:
     names:
       zh: 北冰洋极地研究所
       en: Arctic Ocean Polar Research Institute
-      art-x-tavrunaq: Aqqimma Naalluniq
+      art-x-tavrunaq: Aqqimma Naalluvik
     notes:
       zh: 科考群岛上的研究所，研究海冰、冻土与北极生态，每年夏季派出科考船
       en: The research institute of the Research Islands, studying sea ice, permafrost and Arctic ecology and sending out research ships each summer.
@@ -569,7 +569,7 @@ places:
     names:
       zh: 西尔米瓦克冰川机场
       en: Sirmivak Glacier Airport
-      art-x-tavrunaq: Sirmivak Tirraaniq
+      art-x-tavrunaq: Sirmivak Tirravik
     notes:
       zh: 冰川区城外的机场，冰川旅游旺季有包机从南岸飞来
       en: The airport outside the town of Glacier District, served by charter flights from the south coast in the glacier tourism season.
@@ -581,9 +581,9 @@ places:
     subtype: museum
     status: generated
     names:
-      zh: 冰川游客中心
-      en: Glacier Visitor Centre
-      art-x-tavrunaq: Sirmiq Tauvvaniq
+      zh: 西尔米卡尔维克冰川游客中心
+      en: Sirmiqarvik Glacier Visitor Centre
+      art-x-tavrunaq: Sirmiqarvik Tauvvavik
     notes:
       zh: 介绍西尔米冰盖与冰川的展馆，冰川徒步和冰洞游览从这里出发
       en: An exhibition on the Sirmi Ice Cap and its glaciers, where glacier walks and ice-cave tours set out.
@@ -596,7 +596,7 @@ places:
     names:
       zh: 北冰洋种子与基因库
       en: Arctic Ocean Seed and Gene Vault
-      art-x-tavrunaq: Aqqimma Pukku Tuunniq
+      art-x-tavrunaq: Aqqimma Pukku Tuunnivik
     notes:
       zh: 凿进冻土山体的种子库与基因库，保存世界各地的作物种子和动植物基因样本
       en: A seed and gene bank cut into a permafrost hillside, holding crop seeds and plant and animal genetic samples from around the world.
@@ -607,8 +607,8 @@ places:
     subtype: observatory
     status: generated
     names:
-      zh: 观天天文台
-      en: Skywatch Observatory
+      zh: 陶瓦尼克天文台
+      en: Tauvvaniq Observatory
       art-x-tavrunaq: Tauvvaniq Qilliuq
     notes:
       zh: 极夜里连续数月的黑夜让这里适合观测，天文台与极光观测站同在观天区
@@ -622,7 +622,7 @@ places:
     names:
       zh: 西尔米冰芯钻探站
       en: Sirmi Ice Core Station
-      art-x-tavrunaq: Sirmi Naalluniq
+      art-x-tavrunaq: Sirmi Naalluvik
     notes:
       zh: 冰盖深处的科考站，钻取冰芯研究过去的气候，夏季才有飞机往返
       en: A research station deep on the ice cap, drilling ice cores to study past climates, reached by air only in summer.
@@ -632,9 +632,9 @@ places:
     subtype: nature_reserve
     status: generated
     names:
-      zh: 海象熊群岛保护站
-      en: Walrus and Bear Islands Ranger Station
-      art-x-tavrunaq: Uvvaakkaruq Naalluniq
+      zh: 乌瓦卡鲁库维特保护站
+      en: Uvvaakkaruquviit Ranger Station
+      art-x-tavrunaq: Uvvaakkaruq Naalluvik
     notes:
       zh: 保护区的巡护站，监测海象栖息地和北极熊的迁移
       en: The reserve's ranger station, watching over the walrus haul-outs and the movements of the polar bears.
@@ -643,9 +643,9 @@ places:
     subtype: research_institute
     status: generated
     names:
-      zh: 冰川群岛冰山观测站
-      en: Glacier Islands Iceberg Station
-      art-x-tavrunaq: Sirmiuviit Naalluniq
+      zh: 西尔米乌维特冰山观测站
+      en: Sirmiuviit Iceberg Station
+      art-x-tavrunaq: Sirmiuviit Naalluvik
     notes:
       zh: 观测冰川入海与冰山漂移的观测站，为南岸航线发布冰山预报
       en: Watches the glaciers calving into the sea and the drift of icebergs, issuing iceberg warnings for the south-coast shipping lanes.
@@ -656,9 +656,9 @@ places:
     subtype: mine
     status: generated
     names:
-      zh: 稀土群岛露天矿
-      en: Rare Earth Islands Open Pit
-      art-x-tavrunaq: Ukkuuviit Ukkuniq
+      zh: 乌库乌维特露天矿
+      en: Ukkuuviit Open Pit
+      art-x-tavrunaq: Ukkuuviit Ukkuvik
     notes:
       zh: 稀土群岛上的露天矿，精矿在稀土港装船
       en: The open-pit mine of the Rare Earth Islands, whose concentrate is shipped from Rare Earth Harbour.
@@ -669,8 +669,8 @@ places:
     subtype: port
     status: generated
     names:
-      zh: 稀土港码头
-      en: Rare Earth Harbour Quay
+      zh: 乌维克努卡码头
+      en: Uviqnuqa Quay
       art-x-tavrunaq: Uviqnuqa
     notes:
       zh: 乌维克萨克唯一的港口，运出稀土精矿，运进燃料和补给
@@ -684,7 +684,7 @@ places:
     names:
       zh: 乌维克萨克机场
       en: Uviqsaaq Airport
-      art-x-tavrunaq: Uviqsaaq Tirraaniq
+      art-x-tavrunaq: Uviqsaaq Tirravik
     notes:
       zh: 群岛上的机场，有航班飞往首府和西尔米瓦克
       en: The islands' airport, with flights to the capital and Sirmivak.
@@ -714,7 +714,7 @@ places:
     names:
       zh: 塔夫鲁利特文化中心
       en: Tavrulit Cultural Centre
-      art-x-tavrunaq: Tavrulit Qattukniq
+      art-x-tavrunaq: Tavrulit Qattuvik
     notes:
       zh: 收藏岩雕、骨雕与皮鼓，传唱口述史诗，每年冬至举办鼓舞节
       en: Holds rock and bone carvings and skin drums, keeps the oral epics alive and hosts a drum-dance festival every midwinter.
@@ -727,7 +727,7 @@ places:
     names:
       zh: 阿卡尼克雪橇赛场
       en: Aqqanik Sled Race Grounds
-      art-x-tavrunaq: Sukkiaq Sukkaniq
+      art-x-tavrunaq: Sukkiaq Sukkavik
     notes:
       zh: 狗拉雪橇赛的起点与终点，长距离赛沿传统雪橇道穿越苔原
       en: The start and finish of the dog-sled races, whose long-distance course follows the old sled trails across the tundra.
@@ -738,9 +738,9 @@ places:
     subtype: cultural_site
     status: generated
     names:
-      zh: 苔原石人群
-      en: Tundra Stone Figures
-      art-x-tavrunaq: Paali Tuunkut
+      zh: 通古阿利特石人群
+      en: Tuunngualiit Stone Figures
+      art-x-tavrunaq: Tuunngualiit
     notes:
       zh: 苔原上成群的石人与石堆路标，过去为猎人和牧人指路
       en: Groups of stone figures and cairns on the tundra that once showed hunters and herders the way.
@@ -751,9 +751,9 @@ places:
     subtype: cultural_site
     status: generated
     names:
-      zh: 渔猎群岛岩雕
-      en: Hunting Islands Rock Carvings
-      art-x-tavrunaq: Pitukuviit Kirraniq
+      zh: 皮图库维特岩雕
+      en: Pitukuviit Rock Carvings
+      art-x-tavrunaq: Pitukuviit Kirravik
     notes:
       zh: 海岸岩石上刻着鲸、海豹与皮划艇的岩雕
       en: Carvings of whales, seals and kayaks on the shore rocks.
@@ -763,9 +763,9 @@ places:
     subtype: nature_reserve
     status: generated
     names:
-      zh: 驯鹿产仔地
-      en: Reindeer Calving Grounds
-      art-x-tavrunaq: Nirsa Pukkuniq
+      zh: 尼尔萨普库维克产仔地
+      en: Nirsapukkuvik Calving Grounds
+      art-x-tavrunaq: Nirsapukkuvik
     notes:
       zh: 驯鹿每年春季回到这里产仔，产仔季节禁止车辆和飞机靠近
       en: Where the reindeer return to calve each spring; vehicles and aircraft must keep away in the calving season.
@@ -776,7 +776,7 @@ places:
     names:
       zh: 阿卡尼克机场
       en: Aqqanik Airport
-      art-x-tavrunaq: Aqqanik Tirraaniq
+      art-x-tavrunaq: Aqqanik Tirravik
     notes:
       zh: 自治区首府的机场，有航班飞往努卡塔克和苔原上的牧区小镇
       en: The airport of the regional capital, with flights to Nuqattaaq and the herding towns of the tundra.

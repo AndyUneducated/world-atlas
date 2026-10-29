@@ -9,8 +9,8 @@ railways:
     network: intercity_rail
     status: generated
     names:
-      zh: 南岸高速铁路
-      en: South Coast High-Speed Railway
+      zh: 西卢阿高速铁路
+      en: Sillua High-Speed Railway
       art-x-tavrunaq: Sillua Sukkapirri
     notes:
       zh: 南岸高速铁路全长约 1375 公里，自西向东经图利瓦克、萨尔瓦克、首府努卡塔克到乌库拉克，只设四座车站，最快约四小时跑完全程。列车为极光 350 型，运营时速 350 公里，高峰每 20 分钟一班，每年运送约 2400 万人次。线路有约 130 公里桥梁、47 公里隧道和 311 公里防雪棚：西峡特大桥长约 25 公里，千峡山脉隧道长约 20 公里，苔原防雪棚长约 44 公里。冻土路段以桩基和热棒稳定地基，道岔与接触网都有融冰装置。
@@ -28,8 +28,8 @@ railways:
     network: freight_rail
     status: generated
     names:
-      zh: 内陆矿区重载铁路
-      en: Inland Mines Heavy-Haul Railway
+      zh: 乌库利特重载铁路
+      en: Ukkuliit Heavy-Haul Railway
       art-x-tavrunaq: Ukkuliit Usirpirri
     notes:
       zh: 内陆矿区重载铁路全长约 500 公里，自内陆矿区管理区的货运站经锂湖货运站到首府的不冻港货运站，矿石在港口直接装船，满载列车全程约六小时。全线由无人驾驶的冰原 100 型重载列车运行，每列 100 节车皮、载货 1 万吨，每天发出 10 列满载列车，每年运出约 3600 万吨矿石。线路坡度平缓，最大坡度 12‰，有约 70 公里隧道和 51 公里桥梁：晶石丘陵隧道长约 28 公里，是领地最长的隧道，锂湖特大桥长约 14 公里，锂湖口以隧道穿过。

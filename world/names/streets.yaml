@@ -8,7 +8,8 @@
 #           a stem with a space is joined with hyphens (Freistad-auf-Hea-Straße).
 #   buckham: the suffix comes first (Viale + del Popolo).
 #   tavrunaq: the suffix follows as a word (Qavvalu Pirtuar); only stems with a Tavrunaq form
-#           (the polar theme, Arctic place names) get a Tavrunaq name.
+#           (the polar theme, Arctic place names) get a Tavrunaq name. Polar stems are native words:
+#           English uses the Tavrunaq form and Chinese its transliteration (meaning in the comment).
 # Parallel streets of one neighbourhood may share a stem with an ordinal: 松林二巷 /
 # Pinewood Lane 2 / Kiefernweg II / Vicolo dei Pini II.
 # Themes are chosen per neighbourhood, weighted by the district's street style.
@@ -213,26 +214,26 @@ themes:
     - 回声 | Echo | Echo | dell'Eco
   # 极地（北冰洋领地）
   polar:
-    - 极光 | Aurora | - | - | Qavvalu
-    - 冰原 | Icefield | - | - | Sirmipaa
-    - 驯鹿 | Reindeer | - | - | Nirsa
-    - 白熊 | White Bear | - | - | Karuq
-    - 海象 | Walrus | - | - | Uvvaak
-    - 雪鸮 | Snowy Owl | - | - | Tuuppak
-    - 苔原 | Tundra | - | - | Paali
-    - 峡湾 | Fjord | - | - | Suvva
-    - 暖廊 | Skyway | - | - | Tuvvi
-    - 穹顶 | Dome | - | - | Qummar
-    - 白鲸 | Beluga | - | - | Puuqtaq
-    - 北辰 | Pole Star | - | - | Qilliuq
-    - 冰川 | Glacier | - | - | Sirmiq
-    - 石柱 | Pillar | - | - | Tuun
-    - 皮鼓 | Drum | - | - | Qattuk
-    - 永昼 | Midnight Sun | - | - | Kallaaq
-    - 极夜 | Polar Night | - | - | Paarniq
-    - 冰钓 | Ice Fishing | - | - | Saarniq
-    - 雪橇 | Sled | - | - | Sukkiaq
-    - 冰晶 | Ice Crystal | - | - | Kiiqsaq
+    - 卡瓦卢 | Qavvalu | - | - | Qavvalu          # 极光
+    - 西尔米帕 | Sirmipaa | - | - | Sirmipaa      # 冰原
+    - 尼尔萨 | Nirsa | - | - | Nirsa              # 驯鹿
+    - 卡鲁克 | Karuq | - | - | Karuq              # 白熊
+    - 乌瓦克 | Uvvaak | - | - | Uvvaak            # 海象
+    - 图帕克 | Tuuppak | - | - | Tuuppak          # 雪鸮
+    - 帕利 | Paali | - | - | Paali                # 苔原
+    - 苏瓦 | Suvva | - | - | Suvva                # 峡湾
+    - 图维 | Tuvvi | - | - | Tuvvi                # 暖廊
+    - 库马尔 | Qummar | - | - | Qummar            # 穹顶
+    - 普克塔克 | Puuqtaq | - | - | Puuqtaq        # 白鲸
+    - 基利乌克 | Qilliuq | - | - | Qilliuq        # 北辰
+    - 西尔米克 | Sirmiq | - | - | Sirmiq          # 冰川
+    - 图恩 | Tuun | - | - | Tuun                  # 石柱
+    - 卡图克 | Qattuk | - | - | Qattuk            # 皮鼓
+    - 卡拉克 | Kallaaq | - | - | Kallaaq          # 永昼
+    - 帕尔尼克 | Paarniq | - | - | Paarniq        # 极夜
+    - 萨尔尼克 | Saarniq | - | - | Saarniq        # 冰钓
+    - 苏基亚克 | Sukkiaq | - | - | Sukkiaq        # 雪橇
+    - 基克萨克 | Kiiqsaq | - | - | Kiiqsaq        # 冰晶
 
 # Numbered street grids of planned districts: 经一路 … / 纬一路 …
 numbered:

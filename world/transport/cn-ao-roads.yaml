@@ -14,8 +14,8 @@ routes:
     class: motorway
     status: generated
     names:
-      zh: 南岸高速
-      en: South Coast Expressway
+      zh: 西卢阿高速
+      en: Sillua Expressway
       art-x-tavrunaq: Sillua Pirrituar
     notes:
       zh: 南岸高速全长约 1350 公里，是领地最长的公路，西起图利瓦克冷风区，经冷谷、萨尔瓦克暖流港和渔湾、首府旧港与不冻港，东到乌库拉克矿港区，全程约八个半小时。线路在首府以西绕经内陆的驯鹿迁徙保护区和苔原牧区，在首府以东绕经大湖苔原保护区、锂湖区和内陆矿区。全线双向十二车道，城区和山区路段限速 140 公里，其余路段不限速。线路有约 107 公里桥梁、19 公里隧道和 187 公里防雪棚，努卡塔克峡湾跨海大桥长约 32 公里，在旧港区和不冻港区之间直线跨过峡湾口，是全线最长的桥；最长的隧道是首府的旧港隧道，最长的防雪棚是翻越西部高原的西部高原防雪棚，长约 76 公里。首府周边路段日均车流六万多辆，是领地最繁忙的高速之一。
@@ -49,9 +49,9 @@ routes:
     class: motorway
     status: generated
     names:
-      zh: 冰原高速
-      en: Icefield Expressway
-      art-x-tavrunaq: Sirmi Pirrituar
+      zh: 西尔米帕高速
+      en: Sirmipaa Expressway
+      art-x-tavrunaq: Sirmipaa Pirrituar
     notes:
       zh: 冰原高速全长约 850 公里，自乌库拉克矿港区经镍城区、南岸峡湾和东峡区的峡湾地带，绕过西尔米冰盖东侧北上，经观天区到西尔米瓦克冰川区，全程约五小时二十分钟。全线双向十二车道，城区和山区路段限速 140 公里，其余路段不限速。西尔米冰盖隧道长约 14 公里，是领地最长的公路隧道，西尔米冰盖特大桥长约 8.5 公里；观天区的观天防雪棚长约 42 公里，这一段不设路灯，只有低矮的反光标志，以免影响天文观测。车流以游客、科研人员和峡湾村镇的居民为主，日均一两万到三万多辆。
       en: The Icefield Expressway runs about 850 km from Ore Harbour in Ukkulaaq through Nickel Town and the fjord country of the South Fjords and East Fjord, then north round the eastern side of the Sirmi Ice Cap through Skywatch to Glacier District in Sirmivak, in about five hours twenty minutes. It has six lanes each way, a 140 km/h limit in towns and mountains and no limit elsewhere. The Sirmi Ice Cap Tunnel, about 14 km, is the longest road tunnel in the territory, and the Sirmi Ice Cap Viaduct is about 8.5 km long; the 42 km Skywatch Snow Shed in Skywatch has no street lighting, only low reflective markers, so as not to disturb the observatories. Its traffic is mostly visitors, scientists and the people of the fjord villages, from 15,000 to over 30,000 vehicles a day.
@@ -65,9 +65,9 @@ routes:
     class: motorway
     status: generated
     names:
-      zh: 苔原高速
-      en: Tundra Expressway
-      art-x-tavrunaq: Vaq Pirrituar
+      zh: 尼尔萨瓦克高速
+      en: Nirsavaq Expressway
+      art-x-tavrunaq: Nirsavaq Pirrituar
     notes:
       zh: 苔原高速全长约 860 公里，自图利瓦克冷风区翻过西部高原，经西峡区的山地和驯鹿迁徙保护区北上，过塔夫鲁利特自治区首府阿卡尼克，再横穿基卢克图阿尔河三角洲，到河口区和冰港区，全程约五小时二十分钟。全线双向十二车道，城区和山区路段限速 140 公里，其余路段不限速，迁徙季节夜间限制车流。线路跨越河流 31 次，是领地跨河最多的公路；阿卡尼克高架桥长约 10 公里，冷谷防雪棚长约 53 公里，三角洲上的路堤延伸约 150 公里。
       en: The Tundra Expressway runs about 860 km from Coldwind in Tullivaq over the Western Plateau, north through the mountains of West Fjord and the Reindeer Migration reserve, past Aqqanik, the capital of the Tavrulit autonomous region, and across the Kiluktuar delta to Rivermouth and Ice Harbour, in about five hours twenty minutes. It has six lanes each way, a 140 km/h limit in towns and mountains and no limit elsewhere, with night traffic restricted in the migration season. It crosses rivers 31 times, more than any other road in the territory; the Aqqanik Viaduct is about 10 km long, the Cold Valley Snow Shed about 53 km, and the embankment across the delta runs some 150 km.
@@ -81,8 +81,8 @@ routes:
     class: motorway
     status: generated
     names:
-      zh: 金融城高速
-      en: Financial Zone Expressway
+      zh: 帕卢尔尼克高速
+      en: Pallurniq Expressway
       art-x-tavrunaq: Pallurniq Pirrituar
     notes:
       zh: 金融城高速全长约 50 公里，自首府穹顶区经帕卢尔尼克金融特区到鹿角区，全程约二十分钟。线路一半建在桥上，跨海的公共银行特大桥长约 11 公里，从穹顶区直通金融特区的塔楼群，其余路段多为高架和半地下通道。全线双向十二车道，城区限速 140 公里。早晚高峰车流以金融城的雇员和前往鹿角区机场的旅客为主。
@@ -136,9 +136,9 @@ routes:
     class: motorway
     status: generated
     names:
-      zh: 矿区高速
-      en: Mining Expressway
-      art-x-tavrunaq: Ukku Pirrituar
+      zh: 乌库利特高速
+      en: Ukkuliit Expressway
+      art-x-tavrunaq: Ukkuliit Pirrituar
     notes:
       zh: 矿区高速全长约 500 公里，自首府不冻港区经鹿角区北上，穿过大湖苔原保护区，经锂湖区到内陆矿区管理区，全程约三小时。线路有约 229 公里建在防雪棚下，是领地防雪棚最长的公路，其中千峡山脉防雪棚长约 128 公里，是领地最长的一段防雪棚；晶石丘陵隧道长约 8 公里。全线双向十二车道，城区和山区路段限速 140 公里，其余路段不限速。车流以矿工、设备和零散货物为主，日均一万到两万多辆。
       en: The Mining Expressway runs about 500 km from Openwater in the capital north through Antler, across the Great Lakes Tundra reserve and through Lithium Lakes to the Inland Mining Administration Zone, in about three hours. Some 229 km of it is under snow sheds, more than any other road in the territory, and its Thousand Fjords Range Snow Shed, about 128 km, is the longest single shed in the territory; the Crystal Hills Tunnel is about 8 km long. It has six lanes each way, a 140 km/h limit in towns and mountains and no limit elsewhere. Its traffic is mostly miners, equipment and smaller freight, from 10,000 to over 20,000 vehicles a day.
@@ -153,8 +153,8 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 西峡公路
-      en: West Fjord Road
+      zh: 普拉苏瓦公路
+      en: Pullasuvva Road
       art-x-tavrunaq: Pullasuvva Pirri
     notes:
       zh: 西峡公路全长约 97 公里，自萨尔瓦克暖流港区向西北深入西峡区的峡湾地带，全程约四十五分钟。线路一半以上在防雪棚和落石棚下，千峡山脉防雪棚长约 36 公里，西峡大桥架在峡湾最窄处；最大坡度 6%，在领地各条高速和领道中最陡。全线双向八车道，城区和山区路段限速 120 公里，其余路段不限速。
@@ -170,8 +170,8 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 北岸公路
-      en: North Shore Road
+      zh: 阿卡皮图克公路
+      en: Aqqapituk Road
       art-x-tavrunaq: Aqqapituk Pirri
     notes:
       zh: 北岸公路全长约 260 公里，自阿卡尼克区向东经北岸猎区和三角洲湿地，到基卢克图阿尔上游区与努基高速相接，全程约两小时。线路地势平坦，全程不限速，双向八车道；北岸防雪棚长约 13 公里。雪橇道与公路交叉处设专用通道，冬季雪橇优先通行。
@@ -187,8 +187,8 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 晶锂公路
-      en: Crystal–Lithium Road
+      zh: 考伊公路
+      en: Qaulujjuaq–Illuqsaat Road
       art-x-tavrunaq: Qauluk–Illuqsaat Pirri
     notes:
       zh: 晶锂公路全长约 160 公里，自考尔尼克晶石区穿过大湖苔原保护区到锂湖区，全程约一小时十五分钟，把努基高速和矿区高速连成网。线路在湖泊之间的冰碛垄上修建，锂湖大桥跨过湖间的窄处，翻越晶石丘陵的晶石丘陵防雪棚长约 36 公里。全线双向八车道，城区和山区路段限速 120 公里，其余路段不限速。
