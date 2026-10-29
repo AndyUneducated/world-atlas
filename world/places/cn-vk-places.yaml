@@ -97,8 +97,8 @@ places:
       art-x-viking: Internationaler Flughafen Langskip
       art-x-buckham: Aeroporto Internazionale di Navelunga
     notes:
-      zh: 群岛的国际枢纽机场，跑道顺着长船岛的走向；白帆、锚港与暖泉的机场只飞岛际与近程航线
-      en: The islands' international hub, its runway along the length of Longship Island; the White Sail, Anchorhaven and Warmspring airports fly only inter-island and short-haul routes.
+      zh: 群岛的国际枢纽机场，跑道顺着长船岛的走向；阿夫琳港、阿克斯维克与暖泉的机场只飞岛际与近程航线
+      en: The islands' international hub, its runway along the length of Longship Island; the Port Aveline, Akkersvik and Warmspring airports fly only inter-island and short-haul routes.
     in: div_xps98r
     offset_km: [-3, -2]
     site: { size_m: [3200, 1100], layout: airport, angle_deg: 32 }
@@ -111,8 +111,8 @@ places:
       art-x-viking: Containerterminal Austhamn
       art-x-buckham: Terminal Container di Porto Est
     notes:
-      zh: 长船的货运港，三座突堤为两座集装箱和一座滚装码头，东港港口高速从这里直通汇金
-      en: Longship's cargo port; its three moles hold two container terminals and a ro-ro terminal, and the East Harbour Port Expressway runs straight from here to Goldmark.
+      zh: 长船的货运港，三座突堤为两座集装箱和一座滚装码头，奥斯特哈门港口高速从这里直通汇金
+      en: Longship's cargo port; its three moles hold two container terminals and a ro-ro terminal, and the Austhamn Port Expressway runs straight from here to Goldmark.
     in: div_j6mw1m
     site: { size_m: [4500, 2600], layout: harbour, terminals: [container, container, roro] }
 
@@ -211,8 +211,8 @@ places:
       art-x-viking: Schwarzer Strand
       art-x-buckham: Spiaggia Nera
     notes:
-      zh: 火山熔岩冲刷成的黑色沙滩，黑沙区由此得名
-      en: A black beach of volcanic sand washed from the lava, which gave Black Sand District its name.
+      zh: 火山熔岩冲刷成的黑色沙滩，斯瓦特桑德区由此得名
+      en: A black beach of volcanic sand washed from the lava, which gave Svartsand District its name.
     in: div_v2tq1k
     offset_km: [-0.5, -0.4]
     site: { layout: park, size_m: [900, 250] }
@@ -241,8 +241,8 @@ places:
       art-x-viking: Hafen Akkersvik
       art-x-buckham: Porto di Portancora
     notes:
-      zh: 群岛最大的港口，在锚岛两爪之间的锚湾里；五座突堤为油品、散货、两座集装箱和滚装码头，岛际货轮从这里分拨到各岛
-      en: The largest port in the islands, in Anchor Bay between the two flukes of Anchor Island; its five moles hold the oil, bulk, two container and ro-ro terminals, and inter-island freighters distribute cargo from here to every island.
+      zh: 群岛最大的港口，在阿克斯岛两爪之间的阿克斯维克湾里；五座突堤为油品、散货、两座集装箱和滚装码头，岛际货轮从这里分拨到各岛
+      en: The largest port in the islands, in Akkersvik Bay between the two flukes of Akkersey; its five moles hold the oil, bulk, two container and ro-ro terminals, and inter-island freighters distribute cargo from here to every island.
     in: div_a2n8cw
     offset_km: [-3.1, -1.8]
     site: { size_m: [5000, 3000], layout: harbour, terminals: [oil, bulk, container, container, roro] }
@@ -255,8 +255,8 @@ places:
       art-x-viking: Werft Akkersvik
       art-x-buckham: Cantiere Navale di Portancora
     notes:
-      zh: 群岛最大的造船厂，船台与干船坞建造渡轮、渔船和海上风电安装船，船厂区由此得名
-      en: The largest shipyard in the islands, whose slipways and dry docks build ferries, fishing boats and offshore wind installation vessels; the Shipyard District is named after it.
+      zh: 群岛最大的造船厂，船台与干船坞建造渡轮、渔船和海上风电安装船，瑙斯特海姆区由此得名
+      en: The largest shipyard in the islands, whose slipways and dry docks build ferries, fishing boats and offshore wind installation vessels; the Naustheim District is named after it.
     in: div_qyhvjj
     offset_km: [0.7, -4.9]
     site: { size_m: [2000, 700], layout: port }
@@ -283,8 +283,8 @@ places:
       art-x-viking: Flughafen Akkersvik
       art-x-buckham: Aeroporto di Portancora
     notes:
-      zh: 链城南面平地上的机场，锚岛的航空门户
-      en: The airport on the flat ground south of Chain Town, the air gateway of Anchor Island.
+      zh: 链城南面平地上的机场，阿克斯岛的航空门户
+      en: The airport on the flat ground south of Chain Town, the air gateway of Akkersey.
     in: div_b569a2
     offset_km: [0.7, -10.6]
     site: { size_m: [3000, 900], layout: airport, angle_deg: 60 }
@@ -299,8 +299,8 @@ places:
       art-x-viking: Gezeitenkraftwerk Flodvik
       art-x-buckham: Centrale Mareomotrice di Baiamarea
     notes:
-      zh: 横跨潮湾湾口的潮汐坝，涨落潮推动坝下的水轮机组，坝顶兼作海堤
-      en: A tidal barrage across the mouth of Tidebay; the rising and falling tide drives the turbines in the dam, whose crest doubles as a sea wall.
+      zh: 横跨弗洛德维克湾口的潮汐坝，涨落潮推动坝下的水轮机组，坝顶兼作海堤
+      en: A tidal barrage across the mouth of Flodvik; the rising and falling tide drives the turbines in the dam, whose crest doubles as a sea wall.
     in: div_0yqqc3
     offset_km: [-1.4, 2.8]
     site: { size_m: [1200, 300], layout: port }
@@ -313,8 +313,8 @@ places:
       art-x-viking: Skigebiet Kjølheimberge
       art-x-buckham: Comprensorio Sciistico di Monte Chiglia
     notes:
-      zh: 龙骨区背后山坡上的滑雪场，缆车从镇边出发，冬季雪道直通海岸
-      en: The ski area on the slopes behind the Keel District; its lifts start at the edge of town and in winter the runs reach down towards the coast.
+      zh: 谢尔海姆区背后山坡上的滑雪场，缆车从镇边出发，冬季雪道直通海岸
+      en: The ski area on the slopes behind the Kjølheim District; its lifts start at the edge of town and in winter the runs reach down towards the coast.
     in: div_drqyc2
     offset_km: [0.6, 0.6]
     site: { layout: park, size_m: [900, 600] }
@@ -400,8 +400,8 @@ places:
       art-x-viking: Fährterminal Saint-Ondine
       art-x-buckham: "Terminal Traghetti di Sant'Ondine"
     notes:
-      zh: 南星岛北岸的渡口，渡轮往返白帆岛盐湾，南星公路从镇上翻过全岛到这里
-      en: The ferry landing on the north shore of Southstar Island, with ferries to Saltbay on White Sail Island; the Southstar Road crosses the island from the town to here.
+      zh: 圣翁丁岛北岸的渡口，渡轮往返阿夫琳岛萨尔塔维克，圣翁丁公路从镇上翻过全岛到这里
+      en: The ferry landing on the north shore of Saint-Ondine Island, with ferries to Saltavik on Aveline Island; the Saint-Ondine Road crosses the island from the town to here.
     in: div_ht5w2y
     offset_km: [-9.9, 61.5]
     site: { size_m: [500, 260], layout: port }
@@ -414,8 +414,8 @@ places:
       art-x-viking: Fährterminal Port Edevane
       art-x-buckham: Terminal Traghetti di Porto Edevane
     notes:
-      zh: 晨光岛西岸的渡口，渡轮往返白帆灯塔区
-      en: The ferry landing on the west shore of Dawnlight Island, with ferries to the Lighthouse District of White Sail.
+      zh: 埃德文岛西岸的渡口，渡轮往返阿夫琳港灯塔区
+      en: The ferry landing on the west shore of Edevane Island, with ferries to the Lighthouse District of Port Aveline.
     in: div_f07nky
     offset_km: [-47.4, 14.8]
     site: { size_m: [500, 260], layout: port }
@@ -428,8 +428,8 @@ places:
       art-x-viking: Fährterminal Ulikjuaq
       art-x-buckham: Terminal Traghetti di Ulikjuaq
     notes:
-      zh: 鳕岛东岸的渡口，渡轮往返锚岛松林
-      en: The ferry landing on the east shore of Cod Island, with ferries to Pinewood on Anchor Island.
+      zh: 乌利克尤阿克岛东岸的渡口，渡轮往返阿克斯岛松林
+      en: The ferry landing on the east shore of Ulikjuaq Island, with ferries to Furuheim on Akkersey.
     in: div_7pf4qf
     offset_km: [65.8, 17.7]
     site: { size_m: [500, 260], layout: port }
@@ -442,8 +442,8 @@ places:
       art-x-viking: Windpark-Servicehafen Fort Brannock
       art-x-buckham: Porto di Servizio Eolico di Forte Brannock
     notes:
-      zh: 风岛南岸的运维港，海上风电场的运维船与往返白帆的渡轮在此停靠
-      en: The service port on the south shore of Wind Isle, used by the offshore wind farm's service vessels and the ferries to White Sail.
+      zh: 亚利图克岛南岸的运维港，海上风电场的运维船与往返阿夫琳港的渡轮在此停靠
+      en: The service port on the south shore of Jaalituuq Island, used by the offshore wind farm's service vessels and the ferries to Port Aveline.
     in: div_72h3ge
     offset_km: [5.7, -41.7]
     site: { size_m: [700, 300], layout: port }
@@ -458,8 +458,8 @@ places:
       art-x-viking: Bodenstation Wexley
       art-x-buckham: Stazione di Controllo di Wexley
     notes:
-      zh: 远望岛上的航天测控站，几面大型天线跟踪从北维京岛发射的航天器，四面开阔的海天没有遮挡
-      en: A spacecraft tracking station on Farsight Isle; its large dishes follow the launches from North Viking Island across an open horizon on every side.
+      zh: 韦克斯利岛上的航天测控站，几面大型天线跟踪从北维京岛发射的航天器，四面开阔的海天没有遮挡
+      en: A spacecraft tracking station on Wexley Island; its large dishes follow the launches from North Viking Island across an open horizon on every side.
     in: div_v2tq1k
     offset_km: [19.6, -76.2]
   - id: poi_vh8f5f
@@ -497,8 +497,8 @@ places:
       art-x-viking: Leuchtfeuer Leuchtturminsel
       art-x-buckham: Faro dell'Isola del Faro
     notes:
-      zh: 白帆岛东端外的老灯塔，为进出帆港湾的邮轮与渔船引航
-      en: The old lighthouse off the east end of White Sail Island, guiding cruise ships and fishing boats in and out of Sail Harbour Bay.
+      zh: 阿夫琳岛东端外的老灯塔，为进出阿夫琳湾的邮轮与渔船引航
+      en: The old lighthouse off the east end of Aveline Island, guiding cruise ships and fishing boats in and out of Aveline Bay.
     in: div_8a2hzm
     offset_km: [50.2, -2.9]
   - id: poi_4gy708

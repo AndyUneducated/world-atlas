@@ -11,8 +11,8 @@ features:
       en: Suvvarjuit Mountains
       art-x-tavrunaq: Suvvarjuit
     notes:
-      zh: 横贯大陆南部的山脉，在南岸背后东西绵延数百公里，跨越西峡区、苔原牧区、锂湖区、南岸峡湾生态保护区和东峡区等多个区，最高峰是东段的苍穹峰，海拔 2022 米。山脉把南岸的城市与内陆苔原隔开，努基高速、努阿高速、矿区高速和西峡公路都以长段防雪棚翻越，南岸高速铁路以千峡山脉隧道穿过。
-      en: The range that runs across the south of the mainland, stretching for hundreds of kilometres from west to east behind the south coast through many districts, among them West Fjord, the Tundra Herding District, Lithium Lakes, the South Fjords Nature Reserve and East Fjord; its highest summit is Skydome Peak in the east, 2,022 m. It separates the south-coast cities from the inland tundra, and the Nuqattaaq–Kiluktuar, Nuqattaaq–Aqqanik and Mining expressways and the West Fjord Road all cross it under long snow sheds, while the South Coast High-Speed Railway passes through it in the Thousand Fjords Range Tunnel.
+      zh: 横贯大陆南部的山脉，在南岸背后东西绵延数百公里，跨越普拉苏瓦米乌特区、尼尔萨瓦克区、伊卢克萨特区、西卢阿苏瓦特生态保护区和皮瓦苏瓦区等多个区，最高峰是东段的陶武皮鲁克峰，海拔 2022 米。山脉把南岸的城市与内陆苔原隔开，努基高速、努阿高速、乌库利特高速和普拉苏瓦公路都以长段防雪棚翻越，西卢阿高速铁路以苏瓦尔尤伊特山脉隧道穿过。
+      en: The range that runs across the south of the mainland, stretching for hundreds of kilometres from west to east behind the south coast through many districts, among them Pullasuvvamiut, the Nirsavaq District, Illuqsaat, the Silluasuvvat Nature Reserve and Pivasuvva; its highest summit is Mount Tauvvupirruk in the east, 2,022 m. It separates the south-coast cities from the inland tundra, and the Nuqattaaq–Kiluktuar, Nuqattaaq–Aqqanik and Mining expressways and the Pullasuvva Road all cross it under long snow sheds, while the Sillua High-Speed Railway passes through it in the Suvvarjuit Mountains Tunnel.
   - id: nat_1wpnhj
     subtype: mountain_range
     status: generated
@@ -31,8 +31,8 @@ features:
       en: Pullapukka Plateau
       art-x-tavrunaq: Pullapukka
     notes:
-      zh: 图利瓦克市以东的高原，大部分在西部高原生态保护区，南缘伸入冷谷区，最高点高原顶海拔 1568 米，顶上覆盖着高原冰帽。高原上风大雪深，南岸高速以长约 76 公里的西部高原防雪棚翻越，苔原高速以西部高原隧道穿过。
-      en: The plateau east of Tullivaq City, mostly in the Western Plateau Nature Reserve with its southern edge in Cold Valley District; its highest point, Plateau Crown at 1,568 m, is capped by the Plateau Ice Cap. It is windy and deep in snow, and the South Coast Expressway crosses it under the 76 km Western Plateau Snow Shed while the Tundra Expressway passes through it in the Western Plateau Tunnel.
+      zh: 图利瓦克市以东的高原，大部分在普拉普卡特生态保护区，南缘伸入图拉卡特区，最高点普卡皮鲁克峰海拔 1568 米，顶上覆盖着普卡西尔米冰帽。高原上风大雪深，西卢阿高速以长约 76 公里的普拉普卡高原防雪棚翻越，尼尔萨瓦克高速以普拉普卡高原隧道穿过。
+      en: The plateau east of Tullivaq City, mostly in the Pullapukkat Nature Reserve with its southern edge in Tullakkat District; its highest point, Mount Pukkapirruk at 1,568 m, is capped by the Pukkasirmi Ice Cap. It is windy and deep in snow, and the Sillua Expressway crosses it under the 76 km Pullapukka Plateau Snow Shed while the Nirsavaq Expressway passes through it in the Pullapukka Plateau Tunnel.
   - id: nat_1ahtkg
     subtype: mountain_range
     status: generated
@@ -41,8 +41,8 @@ features:
       en: Sirmikiiq Mountains
       art-x-tavrunaq: Sirmikiiq
     notes:
-      zh: 纵贯冰牙岛的山脉，全部在冰川群岛冰盖管理区内，主峰冰牙峰海拔 2236 米，山顶覆盖着冰牙冰帽，冰川从山上流入四周的海中。
-      en: The mountains that run the length of Icefang Island, entirely within the Glacier Islands Ice Cap Administration Zone; their summit, Icefang Peak, reaches 2,236 m under the Icefang Ice Cap, and glaciers flow from them into the surrounding sea.
+      zh: 纵贯基库维克岛的山脉，全部在西尔米乌维特冰盖管理区内，主峰基克皮鲁克峰海拔 2236 米，山顶覆盖着基克西尔米冰帽，冰川从山上流入四周的海中。
+      en: The mountains that run the length of Kiiquviq Island, entirely within the Sirmiuviit Islands Ice Cap Administration Zone; their summit, Mount Kiiqpirruk, reaches 2,236 m under the Kiiqsirmi Ice Cap, and glaciers flow from them into the surrounding sea.
   - id: nat_0hg79k
     subtype: ridge
     status: generated
@@ -51,5 +51,5 @@ features:
       en: Qaulukkat Hills
       art-x-tavrunaq: Qaulukkat
     notes:
-      zh: 锂湖区与大湖苔原生态保护区之间的丘陵，最高处海拔近 1700 米。内陆矿区重载铁路以长约 28 公里的晶石丘陵隧道穿过，这是领地最长的隧道；矿区高速也以隧道穿过，晶锂公路则以防雪棚翻越。
-      en: The hills between Lithium Lakes District and the Great Lakes Tundra Nature Reserve, rising to nearly 1,700 m. The Inland Mines Heavy-Haul Railway passes beneath them in the 28 km Crystal Hills Tunnel, the longest tunnel in the territory; the Mining Expressway also tunnels through, while the Crystal–Lithium Road crosses them under a snow shed.
+      zh: 伊卢克萨特区与伊卢克图克生态保护区之间的丘陵，最高处海拔近 1700 米。乌库利特重载铁路以长约 26 公里的考卢卡特丘陵隧道穿过，这是领地最长的隧道；乌库利特高速也以隧道穿过，考伊公路则以防雪棚翻越。
+      en: The hills between Illuqsaat District and the Illuqtuuq Nature Reserve, rising to nearly 1,700 m. The Ukkuliit Heavy-Haul Railway passes beneath them in the 26 km Qaulukkat Hills Tunnel, the longest tunnel in the territory; the Ukkuliit Expressway also tunnels through, while the Qaulujjuaq–Illuqsaat Road crosses them under a snow shed.

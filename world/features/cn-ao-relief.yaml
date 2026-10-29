@@ -10,8 +10,8 @@ features:
       en: Sirmi Ice Cap
       art-x-tavrunaq: Sirmitavru
     notes:
-      zh: 覆盖西尔米高地的冰盖，面积约 2.95 万平方公里，是领地最大的冰川，平均海拔近 1900 米，大部分在西尔米冰盖管理区，西南缘伸入内陆矿区。冰盖深处的冰芯钻探站钻取冰芯研究过去的气候；冰原高速沿冰盖东侧外缘修建，不上冰面。
-      en: The ice cap over the Sirmi Highlands, about 29,500 km², the largest glacier in the territory, with a mean height of nearly 1,900 m; most of it lies in the Sirmi Ice Cap Administration Zone, its south-western edge reaching into the inland mining zone. The ice core station deep on the cap drills cores to study past climate, and the Icefield Expressway follows its eastern edge without going onto the ice.
+      zh: 覆盖西尔米高地的冰盖，面积约 2.95 万平方公里，是领地最大的冰川，平均海拔近 1900 米，大部分在西尔米冰盖管理区，西南缘伸入内陆矿区。冰盖深处的冰芯钻探站钻取冰芯研究过去的气候；西尔米帕高速沿冰盖东侧外缘修建，不上冰面。
+      en: The ice cap over the Sirmi Highlands, about 29,500 km², the largest glacier in the territory, with a mean height of nearly 1,900 m; most of it lies in the Sirmi Ice Cap Administration Zone, its south-western edge reaching into the inland mining zone. The ice core station deep on the cap drills cores to study past climate, and the Sirmipaa Expressway follows its eastern edge without going onto the ice.
 
   # ── Peaks, passes and glaciers named in M29 ─────────────
   - id: nat_c28dp2
@@ -20,104 +20,104 @@ features:
     detect: { kind: peak, at_km: [499.2, 234.8] }
     names: { zh: 西尔米峰, en: "Mount Sirmi", art-x-tavrunaq: Sirmipirruk }
     notes:
-      zh: 西尔米高地的最高峰，海拔 2506 米，是领地最高峰，峰顶埋在西尔米冰盖之下，只是冰面上一处平缓的隆起。冰原高速在约 60 公里外经过，登顶须长途穿越冰盖。
-      en: The highest point of the Sirmi Highlands, 2,506 m and the highest peak in the territory, its summit buried under the Sirmi Ice Cap as a gentle swelling of the ice. The Icefield Expressway passes some 60 km away, and reaching the top means a long crossing of the ice cap.
+      zh: 西尔米高地的最高峰，海拔 2506 米，是领地最高峰，峰顶埋在西尔米冰盖之下，只是冰面上一处平缓的隆起。西尔米帕高速在约 60 公里外经过，登顶须长途穿越冰盖。
+      en: The highest point of the Sirmi Highlands, 2,506 m and the highest peak in the territory, its summit buried under the Sirmi Ice Cap as a gentle swelling of the ice. The Sirmipaa Expressway passes some 60 km away, and reaching the top means a long crossing of the ice cap.
   - id: nat_scswkr
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [426.8, 315.8] }
     names: { zh: 基克皮鲁克峰, en: Mount Kiiqpirruk, art-x-tavrunaq: Kiiqpirruk }
     notes:
-      zh: 冰牙岛冰牙山的主峰，海拔 2236 米，是领地第二高峰，峰顶覆盖着冰牙冰帽，尖峭的山形像露出冰面的獠牙，山名由此而来。山峰远在海上，离最近的公路也有近 300 公里。
-      en: The summit of the Icefang Mountains on Icefang Island, 2,236 m and the second highest peak in the territory, capped by the Icefang Ice Cap; its sharp shape, like a fang through the ice, gave it its name. It stands far out at sea, nearly 300 km from the nearest road.
+      zh: 基库维克岛西尔米基克山的主峰，海拔 2236 米，是领地第二高峰，峰顶覆盖着基克西尔米冰帽，尖峭的山形像露出冰面的獠牙，山名由此而来。山峰远在海上，离最近的公路也有近 300 公里。
+      en: The summit of the Sirmikiiq Mountains on Kiiquviq Island, 2,236 m and the second highest peak in the territory, capped by the Kiiqsirmi Ice Cap; its sharp shape, like a fang through the ice, gave it its name. It stands far out at sea, nearly 300 km from the nearest road.
   - id: nat_k55z4h
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [451.2, 142.2] }
     names: { zh: 陶武皮鲁克峰, en: Mount Tauvvupirruk, art-x-tavrunaq: Tauvvupirruk }
     notes:
-      zh: 千峡山脉的最高峰，海拔 2022 米，是领地第三高峰，在乌库拉克市南岸峡湾生态保护区，苍穹冰川从峰顶向四周流下。冰原高速在约 50 公里外经过。
-      en: The highest summit of the Thousand Fjords Range, 2,022 m and the third highest peak in the territory, in the South Fjords Nature Reserve of Ukkulaaq City, with the Skydome Glacier flowing down from it on all sides. The Icefield Expressway passes some 50 km away.
+      zh: 苏瓦尔尤伊特山脉的最高峰，海拔 2022 米，是领地第三高峰，在乌库拉克市西卢阿苏瓦特生态保护区，陶武西尔米冰川从峰顶向四周流下。西尔米帕高速在约 50 公里外经过。
+      en: The highest summit of the Suvvarjuit Mountains, 2,022 m and the third highest peak in the territory, in the Silluasuvvat Nature Reserve of Ukkulaaq City, with the Tauvvusirmi Glacier flowing down from it on all sides. The Sirmipaa Expressway passes some 50 km away.
   - id: nat_szhgrt
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [233.8, 137.2] }
     names: { zh: 尼尔萨皮鲁克峰, en: Mount Nirsapirruk, art-x-tavrunaq: Nirsapirruk }
     notes:
-      zh: 千峡冰原的最高点，海拔 1950 米，是领地第四高峰，在塔夫鲁利特原住民自治区的驯鹿迁徙生态保护区。驯鹿群每年春秋沿山脚的谷地迁徙，山名由此而来。
-      en: The highest point of the Thousand Fjords Icefield, 1,950 m and the fourth highest peak in the territory, in the Reindeer Migration Nature Reserve of the Tavrulit Indigenous Autonomous Region. Reindeer herds migrate along the valleys at its foot every spring and autumn, hence the name.
+      zh: 苏瓦西尔米冰原的最高点，海拔 1950 米，是领地第四高峰，在塔夫鲁利特原住民自治区的尼尔萨图维特生态保护区。驯鹿群每年春秋沿山脚的谷地迁徙，山名由此而来。
+      en: The highest point of the Suvvasirmi Icefield, 1,950 m and the fourth highest peak in the territory, in the Nirsatuvvit Nature Reserve of the Tavrulit Indigenous Autonomous Region. Reindeer herds migrate along the valleys at its foot every spring and autumn, hence the name.
   - id: nat_bfyxfg
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [377.8, 140.8] }
     names: { zh: 温纳皮鲁克峰, en: Mount Unnapirruk, art-x-tavrunaq: Unnapirruk }
     notes:
-      zh: 锂湖区的山峰，海拔 1887 米，是领地第五高峰，峰顶覆盖着极夜冰川。矿区高速在约 40 公里外经过。
-      en: A peak in Lithium Lakes District, 1,887 m and the fifth highest in the territory, capped by the Polar Night Glacier. The Mining Expressway passes some 40 km away.
+      zh: 伊卢克萨特区的山峰，海拔 1887 米，是领地第五高峰，峰顶覆盖着温纳西尔米冰川。乌库利特高速在约 40 公里外经过。
+      en: A peak in Illuqsaat District, 1,887 m and the fifth highest in the territory, capped by the Unnasirmi Glacier. The Ukkuliit Expressway passes some 40 km away.
   - id: nat_1jamq7
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [147.8, 132.8] }
     names: { zh: 帕利皮鲁克峰, en: Mount Paalipirruk, art-x-tavrunaq: Paalipirruk }
     notes:
-      zh: 萨尔瓦克市西峡区的山峰，海拔 1879 米，峰顶的白冠冰川像一顶白色的冠冕，山名由此而来。南岸高速铁路在约 25 公里外经过。
-      en: A peak in West Fjord District of Saarvaq City, 1,879 m, crowned by the Whitecrown Glacier like a white crown, hence the name. The South Coast High-Speed Railway passes some 25 km away.
+      zh: 萨尔瓦克市普拉苏瓦米乌特区的山峰，海拔 1879 米，峰顶的帕利西尔米冰川像一顶白色的冠冕，山名由此而来。西卢阿高速铁路在约 25 公里外经过。
+      en: A peak in Pullasuvvamiut District of Saarvaq City, 1,879 m, crowned by the Paalisirmi Glacier like a white crown, hence the name. The Sillua High-Speed Railway passes some 25 km away.
   - id: nat_dew0ng
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [508.8, 147.2] }
     names: { zh: 皮瓦皮鲁克峰, en: Mount Pivapirruk, art-x-tavrunaq: Pivapirruk }
     notes:
-      zh: 乌库拉克市东峡区的山峰，海拔 1681 米，俯临东峡区的峡湾村镇，冰原高速在约 30 公里外经过。
-      en: A peak in East Fjord District of Ukkulaaq City, 1,681 m, looking down on the fjord villages of the district; the Icefield Expressway passes some 30 km away.
+      zh: 乌库拉克市皮瓦苏瓦区的山峰，海拔 1681 米，俯临皮瓦苏瓦区的峡湾村镇，西尔米帕高速在约 30 公里外经过。
+      en: A peak in Pivasuvva District of Ukkulaaq City, 1,681 m, looking down on the fjord villages of the district; the Sirmipaa Expressway passes some 30 km away.
   - id: nat_8n8hxn
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [142.8, 198.8] }
     names: { zh: 普卡皮鲁克峰, en: Mount Pukkapirruk, art-x-tavrunaq: Pukkapirruk }
     notes:
-      zh: 西部高原的最高点，海拔 1568 米，在西部高原生态保护区，顶上覆盖着高原冰帽。高原顶四周平坦，冰帽从这里向四面铺开。
-      en: The highest point of the Western Plateau, 1,568 m, in the Western Plateau Nature Reserve, capped by the Plateau Ice Cap. The ground around it is flat, and the ice cap spreads out from here on all sides.
+      zh: 普拉普卡高原的最高点，海拔 1568 米，在普拉普卡特生态保护区，顶上覆盖着普卡西尔米冰帽。普卡皮鲁克峰四周平坦，冰帽从这里向四面铺开。
+      en: The highest point of the Pullapukka Plateau, 1,568 m, in the Pullapukkat Nature Reserve, capped by the Pukkasirmi Ice Cap. The ground around it is flat, and the ice cap spreads out from here on all sides.
   - id: nat_efvm12
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [342.2, 140.2] }
     names: { zh: 库马卡蒂克山口, en: Qummakatiq Pass, art-x-tavrunaq: Qummakatiq }
     notes:
-      zh: 千峡山脉中的山口，海拔 991 米，在首府以北的大湖苔原生态保护区，矿区高速从山口经过。山口因南面的首府穹顶区得名。
-      en: A pass in the Thousand Fjords Range, 991 m, in the Great Lakes Tundra Nature Reserve north of the capital, through which the Mining Expressway runs. It is named after Dome District in the capital to the south.
+      zh: 苏瓦尔尤伊特山脉中的山口，海拔 991 米，在首府以北的伊卢克图克生态保护区，乌库利特高速从山口经过。山口因南面的首府库马尔维克区得名。
+      en: A pass in the Suvvarjuit Mountains, 991 m, in the Illuqtuuq Nature Reserve north of the capital, through which the Ukkuliit Expressway runs. It is named after Qummarvik District in the capital to the south.
   - id: nat_tkxdfd
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [404.2, 144.2] }
     names: { zh: 伊卢克卡蒂克山口, en: Illuqkatiq Pass, art-x-tavrunaq: Illuqkatiq }
     notes:
-      zh: 锂湖区的山口，海拔 1037 米，内陆矿区重载铁路在山口下方以隧道穿过，免去了重载列车翻越山口的陡坡。
-      en: A pass in Lithium Lakes District, 1,037 m; the Inland Mines Heavy-Haul Railway runs beneath it in a tunnel, sparing its heavy trains the climb.
+      zh: 伊卢克萨特区的山口，海拔 1037 米，乌库利特重载铁路在山口下方以隧道穿过，免去了重载列车翻越山口的陡坡。
+      en: A pass in Illuqsaat District, 1,037 m; the Ukkuliit Heavy-Haul Railway runs beneath it in a tunnel, sparing its heavy trains the climb.
   - id: nat_v3jjph
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [191.8, 130.2] }
     names: { zh: 萨尔卡蒂克山口, en: Saarkatiq Pass, art-x-tavrunaq: Saarkatiq }
     notes:
-      zh: 西峡区的山口，海拔 1052 米，南岸的暖风从这里吹向内陆，山口由此得名。南岸高速铁路在约 12 公里外经过。
-      en: A pass in West Fjord District, 1,052 m, through which warm winds from the south coast blow inland, hence the name. The South Coast High-Speed Railway passes some 12 km away.
+      zh: 普拉苏瓦米乌特区的山口，海拔 1052 米，南岸的暖风从这里吹向内陆，山口由此得名。西卢阿高速铁路在约 12 公里外经过。
+      en: A pass in Pullasuvvamiut District, 1,052 m, through which warm winds from the south coast blow inland, hence the name. The Sillua High-Speed Railway passes some 12 km away.
   - id: nat_ztzv82
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [470.2, 145.2] }
     names: { zh: 基萨尔卡蒂克山口, en: Qissarkatiq Pass, art-x-tavrunaq: Qissarkatiq }
     notes:
-      zh: 镍城区东北的山口，海拔 776 米，在南岸峡湾生态保护区内，是镍城通往内陆山地的传统通道。
-      en: A pass north-east of Nickel Town, 776 m, in the South Fjords Nature Reserve, the traditional way from Nickel Town into the inland mountains.
+      zh: 基萨尔维克区东北的山口，海拔 776 米，在西卢阿苏瓦特生态保护区内，是基萨尔维克通往内陆山地的传统通道。
+      en: A pass north-east of Qissarvik, 776 m, in the Silluasuvvat Nature Reserve, the traditional way from Qissarvik into the inland mountains.
   - id: nat_9mss07
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [135.8, 143.2] }
     names: { zh: 图拉卡蒂克山口, en: Tullakatiq Pass, art-x-tavrunaq: Tullakatiq }
     notes:
-      zh: 图利瓦克市冷谷区的山口，海拔 502 米，是领地最低的命名山口，冷风从山口沿谷地吹向冷谷峡湾。
-      en: A pass in Cold Valley District of Tullivaq City, 502 m, the lowest named pass in the territory, through which cold winds pour down the valley to Cold Valley Fjord.
+      zh: 图利瓦克市图拉卡特区的山口，海拔 502 米，是领地最低的命名山口，冷风从山口沿谷地吹向图拉苏瓦峡湾。
+      en: A pass in Tullakkat District of Tullivaq City, 502 m, the lowest named pass in the territory, through which cold winds pour down the valley to Tullasuvva Fjord.
   - id: nat_t34zj9
     subtype: pass
     status: generated
@@ -132,45 +132,45 @@ features:
     detect: { kind: glacier, at_km: [261.1, 139.6] }
     names: { zh: 苏瓦西尔米冰原, en: Suvvasirmi Icefield, art-x-tavrunaq: Suvvasirmi }
     notes:
-      zh: 千峡山脉西段的冰原，面积约 1.03 万平方公里，是领地第二大冰川，近一半在苔原牧区，其余在驯鹿迁徙生态保护区、西峡区和北岸猎区，最高点驯鹿峰海拔 1950 米。冰原的融水汇入尼尔萨河和基卢克图阿尔河。
-      en: The icefield of the western Thousand Fjords Range, about 10,300 km², the second largest glacier in the territory; nearly half of it is in the Tundra Herding District and the rest in the Reindeer Migration reserve, West Fjord and the North Shore Hunting District, and its highest point is Reindeer Peak at 1,950 m. Its meltwater feeds the Nirsa and Kiluktuar rivers.
+      zh: 苏瓦尔尤伊特山脉西段的冰原，面积约 1.03 万平方公里，是领地第二大冰川，近一半在尼尔萨瓦克区，其余在尼尔萨图维特生态保护区、普拉苏瓦米乌特区和阿卡皮图米乌特区，最高点尼尔萨皮鲁克峰海拔 1950 米。冰原的融水汇入尼尔萨河和基卢克图阿尔河。
+      en: The icefield of the western Suvvarjuit Mountains, about 10,300 km², the second largest glacier in the territory; nearly half of it is in the Nirsavaq District and the rest in the Reindeer Migration reserve, Pullasuvvamiut and the Aqqapitummiut District, and its highest point is Mount Nirsapirruk at 1,950 m. Its meltwater feeds the Nirsa and Kiluktuar rivers.
   - id: nat_sem37w
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [446.9, 319.9] }
     names: { zh: 基克西尔米冰帽, en: Kiiqsirmi Ice Cap, art-x-tavrunaq: Kiiqsirmi }
     notes:
-      zh: 覆盖冰牙岛山顶的冰帽，面积约 5200 平方公里，是领地第三大冰川，最高点冰牙峰海拔 2236 米，冰川从冰帽边缘直入大海。
-      en: The ice cap on the mountains of Icefang Island, about 5,200 km², the third largest glacier in the territory, its highest point Icefang Peak at 2,236 m; its glaciers flow from its edges straight into the sea.
+      zh: 覆盖基库维克岛山顶的冰帽，面积约 5200 平方公里，是领地第三大冰川，最高点基克皮鲁克峰海拔 2236 米，冰川从冰帽边缘直入大海。
+      en: The ice cap on the mountains of Kiiquviq Island, about 5,200 km², the third largest glacier in the territory, its highest point Mount Kiiqpirruk at 2,236 m; its glaciers flow from its edges straight into the sea.
   - id: nat_cyrg37
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [375.4, 143.1] }
     names: { zh: 温纳西尔米冰川, en: Unnasirmi Glacier, art-x-tavrunaq: Unnasirmi }
     notes:
-      zh: 极夜峰周围的冰川，面积约 4200 平方公里，跨锂湖区和大湖苔原生态保护区，最高点极夜峰海拔 1887 米。冰川的融水注入锂湖一带的湖泊。
-      en: The glacier around Polar Night Peak, about 4,200 km², spanning Lithium Lakes District and the Great Lakes Tundra Nature Reserve, its highest point Polar Night Peak at 1,887 m. Its meltwater feeds the lakes around Lithium Lake.
+      zh: 温纳皮鲁克峰周围的冰川，面积约 4200 平方公里，跨伊卢克萨特区和伊卢克图克生态保护区，最高点温纳皮鲁克峰海拔 1887 米。冰川的融水注入伊卢考湖一带的湖泊。
+      en: The glacier around Mount Unnapirruk, about 4,200 km², spanning Illuqsaat District and the Illuqtuuq Nature Reserve, its highest point Mount Unnapirruk at 1,887 m. Its meltwater feeds the lakes around Illuqqau Lake.
   - id: nat_abpe0e
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [441.9, 143.9] }
     names: { zh: 陶武西尔米冰川, en: Tauvvusirmi Glacier, art-x-tavrunaq: Tauvvusirmi }
     notes:
-      zh: 苍穹峰周围的冰川，面积约 3700 平方公里，大部分在南岸峡湾生态保护区，北缘伸入内陆矿区，最高点苍穹峰海拔 2022 米。
-      en: The glacier around Skydome Peak, about 3,700 km², mostly in the South Fjords Nature Reserve with its northern edge in the inland mining zone, its highest point Skydome Peak at 2,022 m.
+      zh: 陶武皮鲁克峰周围的冰川，面积约 3700 平方公里，大部分在西卢阿苏瓦特生态保护区，北缘伸入内陆矿区，最高点陶武皮鲁克峰海拔 2022 米。
+      en: The glacier around Mount Tauvvupirruk, about 3,700 km², mostly in the Silluasuvvat Nature Reserve with its northern edge in the inland mining zone, its highest point Mount Tauvvupirruk at 2,022 m.
   - id: nat_32cx7h
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [156.4, 134.1] }
     names: { zh: 帕利西尔米冰川, en: Paalisirmi Glacier, art-x-tavrunaq: Paalisirmi }
     notes:
-      zh: 白冠峰顶的冰川，面积约 2200 平方公里，在萨尔瓦克市西峡区，最高点白冠峰海拔 1879 米，西峡公路在约 20 公里外经过。
-      en: The glacier on Whitecrown Peak, about 2,200 km², in West Fjord District of Saarvaq City, its highest point Whitecrown Peak at 1,879 m; the West Fjord Road passes some 20 km away.
+      zh: 帕利皮鲁克峰顶的冰川，面积约 2200 平方公里，在萨尔瓦克市普拉苏瓦米乌特区，最高点帕利皮鲁克峰海拔 1879 米，普拉苏瓦公路在约 20 公里外经过。
+      en: The glacier on Mount Paalipirruk, about 2,200 km², in Pullasuvvamiut District of Saarvaq City, its highest point Mount Paalipirruk at 1,879 m; the Pullasuvva Road passes some 20 km away.
   - id: nat_2efp2e
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [145.9, 203.4] }
     names: { zh: 普卡西尔米冰帽, en: Pukkasirmi Ice Cap, art-x-tavrunaq: Pukkasirmi }
     notes:
-      zh: 西部高原顶上的冰帽，面积约 1100 平方公里，是领地七条命名冰川中最小的，最高点海拔 1573 米，东缘伸入驯鹿迁徙生态保护区。
-      en: The ice cap on top of the Western Plateau, about 1,100 km², the smallest of the territory's seven named glaciers, rising to 1,573 m, its eastern edge reaching into the Reindeer Migration Nature Reserve.
+      zh: 普拉普卡高原顶上的冰帽，面积约 1100 平方公里，是领地七条命名冰川中最小的，最高点海拔 1573 米，东缘伸入尼尔萨图维特生态保护区。
+      en: The ice cap on top of the Pullapukka Plateau, about 1,100 km², the smallest of the territory's seven named glaciers, rising to 1,573 m, its eastern edge reaching into the Nirsatuvvit Nature Reserve.

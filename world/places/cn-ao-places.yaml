@@ -194,8 +194,8 @@ places:
       en: Government of the Arctic Ocean Territory
       art-x-tavrunaq: Aqqimma Tavru Aaqqivik
     notes:
-      zh: 领地议会与领地政府所在的建筑群，在首府穹顶区，与中央穹顶以暖廊相连
-      en: The buildings of the territorial assembly and government in the capital's Dome District, joined to the Central Dome by skyways.
+      zh: 领地议会与领地政府所在的建筑群，在首府库马尔维克区，与中央穹顶以暖廊相连
+      en: The buildings of the territorial assembly and government in the capital's Qummarvik District, joined to the Central Dome by skyways.
     in: div_9s80v8
     offset_km: [0.4, 0.5]
     marker: emblem
@@ -394,8 +394,8 @@ places:
       en: Ukkunuqa Bulk Terminal
       art-x-tavrunaq: Ukkunuqa
     notes:
-      zh: 镍城冶炼厂的产品和东部矿山的矿石从这里装船，另有一座油品码头
-      en: Where the Nickel Town smelter's output and the ore of the eastern mines are shipped, with an oil terminal beside them.
+      zh: 基萨尔维克冶炼厂的产品和东部矿山的矿石从这里装船，另有一座油品码头
+      en: Where the Qissarvik smelter's output and the ore of the eastern mines are shipped, with an oil terminal beside them.
     in: div_yh6ysj
     site: { size_m: [4000, 2500], layout: harbour, terminals: [bulk, bulk, oil] }
   - id: poi_dftw4b
@@ -407,7 +407,7 @@ places:
       art-x-tavrunaq: Qissarvik Ukkuvik
     notes:
       zh: 冶炼内陆矿区的镍矿石，用水电和余热为镍城供暖
-      en: Smelts the nickel ore of the inland mines, its hydro power and waste heat warming Nickel Town.
+      en: Smelts the nickel ore of the inland mines, its hydro power and waste heat warming Qissarvik.
     in: div_1d76zf
     offset_km: [1, -0.5]
     site: { layout: complex, size_m: [600, 400] }
@@ -434,8 +434,8 @@ places:
       en: Tukkarjuaq Data Centre
       art-x-tavrunaq: Tukkaruvik Tulli
     notes:
-      zh: 数据群岛上最大的数据中心，用极地冷空气和海水冷却，余热为岛上的住宅供暖
-      en: The largest data centre on the Data Islands, cooled by polar air and sea water, its waste heat warming the island's homes.
+      zh: 图卡鲁维特群岛上最大的数据中心，用极地冷空气和海水冷却，余热为岛上的住宅供暖
+      en: The largest data centre on the Tukkaruviit Islands, cooled by polar air and sea water, its waste heat warming the island's homes.
     in: div_3xz1pw
     offset_km: [0.5, 0.3]
     site: { layout: complex, size_m: [500, 350] }
@@ -460,8 +460,8 @@ places:
       en: Tauvvuviit Ground Station
       art-x-tavrunaq: Tauvvu Saqqavik
     notes:
-      zh: 极轨卫星每一圈都经过高纬度上空，这里的天线阵接收卫星数据并转发到数据群岛
-      en: Polar-orbiting satellites pass over the high latitudes on every orbit; the antenna field here downloads their data and passes it to the Data Islands.
+      zh: 极轨卫星每一圈都经过高纬度上空，这里的天线阵接收卫星数据并转发到图卡鲁维特群岛
+      en: Polar-orbiting satellites pass over the high latitudes on every orbit; the antenna field here downloads their data and passes it to the Tukkaruviit Islands.
     in: div_6p8a1q
     offset_km: [2, 1]
     site: { size_m: [2400, 1400], layout: antenna, variant: large, angle_deg: 0 }
@@ -475,8 +475,8 @@ places:
       en: Qaulujjuaq Diamond Mine
       art-x-tavrunaq: Qauluk Ukkuvik
     notes:
-      zh: 内陆矿区的露天钻石矿，矿石在晶石区切割加工
-      en: An open-pit diamond mine in the inland mining zone; its stones are cut and polished in Crystal District.
+      zh: 内陆矿区的露天钻石矿，矿石在考卢尤阿克区切割加工
+      en: An open-pit diamond mine in the inland mining zone; its stones are cut and polished in Qaulujjuaq District.
     in: div_m541k8
     offset_km: [-6, 4]
     site: { layout: mine, size_m: [3000, 2200] }
@@ -490,7 +490,7 @@ places:
       art-x-tavrunaq: Qissar Ukkuvik
     notes:
       zh: 露天镍矿，矿石由无人驾驶的重载列车运往不冻港
-      en: An open-pit nickel mine whose ore travels to Openwater on driverless heavy-haul trains.
+      en: An open-pit nickel mine whose ore travels to Immasaarvik on driverless heavy-haul trains.
     in: div_m541k8
     offset_km: [7, -3]
     site: { layout: mine, size_m: [2600, 1800] }
@@ -557,8 +557,8 @@ places:
       en: Arctic Ocean Polar Research Institute
       art-x-tavrunaq: Aqqimma Naalluvik
     notes:
-      zh: 科考群岛上的研究所，研究海冰、冻土与北极生态，每年夏季派出科考船
-      en: The research institute of the Research Islands, studying sea ice, permafrost and Arctic ecology and sending out research ships each summer.
+      zh: 纳卢维特群岛上的研究所，研究海冰、冻土与北极生态，每年夏季派出科考船
+      en: The research institute of the Naalluviit Islands, studying sea ice, permafrost and Arctic ecology and sending out research ships each summer.
     in: div_rcnhch
     site: { layout: campus, size_m: [400, 300] }
 
@@ -571,8 +571,8 @@ places:
       en: Sirmivak Glacier Airport
       art-x-tavrunaq: Sirmivak Tirravik
     notes:
-      zh: 冰川区城外的机场，冰川旅游旺季有包机从南岸飞来
-      en: The airport outside the town of Glacier District, served by charter flights from the south coast in the glacier tourism season.
+      zh: 西尔米卡尔维克区城外的机场，冰川旅游旺季有包机从南岸飞来
+      en: The airport outside the town of Sirmiqarvik District, served by charter flights from the south coast in the glacier tourism season.
     in: div_73wt00
     offset_km: [3, -2]
     site: { size_m: [2800, 900], layout: airport, angle_deg: 0 }
@@ -611,8 +611,8 @@ places:
       en: Tauvvaniq Observatory
       art-x-tavrunaq: Tauvvaniq Qilliuq
     notes:
-      zh: 极夜里连续数月的黑夜让这里适合观测，天文台与极光观测站同在观天区
-      en: Months of unbroken night in winter make this a good place to observe; the observatory shares Skywatch District with the aurora stations.
+      zh: 极夜里连续数月的黑夜让这里适合观测，天文台与极光观测站同在陶瓦尼克区
+      en: Months of unbroken night in winter make this a good place to observe; the observatory shares Tauvvaniq District with the aurora stations.
     in: div_3j7f20
     offset_km: [1, 0.8]
     site: { layout: complex, size_m: [300, 200] }
@@ -660,8 +660,8 @@ places:
       en: Ukkuuviit Open Pit
       art-x-tavrunaq: Ukkuuviit Ukkuvik
     notes:
-      zh: 稀土群岛上的露天矿，精矿在稀土港装船
-      en: The open-pit mine of the Rare Earth Islands, whose concentrate is shipped from Rare Earth Harbour.
+      zh: 乌库乌维特群岛上的露天矿，精矿在稀土港装船
+      en: The open-pit mine of the Ukkuuviit Islands, whose concentrate is shipped from Uviqnuqa.
     in: div_4ymjbf
     offset_km: [2, 1]
     site: { layout: mine, size_m: [2600, 1800] }

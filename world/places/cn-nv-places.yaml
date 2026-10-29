@@ -322,8 +322,8 @@ places:
       art-x-viking: Sternhafen
       art-x-buckham: Porto Stella
     notes:
-      zh: 星河河口的航天港，发射台面向大海，星港区因此得名
-      en: Spaceport at the mouth of the Star River, its pads facing the sea; Starport District is named after it.
+      zh: 蒂鲁基卢克河河口的航天港，发射台面向大海，星港区因此得名
+      en: Spaceport at the mouth of the Tirrukiluk River, its pads facing the sea; Starport District is named after it.
     in: div_nytsvb
     offset_km: [25.8, -3.7]
     site: { size_m: [2500, 800], layout: spaceport, angle_deg: 105 }
@@ -1684,8 +1684,8 @@ places:
       art-x-viking: Kommandozentrale Sternhafen
       art-x-buckham: Centro di Comando di Porto Stella
     notes:
-      zh: 星港指挥中心位于星港区东北部，是深空太空军在马斯林山的最高指挥机构，统一指挥马斯林山的航天发射、在轨航天器管理、太空监视和反导作战。主楼里是一座巨大的指挥大厅，正面的屏幕墙实时显示轨道上数万个目标的位置和每一次发射的飞行轨迹；东岭相控阵雷达、观星峰光学观测站、星港深空测控站和各卫星地面站的数据都汇集到这里，经计算机融合后形成一张完整的太空态势图。主楼周围是参谋机关、通信枢纽、营房和训练场，构成一座完整的营区。指挥中心与群峰地下指挥城同步值班、互为备份，任何一处受损，另一处都能立即接管指挥。星港区以航天港得名，指挥中心是区内最大的单位，许多军官的家属就住在附近的城区，营区东南不远处的星港防空阵地专门负责它的空中防御。
-      en: Starport Command Centre, in the north-east of Starport District, is the Deep Space Force's highest command at Maslin Mountain, directing launches, the management of spacecraft in orbit, space surveillance and missile defence. Its main building holds a vast command hall whose screen wall shows, in real time, tens of thousands of objects in orbit and the track of every launch. Data from the East Ridge phased-array radar, the Starwatch Peak optical station, the Starport deep space station and the satellite ground stations all arrive here and are fused by computer into a single picture of what is happening in space. Around the main building are the staff offices, a communications hub, barracks and a training ground, a garrison in its own right. The centre keeps watch in step with the underground command complex in the High Peaks; either can take over at once if the other is lost. Starport District is named after its spaceport, and the command centre is the district's largest employer, with many officers' families living in the town nearby. The Starport Air Defence Site, a short way to the south-east, exists to protect it from the air.
+      zh: 星港指挥中心位于星港区东北部，是深空太空军在马斯林山的最高指挥机构，统一指挥马斯林山的航天发射、在轨航天器管理、太空监视和反导作战。主楼里是一座巨大的指挥大厅，正面的屏幕墙实时显示轨道上数万个目标的位置和每一次发射的飞行轨迹；东岭相控阵雷达、蒂鲁尤阿克峰光学观测站、星港深空测控站和各卫星地面站的数据都汇集到这里，经计算机融合后形成一张完整的太空态势图。主楼周围是参谋机关、通信枢纽、营房和训练场，构成一座完整的营区。指挥中心与群峰地下指挥城同步值班、互为备份，任何一处受损，另一处都能立即接管指挥。星港区以航天港得名，指挥中心是区内最大的单位，许多军官的家属就住在附近的城区，营区东南不远处的星港防空阵地专门负责它的空中防御。
+      en: Starport Command Centre, in the north-east of Starport District, is the Deep Space Force's highest command at Maslin Mountain, directing launches, the management of spacecraft in orbit, space surveillance and missile defence. Its main building holds a vast command hall whose screen wall shows, in real time, tens of thousands of objects in orbit and the track of every launch. Data from the East Ridge phased-array radar, the Mount Tirrujuaq optical station, the Starport deep space station and the satellite ground stations all arrive here and are fused by computer into a single picture of what is happening in space. Around the main building are the staff offices, a communications hub, barracks and a training ground, a garrison in its own right. The centre keeps watch in step with the underground command complex in the High Peaks; either can take over at once if the other is lost. Starport District is named after its spaceport, and the command centre is the district's largest employer, with many officers' families living in the town nearby. The Starport Air Defence Site, a short way to the south-east, exists to protect it from the air.
     in: div_nytsvb
     offset_km: [4.95, 7.07]
     site: { size_m: [1200, 800], layout: camp, variant: hq, angle_deg: 30 }
@@ -1797,8 +1797,8 @@ places:
       art-x-viking: Optische Station Tirrujuaqspitze
       art-x-buckham: Stazione Ottica di Tirrujuaq
     notes:
-      zh: 观星峰光学观测站位于全岛最高峰观星峰的峰顶，海拔四千三百多米，是深空太空军观测轨道目标的光学站。峰顶常在云层之上，空气稀薄干燥，夜空极为清澈，望远镜可以拍摄到很暗的卫星和碎片，测定它们的轨道。站内还装有一套卫星激光测距仪，向装有反射器的卫星发射激光脉冲，测量光脉冲往返的时间，把距离精确到厘米，为导航卫星和测地卫星校准轨道。峰顶气候严酷，终年被冰雪包围，值守人员每隔数周轮换一次；站房采用保温密封设计，室内补充氧气，以减轻高山反应。
-      en: Starwatch Peak Optical Station sits on the summit of Starwatch Peak, the island's highest mountain at more than 4,300 m, and is the Deep Space Force's optical station for watching objects in orbit. The summit is often above the clouds and the air is thin and dry, so the night sky is exceptionally clear and the telescopes can image very faint satellites and debris to fix their orbits. The station also has a satellite laser ranging system that fires laser pulses at satellites carrying reflectors and times their return, measuring the distance to the centimetre to calibrate the orbits of navigation and geodesy satellites. Conditions at the top are harsh, with ice and snow all year, and the crew changes every few weeks. The buildings are insulated and sealed, with extra oxygen indoors to ease altitude sickness.
+      zh: 蒂鲁尤阿克峰光学观测站位于全岛最高峰蒂鲁尤阿克峰的峰顶，海拔四千三百多米，是深空太空军观测轨道目标的光学站。峰顶常在云层之上，空气稀薄干燥，夜空极为清澈，望远镜可以拍摄到很暗的卫星和碎片，测定它们的轨道。站内还装有一套卫星激光测距仪，向装有反射器的卫星发射激光脉冲，测量光脉冲往返的时间，把距离精确到厘米，为导航卫星和测地卫星校准轨道。峰顶气候严酷，终年被冰雪包围，值守人员每隔数周轮换一次；站房采用保温密封设计，室内补充氧气，以减轻高山反应。
+      en: Mount Tirrujuaq Optical Station sits on the summit of Mount Tirrujuaq, the island's highest mountain at more than 4,300 m, and is the Deep Space Force's optical station for watching objects in orbit. The summit is often above the clouds and the air is thin and dry, so the night sky is exceptionally clear and the telescopes can image very faint satellites and debris to fix their orbits. The station also has a satellite laser ranging system that fires laser pulses at satellites carrying reflectors and times their return, measuring the distance to the centimetre to calibrate the orbits of navigation and geodesy satellites. Conditions at the top are harsh, with ice and snow all year, and the crew changes every few weeks. The buildings are insulated and sealed, with extra oxygen indoors to ease altitude sickness.
     in: div_q5h8zp
     offset_km: [13.4, 15.6]
     site: { size_m: [400, 300], layout: radar, variant: domes, angle_deg: 0 }
@@ -1819,8 +1819,8 @@ places:
       art-x-viking: Laserstation Hallworthspitze
       art-x-buckham: Stazione Laser di Picco Hallworth
     notes:
-      zh: 北冕峰激光站位于观星峰西北的北冕峰峰顶，海拔四千二百多米，是深空太空军的地基激光试验站。高山上大气稀薄，激光穿过大气时的衰减和抖动都比平地小得多；站内的自适应光学系统还会实时测量大气扰动，用可变形的镜面加以抵消，把光束精确地聚焦到轨道上的目标。激光站的主要任务是与卫星进行激光通信和能量传输试验，也可以用激光轻推小块太空碎片，使其降低轨道、坠入大气层烧毁。每次试验前都要通报航空管理部门，确保光束经过的空域没有飞机。峰顶三面冰斗环抱，站房与观星峰光学观测站同样采用保温密封设计。
-      en: Northcrown Laser Station stands on the summit of Northcrown, north-west of Starwatch Peak, at more than 4,200 m, and is the Deep Space Force's ground-based laser test station. At this height the air is thin, so a laser beam is far less weakened and blurred than at ground level, and the station's adaptive optics measure the turbulence that remains in real time and cancel it with deformable mirrors, focusing the beam precisely on targets in orbit. Its main work is laser communication and power-beaming trials with satellites, and it can also nudge small pieces of space debris with its laser so that they drop into the atmosphere and burn up. Before every trial the aviation authority is notified to make sure no aircraft is in the beam's path. Cirques surround the summit on three sides, and like the Starwatch station its buildings are insulated and sealed.
+      zh: 霍尔沃思峰激光站位于蒂鲁尤阿克峰西北的霍尔沃思峰峰顶，海拔四千二百多米，是深空太空军的地基激光试验站。高山上大气稀薄，激光穿过大气时的衰减和抖动都比平地小得多；站内的自适应光学系统还会实时测量大气扰动，用可变形的镜面加以抵消，把光束精确地聚焦到轨道上的目标。激光站的主要任务是与卫星进行激光通信和能量传输试验，也可以用激光轻推小块太空碎片，使其降低轨道、坠入大气层烧毁。每次试验前都要通报航空管理部门，确保光束经过的空域没有飞机。峰顶三面冰斗环抱，站房与蒂鲁尤阿克峰光学观测站同样采用保温密封设计。
+      en: Mount Hallworth Laser Station stands on the summit of Mount Hallworth, north-west of Mount Tirrujuaq, at more than 4,200 m, and is the Deep Space Force's ground-based laser test station. At this height the air is thin, so a laser beam is far less weakened and blurred than at ground level, and the station's adaptive optics measure the turbulence that remains in real time and cancel it with deformable mirrors, focusing the beam precisely on targets in orbit. Its main work is laser communication and power-beaming trials with satellites, and it can also nudge small pieces of space debris with its laser so that they drop into the atmosphere and burn up. Before every trial the aviation authority is notified to make sure no aircraft is in the beam's path. Cirques surround the summit on three sides, and like the Starwatch station its buildings are insulated and sealed.
     in: div_q5h8zp
     offset_km: [-2.12, 24.75]
     site: { size_m: [500, 400], layout: radar, variant: domes, angle_deg: 0 }
