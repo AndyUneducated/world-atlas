@@ -175,7 +175,7 @@ divisions:
     art-x-buckham: Portotimone en Etei
   codes:
     admin: '910600'
-    unlocode: VK RUD
+    unlocode: VK STY
   population: 685000
   area_km2: 8950.0
   color: '#457B9D'
@@ -231,7 +231,7 @@ divisions:
     art-x-buckham: Chiglia en Etei
   codes:
     admin: '910700'
-    unlocode: VK KEL
+    unlocode: VK KJO
   population: 300000
   area_km2: 9400.0
   color: '#6D597A'
@@ -270,7 +270,7 @@ divisions:
     art-x-buckham: Baiamarea en Etei
   codes:
     admin: '910800'
-    unlocode: VK TID
+    unlocode: VK FLD
   population: 400000
   area_km2: 7400.0
   color: '#3D8A8A'
@@ -311,7 +311,7 @@ divisions:
     art-x-buckham: Porto Aveline en Etei
   codes:
     admin: '910200'
-    unlocode: VK WSL
+    unlocode: VK PAV
   population: 600000
   area_km2: 11250.0
   color: '#E9A23B'
@@ -401,7 +401,7 @@ divisions:
     art-x-buckham: Forte Calloway en Etei
   codes:
     admin: '910900'
-    unlocode: VK SSH
+    unlocode: VK FCL
   population: 152000
   area_km2: 8300.0
   color: '#B08968'
@@ -496,7 +496,7 @@ divisions:
     art-x-buckham: Gabbiano en Etei
   codes:
     admin: '911100'
-    unlocode: VK GUL
+    unlocode: VK MSY
   population: 401000
   area_km2: 8600.0
   color: '#8D99AE'
@@ -554,7 +554,7 @@ divisions:
     art-x-buckham: Portancora en Etei
   codes:
     admin: '910500'
-    unlocode: VK ANC
+    unlocode: VK AKV
   population: 700000
   area_km2: 13000.0
   color: '#1D3557'
@@ -644,7 +644,7 @@ divisions:
     art-x-buckham: Baianebbia en Etei
   codes:
     admin: '911200'
-    unlocode: VK MST
+    unlocode: VK TKV
   population: 452000
   area_km2: 12150.0
   color: '#5E6472'
@@ -700,7 +700,7 @@ divisions:
     art-x-buckham: Pineta en Etei
   codes:
     admin: '911300'
-    unlocode: VK PIN
+    unlocode: VK FRH
   population: 250000
   area_km2: 11900.0
   color: '#2D6A4F'
@@ -814,7 +814,7 @@ divisions:
     art-x-buckham: Nuova Tremaine en Etei
   codes:
     admin: '911400'
-    unlocode: VK SUL
+    unlocode: VK NTR
   population: 300000
   area_km2: 10300.0
   color: '#D4A017'
@@ -853,7 +853,7 @@ divisions:
     art-x-buckham: Portoroccia en Etei
   codes:
     admin: '911500'
-    unlocode: VK RKH
+    unlocode: VK KLT
   population: 406000
   area_km2: 11300.0
   color: '#9C6644'
@@ -911,7 +911,7 @@ divisions:
     art-x-buckham: Uviqkut en Etei
   codes:
     admin: '910400'
-    unlocode: VK OUT
+    unlocode: VK UVK
   population: 126000
   area_km2: 7450.0
   color: '#2A9D8F'
@@ -967,7 +967,7 @@ divisions:
     art-x-buckham: Portalbero en Etei
   codes:
     admin: '911600'
-    unlocode: VK MAS
+    unlocode: VK SGV
   population: 351000
   area_km2: 6300.0
   color: '#C9A227'
@@ -1023,7 +1023,7 @@ divisions:
     art-x-buckham: "Sant'Ondine en Etei"
   codes:
     admin: '911700'
-    unlocode: VK SST
+    unlocode: VK SOD
   population: 230000
   area_km2: 5300.0
   color: '#4361EE'
@@ -1062,7 +1062,7 @@ divisions:
     art-x-buckham: Porto Edevane en Etei
   codes:
     admin: '911800'
-    unlocode: VK DWN
+    unlocode: VK PED
   population: 177000
   area_km2: 4000.0
   color: '#F4A261'
@@ -1101,7 +1101,7 @@ divisions:
     art-x-buckham: Ulikjuaq en Etei
   codes:
     admin: '911900'
-    unlocode: VK COD
+    unlocode: VK ULK
   population: 152000
   area_km2: 3250.0
   color: '#5FA8D3'
@@ -1140,7 +1140,7 @@ divisions:
     art-x-buckham: Forte Brannock en Etei
   codes:
     admin: '912000'
-    unlocode: VK WND
+    unlocode: VK FBR
   population: 126000
   area_km2: 2400.0
   color: '#90BE6D'
