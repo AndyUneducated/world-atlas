@@ -1401,10 +1401,10 @@ places:
     subtype: marketplace
     status: generated
     names:
-      zh: 驯鹿原牧民集市
-      en: Reindeer Range Herders' Market
-      art-x-viking: Rentierhirtenmarkt
-      art-x-buckham: Mercato dei Pastori di Renne
+      zh: 尼尔萨利特牧民集市
+      en: "Nirsaliit Herders' Market"
+      art-x-viking: Rentierhirtenmarkt Nirsaliit
+      art-x-buckham: Mercato dei Pastori di Nirsaliit
     notes:
       zh: 牧民秋季下山时的集市，交易驯鹿肉、皮毛与手工艺品
       en: The market held when the herders come down in autumn, trading reindeer meat, hides and handicrafts.
@@ -1792,10 +1792,10 @@ places:
     subtype: observatory
     status: generated
     names:
-      zh: 观星峰光学观测站
-      en: Starwatch Peak Optical Station
-      art-x-viking: Optische Station Sternwachtgipfel
-      art-x-buckham: Stazione Ottica di Vetta Stellare
+      zh: 蒂鲁尤阿克峰光学观测站
+      en: Mount Tirrujuaq Optical Station
+      art-x-viking: Optische Station Tirrujuaqspitze
+      art-x-buckham: Stazione Ottica di Tirrujuaq
     notes:
       zh: 观星峰光学观测站位于全岛最高峰观星峰的峰顶，海拔四千三百多米，是深空太空军观测轨道目标的光学站。峰顶常在云层之上，空气稀薄干燥，夜空极为清澈，望远镜可以拍摄到很暗的卫星和碎片，测定它们的轨道。站内还装有一套卫星激光测距仪，向装有反射器的卫星发射激光脉冲，测量光脉冲往返的时间，把距离精确到厘米，为导航卫星和测地卫星校准轨道。峰顶气候严酷，终年被冰雪包围，值守人员每隔数周轮换一次；站房采用保温密封设计，室内补充氧气，以减轻高山反应。
       en: Starwatch Peak Optical Station sits on the summit of Starwatch Peak, the island's highest mountain at more than 4,300 m, and is the Deep Space Force's optical station for watching objects in orbit. The summit is often above the clouds and the air is thin and dry, so the night sky is exceptionally clear and the telescopes can image very faint satellites and debris to fix their orbits. The station also has a satellite laser ranging system that fires laser pulses at satellites carrying reflectors and times their return, measuring the distance to the centimetre to calibrate the orbits of navigation and geodesy satellites. Conditions at the top are harsh, with ice and snow all year, and the crew changes every few weeks. The buildings are insulated and sealed, with extra oxygen indoors to ease altitude sickness.
@@ -1814,10 +1814,10 @@ places:
     subtype: laser_station
     status: generated
     names:
-      zh: 北冕峰激光站
-      en: Northcrown Laser Station
-      art-x-viking: Laserstation Nordkrone
-      art-x-buckham: Stazione Laser di Corona Nord
+      zh: 霍尔沃思峰激光站
+      en: Mount Hallworth Laser Station
+      art-x-viking: Laserstation Hallworthspitze
+      art-x-buckham: Stazione Laser di Picco Hallworth
     notes:
       zh: 北冕峰激光站位于观星峰西北的北冕峰峰顶，海拔四千二百多米，是深空太空军的地基激光试验站。高山上大气稀薄，激光穿过大气时的衰减和抖动都比平地小得多；站内的自适应光学系统还会实时测量大气扰动，用可变形的镜面加以抵消，把光束精确地聚焦到轨道上的目标。激光站的主要任务是与卫星进行激光通信和能量传输试验，也可以用激光轻推小块太空碎片，使其降低轨道、坠入大气层烧毁。每次试验前都要通报航空管理部门，确保光束经过的空域没有飞机。峰顶三面冰斗环抱，站房与观星峰光学观测站同样采用保温密封设计。
       en: Northcrown Laser Station stands on the summit of Northcrown, north-west of Starwatch Peak, at more than 4,200 m, and is the Deep Space Force's ground-based laser test station. At this height the air is thin, so a laser beam is far less weakened and blurred than at ground level, and the station's adaptive optics measure the turbulence that remains in real time and cancel it with deformable mirrors, focusing the beam precisely on targets in orbit. Its main work is laser communication and power-beaming trials with satellites, and it can also nudge small pieces of space debris with its laser so that they drop into the atmosphere and burn up. Before every trial the aviation authority is notified to make sure no aircraft is in the beam's path. Cirques surround the summit on three sides, and like the Starwatch station its buildings are insulated and sealed.

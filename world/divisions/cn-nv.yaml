@@ -1069,10 +1069,10 @@ divisions:
   parent: div_8emjne
   status: generated
   names:
-    zh: 驯鹿原牧区
-    en: Reindeer Range Pastoral District
-    art-x-viking: Rentierweide
-    art-x-buckham: Pascoli delle Renne
+    zh: 尼尔萨利特牧区
+    en: Nirsaliit Pastoral District
+    art-x-viking: Nirsaliit
+    art-x-buckham: Nirsaliit
   codes:
     admin: '901204'
   population: 2100

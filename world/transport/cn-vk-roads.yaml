@@ -34,10 +34,10 @@ routes:
     class: motorway
     status: generated
     names:
-      zh: 长白跨海高速
-      en: Longship–White Sail Sea Crossing
-      art-x-viking: Meeresautobahn Langskip–Weißsegel
-      art-x-buckham: Autostrada sul Mare Navelunga–Velabianca
+      zh: 长阿跨海高速
+      en: Longship–Port Aveline Sea Crossing
+      art-x-viking: Meeresautobahn Langskip–Port Aveline
+      art-x-buckham: Autostrada sul Mare Navelunga–Porto Aveline
     notes:
       zh: 长白跨海高速自长船古城出发，经汇金、东港和龙骨山下，以跨海大桥越过白帆海峡，再穿过帆影岭到白帆老城帆城区，全长约二百四十公里，全程一个半小时多，是首府与白帆岛之间的主要通道。东港高架桥和古城隧道分别是全线最长的桥梁和隧道，海峡主桥下可通行大型邮轮和集装箱船。全线双向十二车道，长船市区段加宽到十四车道；城区与桥隧路段限速 140 公里，其余路段不限速。工作日通勤与物流车流密集，邮轮旺季前往白帆的游客车辆也很多。
       en: The Longship–White Sail Sea Crossing runs from Longship's old town through Goldmark, East Harbour and the foot of the Keel Hills, crosses White Sail Strait on a sea bridge, then passes through the Sailshadow Ridge to Sail Town, the old heart of White Sail. It is about 240 km long, a little over an hour and a half end to end, and the main route between the capital and White Sail Island. The East Harbour Viaduct and the Old Town Tunnel are the longest of each on the line, and the main strait span leaves room for large cruise ships and container ships beneath. It has six lanes each way, widening to seven through Longship, a 140 km/h limit through towns and on bridge and tunnel stretches, and no limit elsewhere. Commuter and freight traffic is heavy on weekdays, and in the cruise season many visitors drive out to White Sail as well.
@@ -51,10 +51,10 @@ routes:
     class: motorway
     status: generated
     names:
-      zh: 锚岛跨海高速
-      en: Anchor Strait Crossing
-      art-x-viking: Ankerstraßenautobahn
-      art-x-buckham: Autostrada dello Stretto dell'Ancora
+      zh: 阿克斯跨海高速
+      en: Akkersey Strait Crossing
+      art-x-viking: Akkerseystraßen-Autobahn
+      art-x-buckham: "Autostrada dello Stretto dell'Ancora"
     notes:
       zh: 锚岛跨海高速自长船岛西北岸的潮湾出发，跨越锚岛海峡到锚岛的船厂区，直达锚港链城区，全长约五十公里，全程二十多分钟，是锚岛通往首府的门户。潮湾特大桥横跨水深流急的海峡，是全线最长的桥梁，两岸近岸段以链城隧道等隧道穿过陡峭的岬角。全线双向十二车道，由于桥隧比例很高，全线限速 140 公里。车流以往返锚港船厂的职工、运送船用设备的重型货车和潮湾一带的通勤车辆为主，大风天气时桥面会临时降低限速。
       en: The Anchor Strait Crossing runs from Tidebay on the north-west shore of Longship Island over Anchor Strait to the Shipyard District of Anchor Island and on to Chain Town in Anchorhaven, about 50 km in just over twenty minutes; it is Anchor Island's gateway to the capital. The Tidebay Sea Bridge, which spans the deep, fast-flowing strait, is its longest bridge, and near the shores tunnels such as the Chain Town Tunnel pass through the steep headlands. It has six lanes each way, and because so much of it is bridge and tunnel the limit is 140 km/h throughout. Its traffic is mostly shipyard workers, heavy lorries carrying marine equipment and commuters from around Tidebay, and in strong winds the limit on the bridge is lowered for a time.
@@ -68,10 +68,10 @@ routes:
     class: motorway
     status: generated
     names:
-      zh: 白帆纵贯高速
-      en: White Sail Spine Expressway
-      art-x-viking: Weißsegel-Längsautobahn
-      art-x-buckham: Autostrada Dorsale di Velabianca
+      zh: 阿夫琳纵贯高速
+      en: Aveline Spine Expressway
+      art-x-viking: Aveline-Längsautobahn
+      art-x-buckham: Autostrada Dorsale di Aveline
     notes:
       zh: 白帆纵贯高速沿白帆岛东南岸纵贯全岛，自西南端的银鸥出发，经白岭、渔港、盐湾、望海到白帆老城帆城区，全长约三百六十公里，全程两小时二十分钟左右，与长白跨海高速在白帆相接。线路大多位于海岸后方的低丘上，盐湾高架桥和望海隧道分别是全线最长的桥梁和隧道。全线双向十二车道，城区和桥隧路段限速 140 公里，其余路段不限速。车流以运送渔获、海盐和水果的货车为主，靠近白帆的路段通勤车辆较多，夏季前往海滨的自驾游客也不少。
       en: The White Sail Spine Expressway runs the length of White Sail Island along its south-east shore, from Silvergull at the south-west end through Whiteridge, Fishing Harbour, Saltbay and Seawatch to Sail Town, the old heart of White Sail, where it meets the Longship–White Sail Sea Crossing. It is about 360 km long, some two hours twenty minutes end to end. Most of it runs on the low hills behind the shore; the Saltbay Viaduct and the Seawatch Tunnel are the longest of each on the line. It has six lanes each way, a 140 km/h limit through towns and on bridge and tunnel stretches, and no limit elsewhere. Lorries carrying fish, sea salt and fruit make up much of its traffic, commuters crowd the stretch near White Sail, and in summer plenty of drivers head for the beaches.
@@ -86,10 +86,10 @@ routes:
     class: motorway
     status: generated
     names:
-      zh: 锚岛纵贯高速
-      en: Anchor Island Spine Expressway
-      art-x-viking: Ankerinsel-Längsautobahn
-      art-x-buckham: Autostrada Dorsale dell'Isola dell'Ancora
+      zh: 阿克斯岛纵贯高速
+      en: Akkersey Spine Expressway
+      art-x-viking: Akkersey-Längsautobahn
+      art-x-buckham: "Autostrada Dorsale dell'Isola dell'Ancora"
     notes:
       zh: 锚岛纵贯高速是锚岛的南北主干，自南端的锚湾出发北上，经船厂区、锚港链城区和峡湾区到东北端的松林，全长约三百三十公里，全程两小时十几分钟。锚湾高架桥是全线最长的桥梁，峡湾区段以一座座高桥越过峡湾，遇到锚链山的山脊时以链城隧道等隧道穿过。全线双向十二车道，城区和峡湾路段限速 140 公里，其余路段不限速。锚港市区段车流最大，北段以松林的运木车和峡湾观光车辆为主。
       en: The Anchor Island Spine Expressway is Anchor Island's north–south trunk road. It runs north from Anchor Bay at the southern end through the Shipyard District, Chain Town in Anchorhaven and the Fjord District to Pinewood at the north-east end, about 330 km in a little over two hours. The Anchor Bay Viaduct is its longest bridge; in the Fjord District it crosses fjord after fjord on high bridges, and where it meets the ridges of the Anchor Chain Mountains it tunnels through, the Chain Town Tunnel among them. It has six lanes each way, a 140 km/h limit through towns and in the fjords, and no limit elsewhere. Traffic is heaviest through Anchorhaven; further north it is mostly timber lorries from Pinewood and sightseers bound for the fjords.
@@ -139,10 +139,10 @@ routes:
     class: motorway
     status: generated
     names:
-      zh: 桅岛跨海高速
-      en: Mast Island Sea Crossing
-      art-x-viking: Mastinsel-Meeresautobahn
-      art-x-buckham: Autostrada sul Mare dell'Isola dell'Albero
+      zh: 西格利跨海高速
+      en: Sigley Sea Crossing
+      art-x-viking: Sigley-Meeresautobahn
+      art-x-buckham: "Autostrada sul Mare dell'Isola dell'Albero"
     notes:
       zh: 桅岛跨海高速自暖泉出发，经暖河和长船岛船尾跨海到桅岛的桅港，再跨越桅岛海峡到白帆岛西南端的银鸥，全长约四百七十公里，全程三小时左右，是暖泉岛与白帆岛之间的直达高速。全线没有隧道，暖河特大桥是最长的海上长桥；桅岛是两段跨海长桥之间的中转站，岛上设有服务区和观景台。全线双向十二车道，城区与长桥路段限速 140 公里，其余路段不限速。车流以跨岛货运和旅游大巴为主，大风天气时桥面会临时限速或限制高车通行。
       en: The Mast Island Sea Crossing runs from Warmspring through Warm River and Longship Island's stern, over the sea to Masthaven on Mast Island, then across Mast Strait to Silvergull at the south-west end of White Sail Island. It is about 470 km long, some three hours end to end, and the direct expressway between Warmspring and White Sail islands. It has no tunnels; the Warm River Sea Bridge is the longest of its sea bridges, and Mast Island, between the two long crossings, has a service area and a lookout. It has six lanes each way, a 140 km/h limit through towns and on the long bridges, and no limit elsewhere. Its traffic is mostly inter-island freight and tour coaches, and in strong winds the bridges get temporary limits or are closed to high-sided vehicles.
@@ -156,9 +156,9 @@ routes:
     class: motorway
     status: generated
     names:
-      zh: 锚舵跨海高速
-      en: Anchor–Rudder Sea Crossing
-      art-x-viking: Meeresautobahn Anker–Ruder
+      zh: 阿斯跨海高速
+      en: Akkersvik–Styrvik Sea Crossing
+      art-x-viking: Meeresautobahn Akkersvik–Styrvik
       art-x-buckham: Autostrada sul Mare Ancora–Timone
     notes:
       zh: 锚舵跨海高速自锚岛南端的锚湾出发，跨越锚岛海峡口到长船岛船尾，再到舵港，全长约一百九十公里，全程一小时十几分钟，是锚岛与长船岛南部之间的捷径。船尾特大桥直面大洋涌浪，是全线最长的桥梁，桥墩采用加大的防撞和消浪设计；近岸段以舵港隧道穿过船尾的岬角。全线双向十二车道，城区和跨海路段限速 140 公里，其余路段不限速。车流以锚湾与舵港之间的船舶修造、渔业运输为主，锚岛前往暖泉岛的车辆也大多走这条路，不必经过首府。
@@ -194,9 +194,9 @@ routes:
     class: motorway
     status: generated
     names:
-      zh: 东港港口高速
-      en: East Harbour Port Expressway
-      art-x-viking: Hafenautobahn Osthafen
+      zh: 奥斯特哈门港口高速
+      en: Austhamn Port Expressway
+      art-x-viking: Hafenautobahn Austhamn
       art-x-buckham: Autostrada Portuale di Porto Est
     notes:
       zh: 东港港口高速自长船古城边缘出发，经汇金金融区直达东港区的集装箱码头，全长约八十公里，全程半小时多，是长船市区南北向的快速通道。线路在汇金区大段走东港隧道等地下路段，出隧道后以汇金高架桥跨过港区堆场，直接接入码头闸口；码头路段设有货车专用车道和集装箱查验站。全线双向十二车道，全程位于城区，限速 140 公里。全线日均车流都在十万辆以上，是群岛最繁忙的高速之一，集装箱卡车昼夜不停，早晚高峰还叠加大量通勤车辆。
@@ -212,9 +212,9 @@ routes:
     class: motorway
     status: generated
     names:
-      zh: 锚雾高速
-      en: Anchorhaven–Mistbay Expressway
-      art-x-viking: Autobahn Ankerhafen–Nebelbucht
+      zh: 阿托高速
+      en: Akkersvik–Tåkevik Expressway
+      art-x-viking: Autobahn Akkersvik–Tåkevik
       art-x-buckham: Autostrada Portancora–Baianebbia
     notes:
       zh: 锚雾高速自锚港链城区出发，横穿锚岛，经峡湾区到西岸的雾湾，全长约一百五十公里，全程一小时左右。锚链山隧道穿过主脊，是全线最长的隧道，雾湾高架桥是最长的桥梁，坡度在群岛高速中属于最陡的一类。全线双向十二车道，城区和山区路段限速 140 公里，其余路段不限速；全线设有雾区行车诱导灯和能见度监测，浓雾时自动发布临时限速。车流以运送海产的冷藏车和锚港、雾湾之间的通勤车辆为主，清晨的雾湾段常需打开诱导灯。
@@ -231,10 +231,10 @@ routes:
     class: motorway
     status: generated
     names:
-      zh: 帆港邮轮高速
-      en: Sail Harbour Cruise Expressway
-      art-x-viking: Kreuzfahrtautobahn Segelhafen
-      art-x-buckham: Autostrada delle Crociere di Velabianca
+      zh: 阿夫琳港邮轮高速
+      en: Port Aveline Cruise Expressway
+      art-x-viking: Kreuzfahrtautobahn Port Aveline
+      art-x-buckham: Autostrada delle Crociere di Porto Aveline
     notes:
       zh: 帆港邮轮高速自白帆老城帆城区出发，经灯塔区沿海岸到帆港区的邮轮母港与免税城，全长约一百公里，全程四十分钟左右。帆港高架桥造型轻盈，是全线最长的桥梁，也是帆港的地标之一；邮轮码头一端设有大巴专用通道和集中换乘广场，沿线限制广告牌和高大建筑。全线双向十二车道，城区路段限速 140 公里，其余路段不限速。邮轮靠港的日子车流成倍增加，旅游大巴往返不断，平日则以前往免税城和海滨的车辆为主。
       en: The Sail Harbour Cruise Expressway runs from Sail Town, the old heart of White Sail, through the Lighthouse District along the coast to the cruise home port and duty-free mall in Sail Harbour, about 100 km in some forty minutes. The light, graceful Sail Harbour Viaduct is its longest bridge and one of Sail Harbour's landmarks. At the cruise terminal end there is a coach-only approach and a central interchange plaza, and billboards and tall buildings are restricted along the route. It has six lanes each way, a 140 km/h limit through towns and no limit elsewhere. Traffic multiplies on days when cruise ships are in, with a constant stream of tour coaches; on other days it carries mostly shoppers bound for the duty-free mall and beachgoers.
@@ -269,9 +269,9 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 龙骨山公路
-      en: Keel Hills Road
-      art-x-viking: Kielberg-Landstraße
+      zh: 谢尔海姆山公路
+      en: Kjølheim Hills Road
+      art-x-viking: Kjølheimberg-Landstraße
       art-x-buckham: Strada dei Monti Chiglia
     notes:
       zh: 龙骨山公路自长船岛船尾出发，经舵港和龙骨山下的龙骨，沿山间谷地到长滩，全长约二百九十公里，全程两小时十几分钟，串起长船岛中段的山城和乡镇。线路沿谷地和缓坡修建，几乎没有桥隧，沿线保留了多处老村道的石桥作为步行道。全线双向八车道，沿途大多是乡村，全程不限速。它是山区乡镇通往两侧高速的连接线，车流以乡镇之间的短途车辆、运送林果的货车和乡村旅游的自驾游客为主，龙骨与长滩附近的路段最为繁忙。
@@ -287,10 +287,10 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 白帆灯塔公路
-      en: White Sail Lighthouse Road
-      art-x-viking: Leuchtturmstraße Weißsegel
-      art-x-buckham: Strada del Faro di Velabianca
+      zh: 阿夫琳港灯塔公路
+      en: Port Aveline Lighthouse Road
+      art-x-viking: Leuchtturmstraße Port Aveline
+      art-x-buckham: Strada del Faro di Porto Aveline
     notes:
       zh: 白帆灯塔公路自邮轮港所在的帆港区出发，沿海崖和海湾通往白帆岛东北端的灯塔区，全长约七十公里，全程半小时左右。灯塔高架桥贴水跨过海湾，是全线最长的桥梁；海崖附近路段在海鸟繁殖季节限制鸣笛和夜间照明。全线双向八车道，沿途都是乡村，全程不限速。车流以邮轮游客的旅游大巴和自驾车辆为主，终点的老灯塔、海洋博物馆和观鸟站是热门的一日游目的地，邮轮靠港的日子路上最为热闹。
       en: The White Sail Lighthouse Road runs from Sail Harbour, home of the cruise port, along sea cliffs and bays to the Lighthouse District at the north-east tip of White Sail Island, about 70 km in some half an hour. The Lighthouse Viaduct, which crosses a bay just above the water, is its longest bridge, and during the seabird breeding season horns and night lighting are restricted on the stretches near the cliffs. It has four lanes each way and, running through countryside all the way, no speed limit. Its traffic is mostly tour coaches and hire cars carrying cruise passengers; the old lighthouse, the maritime museum and the birdwatching station at the end are popular day trips, and the road is liveliest when cruise ships are in.
@@ -323,10 +323,10 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 外屿跨海公路
-      en: Outer Isles Causeway
-      art-x-viking: Außeninsel-Damm
-      art-x-buckham: Diga delle Isole Esterne
+      zh: 乌维克库特跨海公路
+      en: Uviqkut Causeway
+      art-x-viking: Uviqkut-Damm
+      art-x-buckham: Diga di Uviqkut
     notes:
       zh: 外屿跨海公路自鲸岛区出发，以海雀水道跨海大桥跨海北上到鸟崖岛，全长约一百七十公里，全程一小时二十分钟左右，是外屿两岛之间唯一的陆路。海雀水道跨海大桥长七十多公里，占全线近一半，是群岛最长的桥梁之一，桥面设有观鲸平台。全线双向八车道，跨海路段限速 120 公里，岛上路段不限速。车流在领道中属于较少的一类，以两岛之间的通勤、就医和上学车辆为主，鲸类洄游季节观鲸平台上常有游客停留。
       en: The Outer Isles Causeway runs from Whale Isle District over the Puffin Sound Bridge, north across the open sea to Bird Cliff Isle, about 170 km in some eighty minutes, the only land link between the two outer isles. The Puffin Sound Bridge, more than 70 km long and nearly half the route, is one of the longest bridges in the islands, and has whale-watching platforms on its deck. It has four lanes each way, a 120 km/h limit over the sea and no limit on the islands. Its traffic is light by the standards of territorial highways, mostly islanders travelling between the two isles to work, to hospital and to school, and in the whale migration season visitors linger on the viewing platforms.
@@ -359,10 +359,10 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 帆影岭公路
-      en: Sailshadow Ridge Road
-      art-x-viking: Segelschattenkamm-Straße
-      art-x-buckham: Strada della Cresta di Ombravela
+      zh: 卡洛韦岭公路
+      en: Calloway Ridge Road
+      art-x-viking: Callowaygrat-Straße
+      art-x-buckham: Strada della Cresta Calloway
     notes:
       zh: 帆影岭公路沿白帆岛西北岸，自银鸥出发，经白岭、帆影岭下的林场小镇到白帆老城帆城区，全长约二百九十公里，全程两小时十几分钟，与东南岸的白帆纵贯高速形成白帆岛的两条纵线。线路沿山麓与海岸之间的阶地修建，跨越多条山溪，桥梁短而多；林区路段设有运木车避让车道。全线双向八车道，城区路段限速 120 公里，其余路段不限速。车流以运木车、林场小镇的短途车辆和入住造船工坊、林场木屋民宿的游客为主，靠近白帆的路段通勤车辆较多。
       en: The Sailshadow Ridge Road runs along the north-west shore of White Sail Island from Silvergull through Whiteridge and the forest towns below the Sailshadow Ridge to Sail Town, the old heart of White Sail, about 290 km in a little over two hours; with the White Sail Spine Expressway on the south-east shore it gives the island two north–south routes. It follows the terraces between the foothills and the shore, crossing many mountain streams on short bridges, and the forest stretches have pull-outs for log trucks. It has four lanes each way, a 120 km/h limit through towns and no limit elsewhere. Its traffic is mostly log trucks, local trips between the forest towns and visitors staying in the old boatbuilders' workshops and forest cabins, with more commuters near White Sail.
@@ -377,9 +377,9 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 盐湾海滨公路
-      en: Salt Bay Coast Road
-      art-x-viking: Salzbucht-Küstenstraße
+      zh: 萨尔塔维克海滨公路
+      en: Saltavik Coast Road
+      art-x-viking: Saltavik-Küstenstraße
       art-x-buckham: Strada Costiera di Baiasale
     notes:
       zh: 盐湾海滨公路沿白帆岛东南岸，自渔港出发，经盐湾的盐场到望海的果园，全长约二百公里，全程一个半小时左右。线路沿海岸低地修建，在盐场外侧以路堤代替海堤，兼作防潮堤；果园路段两侧保留着防风林，全线几乎没有桥梁。全线双向八车道，沿途都是乡村，全程不限速。长途车辆大多改走白帆纵贯高速，这条路主要服务沿岸的盐场、果园和渔港，也是看海景、买海盐和水果的热门自驾路线，秋季果园采摘时节最为繁忙。
@@ -395,10 +395,10 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 锚湾公路
-      en: Anchor Bay Road
-      art-x-viking: Ankerbucht-Straße
-      art-x-buckham: Strada della Baia dell'Ancora
+      zh: 阿克斯维克湾公路
+      en: Akkersvik Bay Road
+      art-x-viking: Akkersvikbucht-Straße
+      art-x-buckham: "Strada della Baia dell'Ancora"
     notes:
       zh: 锚湾公路绕锚岛南端的锚湾，自西爪出发，经锚湾老港到东岸的船厂区，全长约二百四十公里，全程近两小时。线路以西爪高架桥等桥梁跨过海湾的几处深水湾汊，桥下净空满足新造船舶出港；老港路段从石砌码头和渔市后方绕过。全线双向八车道，城区和桥梁路段限速 120 公里，其余路段不限速。车流以西爪居民往返船厂的通勤车辆和运送船用钢材的货车为主，锚湾老港一带周末常有游客。
       en: The Anchor Bay Road runs round Anchor Bay at the southern end of Anchor Island, from West Fluke through the old harbour of Anchor Bay to the Shipyard District on the east shore, about 240 km in nearly two hours. Bridges such as the West Fluke Viaduct carry it over the bay's deep-water inlets, high enough for newly built ships to pass beneath, and through the old harbour it passes behind the stone quays and the fish market. It has four lanes each way, a 120 km/h limit through towns and on the bridges, and no limit elsewhere. Its traffic is mostly West Fluke residents commuting to the shipyards and lorries carrying ship steel, and the old harbour of Anchor Bay draws visitors at weekends.
@@ -413,10 +413,10 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 锚岛峡湾公路
-      en: Anchor Island Fjord Road
-      art-x-viking: Ankerinsel-Fjordstraße
-      art-x-buckham: Strada dei Fiordi dell'Isola dell'Ancora
+      zh: 阿克斯岛峡湾公路
+      en: Akkersey Fjord Road
+      art-x-viking: Akkersey-Fjordstraße
+      art-x-buckham: "Strada dei Fiordi dell'Isola dell'Ancora"
     notes:
       zh: 锚岛峡湾公路是锚岛最长的领道，自锚港链城区出发到西岸的雾湾，再沿峡湾北上，绕到东北端的松林，全长约四百五十公里，全程三个半小时左右。线路沿峡湾岸边的阶地修建，峡湾最深处绕行湾头，桥梁很少，雾湾大桥是其中最长的一座；陡崖路段建有明洞和防落石棚。全线双向八车道，城区和陡崖路段限速 120 公里，其余路段不限速。沿线设有多个峡湾观景停车点，夏季自驾游客很多，冬季则以峡湾村落的补给车辆和校车为主。
       en: The Anchor Island Fjord Road is the longest territorial highway on Anchor Island. It runs from Chain Town in Anchorhaven to Mistbay on the west coast, then north along the fjords and round to Pinewood at the north-east end, about 450 km in some three and a half hours. It keeps to the terraces along the fjord shores and goes round the heads of the deepest fjords, so it has few bridges, the Mistbay Viaduct being the longest; cut-and-cover sections and rockfall shelters protect it below the steepest cliffs. It has four lanes each way, a 120 km/h limit through towns and below the cliffs, and no limit elsewhere. Its many fjord viewpoints draw crowds of touring drivers in summer; in winter its traffic is mostly supply vehicles and school buses for the fjord villages.
@@ -431,10 +431,10 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 桅岛公路
-      en: Mast Island Road
-      art-x-viking: Mastinsel-Straße
-      art-x-buckham: Strada dell'Isola dell'Albero
+      zh: 西格利岛公路
+      en: Sigley Road
+      art-x-viking: Sigley-Straße
+      art-x-buckham: "Strada dell'Isola dell'Albero"
     notes:
       zh: 桅岛公路穿过桅岛笔直高大的松林，连接南端的南桅与北端的桅港，全长约六十四公里，全程半小时左右。线路几乎是一条直线，两侧松林夹道，是岛上最有名的风景；路基宽度严格控制，路上方架有供松鼠等小动物通过的树冠绳桥。全线双向八车道，沿途都是森林，全程不限速。它把南桅与桅岛跨海高速连在一起，车流以运送松木的货车、木材加工厂的职工和前来森林徒步的游客为主，秋冬季节偶有驼鹿横穿道路。
       en: The Mast Island Road runs through Mast Island's tall, straight pines, linking South Mast at the southern end with Masthaven at the northern end, about 64 km in some half an hour. It is nearly a straight line, the pines closing in on both sides, and is the island's best-known view; the roadbed was kept narrow, and canopy rope bridges overhead let squirrels and other small animals cross. It has four lanes each way and, running through forest all the way, no speed limit. It connects South Mast to the Mast Island Sea Crossing, and its traffic is mostly pine-log lorries, sawmill workers and visitors coming to hike in the forest; in autumn and winter elk occasionally wander across.
@@ -449,10 +449,10 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 南星公路
-      en: Southstar Road
-      art-x-viking: Südstern-Straße
-      art-x-buckham: Strada di Stellasud
+      zh: 圣翁丁公路
+      en: Saint-Ondine Road
+      art-x-viking: Saint-Ondine-Straße
+      art-x-buckham: "Strada di Sant'Ondine"
     notes:
       zh: 南星公路自南星岛南岸的南星镇出发，翻过全岛到达北岸的南星渡轮码头，全长约六十四公里，全程半小时左右，是岛上唯一的干线公路。线路沿山坡缓缓爬升，全线没有桥隧，山顶的观景台可以同时眺望南北两侧的海面；渡轮码头一端设有候船车道，车辆按班次有序上下渡轮。全线双向八车道，沿途都是乡村，全程不限速。车流随渡轮班次起伏，每班渡轮靠岸后会有一阵集中的车流，夏季前往海岛度假区的游客最多。
       en: The Southstar Road runs from the town of Southstar on the south coast of Southstar Island over the island to the Southstar Ferry Terminal on the north shore, about 64 km in some half an hour; it is the island's only main road. It climbs gently up the slopes with no bridges or tunnels, and the lookout at the top takes in the sea on both sides of the island. At the ferry terminal end there are holding lanes so vehicles board and leave each sailing in turn. It has four lanes each way and, running through countryside all the way, no speed limit. Its traffic rises and falls with the ferry timetable, with a burst of vehicles after each arrival, and it is busiest in summer with holidaymakers bound for the island's resorts.
@@ -467,10 +467,10 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 晨光公路
-      en: Dawnlight Road
-      art-x-viking: Morgenlicht-Straße
-      art-x-buckham: Strada di Aurora
+      zh: 埃德文港公路
+      en: Port Edevane Road
+      art-x-viking: Port Edevane-Straße
+      art-x-buckham: Strada di Porto Edevane
     notes:
       zh: 晨光公路自晨光镇出发，横穿全岛到达西岸的晨光渡轮码头，全长约五十五公里，全程半小时左右。线路的大半位于晨光海峡跨海大桥上，这座低矮的长桥贴着滩涂延伸，桥下潮水自由进出，水鸟栖息地得以保留。由于桥梁比例很高，全线双向八车道，全程限速 120 公里。车流以岛民往返渡轮的车辆和运送渔获的货车为主，清晨常有游客从码头驱车去镇上看日出，候鸟季节桥上禁止停车观鸟，观鸟需到两端的观测点。
       en: The Dawnlight Road runs from the town of Dawnlight across Dawnlight Island to the Dawnlight Ferry Terminal on the west shore, about 55 km in some half an hour. More than half of it is on the Dawnlight Strait Bridge, a long, low bridge that runs just above the tidal flats, letting the tide flow freely beneath and leaving the waterbird habitat undisturbed. Because so much of it is bridge, it has four lanes each way and a 120 km/h limit throughout. Its traffic is mostly islanders driving to and from the ferry and lorries carrying the catch; early in the morning visitors drive from the terminal to the town to watch the sunrise. In the bird migration season stopping on the bridge is banned, and birdwatchers use the viewing points at either end.
@@ -485,10 +485,10 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 鳕岛公路
-      en: Cod Island Road
-      art-x-viking: Dorschinsel-Straße
-      art-x-buckham: Strada dell'Isola del Merluzzo
+      zh: 乌利克尤阿克岛公路
+      en: Ulikjuaq Island Road
+      art-x-viking: Ulikjuaqinsel-Straße
+      art-x-buckham: "Strada dell'Isola Ulikjuaq"
     notes:
       zh: 鳕岛公路自鳕港镇的鱼干架旁出发，从镇子后方绕过海滨晾晒场，横穿鳕岛到东岸的鳕港渡轮码头，全长约七十七公里，全程三十多分钟。鳕港特大桥是全线唯一的大桥；路面按冷藏货车标准修建，渡轮码头旁建有冷库和鱼货集散站。全线双向八车道，沿途都是乡村，全程不限速。车流以运送风干鳕鱼和鲜鱼的冷藏货车为主，晾鱼季节前来参观鱼干架的游客也不少，渡轮靠岸前后车辆最为集中。
       en: The Cod Island Road starts beside the fish-drying racks of Codhaven, passes behind the town to avoid the drying grounds on the shore, and crosses Cod Island to the Codhaven Ferry Terminal on the east coast, about 77 km in just over half an hour. The Codhaven Sea Bridge is its only major bridge; the road is built for refrigerated lorries, and next to the ferry terminal there are cold stores and a fish market depot. It has four lanes each way and, running through countryside all the way, no speed limit. Its traffic is mostly refrigerated lorries carrying dried and fresh cod, plus visitors who come to see the drying racks in season, and it is busiest around ferry arrivals and departures.
@@ -503,10 +503,10 @@ routes:
     class: primary
     status: generated
     names:
-      zh: 风岛公路
-      en: Wind Isle Road
-      art-x-viking: Windinsel-Straße
-      art-x-buckham: Strada dell'Isola del Vento
+      zh: 亚利图克岛公路
+      en: Jaalituuq Island Road
+      art-x-viking: Jaalituuqinsel-Straße
+      art-x-buckham: "Strada dell'Isola Jaalituuq"
     notes:
       zh: 风岛公路自风港镇出发，沿风机林立的山脊到南岸的风港风电运维港，全长约四十二公里，全程二十分钟左右，是群岛最短的领道之一。线路按运输超长风机叶片的要求设计，弯道半径大、坡度缓，部分路段路面加宽；山脊路段设有挡风墙，大风时限制高车通行。全线双向八车道，沿途都是乡村，全程不限速。车流以风电场的运维车辆、运送叶片和塔筒的特种车辆为主，也有游客沿山脊行驶，近距离观看成排的风机。
       en: The Wind Isle Road runs from the town of Windhaven along a ridge lined with wind turbines to the Windhaven Wind Service Port on the south coast, about 42 km in some twenty minutes, one of the shortest territorial highways in the islands. It was designed for hauling extra-long turbine blades, with wide curves, gentle grades and widened sections, and wind walls on the ridge, where high-sided vehicles are restricted in strong winds. It has four lanes each way and, running through countryside all the way, no speed limit. Its traffic is mostly maintenance vehicles for the wind farm and special transporters carrying blades and tower sections, plus visitors who drive the ridge to see the rows of turbines up close.

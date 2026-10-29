@@ -18,12 +18,12 @@ land:
   lobes:
     # four main islands
     - [146.5, 128.5, 72, 28, 45, 1.0]     # 长船岛：船首朝东北指向维京港
-    - [196, 94, 62, 29, 28, 1.0]          # 白帆岛
-    - [94, 160, 60, 30, 58, 1.0]          # 锚岛
+    - [196, 94, 62, 29, 28, 1.0]          # 阿夫琳岛
+    - [94, 160, 60, 30, 58, 1.0]          # 阿克斯岛
     - [62, 46, 41, 38.6, 0, 1.0]          # 暖泉岛：圆形火山岛
     # medium islands
-    - [22, 140, 20, 13, 70, 1.0]          # 鲸岛
-    - [24, 196, 13, 10, 30, 1.0]          # 鸟崖岛
+    - [22, 140, 20, 13, 70, 1.0]          # 瓦莱岛
+    - [24, 196, 13, 10, 30, 1.0]          # 西基克图克岛
     - [52, 222, 21, 9, 5, 1.0]
     - [232, 36, 21, 12.6, 15, 1.0]
     - [140, 30, 20, 13, -10, 1.0]
@@ -31,7 +31,7 @@ land:
     - [256, 148, 14, 10, 20, 1.0]
     - [191, 187, 4.5, 3.5, 0, -0.5]       # 不留船首外的礁石：与北维京岛的海岸保持 100 km 以上
     # small islands
-    - [14, 228, 3, 2.2, 0, 1.2]           # 孤礁岛
+    - [14, 228, 3, 2.2, 0, 1.2]           # 艾因谢尔岛
     - [290, 152, 3.5, 2.5, 30, 1.2]
     - [300, 62, 4, 3, 0, 1.2]
     - [258, 14, 3.5, 2.5, -20, 1.2]
@@ -48,19 +48,19 @@ land:
   coast_noise: { amplitude: 0.08, scale_km: 40, octaves: 7, detail_amplitude: 0.07, detail_scale_km: 6 }
   # Straits between the main islands, cut like fjords: [path, width_km, depth].
   fjords:
-    - [[[85, 100], [128, 150], [158, 187]], 3, 1.2]      # 锚岛—长船岛
-    - [[[124, 77], [168, 110], [206, 139]], 3, 1.2]      # 长船岛—白帆岛
+    - [[[85, 100], [128, 150], [158, 187]], 3, 1.2]      # 阿克斯岛—长船岛
+    - [[[124, 77], [168, 110], [206, 139]], 3, 1.2]      # 长船岛—阿夫琳岛
     - [[[78, 94], [96, 76], [115, 57]], 3, 1.2]          # 长船岛—暖泉岛
-    - [[[50, 150], [70, 145]], 1.2, 0.8]                 # 锚岛西岸的峡湾
+    - [[[50, 150], [70, 145]], 1.2, 0.8]                 # 阿克斯岛西岸的峡湾
     - [[[66, 205], [82, 192]], 1.2, 0.8]
-    - [[[222, 62], [212, 76]], 1.2, 0.8]                 # 白帆岛东南岸的峡湾
+    - [[[222, 62], [212, 76]], 1.2, 0.8]                 # 阿夫琳岛东南岸的峡湾
 
 terrain:
   max_elevation_m: 2600
   ridges:
-    - { feature: nat_bb9whq, path: [[118, 100], [146, 127], [175, 157]], height_m: 450, width_km: 9 }   # 龙骨山
+    - { feature: nat_bb9whq, path: [[118, 100], [146, 127], [175, 157]], height_m: 450, width_km: 9 }   # 谢尔海姆山
     - { feature: nat_1kngjx, path: [[62, 47], [62.5, 47.5]], height_m: 3200, width_km: 10 }             # 暖泉火山
-    - { feature: nat_kdza0d, path: [[161, 75], [196, 93], [231, 113]], height_m: 550, width_km: 8 }     # 帆影岭
+    - { feature: nat_kdza0d, path: [[161, 75], [196, 93], [231, 113]], height_m: 550, width_km: 8 }     # 卡洛韦岭
     - { feature: nat_9bt7gf, path: [[76, 130], [94, 160], [112, 190]], height_m: 1300, width_km: 10 }   # 锚链山
   # City-centre lowlands on the harbours: Longship, Anchorhaven, Sail Harbour, Hot Springs
   plains:
@@ -123,25 +123,25 @@ streets:
   # detail_km2: local streets and generic buildings only in the district's core zone of that size
   # (around its centre); the rest of the built-up area gets arterials and collectors.
   districts:
-    div_g2g1yc: { style: organic, detail_km2: 30, mix: { perimeter: 1.8, houses: 1.2, industrial: 0.2 } }   # 古城区：城墙内的石砌老城
+    div_g2g1yc: { style: organic, detail_km2: 30, mix: { perimeter: 1.8, houses: 1.2, industrial: 0.2 } }   # 福恩斯塔德区：城墙内的石砌老城
     div_jzqknb: { style: planned, detail_km2: 60, mix: { towers: 2.4, podium: 1.8, civic: 0.6, industrial: 0.1 } }  # 汇金区：离岸金融
     div_xps98r: { style: mixed, detail_km2: 25, mix: { houses: 2.0, park: 1.2, industrial: 0.4 } }         # 北岬区：居住与草场
-    div_tkvfsx: { style: mixed, detail_km2: 40, mix: { podium: 1.8, towers: 0.8, industrial: 0.5 } }       # 帆港区：邮轮码头与免税街
+    div_tkvfsx: { style: mixed, detail_km2: 40, mix: { podium: 1.8, towers: 0.8, industrial: 0.5 } }       # 阿夫琳码头区：邮轮码头与免税街
     div_8a2hzm: { style: organic, detail_km2: 20, mix: { houses: 2.4, park: 1.5, industrial: 0.1 } }       # 灯塔区：海滨别墅
     div_cz7sch: { style: organic, detail_km2: 20, mix: { podium: 1.2, houses: 1.6, park: 2.0, industrial: 0.1 } }  # 温泉区：温泉酒店与疗养院
-    div_v2tq1k: { style: organic, detail_km2: 15, mix: { houses: 2.0, industrial: 0.8 } }                  # 黑沙区：黑沙滩与地热电站
-    div_khmgcq: { style: organic, mix: { houses: 2.2, industrial: 0.6 } }                  # 鲸岛区：渔村与观鲸码头
-    div_5p2a2d: { style: organic, mix: { houses: 2.2, park: 1.0 } }                        # 鸟崖区：保护区小镇
+    div_v2tq1k: { style: organic, detail_km2: 15, mix: { houses: 2.0, industrial: 0.8 } }                  # 斯瓦特桑德区：黑沙滩与地热电站
+    div_khmgcq: { style: organic, mix: { houses: 2.2, industrial: 0.6 } }                  # 瓦莱区：渔村与观鲸码头
+    div_5p2a2d: { style: organic, mix: { houses: 2.2, park: 1.0 } }                        # 西基克图克区：保护区小镇
     div_b569a2: { style: planned, detail_km2: 30, mix: { towers: 2.0, podium: 1.6, civic: 0.5, industrial: 0.2 } }  # 链城区：航运交易所与船级社
     # main_only: arterials and collectors, no local streets or generic buildings
-    div_j6mw1m: { style: planned, main_only: true }   # 东港区：集装箱码头
+    div_j6mw1m: { style: planned, main_only: true }   # 奥斯特哈门区：集装箱码头
     div_kecby5: { style: mixed, main_only: true }     # 西岸区：住宅区
-    div_dtk19k: { style: mixed, main_only: true }     # 长滩区：郊区
-    div_vhsby1: { style: organic, main_only: true }   # 帆城区：白帆老城
+    div_dtk19k: { style: mixed, main_only: true }     # 朗桑德区：郊区
+    div_vhsby1: { style: organic, main_only: true }   # 帆城区：阿夫琳港老城
     div_5rbg50: { style: mixed, main_only: true }     # 望海区
     div_vk1835: { style: mixed, main_only: true }     # 暖河区：河口港区
-    div_a2n8cw: { style: planned, main_only: true }   # 锚湾区：集装箱港
-    div_qyhvjj: { style: planned, main_only: true }   # 船厂区：船厂与干船坞
+    div_a2n8cw: { style: planned, main_only: true }   # 阿克斯维克区：集装箱港
+    div_qyhvjj: { style: planned, main_only: true }   # 瑙斯特海姆区：船厂与干船坞
     div_j1czet: { style: mixed, main_only: true }     # 西爪区：住宅区
   named:
     - { district: div_jzqknb, axis: 0, line: 0, status: generated, names: { zh: 汇金大道, en: Goldmark Avenue, art-x-viking: Goldmarkallee, art-x-buckham: Viale Marcoro } }
@@ -158,93 +158,93 @@ expect:
 # reach its area by moving its coastline, and cities on one main island only trade land there.
 layout:
   cities:
-    # 长船岛：首府在东北的船首，向西南依次是西北岸的潮湾、东南岸的龙骨、船尾的舵港
+    # 长船岛：首府在东北的船首，向西南依次是西北岸的弗洛德维克、东南岸的谢尔海姆、船尾的斯蒂尔维克
     div_3cvg2q: [173.5, 155.5]   # 长船市
-    div_x20mfy: [133.1, 130.7]   # 潮湾市
-    div_33vctd: [148, 115.9]     # 龙骨市
-    div_er5g6j: [116.2, 98.2]    # 舵港市
-    # 白帆岛：东北的白帆，中部西北岸的帆影、东南岸的盐湾，西南端的银鸥
-    div_x22naa: [235.1, 116.5]   # 白帆市
-    div_qy1rtm: [202.2, 112.5]   # 帆影市
-    div_ewqq3p: [213.4, 91.3]    # 盐湾市
-    div_0770jy: [177.7, 86]      # 银鸥市
-    # 锚岛：西南的锚港，西岸的雾湾，东北的松林
-    div_zg05xa: [88.8, 135.7]    # 锚港市
-    div_3zqdra: [79.3, 158.1]    # 雾湾市
-    div_bbmwea: [116.5, 195]     # 松林市
-    # 暖泉岛：东部的暖泉，南部的硫磺湾，西部的岩港
+    div_x20mfy: [133.1, 130.7]   # 弗洛德维克市
+    div_33vctd: [148, 115.9]     # 谢尔海姆市
+    div_er5g6j: [116.2, 98.2]    # 斯蒂尔维克市
+    # 阿夫琳岛：东北的阿夫琳港，中部西北岸的卡洛韦堡、东南岸的萨尔塔维克，西南端的莫塞
+    div_x22naa: [235.1, 116.5]   # 阿夫琳港市
+    div_qy1rtm: [202.2, 112.5]   # 卡洛韦堡市
+    div_ewqq3p: [213.4, 91.3]    # 萨尔塔维克市
+    div_0770jy: [177.7, 86]      # 莫塞市
+    # 阿克斯岛：西南的阿克斯维克，西岸的托克维克，东北的富鲁海姆
+    div_zg05xa: [88.8, 135.7]    # 阿克斯维克市
+    div_3zqdra: [79.3, 158.1]    # 托克维克市
+    div_bbmwea: [116.5, 195]     # 富鲁海姆市
+    # 暖泉岛：东部的暖泉，南部的新特雷曼，西部的克莱特斯塔德
     div_qjzmw5: [85, 54]         # 暖泉市
-    div_bsbr5w: [52, 24]         # 硫磺湾市
-    div_6930nk: [38, 58]         # 岩港市
+    div_bsbr5w: [52, 24]         # 新特雷曼市
+    div_6930nk: [38, 58]         # 克莱特斯塔德市
     # 中等岛
-    div_87ygkn: [22, 172]        # 外屿市：鲸岛与鸟崖岛之间
-    div_esaav7: [136, 34]        # 桅港市
-    div_5ab7n6: [232, 36]        # 南星市
-    div_px9s45: [284, 110]       # 晨光市
-    div_4vcskg: [49, 222]        # 鳕港市
-    div_47173y: [255, 147]       # 风港市
+    div_87ygkn: [22, 172]        # 乌维克库特市：瓦莱岛与西基克图克岛之间
+    div_esaav7: [136, 34]        # 西格拉维克市
+    div_5ab7n6: [232, 36]        # 圣翁丁市
+    div_px9s45: [284, 110]       # 埃德文港市
+    div_4vcskg: [49, 222]        # 乌利克尤阿克市
+    div_47173y: [255, 147]       # 布兰诺克堡市
   # Seed offsets in units of 0.42·sqrt(city area); not normalised, so an outer-isle district can
   # reach its own island.
   districts:
-    div_g2g1yc: [0.65, -0.27]    # 古城区：长船湾
+    div_g2g1yc: [0.65, -0.27]    # 福恩斯塔德区：长船湾
     div_jzqknb: [0.45, -0.76]    # 汇金区：汇金湾
     div_xps98r: [0.8, 0.8]       # 北岬区：船首
-    div_j6mw1m: [0.07, -1.22]    # 东港区：东南岸
+    div_j6mw1m: [0.07, -1.22]    # 奥斯特哈门区：东南岸
     div_kecby5: [-0.46, 0.61]    # 西岸区：西北岸
-    div_dtk19k: [-0.88, -0.58]   # 长滩区：龙骨山东北麓
-    div_ej0v6c: [0.65, 0.15]     # 舵港区
-    div_1tva4b: [-0.51, -0.51]   # 船尾区：西南端
-    div_tkvfsx: [0.53, -0.58]    # 帆港区：帆港湾
-    div_8a2hzm: [0.84, 0.44]     # 灯塔区：白帆岛东北端
+    div_dtk19k: [-0.88, -0.58]   # 朗桑德区：谢尔海姆山东北麓
+    div_ej0v6c: [0.65, 0.15]     # 斯蒂尔维克区
+    div_1tva4b: [-0.51, -0.51]   # 斯库特斯塔德区：西南端
+    div_tkvfsx: [0.53, -0.58]    # 阿夫琳码头区：阿夫琳湾
+    div_8a2hzm: [0.84, 0.44]     # 灯塔区：阿夫琳岛东北端
     div_vhsby1: [-0.68, 0.35]    # 帆城区
-    div_5rbg50: [-0.42, -0.94]   # 望海区：帆影岭东麓
-    div_626x3f: [0.83, -0.45]    # 盐湾区
-    div_z1y7bz: [-0.57, -0.47]   # 渔港区
-    div_rvrs7v: [-0.6, -0.3]     # 银鸥区：银鸥湾
-    div_v3mfeg: [0.5, 0.3]       # 白岭区
-    div_a2n8cw: [-0.77, -1.3]    # 锚湾区：西南端两爪之间
-    div_qyhvjj: [0.84, -0.03]    # 船厂区：东南岸
+    div_5rbg50: [-0.42, -0.94]   # 望海区：卡洛韦岭东麓
+    div_626x3f: [0.83, -0.45]    # 萨尔塔维克区
+    div_z1y7bz: [-0.57, -0.47]   # 菲斯克海姆区
+    div_rvrs7v: [-0.6, -0.3]     # 莫塞区：莫斯维克湾
+    div_v3mfeg: [0.5, 0.3]       # 维托斯区
+    div_a2n8cw: [-0.77, -1.3]    # 阿克斯维克区：西南端两爪之间
+    div_qyhvjj: [0.84, -0.03]    # 瑙斯特海姆区：东南岸
     div_b569a2: [0.55, 0.87]     # 链城区
     div_j1czet: [-1.14, -0.65]   # 西爪区
-    div_6ajqsc: [-0.58, -0.51]   # 雾湾区
-    div_27g39m: [0.44, 1.06]     # 峡湾区
+    div_6ajqsc: [-0.58, -0.51]   # 托克维克区
+    div_27g39m: [0.44, 1.06]     # 尤普峡湾区
     div_cz7sch: [0.6, -0.25]     # 温泉区：温泉湾
-    div_v2tq1k: [0.0, -0.9]      # 黑沙区：东南岸
+    div_v2tq1k: [0.0, -0.9]      # 斯瓦特桑德区：东南岸
     div_vk1835: [0.35, 0.8]      # 暖河区：暖河口
-    div_ghpaw7: [-0.3, -0.6]     # 岩港区
+    div_ghpaw7: [-0.3, -0.6]     # 克莱特斯塔德区
     div_b4by9r: [-0.2, 0.8]      # 落日区：落日岬
-    div_khmgcq: [0.0, -2.5]      # 鲸岛区
-    div_5p2a2d: [0.16, 1.9]      # 鸟崖区
-    div_2q2fcx: [0.6, 0.4]       # 桅港区：北岸
+    div_khmgcq: [0.0, -2.5]      # 瓦莱区
+    div_5p2a2d: [0.16, 1.9]      # 西基克图克区
+    div_2q2fcx: [0.6, 0.4]       # 西格拉维克区：北岸
     div_berjt2: [-0.6, -0.4]     # 南桅区
   boundary_warp_km: 4
   coastal:
-    div_g2g1yc: nat_zgv4r2       # 古城区，长船湾
+    div_g2g1yc: nat_zgv4r2       # 福恩斯塔德区，长船湾
     div_jzqknb: nat_h3knsp       # 汇金区，汇金湾
     div_xps98r: nat_r2hpck       # 北岬区，北岬湾
-    div_j6mw1m: null             # 东港区，集装箱码头
+    div_j6mw1m: null             # 奥斯特哈门区，集装箱码头
     div_kecby5: null             # 西岸区
-    div_ej0v6c: null             # 舵港区
-    div_1tva4b: null             # 船尾区
-    div_0yqqc3: null             # 潮湾区
-    div_tkvfsx: nat_dw7pxt       # 帆港区，帆港湾
+    div_ej0v6c: null             # 斯蒂尔维克区
+    div_1tva4b: null             # 斯库特斯塔德区
+    div_0yqqc3: null             # 弗洛德维克区
+    div_tkvfsx: nat_dw7pxt       # 阿夫琳码头区，阿夫琳湾
     div_8a2hzm: null             # 灯塔区
-    div_626x3f: nat_c4cftd       # 盐湾区，盐湾
-    div_z1y7bz: null             # 渔港区
-    div_rvrs7v: nat_1q1ey6       # 银鸥区，银鸥湾
-    div_a2n8cw: nat_gd3pyt       # 锚湾区，锚湾
-    div_qyhvjj: null             # 船厂区
-    div_6ajqsc: nat_6r8rng       # 雾湾区，雾湾
-    div_k4wvwe: nat_3w3ayk       # 松林区，松湾
+    div_626x3f: nat_c4cftd       # 萨尔塔维克区，萨尔塔维克湾
+    div_z1y7bz: null             # 菲斯克海姆区
+    div_rvrs7v: nat_1q1ey6       # 莫塞区，莫斯维克湾
+    div_a2n8cw: nat_gd3pyt       # 阿克斯维克区，阿克斯维克湾
+    div_qyhvjj: null             # 瑙斯特海姆区
+    div_6ajqsc: nat_6r8rng       # 托克维克区，托克维克湾
+    div_k4wvwe: nat_3w3ayk       # 富鲁海姆区，富鲁海姆湾
     div_cz7sch: nat_nzwany       # 温泉区，温泉湾
-    div_v2tq1k: null             # 黑沙区，黑沙滩
+    div_v2tq1k: null             # 斯瓦特桑德区，黑沙滩
     div_vk1835: nat_pw8474       # 暖河区，暖河口
-    div_k0zt4f: nat_qq80wg       # 硫磺湾区，硫磺湾
-    div_ghpaw7: null             # 岩港区
+    div_k0zt4f: nat_qq80wg       # 新特雷曼区，特雷曼湾
+    div_ghpaw7: null             # 克莱特斯塔德区
     div_b4by9r: nat_xet2vm       # 落日区，落日岬
-    div_khmgcq: null             # 鲸岛区，渔港
-    div_2q2fcx: null             # 桅港区
-    div_ht5w2y: null             # 南星区
-    div_f07nky: null             # 晨光区
-    div_7pf4qf: null             # 鳕港区
-    div_72h3ge: null             # 风港区
+    div_khmgcq: null             # 瓦莱区，渔港
+    div_2q2fcx: null             # 西格拉维克区
+    div_ht5w2y: null             # 圣翁丁区
+    div_f07nky: null             # 埃德文港区
+    div_7pf4qf: null             # 乌利克尤阿克区
+    div_72h3ge: null             # 布兰诺克堡区

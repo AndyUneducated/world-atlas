@@ -106,9 +106,9 @@ places:
     subtype: port
     status: generated
     names:
-      zh: 东港集装箱码头
-      en: East Harbour Container Terminal
-      art-x-viking: Containerterminal Osthafen
+      zh: 奥斯特哈门集装箱码头
+      en: Austhamn Container Terminal
+      art-x-viking: Containerterminal Austhamn
       art-x-buckham: Terminal Container di Porto Est
     notes:
       zh: 长船的货运港，三座突堤为两座集装箱和一座滚装码头，东港港口高速从这里直通汇金
@@ -116,15 +116,15 @@ places:
     in: div_j6mw1m
     site: { size_m: [4500, 2600], layout: harbour, terminals: [container, container, roro] }
 
-  # ── 白帆市 ──
+  # ── 阿夫琳港市 ──
   - id: poi_yvdm1z
     subtype: port
     status: generated
     names:
-      zh: 白帆邮轮母港
-      en: White Sail Cruise Port
-      art-x-viking: Kreuzfahrthafen Weißsegel
-      art-x-buckham: Porto Crociere di Velabianca
+      zh: 阿夫琳港邮轮母港
+      en: Port Aveline Cruise Port
+      art-x-viking: Kreuzfahrthafen Port Aveline
+      art-x-buckham: Porto Crociere di Porto Aveline
     notes:
       zh: 群岛的邮轮母港，夏季每天有多艘邮轮同时靠泊
       en: The islands' cruise home port; in summer several ships berth at once every day.
@@ -134,10 +134,10 @@ places:
     subtype: marketplace
     status: generated
     names:
-      zh: 白帆免税城
-      en: White Sail Duty-Free Mall
-      art-x-viking: Zollfreie Stadt Weißsegel
-      art-x-buckham: Città Duty Free di Velabianca
+      zh: 阿夫琳港免税城
+      en: Port Aveline Duty-Free Mall
+      art-x-viking: Zollfreie Stadt Port Aveline
+      art-x-buckham: Città Duty Free di Porto Aveline
     notes:
       zh: 邮轮码头旁的免税购物城，离港旅客的必经之地
       en: The duty-free shopping town beside the cruise piers, on every departing passenger's way.
@@ -148,10 +148,10 @@ places:
     subtype: tower
     status: generated
     names:
-      zh: 白帆灯塔
-      en: White Sail Lighthouse
-      art-x-viking: Leuchtturm Weißsegel
-      art-x-buckham: Faro di Velabianca
+      zh: 阿夫琳港灯塔
+      en: Port Aveline Lighthouse
+      art-x-viking: Leuchtturm Port Aveline
+      art-x-buckham: Faro di Porto Aveline
     notes:
       zh: 群岛最古老的灯塔，灯塔区由此得名
       en: The oldest lighthouse in the islands, which gave the Lighthouse District its name.
@@ -162,10 +162,10 @@ places:
     subtype: airport
     status: generated
     names:
-      zh: 白帆机场
-      en: White Sail Airport
-      art-x-viking: Flughafen Weißsegel
-      art-x-buckham: Aeroporto di Velabianca
+      zh: 阿夫琳港机场
+      en: Port Aveline Airport
+      art-x-viking: Flughafen Port Aveline
+      art-x-buckham: Aeroporto di Porto Aveline
     notes:
       zh: 帆城北面台地上的机场，夏季有包机把游客直接送到邮轮母港
       en: The airport on the terrace north of Sail Town; in summer charter flights bring visitors straight to the cruise port.
@@ -192,9 +192,9 @@ places:
     subtype: power_station
     status: generated
     names:
-      zh: 黑沙地热电站
-      en: Black Sand Geothermal Power Station
-      art-x-viking: Geothermalkraftwerk Schwarzsand
+      zh: 斯瓦特桑德地热电站
+      en: Svartsand Geothermal Power Station
+      art-x-viking: Geothermalkraftwerk Svartsand
       art-x-buckham: Centrale Geotermica di Sabbianera
     notes:
       zh: 利用火山地热发电，供应全群岛约一半的电力
@@ -231,14 +231,14 @@ places:
     offset_km: [4.2, 9.2]
     site: { size_m: [2800, 900], layout: airport, angle_deg: 60 }
 
-  # ── 锚港市 ──
+  # ── 阿克斯维克市 ──
   - id: poi_grh5jd
     subtype: port
     status: generated
     names:
-      zh: 锚港集装箱港
-      en: Port of Anchorhaven
-      art-x-viking: Hafen Ankerhafen
+      zh: 阿克斯维克集装箱港
+      en: Port of Akkersvik
+      art-x-viking: Hafen Akkersvik
       art-x-buckham: Porto di Portancora
     notes:
       zh: 群岛最大的港口，在锚岛两爪之间的锚湾里；五座突堤为油品、散货、两座集装箱和滚装码头，岛际货轮从这里分拨到各岛
@@ -250,9 +250,9 @@ places:
     subtype: industrial_park
     status: generated
     names:
-      zh: 锚港造船厂
-      en: Anchorhaven Shipyard
-      art-x-viking: Werft Ankerhafen
+      zh: 阿克斯维克造船厂
+      en: Akkersvik Shipyard
+      art-x-viking: Werft Akkersvik
       art-x-buckham: Cantiere Navale di Portancora
     notes:
       zh: 群岛最大的造船厂，船台与干船坞建造渡轮、渔船和海上风电安装船，船厂区由此得名
@@ -278,9 +278,9 @@ places:
     subtype: airport
     status: generated
     names:
-      zh: 锚港机场
-      en: Anchorhaven Airport
-      art-x-viking: Flughafen Ankerhafen
+      zh: 阿克斯维克机场
+      en: Akkersvik Airport
+      art-x-viking: Flughafen Akkersvik
       art-x-buckham: Aeroporto di Portancora
     notes:
       zh: 链城南面平地上的机场，锚岛的航空门户
@@ -294,9 +294,9 @@ places:
     subtype: power_station
     status: generated
     names:
-      zh: 潮湾潮汐电站
-      en: Tidebay Tidal Power Station
-      art-x-viking: Gezeitenkraftwerk Gezeitenbucht
+      zh: 弗洛德维克潮汐电站
+      en: Flodvik Tidal Power Station
+      art-x-viking: Gezeitenkraftwerk Flodvik
       art-x-buckham: Centrale Mareomotrice di Baiamarea
     notes:
       zh: 横跨潮湾湾口的潮汐坝，涨落潮推动坝下的水轮机组，坝顶兼作海堤
@@ -308,9 +308,9 @@ places:
     subtype: ski_resort
     status: generated
     names:
-      zh: 龙骨山滑雪场
-      en: Keel Mountain Ski Area
-      art-x-viking: Skigebiet Kielberg
+      zh: 谢尔海姆山滑雪场
+      en: Kjølheim Hills Ski Area
+      art-x-viking: Skigebiet Kjølheimberge
       art-x-buckham: Comprensorio Sciistico di Monte Chiglia
     notes:
       zh: 龙骨区背后山坡上的滑雪场，缆车从镇边出发，冬季雪道直通海岸
@@ -322,10 +322,10 @@ places:
     subtype: hotel
     status: generated
     names:
-      zh: 南星海滨度假村
-      en: Southstar Beach Resort
-      art-x-viking: Strandresort Südstern
-      art-x-buckham: Resort di Spiaggia di Stellasud
+      zh: 圣翁丁海滨度假村
+      en: Saint-Ondine Beach Resort
+      art-x-viking: Strandresort Saint-Ondine
+      art-x-buckham: "Resort di Spiaggia di Sant'Ondine"
     notes:
       zh: 群岛最南端的海滨度假村，夏季日落很晚，晚上十点仍可在沙滩上看落日
       en: The beach resort at the southern end of the islands; summer sunsets come late, and guests still watch them from the sand at ten in the evening.
@@ -336,9 +336,9 @@ places:
     subtype: marketplace
     status: generated
     names:
-      zh: 渔港鱼市
-      en: Fishing Harbour Fish Market
-      art-x-viking: Fischmarkt Fischerhafen
+      zh: 菲斯克海姆鱼市
+      en: Fiskheim Fish Market
+      art-x-viking: Fischmarkt Fiskheim
       art-x-buckham: Mercato del Pesce di Porto Pescatori
     notes:
       zh: 群岛最大的鲜鱼拍卖市场，渔船清晨靠岸后当场竞拍鳕鱼与鲱鱼
@@ -347,14 +347,14 @@ places:
     offset_km: [0.3, 0.2]
     site: { layout: market, size_m: [200, 120] }
 
-  # ── 外屿市 ──
+  # ── 乌维克库特市 ──
   - id: poi_5w25ae
     subtype: ferry_terminal
     status: generated
     names:
-      zh: 鲸岛渡轮码头
-      en: Whale Isle Ferry Terminal
-      art-x-viking: Fährterminal Walinsel
+      zh: 瓦莱渡轮码头
+      en: Hvaley Ferry Terminal
+      art-x-viking: Fährterminal Hvaley
       art-x-buckham: Terminal Traghetti di Isola Balena
     notes:
       zh: 往返长船古城的渡轮与观鲸船在此停靠
@@ -365,9 +365,9 @@ places:
     subtype: museum
     status: generated
     names:
-      zh: 鲸岛观鲸中心
-      en: Whale Isle Whale Centre
-      art-x-viking: Walzentrum Walinsel
+      zh: 瓦莱观鲸中心
+      en: Hvaley Whale Centre
+      art-x-viking: Walzentrum Hvaley
       art-x-buckham: Centro Balene di Isola Balena
     notes:
       zh: 座头鲸研究站与展馆，夏季观鲸船从这里出发
@@ -379,10 +379,10 @@ places:
     subtype: nature_reserve
     status: generated
     names:
-      zh: 鸟崖海鸟保护区
-      en: Bird Cliff Seabird Reserve
-      art-x-viking: Seevogelschutzgebiet Vogelklippe
-      art-x-buckham: Riserva degli Uccelli Marini di Scogliera Uccelli
+      zh: 西基克图克海鸟保护区
+      en: Siqqiqtuuq Seabird Reserve
+      art-x-viking: Seevogelschutzgebiet Siqqiqtuuq
+      art-x-buckham: Riserva degli Uccelli Marini di Siqqiqtuuq
     notes:
       zh: 海鹦与三趾鸥在崖壁上筑巢的自然保护区
       en: A nature reserve where puffins and kittiwakes nest on the cliffs.
@@ -395,10 +395,10 @@ places:
     subtype: ferry_terminal
     status: generated
     names:
-      zh: 南星渡轮码头
-      en: Southstar Ferry Terminal
-      art-x-viking: Fährterminal Südstern
-      art-x-buckham: Terminal Traghetti di Stellasud
+      zh: 圣翁丁渡轮码头
+      en: Saint-Ondine Ferry Terminal
+      art-x-viking: Fährterminal Saint-Ondine
+      art-x-buckham: "Terminal Traghetti di Sant'Ondine"
     notes:
       zh: 南星岛北岸的渡口，渡轮往返白帆岛盐湾，南星公路从镇上翻过全岛到这里
       en: The ferry landing on the north shore of Southstar Island, with ferries to Saltbay on White Sail Island; the Southstar Road crosses the island from the town to here.
@@ -409,10 +409,10 @@ places:
     subtype: ferry_terminal
     status: generated
     names:
-      zh: 晨光渡轮码头
-      en: Dawnlight Ferry Terminal
-      art-x-viking: Fährterminal Morgenlicht
-      art-x-buckham: Terminal Traghetti di Aurora
+      zh: 埃德文港渡轮码头
+      en: Port Edevane Ferry Terminal
+      art-x-viking: Fährterminal Port Edevane
+      art-x-buckham: Terminal Traghetti di Porto Edevane
     notes:
       zh: 晨光岛西岸的渡口，渡轮往返白帆灯塔区
       en: The ferry landing on the west shore of Dawnlight Island, with ferries to the Lighthouse District of White Sail.
@@ -423,10 +423,10 @@ places:
     subtype: ferry_terminal
     status: generated
     names:
-      zh: 鳕港渡轮码头
-      en: Codhaven Ferry Terminal
-      art-x-viking: Fährterminal Dorschhafen
-      art-x-buckham: Terminal Traghetti di Portomerluzzo
+      zh: 乌利克尤阿克渡轮码头
+      en: Ulikjuaq Ferry Terminal
+      art-x-viking: Fährterminal Ulikjuaq
+      art-x-buckham: Terminal Traghetti di Ulikjuaq
     notes:
       zh: 鳕岛东岸的渡口，渡轮往返锚岛松林
       en: The ferry landing on the east shore of Cod Island, with ferries to Pinewood on Anchor Island.
@@ -437,10 +437,10 @@ places:
     subtype: port
     status: generated
     names:
-      zh: 风港风电运维港
-      en: Windhaven Wind Service Port
-      art-x-viking: Windpark-Servicehafen Windhafen
-      art-x-buckham: Porto di Servizio Eolico di Portovento
+      zh: 布兰诺克堡风电运维港
+      en: Fort Brannock Wind Service Port
+      art-x-viking: Windpark-Servicehafen Fort Brannock
+      art-x-buckham: Porto di Servizio Eolico di Forte Brannock
     notes:
       zh: 风岛南岸的运维港，海上风电场的运维船与往返白帆的渡轮在此停靠
       en: The service port on the south shore of Wind Isle, used by the offshore wind farm's service vessels and the ferries to White Sail.
@@ -453,10 +453,10 @@ places:
     subtype: tracking_station
     status: generated
     names:
-      zh: 远望航天测控站
-      en: Farsight Tracking Station
-      art-x-viking: Bodenstation Fernsicht
-      art-x-buckham: Stazione di Controllo di Lungimirante
+      zh: 韦克斯利航天测控站
+      en: Wexley Tracking Station
+      art-x-viking: Bodenstation Wexley
+      art-x-buckham: Stazione di Controllo di Wexley
     notes:
       zh: 远望岛上的航天测控站，几面大型天线跟踪从北维京岛发射的航天器，四面开阔的海天没有遮挡
       en: A spacecraft tracking station on Farsight Isle; its large dishes follow the launches from North Viking Island across an open horizon on every side.
@@ -479,10 +479,10 @@ places:
     subtype: lighthouse
     status: generated
     names:
-      zh: 北门岛灯塔
-      en: Northgate Lighthouse
-      art-x-viking: Leuchtturm Nordtor
-      art-x-buckham: Faro di Porta Nord
+      zh: 哈洛兰岛灯塔
+      en: Halloran Island Lighthouse
+      art-x-viking: Leuchtturm Halloraninsel
+      art-x-buckham: Faro di Isola Halloran
     notes:
       zh: 群岛北部的灯塔，标出从北方进入群岛的航路，也是从北维京岛驶来的船只最先望见的灯光
       en: A lighthouse in the north of the islands, marking the way in from the north and the first light seen by ships coming from North Viking Island.
@@ -505,10 +505,10 @@ places:
     subtype: nature_reserve
     status: generated
     names:
-      zh: 霜岛自然保护区
-      en: Frost Isle Nature Reserve
-      art-x-viking: Naturschutzgebiet Frostinsel
-      art-x-buckham: Riserva Naturale dell'Isola del Gelo
+      zh: 赫里姆岛自然保护区
+      en: Hrimey Nature Reserve
+      art-x-viking: Naturschutzgebiet Hrimey
+      art-x-buckham: "Riserva Naturale dell'Isola del Gelo"
     notes:
       zh: 覆盖全岛的自然保护区，苔原与海鸟崖保持原貌，只允许科考人员登岛
       en: A nature reserve covering the whole island, its tundra and seabird cliffs left untouched; only researchers may land.
@@ -518,10 +518,10 @@ places:
     subtype: nature_reserve
     status: generated
     names:
-      zh: 海豹岛自然保护区
-      en: Seal Isle Nature Reserve
-      art-x-viking: Naturschutzgebiet Robbeninsel
-      art-x-buckham: Riserva Naturale dell'Isola delle Foche
+      zh: 塞尔霍尔姆岛自然保护区
+      en: Selholm Nature Reserve
+      art-x-viking: Naturschutzgebiet Selholm
+      art-x-buckham: "Riserva Naturale dell'Isola delle Foche"
     notes:
       zh: 灰海豹的繁殖地，产仔季节禁止船只靠近礁石
       en: A breeding ground of grey seals; boats must keep clear of the rocks in the pupping season.

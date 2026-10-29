@@ -192,7 +192,7 @@ streets:
     div_qpyn9e: { style: mixed, mix: { houses: 1.8, industrial: 1.0, podium: 0.6 } }   # 厄定区：河畔集镇与农业
     div_1qm5cj: { style: organic, mix: { houses: 1.6, civic: 1.6, park: 1.2 } }        # 旧府区：旧机关与博物馆
     div_4vnc7y: { style: organic, mix: { houses: 2.0, industrial: 0.3 } }              # 上厄定改良区：无建制荒野中的服务点
-    div_e2pk5r: { style: organic, mix: { houses: 2.0, industrial: 0.3 } }              # 驯鹿原牧区：牧民定居点
+    div_e2pk5r: { style: organic, mix: { houses: 2.0, industrial: 0.3 } }              # 尼尔萨利特牧区：牧民定居点
   named:
     - { district: div_16cxr8, axis: 0, line: 0, status: canon, names: { zh: 人民大道, en: People's Avenue, art-x-viking: Volksallee, art-x-buckham: Viale del Popolo } }
     - { district: div_16cxr8, axis: 1, line: 0, status: generated, names: { zh: 自由大道, en: Liberty Avenue, art-x-viking: Freiheitsallee, art-x-buckham: Viale della Libertà } }
@@ -331,7 +331,7 @@ layout:
     div_f9x3wn: [-0.8, 0.5]  # 保税港区
     div_q5h8zp: [-0.75, 0.75] # 群峰训练管理区
     div_4vnc7y: [-0.6, -0.9] # 上厄定改良区
-    div_e2pk5r: [0.9, 0.3]   # 驯鹿原牧区
+    div_e2pk5r: [0.9, 0.3]   # 尼尔萨利特牧区
   boundary_warp_km: 4
   # Port towns: the district centre moves to the coast, next to the mouth of the named river or
   # the named landform (or the nearest stretch of coast), so the town and its harbour meet the sea.

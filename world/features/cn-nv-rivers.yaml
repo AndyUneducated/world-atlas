@@ -15,7 +15,7 @@ features:
     subtype: river
     status: generated
     detect: { kind: river, at_km: [208.8, 148.8] }
-    names: { zh: 鹰河, en: Eagle River, art-x-viking: Adlerfluss }
+    names: { zh: 阿恩萨河, en: Arnsa River, art-x-viking: Arnsafluss }
     notes:
       zh: 厄定河以东的一条河流，全长七十多公里，流域面积三千七百多平方公里，发源于驯鹿原牧区的高原，向西北穿过台地边缘的峡谷，在厄定区注入北部海域。上游峡谷两侧是陡峭的岩壁，海雕在崖顶筑巢，常在河谷上空盘旋，河名由此而来。中游以下河谷开阔，是驯鹿原牧民冬季放牧的谷地，环北维京岛高速和厄定河公路都在下游跨过鹰河。河口两侧是砾石滩和沼泽，秋季有鲑鱼洄游，厄定区的渔民在河口设网捕捞。鹰河峡谷人迹罕至，是北维京岛观察猛禽的好地方。
       en: A river east of the Erding, a little over 70 km long with a basin of more than 3,700 km². It rises on the upland of the Reindeer Range Pastoral District, cuts north-west through gorges at the upland's edge and reaches the northern sea in Erding District. In the upper gorges sea eagles nest on the cliff tops and circle over the valley, which gave the river its name. Below its middle course the valley opens out into the winter grazing of the Reindeer Range herders, and the ring expressway and the Erding River Highway both cross its lower reaches. Gravel beaches and marsh flank the mouth, salmon run in autumn, and Erding fishermen set nets in the estuary. The gorges see few visitors and are one of the best places on North Viking Island to watch birds of prey.
@@ -23,7 +23,7 @@ features:
     subtype: river
     status: generated
     detect: { kind: river, at_km: [235.8, 64.8] }
-    names: { zh: 天河, en: Sky River, art-x-viking: Himmelfluss }
+    names: { zh: 柳萨河, en: Ljosa River, art-x-viking: Ljosafluss }
     notes:
       zh: 发源于马斯林山脉西翼东坡的河流，全长近八十公里，流域面积六千七百多平方公里。天河的源头在厄定河市旧府区的高山上，向东南流过马斯林山盆地西南部的西坪区，再穿过南翼的山地，沿萨科勒市铁岗区与天城市天台区之间南下，在天河口注入镜湾北端的天河湾。河水带下的泥沙在河口淤出浅滩和芦苇荡，下游两岸一边是天城的度假区，一边是铁岗的旧矿区和矿业博物馆。环北维京岛高速和东岸公路都在下游跨过天河，河口的木栈道和观鸟台是天城难得的自然湿地。
       en: A river rising on the eastern slopes of the western arm of the Maslin Range, nearly 80 km long with a basin of more than 6,700 km². Its headwaters lie high in Old Prefecture District of Erding River City. It flows south-east through West Heath District in the south-west of the Maslin basin, crosses the hills of the southern arm and runs south between Iron Knoll District of Sakole and Sky Terrace District of Skytown to enter Sky River Bay, at the northern end of Mirror Bay, at Sky River Mouth. Its silt has built shoals and reed beds at the mouth, and its lower banks have Skytown's resorts on one side and Iron Knoll's old mining country and mining museum on the other. The ring expressway and the East Coast Highway both cross its lower course, and the boardwalks and bird hides at the mouth are a rare piece of natural wetland in Skytown.
@@ -47,7 +47,7 @@ features:
     subtype: river
     status: generated
     detect: { kind: river, at_km: [270.8, 124.8] }
-    names: { zh: 星河, en: Star River, art-x-viking: Sternfluss }
+    names: { zh: 蒂鲁基卢克河, en: Tirrukiluk River, art-x-viking: Tirrukilukfluss }
     notes:
       zh: 马斯林山市星港区的主要河流，全长二十六公里，流域面积两千多平方公里，全程都在星港区内。河口就是星港，这座航天港的发射台面向大海，星港区由此得名。河口周围是星港指挥中心、星港防空阵地等军事设施，大部分河段属军事管理区，不对公众开放。环北维京岛高速在下游跨过星河。星港航天博物馆是区里唯一向公众常年开放的设施，每逢发射日，都有大批游客和航天爱好者前来。
       en: "The main river of Starport District in Maslin Mountain City, 26 km long with a basin of more than 2,000 km², lying wholly within Starport District. Its mouth is the Starport itself: the spaceport's launch pads face the sea, and the district takes its name from it. The Starport Command Centre, the Starport Air Defence Site and other military facilities surround the mouth, and most of the river lies within a restricted zone closed to the public. The ring expressway crosses its lower reaches. The Starport Space Museum is the only facility in the district open to the public all year, and on launch days crowds of visitors and space enthusiasts arrive."
@@ -63,7 +63,7 @@ features:
     subtype: river
     status: generated
     detect: { kind: river, at_km: [256.8, 136.8] }
-    names: { zh: 鲑河, en: Salmon River, art-x-viking: Lachsfluss }
+    names: { zh: 圣梅林河, en: Saint-Merrin River, art-x-viking: Saint-Merrin-Fluss }
     notes:
       zh: 马斯林山市星港区东北海岸的短河，全长十五公里，从海岸丘陵上急泻而下，向东北注入北部海域。河道短而陡，多急流和浅滩，每年秋季鲑鱼从海里逆流而上，跃过一道道岩坎到上游的砾石滩产卵，河名由此而来。鲑鱼洄游时，河岸上常有海雕和水獭守候，星港区的居民也会到下游的观鱼平台观看鲑鱼跳跃。钓鱼须持许可证并遵守禁捕期，洄游季节的河岸步道是区里少有的安静去处。
       en: A short river on the north-east coast of Starport District in Maslin Mountain City, 15 km long, rushing down from the coastal hills north-east into the northern sea. Its bed is short and steep, full of rapids and riffles, and every autumn salmon run up from the sea, leaping the rock steps to spawn on the gravel beds upstream, which gave the river its name. During the run sea eagles and otters keep watch along the banks, and people from Starport come to the fish-viewing platform on the lower river to watch the salmon jump. Fishing needs a permit and must respect the closed season, and in the run the riverside path is one of the quietest places in the district.
@@ -71,7 +71,7 @@ features:
     subtype: river
     status: generated
     detect: { kind: river, at_km: [235.8, 143.8] }
-    names: { zh: 白沙河, en: White Sand River, art-x-viking: Weißsandfluss }
+    names: { zh: 帕利卡图克河, en: Paaliqattuk River, art-x-viking: Paaliqattukfluss }
     notes:
       zh: 厄定河市驯鹿原牧区北部的短河，全长三十多公里，从驯鹿原的高原台地流下，向东北注入北部海域。河流切过台地边缘时形成一段段急流，下游河谷变宽，河口两侧是河水冲下的石英砂堆积成的白色沙滩，河名由此而来。驯鹿原是驯鹿的冬季牧场，冬季牧民带着鹿群在河谷里避风，河岸的桦树林是鹿群觅食地衣的地方。环北维京岛高速在下游跨过白沙河，夏季河口的白沙滩上几乎看不到人影，只有海鸟和偶尔下到海边的驯鹿。
       en: A short river in the north of the Reindeer Range Pastoral District of Erding River City, a little over 30 km long, running down from the Reindeer Range upland and north-east to the northern sea. Where it cuts through the edge of the upland it breaks into a string of rapids; lower down the valley widens, and on both sides of the mouth lie white beaches of quartz sand washed down by the river, which gave it its name. The Reindeer Range is the herds' winter pasture, and in winter the herders bring the reindeer down into the valley out of the wind, where they graze for lichen among the birches on the banks. The ring expressway crosses the lower river, and in summer there is hardly a soul on the white beaches at the mouth, only seabirds and now and then a reindeer come down to the shore.
@@ -121,7 +121,7 @@ features:
     subtype: estuary
     status: generated
     detect: { kind: estuary, at_km: [235.8, 64.8] }
-    names: { zh: 天河口, en: Sky River Mouth, art-x-viking: Himmelflussmündung }
+    names: { zh: 柳萨河口, en: Ljosa Mouth, art-x-viking: Ljosamündung }
     notes:
       zh: 天河注入天河湾的地方，位于湾顶，西岸属萨科勒市的铁岗区，东岸属天城市的天台区。天河从马斯林山脉带下的泥沙在河口淤出浅滩、沙洲和芦苇荡，涨潮时海水倒灌入河，退潮后露出大片泥滩，海鸟和涉禽成群觅食。环北维京岛高速在河口附近跨过天河，桥上可以望见天河湾和湾畔的度假酒店。河口两岸修有木栈道和观鸟台，是天城度假区里难得的一片自然湿地，也是附近居民傍晚散步的地方。
       en: Where the Sky River enters Sky River Bay, at the head of the bay, with Iron Knoll District of Sakole on the west bank and Sky Terrace District of Skytown on the east. Silt brought down from the Maslin Range has built shoals, sandbars and reed beds at the mouth; the rising tide pushes sea water up the river, and at low tide broad mudflats appear where seabirds and waders gather to feed. The ring expressway crosses the river close to the mouth, with a view of the bay and the resort hotels on its shore. Boardwalks and bird hides line both banks, a rare stretch of natural wetland in Skytown's resort district and a favourite evening walk for people who live nearby.

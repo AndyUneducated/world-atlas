@@ -67,9 +67,9 @@ divisions:
   parent: div_3cvg2q
   status: generated
   names:
-    zh: 古城区
-    en: Old Town District
-    art-x-viking: Altstadt
+    zh: 福恩斯塔德区
+    en: Fornstad District
+    art-x-viking: Fornstad
     art-x-buckham: Città Vecchia
   codes:
     admin: '910101'
@@ -118,9 +118,9 @@ divisions:
   parent: div_3cvg2q
   status: generated
   names:
-    zh: 东港区
-    en: East Harbour District
-    art-x-viking: Osthafen
+    zh: 奥斯特哈门区
+    en: Austhamn District
+    art-x-viking: Austhamn
     art-x-buckham: Porto Est
   codes:
     admin: '910104'
@@ -152,9 +152,9 @@ divisions:
   parent: div_3cvg2q
   status: generated
   names:
-    zh: 长滩区
-    en: Longbeach District
-    art-x-viking: Langstrand
+    zh: 朗桑德区
+    en: Langsand District
+    art-x-viking: Langsand
     art-x-buckham: Spiaggialunga
   codes:
     admin: '910106'
@@ -169,9 +169,9 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 舵港市
-    en: Rudderhaven City
-    art-x-viking: Ruderhafen auf Ysear
+    zh: 斯蒂尔维克市
+    en: Styrvik City
+    art-x-viking: Styrvik auf Ysear
     art-x-buckham: Portotimone en Etei
   codes:
     admin: '910600'
@@ -191,9 +191,9 @@ divisions:
   parent: div_er5g6j
   status: generated
   names:
-    zh: 舵港区
-    en: Rudderhaven District
-    art-x-viking: Ruderhafen
+    zh: 斯蒂尔维克区
+    en: Styrvik District
+    art-x-viking: Styrvik
     art-x-buckham: Portotimone
   codes:
     admin: '910601'
@@ -208,9 +208,9 @@ divisions:
   parent: div_er5g6j
   status: generated
   names:
-    zh: 船尾区
-    en: Stern District
-    art-x-viking: Heck
+    zh: 斯库特斯塔德区
+    en: Skutstad District
+    art-x-viking: Skutstad
     art-x-buckham: Poppa
   codes:
     admin: '910602'
@@ -225,9 +225,9 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 龙骨市
-    en: Keel City
-    art-x-viking: Kiel auf Ysear
+    zh: 谢尔海姆市
+    en: Kjølheim City
+    art-x-viking: Kjølheim auf Ysear
     art-x-buckham: Chiglia en Etei
   codes:
     admin: '910700'
@@ -247,9 +247,9 @@ divisions:
   parent: div_33vctd
   status: generated
   names:
-    zh: 龙骨区
-    en: Keel District
-    art-x-viking: Kiel
+    zh: 谢尔海姆区
+    en: Kjølheim District
+    art-x-viking: Kjølheim
     art-x-buckham: Chiglia
   codes:
     admin: '910701'
@@ -264,9 +264,9 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 潮湾市
-    en: Tidebay City
-    art-x-viking: Gezeitenbucht auf Ysear
+    zh: 弗洛德维克市
+    en: Flodvik City
+    art-x-viking: Flodvik auf Ysear
     art-x-buckham: Baiamarea en Etei
   codes:
     admin: '910800'
@@ -286,9 +286,9 @@ divisions:
   parent: div_x20mfy
   status: generated
   names:
-    zh: 潮湾区
-    en: Tidebay District
-    art-x-viking: Gezeitenbucht
+    zh: 弗洛德维克区
+    en: Flodvik District
+    art-x-viking: Flodvik
     art-x-buckham: Baiamarea
   codes:
     admin: '910801'
@@ -299,16 +299,16 @@ divisions:
     zh: 潮湾市唯一的区，海峡沿岸的潮汐电站、海鲜市场与渔港构成了这里的日常。潮湾潮汐电站的大坝横跨海湾口，坝上设有观景步道和展示中心，游客可以看到涨潮时海水涌入水轮机、退潮时湾内水位缓缓下降的景象，展示中心讲解潮汐发电的原理，是学生和游客的热门去处。渔港里停满了拖网船和小型渔船，渔民凌晨出海、清晨归港，潮湾海鲜市场的拍卖大厅里买家云集，市场旁的海鲜餐馆以清蒸螃蟹、鳕鱼汤和熏贻贝闻名，周末许多长船人专程驱车来这里吃海鲜。区内的居民区沿海湾和山坡分布，老渔村的木屋和新建的公寓并存，社区里有学校、诊所和商业街，居民以维京语为母语的家庭居多，许多人在电站、渔港和市场工作。长船西北岸公路从这里出发，沿海岸向东北经西岸区通往北岬；锚岛跨海高速的引桥从区的北部伸向海峡，晴天时可以看到对岸锚岛的山影。潮湾的海风里带着咸味，潮起潮落间，渔船出海归来，这座小城始终与大海同呼吸。
     en: The only district of Tidebay City, where the tidal power station, the seafood market and the fishing harbour on the strait make up daily life. The dam of the Tidebay Tidal Power Station spans the mouth of the bay, with a walkway and visitor centre on top; visitors watch the sea rush into the turbines on the flood and the water in the bay slowly fall on the ebb, and the centre explains how tidal power works, a favourite outing for pupils and tourists. The harbour is packed with trawlers and small boats; fishermen leave before dawn and return in the early morning, buyers crowd the auction hall of the seafood market, and the restaurants beside it are known for steamed crab, cod soup and smoked mussels, so many Longship people drive out at weekends just to eat. Homes spread along the bay and up the hillside, old fishing-village cottages beside new flats, with schools, a clinic and a shopping street; most families speak Viking, and many people work at the power station, the harbour or the market. The Longship North-West Shore Road starts here and follows the coast north-east through West Shore to North Cape, and the approach viaduct of the Anchor Strait Crossing reaches out over the strait from the north of the district; on clear days you can see the mountains of Anchor Island across the water. The sea wind here tastes of salt, boats go out and come home with the tides, and this small city breathes with the sea.
 
-# ── 白帆岛 ──
+# ── 阿夫琳岛 ──
 - id: div_x22naa
   subtype: locality
   parent: div_raat4g
   status: generated
   names:
-    zh: 白帆市
-    en: White Sail City
-    art-x-viking: Weißsegel auf Ysear
-    art-x-buckham: Velabianca en Etei
+    zh: 阿夫琳港市
+    en: Port Aveline
+    art-x-viking: Port Aveline auf Ysear
+    art-x-buckham: Porto Aveline en Etei
   codes:
     admin: '910200'
     unlocode: VK WSL
@@ -327,10 +327,10 @@ divisions:
   parent: div_x22naa
   status: generated
   names:
-    zh: 帆港区
-    en: Sail Harbour District
-    art-x-viking: Segelhafen
-    art-x-buckham: Porto Vela
+    zh: 阿夫琳码头区
+    en: Aveline Quay District
+    art-x-viking: Avelinekai
+    art-x-buckham: Molo Aveline
   codes:
     admin: '910201'
   population: 200000
@@ -395,10 +395,10 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 帆影市
-    en: Sailshadow City
-    art-x-viking: Segelschatten auf Ysear
-    art-x-buckham: Ombravela en Etei
+    zh: 卡洛韦堡市
+    en: Fort Calloway
+    art-x-viking: Fort Calloway auf Ysear
+    art-x-buckham: Forte Calloway en Etei
   codes:
     admin: '910900'
     unlocode: VK SSH
@@ -417,10 +417,10 @@ divisions:
   parent: div_qy1rtm
   status: generated
   names:
-    zh: 帆影区
-    en: Sailshadow District
-    art-x-viking: Segelschatten
-    art-x-buckham: Ombravela
+    zh: 卡洛韦堡区
+    en: Fort Calloway District
+    art-x-viking: Fort Calloway
+    art-x-buckham: Forte Calloway
   codes:
     admin: '910901'
   population: 152000
@@ -434,9 +434,9 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 盐湾市
-    en: Saltbay City
-    art-x-viking: Salzbucht auf Ysear
+    zh: 萨尔塔维克市
+    en: Saltavik City
+    art-x-viking: Saltavik auf Ysear
     art-x-buckham: Baiasale en Etei
   codes:
     admin: '911000'
@@ -456,9 +456,9 @@ divisions:
   parent: div_ewqq3p
   status: generated
   names:
-    zh: 盐湾区
-    en: Saltbay District
-    art-x-viking: Salzbucht
+    zh: 萨尔塔维克区
+    en: Saltavik District
+    art-x-viking: Saltavik
     art-x-buckham: Baiasale
   codes:
     admin: '911001'
@@ -473,9 +473,9 @@ divisions:
   parent: div_ewqq3p
   status: generated
   names:
-    zh: 渔港区
-    en: Fishing Harbour District
-    art-x-viking: Fischerhafen
+    zh: 菲斯克海姆区
+    en: Fiskheim District
+    art-x-viking: Fiskheim
     art-x-buckham: Porto Pescatori
   codes:
     admin: '911002'
@@ -490,9 +490,9 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 银鸥市
-    en: Silvergull City
-    art-x-viking: Silbermöwe auf Ysear
+    zh: 莫塞市
+    en: Måsey City
+    art-x-viking: Måsey auf Ysear
     art-x-buckham: Gabbiano en Etei
   codes:
     admin: '911100'
@@ -512,9 +512,9 @@ divisions:
   parent: div_0770jy
   status: generated
   names:
-    zh: 银鸥区
-    en: Silvergull District
-    art-x-viking: Silbermöwe
+    zh: 莫塞区
+    en: Måsey District
+    art-x-viking: Måsey
     art-x-buckham: Gabbiano
   codes:
     admin: '911101'
@@ -529,9 +529,9 @@ divisions:
   parent: div_0770jy
   status: generated
   names:
-    zh: 白岭区
-    en: Whiteridge District
-    art-x-viking: Weißgrat
+    zh: 维托斯区
+    en: Hvitås District
+    art-x-viking: Hvitås
     art-x-buckham: Crestabianca
   codes:
     admin: '911102'
@@ -542,15 +542,15 @@ divisions:
     zh: 银鸥市东北部的山区，帆影岭在这里向西南伸展成一道道白色石灰岩山脊，区名即由此而来。区内大部分土地是林场和牧场：山坡上的云杉和松树林由家庭林场世代经营，木材沿帆影岭公路运往银鸥和帆城加工；山谷和缓坡上的牧场放养奶牛和绵羊，家庭乳品厂生产的黄油、奶酪和酸奶供应银鸥的酒店和餐馆，林业和乳业是全区的两大生计，第一产业在经济中的比重在群岛名列前茅。白岭人口约二十万，分散在山谷里的小村庄中，村里有木结构的农舍、谷仓和小教堂，许多农舍兼营民宿，接待来山里徒步和骑马的游客。区内的山路通往帆影岭西南段的高处，沿途可以俯瞰银鸥湾和白帆海峡，秋季的落叶松林一片金黄，是摄影爱好者喜爱的季节。由于年轻人多到银鸥、白帆和长船工作，留在村里的以老人和农户为主，老年人比例在群岛位居前列，居民以维京语为母语。帆影岭公路和白帆纵贯高速都从区内经过，前者沿西北岸的阶地延伸，后者沿东南侧的低丘通往渔港。白岭山色清秀、牧场辽阔，是银鸥这座海滨城市背后的田园。
     en: The hill country in the north-east of Silvergull, where Sailshadow Ridge spreads south-west into a series of white limestone ridges that give the district its name. Most of the land is forest and pasture. Family forest holdings have worked the spruce and pine on the slopes for generations, and the timber goes down the Sailshadow Ridge Road to be processed in Silvergull and Sail Town; cows and sheep graze the pastures in the valleys and on the gentler slopes, and the butter, cheese and yoghurt of the family creameries supply Silvergull's hotels and restaurants. Forestry and dairy are the two livelihoods, and farming and forestry take as large a share of output as almost anywhere in the islands. About two hundred thousand people live scattered among small valley villages of timber farmhouses, barns and little churches, many of the farms also take in guests who come to walk and ride in the hills. Mountain roads climb to the high ground at the south-western end of the ridge, looking down on Silvergull Bay and the White Sail Strait, and in autumn the larch woods turn gold, a favourite season for photographers. Young people mostly leave to work in Silvergull, White Sail and Longship, so those who stay are mostly older people and farmers, the share of elderly residents is among the highest in the islands, and people speak Viking at home. The Sailshadow Ridge Road and the White Sail Spine Expressway both cross the district, the first on the terraces of the north-west shore and the second on the low hills to the south-east, heading for Fishing Harbour. Green hills and wide pastures make Whiteridge the countryside behind this seaside city.
 
-# ── 锚岛 ──
+# ── 阿克斯岛 ──
 - id: div_zg05xa
   subtype: locality
   parent: div_raat4g
   status: generated
   names:
-    zh: 锚港市
-    en: Anchorhaven City
-    art-x-viking: Ankerhafen auf Ysear
+    zh: 阿克斯维克市
+    en: Akkersvik City
+    art-x-viking: Akkersvik auf Ysear
     art-x-buckham: Portancora en Etei
   codes:
     admin: '910500'
@@ -570,10 +570,10 @@ divisions:
   parent: div_zg05xa
   status: generated
   names:
-    zh: 锚湾区
-    en: Anchor Bay District
-    art-x-viking: Ankerbucht
-    art-x-buckham: Baia dell'Ancora
+    zh: 阿克斯维克区
+    en: Akkersvik District
+    art-x-viking: Akkersvik
+    art-x-buckham: "Baia dell'Ancora"
   codes:
     admin: '910501'
   population: 180000
@@ -587,9 +587,9 @@ divisions:
   parent: div_zg05xa
   status: generated
   names:
-    zh: 船厂区
-    en: Shipyard District
-    art-x-viking: Werft
+    zh: 瑙斯特海姆区
+    en: Naustheim District
+    art-x-viking: Naustheim
     art-x-buckham: Cantiere
   codes:
     admin: '910502'
@@ -638,9 +638,9 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 雾湾市
-    en: Mistbay City
-    art-x-viking: Nebelbucht auf Ysear
+    zh: 托克维克市
+    en: Tåkevik City
+    art-x-viking: Tåkevik auf Ysear
     art-x-buckham: Baianebbia en Etei
   codes:
     admin: '911200'
@@ -660,9 +660,9 @@ divisions:
   parent: div_3zqdra
   status: generated
   names:
-    zh: 雾湾区
-    en: Mistbay District
-    art-x-viking: Nebelbucht
+    zh: 托克维克区
+    en: Tåkevik District
+    art-x-viking: Tåkevik
     art-x-buckham: Baianebbia
   codes:
     admin: '911201'
@@ -677,9 +677,9 @@ divisions:
   parent: div_3zqdra
   status: generated
   names:
-    zh: 峡湾区
-    en: Fjord District
-    art-x-viking: Fjord
+    zh: 尤普峡湾区
+    en: Djupfjord District
+    art-x-viking: Djupfjord
     art-x-buckham: Fiordo
   codes:
     admin: '911202'
@@ -694,9 +694,9 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 松林市
-    en: Pinewood City
-    art-x-viking: Kiefernwald auf Ysear
+    zh: 富鲁海姆市
+    en: Furuheim City
+    art-x-viking: Furuheim auf Ysear
     art-x-buckham: Pineta en Etei
   codes:
     admin: '911300'
@@ -716,9 +716,9 @@ divisions:
   parent: div_bbmwea
   status: generated
   names:
-    zh: 松林区
-    en: Pinewood District
-    art-x-viking: Kiefernwald
+    zh: 富鲁海姆区
+    en: Furuheim District
+    art-x-viking: Furuheim
     art-x-buckham: Pineta
   codes:
     admin: '911301'
@@ -774,9 +774,9 @@ divisions:
   parent: div_qjzmw5
   status: generated
   names:
-    zh: 黑沙区
-    en: Black Sand District
-    art-x-viking: Schwarzsand
+    zh: 斯瓦特桑德区
+    en: Svartsand District
+    art-x-viking: Svartsand
     art-x-buckham: Sabbianera
   codes:
     admin: '910302'
@@ -808,10 +808,10 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 硫磺湾市
-    en: Sulphur Bay City
-    art-x-viking: Schwefelbucht auf Ysear
-    art-x-buckham: Baiazolfo en Etei
+    zh: 新特雷曼市
+    en: New Tremaine
+    art-x-viking: New Tremaine auf Ysear
+    art-x-buckham: Nuova Tremaine en Etei
   codes:
     admin: '911400'
     unlocode: VK SUL
@@ -830,10 +830,10 @@ divisions:
   parent: div_bsbr5w
   status: generated
   names:
-    zh: 硫磺湾区
-    en: Sulphur Bay District
-    art-x-viking: Schwefelbucht
-    art-x-buckham: Baiazolfo
+    zh: 新特雷曼区
+    en: New Tremaine District
+    art-x-viking: New Tremaine
+    art-x-buckham: Nuova Tremaine
   codes:
     admin: '911401'
   population: 300000
@@ -847,9 +847,9 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 岩港市
-    en: Rockhaven City
-    art-x-viking: Felshafen auf Ysear
+    zh: 克莱特斯塔德市
+    en: Klettstad City
+    art-x-viking: Klettstad auf Ysear
     art-x-buckham: Portoroccia en Etei
   codes:
     admin: '911500'
@@ -869,9 +869,9 @@ divisions:
   parent: div_6930nk
   status: generated
   names:
-    zh: 岩港区
-    en: Rockhaven District
-    art-x-viking: Felshafen
+    zh: 克莱特斯塔德区
+    en: Klettstad District
+    art-x-viking: Klettstad
     art-x-buckham: Portoroccia
   codes:
     admin: '911501'
@@ -905,10 +905,10 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 外屿市
-    en: Outer Isles City
-    art-x-viking: Außeninseln auf Ysear
-    art-x-buckham: Isolesterne en Etei
+    zh: 乌维克库特市
+    en: Uviqkut City
+    art-x-viking: Uviqkut auf Ysear
+    art-x-buckham: Uviqkut en Etei
   codes:
     admin: '910400'
     unlocode: VK OUT
@@ -927,9 +927,9 @@ divisions:
   parent: div_87ygkn
   status: generated
   names:
-    zh: 鲸岛区
-    en: Whale Isle District
-    art-x-viking: Walinsel
+    zh: 瓦莱区
+    en: Hvaley District
+    art-x-viking: Hvaley
     art-x-buckham: Isola Balena
   codes:
     admin: '910401'
@@ -944,10 +944,10 @@ divisions:
   parent: div_87ygkn
   status: generated
   names:
-    zh: 鸟崖区
-    en: Bird Cliff District
-    art-x-viking: Vogelklippe
-    art-x-buckham: Scogliera Uccelli
+    zh: 西基克图克区
+    en: Siqqiqtuuq District
+    art-x-viking: Siqqiqtuuq
+    art-x-buckham: Siqqiqtuuq
   codes:
     admin: '910402'
   population: 40000
@@ -961,9 +961,9 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 桅港市
-    en: Masthaven City
-    art-x-viking: Masthafen auf Ysear
+    zh: 西格拉维克市
+    en: Siglavik City
+    art-x-viking: Siglavik auf Ysear
     art-x-buckham: Portalbero en Etei
   codes:
     admin: '911600'
@@ -983,9 +983,9 @@ divisions:
   parent: div_esaav7
   status: generated
   names:
-    zh: 桅港区
-    en: Masthaven District
-    art-x-viking: Masthafen
+    zh: 西格拉维克区
+    en: Siglavik District
+    art-x-viking: Siglavik
     art-x-buckham: Portalbero
   codes:
     admin: '911601'
@@ -1017,10 +1017,10 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 南星市
-    en: Southstar City
-    art-x-viking: Südstern auf Ysear
-    art-x-buckham: Stellasud en Etei
+    zh: 圣翁丁市
+    en: Saint-Ondine
+    art-x-viking: Saint-Ondine auf Ysear
+    art-x-buckham: "Sant'Ondine en Etei"
   codes:
     admin: '911700'
     unlocode: VK SST
@@ -1039,10 +1039,10 @@ divisions:
   parent: div_5ab7n6
   status: generated
   names:
-    zh: 南星区
-    en: Southstar District
-    art-x-viking: Südstern
-    art-x-buckham: Stellasud
+    zh: 圣翁丁区
+    en: Saint-Ondine District
+    art-x-viking: Saint-Ondine
+    art-x-buckham: "Sant'Ondine"
   codes:
     admin: '911701'
   population: 230000
@@ -1056,10 +1056,10 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 晨光市
-    en: Dawnlight City
-    art-x-viking: Morgenlicht auf Ysear
-    art-x-buckham: Aurora en Etei
+    zh: 埃德文港市
+    en: Port Edevane
+    art-x-viking: Port Edevane auf Ysear
+    art-x-buckham: Porto Edevane en Etei
   codes:
     admin: '911800'
     unlocode: VK DWN
@@ -1078,10 +1078,10 @@ divisions:
   parent: div_px9s45
   status: generated
   names:
-    zh: 晨光区
-    en: Dawnlight District
-    art-x-viking: Morgenlicht
-    art-x-buckham: Aurora
+    zh: 埃德文港区
+    en: Port Edevane District
+    art-x-viking: Port Edevane
+    art-x-buckham: Porto Edevane
   codes:
     admin: '911801'
   population: 177000
@@ -1095,10 +1095,10 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 鳕港市
-    en: Codhaven City
-    art-x-viking: Dorschhafen auf Ysear
-    art-x-buckham: Portomerluzzo en Etei
+    zh: 乌利克尤阿克市
+    en: Ulikjuaq City
+    art-x-viking: Ulikjuaq auf Ysear
+    art-x-buckham: Ulikjuaq en Etei
   codes:
     admin: '911900'
     unlocode: VK COD
@@ -1117,10 +1117,10 @@ divisions:
   parent: div_4vcskg
   status: generated
   names:
-    zh: 鳕港区
-    en: Codhaven District
-    art-x-viking: Dorschhafen
-    art-x-buckham: Portomerluzzo
+    zh: 乌利克尤阿克区
+    en: Ulikjuaq District
+    art-x-viking: Ulikjuaq
+    art-x-buckham: Ulikjuaq
   codes:
     admin: '911901'
   population: 152000
@@ -1134,10 +1134,10 @@ divisions:
   parent: div_raat4g
   status: generated
   names:
-    zh: 风港市
-    en: Windhaven City
-    art-x-viking: Windhafen auf Ysear
-    art-x-buckham: Portovento en Etei
+    zh: 布兰诺克堡市
+    en: Fort Brannock
+    art-x-viking: Fort Brannock auf Ysear
+    art-x-buckham: Forte Brannock en Etei
   codes:
     admin: '912000'
     unlocode: VK WND
@@ -1156,10 +1156,10 @@ divisions:
   parent: div_47173y
   status: generated
   names:
-    zh: 风港区
-    en: Windhaven District
-    art-x-viking: Windhafen
-    art-x-buckham: Portovento
+    zh: 布兰诺克堡区
+    en: Fort Brannock District
+    art-x-viking: Fort Brannock
+    art-x-buckham: Forte Brannock
   codes:
     admin: '912001'
   population: 126000

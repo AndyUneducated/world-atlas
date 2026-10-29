@@ -8,7 +8,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [251.2, 50.2] }
-    names: { zh: 燕子岛, en: Swallow Island, art-x-viking: Schwalbeninsel }
+    names: { zh: 斯瓦尔霍尔姆岛, en: Svalholm, art-x-viking: Svalholm }
     notes:
       zh: 燕礁湾口外的小岛，面积不到十平方公里，却高出海面四百五十多米，几乎整座岛都是陡立的岩壁。每年春季，大群海燕从远海飞回，在岩壁的缝隙和草坡上的洞穴里筑巢产卵，入夜后成千上万只海燕鸣叫着归巢，燕礁区和燕礁湾都因此得名。岛上不住人，也没有码头，观鸟船只能绕岛航行，在保护距离之外观看。燕子岛与北面的灯塔岛之间是宽约九公里的燕子水道，大型船舶从这里进出燕礁湾。行政上，燕子岛属天城市的天台区。
       en: A small island off the mouth of Swallow Reef Bay, under 10 km² yet rising more than 450 m out of the sea, almost all of it sheer rock. Each spring great flocks of storm petrels return from the open ocean to nest in crevices in the cliffs and burrows in the grassy slopes. After dark thousands of birds come back to their nests calling, and both Swallow Reef District and its bay take their names from them. Nobody lives on the island and there is no landing; birdwatching boats circle it at a protected distance. Swallow Sound, about 9 km wide, lies between it and Lighthouse Island to the north and is the large ships' way into the bay. The island belongs to Sky Terrace District in Skytown.
@@ -16,7 +16,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [249.2, 55.2] }
-    names: { zh: 灯塔岛, en: Lighthouse Island, art-x-viking: Leuchtturminsel }
+    names: { zh: 马拉布尔岛, en: Marrable Island, art-x-viking: Marrableinsel }
     notes:
       zh: 燕礁湾口的岛屿，面积近十九平方公里，全岛是一座海拔三百多米的圆顶山丘，四面陡峭。山顶的灯塔为进出镜湾和燕礁湾的船只导航，是东南海岸最重要的航标之一。岛的西侧隔着窄窄的灯塔水道与燕尾角相望，南侧隔着宽阔的燕子水道与燕子岛相对，大型船舶就从燕子水道进出燕礁湾。岛上只有灯塔守护人和气象站的工作人员，岩坡上栖息着成群的海燕和燕鸥，岛周围的部分礁石划为海鸟保护区。行政上，灯塔岛属天城市的天台区。
       en: An island at the mouth of Swallow Reef Bay, nearly 19 km², made up of a single domed hill a little over 300 m high with steep sides all round. The lighthouse on its summit guides ships into Mirror Bay and Swallow Reef Bay and is one of the key marks of the south-east coast. To the west, narrow Lighthouse Sound separates it from Swallowtail Point; to the south, the broad Swallow Sound lies between it and Swallow Island, and that is the way large ships enter the bay. The only residents are the lighthouse keepers and the staff of a weather station, while storm petrels and terns crowd the rocky slopes and some of the surrounding skerries are a seabird reserve. The island belongs to Sky Terrace District in Skytown.
@@ -32,7 +32,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [297.2, 89.8] }
-    names: { zh: 东哨岛, en: East Watch Island, art-x-viking: Ostwachtinsel }
+    names: { zh: 金纳尔维克岛, en: Qinnarvik Island, art-x-viking: Qinnarvikinsel }
     notes:
       zh: 东营湾南侧的岛屿，面积十四平方公里多，最高处海拔九十多米，与本岛之间隔着宽约四公里的东哨水道，水道是东营湾的南入口。岛上地势低缓，覆盖着石楠和草甸，高地上的旧哨所曾日夜守望东部海域，岛名由此而来，如今只剩石砌的哨楼和瞭望台。岛的四周是礁石和小海湾，海鸟在崖边筑巢，海豹常在礁石上晒太阳。东哨岛与北面的营盘岛一起，为东营湾挡住了外海的风浪。
       en: An island on the south side of East Camp Bay, a little over 14 km² and rising to just over 90 m, separated from the mainland by East Watch Sound, about 4 km wide and the bay's southern entrance. The island is low and rolling, covered in heather and meadow. On its high ground an old watch post once kept an eye on the eastern sea day and night, which gave the island its name; only the stone watchtower and lookout remain. Rocks and coves ring the shore, seabirds nest along the cliff edges and seals bask on the skerries. Together with Camp Island to the north it shelters East Camp Bay from the open sea.
@@ -40,7 +40,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [298.2, 95.8] }
-    names: { zh: 营盘岛, en: Camp Island, art-x-viking: Lagerinsel }
+    names: { zh: 布德岛, en: Budey, art-x-viking: Budey }
     notes:
       zh: 东营湾外侧的岛屿，面积近十五平方公里，地势低平，最高处只有七十多米。岛的西侧是宽约六公里的营盘水道，是进出东营湾的主航道；岛的东面直面外海，冬季风暴的浪头先打在营盘岛的岩岸上，它与南面的东哨岛一起替东营湾挡住了外海的风浪。传说早年驻军在岛上扎过营盘，岛名由此而来。如今岛上是成片的草甸和沙丘，夏季开满野花，东营湾和营盘岛构成了东营区最主要的海岸风景。
       en: An island on the seaward side of East Camp Bay, nearly 15 km², low and flat with its highest point just over 70 m. On its west lies Camp Sound, about 6 km wide and the main fairway into the bay; its east coast faces the open sea and takes the first blows of the winter storms, so that with East Watch Island to the south it shelters the bay. Legend has it that soldiers once pitched camp here, which gave the island its name. Today it is meadow and dunes, carpeted with wild flowers in summer, and with the bay it makes up the best-known coast of East Camp District.
@@ -98,7 +98,7 @@ features:
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [236.2, 63.2] }
-    names: { zh: 天河湾, en: Sky River Bay, art-x-viking: Himmelflussbucht }
+    names: { zh: 柳萨湾, en: Ljosa Bay, art-x-viking: Ljosabucht }
     notes:
       zh: 镜湾最北端的圆形海湾，面积六十多平方公里，天河在湾顶的天河口入海。海湾东岸是天城市的天台区，西岸是萨科勒市的铁岗区，环北维京岛高速从湾顶附近经过。天河从马斯林山脉带下的泥沙在河口淤出浅滩和芦苇荡，涨潮时海鸟成群觅食；东岸的沙滩与度假酒店连成一线，是天城最热闹的海滨之一。海湾向南敞向镜湾，湾口西南侧就是铁岬和镜岛。从岚山森林公园的山顶可以俯瞰整个天河湾，远处是马斯林山脉的雪峰。
       en: The round bay at the northern end of Mirror Bay, a little over 60 km², where the Sky River enters at Sky River Mouth. Its east shore is Sky Terrace District in Skytown and its west shore Iron Knoll District in Sakole, and the ring expressway passes close to its head. Silt carried down from the Maslin Range by the river has built shoals and reed beds at the mouth, where seabirds gather to feed on the rising tide. On the east shore beaches and resort hotels run in an unbroken line, one of the liveliest seafronts in Skytown. To the south the bay opens into Mirror Bay, with Iron Point and Mirror Isle at the south-west corner of its mouth. From the hilltop in Mist Hill Forest Park you can see the whole bay, with the snow peaks of the Maslin Range beyond.
@@ -138,7 +138,7 @@ features:
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [81.8, 139.2] }
-    names: { zh: 鲸背湾, en: Whaleback Bay, art-x-viking: Walrückenbucht }
+    names: { zh: 科罗比湾, en: Corrowby Bay, art-x-viking: Corrowbybucht }
     notes:
       zh: 望星湾西侧的狭长海湾，面积五十多平方公里，西岸属寒岭区，东岸属望星区。海湾又深又窄，湾底的冷水上涌带来丰富的磷虾和小鱼，夏季常有小须鲸和座头鲸入湾觅食，鲸鱼浮出水面时，黑色的脊背像一道道礁石，海湾因此得名鲸背湾。湾岸几乎没有道路和村落，两侧是长满桦树和苔原植物的岩坡，只有观鲸船和科研船偶尔进湾。寒岭生态研究站在湾口设有观测点，记录鲸类的出没和海水温度的变化。
       en: A long, narrow bay west of Stargaze Bay, a little over 50 km², with Frost Ridge District on its west shore and Stargaze District on its east. It is deep and narrow, and cold water welling up from the bottom brings krill and small fish, so in summer minke and humpback whales often come in to feed. When they surface their dark backs lie on the water like a line of reefs, which is how Whaleback Bay got its name. There are almost no roads or villages on its shores, only rocky slopes of birch and tundra, and only whale-watching and research boats come in now and then. The Frost Ridge Ecological Station keeps an observation post at the mouth, recording the whales' visits and the changing temperature of the sea.
@@ -164,7 +164,7 @@ features:
     subtype: cape
     status: generated
     detect: { kind: cape, at_km: [245.2, 54.2] }
-    names: { zh: 燕尾角, en: Swallowtail Point, art-x-viking: Schwalbenschwanz }
+    names: { zh: 斯瓦尔内斯角, en: Svalnes, art-x-viking: Svalnes }
     notes:
       zh: 燕礁区一道细长半岛的末端，半岛分隔西面的镜湾与东面的燕礁湾，尖端分叉，形如燕尾，因此得名。岬角外是灯塔岛，两者之间是窄窄的灯塔水道，小船从这里抄近路进出燕礁湾。半岛上大多是低矮的岩丘和石楠灌丛，海燕和燕鸥在岬角附近的礁石上筑巢，春夏时节海鸟起落不停。燕礁湾和燕尾角构成了燕礁区曲折的海岸线，乘船观鸟的航线常在岬角外绕行。
       en: The tip of the long, slender peninsula in Swallow Reef District that divides Mirror Bay to the west from Swallow Reef Bay to the east; its forked end looks like a swallow's tail. Off the point lies Lighthouse Island, with narrow Lighthouse Sound between them, a short cut for small boats into Swallow Reef Bay. The peninsula is mostly low rocky knolls and heather, and storm petrels and terns nest on the rocks around the point, so in spring and summer the birds come and go all day. Swallow Reef Bay and Swallowtail Point make up the district's ragged coastline, and birdwatching boats often round the point.
@@ -188,7 +188,7 @@ features:
     subtype: cape
     status: generated
     detect: { kind: cape, at_km: [130.2, 58.2] }
-    names: { zh: 犊角, en: Calf Point, art-x-viking: Kalbspitze }
+    names: { zh: 邓莱维角, en: Cape Dunlevy, art-x-viking: Kap Dunlevy }
     notes:
       zh: 牛角湾西侧较小的岬角，与东面的牛角岬遥遥相对，像大牛角旁的一只小犊角，因此得名。岬角低矮平缓，伸入海中不远，四周是浅滩和礁石，退潮时可以步行到岬尖。岬上没有灯塔，只有一座小小的石砌航标，夏季常有奥克区的家庭在这里拾贝、钓鱼和露营。犊角与牛角岬之间的海湾水浅浪小，是附近居民学游泳和划皮划艇的地方，傍晚时分，夕阳正好落在岬角背后的海面上。
       en: The smaller headland on the west side of Oxhorn Bay, facing Oxhorn Point across the water like a calf's horn beside a bull's. It is low and gentle and does not reach far out to sea; shallows and rocks surround it, and at low tide you can walk out to its tip. There is no lighthouse, only a small stone beacon, and in summer families from Ox District come here to gather shellfish, fish and camp. The shallow, sheltered water between Calf Point and Oxhorn Point is where local people learn to swim and paddle, and in the evening the sun sets into the sea just behind the point.
@@ -204,7 +204,7 @@ features:
     subtype: cape
     status: generated
     detect: { kind: cape, at_km: [296.2, 93.8] }
-    names: { zh: 营角, en: Camp Point, art-x-viking: Lagerspitze }
+    names: { zh: 布德内斯角, en: Budnes, art-x-viking: Budnes }
     notes:
       zh: 东营湾内的岬角，从湾岸中部伸入水中，把海湾分成南北两部分。岬角低平，四周是沙嘴和盐沼，涨潮时海水漫过岬根的滩地，落潮后又露出大片泥滩，涉禽和野鸭在这里觅食。岬尖立着一座航标灯，指引渔船避开岬外的浅滩。南面的湾区较浅，靠近东哨水道；北面的湾区较深，对着营盘水道，是进出东营湾的主航线所在。岬上的步道是东营区居民观鸟和看日出的地方。
       en: A point inside East Camp Bay, reaching out from the middle of the shore and dividing the bay into a northern and a southern basin. It is low and flat, edged with sand spits and salt marsh; at high tide the sea floods the flats at its root, and at low tide wide mudflats appear where waders and wild duck feed. A beacon on the tip keeps fishing boats off the shoals beyond it. The southern basin is shallower and lies towards East Watch Sound; the northern basin is deeper and faces Camp Sound, the main way in and out of the bay. The path along the point is where East Camp people come to watch birds and the sunrise.
@@ -220,7 +220,7 @@ features:
     subtype: cape
     status: generated
     detect: { kind: cape, at_km: [31.8, 122.2] }
-    names: { zh: 霜角, en: Frost Point, art-x-viking: Frostspitze }
+    names: { zh: 尼利尔尤阿克角, en: Cape Nillirjuaq, art-x-viking: Kap Nillirjuaq }
     notes:
       zh: 寒岭峡湾北岸的岬角，靠近峡湾口，冬季常被海冰包围，岬上的岩石结满白霜，因此得名。岬角是一道陡峭的岩壁，崖顶长着低矮的桦树和苔原植物，冬季北风从峡湾口灌入，岬角首当其冲。寒岭生态研究站在岬上设有一处观测点，记录海冰的形成和消融以及峡湾口水温的变化。夏季峡湾游船从岬下驶过，游客可以看到崖壁上筑巢的海鸟和顺着崖壁落下的瀑布。
       en: A point on the north shore of Frost Fjord near its mouth, often hemmed in by sea ice in winter, when its rocks are furred with hoar frost, which gives it its name. It is a steep rock wall topped by dwarf birch and tundra plants, and when the north wind funnels into the fjord in winter, the point takes the full force. The Frost Ridge Ecological Station keeps an observation post here, recording how the sea ice forms and breaks up and how the water temperature changes at the mouth of the fjord. In summer the fjord cruise boats pass beneath it, and passengers can see seabirds nesting on the cliffs and waterfalls spilling down the rock.
@@ -236,7 +236,7 @@ features:
     subtype: cape
     status: generated
     detect: { kind: cape, at_km: [102.8, 138.2] }
-    names: { zh: 星角, en: Star Point, art-x-viking: Sternspitze }
+    names: { zh: 瓦罗角, en: Cape Varrow, art-x-viking: Kap Varrow }
     notes:
       zh: 望星区东部的岬角，位于望星湾以东，比西面的望星角低矮，是一片伸入海中的平缓岩岬。岬角远离城镇和道路的灯光，夜空格外黑暗，晴朗的冬夜里银河和极光都清晰可见，望星天文台的观测者和摄影爱好者常到这里拍摄星空，岬名也由此而来。岬上没有建筑，只有几处石砌的观星平台和避风矮墙。夏季岬角周围的海面上常有海鸟成群觅食，退潮时礁石间可以捡到贝壳和海星。
       en: A point in the east of Stargaze District, beyond Stargaze Bay; lower than Cape Stargaze to the west, it is a gentle tongue of rock running out into the sea. Far from the lights of towns and roads, it has an especially dark sky, and on clear winter nights the Milky Way and the aurora stand out sharply; observers from the Stargaze Observatory and astrophotographers often come here, which is how the point got its name. There are no buildings, only a few stone viewing platforms and low walls against the wind. In summer seabirds feed in flocks off the point, and at low tide shells and starfish can be found among the rocks.
@@ -254,7 +254,7 @@ features:
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [250.5, 52.8] }
-    names: { zh: 燕子水道, en: Swallow Sound, art-x-viking: Schwalbensund }
+    names: { zh: 斯瓦尔霍尔姆水道, en: Svalholm Sound, art-x-viking: Svalholmsund }
     notes:
       zh: 燕子岛与灯塔岛之间的水道，宽约九公里半，是进出燕礁湾的主航道。燕礁湾内暗礁密布，只有这条水道水深足够、航道清晰，大型货船都经这里驶向湾畔的燕礁保税物流园。航道两侧设有浮标和灯标，灯塔岛山顶的灯塔为船只导航，引航员常在水道口登船，带领大船穿过暗礁区。水道南侧的燕子岛是海燕繁殖的岩岛，春夏时节过往的船员能看到成群的海鸟在岛崖间起落。
       en: The channel between Swallow Island and Lighthouse Island, about 9.5 km wide and the main fairway into Swallow Reef Bay. The bay is full of reefs, and only this channel has deep enough water and a clear line, so large cargo ships come this way to the shore of the Swallow Reef Bonded Logistics Park. Buoys and lights mark both sides, the lighthouse on Lighthouse Island guides vessels in, and pilots often board at the mouth to take big ships through the reefs. Swallow Island on the south side is a rock where storm petrels breed, and in spring and summer passing crews see flocks of seabirds rising and settling along its cliffs.
@@ -262,7 +262,7 @@ features:
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [247.8, 55.8] }
-    names: { zh: 灯塔水道, en: Lighthouse Sound, art-x-viking: Leuchtturmsund }
+    names: { zh: 马拉布尔水道, en: Marrable Sound, art-x-viking: Marrablesund }
     notes:
       zh: 灯塔岛与燕尾角之间的狭窄水道，宽不到三公里，从西侧连通燕礁湾与外海。水道两侧都是岩岸，中间有几处暗礁，水深变化大，大型船舶不走这里，只有熟悉水情的渔船、观鸟船和游艇从这里抄近路进出燕礁湾。灯塔岛山顶的灯塔正对水道，夜间为过往船只指明方向。涨落潮时水道里流速较快，海燕和燕鸥常在水道上空盘旋，捕食被潮水卷起的小鱼。
       en: The narrow channel between Lighthouse Island and Swallowtail Point, less than 3 km wide, linking Swallow Reef Bay with the open sea on its western side. Both shores are rock and there are reefs in mid-channel, so the depth changes sharply; large ships avoid it, and only fishing boats, birdwatching boats and yachts that know the water use it as a short cut into the bay. The lighthouse on the island's summit looks straight down the channel and guides boats through at night. The tide runs fast here on the flood and the ebb, and storm petrels and terns wheel overhead, picking off the small fish it stirs up.
@@ -278,7 +278,7 @@ features:
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [296.2, 90.2] }
-    names: { zh: 东哨水道, en: East Watch Sound, art-x-viking: Ostwachtsund }
+    names: { zh: 金纳尔维克水道, en: Qinnarvik Sound, art-x-viking: Qinnarviksund }
     notes:
       zh: 东哨岛与本岛之间的水道，宽约四公里，是东营湾的南入口。水道两岸低平，岸边是沙滩和盐沼，水深不大，潮水随涨落来回流动，大船一般不走这里，进出东营湾的主航线在北面的营盘水道。东哨水道是近海渔船和小艇进出海湾的捷径，也是海豹和海鸟常出没的地方，东哨岛的旧哨楼俯瞰着整条水道。冬季风暴时，渔船常从这里驶入海湾避风。
       en: The channel between East Watch Island and the mainland, about 4 km wide and the southern entrance to East Camp Bay. Its shores are low beaches and salt marsh and the water is not deep, the tide running back and forth through it with the ebb and flow; large ships keep to Camp Sound in the north, the bay's main fairway. East Watch Sound is the short cut for inshore fishing boats and small craft and a haunt of seals and seabirds, and the old watchtower on East Watch Island overlooks its whole length. In winter storms fishing boats often run in through it to shelter in the bay.
@@ -286,7 +286,7 @@ features:
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [297.0, 94.5] }
-    names: { zh: 营盘水道, en: Camp Sound, art-x-viking: Lagersund }
+    names: { zh: 布德水道, en: Budey Sound, art-x-viking: Budeysund }
     notes:
       zh: 营盘岛西侧的水道，宽约六公里，是东营湾的主航道。水道比南面的东哨水道更深更宽，进出东营湾的船只大多走这里，两侧设有浮标和灯标。营盘岛挡住了东面外海的大浪，水道里即使在冬季风暴中也相对平稳，是近海渔船和补给船避风的通道。水道西侧就是营角和东营湾北部较深的湾区，涨潮时海水从这里大量涌入湾内，退潮时又经此流回外海。
       en: The channel west of Camp Island, about 6 km wide and the main fairway of East Camp Bay. Deeper and wider than East Watch Sound to the south, it carries most of the traffic in and out of the bay and is marked by buoys and lights on both sides. Camp Island breaks the big seas from the east, so the channel stays fairly calm even in winter storms and is the sheltered way in for inshore fishing boats and supply vessels. To its west lie Camp Point and the deeper northern basin of the bay; on the flood the sea pours in through it, and on the ebb it drains back to the open sea.

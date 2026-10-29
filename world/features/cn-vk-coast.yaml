@@ -16,7 +16,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [206.8, 101.2] }
-    names: { zh: 白帆岛, en: White Sail Island, art-x-viking: Weißsegelinsel, art-x-buckham: Isola Velabianca }
+    names: { zh: 阿夫琳岛, en: Aveline Island, art-x-viking: Avelineinsel, art-x-buckham: Isola Aveline }
     notes:
       zh: 长船岛东南的大岛，面积三万六千四百多平方公里，在群岛中排第三，隔长约三百公里的白帆海峡与长船岛平行。帆影岭纵贯全岛中部，从海上望去如一面鼓满的白帆，岛名由此而来，最高峰帆影峰海拔一千五百二十多米，耸立在东端的帆港湾畔。岛的东北端是群岛第三大城市白帆，邮轮母港、免税城和老城帆城区沿海湾展开；东南岸的盐湾以海盐和海上风电闻名，渔港鱼市是全岛最大的鲜鱼市场；西南端的银鸥湾风平浪静，是度假胜地。长白跨海高速越过白帆海峡通往首府长船，白帆纵贯高速经盐湾南下到西南端的银鸥，桅岛跨海高速再从那里经桅岛通往暖泉岛。
       en: The large island south-east of Longship Island, more than 36,400 km², third in size among the islands, lying parallel to Longship across the 300 km White Sail Strait. Sailshadow Ridge runs along its middle and from the sea looks like a full white sail, which gave the island its name; its highest summit, Sailshadow Peak at just over 1,520 m, rises above Sail Harbour Bay at the eastern end. In the north-east is White Sail, the third city of the islands, whose cruise port, duty-free town and old town of Sail Town line the bay; Salt Bay on the south-east coast is known for sea salt and offshore wind, and the Fishing Harbour fish market is the island's largest; Silvergull Bay at the south-western end is calm water and a holiday favourite. The Longship–White Sail Sea Crossing bridges the strait to the capital, the White Sail Spine Expressway runs south by way of Salt Bay to Silvergull at the south-western end, and from there the Mast Island Sea Crossing continues by way of Mast Island to Warmspring.
@@ -24,7 +24,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [101.8, 162.8] }
-    names: { zh: 锚岛, en: Anchor Island, art-x-viking: Ankerinsel, art-x-buckham: Isola dell'Ancora }
+    names: { zh: 阿克斯岛, en: Akkersey, art-x-viking: Akkersey, art-x-buckham: "Isola dell'Ancora" }
     notes:
       zh: 长船岛西北的大岛，面积三万六千九百多平方公里，在群岛中仅次于长船岛，隔一百四十公里长的锚岛海峡与长船岛相望。锚链山纵贯全岛，主峰铁锚峰海拔两千零七十多米，是锚岛最高点，北坡挂着群岛唯一的山岳冰川锚链冰川；西岸峡湾深切。岛的南端两只「锚爪」西爪岬和东爪岬抱住锚湾，水深浪静，是群岛最好的天然良港，锚岛也由此得名。群岛第二大城市锚港就在锚湾畔，拥有群岛最大的集装箱港和造船基地；北部的松林市是大片松林和林场。锚岛跨海高速经潮湾、锚舵跨海高速经舵港与长船岛相连，锚岛纵贯高速则把南端的锚港与东北端的松林连成一线。
       en: The large island north-west of Longship Island, more than 36,900 km², second in size only to Longship and facing it across the 140 km Anchor Strait. The Anchor Chain Mountains run its length; their main summit, Iron Anchor Peak at just over 2,070 m, is the island's highest point and carries on its north face the Anchor Chain Glacier, the only mountain glacier in the islands. Fjords cut deep into the west coast. At the southern end the two "flukes", West Fluke and East Fluke, hold Anchor Bay between them, deep and calm, the finest natural harbour in the islands and the source of the island's name. Anchorhaven, the second city of the islands, stands on the bay with the largest container port and shipbuilding base in the archipelago, while Pinewood in the north is a land of pine forest and timber holdings. The Anchor Strait Crossing via Tidebay and the Anchor–Rudder Sea Crossing via Rudderhaven link it to Longship Island, and the Anchor Island Spine Expressway joins Anchorhaven in the south to Pinewood in the north-east.
@@ -42,7 +42,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [136.2, 33.8] }
-    names: { zh: 桅岛, en: Mast Island, art-x-viking: Mastinsel, art-x-buckham: Isola dell'Albero }
+    names: { zh: 西格利岛, en: Sigley, art-x-viking: Sigley, art-x-buckham: "Isola dell'Albero" }
     notes:
       zh: 长船岛船尾以南的岛，面积近六千平方公里，是四座大岛之外最大的岛屿，坐落在暖泉岛与白帆岛之间的海面上。岛上长满笔直高大的松树，旧时为长船港的船坞供应桅木，桅岛和岛上的桅港市都由此得名。北端的桅港是城市中心和渔港，渔船在桅岛海峡和周边海域捕捞鳕鱼、鲱鱼和扇贝，东南外的牡蛎岛一带的牡蛎养殖远近闻名；南部是南桅区的松林和村庄。桅岛跨海高速以桅岛为中间支点，一段跨海通往长船岛船尾和暖泉，一段跨越桅岛海峡通往白帆岛的银鸥，桅岛公路穿过松林连接南桅与桅港，是岛上最有名的风景路线。
       en: The island south of Longship Island's stern, nearly 6,000 km², the largest in the archipelago after the four big islands, lying in the sea between Warmspring and White Sail. Tall, straight pines cover it and once supplied mast timber to the Longship yards, which gave both the island and its city, Masthaven, their names. Masthaven at the northern end is the town centre and fishing port, whose boats take cod, herring and scallops in Mast Strait and the surrounding waters, and the oyster beds around Oyster Isle to the south-east are known across the islands; the south is the pine forest and villages of South Mast District. The Mast Island Sea Crossing uses the island as its stepping stone, one leg crossing the sea to Longship's stern and Warmspring and the other spanning Mast Strait to Silvergull on White Sail Island, while the Mast Island Road through the pines between South Mast and Masthaven is the island's best-known scenic drive.
@@ -50,7 +50,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [232.8, 36.2] }
-    names: { zh: 南星岛, en: Southstar Island, art-x-viking: Südsterninsel, art-x-buckham: Isola Stella del Sud }
+    names: { zh: 圣翁丁岛, en: Saint-Ondine Island, art-x-viking: Saint-Ondine-Insel, art-x-buckham: "Isola Sant'Ondine" }
     notes:
       zh: 群岛南部外海的岛，面积五千多平方公里，全岛属南星市。岛上的南星镇建在南岸，因夜空中明亮的南方星辰得名，传说维京航海者以岛顶上方的南天星辰定向。南岸绵长的沙滩和温和的海水使南星成为群岛最受欢迎的夏季度假地之一，南星海滨度假村和渔村沿海岸分布，岛民以渔业和海岛度假为生。南星公路自南星镇出发，翻过全岛到达北岸的南星渡轮码头，全长六十多公里，是岛上唯一的干线公路；渡轮从那里往返白帆岛的盐湾，是南星对外交通的唯一通道。岛的东南外海是灰海豹繁殖的海豹岛。
       en: An island in the southern outer waters of the archipelago, more than 5,000 km², all of it in Southstar City. The town of Southstar on the south coast takes its name from the bright southern stars, and Viking navigators are said to have steered by the stars above the island's summit. The long beaches and mild water of the south coast make it one of the islands' favourite summer holiday spots, and the Southstar Seaside Resort and fishing villages line the shore; islanders live by fishing and tourism. The Southstar Road runs from the town over the island to the Southstar Ferry Terminal on the north coast, a little over 60 km and the only main road on the island, and from there ferries cross to Salt Bay on White Sail Island, the island's only link with the outside. Off its south-eastern shore lies Seal Isle, where grey seals breed.
@@ -58,7 +58,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [22.8, 138.8] }
-    names: { zh: 鲸岛, en: Whale Isle, art-x-viking: Walinsel, art-x-buckham: Isola Balena }
+    names: { zh: 瓦莱岛, en: Hvaley, art-x-viking: Hvaley, art-x-buckham: Isola Balena }
     notes:
       zh: 外屿最大的岛，面积五千一百多平方公里，是外屿市的主岛和中心。每年夏季，座头鲸、虎鲸和小须鲸在岛外洄游，在北岸的观鲸湾里觅食，观鲸船从鲸岛渡轮码头出发，几乎每次出海都能看到鲸鱼喷水和跃身；鲸岛观鲸中心是群岛的鲸类研究和科普机构，展出鲸鱼骨架、鲸歌录音和迁徙地图。岛上的渔村沿港湾分布，鱼干晾架和红色的渔屋是鲸岛的标志性景观，许多渔家兼营民宿和海鲜餐馆。渡轮从鲸岛通往白帆、锚港和长船，外屿跨海公路则经海雀岛旁的海雀水道跨海大桥北上，通往外屿的另一座大岛鸟崖岛。
       en: The largest of the Outer Isles, more than 5,100 km², the main island and centre of Outer Isles City. Every summer humpback, killer and minke whales pass offshore and feed in Whalewatch Bay on the north coast, and the boats that leave from the Whale Isle Ferry Terminal see whales blowing and breaching on almost every trip; the Whale Isle Whale Centre is the islands' institute for whale research and education, with skeletons, recordings of whale song and migration maps. Fishing villages line the harbours, and drying racks and red fishermen's houses are the island's signature sight; many fishing families also run guesthouses and seafood restaurants. Ferries run from here to White Sail, Anchorhaven and Longship, and the Outer Isles Causeway heads north over the Puffin Sound bridge past Puffin Isle to Bird Cliff Isle, the other large island of the group.
@@ -66,7 +66,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [283.8, 109.8] }
-    names: { zh: 晨光岛, en: Dawnlight Island, art-x-viking: Morgenlichtinsel, art-x-buckham: Isola dell'Aurora }
+    names: { zh: 埃德文岛, en: Edevane Island, art-x-viking: Edevaneinsel, art-x-buckham: Isola Edevane }
     notes:
       zh: 群岛东端的岛，面积三千六百多平方公里，是群岛最东的中等岛屿，与东侧的东极岛一起组成晨光市。岛上的晨光镇因每天最早迎来群岛的第一缕阳光而得名，清晨在海边看日出是游客必做的事。晨光岛与白帆岛之间是近三十公里宽的晨光海峡，海峡的滩涂是候鸟迁徙的重要停歇地，春秋两季鹬类、鸻类和雁鸭成群聚集。晨光公路的大半路段位于贴着滩涂延伸的晨光海峡跨海大桥上，桥下潮水自由进出，候鸟季节桥上禁止停车。渡轮从西岸的晨光渡轮码头往返白帆岛的灯塔区，日出旅游、海上风电和渔业是岛上的主要生计。
       en: An island at the eastern edge of the archipelago, more than 3,600 km², the easternmost of the medium-sized islands, forming Dawnlight City together with Eastmost Isle beside it. The town of Dawnlight is named for catching the islands' first sunlight each morning, and watching the sunrise from the shore is a must for visitors. Between Dawnlight and White Sail lies the Dawnlight Strait, nearly 30 km wide, whose mudflats are a major stopover for migrating birds; every spring and autumn waders, plovers, geese and ducks gather in flocks. Most of the Dawnlight Road runs on the low Dawnlight Strait bridge laid along the flats, with the tide flowing freely beneath, and stopping on it is banned in the bird season. Ferries leave the Dawnlight ferry terminal on the west coast for Lighthouse District on White Sail Island, and sunrise tourism, offshore wind and fishing are the island's livelihoods.
@@ -74,7 +74,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [49.2, 221.8] }
-    names: { zh: 鳕岛, en: Cod Island, art-x-viking: Dorschinsel, art-x-buckham: Isola del Merluzzo }
+    names: { zh: 乌利克尤阿克岛, en: Ulikjuaq Island, art-x-viking: Ulikjuaqinsel, art-x-buckham: Isola Ulikjuaq }
     notes:
       zh: 群岛西北外海的渔岛，面积三千一百多平方公里，与孤礁岛一起组成鳕港市，岛的北缘与孤礁岛、霜岛同在群岛的最北端。周围的冷水海域是鳕鱼的产卵场和洄游通道，每年冬末春初鳕鱼汛期，渔船倾巢而出，鳕港镇海边成排的木制鱼干架绵延数公里，鳕鱼在海风中风干两三个月，制成群岛最著名的特产风干鳕鱼。鳕港镇坐落在岛西岸的海湾里，港内停满拖网船和延绳钓船。鳕岛公路从镇子后方绕过晾晒场，横穿全岛到东岸的鳕港渡轮码头，冷藏货车把鱼货运上渡轮，再经锚岛的松林运往各地。南面隔着外屿海峡是鸟崖岛。
       en: The fishing island in the north-western outer waters, more than 3,100 km², forming Codhaven City with Lone Skerry; its northern shore, with Lone Skerry and Frost Isle, marks the northern limit of the archipelago. The cold waters around it are the spawning grounds and migration route of the cod, and in the cod season at the end of winter the whole fleet puts to sea; rows of wooden drying racks stretch for kilometres along the shore at Codhaven, where the fish dry in the sea wind for two or three months into stockfish, the islands' most famous product. The town lies in a bay on the west coast, its harbour packed with trawlers and longliners. The Cod Island Road skirts the drying grounds behind the town and crosses the island to the Codhaven Ferry Terminal on the east coast, where refrigerated lorries take the catch aboard for Pinewood on Anchor Island and beyond. Bird Cliff Isle lies to the south across the Outer Isles Strait.
@@ -82,7 +82,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [254.8, 146.8] }
-    names: { zh: 风岛, en: Wind Isle, art-x-viking: Windinsel, art-x-buckham: Isola del Vento }
+    names: { zh: 亚利图克岛, en: Jaalituuq Island, art-x-viking: Jaalituuqinsel, art-x-buckham: Isola Jaalituuq }
     notes:
       zh: 白帆岛东北的岛，面积两千三百多平方公里，与外海的哨岛一起组成风港市，是离北维京岛最近的中等岛屿之一。风岛海风终年不息，是群岛风力发电的主要基地：岛上的山脊排列着成片的陆上风机，外海还建有大型海上风电场，电力经海底电缆输往长船和白帆。风港镇坐落在岛北部的山谷里，是一座年轻的新兴小镇，许多住宅是为风电工程师和技术工人家庭新建的公寓。风岛公路自风港镇出发，沿风机林立的山脊到南岸的风港风电运维港，按运输超长叶片的要求设计，往返白帆的渡轮也在运维港停靠。山脊上的观景台是看日落和风机剪影的好地方。
       en: "The island north-east of White Sail Island, more than 2,300 km², forming Windhaven City with Sentinel Isle offshore, and one of the medium-sized islands nearest North Viking Island. The wind never stops here, and the island is the islands' main wind-power base: rows of onshore turbines line its ridges, a large wind farm stands offshore, and the power goes by subsea cable to Longship and White Sail. Windhaven, in a valley in the north, is a young and growing town, much of its housing new flats for the families of wind engineers and technicians. The Wind Isle Road runs from the town along the turbine-lined ridge to the Windhaven Wind Service Port on the south coast, built to carry extra-long blades, and the ferry to White Sail calls at the service port too. The viewpoint on the ridge is the place to watch the sunset behind the turbines."
@@ -90,7 +90,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [23.8, 196.8] }
-    names: { zh: 鸟崖岛, en: Bird Cliff Isle, art-x-viking: Vogelklippeninsel, art-x-buckham: Isola Scogliera Uccelli }
+    names: { zh: 西基克图克岛, en: Siqqiqtuuq Island, art-x-viking: Siqqiqtuuqinsel, art-x-buckham: Isola Siqqiqtuuq }
     notes:
       zh: 外屿北部的岛，面积两千二百多平方公里，位于鲸岛以北，属外屿市鸟崖区。岛的四周是海鸟筑巢的悬崖，西岸的海崖高达百米，每年春夏，数十万只海鹦、海鸠、三趾鸥和北方塘鹅聚集在岩架上筑巢产卵，是维京群岛重要的海鸟繁殖地。鸟崖海鸟保护区覆盖全岛大部分海崖和周边海域，游客只能沿指定的步道和观鸟台观赏；保护区里的灯塔建在岛的最高处，为外屿海峡里的船只指引航向。岛上只有几座小渔村，外屿跨海公路是唯一的公路，向南经七十多公里长的海雀水道跨海大桥通往鲸岛；北面隔着外屿海峡是鳕岛。
       en: The northern island of the Outer Isles, more than 2,200 km², lying north of Whale Isle in Bird Cliff District of Outer Isles City. Seabird cliffs ring it, rising to a hundred metres on the west coast, and every spring and summer hundreds of thousands of puffins, guillemots, kittiwakes and gannets crowd the ledges to nest, one of the great seabird colonies of the Viking Islands. The Bird Cliff Seabird Reserve covers most of the cliffs and the surrounding waters, and visitors keep to marked trails and hides; the reserve's lighthouse stands on the island's highest point and guides ships through the Outer Isles Strait. There are only a few small fishing villages, and the Outer Isles Causeway is the only road, running south to Whale Isle over the Puffin Sound bridge, more than seventy kilometres long. Cod Island lies to the north across the Outer Isles Strait.
@@ -100,7 +100,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [199.8, 166.8] }
-    names: { zh: 守望岛, en: Watch Isle, art-x-viking: Wachtinsel, art-x-buckham: Isola della Vedetta }
+    names: { zh: 瓦克特岛, en: Vaktey, art-x-viking: Vaktey, art-x-buckham: Isola della Vedetta }
     notes:
       zh: 长船岛船首外的小岛，面积十五平方公里左右，是群岛已命名岛屿中最小的一座，位于北岬以东，属长船市北岬区，隔四公里宽的守望水道与长船岛相望。维京时代，人们在岛顶点燃烽火，预警从北方驶来的船只，岛名由此而来。如今维长高速的维京海底公路隧道从岛下的海底穿过，一条直线连接北维京岛的维京港与长船古城，车辆在海底行驶，海面上的守望岛依旧安静。岛上保留着烽火台的石基，最高处只有三十多米，从北岬一带的海岸可以望见它低伏在水道外的身影。
       en: An islet off Longship Island's bow, about 15 km² and the smallest of the named islands, lying east of North Cape in North Cape District of Longship City and facing Longship across the four-kilometre Watch Sound. In the Viking age a beacon lit on its top warned of ships approaching from the north, which gave it its name. Today the Viking Undersea Road Tunnel of the Viking Port–Longship Expressway passes beneath the seabed under the island, running in a straight line from Viking Port on North Viking Island to Longship's old town; the traffic flows under the sea while Watch Isle above stays quiet. The stone base of the beacon survives on its top, which is only just over 30 m high, and its low outline can be seen beyond the sound from the North Cape shore.
@@ -108,7 +108,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [130.2, 58.2] }
-    names: { zh: 中流岛, en: Midway Isle, art-x-viking: Mittelinsel, art-x-buckham: Isola di Mezzo }
+    names: { zh: 托利文特岛, en: Tollivant Island, art-x-viking: Tollivantinsel, art-x-buckham: Isola Tollivant }
     notes:
       zh: 长船岛船尾、白帆岛与桅岛之间的小岛，面积两百四十多平方公里，属桅港市桅港区，三岛之间的航道在这里交汇，白帆海峡的南端也从岛旁经过。岛的北面是引水岛，进出白帆海峡的大船在这一带接送引航员，船只在三岛之间的水道中流穿行，中流岛因此得名。岛上地势起伏，最高处两百五十多米，草坡上牧放着羊群，几座小渔村散布在避风的海湾里。从岛的高处可以同时望见长船岛的船尾、白帆岛西南端的山岭和桅岛的松林。
       en: An islet between Longship Island's stern, White Sail Island and Mast Island, a little over 240 km², in Masthaven District of Masthaven City; the channels between the three islands meet here, and the southern end of White Sail Strait passes beside it. Pilot Isle lies to the north, where big ships bound in and out of the strait pick up and drop their pilots, and ships thread midstream between the three islands, which is how Midway Isle got its name. The island is hilly, rising to just over 250 m, sheep graze its grassy slopes, and a few small fishing villages shelter in its coves. From its high ground you can see Longship's stern, the hills of south-western White Sail and the pine forests of Mast Island at once.
@@ -116,7 +116,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [14.2, 228.2] }
-    names: { zh: 孤礁岛, en: Lone Skerry, art-x-viking: Einsamer Schären, art-x-buckham: Scoglio Solitario }
+    names: { zh: 艾因谢尔岛, en: Einsker, art-x-viking: Einsker, art-x-buckham: Scoglio Solitario }
     notes:
       zh: 群岛最西、也是最西北的无人小岛，面积一百四十平方公里左右，位于鳕岛外海，属鳕港市鳕港区。孤礁岛孤零零地立在外海，四周没有别的岛屿，岛名由此而来。岛上是裸露的礁石和草坡，最高处两百多米，礁石上的灯塔为渔船指引方向，海鸟在崖壁上栖息。周围的海域是鳕港渔民的传统渔场，鳕鱼汛期时，渔船常在孤礁岛附近作业，遇到风暴就到岛的背风面避风。
       en: The westernmost and north-westernmost islet of the archipelago, about 140 km² and uninhabited, lying off Cod Island in Codhaven District of Codhaven City. It stands alone in the open sea with no other island near, hence its name. It is bare rock and grassy slope rising to just over 200 m; a lighthouse on the rocks guides the fishing boats, and seabirds nest on its cliffs. The surrounding waters are the traditional grounds of the Codhaven fishermen, and in the cod season boats often work near Lone Skerry and shelter in its lee when a storm blows up.
@@ -124,7 +124,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [170.2, 211.8] }
-    names: { zh: 北门岛, en: Northgate Isle, art-x-viking: Nordtorinsel, art-x-buckham: Isola Porta Nord }
+    names: { zh: 哈洛兰岛, en: Halloran Island, art-x-viking: Halloraninsel, art-x-buckham: Isola Halloran }
     notes:
       zh: 群岛北部的小岛，面积近两百平方公里，位于长船岛西北岸外，属长船市西岸区，是离北维京岛最近的岛屿之一。岛上的北门岛灯塔标出从北方进入群岛的航路，也是从北维京岛驶来的船只最先望见的灯光之一，「北门」之名由此而来。北门岛地势低平，最高处一百三十多米，岛上除灯塔外只有零星的牧场和渔屋。从长船西岸区的海滨公园望去，西北海面上的北门岛灯塔是西岸的标志，夏季傍晚，居民在海边看着灯塔亮起，夕阳沉入它身后的海面。
       en: An islet in the north of the archipelago, nearly 200 km², lying off the north-west shore of Longship Island in West Shore District of Longship City, and one of the islands nearest North Viking Island. The Northgate Lighthouse on it marks the way into the islands from the north and is among the first lights seen by ships coming from North Viking Island, hence the name "north gate". The island is low, rising to just over 130 m, and apart from the lighthouse has only a few pastures and fishermen's huts. From the seaside parks of West Shore the lighthouse on the north-western horizon is the district's emblem, and on summer evenings people on the shore watch it light up as the sun sets into the sea behind it.
@@ -132,7 +132,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [120.2, 227.8] }
-    names: { zh: 霜岛, en: Frost Isle, art-x-viking: Frostinsel, art-x-buckham: Isola del Gelo }
+    names: { zh: 赫里姆岛, en: Hrimey, art-x-viking: Hrimey, art-x-buckham: Isola del Gelo }
     notes:
       zh: 锚岛以北的无人岛，面积一百八十多平方公里，属松林市松林区，位于松湾外海，与孤礁岛、鳕岛同在群岛的最北端。霜岛每年冬季最早结霜，岛名由此而来，冬季常有海冰和霜雾笼罩。岛上是苔原、湿地和海鸟栖息地，全岛划为霜岛自然保护区，是观察北极狐和海鸟的好地方，与锚链冰川一起是松林最受欢迎的自然景点。保护区严格限制登岛人数，夏季有向导带领小船从松林镇出发，沿岸观察筑巢的海鸟。
       en: An uninhabited island north of Anchor Island, a little over 180 km², in Pinewood District of Pinewood City, lying off Pine Bay and, with Lone Skerry and Cod Island, at the northern limit of the archipelago. It is the first island to frost over each winter, which gave it its name, and in winter it is often wrapped in sea ice and frost fog. Tundra, wetland and seabird colonies cover it, and the whole island is the Frost Isle Nature Reserve, a good place to watch arctic foxes and seabirds; with the Anchor Chain Glacier it is Pinewood's most popular natural sight. Visitor numbers are strictly limited, and in summer guides take small boats out from the town of Pinewood to watch the nesting birds from offshore.
@@ -140,7 +140,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [16.2, 157.8] }
-    names: { zh: 海雀岛, en: Puffin Isle, art-x-viking: Lundinsel, art-x-buckham: Isola delle Pulcinelle }
+    names: { zh: 伦达霍尔姆岛, en: Lundaholm, art-x-viking: Lundaholm, art-x-buckham: Isola delle Pulcinelle }
     notes:
       zh: 鲸岛东北的小岛，面积近两百平方公里，属外屿市鲸岛区，隔着三公里宽的海雀水道与鲸岛相望。每年夏季，数万只海雀和海鹦在岛上的草坡上挖洞筑巢，岛名由此而来，夏日的傍晚，成群的海鹦叼着小鱼从海上飞回巢穴。外屿跨海公路的海雀水道跨海大桥从岛旁经过，向北跨海七十多公里通往鸟崖岛，桥面设有观鲸平台。岛的北面就是鲸岛北岸的观鲸湾，夏季鲸鱼常在海雀岛与鲸岛之间的水道里觅食。
       en: An islet north-east of Whale Isle, nearly 200 km², in Whale Isle District of Outer Isles City, facing Whale Isle across the three-kilometre Puffin Sound. Every summer tens of thousands of auks and puffins dig their burrows in its grassy slopes, which gave it its name, and on summer evenings flocks of puffins fly home from the sea with fish in their beaks. The Puffin Sound bridge of the Outer Isles Causeway passes beside the island and runs more than seventy kilometres north across the sea to Bird Cliff Isle, with whale-watching platforms on the deck. Whalewatch Bay on the north coast of Whale Isle lies close by, and in summer whales often feed in the channel between Puffin Isle and Whale Isle.
@@ -164,7 +164,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [99.8, 14.2] }
-    names: { zh: 远望岛, en: Farsight Isle, art-x-viking: Fernsichtinsel, art-x-buckham: Isola Lungimirante }
+    names: { zh: 韦克斯利岛, en: Wexley Island, art-x-viking: Wexleyinsel, art-x-buckham: Isola Wexley }
     notes:
       zh: 群岛南端的小岛，面积两百六十多平方公里，位于暖泉岛东南外海，属暖泉市黑沙区。远望岛地势低平，最高处一百多米，四面是开阔的海天，没有山峦遮挡视线，因此建起了远望航天测控站。测控站的几面大型天线跟踪从北维京岛马斯林山发射的航天器，日夜监测在轨卫星和飞船，是马斯林山航天发射的重要测控站之一。岛上除测控站的职工外几乎没有居民，草坡和礁石上栖息着海鸟。晴朗的夜里，岛上的星空格外明亮。
       en: An islet at the southern end of the archipelago, a little under 270 km², lying off the south-east of Warmspring Island in Black Sand District of Warmspring City. It is low and flat, rising only to just over 100 m, with open sea and sky on every side and no mountains to block the view, which is why the Farsight Tracking Station was built here. Its large dishes follow spacecraft launched from Maslin Mountain on North Viking Island and track satellites and spacecraft in orbit day and night, one of the key tracking stations for the Maslin Mountain launches. Apart from the station staff hardly anyone lives on the island, and seabirds nest on its grass and rocks. On clear nights its stars are especially bright.
@@ -180,7 +180,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [258.2, 13.8] }
-    names: { zh: 海豹岛, en: Seal Isle, art-x-viking: Robbeninsel, art-x-buckham: Isola delle Foche }
+    names: { zh: 塞尔霍尔姆岛, en: Selholm, art-x-viking: Selholm, art-x-buckham: Isola delle Foche }
     notes:
       zh: 南星岛东南的无人岛，面积两百四十多平方公里，属南星市南星区。岛的礁石海岸是灰海豹的繁殖地，每年产仔季节，成百上千只海豹在礁石上产下雪白的幼崽，全岛划为海豹岛自然保护区。保护区严格限制人员登岛，产仔季节禁止船只靠近礁石，游客只能在远处的观察船上用望远镜观看。岛上的草坡和崖壁也是海鸟栖息的地方，研究人员每年在固定的观测点统计海豹和海鸟的数量。从南星镇乘观察船出海，往返半天就能看到海豹在礁石上晒太阳。
       en: An uninhabited island south-east of Southstar Island, a little over 240 km², in Southstar District of Southstar City. Its rocky shores are a breeding ground for grey seals, and each pupping season hundreds of seals give birth to white-coated pups on the rocks; the whole island is the Seal Isle Nature Reserve. Landing is strictly limited, boats may not approach the rocks during the pupping season, and visitors watch through binoculars from observation boats at a distance. Seabirds also nest on its grassy slopes and cliffs, and researchers count the seals and birds every year from fixed observation points. A half-day trip by observation boat from the town of Southstar is enough to see the seals basking on the rocks.
@@ -188,7 +188,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [251.8, 82.2] }
-    names: { zh: 鲱鱼岛, en: Herring Isle, art-x-viking: Heringsinsel, art-x-buckham: Isola delle Aringhe }
+    names: { zh: 亨纳科特岛, en: Hennacott Island, art-x-viking: Hennacottinsel, art-x-buckham: Isola Hennacott }
     notes:
       zh: 白帆岛东南外的小岛，面积两百八十多平方公里，属白帆市帆港区。岛上的鲱鱼渔村历史悠久，每年鲱鱼汛期，渔船在岛周围的海面撒网，渔村里的熏鱼房和腌鱼作坊昼夜忙碌，腌鲱鱼和熏鲱鱼是这里的传统特产。岛的地势低缓，最高处一百三十多米，草坡上散布着彩色的渔屋和晾网架。夏季常有游客从白帆乘船来岛上品尝新鲜的鲱鱼，跟随渔民出海体验捕鱼，渔家民宿也随之兴起。
       en: An islet off the south-east of White Sail Island, a little over 280 km², in Sail Harbour District of White Sail City. Its herring-fishing village is old, and in the herring season the boats cast their nets all around the island while the smokehouses and salting sheds work day and night; pickled and smoked herring are its traditional specialities. The island is low and gentle, rising only to a little over 130 m, with painted fishermen's houses and net racks scattered over the grassy slopes. In summer visitors come over by boat from White Sail to eat fresh herring and go out with the fishermen, and family guesthouses have grown up to take them in.
@@ -220,7 +220,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [75.2, 101.8] }
-    names: { zh: 潮汇岛, en: Tidemeet Isle, art-x-viking: Gezeiteninsel, art-x-buckham: Isola delle Maree }
+    names: { zh: 卡蒂马苏克岛, en: Kattimasuq Island, art-x-viking: Kattimasuqinsel, art-x-buckham: Isola Kattimasuq }
     notes:
       zh: 锚岛南端外的小岛，面积两百二十多平方公里，属锚港市锚湾区，位于锚湾湾口。锚岛海峡的潮流与来自暖泉方向的潮流在岛旁交汇，岛名由此而来。潮汇岛像一道天然的屏障挡在湾口，使锚湾水深浪静，大型集装箱船和散货船可以全天候进出群岛最大的集装箱港锚港。锚岛纵贯高速、锚舵跨海高速和锚湾公路都从岛旁经过，岛上的灯标为进港船只导航。岛的高处是一片草坡，可以俯瞰锚湾的岸桥和来往的货轮。
       en: An islet off the southern end of Anchor Island, a little over 220 km², in Anchor Bay District of Anchorhaven City, lying at the mouth of Anchor Bay. The tides of Anchor Strait meet those coming from the direction of Warmspring beside it, hence its name. It stands across the mouth of the bay like a natural breakwater, keeping Anchor Bay deep and calm so that large container ships and bulk carriers can come and go in any weather at the Port of Anchorhaven, the largest container port in the islands. The Anchor Island Spine Expressway, the Anchor–Rudder Sea Crossing and the Anchor Bay Road all pass close by, and beacons on the island guide ships into port. Its high ground is grassy slope looking down on the quay cranes and freighters of the bay.
@@ -254,7 +254,7 @@ features:
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [192.2, 169.8] }
-    names: { zh: 守望湾, en: Watch Bay, art-x-viking: Wachtbucht, art-x-buckham: Baia della Vedetta }
+    names: { zh: 瓦克特维克湾, en: Vaktvik Bay, art-x-viking: Vaktvik, art-x-buckham: Baia della Vedetta }
     notes:
       zh: 长船岛船首南侧的海湾，面积一百八十多平方公里，属长船市北岬区，紧靠北岬，湾口外是守望岛。守望岛与长船岛之间四公里宽的守望水道，是从北方进出长船的航道，船只从这里绕过船首驶向长船湾。维京时代，守望岛顶的烽火预警北方来船，湾内的村落望见火光便会戒备，海湾和小岛都由此得名。如今维长高速的维京海底公路隧道从湾外的海底穿过，海面上依旧安静，湾岸是牧羊草场和零星的渔屋，从湾畔的山坡上可以望见守望岛上烽火台的石基。
       en: A bay on the south side of Longship Island's bow, a little over 180 km², in North Cape District of Longship, lying right beside North Cape with Watch Isle off its mouth. The four-kilometre Watch Sound between Watch Isle and Longship Island is the way in to Longship from the north, and ships round the bow here on their way to Longship Bay. In the Viking age a beacon on Watch Isle warned of ships from the north, and the villages on the bay would stand ready when they saw it, which gave both the bay and the island their names. Today the Viking Undersea Road Tunnel of the Viking Port–Longship Expressway runs beneath the seabed outside the bay while the surface stays quiet; sheep pastures and scattered fishermen's huts line the shore, and from the slopes above you can see the stone base of the beacon on Watch Isle.
@@ -262,7 +262,7 @@ features:
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [190.8, 177.2] }
-    names: { zh: 船首湾, en: Prow Bay, art-x-viking: Bugbucht, art-x-buckham: Baia di Prua }
+    names: { zh: 斯塔文维克湾, en: Stavnvik Bay, art-x-viking: Stavnvik, art-x-buckham: Baia di Prua }
     notes:
       zh: 长船岛船首尖端的海湾，面积一百一十多平方公里，属长船市北岬区，面向北维京岛。海湾就在船首岬旁，是长船岛离维京港最近的海岸，维长城际铁路的维京海底铁路隧道在船首岬出地面，以高架桥登陆，再经北岬区的地面线进入长船。湾内的海岸多是岩石和砾石滩，冬季北风从海峡上直灌入湾，浪大风急。船首岬上的观景台面朝开阔的海峡，可以俯瞰整个船首湾，晴天时海天一色，海鸟在湾外的礁石上盘旋。
       en: The bay at the very tip of Longship Island's bow, a little over 110 km², in North Cape District of Longship, facing North Viking Island. It lies beside Prow Point, the stretch of Longship's coast nearest Viking Port, where the Viking Undersea Rail Tunnel of the Viking Port–Longship Intercity Railway surfaces and comes ashore on a viaduct before running across North Cape on the surface into Longship. Its shores are mostly rock and shingle, and in winter the north wind drives straight in off the strait, raising heavy seas. The viewpoint on Prow Point faces the open strait and looks down over the whole bay; on a clear day sea and sky merge, and seabirds wheel over the skerries outside it.
@@ -278,7 +278,7 @@ features:
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [241.2, 113.8] }
-    names: { zh: 帆港湾, en: Sail Harbour Bay, art-x-viking: Segelhafenbucht, art-x-buckham: Baia Porto Vela }
+    names: { zh: 阿夫琳湾, en: Aveline Bay, art-x-viking: Avelinebucht, art-x-buckham: Baia Aveline }
     notes:
       zh: 白帆岛东端的深水大湾，面积五百五十多平方公里，是白帆市的海上门户。白帆邮轮母港就在湾内，邮轮码头、免税商业街和渡轮枢纽集中在帆港区的湾畔，渡轮从这里通往长船、暖泉、桅港和外屿。湾口外的灯塔岛和灯塔水道是进出海湾的航道，灯塔岛上的老灯塔为邮轮和渔船引航。帆港湾的海滨长廊是观赏邮轮进出港和日落的好地方，每当巨轮鸣笛起航，岸边总有人挥手送别；帆港邮轮高速把湾畔的码头与白帆机场和老城连在一起。
       en: The large deep-water bay at the eastern end of White Sail Island, a little over 550 km², White Sail's gateway to the sea. The White Sail Cruise Port lies within it, and the cruise terminal, duty-free shopping streets and ferry hub are gathered on the Sail Harbour District shore, with ferries to Longship, Warmspring, Masthaven and the Outer Isles. Lighthouse Isle and Lighthouse Sound off its mouth form the fairway in, and the old light on Lighthouse Isle guides cruise ships and fishing boats in. The seafront promenade is the place to watch the cruise ships come and go and the sun go down, and whenever a liner sounds its horn and sails there are always people on the shore waving it off. The Sail Harbour Cruise Expressway links the quays with White Sail Airport and the old town.
@@ -294,7 +294,7 @@ features:
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [140.8, 69.8] }
-    names: { zh: 银鸥湾, en: Silvergull Bay, art-x-viking: Silbermöwenbucht, art-x-buckham: Baia dei Gabbiani }
+    names: { zh: 莫斯维克湾, en: Måsvik Bay, art-x-viking: Måsvik, art-x-buckham: Baia dei Gabbiani }
     notes:
       zh: 白帆岛西南端的海湾，面积近三百平方公里，属银鸥市银鸥区，成群的银鸥在码头和渔船上空盘旋，银鸥市由此得名。湾内风平浪静，白色的沙滩和松林环抱的小海湾适合游泳、帆船和皮划艇，夏季湾里满是白帆；湾畔是度假住宅、海滨酒店和老渔港。湾口的引水岛上有引水站和灯塔，引航员在这里登上驶入白帆海峡的大船，渡船也把游客送到岛上野餐和观鸟。白帆纵贯高速和桅岛跨海高速在湾畔的城郊交会，帆影岭公路也从这里翻山通往帆城。银鸥湾的日落把海面染成金色，是白帆岛最有名的海滨景色之一。
       en: The bay at the south-western end of White Sail Island, nearly 300 km², in Silvergull District of Silvergull City; flocks of herring gulls wheel over its quays and boats and gave the city its name. The water is calm, and white beaches and small coves ringed by pines are ideal for swimming, sailing and kayaking, so that in summer the bay is full of sails; holiday homes, seaside hotels and the old fishing harbour line the shore. Pilot Isle at its mouth has a pilot station and a lighthouse, where pilots board the big ships bound up White Sail Strait, and boats also take visitors out to picnic and watch birds. The White Sail Spine Expressway and the Mast Island Sea Crossing meet on the edge of town, and the Sailshadow Ridge Road sets off from here over the mountains to Sail Town. Sunset over Silvergull Bay turns the water to gold, one of the best-known seaside views on the island.
@@ -302,7 +302,7 @@ features:
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [227.2, 82.2] }
-    names: { zh: 盐湾, en: Salt Bay, art-x-viking: Salzbucht, art-x-buckham: Baia del Sale }
+    names: { zh: 萨尔塔维克湾, en: Saltavik Bay, art-x-viking: Saltavikbucht, art-x-buckham: Baia del Sale }
     notes:
       zh: 白帆岛东南岸的海湾，面积七十多平方公里，旧时在湾畔晒盐腌鱼，盐湾市由此得名。这里海水清澈、风大日照足，自维京时代起就以日晒和熬煮法生产海盐，湾岸铺开数十平方公里的盐田，夏季阳光下盐田像一面面镜子，传统作坊熬出的「盐湾花盐」是群岛餐桌上的珍品，盐田旁的海盐博物馆讲述着制盐的历史。湾外的海面上是海上风电场，盐湾港是风电场的运维基地。白帆纵贯高速以盐湾高架桥经过湾畔，盐湾海滨公路沿海岸经过盐田，连接渔港和望海的果园。
       en: "A bay on the south-east coast of White Sail Island, a little over 70 km², where salt was once panned to cure fish, and the source of Saltbay City's name. The water is clear, the wind strong and the sun plentiful, and sea salt has been made here by solar evaporation and boiling since the Viking age: tens of square kilometres of salt pans line the shore, shining like mirrors in the summer sun, the flaky Saltbay salt boiled in traditional works is prized on island tables, and the salt museum beside the pans tells the story. An offshore wind farm stands in the sea beyond the bay, and Saltbay harbour is its service base. The White Sail Spine Expressway passes the bay on the Saltbay Viaduct, its longest bridge, and the Salt Bay Coast Road runs along the shore past the salt pans between Fishing Harbour and the orchards of Seawatch."
@@ -310,7 +310,7 @@ features:
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [71.8, 107.8] }
-    names: { zh: 锚湾, en: Anchor Bay, art-x-viking: Ankerbucht, art-x-buckham: Baia dell'Ancora }
+    names: { zh: 阿克斯维克湾, en: Akkersvik Bay, art-x-viking: Akkersvikbucht, art-x-buckham: "Baia dell'Ancora" }
     notes:
       zh: 锚岛南端两只锚爪西爪岬与东爪岬之间的大湾，面积七百多平方公里，是群岛最大的海湾，水深浪静，湾口有潮汇岛屏障，自古就是群岛最好的天然良港。群岛第二大城市锚港因城市坐落在两只锚爪之间的锚湾而得名，湾内的锚港集装箱港是群岛最大的集装箱港，大型集装箱船和散货船可以全天候进出。锚岛纵贯高速以十四公里长的锚湾高架桥沿湾岸延伸，锚舵跨海高速从这里跨越锚岛海峡口通往长船岛的舵港，锚湾公路连接西爪和船厂两区。夜晚的锚湾灯火通明，岸桥和货轮的灯光倒映在湾水中。
       en: The great bay between the two flukes at the southern end of Anchor Island, West Fluke and East Fluke, a little over 700 km² and the largest bay in the islands. Deep and calm, with Tidemeet Isle sheltering its mouth, it has always been the finest natural harbour in the islands. Anchorhaven, the second city of the archipelago, is named for its place in Anchor Bay between the two flukes, and the Port of Anchorhaven within the bay is the largest container port in the islands, open to big container ships and bulk carriers in any weather. The Anchor Island Spine Expressway follows the shore on the 14 km Anchor Bay Viaduct, the Anchor–Rudder Sea Crossing sets off from here across the mouth of Anchor Strait to Rudderhaven on Longship Island, and the Anchor Bay Road links West Fluke with the Shipyard District. At night the bay blazes with light, the quay cranes and freighters mirrored in its water.
@@ -318,7 +318,7 @@ features:
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [65.2, 146.2] }
-    names: { zh: 雾湾, en: Mist Bay, art-x-viking: Nebelbucht, art-x-buckham: Baia della Nebbia }
+    names: { zh: 托克维克湾, en: Tåkevik Bay, art-x-viking: Tåkevikbucht, art-x-buckham: Baia della Nebbia }
     notes:
       zh: 锚岛西岸的海湾，面积一百六十多平方公里，湾岸分属雾湾市雾湾区和锚港市西爪区。从大洋吹来的湿润西风在锚链山前凝结成雾，使雾湾一年中大部分清晨都笼罩在海雾里，港口的雾笛和灯塔昼夜为渔船指引方向，海湾和城市都由此得名。湾畔的雾湾渔港是锚岛西岸的主要渔港，雾湾老城依山而建，彩色的木屋沿陡坡层层排列，鱼市和海鲜餐馆是游客必到之处。锚雾高速以隧道穿过锚链山主脊，再以雾湾高架桥到达湾畔，是西岸通往锚港的快速通道；锚岛峡湾公路也从湾畔经过，沿西岸北上通往松林。
       en: A bay on the west coast of Anchor Island, a little over 160 km², its shores shared between Mistbay District of Mistbay City and West Fluke District of Anchorhaven. Moist westerlies off the ocean condense into fog against the Anchor Chain Mountains, so that on most mornings of the year the bay lies under sea mist, with the harbour's foghorn and lighthouse guiding the fishing boats day and night; both bay and city take their name from it. Mistbay's fishing harbour on the bay is the main fishing port of Anchor Island's west coast, and the old town climbs the hillside in tiers of painted wooden houses, with a fish market and seafood restaurants no visitor misses. The Anchorhaven–Mistbay Expressway tunnels through the main ridge of the Anchor Chain Mountains and reaches the bay on the Mistbay Viaduct, the fast link from the west coast to Anchorhaven, and the Anchor Island Fjord Road passes the bay on its way north up the coast to Pinewood.
@@ -326,7 +326,7 @@ features:
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [126.2, 198.2] }
-    names: { zh: 松湾, en: Pine Bay, art-x-viking: Kiefernbucht, art-x-buckham: Baia dei Pini }
+    names: { zh: 富鲁海姆湾, en: Furuheim Bay, art-x-viking: Furuheimbucht, art-x-buckham: Baia dei Pini }
     notes:
       zh: 锚岛东北端的海湾，面积两百多平方公里，属松林市松林区，四周松林环绕。湾畔的松林镇是松林市的中心，湾边是锯木厂、木材码头和木结构的小镇，镇上有一条以木工坊、皮具店和猎人商店为主的老街，木材从这里装船运往锚港和群岛各地。湾外是霜岛自然保护区，冬季常有海冰和霜雾；锚岛峡湾公路沿西岸经雾湾、峡湾北上到达松湾，锚岛纵贯高速也从锚港通往这里。松林间的步道通往锚岛最高峰铁锚峰和锚链冰川，夏季游客在湾畔的森林木屋住下，再徒步上山。
       en: A bay at the north-eastern end of Anchor Island, a little over 200 km², in Pinewood District of Pinewood City, ringed by pine forest. The town of Pinewood on its shore is the city's centre, with sawmills, timber quays and wooden houses along the water and an old street of woodworkers, leather shops and hunters' outfitters; timber is shipped from here to Anchorhaven and across the islands. Off the bay lies the Frost Isle Nature Reserve, often wrapped in sea ice and frost fog in winter. The Anchor Island Fjord Road comes north up the west coast by way of Mist Bay and the fjords to reach Pine Bay, and the Anchor Island Spine Expressway runs here from Anchorhaven too. Trails through the pines lead to Iron Anchor Peak, the island's highest summit, and the Anchor Chain Glacier, and in summer visitors stay in forest cabins by the bay before setting off on foot.
@@ -342,7 +342,7 @@ features:
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [49.8, 15.8] }
-    names: { zh: 硫磺湾, en: Sulphur Bay, art-x-viking: Schwefelbucht, art-x-buckham: Baia dello Zolfo }
+    names: { zh: 特雷曼湾, en: Tremaine Bay, art-x-viking: Tremainebucht, art-x-buckham: Baia Tremaine }
     notes:
       zh: 暖泉岛南岸的海湾，面积近三百平方公里，属硫磺湾市硫磺湾区，湾底的喷气孔让海水泛着硫磺味，海湾和城市都由此得名。湾边的地热田里喷气孔冒着白色的蒸汽，泥火山咕嘟作响，岩石被硫磺染成黄色和橙色，地热步道和观景台让游客可以安全地近距离观看；地热电站排出的温水汇入海边的露天温泉浴场。温室区沿着地热管道成片排列，冬季的黑夜里亮着补光灯，从远处看像一片发光的湖面。湾口外是火山灰堆成的灰岛，暖泉南环高速以十公里长的硫磺湾高架桥经过湾畔，是这条高速上最长的桥梁。
       en: A bay on the south coast of Warmspring Island, nearly 300 km², in Sulphur Bay District of Sulphur Bay City; vents on its floor give the water a smell of sulphur, and both bay and city take their name from it. On the geothermal field by the shore fumaroles send up white steam, mud pots bubble and the rocks are stained yellow and orange, with walkways and viewing platforms that let visitors come close in safety, and warm water from the power station feeds an open-air bathing lagoon by the sea. Greenhouses stand in rows along the heating mains, their grow-lights shining through the winter dark like a glowing lake. Off the mouth lies Ash Isle, built of volcanic ash, and the Warmspring Southern Arc Expressway passes the bay on the 10 km Sulphur Bay Viaduct, the longest bridge on that road.
@@ -360,7 +360,7 @@ features:
     subtype: cape
     status: generated
     detect: { kind: cape, at_km: [188.2, 181.2] }
-    names: { zh: 船首岬, en: Prow Point, art-x-viking: Bugkap, art-x-buckham: Capo di Prua }
+    names: { zh: 斯塔文内斯岬, en: Stavnnes, art-x-viking: Stavnnes, art-x-buckham: Capo di Prua }
     notes:
       zh: 长船岛的东北端，即「船首」，属长船市北岬区，是长船岛离北维京岛维京港最近的地方。维长城际铁路的维京海底铁路隧道长一百四十公里，从维京港出发穿越海峡，在船首岬出地面，以高架桥登陆，再经北岬区的地面线到长船站；铁路选择在这里登陆，是为了尽量缩短海底段。岬上的观景台面朝船首湾和北面开阔的海峡，晴天时海天一色，列车从隧道口驶出的瞬间是铁路迷喜爱的拍摄画面。岬角是北岬区海岸风景的一部分，周围的山坡上有牧羊草场和零星的渔屋。
       en: The north-eastern tip of Longship Island, its "prow", in North Cape District of Longship, and the point of the island nearest Viking Port on North Viking Island. The Viking Undersea Rail Tunnel of the Viking Port–Longship Intercity Railway runs 140 km from Viking Port beneath the strait and surfaces at Prow Point, coming ashore on a viaduct before crossing North Cape on the surface to Longship station; the railway lands here to keep the undersea section as short as possible. The viewpoint on the point faces Prow Bay and the open strait to the north, sea and sky merging on clear days, and a train bursting out of the tunnel portal is a favourite shot for railway photographers. The cape is part of North Cape's coastline, with sheep pastures and a few fishermen's huts on the slopes around it.
@@ -376,7 +376,7 @@ features:
     subtype: island
     status: generated
     detect: { kind: island, at_km: [91.8, 90.2] }
-    names: { zh: 船尾岛, en: Stern Isle, art-x-viking: Heckinsel, art-x-buckham: Isola di Poppa }
+    names: { zh: 斯库特岛, en: Skutey, art-x-viking: Skutey, art-x-buckham: Isola di Poppa }
     notes:
       zh: 长船岛西南端「船尾」外的小岛，面积三十多平方公里，属舵港市船尾区，隔一道窄水与长船岛相连，隔着海面与暖泉岛相望。岛上只有一座灯塔和几户渔家，是海鸟和海豹的栖息地，灯塔为进出长船、暖泉与白帆三岛之间水道的船只指引方向。船尾区近年兴起乡村旅游，游客住进长船岛上的渔家民宿，跟随渔民出海时常绕到船尾岛看海豹，沿船尾悬崖的海岸步道也可以远眺船尾岛和暖泉岛的火山。
       en: An islet off the south-western tip of Longship Island, its "stern", a little over 30 km², in Stern District of Rudderhaven City, separated from Longship by a narrow channel and facing Warmspring Island across the sea. There is only a lighthouse and a few fishing families, and the island is home to seabirds and seals; its light guides ships through the waters between Longship, Warmspring and White Sail. Rural tourism has grown up in Stern District in recent years, and visitors staying with fishing families on Longship often go round by boat to see the seals on Stern Isle, while the coastal path along the stern cliffs looks out over the island and the volcano of Warmspring beyond.
@@ -424,7 +424,7 @@ features:
     subtype: cape
     status: generated
     detect: { kind: cape, at_km: [148.2, 52.8] }
-    names: { zh: 桅顶岬, en: Masthead Point, art-x-viking: Mastkorbspitze, art-x-buckham: Punta della Coffa }
+    names: { zh: 西格拉内斯岬, en: Siglanes, art-x-viking: Siglanes, art-x-buckham: Punta della Coffa }
     notes:
       zh: 桅岛东北端的长岬，属桅港市桅港区，深入桅岛海峡，是桅岛北端的标志。岬上的灯塔俯瞰着三公里宽的桅岛海峡，桅岛跨海高速从岬旁跨越海峡，在对岸白帆岛的银鸥登陆，日落时桥影映在海面上，是桅港最美的景色。岬的两侧是桅港渔港，渔船沿着海峡的岸边排开，在海峡和周边海域捕捞鳕鱼、鲱鱼和扇贝；跨海高速的服务区和观景台就在岬角附近，吸引过境的旅客停留，海鲜餐馆、民宿和游船码头随之兴旺。
       en: The long cape at the north-eastern end of Mast Island, in Masthaven District of Masthaven City, reaching out into Mast Strait and marking the northern end of the island. Its lighthouse looks out over the three-kilometre strait, which the Mast Island Sea Crossing spans right beside the cape to land at Silvergull on White Sail Island across the water; at sunset the bridge's shadow on the sea is Masthaven's loveliest sight. On either side of the cape lies Masthaven's fishing harbour, its boats ranged along the shore of the strait and taking cod, herring and scallops in the strait and the waters around. The expressway's service area and viewpoint are close to the cape and tempt passing travellers to stop, and seafood restaurants, guesthouses and boat-trip quays have flourished as a result.
@@ -442,7 +442,7 @@ features:
     subtype: strait
     status: generated
     detect: { kind: fjord, at_km: [135.2, 84.8] }
-    names: { zh: 白帆海峡, en: White Sail Strait, art-x-viking: Weißsegelstraße, art-x-buckham: Stretto di Velabianca }
+    names: { zh: 阿夫琳海峡, en: Aveline Strait, art-x-viking: Avelinestraße, art-x-buckham: Stretto di Aveline }
     notes:
       zh: 长船岛与白帆岛之间狭长的内海，长约三百公里，面积六千七百多平方公里，两岸港口与大船航道都在海峡里。长船岛东南岸的东港集装箱码头是长船的货运港，大型集装箱船沿着海峡的深水航道往来于群岛与北维京岛和远方之间；对岸白帆岛的帆城、帆影和银鸥沿海岸分布。长白跨海高速以跨海大桥越过海峡，连接首府长船与白帆；海峡南端有中流岛和引水岛，引航员在这一带登船，带大船进出海峡，南口外的桅岛海峡上还有桅岛跨海高速通过。海峡里风浪较外海平静，是群岛帆船运动的好去处。
       en: The long, narrow inland sea between Longship and White Sail islands, about 300 km long and more than 6,700 km² in area, holding the ports on both shores and the deep-sea fairways. The East Harbour Container Terminal on the south-east shore of Longship Island is the capital's cargo port, and big container ships follow the strait's deep-water channels between the islands, North Viking Island and the wider world, while Sail Town, Sailshadow and Silvergull line the White Sail shore opposite. The Longship–White Sail Sea Crossing bridges the strait between the capital and White Sail; at its southern end lie Midway and Pilot isles, where pilots board to take ships in and out, and beyond its southern mouth the Mast Island Sea Crossing spans Mast Strait. Its waters are calmer than the open sea and a favourite of island sailors.
@@ -450,7 +450,7 @@ features:
     subtype: strait
     status: generated
     detect: { kind: fjord, at_km: [106.8, 124.8] }
-    names: { zh: 锚岛海峡, en: Anchor Strait, art-x-viking: Ankerstraße, art-x-buckham: Stretto dell'Ancora }
+    names: { zh: 阿克斯海峡, en: Akkersey Strait, art-x-viking: Akkerseystraße, art-x-buckham: "Stretto dell'Ancora" }
     notes:
       zh: 锚岛与长船岛之间的海峡，长约一百四十公里，面积两千四百多平方公里，是群岛最繁忙的航道之一。海峡水深流急，在长船岛西北岸的潮湾一带收窄，潮差大、潮流急，潮湾潮汐电站横跨海湾口，利用每天两次的涨落潮为长船都市区发电。锚岛东南岸的船厂区沿海峡排开造船厂、船坞和海工装备基地，新船下水时市民聚集在岸边观看巨轮滑入海峡。锚岛跨海高速从潮湾跨越海峡到锚岛的船厂区，长船西岸高速沿长船岛一侧的海岸延伸，锚舵跨海高速则在海峡南口跨海，把锚湾与长船岛的船尾连在一起。
       en: The strait between Anchor and Longship islands, about 140 km long and more than 2,400 km², one of the busiest shipping lanes in the islands. Its water is deep and swift, and it narrows off Tidebay on Longship's north-west shore, where the tidal range is large and the current strong; the Tidebay Tidal Power Station spans the mouth of the bay and uses the twice-daily tides to power the Longship area. Along the Anchor Island side, the Shipyard District lines the strait with yards, docks and offshore fabrication sites, and when a new ship is launched people gather on the shore to watch it slide into the strait. The Anchor Strait Crossing bridges it from Tidebay to the Shipyard District on Anchor Island, the Longship West Shore Expressway follows the Longship shore, and the Anchor–Rudder Sea Crossing crosses its southern mouth to join Anchor Bay with Longship's stern.
@@ -466,7 +466,7 @@ features:
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [198.8, 166.2] }
-    names: { zh: 守望水道, en: Watch Sound, art-x-viking: Wachtsund, art-x-buckham: Canale della Vedetta }
+    names: { zh: 瓦克特水道, en: Vaktsund, art-x-viking: Vaktsund, art-x-buckham: Canale della Vedetta }
     notes:
       zh: 守望岛与长船岛北岬之间的水道，宽约四公里，属长船市北岬区，是从北方进出长船的航道。从北维京岛方向驶来的船只绕过长船岛的船首，经守望水道南下，再沿东岸驶入长船湾的港口。维京时代守望岛顶的烽火就是为守住这条水道而设，水道、守望岛和湾内的守望湾都由此得名。如今维长高速的维京海底公路隧道从水道附近的海底穿过，一条直线连接维京港与长船古城，海面上的船只与海底的车流各行其道。
       en: The channel between Watch Isle and North Cape on Longship Island, about four kilometres wide, in North Cape District of Longship and the way in to Longship from the north. Ships coming from North Viking Island round the bow of Longship Island, run south through Watch Sound and then follow the east coast into the harbours of Longship Bay. The Viking-age beacon on Watch Isle was set there to guard this channel, which gave the sound, the island and Watch Bay their names. Today the Viking Undersea Road Tunnel of the Viking Port–Longship Expressway runs beneath the seabed close to the sound in a straight line from Viking Port to Longship's old town, so that ships on the surface and traffic under the sea each go their own way.
@@ -474,7 +474,7 @@ features:
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [146.2, 58.0] }
-    names: { zh: 桅岛海峡, en: Mast Strait, art-x-viking: Maststraße, art-x-buckham: Stretto dell'Albero }
+    names: { zh: 西格利海峡, en: Sigley Strait, art-x-viking: Sigleystraße, art-x-buckham: "Stretto dell'Albero" }
     notes:
       zh: 桅岛与白帆岛西南端之间的海峡，宽约三公里，属桅港市桅港区，是白帆海峡的南口。桅岛跨海高速从桅岛北端的桅顶岬旁跨越海峡，在对岸的银鸥登陆，向北接白帆纵贯高速；两段海上长桥以桅岛为中间支点，把暖泉岛与白帆岛连成一线。桅港渔港沿着海峡的岸边排开，渔船在海峡和周边海域捕捞鳕鱼、鲱鱼和扇贝，桅顶岬上的灯塔俯瞰着海峡。日落时，跨海长桥的桥影映在海面上，是桅港最美的景色。
       en: The strait between Mast Island and the south-western end of White Sail Island, about three kilometres wide, in Masthaven District of Masthaven City, and the southern mouth of White Sail Strait. The Mast Island Sea Crossing spans it beside Masthead Point at the northern end of Mast Island and lands at Silvergull on the far side, where it meets the White Sail Spine Expressway; its two long sea bridges use Mast Island as a stepping stone to tie Warmspring and White Sail together. Masthaven's fishing harbour lines the shore of the strait, its boats taking cod, herring and scallops in the strait and the waters around, and the lighthouse on Masthead Point looks out over it. At sunset the shadow of the bridge on the water is Masthaven's loveliest sight.
@@ -490,7 +490,7 @@ features:
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [267.0, 110.2] }
-    names: { zh: 晨光海峡, en: Dawnlight Strait, art-x-viking: Morgenlichtstraße, art-x-buckham: Stretto dell'Aurora }
+    names: { zh: 埃德文海峡, en: Edevane Strait, art-x-viking: Edevanestraße, art-x-buckham: Stretto di Edevane }
     notes:
       zh: 白帆岛与晨光岛之间的海峡，宽近三十公里，属晨光市晨光区。海峡里大片浅水滩涂随潮水涨落时隐时现，是候鸟迁徙的重要停歇地，春秋两季鹬类、鸻类和雁鸭成群聚集，成千上万的水鸟在这里觅食。晨光公路的大半路段位于晨光海峡跨海大桥上，这座近二十九公里长的低矮长桥贴着滩涂延伸，桥下潮水自由进出，水鸟栖息地得以保留；候鸟季节桥上禁止停车，观鸟需到两端的观测点。渡轮也穿过海峡往返晨光岛与白帆岛的灯塔区。
       en: "The strait between White Sail Island and Dawnlight Island, nearly 30 km wide, in Dawnlight District of Dawnlight City. Broad shallow mudflats in the strait appear and vanish with the tide and are a major stopover for migrating birds: every spring and autumn waders, plovers, geese and ducks gather in their thousands to feed. Most of the Dawnlight Road runs on the Dawnlight Strait bridge, a low span nearly 29 km long laid along the flats, with the tide flowing freely beneath it so that the birds' habitat survives; stopping on the bridge is banned in the bird season, and birdwatchers use the observation points at either end. Ferries also cross the strait between Dawnlight and Lighthouse District on White Sail Island."
@@ -498,7 +498,7 @@ features:
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [36.0, 209.8] }
-    names: { zh: 外屿海峡, en: Outer Isles Strait, art-x-viking: Außeninselstraße, art-x-buckham: Stretto delle Isole Esterne }
+    names: { zh: 乌维克库特海峡, en: Uviqkut Strait, art-x-viking: Uviqkutstraße, art-x-buckham: Stretto di Uviqkut }
     notes:
       zh: 外屿北部鸟崖岛与鳕岛之间的海峡，宽近四十公里，是外屿渔船的主航道。海峡里的冷水海域鱼群丰富，鳕港和鸟崖的渔船常年在这里作业，鳕鱼汛期时海面上渔船往来不绝。每年夏季，座头鲸、虎鲸和小须鲸也经过外屿一带的海域洄游。鸟崖海鸟保护区的灯塔建在鸟崖岛的最高处，为海峡里的船只指引航向，灯塔旁的观测站常年监测海鸟数量和海洋环境。海峡上没有桥梁，冬季风暴来临时风浪很大，渔船常到两岸的港湾里避风。
       en: The strait between Bird Cliff Isle and Cod Island in the north of the Outer Isles, nearly 40 km wide and the main channel of the Outer Isles' fishing boats. Its cold waters are rich in fish, the boats of Codhaven and Bird Cliff work here all year, and in the cod season the sea is busy with boats coming and going. Every summer humpback, killer and minke whales also pass through the waters of the Outer Isles. The lighthouse of the Bird Cliff Seabird Reserve on the island's highest point guides ships through the strait, and the observatory beside it monitors seabird numbers and the marine environment all year. No bridge crosses it, the winter storms raise heavy seas, and the fishing boats often shelter in the harbours on either side.
@@ -506,7 +506,7 @@ features:
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [19.2, 155.2] }
-    names: { zh: 海雀水道, en: Puffin Sound, art-x-viking: Lundsund, art-x-buckham: Canale delle Pulcinelle }
+    names: { zh: 伦达霍尔姆水道, en: Lundaholm Sound, art-x-viking: Lundaholmsund, art-x-buckham: Canale delle Pulcinelle }
     notes:
       zh: 鲸岛与海雀岛之间的窄水道，宽约三公里，属外屿市鲸岛区。外屿跨海公路的海雀水道跨海大桥以这条水道命名，大桥长七十多公里，占全线近一半，从鲸岛出发跨过水道，再向北跨越开阔的海面直达鸟崖岛，是群岛最长的桥梁之一，桥面设有观鲸平台。水道旁就是鲸岛北岸的观鲸湾，夏季鲸鱼常在水道和湾里觅食，观鲸船从鲸岛出发，绕过海雀岛寻找鲸群。夏季的海雀岛上满是筑巢的海鹦，从桥上和船上都能看到它们成群掠过水面。
       en: "The narrow channel between Whale Isle and Puffin Isle, about three kilometres wide, in Whale Isle District of Outer Isles City. The Puffin Sound bridge of the Outer Isles Causeway is named after it: more than seventy kilometres long and nearly half the length of the road, it leaves Whale Isle across the sound and runs north over the open sea to Bird Cliff Isle, one of the longest bridges in the islands, with whale-watching platforms on its deck. Whalewatch Bay on Whale Isle's north coast lies beside the sound, whales often feed in the sound and the bay in summer, and the whale-watching boats from Whale Isle round Puffin Isle in search of them. In summer Puffin Isle is full of nesting puffins, and flocks of them can be seen skimming the water from the bridge and the boats."
