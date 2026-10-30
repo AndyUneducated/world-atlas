@@ -917,7 +917,7 @@ export function buildStyle(opts: {
         "text-font": FONT.medium,
         "text-size": ["interpolate", ["linear"], ["zoom"], 13.4, 10.5, 16, 13],
         "text-max-width": 7,
-        "symbol-sort-key": ["match", ["get", "layout"], "complex", 0, "plaza", 1, 2],
+        "symbol-sort-key": ["match", ["get", "layout"], ["complex", "courtyard"], 0, "plaza", 1, 2],
       },
       paint: { "text-color": m.building.landmark.label, ...halo, "text-opacity": ["interpolate", ["linear"], ["zoom"], 13.4, 0, 13.9, 1] },
     },

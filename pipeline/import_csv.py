@@ -128,6 +128,8 @@ KINDS = {
             Col("subtype", "类型", "subtype", required=True),
             Col("in", "所在区", "in", "ref", required=True),
             *NAMES,
+            Col("short_zh", "中文简称", "short_names.zh"),
+            Col("short_en", "英文简称", "short_names.en"),
             Col("offset_east_km", "向东偏移"), Col("offset_north_km", "向北偏移"),
             Col("marker", "地图符号", "marker", "choice", ("dot", "emblem")),
             Col("emblem_of", "徽标来自", "emblem_of", "ref"),
@@ -476,7 +478,7 @@ ORDER = {
     "features": ["id", "subtype", "status", "detect", "names", "notes"],
     "routes": ["id", "ref", "network", "class", "status", "names", "notes", "ring", "straight", "ends_at_network",
                "tunnel_cost", "legs", "shield", "via"],
-    "places": ["id", "subtype", "status", "names", "notes", "in", "offset_km", "marker", "emblem_of", "site"],
+    "places": ["id", "subtype", "status", "names", "short_names", "notes", "in", "offset_km", "marker", "emblem_of", "site"],
     "railways": ["id", "network", "status", "names", "notes", "color", "tech", "tunnel_cost", "via", "station_names"],
 }
 FLOW = {"divisions": (), "features": ("detect", "names"), "routes": ("via",), "places": ("site",),

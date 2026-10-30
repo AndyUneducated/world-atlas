@@ -633,6 +633,15 @@ def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=
         parts = [("building", p) for p in (hall, rel(-0.32, 0.3, 0.38, 0.44), rel(-0.32, -0.44, 0.38, -0.3), rel(0.4, -0.3, 0.46, 0.3))]
     elif layout == "hall":
         parts = [("building", rel(-0.1, -0.32, 0.38, 0.32))]
+    elif layout == "courtyard":  # 回字形: four wings round an inner court
+        parts = [("building", rel(-0.46, -0.46, 0.46, 0.46).difference(rel(-0.24, -0.22, 0.24, 0.22)))]
+    elif layout == "slab":
+        parts = [("building", rel(-0.46, -0.34, 0.46, 0.34))]
+    elif layout == "lshape":
+        parts = [("building", rel(-0.46, -0.46, 0.46, -0.08).union(rel(-0.46, -0.46, -0.1, 0.46)))]
+    elif layout == "block":
+        s = 0.4 * min(W, D)
+        parts = [("building", box(cx - s, cy - s, cx + s, cy + s))]
     elif layout == "market":
         parts = [("building", rel(-0.4, -0.25, 0.4, 0.25))]
     elif layout == "tower":

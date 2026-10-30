@@ -11,13 +11,13 @@ places:
       art-x-viking: Regierung von Veiling Ysear
       art-x-buckham: Governo di Etei Viking
     notes:
-      zh: 领地议会与政府所在的石砌楼群，在长船古城中心
-      en: The stone buildings of the territorial parliament and government, in the middle of Longship's old town.
+      zh: 维京群岛领地政务院的主楼，在长船古城中心，是一座石砌的回字形庭院建筑，领地议会也在楼内。政务院是领地的最高行政机关，由领地总督组织，下设十一个部和若干直属机构，各部的大楼分散在古城四周城墙外的街区里，步行十几分钟可达。主楼北翼是总督办公室，东翼和南翼是办公厅，西翼是领地议会的议事厅。办公厅下设综合行政局、媒体和出版局、财务局、安全局、档案局、采购局和公务员事务局，负责政务院的日常运转、新闻发布、机关财务和安保、公文档案、政府采购，以及公务员的招录和考核。
+      en: The main building of the Viking Islands Executive Council stands in the middle of Longship's old town, a stone hollow square round a courtyard that also houses the territorial parliament. The Executive Council is the territory's highest executive body, formed by the governor, with eleven ministries and several directly attached bodies whose buildings are spread around the old town in the streets outside the walls, a short walk away. The north wing holds the Governor's Office, the east and south wings the General Office and the west wing the parliament's chamber. The General Office's bureaus (General Administration, Media and Publications, Finance, Security, Archives, Procurement and Civil Service) keep the Council running, brief the press, manage its accounts and security, keep its records, buy its supplies and recruit and assess civil servants.
     in: div_g2g1yc
     offset_km: [0.3, 0.4]
     marker: emblem
     emblem_of: div_raat4g
-    site: { layout: complex, size_m: [260, 180] }
+    site: { layout: courtyard, size_m: [260, 220] }
   - id: poi_297zsp
     subtype: castle
     status: generated
@@ -545,3 +545,292 @@ places:
       en: A breeding ground of grey seals; boats must keep clear of the rocks in the pupping season.
     in: div_ht5w2y
     offset_km: [73.0, -34.9]
+
+  # ── 维京群岛领地政务院机构（M42）：分散在长船古城周边 ──
+  - id: bld_5yzrxz
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政务院对外事务部
+      en: Ministry of External Affairs, Viking Islands Executive Council
+    short_names:
+      zh: 对外事务部
+      en: Ministry of External Affairs
+    notes:
+      zh: 维京群岛领地政务院对外事务部，位于长船古城东面的城墙外，负责群岛的对外交往和与中央政府的联络。部内设政策司、中央政府联络司、外国使领馆司、礼宾司、国际交流司和领事服务司，其中国际交流司因邮轮旅游和国际航运往来频繁而单独建楼。长船是群岛最国际化的城市，各国的航运公司、保险公司和银行在汇金区设有总部，许多国家在长船设有领事馆，外国使领馆司负责与它们的日常联系；礼宾司接待来访的外国船队和代表团，领事服务司为在群岛工作的外国船员和金融从业者办理证明和认证。
+      en: The Ministry of External Affairs of the Viking Islands stands outside the walls to the east of Longship's old town and handles the islands' dealings abroad and liaison with the central government. Its departments are Policy, Central Government Liaison, Foreign Missions, Protocol, International Exchange and Consular Services; International Exchange, kept busy by cruise tourism and international shipping, has a building of its own. Longship is the most international city in the islands, with shipping lines, insurers and banks from many countries headquartered in Goldmark District and a number of consulates in town, which the Foreign Missions Department deals with day to day. Protocol receives visiting fleets and delegations, and Consular Services certifies documents for the foreign seafarers and finance workers who live on the islands.
+    in: div_g2g1yc
+    offset_km: [1.3, 0.0]
+    site: { size_m: [130, 100], layout: lshape }
+
+  - id: bld_daawps
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政务院对外事务部国际交流司
+      en: International Exchange Department, Ministry of External Affairs, Viking Islands Executive Council
+    short_names:
+      zh: 对外事务部国际交流司
+      en: International Exchange Department
+    notes:
+      zh: 维京群岛领地政务院对外事务部国际交流司，在对外事务部北面不远处单独建楼，负责群岛与世界各地的人员、文化和旅游交流。每年夏季，大批国际邮轮停靠长船和阿夫琳港，国际交流司与港口和旅游部门协调，让邮轮旅客入境更加便利；它还管理群岛与海外城市的友好交流项目、国际会议和展会，以及群岛大学的国际学生和访问学者计划，并在海外推广群岛的航海节庆。司里的服务窗口可以用中文、维京语、巴克汉姆语和英语办理业务。
+      en: The International Exchange Department of the Ministry of External Affairs has its own building a short way north of the ministry and looks after the islands' exchanges of people, culture and tourism with the rest of the world. Every summer international cruise ships call in numbers at Longship and Port Aveline, and the department works with the ports and the tourism authorities to make arrival easy for their passengers. It also runs the islands' twinning programmes with cities overseas, international conferences and fairs, and the schemes for foreign students and visiting scholars at the University of the Islands, and promotes the islands' seafaring festivals abroad. Its counters serve the public in Chinese, Viking, Buckham and English.
+    in: div_g2g1yc
+    offset_km: [1.15, 0.38]
+    site: { size_m: [110, 70], layout: slab }
+
+  - id: bld_d3e2wd
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政务院财政部
+      en: Ministry of Finance, Viking Islands Executive Council
+    short_names:
+      zh: 财政部
+      en: Ministry of Finance
+    notes:
+      zh: 维京群岛领地政务院财政部，位于长船古城东北，靠近通往汇金区的道路，负责群岛的税收、预算和财政监督。部内设税收司、关税司、监管司、行政部门预算司、企业事业单位预算司和中央财政事务司。群岛的财政收入主要来自航运、离岸金融和总部经济，监管司与汇金区的金融机构保持密切联系，监督离岸业务的合规；关税司管理长船、奥斯特哈门和各岛渡轮码头的进出口关税，企业事业单位预算司为群岛的公共渡轮公司、电网和地热电站编制预算。
+      en: The Ministry of Finance of the Viking Islands, north-east of Longship's old town on the road to Goldmark District, runs the islands' taxes, budgets and financial oversight. Its departments are Taxation, Customs Tariffs, Supervision, Executive Budgets, Public Enterprise and Institution Budgets, and Central Finance. Most of the islands' revenue comes from shipping, offshore finance and head offices, so the Supervision Department keeps in close touch with the institutions in Goldmark and checks that offshore business stays within the rules. Customs Tariffs collects duties at Longship, Austhamn and the ferry piers of every island, and Public Enterprise and Institution Budgets sets the budgets of the public ferry company, the grid and the geothermal power stations.
+    in: div_g2g1yc
+    offset_km: [0.92, 0.92]
+    site: { size_m: [130, 80], layout: slab }
+
+  - id: bld_wnx8sz
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政务院司法部
+      en: Ministry of Justice, Viking Islands Executive Council
+    short_names:
+      zh: 司法部
+      en: Ministry of Justice
+    notes:
+      zh: 维京群岛领地政务院司法部，位于长船古城北面，负责群岛法规的起草和实施、检察事务和司法行政。部内设国家法律实施司、领地法规司、法律法规起草和规范司、检察事务司、司法监察司、拘留管理司、社区矫正管理司、司法从业人员司和司法研究司。群岛的航运和金融业务涉及大量国际合同，司法研究司长期研究海商法和离岸金融法规，法律法规起草和规范司负责领地法规的中文、维京语和巴克汉姆语文本；司法从业人员司管理律师和公证员的执业，各岛的法律援助站也由它设立。
+      en: The Ministry of Justice of the Viking Islands, north of Longship's old town, drafts and applies the islands' laws and runs prosecutions and the administration of justice. Its nine departments are National Law Enforcement, Territorial Regulations, Legislative Drafting and Standards, Prosecutions, Judicial Inspection, Detention, Community Corrections, Legal Professions and Legal Research. Shipping and finance bring a great many international contracts to the islands, so Legal Research has long specialised in maritime and offshore financial law, while the drafting department keeps the Chinese, Viking and Buckham texts of territorial laws in step. Legal Professions licenses lawyers and notaries and has set up legal aid points on every island.
+    in: div_g2g1yc
+    offset_km: [0.48, 1.32]
+    site: { size_m: [120, 90], layout: lshape }
+
+  - id: bld_fdpyda
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政务院公共安全部
+      en: Ministry of Public Security, Viking Islands Executive Council
+    short_names:
+      zh: 公共安全部
+      en: Ministry of Public Security
+    notes:
+      zh: 维京群岛领地政务院公共安全部，位于长船古城北面，统一领导群岛的警务和治安。部内设警察司、警务司、边境服务和安全司、刑事侦查司、民事侦查司、经济犯罪调查司、社区安全司和技术和装备司。群岛由四座大岛和三十多座中小岛屿组成，警察司在每座有人居住的岛上都设有警务站，技术和装备司为海上警察配备巡逻艇和直升机；边境服务和安全司负责长船国际机场、各港口和维长海底隧道入口的出入境检查，经济犯罪调查司与汇金区的金融监管配合，打击洗钱和金融诈骗。
+      en: The Ministry of Public Security of the Viking Islands, north of Longship's old town, directs policing and public order across the islands. Its departments are Police, Policing Operations, Border Services and Security, Criminal Investigation, Civil Investigation, Economic Crime, Community Safety, and Technology and Equipment. With four large islands and more than thirty smaller ones, the Police Department keeps a station on every inhabited island and Technology and Equipment supplies patrol boats and helicopters to the marine police. Border Services and Security checks arrivals at Longship International Airport, the ports and the mouth of the undersea tunnel to Viking Port, and Economic Crime works with Goldmark's financial regulators against money laundering and fraud.
+    in: div_g2g1yc
+    offset_km: [-0.11, 1.3]
+    site: { size_m: [130, 80], layout: slab }
+
+  - id: bld_nzzyh8
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政务院教育、科学和文化部
+      en: Ministry of Education, Science and Culture, Viking Islands Executive Council
+    short_names:
+      zh: 教育、科学和文化部
+      en: Ministry of Education, Science and Culture
+    notes:
+      zh: 维京群岛领地政务院教育、科学和文化部，位于长船古城西北，管理群岛的各级教育、科学研究和文化遗产。部内设教育政策司、科学政策司、文化政策司、教育技术司、信息技术司、教育从业人员司、科技从业人员司、文化从业人员司、学前教育司、基础教育司、成人和职业教育司、高等教育司和教育督导署。小岛上的学校规模很小，教育技术司为它们开设远程课堂，成人和职业教育司与造船厂、航运公司合办海员和船舶工程培训；文化政策司负责维京王厅遗址、长船博物馆和古城石砌建筑的保护，群岛大学的经费和评估由高等教育司管理。
+      en: The Ministry of Education, Science and Culture of the Viking Islands, north-west of Longship's old town, oversees schooling at every level, research and the islands' heritage. Its thirteen units are the Education Policy, Science Policy, Cultural Policy, Educational Technology, Information Technology, Teaching Professions, Science and Technology Professions, Cultural Professions, Pre-school, Basic Education, Adult and Vocational Education and Higher Education departments and the Education Inspectorate. Schools on the small islands are tiny, so Educational Technology runs remote classrooms for them, and Adult and Vocational Education trains seafarers and marine engineers with the shipyards and shipping lines. Cultural Policy protects the Viking Hall Ruins, the Longship Museum and the stone buildings of the old town, and Higher Education funds and reviews the University of the Islands.
+    in: div_g2g1yc
+    offset_km: [-0.7, 1.21]
+    site: { size_m: [130, 100], layout: lshape }
+
+  - id: bld_vbd2fe
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政务院交通部
+      en: Ministry of Transport, Viking Islands Executive Council
+    short_names:
+      zh: 交通部
+      en: Ministry of Transport
+    notes:
+      zh: 维京群岛领地政务院交通部，位于长船古城西北，负责群岛的海上、陆路和空中交通。部内设政策司、交通从业人员司、道路运输司、公路司、铁路司、水路司和空运司，其中水路司单独建楼。公路司管理连接各岛的跨海高速和岛内公路，铁路司负责维长城际铁路群岛段的运营监督，空运司协调长船国际机场与各岛小机场之间的航线，交通从业人员司为船员、引航员和驾驶员颁发执照。群岛居民的日常出行很大程度上依靠渡轮和跨海大桥，冬季风暴期间的停航和限行也由交通部统一发布。
+      en: The Ministry of Transport of the Viking Islands, north-west of Longship's old town, runs travel by sea, road and air. Its departments are Policy, Transport Professions, Road Transport, Highways, Railways, Waterways and Air Transport, with Waterways in a building of its own. Highways manages the sea-crossing expressways between the islands and the roads on each, Railways oversees the island section of the Viking Port–Longship Intercity Railway, Air Transport coordinates routes between Longship International Airport and the small island airfields, and Transport Professions licenses seafarers, pilots and drivers. Islanders rely on ferries and sea bridges for everyday journeys, and in winter storms the ministry announces when sailings are cancelled and bridges restricted.
+    in: div_g2g1yc
+    offset_km: [-1.06, 0.75]
+    site: { size_m: [130, 80], layout: slab }
+
+  - id: bld_jgvp8n
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政务院交通部水路司
+      en: Waterways Department, Ministry of Transport, Viking Islands Executive Council
+    short_names:
+      zh: 交通部水路司
+      en: Waterways Department
+    notes:
+      zh: 维京群岛领地政务院交通部水路司，在交通部西面单独建楼，靠近长船港，是群岛最重要的交通管理机构之一。四座大岛和三十多座中小岛屿之间的渡轮航线、长船和奥斯特哈门的远洋航运、造船厂的船舶检验和登记，都由水路司管理；它设有海上交通管理中心，二十四小时监控群岛周围水域的船舶动态，协调引航、拖轮和海上搜救。群岛的船舶登记处也设在这里，许多国际航运公司把船舶注册在长船，使群岛成为重要的船籍港。
+      en: The Waterways Department of the Ministry of Transport has its own building west of the ministry near Longship harbour and is one of the islands' most important transport authorities. It manages the ferry routes between the four large islands and more than thirty smaller ones, ocean shipping at Longship and Austhamn, and the inspection and registration of ships built in the islands' yards. Its vessel traffic centre watches shipping in the surrounding waters around the clock and coordinates pilots, tugs and search and rescue at sea. The islands' ship registry is here too, and since many international shipping lines register their ships in Longship, the islands are an important flag port.
+    in: div_g2g1yc
+    offset_km: [-1.55, 0.41]
+    site: { size_m: [120, 70], layout: slab }
+
+  - id: bld_bgp03k
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政务院建设部
+      en: Ministry of Construction, Viking Islands Executive Council
+    short_names:
+      zh: 建设部
+      en: Ministry of Construction
+    notes:
+      zh: 维京群岛领地政务院建设部，位于长船古城西面，负责城乡规划、住房和建筑市场。部内设政策司、住房保障司、房地产市场监管司、建筑市场监管司、城市建设司和乡镇建设司。长船古城的石砌老屋受到严格保护，城市建设司规定古城内不得新建高楼，新的塔楼都集中在汇金区的湾畔；房地产市场监管司调控长船和汇金区的房价，住房保障司为海员、渔民和年轻家庭提供公共租赁住房，乡镇建设司负责各小岛的码头、供电和供水设施，建筑市场监管司制定抗风暴的建筑规范。
+      en: The Ministry of Construction of the Viking Islands, west of Longship's old town, is in charge of planning, housing and the building trade. Its departments are Policy, Housing Support, Property Market Supervision, Building Market Supervision, Urban Development and Rural Development. The stone houses of the old town are strictly protected and Urban Development allows no towers inside it, so new high-rises stand on the Goldmark waterfront instead. Property Market Supervision keeps house prices in Longship and Goldmark in check, Housing Support provides public rental homes for seafarers, fishing families and young households, Rural Development builds piers, power and water supplies on the small islands, and Building Market Supervision writes the storm-resistant building codes.
+    in: div_g2g1yc
+    offset_km: [-1.3, -0.11]
+    site: { size_m: [120, 90], layout: lshape }
+
+  - id: bld_0adddq
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政务院民政部
+      en: Ministry of Civil Affairs, Viking Islands Executive Council
+    short_names:
+      zh: 民政部
+      en: Ministry of Civil Affairs
+    notes:
+      zh: 维京群岛领地政务院民政部，位于长船古城西南，负责社会组织、社会救助和行政区划。部内设政策司、社会组织司、社会救助司、慈善事业司、其他社会事务司和行政区划司。行政区划司管理群岛各市、区的设立和命名，群岛的地名以北欧风格为主，也有欧洲殖民风格和塔夫鲁纳克语的名称；社会组织司登记渔民协会、航运行业协会和各类基金会，社会救助司向困难家庭和海难遇难者的家属提供救助，其他社会事务司负责婚姻登记和殡葬，在各岛都设有服务站。
+      en: The Ministry of Civil Affairs of the Viking Islands, south-west of Longship's old town, deals with civil society, social assistance and the administrative divisions. Its departments are Policy, Social Organisations, Social Assistance, Charities, Other Social Affairs and Administrative Divisions. Administrative Divisions sets up and names the islands' cities and districts, whose names are mostly Norse in style, with some colonial-style and Tavrunaq names. Social Organisations registers fishermen's associations, shipping associations and foundations, Social Assistance supports families in hardship and the families of those lost at sea, and Other Social Affairs handles marriage registration and funerals, with service points on every island.
+    in: div_g2g1yc
+    offset_km: [-1.21, -0.7]
+    site: { size_m: [120, 70], layout: slab }
+
+  - id: bld_2spd34
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政务院劳动和社会保障部
+      en: Ministry of Labour and Social Security, Viking Islands Executive Council
+    short_names:
+      zh: 劳动和社会保障部
+      en: Ministry of Labour and Social Security
+    notes:
+      zh: 维京群岛领地政务院劳动和社会保障部，位于长船古城南面，负责就业、职业培训、劳动关系和社会保险。部内设就业司、职业能力司、普通工种司、特殊工种司、劳动仲裁司和公共劳动保险司。群岛的造船、远洋航运、海上风电和渔业都有大量高危岗位，特殊工种司制定海员、潜水员、风机维修工和渔船船员的资格和工时标准；劳动仲裁司处理船员劳务纠纷，就业司帮助各岛的季节性旅游从业者找到冬季工作，公共劳动保险司管理全领地统一的养老、失业和工伤保险。
+      en: The Ministry of Labour and Social Security of the Viking Islands, south of Longship's old town, covers jobs, training, labour relations and social insurance. Its departments are Employment, Vocational Skills, General Trades, Special Trades, Labour Arbitration and Public Labour Insurance. Shipbuilding, ocean shipping, offshore wind and fishing all involve hazardous work, and Special Trades sets the qualifications and hours of seafarers, divers, wind-turbine technicians and fishing crews. Labour Arbitration settles disputes over seafarers' contracts, Employment helps seasonal tourism workers on each island find winter jobs, and Public Labour Insurance runs the territory-wide pension, unemployment and work-injury schemes.
+    in: div_g2g1yc
+    offset_km: [-0.75, -1.06]
+    site: { size_m: [120, 70], layout: slab }
+
+  - id: bld_2xjfq5
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政务院卫生和人类服务部
+      en: Ministry of Health and Human Services, Viking Islands Executive Council
+    short_names:
+      zh: 卫生和人类服务部
+      en: Ministry of Health and Human Services
+    notes:
+      zh: 维京群岛领地政务院卫生和人类服务部，位于长船古城南面，负责食品药品安全、医疗卫生、公共保险和公共福利。部内设食品政策司、食品监管司、食品从业人员司、医疗和药品政策司、医疗和药品监管司、医疗和药品从业人员司、医疗和药品技术司、公共健康保险司、其他公共保险司、公共卫生司和公共福利司。食品监管司检验群岛出口的鲜鱼和水产品，公共卫生司为没有医院的小岛安排医疗船和直升机急救，公共健康保险司让各岛居民按统一标准报销医疗费用，公共福利司负责养老院和托育服务。
+      en: The Ministry of Health and Human Services of the Viking Islands, south of Longship's old town, is responsible for food and drug safety, health care, public insurance and welfare. Its eleven departments are Food Policy, Food Supervision, Food Professions, Medical and Drug Policy, Medical and Drug Supervision, Medical and Drug Professions, Medical and Drug Technology, Public Health Insurance, Other Public Insurance, Public Health and Public Welfare. Food Supervision inspects the fresh fish and seafood the islands export, Public Health sends hospital ships and air ambulances to islands without a hospital, Public Health Insurance reimburses treatment on the same terms on every island, and Public Welfare runs care homes and childcare.
+    in: div_g2g1yc
+    offset_km: [-0.24, -1.38]
+    site: { size_m: [120, 90], layout: lshape }
+
+  - id: bld_fk3xmb
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政务院自然资源和环境保护部
+      en: Ministry of Natural Resources and Environmental Protection, Viking Islands Executive Council
+    short_names:
+      zh: 自然资源和环境保护部
+      en: Ministry of Natural Resources and Environmental Protection
+    notes:
+      zh: 维京群岛领地政务院自然资源和环境保护部，位于长船古城东南，负责群岛的土地、海洋和能源资源的保护与利用。部内设政策司、自然生态保护司、大陆生态环境司、水生态环境司、海洋生态环境司、大气环境司、土壤生态环境司、固体废物和化学品司、环境影响评价和排放管理司、生态环境监测司和生态环境执法署，其中海洋生态环境司单独建楼。环境影响评价和排放管理司审批海上风电场、地热电站和港口扩建，自然生态保护司管理各岛的海鸟繁殖地和灰海豹保护区，固体废物和化学品司监督造船厂和港口的污染治理。
+      en: The Ministry of Natural Resources and Environmental Protection of the Viking Islands, south-east of Longship's old town, protects and manages the islands' land, sea and energy resources. Its departments are Policy, Nature Conservation, Land Ecology, Freshwater Ecology, Marine Ecology, Air Quality, Soil Ecology, Solid Waste and Chemicals, Environmental Impact and Emissions, and Environmental Monitoring, with an Environmental Enforcement Agency; Marine Ecology has its own building. The impact assessors approve offshore wind farms, geothermal stations and harbour extensions, Nature Conservation looks after the seabird colonies and grey seal sanctuaries of the islands, and Solid Waste and Chemicals polices pollution at the shipyards and ports.
+    in: div_g2g1yc
+    offset_km: [0.34, -1.26]
+    site: { size_m: [130, 80], layout: slab }
+
+  - id: bld_bggwj7
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政务院自然资源和环境保护部海洋生态环境司
+      en: Marine Ecology and Environment Department, Ministry of Natural Resources and Environmental Protection, Viking Islands Executive Council
+    short_names:
+      zh: 海洋生态环境司
+      en: Marine Ecology Department
+    notes:
+      zh: 维京群岛领地政务院自然资源和环境保护部海洋生态环境司，在部大楼东南单独建楼，是群岛最重要的环境机构。群岛的经济离不开海洋，渔业、邮轮旅游、海上风电和航运共用同一片海域：海洋生态环境司划定海洋保护区和禁渔期，监测海水质量、渔业资源和海鸟、海豹的数量，评估海上风电场和航道对海洋生物的影响；它还负责溢油应急，在主要港口储备围油栏和清污船，群岛水域发生泄漏时统一指挥清理。每年发布的群岛海洋状况报告是渔业配额的依据。
+      en: The Marine Ecology and Environment Department of the Ministry of Natural Resources and Environmental Protection has its own building south-east of the ministry and is the islands' most important environmental body. The islands live from the sea, where fishing, cruise tourism, offshore wind and shipping share the same waters. The department draws up marine protected areas and closed fishing seasons, monitors water quality, fish stocks and the numbers of seabirds and seals, and assesses how wind farms and shipping lanes affect marine life. It also leads the response to oil spills, keeping booms and clean-up vessels at the main ports, and its yearly report on the state of the islands' seas is the basis for fishing quotas.
+    in: div_g2g1yc
+    offset_km: [0.83, -1.43]
+    site: { size_m: [110, 70], layout: slab }
+
+  - id: bld_07nstc
+    subtype: government
+    status: generated
+    names:
+      zh: 中央政府常驻维京群岛领地高级国务督办办公室
+      en: Office of the Senior State Commissioner of the Central Government in the Viking Islands
+    short_names:
+      zh: 高级国务督办办公室
+      en: Senior State Commissioner's Office
+    notes:
+      zh: 中央政府常驻维京群岛领地高级国务督办办公室，位于长船古城东南，是中央政府派驻群岛的最高代表机构。高级国务督办代表中央政府督促国家法律和政策在群岛的实施，协调国防、外交等中央事权与领地事务的衔接，例如群岛周边海域的防务、与北维京岛共建的海底通道，以及外国船舶和船员的管理；领地重大事项需要中央批准时，也由办公室转呈并跟进。办公室与政务院定期举行联席会议，每年向中央政府提交群岛情况的报告。
+      en: The Office of the Senior State Commissioner of the Central Government in the Viking Islands, south-east of Longship's old town, is the central government's highest standing representation in the islands. The Senior State Commissioner sees that national laws and policies are carried out and links central responsibilities such as defence and foreign affairs with territorial business, for example the defence of the surrounding seas, the undersea link built jointly with North Viking Island and the rules for foreign ships and crews. When a territorial matter needs central approval, the office forwards it and follows it up. It meets the Executive Council in regular joint sessions and reports on the islands to the central government every year.
+    in: div_g2g1yc
+    offset_km: [1.0, -0.84]
+    site: { size_m: [70, 70], layout: block }
+
+  - id: bld_f5vn0z
+    subtype: government
+    status: generated
+    names:
+      zh: 中央政府常驻维京群岛领地巡视员办公室
+      en: Office of the Central Government Inspector in the Viking Islands
+    short_names:
+      zh: 巡视员办公室
+      en: Inspector's Office
+    notes:
+      zh: 中央政府常驻维京群岛领地巡视员办公室，位于长船古城东面，由中央政府派驻，负责对群岛各级行政机关进行巡视监督。巡视员定期乘渡轮和直升机走访各岛的市、区政府，检查政策执行、财政资金使用和廉洁情况，对渡轮公司、电网等公共企业的经营也进行审查，发现的问题同时报告中央政府和领地总督，并跟踪整改。办公室设有公众来访接待室，居民可以当面或书面反映意见和举报，远离长船的小岛居民也可以在网上提交。巡视报告的摘要定期公开。
+      en: The Office of the Central Government Inspector in the Viking Islands, east of Longship's old town, is sent by the central government to inspect and oversee the islands' administration at every level. Inspectors travel by ferry and helicopter to the city and district governments of every island to check how policies are carried out, how public money is spent and whether officials are honest, and they also review public companies such as the ferry company and the grid; what they find goes to both the central government and the governor, and they follow it up. Residents can raise complaints or report wrongdoing in the public reception room, and those on distant islands can do so online. Summaries of the inspection reports are published.
+    in: div_g2g1yc
+    offset_km: [1.5, -0.55]
+    site: { size_m: [70, 70], layout: block }
+
+  - id: bld_kt2xay
+    subtype: government
+    status: generated
+    names:
+      zh: 中央政府常驻维京群岛领地人权事务高级专员办公室
+      en: Office of the Central Government High Commissioner for Human Rights in the Viking Islands
+    short_names:
+      zh: 人权事务高级专员办公室
+      en: Human Rights Commissioner's Office
+    notes:
+      zh: 中央政府常驻维京群岛领地人权事务高级专员办公室，位于长船古城北面，由中央政府派驻，监督群岛人权保障的情况。群岛有大量来自世界各地的海员、渔工和金融从业者，高级专员特别关注外籍劳动者的权益、船上的工作和生活条件，以及中文、维京语、巴克汉姆语和英语使用者在公共服务中的平等对待；它可以走访看守所、船舶和劳务中介机构，接受个人申诉，并向领地机关提出建议。办公室每年发布群岛人权报告，关于海员权益的章节常被航运界引用。
+      en: The Office of the Central Government High Commissioner for Human Rights in the Viking Islands, north of Longship's old town, is sent by the central government to watch over human rights in the islands. With many seafarers, fishing hands and finance workers from all over the world, the High Commissioner pays particular attention to the rights of foreign workers, to working and living conditions on board ship and to equal treatment in public services for speakers of Chinese, Viking, Buckham and English. The office can visit remand centres, ships and labour agencies, hear individual complaints and make recommendations to territorial bodies, and the chapter on seafarers' rights in its yearly report is widely quoted in shipping circles.
+    in: div_g2g1yc
+    offset_km: [-0.31, 1.77]
+    site: { size_m: [70, 70], layout: block }
+
+  - id: bld_b9m6hh
+    subtype: government
+    status: generated
+    names:
+      zh: 维京群岛领地政策和计划委员会
+      en: Viking Islands Policy and Planning Commission
+    short_names:
+      zh: 政策和计划委员会
+      en: Policy and Planning Commission
+    notes:
+      zh: 维京群岛领地政策和计划委员会，是政务院直属的特设委员会，位于长船古城南面，由总督主持，各部部长和独立专家参加。委员会编制群岛的中长期发展规划，协调跨部门的重大政策，评估政策的实施效果；连接各岛的跨海高速、海上风电和地热的开发、港口扩建和通往维京港的海底通道这类涉及多个部门的大项目，都先在这里形成方案，再提交领地议会。委员会每年发布群岛发展报告，公开各岛人口、产出和公共服务的指标，小岛人口外流是报告里反复出现的话题。
+      en: The Viking Islands Policy and Planning Commission is a special commission directly under the Executive Council, south of Longship's old town, chaired by the governor with the ministers and independent experts as members. It draws up the islands' medium- and long-term development plans, coordinates major policies that cross ministries and reviews how they are working. Projects that involve several ministries, such as the sea-crossing expressways between the islands, offshore wind and geothermal development, harbour extensions and the undersea link to Viking Port, take shape here before going to the territorial parliament. Its yearly development report gives figures on each island's population, output and public services, and the drift of people away from the small islands is a recurring theme.
+    in: div_g2g1yc
+    offset_km: [0.0, -0.9]
+    site: { size_m: [80, 80], layout: block }

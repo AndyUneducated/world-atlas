@@ -21,7 +21,7 @@ MILITARY_VARIANTS = {  # military and space facility layouts and the kinds each 
     "sam": (), "range": ("air", "armor", "cold"), "plant": ("depot", "assembly", "propellant", "tunnel", "hangar", "engine"),
     "test_stand": (), "silo": (), "bunker": (), "launch_track": (), "camp": ("barracks", "hq", "hospital", "training"), "heliport": (),
 }
-SITE_LAYOUTS = ("complex", "hall", "campus", "stadium", "tower", "dome", "park", "plaza", "market",
+SITE_LAYOUTS = ("complex", "hall", "courtyard", "slab", "lshape", "block", "campus", "stadium", "tower", "dome", "park", "plaza", "market",
                 "airport", "port", "harbour", "offshore_port", "spaceport", "mine", *MILITARY_VARIANTS)
 FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport", "mine", *MILITARY_VARIANTS)
 RUNWAY_LAYOUTS = ("airport", "spaceport", "airbase", "launch_track")  # roads and railways go round these
@@ -212,6 +212,10 @@ class World:
         for pid, p in self.places.items():
             if p.get("in") not in self.divisions:
                 errors.append(f"{pid}: 'in' must name a division")
+            if "short_names" in p and not (isinstance(p["short_names"], dict) and p["short_names"].get("zh") and p["short_names"].get("en")):
+                errors.append(f"{pid}: short_names (the map label; the card shows the full names) needs zh and en")
+            if p.get("subtype") == "government" and "short_names" in p and len(p.get("notes", {}).get("zh", "")) < 100:
+                errors.append(f"{pid}: a government institution's card (notes.zh) needs at least 100 characters")
             if "access_road" in p and not (p["access_road"] is True and p.get("site")):
                 errors.append(f"{pid}: access_road: true needs a site (a city road is built from it to the network)")
             if mil := p.get("military"):

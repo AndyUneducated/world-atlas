@@ -200,13 +200,13 @@ places:
       en: Government of the Arctic Ocean Territory
       art-x-tavrunaq: Aqqimma Tavru Aaqqivik
     notes:
-      zh: 领地议会与领地政府所在的建筑群，在首府库马尔维克区，与中央穹顶以暖廊相连
-      en: The buildings of the territorial assembly and government in the capital's Qummarvik District, joined to the Central Dome by skyways.
+      zh: 北冰洋领地政务院的主楼，在首府努卡塔克市库马尔维克区，是一座回字形的庭院建筑，领地议会也在楼内，以暖廊与中央穹顶相连。政务院是领地的最高行政机关，由领地总督组织，下设十一个部和若干直属机构，各部按职能分成三个楼群：东北是中央派驻机构、对外事务和政策规划，西面是交通、建设、资源和税收，东南是司法、治安、教育和社会事务，三个楼群都以暖廊连到中央穹顶，极夜和暴风雪里也能步行往来；财政部在北面的帕卢尔尼克金融特区。主楼北翼是总督办公室，东翼和南翼是办公厅，西翼是议会议事厅，内院冬季加盖玻璃顶。办公厅下设综合行政局、媒体和出版局、财务局、安全局、档案局、采购局和公务员事务局。
+      en: The main building of the Arctic Ocean Territory Executive Council, in Qummarvik District of the capital, Nuqattaaq, is a hollow square round a courtyard that also houses the territorial assembly, joined to the Central Dome by skyways. The Executive Council is the territory's highest executive body, formed by the governor, with eleven ministries and several directly attached bodies grouped by function in three clusters, all linked by skyways to the Central Dome so that staff can walk between them in the polar night and in blizzards. The north-east cluster holds the central government's offices, external affairs and planning, the west cluster transport, construction, resources and taxation, and the south-east cluster justice, public security, education and social affairs; the Ministry of Finance is in the Pallurniq Financial Zone to the north. The north wing holds the Governor's Office, the east and south wings the General Office with its seven bureaus, and the west wing the assembly chamber; in winter the courtyard is roofed over with glass.
     in: div_9s80v8
     offset_km: [0.4, 0.5]
     marker: emblem
     emblem_of: div_hpmerr
-    site: { layout: complex, size_m: [300, 200] }
+    site: { layout: courtyard, size_m: [300, 240] }
   - id: bld_tvev0q
     subtype: dome
     status: generated
@@ -802,3 +802,324 @@ places:
     offset_km: [-3, -2.5]
     site: { size_m: [2800, 900], layout: airport, angle_deg: 20 }
     access_road: true
+
+  # ── 北冰洋领地政务院机构（M42）：库马尔维克区三个楼群，财政部与监管司在帕卢尔尼克金融特区 ──
+  - id: bld_48y99w
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院对外事务部
+      en: Ministry of External Affairs, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 对外事务部
+      en: Ministry of External Affairs
+    notes:
+      zh: 北冰洋领地政务院对外事务部，位于库马尔维克区东北楼群，负责领地的对外交往和与中央政府的联络。部内设政策司、中央政府联络司、外国使领馆司、礼宾司、国际交流司和领事服务司。帕卢尔尼克金融特区吸引了世界各地的银行、科技公司和数据中心客户，许多国家在努卡塔克设有领事馆或商务代表处，外国使领馆司负责与它们联系；国际交流司组织极地科学合作、极光旅游推广和塔夫鲁纳克文化的海外展演，领事服务司为外籍金融和科技从业者办理证明。领地与其他领地没有陆路相连，礼宾司接待的外宾都经航空或破冰船抵达。
+      en: The Ministry of External Affairs of the Arctic Ocean Territory, in the north-east cluster of Qummarvik District, handles the territory's dealings abroad and its liaison with the central government. Its departments are Policy, Central Government Liaison, Foreign Missions, Protocol, International Exchange and Consular Services. The Pallurniq Financial Zone draws banks, technology firms and data-centre clients from all over the world, and many countries keep a consulate or trade office in Nuqattaaq, which the Foreign Missions Department deals with. International Exchange arranges polar science partnerships, promotes aurora tourism and takes Tavrunaq culture abroad, and Consular Services certifies documents for foreign finance and technology workers. With no land link to any other territory, every visitor Protocol receives arrives by air or by icebreaker.
+    in: div_9s80v8
+    offset_km: [0.95, 0.75]
+    site: { size_m: [150, 110], layout: lshape }
+
+  - id: bld_afeq8r
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院财政部
+      en: Ministry of Finance, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 财政部
+      en: Ministry of Finance
+    notes:
+      zh: 北冰洋领地政务院财政部，是少数不在首府市区的政务院机构，设在紧邻库马尔维克区的帕卢尔尼克金融特区，与北冰洋公共银行总部大厦相邻。部内设税收司、关税司、监管司、行政部门预算司、企业事业单位预算司和中央财政事务司。领地财政的一大来源是公共银行的利润，其中一部分作为分红发给领地居民，财政部与公共银行共同核算和发放这笔分红；监管司与财政部同在特区，监督特区内的金融机构，税收司和关税司则留在首府的西面楼群。行政部门预算司编制政务院各部门的预算，中央财政事务司负责与中央财政的往来。
+      en: The Ministry of Finance of the Arctic Ocean Territory is one of the few Executive Council bodies outside the capital's city districts, in the Pallurniq Financial Zone right next to Qummarvik and beside the Arctic Ocean Public Bank Tower. Its departments are Taxation, Customs Tariffs, Supervision, Executive Budgets, Public Enterprise and Institution Budgets, and Central Finance. A large part of the territory's revenue comes from the public bank's profits, some of which are paid to residents as a dividend, and the ministry works out and pays that dividend with the bank. The Supervision Department shares the zone and regulates its financial institutions, while Taxation and Customs Tariffs stay in the capital's west cluster. Executive Budgets draws up the ministries' budgets, and Central Finance handles dealings with the central treasury.
+    in: div_ga9pxy
+    offset_km: [1.3, 0.35]
+    site: { size_m: [160, 90], layout: slab }
+
+  - id: bld_p242j1
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院财政部监管司
+      en: Supervision Department, Ministry of Finance, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 财政部监管司
+      en: Supervision Department
+    notes:
+      zh: 北冰洋领地政务院财政部监管司，与财政部一起设在帕卢尔尼克金融特区，是领地金融监管的执行机构。特区以零税率、不设资本管制、线上即时开户和几分钟自动注册公司为号召，监管司要确保这些便利不被滥用：它审批银行、投资公司和数字资产交易所的执照，实时监测特区内的大额资金流动，检查反洗钱和客户身份核实的执行，并对北冰洋公共银行和四家附属银行进行年度审查。监管司与帕卢尔尼克金融法院、北冰洋国际仲裁中心和公共安全部经济犯罪调查司合作，违规机构会被罚款甚至吊销执照。
+      en: The Supervision Department of the Ministry of Finance shares the Pallurniq Financial Zone with the ministry and carries out the territory's financial regulation. The zone offers zero tax, no capital controls, instant online accounts and companies registered in minutes, and the department makes sure these freedoms are not abused. It licenses banks, investment firms and the digital asset exchange, watches large flows of money in the zone in real time, checks anti-money-laundering and customer identification, and reviews the Arctic Ocean Public Bank and its four subsidiaries every year. It works with the Pallurniq Financial Court, the Arctic Ocean International Arbitration Centre and the Economic Crime Department of the Ministry of Public Security, and firms that break the rules can be fined or lose their licence.
+    in: div_ga9pxy
+    offset_km: [1.3, -0.15]
+    site: { size_m: [130, 80], layout: slab }
+
+  - id: bld_r8rayd
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院财政部税收司
+      en: Taxation Department, Ministry of Finance, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 财政部税收司
+      en: Taxation Department
+    notes:
+      zh: 北冰洋领地政务院财政部税收司，位于库马尔维克区西面楼群，负责领地税收政策的制定和征收。北冰洋领地实行两套税制：帕卢尔尼克金融特区内零税率，特区外按领地税法征收所得税、消费税和资源税，采矿和数据中心是资源税和能源税的主要来源。税收司要防止企业把特区外的经营利润转移到特区内避税，为此与监管司共享企业登记和资金流动的数据；它还管理居民和企业的线上报税系统，提供中文、英文和塔夫鲁纳克语三种界面。税收司留在首府，是为了与交通、资源等经济部门紧密协作。
+      en: The Taxation Department of the Ministry of Finance, in Qummarvik's west cluster, sets and collects the territory's taxes. The territory runs two systems, zero tax inside the Pallurniq Financial Zone and, outside it, income, consumption and resource taxes under territorial tax law, with mining and data centres the main payers of resource and energy taxes. The department has to stop businesses shifting profits earned outside the zone into it to avoid tax, and shares company registration and payment data with the Supervision Department to do so. It also runs online tax returns for residents and businesses in Chinese, English and Tavrunaq, and stays in the capital to work closely with the transport and resource ministries.
+    in: div_9s80v8
+    offset_km: [-1.2, -0.4]
+    site: { size_m: [120, 70], layout: slab }
+
+  - id: bld_6n1rmk
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院财政部关税司
+      en: Customs Tariff Department, Ministry of Finance, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 财政部关税司
+      en: Customs Tariff Department
+    notes:
+      zh: 北冰洋领地政务院财政部关税司，位于库马尔维克区西面楼群，负责领地进出口关税的征收和管理。领地与其他领地没有陆路相连，所有货物都经海运和航空进出：南岸的伊马萨尔维克区港区终年不冻，是主要的进口口岸；北岸港口夏季靠破冰船通航，矿石和精矿从那里出口；努卡塔克国际机场则承担高价值货物和数据中心设备的空运。关税司在这些口岸设有征收点，管理金融特区与领地其他地区之间的货物往来，并为矿产出口和服务器进口设立专门的税目。
+      en: "The Customs Tariff Department of the Ministry of Finance, in Qummarvik's west cluster, collects and manages duties on the territory's imports and exports. With no land link to any other territory, everything comes and goes by sea or air: the ice-free harbour of Immasaarvik District on the south coast is the main port of entry, the north-coast ports open in summer with icebreakers to ship ore and concentrate out, and Nuqattaaq International Airport handles high-value goods and equipment for the data centres. The department collects duties at each of these points, controls goods moving between the financial zone and the rest of the territory and keeps special tariff headings for mineral exports and server imports."
+    in: div_9s80v8
+    offset_km: [-1.5, -0.4]
+    site: { size_m: [120, 70], layout: slab }
+
+  - id: bld_tk59yw
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院司法部
+      en: Ministry of Justice, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 司法部
+      en: Ministry of Justice
+    notes:
+      zh: 北冰洋领地政务院司法部，位于库马尔维克区东南楼群，负责领地法规的起草和实施、检察事务和司法行政。部内设国家法律实施司、领地法规司、法律法规起草和规范司、检察事务司、司法监察司、拘留管理司、社区矫正管理司、司法从业人员司和司法研究司。涉及土地、狩猎和迁徙路线的领地法案须经塔夫鲁利特长老议事会同意，领地法规司负责与议事会协商；法律法规起草和规范司负责法规的中文、英文和塔夫鲁纳克语文本，司法研究司长期研究金融特区的法律和原住民的习惯法。
+      en: The Ministry of Justice of the Arctic Ocean Territory, in Qummarvik's south-east cluster, drafts and applies the territory's laws and runs prosecutions and the administration of justice. Its nine departments are National Law Enforcement, Territorial Regulations, Legislative Drafting and Standards, Prosecutions, Judicial Inspection, Detention, Community Corrections, Legal Professions and Legal Research. Territorial laws on land, hunting and migration routes need the consent of the Tavrulit Council of Elders, and the Territorial Regulations Department consults the council on them; the drafting department prepares the Chinese, English and Tavrunaq texts, and Legal Research has long studied the law of the financial zone and indigenous customary law.
+    in: div_9s80v8
+    offset_km: [0.4, -0.5]
+    site: { size_m: [140, 110], layout: lshape }
+
+  - id: bld_3dbpvp
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院公共安全部
+      en: Ministry of Public Security, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 公共安全部
+      en: Ministry of Public Security
+    notes:
+      zh: 北冰洋领地政务院公共安全部，位于库马尔维克区东南楼群，统一领导领地的警务和治安。部内设警察司、警务司、边境服务和安全司、刑事侦查司、民事侦查司、经济犯罪调查司、社区安全司和技术和装备司。领地面积广大、人口分散，技术和装备司为警察配备雪地车、全地形车、直升机和固定翼飞机，社区安全司在极夜和暴风雪期间组织搜救；经济犯罪调查司与金融特区的监管机构配合，追查利用特区开户和注册公司进行的洗钱和诈骗，边境服务和安全司负责港口和机场的出入境检查。
+      en: The Ministry of Public Security of the Arctic Ocean Territory, in Qummarvik's south-east cluster, directs policing and public order across the territory. Its departments are Police, Policing Operations, Border Services and Security, Criminal Investigation, Civil Investigation, Economic Crime, Community Safety, and Technology and Equipment. The territory is vast and thinly settled, so Technology and Equipment gives the police snowmobiles, all-terrain vehicles, helicopters and light aircraft, and Community Safety organises search and rescue in the polar night and in blizzards. Economic Crime works with the financial zone's regulators to trace money laundering and fraud through accounts and companies opened there, and Border Services and Security checks arrivals at the ports and airports.
+    in: div_9s80v8
+    offset_km: [0.75, -0.5]
+    site: { size_m: [150, 80], layout: slab }
+
+  - id: bld_ct0qar
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院教育、科学和文化部
+      en: Ministry of Education, Science and Culture, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 教育、科学和文化部
+      en: Ministry of Education, Science and Culture
+    notes:
+      zh: 北冰洋领地政务院教育、科学和文化部，位于库马尔维克区东南楼群，管理领地的各级教育、科学研究和文化事业。部内设教育政策司、科学政策司、文化政策司、教育技术司、信息技术司、教育从业人员司、科技从业人员司、文化从业人员司、学前教育司、基础教育司、成人和职业教育司、高等教育司和教育督导署。塔夫鲁纳克语母语者占领地人口一半以上，基础教育司在各地推行中文、英文和塔夫鲁纳克语的三语教学，教育技术司为苔原上的游牧家庭开设远程课堂；科学政策司支持北冰洋大学的极地、冰川和冻土研究，文化政策司保护塔夫鲁纳克语的口述传统和手工艺。
+      en: The Ministry of Education, Science and Culture of the Arctic Ocean Territory, in Qummarvik's south-east cluster, oversees schooling at every level, research and cultural life. Its thirteen units are the Education Policy, Science Policy, Cultural Policy, Educational Technology, Information Technology, Teaching Professions, Science and Technology Professions, Cultural Professions, Pre-school, Basic Education, Adult and Vocational Education and Higher Education departments and the Education Inspectorate. Native speakers of Tavrunaq are more than half the population, so Basic Education teaches in Chinese, English and Tavrunaq, and Educational Technology runs remote classrooms for herding families on the tundra. Science Policy supports polar, glacier and permafrost research at the University of the Arctic Ocean, and Cultural Policy protects Tavrunaq oral tradition and crafts.
+    in: div_9s80v8
+    offset_km: [1.1, -0.5]
+    site: { size_m: [150, 110], layout: lshape }
+
+  - id: bld_sya7b5
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院交通部
+      en: Ministry of Transport, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 交通部
+      en: Ministry of Transport
+    notes:
+      zh: 北冰洋领地政务院交通部，位于库马尔维克区西面楼群，负责领地的道路、铁路、水运和航空。部内设政策司、交通从业人员司、道路运输司、公路司、铁路司、水路司和空运司，其中水路司单独建楼。公路司管理西卢阿高速等干线高速，西卢阿高速全长约两千一百九十公里，是世界最长的高速公路，沿线的防雪长廊和冬季除雪由公路司统一维护；铁路司负责以努卡塔克站为总站的高速铁路，空运司协调努卡塔克国际机场和各地机场的航线，极夜期间偏远地区的物资主要靠空运送达。
+      en: The Ministry of Transport of the Arctic Ocean Territory, in Qummarvik's west cluster, runs the territory's roads, railways, shipping and aviation. Its departments are Policy, Transport Professions, Road Transport, Highways, Railways, Waterways and Air Transport, with Waterways in a building of its own. Highways manages the trunk expressways, among them the Sillua Expressway, at about 2,190 km the longest expressway in the world, and maintains their snow sheds and winter clearing; Railways oversees the high-speed lines that run from Nuqattaaq Station, and Air Transport coordinates the routes of Nuqattaaq International Airport and the regional airports, which carry most supplies to remote places in the polar night.
+    in: div_9s80v8
+    offset_km: [-1.2, 0.3]
+    site: { size_m: [150, 80], layout: slab }
+
+  - id: bld_d6s4eb
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院交通部水路司
+      en: Waterways Department, Ministry of Transport, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 交通部水路司
+      en: Waterways Department
+    notes:
+      zh: 北冰洋领地政务院交通部水路司，在交通部西面单独建楼，管着领地对外运输的命脉。领地与其他领地没有陆路相连，燃料、食品和建材大多经海运进入：南岸有暖流经过，努卡塔克、萨尔瓦克等港口终年不冻；北岸冬季封冻，靠破冰船通航。水路司管理领地的破冰船队，制定北岸航道的开航和封航时间，为货船安排破冰护航；它还负责船舶检验和海上搜救，在北岸各港设有冰情观测站，每天发布海冰预报。
+      en: The Waterways Department of the Ministry of Transport has its own building west of the ministry and looks after the territory's lifeline to the outside world. With no land link to any other territory, most fuel, food and building materials arrive by sea. A warm current keeps Nuqattaaq, Saarvaq and the other south-coast ports open all year, while the north coast freezes in winter and is reached by icebreaker. The department runs the territory's icebreaker fleet, sets the dates when north-coast routes open and close and arranges icebreaker escorts for freighters; it also inspects ships, leads search and rescue at sea and keeps ice observation posts at the north-coast ports, issuing a sea-ice forecast every day.
+    in: div_9s80v8
+    offset_km: [-1.5, 0.3]
+    site: { size_m: [120, 70], layout: slab }
+
+  - id: bld_6asj45
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院建设部
+      en: Ministry of Construction, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 建设部
+      en: Ministry of Construction
+    notes:
+      zh: 北冰洋领地政务院建设部，位于库马尔维克区西面楼群，负责城乡规划、住房和建筑市场。部内设政策司、住房保障司、房地产市场监管司、建筑市场监管司、城市建设司和乡镇建设司。冻土上的建筑大多立在桩基上，底层架空让冷风流过，防止冻土融化，这类建筑规范由建筑市场监管司制定；城市建设司规划了努卡塔克的中央穹顶和成片的暖廊，让市民在极夜和暴风雪里也能步行出门。住房保障司为外来的科技人员和本地家庭提供公共租赁住房，乡镇建设司负责苔原聚落的供暖和供水。
+      en: The Ministry of Construction of the Arctic Ocean Territory, in Qummarvik's west cluster, is in charge of planning, housing and the building trade. Its departments are Policy, Housing Support, Property Market Supervision, Building Market Supervision, Urban Development and Rural Development. Most buildings on the permafrost stand on piles with an open ground floor so that cold air flows underneath and the ground stays frozen, and Building Market Supervision writes those rules; Urban Development planned Nuqattaaq's Central Dome and its network of skyways, which let people walk about in the polar night and in blizzards. Housing Support provides public rental homes for incoming technology workers and local families, and Rural Development brings heating and water to the tundra settlements.
+    in: div_9s80v8
+    offset_km: [-1.2, -0.05]
+    site: { size_m: [140, 110], layout: lshape }
+
+  - id: bld_w766s8
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院民政部
+      en: Ministry of Civil Affairs, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 民政部
+      en: Ministry of Civil Affairs
+    notes:
+      zh: 北冰洋领地政务院民政部，位于库马尔维克区东南楼群，负责社会组织、社会救助和行政区划。部内设政策司、社会组织司、社会救助司、慈善事业司、其他社会事务司和行政区划司。行政区划司管理领地各市、区和塔夫鲁利特原住民自治区的区划，领地的大部分地名用塔夫鲁纳克语原名，新地名由它与长老议事会商定；社会组织司登记驯鹿牧民合作社、狩猎协会和文化团体，社会救助司在极夜期间为独居老人和困难家庭提供燃料补贴和上门探访，其他社会事务司负责婚姻登记和殡葬。
+      en: The Ministry of Civil Affairs of the Arctic Ocean Territory, in Qummarvik's south-east cluster, deals with civil society, social assistance and the administrative divisions. Its departments are Policy, Social Organisations, Social Assistance, Charities, Other Social Affairs and Administrative Divisions. Administrative Divisions manages the boundaries of the cities, the districts and the Tavrulit Indigenous Autonomous Region; most place names in the territory are Tavrunaq, and new ones are agreed with the Council of Elders. Social Organisations registers reindeer herders' co-operatives, hunting associations and cultural groups, Social Assistance gives fuel allowances and home visits to elderly people living alone and to families in hardship during the polar night, and Other Social Affairs handles marriage registration and funerals.
+    in: div_9s80v8
+    offset_km: [0.4, -0.85]
+    site: { size_m: [130, 80], layout: slab }
+
+  - id: bld_wqmg1w
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院劳动和社会保障部
+      en: Ministry of Labour and Social Security, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 劳动和社会保障部
+      en: Ministry of Labour and Social Security
+    notes:
+      zh: 北冰洋领地政务院劳动和社会保障部，位于库马尔维克区东南楼群，负责就业、职业培训、劳动关系和社会保险。部内设就业司、职业能力司、普通工种司、特殊工种司、劳动仲裁司和公共劳动保险司。采矿、破冰航运和极寒野外作业属于高危岗位，特殊工种司规定了低温下的轮班时长和停工标准；职业能力司与北冰洋大学和各地职业学院合作，培养数据中心运维、矿山机械和极地旅游人才，就业司帮助塔夫鲁纳克语社区的年轻人进入金融和科技行业，公共劳动保险司管理领地统一的养老、失业和工伤保险。
+      en: The Ministry of Labour and Social Security of the Arctic Ocean Territory, in Qummarvik's south-east cluster, covers jobs, training, labour relations and social insurance. Its departments are Employment, Vocational Skills, General Trades, Special Trades, Labour Arbitration and Public Labour Insurance. Mining, icebreaker shipping and fieldwork in extreme cold are hazardous trades, and Special Trades sets how long shifts may last at low temperatures and when work must stop. Vocational Skills trains data-centre technicians, mining engineers and polar tourism staff with the University of the Arctic Ocean and the colleges, Employment helps young people from Tavrunaq-speaking communities into finance and technology, and Public Labour Insurance runs the territory-wide pension, unemployment and work-injury schemes.
+    in: div_9s80v8
+    offset_km: [0.75, -0.85]
+    site: { size_m: [130, 80], layout: slab }
+
+  - id: bld_gahex0
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院卫生和人类服务部
+      en: Ministry of Health and Human Services, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 卫生和人类服务部
+      en: Ministry of Health and Human Services
+    notes:
+      zh: 北冰洋领地政务院卫生和人类服务部，位于库马尔维克区东南楼群，负责食品药品安全、医疗卫生、公共保险和公共福利。部内设食品政策司、食品监管司、食品从业人员司、医疗和药品政策司、医疗和药品监管司、医疗和药品从业人员司、医疗和药品技术司、公共健康保险司、其他公共保险司、公共卫生司和公共福利司。领地的新鲜蔬果大多靠进口，食品监管司检验进口食品和本地的驯鹿肉、熏鱼；公共卫生司针对极夜开展光照治疗和心理健康服务，为苔原聚落安排空中医疗，公共健康保险司和公共福利司让居民无论住在哪里都享有同样的医疗报销和福利。
+      en: The Ministry of Health and Human Services of the Arctic Ocean Territory, in Qummarvik's south-east cluster, is responsible for food and drug safety, health care, public insurance and welfare. Its eleven departments are Food Policy, Food Supervision, Food Professions, Medical and Drug Policy, Medical and Drug Supervision, Medical and Drug Professions, Medical and Drug Technology, Public Health Insurance, Other Public Insurance, Public Health and Public Welfare. Most fresh fruit and vegetables are imported, and Food Supervision tests them along with local reindeer meat and smoked fish; Public Health runs light therapy and mental health services for the polar night and flies doctors to the tundra settlements, and Public Health Insurance and Public Welfare give every resident the same cover and benefits wherever they live.
+    in: div_9s80v8
+    offset_km: [1.1, -0.85]
+    site: { size_m: [140, 110], layout: lshape }
+
+  - id: bld_my9p8e
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院自然资源和环境保护部
+      en: Ministry of Natural Resources and Environmental Protection, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 自然资源和环境保护部
+      en: Ministry of Natural Resources and Environmental Protection
+    notes:
+      zh: 北冰洋领地政务院自然资源和环境保护部，位于库马尔维克区西面楼群，负责领地的土地、矿产、冰川和海洋的保护与利用。部内设政策司、自然生态保护司、大陆生态环境司、水生态环境司、海洋生态环境司、大气环境司、土壤生态环境司、固体废物和化学品司、环境影响评价和排放管理司、生态环境监测司和生态环境执法署，其中自然生态保护司单独建楼。环境影响评价和排放管理司审批矿山、数据中心和港口的建设，要求矿山闭矿后复垦苔原；生态环境监测司长期观测西尔米冰盖、冻土和内陆湖泊的变化，水生态环境司管理数据中心的冷却用水。
+      en: The Ministry of Natural Resources and Environmental Protection of the Arctic Ocean Territory, in Qummarvik's west cluster, protects and manages the territory's land, minerals, ice and seas. Its departments are Policy, Nature Conservation, Land Ecology, Freshwater Ecology, Marine Ecology, Air Quality, Soil Ecology, Solid Waste and Chemicals, Environmental Impact and Emissions, and Environmental Monitoring, with an Environmental Enforcement Agency; Nature Conservation has its own building. The impact assessors approve mines, data centres and ports and require mines to restore the tundra when they close, Environmental Monitoring tracks the Sirmi Ice Cap, the permafrost and the inland lakes, and Freshwater Ecology regulates the water the data centres use for cooling.
+    in: div_9s80v8
+    offset_km: [-1.5, -0.05]
+    site: { size_m: [150, 80], layout: slab }
+
+  - id: bld_frqd47
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政务院自然资源和环境保护部自然生态保护司
+      en: Nature Conservation Department, Ministry of Natural Resources and Environmental Protection, Arctic Ocean Territory Executive Council
+    short_names:
+      zh: 自然生态保护司
+      en: Nature Conservation Department
+    notes:
+      zh: 北冰洋领地政务院自然资源和环境保护部自然生态保护司，在部大楼西面单独建楼。领地四成多的土地划为生态保护区和冰盖管理区，自然生态保护司负责它们的划定、巡护和管理：西尔米冰盖管理区、苔原上的驯鹿迁徙通道、海象和北极熊栖息的海岸都在它的名录上。保护区内的狩猎和放牧与塔夫鲁利特长老议事会共同管理，传统的狩猎权受到保障；司里有一支巡护员队伍，乘雪地车和小型飞机巡视保护区，并定期统计野生动物的数量。
+      en: "The Nature Conservation Department of the Ministry of Natural Resources and Environmental Protection has its own building west of the ministry. More than 40 percent of the territory's land is set aside as nature reserves and ice cap management areas, and the department draws their boundaries, patrols them and runs them: the Sirmi Ice Cap management area, the reindeer migration routes across the tundra and the coasts where walrus and polar bears live are all on its lists. Hunting and herding inside the reserves are managed jointly with the Tavrulit Council of Elders, and traditional hunting rights are protected. Its rangers patrol the reserves by snowmobile and light aircraft and count the wildlife."
+    in: div_9s80v8
+    offset_km: [-1.8, -0.05]
+    site: { size_m: [120, 70], layout: slab }
+
+  - id: bld_n462he
+    subtype: government
+    status: generated
+    names:
+      zh: 中央政府常驻北冰洋领地高级国务督办办公室
+      en: Office of the Senior State Commissioner of the Central Government in the Arctic Ocean Territory
+    short_names:
+      zh: 高级国务督办办公室
+      en: Senior State Commissioner's Office
+    notes:
+      zh: 中央政府常驻北冰洋领地高级国务督办办公室，位于库马尔维克区东北楼群，是中央政府派驻领地的最高代表机构。高级国务督办代表中央政府督促国家法律和政策在领地的实施，协调国防、外交等中央事权与领地事务的衔接，例如北冰洋航道的安全、极地科考的国际合作和金融特区监管中涉及境外的部分；领地重大事项需要中央批准时，也由办公室转呈并跟进。办公室与政务院定期举行联席会议，每年向中央政府提交领地情况的报告。
+      en: The Office of the Senior State Commissioner of the Central Government in the Arctic Ocean Territory, in Qummarvik's north-east cluster, is the central government's highest standing representation in the territory. The Senior State Commissioner sees that national laws and policies are carried out and links central responsibilities such as defence and foreign affairs with territorial business, for example the security of the Arctic shipping lanes, international cooperation in polar research and the cross-border side of supervising the financial zone. When a territorial matter needs central approval, the office forwards it and follows it up. It meets the Executive Council in regular joint sessions and reports on the territory to the central government every year.
+    in: div_9s80v8
+    offset_km: [0.75, 1.05]
+    site: { size_m: [80, 80], layout: block }
+
+  - id: bld_n7v763
+    subtype: government
+    status: generated
+    names:
+      zh: 中央政府常驻北冰洋领地巡视员办公室
+      en: Office of the Central Government Inspector in the Arctic Ocean Territory
+    short_names:
+      zh: 巡视员办公室
+      en: Inspector's Office
+    notes:
+      zh: 中央政府常驻北冰洋领地巡视员办公室，位于库马尔维克区东北楼群，由中央政府派驻，负责对领地各级行政机关进行巡视监督。巡视员定期检查政务院各部、各市人民政府和公共企业的政策执行、财政资金使用和廉洁情况，北冰洋公共银行的利润分配和居民分红的发放是巡视的重点之一；去往北岸和苔原上的偏远聚落时，巡视员乘小型飞机，夏季也乘船前往。发现的问题同时报告中央政府和领地总督，并跟踪整改。办公室设有公众来访接待室，也接受网上举报，巡视报告的摘要定期公开。
+      en: The Office of the Central Government Inspector in the Arctic Ocean Territory, in Qummarvik's north-east cluster, is sent by the central government to inspect and oversee the territory's administration at every level. Inspectors regularly check how the ministries, the city governments and public companies carry out policy, spend public money and keep their officials honest, and the share-out of the Arctic Ocean Public Bank's profits and the residents' dividend are a standing focus. To reach the north coast and the tundra settlements they fly in light aircraft or, in summer, go by boat. What they find goes to both the central government and the governor, and they follow it up. The office has a public reception room and takes reports online, and summaries of its reports are published.
+    in: div_9s80v8
+    offset_km: [1.05, 1.05]
+    site: { size_m: [80, 80], layout: block }
+
+  - id: bld_d4vna5
+    subtype: government
+    status: generated
+    names:
+      zh: 中央政府常驻北冰洋领地人权事务高级专员办公室
+      en: Office of the Central Government High Commissioner for Human Rights in the Arctic Ocean Territory
+    short_names:
+      zh: 人权事务高级专员办公室
+      en: Human Rights Commissioner's Office
+    notes:
+      zh: 中央政府常驻北冰洋领地人权事务高级专员办公室，位于库马尔维克区东北楼群，由中央政府派驻，监督领地人权保障的情况。塔夫鲁纳克语母语者占领地人口一半以上，高级专员特别关注原住民的土地和狩猎权利、塔夫鲁纳克语在法庭、学校和公共服务中的使用，以及塔夫鲁利特原住民自治区的自治权；它也关注外来劳动者的权益和拘留场所的条件，可以查阅档案、走访看守所，接受个人申诉，并向领地机关提出建议。办公室每年发布领地人权报告，原住民权利是其中篇幅最长的章节。
+      en: The Office of the Central Government High Commissioner for Human Rights in the Arctic Ocean Territory, in Qummarvik's north-east cluster, is sent by the central government to watch over human rights in the territory. Native speakers of Tavrunaq are more than half the population, and the High Commissioner pays particular attention to indigenous land and hunting rights, the use of Tavrunaq in the courts, schools and public services, and the self-government of the Tavrulit Indigenous Autonomous Region. It also looks at the rights of incoming workers and at conditions in detention, can examine records and visit remand centres, hears individual complaints and makes recommendations to territorial bodies. Indigenous rights take up the longest chapter of its yearly report.
+    in: div_9s80v8
+    offset_km: [1.35, 1.05]
+    site: { size_m: [80, 80], layout: block }
+
+  - id: bld_p5r7bm
+    subtype: government
+    status: generated
+    names:
+      zh: 北冰洋领地政策和计划委员会
+      en: Arctic Ocean Territory Policy and Planning Commission
+    short_names:
+      zh: 政策和计划委员会
+      en: Policy and Planning Commission
+    notes:
+      zh: 北冰洋领地政策和计划委员会，是政务院直属的特设委员会，位于库马尔维克区东北楼群，由总督主持，各部部长、独立专家和塔夫鲁利特长老议事会的代表参加。委员会编制领地的中长期发展规划，协调跨部门的重大政策，评估政策的实施效果；金融特区的扩展、数据中心与电力建设、西卢阿高速这样的大型工程，以及冰盖和冻土变化带来的长期风险，都先在这里形成方案，再提交领地议会。委员会每年发布领地发展报告，公开各市人口、产出和公共服务的指标。
+      en: The Arctic Ocean Territory Policy and Planning Commission is a special commission directly under the Executive Council, in Qummarvik's north-east cluster, chaired by the governor with the ministers, independent experts and representatives of the Tavrulit Council of Elders as members. It draws up the territory's medium- and long-term development plans, coordinates major policies that cross ministries and reviews how they are working. The growth of the financial zone, data centres and power supply, great works like the Sillua Expressway and the long-term risks of a changing ice cap and permafrost all take shape here before going to the territorial parliament. Its yearly development report gives figures on each city's population, output and public services.
+    in: div_9s80v8
+    offset_km: [1.25, 0.75]
+    site: { size_m: [90, 90], layout: block }

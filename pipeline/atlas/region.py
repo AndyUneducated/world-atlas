@@ -657,9 +657,10 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             pt = point_lonlat(frame, c.x / frame.scale, c.y / frame.scale)
         else:
             pt = point_lonlat(frame, x + ox / frame.scale, y + oy / frame.scale)
+        label_names = p.get("short_names", p["names"])
         place_features.append(feature(pt, {
             "id": pid, "subtype": p["subtype"], "marker": p.get("marker", "dot"), "emblem_of": p.get("emblem_of"),
-            "name_zh": p["names"]["zh"], "name_en": p["names"]["en"], "site": pid in sites}))
+            "name_zh": label_names["zh"], "name_en": label_names["en"], "site": pid in sites}))
         lon, lat = pt.coords[0]
         entities[pid].update({"center": [lon, lat], "bbox": [lon - 0.02, lat - 0.01, lon + 0.02, lat + 0.01],
                               "ancestors": [p["in"], *world.ancestors(p["in"])]})
@@ -668,7 +669,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             geom = to_lonlat(affinity.scale(site, 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6)
             facility = p["site"]["layout"] in FACILITY_LAYOUTS
             props = {"id": pid, "subtype": p["subtype"], "layout": p["site"]["layout"], "facility": facility,
-                     "name_zh": p["names"]["zh"], "name_en": p["names"]["en"]}
+                     "name_zh": label_names["zh"], "name_en": label_names["en"]}
             landmark_features.append(feature(geom, props))
             # one label point, or a site spanning several tiles is labelled once per tile
             label = {"label_of": pid, "facility": facility, "layout": props["layout"], "name_zh": props["name_zh"], "name_en": props["name_en"]}
