@@ -10,8 +10,8 @@ features:
       en: Lorond Range
       art-x-viking: Lorondgebirge
     notes:
-      zh: 纵贯北维京岛中部的主山脉，南起杉岭冰川一带，北到德雷卡廷峰和澄湖南面，长一百五十公里左右，最高峰洛龙峰海拔两千七百多米。山脊上自南向北依次排列着洛龙峰、杉顶和德雷卡廷峰，其间的杉岭垭口和龙关是翻越山脉的两处山口；洛龙冰川面积上千平方公里，是山脉中最大的冰川，杉顶、龙首和杉岭冰川较小。厄定河发源于山脉东坡，澄湖则汇集北段的融雪。山脉把全岛分成东西两半，原勒克尔市与原马斯林山市曾大致以山脊为界。如今杉岭公路以洛龙山脉隧道从杉岭垭口附近穿山，环北维京岛高速也在那一带越岭，龙关高速则在德雷卡廷峰以北穿过主脊。
-      en: The main range of North Viking Island, running through the middle of the island from the Fir Ridge Glacier in the south to Drekatind and the country south of Clear Lake in the north, some 150 km in all; its highest summit, Lorond Peak, rises to just over 2,700 m. Along the crest from south to north stand Lorond Peak, Fir Top and Drekatind, with Fir Ridge Col and Dragon Pass as the two passes between them. The Lorond Glacier, more than a thousand square kilometres of ice, is the largest in the range; the Fir Top, Drekatind and Fir Ridge glaciers are smaller. The Erding River rises on its eastern slopes, and Clear Lake gathers the snowmelt of its northern end. The range divides the island into east and west, and its crest once roughly marked the line between the former Lekor and Maslin Mountain cities. Today the Fir Ridge Highway tunnels through near Fir Ridge Col, where the ring expressway also crosses, and the Long Pass Expressway passes beneath the main ridge north of Drekatind.
+      zh: 纵贯北维京岛中部的主山脉，南起纳帕图克冰川一带，北到德雷卡廷峰和克拉尔瓦滕湖南面，长一百五十公里左右，最高峰洛龙峰海拔两千七百多米。山脊上自南向北依次排列着洛龙峰、杉顶和德雷卡廷峰，其间的纳帕图克垭口和卡蒂尔尤阿克是翻越山脉的两处山口；洛龙冰川面积上千平方公里，是山脉中最大的冰川，杉顶、龙首和纳帕图克冰川较小。雅利基卢克河发源于山脉东坡，克拉尔瓦滕湖则汇集北段的融雪。山脉把全岛分成东西两半，原勒克尔市与原马斯林山市曾大致以山脊为界。如今纳帕图克公路以洛龙山脉隧道从纳帕图克垭口附近穿山，环北维京岛高速也在那一带越岭，卡蒂尔尤阿克高速则在德雷卡廷峰以北穿过主脊。
+      en: The main range of North Viking Island, running through the middle of the island from the Napatuuq Glacier in the south to Drekatind and the country south of Lake Klarvatn in the north, some 150 km in all; its highest summit, Lorond Peak, rises to just over 2,700 m. Along the crest from south to north stand Lorond Peak, Fir Top and Drekatind, with Napatuuq Col and Katirjuaq as the two passes between them. The Lorond Glacier, more than a thousand square kilometres of ice, is the largest in the range; the Fir Top, Drekatind and Napatuuq glaciers are smaller. The Jaalikiluk River rises on its eastern slopes, and Lake Klarvatn gathers the snowmelt of its northern end. The range divides the island into east and west, and its crest once roughly marked the line between the former Lekor and Maslin Mountain cities. Today the Napatuuq Highway tunnels through near Napatuuq Col, where the ring expressway also crosses, and the Katirjuaq Expressway passes beneath the main ridge north of Drekatind.
   - id: nat_qsrakx
     subtype: mountain_range
     status: generated
@@ -36,13 +36,13 @@ features:
     subtype: ridge
     status: generated
     names:
-      zh: 贝格兰丘陵
-      en: Bergland Hills
-      art-x-viking: Berglandhügel
-      art-x-buckham: Colli di Bergland
+      zh: 菲亚尔马克丘陵
+      en: Fjallmark Hills
+      art-x-viking: Fjallmarkhügel
+      art-x-buckham: Colli di Fjallmark
     notes:
-      zh: 维京港与自由市之间西北—东南走向的低山，最高处海拔七百八十多米，把两座城市所在的滨海平原隔开。维京语中「贝格兰」意为「山地」，丘陵的大部分属维京港市的贝格兰区，多划为森林公园，只有零散的村镇和别墅区，是维京港人口最少的区；东南端伸入自由市的沙洲区。环北维京岛高速绕行丘陵，自维高速则以四公里长的贝格兰丘陵隧道直穿而过，北河公路沿丘陵东缘下到沙洲。丘陵上是成片的云杉林和桦树林，林间步道和自行车道纵横，周末是两座城市居民共同的后花园。丘陵为两座城市提供水源、木材和休闲空间，新的开发受到严格限制。
-      en: Low hills running north-west to south-east between Viking Port and Freedom City, rising to just under 790 m and separating the coastal plains of the two cities. "Bergland" means "hill country" in Viking. Most of the hills belong to Bergland District of Viking Port, mostly forest park with scattered villages and houses, and the least populous district in the city, while the south-eastern end reaches into Sandbar District of Freedom City. The ring expressway goes round the hills, but the Freedom–Viking Port Expressway runs straight through them in the 4 km Bergland Hills Tunnel, and the North River Highway comes down their eastern edge to Sandbar. The hills are clothed in spruce and birch, criss-crossed by footpaths and cycle trails, and at weekends they are the shared back garden of both cities. The hills supply both with water, timber and room to breathe, and new building is tightly restricted.
+      zh: 维京港与自由市之间西北—东南走向的低山，最高处海拔七百八十多米，把两座城市所在的滨海平原隔开。维京语中「菲亚尔马克」意为「山地」，丘陵的大部分属维京港市的菲亚尔马克区，多划为森林公园，只有零散的村镇和别墅区，是维京港人口最少的区；东南端伸入自由市的沙洲区。环北维京岛高速绕行丘陵，自维高速则以四公里长的菲亚尔马克丘陵隧道直穿而过，北河公路沿丘陵东缘下到沙洲。丘陵上是成片的云杉林和桦树林，林间步道和自行车道纵横，周末是两座城市居民共同的后花园。丘陵为两座城市提供水源、木材和休闲空间，新的开发受到严格限制。
+      en: Low hills running north-west to south-east between Viking Port and Freedom City, rising to just under 790 m and separating the coastal plains of the two cities. "Fjallmark" means "hill country" in Viking. Most of the hills belong to Fjallmark District of Viking Port, mostly forest park with scattered villages and houses, and the least populous district in the city, while the south-eastern end reaches into Sandbar District of Freedom City. The ring expressway goes round the hills, but the Freedom–Viking Port Expressway runs straight through them in the 4 km Fjallmark Hills Tunnel, and the North River Highway comes down their eastern edge to Sandbar. The hills are clothed in spruce and birch, criss-crossed by footpaths and cycle trails, and at weekends they are the shared back garden of both cities. The hills supply both with water, timber and room to breathe, and new building is tightly restricted.
   - id: nat_x9bmeh
     subtype: river
     status: generated
@@ -52,7 +52,7 @@ features:
       art-x-viking: Freifluss
     notes:
       zh: 自由市的母亲河，全长两百三十多公里，流域面积两万五千多平方公里，是北维京岛第二长的河流。自由河发源于首府北面的北河区，先向西流入西北市林道区的森林谷地，再折向南，流过首府所在的台地，在沙洲区注入大海，入海处冲积出连绵的沙洲，沙洲区因此得名。首府坐落在自由河与北河之间的台地上，北维京岛大学、沙洲老渔市和沙洲钟楼都离河不远，滨河地带是首府居民最喜欢的散步去处。环北维京岛高速、自勒高速、西塔高速和观星高速都在河上架桥，北河公路也在河口一带经过。
-      en: The mother river of Freedom City, a little over 230 km long with a basin of more than 25,000 km², the second longest river on North Viking Island. It rises in North River District north of the capital, first flows west into the forested valleys of Lindau District in Northwest City, then turns south across the terrace on which the capital stands and reaches the sea in Sandbar District, where it has built a long chain of sandbars that gave the district its name. The capital lies on the terrace between the Freedom and North rivers; the University of North Viking Island, the Sandbar Old Fish Market and the Sandbar Clock Tower are all close to the river, and its banks are the capital's favourite place for a walk. The ring expressway and the Freedom–Lekor, Northwest–Tavrupukkuvik and Stargazer expressways all bridge the river, and the North River Highway passes near its mouth.
+      en: The mother river of Freedom City, a little over 230 km long with a basin of more than 25,000 km², the second longest river on North Viking Island. It rises in North River District north of the capital, first flows west into the forested valleys of Woodway District in Northwest City, then turns south across the terrace on which the capital stands and reaches the sea in Sandbar District, where it has built a long chain of sandbars that gave the district its name. The capital lies on the terrace between the Freedom and North rivers; the University of North Viking Island, the Sandbar Old Fish Market and the Sandbar Clock Tower are all close to the river, and its banks are the capital's favourite place for a walk. The ring expressway and the Freedom–Lekor, Northwest–Tavrupukkuvik and Stargazer expressways all bridge the river, and the North River Highway passes near its mouth.
   - id: nat_9h7mcd
     subtype: river
     status: generated
@@ -67,19 +67,19 @@ features:
     subtype: river
     status: generated
     names:
-      zh: 厄定河
-      en: Erding River
-      art-x-viking: Erding Fluß
+      zh: 雅利基卢克河
+      en: Jaalikiluk River
+      art-x-viking: Jaalikiluk Fluß
     notes:
-      zh: 北维京岛最长、流域最广的河流，全长三百五十多公里，流域面积四万五千多平方公里。厄定河发源于洛龙山脉东坡的杉岭区，先向东流出山地，穿过新城市的米特区和北苑区，再折向北进入深峡区的峡谷，在谷底汇成碧绿的深峡湖，然后流经上厄定改良区的荒野，汇集洛龙、马斯林两山之间的众水，进入厄定河市的冲积平原，在厄定区的厄定河口注入北部海域。下游平原上是麦田、饲草地和家庭奶牛场，河口宽阔的三角洲湿地是候鸟迁徙的重要停歇地。厄定河公路自新城沿河谷北上直到下游的厄定区，是全岛最长的领道。
-      en: The longest river on North Viking Island and the one with the largest basin, a little over 350 km long and draining more than 45,000 km². The Erding rises on the eastern slopes of the Lorond Range in Fir Ridge District and first flows east out of the mountains through Mitte and North Gardens districts of New City. It then turns north into the gorge of Deep Gorge District, where it fills the emerald Gorge Lake on the valley floor, crosses the wilderness of the Upper Erding Improvement District, gathering the waters between the Lorond and Maslin ranges, and enters the alluvial plain of Erding River City to reach the northern sea at Erding Mouth in Erding District. On the lower plain are cereal fields, fodder meadows and family dairy farms, and the broad delta wetlands at the mouth are a major stopover for migrating birds. The Erding River Highway, the longest territorial highway on the island, follows the valley north from New City to Erding District on the lower river.
+      zh: 北维京岛最长、流域最广的河流，全长三百五十多公里，流域面积四万五千多平方公里。雅利基卢克河发源于洛龙山脉东坡的纳帕图克区，先向东流出山地，穿过新城市的中苑区和北苑区，再折向北进入伊卡苏瓦区的峡谷，在谷底汇成碧绿的伊卡苏瓦湖，然后流经上雅利基卢克改良区的荒野，汇集洛龙、马斯林两山之间的众水，进入雅利基卢克市的冲积平原，在基卢克维克区的雅利基卢克河口注入北部海域。下游平原上是麦田、饲草地和家庭奶牛场，河口宽阔的三角洲湿地是候鸟迁徙的重要停歇地。雅利基卢克河公路自新城沿河谷北上直到下游的基卢克维克区，是全岛最长的领道。
+      en: The longest river on North Viking Island and the one with the largest basin, a little over 350 km long and draining more than 45,000 km². The Jaalikiluk rises on the eastern slopes of the Lorond Range in Napatuuq District and first flows east out of the mountains through Central Gardens and North Gardens districts of New City. It then turns north into the gorge of Ikkasuvva District, where it fills the emerald Lake Ikkasuvva on the valley floor, crosses the wilderness of the Upper Jaalikiluk Improvement District, gathering the waters between the Lorond and Maslin ranges, and enters the alluvial plain of Jaalikiluk City to reach the northern sea at Jaalikiluk Mouth in Kilukvik District. On the lower plain are cereal fields, fodder meadows and family dairy farms, and the broad delta wetlands at the mouth are a major stopover for migrating birds. The Jaalikiluk River Highway, the longest territorial highway on the island, follows the valley north from New City to Kilukvik District on the lower river.
   - id: nat_jaxtgn
     subtype: lake
     status: generated
     names:
-      zh: 澄湖
-      en: Clear Lake
-      art-x-viking: Klarsee
+      zh: 克拉尔瓦滕湖
+      en: Lake Klarvatn
+      art-x-viking: Klarvatn
     notes:
-      zh: 北维京岛面积最大的湖泊，面积两百三十多平方公里，位于勒克尔市澄湖区，北端伸入勒北区。湖水来自洛龙山脉北段的融雪和冰川融水，水质极清，晴天时可以看到几米深的湖底，湖名由此而来。环湖分布着几座小镇和木屋酒店，夏季可以划船、游泳、帆板和垂钓，冬季湖面封冻后成为冰钓和滑冰的乐园；湖里出产鳟鱼和白鲑，烟熏鳟鱼是当地特产。杉岭公路从洛龙山区下来，在湖的南岸到达终点。湖岸的澄湖湖滨公园修有步道、观鸟台和露营地；从北岸南望，德雷卡廷峰一带的雪峰倒映湖中，日出和日落时尤其动人。
-      en: The largest lake on North Viking Island, a little over 230 km², lying in Clearlake District of Lekor with its northern end reaching into Lekor North. It is fed by snowmelt and glacier water from the northern Lorond Range and is exceptionally clear; on a sunny day you can see several metres down to the bottom, hence its name. A few small towns and lakeside lodges ring the shore. In summer there is boating, swimming, windsurfing and angling, and in winter the frozen lake becomes a place for ice fishing and skating; trout and whitefish are caught here, and smoked trout is the local speciality. The Fir Ridge Highway comes down from the mountains to end on the south shore. Clearlake Shore Park has footpaths, bird hides and campsites along the shore, and from the north shore the snow peaks around Drekatind are mirrored in the water, loveliest at sunrise and sunset.
+      zh: 北维京岛面积最大的湖泊，面积两百三十多平方公里，位于勒克尔市克拉尔瓦滕区，北端伸入勒克尔维克区。湖水来自洛龙山脉北段的融雪和冰川融水，水质极清，晴天时可以看到几米深的湖底，湖名由此而来。环湖分布着几座小镇和木屋酒店，夏季可以划船、游泳、帆板和垂钓，冬季湖面封冻后成为冰钓和滑冰的乐园；湖里出产鳟鱼和白鲑，烟熏鳟鱼是当地特产。纳帕图克公路从洛龙山区下来，在湖的南岸到达终点。湖岸的克拉尔瓦滕湖滨公园修有步道、观鸟台和露营地；从北岸南望，德雷卡廷峰一带的雪峰倒映湖中，日出和日落时尤其动人。
+      en: The largest lake on North Viking Island, a little over 230 km², lying in Klarvatn District of Lekor with its northern end reaching into Lekorvik. It is fed by snowmelt and glacier water from the northern Lorond Range and is exceptionally clear; on a sunny day you can see several metres down to the bottom, hence its name. A few small towns and lakeside lodges ring the shore. In summer there is boating, swimming, windsurfing and angling, and in winter the frozen lake becomes a place for ice fishing and skating; trout and whitefish are caught here, and smoked trout is the local speciality. The Napatuuq Highway comes down from the mountains to end on the south shore. Klarvatn Shore Park has footpaths, bird hides and campsites along the shore, and from the north shore the snow peaks around Drekatind are mirrored in the water, loveliest at sunrise and sunset.

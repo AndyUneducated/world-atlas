@@ -380,10 +380,10 @@ places:
     subtype: port
     status: generated
     names:
-      zh: 镜湾港
-      en: Mirror Bay Port
-      art-x-viking: Hafen Spiegelbucht
-      art-x-buckham: Porto di Baia Specchio
+      zh: 斯佩基亚拉港
+      en: Specchiara Port
+      art-x-viking: Hafen Specchiara
+      art-x-buckham: Porto di Specchiara
     notes:
       zh: 贝克勒自由贸易区港口群的主港
       en: Main harbour of the Beckerle Free Trade Zone's port cluster.
@@ -519,13 +519,13 @@ places:
     subtype: castle
     status: generated
     names:
-      zh: 斯坦堡石垒
-      en: Steinburg Stone Fort
-      art-x-viking: Steinburg
+      zh: 格约特斯塔德石垒
+      en: Grjotstad Stone Fort
+      art-x-viking: Grjotstad
       art-x-buckham: Fortezza di Muro Pietra
     notes:
-      zh: 维京时代的石垒遗址，斯坦堡旧城围绕它形成，区名由此而来
-      en: Ruins of a Viking-age stone fort; the old town of Steinburg grew up around it and the district is named after it.
+      zh: 维京时代的石垒遗址，格约特斯塔德旧城围绕它形成，区名由此而来
+      en: Ruins of a Viking-age stone fort; the old town of Grjotstad grew up around it and the district is named after it.
     in: div_t3bfmm
     offset_km: [0, 0]
     site: { size_m: [240, 240], layout: park }
@@ -637,8 +637,8 @@ places:
     status: generated
     names:
       zh: 林道理工学院
-      en: Lindau Institute of Technology
-      art-x-viking: Technische Hochschule Lindau
+      en: Woodway Institute of Technology
+      art-x-viking: Technische Hochschule Waldweg
       art-x-buckham: Politecnico di Via Tiglio
     in: div_fr1vq9
     offset_km: [-2, 1.2]
@@ -664,8 +664,8 @@ places:
       art-x-viking: Stadtregierung Neustad
       art-x-buckham: Governo Cittadino di Neu Teatu
     notes:
-      zh: 米特区新市中心的市政府与市级机关
-      en: The city government and offices at the heart of the new Mitte centre.
+      zh: 中苑区新市中心的市政府与市级机关
+      en: The city government and offices at the heart of the new Central Gardens centre.
     in: div_m2tz6c
     offset_km: [0.3, 0.3]
     site: { layout: complex, size_m: [340, 260] }
@@ -687,10 +687,10 @@ places:
     subtype: park
     status: generated
     names:
-      zh: 米特中央公园
-      en: Mitte Central Park
-      art-x-viking: Zentralpark Mitte
-      art-x-buckham: Parco Centrale del Centro
+      zh: 中苑公园
+      en: Central Gardens Park
+      art-x-viking: Mittelgartenpark
+      art-x-buckham: Parco del Giardino Centrale
     notes:
       zh: 新市中心规划时预留的大公园
       en: A large park set aside when the new centre was planned.
@@ -813,9 +813,9 @@ places:
     subtype: plaza
     status: generated
     names:
-      zh: 丰谷丰收广场
-      en: Harvest Vale Festival Square
-      art-x-viking: Erntefestplatz Erntegau
+      zh: 科恩达尔丰收广场
+      en: Korndal Festival Square
+      art-x-viking: Erntefestplatz Korndal
       art-x-buckham: Piazza della Festa di Messe Valle
     notes:
       zh: 勒克尔丰收节的主会场
@@ -827,13 +827,13 @@ places:
     subtype: winery
     status: generated
     names:
-      zh: 丰谷酒庄
-      en: Harvest Vale Winery
-      art-x-viking: Weingut Erntegau
+      zh: 科恩达尔酒庄
+      en: Korndal Winery
+      art-x-viking: Weingut Korndal
       art-x-buckham: Cantina di Messe Valle
     notes:
-      zh: 丰谷区最大的酒庄，葡萄园与酒窖对游客开放
-      en: The largest winery in Harvest Vale, with vineyards and cellars open to visitors.
+      zh: 科恩达尔区最大的酒庄，葡萄园与酒窖对游客开放
+      en: The largest winery in Korndal, with vineyards and cellars open to visitors.
     in: div_davn2j
     offset_km: [2.6, 1.8]
     site: { layout: park, size_m: [700, 500] }
@@ -841,13 +841,13 @@ places:
     subtype: park
     status: generated
     names:
-      zh: 澄湖湖滨公园
-      en: Clearlake Shore Park
-      art-x-viking: Uferpark Klarsee
+      zh: 克拉尔瓦滕湖滨公园
+      en: Klarvatn Shore Park
+      art-x-viking: Uferpark Klarvatn
       art-x-buckham: Parco Lungolago di Lago Chiaro
     notes:
-      zh: 澄湖岸边的步道、沙滩与游船码头
-      en: Lakeside promenades, a beach and the pleasure-boat pier on Clear Lake.
+      zh: 克拉尔瓦滕湖岸边的步道、沙滩与游船码头
+      en: Lakeside promenades, a beach and the pleasure-boat pier on Lake Klarvatn.
     in: div_t8bg0d
     offset_km: [0, 2.0]
     site: { layout: park, size_m: [800, 400] }
@@ -973,8 +973,8 @@ places:
       art-x-viking: Verwaltung der Freihandelszone Beckerle
       art-x-buckham: Amministrazione della Zona Franca di Beckerle
     notes:
-      zh: 自贸区的管理机构，代行市政府职能，设在镜湾区交易所大道
-      en: The zone's administration, which serves as its city government, on Exchange Avenue in Mirror Bay District.
+      zh: 自贸区的管理机构，代行市政府职能，设在斯佩基亚拉区交易所大道
+      en: The zone's administration, which serves as its city government, on Exchange Avenue in Specchiara District.
     in: div_8p9k5t
     offset_km: [0.3, 0.4]
     site: { layout: complex, size_m: [320, 240] }
@@ -982,13 +982,13 @@ places:
     subtype: tower
     status: generated
     names:
-      zh: 镜湾国际金融中心
-      en: Mirror Bay International Finance Centre
-      art-x-viking: Internationales Finanzzentrum Spiegelbucht
-      art-x-buckham: Centro Finanziario Internazionale di Baia Specchio
+      zh: 斯佩基亚拉国际金融中心
+      en: Specchiara International Finance Centre
+      art-x-viking: Internationales Finanzzentrum Specchiara
+      art-x-buckham: Centro Finanziario Internazionale di Specchiara
     notes:
-      zh: 镜湾天际线上最高的塔楼，离岸银行、结算机构与跨国公司区域总部集中于此
-      en: The tallest tower on the Mirror Bay skyline, home to offshore banks, clearing houses and regional headquarters.
+      zh: 斯佩基亚拉天际线上最高的塔楼，离岸银行、结算机构与跨国公司区域总部集中于此
+      en: The tallest tower on the Specchiara skyline, home to offshore banks, clearing houses and regional headquarters.
     in: div_8p9k5t
     offset_km: [0.9, -0.3]
     site: { layout: tower, size_m: [140, 140] }
@@ -1010,13 +1010,13 @@ places:
     subtype: park
     status: generated
     names:
-      zh: 镜湾滨海公园
-      en: Mirror Bay Waterfront Park
-      art-x-viking: Uferpark Spiegelbucht
-      art-x-buckham: Parco Lungomare di Baia Specchio
+      zh: 斯佩基亚拉滨海公园
+      en: Specchiara Waterfront Park
+      art-x-viking: Uferpark Specchiara
+      art-x-buckham: Parco Lungomare di Specchiara
     notes:
-      zh: 镜湾岸边的步道与草坪，可远眺倒映在湾面上的镜岛
-      en: Promenades and lawns on the shore of Mirror Bay, looking out to Mirror Isle reflected in the water.
+      zh: 斯佩基亚拉湾岸边的步道与草坪，可远眺倒映在湾面上的镜岛
+      en: Promenades and lawns on the shore of Specchiara Bay, looking out to Mirror Isle reflected in the water.
     in: div_8p9k5t
     offset_km: [0.4, 1.1]
     site: { layout: park, size_m: [900, 300] }
@@ -1038,10 +1038,10 @@ places:
     subtype: logistics_park
     status: generated
     names:
-      zh: 燕礁保税物流园
-      en: Swallow Reef Bonded Logistics Park
-      art-x-viking: Zolllager-Logistikpark Schwalbenriff
-      art-x-buckham: Polo Logistico Doganale di Scoglio Rondine
+      zh: 隆迪纳亚保税物流园
+      en: Rondinaia Bonded Logistics Park
+      art-x-viking: Zolllager-Logistikpark Rondinaia
+      art-x-buckham: Polo Logistico Doganale di Rondinaia
     notes:
       zh: 保税仓储与加工贸易的园区，货物在园内存放、加工不需缴纳关税
       en: Bonded warehousing and processing; goods can be stored and worked here without paying customs duty.
@@ -1231,7 +1231,7 @@ places:
     in: div_ts88e3
     offset_km: [-1.0, 0.6]
     site: { layout: park, size_m: [900, 600] }
-  # ── 洛龙山市、马斯林山市与厄定河市地标（M17）──
+  # ── 洛龙山市、马斯林山市与雅利基卢克市地标（M17）──
   - id: bld_tvkhgs
     subtype: townhall
     status: generated
@@ -1241,8 +1241,8 @@ places:
       art-x-viking: Stadtregierung Lorondberg
       art-x-buckham: Governo Cittadino di Lorond Tehee
     notes:
-      zh: 龙关集镇上的市政府，山区三区的公路在此交汇
-      en: The city government in the Dragon Pass market town, where the roads of the three mountain districts meet.
+      zh: 卡蒂尔尤阿克集镇上的市政府，山区三区的公路在此交汇
+      en: The city government in the Katirjuaq market town, where the roads of the three mountain districts meet.
     in: div_j82dgm
     offset_km: [0.2, 0.2]
     site: { layout: complex, size_m: [260, 200] }
@@ -1250,12 +1250,12 @@ places:
     subtype: museum
     status: generated
     names:
-      zh: 龙关驿站博物馆
-      en: Dragon Pass Post House Museum
-      art-x-viking: Museum Posthaus Drachenpass
-      art-x-buckham: Museo della Stazione di Posta di Passo Drago
+      zh: 卡蒂尔尤阿克驿站博物馆
+      en: Katirjuaq Post House Museum
+      art-x-viking: Museum Posthaus Katirjuaq
+      art-x-buckham: Museo della Stazione di Posta di Katirjuaq
     notes:
-      zh: 由翻越龙关的老驿站改建，展出驮队、雪橇与早年的山路
+      zh: 由翻越卡蒂尔尤阿克的老驿站改建，展出驮队、雪橇与早年的山路
       en: The old post house below the pass, with pack trains, sledges and the mountain roads of early days.
     in: div_j82dgm
     offset_km: [-0.6, 0.5]
@@ -1264,13 +1264,13 @@ places:
     subtype: research_institute
     status: generated
     names:
-      zh: 杉岭林业研究所
-      en: Fir Ridge Forestry Institute
-      art-x-viking: Forstinstitut Fichtenkamm
-      art-x-buckham: Istituto Forestale di Abete Tehee
+      zh: 纳帕图克林业研究所
+      en: Napatuuq Forestry Institute
+      art-x-viking: Forstinstitut Napatuuq
+      art-x-buckham: Istituto Forestale di Napatuuq
     notes:
-      zh: 研究云杉林培育、防火与护林的研究所，兼管杉岭的护林站
-      en: Studies spruce forestry, fire prevention and forest care, and runs the Fir Ridge ranger stations.
+      zh: 研究云杉林培育、防火与护林的研究所，兼管纳帕图克的护林站
+      en: Studies spruce forestry, fire prevention and forest care, and runs the Napatuuq ranger stations.
     in: div_k5f1mz
     offset_km: [0.6, 0.4]
     site: { layout: campus, size_m: [400, 300] }
@@ -1278,13 +1278,13 @@ places:
     subtype: park
     status: generated
     names:
-      zh: 杉岭森林公园
-      en: Fir Ridge Forest Park
-      art-x-viking: Waldpark Fichtenkamm
-      art-x-buckham: Parco Forestale di Abete Tehee
+      zh: 纳帕图克森林公园
+      en: Napatuuq Forest Park
+      art-x-viking: Waldpark Napatuuq
+      art-x-buckham: Parco Forestale di Napatuuq
     notes:
-      zh: 杉岭山坡上的云杉原始林，林间步道通往杉岭冰川
-      en: Old-growth spruce on the slopes of Fir Ridge, with trails up towards the Fir Ridge Glacier.
+      zh: 纳帕图克山坡上的云杉原始林，林间步道通往纳帕图克冰川
+      en: Old-growth spruce on the slopes of Napatuuq, with trails up towards the Napatuuq Glacier.
     in: div_k5f1mz
     offset_km: [-1.0, 0.8]
     site: { layout: park, size_m: [1200, 800] }
@@ -1292,13 +1292,13 @@ places:
     subtype: park
     status: generated
     names:
-      zh: 深峡瀑布公园
-      en: Deep Gorge Falls Park
-      art-x-viking: Wasserfallpark Talschlucht
-      art-x-buckham: Parco delle Cascate di Gola Profonda
+      zh: 伊卡苏瓦瀑布公园
+      en: Ikkasuvva Falls Park
+      art-x-viking: Wasserfallpark Ikkasuvva
+      art-x-buckham: Parco delle Cascate di Ikkasuvva
     notes:
-      zh: 深峡观光步道的起点，栈道沿峡谷通往一连串瀑布
-      en: The start of the Deep Gorge trail, where boardwalks follow the gorge past a chain of waterfalls.
+      zh: 伊卡苏瓦观光步道的起点，栈道沿峡谷通往一连串瀑布
+      en: The start of the Ikkasuvva trail, where boardwalks follow the gorge past a chain of waterfalls.
     in: div_0t2t36
     offset_km: [0.8, 0.6]
     site: { layout: park, size_m: [800, 500] }
@@ -1311,8 +1311,8 @@ places:
       art-x-viking: Stadtregierung Maslinberg
       art-x-buckham: Governo Cittadino di Maslin Tehee
     notes:
-      zh: 和平区的市政府，市府由厄定河迁来
-      en: The city government in Peace District, moved here from Erding River.
+      zh: 和平区的市政府，市府由雅利基卢克河迁来
+      en: The city government in Peace District, moved here from Jaalikiluk River.
     in: div_nvrjpg
     offset_km: [0.2, 0.2]
     site: { layout: complex, size_m: [260, 200] }
@@ -1376,13 +1376,13 @@ places:
     subtype: townhall
     status: generated
     names:
-      zh: 厄定河市人民政府
-      en: Erding River City Government
-      art-x-viking: Stadtregierung Erding Fluß
-      art-x-buckham: Governo Cittadino di Erding Rivo
+      zh: 雅利基卢克市人民政府
+      en: Jaalikiluk City Government
+      art-x-viking: Stadtregierung Jaalikiluk
+      art-x-buckham: Governo Cittadino di Jaalikiluk
     notes:
-      zh: 厄定河畔集镇上的市政府
-      en: The city government in the market town on the Erding.
+      zh: 雅利基卢克河畔集镇上的市政府
+      en: The city government in the market town on the Jaalikiluk.
     in: div_qpyn9e
     offset_km: [0.05, 0.05]
     site: { layout: complex, size_m: [220, 160] }
@@ -1390,10 +1390,10 @@ places:
     subtype: museum
     status: generated
     names:
-      zh: 旧府博物馆
-      en: Old Prefecture Museum
-      art-x-viking: Museum Althaupt
-      art-x-buckham: Museo di Palazzo Vecchio
+      zh: 阿基尼克博物馆
+      en: Aaqqiniq Museum
+      art-x-viking: Museum Aaqqiniq
+      art-x-buckham: Museo di Aaqqiniq
     notes:
       zh: 拆市前马斯林山市的市府旧址，现为讲述东北部开发与驯鹿牧业的博物馆
       en: The seat of the old Maslin Mountain City before the split, now a museum of the settlement of the north-east and its reindeer herding.

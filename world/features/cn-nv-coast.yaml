@@ -10,24 +10,24 @@ features:
     detect: { kind: island, at_km: [251.2, 50.2] }
     names: { zh: 斯瓦尔霍尔姆岛, en: Svalholm, art-x-viking: Svalholm }
     notes:
-      zh: 燕礁湾口外的小岛，面积不到十平方公里，却高出海面四百五十多米，几乎整座岛都是陡立的岩壁。每年春季，大群海燕从远海飞回，在岩壁的缝隙和草坡上的洞穴里筑巢产卵，入夜后成千上万只海燕鸣叫着归巢，燕礁区和燕礁湾都因此得名。岛上不住人，也没有码头，观鸟船只能绕岛航行，在保护距离之外观看。斯瓦尔霍尔姆岛与北面的马拉布尔岛之间是宽约九公里的斯瓦尔霍尔姆水道，大型船舶从这里进出燕礁湾。行政上，斯瓦尔霍尔姆岛属天城市的天台区。
-      en: A small island off the mouth of Swallow Reef Bay, under 10 km² yet rising more than 450 m out of the sea, almost all of it sheer rock. Each spring great flocks of storm petrels return from the open ocean to nest in crevices in the cliffs and burrows in the grassy slopes. After dark thousands of birds come back to their nests calling, and both Swallow Reef District and its bay take their names from them. Nobody lives on the island and there is no landing; birdwatching boats circle it at a protected distance. Svalholm Sound, about 9 km wide, lies between it and Marrable Island to the north and is the large ships' way into the bay. The island belongs to Sky Terrace District in Skytown.
+      zh: 隆迪纳亚湾口外的小岛，面积不到十平方公里，却高出海面四百五十多米，几乎整座岛都是陡立的岩壁。每年春季，大群海燕从远海飞回，在岩壁的缝隙和草坡上的洞穴里筑巢产卵，入夜后成千上万只海燕鸣叫着归巢，隆迪纳亚区和隆迪纳亚湾都因此得名。岛上不住人，也没有码头，观鸟船只能绕岛航行，在保护距离之外观看。斯瓦尔霍尔姆岛与北面的马拉布尔岛之间是宽约九公里的斯瓦尔霍尔姆水道，大型船舶从这里进出隆迪纳亚湾。行政上，斯瓦尔霍尔姆岛属天城市的天台区。
+      en: A small island off the mouth of Rondinaia Bay, under 10 km² yet rising more than 450 m out of the sea, almost all of it sheer rock. Each spring great flocks of storm petrels return from the open ocean to nest in crevices in the cliffs and burrows in the grassy slopes. After dark thousands of birds come back to their nests calling, and both Rondinaia District and its bay take their names from them. Nobody lives on the island and there is no landing; birdwatching boats circle it at a protected distance. Svalholm Sound, about 9 km wide, lies between it and Marrable Island to the north and is the large ships' way into the bay. The island belongs to Sky Terrace District in Skytown.
   - id: nat_sq09st
     subtype: island
     status: generated
     detect: { kind: island, at_km: [249.2, 55.2] }
     names: { zh: 马拉布尔岛, en: Marrable Island, art-x-viking: Marrableinsel }
     notes:
-      zh: 燕礁湾口的岛屿，面积近十九平方公里，全岛是一座海拔三百多米的圆顶山丘，四面陡峭。山顶的灯塔为进出镜湾和燕礁湾的船只导航，是东南海岸最重要的航标之一。岛的西侧隔着窄窄的马拉布尔水道与斯瓦尔内斯角相望，南侧隔着宽阔的斯瓦尔霍尔姆水道与斯瓦尔霍尔姆岛相对，大型船舶就从斯瓦尔霍尔姆水道进出燕礁湾。岛上只有灯塔守护人和气象站的工作人员，岩坡上栖息着成群的海燕和燕鸥，岛周围的部分礁石划为海鸟保护区。行政上，马拉布尔岛属天城市的天台区。
-      en: An island at the mouth of Swallow Reef Bay, nearly 19 km², made up of a single domed hill a little over 300 m high with steep sides all round. The lighthouse on its summit guides ships into Mirror Bay and Swallow Reef Bay and is one of the key marks of the south-east coast. To the west, narrow Marrable Sound separates it from Svalnes; to the south, the broad Svalholm Sound lies between it and Svalholm, and that is the way large ships enter the bay. The only residents are the lighthouse keepers and the staff of a weather station, while storm petrels and terns crowd the rocky slopes and some of the surrounding skerries are a seabird reserve. The island belongs to Sky Terrace District in Skytown.
+      zh: 隆迪纳亚湾口的岛屿，面积近十九平方公里，全岛是一座海拔三百多米的圆顶山丘，四面陡峭。山顶的灯塔为进出斯佩基亚拉湾和隆迪纳亚湾的船只导航，是东南海岸最重要的航标之一。岛的西侧隔着窄窄的马拉布尔水道与斯瓦尔内斯角相望，南侧隔着宽阔的斯瓦尔霍尔姆水道与斯瓦尔霍尔姆岛相对，大型船舶就从斯瓦尔霍尔姆水道进出隆迪纳亚湾。岛上只有灯塔守护人和气象站的工作人员，岩坡上栖息着成群的海燕和燕鸥，岛周围的部分礁石划为海鸟保护区。行政上，马拉布尔岛属天城市的天台区。
+      en: An island at the mouth of Rondinaia Bay, nearly 19 km², made up of a single domed hill a little over 300 m high with steep sides all round. The lighthouse on its summit guides ships into Specchiara Bay and Rondinaia Bay and is one of the key marks of the south-east coast. To the west, narrow Marrable Sound separates it from Svalnes; to the south, the broad Svalholm Sound lies between it and Svalholm, and that is the way large ships enter the bay. The only residents are the lighthouse keepers and the staff of a weather station, while storm petrels and terns crowd the rocky slopes and some of the surrounding skerries are a seabird reserve. The island belongs to Sky Terrace District in Skytown.
   - id: nat_xr4bvf
     subtype: island
     status: generated
     detect: { kind: island, at_km: [236.2, 57.8] }
     names: { zh: 镜岛, en: Mirror Isle, art-x-viking: Spiegelinsel }
     notes:
-      zh: 镜湾北部、湾顶附近的岛屿，面积二十四平方公里多，岛中央是一座海拔近两百米的圆丘，北面隔着两公里宽的镜岛水道与铁岬相望。镜湾水深浪静，风平的日子里岛影完整地倒映在湾面上，是贝克勒自由贸易区的标志景观，镜湾滨海公园的长廊正对着这片倒影。岛上保留着成片的松林和草甸，没有高楼和工厂，只有环岛步道和几处观景亭，周末有船从镜湾港载游客上岛。从岛顶南望，镜湾国际金融中心的双塔和自贸区的港口尽收眼底。
-      en: An island near the head of Mirror Bay, a little over 24 km², with a rounded hill almost 200 m high in the middle; to the north it faces Iron Point across Mirror Sound, 2 km wide. The bay is deep and sheltered, and on still days the whole island is reflected in the water, the emblem of the Beckerle Free Trade Zone; the promenade of Mirror Bay Waterfront Park looks straight across at the reflection. The island keeps its pine woods and meadows, with no towers or factories, only a path round the shore and a few viewing pavilions, and at weekends boats from Mirror Bay Port bring visitors over. From the hilltop you look south over the twin towers of the Mirror Bay International Finance Centre and the zone's harbours.
+      zh: 斯佩基亚拉湾北部、湾顶附近的岛屿，面积二十四平方公里多，岛中央是一座海拔近两百米的圆丘，北面隔着两公里宽的镜岛水道与铁岬相望。斯佩基亚拉湾水深浪静，风平的日子里岛影完整地倒映在湾面上，是贝克勒自由贸易区的标志景观，斯佩基亚拉滨海公园的长廊正对着这片倒影。岛上保留着成片的松林和草甸，没有高楼和工厂，只有环岛步道和几处观景亭，周末有船从斯佩基亚拉港载游客上岛。从岛顶南望，斯佩基亚拉国际金融中心的双塔和自贸区的港口尽收眼底。
+      en: An island near the head of Specchiara Bay, a little over 24 km², with a rounded hill almost 200 m high in the middle; to the north it faces Iron Point across Mirror Sound, 2 km wide. The bay is deep and sheltered, and on still days the whole island is reflected in the water, the emblem of the Beckerle Free Trade Zone; the promenade of Specchiara Waterfront Park looks straight across at the reflection. The island keeps its pine woods and meadows, with no towers or factories, only a path round the shore and a few viewing pavilions, and at weekends boats from Specchiara Port bring visitors over. From the hilltop you look south over the twin towers of the Specchiara International Finance Centre and the zone's harbours.
   - id: nat_hzrb58
     subtype: island
     status: generated
@@ -66,18 +66,18 @@ features:
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [246.8, 51.2] }
-    names: { zh: 燕礁湾, en: Swallow Reef Bay, art-x-viking: Schwalbenbucht }
+    names: { zh: 隆迪纳亚湾, en: Rondinaia Bay, art-x-viking: Rondinaiabucht }
     notes:
-      zh: 北维京岛东南海岸的大湾，面积四百一十多平方公里，与西面的镜湾隔着细长的斯瓦尔内斯角半岛并列。湾内暗礁密布，大型船舶必须经斯瓦尔霍尔姆岛与马拉布尔岛之间宽约九公里的斯瓦尔霍尔姆水道进出，马拉布尔岛与斯瓦尔内斯角之间的马拉布尔水道较窄，主要走小船。湾里的离岛和礁石是海燕和燕鸥的繁殖地，每年春夏数以万计的海鸟在礁上筑巢，部分岛礁划为保护区，乘船观鸟是燕礁区独有的旅游项目。湾畔有燕礁保税物流园，南岸公路的终点也在湾边；湾口的两座岛屿则属天城市的天台区。
-      en: The great bay of the south-east coast, a little over 410 km², lying beside Mirror Bay to the west with the slender Swallowtail peninsula between them. Its floor is studded with reefs, so large ships must use Svalholm Sound, about 9 km wide between Svalholm and Marrable Island; the narrower Marrable Sound, between Marrable Island and Svalnes, is mostly for small craft. The islets and reefs inside the bay are breeding grounds for storm petrels and terns, and every spring and summer tens of thousands of seabirds nest on the rocks. Some of them are protected, and birdwatching by boat is Swallow Reef District's own attraction. The Swallow Reef Bonded Logistics Park and the end of the South Coast Highway are on the shore, while the two islands at the mouth belong to Sky Terrace District in Skytown.
+      zh: 北维京岛东南海岸的大湾，面积四百一十多平方公里，与西面的斯佩基亚拉湾隔着细长的斯瓦尔内斯角半岛并列。湾内暗礁密布，大型船舶必须经斯瓦尔霍尔姆岛与马拉布尔岛之间宽约九公里的斯瓦尔霍尔姆水道进出，马拉布尔岛与斯瓦尔内斯角之间的马拉布尔水道较窄，主要走小船。湾里的离岛和礁石是海燕和燕鸥的繁殖地，每年春夏数以万计的海鸟在礁上筑巢，部分岛礁划为保护区，乘船观鸟是隆迪纳亚区独有的旅游项目。湾畔有隆迪纳亚保税物流园，南岸公路的终点也在湾边；湾口的两座岛屿则属天城市的天台区。
+      en: The great bay of the south-east coast, a little over 410 km², lying beside Specchiara Bay to the west with the slender Swallowtail peninsula between them. Its floor is studded with reefs, so large ships must use Svalholm Sound, about 9 km wide between Svalholm and Marrable Island; the narrower Marrable Sound, between Marrable Island and Svalnes, is mostly for small craft. The islets and reefs inside the bay are breeding grounds for storm petrels and terns, and every spring and summer tens of thousands of seabirds nest on the rocks. Some of them are protected, and birdwatching by boat is Rondinaia District's own attraction. The Rondinaia Bonded Logistics Park and the end of the South Coast Highway are on the shore, while the two islands at the mouth belong to Sky Terrace District in Skytown.
   - id: nat_3xvtrb
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [238.8, 51.8] }
-    names: { zh: 镜湾, en: Mirror Bay, art-x-viking: Spiegelbucht }
+    names: { zh: 斯佩基亚拉湾, en: Specchiara Bay, art-x-viking: Specchiarabucht }
     notes:
-      zh: 北维京岛面积最大的海湾，面积四百三十多平方公里，湾口朝南，东面隔着斯瓦尔内斯角半岛与燕礁湾并列，北端收窄为圆形的柳萨湾。湾内水深浪静，风平时水面如镜，镜湾区由此得名。湾顶附近的镜岛与铁岬隔着镜岛水道相望，岛影倒映湾中，是贝克勒自由贸易区的标志景观。湾岸是自贸区的心脏：镜湾国际金融中心和贝克勒国际商品交易所矗立在湾畔，镜湾港停靠游艇和高速客轮，湾外填海建成的保税港区则是集装箱码头和转口加工区。环北维京岛高速从湾北经过，镜湾滨海公园的长廊沿湾岸延伸。
-      en: "The largest bay on North Viking Island, a little over 430 km², opening to the south, with Swallow Reef Bay beside it to the east beyond the Swallowtail peninsula; at its northern end it narrows into the round Ljosa Bay. The water is deep and sheltered and on still days lies as smooth as a mirror, which gave Mirror Bay District its name. Near the head of the bay Mirror Isle faces Iron Point across Mirror Sound, and its reflection on the water is the emblem of the Beckerle Free Trade Zone. The shore is the zone's heart: the Mirror Bay International Finance Centre and the Beckerle International Commodity Exchange stand on the water, Mirror Bay Port takes yachts and fast ferries, and the Bonded Port Zone, built on reclaimed land outside the bay, holds the container terminals and re-export industries. The ring expressway passes the north of the bay, and the promenade of Mirror Bay Waterfront Park runs along its shore."
+      zh: 北维京岛面积最大的海湾，面积四百三十多平方公里，湾口朝南，东面隔着斯瓦尔内斯角半岛与隆迪纳亚湾并列，北端收窄为圆形的柳萨湾。湾内水深浪静，风平时水面如镜，斯佩基亚拉区由此得名。湾顶附近的镜岛与铁岬隔着镜岛水道相望，岛影倒映湾中，是贝克勒自由贸易区的标志景观。湾岸是自贸区的心脏：斯佩基亚拉国际金融中心和贝克勒国际商品交易所矗立在湾畔，斯佩基亚拉港停靠游艇和高速客轮，湾外填海建成的保税港区则是集装箱码头和转口加工区。环北维京岛高速从湾北经过，斯佩基亚拉滨海公园的长廊沿湾岸延伸。
+      en: "The largest bay on North Viking Island, a little over 430 km², opening to the south, with Rondinaia Bay beside it to the east beyond the Swallowtail peninsula; at its northern end it narrows into the round Ljosa Bay. The water is deep and sheltered and on still days lies as smooth as a mirror, which gave Specchiara District its name, from the Buckham word for mirror. Near the head of the bay Mirror Isle faces Iron Point across Mirror Sound, and its reflection on the water is the emblem of the Beckerle Free Trade Zone. The shore is the zone's heart: the Specchiara International Finance Centre and the Beckerle International Commodity Exchange stand on the water, Specchiara Port takes yachts and fast ferries, and the Bonded Port Zone, built on reclaimed land outside the bay, holds the container terminals and re-export industries. The ring expressway passes the north of the bay, and the promenade of Specchiara Waterfront Park runs along its shore."
   - id: nat_np7fbj
     subtype: bay
     status: generated
@@ -100,8 +100,8 @@ features:
     detect: { kind: bay, at_km: [236.2, 63.2] }
     names: { zh: 柳萨湾, en: Ljosa Bay, art-x-viking: Ljosabucht }
     notes:
-      zh: 镜湾最北端的圆形海湾，面积六十多平方公里，柳萨河在湾顶的柳萨河口入海。海湾东岸是天城市的天台区，西岸是萨科勒市的铁岗区，环北维京岛高速从湾顶附近经过。柳萨河从马斯林山脉带下的泥沙在河口淤出浅滩和芦苇荡，涨潮时海鸟成群觅食；东岸的沙滩与度假酒店连成一线，是天城最热闹的海滨之一。海湾向南敞向镜湾，湾口西南侧就是铁岬和镜岛。从岚山森林公园的山顶可以俯瞰整个柳萨湾，远处是马斯林山脉的雪峰。
-      en: The round bay at the northern end of Mirror Bay, a little over 60 km², where the Ljosa River enters at Ljosa Mouth. Its east shore is Sky Terrace District in Skytown and its west shore Iron Knoll District in Sakole, and the ring expressway passes close to its head. Silt carried down from the Maslin Range by the river has built shoals and reed beds at the mouth, where seabirds gather to feed on the rising tide. On the east shore beaches and resort hotels run in an unbroken line, one of the liveliest seafronts in Skytown. To the south the bay opens into Mirror Bay, with Iron Point and Mirror Isle at the south-west corner of its mouth. From the hilltop in Mist Hill Forest Park you can see the whole bay, with the snow peaks of the Maslin Range beyond.
+      zh: 斯佩基亚拉湾最北端的圆形海湾，面积六十多平方公里，柳萨河在湾顶的柳萨河口入海。海湾东岸是天城市的天台区，西岸是萨科勒市的铁岗区，环北维京岛高速从湾顶附近经过。柳萨河从马斯林山脉带下的泥沙在河口淤出浅滩和芦苇荡，涨潮时海鸟成群觅食；东岸的沙滩与度假酒店连成一线，是天城最热闹的海滨之一。海湾向南敞向斯佩基亚拉湾，湾口西南侧就是铁岬和镜岛。从岚山森林公园的山顶可以俯瞰整个柳萨湾，远处是马斯林山脉的雪峰。
+      en: The round bay at the northern end of Specchiara Bay, a little over 60 km², where the Ljosa River enters at Ljosa Mouth. Its east shore is Sky Terrace District in Skytown and its west shore Iron Knoll District in Sakole, and the ring expressway passes close to its head. Silt carried down from the Maslin Range by the river has built shoals and reed beds at the mouth, where seabirds gather to feed on the rising tide. On the east shore beaches and resort hotels run in an unbroken line, one of the liveliest seafronts in Skytown. To the south the bay opens into Specchiara Bay, with Iron Point and Mirror Isle at the south-west corner of its mouth. From the hilltop in Mist Hill Forest Park you can see the whole bay, with the snow peaks of the Maslin Range beyond.
   - id: nat_w3swqc
     subtype: bay
     status: generated
@@ -158,16 +158,16 @@ features:
     detect: { kind: cape, at_km: [235.2, 38.2] }
     names: { zh: 卡波角, en: Cape Capo, art-x-viking: Kap Capo }
     notes:
-      zh: 贝克勒自由贸易区南岸向南突出的岬角，位于卡波湾东侧，卡波区因此得名，巴克汉姆语中「卡波」就是「海角」的意思。岬角是一道陡峭的海崖，崖顶的灯塔为进出卡波湾和镜湾的船只导航，海崖步道沿岬缘延伸，可以眺望卡波湾的船只和起降的飞机，是区里最受欢迎的观景点。卡波区是自贸区的空港与联运枢纽，跑道、货运站和物流仓库离岬角不远，海崖风光与繁忙的空港近在咫尺。贝克勒国际医院也建在附近。
-      en: A headland jutting south from the Beckerle Free Trade Zone's coast on the east side of Capo Bay. Capo District is named after it; in Buckham "capo" means "cape". The point ends in steep sea cliffs, and the lighthouse on top guides ships in and out of Capo Bay and Mirror Bay. A cliff path runs round its edge with views of the boats in the bay and the aircraft landing and taking off, the district's favourite lookout. Capo is the zone's airport and intermodal hub, and its runway, cargo terminals and warehouses are not far from the cape, so the wild cliffs and the busy airport are close neighbours. Beckerle International Hospital stands nearby.
+      zh: 贝克勒自由贸易区南岸向南突出的岬角，位于卡波湾东侧，卡波区因此得名，巴克汉姆语中「卡波」就是「海角」的意思。岬角是一道陡峭的海崖，崖顶的灯塔为进出卡波湾和斯佩基亚拉湾的船只导航，海崖步道沿岬缘延伸，可以眺望卡波湾的船只和起降的飞机，是区里最受欢迎的观景点。卡波区是自贸区的空港与联运枢纽，跑道、货运站和物流仓库离岬角不远，海崖风光与繁忙的空港近在咫尺。贝克勒国际医院也建在附近。
+      en: A headland jutting south from the Beckerle Free Trade Zone's coast on the east side of Capo Bay. Capo District is named after it; in Buckham "capo" means "cape". The point ends in steep sea cliffs, and the lighthouse on top guides ships in and out of Capo Bay and Specchiara Bay. A cliff path runs round its edge with views of the boats in the bay and the aircraft landing and taking off, the district's favourite lookout. Capo is the zone's airport and intermodal hub, and its runway, cargo terminals and warehouses are not far from the cape, so the wild cliffs and the busy airport are close neighbours. Beckerle International Hospital stands nearby.
   - id: nat_6c66xb
     subtype: cape
     status: generated
     detect: { kind: cape, at_km: [245.2, 54.2] }
     names: { zh: 斯瓦尔内斯角, en: Svalnes, art-x-viking: Svalnes }
     notes:
-      zh: 燕礁区一道细长半岛的末端，半岛分隔西面的镜湾与东面的燕礁湾，尖端分叉，形如燕尾，因此得名。岬角外是马拉布尔岛，两者之间是窄窄的马拉布尔水道，小船从这里抄近路进出燕礁湾。半岛上大多是低矮的岩丘和石楠灌丛，海燕和燕鸥在岬角附近的礁石上筑巢，春夏时节海鸟起落不停。燕礁湾和斯瓦尔内斯角构成了燕礁区曲折的海岸线，乘船观鸟的航线常在岬角外绕行。
-      en: The tip of the long, slender peninsula in Swallow Reef District that divides Mirror Bay to the west from Swallow Reef Bay to the east; its forked end looks like a swallow's tail. Off the point lies Marrable Island, with narrow Marrable Sound between them, a short cut for small boats into Swallow Reef Bay. The peninsula is mostly low rocky knolls and heather, and storm petrels and terns nest on the rocks around the point, so in spring and summer the birds come and go all day. Swallow Reef Bay and Svalnes make up the district's ragged coastline, and birdwatching boats often round the point.
+      zh: 隆迪纳亚区一道细长半岛的末端，半岛分隔西面的斯佩基亚拉湾与东面的隆迪纳亚湾，尖端分叉，形如燕尾，因此得名。岬角外是马拉布尔岛，两者之间是窄窄的马拉布尔水道，小船从这里抄近路进出隆迪纳亚湾。半岛上大多是低矮的岩丘和石楠灌丛，海燕和燕鸥在岬角附近的礁石上筑巢，春夏时节海鸟起落不停。隆迪纳亚湾和斯瓦尔内斯角构成了隆迪纳亚区曲折的海岸线，乘船观鸟的航线常在岬角外绕行。
+      en: The tip of the long, slender peninsula in Rondinaia District that divides Specchiara Bay to the west from Rondinaia Bay to the east; its forked end looks like a swallow's tail. Off the point lies Marrable Island, with narrow Marrable Sound between them, a short cut for small boats into Rondinaia Bay. The peninsula is mostly low rocky knolls and heather, and storm petrels and terns nest on the rocks around the point, so in spring and summer the birds come and go all day. Rondinaia Bay and Svalnes make up the district's ragged coastline, and birdwatching boats often round the point.
   - id: nat_qpscw3
     subtype: cape
     status: generated
@@ -198,8 +198,8 @@ features:
     detect: { kind: cape, at_km: [236.2, 59.8] }
     names: { zh: 铁岬, en: Iron Point, art-x-viking: Eisenspitze }
     notes:
-      zh: 铁岗区伸入镜湾北部的岩岬，与南面的镜岛隔着只有两公里宽的镜岛水道相望。岬角的岩石和铁岗山一样富含铁质，岩面被海水和雨水浸出铁锈般的红褐色，夕阳下格外醒目，岬名由此而来。北面不远就是柳萨湾和柳萨河口。镜岛水道水浅流缓，岬下的浅滩是贝类和小鱼聚集的地方，周末常有人来垂钓。站在岬尖，可以看见远处镜湾国际金融中心的双塔，以及倒映在湾面上的镜岛。
-      en: A rocky point of Iron Knoll District reaching into the north of Mirror Bay, facing Mirror Isle to the south across Mirror Sound, only 2 km wide. Like Iron Knoll itself, its rock is rich in iron, and rain and sea have stained it a rusty red-brown that glows in the evening sun, hence its name. Ljosa Bay and the Ljosa River mouth lie a short way north. Mirror Sound is shallow and slow-moving, and the shoals below the point attract shellfish, small fish and, at weekends, anglers. From the tip you can see the twin towers of the Mirror Bay International Finance Centre in the distance and Mirror Isle reflected in the bay.
+      zh: 铁岗区伸入斯佩基亚拉湾北部的岩岬，与南面的镜岛隔着只有两公里宽的镜岛水道相望。岬角的岩石和铁岗山一样富含铁质，岩面被海水和雨水浸出铁锈般的红褐色，夕阳下格外醒目，岬名由此而来。北面不远就是柳萨湾和柳萨河口。镜岛水道水浅流缓，岬下的浅滩是贝类和小鱼聚集的地方，周末常有人来垂钓。站在岬尖，可以看见远处斯佩基亚拉国际金融中心的双塔，以及倒映在湾面上的镜岛。
+      en: A rocky point of Iron Knoll District reaching into the north of Specchiara Bay, facing Mirror Isle to the south across Mirror Sound, only 2 km wide. Like Iron Knoll itself, its rock is rich in iron, and rain and sea have stained it a rusty red-brown that glows in the evening sun, hence its name. Ljosa Bay and the Ljosa River mouth lie a short way north. Mirror Sound is shallow and slow-moving, and the shoals below the point attract shellfish, small fish and, at weekends, anglers. From the tip you can see the twin towers of the Specchiara International Finance Centre in the distance and Mirror Isle reflected in the bay.
   - id: nat_59166f
     subtype: cape
     status: generated
@@ -228,10 +228,10 @@ features:
     subtype: cape
     status: generated
     detect: { kind: cape, at_km: [134.2, 131.8] }
-    names: { zh: 勒北角, en: Lekor North Cape, art-x-viking: Lekor-Nordkap }
+    names: { zh: 勒克尔维克角, en: Lekorvik Cape, art-x-viking: Lekorvikkap }
     notes:
-      zh: 勒克尔市北海岸的岬角，伸入北部海域，是勒北区海岸的标志。岬角附近有一座小港，港湾受岬角庇护，冬季不冻，勒克尔丘陵和河谷出产的粮食和奶制品从这里装船外运，近海的渔船也在此停靠卸货。岬上是开阔的草坡和低矮的海崖，夏季牛羊一直放牧到岬顶，冬季北风强劲，浪花常拍上崖顶。勒北区是北河公路的终点、龙关高速的起点，也是自勒城际铁路的终点，岬角和小港是区里看海的去处。
-      en: A headland on the north coast of Lekor, reaching out into the northern sea and the landmark of Lekor North's shoreline. A small harbour sheltered by the point stays ice-free in winter; grain and dairy produce from the Lekor hills and valleys are shipped from here, and inshore fishing boats land their catch. The point itself is open grassland above low sea cliffs, grazed by cattle and sheep right to the tip in summer, while in winter the north wind drives spray over the cliff tops. Lekor North is where the North River Highway ends, the Long Pass Expressway begins and the intercity railway from Freedom City terminates, and the point and its harbour are where the district goes to look at the sea.
+      zh: 勒克尔市北海岸的岬角，伸入北部海域，是勒克尔维克区海岸的标志。岬角附近有一座小港，港湾受岬角庇护，冬季不冻，勒克尔丘陵和河谷出产的粮食和奶制品从这里装船外运，近海的渔船也在此停靠卸货。岬上是开阔的草坡和低矮的海崖，夏季牛羊一直放牧到岬顶，冬季北风强劲，浪花常拍上崖顶。勒克尔维克区是北河公路的终点、卡蒂尔尤阿克高速的起点，也是自勒城际铁路的终点，岬角和小港是区里看海的去处。
+      en: A headland on the north coast of Lekor, reaching out into the northern sea and the landmark of Lekorvik's shoreline. A small harbour sheltered by the point stays ice-free in winter; grain and dairy produce from the Lekor hills and valleys are shipped from here, and inshore fishing boats land their catch. The point itself is open grassland above low sea cliffs, grazed by cattle and sheep right to the tip in summer, while in winter the north wind drives spray over the cliff tops. Lekorvik is where the North River Highway ends, the Katirjuaq Expressway begins and the intercity railway from Freedom City terminates, and the point and its harbour are where the district goes to look at the sea.
   - id: nat_j3fyfr
     subtype: cape
     status: generated
@@ -256,24 +256,24 @@ features:
     detect: { kind: strait, at_km: [250.5, 52.8] }
     names: { zh: 斯瓦尔霍尔姆水道, en: Svalholm Sound, art-x-viking: Svalholmsund }
     notes:
-      zh: 斯瓦尔霍尔姆岛与马拉布尔岛之间的水道，宽约九公里半，是进出燕礁湾的主航道。燕礁湾内暗礁密布，只有这条水道水深足够、航道清晰，大型货船都经这里驶向湾畔的燕礁保税物流园。航道两侧设有浮标和灯标，马拉布尔岛山顶的灯塔为船只导航，引航员常在水道口登船，带领大船穿过暗礁区。水道南侧的斯瓦尔霍尔姆岛是海燕繁殖的岩岛，春夏时节过往的船员能看到成群的海鸟在岛崖间起落。
-      en: The channel between Svalholm and Marrable Island, about 9.5 km wide and the main fairway into Swallow Reef Bay. The bay is full of reefs, and only this channel has deep enough water and a clear line, so large cargo ships come this way to the shore of the Swallow Reef Bonded Logistics Park. Buoys and lights mark both sides, the lighthouse on Marrable Island guides vessels in, and pilots often board at the mouth to take big ships through the reefs. Svalholm on the south side is a rock where storm petrels breed, and in spring and summer passing crews see flocks of seabirds rising and settling along its cliffs.
+      zh: 斯瓦尔霍尔姆岛与马拉布尔岛之间的水道，宽约九公里半，是进出隆迪纳亚湾的主航道。隆迪纳亚湾内暗礁密布，只有这条水道水深足够、航道清晰，大型货船都经这里驶向湾畔的隆迪纳亚保税物流园。航道两侧设有浮标和灯标，马拉布尔岛山顶的灯塔为船只导航，引航员常在水道口登船，带领大船穿过暗礁区。水道南侧的斯瓦尔霍尔姆岛是海燕繁殖的岩岛，春夏时节过往的船员能看到成群的海鸟在岛崖间起落。
+      en: The channel between Svalholm and Marrable Island, about 9.5 km wide and the main fairway into Rondinaia Bay. The bay is full of reefs, and only this channel has deep enough water and a clear line, so large cargo ships come this way to the shore of the Rondinaia Bonded Logistics Park. Buoys and lights mark both sides, the lighthouse on Marrable Island guides vessels in, and pilots often board at the mouth to take big ships through the reefs. Svalholm on the south side is a rock where storm petrels breed, and in spring and summer passing crews see flocks of seabirds rising and settling along its cliffs.
   - id: nat_ch1td2
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [247.8, 55.8] }
     names: { zh: 马拉布尔水道, en: Marrable Sound, art-x-viking: Marrablesund }
     notes:
-      zh: 马拉布尔岛与斯瓦尔内斯角之间的狭窄水道，宽不到三公里，从西侧连通燕礁湾与外海。水道两侧都是岩岸，中间有几处暗礁，水深变化大，大型船舶不走这里，只有熟悉水情的渔船、观鸟船和游艇从这里抄近路进出燕礁湾。马拉布尔岛山顶的灯塔正对水道，夜间为过往船只指明方向。涨落潮时水道里流速较快，海燕和燕鸥常在水道上空盘旋，捕食被潮水卷起的小鱼。
-      en: The narrow channel between Marrable Island and Svalnes, less than 3 km wide, linking Swallow Reef Bay with the open sea on its western side. Both shores are rock and there are reefs in mid-channel, so the depth changes sharply; large ships avoid it, and only fishing boats, birdwatching boats and yachts that know the water use it as a short cut into the bay. The lighthouse on the island's summit looks straight down the channel and guides boats through at night. The tide runs fast here on the flood and the ebb, and storm petrels and terns wheel overhead, picking off the small fish it stirs up.
+      zh: 马拉布尔岛与斯瓦尔内斯角之间的狭窄水道，宽不到三公里，从西侧连通隆迪纳亚湾与外海。水道两侧都是岩岸，中间有几处暗礁，水深变化大，大型船舶不走这里，只有熟悉水情的渔船、观鸟船和游艇从这里抄近路进出隆迪纳亚湾。马拉布尔岛山顶的灯塔正对水道，夜间为过往船只指明方向。涨落潮时水道里流速较快，海燕和燕鸥常在水道上空盘旋，捕食被潮水卷起的小鱼。
+      en: The narrow channel between Marrable Island and Svalnes, less than 3 km wide, linking Rondinaia Bay with the open sea on its western side. Both shores are rock and there are reefs in mid-channel, so the depth changes sharply; large ships avoid it, and only fishing boats, birdwatching boats and yachts that know the water use it as a short cut into the bay. The lighthouse on the island's summit looks straight down the channel and guides boats through at night. The tide runs fast here on the flood and the ebb, and storm petrels and terns wheel overhead, picking off the small fish it stirs up.
   - id: nat_kgkyyt
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [236.0, 59.0] }
     names: { zh: 镜岛水道, en: Mirror Sound, art-x-viking: Spiegelsund }
     notes:
-      zh: 镜岛与北面铁岬之间的水道，宽只有两公里左右，水浅流缓，连通镜湾北部与湾顶的柳萨湾一带。水道底部是柳萨河带来的细沙和泥，水深只有几米，大船无法通行，只有游艇、皮划艇和小渔船往来。风平浪静时水面像一面镜子，倒映着镜岛的松林和铁岬红褐色的岩壁。水道两岸的浅滩是贝类、小鱼和涉禽聚集的地方，周末常有人在铁岬一侧垂钓。
-      en: The channel between Mirror Isle and Iron Point to the north, only about 2 km wide, shallow and slow, linking the northern part of Mirror Bay with Ljosa Bay at its head. Its floor is fine sand and mud brought down by the Ljosa River, only a few metres deep, so large ships cannot pass; only yachts, kayaks and small fishing boats use it. On calm days the water is a mirror for the island's pines and the rust-red rock of Iron Point. The shallows on either side gather shellfish, small fish and waders, and anglers line the Iron Point side at weekends.
+      zh: 镜岛与北面铁岬之间的水道，宽只有两公里左右，水浅流缓，连通斯佩基亚拉湾北部与湾顶的柳萨湾一带。水道底部是柳萨河带来的细沙和泥，水深只有几米，大船无法通行，只有游艇、皮划艇和小渔船往来。风平浪静时水面像一面镜子，倒映着镜岛的松林和铁岬红褐色的岩壁。水道两岸的浅滩是贝类、小鱼和涉禽聚集的地方，周末常有人在铁岬一侧垂钓。
+      en: The channel between Mirror Isle and Iron Point to the north, only about 2 km wide, shallow and slow, linking the northern part of Specchiara Bay with Ljosa Bay at its head. Its floor is fine sand and mud brought down by the Ljosa River, only a few metres deep, so large ships cannot pass; only yachts, kayaks and small fishing boats use it. On calm days the water is a mirror for the island's pines and the rust-red rock of Iron Point. The shallows on either side gather shellfish, small fish and waders, and anglers line the Iron Point side at weekends.
   - id: nat_5xt2h0
     subtype: strait
     status: generated
