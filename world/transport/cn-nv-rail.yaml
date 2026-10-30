@@ -23,8 +23,8 @@ railways:
       art-x-viking: Intercity-Bahn Veiling Havn–Nordwest
       art-x-buckham: Ferrovia Intercity Veiling Porto–Nordveste
     wonder:
-      zh: 世界最快的铁路，列车以每小时 400 公里运行
-      en: The fastest railway in the world, its trains running at 400 km/h
+      zh: 世界最快的轮轨铁路之一，列车以每小时 400 公里运行
+      en: One of the fastest wheel-on-rail railways in the world, its trains running at 400 km/h
     notes:
       zh: 维西城际铁路连接最大城市维京港、首府自由市和西北，自维京港站出发，经沙洲站、自由市站到西北站，全长约二百七十公里，是全岛运营速度最高的铁路，列车以每小时 400 公里运行，直达最快四十多分钟。沙洲特大桥跨过沙洲河口湿地，是全线最长的桥梁，菲亚尔马克丘陵隧道是最长的隧道。高峰时段每半小时一班，八辆编组的北辰 400 型列车可以重联成十六辆，年客运量二百四十万人次左右，是全岛最繁忙的铁路之一。三座城市之间的商务客流和周末探亲客流占了大部分，冬季公路因暴雪封闭时客流还会明显增加。
       en: The Viking Port–Northwest Intercity Railway links Viking Port, the largest city, with the capital, Freedom City, and with Northwest, running from Viking Port station through Sandbar and Freedom City to Northwest. It is about 270 km long and the fastest railway on the island, with trains running at 400 km/h and the quickest non-stop service taking just over forty minutes. The Sandbar Viaduct across the Sandbar estuary wetlands is its longest bridge and the Fjallmark Hills Tunnel its longest tunnel. At peak times a train leaves every half hour, and the eight-car Polaris 400 sets can run coupled as sixteen. With some 2.4 million trips a year it is one of the busiest lines on the island. Business travel between the three cities and weekend family visits make up most of its traffic, which rises sharply whenever snow closes the roads.
@@ -46,8 +46,8 @@ railways:
       art-x-buckham: Ferrovia Veiling Porto–Beckerle
     wonder:
       structure: tunnel
-      zh: 世界最长的山岭隧道，长约 52 公里
-      en: The longest mountain tunnel in the world, about 52 km
+      zh: 世界最长的高速铁路山岭隧道，长约 52 公里
+      en: The longest high-speed railway mountain tunnel in the world, about 52 km
     notes:
       zh: 维贝铁路是北维京岛的铁路主干，沿岛南部自西向东，经维京港、塔夫鲁普库维克、新城、萨科勒到贝克勒自由贸易区，全长约七百公里，运营速度每小时 350 公里，全程直达约两小时。线路桥隧相连，纳帕图克特大桥和洛龙山脉隧道都是全岛最长的铁路桥隧之一。高峰时段每半小时一班，年客运量一千一百万人次左右，在岛内铁路中居首位。沿线相邻城市之间的通勤客流很大，贝克勒站与港口和自贸区直接相连，商务旅客占了相当比例；新洛铁路的列车也借用它的一段线路。
       en: The Viking Port–Beckerle Railway is the main line of North Viking Island, running west to east across the south of the island through Viking Port, Tavrupukkuvik, New City and Sakole to the Beckerle Free Trade Zone. It is about 700 km long, with trains at 350 km/h taking some two hours non-stop. It runs from bridge to tunnel, and the Napatuuq Viaduct and the Lorond Range Tunnel are among the longest railway structures on the island. At peak times there is a train every half hour, and with some eleven million trips a year it is the busiest railway within the island. Commuting between neighbouring cities is heavy, Beckerle station connects directly with the port and the free trade zone, and business travellers make up a large share; New City–Lorond Mountain trains also use part of its line.
@@ -69,8 +69,8 @@ railways:
       art-x-buckham: Ferrovia Nordveste–Maslin Tehee
     wonder:
       structure: bridge
-      zh: 世界最长的桥梁，长约 77 公里
-      en: The longest bridge in the world, about 77 km
+      zh: 世界最长的铁路桥梁，长约 77 公里
+      en: The longest railway bridge in the world, about 77 km
     notes:
       zh: 西马铁路是北维京岛最长的铁路，自西北站出发，经勒克尔、洛龙山、雅利基卢克河到马斯林山，全长约九百四十公里，运营速度每小时 300 公里，全程直达三小时十分钟左右。卡蒂尔尤阿克特大桥长七十多公里，是全岛最长的桥梁，洛龙山脉隧道穿过山脉主脊；雅利基卢克河谷的冻土路段和驯鹿牧场的连续高架桥也是这条线的特色。高峰时段每半小时一班，年客运量二百二十万人次左右。客流以内陆山城与西北、勒克尔之间的旅客为主，马斯林山发射日前后还会加开前往马斯林山站的临时列车。
       en: The Northwest–Maslin Mountain Railway is the longest railway on North Viking Island, running from Northwest station through Lekor, Lorond Mountain and Jaalikiluk River to Maslin Mountain. It is about 940 km long, with trains at 300 km/h taking around three hours ten minutes non-stop. The Katirjuaq Viaduct, more than 70 km long, is the longest bridge on the island, and the Lorond Range Tunnel passes under the range's main ridge; the permafrost stretches of the Jaalikiluk valley and the long viaducts over the reindeer pastures are also features of the line. At peak times there is a train every half hour, and it carries some 2.2 million trips a year, mostly between the inland mountain cities and Northwest or Lekor; around launch days at Maslin Mountain extra trains run to Maslin Mountain station.

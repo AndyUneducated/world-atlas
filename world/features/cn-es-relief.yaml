@@ -24,8 +24,8 @@ features:
     detect: { kind: peak, at_km: [325.8, 266.8] }
     names: { zh: 洛米图马峰, en: Mount Lomituma, art-x-ivuran: Lomituma }
     notes:
-      zh: 洛米哈努国家公园的最高峰，海拔 2771 米，在蒂拉凯苏山脉与哈努帕拉高原相接的地方，伊武兰语意为「森林之峰」。山坡从低地雨林一直过渡到山地雨林和云雾林，是犀鸟和云豹的栖息地，公园不修上山的公路。
-      en: The highest peak of Lomihanu National Park, 2,771 m, where the Tirakesu Mountains meet the Hanupala Plateau; in Ivuran the name means 'forest peak'. Its slopes run from lowland rainforest up through montane rainforest to cloud forest, home to hornbills and clouded leopards, and the park builds no road up it.
+      zh: 洛米哈努国家公园的最高峰，海拔 2771 米，在蒂拉凯苏山脉与哈努帕拉高原相接的地方，伊武兰语意为「森林之峰」。山坡从低地雨林一直过渡到山地雨林和云雾林，是犀鸟和云豹的栖息地，登顶要走巡护小道。
+      en: The highest peak of Lomihanu National Park, 2,771 m, where the Tirakesu Mountains meet the Hanupala Plateau; in Ivuran the name means 'forest peak'. Its slopes run from lowland rainforest up through montane rainforest to cloud forest, home to hornbills and clouded leopards, and the way to the top is by ranger path.
   - id: nat_kvsems
     subtype: peak
     status: generated

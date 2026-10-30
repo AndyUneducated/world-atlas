@@ -79,8 +79,8 @@ features:
     detect: { kind: river, at_km: [590.2, 154.8] }
     names: { zh: 西尔米河, en: "Sirmi River", art-x-tavrunaq: Sirmikiluk }
     wonder:
-      zh: 世界最长的河流，长约 499 公里
-      en: The longest river in the world, about 499 km
+      zh: 世界最长的极地河流，长约 499 公里
+      en: The longest polar river in the world, about 499 km
     notes:
       zh: 领地最长的河流，长约 499 公里，流域面积约 10.7 万平方公里，也是领地最大的流域。河流源自西尔米冰盖的融水，向南流经内陆矿区、陶瓦尼克区和皮瓦苏瓦区，注入南岸的大海。
       en: The longest river in the territory, about 499 km, with a basin of some 107,000 km², also the largest in the territory. It rises in the meltwater of the Sirmi Ice Cap and flows south through the inland mining zone, Tauvvaniq and Pivasuvva to the sea on the south coast.

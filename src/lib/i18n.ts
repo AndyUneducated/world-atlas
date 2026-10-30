@@ -153,6 +153,9 @@ const STRINGS = {
   power: { zh: "供电", en: "Power" },
   overhead: { zh: "架空接触网", en: "overhead line" },
   thirdRail: { zh: "第三轨", en: "third rail" },
+  levitation: { zh: "悬浮方式", en: "Levitation" },
+  maglevLine: { zh: "磁悬浮城际铁路", en: "Intercity maglev" },
+  propulsion: { zh: "牵引方式", en: "Propulsion" },
   formation: { zh: "编组", en: "Train formation" },
   signalling: { zh: "信号", en: "Signalling" },
   hour: { zh: "小时", en: "h" },
@@ -329,6 +332,7 @@ const NETWORK_LABELS: Record<string, Record<Lang, string>> = {
 };
 
 export function kindLabel(e: Entity, lang: Lang): string {
+  if (e.kind === "route" && e.maglev) return STRINGS.maglevLine[lang];
   if (e.kind === "route") return NETWORK_LABELS[e.network ?? ""]?.[lang] ?? e.class ?? "";
   if (e.subtype === "station" && e.source === "generated:metro") return STRINGS.metroStation[lang];
   if (e.subtype === "station") return STRINGS.railStation[lang];

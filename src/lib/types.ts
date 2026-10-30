@@ -62,6 +62,8 @@ export interface Entity {
   stats?: EntityStats;
   ref?: string;
   network?: string;
+  /** An intercity railway built as a maglev line. */
+  maglev?: boolean;
   class?: string;
   via?: string[];
   ring?: boolean;
@@ -174,6 +176,9 @@ export interface RailTech {
   design_speed_kmh?: number;
   gauge_mm?: number;
   electrification?: string;
+  /** Maglev lines: how the train floats and what drives it, instead of gauge and power supply. */
+  levitation?: Record<Lang, string>;
+  propulsion?: Record<Lang, string>;
   signalling?: string;
   formation?: { cars: number; coupled?: number; type?: string };
   power?: { voltage: string; supply: "overhead" | "third_rail" };

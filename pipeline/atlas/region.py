@@ -988,7 +988,9 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             shared_features.append(feature(to_lonlat(MultiLineString(shared), frame), {"id": r["id"]}))
         ent.update({"class": "rail", "via": ids, **add_line(r["id"], full, {"network": r["network"], "color": r.get("color"),
                                                                         "name_zh": r["names"]["zh"], "name_en": r["names"]["en"]}, drawn=own)})
-        if rail_std := standards.get(r["network"]):
+        if r.get("maglev"):
+            ent["maglev"] = True
+        if rail_std := standards.get("maglev" if r.get("maglev") else r["network"]):
             built_here = sum(1 for sid in dict.fromkeys(ids) if stations[sid]["lines"][0] == r["id"])
             engineer(ent, rail_paths[r["id"]], rail_std, rail_router, r["id"], built_here)
             ent["tech"] = {**rail_std.get("tech", {}), **r.get("tech", {})}

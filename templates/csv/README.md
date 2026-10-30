@@ -77,7 +77,8 @@ npm run data                                    # 重新生成地图
 | 中文名 … 伊武兰语名 | name_zh … name_ivuran | |
 | 停靠 | via | 依次停靠的市或区，用分号分隔，至少两个。停靠市时车站设在该市人口最多的区 |
 | 线路色 | color | `#RRGGBB`，用于线路卡片和车站列表 |
-| 运营速度、设计速度 | operating_speed、design_speed | km/h，运营速度城际铁路 160–400、重载铁路 60–160；轨距、供电、信号、编组统一见 `world/transport/engineering.yaml` |
+| 运营速度、设计速度 | operating_speed、design_speed | km/h，运营速度城际铁路 160–400、磁悬浮 400–650、重载铁路 60–160；轨距、供电、信号、编组统一见 `world/transport/engineering.yaml` |
+| 磁悬浮 | maglev | 只用于城际铁路，填“是”表示磁悬浮线：按 `engineering.yaml` 的 `maglev` 标准造价，不与轮轨线路共用线位 |
 | 每天重车列数 | loaded_trains | 只用于重载铁路：每天满载开往终点的列车数，年货运量据此计算 |
 | 隧道成本 | tunnel_cost | 默认 2.5，越小越倾向于打隧道穿山 |
 | 中文简介、英文简介 | notes_zh、notes_en | |

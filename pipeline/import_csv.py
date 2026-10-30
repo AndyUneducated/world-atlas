@@ -151,6 +151,7 @@ KINDS = {
             Col("color", "线路色", "color", "color"),
             Col("operating_speed", "运营速度", "tech.operating_speed_kmh", "int"),
             Col("design_speed", "设计速度", "tech.design_speed_kmh", "int"),
+            Col("maglev", "磁悬浮", "maglev", "bool"),
             Col("loaded_trains", "每天重车列数", "tech.loaded_trains_per_day", "int"),
             Col("tunnel_cost", "隧道成本", "tunnel_cost", "float"),
             *NOTES,

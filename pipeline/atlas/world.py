@@ -28,7 +28,7 @@ RUNWAY_LAYOUTS = ("airport", "spaceport", "airbase", "launch_track")  # roads an
 COASTAL_LAYOUTS = ("port", "harbour")  # sites centred on the shore
 HARBOUR_TERMINALS = ("container", "bulk", "oil", "roro")
 RAIL_NETWORKS = ("intercity_rail", "freight_rail")
-RAIL_SPEED_KMH = {"intercity_rail": (160, 400), "freight_rail": (60, 160)}  # allowed tech.operating_speed_kmh
+RAIL_SPEED_KMH = {"intercity_rail": (160, 400), "freight_rail": (60, 160), "maglev": (400, 650)}  # allowed tech.operating_speed_kmh
 # Lines whose cards carry a construction background, and who runs them (operators in the territory record).
 BACKGROUND_NETWORKS = ("national_expressway", "territorial_expressway", "territorial_highway", "intercity_rail", "freight_rail")
 OPERATOR_KINDS = ("expressway", "highway", "rail")
@@ -259,8 +259,10 @@ class World:
                     errors.append(f"{rid}: station_names entry {v} is not one of the stops")
             if r.get("color") and not re.match(r"^#[0-9A-Fa-f]{6}$", str(r["color"])):
                 errors.append(f"{rid}: color must be #RRGGBB")
+            if "maglev" in r and (r["maglev"] is not True or r.get("network") != "intercity_rail"):
+                errors.append(f"{rid}: maglev: true is for intercity railways only")
             speed = r.get("tech", {}).get("operating_speed_kmh")
-            lo, hi = RAIL_SPEED_KMH.get(r.get("network"), (160, 400))
+            lo, hi = RAIL_SPEED_KMH.get("maglev" if r.get("maglev") else r.get("network"), (160, 400))
             if speed is not None and not (isinstance(speed, int) and lo <= speed <= hi):
                 errors.append(f"{rid}: tech.operating_speed_kmh must be a whole number of km/h, {lo}–{hi}")
         territories = {g["territory"] for g in self.generators}

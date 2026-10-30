@@ -259,6 +259,8 @@ function TechSection({ entity, lang }: { entity: Entity; lang: Lang }) {
   if (tech.gauge_mm) rows.push([t("gauge", lang), `${formatNumber(tech.gauge_mm, lang)} mm${tech.gauge_mm === 1435 ? ` · ${t("standardGauge", lang)}` : ""}`]);
   if (tech.electrification) rows.push([t("power", lang), `${tech.electrification} · ${t("overhead", lang)}`]);
   if (tech.power) rows.push([t("power", lang), `${tech.power.voltage} · ${t(tech.power.supply === "overhead" ? "overhead" : "thirdRail", lang)}`]);
+  if (tech.levitation) rows.push([t("levitation", lang), tech.levitation[lang]]);
+  if (tech.propulsion) rows.push([t("propulsion", lang), tech.propulsion[lang]]);
   if (tech.formation) {
     const f = tech.formation;
     rows.push([

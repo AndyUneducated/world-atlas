@@ -942,8 +942,8 @@ places:
       zh: 交通部
       en: Ministry of Transport
     notes:
-      zh: 北冰洋领地政务院交通部，位于库马尔维克区西面楼群，负责领地的道路、铁路、水运和航空。部内设政策司、交通从业人员司、道路运输司、公路司、铁路司、水路司和空运司，其中水路司单独建楼。公路司管理西卢阿高速等干线高速，西卢阿高速全长约两千一百九十公里，是世界最长的高速公路，沿线的防雪长廊和冬季除雪由公路司统一维护；铁路司负责以努卡塔克站为总站的高速铁路，空运司协调努卡塔克国际机场和各地机场的航线，极夜期间偏远地区的物资主要靠空运送达。
-      en: The Ministry of Transport of the Arctic Ocean Territory, in Qummarvik's west cluster, runs the territory's roads, railways, shipping and aviation. Its departments are Policy, Transport Professions, Road Transport, Highways, Railways, Waterways and Air Transport, with Waterways in a building of its own. Highways manages the trunk expressways, among them the Sillua Expressway, at about 2,190 km the longest expressway in the world, and maintains their snow sheds and winter clearing; Railways oversees the high-speed lines that run from Nuqattaaq Station, and Air Transport coordinates the routes of Nuqattaaq International Airport and the regional airports, which carry most supplies to remote places in the polar night.
+      zh: 北冰洋领地政务院交通部，位于库马尔维克区西面楼群，负责领地的道路、铁路、水运和航空。部内设政策司、交通从业人员司、道路运输司、公路司、铁路司、水路司和空运司，其中水路司单独建楼。公路司管理西卢阿高速等干线高速，西卢阿高速全长约两千一百九十公里，是世界最长的极地高速公路，沿线的防雪长廊和冬季除雪由公路司统一维护；铁路司负责以努卡塔克站为总站的高速铁路，空运司协调努卡塔克国际机场和各地机场的航线，极夜期间偏远地区的物资主要靠空运送达。
+      en: The Ministry of Transport of the Arctic Ocean Territory, in Qummarvik's west cluster, runs the territory's roads, railways, shipping and aviation. Its departments are Policy, Transport Professions, Road Transport, Highways, Railways, Waterways and Air Transport, with Waterways in a building of its own. Highways manages the trunk expressways, among them the Sillua Expressway, at about 2,190 km the longest polar expressway in the world, and maintains their snow sheds and winter clearing; Railways oversees the high-speed lines that run from Nuqattaaq Station, and Air Transport coordinates the routes of Nuqattaaq International Airport and the regional airports, which carry most supplies to remote places in the polar night.
     in: div_9s80v8
     offset_km: [-1.2, 0.3]
     site: { size_m: [150, 80], layout: slab }

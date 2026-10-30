@@ -245,20 +245,42 @@ metro:
       lines:
         - { district: div_2fhccc, axis: 0 }   # 塔卢区
         - { district: div_py6kpa, axis: 0 }   # 米纳萨区
+        - { district: div_3e94sq, axis: 0 }   # 伊拉坦区
+        - { district: div_yakrhd, axis: 0 }   # 伦博区
     - city: div_24d8z4   # 基拉努市
       names: { zh: 基拉努地铁, en: Kilanu Metro, art-x-ivuran: Kilanu Pitlorai }
       lines:
         - { district: div_rmy0kf, axis: 0 }   # 萨基拉区
         - { district: div_07wzvt, axis: 0 }   # 埃莱努区
+        - { district: div_qr8ay4, axis: 0 }   # 努维拉区
     - city: div_11j4xw   # 瓦利凯市
       names: { zh: 瓦利凯地铁, en: Vallikkai Metro, art-x-ivuran: Vallikkai Pitlorai }
       lines:
         - { district: div_3ytmrh, axis: 0 }   # 坎纳鲁尔区
+        - { district: div_qj7vjy, axis: 0 }   # 图拉凯区
+        - { district: div_0hrhwh, axis: 0 }   # 埃鲁塔姆区
     - city: div_6kjc7x   # 埃武托拉公社
       names: { zh: 埃武托拉地铁, en: Evutola Metro, art-x-ivuran: Evutola Pitlorai }
       lines:
         - { district: div_p3x7j4, axis: 0 }   # 哈马图区
         - { district: div_qp9ner, axis: 0 }   # 奥鲁武区
+    - city: div_khxhrn   # 米雷兰市（首府）
+      names: { zh: 米雷兰地铁, en: Mirelan Metro, art-x-ivuran: Mirelan Pitlorai }
+      lines:
+        - { district: div_z0z4vz, axis: 0 }   # 帕萨卢区，沿规划轴线
+        - { district: div_f0wwdt, axis: 0 }   # 翁贝尔区
+    - city: div_7z142e   # 乌诺卡里市
+      names: { zh: 乌诺卡里地铁, en: Unokari Metro, art-x-ivuran: Unokari Pitlorai }
+      lines:
+        - { district: div_y57m7b, axis: 0 }   # 卡里纳区
+    - city: div_8hy4nc   # 彭纳拉姆市
+      names: { zh: 彭纳拉姆地铁, en: Pennaram Metro, art-x-ivuran: Pennaram Pitlorai }
+      lines:
+        - { district: div_a3c8d6, axis: 0 }   # 马伦杜尔区
+    - city: div_bca7d9   # 纳卢迈市
+      names: { zh: 纳卢迈地铁, en: Nalumai Metro, art-x-ivuran: Nalumai Pitlorai }
+      lines:
+        - { district: div_afy2b3, axis: 0 }   # 塞纳卢区
 
 # Facts the build checks and reports; a failed check is printed as a warning.
 expect:

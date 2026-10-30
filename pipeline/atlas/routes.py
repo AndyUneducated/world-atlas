@@ -172,18 +172,21 @@ def merge_crossings(world: World, entities: dict, layers: dict, graph: dict):
 
 def route_railways(world: World, router: Router, poles, stop_index: dict, territory: str, land: np.ndarray) -> list:
     """Route each railway between its stops, [(railway, stop district indices, path)]. Later lines run on
-    the track of earlier ones wherever that is cheaper than new track."""
+    the track of earlier ones wherever that is cheaper than new track; a maglev guideway shares no track
+    with wheeled lines either way, only crossing them and meeting them at shared stations."""
     out = []
-    for r in world.railways.values():
+    for r in sorted(world.railways.values(), key=lambda r: bool(r.get("maglev"))):
         via = stops_here(r, territory, lambda v: v in stop_index)
         if not via:
             continue
         stops = [stop_index[v] for v in via if v != PORTAL]
         cells = [land_cell(land, router.res, *r["crossing"][territory]) if v == PORTAL else router.cell(*poles[stop_index[v]]) for v in via]
         path = []
+        maglev = r.get("maglev", False)
         for a, b in zip(cells[:-1], cells[1:]):
-            leg = router.route(a, b, r.get("tunnel_cost", 2.5))
+            leg = (router.route(a, b, r.get("tunnel_cost", 2.5), ref=r["id"], shared_factor=6.0, buffer_factor=1.5) if maglev
+                   else router.route(a, b, r.get("tunnel_cost", 2.5)))
             path += leg if not path else leg[1:]
-        router.commit(path, "rail", discount=0.45, ref=r["id"])
+        router.commit(path, "rail", discount=float("inf") if maglev else 0.45, ref=r["id"])
         out.append((r, stops, path))
     return out

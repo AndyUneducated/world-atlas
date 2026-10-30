@@ -122,6 +122,29 @@ standards:
       tracks: 2
       min_curve_radius_m: 7000
       train: { names: { zh: 北辰 400 型, en: Polaris 400 }, seats: 576 }
+  # Intercity railway with maglev: true. Double guideway with the long-stator linear motor built
+  # into it, so no overhead line and no rails; steeper grades than wheeled lines; driverless;
+  # stations costed per stop.
+  maglev:
+    smooth_km: 10
+    max_grade: 0.08
+    tunnel_above_m: 40
+    bridge_below_m: 25
+    river_bridge_km: 0.5
+    urban: { tunnel_depth_km: 5 }
+    hill_factor: 1.3
+    cost_musd_per_km: { grade: 42, bridge: 58, tunnel: 95, snow_shed: 50 }
+    upkeep_kusd_per_km: { grade: 320, bridge: 420, tunnel: 820, snow_shed: 380 }
+    station_musd: 260
+    station_upkeep_musd: 5
+    tech:
+      levitation: { zh: 常导电磁悬浮，悬浮间隙 10 毫米, en: "electromagnetic suspension, 10 mm gap" }
+      propulsion: { zh: 长定子直线同步电机, en: long-stator linear synchronous motor }
+      signalling: GoA4
+      formation: { cars: 10 }
+      tracks: 2
+      min_curve_radius_m: 8000
+      train: { names: { zh: 流星 600 型, en: Meteor 600 }, seats: 620 }
   # Double-track heavy-haul freight line, 25 kV, ballasted; driverless trains; yards are costed per stop.
   freight_rail:
     smooth_km: 6
