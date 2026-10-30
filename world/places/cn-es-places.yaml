@@ -1,0 +1,1210 @@
+# Named places (buildings, landmarks, facilities) of the Everlong Summer Islands.
+# Same conventions as cn-nv-places.yaml; names are Chinese, English and Ivuran (the Executive Council's
+# ministries and offices have Chinese and English names only).
+places:
+  # ── 米雷兰市：湖光大道两端的政务院主楼和领地议会、中段的公民广场和领地图书馆；伊拉米区的研究院和大学 ──
+  - id: bld_bby8as
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政府
+      en: Government of the Everlong Summer Islands
+      art-x-ivuran: Imimu Selovaru Arakam
+    notes:
+      zh: 长夏群岛领地政务院的主楼，在首府米雷兰帕萨卢区湖光大道的北端，是一座回字形的庭院建筑，正门朝南对着整条大道，背后越过高原望向翁贝尔哈努湖。政务院是领地的最高行政机关，由领地总督组织，下设十一个部和若干直属机构；各部大楼沿湖光大道两侧向南排开，中段是公民广场和领地图书馆，南端是领地议会，政务院和议会隔着整条轴线遥遥相对。主楼北翼是总督办公室，东、西两翼是办公厅，南翼是向公众开放的服务大厅；办公厅下设综合行政局、媒体和出版局、财务局、安全局、档案局、采购局和公务员事务局。内院种满雨树和凤凰木，四面的长廊为来访的人遮阳挡雨。
+      en: "The main building of the Everlong Summer Islands Executive Council stands at the north end of Lakelight Avenue in Pasalu District of the capital, Mirelan: a hollow square round a courtyard, its main door facing south down the whole length of the avenue and its back looking out over the plateau towards Lake Ombelhanu. The Executive Council is the territory's highest executive body, formed by the governor, with eleven ministries and several directly attached bodies. The ministries line both sides of Lakelight Avenue southwards, with Civic Square and the Territorial Library half-way along and the Territorial Assembly at the far end, so that government and assembly face each other along the axis. The north wing holds the Governor's Office, the east and west wings the General Office with its bureaus of General Administration, Media and Publishing, Finance, Security, Archives, Procurement and Civil Service Affairs, and the south wing a public service hall. Rain trees and flame trees fill the courtyard, and colonnades on all four sides shelter visitors from sun and rain."
+    in: div_z0z4vz
+    offset_km: [-0.26, 0.91]
+    marker: emblem
+    emblem_of: div_nwm019
+    site: { layout: courtyard, size_m: [300, 240] }
+  - id: bld_855nra
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地议会
+      en: Everlong Summer Islands Territorial Assembly
+      art-x-ivuran: Imimu Selovaru Ondaram
+    notes:
+      zh: 长夏群岛领地的立法机关，在湖光大道南端，与北端的政务院主楼隔着整条轴线相对。议员由各市居民选举产生，审议领地法规、预算和发展规划，质询政务院各部；议事厅里的辩论用中文、英文和伊武兰语进行，同声传译通到每个座位。议会大楼由圆形的议事厅和两翼的办公楼组成，屋顶是一圈宽大的挑檐，檐下的回廊在雨季也能让人不淋雨走到每一扇门。会期内旁听席向公众开放，各地的学生常组团来这里参观。
+      en: The territory's legislature stands at the south end of Lakelight Avenue, facing the Government building at the north end along the whole axis. Its members are elected by the residents of each city and debate the territory's laws, budgets and development plans and question the Council's ministries. Debates in the chamber are held in Chinese, English and Ivuran, with simultaneous interpretation at every seat. The building is a round chamber between two office wings under a broad ring of eaves, whose colonnade lets people reach every door dry even in the rainy season. The public gallery is open while the assembly sits, and school groups from all over the territory come to visit.
+    in: div_z0z4vz
+    offset_km: [0.51, -1.78]
+    site: { layout: complex, size_m: [300, 220] }
+  - id: poi_42vw33
+    subtype: plaza
+    status: generated
+    names:
+      zh: 公民广场
+      en: Civic Square
+      art-x-ivuran: Ondavu Evu
+    notes:
+      zh: 湖光大道中段的大广场，领地的庆典、国宾欢迎仪式和新年集会都在这里举行。广场西侧是领地图书馆，东侧是政策和计划委员会，四周种着成排的雨树，树荫下的长椅午后总坐满了人；旱季的夜晚，广场上有露天电影和音乐会。
+      en: The great square half-way along Lakelight Avenue, where the territory's ceremonies, state welcomes and New Year gatherings take place. The Territorial Library stands on its west side and the Policy and Planning Commission on its east, rain trees line it on every side, and the benches in their shade are full every afternoon; on dry-season evenings there are open-air films and concerts.
+    in: div_z0z4vz
+    offset_km: [0.14, -0.48]
+    site: { layout: plaza, size_m: [500, 240] }
+  - id: bld_wt717j
+    subtype: library
+    status: generated
+    names:
+      zh: 长夏群岛领地图书馆
+      en: Everlong Summer Islands Territorial Library
+      art-x-ivuran: Imimu Selovaru Vilatam
+    notes:
+      zh: 领地的总图书馆，在公民广场西侧，收藏中文、英文和伊武兰语的图书、报刊和档案，古王国时代的棕榈叶手抄本保存在恒温恒湿的地下书库里。阅览室全天开放，各市的公共图书馆和学校图书馆都与它联网，居民可以在任何一处借还。
+      en: The territory's central library, on the west side of Civic Square, holds books, newspapers and archives in Chinese, English and Ivuran, and keeps the palm-leaf manuscripts of the old kingdom in climate-controlled vaults underground. Its reading rooms are open all day, and every city's public and school libraries are linked to it, so residents can borrow and return anywhere.
+    in: div_z0z4vz
+    offset_km: [-0.21, -0.58]
+    site: { layout: block, size_m: [160, 120] }
+  - id: poi_07n4t0
+    subtype: research_institute
+    status: generated
+    names:
+      zh: 长夏群岛热带医学研究院
+      en: Everlong Summer Islands Institute of Tropical Medicine
+      art-x-ivuran: Imimu Selovaru Kilavam
+    notes:
+      zh: 伊拉米区的研究院，研究疟疾、登革热等热带传染病的疫苗和药物，与领地的生物医药企业共建实验室；附属医院接收全领地转来的疑难病人，来自世界各地的学者约占研究人员的三成。
+      en: The institute in Ilami District that develops vaccines and medicines for malaria, dengue and other tropical infections, with laboratories shared with the territory's biomedical firms. Its hospital takes difficult cases referred from all over the territory, and about three in ten of its researchers come from abroad.
+    in: div_56take
+    offset_km: [-0.5, 0.4]
+    site: { layout: campus, size_m: [700, 450] }
+  - id: poi_4dhh8j
+    subtype: university
+    status: generated
+    names:
+      zh: 长夏群岛大学高原校区
+      en: University of the Everlong Summer Islands, Plateau Campus
+      art-x-ivuran: Imimu Selovaru Saluvam Pala
+    notes:
+      zh: 长夏群岛大学在首府的校区，设有医学、公共卫生和农业科学学院，与隔壁的热带医学研究院合办研究生课程；校园在高原上，比沿海凉爽，试验田里种着高原咖啡和稻种。
+      en: The capital campus of the University of the Everlong Summer Islands, with schools of medicine, public health and agricultural science and graduate courses run jointly with the neighbouring Institute of Tropical Medicine. Up on the plateau it is cooler than the coast, and its trial fields grow highland coffee and new rice varieties.
+    in: div_56take
+    offset_km: [1.0, -0.8]
+    site: { layout: campus, size_m: [900, 600] }
+  - id: poi_qkqw91
+    subtype: airport
+    status: generated
+    names:
+      zh: 米雷兰机场
+      en: Mirelan Airport
+      art-x-ivuran: Mirelan Ulavan
+    notes:
+      zh: 首府的机场，在翁贝尔区湖畔高原上，有航班飞往萨伦纳姆、基拉努和各地机场；高原空气稀薄，跑道比沿海机场长一些。
+      en: The capital's airport, on the plateau in Ombel District, with flights to Sarunnam, Kilanu and the other airports; the thin plateau air means its runway is a little longer than those on the coast.
+    in: div_f0wwdt
+    offset_km: [4.5, -1.0]
+    site: { size_m: [3400, 900], layout: airport, angle_deg: 30 }
+    access_road: true
+
+  # ── 长夏群岛领地政务院机构（M45）：米雷兰帕萨卢区湖光大道两侧，北段是对外、财政、司法、治安、民政、建设和中央派驻机构，南段是教科文、交通、卫生、劳社、自然资源及单独建楼的五个司，政策和计划委员会在公民广场东侧 ──
+  - id: bld_jj116n
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院对外事务部
+      en: Ministry of External Affairs, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 对外事务部
+      en: Ministry of External Affairs
+    notes:
+      zh: 长夏群岛领地政务院对外事务部，位于首府米雷兰湖光大道北段西侧，紧邻政务院主楼，负责领地的对外交往和与中央政府的联络。部内设政策司、中央政府联络司、外国使领馆司、礼宾司、国际交流司和领事服务司。领地一半居民是来自中国其他省份和世界各地的移民，外国驻领地的领事馆和商务代表处大多设在萨伦纳姆，由外国使领馆司对口联系；礼宾司在公民广场筹办国宾欢迎仪式，国际交流司组织热带医学、海洋科学和热带农业方面的国际合作，领事服务司用中文、英文和伊武兰语为外国居民办理证明和认证。大楼为 L 形，临街一面是遮阳的长廊。
+      en: The Ministry of External Affairs stands at the north end of Lakelight Avenue in Mirelan, on the west side next to the Government building, and handles the territory's dealings abroad and its liaison with the central government. Its departments are Policy, Central Government Liaison, Foreign Missions, Protocol, International Exchange and Consular Services. Half of the territory's people came from other provinces of China or from abroad, and most foreign consulates and trade offices are in Sarunnam, where the Foreign Missions Department keeps in touch with them. Protocol stages state welcomes on Civic Square, International Exchange arranges cooperation in tropical medicine, ocean science and tropical farming, and Consular Services certifies documents for foreign residents in Chinese, English and Ivuran. The L-shaped building has a shaded colonnade along the avenue.
+    in: div_z0z4vz
+    offset_km: [-0.36, 0.54]
+    site: { size_m: [140, 110], layout: lshape }
+  - id: bld_jfg4ek
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院财政部
+      en: Ministry of Finance, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 财政部
+      en: Ministry of Finance
+    notes:
+      zh: 长夏群岛领地政务院财政部，与对外事务部隔湖光大道相对，管理领地的税收、预算和财政监督。部内设税收司、关税司、监管司、行政部门预算司、企业事业单位预算司和中央财政事务司。领地实行高税收、高福利：个人所得税、社会保险和消费税的税率都较高，公有土地长期出租的租金也是一大笔收入，这些钱支撑着免费到大学的教育、全民医保和按月发放的全民基本收入。埃武托拉公社自定税率，中央财政事务司与公社委员会按协议结算外交、国防等由政务院承担的开支。大楼为长条形板楼，地下是领地的财政档案库。
+      en: "The Ministry of Finance faces the Ministry of External Affairs across Lakelight Avenue and runs the territory's taxes, budgets and financial oversight through its departments of Taxation, Customs Tariffs, Supervision, Executive Budgets, Public Enterprise and Institution Budgets, and Central Finance. The territory taxes heavily and spends generously: income tax, social insurance and consumption tax are all set high, and the rents from public land, which is leased rather than sold, bring in a great deal more. Together they pay for free education up to university, universal health cover and the monthly universal basic income. The Evutola Commune sets its own taxes, and Central Finance settles with the commune council by agreement for the foreign affairs, defence and other services the Executive Council provides. The building is a long slab with the territory's financial archive underground."
+    in: div_z0z4vz
+    offset_km: [0.02, 0.65]
+    site: { size_m: [150, 80], layout: slab }
+  - id: bld_ffpdcg
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院司法部
+      en: Ministry of Justice, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 司法部
+      en: Ministry of Justice
+    notes:
+      zh: 长夏群岛领地政务院司法部，位于湖光大道北段西侧，负责领地法规的起草和实施、检察事务和司法行政。部内设国家法律实施司、领地法规司、法律法规起草和规范司、检察事务司、司法监察司、拘留管理司、社区矫正管理司、司法从业人员司和司法研究司。领地法规以中文、英文和伊武兰语三种文本同时公布，起草和规范司负责三种文本的一致；领地对环境、劳动和食品安全的监管十分严格，检察事务司为此设有专门办理监管案件的检察处。领地的犯罪率很低，社区矫正管理司让大多数轻罪者留在社区里接受矫正和职业培训。大楼为 L 形，内院旁是法律图书馆。
+      en: "The Ministry of Justice, at the north end of Lakelight Avenue on the west side, drafts and applies the territory's laws and runs prosecutions and the administration of justice. It has nine departments: National Law Enforcement, Territorial Regulations, Legislative Drafting and Standards, Prosecutions, Judicial Inspection, Detention, Community Corrections, Legal Professions and Legal Research. Territorial laws are published at once in Chinese, English and Ivuran, and the drafting department keeps the three texts in step. Because the territory regulates the environment, working conditions and food safety so strictly, Prosecutions has an office of its own for regulatory cases. Crime is rare, and Community Corrections lets most minor offenders stay in their communities under supervision and job training. The L-shaped building has a law library beside its inner yard."
+    in: div_z0z4vz
+    offset_km: [-0.31, 0.37]
+    site: { size_m: [140, 110], layout: lshape }
+  - id: bld_8wmf0n
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院公共安全部
+      en: Ministry of Public Security, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 公共安全部
+      en: Ministry of Public Security
+    notes:
+      zh: 长夏群岛领地政务院公共安全部，位于湖光大道北段东侧，统一领导全领地的警务和治安。部内设警察司、警务司、边境服务和安全司、刑事侦查司、民事侦查司、经济犯罪调查司、社区安全司和技术和装备司。边境服务和安全司在瓦利凯、萨伦纳姆和塔卢马兰的港口和各国际机场设口岸检查站，打击走私和偷渡；社区安全司在各市推行社区警务，雨季还负责洪水和山体滑坡的应急救援；技术和装备司为高速公路警察配备在不限速路段使用的巡逻车和直升机。大楼底层是全领地的报警指挥中心，接警员能用中文、英文和伊武兰语应答。
+      en: The Ministry of Public Security, at the north end of Lakelight Avenue on the east side, directs policing and public order across the territory. Its departments are Police, Policing Operations, Border Services and Security, Criminal Investigation, Civil Investigation, Economic Crime, Community Safety, and Technology and Equipment. Border Services and Security runs the checkpoints at the ports of Vallikkai, Sarunnam and Talumaran and at the international airports, working against smuggling and illegal entry; Community Safety runs neighbourhood policing in every city and, in the rainy season, rescue after floods and landslides; and Technology and Equipment supplies the expressway police with the patrol cars and helicopters they use on the unrestricted stretches. The territory's emergency call and dispatch centre is on the ground floor, where call-takers answer in Chinese, English or Ivuran.
+    in: div_z0z4vz
+    offset_km: [0.07, 0.48]
+    site: { size_m: [150, 80], layout: slab }
+  - id: bld_4rwddb
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院民政部
+      en: Ministry of Civil Affairs, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 民政部
+      en: Ministry of Civil Affairs
+    notes:
+      zh: 长夏群岛领地政务院民政部，位于湖光大道北段西侧、长夏大街路口北面，负责社会组织、社会救助和行政区划。部内设政策司、社会组织司、社会救助司、慈善事业司、其他社会事务司和行政区划司。行政区划司管理 12 个市、64 个区的设立、调整和命名，公社、国家公园管理区和军事管理区三种特殊区划也由它审定；领地的地名都取自伊武兰语，中文按读音音译，英文直接用伊武兰语拼写。领地信仰多元，社会组织司登记寺庙、教会和各种协会，其他社会事务司负责婚姻登记、殡葬和退役军人安置，一年里众多节庆假日的安排也由民政部提出。
+      en: The Ministry of Civil Affairs, at the north end of Lakelight Avenue on the west side, just north of the Everlong Summer Boulevard junction, deals with civil society, social assistance and the territory's administrative divisions. Its departments are Policy, Social Organisations, Social Assistance, Charities, Other Social Affairs and Administrative Divisions. Administrative Divisions sets up, adjusts and names the 12 cities and 64 districts, including the three special kinds, the commune, the national park area and the military zone. Every place name comes from Ivuran, transliterated by sound in Chinese and spelt in Ivuran in English. Faith in the territory is varied, and Social Organisations registers temples, churches and associations of every kind; Other Social Affairs handles marriage registration, funerals and the resettlement of veterans, and the ministry proposes the calendar of the territory's many festival holidays.
+    in: div_z0z4vz
+    offset_km: [-0.26, 0.19]
+    site: { size_m: [130, 80], layout: slab }
+  - id: bld_jxj6k0
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院建设部
+      en: Ministry of Construction, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 建设部
+      en: Ministry of Construction
+    notes:
+      zh: 长夏群岛领地政务院建设部，位于湖光大道北段东侧，负责城乡规划、住房和建筑市场。部内设政策司、住房保障司、房地产市场监管司、建筑市场监管司、城市建设司和乡镇建设司。首府米雷兰是按它审定的规划在高原上全新建设的，湖光大道这条轴线就是规划的骨架。领地的土地公有，住宅和厂房用地长期租用，房地产市场监管司管理住房的转租和租金，不许炒卖；住房保障司为各市建设公共租赁住房，租金按收入确定；建筑市场监管司制定适应湿热气候和雨季暴雨的建筑规范，要求新建筑带遮阳长廊和屋顶花园。
+      en: The Ministry of Construction, at the north end of Lakelight Avenue on the east side, is in charge of town and country planning, housing and the building trade. Its departments are Policy, Housing Support, Property Market Supervision, Building Market Supervision, Urban Development and Rural Development. Mirelan was built from scratch on the plateau to a plan it approved, and Lakelight Avenue is the backbone of that plan. Land in the territory is public and leased for homes and factories; Property Market Supervision oversees subletting and rents and forbids speculation, Housing Support builds public rental housing in every city with rents set by income, and Building Market Supervision writes the codes for a hot, humid climate and monsoon downpours, which require new buildings to have shaded colonnades and roof gardens.
+    in: div_z0z4vz
+    offset_km: [0.12, 0.31]
+    site: { size_m: [140, 110], layout: lshape }
+  - id: bld_y4r854
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院教育、科学和文化部
+      en: Ministry of Education, Science and Culture, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 教育、科学和文化部
+      en: Ministry of Education, Science and Culture
+    notes:
+      zh: 长夏群岛领地政务院教育、科学和文化部，位于湖光大道南段西侧、公民广场南面，管理从学前教育到大学的各级教育、领地的科学政策和文化事业。部内设教育政策司、科学政策司、文化政策司、教育技术司、信息技术司、教育从业人员司、科技从业人员司、文化从业人员司、学前教育司、基础教育司、成人和职业教育司、高等教育司和教育督导署。领地的教育从幼儿园到大学全部免费，学校用中文、英文和伊武兰语三种语言教学，长夏群岛大学和基拉努理工大学都由它管理。萨伦纳姆的旧王城和伊什万塔寺庙群由文化政策司负责保护，公民广场旁的领地图书馆也归它管理。
+      en: The Ministry of Education, Science and Culture, at the south end of Lakelight Avenue on the west side, just south of Civic Square, covers education from nursery to university, the territory's science policy and its cultural life. Its thirteen units are the Education Policy, Science Policy, Cultural Policy, Educational Technology, Information Technology, Teaching Professions, Science and Technology Professions, Cultural Professions, Pre-school, Basic Education, Adult and Vocational Education and Higher Education departments and the Education Inspectorate. Education is free from kindergarten to university, schools teach in Chinese, English and Ivuran, and the University of the Everlong Summer Islands and Kilanu University of Technology both come under it. The Cultural Policy Department looks after the old royal city of Sarunnam and the Ishvanta temples, and the Territorial Library on Civic Square is also in its care.
+    in: div_z0z4vz
+    offset_km: [0.06, -0.92]
+    site: { size_m: [150, 110], layout: lshape }
+  - id: bld_3akx22
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院交通部
+      en: Ministry of Transport, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 交通部
+      en: Ministry of Transport
+    notes:
+      zh: 长夏群岛领地政务院交通部，位于湖光大道南段东侧，负责全领地的道路、铁路、水运和航空。部内设政策司、交通从业人员司、道路运输司、公路司、铁路司、水路司和空运司。公路司管理伊米穆、塞洛、纳卢三条国家高速和各条领地高速，伊米穆高速经约 101 公里长的哈努西鲁河口跨海大桥通往基鲁迈群岛，领地的高速公路大多不限速；铁路司监管时速 600 公里的长夏磁悬浮和四条时速 400 公里的高速铁路；水路司监管瓦利凯、塔卢马兰和萨伦纳姆的港口，空运司协调萨伦纳姆国际机场和各地机场的航线。交通从业人员司负责驾驶员、船员和机组的资格考核。
+      en: The Ministry of Transport, at the south end of Lakelight Avenue on the east side, runs the territory's roads, railways, shipping and air transport. Its departments are Policy, Transport Professions, Road Transport, Highways, Railways, Waterways and Air Transport. Highways manages the Imimu, Selo and Nalu national expressways and the territorial expressways; the Imimu Expressway reaches the Kirumai Islands over the Hanusiru Estuary Sea Bridge, about 101 km long, and most of the territory's expressways have no speed limit. Railways oversees the Everlong Summer Maglev at 600 km/h and four high-speed lines at 400 km/h, Waterways the ports of Vallikkai, Talumaran and Sarunnam, and Air Transport the routes of Sarunnam International and the other airports. Transport Professions examines and licenses drivers, seafarers and aircrew.
+    in: div_z0z4vz
+    offset_km: [0.44, -0.81]
+    site: { size_m: [150, 80], layout: slab }
+  - id: bld_hjs12w
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院卫生和人类服务部
+      en: Ministry of Health and Human Services, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 卫生和人类服务部
+      en: Ministry of Health and Human Services
+    notes:
+      zh: 长夏群岛领地政务院卫生和人类服务部，位于湖光大道南段西侧，负责食品药品安全、医疗卫生、公共保险和公共福利，是领地开支最大的部之一。部内设食品政策司、食品监管司、食品从业人员司、医疗和药品政策司、医疗和药品监管司、医疗和药品从业人员司、医疗和药品技术司、公共健康保险司、其他公共保险司、公共卫生司和公共福利司，其中公共福利司、公共健康保险司和食品监管司在大楼后排单独建楼。公共卫生司与伊拉米区的长夏群岛热带医学研究院合作防治疟疾和登革热，并为山区村寨和外岛组织巡回医疗和直升机急救。
+      en: The Ministry of Health and Human Services, at the south end of Lakelight Avenue on the west side, is responsible for food and drug safety, health care, public insurance and public welfare, and is one of the territory's biggest spenders. Its eleven departments are Food Policy, Food Supervision, Food Professions, Medical and Drug Policy, Medical and Drug Supervision, Medical and Drug Professions, Medical and Drug Technology, Public Health Insurance, Other Public Insurance, Public Health and Public Welfare; Public Welfare, Public Health Insurance and Food Supervision have buildings of their own in the row behind. Public Health works with the Institute of Tropical Medicine in Ilami District against malaria and dengue, and sends travelling clinics and air ambulances to the mountain villages and outer islands.
+    in: div_z0z4vz
+    offset_km: [0.11, -1.09]
+    site: { size_m: [140, 110], layout: lshape }
+  - id: bld_hv16vj
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院劳动和社会保障部
+      en: Ministry of Labour and Social Security, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 劳动和社会保障部
+      en: Ministry of Labour and Social Security
+    notes:
+      zh: 长夏群岛领地政务院劳动和社会保障部，位于湖光大道南段东侧，负责就业、职业培训、劳动关系和社会保险。部内设就业司、职业能力司、普通工种司、特殊工种司、劳动仲裁司和公共劳动保险司，其中就业司和劳动仲裁司在大楼后排单独建楼。特殊工种司管理矿山、冶炼、船厂焊接和晶圆厂洁净室等岗位的资格和工时，户外作业的午间高温停工标准也由它制定；职业能力司与各市的职业学院合办半导体、造船和旅游服务课程；公共劳动保险司管理全领地统一的养老、失业和工伤保险，以及父母双方都能享受的长期带薪育儿假。
+      en: The Ministry of Labour and Social Security, at the south end of Lakelight Avenue on the east side, covers jobs, training, labour relations and social insurance. Its departments are Employment, Vocational Skills, General Trades, Special Trades, Labour Arbitration and Public Labour Insurance, of which Employment and Labour Arbitration have buildings of their own in the row behind. Special Trades sets the qualifications and hours for mines, smelters, shipyard welding and chip-plant clean rooms, and the rule that outdoor work stops in the midday heat; Vocational Skills runs courses in semiconductors, shipbuilding and tourism with each city's colleges; and Public Labour Insurance runs the territory-wide pension, unemployment and work-injury schemes and the long paid parental leave that both parents can take.
+    in: div_z0z4vz
+    offset_km: [0.49, -0.98]
+    site: { size_m: [130, 80], layout: slab }
+  - id: bld_hb9wzc
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院自然资源和环境保护部
+      en: Ministry of Natural Resources and Environmental Protection, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 自然资源和环境保护部
+      en: Ministry of Natural Resources and Environmental Protection
+    notes:
+      zh: 长夏群岛领地政务院自然资源和环境保护部，位于湖光大道南段西侧，负责土地、森林、河湖和海洋的保护与利用。部内设政策司、自然生态保护司、大陆生态环境司、水生态环境司、海洋生态环境司、大气环境司、土壤生态环境司、固体废物和化学品司、环境影响评价和排放管理司、生态环境监测司和生态环境执法署。领地的土地全部公有，由它代表领地长期出租；洛米哈努国家公园的热带雨林、马拉坎的珊瑚礁和三角洲的红树林都在它的保护名录上，领地也不许新开油棕种植园。乌诺维拉矿区必须边采边复绿、尾矿回填，生态环境执法署每月派员检查。
+      en: The Ministry of Natural Resources and Environmental Protection, at the south end of Lakelight Avenue on the west side, protects and manages the territory's land, forests, rivers, lakes and seas. Its departments are Policy, Nature Conservation, Land Ecology, Freshwater Ecology, Marine Ecology, Air Quality, Soil Ecology, Solid Waste and Chemicals, Environmental Impact and Emissions, and Environmental Monitoring, with an Environmental Enforcement Agency. All land in the territory is public, and the ministry leases it out on the territory's behalf. The rainforest of Lomihanu National Park, the coral reefs of Malakan and the delta mangroves are on its protected lists, and no new oil palm plantations are allowed. The Unovila mines must replant as they dig and backfill their tailings, and the Enforcement Agency inspects them every month.
+    in: div_z0z4vz
+    offset_km: [0.16, -1.27]
+    site: { size_m: [150, 110], layout: lshape }
+  - id: bld_v4kjt0
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政策和计划委员会
+      en: Everlong Summer Islands Policy and Planning Commission
+    short_names:
+      zh: 政策和计划委员会
+      en: Policy and Planning Commission
+    notes:
+      zh: 长夏群岛领地政策和计划委员会，是政务院直属的特设委员会，位于公民广场东侧，与领地图书馆隔广场相对。委员会由总督主持，各部部长和独立专家参加，负责编制领地的中长期发展规划，协调跨部门的重大政策，并评估各项政策的实施效果。在高原上新建首府、修建长夏磁悬浮和哈努西鲁河口跨海大桥、把乌诺维拉的镍矿和塔卢马兰的电池厂连成产业链，这些大项目都是先在这里形成方案，再提交议会的；委员会每年发布领地发展报告，公开各市的人口、产出、公共服务和居民幸福感调查的结果。大楼是一座方形独栋，四面装有遮阳的格栅。
+      en: The Everlong Summer Islands Policy and Planning Commission is a special commission directly under the Executive Council, on the east side of Civic Square facing the Territorial Library across it. Chaired by the governor, with the ministers and independent experts as members, it draws up the territory's medium- and long-term development plans, coordinates major policies that cross ministries and reviews how policies are working. Building a new capital on the plateau, the Everlong Summer Maglev and the Hanusiru Estuary Sea Bridge, and linking the Unovila nickel mines to the Talumaran battery plants all took shape here before going to the assembly. Every year the commission publishes a development report with each city's population, output, public services and the results of the residents' happiness survey. The square building is screened on all four sides by sun louvres.
+    in: div_z0z4vz
+    offset_km: [0.48, -0.38]
+    site: { size_m: [90, 90], layout: block }
+  - id: bld_7tnsnf
+    subtype: government
+    status: generated
+    names:
+      zh: 中央政府常驻长夏群岛领地高级国务督办办公室
+      en: Office of the Senior State Commissioner of the Central Government in the Everlong Summer Islands
+    short_names:
+      zh: 高级国务督办办公室
+      en: Senior State Commissioner's Office
+    notes:
+      zh: 中央政府常驻长夏群岛领地高级国务督办办公室，位于湖光大道北段西侧第二排，是中央政府派驻领地的最高代表机构。高级国务督办代表中央政府督促国家法律和政策在领地的实施，协调国防、外交等中央事权与领地事务的衔接，例如瓦希拉群岛海军基地和空军基地的驻地安排、国际航线和远洋航运口岸的开放；埃武托拉公社的外交和国防事务也经办公室与中央衔接。领地重大事项需要中央批准时，由办公室转呈并跟进。办公室与政务院定期举行联席会议，每年向中央政府提交领地情况的报告。大楼为方形独栋，门前悬挂国旗和领地旗。
+      en: The Office of the Senior State Commissioner of the Central Government in the Everlong Summer Islands, in the second row on the west side of Lakelight Avenue's north end, is the central government's highest standing representation in the territory. The Senior State Commissioner sees that national laws and policies are carried out here and links the central government's own responsibilities, such as defence and foreign affairs, with territorial business, for example the naval and air bases in the Vahira Islands and the opening of international air routes and ocean ports. The Evutola Commune's foreign and defence matters also pass through the office. When a territorial matter needs central approval, the office forwards it and follows it up. It meets the Executive Council in regular joint sessions and reports on the territory to the central government every year. The square building flies the national and territorial flags at its door.
+    in: div_z0z4vz
+    offset_km: [-0.56, 0.49]
+    site: { size_m: [80, 80], layout: block }
+  - id: bld_7cptf4
+    subtype: government
+    status: generated
+    names:
+      zh: 中央政府常驻长夏群岛领地巡视员办公室
+      en: Office of the Central Government Inspector in the Everlong Summer Islands
+    short_names:
+      zh: 巡视员办公室
+      en: Inspector's Office
+    notes:
+      zh: 中央政府常驻长夏群岛领地巡视员办公室，位于湖光大道北段东侧第二排，由中央政府派驻，负责对领地各级行政机关进行巡视监督。巡视员定期到政务院各部、各市人民政府、埃武托拉公社委员会和公共企业检查政策执行、财政资金使用和廉洁情况，发现的问题向中央政府和领地总督同时报告，并跟踪整改。领地的税收和福利开支都很大，巡视的重点之一是全民基本收入和公共住房资金的使用。办公室设有公众来访接待室，用中文、英文和伊武兰语接待居民的意见和举报，巡视报告的摘要定期向社会公开。
+      en: The Office of the Central Government Inspector in the Everlong Summer Islands, in the second row on the east side of Lakelight Avenue's north end, is sent by the central government to inspect and oversee the territory's administration at every level. Inspectors regularly visit the Council's ministries, the city governments, the Evutola Commune council and public companies to check how policies are carried out, how public money is spent and whether officials are honest; what they find goes to both the central government and the governor, and they follow it up until it is put right. With taxes and welfare spending so large, one focus is how the universal basic income and public housing funds are used. The office's public reception room hears residents' complaints and reports in Chinese, English or Ivuran, and summaries of its inspection reports are published.
+    in: div_z0z4vz
+    offset_km: [0.21, 0.71]
+    site: { size_m: [80, 80], layout: block }
+  - id: bld_f9q27f
+    subtype: government
+    status: generated
+    names:
+      zh: 中央政府常驻长夏群岛领地人权事务高级专员办公室
+      en: Office of the Central Government High Commissioner for Human Rights in the Everlong Summer Islands
+    short_names:
+      zh: 人权事务高级专员办公室
+      en: Human Rights Commissioner's Office
+    notes:
+      zh: 中央政府常驻长夏群岛领地人权事务高级专员办公室，位于湖光大道北段西侧第二排，由中央政府派驻，监督领地人权保障的情况。领地一半居民是移民，高级专员特别关注移民和本地人在就业、住房和公共服务上的平等待遇，伊武兰语使用者在司法程序和政府服务中使用母语的权利，以及矿山、船厂和种植园工人的劳动权益；它可以查阅相关档案、走访看守所和社区矫正机构，接受个人申诉，并向领地机关提出改进建议。办公室每年发布领地人权报告，其中关于语言权利和移民工人的章节最受关注。
+      en: The Office of the Central Government High Commissioner for Human Rights in the Everlong Summer Islands, in the second row on the west side of Lakelight Avenue's north end, is sent by the central government to watch over human rights in the territory. With half the population made up of migrants, the High Commissioner pays particular attention to equal treatment of migrants and local people in jobs, housing and public services, to the right of Ivuran speakers to use their own language in court and with the government, and to the rights of mine, shipyard and plantation workers. The office can examine records, visit remand centres and community corrections, hear individual complaints and make recommendations to territorial bodies. Its yearly human rights report is published, and the chapters on language rights and migrant workers draw the most attention.
+    in: div_z0z4vz
+    offset_km: [-0.51, 0.31]
+    site: { size_m: [80, 80], layout: block }
+  - id: bld_skqsja
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院卫生和人类服务部公共福利司
+      en: Public Welfare Department, Ministry of Health and Human Services, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 公共福利司
+      en: Public Welfare Department
+    notes:
+      zh: 长夏群岛领地政务院卫生和人类服务部公共福利司，在卫生和人类服务部后排单独建楼，是领地高福利制度的执行机关。公共福利司按月向每一位居民发放全民基本收入，不问收入多少、工作与否；它还管理托育、养老院、残疾人服务和各区的社区食堂，为新生儿家庭发放育儿津贴。领地的居民幸福感调查里，人们最常提到的是看病、上学和养老都不用发愁，这背后大多是公共福利司的工作。全领地每个区都设有福利服务中心，居民在一个窗口就能办完所有福利事项，服务中心用中文、英文和伊武兰语办理业务。
+      en: The Public Welfare Department of the Ministry of Health and Human Services has its own building behind the ministry and carries out the territory's generous welfare system. Every month it pays the universal basic income to every resident, whatever their income and whether or not they work. It also runs childcare, care homes, disability services and the community canteens of each district, and pays a childcare allowance to families with newborns. In the residents' happiness survey, what people mention most is that they need not worry about doctors, schooling or old age, and much of that is this department's work. Every district has a welfare service centre where residents can settle any welfare matter at a single counter, in Chinese, English or Ivuran.
+    in: div_z0z4vz
+    offset_km: [-0.14, -0.98]
+    site: { size_m: [120, 70], layout: slab }
+  - id: bld_ag99h6
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院卫生和人类服务部公共健康保险司
+      en: Public Health Insurance Department, Ministry of Health and Human Services, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 公共健康保险司
+      en: Public Health Insurance Department
+    notes:
+      zh: 长夏群岛领地政务院卫生和人类服务部公共健康保险司，在卫生和人类服务部后排单独建楼，管理覆盖全体居民的全民医保。领地实行统一的公共健康保险，居民看病、住院和买药按统一目录报销，大多数项目个人不用付费；外岛和山区的病人转到萨伦纳姆或伊拉米区研究院附属医院治疗，路费也由保险承担。保险司每年与药厂和医院谈判药品和服务的价格，领地生物医药企业研制的热带病新药，也要经它评估后才能纳入报销目录。公共健康保险基金由社会保险费和财政拨款共同筹集，账目每年向社会公开。
+      en: "The Public Health Insurance Department of the Ministry of Health and Human Services has its own building behind the ministry and runs the universal health cover that includes every resident. The territory has a single public health insurance scheme: doctor's visits, hospital stays and medicines are covered from one list, and most of it costs the patient nothing. Patients from the outer islands and the mountains who are sent on to Sarunnam or to the institute hospital in Ilami have their travel paid too. Every year the department negotiates drug and service prices with manufacturers and hospitals, and new medicines for tropical diseases from the territory's own biomedical firms are added to the list only after its review. The fund is paid for by social insurance contributions and the territorial budget, and its accounts are published every year."
+    in: div_z0z4vz
+    offset_km: [-0.09, -1.15]
+    site: { size_m: [120, 70], layout: slab }
+  - id: bld_y4145k
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院卫生和人类服务部食品监管司
+      en: Food Supervision Department, Ministry of Health and Human Services, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 食品监管司
+      en: Food Supervision Department
+    notes:
+      zh: 长夏群岛领地政务院卫生和人类服务部食品监管司，在卫生和人类服务部后排单独建楼，是领地高监管制度里和居民打交道最多的部门。食品监管司检验全领地的稻米、香料、水果和海鲜，监测珍珠贝和鱼虾养殖海域的水质，出口的胡椒、豆蔻和热带水果都要经它抽检农药残留；萨伦纳姆水上市场的上千条船摊、各地的夜市和小吃摊都要挂它发放的卫生等级牌，等级每季度复查一次。司里设有热带食品检验实验室，雨季重点监测霉菌毒素和水产品的细菌指标。
+      en: The Food Supervision Department of the Ministry of Health and Human Services has its own building behind the ministry and is the part of the territory's strict regulation that residents meet most often. It tests the territory's rice, spices, fruit and seafood, monitors the water where pearl oysters, fish and prawns are farmed, and spot-checks exported pepper, cardamom and tropical fruit for pesticide residues. The thousand boat stalls of the Sarunnam water market and every night market and food stall in the territory display its hygiene grade, which is rechecked every quarter. Its tropical food laboratory watches especially for mould toxins and for bacteria in seafood during the rainy season.
+    in: div_z0z4vz
+    offset_km: [-0.04, -1.32]
+    site: { size_m: [120, 70], layout: slab }
+  - id: bld_ter4s7
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院劳动和社会保障部就业司
+      en: Employment Department, Ministry of Labour and Social Security, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 就业司
+      en: Employment Department
+    notes:
+      zh: 长夏群岛领地政务院劳动和社会保障部就业司，在劳动和社会保障部后排单独建楼，负责全领地的就业服务和劳动力市场政策。领地一半居民是移民，每年还有成千上万的新移民来半导体、造船、电池和旅游等行业工作，就业司在各市设公共就业服务中心，为新来的人免费介绍工作、办理就业登记，发放学习语言的补贴；失业的居民除了领取失业保险，还可以免费参加职业能力司的培训课程。就业司每季度发布各市的岗位需求和工资水平，帮助学校和职业学院调整专业设置。
+      en: The Employment Department of the Ministry of Labour and Social Security has its own building behind the ministry and runs the territory's employment services and labour market policy. Half the territory's people are migrants, and thousands more arrive every year to work in semiconductors, shipbuilding, batteries and tourism, so the department keeps a public employment centre in every city where newcomers can find work and register free of charge and receive grants for language classes. Residents out of work draw unemployment insurance and can also take the Vocational Skills Department's training courses for free. Every quarter the department publishes the demand for workers and the wages in each city, which schools and colleges use to plan their courses.
+    in: div_z0z4vz
+    offset_km: [0.63, -0.75]
+    site: { size_m: [120, 70], layout: slab }
+  - id: bld_y8pfmh
+    subtype: government
+    status: generated
+    names:
+      zh: 长夏群岛领地政务院劳动和社会保障部劳动仲裁司
+      en: Labour Arbitration Department, Ministry of Labour and Social Security, Everlong Summer Islands Executive Council
+    short_names:
+      zh: 劳动仲裁司
+      en: Labour Arbitration Department
+    notes:
+      zh: 长夏群岛领地政务院劳动和社会保障部劳动仲裁司，在劳动和社会保障部后排单独建楼，负责处理劳动争议。领地的劳动法规严格，最低工资、工时、带薪休假和高温作业都有明确标准，劳动者认为权益受损时可以免费申请仲裁；仲裁司在每个市设仲裁庭，案件一般在 45 天内审结，仲裁员能用中文、英文和伊武兰语审理。萨伦纳姆、塔卢马兰和基拉努的工业区案件最多，大多涉及加班费和工伤认定。仲裁司定期公布典型案例，帮助企业和工人了解规则。
+      en: The Labour Arbitration Department of the Ministry of Labour and Social Security has its own building behind the ministry and settles labour disputes. The territory's labour laws are strict, with clear rules on minimum wages, hours, paid leave and work in the heat, and any worker who feels wronged can bring a case to arbitration free of charge. The department sits in every city, most cases are decided within 45 days, and arbitrators hear them in Chinese, English or Ivuran. The industrial districts of Sarunnam, Talumaran and Kilanu bring the most cases, mostly about overtime pay and whether an injury happened at work. The department publishes typical cases regularly so that employers and workers know the rules.
+    in: div_z0z4vz
+    offset_km: [0.68, -0.93]
+    site: { size_m: [120, 70], layout: slab }
+
+  # ── 萨伦纳姆市：旧王城、寺庙群、水上市场、萨伦纳姆塔、港口与机场 ──
+  - id: poi_myws2w
+    subtype: cultural_site
+    status: generated
+    names:
+      zh: 瓦什塔赖旧王城
+      en: Vashtarai Royal City
+      art-x-ivuran: Vashtarai Aruvam
+    notes:
+      zh: 古王国的王城，城墙和护城河围着宫殿遗址，城内只许步行和骑车；宫殿的石阶、王座台基和浴池保存至今，老房子多改作博物馆、手工作坊和客栈，节庆时全城的人来这里点灯、献花。
+      en: The royal city of the old kingdom, its walls and moat enclosing the ruins of the palace; inside, only walking and cycling are allowed. The palace's stone stairs, throne platform and bathing pools survive, the old houses have become museums, workshops and guesthouses, and at festivals the whole city comes here to light lamps and offer flowers.
+    in: div_8jecyx
+    offset_km: [0.2, 0.2]
+    site: { layout: courtyard, size_m: [1200, 1000] }
+  - id: bld_g6dcxr
+    subtype: temple
+    status: generated
+    names:
+      zh: 伊什万塔寺庙群
+      en: Ishvanta Temples
+      art-x-ivuran: Ishvanta Ottaram
+    wonder:
+      zh: 世界最大的古代石构寺庙群，旧王城北面上百座石塔连成一片
+      en: The largest ancient stone temple complex in the world, over a hundred stone towers joined together north of the royal city
+    notes:
+      zh: 旧王城北面的石构寺庙群，上百座雕满神祇、舞者和花卉的石塔由回廊和水池相连，是古王国留下的最大遗产。寺庙至今仍有僧侣居住，清晨的诵经声从石塔间传出；领地文化部门按年修缮石塔，游客须脱鞋入内。
+      en: The stone temples north of the royal city, more than a hundred towers carved with gods, dancers and flowers, linked by cloisters and pools, the greatest legacy of the old kingdom. Monks still live here and their morning chanting drifts between the towers; the territory's cultural department restores the towers year by year, and visitors go in barefoot.
+    in: div_8jecyx
+    offset_km: [0.5, 2.0]
+    site: { layout: complex, size_m: [1800, 1400] }
+  - id: bld_kdkrvz
+    subtype: marketplace
+    status: generated
+    names:
+      zh: 塞鲁卡姆水上市场
+      en: Serukkam Floating Market
+      art-x-ivuran: Serukkam Sirumevalu
+    wonder:
+      zh: 世界最大的水上市场，每天清晨上千条小船在老城河道里交易
+      en: The largest floating market in the world, a thousand boats trading on the old city's canals every morning
+    notes:
+      zh: 老城河道上的水上市场，每天清晨开市，上千条小船载着蔬果、鲜鱼、香料和小吃在河道里交易，买卖用伊武兰语南部方言讨价还价；许多船家世代在水上做生意，每条船摊都挂着食品监管部门发的卫生等级牌。
+      en: The floating market on the canals of the old city opens at dawn every day, when a thousand boats laden with vegetables, fruit, fresh fish, spices and snacks trade on the water, haggling in the southern Ivuran dialect. Many boat families have traded here for generations, and every boat stall shows its hygiene grade from the food inspectors.
+    in: div_xz0zqd
+    offset_km: [0.4, 0.4]
+    site: { layout: market, size_m: [900, 500] }
+  - id: bld_a14eb3
+    subtype: tower
+    status: generated
+    names:
+      zh: 萨伦纳姆塔
+      en: Sarunnam Tower
+      art-x-ivuran: Sarunnam Urakam
+    wonder:
+      zh: 世界最高的建筑，高约 960 米
+      en: The tallest building in the world, about 960 m high
+    notes:
+      zh: 阿兰塔区天际线的最高处，楼内是银行、数字服务公司的办公室和酒店，顶部的观景台能望见整个三角洲和海上的基鲁迈群岛方向；塔身每隔几十层有一处空中花园，外墙的遮阳鳍片挡住热带的阳光。
+      en: The highest point of the Aranta skyline, with banks, digital service firms and a hotel inside; the observation deck at the top looks out over the whole delta and towards the Kirumai Islands at sea. Every few dozen floors there is a sky garden, and fins on the façade shade it from the tropical sun.
+    in: div_1z75n0
+    offset_km: [0.3, 0.3]
+    site: { layout: tower, size_m: [120, 120] }
+  - id: poi_gzgmkn
+    subtype: university
+    status: generated
+    names:
+      zh: 长夏群岛大学
+      en: University of the Everlong Summer Islands
+      art-x-ivuran: Imimu Selovaru Saluvam
+    notes:
+      zh: 领地规模最大的综合性大学，主校区在伊拉瓦姆区，以热带农业、海洋科学和伊武兰语研究见长；学费全免，校园里的林荫道和图书馆向市民开放。
+      en: The territory's largest university, with its main campus in Ilavam District, known for tropical agriculture, ocean science and Ivuran studies; tuition is free, and its shaded walks and library are open to the public.
+    in: div_n90922
+    offset_km: [1.5, 1.0]
+    site: { layout: campus, size_m: [1600, 1000] }
+  - id: poi_kk4d9s
+    subtype: airport
+    status: generated
+    names:
+      zh: 萨伦纳姆国际机场
+      en: Sarunnam International Airport
+      art-x-ivuran: Sarunnam Ulavan
+    notes:
+      zh: 门达卢尔区的国际机场，是领地最大的航空港，航线通往世界各地；周围是物流园、航空维修基地和会展中心，地铁通到航站楼。
+      en: The international airport in Mendalur District, the territory's largest, with routes all over the world; logistics parks, an aircraft maintenance base and an exhibition centre surround it, and the metro runs to the terminal.
+    in: div_54sm84
+    offset_km: [8.5, 0]
+    site: { size_m: [4400, 2000], layout: airport, angle_deg: 60 }
+    access_road: true
+  - id: poi_dve190
+    subtype: port
+    status: generated
+    names:
+      zh: 萨伦纳姆港
+      en: Sarunnam Port
+      art-x-ivuran: Sarunnam Talusam
+    notes:
+      zh: 哈努西鲁河口的港区，集装箱码头和散货码头沿河口展开，三角洲的稻米、香料和水产从这里装船出口，进口的机械和原料从这里运往全岛。
+      en: The port at the mouth of the Hanusiru, its container and bulk terminals strung along the estuary; the delta's rice, spices and seafood are shipped out here, and imported machinery and materials come in for the whole island.
+    in: div_ycfvt9
+    site: { size_m: [6000, 3500], layout: harbour, terminals: [container, container, bulk, bulk, roro] }
+  - id: poi_hmp08v
+    subtype: nature_reserve
+    status: generated
+    names:
+      zh: 皮拉凯红树林保护区
+      en: Pilakkai Mangrove Reserve
+      art-x-ivuran: Pilakkai Siralomi
+    notes:
+      zh: 三角洲海岸的红树林保护区，潮水涨落间是鱼虾和螃蟹的育苗场，也是候鸟的停歇地；木栈道只修在保护区边缘，护林员乘小船巡护。
+      en: A mangrove reserve on the delta coast whose tidal forest is a nursery for fish, prawns and crabs and a stopover for migrating birds; boardwalks run only along its edge, and rangers patrol by boat.
+    in: div_k880h3
+    offset_km: [-2.5, 1.5]
+    site: { layout: park, size_m: [4000, 2500] }
+
+  # ── 瓦利凯、彭纳拉姆和温达坎：转运港、物流园、香料和梯田 ──
+  - id: poi_8fvrks
+    subtype: port
+    status: generated
+    names:
+      zh: 图拉凯集装箱码头
+      en: Turakkai Container Terminal
+      art-x-ivuran: Turakkai Talusam
+    notes:
+      zh: 瓦利凯的深水转运港，自动化集装箱码头沿防波堤展开，往来大洋之间的大型集装箱船在这里换装支线船，转运箱量居领地之首；港区还有船舶加油站和修船码头。
+      en: Vallikkai's deep-water transhipment port, its automated container berths strung along the breakwater; ocean-going container ships exchange boxes with feeder ships here, and it handles more transhipment containers than any other port in the territory. There are also bunkering berths and a repair quay.
+    in: div_qj7vjy
+    site: { size_m: [7000, 3500], layout: harbour, terminals: [container, container, container, container, oil] }
+  - id: poi_4qa46y
+    subtype: logistics_park
+    status: generated
+    names:
+      zh: 埃鲁塔姆物流园
+      en: Eruttam Logistics Park
+      art-x-ivuran: Eruttam Lumavam
+    notes:
+      zh: 图拉凯港口高速另一端的物流园，冷库、仓库和分拣中心为全岛配送货物，集装箱卡车从码头直达，不必进入坎纳鲁尔老城。
+      en: The logistics park at the far end of the Turakkai Port Expressway, whose cold stores, warehouses and sorting centres supply the whole island; container trucks come straight from the quays without entering the old town of Kannarur.
+    in: div_0hrhwh
+    offset_km: [0.5, 0.8]
+    site: { layout: complex, size_m: [1600, 1000] }
+  - id: bld_ypdanb
+    subtype: museum
+    status: generated
+    names:
+      zh: 坎纳鲁尔香料仓库博物馆
+      en: Kannarur Spice Warehouse Museum
+      art-x-ivuran: Kannarur Tiravam
+    notes:
+      zh: 老港边的石砌香料仓库改成的博物馆，展出古王国以来的香料贸易、帆船模型和老商行的账簿，仓库里至今飘着胡椒和肉桂的气味。
+      en: A stone spice warehouse by the old harbour turned museum, showing the spice trade since the days of the old kingdom, model sailing ships and the ledgers of the old trading houses; the scent of pepper and cinnamon still hangs in it.
+    in: div_3ytmrh
+    offset_km: [0.4, 0.8]
+    site: { layout: hall, size_m: [200, 120] }
+  - id: bld_7cfdym
+    subtype: marketplace
+    status: generated
+    names:
+      zh: 马伦杜尔香料市场
+      en: Marandur Spice Market
+      art-x-ivuran: Marandur Mevalu
+    notes:
+      zh: 领地最大的香料集散地，大棚里堆满胡椒、豆蔻、肉桂和丁香，香料园的农户清早把货送来，批发商当天装车运往港口；出口前的香料都要在这里抽检。
+      en: The territory's largest spice exchange, its sheds piled with pepper, cardamom, cinnamon and cloves; growers bring their crop at dawn and dealers load it for the ports the same day, and every lot is spot-checked here before export.
+    in: div_a3c8d6
+    offset_km: [0.3, 0.4]
+    site: { layout: market, size_m: [450, 300] }
+  - id: poi_dcr3pv
+    subtype: cultural_site
+    status: generated
+    names:
+      zh: 佩伦达梯田
+      en: Perunda Rice Terraces
+      art-x-ivuran: Perunda Oluvatu
+    wonder:
+      zh: 世界最大的水稻梯田，从河谷一直修到海拔一千多米的山腰
+      en: The largest rice terraces in the world, climbing from the valley floors to more than 1,000 m up the mountainsides
+    notes:
+      zh: 温达坎东部山坡上层层叠叠的水稻梯田，成千上万块田顺着等高线环绕山坡，灌溉水从山顶的森林流下，一层层流过每块田；梯田的维护和用水由村社共同商定，插秧和收割时节全村一起下田。
+      en: Terrace upon terrace of rice fields on the mountainsides of eastern Undakan, thousands of paddies following the contours round the slopes, watered by streams from the forest above that pass down through every field in turn. The village communities share the upkeep and the water, and the whole village turns out to plant and harvest.
+    in: div_w2pbh1
+    offset_km: [-3.0, 2.0]
+    site: { layout: park, size_m: [6000, 4000] }
+  - id: bld_3ajjzv
+    subtype: museum
+    status: generated
+    names:
+      zh: 温达坎梯田博物馆
+      en: Undakan Terrace Museum
+      art-x-ivuran: Undakan Oluvatu Tiravam
+    notes:
+      zh: 坎达瓦区的博物馆，介绍梯田的修筑、灌溉和村社的用水规矩，馆外有一小片示范梯田，游客可以跟着村民插秧。
+      en: The museum in Kandava District on how the terraces were built and watered and how the villages share their water, with a small demonstration terrace outside where visitors can plant rice with the villagers.
+    in: div_6cy2yw
+    offset_km: [0.4, 1.2]
+    site: { layout: hall, size_m: [180, 120] }
+
+  # ── 洛米兰和纳卢迈：雨林、药用植物、植物园和珍珠 ──
+  - id: poi_sdnwp3
+    subtype: park
+    status: generated
+    names:
+      zh: 塔卡维雨林树冠步道
+      en: Takavi Canopy Walkway
+      art-x-ivuran: Takavi Uralorai
+    wonder:
+      zh: 世界最长的雨林树冠步道，全长约 5 公里
+      en: The longest rainforest canopy walkway in the world, about 5 km long
+    notes:
+      zh: 国家公园边缘的树冠步道，由吊桥和树上平台连成，在离地几十米的树冠间蜿蜒约 5 公里，游客能看到犀鸟筑巢和猴群觅食；步道每天限量预约，由本地村社的向导带领。
+      en: A canopy walkway on the edge of the national park, a chain of suspension bridges and tree platforms winding about 5 km through the treetops tens of metres above the ground, where visitors can watch hornbills nesting and monkeys foraging. Places are limited each day and walks are led by guides from the local villages.
+    in: div_a5rwcq
+    offset_km: [0.5, 3.0]
+    site: { layout: park, size_m: [3000, 800] }
+  - id: poi_3hy3jb
+    subtype: research_institute
+    status: generated
+    names:
+      zh: 洛米兰药用植物研究所
+      en: Lomiran Institute of Medicinal Plants
+      art-x-ivuran: Lomiran Kilavam
+    notes:
+      zh: 卢瓦纳区的研究所，研究雨林中的药用植物，为领地的生物医药研究提供样本；采集要经许可，利用所得的收益按惠益分享规则分给当地村社。
+      en: The institute in Luvana District that studies the medicinal plants of the rainforest and supplies samples for the territory's biomedical research; collecting needs a permit, and the benefits are shared with the local villages under the territory's rules.
+    in: div_pgh98w
+    offset_km: [0.5, 0.6]
+    site: { layout: campus, size_m: [500, 350] }
+  - id: poi_aebagb
+    subtype: botanic_garden
+    status: generated
+    names:
+      zh: 维兰塔植物园
+      en: Viranta Botanic Garden
+      art-x-ivuran: Viranta Lomitaram
+    wonder:
+      zh: 世界最大的植物园，收集了热带各地的数万种植物
+      en: The largest botanic garden in the world, with tens of thousands of plant species from across the tropics
+    notes:
+      zh: 纳卢迈维兰塔区的植物园，分成雨林、兰花、香料、棕榈和水生植物等园区，种质圃里活体保存着领地的各种作物和野生植物；研究人员在这里培育抗病的稻种和果树，园区向公众免费开放。
+      en: The botanic garden in Viranta District of Nalumai, divided into rainforest, orchid, spice, palm and water-plant gardens, with a living collection of every crop and many wild plants of the territory. Its researchers breed disease-resistant rice and fruit trees, and entry is free.
+    in: div_a349sd
+    offset_km: [0.3, 1.0]
+    site: { layout: park, size_m: [2400, 1600] }
+  - id: bld_7z2anq
+    subtype: marketplace
+    status: generated
+    names:
+      zh: 塞纳卢珍珠市场
+      en: Senalu Pearl Market
+      art-x-ivuran: Senalu Maimevalu
+    notes:
+      zh: 纳卢迈海滨大道边的珍珠市场，迈卢阿湾出产的白珍珠在这里分级、拍卖和零售，每颗珍珠都附有产地和等级证书。
+      en: The pearl market on Nalumai's seafront, where the white pearls of Mailua Bay are graded, auctioned and sold, each with a certificate of origin and grade.
+    in: div_afy2b3
+    offset_km: [0.8, 0.3]
+    site: { layout: market, size_m: [300, 200] }
+  - id: poi_chg63r
+    subtype: industrial_park
+    status: generated
+    names:
+      zh: 迈卢阿珍珠贝养殖场
+      en: Mailua Pearl Farm
+      art-x-ivuran: Mailua Maitaram
+    notes:
+      zh: 迈卢阿湾的珍珠贝养殖场，海湾里挂满养殖笼，岸上是育苗场和开贝车间；海湾水质按月监测，养殖密度有上限。
+      en: The pearl oyster farm of Mailua Bay, its cages hung all over the bay, with a hatchery and opening sheds on shore; the bay's water is tested monthly and stocking is capped.
+    in: div_pfrpr2
+    offset_km: [0.5, 0.4]
+    site: { layout: complex, size_m: [400, 250] }
+
+  # ── 基拉努和塔卢马兰：半导体、船厂、深水港和电池 ──
+  - id: poi_71shr6
+    subtype: industrial_park
+    status: generated
+    names:
+      zh: 努维拉半导体产业园
+      en: Nuvila Semiconductor Park
+      art-x-ivuran: Nuvila Kilakaruvam
+    notes:
+      zh: 基拉努的半导体产业园，十多座晶圆厂、封装测试厂和光刻胶、特种气体等配套工厂沿规划路网排开；园区有自己的变电站和超纯水厂，废水排放由领地实时监测。
+      en: Kilanu's semiconductor park, a dozen and more wafer fabs, packaging and test plants and suppliers of photoresists and specialty gases laid out along a planned grid, with its own substation and ultrapure water plant; its wastewater is monitored by the territory in real time.
+    in: div_qr8ay4
+    offset_km: [0.5, -1.5]
+    site: { layout: complex, size_m: [3000, 2000] }
+  - id: poi_jv3554
+    subtype: university
+    status: generated
+    names:
+      zh: 基拉努理工大学
+      en: Kilanu University of Technology
+      art-x-ivuran: Kilanu Saluvam
+    notes:
+      zh: 埃莱努区的理工大学，以集成电路、材料和软件见长，与产业园的企业共建实验室，毕业生多留在基拉努工作。
+      en: The technical university in Elenu District, known for integrated circuits, materials and software, with laboratories shared with firms in the semiconductor park; most graduates stay in Kilanu.
+    in: div_07wzvt
+    offset_km: [-1.0, 0.5]
+    site: { layout: campus, size_m: [1200, 800] }
+  - id: poi_39nbzf
+    subtype: airport
+    status: generated
+    names:
+      zh: 基拉努国际机场
+      en: Kilanu International Airport
+      art-x-ivuran: Kilanu Ulavan
+    notes:
+      zh: 佩萨维区的国际机场，货运区专门处理芯片等高价值货物，恒温仓库与跑道之间有封闭通道。
+      en: The international airport in Pesavi District, whose cargo area specialises in chips and other high-value freight, with sealed passages between its climate-controlled warehouses and the apron.
+    in: div_yah63b
+    offset_km: [-5.0, 3.0]
+    site: { size_m: [3600, 1200], layout: airport, angle_deg: 40 }
+    access_road: true
+  - id: poi_a04p2n
+    subtype: port
+    status: generated
+    names:
+      zh: 塞拉努深水港
+      en: Seranu Deep Water Port
+      art-x-ivuran: Seranu Talusam
+    notes:
+      zh: 塔卢马兰湾外侧的深水港，集装箱码头、汽车滚装码头和液化气接收站沿湾口展开，是领地最大的集装箱港之一；全自动化装卸，无人集卡在码头和堆场之间往来，伊拉坦区生产的电池和新能源车从这里装船出口。
+      en: The deep-water port on the outer side of Talumaran Bay, with container berths, a ro-ro car terminal and an LNG terminal along the bay mouth, one of the territory's largest container ports. Handling is fully automated, with driverless trucks between quay and stacks, and the batteries and electric cars of Ilatan District are shipped out from here.
+    in: div_hceeaa
+    site: { size_m: [6500, 3500], layout: harbour, terminals: [container, container, container, roro, oil] }
+  - id: poi_68bkaz
+    subtype: factory
+    status: generated
+    names:
+      zh: 伦博船厂
+      en: Lumbo Shipyard
+      art-x-ivuran: Lumbo Talukaru
+    notes:
+      zh: 伦博区的船厂，干船坞和龙门吊沿海湾排开，建造集装箱船、液化气运输船、海上风电安装船和海洋平台；周围是钢结构、船用发动机和电子设备的配套工厂。
+      en: The shipyard of Lumbo District, its dry docks and gantry cranes lined along the bay, building container ships, gas carriers, offshore wind installation vessels and ocean platforms, with steelwork, marine engine and electronics suppliers around it.
+    in: div_yakrhd
+    offset_km: [2.7, -1.8]
+    site: { size_m: [1400, 1100], layout: port }
+  - id: poi_k3h7vk
+    subtype: factory
+    status: generated
+    names:
+      zh: 伊拉坦电池厂
+      en: Ilatan Battery Works
+      art-x-ivuran: Ilatan Vilakaru
+    notes:
+      zh: 伊拉坦区的电池厂，正极材料、电芯和电池包在同一厂区生产，原料是乌诺维拉重载铁路运来的镍盐和钴盐；厂房屋顶铺满太阳能板，废旧电池在旁边的回收车间拆解再生。
+      en: The battery works of Ilatan District, making cathode materials, cells and packs on one site from the nickel and cobalt salts brought by the Unovila heavy-haul railway; its roofs are covered in solar panels, and spent batteries are taken apart and recycled in the workshop next door.
+    in: div_3e94sq
+    offset_km: [-1.0, 1.0]
+    site: { layout: complex, size_m: [2000, 1200] }
+  - id: poi_kyp1y2
+    subtype: factory
+    status: generated
+    names:
+      zh: 伊拉坦新能源车厂
+      en: Ilatan Electric Vehicle Plant
+      art-x-ivuran: Ilatan Vesukaru
+    notes:
+      zh: 电池厂旁的整车厂，冲压、焊装、涂装和总装连成一线，新车经塞拉努港口高速直送码头装船。
+      en: The car plant beside the battery works, with pressing, body, paint and assembly shops in one line; new cars go straight down the Seranu Port Expressway to the quays.
+    in: div_3e94sq
+    offset_km: [1.4, -1.2]
+    site: { layout: complex, size_m: [2000, 1200] }
+  - id: poi_q4dz65
+    subtype: airport
+    status: generated
+    names:
+      zh: 塔卢马兰机场
+      en: Talumaran Airport
+      art-x-ivuran: Talumaran Ulavan
+    notes:
+      zh: 伊拉坦区北面的机场，有航班飞往萨伦纳姆、米雷兰和基拉努，货运航班运送电池和船用零部件。
+      en: The airport north of Ilatan District, with flights to Sarunnam, Mirelan and Kilanu and cargo flights carrying batteries and ship parts.
+    in: div_3e94sq
+    offset_km: [4.0, 4.0]
+    site: { size_m: [3200, 1000], layout: airport, angle_deg: 50 }
+    access_road: true
+
+  # ── 乌诺卡里市：从镍矿到冶炼厂和矿石港 ──
+  - id: poi_x53jfj
+    subtype: mine
+    status: generated
+    names:
+      zh: 乌诺维拉镍钴矿
+      en: Unovila Nickel and Cobalt Mine
+      art-x-ivuran: Unovila Unotam
+    notes:
+      zh: 乌诺凯苏山脉中的露天红土镍矿，开采镍和钴，矿石由乌诺维拉重载铁路运往佩鲁诺冶炼厂；采完的台阶随即复绿，尾矿全部回填。
+      en: An open-pit laterite mine in the Unokesu Mountains producing nickel and cobalt, whose ore goes by the Unovila heavy-haul railway to the Peruno smelter; worked-out benches are replanted at once and all tailings are backfilled.
+    in: div_6z737x
+    offset_km: [-4.0, -5.0]
+    site: { layout: mine, size_m: [4000, 2800] }
+    access_road: true
+  - id: poi_7f58bt
+    subtype: factory
+    status: generated
+    names:
+      zh: 佩鲁诺冶炼厂
+      en: Peruno Smelter
+      art-x-ivuran: Peruno Unokaru
+    notes:
+      zh: 佩鲁诺区的高压酸浸冶炼厂，把红土镍矿炼成电池级的硫酸镍和硫酸钴，再由重载铁路运往塔卢马兰的电池厂；用山区水电站的电力，废渣处理后回填矿坑。
+      en: The high-pressure acid leach smelter of Peruno District, turning laterite ore into battery-grade nickel and cobalt sulphate for the Talumaran battery works by heavy-haul rail; it runs on mountain hydropower, and its residue is treated and returned to the pits.
+    in: div_4m0x2v
+    offset_km: [1.0, 1.0]
+    site: { layout: complex, size_m: [1800, 1000] }
+  - id: poi_yhc3jg
+    subtype: port
+    status: generated
+    names:
+      zh: 贝卢阿矿石港
+      en: Belua Ore Port
+      art-x-ivuran: Belua Unotalusam
+    notes:
+      zh: 乌诺卡里的出海口，镍产品在这里装船外运，封闭式的皮带廊和仓库防止粉尘外泄。
+      en: Unokari's outlet to the sea, where nickel products are shipped, with enclosed conveyors and sheds to keep the dust in.
+    in: div_w7bas1
+    site: { size_m: [4000, 2500], layout: harbour, terminals: [bulk, bulk, oil] }
+
+  # ── 埃武托拉公社：人民宫、公社大食堂、公社图书馆和环形公社住宅 ──
+  - id: poi_103zvy
+    subtype: plaza
+    status: generated
+    names:
+      zh: 埃武托拉人民广场
+      en: Evutola People's Square
+      art-x-ivuran: Ondavu Evutola
+    notes:
+      zh: 哈马图区中心的广场，人民宫、公社大食堂和公社图书馆围在四周，居民议事会表决的结果在这里公布；免费的电车和公共汽车从广场通向各区。
+      en: The square at the heart of Hamatu District, surrounded by the People's Palace, the Commune Canteen and the Commune Library, where the votes of the residents' assemblies are announced; free trams and buses leave from here for every district.
+    in: div_p3x7j4
+    offset_km: [0, 0]
+    site: { layout: plaza, size_m: [500, 350] }
+  - id: bld_6cpsre
+    subtype: government
+    status: generated
+    names:
+      zh: 埃武托拉人民宫
+      en: Evutola People's Palace
+      art-x-ivuran: Evu Arakam
+    notes:
+      zh: 公社委员会和居民议事会开会的地方，圆形的议事大厅能坐下上万人，重大事务由居民直接表决；平时大厅开放给居民开会、演出和办婚礼。公社委员会自治、自定税率，政务院只管外交、国防等少数事务。
+      en: Where the commune council and the residents' assemblies meet; its round assembly hall seats more than ten thousand, and major decisions are put to a direct vote of the residents. On other days the hall is open for meetings, performances and weddings. The commune council governs itself and sets its own taxes, leaving only foreign affairs, defence and a few other matters to the Executive Council.
+    in: div_p3x7j4
+    offset_km: [0, 0.65]
+    marker: emblem
+    emblem_of: div_6kjc7x
+    site: { layout: dome, size_m: [300, 300] }
+  - id: bld_e44vc4
+    subtype: canteen
+    status: generated
+    names:
+      zh: 埃武托拉公社大食堂
+      en: Evutola Commune Canteen
+      art-x-ivuran: Evu Pinaram
+    wonder:
+      zh: 世界最大的公共食堂，一次可供三万人同时用餐
+      en: The largest public canteen in the world, seating thirty thousand at once
+    notes:
+      zh: 人民广场东侧的大食堂，长长的大厅一次可供三万人同时用餐，一日三餐和夜宵都免费；食材来自塔尼武区的农业和渔业合作社，菜单由居民每月投票决定。
+      en: The great canteen on the east side of People's Square, whose long halls seat thirty thousand at once, serving three meals and a late supper every day free of charge; its food comes from the farming and fishing co-operatives of Tanivu District, and residents vote on the menu each month.
+    in: div_p3x7j4
+    offset_km: [0.75, -0.45]
+    site: { layout: hall, size_m: [420, 260] }
+  - id: bld_azjj6r
+    subtype: library
+    status: generated
+    names:
+      zh: 埃武托拉公社图书馆
+      en: Evutola Commune Library
+      art-x-ivuran: Evutola Vilatam
+    wonder:
+      zh: 世界最大的公共图书馆，图书、工具和乐器都可以免费借用
+      en: The largest public library in the world, lending books, tools and instruments free of charge
+    notes:
+      zh: 人民广场西侧的图书馆，除了图书，还借出工具、乐器、相机和露营装备；楼里有自习室、木工房和录音室，昼夜开放。
+      en: The library on the west side of People's Square, which lends tools, instruments, cameras and camping gear as well as books, and has study rooms, a woodshop and recording studios open day and night.
+    in: div_p3x7j4
+    offset_km: [-0.8, -0.45]
+    site: { layout: block, size_m: [260, 200] }
+  - id: bld_w1cqt3
+    subtype: housing
+    status: generated
+    names:
+      zh: 奥鲁武环形公社住宅
+      en: Oruvu Ring Homes
+      art-x-ivuran: Uriva Tola Oruvu
+    notes:
+      zh: 一圈圈围合的多层住宅楼，中间是公共花园、托儿所和食堂，每个环住着两三千人；住房按家庭人数分配，不收租金，洗衣房、诊所和养老院设在底层。
+      en: Rings of mid-rise flats round shared gardens, nurseries and canteens, each ring home to two or three thousand people. Homes are allocated by household size and rent-free, with laundries, clinics and care homes on the ground floors.
+    in: div_qp9ner
+    offset_km: [-1.0, 1.0]
+    site: { layout: courtyard, size_m: [500, 500] }
+  - id: poi_rh0mhc
+    subtype: industrial_park
+    status: generated
+    names:
+      zh: 帕卡里合作社工业园
+      en: Pakari Co-operative Industrial Park
+      art-x-ivuran: Pakari Karuvam
+    notes:
+      zh: 公社的工业园，工厂都归集体所有或由合作社经营，生产电器、自行车、电车和建材，产品先满足公社居民按需取用，余下的出售给公社以外的地方。
+      en: The commune's industrial park, whose factories are collectively owned or run as co-operatives, making appliances, bicycles, trams and building materials; what they make goes first to the commune's residents on request, and the rest is sold outside.
+    in: div_27fbbk
+    offset_km: [0.5, 0.8]
+    site: { layout: complex, size_m: [2000, 1200] }
+
+  # ── 基鲁迈市：群岛的机场、渡轮码头、潜水和珊瑚礁 ──
+  - id: poi_16y65n
+    subtype: airport
+    status: generated
+    names:
+      zh: 基鲁迈机场
+      en: Kirumai Airport
+      art-x-ivuran: Kirumai Ulavan
+    notes:
+      zh: 基鲁迈岛上的机场，度假和潜水的游客大多从这里入岛，有航班飞往萨伦纳姆和米雷兰。
+      en: The airport on Kirumai Island, where most holidaymakers and divers arrive, with flights to Sarunnam and Mirelan.
+    in: div_a0nff8
+    offset_km: [2.5, -6.0]
+    site: { size_m: [2800, 900], layout: airport, angle_deg: 0 }
+    access_road: true
+  - id: poi_9a4940
+    subtype: ferry_terminal
+    status: generated
+    names:
+      zh: 迈萨里渡轮码头
+      en: Maisari Ferry Terminal
+      art-x-ivuran: Maisari Talusam
+    notes:
+      zh: 迈萨里港湾边的渡轮码头，渡轮从这里开往群岛各岛；不通公路的马拉坎岛和皮卢岛也靠这里的船只往来。
+      en: The ferry terminal on Maisari's harbour, from which ferries serve every island of the chain, including Malakan and Pilu, which have no roads.
+    in: div_a0nff8
+    site: { size_m: [800, 700], layout: port }
+  - id: poi_r23m3t
+    subtype: hotel
+    status: generated
+    names:
+      zh: 蒂卢迈潜水度假村
+      en: Tilumai Dive Resort
+      art-x-ivuran: Tilumai Nalutola
+    notes:
+      zh: 蒂卢迈岛西岸的度假村和潜水学校，礁外的海底峭壁是有名的潜点；每处潜点每天限定人数，船只只能系在浮标上。
+      en: The resort and dive school on the west coast of Tilumai Island, whose reef wall is a well-known dive site; each site takes a limited number of divers a day, and boats must tie up to buoys.
+    in: div_3x32j4
+    offset_km: [-0.8, 0.2]
+    site: { layout: complex, size_m: [400, 250] }
+  - id: poi_w9e5cc
+    subtype: research_institute
+    status: generated
+    names:
+      zh: 马拉坎珊瑚礁保护站
+      en: Malakan Coral Reef Station
+      art-x-ivuran: Malakan Kilavam
+    notes:
+      zh: 珊瑚礁保护区的管理和研究站，监测水温和珊瑚白化，培育珊瑚苗用于修复礁区；保护区不通公路，游客须随站里的船只进入。
+      en: The management and research station of the coral reef reserve, monitoring water temperature and bleaching and growing coral for reef restoration; the reserve has no roads, and visitors go in on the station's boats.
+    in: div_5z620y
+    offset_km: [0.5, -0.5]
+    site: { layout: campus, size_m: [300, 200] }
+  - id: poi_x715ke
+    subtype: port
+    status: generated
+    names:
+      zh: 皮卢补给码头
+      en: Pilu Supply Quay
+      art-x-ivuran: Pilu Talusam
+    notes:
+      zh: 群岛东端的补给码头，去往瓦希拉群岛的补给船从这里出发；码头旁是小渔港和灯塔。
+      en: The supply quay at the eastern end of the chain, from which the supply ships leave for the Vahira Islands, with a small fishing harbour and a lighthouse beside it.
+    in: div_xazhxw
+    offset_km: [-4.3, 23.6]
+    site: { size_m: [700, 700], layout: port }
+    access_road: true
+  - id: poi_3yn82m
+    subtype: air_base
+    status: generated
+    names:
+      zh: 卡朗加空军基地
+      en: Karanga Air Base
+      art-x-ivuran: Karanga Ulavan
+    notes:
+      zh: 卡朗加空军基地位于基鲁迈岛南部的卡朗加区，是空军在长夏群岛的主基地，担负主岛西南部、基鲁迈群岛和瓦希拉群岛方向的空中防御。基地有两条平行跑道，跑道外侧是一排加固机库，战机可以从机库直接滑出起飞；预警机和加油机让战斗机能一直飞到瓦希拉群岛上空巡逻，与海军的岛屿机场互为备降场。热带的雷雨来得快，基地的气象站每小时发布一次预报，机库和弹药库都按防潮标准修建。官兵家属住在卡朗加城区，基地每年的航空开放日是全群岛的节日。
+      en: Karanga Air Base, in Karanga District in the south of Kirumai Island, is the Air Force's main base in the Everlong Summer Islands, defending the air over the south-west of the main island, the Kirumai Islands and the approaches to the Vahira Islands. It has two parallel runways lined by hardened shelters from which fighters taxi straight out to take off. Its early-warning aircraft and tankers let the fighters patrol as far as the Vahira Islands, and the base and the navy's island airfield serve as each other's diversion fields. Tropical thunderstorms build quickly, so the base weather station issues a forecast every hour, and the hangars and magazines are built to keep out the damp. Service families live in the town of Karanga, and the base's yearly open day is a holiday for the whole island chain.
+    in: div_3skbd8
+    offset_km: [6.0, 8.0]
+    site: { size_m: [4000, 2200], layout: airbase, variant: fighter, angle_deg: 70 }
+    access_road: true
+    military:
+      unit:
+        zh: 空军第十五航空基地（歼击航空兵第 151 旅）
+        en: "15th Air Base, Air Force (151st Fighter Brigade)"
+      branch: { zh: 空军, en: Air Force }
+      equipment:
+        zh: 多用途歼击机两个大队约 48 架、预警机 2 架、空中加油机 4 架
+        en: "Two groups of multirole fighters, about 48 aircraft, 2 airborne early-warning aircraft and 4 tankers"
+      personnel: 3600
+      access:
+        zh: 军事禁区，不对外开放；每年航空开放日对公众开放一天
+        en: Restricted military area, closed to the public except for one open day a year
+
+  # ── 瓦希拉群岛海军基地：瓦希拉岛（指挥、营区、岛屿机场）、塔鲁卡岛（潜艇洞库、无人舰艇船坞）、赫维拉岛（发电场、定向能防空、浮动平台、深海研究站） ──
+  - id: poi_vvtz3y
+    subtype: military_base
+    status: generated
+    names:
+      zh: 瓦希拉基地营区
+      en: Vahira Base Garrison
+      art-x-ivuran: Vahira Tolavam
+    notes:
+      zh: 瓦希拉基地营区是海军长夏舰队司令部和瓦希拉基地勤务保障部队的驻地，在瓦希拉岛东部的小镇旁，是群岛上唯一有成片住房的地方。营区里有司令部大楼、营房、医院、学校和商店，常驻的官兵和技术人员约一万二千人分布在三座岛上，轮休时大多回到这里。群岛离最近的有人岛二百多公里，淡水靠海水淡化厂，食品和燃料由皮卢补给码头出发的补给船每周运来，赫维拉岛的海上发电场供应全部电力。营区外围是热带树林，岛上禁止私人船只和飞机靠近。
+      en: "Vahira Base Garrison is the seat of the headquarters of the Navy's Everlong Summer Fleet and of the base's support units, beside the small town in the east of Vahira Island, the only place in the islands with streets of homes. It has the fleet headquarters, barracks, a hospital, a school and shops, and most of the roughly twelve thousand service members and technicians posted across the three islands come back here when off duty. The islands are more than 200 km from the nearest inhabited island: fresh water comes from a desalination plant, food and fuel arrive weekly on supply ships from Pilu Supply Quay, and all the power comes from the offshore power farm off Hevila Island. Tropical woodland surrounds the garrison, and no private boats or aircraft may come near the islands."
+    in: div_ykkw7q
+    offset_km: [0.4, -0.4]
+    site: { size_m: [1000, 700], layout: camp, variant: hq, angle_deg: 0 }
+    military:
+      unit:
+        zh: 海军长夏舰队司令部、瓦希拉基地勤务保障部
+        en: "Everlong Summer Fleet Headquarters and Vahira Base Support Command, Navy"
+      branch: { zh: 海军, en: Navy }
+      equipment:
+        zh: 司令部机关、勤务保障大队、海水淡化厂和医院
+        en: "Fleet headquarters, a support group, a desalination plant and a hospital"
+      personnel: 2000
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_zmkwxe
+    subtype: command_centre
+    status: generated
+    names:
+      zh: 瓦希拉地下作战指挥中心
+      en: Vahira Underground Operations Centre
+      art-x-ivuran: Vahira Kesutam
+    notes:
+      zh: 瓦希拉地下作战指挥中心开凿在瓦希拉岛中部的山体里，是长夏舰队的作战指挥中枢。地面上只有几处隧道口、通风竖井和天线，主体藏在厚厚的岩层之下：指挥大厅的屏幕墙显示着方圆数千公里海空的态势，水下传感器网、岛上雷达、卫星和无人机的数据都汇集到这里，由人工智能系统融合成一张完整的态势图，并为指挥员推荐行动方案；无人舰艇、水下无人航行器和无人机的编队任务也从这里下达。中心有独立的电源、蓄水池和空气过滤系统，与舰队司令部之间以多条光缆相连。
+      en: Vahira Underground Operations Centre is cut into the hills in the middle of Vahira Island and is the operational nerve centre of the Everlong Summer Fleet. On the surface there are only a few tunnel portals, ventilation shafts and antennas; the rest lies under thick rock. The screen wall of its command hall shows the sea and air for thousands of kilometres around, as data from the undersea sensor network, the island radars, satellites and drones is fused by an artificial intelligence system into one picture that also proposes courses of action to the commanders. Missions for the fleet's unmanned surface vessels, underwater vehicles and drones are issued from here. The centre has its own power, water reservoirs and air filtration, and several fibre links to fleet headquarters.
+    in: div_ykkw7q
+    offset_km: [-3.0, 0.8]
+    site: { size_m: [500, 400], layout: bunker, angle_deg: 0 }
+    military:
+      unit:
+        zh: 海军长夏舰队作战指挥中心
+        en: "Everlong Summer Fleet Operations Centre, Navy"
+      branch: { zh: 海军, en: Navy }
+      equipment:
+        zh: 人工智能辅助指挥系统、水下传感器网控制中心、卫星通信站
+        en: "An AI-assisted command system, the undersea sensor network control centre and a satellite communications station"
+      personnel: 1500
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_esfqre
+    subtype: air_base
+    status: generated
+    names:
+      zh: 瓦希拉岛屿机场
+      en: Vahira Island Airfield
+      art-x-ivuran: Vahira Ulavan
+    notes:
+      zh: 瓦希拉岛屿机场在瓦希拉岛南部，是海军航空兵的岛屿机场。岛上地方有限，跑道不长，舰载战斗机靠埋在跑道起点的电磁弹射器起飞，降落时用拦阻索，和在航空母舰上起降的方式一样，飞行员在这里就能完成上舰前的全部训练。跑道旁的加固机库停放战斗机、预警机和无人僚机，无人僚机与有人驾驶的战斗机混合编队，在群岛外围巡逻。机场与卡朗加空军基地互为备降场，热带雷雨天里两边的塔台随时互通天气。
+      en: Vahira Island Airfield, in the south of Vahira Island, is the naval air arm's island airfield. Space on the island is tight and the runway is short, so carrier fighters are launched by electromagnetic catapults set into the start of the runway and land on arrester wires, just as on an aircraft carrier, and pilots can complete all their carrier training here. Hardened shelters beside the runway hold fighters, early-warning aircraft and unmanned wingmen, which fly mixed patrols with piloted fighters around the islands. The airfield and Karanga Air Base are each other's diversion fields, and in tropical storms their towers keep each other informed of the weather.
+    in: div_ykkw7q
+    offset_km: [-1.8, -3.2]
+    site: { size_m: [3000, 1300], layout: airbase, variant: fighter, angle_deg: 20 }
+    military:
+      unit:
+        zh: 海军航空兵第二十一舰载机师
+        en: "21st Carrier Air Division, Naval Aviation"
+      branch: { zh: 海军, en: Navy }
+      equipment:
+        zh: 舰载多用途战斗机 36 架、舰载预警机 4 架、无人僚机 24 架、电磁弹射器 2 套
+        en: "36 carrier multirole fighters, 4 carrier early-warning aircraft, 24 unmanned wingmen and 2 electromagnetic catapults"
+      personnel: 2600
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_gb80dh
+    subtype: naval_base
+    status: generated
+    names:
+      zh: 塔鲁卡潜艇洞库
+      en: Taruka Submarine Pens
+      art-x-ivuran: Taruka Kesutalusam
+    wonder:
+      zh: 世界最大的潜艇洞库，可同时停靠十二艘潜艇
+      en: The largest submarine pens in the world, berthing twelve submarines at once
+    notes:
+      zh: 塔鲁卡潜艇洞库开凿在塔鲁卡岛的山体里，洞口开在岛北的深水海湾，潜艇可以在水下直接驶入山体，十二个泊位、维修船坞和弹药库都在岩层之下。岛周围的海水很深，潜艇出港后不久就能潜入深海，从空中和卫星上都很难看到它们的进出。洞库内有独立的电源、通风和淡水系统，艇员在里面换班休整；大型无人潜航器也在这里维护和充电。
+      en: Taruka Submarine Pens are cut into the hills of Taruka Island, with their entrance in a deep bay on the north shore, so that submarines sail into the mountain submerged; the twelve berths, repair docks and magazines all lie under the rock. The water around the island is very deep, so submarines can dive into deep water soon after leaving and are hard to see coming and going from the air or from satellites. The pens have their own power, ventilation and fresh water, crews rest and change shifts inside, and large unmanned submarines are serviced and charged here too.
+    in: div_ykkw7q
+    offset_km: [24.0, -18.5]
+    site: { size_m: [1400, 800], layout: plant, variant: tunnel, angle_deg: 90 }
+    military:
+      unit:
+        zh: 海军第九潜艇支队
+        en: "9th Submarine Flotilla, Navy"
+      branch: { zh: 海军, en: Navy }
+      equipment:
+        zh: 攻击型潜艇 6 艘、大型无人潜航器 12 具
+        en: "6 attack submarines and 12 large unmanned submarines"
+      personnel: 2200
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_2nzds5
+    subtype: naval_base
+    status: generated
+    names:
+      zh: 塔鲁卡无人舰艇船坞
+      en: Taruka Unmanned Vessel Docks
+      art-x-ivuran: Taruka Vesutalusam
+    notes:
+      zh: 塔鲁卡无人舰艇船坞沿塔鲁卡岛北岸排开，是无人舰艇和水下无人航行器的自动化母港。舰艇回港后由机械臂自动系泊、加注燃料、充电和装填，检修机器人沿船坞轨道巡检船体，整个过程几乎不需要人手；需要大修的舰艇由浮船坞抬出水面。船坞的控制室里，少数操作员同时照看几十艘无人舰艇，舰艇的巡逻任务由瓦希拉地下作战指挥中心统一安排。
+      en: Taruka Unmanned Vessel Docks line the north shore of Taruka Island and are the automated home port of the fleet's unmanned surface vessels and underwater vehicles. When a vessel returns, robot arms moor, fuel, charge and rearm it and inspection robots run along rails to check the hull, with hardly a human hand involved; vessels needing major work are lifted out by a floating dock. In the control room a handful of operators watch over dozens of unmanned vessels at once, whose patrols are set by the Vahira Underground Operations Centre.
+    in: div_ykkw7q
+    offset_km: [24.5, -15.5]
+    site: { size_m: [2400, 1400], layout: harbour, terminals: [roro, roro, oil] }
+    military:
+      unit:
+        zh: 海军第三十一无人舰艇支队
+        en: "31st Unmanned Vessel Flotilla, Navy"
+      branch: { zh: 海军, en: Navy }
+      equipment:
+        zh: 无人水面舰艇 40 艘、水下无人航行器 60 具
+        en: "40 unmanned surface vessels and 60 unmanned underwater vehicles"
+      personnel: 900
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_ps7sy3
+    subtype: laser_station
+    status: generated
+    names:
+      zh: 赫维拉定向能防空阵地
+      en: Hevila Directed Energy Air Defence Site
+      art-x-ivuran: Hevila Vilaura
+    notes:
+      zh: 赫维拉定向能防空阵地在赫维拉岛的高处，用高能激光和高功率微波拦截来袭的无人机、导弹和炮弹。激光器发射一次只需要电，不消耗弹药，海上发电场的电力让它可以连续射击；高功率微波武器能一次瘫痪成群的小型无人机。阵地与群岛的雷达和瓦希拉地下作战指挥中心联网，从发现目标到发射只需要几秒钟。热带的高温高湿会削弱激光，阵地旁的气象站实时测量大气，调整光束。
+      en: Hevila Directed Energy Air Defence Site stands on high ground on Hevila Island and uses high-energy lasers and high-power microwaves to stop incoming drones, missiles and shells. Each laser shot needs only electricity, not ammunition, and the offshore power farm lets it keep firing; the microwave weapons can disable a whole swarm of small drones at once. The site is networked with the islands' radars and the Vahira Underground Operations Centre, so only seconds pass from detection to engagement. Tropical heat and humidity weaken a laser beam, so a weather station beside the site measures the air continuously to adjust it.
+    in: div_ykkw7q
+    offset_km: [-9.5, -27.0]
+    site: { size_m: [500, 400], layout: radar, variant: domes, angle_deg: 0 }
+    military:
+      unit:
+        zh: 海军第五定向能防空营
+        en: "5th Directed Energy Air Defence Battalion, Navy"
+      branch: { zh: 海军, en: Navy }
+      equipment:
+        zh: 高能激光武器 4 套、高功率微波武器 2 套、火控雷达 2 部
+        en: "4 high-energy laser weapons, 2 high-power microwave weapons and 2 fire-control radars"
+      personnel: 300
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_6gtkhm
+    subtype: power_station
+    status: generated
+    names:
+      zh: 赫维拉海上发电场
+      en: Hevila Offshore Power Farm
+      art-x-ivuran: Hevila Nalukaru
+    notes:
+      zh: 赫维拉岛外海的发电场，由漂浮式风机、波浪能装置和海洋温差发电站组成，岛上的储能电站把电力存起来，经海底电缆送往三座岛屿，供应海军基地的全部用电，也为激光防空阵地供电。
+      en: The power farm off Hevila Island, made up of floating wind turbines, wave energy machines and an ocean thermal power plant. A storage station on the island holds the power and sends it by undersea cable to all three islands, supplying the whole naval base, including the laser air defence site.
+    in: div_ykkw7q
+    offset_km: [-15.0, -31.0]
+    military:
+      unit:
+        zh: 海军瓦希拉基地能源保障站
+        en: "Vahira Base Energy Station, Navy"
+      branch: { zh: 海军, en: Navy }
+      equipment:
+        zh: 漂浮式风机 24 台、波浪能装置 40 台、海洋温差发电站 1 座、储能电站 1 座
+        en: "24 floating wind turbines, 40 wave energy machines, an ocean thermal power plant and a storage station"
+      personnel: 200
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_mdw6r5
+    subtype: naval_base
+    status: generated
+    names:
+      zh: 赫维拉浮动平台
+      en: Hevila Floating Platform
+      art-x-ivuran: Hevila Varuni
+    notes:
+      zh: 系泊在赫维拉岛外的巨型浮动平台，长约一千五百米，由几段模块拼接而成，甲板上有直升机和无人机起降场、仓库和维修车间，下面能停靠补给舰和无人舰艇。平台是海上的前进补给站，舰艇不必回到岛上就能补给和检修；需要时还能拖到别处展开。
+      en: A giant floating platform moored off Hevila Island, about 1,500 m long and assembled from several modules, with helicopter and drone pads, stores and repair shops on deck and berths below for supply ships and unmanned vessels. It is a forward supply base at sea, letting ships resupply and be repaired without returning to the islands, and it can be towed elsewhere when needed.
+    in: div_ykkw7q
+    offset_km: [-4.0, -33.0]
+    military:
+      unit:
+        zh: 海军第一浮动保障平台
+        en: "1st Floating Support Platform, Navy"
+      branch: { zh: 海军, en: Navy }
+      equipment:
+        zh: 模块化浮动平台 1 座（长约 1500 米），直升机起降点 4 个
+        en: "One modular floating platform about 1,500 m long with 4 helicopter spots"
+      personnel: 600
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }
+  - id: poi_rzrrrv
+    subtype: research_institute
+    status: generated
+    names:
+      zh: 赫维拉深海研究站
+      en: Hevila Deep Sea Station
+      art-x-ivuran: Hevila Nalutola
+    notes:
+      zh: 赫维拉岛外海底的研究站，水下生活舱可住二十四人，研究人员和潜水员在海底连续工作数周，研究深海生物、海底地形和水声传播；深潜器从这里下潜到数千米深的海沟。研究成果也服务于海军的水下传感器网。
+      en: A research station on the seabed off Hevila Island, whose underwater habitat houses twenty-four people. Researchers and divers live and work on the seabed for weeks at a time, studying deep-sea life, the shape of the seafloor and how sound travels underwater, and submersibles dive from here into trenches thousands of metres deep. Its findings also serve the navy's undersea sensor network.
+    in: div_ykkw7q
+    offset_km: [-13.0, -24.0]
+    military:
+      unit:
+        zh: 海军深海研究所赫维拉站
+        en: "Hevila Station, Naval Deep Sea Research Institute"
+      branch: { zh: 海军, en: Navy }
+      equipment:
+        zh: 水下生活舱 1 座（可住 24 人）、载人深潜器 3 艘
+        en: "One underwater habitat for 24 people and 3 crewed submersibles"
+      personnel: 120
+      access: { zh: 军事禁区，不对外开放, en: "Restricted military area, closed to the public" }

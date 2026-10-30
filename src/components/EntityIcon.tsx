@@ -1,7 +1,7 @@
 import {
-  Anchor, Banknote, Bird, Building2, Castle, Crosshair, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Footprints, GraduationCap, Grape, Helicopter, Hospital, Hotel, Landmark, LandPlot,
-  Lighthouse, Magnet, MapPin, Mountain, MountainSnow, Navigation2, Orbit, Pickaxe, Plane, PlaneTakeoff, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship, Shell, Snowflake,
-  Server, Sparkles, Sprout, Sun, Target, Telescope, TrainFront, TramFront, Trees, Vault, Warehouse, Waves, Zap,
+  Anchor, Banknote, Bird, Building2, Castle, Crosshair, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, GraduationCap, Grape, Helicopter, Hospital, Hotel, House,
+  Landmark, LandPlot, Lighthouse, Magnet, MapPin, Mountain, MountainSnow, Navigation2, Orbit, Pickaxe, Plane, PlaneTakeoff, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship,
+  ShipWheel, Shell, Snowflake, Server, Sparkles, Sprout, Sun, Target, Telescope, TrainFront, TramFront, Trees, Utensils, Vault, Warehouse, Waves, Zap,
 } from "lucide-react";
 import type { Entity } from "../lib/types";
 
@@ -102,6 +102,14 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
         return <Drum {...props} />;
       case "castle":
         return <Castle {...props} />;
+      case "canteen":
+        return <Utensils {...props} />;
+      case "housing":
+        return <House {...props} />;
+      case "botanic_garden":
+        return <Flower2 {...props} />;
+      case "naval_base":
+        return <ShipWheel {...props} />;
       default:
         return <Landmark {...props} />;
     }

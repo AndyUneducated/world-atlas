@@ -153,7 +153,7 @@ streets:
   # detail_km2: local streets and generic buildings only in the district's core zone of that size
   districts:
     # 米雷兰市
-    div_z0z4vz: { style: planned, mix: { civic: 2.2, podium: 1.2, slabs: 1.0 } }   # 帕萨卢区
+    div_z0z4vz: { style: planned, angle_deg: 106, mix: { civic: 2.2, podium: 1.2, slabs: 1.0 } }   # 帕萨卢区：湖光大道从领地议会经政务院机构直指翁贝尔哈努湖
     div_f0wwdt: { style: mixed, detail_km2: 60, mix: { houses: 1.8, perimeter: 1.0, park: 0.8 } }   # 翁贝尔区
     div_56take: { style: planned, detail_km2: 50, mix: { civic: 1.6, slabs: 1.2, park: 0.6 } }   # 伊拉米区
     div_t5wpdw: { main_only: true }   # 哈努帕拉区
@@ -228,6 +228,9 @@ streets:
     div_5z620y: { main_only: true }   # 马拉坎珊瑚礁保护区
     div_xazhxw: { style: organic, detail_km2: 10, mix: { houses: 2.4 } }   # 皮卢区
     div_ykkw7q: { main_only: true }   # 瓦希拉群岛管理区
+  named:
+    - { district: div_z0z4vz, axis: 0, line: 0, status: generated, names: { zh: 湖光大道, en: Lakelight Avenue, art-x-ivuran: Pelavu Ombelvila } }
+    - { district: div_z0z4vz, axis: 1, line: 0, status: generated, names: { zh: 长夏大街, en: Everlong Summer Boulevard, art-x-ivuran: Hanusevu Imimu Selo } }
 
 metro:
   spacing_km: 1.2
@@ -238,7 +241,7 @@ metro:
         - { district: div_1z75n0, axis: 0 }   # 阿兰塔区
         - { district: div_xz0zqd, axis: 0 }   # 塞鲁卡姆区
         - { district: div_n90922, axis: 0 }   # 伊拉瓦姆区
-        - { district: div_54sm84, axis: 0 }   # 门达卢尔区
+        - { district: div_54sm84, axis: 0, to: poi_kk4d9s }   # 门达卢尔区，东至萨伦纳姆国际机场
         - { district: div_8jecyx, axis: 0 }   # 瓦什塔赖区
     - city: div_5tgnmz   # 塔卢马兰市
       names: { zh: 塔卢马兰地铁, en: Talumaran Metro, art-x-ivuran: Talumaran Pitlorai }
