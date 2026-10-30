@@ -33,8 +33,8 @@ features:
     detect: { kind: river, at_km: [113.2, 133.8] }
     names: { zh: 勒河, en: Lek River, art-x-viking: Lekfluss }
     notes:
-      zh: 勒克尔市的主要河流，全长七十公里左右，流域面积近四千平方公里。勒河发源于奥克西诺市西诺区的丘陵，向北流经勒克尔市的丰谷区，在勒北区注入北部海域。中游的丰谷土壤肥沃、日照充足，是北维京岛唯一成规模的葡萄酒产区，向阳坡地上的酒庄酿造白葡萄酒、冰酒和苹果酒，丰谷丰收广场是每年秋天勒克尔丰收节的主会场。勒河水流平缓，夏季常有人划独木舟顺流而下，河边的乡村旅馆和农家餐厅接待着来自首府和维京港的周末游客。
-      en: The main river of Lekor, some 70 km long with a basin of nearly 4,000 km². The Lek rises in the hills of Ino District in Oxino, flows north through Harvest Vale District of Lekor and reaches the northern sea in Lekor North District. Harvest Vale on its middle course, fertile and sunny, is the only wine region of any size on North Viking Island, where wineries on the south-facing slopes make white wine, ice wine and cider, and Harvest Vale Festival Square hosts Lekor's harvest festival every autumn. The river runs gently, canoeists often paddle down it in summer, and the country inns and farm restaurants along its banks welcome weekend visitors from the capital and Viking Port.
+      zh: 勒克尔市的主要河流，全长七十公里左右，流域面积近四千平方公里。勒河发源于塔夫鲁普库维克市西加维克区的丘陵，向北流经勒克尔市的丰谷区，在勒北区注入北部海域。中游的丰谷土壤肥沃、日照充足，是北维京岛唯一成规模的葡萄酒产区，向阳坡地上的酒庄酿造白葡萄酒、冰酒和苹果酒，丰谷丰收广场是每年秋天勒克尔丰收节的主会场。勒河水流平缓，夏季常有人划独木舟顺流而下，河边的乡村旅馆和农家餐厅接待着来自首府和维京港的周末游客。
+      en: The main river of Lekor, some 70 km long with a basin of nearly 4,000 km². The Lek rises in the hills of Siggavik District in Tavrupukkuvik, flows north through Harvest Vale District of Lekor and reaches the northern sea in Lekor North District. Harvest Vale on its middle course, fertile and sunny, is the only wine region of any size on North Viking Island, where wineries on the south-facing slopes make white wine, ice wine and cider, and Harvest Vale Festival Square hosts Lekor's harvest festival every autumn. The river runs gently, canoeists often paddle down it in summer, and the country inns and farm restaurants along its banks welcome weekend visitors from the capital and Viking Port.
   - id: nat_sh3rkk
     subtype: river
     status: generated

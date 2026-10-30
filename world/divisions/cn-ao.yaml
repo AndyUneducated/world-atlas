@@ -330,8 +330,8 @@ divisions:
     en: Ukkulaaq City
     art-x-tavrunaq: Ukkulaaq
   notes:
-    zh: 南岸东部的工业港口城市，在首府以东约 360 公里，50.8 万人。城区乌库努卡区在乌库苏瓦峡湾口，港口运出冶炼产品和矿石；基萨尔维克区的冶炼厂冶炼内陆的镍矿，皮瓦苏瓦区是沿峡湾分布的村镇，外海的卡瓦卢维特群岛以极光旅游闻名，西卢阿苏瓦特生态保护区里有海拔 2022 米的陶武皮鲁克峰。西卢阿高速和西卢阿高速铁路在这里到达东端，西尔米帕高速从这里出发通往西尔米瓦克，城区有一条地铁。
-    en: The industrial port city of the eastern south coast, about 360 km east of the capital, with 508,000 people. Its town, Ukkunuqa, stands at the mouth of Ukkusuvva Fjord and ships out smelter products and ore; the smelter of Qissarvik refines nickel from the inland mines, Pivasuvva is a string of fjord villages, the offshore Qavvaluviit Islands are known for aurora tourism, and the Silluasuvvat Nature Reserve holds the 2,022 m Mount Tauvvupirruk. The Sillua Expressway and the high-speed railway reach their eastern end here, the Sirmipaa Expressway sets out for Sirmivak, and the town has a metro line.
+    zh: 南岸东部的工业港口城市，在首府以东约 360 公里，50.8 万人。城区乌库努卡区在乌库苏瓦峡湾口，港口运出冶炼产品和矿石；基萨尔维克区的冶炼厂冶炼内陆的镍矿，皮瓦苏瓦区是沿峡湾分布的村镇，外海的卡瓦卢维特群岛以极光旅游闻名，西卢阿苏瓦特生态保护区里有海拔 2022 米的陶武皮鲁克峰。西卢阿高速铁路在这里到达东端，西卢阿高速在这里折向北通往西尔米瓦克，城区有一条地铁。
+    en: The industrial port city of the eastern south coast, about 360 km east of the capital, with 508,000 people. Its town, Ukkunuqa, stands at the mouth of Ukkusuvva Fjord and ships out smelter products and ore; the smelter of Qissarvik refines nickel from the inland mines, Pivasuvva is a string of fjord villages, the offshore Qavvaluviit Islands are known for aurora tourism, and the Silluasuvvat Nature Reserve holds the 2,022 m Mount Tauvvupirruk. The high-speed railway reaches its eastern end here, the Sillua Expressway turns north here for Sirmivak, and the town has a metro line.
   codes:
     admin: '920400'
     unlocode: AO UKL
@@ -351,8 +351,8 @@ divisions:
     en: Ukkunuqa District
     art-x-tavrunaq: Ukkunuqa
   notes:
-    zh: 乌库拉克市的城区和港口，在乌库苏瓦峡湾口，21 万人。乌库努卡散货码头装运基萨尔维克冶炼厂的产品和东部矿山的矿石，旁边是油品码头和物流仓库。乌库拉克站是西卢阿高速铁路的东端终点，城区有一条地铁和约 10 公里的暖廊；西卢阿高速在这里结束，西尔米帕高速从这里出发。
-    en: The town and port of Ukkulaaq City, at the mouth of Ukkusuvva Fjord, with 210,000 people. The Ukkunuqa Bulk Terminal ships the output of the Qissarvik smelter and the ore of the eastern mines, beside an oil terminal and warehouses. Ukkulaaq station is the eastern terminus of the Sillua High-Speed Railway, the town has a metro line and some 10 km of skyways, the Sillua Expressway ends here and the Sirmipaa Expressway begins.
+    zh: 乌库拉克市的城区和港口，在乌库苏瓦峡湾口，21 万人。乌库努卡散货码头装运基萨尔维克冶炼厂的产品和东部矿山的矿石，旁边是油品码头和物流仓库。乌库拉克站是西卢阿高速铁路的东端终点，城区有一条地铁和约 10 公里的暖廊；西卢阿高速在这里由南岸折向北。
+    en: The town and port of Ukkulaaq City, at the mouth of Ukkusuvva Fjord, with 210,000 people. The Ukkunuqa Bulk Terminal ships the output of the Qissarvik smelter and the ore of the eastern mines, beside an oil terminal and warehouses. Ukkulaaq station is the eastern terminus of the Sillua High-Speed Railway, the town has a metro line and some 10 km of skyways, and the Sillua Expressway turns here from the south coast to the north.
   codes:
     admin: '920401'
   population: 210000
@@ -367,8 +367,8 @@ divisions:
     en: Qissarvik District
     art-x-tavrunaq: Qissarvik
   notes:
-    zh: 乌库努卡区西北的冶炼工业区，14 万人，第二产业占经济的 65%，比重是全领地各区中最高的。基萨尔维克冶炼厂冶炼内陆矿区的镍矿石，水电和冶炼余热为镇上供暖。西卢阿高速和西尔米帕高速都经过区内。
-    en: The smelting district north-west of Ukkunuqa, with 140,000 people; industry makes up 65% of its economy, the highest share of any district in the territory. The Qissarvik Smelter refines ore from the inland mines, and its hydro power and waste heat warm the town. Both the South Coast and Icefield expressways pass through.
+    zh: 乌库努卡区西北的冶炼工业区，14 万人，第二产业占经济的 65%，比重是全领地各区中最高的。基萨尔维克冶炼厂冶炼内陆矿区的镍矿石，水电和冶炼余热为镇上供暖。西卢阿高速的南岸段和北段都经过区内。
+    en: The smelting district north-west of Ukkunuqa, with 140,000 people; industry makes up 65% of its economy, the highest share of any district in the territory. The Qissarvik Smelter refines ore from the inland mines, and its hydro power and waste heat warm the town. Both the south-coast and the northern sections of the Sillua Expressway pass through.
   codes:
     admin: '920402'
   population: 140000
@@ -383,8 +383,8 @@ divisions:
     en: Pivasuvva District
     art-x-tavrunaq: Pivasuvva
   notes:
-    zh: 乌库拉克市东部的峡湾地带，面积 24300 平方公里，7 万人分散在峡湾两岸的村镇，塔夫鲁纳克语母语者占 85%。海拔 1681 米的皮瓦皮鲁克峰俯瞰峡湾，渔业和峡湾观光是主要生计。西尔米帕高速在区内沿峡湾延伸近 290 公里，此前村镇之间只能乘夏季的渡船往来。
-    en: The fjord country of eastern Ukkulaaq City, 24,300 km², with 70,000 people scattered in villages along the fjords, 85% of them native Tavrunaq speakers. The 1,681 m Mount Pivapirruk looks down on the fjords, and fishing and fjord sightseeing are the main livelihoods. The Sirmipaa Expressway runs nearly 290 km through the district along the fjords; before it the villages were linked only by the summer ferry.
+    zh: 乌库拉克市东部的峡湾地带，面积 24300 平方公里，7 万人分散在峡湾两岸的村镇，塔夫鲁纳克语母语者占 85%。海拔 1681 米的皮瓦皮鲁克峰俯瞰峡湾，渔业和峡湾观光是主要生计。西卢阿高速在区内沿峡湾延伸近 290 公里，此前村镇之间只能乘夏季的渡船往来。
+    en: The fjord country of eastern Ukkulaaq City, 24,300 km², with 70,000 people scattered in villages along the fjords, 85% of them native Tavrunaq speakers. The 1,681 m Mount Pivapirruk looks down on the fjords, and fishing and fjord sightseeing are the main livelihoods. The Sillua Expressway runs nearly 290 km through the district along the fjords; before it the villages were linked only by the summer ferry.
   codes:
     admin: '920403'
   population: 70000
@@ -415,8 +415,8 @@ divisions:
     en: Silluasuvvat Nature Reserve
     art-x-tavrunaq: Silluasuvvat
   notes:
-    zh: 乌库拉克市北部的峡湾与冰川山地，整片划为生态保护区，面积 19300 平方公里，常住约 3500 人。海拔 2022 米的陶武皮鲁克峰是领地第三高峰，陶武西尔米冰川从峰顶向四周流下，乌库苏瓦峡湾深入保护区；基萨尔卡蒂克山口是穿越山地的低口。西尔米帕高速和西卢阿高速经过保护区边缘，一条市道从乌库努卡区通到保护区，近一半路段建在防雪棚下。
-    en: The fjord and glacier mountains of northern Ukkulaaq City, all of them a nature reserve, 19,300 km² with about 3,500 residents. The 2,022 m Mount Tauvvupirruk, the territory's third highest, sheds the Tauvvusirmi Glacier in every direction, Ukkusuvva Fjord reaches deep into the reserve, and Qissarkatiq Pass is the low way across the mountains. The Icefield and South Coast expressways cross the edge of the reserve, and a city road from Ukkunuqa runs into it, nearly half of it under snow sheds.
+    zh: 乌库拉克市北部的峡湾与冰川山地，整片划为生态保护区，面积 19300 平方公里，常住约 3500 人。海拔 2022 米的陶武皮鲁克峰是领地第三高峰，陶武西尔米冰川从峰顶向四周流下，乌库苏瓦峡湾深入保护区；基萨尔卡蒂克山口是穿越山地的低口。西卢阿高速的南岸段和北段经过保护区边缘，一条市道从乌库努卡区通到保护区，近一半路段建在防雪棚下。
+    en: The fjord and glacier mountains of northern Ukkulaaq City, all of them a nature reserve, 19,300 km² with about 3,500 residents. The 2,022 m Mount Tauvvupirruk, the territory's third highest, sheds the Tauvvusirmi Glacier in every direction, Ukkusuvva Fjord reaches deep into the reserve, and Qissarkatiq Pass is the low way across the mountains. Both sections of the Sillua Expressway cross the edge of the reserve, and a city road from Ukkunuqa runs into it, nearly half of it under snow sheds.
   codes:
     admin: '920405'
   population: 3500
@@ -731,8 +731,8 @@ divisions:
     en: Sirmivak City
     art-x-tavrunaq: Sirmivak
   notes:
-    zh: 领地东北部的冰原城市，面积 164675 平方公里，是领地面积最大的市，约占全领地的四分之一，却只有 23.3 万人，人口密度在各市中最低。西尔米冰盖和海拔 2506 米的领地最高峰西尔米峰在市境内，外海的西尔米乌维特群岛和乌瓦卡鲁库维特群岛分别划为冰盖管理区和生态保护区。城区西尔米卡尔维克区以冰川旅游和冰雪运动为业，陶瓦尼克区的天文台和观测站散布在冰盖以东的高地上。西尔米帕高速是通往南岸的唯一一条高速。
-    en: The ice-cap city of the territory's north-east, 164,675 km², the largest city in the territory and about a quarter of its area, yet with only 233,000 people, the most thinly peopled city. The Sirmi Ice Cap and Mount Sirmi, at 2,506 m the territory's highest peak, are within it, and the offshore Sirmiuviit Islands and Uvvaakkaruquviit Islands are an ice administration zone and a nature reserve. Its town, Sirmiqarvik District, lives from glacier tourism and snow sports, and the observatories of Tauvvaniq are scattered over the uplands east of the ice cap. The Sirmipaa Expressway is its only expressway to the south coast.
+    zh: 领地东北部的冰原城市，面积 164675 平方公里，是领地面积最大的市，约占全领地的四分之一，却只有 23.3 万人，人口密度在各市中最低。西尔米冰盖和海拔 2506 米的领地最高峰西尔米峰在市境内，外海的西尔米乌维特群岛和乌瓦卡鲁库维特群岛分别划为冰盖管理区和生态保护区。城区西尔米卡尔维克区以冰川旅游和冰雪运动为业，陶瓦尼克区的天文台和观测站散布在冰盖以东的高地上。西卢阿高速是通往南岸的唯一一条高速。
+    en: The ice-cap city of the territory's north-east, 164,675 km², the largest city in the territory and about a quarter of its area, yet with only 233,000 people, the most thinly peopled city. The Sirmi Ice Cap and Mount Sirmi, at 2,506 m the territory's highest peak, are within it, and the offshore Sirmiuviit Islands and Uvvaakkaruquviit Islands are an ice administration zone and a nature reserve. Its town, Sirmiqarvik District, lives from glacier tourism and snow sports, and the observatories of Tauvvaniq are scattered over the uplands east of the ice cap. The Sillua Expressway is its only expressway to the south coast.
   codes:
     admin: '920800'
     unlocode: AO SRM
@@ -752,8 +752,8 @@ divisions:
     en: Sirmiqarvik District
     art-x-tavrunaq: Sirmiqarvik
   notes:
-    zh: 西尔米瓦克市的城区，在西尔米冰盖东北边缘，15.2 万人，平均海拔 956 米，是全领地地势最高的区。西尔米卡尔维克冰川游客中心是冰川徒步和冰洞游览的起点，北冰洋种子与基因库凿进城外的冻土山体，保存世界各地的作物种子和基因样本；冰川机场在旅游旺季有包机从南岸飞来。西尔米帕高速在这里结束，一条市道大半在防雪棚下通往冰盖管理区。
-    en: The town of Sirmivak City, on the north-east edge of the Sirmi Ice Cap, with 152,000 people and an average elevation of 956 m, the highest of any district in the territory. The Sirmiqarvik Glacier Visitor Centre is where glacier walks and ice-cave tours set out, the Arctic Ocean Seed and Gene Vault is cut into a permafrost hillside outside town, holding crop seeds and genetic samples from around the world, and charter flights from the south coast land at the glacier airport in the tourist season. The Sirmipaa Expressway ends here, and a city road runs, mostly under snow sheds, into the ice cap zone.
+    zh: 西尔米瓦克市的城区，在西尔米冰盖东北边缘，15.2 万人，平均海拔 956 米，是全领地地势最高的区。西尔米卡尔维克冰川游客中心是冰川徒步和冰洞游览的起点，北冰洋种子与基因库凿进城外的冻土山体，保存世界各地的作物种子和基因样本；冰川机场在旅游旺季有包机从南岸飞来。西卢阿高速在这里结束，一条市道大半在防雪棚下通往冰盖管理区。
+    en: The town of Sirmivak City, on the north-east edge of the Sirmi Ice Cap, with 152,000 people and an average elevation of 956 m, the highest of any district in the territory. The Sirmiqarvik Glacier Visitor Centre is where glacier walks and ice-cave tours set out, the Arctic Ocean Seed and Gene Vault is cut into a permafrost hillside outside town, holding crop seeds and genetic samples from around the world, and charter flights from the south coast land at the glacier airport in the tourist season. The Sillua Expressway ends here, and a city road runs, mostly under snow sheds, into the ice cap zone.
   codes:
     admin: '920801'
   population: 152000
@@ -768,8 +768,8 @@ divisions:
     en: Tauvvaniq District
     art-x-tavrunaq: Tauvvaniq
   notes:
-    zh: 西尔米冰盖以东的高地，面积 35000 平方公里，7.8 万人，以科研和卫星遥感为业。冬季连续数月的黑夜和干冷的空气适合天文观测，陶瓦尼克天文台和极光观测站散布在高地上，西尔米库利克图克湖在区内。西尔米帕高速在区内延伸约 195 公里，陶瓦尼克防雪棚长约 42 公里，沿线不设路灯以免影响观测。
-    en: The uplands east of the Sirmi Ice Cap, 35,000 km² with 78,000 people working in research and satellite remote sensing. Months of night in winter and the dry cold air suit astronomy, the Tauvvaniq Observatory and the aurora stations are scattered over the uplands, and Sirmiqulliqtuuq Lake is here. The Sirmipaa Expressway runs some 195 km through the district, with the 42 km Tauvvaniq Snow Shed, and has no street lighting so as not to disturb the observatories.
+    zh: 西尔米冰盖以东的高地，面积 35000 平方公里，7.8 万人，以科研和卫星遥感为业。冬季连续数月的黑夜和干冷的空气适合天文观测，陶瓦尼克天文台和极光观测站散布在高地上，西尔米库利克图克湖在区内。西卢阿高速在区内延伸约 195 公里，陶瓦尼克防雪棚长约 42 公里，沿线不设路灯以免影响观测。
+    en: The uplands east of the Sirmi Ice Cap, 35,000 km² with 78,000 people working in research and satellite remote sensing. Months of night in winter and the dry cold air suit astronomy, the Tauvvaniq Observatory and the aurora stations are scattered over the uplands, and Sirmiqulliqtuuq Lake is here. The Sillua Expressway runs some 195 km through the district, with the 42 km Tauvvaniq Snow Shed, and has no street lighting so as not to disturb the observatories.
   codes:
     admin: '920802'
   population: 78000
@@ -784,8 +784,8 @@ divisions:
     en: Sirmi Ice Cap Administration Zone
     art-x-tavrunaq: Sirmitavru
   notes:
-    zh: 西尔米冰盖所在的冰盖管理区，面积 72600 平方公里，是领地面积最大的区，常住只有约 1700 人。西尔米冰盖面积约 2.9 万平方公里，是领地最大的冰川，顶部的西尔米峰海拔 2506 米，是领地最高点；西尔米卡蒂克山口海拔 2102 米，是最高的命名山口，西尔米河从冰盖流出，是领地最长的河流。冰芯钻探站在冰盖深处，夏季才有飞机往返。西尔米帕高速沿冰盖外缘的基岩修建，不上冰面。
-    en: The ice administration zone of the Sirmi Ice Cap, 72,600 km², the largest district in the territory, with only about 1,700 residents. The ice cap, some 29,000 km², is the territory's largest glacier, and Mount Sirmi on its crown, 2,506 m, is the highest point; Sirmikatiq Col, at 2,102 m, is the highest named pass, and the Sirmi River, the longest river in the territory, flows from the ice. The ice core station deep on the cap is reached by air only in summer. The Sirmipaa Expressway keeps to the bedrock round the edge of the cap and never goes onto the ice.
+    zh: 西尔米冰盖所在的冰盖管理区，面积 72600 平方公里，是领地面积最大的区，常住只有约 1700 人。西尔米冰盖面积约 2.9 万平方公里，是领地最大的冰川，顶部的西尔米峰海拔 2506 米，是领地最高点；西尔米卡蒂克山口海拔 2102 米，是最高的命名山口，西尔米河从冰盖流出，是领地最长的河流。冰芯钻探站在冰盖深处，夏季才有飞机往返。西卢阿高速沿冰盖外缘的基岩修建，不上冰面。
+    en: The ice administration zone of the Sirmi Ice Cap, 72,600 km², the largest district in the territory, with only about 1,700 residents. The ice cap, some 29,000 km², is the territory's largest glacier, and Mount Sirmi on its crown, 2,506 m, is the highest point; Sirmikatiq Col, at 2,102 m, is the highest named pass, and the Sirmi River, the longest river in the territory, flows from the ice. The ice core station deep on the cap is reached by air only in summer. The Sillua Expressway keeps to the bedrock round the edge of the cap and never goes onto the ice.
   codes:
     admin: '920803'
   population: 1700

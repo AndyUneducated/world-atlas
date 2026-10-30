@@ -84,8 +84,8 @@ features:
     detect: { kind: bay, at_km: [132.8, 58.2] }
     names: { zh: 牛角湾, en: Oxhorn Bay, art-x-viking: Ochsenhornbucht }
     notes:
-      zh: 奥克西诺市南端的小海湾，面积约六十平方公里，东侧是牛角岬，西侧是较小的邓莱维角，两岬环抱，湾形弯曲如牛角，因此得名。牛角岬上的灯塔是附近渔船的航标，也标出奥克西诺市海岸的最南端。湾岸是奥克区的林地和木材加工厂，为区里提供了不少就业；湾畔的牛角湾海滨公园有沙滩、草坪和野餐区，夏季是全市居民消暑的去处。海湾水浅浪小，适合游泳和划皮划艇，退潮时滩涂上常有拾贝的家庭。
-      en: A small bay at the southern end of Oxino, about 60 km², held between Oxhorn Point on the east and the smaller Cape Dunlevy on the west; its curving shape gives it its name. The lighthouse on Oxhorn Point is a mark for local fishing boats and stands at the southernmost point of the Oxino coast. Woodland and sawmills along the shore of Ox District provide a good share of local jobs, and Oxhorn Bay Seaside Park by the water has a beach, lawns and picnic grounds where the whole city comes to cool off in summer. The bay is shallow and sheltered, good for swimming and kayaking, and at low tide families comb the flats for shellfish.
+      zh: 塔夫鲁普库维克市南端的小海湾，面积约六十平方公里，东侧是牛角岬，西侧是较小的邓莱维角，两岬环抱，湾形弯曲如牛角，因此得名。牛角岬上的灯塔是附近渔船的航标，也标出塔夫鲁普库维克市海岸的最南端。湾岸是普库图克区的林地和木材加工厂，为区里提供了不少就业；湾畔的牛角湾海滨公园有沙滩、草坪和野餐区，夏季是全市居民消暑的去处。海湾水浅浪小，适合游泳和划皮划艇，退潮时滩涂上常有拾贝的家庭。
+      en: A small bay at the southern end of Tavrupukkuvik, about 60 km², held between Oxhorn Point on the east and the smaller Cape Dunlevy on the west; its curving shape gives it its name. The lighthouse on Oxhorn Point is a mark for local fishing boats and stands at the southernmost point of the Tavrupukkuvik coast. Woodland and sawmills along the shore of Pukkutuuq District provide a good share of local jobs, and Oxhorn Bay Seaside Park by the water has a beach, lawns and picnic grounds where the whole city comes to cool off in summer. The bay is shallow and sheltered, good for swimming and kayaking, and at low tide families comb the flats for shellfish.
   - id: nat_zn3d92
     subtype: fjord
     status: generated
@@ -182,16 +182,16 @@ features:
     detect: { kind: cape, at_km: [133.8, 55.8] }
     names: { zh: 牛角岬, en: Oxhorn Point, art-x-viking: Ochsenhorn }
     notes:
-      zh: 牛角湾东侧的岬角，也是奥克西诺市海岸的最南端，与西面的邓莱维角一起把牛角湾环抱成一道弯曲的牛角。岬上的灯塔是附近渔船的航标，灯塔下是一片被海风吹得低伏的草坡和岩礁。从岬顶向北可以望见整片牛角湾和湾畔的海滨公园，向南则是开阔的外海。岬角附近海域水流较急，渔民习惯对着灯塔的方向进出海湾。奥克区居民周末常沿湾岸步道走到岬角，在灯塔下野餐、看海。
-      en: The headland on the east side of Oxhorn Bay and the southernmost point of the Oxino coast; with Cape Dunlevy to the west it curls the bay into the shape of a horn. Its lighthouse is a mark for local fishing boats, standing above windswept grass and rock. From the top you look north over the whole bay and the seaside park on its shore, and south to the open sea. The current runs fast off the point, and fishermen steer by the lighthouse going in and out. People from Ox District often walk out along the shore path at the weekend to picnic and watch the sea below the light.
+      zh: 牛角湾东侧的岬角，也是塔夫鲁普库维克市海岸的最南端，与西面的邓莱维角一起把牛角湾环抱成一道弯曲的牛角。岬上的灯塔是附近渔船的航标，灯塔下是一片被海风吹得低伏的草坡和岩礁。从岬顶向北可以望见整片牛角湾和湾畔的海滨公园，向南则是开阔的外海。岬角附近海域水流较急，渔民习惯对着灯塔的方向进出海湾。普库图克区居民周末常沿湾岸步道走到岬角，在灯塔下野餐、看海。
+      en: The headland on the east side of Oxhorn Bay and the southernmost point of the Tavrupukkuvik coast; with Cape Dunlevy to the west it curls the bay into the shape of a horn. Its lighthouse is a mark for local fishing boats, standing above windswept grass and rock. From the top you look north over the whole bay and the seaside park on its shore, and south to the open sea. The current runs fast off the point, and fishermen steer by the lighthouse going in and out. People from Pukkutuuq District often walk out along the shore path at the weekend to picnic and watch the sea below the light.
   - id: nat_xyxtqa
     subtype: cape
     status: generated
     detect: { kind: cape, at_km: [130.2, 58.2] }
     names: { zh: 邓莱维角, en: Cape Dunlevy, art-x-viking: Kap Dunlevy }
     notes:
-      zh: 牛角湾西侧较小的岬角，与东面的牛角岬遥遥相对，像大牛角旁的一只小犊角。岬角低矮平缓，伸入海中不远，四周是浅滩和礁石，退潮时可以步行到岬尖。岬上没有灯塔，只有一座小小的石砌航标，夏季常有奥克区的家庭在这里拾贝、钓鱼和露营。邓莱维角与牛角岬之间的海湾水浅浪小，是附近居民学游泳和划皮划艇的地方，傍晚时分，夕阳正好落在岬角背后的海面上。
-      en: The smaller headland on the west side of Oxhorn Bay, facing Oxhorn Point across the water like a calf's horn beside a bull's. It is low and gentle and does not reach far out to sea; shallows and rocks surround it, and at low tide you can walk out to its tip. There is no lighthouse, only a small stone beacon, and in summer families from Ox District come here to gather shellfish, fish and camp. The shallow, sheltered water between Cape Dunlevy and Oxhorn Point is where local people learn to swim and paddle, and in the evening the sun sets into the sea just behind the point.
+      zh: 牛角湾西侧较小的岬角，与东面的牛角岬遥遥相对，像大牛角旁的一只小犊角。岬角低矮平缓，伸入海中不远，四周是浅滩和礁石，退潮时可以步行到岬尖。岬上没有灯塔，只有一座小小的石砌航标，夏季常有普库图克区的家庭在这里拾贝、钓鱼和露营。邓莱维角与牛角岬之间的海湾水浅浪小，是附近居民学游泳和划皮划艇的地方，傍晚时分，夕阳正好落在岬角背后的海面上。
+      en: The smaller headland on the west side of Oxhorn Bay, facing Oxhorn Point across the water like a calf's horn beside a bull's. It is low and gentle and does not reach far out to sea; shallows and rocks surround it, and at low tide you can walk out to its tip. There is no lighthouse, only a small stone beacon, and in summer families from Pukkutuuq District come here to gather shellfish, fish and camp. The shallow, sheltered water between Cape Dunlevy and Oxhorn Point is where local people learn to swim and paddle, and in the evening the sun sets into the sea just behind the point.
   - id: nat_kz388s
     subtype: cape
     status: generated

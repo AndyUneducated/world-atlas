@@ -13,8 +13,8 @@ features:
       zh: 世界最大的冰盖，面积约 2.95 万平方公里
       en: The largest ice cap in the world, about 29,500 km²
     notes:
-      zh: 覆盖西尔米高地的冰盖，面积约 2.95 万平方公里，是领地最大的冰川，平均海拔近 1900 米，大部分在西尔米冰盖管理区，西南缘伸入内陆矿区。冰盖深处的冰芯钻探站钻取冰芯研究过去的气候；西尔米帕高速沿冰盖东侧外缘修建，不上冰面。
-      en: The ice cap over the Sirmi Highlands, about 29,500 km², the largest glacier in the territory, with a mean height of nearly 1,900 m; most of it lies in the Sirmi Ice Cap Administration Zone, its south-western edge reaching into the inland mining zone. The ice core station deep on the cap drills cores to study past climate, and the Sirmipaa Expressway follows its eastern edge without going onto the ice.
+      zh: 覆盖西尔米高地的冰盖，面积约 2.95 万平方公里，是领地最大的冰川，平均海拔近 1900 米，大部分在西尔米冰盖管理区，西南缘伸入内陆矿区。冰盖深处的冰芯钻探站钻取冰芯研究过去的气候；西卢阿高速沿冰盖东侧外缘修建，不上冰面。
+      en: The ice cap over the Sirmi Highlands, about 29,500 km², the largest glacier in the territory, with a mean height of nearly 1,900 m; most of it lies in the Sirmi Ice Cap Administration Zone, its south-western edge reaching into the inland mining zone. The ice core station deep on the cap drills cores to study past climate, and the Sillua Expressway follows its eastern edge without going onto the ice.
 
   # ── Peaks, passes and glaciers named in M29 ─────────────
   - id: nat_c28dp2
@@ -23,8 +23,8 @@ features:
     detect: { kind: peak, at_km: [499.2, 234.8] }
     names: { zh: 西尔米峰, en: "Mount Sirmi", art-x-tavrunaq: Sirmipirruk }
     notes:
-      zh: 西尔米高地的最高峰，海拔 2506 米，是领地最高峰，峰顶埋在西尔米冰盖之下，只是冰面上一处平缓的隆起。西尔米帕高速在约 60 公里外经过，登顶须长途穿越冰盖。
-      en: The highest point of the Sirmi Highlands, 2,506 m and the highest peak in the territory, its summit buried under the Sirmi Ice Cap as a gentle swelling of the ice. The Sirmipaa Expressway passes some 60 km away, and reaching the top means a long crossing of the ice cap.
+      zh: 西尔米高地的最高峰，海拔 2506 米，是领地最高峰，峰顶埋在西尔米冰盖之下，只是冰面上一处平缓的隆起。西卢阿高速在约 60 公里外经过，登顶须长途穿越冰盖。
+      en: The highest point of the Sirmi Highlands, 2,506 m and the highest peak in the territory, its summit buried under the Sirmi Ice Cap as a gentle swelling of the ice. The Sillua Expressway passes some 60 km away, and reaching the top means a long crossing of the ice cap.
   - id: nat_scswkr
     subtype: peak
     status: generated
@@ -39,8 +39,8 @@ features:
     detect: { kind: peak, at_km: [451.2, 142.2] }
     names: { zh: 陶武皮鲁克峰, en: Mount Tauvvupirruk, art-x-tavrunaq: Tauvvupirruk }
     notes:
-      zh: 苏瓦尔尤伊特山脉的最高峰，海拔 2022 米，是领地第三高峰，在乌库拉克市西卢阿苏瓦特生态保护区，陶武西尔米冰川从峰顶向四周流下。西尔米帕高速在约 50 公里外经过。
-      en: The highest summit of the Suvvarjuit Mountains, 2,022 m and the third highest peak in the territory, in the Silluasuvvat Nature Reserve of Ukkulaaq City, with the Tauvvusirmi Glacier flowing down from it on all sides. The Sirmipaa Expressway passes some 50 km away.
+      zh: 苏瓦尔尤伊特山脉的最高峰，海拔 2022 米，是领地第三高峰，在乌库拉克市西卢阿苏瓦特生态保护区，陶武西尔米冰川从峰顶向四周流下。西卢阿高速在约 50 公里外经过。
+      en: The highest summit of the Suvvarjuit Mountains, 2,022 m and the third highest peak in the territory, in the Silluasuvvat Nature Reserve of Ukkulaaq City, with the Tauvvusirmi Glacier flowing down from it on all sides. The Sillua Expressway passes some 50 km away.
   - id: nat_szhgrt
     subtype: peak
     status: generated
@@ -71,8 +71,8 @@ features:
     detect: { kind: peak, at_km: [508.8, 147.2] }
     names: { zh: 皮瓦皮鲁克峰, en: Mount Pivapirruk, art-x-tavrunaq: Pivapirruk }
     notes:
-      zh: 乌库拉克市皮瓦苏瓦区的山峰，海拔 1681 米，俯临皮瓦苏瓦区的峡湾村镇，西尔米帕高速在约 30 公里外经过。
-      en: A peak in Pivasuvva District of Ukkulaaq City, 1,681 m, looking down on the fjord villages of the district; the Sirmipaa Expressway passes some 30 km away.
+      zh: 乌库拉克市皮瓦苏瓦区的山峰，海拔 1681 米，俯临皮瓦苏瓦区的峡湾村镇，西卢阿高速在约 30 公里外经过。
+      en: A peak in Pivasuvva District of Ukkulaaq City, 1,681 m, looking down on the fjord villages of the district; the Sillua Expressway passes some 30 km away.
   - id: nat_8n8hxn
     subtype: peak
     status: generated

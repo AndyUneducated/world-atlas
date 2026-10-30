@@ -861,8 +861,8 @@ places:
       art-x-viking: Stadtregierung Sakole
       art-x-buckham: Governo Cittadino di Sakole
     notes:
-      zh: 设在萨科老镇中心的市政府，1990 年建市时由镇公所扩建
-      en: The city government in the centre of old Sako, enlarged from the town hall when the city was founded in 1990.
+      zh: 设在萨科老镇中心的市政府，建市时由镇公所扩建
+      en: The city government in the centre of old Sako, enlarged from the town hall when the city was founded.
     in: div_8m0jx4
     offset_km: [0.2, 0.2]
     site: { layout: complex, size_m: [300, 220] }
@@ -903,8 +903,8 @@ places:
       art-x-viking: Industriepark Eisenhügel
       art-x-buckham: Parco Industriale di Colle Ferro
     notes:
-      zh: 1990 年代起布局的制造业园区，以机械、汽车零部件与电子装配为主，萨科勒「新工业区」的主体
-      en: Manufacturing parks laid out since the 1990s, mainly machinery, car parts and electronics assembly; the core of Sakole's new industrial zone.
+      zh: 建市后布局的制造业园区，以机械、汽车零部件与电子装配为主，萨科勒「新工业区」的主体
+      en: Manufacturing parks laid out after the city was founded, mainly machinery, car parts and electronics assembly; the core of Sakole's new industrial zone.
     in: div_6byxb5
     offset_km: [2.2, -1.0]
     site: { layout: complex, size_m: [1200, 700] }
@@ -1048,18 +1048,18 @@ places:
     in: div_ts5cw5
     offset_km: [1.2, -0.6]
     site: { layout: complex, size_m: [900, 600] }
-  # ── 奥克西诺市与天城市地标（M16）──
+  # ── 塔夫鲁普库维克市与天城市地标（M16）──
   - id: bld_ydkbmq
     subtype: townhall
     status: generated
     names:
-      zh: 奥克西诺市人民政府
-      en: Oxino City Government
-      art-x-viking: Stadtregierung Oxino
-      art-x-buckham: Governo Cittadino di Oxino
+      zh: 塔夫鲁普库维克市人民政府
+      en: Tavrupukkuvik City Government
+      art-x-viking: Stadtregierung Tavrupukkuvik
+      art-x-buckham: Governo Cittadino di Tavrupukkuvik
     notes:
-      zh: 奥克老镇的市政府，1990 年奥克、西诺两镇合并设市时建成
-      en: The city government in old Ox, built when the towns of Ox and Ino merged into one city in 1990.
+      zh: 普库图克老镇的市政府，普库图克、西加维克两镇合并设市时建成
+      en: The city government in old Pukkutuuq, built when the towns of Pukkutuuq and Siggavik merged into one city.
     in: div_rzw76f
     offset_km: [0.2, 0.2]
     site: { layout: complex, size_m: [300, 220] }
@@ -1067,13 +1067,13 @@ places:
     subtype: marketplace
     status: generated
     names:
-      zh: 奥克农产品集散中心
-      en: Ox Produce Distribution Centre
-      art-x-viking: Agrarumschlagplatz Ox
-      art-x-buckham: Centro Agroalimentare di Ox
+      zh: 普库图克农产品集散中心
+      en: Pukkutuuq Produce Distribution Centre
+      art-x-viking: Agrarumschlagplatz Pukkutuuq
+      art-x-buckham: Centro Agroalimentare di Pukkutuuq
     notes:
-      zh: 奥克西诺平原的粮食与蔬果在此分拣、冷藏，再运往全岛
-      en: Grain, fruit and vegetables from the Oxino plain are sorted and chilled here before going out across the island.
+      zh: 塔夫鲁普库维克平原的粮食与蔬果在此分拣、冷藏，再运往全岛
+      en: Grain, fruit and vegetables from the Tavrupukkuvik plain are sorted and chilled here before going out across the island.
     in: div_rzw76f
     offset_km: [1.6, -0.8]
     site: { layout: market, size_m: [320, 200] }
@@ -1081,10 +1081,10 @@ places:
     subtype: museum
     status: generated
     names:
-      zh: 奥克西诺农机博物馆
-      en: Oxino Farm Machinery Museum
-      art-x-viking: Landmaschinenmuseum Oxino
-      art-x-buckham: Museo delle Macchine Agricole di Oxino
+      zh: 塔夫鲁普库维克农机博物馆
+      en: Tavrupukkuvik Farm Machinery Museum
+      art-x-viking: Landmaschinenmuseum Tavrupukkuvik
+      art-x-buckham: Museo delle Macchine Agricole di Tavrupukkuvik
     notes:
       zh: 从畜力犁到无人驾驶收割机，展出平原机械化农业的历程
       en: From horse-drawn ploughs to driverless combines, the story of mechanised farming on the plain.
@@ -1100,8 +1100,8 @@ places:
       art-x-viking: Strandpark Ochsenhornbucht
       art-x-buckham: Parco al Mare di Baia Corno di Bue
     notes:
-      zh: 牛角湾岸边的草地与沙滩，夏季是奥克西诺人消暑的去处
-      en: Lawns and a beach on Oxhorn Bay, where Oxino goes to cool off in summer.
+      zh: 牛角湾岸边的草地与沙滩，夏季是塔夫鲁普库维克人消暑的去处
+      en: Lawns and a beach on Oxhorn Bay, where Tavrupukkuvik goes to cool off in summer.
     in: div_rzw76f
     offset_km: [0.6, -1.6]
     site: { layout: park, size_m: [800, 350] }
@@ -1114,8 +1114,8 @@ places:
       art-x-viking: Zweistädteplatz
       art-x-buckham: Piazza delle Due Città
     notes:
-      zh: 纪念 1990 年奥克与西诺两镇合并设市的广场，市名由两镇名合成
-      en: Marks the 1990 merger of Ox and Ino into one city, whose name joins the two.
+      zh: 纪念普库图克与西加维克两镇合并设市的广场，新市名取塔夫鲁纳克语「土地生长之处」
+      en: Marks the merger of Pukkutuuq and Siggavik into one city, given the Tavrunaq name for 'where the land grows'.
     in: div_mpfctv
     offset_km: [0.3, 0.3]
     site: { layout: plaza, size_m: [240, 180] }
@@ -1123,10 +1123,10 @@ places:
     subtype: college
     status: generated
     names:
-      zh: 奥克西诺农业学院
-      en: Oxino Agricultural College
-      art-x-viking: Landwirtschaftliche Hochschule Oxino
-      art-x-buckham: Istituto Agrario di Oxino
+      zh: 塔夫鲁普库维克农业学院
+      en: Tavrupukkuvik Agricultural College
+      art-x-viking: Landwirtschaftliche Hochschule Tavrupukkuvik
+      art-x-buckham: Istituto Agrario di Tavrupukkuvik
     notes:
       zh: 农学、农机与食品加工的学院，试验田一直延伸到城外
       en: A college of agronomy, farm machinery and food processing, with trial fields reaching out of town.
@@ -1311,8 +1311,8 @@ places:
       art-x-viking: Stadtregierung Maslinberg
       art-x-buckham: Governo Cittadino di Maslin Tehee
     notes:
-      zh: 和平区的市政府，1990 年市府从厄定河迁来
-      en: The city government in Peace District, moved here from Erding River in 1990.
+      zh: 和平区的市政府，市府由厄定河迁来
+      en: The city government in Peace District, moved here from Erding River.
     in: div_nvrjpg
     offset_km: [0.2, 0.2]
     site: { layout: complex, size_m: [260, 200] }
@@ -1395,8 +1395,8 @@ places:
       art-x-viking: Museum Althaupt
       art-x-buckham: Museo di Palazzo Vecchio
     notes:
-      zh: 1990 年拆市前马斯林山市的市府旧址，现为讲述东北部开发与驯鹿牧业的博物馆
-      en: The seat of the old Maslin Mountain City before the 1990 split, now a museum of the settlement of the north-east and its reindeer herding.
+      zh: 拆市前马斯林山市的市府旧址，现为讲述东北部开发与驯鹿牧业的博物馆
+      en: The seat of the old Maslin Mountain City before the split, now a museum of the settlement of the north-east and its reindeer herding.
     in: div_1qm5cj
     offset_km: [0.2, 0.2]
     site: { layout: complex, size_m: [240, 180] }
