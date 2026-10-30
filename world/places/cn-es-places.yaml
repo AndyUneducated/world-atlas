@@ -1153,7 +1153,7 @@ places:
       zh: 赫维拉岛外海的发电场，由漂浮式风机、波浪能装置和海洋温差发电站组成，岛上的储能电站把电力存起来，经海底电缆送往三座岛屿，供应海军基地的全部用电，也为激光防空阵地供电。
       en: The power farm off Hevila Island, made up of floating wind turbines, wave energy machines and an ocean thermal power plant. A storage station on the island holds the power and sends it by undersea cable to all three islands, supplying the whole naval base, including the laser air defence site.
     in: div_ykkw7q
-    offset_km: [-15.0, -31.0]
+    offset_km: [-12.0, -37.5]
     military:
       unit:
         zh: 海军瓦希拉基地能源保障站
@@ -1197,7 +1197,7 @@ places:
       zh: 赫维拉岛外海底的研究站，水下生活舱可住二十四人，研究人员和潜水员在海底连续工作数周，研究深海生物、海底地形和水声传播；深潜器从这里下潜到数千米深的海沟。研究成果也服务于海军的水下传感器网。
       en: A research station on the seabed off Hevila Island, whose underwater habitat houses twenty-four people. Researchers and divers live and work on the seabed for weeks at a time, studying deep-sea life, the shape of the seafloor and how sound travels underwater, and submersibles dive from here into trenches thousands of metres deep. Its findings also serve the navy's undersea sensor network.
     in: div_ykkw7q
-    offset_km: [-13.0, -24.0]
+    offset_km: [-20.5, -27.0]
     military:
       unit:
         zh: 海军深海研究所赫维拉站
