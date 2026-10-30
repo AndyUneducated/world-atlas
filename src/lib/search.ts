@@ -75,6 +75,7 @@ export class SearchIndex {
           e.names["art-x-viking"],
           e.names["art-x-buckham"],
           e.names["art-x-tavrunaq"],
+          e.names["art-x-ivuran"],
           e.short_names?.en,
           syllables.join(""),
           syllables.map((p) => p[0]).join(""),

@@ -1,0 +1,55 @@
+# Named natural features of the Everlong Summer Islands Territory.
+# subtype follows OSM natural=* values. Geometry is produced by the generator
+# (see world/generator/cn-es.yaml); this file only holds identity and semantics.
+# Names are Chinese, English and Ivuran (art-x-ivuran).
+features:
+  - id: nat_2ens6y
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 蒂拉凯苏山脉
+      en: Tirakesu Mountains
+      art-x-ivuran: Tirakesu
+    notes:
+      zh: 主岛西南半部的中脊，伊武兰语意为「古老的山」。山脉从萨伦纳姆背后向东北延伸到哈努帕拉高原，把西北海岸的雨林和香料园与东南的哈努西鲁河谷分开；中段温达坎市的山坡上是层层叠叠的水稻梯田，最高处乌拉韦劳峰一带是云雾林和高山草甸。
+      en: The spine of the south-western half of the main island; in Ivuran the name means 'the old mountains'. The range runs north-east from behind Sarunnam to the Hanupala Plateau, dividing the rainforests and spice gardens of the north-west coast from the Hanusiru valley to the south-east; the slopes of Undakan City in its middle are stepped with rice terraces, and around Mount Uravelau, its highest summit, are cloud forest and alpine meadows.
+  - id: nat_hnhpgn
+    subtype: plateau
+    status: generated
+    names:
+      zh: 哈努帕拉高原
+      en: Hanupala Plateau
+      art-x-ivuran: Hanupala
+    notes:
+      zh: 主岛中部的高原，伊武兰语意为「大高原」，高原面海拔一千多米到一千六百米，气候凉爽。首府米雷兰在高原上的翁贝尔哈努湖东南岸，高原上有牧场、咖啡园和稻田；高原西端与蒂拉凯苏山脉相接，耸立着洛米图马峰；高原边缘是陡峭的断崖，哈努西鲁河和洛米西鲁河从这里跌落成瀑布，分别流向东南和西北的低地。
+      en: The plateau in the middle of the main island; its Ivuran name means 'great plateau'. Its surface stands between a thousand and 1,600 m up and is cool all year. The capital, Mirelan, lies on the south-eastern shore of Lake Ombelhanu up on the plateau, among pastures, coffee gardens and rice fields; at its western end, where it meets the Tirakesu Mountains, rises Mount Lomituma, and its edges are steep escarpments, where the Hanusiru and Lomisiru rivers fall in waterfalls towards the lowlands to the south-east and north-west.
+  - id: nat_yrg1cq
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 乌诺凯苏山脉
+      en: Unokesu Mountains
+      art-x-ivuran: Unokesu
+    notes:
+      zh: 主岛东北半部的山脉，伊武兰语意为「矿石之山」。山中的红土镍矿是领地最大的矿产，乌诺卡里市的矿区、冶炼厂和水电站都在山间；领地要求边采边复绿，采过的山坡随即种上原生树种。山脉北坡是纳卢迈的橡胶园和次生林。
+      en: The mountains of the north-eastern half of the main island; in Ivuran the name means 'mountains of ore'. Their laterite nickel is the territory's greatest mineral wealth, and the mines, smelters and hydro stations of Unokari City lie among them; the territory requires mined slopes to be replanted as mining goes on, with native trees. On the northern slopes are the rubber gardens and regrown forest of Nalumai.
+  - id: nat_ypq4a1
+    subtype: ridge
+    status: generated
+    names:
+      zh: 佩萨维丘陵
+      en: Pesavi Hills
+      art-x-ivuran: Pesavi
+    notes:
+      zh: 哈努帕拉高原东南缘的丘陵，在基拉努市背后，伊武兰语意为「高地」，最高处海拔一千一百多米。丘陵的山坡上种着可可和热带水果，山脚下是基拉努的半导体产业园，从高原流下的溪水是产业园的水源之一。
+      en: The hills on the south-eastern edge of the Hanupala Plateau, behind Kilanu City, rising to a little over 1,100 m; their Ivuran name means 'the uplands'. Cocoa and tropical fruit grow on their slopes, the semiconductor park of Kilanu lies at their foot, and the streams that come down from the plateau are among its sources of water.
+  - id: nat_11kf5w
+    subtype: ridge
+    status: generated
+    names:
+      zh: 瓦利凯苏丘陵
+      en: Vallikesu Hills
+      art-x-ivuran: Vallikesu
+    notes:
+      zh: 沿主岛东南海岸西段延伸的丘陵和低山，最高处海拔一千二百多米，伊武兰语意为「长岸之山」，把哈努西鲁河谷与瓦利凯一带的海岸平原隔开。丘陵上是橡胶园、椰林和次生林，山脚的村庄种稻和养鱼；从河谷通往瓦利凯港的公路和铁路都要翻过或穿过这道丘陵。
+      en: The hills and low mountains that run along the western part of the main island's south-east coast, rising to a little over 1,200 m; in Ivuran the name means 'hills of the long shore'. They separate the Hanusiru valley from the coastal plain around Vallikkai, carry rubber gardens, coconut groves and regrown forest, and the villages at their foot grow rice and raise fish; the roads and railways from the valley to the Port of Vallikkai have to cross or tunnel through them.

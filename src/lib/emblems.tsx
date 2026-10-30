@@ -365,6 +365,100 @@ export const MOTIFS: Record<string, (ink: string) => ReactNode> = {
       <circle cx="41.4" cy="39.3" r="1.9" fill={W} />
     </g>
   ),
+  palm: () => (
+    <g>
+      <path d="M24.5 41.5c1-8 .6-15-1.8-21.5" {...line(2.6)} />
+      <g fill={W}>
+        <path d="M23 19c-4-4-10-5-15-2.5 5 0 9 1.5 12 4.5z" />
+        <path d="M23 19c4-4 10-5 15-2.5-5 0-9 1.5-12 4.5z" />
+        <path d="M23 19c-2-5.5-7-9-12.5-9.5 4.5 2 7.6 5 9.6 9z" />
+        <path d="M23 19c2-5.5 7-9 12.5-9.5-4.5 2-7.6 5-9.6 9z" />
+        <path d="M23 19c-.4-5 1-9.6 3.5-12.5-.8 4-.9 8 .1 12z" />
+        <circle cx="21.6" cy="21.2" r="1.5" />
+        <circle cx="24.7" cy="21.6" r="1.5" />
+      </g>
+      <path d="M10 42.5h28" {...line(1.8, 0.7)} />
+    </g>
+  ),
+  lotus: (ink) => (
+    <g>
+      <g fill={W}>
+        <path d="M24 11.5c3.6 4 5 8.8 4.2 13.6-1 4.8-2.6 7.4-4.2 9-1.6-1.6-3.2-4.2-4.2-9-.8-4.8.6-9.6 4.2-13.6z" />
+        <path d="M10 19.5c5 .6 9 3.2 11.4 7.6 1.6 3.2 2 5.6 2.2 7.6-3.6-.2-7.6-1.6-10.4-5-2.2-2.7-3.2-6.2-3.2-10.2z" />
+        <path d="M38 19.5c-5 .6-9 3.2-11.4 7.6-1.6 3.2-2 5.6-2.2 7.6 3.6-.2 7.6-1.6 10.4-5 2.2-2.7 3.2-6.2 3.2-10.2z" />
+        <path d="M5 29.5c4.8-.6 9.6.8 14 4.6.8.7 1 1 1.2 1.4-5 .4-10.6-.6-15.2-6z" />
+        <path d="M43 29.5c-4.8-.6-9.6.8-14 4.6-.8.7-1 1-1.2 1.4 5 .4 10.6-.6 15.2-6z" />
+      </g>
+      <path d="M24 16.5v13" stroke={ink} strokeOpacity="0.3" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M8 40h32" {...line(2)} />
+    </g>
+  ),
+  stupa: (ink) => (
+    <g fill={W}>
+      <path d="M23.3 5.5h1.4l.8 9.5h-3z" />
+      <rect x="20.5" y="14.6" width="7" height="3" rx="0.8" />
+      <path d="M14.5 29c0-6.2 4.2-11 9.5-11s9.5 4.8 9.5 11z" />
+      <rect x="11.5" y="29.6" width="25" height="3.2" rx="1" />
+      <rect x="8.5" y="33.6" width="31" height="3.2" rx="1" />
+      <rect x="5.5" y="37.6" width="37" height="3.2" rx="1" />
+      <path d="M21.8 33.6h4.4v7.2h-4.4z" fill={ink} fillOpacity="0.35" />
+      <path d="M18.6 25.4a6 6 0 0 1 3-4.6" stroke={ink} strokeOpacity="0.3" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+    </g>
+  ),
+  hornbill: (ink) => (
+    <g>
+      <path
+        d="M7.5 37c0-9 5.4-15.6 12.6-17 3-.6 6 .1 8.2 1.6l2.6-2c3.6-2.6 8.4-2.9 12.6-.8-2.6.4-5 1.4-7 3 3.4-.2 6.4.6 8.6 2.4-5.4.4-9.6 1.2-13 3.2-2 4.8-6 8.4-11 10L17.5 42h-9z"
+        fill={W}
+      />
+      <circle cx="24.5" cy="24.8" r="1.4" fill={ink} />
+      <path d="M30.4 23.6c3-1.4 6.5-2 10-1.8" fill="none" stroke={ink} strokeOpacity="0.35" strokeWidth="1.1" strokeLinecap="round" />
+    </g>
+  ),
+  turtle: (ink) => (
+    <g>
+      <g fill={W}>
+        <ellipse cx="24" cy="25" rx="10" ry="12.5" />
+        <ellipse cx="24" cy="9.8" rx="3.4" ry="3.8" />
+        <path d="M15.5 18c-4-2.6-8-2.8-11-1.4 2.6 2.4 6 4 10 4.2z" />
+        <path d="M32.5 18c4-2.6 8-2.8 11-1.4-2.6 2.4-6 4-10 4.2z" />
+        <path d="M16.5 33c-3 1.4-5 3.6-5.6 6.4 2.8-.4 5.4-2 7.2-4.4z" />
+        <path d="M31.5 33c3 1.4 5 3.6 5.6 6.4-2.8-.4-5.4-2-7.2-4.4z" />
+        <path d="M24 37.2l-1.4 4.3h2.8z" />
+      </g>
+      <path
+        d="M24 19l4.4 2.6v5L24 29.2l-4.4-2.6v-5zM24 13.6V19M28.4 21.6l4.6-2.4M28.4 26.6l4.4 2.8M24 29.2v6.6M19.6 26.6l-4.4 2.8M19.6 21.6l-4.6-2.4"
+        fill="none"
+        stroke={ink}
+        strokeOpacity="0.35"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+    </g>
+  ),
+  terraces: (ink) => (
+    <g>
+      <path d="M5 40.5C9 28 16 17 24 11c8 6 15 17 19 29.5z" fill={W} />
+      <path
+        d="M19.4 15.8c3 1 6.2 1 9.2 0M15.6 21c5.4 1.6 11.4 1.6 16.8 0M12.4 26.4c7.4 2 15.8 2 23.2 0M9.8 31.8c9.2 2.4 19.2 2.4 28.4 0M7.6 37c10.6 2.6 22.2 2.6 32.8 0"
+        fill="none"
+        stroke={ink}
+        strokeOpacity="0.4"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
+      <circle cx="37.5" cy="9.5" r="3.2" fill={W} />
+    </g>
+  ),
+  chip: (ink) => (
+    <g>
+      {[16.5, 21.4, 26.6, 31.5].map((p) => (
+        <path key={p} d={`M${p} 13V8M${p} 35v5M13 ${p}H8M35 ${p}h5`} {...line(2)} />
+      ))}
+      <rect x="13" y="13" width="22" height="22" rx="2.4" fill={W} />
+      <rect x="18.5" y="18.5" width="11" height="11" rx="1.2" fill="none" stroke={ink} strokeOpacity="0.4" strokeWidth="1.3" />
+    </g>
+  ),
 };
 
 /** Background textures on the 64×64 emblem box. */
@@ -445,6 +539,20 @@ export const PATTERNS: Record<string, () => ReactNode> = {
       return (
         <path key={k} d={`M${x} -4C${x + 10} 10 ${x - 6} 22 ${x + 4} 36S${x + 2} 56 ${x + 8} 70`} fill="none" stroke={W} strokeWidth={k % 2 ? 1 : 1.6} strokeOpacity={k % 3 ? 0.8 : 1} />
       );
+    }),
+  weave: () =>
+    Array.from({ length: 64 }, (_, k) => {
+      const [i, j] = [k % 8, Math.floor(k / 8)];
+      const [x, y] = [i * 8, j * 8];
+      const d = (i + j) % 2 ? `M${x + 1} ${y + 2.6}h6M${x + 1} ${y + 5.4}h6` : `M${x + 2.6} ${y + 1}v6M${x + 5.4} ${y + 1}v6`;
+      return <path key={k} d={d} stroke={W} strokeWidth="1.1" strokeLinecap="round" />;
+    }),
+  fronds: () =>
+    Array.from({ length: 6 }, (_, k) => {
+      const y = 2 + k * 12;
+      let d = `M-4 ${y}H68`;
+      for (let x = -2; x < 68; x += 5) d += `M${x} ${y}l3.4 -4.6M${x} ${y}l3.4 4.6`;
+      return <path key={k} d={d} fill="none" stroke={W} strokeWidth="1" strokeLinecap="round" />;
     }),
 };
 

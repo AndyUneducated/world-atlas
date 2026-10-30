@@ -6,7 +6,7 @@ export type Appearance = "auto" | ThemeId;
 export type BBox = [number, number, number, number];
 export type LngLat = [number, number];
 
-export const NAME_LANGS = ["zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq"] as const;
+export const NAME_LANGS = ["zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran"] as const;
 export type NameLang = (typeof NAME_LANGS)[number];
 export type Names = Partial<Record<NameLang, string>> & { zh: string; en: string };
 export type Localized = { zh: string; en: string };
@@ -80,7 +80,7 @@ export interface Entity {
   /** Territorial routes: the symbol on the route shield (see glyphs.ts). */
   shield?: string;
   /** Territorial routes: the shield design of their territory (route_shield in its division record); default crest. */
-  shield_style?: "crest" | "maritime" | "polar";
+  shield_style?: "crest" | "maritime" | "polar" | "tropic";
   /** The route runs in a straight line end to end. */
   straight?: boolean;
   /** Routes between territories: the two territories they join (their ancestors stop at the country). */

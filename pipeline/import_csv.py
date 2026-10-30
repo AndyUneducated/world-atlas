@@ -72,6 +72,7 @@ NAMES = [
     Col("name_viking", "维京语名", "names.art-x-viking"),
     Col("name_buckham", "巴克汉姆语名", "names.art-x-buckham"),
     Col("name_tavrunaq", "塔夫鲁纳克语名", "names.art-x-tavrunaq"),
+    Col("name_ivuran", "伊武兰语名", "names.art-x-ivuran"),
 ]
 NOTES = [Col("notes_zh", "中文简介", "notes.zh"), Col("notes_en", "英文简介", "notes.en")]
 HEAD = [Col("id", "编号"), Col("status", "状态", "status", "choice", STATUSES)]

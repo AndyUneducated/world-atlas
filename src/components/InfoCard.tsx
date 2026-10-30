@@ -39,6 +39,7 @@ const NAME_TAGS: Record<NameLang, Record<Lang, string>> = {
   "art-x-viking": { zh: "维", en: "VIK" },
   "art-x-buckham": { zh: "巴", en: "BCK" },
   "art-x-tavrunaq": { zh: "塔", en: "TAV" },
+  "art-x-ivuran": { zh: "伊", en: "IVR" },
 };
 import { useAtlas } from "../store";
 import { EntityIcon } from "./EntityIcon";

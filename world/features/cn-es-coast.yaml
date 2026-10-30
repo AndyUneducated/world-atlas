@@ -1,0 +1,249 @@
+# Coastal landforms of the Everlong Summer Islands Territory: islands and their archipelagos, bays, capes,
+# straits and river mouths. The generator finds them in the coastline (pipeline/atlas/coast.py); each entry
+# names the landform of `detect.kind` nearest to `detect.at_km` (design km, x east, y north). An archipelago
+# is the named islands it lists. Unnamed landforms are listed in .cache/candidates-div_nwm019.json after a build.
+features:
+  # ── Islands ──────────────────────────────
+  - id: nat_8rtv1q
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [55.2, 130.8] }
+    names: { zh: 基鲁迈岛, en: Kirumai Island, art-x-ivuran: Kirumai }
+    notes:
+      zh: 基鲁迈群岛的主岛，面积约 2.04 万平方公里，是主岛之外领地最大的岛屿，伊武兰语意为「一串珍珠」。基鲁迈市的城区迈萨里区在岛北的港湾边，岛南的卡朗加区是乡村和传统村落；岛上地势低缓，最高处海拔五百米左右，中部的丘陵上是椰林和小块的稻田。
+      en: The main island of the Kirumai Islands, about 20,400 km² and the largest island in the territory after the main island; in Ivuran the name means 'a string of pearls'. Maisari, the town district of Kirumai City, stands by the harbour in the north, and Karanga District in the south is country of farms and traditional villages; the island is low and gentle, rising to about 500 m, with coconut groves and small rice fields on the hills in the middle.
+  - id: nat_y42v6p
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [66.2, 78.8] }
+    names: { zh: 蒂卢迈岛, en: Tilumai Island, art-x-ivuran: Tilumai }
+    notes:
+      zh: 基鲁迈群岛的第二大岛，面积约 1.22 万平方公里，伊武兰语意为「三颗珍珠」，全岛属蒂卢迈区。岛周围的珊瑚礁和海底峭壁是有名的潜水地，潜水学校和度假村沿西岸排开；岛上地势平缓，最高处海拔四百多米。
+      en: The second island of the Kirumai Islands, about 12,200 km²; in Ivuran the name means 'three pearls', and the whole island is Tilumai District. The reefs and underwater cliffs around it are well known to divers, and dive schools and resorts line its western shore; the island is gentle, rising to a little over 400 m.
+  - id: nat_n46nzp
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [93.8, 43.2] }
+    names: { zh: 奥罗武岛, en: Orovu Island, art-x-ivuran: Orovu }
+    notes:
+      zh: 基鲁迈群岛中部的岛屿，面积约 8700 平方公里，伊武兰语意为「老家」，传说是伊武兰人的祖先渡海登陆的地方，全岛属奥罗武区。岛上的村落保留着长屋、船屋和祭祀场的古老格局，每年的登陆节上，各岛的独木舟船队都会划到这里。
+      en: An island in the middle of the Kirumai Islands, about 8,700 km²; in Ivuran the name means 'old home', and legend makes it the place where the ancestors of the Ivuran people came ashore. The whole island is Orovu District. Its villages keep the old pattern of long houses, boat houses and ceremonial grounds, and every year at the Landing Festival canoe fleets from all the islands paddle here.
+  - id: nat_6b65mm
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [134.8, 26.2] }
+    names: { zh: 马拉坎岛, en: Malakan Island, art-x-ivuran: Malakan }
+    notes:
+      zh: 基鲁迈群岛南部的低平岛屿，面积约 6500 平方公里，最高处海拔一百多米，伊武兰语意为「花园之海」。岛和周围的礁盘整片属马拉坎珊瑚礁保护区，常住人口约 8000 人；礁盘上栖息着海龟、蝠鲼和上千种珊瑚鱼，潜水和游船都要按名额预约。
+      en: A low island in the south of the Kirumai Islands, about 6,500 km² and rising only a little over 100 m; in Ivuran the name means 'garden sea'. The island and its reefs are all the Malakan Coral Reef Reserve, home to about 8,000 people; turtles, manta rays and a thousand kinds of reef fish live on the reefs, and dives and boat trips are by booked quota.
+  - id: nat_kbsy7t
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [167.8, 28.8] }
+    names: { zh: 皮卢岛, en: Pilu Island, art-x-ivuran: Pilu }
+    notes:
+      zh: 基鲁迈群岛东端两座岛屿中较大的一座，面积约 4500 平方公里，伊武兰语意为「小船」，与皮卢尼岛同属皮卢区。渔民从岛南的渔港出海，在礁外的深水里钓金枪鱼；去往瓦希拉群岛的补给船也从这里出发。
+      en: The larger of the two islands at the eastern end of the Kirumai Islands, about 4,500 km²; in Ivuran the name means 'little boat', and with Piluni Island it makes up Pilu District. Fishermen sail from the harbour in the south to catch tuna in the deep water beyond the reef, and the supply ships for the Vahira Islands leave from here too.
+  - id: nat_5waqej
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [192.8, 35.2] }
+    names: { zh: 皮卢尼岛, en: Piluni Island, art-x-ivuran: Piluni }
+    notes:
+      zh: 皮卢岛以东的岛屿，面积约 2900 平方公里，名字意为「小皮卢」，是基鲁迈群岛六座岛屿中最小的一座，属皮卢区。岛上有小型度假村和指引航道的灯塔，与皮卢岛隔着皮卢海峡相望。
+      en: The island east of Pilu Island, about 2,900 km²; its name means 'little Pilu', and it is the smallest of the six Kirumai Islands, part of Pilu District. It has a small resort and a lighthouse marking the channel, and looks across the Pilu Strait to Pilu Island.
+  - id: nat_e7syqw
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [259.2, 40.8] }
+    names: { zh: 瓦希拉岛, en: Vahira Island, art-x-ivuran: Vahira }
+    notes:
+      zh: 瓦希拉群岛的主岛，面积约 250 平方公里，是三座岛屿中最大的，伊武兰语意为「远方的岩石」。海军基地的指挥机构、营区和岛屿机场都在岛上，全岛属瓦希拉群岛管理区，未经许可不得靠近。
+      en: The main island of the Vahira Islands, about 250 km² and the largest of the three; in Ivuran the name means 'distant rocks'. The naval base's command, barracks and island airfield are here; the whole island is in the Vahira Islands Administration Zone and may not be approached without permission.
+  - id: nat_zhnfs6
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [264.8, 35.2] }
+    names: { zh: 塔鲁卡岛, en: Taruka Island, art-x-ivuran: Taruka }
+    notes:
+      zh: 瓦希拉群岛东侧的岛屿，面积约 140 平方公里，伊武兰语意为「深处」。岛周围的海水很深，海军基地的潜艇洞库建在岛上的山体里，无人舰艇和水下无人航行器的自动化船坞沿岛的北岸排开。
+      en: The eastern island of the Vahira Islands, about 140 km²; in Ivuran the name means 'the deep'. The water around it is very deep, the naval base's submarine pens are cut into its hill, and the automated docks for uncrewed ships and underwater vehicles line its northern shore.
+  - id: nat_z1x5j4
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [255.8, 33.2] }
+    names: { zh: 赫维拉岛, en: Hevila Island, art-x-ivuran: Hevila }
+    notes:
+      zh: 瓦希拉群岛西南的岛屿，面积约 130 平方公里，名字意为「风中的光」。海军基地的海上发电场和定向能防空阵地在这里，岛外系泊着巨型浮动平台，深海研究站的水下生活舱也从这里下潜。
+      en: The south-western island of the Vahira Islands, about 130 km²; its name means 'light in the wind'. The naval base's offshore power station and directed-energy air defence site are here, a giant floating platform is moored off the island, and the habitats of the deep-sea research station are lowered from here.
+  - id: nat_er2w9g
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [479.8, 251.8] }
+    names: { zh: 塔卢努岛, en: Talunu Island, art-x-ivuran: Talunu }
+    notes:
+      zh: 塔卢马兰湾口外的岛屿，面积约 310 平方公里，伊武兰语意为「停泊之沙」。岛屿挡住了外海的风浪，使塔卢马兰湾成为天然的避风港；岛上有灯塔、古老的石砌海防工事和白沙海滩，从塔卢马兰老港乘渡轮可到。
+      en: The island off the mouth of Talumaran Bay, about 310 km²; in Ivuran the name means 'mooring sand'. It breaks the swell from the open sea and makes the bay a natural haven; it has a lighthouse, old stone sea defences and white beaches, and ferries run to it from Talumaran's old harbour.
+  - id: nat_wdgcxk
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [176.8, 171.2] }
+    names: { zh: 塞里努岛, en: Serinu Island, art-x-ivuran: Serinu }
+    notes:
+      zh: 萨卢瓦伊湾里的小岛，面积约 170 平方公里，伊武兰语意为「静沙」。岛周围的浅水是海藻和贝类的养殖场，岛上有晒盐场和几座渔村，渡船每天往返于岛和瓦利凯市萨卢瓦伊区的海岸之间。
+      en: A small island in Saluvai Bay, about 170 km²; in Ivuran the name means 'still sand'. The shallows around it are farmed for seaweed and shellfish, it has salt pans and a few fishing villages, and a ferry crosses every day to the Saluvai coast of Vallikkai City.
+  # ── Archipelagos ──────────────────────────────
+  - id: nat_69pc21
+    subtype: archipelago
+    status: generated
+    islands: [nat_8rtv1q, nat_y42v6p, nat_n46nzp, nat_6b65mm, nat_kbsy7t, nat_5waqej]
+    names: { zh: 基鲁迈群岛, en: Kirumai Islands, art-x-ivuran: Kirumaivaru }
+    notes:
+      zh: 主岛西南端外的群岛，由基鲁迈岛、蒂卢迈岛、奥罗武岛、马拉坎岛、皮卢岛和皮卢尼岛六座岛屿组成，总面积约 5.5 万平方公里，从主岛西南端向南延伸、再向东弯成一道弧形，构成基鲁迈市。群岛名意为「一串珍珠」，岛上是白沙海滩、珊瑚礁和伊武兰人的传统村落。
+      en: "The islands off the south-western end of the main island: Kirumai, Tilumai, Orovu, Malakan, Pilu and Piluni, about 55,000 km² in all, running south from the tip of the main island and curving round to the east, and making up Kirumai City. The name means 'a string of pearls'; the islands are a place of white beaches, coral reefs and traditional Ivuran villages."
+  - id: nat_4z65yt
+    subtype: archipelago
+    status: generated
+    islands: [nat_e7syqw, nat_zhnfs6, nat_z1x5j4]
+    names: { zh: 瓦希拉群岛, en: Vahira Islands, art-x-ivuran: Vahiravaru }
+    notes:
+      zh: 基鲁迈群岛以东外海的三座小岛，由瓦希拉岛、塔鲁卡岛和赫维拉岛组成，总面积约 520 平方公里，离最近的有人岛皮卢尼岛有 200 多公里，名字意为「远方的岩石」。群岛整片是海军基地，属基鲁迈市瓦希拉群岛管理区，未经许可的船只和飞机不得靠近。
+      en: Three small islands far out to sea east of the Kirumai Islands, Vahira, Taruka and Hevila, about 520 km² in all and more than 200 km from Piluni Island, the nearest inhabited island; the name means 'distant rocks'. The islands are all a naval base, the Vahira Islands Administration Zone of Kirumai City, and no ship or aircraft may come near without permission.
+  # ── Bays, straits and river mouths ──────────────────────────────
+  - id: nat_5p14yz
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [477.2, 257.2] }
+    names: { zh: 塔卢马兰湾, en: Talumaran Bay, art-x-ivuran: Talulavu }
+    notes:
+      zh: 主岛东南岸的大海湾，面积约 1630 平方公里，是领地最大的海湾，伊武兰语名意为「停泊之湾」。湾口外的塔卢努岛挡住了外海的风浪，湾内水深浪静，自古是船只避风的锚地；塔卢马兰市沿湾的东北岸展开，湾东北角的伦博湾两岸是船厂。
+      en: The great bay on the south-east coast of the main island, about 1,630 km² and the largest bay in the territory; its Ivuran name means 'bay of mooring'. Talunu Island off its mouth breaks the swell, the water inside is deep and calm, and ships have sheltered here since early times; Talumaran City spreads along its north-eastern shore, and shipyards line Lumbo Bay in its north-eastern corner.
+  - id: nat_vp8ycs
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [495.2, 270.2] }
+    names: { zh: 伦博湾, en: Lumbo Bay, art-x-ivuran: Lumbolavu }
+    notes:
+      zh: 塔卢马兰湾东北角伸进城区的狭长内湾，长约 25 公里，伊武兰语意为「船湾」。伦博船厂的干船坞和龙门吊沿湾排开，塔卢西鲁河在湾顶入海，老港的石砌防波堤和灯塔就在湾口。
+      en: The long inner bay that reaches into the city from the north-eastern corner of Talumaran Bay, about 25 km long; in Ivuran the name means 'bay of ships'. The dry docks and gantry cranes of the Lumbo Shipyards line it, the Talusiru River enters at its head, and the old harbour's stone breakwater and lighthouse stand at its mouth.
+  - id: nat_91kyq4
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [170.2, 171.8] }
+    names: { zh: 萨卢瓦伊湾, en: Saluvai Bay, art-x-ivuran: Saluvailavu }
+    notes:
+      zh: 主岛南岸西段的海湾，面积约 760 平方公里，在哈努西鲁河三角洲以东，伊武兰语名意为「盐风之湾」。湾内风浪小、滩涂宽，沿岸是鱼虾和海藻的养殖场和晒盐场，塞里努岛在湾中。
+      en: A bay on the western part of the main island's south coast, about 760 km², east of the Hanusiru Delta; its Ivuran name means 'bay of the salt wind'. Its water is calm and its tidal flats are wide, its shores are lined with fish, prawn and seaweed farms and salt pans, and Serinu Island lies in the middle.
+  - id: nat_zdb0a2
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [380.2, 228.2] }
+    names: { zh: 基拉湾, en: Kila Bay, art-x-ivuran: Kilalavu }
+    notes:
+      zh: 基拉努市西部的海湾，面积约 150 平方公里，伊武兰语意为「明亮的海湾」，湾边是洁白的石英砂滩。基拉西鲁河在湾顶入海，湾岸的海滨公园和沙滩是基拉努市民周末常去的地方。
+      en: A bay west of Kilanu City, about 150 km²; in Ivuran the name means 'bright bay', and white quartz beaches line it. The Kilasiru River enters at its head, and the seaside parks and beaches on its shore are where Kilanu's people go at weekends.
+  - id: nat_k1a82j
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [411.8, 337.2] }
+    names: { zh: 迈卢阿湾, en: Mailua Bay, art-x-ivuran: Mailualavu }
+    notes:
+      zh: 纳卢迈市西南的平静海湾，面积约 120 平方公里，伊武兰语意为「珍珠之湾」。湾里挂满珍珠贝的养殖笼，湾口的岬角挡住了外海的风浪；领地按月监测海湾的水质，养殖密度有上限。
+      en: A calm bay south-west of Nalumai City, about 120 km²; in Ivuran the name means 'bay of pearls'. It is hung with the cages of pearl oysters and sheltered from the open sea by the headland at its mouth; the territory tests its water every month and caps how densely it may be farmed.
+  - id: nat_s6myp6
+    subtype: bay
+    status: generated
+    detect: { kind: fjord, at_km: [453.2, 349.8] }
+    names: { zh: 维兰塔湾, en: Viranta Bay, art-x-ivuran: Virantalavu }
+    notes:
+      zh: 纳卢迈市东北的狭长海湾，长约 26 公里，伊武兰语意为「花园之湾」。维兰塔植物园就在湾畔的山坡上，湾里的水生植物园区引海湾的潮水灌注，游船从纳卢迈城区沿海岸开到湾里。
+      en: A long, narrow bay north-east of Nalumai City, about 26 km long; in Ivuran the name means 'bay of the garden'. The Viranta Botanic Garden stands on the slopes above it, its water garden is fed by the tides of the bay, and boats run along the coast from Nalumai into it.
+  - id: nat_5pk2cp
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [627.8, 379.2] }
+    names: { zh: 埃武托拉湾, en: Evutola Bay, art-x-ivuran: Evutolalavu }
+    notes:
+      zh: 埃武托拉公社中心外的海湾，面积约 95 平方公里，名字意为「大家的家的海湾」。公社的渔港、公共浴场和海滨公园沿湾排开，湾畔的长堤是公社居民傍晚散步的地方，每逢节日，湾里的龙舟赛由各区的合作社组队参加。
+      en: The bay off the centre of Evutola Commune, about 95 km²; its name means 'bay of everyone's home'. The commune's fishing harbour, public baths and seaside park line it, the long embankment on its shore is where the commune's people walk in the evening, and on festival days the cooperatives of every district race dragon boats on it.
+  - id: nat_qrx8p0
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [124.2, 241.2] }
+    names: { zh: 蒂拉凯湾, en: Tirakkai Bay, art-x-ivuran: Tirakkailavu }
+    notes:
+      zh: 彭纳拉姆市西南海岸的海湾，面积约 290 平方公里，伊武兰语意为「浪之岸的海湾」。彭纳西鲁河在湾顶入海，湾边的渔村清晨出海、午后回港，海滩上的家庭旅馆以看日落闻名。
+      en: A bay on the coast south-west of Pennaram City, about 290 km²; in Ivuran the name means 'bay of the shore of waves'. The Pennasiru River enters at its head, the fishing villages on its shore put out at dawn and come home in the afternoon, and the family guesthouses on its beaches are known for their sunsets.
+  - id: nat_mer33e
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [256.8, 294.8] }
+    names: { zh: 马纳卢湾, en: Manalu Bay, art-x-ivuran: Manalulavu }
+    notes:
+      zh: 洛米兰市马纳卢区外的海湾，面积约 230 平方公里，伊武兰语意为「河口之湾」，洛米西鲁河在湾的西侧入海。湾岸是红树林和椰林，海滩上有海龟产卵地，产卵季节海滩在夜间封闭。
+      en: The bay off Manalu District of Lomiran City, about 230 km²; in Ivuran the name means 'bay of the river mouth', and the Lomisiru River enters its western side. Mangroves and coconut groves line it, and turtles nest on its beaches, which close at night in the nesting season.
+  - id: nat_9fy0x5
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [258.2, 36.2] }
+    names: { zh: 瓦希拉湾, en: Vahira Bay, art-x-ivuran: Vahiralavu }
+    notes:
+      zh: 瓦希拉群岛三座岛屿围成的海湾，面积约 450 平方公里，湾内水深浪静，是海军基地的锚地和舰艇训练水域，未经许可的船只不得驶入。
+      en: The bay enclosed by the three Vahira Islands, about 450 km², deep and calm; it is the naval base's anchorage and training water, and no ship may enter without permission.
+  - id: nat_2ff02a
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [182.5, 32.2] }
+    names: { zh: 皮卢海峡, en: Pilu Strait, art-x-ivuran: Pilutiva }
+    notes:
+      zh: 皮卢岛和皮卢尼岛之间的海峡，宽约 23 公里，伊武兰语名意为「小船的水道」。皮卢区的渔船和去往瓦希拉群岛的补给船都从这里经过，海峡两岸各有一座灯塔。
+      en: The strait between Pilu Island and Piluni Island, about 23 km wide; its Ivuran name means 'channel of the little boats'. The fishing boats of Pilu District and the supply ships for the Vahira Islands pass through it, and a lighthouse stands on each shore.
+  - id: nat_wcvgvv
+    subtype: strait
+    status: generated
+    detect: { kind: strait, at_km: [474.8, 253.8] }
+    names: { zh: 塔卢努海峡, en: Talunu Strait, art-x-ivuran: Talunutiva }
+    notes:
+      zh: 塔卢努岛和主岛之间的海峡，宽约 23 公里，是进出塔卢马兰湾的主航道，航道两侧设有灯浮标，进港的大船在这里换上引航员。海峡里潮流湍急，渔民的小船常在退潮时沿岸边进出。
+      en: The strait between Talunu Island and the main island, about 23 km wide and the main channel into and out of Talumaran Bay; lit buoys mark the fairway, and large ships take on their pilots here. The tide runs fast through the strait, and fishing boats keep to the shore when it ebbs.
+  - id: nat_rhcv7j
+    subtype: estuary
+    status: generated
+    detect: { kind: estuary, at_km: [85.2, 170.8] }
+    names: { zh: 哈努西鲁河口, en: Hanusiru Mouth, art-x-ivuran: Hanusirukalu }
+    notes:
+      zh: 领地最长的河流哈努西鲁河入海的地方，在萨伦纳姆市萨鲁凯区，离萨伦纳姆老城约九十公里。河口宽阔，分汊的水道之间是沙洲和红树林；萨伦纳姆港的集装箱码头和散货码头沿河口两岸展开，三角洲的稻米、香料和水产从这里装船出口。
+      en: Where the Hanusiru, the longest river in the territory, reaches the sea, in Sarukkai District of Sarunnam City, some 90 km from the old city. The mouth is wide, with sandbars and mangroves between its branching channels, and the container and bulk quays of the Port of Sarunnam line both banks, shipping out the rice, spices and seafood of the delta.
+  # ── Capes ──────────────────────────────
+  - id: nat_bpv2zp
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [280.8, 309.8] }
+    names: { zh: 塔卡维岬, en: Cape Takavi, art-x-ivuran: Takaviruvai }
+    notes:
+      zh: 洛米兰市塔卡维区向西北伸入海中的岬角，伸出约 18 公里，是领地最突出的岬角，伊武兰语意为「树冠之岬」。岬上覆盖着原始的低地雨林，林冠一直长到海边的崖顶，犀鸟常在岬角的大树上筑巢。
+      en: The headland of Takavi District, Lomiran City, reaching about 18 km out to sea to the north-west, the most prominent cape in the territory; in Ivuran the name means 'cape of the canopy'. Old lowland rainforest covers it, its canopy running right to the cliff tops by the sea, and hornbills nest in its great trees.
+  - id: nat_syv19z
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [347.8, 203.2] }
+    names: { zh: 索里努岬, en: Cape Sorinu, art-x-ivuran: Sorinuruvai }
+    notes:
+      zh: 主岛南岸的岬角，伸出约 13 公里，伊武兰语意为「太阳之岬」。岬角朝向东南，是看日出的名胜，岬顶有灯塔和观日台，每逢新年，许多人在黎明前登上岬顶等候第一缕阳光。
+      en: A headland on the south coast of the main island, reaching about 13 km out to sea; in Ivuran the name means 'cape of the sun'. It faces south-east and is a famous place to watch the sunrise, with a lighthouse and a viewing terrace on top, and at the new year many people climb it before dawn to wait for the first light.
+  - id: nat_xw81nd
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [276.2, 189.2] }
+    names: { zh: 赫瓦鲁岬, en: Cape Hevaru, art-x-ivuran: Hevaruruvai }
+    notes:
+      zh: 瓦利凯市以东的岬角，伸出约 13 公里，伊武兰语意为「风之岬」。岬角迎着季风，常年风大浪急，岬上建有风力发电场，岬角两侧的海湾是冲浪的好去处。
+      en: A headland east of Vallikkai City, reaching about 13 km out to sea; in Ivuran the name means 'cape of the wind'. It stands full in the monsoon, windy and rough all year, with a wind farm on top, and the bays on either side are good for surfing.
+  - id: nat_jdczs5
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [415.2, 220.8] }
+    names: { zh: 蒂克瓦岬, en: Cape Tikeva, art-x-ivuran: Tikevaruvai }
+    notes:
+      zh: 基拉努市东南的岬角，伸出约 12 公里，伊武兰语意为「星」。岬上的灯塔夜里一闪一闪，从海上看去像一颗星，岬角由此得名；岬下的海水清澈，是基拉努人浮潜的地方。
+      en: A headland south-east of Kilanu City, reaching about 12 km out to sea; in Ivuran the name means 'star', after its lighthouse, which twinkles like a star seen from the sea at night. The water below it is clear, and Kilanu's people come here to snorkel.

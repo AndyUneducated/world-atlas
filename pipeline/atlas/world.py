@@ -38,7 +38,7 @@ TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder")
 # A wonder on a line is one of its built structures (named in the build); elsewhere it is the entity itself.
 WONDER_STRUCTURES = ("bridge", "tunnel", "snow_shed")
 TRAIT_KEYS = ("industries", "heritage", "age", "income")
-ROUTE_SHIELDS = ("crest", "maritime", "polar")  # territorial route shield designs, see src/lib/shields.ts
+ROUTE_SHIELDS = ("crest", "maritime", "polar", "tropic")  # territorial route shield designs, see src/lib/shields.ts
 STREET_STYLES = ("planned", "mixed", "organic")
 BUILDING_MIX_KEYS = ("slabs", "towers", "perimeter", "houses", "podium", "industrial", "civic", "park")
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).

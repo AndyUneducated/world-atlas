@@ -1,0 +1,376 @@
+# Procedural generator parameters for the Everlong Summer Islands Territory: a long main island
+# running from south-west to north-east, the six Kirumai Islands curving away south from its
+# south-western tip, and the three naval islands of Vahira far out to the south-east.
+#
+# All positions and lengths are in design kilometres inside a local equal-area (sinusoidal) frame
+# whose centre maps to frame.origin_lonlat; frame.scale converts design km to real km (areas by its
+# square). Division areas are taken from world/divisions/cn-es.yaml (area_km2, real km²) and enforced.
+# Coordinates were laid out along the main island's axis (see DECISIONS.md, M43).
+territory: div_nwm019
+seed: 43
+frame:
+  origin_lonlat: [5.0, 6.6]
+  size_km: [700, 440]
+  scale: 4.0  # one design km is 4 real km: the island is 2,400 km long, so the grid stays the size of the others
+  resolution_km: 0.25
+
+land:
+  # Gaussian lobes: [cx, cy, rx, ry, rotation_deg, weight]; negative weight carves bays.
+  lobes:
+    # ── main island, along its axis ──
+    - [82.7, 187.6, 26, 21.9, 17, 1.0]
+    - [111.0, 197.9, 40, 39.1, 17, 1.0]
+    - [139.2, 208.1, 40, 46.9, 17, 1.0]
+    - [167.4, 218.4, 40, 50.8, 17, 1.0]
+    - [195.7, 228.7, 40, 54.7, 17, 1.0]
+    - [224.4, 237.1, 40, 57.8, 17, 1.0]
+    - [253.2, 245.6, 40, 60.9, 17, 1.0]
+    - [282.0, 254.1, 40, 64.1, 17, 1.0]
+    - [310.8, 262.6, 40, 67.2, 17, 1.0]
+    - [339.7, 270.4, 40, 68.0, 17, 1.0]
+    - [368.7, 278.3, 40, 68.8, 17, 1.0]
+    - [397.7, 286.2, 40, 66.4, 17, 1.0]
+    - [426.6, 294.1, 40, 64.1, 17, 1.0]
+    - [455.2, 303.1, 40, 60.9, 17, 1.0]
+    - [483.8, 312.2, 40, 57.8, 17, 1.0]
+    - [512.4, 321.3, 40, 53.9, 17, 1.0]
+    - [541.0, 330.3, 40, 50.0, 17, 1.0]
+    - [569.5, 339.7, 40, 44.5, 17, 1.0]
+    - [598.0, 349.1, 40, 39.1, 17, 1.0]
+    - [626.5, 358.4, 40, 28.6, 17, 1.0]
+    - [655.1, 367.8, 26, 14.1, 17, 1.0]
+    - [96.2, 184.5, 18, 22, 40, 0.7]   # 哈努西鲁河三角洲
+    - [137.3, 255.3, 14, 24, 70, 0.6]   # 彭纳拉姆以西的半岛
+    - [306.2, 195.5, 22, 16, 20, -0.9]   # 瓦利凯与基拉努之间的南湾
+    - [498.2, 265.1, 7, 9, 0, -0.75]   # 塔卢马兰湾
+    - [405.0, 344.2, 9, 6, 20, -0.7]   # 迈卢阿珍珠湾
+    - [321.7, 329.6, 16, 10, 20, -0.55]   # 洛米兰以东的北湾
+    - [586.1, 306.0, 6, 8, 0, -0.6]   # 贝卢阿湾
+    - [641.7, 380.5, 10, 16, 60, 0.5]   # 埃武托拉以北的岬角
+    # ── 基鲁迈群岛 ──
+    - [54.1, 130.2, 20.2, 16.5, 252, 3.2]   # 基鲁迈岛
+    - [65.5, 76.4, 19, 12.5, 282, 3.2]   # 蒂卢迈岛
+    - [94.5, 42.0, 16, 11, 310, 3.2]   # 奥罗武岛
+    - [132.5, 26.6, 15, 9.3, 338, 3.2]   # 马拉坎岛
+    - [168.4, 29.1, 11, 7, 4, 3.2]   # 皮卢岛
+    - [194.1, 35.5, 8.5, 5.8, 14, 3.2]   # 皮卢小岛
+    # ── 瓦希拉群岛（海军基地）──
+    - [259.1, 40.5, 2.4, 1.8, 30, 3.2]   # 瓦希拉主岛
+    - [265.1, 35.5, 1.9, 1.4, 0, 3.2]   # 瓦希拉东岛
+    - [256.1, 33.5, 1.5, 1.2, 60, 3.2]   # 瓦希拉南岛
+  coast_noise: { amplitude: 0.2, scale_km: 40, octaves: 6, detail_amplitude: 0.07, detail_scale_km: 6 }
+
+terrain:
+  max_elevation_m: 3300
+  ridges:
+    - { feature: nat_2ens6y, path: [[116.6, 199.9], [160.3, 221.1], [204.6, 240.4], [250.7, 254.0], [292.1, 262.3], [328.2, 267.3]], height_m: 1800, width_km: 9 }
+    - { feature: nat_2ens6y, path: [[222.2, 244.3], [256.6, 255.0]], height_m: 3000, width_km: 5 }
+    - { feature: nat_hnhpgn, path: [[333.4, 270.8], [403.2, 288.5]], height_m: 1050, width_km: 22 }
+    - { feature: nat_yrg1cq, path: [[449.5, 301.3], [494.2, 319.4], [539.2, 336.3], [585.9, 347.7], [615.1, 354.7]], height_m: 1900, width_km: 8 }
+    - { feature: nat_ypq4a1, path: [[354.7, 242.1], [407.2, 255.1]], height_m: 350, width_km: 6 }
+    - { feature: nat_11kf5w, path: [[142.0, 178.6], [188.1, 191.9], [240.1, 206.6], [286.5, 218.9], [332.2, 233.4]], height_m: 380, width_km: 5 }
+  plains:
+    - [101.5, 187.8, 22, 0.92]   # 萨伦纳姆
+    - [142.5, 197.4, 22, 0.85]   # 奥卢瓦尔三角洲
+    - [218.8, 194.0, 14, 0.9]   # 瓦利凯
+    - [394.7, 234.4, 12, 0.8]   # 基拉努
+    - [495.5, 273.9, 14, 0.85]   # 塔卢马兰
+    - [438.4, 337.7, 18, 0.75]   # 帕兰图果园平原
+    - [156.6, 253.7, 8, 0.7]   # 彭纳拉姆
+    - [279.7, 302.7, 10, 0.8]   # 洛米西鲁河口
+    - [621.7, 374.4, 14, 0.8]   # 埃武托拉
+    - [541.8, 327.9, 6, 0.6]   # 乌诺卡里盆地
+  valleys:
+    - { feature: nat_cr4hvt, path: [[348.5, 262.4], [322.8, 243.8], [277.8, 226.8], [219.1, 213.4], [166.5, 200.8], [125.5, 191.2], [85.3, 179.2]], width_km: 5, source_m: 650, strength: 0.95 }
+    - { feature: nat_cr4hvt, path: [[178.2, 203.7], [143.2, 195.0], [114.0, 187.8], [79.6, 177.2]], width_km: 3, source_m: 25, strength: 0.95 }
+    - { feature: nat_prhp24, path: [[348.4, 283.1], [320.9, 291.2], [299.1, 300.8], [284.3, 308.2]], width_km: 4, source_m: 1000, strength: 0.95 }
+
+hydrology:
+  river_min_drainage_km2: 15
+  river_candidate_km2: 100
+  estuary_km2: 400
+  # Lakes: a lobed disc of radius_km (design km) at offset_km (real km) from the district centre.
+  lakes:
+    - { feature: nat_xxg5nt, in: div_f0wwdt, radius_km: 5.5, offset_km: [14, 34] }   # 翁贝尔哈努湖，在翁贝尔区东北、帕萨卢区西北，高原顶上
+    - { feature: nat_mfx833, in: div_47qks0, radius_km: 1.6, offset_km: [-54, 51] }   # 翁贝尔韦劳湖，在主峰以东的南坡上
+    - { feature: nat_ng8px9, in: div_8p898f, radius_km: 2.6, offset_km: [0, 0] }   # 洛米翁贝尔湖
+  named_rivers:
+    - { feature: nat_cr4hvt, through: div_0dgwyn }
+    - { feature: nat_prhp24, through: div_dx1d2r }
+
+coast:
+  island_min_km2: 0.5
+  bay_close_km: 4
+  bay_min_km2: 4
+  cape_open_km: 2
+  cape_min_prominence_km: 1.2
+  strait_max_gap_km: 8
+  match_radius_km: 8
+
+# No glaciers: the snowline lies far above the highest summit.
+relief:
+  peak_min_elev_m: 1000
+  peak_min_prominence_m: 300
+  pass_min_elev_m: 600
+  snowline_m: 9000
+  snowline_aspect_m: 0
+  glacier_max_slope_deg: 40
+  ice_min_km2: 0.5
+  glacier_min_km2: 4
+
+# Tropical land cover: rainforest wherever it is not farmed, rice and plantations far up the slopes
+# (terraces), mangroves and swamp forest on the low wet coasts and deltas, montane grassland only on
+# the highest summits of the Tirakesu Mountains.
+landcover:
+  urban_density_per_km2: 5000
+  urban_max_slope_deg: 12
+  urban_terrace_slope_deg: 20
+  urban_max_area_ratio: 2
+  wetland_max_elev_m: 25
+  wetland_wetness: 1.6
+  farm_max_elev_m: 1500
+  farm_max_slope_deg: 14
+  farm_reach_km: 22
+  treeline_m: 2900
+  treeline_aspect_m: 0
+  rock_above_treeline_m: 400
+  rock_slope_deg: 40
+
+streets:
+  cities: [div_khxhrn, div_kv6b3e, div_6kjc7x, div_5tgnmz, div_24d8z4, div_11j4xw, div_8hy4nc, div_mzhe0m, div_k4tk68, div_7z142e, div_bca7d9, div_xp7ha2]
+  arterial_spacing_km: 1.5
+  neighbourhood_km: 1.3
+  local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
+  warp_km: { planned: 0.02, mixed: 0.05, organic: 0.09 }
+  warp_wavelength_km: 1.6
+  river_gap_km: 0.05
+  # Street name themes: mostly Ivuran stems and the territory's own place names, with tropical
+  # trees, flowers and animals; no Norse myths, European family names or polar skies.
+  name_styles:
+    planned: { tropic: 3, places: 3, civic: 2, culture: 2, numbered: 2, china: 2, flora: 2 }
+    mixed: { tropic: 4, places: 3, flora: 2, fauna: 2, china: 1, landscape: 1, culture: 1 }
+    organic: { tropic: 4, places: 3, trades: 2, flora: 1, fauna: 1, landscape: 1 }
+  # detail_km2: local streets and generic buildings only in the district's core zone of that size
+  districts:
+    # 米雷兰市
+    div_z0z4vz: { style: planned, mix: { civic: 2.2, podium: 1.2, slabs: 1.0 } }   # 帕萨卢区
+    div_f0wwdt: { style: mixed, detail_km2: 60, mix: { houses: 1.8, perimeter: 1.0, park: 0.8 } }   # 翁贝尔区
+    div_56take: { style: planned, detail_km2: 50, mix: { civic: 1.6, slabs: 1.2, park: 0.6 } }   # 伊拉米区
+    div_t5wpdw: { main_only: true }   # 哈努帕拉区
+    # 萨伦纳姆市
+    div_8jecyx: { style: organic, mix: { perimeter: 1.6, houses: 1.4, civic: 0.8 } }   # 瓦什塔赖区
+    div_xz0zqd: { style: organic, mix: { perimeter: 2.0, houses: 1.6 } }   # 塞鲁卡姆区
+    div_1z75n0: { style: planned, mix: { towers: 3.0, podium: 1.6, civic: 0.4 } }   # 阿兰塔区
+    div_ycfvt9: { style: planned, mix: { industrial: 2.2, slabs: 0.8 } }   # 萨鲁凯区
+    div_n90922: { style: mixed, mix: { slabs: 1.8, perimeter: 1.0, civic: 0.6, park: 0.4 } }   # 伊拉瓦姆区
+    div_54sm84: { style: planned, mix: { slabs: 1.4, industrial: 1.0, podium: 0.6 } }   # 门达卢尔区
+    div_0dgwyn: { main_only: true }   # 奥卢瓦尔区
+    div_k880h3: { main_only: true }   # 皮拉凯区
+    # 埃武托拉公社
+    div_p3x7j4: { style: planned, mix: { civic: 2.0, slabs: 1.4, park: 1.0 } }   # 哈马图区
+    div_qp9ner: { style: planned, mix: { slabs: 2.4, park: 1.0 } }   # 奥鲁武区
+    div_27fbbk: { style: planned, detail_km2: 120, mix: { industrial: 2.4, slabs: 0.6 } }   # 帕卡里区
+    div_h88tgx: { main_only: true }   # 塔尼武区
+    div_ra6c0v: { main_only: true }   # 卢阿努区
+    # 塔卢马兰市
+    div_2fhccc: { style: organic, mix: { perimeter: 1.6, podium: 1.2, industrial: 0.4 } }   # 塔卢区
+    div_yakrhd: { style: planned, mix: { industrial: 2.6, slabs: 0.4 } }   # 伦博区
+    div_hceeaa: { style: planned, mix: { industrial: 2.4 } }   # 塞拉努区
+    div_3e94sq: { style: planned, detail_km2: 120, mix: { industrial: 2.2, slabs: 0.8 } }   # 伊拉坦区
+    div_py6kpa: { style: mixed, mix: { slabs: 2.0, perimeter: 0.8, park: 0.6 } }   # 米纳萨区
+    div_n11kpv: { main_only: true }   # 帕达兰区
+    # 基拉努市
+    div_rmy0kf: { style: planned, mix: { towers: 2.4, podium: 1.6 } }   # 萨基拉区
+    div_qr8ay4: { style: planned, detail_km2: 120, mix: { industrial: 2.2, civic: 0.6 } }   # 努维拉区
+    div_07wzvt: { style: mixed, mix: { civic: 1.4, slabs: 1.4, park: 0.6 } }   # 埃莱努区
+    div_yah63b: { style: planned, detail_km2: 80, mix: { industrial: 1.4, slabs: 1.0 } }   # 佩萨维区
+    div_daamp6: { main_only: true }   # 乌拉帕区
+    # 瓦利凯市
+    div_3ytmrh: { style: organic, mix: { perimeter: 2.0, houses: 1.0, civic: 0.4 } }   # 坎纳鲁尔区
+    div_qj7vjy: { style: planned, mix: { industrial: 2.6 } }   # 图拉凯区
+    div_0hrhwh: { style: planned, detail_km2: 80, mix: { industrial: 2.0, slabs: 0.6 } }   # 埃鲁塔姆区
+    div_5d7rp4: { style: mixed, mix: { slabs: 1.8, perimeter: 1.0, park: 0.6 } }   # 卡兰杜尔区
+    div_egwwh2: { main_only: true }   # 萨卢瓦伊区
+    # 彭纳拉姆市
+    div_a3c8d6: { style: organic, detail_km2: 60, mix: { houses: 1.8, perimeter: 1.2, industrial: 0.4 } }   # 马伦杜尔区
+    div_v7v7hg: { main_only: true }   # 埃拉库尔区
+    div_yrxzma: { style: organic, detail_km2: 25, mix: { houses: 2.4 } }   # 蒂拉凯区
+    div_mw1wjx: { main_only: true }   # 帕拉武尔区
+    # 温达坎市
+    div_6cy2yw: { style: organic, detail_km2: 50, mix: { houses: 2.2, civic: 0.6 } }   # 坎达瓦区
+    div_w2pbh1: { main_only: true }   # 佩伦达区
+    div_9hrhrv: { main_only: true }   # 西林达区
+    div_47qks0: { main_only: true }   # 乌拉韦劳自然保护区
+    div_gzefq6: { main_only: true }   # 托兰卡区
+    # 洛米兰市
+    div_pgh98w: { style: mixed, detail_km2: 40, mix: { houses: 1.8, civic: 0.8, industrial: 0.4 } }   # 卢瓦纳区
+    div_2w2q99: { main_only: true }   # 洛米哈努国家公园管理区
+    div_a5rwcq: { style: organic, detail_km2: 15, mix: { houses: 2.0, podium: 0.6 } }   # 塔卡维区
+    div_dx1d2r: { style: organic, detail_km2: 20, mix: { houses: 2.2, industrial: 0.4 } }   # 马纳卢区
+    div_8p898f: { main_only: true }   # 卡塔穆区
+    # 乌诺卡里市
+    div_y57m7b: { style: planned, detail_km2: 50, mix: { slabs: 1.6, civic: 0.6, industrial: 0.6 } }   # 卡里纳区
+    div_6z737x: { style: planned, detail_km2: 20, mix: { industrial: 2.2 } }   # 乌诺维拉矿区管理区
+    div_4m0x2v: { style: planned, detail_km2: 40, mix: { industrial: 2.6, slabs: 0.4 } }   # 佩鲁诺区
+    div_fwnndh: { main_only: true }   # 霍拉坦区
+    div_w7bas1: { style: planned, detail_km2: 25, mix: { industrial: 2.0, houses: 0.8 } }   # 贝卢阿区
+    # 纳卢迈市
+    div_afy2b3: { style: mixed, detail_km2: 50, mix: { podium: 1.4, houses: 1.4, perimeter: 0.8 } }   # 塞纳卢区
+    div_gkda74: { main_only: true }   # 帕兰图区
+    div_pfrpr2: { style: organic, detail_km2: 20, mix: { houses: 2.4 } }   # 迈卢阿区
+    div_a349sd: { style: mixed, detail_km2: 40, mix: { houses: 1.6, park: 1.6 } }   # 维兰塔区
+    div_pr78k0: { main_only: true }   # 托武卢区
+    # 基鲁迈市
+    div_a0nff8: { style: organic, detail_km2: 40, mix: { houses: 1.8, podium: 1.0, perimeter: 0.6 } }   # 迈萨里区
+    div_3skbd8: { style: organic, detail_km2: 15, mix: { houses: 2.6 } }   # 卡朗加区
+    div_3x32j4: { style: organic, detail_km2: 15, mix: { houses: 2.0, podium: 0.8 } }   # 蒂卢迈区
+    div_qsykjk: { style: organic, detail_km2: 10, mix: { houses: 2.6 } }   # 奥罗武区
+    div_5z620y: { main_only: true }   # 马拉坎珊瑚礁保护区
+    div_xazhxw: { style: organic, detail_km2: 10, mix: { houses: 2.4 } }   # 皮卢区
+    div_ykkw7q: { main_only: true }   # 瓦希拉群岛管理区
+
+metro:
+  spacing_km: 1.2
+  cities:
+    - city: div_kv6b3e   # 萨伦纳姆市
+      names: { zh: 萨伦纳姆地铁, en: Sarunnam Metro, art-x-ivuran: Sarunnam Pitlorai }
+      lines:
+        - { district: div_1z75n0, axis: 0 }   # 阿兰塔区
+        - { district: div_xz0zqd, axis: 0 }   # 塞鲁卡姆区
+        - { district: div_n90922, axis: 0 }   # 伊拉瓦姆区
+        - { district: div_54sm84, axis: 0 }   # 门达卢尔区
+        - { district: div_8jecyx, axis: 0 }   # 瓦什塔赖区
+    - city: div_5tgnmz   # 塔卢马兰市
+      names: { zh: 塔卢马兰地铁, en: Talumaran Metro, art-x-ivuran: Talumaran Pitlorai }
+      lines:
+        - { district: div_2fhccc, axis: 0 }   # 塔卢区
+        - { district: div_py6kpa, axis: 0 }   # 米纳萨区
+    - city: div_24d8z4   # 基拉努市
+      names: { zh: 基拉努地铁, en: Kilanu Metro, art-x-ivuran: Kilanu Pitlorai }
+      lines:
+        - { district: div_rmy0kf, axis: 0 }   # 萨基拉区
+        - { district: div_07wzvt, axis: 0 }   # 埃莱努区
+    - city: div_11j4xw   # 瓦利凯市
+      names: { zh: 瓦利凯地铁, en: Vallikkai Metro, art-x-ivuran: Vallikkai Pitlorai }
+      lines:
+        - { district: div_3ytmrh, axis: 0 }   # 坎纳鲁尔区
+    - city: div_6kjc7x   # 埃武托拉公社
+      names: { zh: 埃武托拉地铁, en: Evutola Metro, art-x-ivuran: Evutola Pitlorai }
+      lines:
+        - { district: div_p3x7j4, axis: 0 }   # 哈马图区
+        - { district: div_qp9ner, axis: 0 }   # 奥鲁武区
+
+# Facts the build checks and reports; a failed check is printed as a warning.
+expect:
+  longest_river: nat_cr4hvt
+  largest_cities_by_area: [div_k4tk68, div_7z142e, div_mzhe0m]
+
+layout:
+  # division sizes range from 120 to 70 000 km²: keep every city and district around its own anchor
+  anchored: true
+  cities:
+    div_khxhrn: [352.4, 270.0]   # 米雷兰市
+    div_kv6b3e: [101.9, 186.6]   # 萨伦纳姆市
+    div_6kjc7x: [621.7, 374.4]   # 埃武托拉公社
+    div_5tgnmz: [495.9, 272.8]   # 塔卢马兰市
+    div_24d8z4: [395.1, 233.2]   # 基拉努市
+    div_11j4xw: [219.2, 192.9]   # 瓦利凯市
+    div_8hy4nc: [156.6, 253.7]   # 彭纳拉姆市
+    div_mzhe0m: [234.1, 246.5]   # 温达坎市
+    div_k4tk68: [280.4, 300.3]   # 洛米兰市
+    div_7z142e: [541.8, 327.9]   # 乌诺卡里市
+    div_bca7d9: [430.3, 343.5]   # 纳卢迈市
+    div_xp7ha2: [56.0, 136.0]   # 基鲁迈市
+  districts:
+    div_z0z4vz: [0.0, 0.0]   # 帕萨卢区
+    div_f0wwdt: [-0.29, -0.02]   # 翁贝尔区
+    div_56take: [0.31, 0.01]   # 伊拉米区
+    div_t5wpdw: [-0.46, 0.49]   # 哈努帕拉区
+    div_8jecyx: [0.02, 0.13]   # 瓦什塔赖区
+    div_xz0zqd: [0.0, 0.0]   # 塞鲁卡姆区
+    div_1z75n0: [0.13, -0.0]   # 阿兰塔区
+    div_ycfvt9: [-0.57, -0.52]   # 萨鲁凯区
+    div_n90922: [0.11, 0.18]   # 伊拉瓦姆区
+    div_54sm84: [0.28, -0.04]   # 门达卢尔区
+    div_0dgwyn: [0.83, 0.36]   # 奥卢瓦尔区
+    div_k880h3: [-0.49, 0.58]   # 皮拉凯区
+    div_p3x7j4: [0.0, 0.0]   # 哈马图区
+    div_qp9ner: [-0.06, -0.14]   # 奥鲁武区
+    div_27fbbk: [-0.19, -0.32]   # 帕卡里区
+    div_h88tgx: [-0.55, -0.59]   # 塔尼武区
+    div_ra6c0v: [0.66, -0.11]   # 卢阿努区
+    div_2fhccc: [0.0, 0.0]   # 塔卢区
+    div_yakrhd: [-0.12, -0.02]   # 伦博区
+    div_hceeaa: [0.14, 0.02]   # 塞拉努区
+    div_3e94sq: [-0.03, 0.25]   # 伊拉坦区
+    div_py6kpa: [-0.15, 0.16]   # 米纳萨区
+    div_n11kpv: [-0.26, 0.86]   # 帕达兰区
+    div_rmy0kf: [0.0, 0.0]   # 萨基拉区
+    div_qr8ay4: [0.11, 0.16]   # 努维拉区
+    div_07wzvt: [-0.14, 0.04]   # 埃莱努区
+    div_yah63b: [0.13, -0.09]   # 佩萨维区
+    div_daamp6: [-0.26, 0.86]   # 乌拉帕区
+    div_3ytmrh: [0.0, 0.0]   # 坎纳鲁尔区
+    div_qj7vjy: [0.15, 0.02]   # 图拉凯区
+    div_0hrhwh: [-0.06, 0.19]   # 埃鲁塔姆区
+    div_5d7rp4: [-0.16, 0.04]   # 卡兰杜尔区
+    div_egwwh2: [-0.26, 0.86]   # 萨卢瓦伊区
+    div_a3c8d6: [0.0, 0.0]   # 马伦杜尔区
+    div_v7v7hg: [0.49, -0.58]   # 埃拉库尔区
+    div_yrxzma: [-0.65, -0.25]   # 蒂拉凯区
+    div_mw1wjx: [0.65, -0.43]   # 帕拉武尔区
+    div_6cy2yw: [0.13, -0.43]   # 坎达瓦区
+    div_w2pbh1: [1.6, -0.5]   # 佩伦达区
+    div_9hrhrv: [-0.7, 0.7]   # 西林达区
+    div_47qks0: [0.0, 0.0]   # 乌拉韦劳自然保护区
+    div_gzefq6: [0.9, 0.75]   # 托兰卡区
+    div_pgh98w: [0.0, 0.0]   # 卢瓦纳区
+    div_2w2q99: [0.26, -0.86]   # 洛米哈努国家公园管理区
+    div_a5rwcq: [0.36, -0.15]   # 塔卡维区
+    div_dx1d2r: [-0.48, -0.15]   # 马纳卢区
+    div_8p898f: [0.76, -0.08]   # 卡塔穆区
+    div_y57m7b: [0.0, 0.0]   # 卡里纳区
+    div_6z737x: [0.39, 0.43]   # 乌诺维拉矿区管理区
+    div_4m0x2v: [-0.07, -0.18]   # 佩鲁诺区
+    div_fwnndh: [-0.66, 0.11]   # 霍拉坦区
+    div_w7bas1: [0.43, -0.71]   # 贝卢阿区
+    div_afy2b3: [0.0, 0.0]   # 塞纳卢区
+    div_gkda74: [0.69, -0.21]   # 帕兰图区
+    div_pfrpr2: [-0.43, -0.13]   # 迈卢阿区
+    div_a349sd: [0.17, 0.05]   # 维兰塔区
+    div_pr78k0: [0.01, -0.73]   # 托武卢区
+    div_a0nff8: [0.0, 0.0]   # 迈萨里区
+    div_3skbd8: [-0.19, -0.58]   # 卡朗加区
+    div_3x32j4: [0.39, -2.42]   # 蒂卢迈区
+    div_qsykjk: [1.56, -3.82]   # 奥罗武区
+    div_5z620y: [3.11, -4.44]   # 马拉坎珊瑚礁保护区
+    div_xazhxw: [4.56, -4.34]   # 皮卢区
+    div_ykkw7q: [8.25, -3.88]   # 瓦希拉群岛管理区
+  # The island each island district is named for: a point on each of its islands (design km).
+  islands:
+    div_3x32j4: [[65.5, 76.4]]   # 蒂卢迈岛
+    div_qsykjk: [[94.5, 42.0]]   # 奥罗武岛
+    div_5z620y: [[132.5, 26.6]]   # 马拉坎岛
+    div_xazhxw: [[168.4, 29.1], [194.1, 35.5]]   # 皮卢岛、皮卢尼岛
+    div_w2pbh1: [[355.8, 205.8]]   # 索里努岬外的小岛，归岸上的佩伦达区
+    div_ykkw7q: [[259.1, 40.5], [265.1, 35.5], [256.1, 33.5]]   # 瓦希拉群岛
+  boundary_warp_km: 5
+  coastal:
+    div_ycfvt9: nat_cr4hvt   # 萨鲁凯区
+    div_k880h3: null   # 皮拉凯区
+    div_2fhccc: null   # 塔卢区
+    div_yakrhd: null   # 伦博区
+    div_hceeaa: null   # 塞拉努区
+    div_rmy0kf: null   # 萨基拉区
+    div_yah63b: null   # 佩萨维区
+    div_3ytmrh: null   # 坎纳鲁尔区
+    div_qj7vjy: null   # 图拉凯区
+    div_a3c8d6: null   # 马伦杜尔区
+    div_yrxzma: null   # 蒂拉凯区
+    div_dx1d2r: nat_prhp24   # 马纳卢区
+    div_w7bas1: null   # 贝卢阿区
+    div_afy2b3: null   # 塞纳卢区
+    div_pfrpr2: null   # 迈卢阿区
+    div_ra6c0v: null   # 卢阿努区
+    div_p3x7j4: null   # 哈马图区
+    div_a0nff8: null   # 迈萨里区

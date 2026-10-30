@@ -1,6 +1,6 @@
 # Street name parts for generated city streets (pipeline/atlas/streets.py).
 #
-# Each entry is "zh | en | viking | buckham [| tavrunaq]", "-" where an entry has no form in a
+# Each entry is "zh | en | viking | buckham [| tavrunaq [| ivuran]]", "-" where an entry has no form in a
 # language. A street name is a stem plus a suffix of its class, e.g. 松林 + 巷 = 松林巷 /
 # Pinewood Lane / Kiefernweg / Vicolo dei Pini. A city's streets are named only in the
 # languages its territory uses (those its cities are named in).
@@ -10,26 +10,28 @@
 #   tavrunaq: the suffix follows as a word (Qavvalu Pirtuar); only stems with a Tavrunaq form
 #           (the polar theme, Arctic place names) get a Tavrunaq name. Polar stems are native words:
 #           English uses the Tavrunaq form and Chinese its transliteration (meaning in the comment).
+#   ivuran: the suffix comes first (Sevu + Nalu); only stems with an Ivuran form (the tropic theme,
+#           Everlong Summer place names) get an Ivuran name; English and Chinese as for Tavrunaq.
 # Parallel streets of one neighbourhood may share a stem with an ordinal: 松林二巷 /
 # Pinewood Lane 2 / Kiefernweg II / Vicolo dei Pini II.
 # Themes are chosen per neighbourhood, weighted by the district's street style.
 
 suffixes:
   arterial:
-    - 大道 | Avenue | allee | Viale | Pirtuar
-    - 大街 | Boulevard | chaussee | Corso | Sallituar
-    - 路 | Road | straße | Via | Pirri
+    - 大道 | Avenue | allee | Viale | Pirtuar | Pelavu
+    - 大街 | Boulevard | chaussee | Corso | Sallituar | Hanusevu
+    - 路 | Road | straße | Via | Pirri | Sevu
   collector:
-    - 路 | Road | straße | Via | Pirri
-    - 街 | Street | gasse | Strada | Sallik
-    - 大街 | High Street | markt | Corso | Sallituar
+    - 路 | Road | straße | Via | Pirri | Sevu
+    - 街 | Street | gasse | Strada | Sallik | Sorai
+    - 大街 | High Street | markt | Corso | Sallituar | Hanusorai
   local:
-    - 街 | Street | gasse | Via | Sallik
-    - 巷 | Lane | weg | Vicolo | Kippaq
-    - 里 | Close | hof | Corte | Sannuk
-    - 弄 | Alley | gang | Calle | Saqqit
-    - 坊 | Row | zeile | Borgo | Taavrut
-    - 路 | Way | pfad | Salita | Pirriut
+    - 街 | Street | gasse | Via | Sallik | Sorai
+    - 巷 | Lane | weg | Vicolo | Kippaq | Kilai
+    - 里 | Close | hof | Corte | Sannuk | Toruva
+    - 弄 | Alley | gang | Calle | Saqqit | Pisevu
+    - 坊 | Row | zeile | Borgo | Taavrut | Taroma
+    - 路 | Way | pfad | Salita | Pirriut | Sevuni
 
 themes:
   # 理念与公共生活
@@ -234,11 +236,79 @@ themes:
     - 萨尔尼克 | Saarniq | - | - | Saarniq        # 冰钓
     - 苏基亚克 | Sukkiaq | - | - | Sukkiaq        # 雪橇
     - 基克萨克 | Kiiqsaq | - | - | Kiiqsaq        # 冰晶
+  # 热带（长夏群岛）：伊武兰语词
+  tropic:
+    - 塞洛 | Selo | - | - | - | Selo              # 夏
+    - 伊米穆 | Imimu | - | - | - | Imimu          # 长久
+    - 马伊 | Mai | - | - | - | Mai                # 珍珠
+    - 纳卢 | Nalu | - | - | - | Nalu              # 浪
+    - 洛米 | Lomi | - | - | - | Lomi              # 森林
+    - 翁贝尔 | Ombel | - | - | - | Ombel          # 湖
+    - 韦劳 | Velau | - | - | - | Velau            # 云
+    - 维拉 | Vila | - | - | - | Vila              # 光
+    - 基拉 | Kila | - | - | - | Kila              # 明亮
+    - 索里努 | Sorinu | - | - | - | Sorinu        # 太阳
+    - 伊莫卢 | Imolu | - | - | - | Imolu          # 月亮
+    - 蒂凯瓦 | Tikeva | - | - | - | Tikeva        # 星
+    - 乌韦萨 | Uvesa | - | - | - | Uvesa          # 雨
+    - 尼沃拉 | Nivora | - | - | - | Nivora        # 椰树
+    - 赫瓦鲁 | Hevaru | - | - | - | Hevaru        # 风
+    - 库瓦拉 | Kuvala | - | - | - | Kuvala        # 犀鸟
+    - 托武 | Tovu | - | - | - | Tovu              # 海龟
+    - 尼拉普 | Nilapu | - | - | - | Nilapu        # 莲
+    - 维拉鲁 | Vilaru | - | - | - | Vilaru        # 灯
+    - 奥鲁卡 | Oruka | - | - | - | Oruka          # 船
+    - 托马库 | Tomaku | - | - | - | Tomaku        # 鼓
+    - 奥卢 | Olu | - | - | - | Olu                # 稻
+    - 凯伊纳 | Kaina | - | - | - | Kaina          # 香料
+  # 热带花木（长夏群岛）
+  flora:
+    - 凤凰木 | Flame Tree
+    - 雨树 | Rain Tree
+    - 鸡蛋花 | Frangipani
+    - 木棉 | Kapok
+    - 椰林 | Coconut Grove
+    - 槟榔 | Areca
+    - 芒果 | Mango
+    - 菠萝蜜 | Jackfruit
+    - 兰花 | Orchid
+    - 茉莉 | Jasmine
+    - 扶桑 | Hibiscus
+    - 檀香 | Sandalwood
+    - 肉桂 | Cinnamon
+    - 豆蔻 | Cardamom
+    - 胡椒 | Pepper
+    - 咖啡 | Coffee
+    - 可可 | Cocoa
+    - 榕树 | Banyan
+    - 竹林 | Bamboo
+    - 红树 | Mangrove
+    - 莲塘 | Lotus Pond
+    - 芭蕉 | Plantain
+  # 热带鸟兽鱼虫（长夏群岛）
+  fauna:
+    - 犀鸟 | Hornbill
+    - 孔雀 | Peacock
+    - 翠鸟 | Kingfisher
+    - 海龟 | Turtle
+    - 蝠鲼 | Manta
+    - 白鹭 | Egret
+    - 萤火 | Firefly
+    - 蝴蝶 | Butterfly
+    - 长臂猿 | Gibbon
+    - 云豹 | Clouded Leopard
+    - 鹦鹉 | Parrot
+    - 太阳鸟 | Sunbird
+    - 海豚 | Dolphin
+    - 珊瑚 | Coral
+    - 珍珠贝 | Pearl Oyster
+    - 飞鱼 | Flying Fish
+    - 水牛 | Buffalo
 
 # Numbered street grids of planned districts: 经一路 … / 纬一路 …
 numbered:
-  - 经 | Meridian | Längs | Longitudinale | Taqit
-  - 纬 | Parallel | Quer | Trasversale | Sannit
+  - 经 | Meridian | Längs | Longitudinale | Taqit | Taruvo
+  - 纬 | Parallel | Quer | Trasversale | Sannit | Lintavo
 
 # Theme weights by district street style; "places" uses the names of the territory's cities,
 # districts and named landforms, "numbered" the grids above.

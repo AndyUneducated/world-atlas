@@ -128,16 +128,19 @@ def build_buildings(street_out, seed) -> tuple[list, list]:
     return out, parks
 
 
-CONLANGS = ("art-x-viking", "art-x-buckham", "art-x-tavrunaq")
+CONLANGS = ("art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran")
 # Administrative suffixes dropped when a station or line is named after a city, longest first.
-CITY_SUFFIXES = {"zh": ("原住民自治区", "自由贸易区", "金融特区", "市"),
-                 "en": (" Indigenous Autonomous Region", " Free Trade Zone", " Financial Zone", " City"),
+CITY_SUFFIXES = {"zh": ("原住民自治区", "自由贸易区", "金融特区", "公社", "市"),
+                 "en": (" Indigenous Autonomous Region", " Free Trade Zone", " Financial Zone", " Commune", " City"),
                  "art-x-viking": (" Frei auf Hea", " auf Hea"), "art-x-buckham": (" Libre en Teatu", " en Teatu"),
-                 "art-x-tavrunaq": (" Nalliqut",)}
+                 "art-x-tavrunaq": (" Nalliqut",), "art-x-ivuran": ()}
 # Railway station and metro line names in each constructed language.
-STATION_NAMES = {"art-x-viking": "Bahnhof {}", "art-x-buckham": "Stazione di {}", "art-x-tavrunaq": "{} Sukkaniq"}
-FREIGHT_STATION_NAMES = {"art-x-viking": "Güterbahnhof {}", "art-x-buckham": "Scalo merci di {}", "art-x-tavrunaq": "{} Usirvik"}
-METRO_LINE_NAMES = {"art-x-viking": "{} Linie {}", "art-x-buckham": "{} Linea {}", "art-x-tavrunaq": "{} Ingiut {}"}
+STATION_NAMES = {"art-x-viking": "Bahnhof {}", "art-x-buckham": "Stazione di {}", "art-x-tavrunaq": "{} Sukkaniq",
+                 "art-x-ivuran": "Taluvan {}"}
+FREIGHT_STATION_NAMES = {"art-x-viking": "Güterbahnhof {}", "art-x-buckham": "Scalo merci di {}", "art-x-tavrunaq": "{} Usirvik",
+                         "art-x-ivuran": "Lumataluvan {}"}
+METRO_LINE_NAMES = {"art-x-viking": "{} Linie {}", "art-x-buckham": "{} Linea {}", "art-x-tavrunaq": "{} Ingiut {}",
+                    "art-x-ivuran": "{} Lorai {}"}
 METRO_COLORS = ("#E4453A", "#2F80ED", "#F2A33A", "#27AE60", "#9B51E0", "#00A3A3", "#EB5E9B", "#8D6E63")
 
 

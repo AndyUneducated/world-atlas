@@ -1,0 +1,1348 @@
+# Administrative divisions of the Everlong Summer Islands Territory (CN-ES).
+# id: stable internal key, referenced by other files. codes.admin: 6-digit hierarchical code (GB/T 2260 pattern:
+# territory 930000, city 930100, district 930101); may change on reorganisation.
+# subtype follows Overture Maps divisions: country > dependency/region > locality > borough.
+# Names are Chinese, English and Ivuran (art-x-ivuran), the islands' own language.
+# Special divisions: Evutola Commune (city level, self-governing, sets its own taxes), a national park
+# administration zone, nature reserves, a mining administration zone and the naval islands (district level).
+divisions:
+- id: div_nwm019
+  subtype: dependency
+  parent: country:CN
+  status: generated
+  names:
+    zh: 长夏群岛领地
+    en: Everlong Summer Islands Territory
+    art-x-ivuran: Imimu Selovaru
+  notes:
+    zh: 长夏群岛领地在北纬 2° 到 12° 之间的热带海洋上，由一座东北—西南走向、长约 2400 公里的主岛和西南端外六座岛屿组成的基鲁迈群岛构成，陆地面积约 90 万平方公里，连同领海约 130 万平方公里，人口 1200 万。热带季风气候，雨季和旱季分明，几乎没有台风和地震。主岛中脊是古老的蒂拉凯苏山脉，山坡上是成片的水稻梯田；中部高原上的翁贝尔哈努湖畔是新建的首府米雷兰，西南端哈努西鲁河三角洲上的萨伦纳姆是最大城市和古王国的旧都。伊武兰语母语者约占一半，其余是来自中国其他省份和世界各地的移民，大城市移民多、小城镇本地人多，中文、英文和伊武兰语都是官方语言。农业、工业和服务业三者均衡：梯田稻米、香料、可可和热带水果，半导体、造船、生物医药和从镍矿到电池与新能源车的产业链，以及旅游、港口转运和热带医学研究。领地实行高税收、高福利、高监管，教育免费到大学，全民医保和全民基本收入覆盖每个居民，土地公有、长期租用；东北海岸的埃武托拉公社自定税率，住房、交通、医疗、食堂和汽车全部免费。
+    en: "The Everlong Summer Islands Territory lies in tropical seas between 2° and 12° north: a main island some 2,400 km long, running from north-east to south-west, and the six Kirumai Islands off its south-western end, about 900,000 km² of land and some 1.3 million km² with its territorial waters, home to 12 million people. The climate is tropical monsoon, with a clear wet season and dry season and almost no typhoons or earthquakes. The ancient Tirakesu Mountains form the spine of the main island, their slopes stepped with rice terraces; the new capital, Mirelan, stands by Lake Ombelhanu on the central plateau, and Sarunnam, on the delta of the Hanusiru River at the south-western end, is the largest city and the old seat of the island's kingdom. About half the people are native Ivuran speakers and the rest are incomers from other provinces of China and from all over the world, more of them in the big cities and fewer in the small towns; Chinese, English and Ivuran are all official languages. Farming, industry and services are evenly balanced: terrace rice, spices, cocoa and tropical fruit; semiconductors, shipbuilding, medicines and a chain from nickel mines to batteries and electric cars; and tourism, transhipment and tropical medicine. The territory taxes highly, provides generously and regulates closely: education is free through university, public health insurance and a universal basic income cover every resident, and land is publicly owned and held on long leases. Evutola Commune on the north-east coast sets its own taxes and gives its people housing, transport, health care, meals and even cars for free."
+  short_names:
+    zh: 长夏群岛
+    en: Everlong Summer Islands
+  codes:
+    iso3166_1:
+      alpha2: ES
+      alpha3: ESI
+      numeric: '904'
+    iso3166_2: CN-ES
+    admin: '930000'
+  motto:
+    zh: 长夏不尽，人人有家
+    en: Endless Summer, a Home for All
+  capital: div_khxhrn
+  route_shield: tropic
+  operators:
+    expressway: { zh: 长夏群岛高速公路集团, en: Everlong Summer Expressway Group }
+    highway: { zh: 长夏群岛领地公路局, en: Everlong Summer Roads Authority }
+    rail: { zh: 长夏群岛磁浮与铁路公司, en: Everlong Summer Maglev and Railways }
+  emblem:
+    motif: sun
+    pattern: fronds
+  traits: { industries: [agriculture, semiconductor, tourism, port] }
+
+# ── 米雷兰市（首府）──
+- id: div_khxhrn
+  subtype: locality
+  parent: div_nwm019
+  status: generated
+  names:
+    zh: 米雷兰市
+    en: Mirelan City
+    art-x-ivuran: Mirelan
+  notes:
+    zh: 领地首府，在主岛中部海拔一千五百多米的哈努帕拉高原上、翁贝尔哈努湖东南岸，是领地设立后全新规划建设的行政城市，全市 40 万人。政务院、领地议会和各部沿帕萨卢区的规划轴线排开，轴线一端朝向湖面；高原气候凉爽，全年气温比沿海低十度左右。伊拉米区有长夏群岛热带医学研究院和领地大学的高原校区，翁贝尔区是湖畔的住宅区，哈努帕拉区包括大湖、高原牧场和咖啡园。居民一半以上是公务员、研究人员和他们的家人，来自领地各地和中国其他省份，伊武兰语母语者约占一半。
+    en: "The territorial capital, on the Hanupala Plateau more than 1,500 m up in the middle of the main island, on the south-eastern shore of Lake Ombelhanu: an administrative city planned and built from scratch after the territory was created, with 400,000 people. The Executive Council, the territorial parliament and the ministries line the planned axis of Pasalu District, one end of which looks out over the lake; the plateau air is cool, about ten degrees below the coast all year. Ilami District has the Everlong Summer Islands Institute of Tropical Medicine and the plateau campus of the territorial university, Ombel District is the lakeside residential quarter, and Hanupala District takes in the great lake, upland pastures and coffee gardens. More than half the residents are civil servants, researchers and their families from all over the territory and other provinces of China, and about half are native Ivuran speakers."
+  codes:
+    admin: '930100'
+    unlocode: ES MRL
+  population: 400000
+  area_km2: 70000.0
+  color: '#2E6F8E'
+  emblem:
+    motif: capitol
+    pattern: halo
+  traits: { industries: [government, research, education], heritage: tropic_mixed, age: balanced, income: 1.1 }
+- id: div_z0z4vz
+  subtype: borough
+  parent: div_khxhrn
+  status: generated
+  names:
+    zh: 帕萨卢区
+    en: Pasalu District
+    art-x-ivuran: Pasalu
+  notes:
+    zh: 首府的行政中心，区名在伊武兰语里意为「轴线」。一条宽阔的规划轴线从湖岸向东南延伸，政务院主楼、领地议会、各部大楼和中央派驻机构依次排列在两侧，轴线中段是公民广场和领地图书馆。住宅街坊按规划路网整齐排开，政府机关的公务员大多住在步行可达的范围内，街上种满雨树和凤凰木。
+    en: The administrative centre of the capital; in Ivuran its name means 'the axis'. A broad planned axis runs south-east from the lakeshore, lined in turn by the main building of the Executive Council, the territorial parliament, the ministries and the offices of the central government, with Citizens' Square and the Territorial Library halfway along. Housing blocks follow the planned street grid, most civil servants live within walking distance of their offices, and the streets are planted with rain trees and flame trees.
+  codes:
+    admin: '930101'
+  population: 120000
+  area_km2: 300.0
+  traits: { industries: [government, commerce] }
+- id: div_f0wwdt
+  subtype: borough
+  parent: div_khxhrn
+  status: generated
+  names:
+    zh: 翁贝尔区
+    en: Ombel District
+    art-x-ivuran: Ombel
+  notes:
+    zh: 首府湖畔的住宅区，区名意为「湖」。翁贝尔哈努湖岸修有长长的湖滨步道和公共浴场，周末首府居民来这里划船、游泳；住宅以低层的公寓和庭院住宅为主，许多楼房带有遮阳的长廊和屋顶花园。湖畔还有领地的公共疗养院和水上运动中心。
+    en: The lakeside residential district of the capital; its name means 'lake'. A long promenade and public bathing beaches run along the shore of Lake Ombelhanu, where the capital's residents come at weekends to row and swim; homes are mostly low-rise flats and courtyard houses, many with shaded galleries and roof gardens. The territory's public convalescent home and a water sports centre stand by the lake.
+  codes:
+    admin: '930102'
+  population: 140000
+  area_km2: 900.0
+  traits: { industries: [residential, tourism] }
+- id: div_56take
+  subtype: borough
+  parent: div_khxhrn
+  status: generated
+  names:
+    zh: 伊拉米区
+    en: Ilami District
+    art-x-ivuran: Ilami
+  notes:
+    zh: 首府东部的研究区，区名意为「知识」。长夏群岛热带医学研究院在这里研究疟疾、登革热等热带传染病的疫苗和药物，领地大学的高原校区设有医学、公共卫生和农业科学学院；研究院附属医院接收全领地转来的疑难病人。区内年轻研究人员多，来自世界各地的学者约占三成。
+    en: The research district east of the capital; its name means 'knowledge'. The Everlong Summer Islands Institute of Tropical Medicine works on vaccines and drugs against malaria, dengue and other tropical diseases, and the plateau campus of the territorial university has schools of medicine, public health and agricultural science; the institute's teaching hospital takes difficult cases referred from across the territory. Young researchers are many, and about three in ten scholars come from abroad.
+  codes:
+    admin: '930103'
+  population: 90000
+  area_km2: 1800.0
+  traits: { industries: [research, education, healthcare] }
+- id: div_t5wpdw
+  subtype: borough
+  parent: div_khxhrn
+  status: generated
+  names:
+    zh: 哈努帕拉区
+    en: Hanupala District
+    art-x-ivuran: Hanupala
+  notes:
+    zh: 首府周围广阔的高原区，区名意为「大高原」，面积 6.7 万平方公里，只有 5 万人。翁贝尔哈努湖大部分在区内，湖边是芦苇荡和水鸟栖息地；高原上有牧场、咖啡园和稻田，村庄沿湖和河谷分布，居民大多是讲伊武兰语的本地人。高原边缘是陡峭的断崖，河流从这里跌落成瀑布流向两岸的低地。
+    en: The wide plateau around the capital; its name means 'great plateau', and it covers 67,000 km² with only 50,000 people. Most of Lake Ombelhanu lies within it, fringed with reedbeds where water birds gather; up on the plateau are pastures, coffee gardens and rice fields, villages line the lake and the river valleys, and most of the people are Ivuran-speaking islanders. The plateau ends in steep escarpments, where rivers drop in waterfalls towards the lowlands on either coast.
+  codes:
+    admin: '930104'
+  population: 50000
+  area_km2: 67000.0
+  traits: { industries: [agriculture, tourism, conservation], heritage: ivuran }
+
+# ── 萨伦纳姆市──
+- id: div_kv6b3e
+  subtype: locality
+  parent: div_nwm019
+  status: generated
+  names:
+    zh: 萨伦纳姆市
+    en: Sarunnam City
+    art-x-ivuran: Sarunnam
+  notes:
+    zh: 领地最大的城市，在主岛西南端哈努西鲁河三角洲上，全市 350 万人。这里是古王国的旧都，瓦什塔赖区的旧王城留有宫殿遗址和伊什万塔石构寺庙群，塞鲁卡姆区的老城河道纵横，水上市场每天清晨开市；阿兰塔区是摩天楼林立的中央商务区，集中了领地的银行、数字服务公司和跨国企业的地区总部。萨鲁凯区的河口港是领地的大港之一，门达卢尔区有萨伦纳姆国际机场。三角洲上的奥卢瓦尔区是领地最大的稻米产区，皮拉凯区的海岸长满红树林。全市移民略多于一半，伊武兰语南部方言在老城里仍是日常用语。
+    en: "The territory's largest city, on the delta of the Hanusiru River at the south-western end of the main island, with 3.5 million people. It is the old capital of the island's kingdom: the royal city of Vashtarai District keeps palace ruins and the Ishvanta stone temples, the old town of Serukkam District is laced with canals and its floating market opens at dawn every day, and Aranta District is the skyscraper business centre, home to the territory's banks, digital service firms and the regional headquarters of international companies. The river-mouth port of Sarukkai District is one of the territory's great harbours, and Mendalur District has Sarunnam International Airport. Out on the delta, Oluvar District is the largest rice-growing area in the territory, and mangroves cover the coast of Pilakkai District. A little over half the people are incomers, though the southern dialect of Ivuran is still the everyday language of the old town."
+  codes:
+    admin: '930200'
+    unlocode: ES SRN
+  population: 3500000
+  area_km2: 62000.0
+  color: '#B5452B'
+  emblem:
+    motif: stupa
+    pattern: rays
+  traits: { industries: [commerce, finance, digital, heritage], heritage: tropic_global, age: balanced, income: 1.15 }
+- id: div_8jecyx
+  subtype: borough
+  parent: div_kv6b3e
+  status: generated
+  names:
+    zh: 瓦什塔赖区
+    en: Vashtarai District
+    art-x-ivuran: Vashtarai
+  notes:
+    zh: 萨伦纳姆的旧王城，区名是雅言里的「王冠之座」。城墙和护城河围着宫殿遗址，伊什万塔寺庙群的上百座石塔在城北连成一片，是古王国留下的最大遗产；寺庙至今仍有僧侣居住，节庆时全城的人来这里点灯、献花。城墙内只许步行和骑车，老房子多改作博物馆、手工作坊和客栈。
+    en: Sarunnam's old royal city; in the court register its name means 'seat of the crown'. Walls and a moat enclose the palace ruins, and the hundreds of stone towers of the Ishvanta temples stand together to the north, the greatest legacy of the old kingdom; monks still live in the temples, and at festivals the whole city comes to light lamps and offer flowers. Inside the walls only walking and cycling are allowed, and many old houses have become museums, craft workshops and guesthouses.
+  codes:
+    admin: '930201'
+  population: 380000
+  area_km2: 120.0
+  traits: { industries: [heritage, tourism, commerce], heritage: tropic_mixed }
+- id: div_xz0zqd
+  subtype: borough
+  parent: div_kv6b3e
+  status: generated
+  names:
+    zh: 塞鲁卡姆区
+    en: Serukkam District
+    art-x-ivuran: Serukkam
+  notes:
+    zh: 萨伦纳姆的老城，河道纵横，区名意为「运河之城」。高脚木屋和老商铺沿河排开，塞鲁卡姆水上市场每天清晨开市，上千条小船载着蔬果、鲜鱼、香料和小吃在河道里交易；老城的街巷窄而曲折，人口密度居全领地之首。本地人多讲伊武兰语南部方言，许多家庭世代在水上做买卖。
+    en: Sarunnam's old town, laced with canals; its name means 'city of canals'. Stilt houses and old shops line the waterways, and every morning at dawn the Serukkam Floating Market opens, with a thousand boats trading vegetables and fruit, fresh fish, spices and snacks on the canals. The lanes of the old town are narrow and winding, and it is the most densely peopled district in the territory. Most residents speak the southern dialect of Ivuran, and many families have traded on the water for generations.
+  codes:
+    admin: '930202'
+  population: 520000
+  area_km2: 160.0
+  traits: { industries: [commerce, tourism, food], heritage: tropic_mixed }
+- id: div_1z75n0
+  subtype: borough
+  parent: div_kv6b3e
+  status: generated
+  names:
+    zh: 阿兰塔区
+    en: Aranta District
+    art-x-ivuran: Aranta
+  notes:
+    zh: 萨伦纳姆的中央商务区，区名意为「高处」。摩天楼沿规划大道排开，领地的银行、证券交易所、数字服务公司和跨国企业的地区总部都在这里，天际线最高处是萨伦纳姆塔。高楼之间有遮阳的空中连廊和大片的雨林式屋顶花园；白天在这里工作的人大多是移民，入夜后河滨的夜市和屋顶餐厅热闹到很晚。
+    en: Sarunnam's central business district; its name means 'the heights'. Skyscrapers line its planned avenues, home to the territory's banks, the stock exchange, digital service firms and the regional headquarters of international companies, with the Sarunnam Tower at the top of the skyline. Shaded sky bridges link the towers, many of which carry rainforest roof gardens; most of the people who work here by day are incomers, and at night the riverside night market and rooftop restaurants stay busy late.
+  codes:
+    admin: '930203'
+  population: 400000
+  area_km2: 130.0
+  traits: { industries: [finance, digital, commerce] }
+- id: div_ycfvt9
+  subtype: borough
+  parent: div_kv6b3e
+  status: generated
+  names:
+    zh: 萨鲁凯区
+    en: Sarukkai District
+    art-x-ivuran: Sarukkai
+  notes:
+    zh: 哈努西鲁河口的港区，区名意为「河口之岸」。萨伦纳姆港的集装箱码头和散货码头沿河口两岸展开，三角洲的稻米、香料和水产从这里装船出口，进口的机械和原料从这里运往全岛。港区后方是仓库、冷库和食品加工厂，码头工人和船员多住在区北的工人新村。
+    en: The port district at the mouth of the Hanusiru River; its name means 'shore of the river mouth'. The container and bulk terminals of the Port of Sarunnam spread along both banks of the estuary; rice, spices and seafood from the delta are shipped out from here, and imported machinery and materials go on from here to the whole island. Behind the quays are warehouses, cold stores and food plants, and dockers and seafarers mostly live in the workers' estates to the north.
+  codes:
+    admin: '930204'
+  population: 300000
+  area_km2: 500.0
+  traits: { industries: [port, logistics, manufacturing] }
+- id: div_n90922
+  subtype: borough
+  parent: div_kv6b3e
+  status: generated
+  names:
+    zh: 伊拉瓦姆区
+    en: Ilavam District
+    art-x-ivuran: Ilavam
+  notes:
+    zh: 萨伦纳姆人口最多的区，以住宅和教育为主，区名意为「青年之地」。长夏群岛大学的主校区在这里，以热带农业、海洋科学和伊武兰语研究见长；成片的公共租赁住房由领地统一建设，租金按收入定，配有学校、诊所和社区食堂。区内年轻人多，咖啡馆和书店沿林荫大道一字排开。
+    en: Sarunnam's most populous district, mostly homes and schools; its name means 'place of the young'. The main campus of the University of the Everlong Summer Islands is here, known for tropical agriculture, marine science and Ivuran studies, and estates of public rental housing built by the territory charge rents set by income, with their own schools, clinics and community canteens. Young people are many, and cafés and bookshops line its tree-shaded boulevards.
+  codes:
+    admin: '930205'
+  population: 650000
+  area_km2: 400.0
+  traits: { industries: [education, residential, healthcare] }
+- id: div_54sm84
+  subtype: borough
+  parent: div_kv6b3e
+  status: generated
+  names:
+    zh: 门达卢尔区
+    en: Mendalur District
+    art-x-ivuran: Mendalur
+  notes:
+    zh: 萨伦纳姆东部的新城，萨伦纳姆国际机场在区内，是领地最大的航空港，航线通往世界各地；机场周围是物流园、航空维修基地和会展中心。新城按规划路网建设，住宅多为高层公寓，居民以近二三十年迁来的移民家庭为主。
+    en: The new town east of Sarunnam, home to Sarunnam International Airport, the territory's largest, with flights to all parts of the world; around it are logistics parks, an aircraft maintenance base and the exhibition centre. The new town follows a planned street grid, homes are mostly high-rise flats, and most residents are families who have moved here in recent decades.
+  codes:
+    admin: '930206'
+  population: 450000
+  area_km2: 900.0
+  traits: { industries: [aviation, logistics, residential] }
+- id: div_0dgwyn
+  subtype: borough
+  parent: div_kv6b3e
+  status: generated
+  names:
+    zh: 奥卢瓦尔区
+    en: Oluvar District
+    art-x-ivuran: Oluvar
+  notes:
+    zh: 哈努西鲁河三角洲的稻作区，区名意为「稻田」，面积 3.2 万平方公里，是领地最大的稻米产区，一年两到三熟。河道和灌渠把稻田分成方格，村庄建在高出水面的台地上，雨季时许多地方要乘船往来。稻米合作社统一收购和加工，三角洲的香米出口到世界各地。
+    en: The rice country of the Hanusiru delta; its name means 'paddy fields'. At 32,000 km² it is the territory's largest rice-growing area, with two or three harvests a year. Channels and irrigation canals divide the paddies into squares, villages stand on mounds above the water, and in the wet season many places are reached by boat. Rice cooperatives buy and mill the crop, and the delta's fragrant rice is sold all over the world.
+  codes:
+    admin: '930207'
+  population: 450000
+  area_km2: 32000.0
+  traits: { industries: [rice, agriculture, food], heritage: ivuran }
+- id: div_k880h3
+  subtype: borough
+  parent: div_kv6b3e
+  status: generated
+  names:
+    zh: 皮拉凯区
+    en: Pilakkai District
+    art-x-ivuran: Pilakkai
+  notes:
+    zh: 三角洲外缘的海岸区，区名意为「红树林之岸」。潮间带上长满红树林，是鱼虾和水鸟的繁育地，海岸线的大部分划为保护区；渔村在红树林之间的水道口，居民打鱼、养虾和养蟹，红树林外的浅海里还有海草床。领地禁止砍伐红树林开挖虾塘，养殖都在指定的内陆塘区进行。
+    en: The coastal district on the outer edge of the delta; its name means 'mangrove shore'. Mangroves cover the tidal flats, a nursery for fish, shrimp and water birds, and most of the coastline is protected; fishing villages stand where channels open between the mangroves, their people catching fish and farming shrimp and crabs, with seagrass meadows in the shallows beyond. Clearing mangroves for shrimp ponds is forbidden in the territory, and farming is confined to designated inland ponds.
+  codes:
+    admin: '930208'
+  population: 350000
+  area_km2: 27790.0
+  traits: { industries: [aquaculture, fishing, conservation], heritage: ivuran }
+
+# ── 埃武托拉公社──
+- id: div_6kjc7x
+  subtype: locality
+  parent: div_nwm019
+  status: generated
+  names:
+    zh: 埃武托拉公社
+    en: Evutola Commune
+    art-x-ivuran: Evutola
+  notes:
+    zh: 主岛东北端海岸上的市级公社，名字在伊武兰语里意为「大家的家」，面积 2 万平方公里，100 万人。公社委员会自治，自定税率，居民的个人所得税、社会保险和消费税合计超过收入的八成，政务院只管外交、国防等少数事务。公社里住房、公共交通、水电网、教育、医疗、托育和养老全部免费，汽车、电器等贵重物品也由公社提供、按需取用；公共食堂、公共洗衣房和工具库遍布各区。大部分工资由劳动贡献积分代替，最高与最低收入之比不超过三倍；企业以集体所有和合作社为主，重大事务由居民议事会直接表决，每周工作四天。人民宫、公社大食堂、环形公社住宅和公社图书馆是它的标志。
+    en: A city-level commune on the coast at the north-eastern end of the main island; its name means 'everyone's home' in Ivuran, and it covers 20,000 km² with a million people. The Commune Council governs itself and sets its own taxes, so that income tax, social insurance and consumption tax together take more than four-fifths of what residents earn, while the Executive Council keeps only foreign affairs, defence and a few other matters. Housing, public transport, water, power and the internet, education, health care, childcare and care for the old are all free, and the commune provides cars, appliances and other costly goods to whoever needs them; public canteens, laundries and tool libraries are found in every district. Labour credits take the place of most wages, the highest income may be no more than three times the lowest, most enterprises are collectively owned or cooperatives, major decisions go to a direct vote of the residents' assemblies, and the working week is four days. The People's Palace, the Great Commune Canteen, the ring-shaped commune housing and the Commune Library are its landmarks.
+  codes:
+    admin: '930300'
+    unlocode: ES EVT
+  population: 1000000
+  area_km2: 20000.0
+  special_status: commune
+  color: '#C8102E'
+  emblem:
+    motif: star
+    pattern: weave
+  traits: { industries: [manufacturing, food, healthcare, education], heritage: tropic_mixed, age: balanced, income: 1.0 }
+- id: div_p3x7j4
+  subtype: borough
+  parent: div_6kjc7x
+  status: generated
+  names:
+    zh: 哈马图区
+    en: Hamatu District
+    art-x-ivuran: Hamatu
+  notes:
+    zh: 公社的中心区，区名意为「一起」。人民宫是公社委员会和居民议事会开会的地方，圆形的议事大厅能坐下上万人；旁边的公社大食堂一次可供数万人同时用餐，公社图书馆藏书和工具都可以免费借用。区内的街道规划成放射状，从人民广场通向四周的住宅区，免费的电车和公共汽车昼夜运行。
+    en: The centre of the commune; its name means 'together'. The People's Palace is where the Commune Council and the residents' assemblies meet, its round assembly hall seating more than ten thousand; beside it the Great Commune Canteen can feed tens of thousands at a sitting, and the Commune Library lends both books and tools free of charge. Streets radiate from People's Square to the housing districts around, and free trams and buses run day and night.
+  codes:
+    admin: '930301'
+  population: 330000
+  area_km2: 220.0
+  traits: { industries: [government, education, healthcare] }
+- id: div_qp9ner
+  subtype: borough
+  parent: div_6kjc7x
+  status: generated
+  names:
+    zh: 奥鲁武区
+    en: Oruvu District
+    art-x-ivuran: Oruvu
+  notes:
+    zh: 公社的住宅区，区名意为「环形的家」。环形公社住宅是一圈圈围合的多层住宅楼，中间是公共花园、托儿所和食堂，每个环住着两三千人；住房按家庭人数分配，不收租金。公共洗衣房、诊所和养老院设在每个环的底层，老人和孩子在内院里一起度过白天。
+    en: The commune's housing district; its name means 'ring of homes'. The ring-shaped commune housing is circles of mid-rise blocks around a shared garden, nursery and canteen, two or three thousand people to each ring; homes are allotted by the size of the family and no rent is charged. Public laundries, clinics and care homes occupy the ground floor of every ring, and the old and the young spend their days together in the inner courts.
+  codes:
+    admin: '930302'
+  population: 260000
+  area_km2: 300.0
+  traits: { industries: [residential, healthcare, education] }
+- id: div_27fbbk
+  subtype: borough
+  parent: div_6kjc7x
+  status: generated
+  names:
+    zh: 帕卡里区
+    en: Pakari District
+    art-x-ivuran: Pakari
+  notes:
+    zh: 公社的工业区，区名意为「造物的人」。公社的集体工厂和合作社在这里制造电动车、电器、农机和建筑构件，产品首先满足公社居民按需领取，其余对外销售。工厂实行每周四天工作，工人推选的委员会管理生产，劳动贡献积分按岗位和工时计算。
+    en: The commune's industrial district; its name means 'the makers'. Collective factories and cooperatives build electric cars, appliances, farm machinery and building parts here, first for residents to take as they need, the rest for sale outside. The factories work a four-day week, committees elected by the workers run production, and labour credits are reckoned by post and hours.
+  codes:
+    admin: '930303'
+  population: 180000
+  area_km2: 1200.0
+  traits: { industries: [manufacturing, automotive, food] }
+- id: div_h88tgx
+  subtype: borough
+  parent: div_6kjc7x
+  status: generated
+  names:
+    zh: 塔尼武区
+    en: Tanivu District
+    art-x-ivuran: Tanivu
+  notes:
+    zh: 公社的农业和渔业区，区名意为「田间的家」。土地归公社所有，农业合作社种植稻米、蔬菜和热带水果，渔业合作社的船队在近海捕鱼，收获直接送往各区的公共食堂和配给站。村庄保留了伊武兰人的高脚木屋，每个村都有自己的食堂和议事棚。
+    en: The commune's farming and fishing district; its name means 'homes among the fields'. The land belongs to the commune, farm cooperatives grow rice, vegetables and tropical fruit, and the fishing cooperatives' boats work the inshore waters, their catch and harvest going straight to the public canteens and distribution points of every district. The villages keep their Ivuran stilt houses, and each has its own canteen and meeting shelter.
+  codes:
+    admin: '930304'
+  population: 130000
+  area_km2: 9000.0
+  traits: { industries: [agriculture, fishing, food], heritage: ivuran }
+- id: div_ra6c0v
+  subtype: borough
+  parent: div_6kjc7x
+  status: generated
+  names:
+    zh: 卢阿努区
+    en: Luanu District
+    art-x-ivuran: Luanu
+  notes:
+    zh: 公社东北端的海岸和丘陵，区名意为「海边的沙」。长长的白沙海滩上建有公社的疗养院和度假村，公社居民每年都有带薪假期可以免费入住；丘陵上是公社的森林和水源保护地。外来游客须向公社付费入住，收入归公社共有。
+    en: The coast and hills at the commune's north-eastern end; its name means 'sand by the sea'. The commune's convalescent homes and holiday villages stand along its long white beaches, where every resident may stay free on paid holidays, and the hills are the commune's forest and watershed reserves. Visitors from outside pay the commune to stay, and the income is shared by all.
+  codes:
+    admin: '930305'
+  population: 100000
+  area_km2: 9280.0
+  traits: { industries: [tourism, healthcare, conservation], heritage: ivuran }
+
+# ── 塔卢马兰市──
+- id: div_5tgnmz
+  subtype: locality
+  parent: div_nwm019
+  status: generated
+  names:
+    zh: 塔卢马兰市
+    en: Talumaran City
+    art-x-ivuran: Talumaran
+  notes:
+    zh: 东南海岸的港口和工业城市，全市 160 万人，是领地第二大城市。城名意为「停泊之地」，深水良港塔卢马兰湾自古是船只避风的锚地；伦博区的船厂建造集装箱船、液化气船和海上平台，塞拉努区的深水码头是领地最大的集装箱港之一，伊拉坦区的电池厂和新能源车厂用乌诺卡里的镍制造电池和整车。工业带的工人来自领地各地和世界各国，全市移民约占三分之二，劳动年龄人口比例高。
+    en: "The port and industrial city of the south-east coast, with 1.6 million people, the second city of the territory. Its name means 'place of moorings': the deep harbour of Talumaran Bay has sheltered ships since early times. The yards of Lumbo District build container ships, gas carriers and offshore platforms, the deep-water quays of Seranu District make one of the territory's largest container ports, and in Ilatan District battery and electric car plants turn nickel from Unokari into batteries and finished cars. The workers of the industrial belt come from all over the territory and the world; about two in three people are incomers, and the share of working age is high."
+  codes:
+    admin: '930400'
+    unlocode: ES TLM
+  population: 1600000
+  area_km2: 68000.0
+  color: '#24527A'
+  emblem:
+    motif: anchor
+    pattern: waves
+  traits: { industries: [shipbuilding, port, automotive, battery], heritage: tropic_global, age: young, income: 1.1 }
+- id: div_2fhccc
+  subtype: borough
+  parent: div_5tgnmz
+  status: generated
+  names:
+    zh: 塔卢区
+    en: Talu District
+    art-x-ivuran: Talu
+  notes:
+    zh: 塔卢马兰的市中心和老港，区名意为「停泊」。老码头的石砌防波堤和灯塔还在使用，海员会馆、老商行和鱼市沿港排开；新的商业街和办公楼在老港背后的规划街区里。市政厅、海事法院和航运交易所都在区内。
+    en: The centre and old harbour of Talumaran; its name means 'mooring'. The stone breakwater and lighthouse of the old quay are still in use, and the seafarers' hall, old trading houses and fish market line the harbour; new shopping streets and offices stand in the planned blocks behind it. The city hall, the maritime court and the shipping exchange are here.
+  codes:
+    admin: '930401'
+  population: 450000
+  area_km2: 250.0
+  traits: { industries: [commerce, port, heritage] }
+- id: div_yakrhd
+  subtype: borough
+  parent: div_5tgnmz
+  status: generated
+  names:
+    zh: 伦博区
+    en: Lumbo District
+    art-x-ivuran: Lumbo
+  notes:
+    zh: 塔卢马兰的造船区，区名意为「船」。伦博船厂的干船坞和龙门吊沿海湾排开，建造集装箱船、液化气运输船、海上风电安装船和海洋平台；周围是钢结构、船用发动机和电子设备的配套工厂。船厂的焊工、电工和工程师多住在区内的工人新村。
+    en: Talumaran's shipbuilding district; its name means 'ship'. The dry docks and gantry cranes of the Lumbo Shipyard line the bay, building container ships, gas carriers, offshore wind installation vessels and ocean platforms, with steelwork, marine engine and electronics suppliers around them. The yard's welders, electricians and engineers mostly live in the district's workers' estates.
+  codes:
+    admin: '930402'
+  population: 280000
+  area_km2: 400.0
+  traits: { industries: [shipbuilding, manufacturing] }
+- id: div_hceeaa
+  subtype: borough
+  parent: div_5tgnmz
+  status: generated
+  names:
+    zh: 塞拉努区
+    en: Seranu District
+    art-x-ivuran: Seranu
+  notes:
+    zh: 塔卢马兰湾外侧的深水港区，区名意为「深水」。集装箱码头、汽车滚装码头和液化气接收站沿湾口展开，伊拉坦区生产的电池和新能源车从这里装船出口；港区实行全自动化装卸，无人集卡在码头和堆场之间往来。
+    en: The deep-water port district on the outer side of Talumaran Bay; its name means 'deep water'. Container terminals, a ro-ro car terminal and a gas receiving terminal spread along the mouth of the bay, and batteries and electric cars made in Ilatan District are shipped out from here; the port is fully automated, with driverless trucks running between the quays and the stacks.
+  codes:
+    admin: '930403'
+  population: 220000
+  area_km2: 600.0
+  traits: { industries: [port, logistics] }
+- id: div_3e94sq
+  subtype: borough
+  parent: div_5tgnmz
+  status: generated
+  names:
+    zh: 伊拉坦区
+    en: Ilatan District
+    art-x-ivuran: Ilatan
+  notes:
+    zh: 塔卢马兰北部的新能源产业区，区名意为「新的田」。电池正极材料厂、电芯厂和新能源车整车厂连成一条产业链，原料是乌诺卡里矿区的镍和钴；厂区屋顶铺满太阳能板，废旧电池在区内的回收厂拆解再生。工人大多是年轻的移民。
+    en: The new energy district north of Talumaran; its name means 'new field'. Cathode material works, cell plants and electric car assembly lines form a single chain, fed with nickel and cobalt from the Unokari mines; the factory roofs are covered with solar panels, and spent batteries are taken apart and recycled in the district. Most of the workers are young incomers.
+  codes:
+    admin: '930404'
+  population: 300000
+  area_km2: 800.0
+  traits: { industries: [battery, automotive, manufacturing] }
+- id: div_py6kpa
+  subtype: borough
+  parent: div_5tgnmz
+  status: generated
+  names:
+    zh: 米纳萨区
+    en: Minasa District
+    art-x-ivuran: Minasa
+  notes:
+    zh: 塔卢马兰西部的住宅区，区名意为「安居」。公共租赁住房、学校和医院沿林荫大道分布，许多船厂和电池厂的工人家庭住在这里；塔卢马兰海事学院培养船员和造船工程师。
+    en: The residential district west of Talumaran; its name means 'settled home'. Public rental housing, schools and hospitals line its tree-shaded avenues, home to many families of the shipyard and battery workers, and the Talumaran Maritime College trains seafarers and naval architects.
+  codes:
+    admin: '930405'
+  population: 250000
+  area_km2: 700.0
+  traits: { industries: [residential, education, retail] }
+- id: div_n11kpv
+  subtype: borough
+  parent: div_5tgnmz
+  status: generated
+  names:
+    zh: 帕达兰区
+    en: Padaran District
+    art-x-ivuran: Padaran
+  notes:
+    zh: 塔卢马兰背后广阔的腹地，区名意为「稻作之乡」，面积 6.5 万平方公里，从沿海平原一直延伸到乌诺凯苏山脉的山坡。平原上是稻田和椰林，山坡上种可可、咖啡和丁香，村庄里的居民大多讲伊武兰语北部方言。
+    en: The wide hinterland behind Talumaran; its name means 'land of rice', and it stretches over 65,000 km² from the coastal plain up the slopes of the Unokesu Mountains. Rice fields and coconut groves cover the plain, cocoa, coffee and cloves grow on the slopes, and most villagers speak the northern dialect of Ivuran.
+  codes:
+    admin: '930406'
+  population: 100000
+  area_km2: 65250.0
+  traits: { industries: [agriculture, spice, forestry], heritage: ivuran }
+
+# ── 基拉努市──
+- id: div_24d8z4
+  subtype: locality
+  parent: div_nwm019
+  status: generated
+  names:
+    zh: 基拉努市
+    en: Kilanu City
+    art-x-ivuran: Kilanu
+  notes:
+    zh: 东南海岸中部的科技城市，全市 130 万人，城名意为「明亮的沙」，海岸上洁白的石英砂滩由此得名。努维拉区的晶圆厂和封装测试厂组成领地的半导体产业园，芯片从基拉努国际机场空运到世界各地；埃莱努区的基拉努理工大学培养芯片和软件工程师。全市人均产值在各市中最高，移民约占六成五，来自中国其他省份的工程师尤其多。
+    en: The technology city on the middle of the south-east coast, with 1.3 million people; its name means 'bright sands', after the white quartz beaches of its shore. The wafer fabs and packaging and test plants of Nuvila District make up the territory's semiconductor park, and chips are flown from Kilanu International Airport to all parts of the world; Kilanu University of Technology in Elenu District trains chip and software engineers. Output per head is the highest of any city, about 65% of people are incomers, and engineers from other provinces of China are especially many.
+  codes:
+    admin: '930500'
+    unlocode: ES KLN
+  population: 1300000
+  area_km2: 60000.0
+  color: '#5B3FA0'
+  emblem:
+    motif: chip
+    pattern: grid
+  traits: { industries: [semiconductor, tech, research, port], heritage: tropic_global, age: young, income: 1.25 }
+- id: div_rmy0kf
+  subtype: borough
+  parent: div_24d8z4
+  status: generated
+  names:
+    zh: 萨基拉区
+    en: Sakila District
+    art-x-ivuran: Sakila
+  notes:
+    zh: 基拉努的市中心，区名意为「光的中心」。塔楼和商场沿海滨大道排开，科技公司的总部、风险投资机构和软件企业集中在这里；傍晚海滨的石英砂滩上挤满散步的人，夜市一直开到深夜。
+    en: The centre of Kilanu; its name means 'heart of light'. Towers and malls line the seafront avenue, home to technology headquarters, venture funds and software firms; in the evening the quartz beach is crowded with strollers, and the night market stays open late.
+  codes:
+    admin: '930501'
+  population: 400000
+  area_km2: 220.0
+  traits: { industries: [commerce, tech, finance] }
+- id: div_qr8ay4
+  subtype: borough
+  parent: div_24d8z4
+  status: generated
+  names:
+    zh: 努维拉区
+    en: Nuvila District
+    art-x-ivuran: Nuvila
+  notes:
+    zh: 基拉努的半导体产业园，区名意为「沙中之光」。十多座晶圆厂、封装测试厂和光刻胶、特种气体等配套工厂沿规划路网排开，厂房要求极高的洁净度和稳定的电力与用水，园区有自己的变电站和超纯水厂；领地对工业用水和废水排放实行严格监管。
+    en: Kilanu's semiconductor park; its name means 'light in the sand'. More than ten wafer fabs, packaging and test plants and suppliers of photoresists, specialty gases and other materials line its planned streets; the plants need exceptionally clean air and steady power and water, so the park has its own substations and ultrapure water works, and the territory closely regulates industrial water use and discharges.
+  codes:
+    admin: '930502'
+  population: 350000
+  area_km2: 500.0
+  traits: { industries: [semiconductor, manufacturing, research] }
+- id: div_07wzvt
+  subtype: borough
+  parent: div_24d8z4
+  status: generated
+  names:
+    zh: 埃莱努区
+    en: Elenu District
+    art-x-ivuran: Elenu
+  notes:
+    zh: 基拉努的大学和住宅区，区名意为「学习的岸」。基拉努理工大学以集成电路、材料和软件见长，与产业园的企业共建实验室；成片的公寓楼住着年轻的工程师家庭，区内的国际学校用中文、英文和伊武兰语三种语言教学。
+    en: Kilanu's university and residential district; its name means 'shore of learning'. Kilanu University of Technology is known for integrated circuits, materials and software and runs joint laboratories with the companies of the park; estates of flats house young engineers' families, and the international school teaches in Chinese, English and Ivuran.
+  codes:
+    admin: '930503'
+  population: 330000
+  area_km2: 600.0
+  traits: { industries: [education, residential, tech] }
+- id: div_yah63b
+  subtype: borough
+  parent: div_24d8z4
+  status: generated
+  names:
+    zh: 佩萨维区
+    en: Pesavi District
+    art-x-ivuran: Pesavi
+  notes:
+    zh: 基拉努的港口和机场区，区名意为「出发」。基拉努国际机场的货运区专门处理芯片等高价值货物，港区有集装箱码头和化学品码头；物流园沿高速公路排开。
+    en: Kilanu's port and airport district; its name means 'setting out'. The cargo terminal of Kilanu International Airport specialises in chips and other high-value freight, the port has container and chemical terminals, and logistics parks line the expressway.
+  codes:
+    admin: '930504'
+  population: 140000
+  area_km2: 900.0
+  traits: { industries: [port, aviation, logistics] }
+- id: div_daamp6
+  subtype: borough
+  parent: div_24d8z4
+  status: generated
+  names:
+    zh: 乌拉帕区
+    en: Urapa District
+    art-x-ivuran: Urapa
+  notes:
+    zh: 基拉努背后的丘陵和山地，区名意为「高地」，面积 5.8 万平方公里，一直延伸到哈努帕拉高原的东南缘。山坡上种可可和热带水果，河谷里有小水电站和村庄，居民多是讲伊武兰语的本地人。
+    en: The hills and uplands behind Kilanu; its name means 'high ground', and it covers 58,000 km², reaching the south-eastern edge of the Hanupala Plateau. Cocoa and tropical fruit grow on the slopes, small hydro plants and villages sit in the valleys, and most people are Ivuran-speaking islanders.
+  codes:
+    admin: '930505'
+  population: 80000
+  area_km2: 57780.0
+  traits: { industries: [agriculture, fruit, forestry], heritage: ivuran }
+
+# ── 瓦利凯市──
+- id: div_11j4xw
+  subtype: locality
+  parent: div_nwm019
+  status: generated
+  names:
+    zh: 瓦利凯市
+    en: Vallikkai City
+    art-x-ivuran: Vallikkai
+  notes:
+    zh: 主岛南岸西段的港口城市，全市 100 万人，城名意为「长长的海岸」。瓦利凯港扼守东西航线，是领地的国际转运枢纽，图拉凯区的深水码头装卸往来大洋之间的集装箱，埃鲁塔姆区的物流园为全岛配送货物。城外的萨卢瓦伊区沿海是鱼虾和海藻的养殖场。老城坎纳鲁尔区保留着骑楼街和香料仓库，移民约占一半。
+    en: "The port city on the western part of the main island's south coast, with a million people; its name means 'the long shore'. The Port of Vallikkai commands the sea lanes between east and west and is the territory's international transhipment hub: the deep-water quays of Turakkai District handle containers between the oceans, and the logistics parks of Eruttam District distribute goods to the whole island. Out of town, the coast of Saluvai District is lined with fish, shrimp and seaweed farms. The old town of Kannarur keeps its arcaded shop streets and spice warehouses, and about half the people are incomers."
+  codes:
+    admin: '930600'
+    unlocode: ES VLK
+  population: 1000000
+  area_km2: 55000.0
+  color: '#0E8C7F'
+  emblem:
+    motif: helm
+    pattern: flow
+  traits: { industries: [port, logistics, aquaculture, food], heritage: tropic_mixed, age: balanced, income: 1.05 }
+- id: div_3ytmrh
+  subtype: borough
+  parent: div_11j4xw
+  status: generated
+  names:
+    zh: 坎纳鲁尔区
+    en: Kannarur District
+    art-x-ivuran: Kannarur
+  notes:
+    zh: 瓦利凯的老城，区名意为「眼前的村」。骑楼街沿老港排开，香料仓库和老商行改作了餐馆和博物馆；清晨的鱼市和傍晚的海滨夜市是老城最热闹的时候。老城居民多讲伊武兰语南部方言。
+    en: The old town of Vallikkai; its name means 'village before the eyes'. Arcaded shop streets line the old harbour, and spice warehouses and old trading houses have become restaurants and museums; the old town is busiest at the dawn fish market and the evening night market on the seafront. Most residents speak the southern dialect of Ivuran.
+  codes:
+    admin: '930601'
+  population: 300000
+  area_km2: 200.0
+  traits: { industries: [commerce, heritage, tourism] }
+- id: div_qj7vjy
+  subtype: borough
+  parent: div_11j4xw
+  status: generated
+  names:
+    zh: 图拉凯区
+    en: Turakkai District
+    art-x-ivuran: Turakkai
+  notes:
+    zh: 瓦利凯的深水转运港区，区名意为「港口之岸」。自动化集装箱码头沿防波堤展开，大型集装箱船在这里换装驳船和支线船，转运箱量居领地之首；港区还有船舶加油站和修船码头。
+    en: Vallikkai's deep-water transhipment port; its name means 'harbour shore'. Automated container terminals stretch along the breakwater, where the largest container ships exchange boxes with feeders and barges, the most transhipment in the territory; the port also has bunkering berths and repair quays.
+  codes:
+    admin: '930602'
+  population: 260000
+  area_km2: 700.0
+  traits: { industries: [port, logistics] }
+- id: div_0hrhwh
+  subtype: borough
+  parent: div_11j4xw
+  status: generated
+  names:
+    zh: 埃鲁塔姆区
+    en: Eruttam District
+    art-x-ivuran: Eruttam
+  notes:
+    zh: 瓦利凯北部的物流区，区名意为「货仓之地」。物流园、冷链仓库和食品加工厂沿高速公路分布，领地的进口商品从这里分拨到全岛，水产和香料在这里加工包装后出口。
+    en: The logistics district north of Vallikkai; its name means 'place of storehouses'. Logistics parks, cold-chain warehouses and food plants line the expressway; the territory's imports are distributed to the whole island from here, and seafood and spices are processed and packed here for export.
+  codes:
+    admin: '930603'
+  population: 200000
+  area_km2: 800.0
+  traits: { industries: [logistics, food, manufacturing] }
+- id: div_5d7rp4
+  subtype: borough
+  parent: div_11j4xw
+  status: generated
+  names:
+    zh: 卡兰杜尔区
+    en: Kalandur District
+    art-x-ivuran: Kalandur
+  notes:
+    zh: 瓦利凯东部的住宅区，区名意为「相遇的村」。港口和物流园的工人家庭多住在这里，公共租赁住房、学校和医院按社区配置；瓦利凯航海学院在区内。
+    en: The residential district east of Vallikkai; its name means 'village of meeting'. Many families of the port and logistics workers live here, with public rental housing, schools and hospitals in every neighbourhood, and the Vallikkai Nautical College.
+  codes:
+    admin: '930604'
+  population: 160000
+  area_km2: 900.0
+  traits: { industries: [residential, education, healthcare] }
+- id: div_egwwh2
+  subtype: borough
+  parent: div_11j4xw
+  status: generated
+  names:
+    zh: 萨卢瓦伊区
+    en: Saluvai District
+    art-x-ivuran: Saluvai
+  notes:
+    zh: 瓦利凯城外的沿海和内陆，区名意为「盐风」，面积 5.2 万平方公里。沿海是鱼、虾和海藻的养殖场和晒盐场，内陆是稻田和椰林，一直延伸到蒂拉凯苏山脉的南麓。养殖场按领地的环境标准运行，排水经过处理后才能入海。
+    en: The coast and country outside Vallikkai; its name means 'salt wind', and it covers 52,000 km². The coast is lined with fish, shrimp and seaweed farms and salt pans, and inland are rice fields and coconut groves reaching to the southern foot of the Tirakesu Mountains. The farms run to the territory's environmental standards, and their water is treated before it goes back to the sea.
+  codes:
+    admin: '930605'
+  population: 80000
+  area_km2: 52400.0
+  traits: { industries: [aquaculture, agriculture, fishing], heritage: ivuran }
+
+# ── 彭纳拉姆市──
+- id: div_8hy4nc
+  subtype: locality
+  parent: div_nwm019
+  status: generated
+  names:
+    zh: 彭纳拉姆市
+    en: Pennaram City
+    art-x-ivuran: Pennaram
+  notes:
+    zh: 主岛西北海岸西段的香料之城，全市 65 万人，城名意为「胡椒之城」。山坡上的香料园种植胡椒、豆蔻、肉桂和丁香，内陆高地种咖啡和可可，马伦杜尔区的香料市场是领地最大的香料集散地；古王国时代起，香料就从这里的港口运往远方。全市本地人近八成，许多家庭世代经营香料园。
+    en: The spice city on the western part of the main island's north-west coast, with 650,000 people; its name means 'pepper town'. Spice gardens on the slopes grow pepper, cardamom, cinnamon and cloves, the inland uplands grow coffee and cocoa, and the spice market of Marandur District is the largest in the territory; spices have been shipped far away from its harbour since the days of the kingdom. Nearly eight in ten people are islanders, and many families have tended their spice gardens for generations.
+  codes:
+    admin: '930700'
+    unlocode: ES PNR
+  population: 650000
+  area_km2: 80000.0
+  color: '#8C5A2B'
+  emblem:
+    motif: palm
+    pattern: furrows
+  traits: { industries: [spice, agriculture, food, tourism], heritage: ivuran, age: old, income: 0.95 }
+- id: div_a3c8d6
+  subtype: borough
+  parent: div_8hy4nc
+  status: generated
+  names:
+    zh: 马伦杜尔区
+    en: Marandur District
+    art-x-ivuran: Marandur
+  notes:
+    zh: 彭纳拉姆的城区，区名意为「树荫下的村」。马伦杜尔香料市场的大棚里堆满胡椒、豆蔻和肉桂，空气中满是香料的味道；老港边的石砌香料仓库和老商行仍在使用，城区的街巷沿着山坡层层展开。
+    en: The town of Pennaram; its name means 'village in the shade'. The halls of the Marandur Spice Market are heaped with pepper, cardamom and cinnamon and the air is thick with their scent; the stone spice warehouses and old trading houses by the old harbour are still in use, and the lanes of the town climb the hillside in tiers.
+  codes:
+    admin: '930701'
+  population: 300000
+  area_km2: 300.0
+  traits: { industries: [commerce, spice, tourism] }
+- id: div_v7v7hg
+  subtype: borough
+  parent: div_8hy4nc
+  status: generated
+  names:
+    zh: 埃拉库尔区
+    en: Elakur District
+    art-x-ivuran: Elakur
+  notes:
+    zh: 彭纳拉姆背后的香料山地，区名意为「豆蔻山」，面积 3 万平方公里。胡椒藤攀在高大的遮阴树上，豆蔻长在林下，肉桂和丁香种在向阳的山坡；香料合作社统一晾晒、分级和销售，领地对农药使用和出口品质有严格的标准。
+    en: The spice hills behind Pennaram; its name means 'cardamom hills', and it covers 30,000 km². Pepper vines climb tall shade trees, cardamom grows beneath the forest, and cinnamon and cloves on the sunny slopes; spice cooperatives dry, grade and sell the crop, and the territory sets strict standards for pesticide use and export quality.
+  codes:
+    admin: '930702'
+  population: 150000
+  area_km2: 30000.0
+  traits: { industries: [spice, agriculture] }
+- id: div_yrxzma
+  subtype: borough
+  parent: div_8hy4nc
+  status: generated
+  names:
+    zh: 蒂拉凯区
+    en: Tirakkai District
+    art-x-ivuran: Tirakkai
+  notes:
+    zh: 彭纳拉姆沿海的渔村和海滩，区名意为「浪之岸」，面积 1.5 万平方公里。渔船清晨出海，午后回港，渔获在码头边直接拍卖；海滩边的家庭旅馆接待来看日落和吃海鲜的游客，椰林后面是小块的稻田和菜园。
+    en: The fishing villages and beaches of Pennaram's coast; its name means 'shore of waves', and it covers 15,000 km². Boats go out at dawn and come home in the afternoon, their catch auctioned on the quay; family guesthouses by the beaches welcome visitors who come for the sunsets and seafood, and small rice fields and vegetable plots lie behind the coconut groves.
+  codes:
+    admin: '930703'
+  population: 120000
+  area_km2: 15000.0
+  traits: { industries: [fishing, tourism, aquaculture] }
+- id: div_mw1wjx
+  subtype: borough
+  parent: div_8hy4nc
+  status: generated
+  names:
+    zh: 帕拉武尔区
+    en: Palavur District
+    art-x-ivuran: Palavur
+  notes:
+    zh: 彭纳拉姆内陆的高地，区名意为「果树之村」，面积 3.5 万平方公里，一直延伸到蒂拉凯苏山脉北坡。高地上种咖啡和可可，林间散布着小村庄，咖啡合作社的烘焙厂在区中心的集镇上。
+    en: The inland uplands of Pennaram; its name means 'village of fruit trees', and it covers 35,000 km², reaching the northern slopes of the Tirakesu Mountains. Coffee and cocoa grow on the uplands, small villages are scattered among the trees, and the coffee cooperative's roastery is in the market town at the centre.
+  codes:
+    admin: '930704'
+  population: 80000
+  area_km2: 34700.0
+  traits: { industries: [agriculture, spice, forestry] }
+
+# ── 温达坎市──
+- id: div_mzhe0m
+  subtype: locality
+  parent: div_nwm019
+  status: generated
+  names:
+    zh: 温达坎市
+    en: Undakan City
+    art-x-ivuran: Undakan
+  notes:
+    zh: 蒂拉凯苏山脉中段的山城，全市 50 万人，面积 10 万平方公里，城名意为「台阶之地」。佩伦达区和西林达区的山坡上是层层叠叠的水稻梯田，从河谷一直修到海拔一千多米的山腰，靠山顶森林涵养的泉水灌溉；乌拉韦劳自然保护区里有领地最高的山峰、云雾林和高山草甸。全市本地人约占八成，梯田由村社共同维护，插秧和收割时节全村一起下田。
+    en: The mountain city in the middle of the Tirakesu Mountains, with 500,000 people in 100,000 km²; its name means 'place of steps'. The slopes of Perunda and Silinda districts are stepped with rice terraces from the valley floors to over a thousand metres, watered by springs from the forests above; the Uravelau Nature Reserve holds the highest summit in the territory, cloud forest and alpine meadows. About eight in ten people are islanders, the village communities keep up the terraces together, and the whole village goes into the fields to plant and to harvest.
+  codes:
+    admin: '930800'
+    unlocode: ES UDK
+  population: 500000
+  area_km2: 100000.0
+  color: '#6A8F2A'
+  emblem:
+    motif: terraces
+    pattern: contours
+  traits: { industries: [rice, tourism, conservation, agriculture], heritage: ivuran, age: old, income: 0.9 }
+- id: div_6cy2yw
+  subtype: borough
+  parent: div_mzhe0m
+  status: generated
+  names:
+    zh: 坎达瓦区
+    en: Kandava District
+    art-x-ivuran: Kandava
+  notes:
+    zh: 温达坎的城区，在河谷里，区名意为「山间的门」。木结构的老房子沿山坡排开，梯田博物馆、农业学院和每周的山货集市在这里；来看梯田的游客从这里换乘山区公交上山。
+    en: The town of Undakan, in a valley; its name means 'gate in the hills'. Old timber houses step up the hillside, and the Terrace Museum, the agricultural college and the weekly mountain market are here; visitors on their way to the terraces change here to the mountain buses.
+  codes:
+    admin: '930801'
+  population: 200000
+  area_km2: 400.0
+  traits: { industries: [commerce, tourism, education] }
+- id: div_w2pbh1
+  subtype: borough
+  parent: div_mzhe0m
+  status: generated
+  names:
+    zh: 佩伦达区
+    en: Perunda District
+    art-x-ivuran: Perunda
+  notes:
+    zh: 温达坎东部的梯田区，区名意为「大台阶」，面积 3 万平方公里。成千上万块梯田顺着等高线环绕山坡，最高处修到海拔一千多米，灌溉水从山顶森林流下，一层层流过每块田；梯田的维护和用水由村社共同商定，代代相传。
+    en: The terrace country east of Undakan; its name means 'great steps', and it covers 30,000 km². Tens of thousands of terraces follow the contours around the slopes up to more than a thousand metres, and water from the forests at the top runs down through each field in turn; the village communities agree together on upkeep and water, as they have for generations.
+  codes:
+    admin: '930802'
+  population: 140000
+  area_km2: 30000.0
+  traits: { industries: [rice, tourism] }
+- id: div_9hrhrv
+  subtype: borough
+  parent: div_mzhe0m
+  status: generated
+  names:
+    zh: 西林达区
+    en: Silinda District
+    art-x-ivuran: Silinda
+  notes:
+    zh: 温达坎西部的梯田和山村，区名意为「西边的台阶」，面积 3 万平方公里。梯田间点缀着高脚木屋的村寨，村民在田里养鱼和鸭；梯田红米是这里的特产。
+    en: The terraces and hill villages west of Undakan; its name means 'western steps', and it covers 30,000 km². Villages of stilt houses are scattered among the terraces, villagers raise fish and ducks in the fields, and terrace red rice is the local speciality.
+  codes:
+    admin: '930803'
+  population: 100000
+  area_km2: 30000.0
+  traits: { industries: [rice, agriculture, tourism] }
+- id: div_47qks0
+  subtype: borough
+  parent: div_mzhe0m
+  status: generated
+  names:
+    zh: 乌拉韦劳自然保护区
+    en: Uravelau Nature Reserve
+    art-x-ivuran: Uravelau
+  notes:
+    zh: 蒂拉凯苏山脉最高的一段，区名取自领地最高峰乌拉韦劳峰，意为「高处的云」，面积 2.5 万平方公里，常住人口约 5000 人，多为护林员和山民。山腰以上是终年云雾缭绕的云雾林，树上挂满苔藓和兰花；林线以上是高山草甸。保护区只开放几条徒步路线，登顶须有向导陪同。
+    en: The highest stretch of the Tirakesu Mountains, named after the territory's highest summit, Mount Uravelau, 'high cloud'; it covers 25,000 km² with about 5,000 residents, mostly forest rangers and hill people. Above the middle slopes is cloud forest wrapped in mist all year, its trees hung with moss and orchids, and above the treeline alpine meadows. Only a few trails are open, and the summit may only be climbed with a guide.
+  codes:
+    admin: '930804'
+  population: 5000
+  area_km2: 25000.0
+  special_status: nature_reserve
+  traits: { industries: [conservation, tourism] }
+- id: div_gzefq6
+  subtype: borough
+  parent: div_mzhe0m
+  status: generated
+  names:
+    zh: 托兰卡区
+    en: Toranka District
+    art-x-ivuran: Toranka
+  notes:
+    zh: 温达坎北部的河谷区，区名意为「河谷的路」。河谷里有水电站和整齐的咖啡园，村庄沿河分布，山区公路沿河谷通往高原；雨季河水暴涨，沿河村庄都建在高出洪水线的台地上。
+    en: The valley district north of Undakan; its name means 'valley road'. The valleys hold hydro stations and neat coffee gardens, villages follow the river, and the mountain road climbs the valley to the plateau; the river floods in the wet season, so the villages stand on terraces above the flood line.
+  codes:
+    admin: '930805'
+  population: 55000
+  area_km2: 14600.0
+  traits: { industries: [agriculture, forestry, hydropower] }
+
+# ── 洛米兰市──
+- id: div_k4tk68
+  subtype: locality
+  parent: div_nwm019
+  status: generated
+  names:
+    zh: 洛米兰市
+    en: Lomiran City
+    art-x-ivuran: Lomiran
+  notes:
+    zh: 主岛西北部的雨林之城，全市 35 万人，面积 14 万平方公里，是领地面积最大的市，城名意为「森林之地」。洛米哈努国家公园管理区覆盖全市一半的土地，保护着领地最大的热带雨林；塔卡维区的雨林树冠步道在几十米高的树冠间穿行。雨林中的药用植物是长夏群岛生物医药研究的宝库，领地对采集和利用实行严格的许可和惠益分享。全市本地人约占七成五。
+    en: The rainforest city of the north-west of the main island, with 350,000 people in 140,000 km², the largest city in the territory by area; its name means 'land of forest'. The Lomihanu National Park Administration Zone covers half its land and protects the territory's largest tropical rainforest, and the canopy walkway of Takavi District threads through the treetops tens of metres up. The forest's medicinal plants are a treasury for the islands' medicine research, and the territory licenses collection and use strictly and shares the benefits. About three in four people are islanders.
+  codes:
+    admin: '930900'
+    unlocode: ES LMR
+  population: 350000
+  area_km2: 140000.0
+  color: '#1E6B3A'
+  emblem:
+    motif: hornbill
+    pattern: fronds
+  traits: { industries: [conservation, tourism, pharma, research], heritage: ivuran, age: balanced, income: 0.95 }
+- id: div_pgh98w
+  subtype: borough
+  parent: div_k4tk68
+  status: generated
+  names:
+    zh: 卢瓦纳区
+    en: Luvana District
+    art-x-ivuran: Luvana
+  notes:
+    zh: 洛米兰的城区，区名意为「林间空地」。雨林研究中心和生物医药企业的实验室在城东，城里有雨林博物馆和每周的林产品集市；进出国家公园的游客和研究人员都从这里出发。
+    en: The town of Lomiran; its name means 'clearing in the forest'. The Rainforest Research Centre and the laboratories of medicine companies are on the east side, and the town has the Rainforest Museum and a weekly forest produce market; visitors and researchers bound for the national park all start from here.
+  codes:
+    admin: '930901'
+  population: 180000
+  area_km2: 500.0
+  traits: { industries: [commerce, pharma, research] }
+- id: div_2w2q99
+  subtype: borough
+  parent: div_k4tk68
+  status: generated
+  names:
+    zh: 洛米哈努国家公园管理区
+    en: Lomihanu National Park Administration Zone
+    art-x-ivuran: Lomihanu
+  notes:
+    zh: 领地最大的国家公园，名字意为「大森林」，面积 7 万平方公里，常住人口只有约 3000 人，多为巡护员、研究人员和林中的原住村落。低地雨林、沼泽林和山地雨林连成一片，栖息着犀鸟、云豹、长臂猿和上千种兰花；公园内不修公路，只有巡护小道和河上的船。
+    en: The territory's largest national park; its name means 'great forest'. It covers 70,000 km² with only about 3,000 residents, mostly rangers, researchers and the forest villages of the islanders. Lowland rainforest, swamp forest and montane rainforest run together, home to hornbills, clouded leopards, gibbons and a thousand kinds of orchid; no roads are built inside, only ranger paths and boats on the rivers.
+  codes:
+    admin: '930902'
+  population: 3000
+  area_km2: 70000.0
+  special_status: national_park
+  traits: { industries: [conservation, research, tourism] }
+- id: div_a5rwcq
+  subtype: borough
+  parent: div_k4tk68
+  status: generated
+  names:
+    zh: 塔卡维区
+    en: Takavi District
+    art-x-ivuran: Takavi
+  notes:
+    zh: 国家公园边缘的生态旅游区，区名意为「树冠」。雨林树冠步道由吊桥和树上平台连成，在离地几十米的树冠间穿行，游客能看到犀鸟筑巢和猴群觅食；林边的生态旅馆由本地村社经营。
+    en: The ecotourism district on the edge of the national park; its name means 'canopy'. The rainforest canopy walkway, a chain of suspension bridges and tree platforms, runs through the treetops tens of metres above the ground, where visitors watch hornbills at their nests and monkeys foraging; the forest lodges are run by the local villages.
+  codes:
+    admin: '930903'
+  population: 60000
+  area_km2: 20000.0
+  traits: { industries: [tourism, conservation] }
+- id: div_dx1d2r
+  subtype: borough
+  parent: div_k4tk68
+  status: generated
+  names:
+    zh: 马纳卢区
+    en: Manalu District
+    art-x-ivuran: Manalu
+  notes:
+    zh: 洛米兰的海岸区，区名意为「河口」。洛米西鲁河在这里入海，河口有渔港和椰林，海滩上有海龟产卵地，每年产卵季节海滩夜间封闭；河口两岸的红树林是鱼虾的育苗场。
+    en: Lomiran's coastal district; its name means 'river mouth'. The Lomisiru River reaches the sea here, with a fishing harbour and coconut groves at its mouth, and turtles nest on the beaches, which close at night in the nesting season; the mangroves on both banks are a nursery for fish and shrimp.
+  codes:
+    admin: '930904'
+  population: 70000
+  area_km2: 20000.0
+  traits: { industries: [fishing, agriculture, tourism] }
+- id: div_8p898f
+  subtype: borough
+  parent: div_k4tk68
+  status: generated
+  names:
+    zh: 卡塔穆区
+    en: Katamu District
+    art-x-ivuran: Katamu
+  notes:
+    zh: 洛米兰内陆的林区村落，区名意为「藤与草」。村民按领地的许可在林中采集藤条、蜂蜜和药用植物，草药合作社把药材卖给生物医药企业，收益按惠益分享的规定返还村社。
+    en: The forest villages of inland Lomiran; its name means 'rattan and herbs'. Villagers gather rattan, honey and medicinal plants in the forest under the territory's licences, and the herbal cooperative sells to the medicine companies, with a share of the proceeds returned to the villages under the benefit-sharing rules.
+  codes:
+    admin: '930905'
+  population: 37000
+  area_km2: 29500.0
+  traits: { industries: [forestry, agriculture, pharma] }
+
+# ── 乌诺卡里市──
+- id: div_7z142e
+  subtype: locality
+  parent: div_nwm019
+  status: generated
+  names:
+    zh: 乌诺卡里市
+    en: Unokari City
+    art-x-ivuran: Unokari
+  notes:
+    zh: 主岛东北部乌诺凯苏山脉中的矿业城市，全市 70 万人，城名意为「矿石的山谷」。山中的红土镍矿是领地最大的矿产，乌诺维拉矿区管理区开采镍和钴，佩鲁诺区的冶炼厂把矿石炼成电池级的镍盐，再运往塔卢马兰的电池厂；贝卢阿区的矿石港把产品装船外运。领地要求矿区边采边复绿，尾矿全部回填。全市移民约占四成，矿工和冶金工程师多来自中国其他省份。
+    en: "The mining city in the Unokesu Mountains in the north-east of the main island, with 700,000 people; its name means 'valley of ore'. The laterite nickel of the mountains is the territory's greatest mineral resource: the Unovila Mining Administration Zone mines nickel and cobalt, the refineries of Peruno District turn the ore into battery-grade nickel salts for the battery plants of Talumaran, and the ore port of Belua District ships the products out. The territory requires mines to replant as they go and to put all tailings back. About two in five people are incomers, many of the miners and metallurgists from other provinces of China."
+  codes:
+    admin: '931000'
+    unlocode: ES UNK
+  population: 700000
+  area_km2: 105000.0
+  color: '#6B6F78'
+  emblem:
+    motif: crystal
+    pattern: hex
+  traits: { industries: [mining, battery, manufacturing, port], heritage: tropic_mixed, age: young, income: 1.1 }
+- id: div_y57m7b
+  subtype: borough
+  parent: div_7z142e
+  status: generated
+  names:
+    zh: 卡里纳区
+    en: Karina District
+    art-x-ivuran: Karina
+  notes:
+    zh: 乌诺卡里的城区，在山间盆地里，区名意为「山谷之城」。矿业公司的总部、矿业学院和医院在这里，矿工家庭住在城区的公共住房里，山坡上的老城保留着伊武兰人的木屋街巷。
+    en: The town of Unokari, in a mountain basin; its name means 'town of the valley'. The mining companies' headquarters, the school of mines and the hospital are here, miners' families live in the town's public housing, and the old quarter on the hillside keeps its lanes of Ivuran timber houses.
+  codes:
+    admin: '931001'
+  population: 260000
+  area_km2: 400.0
+  traits: { industries: [commerce, residential, education] }
+- id: div_6z737x
+  subtype: borough
+  parent: div_7z142e
+  status: generated
+  names:
+    zh: 乌诺维拉矿区管理区
+    en: Unovila Mining Administration Zone
+    art-x-ivuran: Unovila
+  notes:
+    zh: 乌诺凯苏山脉的镍矿区，名字意为「矿之光」，面积 4 万平方公里。红土镍矿在山坡上露天开采，采过的地方随即回填、覆土、种上原生树种；矿区由领地设立的管理机构统一监管，排水、粉尘和复绿进度定期公开。
+    en: The nickel field of the Unokesu Mountains; its name means 'light of ore', and it covers 40,000 km². Laterite nickel is mined from the slopes in open pits, and worked ground is filled, covered with soil and replanted with native trees straight away; a territorial authority regulates the whole field and publishes its drainage, dust and replanting figures regularly.
+  codes:
+    admin: '931002'
+  population: 60000
+  area_km2: 40000.0
+  special_status: mining_zone
+  traits: { industries: [mining, conservation] }
+- id: div_4m0x2v
+  subtype: borough
+  parent: div_7z142e
+  status: generated
+  names:
+    zh: 佩鲁诺区
+    en: Peruno District
+    art-x-ivuran: Peruno
+  notes:
+    zh: 乌诺卡里的冶炼区，区名意为「大矿」。高压酸浸冶炼厂把红土镍矿炼成电池级的硫酸镍和硫酸钴，再运往塔卢马兰的电池厂；冶炼厂用山区水电站的电力，废渣经过处理后回填矿坑。
+    en: Unokari's refining district; its name means 'great ore'. High-pressure acid leach plants turn laterite ore into battery-grade nickel and cobalt sulphates for the battery plants of Talumaran; the plants run on power from the mountain hydro stations, and their residues are treated and put back into the pits.
+  codes:
+    admin: '931003'
+  population: 180000
+  area_km2: 1500.0
+  traits: { industries: [battery, manufacturing, mining] }
+- id: div_fwnndh
+  subtype: borough
+  parent: div_7z142e
+  status: generated
+  names:
+    zh: 霍拉坦区
+    en: Horatan District
+    art-x-ivuran: Horatan
+  notes:
+    zh: 乌诺凯苏山脉的高地和河谷，区名意为「雾中之地」，面积 3.3 万平方公里。山间的水电站为冶炼厂供电，河谷里有稻田和果园，高地上的村寨保留着伊武兰人的传统。
+    en: The uplands and valleys of the Unokesu Mountains; its name means 'land in the mist', and it covers 33,000 km². Hydro stations in the mountains power the refineries, the valleys hold rice fields and orchards, and the upland villages keep the old ways of the Ivuran people.
+  codes:
+    admin: '931004'
+  population: 90000
+  area_km2: 33100.0
+  traits: { industries: [agriculture, forestry, hydropower], heritage: ivuran }
+- id: div_w7bas1
+  subtype: borough
+  parent: div_7z142e
+  status: generated
+  names:
+    zh: 贝卢阿区
+    en: Belua District
+    art-x-ivuran: Belua
+  notes:
+    zh: 乌诺卡里的出海口，区名意为「海门」，面积 3 万平方公里。矿石港装运镍产品，封闭式的皮带廊和仓库防止粉尘外泄；港外的海岸是渔村和椰林。
+    en: Unokari's outlet to the sea; its name means 'sea gate', and it covers 30,000 km². The ore port ships the nickel products, with enclosed conveyors and stores to keep the dust in, and beyond the port the coast is fishing villages and coconut groves.
+  codes:
+    admin: '931005'
+  population: 110000
+  area_km2: 30000.0
+  traits: { industries: [port, mining, fishing] }
+
+# ── 纳卢迈市──
+- id: div_bca7d9
+  subtype: locality
+  parent: div_nwm019
+  status: generated
+  names:
+    zh: 纳卢迈市
+    en: Nalumai City
+    art-x-ivuran: Nalumai
+  notes:
+    zh: 主岛西北海岸东段的城市，全市 60 万人，城名意为「浪中的珍珠」。迈卢阿区沿海的珍珠贝养殖场出产领地有名的白珍珠，帕兰图区的平原上是芒果、榴莲和菠萝蜜的果园；维兰塔区的维兰塔植物园收集了热带各地的植物，是领地的植物研究中心。全市本地人近八成，海滩和果园吸引了不少度假的游客。
+    en: The city on the eastern part of the main island's north-west coast, with 600,000 people; its name means 'pearl in the waves'. The pearl oyster farms along the coast of Mailua District produce the territory's famous white pearls, the plain of Parantu District is covered with mango, durian and jackfruit orchards, and the Viranta Botanic Garden in Viranta District gathers plants from all over the tropics and is the territory's centre of plant research. Nearly eight in ten people are islanders, and the beaches and orchards draw many holidaymakers.
+  codes:
+    admin: '931100'
+    unlocode: ES NLM
+  population: 600000
+  area_km2: 85000.0
+  color: '#D08A3C'
+  emblem:
+    motif: lotus
+    pattern: waves
+  traits: { industries: [fruit, aquaculture, tourism, research], heritage: ivuran, age: balanced, income: 0.95 }
+- id: div_afy2b3
+  subtype: borough
+  parent: div_bca7d9
+  status: generated
+  names:
+    zh: 塞纳卢区
+    en: Senalu District
+    art-x-ivuran: Senalu
+  notes:
+    zh: 纳卢迈的城区，区名意为「浪的中心」。海滨大道边是珍珠市场、海鲜餐馆和度假酒店，老城里有水果批发市场和果脯加工厂；傍晚海滨的长堤上满是看日落的人。
+    en: The town of Nalumai; its name means 'heart of the waves'. The seafront avenue is lined with the pearl market, seafood restaurants and holiday hotels, and the old town has the fruit wholesale market and dried-fruit works; at sunset the long seawall is full of people watching the sky.
+  codes:
+    admin: '931101'
+  population: 250000
+  area_km2: 350.0
+  traits: { industries: [commerce, tourism, food] }
+- id: div_gkda74
+  subtype: borough
+  parent: div_bca7d9
+  status: generated
+  names:
+    zh: 帕兰图区
+    en: Parantu District
+    art-x-ivuran: Parantu
+  notes:
+    zh: 纳卢迈的果园平原，区名意为「果实累累」，面积 3 万平方公里。芒果、榴莲、菠萝蜜、山竹和红毛丹的果园一望无际，水果合作社的冷链车每天把鲜果运往港口和机场。
+    en: Nalumai's orchard plain; its name means 'heavy with fruit', and it covers 30,000 km². Orchards of mango, durian, jackfruit, mangosteen and rambutan stretch to the horizon, and the fruit cooperative's chilled lorries carry fresh fruit to the port and the airport every day.
+  codes:
+    admin: '931102'
+  population: 140000
+  area_km2: 30000.0
+  traits: { industries: [fruit, agriculture, food] }
+- id: div_pfrpr2
+  subtype: borough
+  parent: div_bca7d9
+  status: generated
+  names:
+    zh: 迈卢阿区
+    en: Mailua District
+    art-x-ivuran: Mailua
+  notes:
+    zh: 纳卢迈的珍珠海岸，区名意为「珍珠之海」。平静的海湾里挂满珍珠贝的养殖笼，采珠人家世代在这里养珠、开贝、挑珠；海湾的水质由领地按月监测，养殖密度有上限。
+    en: Nalumai's pearl coast; its name means 'sea of pearls'. The calm bays are hung with the cages of pearl oysters, and pearling families have raised, opened and sorted pearls here for generations; the territory tests the water of the bays every month and caps how densely they may be farmed.
+  codes:
+    admin: '931103'
+  population: 110000
+  area_km2: 15000.0
+  traits: { industries: [aquaculture, fishing, tourism] }
+- id: div_a349sd
+  subtype: borough
+  parent: div_bca7d9
+  status: generated
+  names:
+    zh: 维兰塔区
+    en: Viranta District
+    art-x-ivuran: Viranta
+  notes:
+    zh: 维兰塔植物园所在的区，区名意为「花园」。植物园收集了热带各地的数万种植物，分成雨林、兰花、香料、棕榈和水生植物等园区，种子库保存着领地的作物和野生植物种子；研究人员在这里培育抗病的稻种和果树。
+    en: The district of the Viranta Botanic Garden; its name means 'garden'. The garden holds tens of thousands of plants from all over the tropics in rainforest, orchid, spice, palm and water gardens, and its seed bank keeps the seeds of the territory's crops and wild plants; researchers breed disease-resistant rice and fruit trees here.
+  codes:
+    admin: '931104'
+  population: 60000
+  area_km2: 8000.0
+  traits: { industries: [research, tourism, conservation] }
+- id: div_pr78k0
+  subtype: borough
+  parent: div_bca7d9
+  status: generated
+  names:
+    zh: 托武卢区
+    en: Tovulu District
+    art-x-ivuran: Tovulu
+  notes:
+    zh: 纳卢迈内陆的丘陵，区名意为「山丘」，面积 3.2 万平方公里，一直延伸到乌诺凯苏山脉北坡。丘陵上是橡胶园、椰林和次生林，村庄稀疏，居民多是讲伊武兰语北部方言的本地人。
+    en: The inland hills of Nalumai; its name means 'hills', and it covers 32,000 km², reaching the northern slopes of the Unokesu Mountains. The hills carry rubber gardens, coconut groves and regrown forest, villages are few, and most people are islanders who speak the northern dialect of Ivuran.
+  codes:
+    admin: '931105'
+  population: 40000
+  area_km2: 31650.0
+  traits: { industries: [agriculture, forestry], heritage: ivuran }
+
+# ── 基鲁迈市──
+- id: div_xp7ha2
+  subtype: locality
+  parent: div_nwm019
+  status: generated
+  names:
+    zh: 基鲁迈市
+    en: Kirumai City
+    art-x-ivuran: Kirumai
+  notes:
+    zh: 主岛西南端外基鲁迈群岛上的城市，全市 40 万人，城名和群岛名意为「一串珍珠」。六座岛屿从主岛西南端向南延伸、再向东弯成弧形，岛上是白沙海滩、珊瑚礁和传统村落，海岛度假和潜水是主要产业；马拉坎珊瑚礁保护区保护着大片完好的珊瑚礁。本地人约占八成，许多村落仍按伊武兰人的传统划船出海、分享渔获。群岛东端以东外海的瓦希拉群岛是海军基地，也归基鲁迈市管辖。
+    en: The city of the Kirumai Islands off the south-western end of the main island, with 400,000 people; the name of the city and the islands means 'a string of pearls'. Six islands run south from the tip of the main island and curve round to the east, with white beaches, coral reefs and traditional villages, and island holidays and diving are the main business; the Malakan Coral Reef Reserve protects wide stretches of unspoilt reef. About four in five people are islanders, and many villages still put to sea in their boats and share the catch in the Ivuran way. The Vahira Islands, the naval base far out at sea beyond the eastern end of the chain, also come under Kirumai.
+  codes:
+    admin: '931200'
+    unlocode: ES KRM
+  population: 400000
+  area_km2: 55000.0
+  color: '#1C9BD1'
+  emblem:
+    motif: turtle
+    pattern: dots
+  traits: { industries: [tourism, fishing, conservation], heritage: ivuran, age: balanced, income: 1.0 }
+- id: div_a0nff8
+  subtype: borough
+  parent: div_xp7ha2
+  status: generated
+  names:
+    zh: 迈萨里区
+    en: Maisari District
+    art-x-ivuran: Maisari
+  notes:
+    zh: 基鲁迈岛上的城区，区名意为「珍珠的港湾」。港湾边是渡轮码头、海鲜市场和度假酒店，跨海大桥从这里通往主岛；城里的伊武兰人老街保留着高脚木屋和雕花的船屋。
+    en: The town on Kirumai Island; its name means 'harbour of pearls'. Ferry piers, the seafood market and holiday hotels line the harbour, and the sea bridge to the main island starts here; the old Ivuran quarter keeps its stilt houses and carved boathouses.
+  codes:
+    admin: '931201'
+  population: 160000
+  area_km2: 9000.0
+  traits: { industries: [tourism, commerce, fishing] }
+- id: div_3skbd8
+  subtype: borough
+  parent: div_xp7ha2
+  status: generated
+  names:
+    zh: 卡朗加区
+    en: Karanga District
+    art-x-ivuran: Karanga
+  notes:
+    zh: 基鲁迈岛的乡村和传统村落，区名意为「珊瑚」。村落沿海湾分布，居民划独木舟出海捕鱼，村里的长屋是全村议事和节庆的地方；岛中部的丘陵上是椰林和小块稻田。
+    en: The countryside and traditional villages of Kirumai Island; its name means 'coral'. Villages line the bays, people fish from outrigger canoes, and the longhouse of each village is where it meets and celebrates; coconut groves and small rice fields cover the hills in the middle of the island.
+  codes:
+    admin: '931202'
+  population: 60000
+  area_km2: 11000.0
+  traits: { industries: [fishing, agriculture, tourism] }
+- id: div_3x32j4
+  subtype: borough
+  parent: div_xp7ha2
+  status: generated
+  names:
+    zh: 蒂卢迈区
+    en: Tilumai District
+    art-x-ivuran: Tilumai
+  notes:
+    zh: 群岛第二大岛蒂卢迈岛，区名意为「三颗珍珠」。岛周围的珊瑚礁和海底峭壁是有名的潜水地，潜水学校和度假村沿西岸排开；领地规定每处潜点每天的潜水人数，船只只能系在浮标上，不准抛锚。
+    en: Tilumai Island, the second largest of the group; its name means 'three pearls'. The reefs and undersea walls around it are well known to divers, with dive schools and resorts along the west coast; the territory limits the number of divers at each site each day, and boats must tie up to buoys rather than anchor.
+  codes:
+    admin: '931203'
+  population: 60000
+  area_km2: 12000.0
+  traits: { industries: [tourism, fishing] }
+- id: div_qsykjk
+  subtype: borough
+  parent: div_xp7ha2
+  status: generated
+  names:
+    zh: 奥罗武区
+    en: Orovu District
+    art-x-ivuran: Orovu
+  notes:
+    zh: 群岛中的奥罗武岛，区名意为「老家」，是伊武兰人传说中祖先登陆的地方。岛上的村落保留着最完整的传统，长屋、船屋和祭祀场按古老的格局排列；游客须经村社同意才能进入村落。
+    en: Orovu Island in the middle of the group; its name means 'old home', and in Ivuran legend it is where the ancestors first came ashore. Its villages keep the old ways most completely, longhouses, boathouses and ceremonial grounds laid out in the ancient pattern, and visitors may enter a village only with its leave.
+  codes:
+    admin: '931204'
+  population: 50000
+  area_km2: 9000.0
+  traits: { industries: [fishing, agriculture] }
+- id: div_5z620y
+  subtype: borough
+  parent: div_xp7ha2
+  status: generated
+  names:
+    zh: 马拉坎珊瑚礁保护区
+    en: Malakan Coral Reef Reserve
+    art-x-ivuran: Malakan
+  notes:
+    zh: 群岛最南端的马拉坎岛和周围的珊瑚礁，名字意为「花园之海」，整片划为保护区，常住人口约 8000 人。礁盘上栖息着海龟、蝠鲼和上千种珊瑚鱼，海洋研究站监测珊瑚的健康；保护区只允许有许可的小船进入，禁止捕捞。
+    en: Malakan Island at the southern end of the group and the reefs around it; its name means 'garden of the sea'. All of it is a reserve, with about 8,000 residents. Sea turtles, manta rays and a thousand kinds of reef fish live on the reefs, and a marine research station watches the health of the coral; only licensed small boats may enter, and fishing is forbidden.
+  codes:
+    admin: '931205'
+  population: 8000
+  area_km2: 7000.0
+  special_status: nature_reserve
+  traits: { industries: [conservation, tourism, research] }
+- id: div_xazhxw
+  subtype: borough
+  parent: div_xp7ha2
+  status: generated
+  names:
+    zh: 皮卢区
+    en: Pilu District
+    art-x-ivuran: Pilu
+  notes:
+    zh: 群岛东端的两座小岛，区名意为「小船」。渔民在礁外的深水里钓金枪鱼，岛上有小型度假村和灯塔；去往瓦希拉群岛的补给船从这里出发。
+    en: The two small islands at the eastern end of the group; its name means 'little boat'. Fishers catch tuna in the deep water beyond the reef, and the islands have small resorts and a lighthouse; supply ships for the Vahira Islands sail from here.
+  codes:
+    admin: '931206'
+  population: 50000
+  area_km2: 6500.0
+  traits: { industries: [fishing, tourism] }
+- id: div_ykkw7q
+  subtype: borough
+  parent: div_xp7ha2
+  status: generated
+  names:
+    zh: 瓦希拉群岛管理区
+    en: Vahira Islands Administration Zone
+    art-x-ivuran: Vahira
+  notes:
+    zh: 基鲁迈群岛以东外海的三座岛屿，名字意为「远方的岩石」，离最近的有人岛也有 200 多公里，整片是海军基地，常住的是约 1.2 万名官兵和技术人员。基地有无人舰艇和水下无人航行器的自动化船坞、山体内的潜艇洞库、地下指挥中心和电磁弹射跑道的岛屿机场，未经许可不得靠近。
+    en: Three islands far out at sea east of the Kirumai Islands; the name means 'distant rocks'. They lie more than 200 km from the nearest inhabited island and are a naval base in their entirety, home to about 12,000 service members and technicians. The base has automated docks for uncrewed surface and underwater vessels, submarine pens inside the mountain, an underground command centre and an island airfield with electromagnetic catapults; no one may approach without permission.
+  codes:
+    admin: '931207'
+  population: 12000
+  area_km2: 500.0
+  special_status: military_zone
+  traits: { industries: [defence, research] }

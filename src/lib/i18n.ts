@@ -220,6 +220,7 @@ export const NAME_LANG_LABELS: Record<NameLang, Record<Lang, string>> = {
   "art-x-viking": { zh: "维京语", en: "Viking" },
   "art-x-buckham": { zh: "巴克汉姆语", en: "Buckham" },
   "art-x-tavrunaq": { zh: "塔夫鲁纳克语", en: "Tavrunaq" },
+  "art-x-ivuran": { zh: "伊武兰语", en: "Ivuran" },
 };
 
 /** Cities and districts under special rules (special_status in world/divisions). */
@@ -230,6 +231,9 @@ const SPECIAL_LABELS: Record<string, Record<Lang, string>> = {
   nature_reserve: { zh: "生态保护区", en: "Nature reserve" },
   ice_cap_zone: { zh: "冰盖管理区", en: "Ice cap zone" },
   mining_zone: { zh: "矿区管理区", en: "Mining zone" },
+  commune: { zh: "公社", en: "Commune" },
+  national_park: { zh: "国家公园管理区", en: "National park" },
+  military_zone: { zh: "军事管理区", en: "Military zone" },
 };
 
 const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {

@@ -12,6 +12,7 @@ base_gdp_per_capita:
   div_fbfqv9: 61000  # North Viking Island
   div_raat4g: 68000  # Viking Islands
   div_hpmerr: 70000  # Arctic Ocean Territory
+  div_nwm019: 58000  # Everlong Summer Islands Territory
 rank_weights: [1.0, 0.6, 0.4, 0.3]
 density_elasticity: 0.05  # per-head GDP x (density / 100 per km²) ^ e
 perturbation: { gdp_per_capita: 0.08, sectors: 0.15, age: 1.5, languages: 0.12 }
@@ -62,12 +63,21 @@ industries:
   aquaculture:   { zh: 海水养殖, en: Aquaculture, sectors: { primary: 26, secondary: 10 }, productivity: 0.95, age: [0, -1, 2] }
   hunting:       { zh: 传统渔猎, en: Traditional hunting and fishing, sectors: { primary: 38, tertiary: 4 }, productivity: 0.60, age: [3, -3, 1] }
   conservation:  { zh: 自然保护与巡护, en: Conservation, sectors: { tertiary: 36, primary: 4 }, productivity: 0.85, age: [0, 1, 0] }
+  semiconductor: { zh: 半导体与芯片, en: Semiconductors, sectors: { secondary: 46, tertiary: 6 }, productivity: 1.55, age: [-1, 5, -2] }
+  battery:       { zh: 电池与储能, en: Batteries and storage, sectors: { secondary: 44 }, productivity: 1.30, age: [0, 3, -1] }
+  automotive:    { zh: 新能源汽车, en: Electric vehicles, sectors: { secondary: 45 }, productivity: 1.25, age: [0, 3, -1] }
+  pharma:        { zh: 生物医药, en: Medicines and biotech, sectors: { secondary: 30, tertiary: 14 }, productivity: 1.40, age: [-1, 4, -1] }
+  digital:       { zh: 软件与数字服务, en: Software and digital services, sectors: { tertiary: 42 }, productivity: 1.35, age: [-1, 5, -2] }
+  rice:          { zh: 梯田稻作, en: Terrace rice, sectors: { primary: 34, secondary: 4 }, productivity: 0.75, age: [0, -2, 3] }
+  spice:         { zh: 香料与可可, en: Spices and cocoa, sectors: { primary: 28, secondary: 10 }, productivity: 0.90, age: [0, -1, 2] }
+  fruit:         { zh: 热带水果, en: Tropical fruit, sectors: { primary: 28, secondary: 8 }, productivity: 0.85, age: [0, -1, 2] }
 
 # First-language shares (%), by heritage: the Chinese-planned new towns, the old Viking and Buckham
 # settlements and ports, and the international cities in between; in the Arctic Ocean Territory, the
-# Tavrulit communities, the mixed towns and the international capital. A language a heritage leaves
-# out has no speakers there.
-languages: [zh, art-x-viking, art-x-buckham, en, art-x-tavrunaq]
+# Tavrulit communities, the mixed towns and the international capital; in the Everlong Summer Islands,
+# the Ivuran towns and villages, the mixed towns and the big international cities. A language a
+# heritage leaves out has no speakers there.
+languages: [zh, art-x-viking, art-x-buckham, en, art-x-tavrunaq, art-x-ivuran]
 heritage:
   chinese: { zh: 74, art-x-viking: 12, art-x-buckham: 6, en: 6 }
   viking:  { zh: 36, art-x-viking: 52, art-x-buckham: 5, en: 6 }
@@ -77,6 +87,9 @@ heritage:
   tavrulit:     { art-x-tavrunaq: 82, zh: 11, en: 7 }
   polar_mixed:  { art-x-tavrunaq: 56, zh: 28, en: 16 }
   polar_global: { art-x-tavrunaq: 34, zh: 36, en: 30 }
+  ivuran:        { art-x-ivuran: 78, zh: 14, en: 8 }
+  tropic_mixed:  { art-x-ivuran: 52, zh: 30, en: 18 }
+  tropic_global: { art-x-ivuran: 30, zh: 38, en: 32 }
 
 # Age structure (%): under 15, 15–64, 65 and over.
 age:

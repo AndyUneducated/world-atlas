@@ -8,13 +8,15 @@ import type { Entity } from "./types";
  * routes follow the British Columbia highway shield: the route's own symbol in a dark crest
  * above the number. A territory may choose another design for its routes (route_shield in its
  * division record): "maritime" is an oval, sea-blue above a wave line, with the route's symbol
- * over the number; "polar" is a hexagon, ice-blue with faint ice crystals above the number.
+ * over the number; "polar" is a hexagon, ice-blue with faint ice crystals above the number;
+ * "tropic" is an arch, palm-green with a faint rising sun above the number.
  */
 const FONT = "'Bahnschrift', 'DIN Alternate', 'Roboto Condensed', 'Segoe UI', Arial, sans-serif";
 const NATIONAL = { plate: "#00753A", header: "#D7261E", edge: "#ffffff", text: "#ffffff" };
 const TERRITORIAL = { crest: "#1D3557", body: "#ffffff", text: "#1D3557" };
 const MARITIME = { sea: "#0B5C99", foam: "#5BB8E8", body: "#ffffff", text: "#0B5C99" };
 const POLAR = { ice: "#2F8FCB", frost: "rgba(255,255,255,0.55)", body: "#ffffff", text: "#1B2F5E" };
+const TROPIC = { leaf: "#13795B", sun: "rgba(242,179,61,0.75)", body: "#ffffff", text: "#0F5A45" };
 
 export interface Shield {
   canvas: HTMLCanvasElement;
@@ -225,7 +227,57 @@ function polar(number: string, glyph: string | undefined, ratio: number): Shield
   return { canvas: c, width: w, height: h, ratio };
 }
 
-const STYLES = { crest: territorial, maritime, polar };
+function tropic(number: string, glyph: string | undefined, ratio: number): Shield {
+  const font = `700 ${number.length > 2 ? 9.4 : 10.6}px ${FONT}`;
+  const h = 29;
+  const w = Math.max(25, Math.ceil(textWidth(number, font)) + 11);
+  const { c, ctx } = canvas(w, h, ratio);
+  const r = w / 2 - 1;
+  const shape = new Path2D();
+  shape.moveTo(1, h - 3);
+  shape.lineTo(1, Math.min(r + 1, h * 0.5));
+  shape.arc(w / 2, Math.min(r + 1, h * 0.5), r, Math.PI, 0);
+  shape.lineTo(w - 1, h - 3);
+  shape.quadraticCurveTo(w - 1, h - 1, w - 3, h - 1);
+  shape.lineTo(3, h - 1);
+  shape.quadraticCurveTo(1, h - 1, 1, h - 3);
+  shape.closePath();
+  ctx.fillStyle = TROPIC.body;
+  ctx.fill(shape);
+  ctx.save();
+  ctx.clip(shape);
+  const band = h * 0.5;
+  ctx.fillStyle = TROPIC.leaf;
+  ctx.fillRect(0, 0, w, band);
+  // a rising sun on the band's lower edge, its rays fanning out behind the symbol
+  ctx.strokeStyle = TROPIC.sun;
+  ctx.lineWidth = 0.7;
+  ctx.lineCap = "round";
+  for (let k = 0; k < 7; k++) {
+    const a = Math.PI + (k + 0.5) * (Math.PI / 7);
+    ctx.beginPath();
+    ctx.moveTo(w / 2 + 5 * Math.cos(a), band + 5 * Math.sin(a));
+    ctx.lineTo(w / 2 + 12 * Math.cos(a), band + 12 * Math.sin(a));
+    ctx.stroke();
+  }
+  ctx.fillStyle = TROPIC.sun;
+  ctx.beginPath();
+  ctx.arc(w / 2, band, 3.4, Math.PI, 0);
+  ctx.fill();
+  ctx.restore();
+  ctx.strokeStyle = TROPIC.leaf;
+  ctx.lineWidth = 1.4;
+  ctx.stroke(shape);
+  if (glyph) drawGlyph(ctx, glyph, w / 2, h * 0.27, h * 0.33, "#ffffff");
+  ctx.fillStyle = TROPIC.text;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.font = font;
+  ctx.fillText(number, w / 2, h * 0.72);
+  return { canvas: c, width: w, height: h, ratio };
+}
+
+const STYLES = { crest: territorial, maritime, polar, tropic };
 
 export function drawShield(route: Entity, ratio = 2): Shield | null {
   const p = route.ref ? parseRef(route.ref) : null;
