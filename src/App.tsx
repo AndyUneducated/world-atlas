@@ -50,7 +50,7 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
-    document.title = lang === "zh" ? "北维京岛领地 · 世界地图" : "North Viking Island · World Atlas";
+    document.title = lang === "zh" ? "世界地图" : "World Atlas";
   }, [lang]);
 
   useEffect(() => {

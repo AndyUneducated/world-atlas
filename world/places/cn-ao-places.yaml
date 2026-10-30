@@ -9,6 +9,9 @@ places:
       zh: 北冰洋公共银行总部大厦
       en: Arctic Ocean Public Bank Tower
       art-x-tavrunaq: Aqqimma Pallutuar
+    wonder:
+      zh: 号称世界上最自由的银行的总部，利润用于居民分红
+      en: Head office of the bank that calls itself the freest in the world, its profits paid out to residents
     notes:
       zh: 领地全资的北冰洋公共银行的总部，金融特区天际线中央的塔楼；银行依《北冰洋公共银行法》设立，号称世界上最自由的银行，利润用于居民分红
       en: Headquarters of the territory's wholly owned Arctic Ocean Public Bank, the tower at the centre of the financial zone's skyline. Set up under the Arctic Ocean Public Bank Act, it calls itself the freest bank in the world, and its profits are paid out to residents as a dividend.
@@ -152,6 +155,9 @@ places:
       zh: 冻土黄金金库
       en: Permafrost Gold Vault
       art-x-tavrunaq: Kirri Tuunnivik
+    wonder:
+      zh: 世界唯一深埋在冻土层下的黄金金库
+      en: The only gold vault in the world buried deep in permafrost
     notes:
       zh: 深埋在冻土层下的黄金金库，地面只有一座出入大楼，存放公共银行与客户的金条
       en: A gold vault deep in the permafrost, of which only the entrance building shows above ground, holding the bullion of the Public Bank and its clients.
@@ -208,6 +214,9 @@ places:
       zh: 努卡塔克中央穹顶
       en: Nuqattaaq Central Dome
       art-x-tavrunaq: Nuqattaaq Qummar
+    wonder:
+      zh: 世界最大的穹顶，直径约 700 米，极夜里的人造日光广场
+      en: The largest dome in the world, about 700 m across, an artificial-daylight square for the polar night
     notes:
       zh: 首府中心的大型玻璃穹顶，穹顶下是冬季花园和人造日光广场，极夜里市民在这里散步、晒"太阳"
       en: The great glass dome at the heart of the capital, sheltering a winter garden and an artificial-daylight square where people walk and sit in the "sun" through the polar night.
@@ -221,6 +230,9 @@ places:
       zh: 图维尔尤阿克室内海滩
       en: Tuvvirjuaq Indoor Beach
       art-x-tavrunaq: Tuvvirjuaq Qummar
+    wonder:
+      zh: 世界唯一的室内海滩，四季保持夏日的温度与光照
+      en: The only indoor beach in the world, kept at summer warmth and light all year
     notes:
       zh: 穹顶下的人造沙滩与温水泳池，四季保持夏日的温度与光照
       en: An artificial beach and warm pool under a dome, kept at summer warmth and light all year round.
@@ -597,6 +609,9 @@ places:
       zh: 北冰洋种子与基因库
       en: Arctic Ocean Seed and Gene Vault
       art-x-tavrunaq: Aqqimma Pukku Tuunnivik
+    wonder:
+      zh: 世界唯一的种子与基因库，保存各地的作物种子和动植物基因样本
+      en: The only seed and gene vault in the world, holding crop seeds and plant and animal gene samples from everywhere
     notes:
       zh: 凿进冻土山体的种子库与基因库，保存世界各地的作物种子和动植物基因样本
       en: A seed and gene bank cut into a permafrost hillside, holding crop seeds and plant and animal genetic samples from around the world.
@@ -741,6 +756,9 @@ places:
       zh: 通古阿利特石人群
       en: Tuunngualiit Stone Figures
       art-x-tavrunaq: Tuunngualiit
+    wonder:
+      zh: 世界唯一的石人群，过去为猎人和牧人指路
+      en: The only field of stone figures in the world, once guiding hunters and herders
     notes:
       zh: 苔原上成群的石人与石堆路标，过去为猎人和牧人指路
       en: Groups of stone figures and cairns on the tundra that once showed hunters and herders the way.

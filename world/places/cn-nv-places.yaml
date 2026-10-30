@@ -306,6 +306,9 @@ places:
       en: Viking–Maslin Mountain Launch and Landing Centre
       art-x-viking: Start- und Landezentrum Veiling-Maslinberg
       art-x-buckham: Centro di Lancio e Atterraggio Veiling-Maslin Tehee
+    wonder:
+      zh: 世界最大的航天发射场，有三座发射台和两座垂直降落台
+      en: The largest spaceport in the world, with three launch pads and two vertical landing pads
     notes:
       zh: 西坪区高原上的航天发射与回收场，三座发射台、两座垂直降落台与航天飞机跑道
       en: Launch and recovery site on the West Heath plateau, with three launch pads, two vertical landing pads and a spaceplane runway.
@@ -1706,6 +1709,9 @@ places:
       en: High Peaks Underground Command Complex
       art-x-viking: Unterirdische Kommandostadt Gipfel
       art-x-buckham: Città di Comando Sotterranea delle Vette
+    wonder:
+      zh: 世界唯一的地下指挥城，藏在数百米厚的岩层之下
+      en: The only underground command city in the world, under hundreds of metres of rock
     notes:
       zh: 群峰地下指挥城开凿在群峰训练管理区东南部的山体深处，是深空太空军在马斯林山的备用指挥所。地面上只能看到几处隧道口、通风竖井、一座直升机坪和几副天线，主体全部藏在数百米厚的岩层之下：长长的隧道通往指挥大厅、数据中心、宿舍、食堂、医院和仓库，像一座地下的小城。山体内建有独立的电站、蓄水池和空气过滤系统，即使与外界完全隔绝，也能维持两千人在里面生活和工作数月。平时这里与星港指挥中心同步值班，一旦指挥中心受损或通信中断，指挥权会立即转到这里。指挥城对外的通信经由多条不同走向的光缆和卫星链路，任何一条中断都不影响指挥。隧道口开在朝向山坡的一侧，冬季积雪时由专门的除雪设备保持畅通。
       en: The High Peaks Underground Command Complex is cut deep into the mountains in the south-east of the High Peaks Training Area and is the Deep Space Force's alternate command post at Maslin Mountain. On the surface there is little to see beyond a few tunnel portals, ventilation shafts, a helipad and some antennas; everything else lies under hundreds of metres of rock, where long tunnels lead to a command hall, a data centre, dormitories, canteens, a hospital and stores, a small town underground. It has its own power plant, water reservoirs and air filtration, so two thousand people could live and work inside for months cut off from the outside world. In normal times it keeps watch alongside the Starport Command Centre, and if that centre is damaged or loses contact, command passes here at once. Its links to the outside run over several fibre routes in different directions and over satellite, so no single break can cut it off. The portals open into the hillside, and in winter dedicated snow clearing equipment keeps them free.
@@ -2023,6 +2029,9 @@ places:
       en: High Peaks Electromagnetic Launcher
       art-x-viking: Elektromagnetische Startbahn Gipfel
       art-x-buckham: Lanciatore Elettromagnetico delle Vette
+    wonder:
+      zh: 世界唯一的电磁发射导轨，长约 30 公里，把火箭推到数倍声速
+      en: The only electromagnetic launch rail in the world, about 30 km long, sending rockets off at several times the speed of sound
     notes:
       zh: 群峰电磁发射场是马斯林山最引人注目的未来设施：一条长约三十公里的电磁导轨，从群峰训练管理区南缘的山麓起步，沿着山坡一路向北爬升，出口海拔将近两千米。导轨的原理与磁悬浮列车相似，载着小型运载火箭或货运舱的滑车在强大磁场的推动下悬浮加速，离开导轨时速度已达声速的数倍，再由火箭发动机接力送入轨道。火箭因此可以省下大量推进剂，向轨道运送补给和小卫星的成本大大降低。导轨起点设有装载站和储能电站，发射前储能装置用数小时蓄满电能，再在几十秒内一次释放；沿线每隔一段设有维护站。出口建在高处，是为了让滑车离开导轨时周围空气已较为稀薄，减少阻力和发热。发射时滑车划过山坡的呼啸声，远在雪谷都能听到。
       en: The High Peaks Electromagnetic Launcher is the most remarkable of Maslin Mountain's new facilities, an electromagnetic guideway about 30 km long that starts in the foothills on the southern edge of the High Peaks Training Area and climbs north up the mountainside to an exit nearly 2,000 m high. It works much like a maglev train. A sled carrying a small launch vehicle or cargo pod floats on a powerful magnetic field and is driven faster and faster until it leaves the guideway at several times the speed of sound, when a rocket engine takes over and carries it into orbit. The rocket needs far less propellant this way, which makes sending supplies and small satellites to orbit much cheaper. At the foot of the guideway are the loading terminal and an energy storage power station that charges for hours before a launch and releases it all within tens of seconds, and maintenance stations stand at intervals along the line. The exit is high up so that the sled leaves the guideway in thinner air, with less drag and heating. When a sled flies, its roar up the mountainside can be heard as far away as Snow Valley.

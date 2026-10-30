@@ -8,6 +8,9 @@ features:
     status: generated
     detect: { kind: peak, at_km: [258.8, 113.2] }
     names: { zh: 蒂鲁尤阿克峰, en: Mount Tirrujuaq, art-x-viking: Tirrujuaqspitze }
+    wonder:
+      zh: 世界最高峰，海拔 4313 米
+      en: The highest peak in the world, 4,313 m
     notes:
       zh: 北维京岛最高峰，海拔四千三百一十三米，是马斯林山脉北翼东端高山群的主峰，属马斯林山市群峰训练管理区，东面俯临星港区。峰顶被雅尔斯托尔冰原东端的冰雪覆盖，西接霍尔沃思峰和卡瓦卢克图克峰，三座四千米级高峰连成一线。峰顶建有深空太空军的蒂鲁尤阿克峰光学观测站：这里常在云层之上，空气稀薄干燥，夜空极为清澈，望远镜可以拍摄很暗的卫星和太空碎片，测定它们的轨道，站内的激光测距仪还为导航卫星校准轨道。蒂鲁尤阿克峰不通公路，值守人员靠直升机轮换，峰顶不对公众开放，从星港区和西坪台地都能望见它的雪顶。
       en: "The highest summit on North Viking Island, 4,313 m, the main peak of the high massif at the eastern end of the Maslin Range's northern arm, in the High Peaks Training Area of Maslin Mountain City and looking down on Starport District to the east. Its summit lies under the snow of the eastern Jarlstol Icefield, with Mount Hallworth and Mount Qavvaluktuuq to the west forming a line of three four-thousand-metre peaks. On the top stands the deep-space force's Mount Tirrujuaq Optical Station: often above the clouds, in thin, dry air and very clear skies, its telescopes can photograph faint satellites and debris and measure their orbits, and its laser ranging system calibrates the orbits of navigation satellites. No road reaches the summit; the crew rotates by helicopter, the summit is closed to the public, and its snowy top can be seen from Starport and the West Heath plateau."

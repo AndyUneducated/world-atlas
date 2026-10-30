@@ -14,6 +14,7 @@ import {
   Mountain,
   Ruler,
   Shell,
+  Sparkles,
   Star,
   TrainFront,
   Users,
@@ -25,7 +26,7 @@ import { useState, type ReactNode } from "react";
 import { CityEmblem, Emblem, hasEmblem } from "./Emblem";
 import { RouteTimeline } from "./RouteTimeline";
 import { cardPadding, useMobile } from "../lib/viewport";
-import { accentColor, lineage } from "../lib/entity";
+import { accentColor, lineage, wonderName } from "../lib/entity";
 import { displayName, formatNumber, formatPopulation, formatUsd, kindLabel, NAME_LANG_LABELS, t } from "../lib/i18n";
 import { hasShield } from "../lib/shields";
 import { RouteShield } from "./RouteShield";
@@ -685,6 +686,12 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
                   {t("capitalOf", lang)}
                 </span>
               )}
+              {entity.wonder && (
+                <span className="flex items-center gap-1 rounded-full bg-violet-500/15 px-1.5 py-px text-[10.5px] font-semibold text-violet-500">
+                  <Sparkles className="size-2.5" />
+                  {t("wonder", lang)}
+                </span>
+              )}
             </div>
             <h2 className="mt-0.5 text-[22px] leading-tight font-semibold tracking-tight text-ink">{displayName(entity, lang)}</h2>
             <ul className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1" aria-label={t("names", lang)}>
@@ -697,6 +704,12 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
                   </li>
                 ))}
             </ul>
+            {entity.wonder && (
+              <p className="mt-2 text-[12.5px] leading-snug text-violet-500">
+                {entity.wonder.structure && <span className="font-semibold">{wonderName(entity, lang)} · </span>}
+                {entity.wonder[lang]}
+              </p>
+            )}
           </div>
           <button onClick={() => select(null)} className="grid size-8 shrink-0 place-items-center rounded-full text-muted hover:bg-hover" aria-label={t("close", lang)}>
             <X className="size-4" />

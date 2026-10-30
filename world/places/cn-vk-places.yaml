@@ -26,6 +26,9 @@ places:
       en: Viking Hall Ruins
       art-x-viking: Ruinen der Königshalle
       art-x-buckham: Rovine della Sala del Re
+    wonder:
+      zh: 世界唯一的维京长厅遗址，古城围绕它形成
+      en: The only Viking longhall ruin in the world, around which the old town grew
     notes:
       zh: 维京时代群岛首领的长厅遗址，古城就在它周围形成
       en: The ruins of the long hall of the islands' Viking-age chieftains; the old town grew up around it.
@@ -68,6 +71,9 @@ places:
       en: Islands Bank Tower
       art-x-viking: Inselbankturm
       art-x-buckham: Torre della Banca delle Isole
+    wonder:
+      zh: 群岛银行总部，首府长船天际线的最高点
+      en: Head office of the Islands Bank and the highest point on the Longship skyline
     notes:
       zh: 汇金区天际线上最高的塔楼，群岛银行总部
       en: The tallest tower on the Goldmark skyline, headquarters of the Islands Bank.
@@ -182,6 +188,9 @@ places:
       en: Warmspring Spa Resort
       art-x-viking: Thermalresort Warmquell
       art-x-buckham: Resort Termale di Fontecalda
+    wonder:
+      zh: 世界唯一的火山温泉度假村，冬夜可在极光下泡温泉
+      en: The only volcanic hot spring resort in the world, where guests bathe under the aurora on winter nights
     notes:
       zh: 火山脚下的露天温泉池与酒店，冬夜可在极光下泡温泉
       en: Open-air hot pools and a hotel at the foot of the volcano; on winter nights guests bathe under the aurora.
@@ -196,6 +205,9 @@ places:
       en: Svartsand Geothermal Power Station
       art-x-viking: Geothermalkraftwerk Svartsand
       art-x-buckham: Centrale Geotermica di Sabbianera
+    wonder:
+      zh: 世界唯一的地热电站，供应群岛约一半的电力
+      en: The only geothermal power station in the world, supplying about half the islands' electricity
     notes:
       zh: 利用火山地热发电，供应全群岛约一半的电力
       en: Generates power from the volcano's heat, supplying about half of the islands' electricity.
@@ -240,6 +252,9 @@ places:
       en: Port of Akkersvik
       art-x-viking: Hafen Akkersvik
       art-x-buckham: Porto di Portancora
+    wonder:
+      zh: 群岛最大的港口，岛际货轮从这里分拨到各岛
+      en: The largest port in the islands, where inter-island freighters fan out to every island
     notes:
       zh: 群岛最大的港口，在阿克斯岛两爪之间的阿克斯维克湾里；五座突堤为油品、散货、两座集装箱和滚装码头，岛际货轮从这里分拨到各岛
       en: The largest port in the islands, in Akkersvik Bay between the two flukes of Akkersey; its five moles hold the oil, bulk, two container and ro-ro terminals, and inter-island freighters distribute cargo from here to every island.
@@ -298,6 +313,9 @@ places:
       en: Flodvik Tidal Power Station
       art-x-viking: Gezeitenkraftwerk Flodvik
       art-x-buckham: Centrale Mareomotrice di Baiamarea
+    wonder:
+      zh: 世界唯一的潮汐电站，坝顶兼作海堤
+      en: The only tidal power station in the world, its dam doubling as a sea wall
     notes:
       zh: 横跨弗洛德维克湾口的潮汐坝，涨落潮推动坝下的水轮机组，坝顶兼作海堤
       en: A tidal barrage across the mouth of Flodvik; the rising and falling tide drives the turbines in the dam, whose crest doubles as a sea wall.

@@ -12,6 +12,7 @@ export type Names = Partial<Record<NameLang, string>> & { zh: string; en: string
 export type Localized = { zh: string; en: string };
 
 export type EntityKind = "division" | "natural" | "route" | "place";
+export type StructureKind = "bridge" | "tunnel" | "snow_shed";
 export type EntityStatus = "canon" | "draft" | "generated";
 
 export interface EntityStats {
@@ -88,7 +89,9 @@ export interface Entity {
   /** Expressways, territorial highways and railways: why and how the line was built. */
   background?: Record<Lang, string>;
   /** The longest bridge, tunnel and snow shed built under the line. */
-  structures?: Partial<Record<"bridge" | "tunnel" | "snow_shed", { names: Record<Lang, string>; km: number }>>;
+  structures?: Partial<Record<StructureKind, { names: Record<Lang, string>; km: number }>>;
+  /** One of its territory's wonders, and why; on a line the wonder is one of its structures. */
+  wonder?: Localized & { structure?: StructureKind };
   /** Limits along the route, km/h, highest first; null means no limit. */
   speed?: { limits: (number | null)[] };
   tech?: RailTech;

@@ -34,7 +34,9 @@ BACKGROUND_NETWORKS = ("national_expressway", "territorial_expressway", "territo
 OPERATOR_KINDS = ("expressway", "highway", "rail")
 # Card text and traits: no region build reads them, so they stay out of a region's cache key and
 # build.py takes them from the sources after the regions are merged.
-TEXT_KEYS = ("notes", "background", "motto", "military", "traits")
+TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder")
+# A wonder on a line is one of its built structures (named in the build); elsewhere it is the entity itself.
+WONDER_STRUCTURES = ("bridge", "tunnel", "snow_shed")
 TRAIT_KEYS = ("industries", "heritage", "age", "income")
 ROUTE_SHIELDS = ("crest", "maritime", "polar")  # territorial route shield designs, see src/lib/shields.ts
 STREET_STYLES = ("planned", "mixed", "organic")
@@ -122,6 +124,11 @@ class World:
                     errors.append(f"{eid}: missing name in '{lang}'")
             if e.get("status") not in ("canon", "draft", "generated"):
                 errors.append(f"{eid}: status must be canon | draft | generated")
+            if (w := e.get("wonder")) is not None:
+                if not (isinstance(w, dict) and all(w.get(lang) for lang in REQUIRED_LANGS)):
+                    errors.append(f"{eid}: wonder needs zh and en: what makes it the territory's wonder")
+                elif "structure" in w and (w["structure"] not in WONDER_STRUCTURES or eid not in {**self.routes, **self.railways}):
+                    errors.append(f"{eid}: wonder.structure is one of {', '.join(WONDER_STRUCTURES)} and only on a line")
         codes: dict[str, str] = {}
         for did, d in self.divisions.items():
             if d["subtype"] not in DIVISION_SUBTYPES:

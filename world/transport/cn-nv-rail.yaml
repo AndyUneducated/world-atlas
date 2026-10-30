@@ -22,6 +22,9 @@ railways:
       en: Viking Port–Northwest Intercity Railway
       art-x-viking: Intercity-Bahn Veiling Havn–Nordwest
       art-x-buckham: Ferrovia Intercity Veiling Porto–Nordveste
+    wonder:
+      zh: 世界最快的铁路，列车以每小时 400 公里运行
+      en: The fastest railway in the world, its trains running at 400 km/h
     notes:
       zh: 维西城际铁路连接最大城市维京港、首府自由市和西北，自维京港站出发，经沙洲站、自由市站到西北站，全长约二百七十公里，是全岛运营速度最高的铁路，列车以每小时 400 公里运行，直达最快四十多分钟。沙洲特大桥跨过沙洲河口湿地，是全线最长的桥梁，贝格兰丘陵隧道是最长的隧道。高峰时段每半小时一班，八辆编组的北辰 400 型列车可以重联成十六辆，年客运量二百四十万人次左右，是全岛最繁忙的铁路之一。三座城市之间的商务客流和周末探亲客流占了大部分，冬季公路因暴雪封闭时客流还会明显增加。
       en: The Viking Port–Northwest Intercity Railway links Viking Port, the largest city, with the capital, Freedom City, and with Northwest, running from Viking Port station through Sandbar and Freedom City to Northwest. It is about 270 km long and the fastest railway on the island, with trains running at 400 km/h and the quickest non-stop service taking just over forty minutes. The Sandbar Viaduct across the Sandbar estuary wetlands is its longest bridge and the Bergland Hills Tunnel its longest tunnel. At peak times a train leaves every half hour, and the eight-car Polaris 400 sets can run coupled as sixteen. With some 2.4 million trips a year it is one of the busiest lines on the island. Business travel between the three cities and weekend family visits make up most of its traffic, which rises sharply whenever snow closes the roads.
@@ -41,6 +44,10 @@ railways:
       en: Viking Port–Beckerle Railway
       art-x-viking: Bahn Veiling Havn–Beckerle
       art-x-buckham: Ferrovia Veiling Porto–Beckerle
+    wonder:
+      structure: tunnel
+      zh: 世界最长的山岭隧道，长约 52 公里
+      en: The longest mountain tunnel in the world, about 52 km
     notes:
       zh: 维贝铁路是北维京岛的铁路主干，沿岛南部自西向东，经维京港、奥克西诺、新城、萨科勒到贝克勒自由贸易区，全长约七百公里，运营速度每小时 350 公里，全程直达约两小时。线路桥隧相连，杉岭特大桥和洛龙山脉隧道都是全岛最长的铁路桥隧之一。高峰时段每半小时一班，年客运量一千一百万人次左右，在岛内铁路中居首位。沿线相邻城市之间的通勤客流很大，贝克勒站与港口和自贸区直接相连，商务旅客占了相当比例；新洛铁路的列车也借用它的一段线路。
       en: The Viking Port–Beckerle Railway is the main line of North Viking Island, running west to east across the south of the island through Viking Port, Oxino, New City and Sakole to the Beckerle Free Trade Zone. It is about 700 km long, with trains at 350 km/h taking some two hours non-stop. It runs from bridge to tunnel, and the Fir Ridge Viaduct and the Lorond Range Tunnel are among the longest railway structures on the island. At peak times there is a train every half hour, and with some eleven million trips a year it is the busiest railway within the island. Commuting between neighbouring cities is heavy, Beckerle station connects directly with the port and the free trade zone, and business travellers make up a large share; New City–Lorond Mountain trains also use part of its line.
@@ -60,6 +67,10 @@ railways:
       en: Northwest–Maslin Mountain Railway
       art-x-viking: Bahn Nordwest–Maslinberg
       art-x-buckham: Ferrovia Nordveste–Maslin Tehee
+    wonder:
+      structure: bridge
+      zh: 世界最长的桥梁，长约 77 公里
+      en: The longest bridge in the world, about 77 km
     notes:
       zh: 西马铁路是北维京岛最长的铁路，自西北站出发，经勒克尔、洛龙山、厄定河到马斯林山，全长约九百四十公里，运营速度每小时 300 公里，全程直达三小时十分钟左右。龙关特大桥长七十多公里，是全岛最长的桥梁，洛龙山脉隧道穿过山脉主脊；厄定河谷的冻土路段和驯鹿牧场的连续高架桥也是这条线的特色。高峰时段每半小时一班，年客运量二百二十万人次左右。客流以内陆山城与西北、勒克尔之间的旅客为主，马斯林山发射日前后还会加开前往马斯林山站的临时列车。
       en: The Northwest–Maslin Mountain Railway is the longest railway on North Viking Island, running from Northwest station through Lekor, Lorond Mountain and Erding River to Maslin Mountain. It is about 940 km long, with trains at 300 km/h taking around three hours ten minutes non-stop. The Dragon Pass Viaduct, more than 70 km long, is the longest bridge on the island, and the Lorond Range Tunnel passes under the range's main ridge; the permafrost stretches of the Erding valley and the long viaducts over the reindeer pastures are also features of the line. At peak times there is a train every half hour, and it carries some 2.2 million trips a year, mostly between the inland mountain cities and Northwest or Lekor; around launch days at Maslin Mountain extra trains run to Maslin Mountain station.
@@ -130,6 +141,9 @@ railways:
       en: Maslin Mountain Aerospace Railway
       art-x-viking: Raumfahrtbahn Maslinberg
       art-x-buckham: Ferrovia Aerospaziale di Maslin Tehee
+    wonder:
+      zh: 世界唯一的航天铁路，把箭体、发动机和推进剂直接送进航天工厂
+      en: The only space railway in the world, taking rocket stages, engines and propellant straight into the space works
     notes:
       zh: 马斯林山航天铁路自东营站出发，经马斯林山站西行到西坪站，全长约一百八十公里，运营速度每小时 300 公里，全程直达四十分钟，把东营的空军基地、后勤基地与西坪的发射与降落中心、航天产业区连在一起。线路穿越平坦的马斯林盆地，以路基和低桥为主，西坪高架桥是全线最长的桥梁。平日每半小时一班，客流以基地官兵和航天工厂职工为主，年客运量不大；发射日前后信号系统与发射中心联动，加开密集班次。夜间客车停运后，货运列车经专用线把箭体、发动机和推进剂槽车直接送进西坪的工厂。
       en: The Maslin Mountain Aerospace Railway runs west from East Camp station through Maslin Mountain station to West Heath, about 180 km at 300 km/h, forty minutes non-stop, linking the air base and supply depot at East Camp with the launch and landing centre and the space industry zone at West Heath. It crosses the flat Maslin basin mostly on embankment and low bridges; the West Heath Viaduct is its longest bridge. On ordinary days there is a train every half hour, carrying mostly service personnel and space-plant workers, and its yearly ridership is modest. Around launches its signalling is linked to the launch centre and extra trains run at short intervals. At night, after the passenger trains stop, freight trains take rocket stages, engines and propellant tank wagons along sidings straight into the West Heath plants.

@@ -30,6 +30,12 @@ export function pathLabel(data: AtlasData, e: Entity, lang: Lang): string {
     .join(" · ");
 }
 
+/** A wonder's own name: on a line, that of the structure it is. */
+export function wonderName(e: Entity, lang: Lang): string {
+  const s = e.wonder?.structure;
+  return (s && e.structures?.[s]?.names[lang]) || displayName(e, lang);
+}
+
 /** Chainage in the GB style, e.g. 12.4 km -> "K12+400". */
 export function chainage(km: number): string {
   const m = Math.round(km * 1000);

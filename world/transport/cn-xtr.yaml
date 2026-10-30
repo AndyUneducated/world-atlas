@@ -16,6 +16,10 @@ routes:
       en: Viking Port–Longship Expressway
       art-x-viking: Autobahn Veiling Havn–Langskip
       art-x-buckham: Autostrada Veiling Porto–Navelunga
+    wonder:
+      structure: tunnel
+      zh: 世界最长的隧道，长约 214 公里，全程在海底
+      en: The longest tunnel in the world, about 214 km, all of it under the sea
     notes:
       zh: 维长高速是北维京岛与维京群岛之间唯一的陆路，自维京港瓦尔维克区入地，一条直线穿越海峡，到长船福恩斯塔德区出地面，全长约二百一十公里，全部位于维京海底公路隧道之中，全程一个半小时左右。隧道为双洞单向，中间设服务隧道，沿线每隔一段设有横通道和紧急避难所。全线双向十二车道，全程限速 140 公里。车流以两领地之间的货车、商务车辆和自驾旅客为主，日均车流稳定，不受海上风浪影响；隧道由维京海峡通道公司统一管理和收费。
       en: The Viking Port–Longship Expressway is the only land link between North Viking Island and the Viking Islands. It goes underground at Walvik in Viking Port and runs in one straight line beneath the strait to surface in Longship's Old Town. It is about 210 km long, all of it inside the Viking Undersea Road Tunnel, and takes about an hour and a half. The tunnel has two one-way bores with a service tunnel between them, and cross-passages and emergency refuges at regular intervals. It has six lanes each way and a 140 km/h limit throughout. Its traffic is mostly lorries, business travel and private drivers between the two territories, steady from day to day and unaffected by wind or waves; the Viking Strait Link Company runs the tunnel and collects its tolls.
@@ -39,6 +43,10 @@ railways:
       en: Viking Port–Longship Intercity Railway
       art-x-viking: Intercity-Bahn Veiling Havn–Langskip
       art-x-buckham: Ferrovia Intercity Veiling Porto–Navelunga
+    wonder:
+      structure: tunnel
+      zh: 世界最长的铁路隧道，长约 140 公里
+      en: The longest railway tunnel in the world, about 140 km
     notes:
       zh: 维长城际铁路是维京群岛唯一的铁路，也是两领地之间唯一的铁路通道，自维京港站出发，经维京海底铁路隧道穿越海峡，在斯塔文内斯岬出地面，再经北岬区的地面线到长船站，全长约二百三十公里，运营速度每小时 350 公里，全程直达四十多分钟。海底隧道长一百四十公里，单洞双线，两侧设有疏散通道；福恩斯塔德高架桥是全线最长的桥梁。高峰时段每半小时一班，年客运量四百六十万人次左右，是各条城际铁路中客流最大的一条，两城之间的旅客大多选择乘火车。线路由维京海峡通道公司运营。
       en: The Viking Port–Longship Intercity Railway is the only railway in the Viking Islands and the only rail link between the two territories. From Viking Port station it runs through the Viking Undersea Rail Tunnel beneath the strait, comes ashore at Stavnnes and crosses North Cape on the surface to Longship station. It is about 230 km long, with trains at 350 km/h taking just over forty minutes non-stop. The undersea tunnel, 140 km long, has a single bore with two tracks and evacuation passages on both sides, and the Fornstad Viaduct is the longest bridge on the line. At peak times a train leaves every half hour, and with some 4.6 million trips a year it is the busiest of all the intercity railways; most travellers between the two cities now go by train. The Viking Strait Link Company runs the line.
