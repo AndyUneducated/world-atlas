@@ -198,7 +198,10 @@ export interface Legislature extends Chamber {
   opposition?: { name: Localized; party: string };
   /** Ministries held by each party in government. */
   cabinet: { id: string; seats: number }[];
-  court: Officeholder & { names: Localized };
+  /** Every ministry in order, with its minister; a minister without a party is a non-partisan expert. */
+  ministers: { ministry: Localized; name: Localized; party?: string }[];
+  /** The chief justice, and the court's other judges. */
+  court: Officeholder & { names: Localized; judges: Localized[] };
 }
 
 export interface Council extends Chamber {

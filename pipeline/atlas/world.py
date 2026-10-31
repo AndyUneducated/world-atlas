@@ -424,8 +424,10 @@ class World:
                          ("court title", court.get("title"))):
                 if not all((v or {}).get(lang) for lang in REQUIRED_LANGS):
                     errors.append(f"politics: {tid}: {k} needs zh and en")
-            if not (isinstance(leg.get("ministers"), int) and leg["ministers"] > 0):
-                errors.append(f"politics: {tid}: ministers is the number of ministries, a whole number")
+            if not (isinstance(court.get("judges"), int) and 6 <= court["judges"] <= 12):
+                errors.append(f"politics: {tid}: the court has 6 to 12 judges, the chief justice among them")
+            if sum(court.get("tongues", {}).values()) >= court.get("judges", 0):
+                errors.append(f"politics: {tid}: court tongues name fewer judges than the court has, besides the chief justice")
             for cid, c in leg.get("councils", {}).items():
                 if self.divisions.get(cid, {}).get("parent") != tid:
                     errors.append(f"politics: {tid}: council {cid} is not a city of the territory")
@@ -436,6 +438,14 @@ class World:
                 for k in ("names", "mayor", "speaker", "notes"):
                     if k in c and not all(c[k].get(lang) for lang in REQUIRED_LANGS):
                         errors.append(f"politics: {cid}: {k} needs zh and en")
+        mins = pol.get("ministries", [])
+        if not mins or len({m.get("id") for m in mins}) != len(mins):
+            errors.append("politics: ministries lists each ministry once, with an id")
+        for m in mins:
+            if not all(m.get("names", {}).get(lang) for lang in REQUIRED_LANGS):
+                errors.append(f"politics: ministry {m.get('id')}: names need zh and en")
+            if set(m.get("lean", {})) - set(PARTY_AXES) or not 0 <= m.get("nonpartisan", 0) < 1:
+                errors.append(f"politics: ministry {m.get('id')}: lean is on {', '.join(PARTY_AXES)}; nonpartisan odds below 1")
         for k, ct in pol.get("council_types", {}).items():
             if not all(ct.get(f, {}).get(lang) for f in ("names", "speaker") for lang in REQUIRED_LANGS):
                 errors.append(f"politics: council type {k}: names and speaker need zh and en")

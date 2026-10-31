@@ -146,11 +146,10 @@ class _Territory:
         amp = self.model["perturbation"]["ward"]
         for did in dids:
             for w in range(per[did]):
-                rng = _rng(f"{key}:{did}:{w}")
                 if per[did] == 1:
                     s = self.vote[did]
                 else:
-                    s = {p: v * math.exp(float(rng.uniform(-1, 1)) * amp) for p, v in self.vote[did].items()}
+                    s = {p: v * math.exp(float(_rng(f"{key}:{did}:{w}:{p}").uniform(-1, 1)) * amp) for p, v in self.vote[did].items()}
                 won[max(s, key=s.get)] += 1
         return won
 
@@ -313,10 +312,18 @@ class _People:
         self.taken = {p["leader"]["en"] for p in model["parties"]} | {leg["governor_name"]["en"] for leg in model["legislatures"].values()}
         self.memo: dict[str, dict] = {}
 
-    def draw(self, key: str, langs: dict[str, float]) -> dict:
+    def draw(self, key: str, langs: dict[str, float], avoid: set[str] | None = None) -> dict:
+        """With `avoid`, redraw (a few times at most) a name whose given name is in it, and add the one kept."""
         if key not in self.memo:
-            rng = _rng(key)
-            self.memo[key] = _person(rng, self.pools, _lang(rng, langs, self.pools), self.taken)
+            for i in range(AVOID_TRIES if avoid is not None else 1):
+                rng = _rng(key if i == 0 else f"{key}~{i}")
+                name = _person(rng, self.pools, _lang(rng, langs, self.pools), self.taken)
+                if avoid is None or _given(name) not in avoid or i == AVOID_TRIES - 1:
+                    break
+                self.taken.discard(name["en"])
+            self.memo[key] = name
+            if avoid is not None:
+                avoid.add(_given(name))
         return self.memo[key]
 
     def leader(self, p: dict, tid: str) -> dict:
@@ -329,6 +336,75 @@ class _People:
         return self.draw(f"leader:{p['id']}:{tid}", self.entities[tid].get("demographics", {}).get("languages", {"zh": 100}))
 
 
+MAX_EXPERTS = 4  # non-partisan ministers in one cabinet
+AVOID_TRIES = 20
+
+
+def _given(name: dict) -> str:
+    """The given name, in Chinese: a Chinese name's after its one-character surname, a transcribed one's before the dot."""
+    return name["zh"].split("·")[0] if "·" in name["zh"] else name["zh"][1:]
+
+
+def _cabinet(model: dict, tid: str, won: dict[str, int], gov: list[str], parties: dict) -> dict[str, str | None]:
+    """Who holds each ministry: a non-partisan expert by the ministry's odds (the likeliest first, and never
+    so many that a governing party goes without), the rest picked in D'Hondt order on the governing parties'
+    seats. Each party takes the free ministry it wants most: its score (prestige, and the ministry's lean on
+    the party's axes) plus how far that is above the keenest partner's, so a junior partner still gets its
+    own field."""
+    mins = model["ministries"]
+    rng = _rng("cabinet:" + tid)
+    experts = sorted((m for m in mins if rng.random() < m.get("nonpartisan", 0)), key=lambda m: -m["nonpartisan"])[:MAX_EXPERTS]
+    while True:
+        out = {p: 0 for p in gov}
+        picks = []
+        for _ in range(len(mins) - len(experts)):
+            p = max(gov, key=lambda k: (won[k] / (1 + out[k]), won[k]))
+            out[p] += 1
+            picks.append(p)
+        if all(out.values()) or not experts:
+            break
+        experts.pop()
+    holder: dict[str, str | None] = {m["id"]: None for m in experts}
+    free = [m for m in mins if m["id"] not in holder]
+
+    def score(m: dict, p: str) -> float:
+        return m.get("prestige", 0) + sum(c * (parties[p]["axes"][k] - 5) / 5 for k, c in m.get("lean", {}).items())
+
+    def want(m: dict, p: str) -> float:
+        rivals = [score(m, q) for q in gov if q != p]
+        return score(m, p) + (score(m, p) - max(rivals) if rivals else 0)
+
+    for p in picks:
+        best = max(free, key=lambda m: want(m, p))
+        holder[best["id"]] = p
+        free.remove(best)
+    return holder
+
+
+def _judges(people: "_People", tid: str, court: dict, langs: dict[str, float], avoid: set[str]) -> list[dict]:
+    """The court's other judges besides the chief justice; `tongues` sets how many at least speak a language."""
+    fixed = [lg for lg, n in court.get("tongues", {}).items() for _ in range(n)]
+    return [people.draw(f"judge:{tid}:{i}", {fixed[i]: 100} if i < len(fixed) else langs, avoid) for i in range(court["judges"] - 1)]
+
+
+def _appoint(model: dict, entities: dict, people: "_People", holders: dict[str, dict], parties: dict) -> None:
+    """Ministers and judges, named after every other officeholder so that adding them renames no one, and
+    with given names unlike those of their territory's other officeholders where the pools allow. A junior
+    partner's leader takes the ministry the party picked first."""
+    for tid, holder in holders.items():
+        L = entities[tid]["legislature"]
+        langs = entities[tid].get("demographics", {}).get("languages", {"zh": 100})
+        firsts: dict[str, dict] = {}
+        for mid, p in holder.items():
+            if p and p != L["government"][0] and p not in firsts.values():
+                firsts[mid] = p
+        named = {mid: people.leader(parties[p], tid) for mid, p in firsts.items()}
+        avoid = {_given(o["name"]) for o in (L["head"], L["speaker"], L["court"], L.get("opposition")) if o} | {_given(n) for n in named.values()}
+        L["ministers"] = [{"ministry": m["names"], "name": named.get(m["id"]) or people.draw(f"minister:{tid}:{m['id']}", langs, avoid),
+                           **({"party": holder[m["id"]]} if holder[m["id"]] else {})} for m in model["ministries"]]
+        L["court"]["judges"] = _judges(people, tid, model["legislatures"][tid]["court"], langs, avoid)
+
+
 def annotate(world: World, entities: dict) -> None:
     """Add elections and officeholders to territories, cities and districts, and an entity for every party."""
     model = world.politics
@@ -337,6 +413,7 @@ def annotate(world: World, entities: dict) -> None:
     parties = {p["id"]: p for p in model["parties"]}
     seats_held: dict[str, list[dict]] = {pid: [] for pid in parties}
     people = _People(model, entities)
+    holders: dict[str, dict] = {}
     effect: dict[str, dict[str, float]] = {pid: {} for pid in parties}
     weight: dict[str, float] = {pid: 0.0 for pid in parties}
     for tid, leg in model["legislatures"].items():
@@ -346,7 +423,7 @@ def annotate(world: World, entities: dict) -> None:
         langs = entities[tid].get("demographics", {}).get("languages", {"zh": 100})
         t_turnout = sum(terr.voters.values()) / sum(world.divisions[d]["population"] * model["electorate_share"] for d in terr.districts)
         opposition = next((p for p in sorted(won, key=lambda p: (-won[p], -share[p])) if won[p] and p not in gov), None)
-        cabinet = _divisor({p: won[p] for p in gov}, leg["ministers"], 1, 1)
+        holder = holders[tid] = _cabinet(model, tid, won, gov, parties)
         entities[tid]["legislature"] = {
             "names": leg["names"], "system": leg["system"], "turnout": round(100 * t_turnout, 1),
             **({"threshold": leg["threshold"]} if "threshold" in leg else {}),
@@ -354,8 +431,9 @@ def annotate(world: World, entities: dict) -> None:
             "governor": {"title": leg["governor"], "name": leg["governor_name"]},
             "speaker": {"title": leg["speaker"], "name": people.draw("speaker:" + tid, langs), "party": gov[0]},
             **({"opposition": {"name": people.leader(parties[opposition], tid), "party": opposition}} if opposition else {}),
-            "cabinet": [{"id": p, "seats": cabinet[p]} for p in gov if cabinet[p]],
-            "court": {"names": leg["court"]["names"], "title": leg["court"]["title"], "name": people.draw("justice:" + tid, langs)},
+            "cabinet": [{"id": p, "seats": n} for p in gov if (n := sum(h == p for h in holder.values()))],
+            "ministers": [],
+            "court": {"names": leg["court"]["names"], "title": leg["court"]["title"], "name": people.draw("justice:" + tid, langs), "judges": []},
             **_chamber(won, share, extra, gov),
         }
         for p, n in won.items():
@@ -416,3 +494,4 @@ def annotate(world: World, entities: dict) -> None:
             "territories": [t for t in model["legislatures"] if t in p["targets"]],
             "seats": seats_held[pid],
         }
+    _appoint(model, entities, people, holders, parties)

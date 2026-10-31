@@ -671,7 +671,12 @@ function FlagSection({ entity, lang }: { entity: Entity; lang: Lang }) {
   }, [open]);
   if (!hasEmblem(entity)) return null;
   return (
-    <Section title={t("flag", lang)}>
+    <Section title={t(entity.motto ? "symbols" : "flag", lang)}>
+      {entity.motto && (
+        <p className="mb-3 text-[13px] text-muted">
+          {t("motto", lang)} · <span className="italic text-ink">{entity.motto[lang]}</span>
+        </p>
+      )}
       <button onClick={() => setOpen(true)} className="group relative block w-full transition-transform duration-200 hover:scale-[1.01]" aria-label={t("enlarge", lang)}>
         <Flag entity={entity} size={360} className="h-auto w-full drop-shadow-[0_6px_16px_rgba(0,0,0,0.22)]" />
         <Maximize2 className="absolute right-3 bottom-3 size-4 text-white opacity-0 drop-shadow transition-opacity group-hover:opacity-90" />
@@ -708,6 +713,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
   const items = stats(entity, lang, data);
   const codeRows = codes(entity, lang);
   const names = NAME_LANGS.filter((l) => entity.names[l]);
+  const party = entity.kind === "party";
 
   const badgeOwner = entity.kind === "place" && entity.emblem_of ? data.entities[entity.emblem_of] : entity;
   const city = entity.subtype === "borough" && entity.parent ? data.entities[entity.parent] : undefined;
@@ -799,7 +805,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
         </div>
       )}
 
-      {(entity.notes || entity.motto || entity.background) && (
+      {(entity.notes || entity.background) && (
         <Section title={t("about", lang)}>
           {entity.notes && <Paragraphs text={entity.notes[lang]} className="text-[13.5px] leading-relaxed text-ink" />}
           {entity.background && (
@@ -808,22 +814,17 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
               <Paragraphs text={entity.background[lang]} className="text-[13px] leading-relaxed text-muted" />
             </>
           )}
-          {entity.motto && (
-            <p className="mt-2 text-[13px] text-muted">
-              {t("motto", lang)} · <span className="italic">{entity.motto[lang]}</span>
-            </p>
-          )}
         </Section>
       )}
 
       <PartySections data={data} entity={entity} lang={lang} />
-      <FlagSection entity={entity} lang={lang} />
-      <ClimateSection data={data} entity={entity} lang={lang} />
-      <EconomySection entity={entity} lang={lang} accent={accent} />
-      <PeopleSection entity={entity} lang={lang} accent={accent} />
+      {party && <FlagSection entity={entity} lang={lang} />}
       <LegislatureSection data={data} entity={entity} lang={lang} />
       <CouncilSection data={data} entity={entity} lang={lang} />
       <ElectionSection data={data} entity={entity} lang={lang} />
+      <PeopleSection entity={entity} lang={lang} accent={accent} />
+      <EconomySection entity={entity} lang={lang} accent={accent} />
+      <ClimateSection data={data} entity={entity} lang={lang} />
 
       {entity.segments?.length ? <RouteTimeline data={data} entity={entity} lang={lang} /> : <ChildList data={data} entity={entity} lang={lang} />}
 
@@ -832,6 +833,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
       <ServiceSection entity={entity} lang={lang} />
       <TechSection entity={entity} lang={lang} />
       <EngineeringSection entity={entity} lang={lang} />
+      {!party && <FlagSection entity={entity} lang={lang} />}
 
       <Lineage data={data} entity={entity} lang={lang} />
 

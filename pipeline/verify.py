@@ -214,9 +214,17 @@ def check_models(ents: dict) -> dict[str, list[str]]:
                     seats.append(f"{name}: the governor belongs to no party")
                 if (op := body.get("opposition")) and op["party"] in body["government"]:
                     seats.append(f"{name}: the leader of the opposition's party is in government")
-                if {c["id"] for c in body["cabinet"]} - set(body["government"]) or sum(c["seats"] for c in body["cabinet"]) != ministries:
-                    seats.append(f"{name}: the cabinet is not the government's {ministries} ministries")
+                ms = body.get("ministers", [])
+                held = {p: sum(m.get("party") == p for m in ms) for p in body["government"]}
+                experts = sum("party" not in m for m in ms)
+                if ({m["ministry"]["zh"] for m in ms} != set(MINISTRIES) or {m["party"] for m in ms if "party" in m} - set(body["government"])
+                        or not all(held.values()) or experts > 4 or {c["id"]: c["seats"] for c in body["cabinet"]} != held):
+                    seats.append(f"{name}: the cabinet is not the {ministries} ministries, each governing party holding one or more, at most 4 non-partisan")
+                if not 6 <= 1 + len(body["court"].get("judges", [])) <= 12:
+                    seats.append(f"{name}: the court has {1 + len(body['court'].get('judges', []))} judges, not 6 to 12")
                 holders += [(body["governor"]["name"]["en"], f"{name} governor"), (body["court"]["name"]["en"], f"{name} chief justice")]
+                holders += [(m["name"]["en"], f"{name} {m['ministry']['en']}") for m in ms]
+                holders += [(j["en"], f"{name} judge") for j in body["court"].get("judges", [])]
     seen: dict[str, str] = {}
     for who, post in holders:
         if who in seen:
