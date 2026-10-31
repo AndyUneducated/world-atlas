@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import {
   Banknote,
+  Building2,
   Car,
   ChartNoAxesColumn,
   ChevronLeft,
@@ -8,6 +9,7 @@ import {
   Columns3,
   Droplets,
   Gauge,
+  Landmark,
   LandPlot,
   Maximize2,
   Mountain,
@@ -24,7 +26,9 @@ import { AnimatePresence, motion, useDragControls, useSpring, type PanInfo } fro
 import { useEffect, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { FLAG_COLORS } from "../lib/flags";
+import { Paragraphs, Rows, Section, Sub } from "./CardParts";
 import { Emblem, Flag, hasEmblem } from "./Emblem";
+import { CouncilSection, ElectionSection, LegislatureSection, PartySections } from "./Politics";
 import { RouteTimeline } from "./RouteTimeline";
 import { Climograph } from "./Climograph";
 import { climateName } from "../lib/climate";
@@ -91,15 +95,6 @@ function Stat({ label, value, unit, icon: Icon, accent }: StatItem & { accent: s
   );
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <section className="border-t border-line px-5 py-4">
-      <h3 className="mb-2.5 text-[11px] font-semibold tracking-wider text-faint uppercase">{title}</h3>
-      {children}
-    </section>
-  );
-}
-
 /** A range of large counts on one shared scale, "1.2–3.4" with the scale moved into the unit ("万辆/日"). */
 function scaledSpan([lo, hi]: [number, number], lang: Lang, unit: string): { value: string; unit: string } {
   const [div, scale] =
@@ -135,7 +130,21 @@ function gdpStat(usd: number, lang: Lang): StatItem {
 
 /** The headline figures: roads by length, lanes and traffic; railways by length, speed and riders;
  * divisions by people, area and GDP; natural features and places by what they are measured in. */
-function stats(e: Entity, lang: Lang): StatItem[] {
+function stats(e: Entity, lang: Lang, data: AtlasData): StatItem[] {
+  if (e.kind === "party") {
+    const held = e.seats ?? [];
+    const sum = (sub: string) => {
+      const rows = held.filter((s) => data.entities[s.at]?.subtype === sub);
+      return [rows.reduce((a, s) => a + s.seats, 0), rows.length];
+    };
+    const [terr, nTerr] = sum("dependency");
+    const [city, nCity] = sum("locality");
+    return [
+      { label: t("members", lang), value: formatNumber(e.members ?? 0, lang), unit: t("membersUnit", lang), icon: Users },
+      { label: t("territorialSeats", lang), value: String(terr), unit: `${t("seatsUnit", lang)} · ${nTerr} ${t("inLegislatures", lang)}`, icon: Landmark },
+      { label: t("councilSeats", lang), value: String(city), unit: `${t("seatsUnit", lang)} · ${nCity} ${t("inCouncils", lang)}`, icon: Building2 },
+    ];
+  }
   if (e.road) {
     const [lo, hi] = e.road.lanes;
     return [
@@ -304,19 +313,6 @@ function TechSection({ entity, lang }: { entity: Entity; lang: Lang }) {
   );
 }
 
-function Rows({ rows }: { rows: [string, React.ReactNode][] }) {
-  return (
-    <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[13px]">
-      {rows.map(([k, v]) => (
-        <div key={k} className="contents">
-          <dt className="text-muted">{k}</dt>
-          <dd className="text-ink tabular-nums">{v}</dd>
-        </div>
-      ))}
-    </dl>
-  );
-}
-
 const span = ([lo, hi]: [number, number], f: (v: number) => string) => (lo === hi ? f(lo) : `${f(lo)}–${f(hi)}`);
 
 function RoadSection({ entity, lang }: { entity: Entity; lang: Lang }) {
@@ -393,15 +389,6 @@ function MilitarySection({ entity, lang }: { entity: Entity; lang: Lang }) {
 
 const SHARE_TONES = [100, 58, 28];
 const tone = (accent: string, i: number) => `color-mix(in srgb, ${accent} ${SHARE_TONES[i % SHARE_TONES.length]}%, var(--ui-hover))`;
-
-function Sub({ label, children }: { label: string; children: ReactNode }) {
-  return (
-    <div className="mt-3.5 first:mt-0">
-      <h4 className="mb-1.5 text-[11px] font-semibold text-faint">{label}</h4>
-      {children}
-    </div>
-  );
-}
 
 /** Shares of a whole as one segmented bar, with the legend under it; the largest share is the strongest tone. */
 function ShareBar({ parts, accent }: { parts: { label: string; value: number }[]; accent: string }) {
@@ -742,27 +729,12 @@ function FlagSection({ entity, lang }: { entity: Entity; lang: Lang }) {
   );
 }
 
-/** Text written with line breaks between its paragraphs. */
-function Paragraphs({ text, className }: { text: string; className: string }) {
-  return (
-    <div className={clsx("space-y-2", className)}>
-      {text
-        .split(/\n+/)
-        .map((p) => p.trim())
-        .filter(Boolean)
-        .map((p, i) => (
-          <p key={i}>{p}</p>
-        ))}
-    </div>
-  );
-}
-
 function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
   const select = useAtlas((s) => s.select);
   const setRoute = useAtlas((s) => s.setRoute);
   const routable = data.graph.places[entity.id] !== undefined;
   const accent = accentColor(data, entity) ?? "var(--ui-accent)";
-  const items = stats(entity, lang);
+  const items = stats(entity, lang, data);
   const codeRows = codes(entity, lang);
   const names = NAME_LANGS.filter((l) => entity.names[l]);
 
@@ -885,10 +857,14 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
         </Section>
       )}
 
+      <PartySections data={data} entity={entity} lang={lang} />
       <FlagSection entity={entity} lang={lang} />
       <ClimateSection data={data} entity={entity} lang={lang} />
       <EconomySection entity={entity} lang={lang} accent={accent} />
       <PeopleSection entity={entity} lang={lang} accent={accent} />
+      <LegislatureSection data={data} entity={entity} lang={lang} />
+      <CouncilSection data={data} entity={entity} lang={lang} />
+      <ElectionSection data={data} entity={entity} lang={lang} />
 
       {entity.segments?.length ? <RouteTimeline data={data} entity={entity} lang={lang} /> : <ChildList data={data} entity={entity} lang={lang} />}
 

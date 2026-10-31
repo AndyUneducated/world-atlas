@@ -42,11 +42,11 @@ export function Flag({ entity, size, className }: Props & { entity: Entity }) {
   );
 }
 
-/** The flag of a territory or city, or null for everything else (districts, natural features). */
+/** The flag of a territory, city or party, or null for everything else (districts, natural features). */
 export function Emblem(props: Props & { entity: Entity }) {
   return hasEmblem(props.entity) ? <Flag {...props} /> : null;
 }
 
 export function hasEmblem(e: Entity) {
-  return e.kind === "division" && (e.subtype === "dependency" || e.subtype === "locality") && !!e.flag;
+  return ((e.kind === "division" && (e.subtype === "dependency" || e.subtype === "locality")) || e.kind === "party") && !!e.flag;
 }

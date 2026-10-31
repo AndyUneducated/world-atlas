@@ -1,7 +1,7 @@
 import {
   Anchor, Banknote, Bird, Building2, Castle, Crosshair, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, GraduationCap, Grape, Helicopter, Hospital, Hotel, House,
   Landmark, LandPlot, Lighthouse, Magnet, MapPin, Mountain, MountainSnow, Navigation2, Orbit, Pickaxe, Plane, PlaneTakeoff, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship,
-  ShipWheel, Shell, Snowflake, Server, Sparkles, Sprout, Sun, Target, Telescope, TrainFront, TramFront, Trees, Utensils, Vault, Warehouse, Waves, Zap,
+  ShipWheel, Shell, Snowflake, Server, Sparkles, Sprout, Sun, Target, Telescope, TrainFront, TramFront, Trees, Utensils, Vault, Vote, Warehouse, Waves, Zap,
 } from "lucide-react";
 import type { Entity } from "../lib/types";
 
@@ -121,6 +121,8 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
       return entity.special_status ? <Landmark {...props} /> : <Building2 {...props} />;
     case "borough":
       return <MapPin {...props} />;
+    case "party":
+      return <Vote {...props} />;
     case "river":
     case "estuary":
       return <Waves {...props} />;

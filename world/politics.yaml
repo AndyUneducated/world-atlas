@@ -1,0 +1,837 @@
+# Elections: the parties, each territory's legislature and electoral system, and the city councils
+# (pipeline/atlas/politics.py). Every party and politician is fictional; party cards carry policies, not
+# grievances against any group.
+#
+# A party's `targets` are its share of the vote in the territorial election, per territory it stands in
+# (scaled to sum to 1); a district's vote leans from them by `lean`: per industry among the district's
+# leading ones (rank-weighted 1, 0.6, 0.4, 0.3), per language share (lang:<tag>, 0–1), young and old (share
+# of under-15s and over-65s), income (log of GDP per head over the territory's), urban (log10 of people
+# per km²), lat (degrees), city:<id> and status:<special_status> (1 inside), each measured from the
+# territory's mean. `roll` leans the vote of the reserved-seat roll further (log factor).
+# spectrum: left (−3) to right (+3), for the order of the hemicycle and the cost of a coalition.
+# Systems: mmp (a constituency per district, list seats by Sainte-Laguë to make the whole proportional
+# among parties over the threshold or with a constituency; overhang seats kept), fptp (single-member wards
+# shared out among the districts by population), pr_reserved (D'Hondt over the threshold, plus seats
+# elected by the speakers of the reserved language, by Sainte-Laguë), pr_regional (each city a
+# constituency, seats by population, at least 2, largest remainder). City councils use their territory's
+# system: council_seats [a, b] gives a + b × log2(population / 100,000) seats, rounded to odd, within
+# council_range; an mmp council elects half its seats in wards.
+# The texts on the cards (who governs, who leads where) were written against the model's results; check
+# them again after changing targets, leanings or systems.
+
+electorate_share: 0.78  # of the population, 18 and over
+perturbation: { vote: 0.12, turnout: 0.02, ward: 0.4 }  # at most, either way (log share, share, log share)
+# A government is the winning coalition with no member to spare and the least cost: its left-right span,
+# plus `partner` for each party beyond the first and `without_largest` if the largest party is not in it.
+coalition_cost: { partner: 0.4, without_largest: 1.0 }
+
+legislatures:
+  div_fbfqv9:
+    names: { zh: 北维京岛领地议会, en: North Viking Island Parliament }
+    system: mmp
+    seats: 91
+    threshold: 0.05
+    turnout: 0.76
+    head: { zh: 总督, en: Governor }
+    mayor: { zh: 市长, en: Mayor }
+    council_seats: [31, 6]
+    council_range: [21, 71]
+  div_raat4g:
+    names: { zh: 维京群岛领地议会, en: Viking Islands Parliament }
+    system: fptp
+    seats: 61
+    turnout: 0.67
+    head: { zh: 总督, en: Governor }
+    mayor: { zh: 市长, en: Mayor }
+    council_seats: [25, 5]
+    council_range: [15, 51]
+  div_hpmerr:
+    names: { zh: 北冰洋领地议会, en: Arctic Ocean Territorial Assembly }
+    system: pr_reserved
+    seats: 71
+    reserved: 8
+    reserved_language: art-x-tavrunaq
+    reserved_city_share: 0.25
+    threshold: 0.03
+    turnout: 0.66
+    head: { zh: 总督, en: Governor }
+    mayor: { zh: 市长, en: Mayor }
+    council_seats: [27, 5]
+    council_range: [15, 55]
+  div_nwm019:
+    names: { zh: 长夏群岛领地议会, en: Everlong Summer Islands Territorial Assembly }
+    system: pr_regional
+    seats: 121
+    turnout: 0.81
+    turnout_status: { commune: 0.12 }
+    head: { zh: 总督, en: Governor }
+    mayor: { zh: 市长, en: Mayor }
+    council_seats: [35, 6]
+    council_range: [21, 75]
+    councils:
+      div_6kjc7x:
+        assembly:
+          zh: "埃武托拉公社没有市议会，也没有市长。公社的最高机关是公社大会，年满十六岁的居民都可以出席、发言和表决，每月在公社广场的大棚下开一次，雨季移到粮仓改成的会堂里。大会选出十五人的协调委员会处理日常事务，委员抽签产生、一年一换，不能连任；预算、税率和住房分配都要经大会表决，重大事项还要在各街区的小组会上先讨论一轮。公社居民照常参加领地议会的选举，公社运动的议员就是在这里当选的。"
+          en: "Evutola Commune has no city council and no mayor. Its highest body is the Commune Assembly, where every resident aged sixteen or over may attend, speak and vote; it meets once a month under the great awning on Commune Square, moving in the rains to a hall that was once a granary. The assembly chooses a coordinating committee of fifteen to handle day-to-day business, drawn by lot for a year at a time and never twice in a row, and the budget, the tax rate and the allocation of homes all go to the assembly's vote, with weighty matters first talked through at neighbourhood meetings. Commune residents vote in the territorial elections like everyone else, and it is here that the Commune Movement wins its members of the assembly."
+
+# Mayors' names: a city's mayor takes a name in one of its first languages, drawn by its share.
+names:
+  zh:
+    family: [[林, Lin], [陈, Chen], [王, Wang], [周, Zhou], [许, Xu], [沈, Shen], [顾, Gu], [叶, Ye], [何, He], [苏, Su], [方, Fang], [江, Jiang], [白, Bai], [唐, Tang], [韩, Han], [秦, Qin]]
+    given: [[思远, Siyuan], [若溪, Ruoxi], [海宁, Haining], [一帆, Yifan], [嘉禾, Jiahe], [明哲, Mingzhe], [晓岚, Xiaolan], [清和, Qinghe], [远航, Yuanhang], [静宜, Jingyi], [子墨, Zimo], [书瑶, Shuyao], [北辰, Beichen], [雪松, Xuesong], [安澜, Anlan], [星河, Xinghe]]
+  art-x-viking:
+    given: [[Askeld, 阿斯凯尔], [Thyrna, 蒂尔娜], [Rovald, 罗瓦尔德], [Ylsen, 伊尔森], [Ingveld, 英韦尔德], [Liske, 莉丝珂], [Haskel, 哈斯克尔], [Eirvan, 埃尔万], [Torlen, 托伦], [Gunnvor, 贡沃尔]]
+    family: [[Haskeby, 哈斯克比], [Torvanger, 托尔万格], [Eldrup, 埃尔德鲁普], [Varneklo, 瓦内克洛], [Hjeldmar, 耶尔德马], [Sundrevik, 松德雷维克], [Brekkval, 布雷克瓦尔], [Fjellholt, 菲耶尔霍尔特]]
+  art-x-buckham:
+    given: [[Lucetta, 卢切塔], [Aurelio, 奥雷利奥], [Ninetta, 妮内塔], [Corrado, 科拉多], [Severa, 塞韦拉], [Dario, 达里奥], [Fiorella, 菲奥蕾拉], [Teodoro, 特奥多罗]]
+    family: [[Marvelli, 马尔韦利], [Caradossi, 卡拉多西], [Pietrabianca, 彼得拉比安卡], [Sabbioni, 萨比奥尼], [Lunardi, 卢纳尔迪], [Vescorti, 韦斯科尔蒂], [Stellari, 斯特拉里], [Ondaro, 翁达罗]]
+  art-x-tavrunaq:
+    given: [[Siqvaaq, 西克瓦克], [Nuvaliaq, 努瓦利亚克], [Tauvvik, 陶维克], [Qilaruk, 基拉鲁克], [Aniqsaaq, 阿尼克萨克], [Ukkualuk, 乌夸卢克], [Paarnaq, 帕尔纳克], [Ilivvik, 伊利维克]]
+    family: [[Pallurnaq, 帕卢尔纳克], [Sirmiaq, 西尔米亚克], [Kavvaaluk, 卡瓦卢克], [Nuqavik, 努卡维克], [Tullaaq, 图拉克], [Qaarsuk, 卡尔苏克]]
+  art-x-ivuran:
+    given: [[Anuvai, 阿努瓦伊], [Teluram, 特卢拉姆], [Kaveli, 卡韦莉], [Umaresa, 乌玛蕾萨], [Ravelu, 拉韦卢], [Nilamai, 尼拉迈], [Sevaru, 塞瓦鲁], [Iluvenna, 伊卢文娜]]
+    family: [[Tirasen, 蒂拉森], [Ombarai, 翁巴赖], [Velukkam, 韦卢卡姆], [Hanuvel, 哈努韦尔], [Selomai, 塞洛迈], [Kiranur, 基拉努尔]]
+
+# Parties: cross-territory first, then each territory's own. family is the party's tradition in a few
+# words; notes the card's introduction; history how it came to be (no dates).
+parties:
+  # ── 跨领地政党 ──
+  - id: pty_09zrw1
+    names: { zh: 公地联盟, en: Commons Alliance }
+    short_names: { zh: 公地, en: "Commons" }
+    color: "#C0392B"
+    flag: { layout: banner, colors: ["#C0392B"], charge: dawn, charge_color: "#F6E7C1" }
+    spectrum: -2.2
+    family: { zh: 民主社会主义, en: Democratic socialism }
+    leader: { zh: 梅鲁瓦伊·托兰加姆, en: Meruvai Tolangam }
+    members: 64000
+    youth_wing: { zh: 公地青年, en: Commons Youth }
+    slogan: { zh: 共有的才是长久的, en: What we share is what lasts }
+    policies:
+      - { zh: 土地继续公有，长期租用的期限和租金由居民议事会公开审定, en: "Keep land in common ownership, with lease terms and rents set openly by residents' councils" }
+      - { zh: 全民基本收入随生产率逐年上调, en: Raise the universal basic income every year in step with productivity }
+      - { zh: 大型港口、电网和磁浮线路由公共机构持有，职工代表进董事会, en: "Hold the big ports, the grid and the maglev in public hands, with workers on their boards" }
+      - { zh: 每个街区设免费的公共食堂和工具图书馆, en: Give every neighbourhood a free canteen and a tool library }
+    allies: [pty_jh513z, pty_6c94cq, pty_18qa5s]
+    targets: { div_fbfqv9: 4, div_raat4g: 1.5, div_hpmerr: 1.5, div_nwm019: 17.6 }
+    lean: { young: 3, urban: 0.3, income: -0.3, manufacturing: 0.3, "status:commune": 1.0, "lang:en": -0.5 }
+    notes:
+      zh: "公地联盟是四个领地都有候选人的左翼政党，主张公共所有、全民福利和工作场所民主，名字取自「大家共有、共同照看的土地」。它的大本营在长夏群岛：那里土地公有、长期租用，教育免费到大学，全民基本收入覆盖每个居民，这些制度大多是公地联盟在领地议会里一条条推动写进法规的。现在它是长夏群岛领地议会的第一大党，与互助党、伊武兰复兴党联合执政，三党合计只比半数多一席，每次表决都要把议员一个不落地叫回议事厅，总督梅鲁瓦伊·托兰加姆因此被人叫作「点名总督」。在北维京岛它只有不到半成的选票，过不了门槛，在各市议会里也还没有席位；在维京群岛和北冰洋，它更像一个读书会和工会之间的网络。党员以教师、护士、港口工人和大学生为多，党部的会议室晚上常借给附近的合唱团和象棋社。"
+      en: "The Commons Alliance is a left-wing party with candidates in all four territories, standing for public ownership, universal welfare and democracy at work; its name comes from the idea of land held and cared for in common. Its stronghold is the Everlong Summer Islands, where land is publicly owned and held on long leases, education is free through university and a universal basic income reaches every resident, rules the Alliance pushed into law one by one in the territorial assembly. It is now the largest party there and governs with the Mutual Aid Party and Ivuran Renewal; the three together have just one seat more than half, so every vote means calling each member back to the chamber, and Governor Meruvai Tolangam has been nicknamed the Roll-Call Governor. On North Viking Island it wins under one vote in twenty, short of the threshold, and has yet to win a seat on any city council there; in the Viking Islands and the Arctic Ocean it is more a network between reading circles and trade unions. Its members are mostly teachers, nurses, dockers and students, and in the evenings its branch rooms are lent to the local choirs and chess clubs."
+    history:
+      zh: "公地联盟由长夏群岛的稻农合作社、港口工会和大学里的读书会合并而成，最初只在萨伦纳姆和塔卢马兰竞选。土地公有和全民基本收入写进领地法规之后，它的声望迅速扩散，后来在其他三个领地也陆续成立了支部。"
+      en: "The Alliance grew from a merger of the Everlong Summer rice cooperatives, the dockers' unions and university reading circles, and at first stood only in Sarunnam and Talumaran. Once public land and the basic income were written into the territory's laws its name spread fast, and branches followed in the other three territories."
+
+  - id: pty_jh513z
+    names: { zh: 互助党, en: Mutual Aid Party }
+    short_names: { zh: 互助, en: "Mutual Aid" }
+    color: "#E4572E"
+    flag: { layout: bands, colors: ["#E4572E", "#FFFFFF", "#E4572E"], ratio: [1, 2, 1], charge: links, charge_color: "#E4572E" }
+    spectrum: -1.0
+    family: { zh: 社会民主主义, en: Social democracy }
+    leader: { zh: 陆远舟, en: Lu Yuanzhou }
+    members: 86000
+    youth_wing: { zh: 互助青年, en: Young Mutualists }
+    slogan: { zh: 你扶我一把，我拉你一程, en: A hand for a hand }
+    policies:
+      - { zh: 公共租赁住房每年新建一万套，优先给教师、护士和年轻家庭, en: "Build ten thousand public rental homes a year, first for teachers, nurses and young families" }
+      - { zh: 港口、造船和冶炼行业推行行业集体合同, en: "Sector-wide collective agreements in the ports, shipbuilding and smelting" }
+      - { zh: 偏远岛屿和内陆牧区的医疗、学校与渡轮由领地兜底, en: "The territory guarantees health care, schools and ferries on the outer islands and inland pastures" }
+      - { zh: 退休金与工资同步上调, en: Raise pensions in step with wages }
+      - { zh: 以低息贷款支持工人合作社接手无人继承的小企业, en: Cheap loans for workers' cooperatives taking over small firms with no heir }
+    allies: [pty_09zrw1, pty_2033kv, pty_z573k7, pty_18qa5s]
+    targets: { div_fbfqv9: 23, div_hpmerr: 13, div_nwm019: 16 }
+    lean: { manufacturing: 0.4, port: 0.3, shipbuilding: 0.4, mining: 0.3, healthcare: 0.2, old: 1.5, income: -0.3 }
+    notes:
+      zh: "互助党是北维京岛最大的政党，也是北冰洋和长夏群岛政府的执政伙伴，传统上依靠工会、合作社和老工业城市的选民，主张以集体合同、公共住房和全民医疗把各个行业、各个岛屿的人拉在一起。党名来自北维京岛早年移民之间互相担保借钱、轮流帮忙盖房的「互助会」，党旗上两只相扣的链环就是当年互助会会员证上的图案。在北维京岛的混合选制下，它赢下了大多数选区议席，与绿脉党、罗盘党组成「红绿罗盘」政府，党主席陆远舟出任总督。在北冰洋，它是塔夫鲁利特人民党领导的四党政府中的第二大党；在长夏群岛，它与公地联盟、伊武兰复兴党共同执政。互助党在维京群岛不推候选人，那里的红帆党是它的姊妹党，两党的青年团每年夏天在海底通道两端轮流办营。党内常年争论的话题是：工会的老传统和年轻选民关心的气候与住房，到底谁先谁后。"
+      en: "The Mutual Aid Party is the largest party on North Viking Island and a partner in the governments of the Arctic Ocean and the Everlong Summer Islands. It has traditionally drawn on trade unions, cooperatives and the old industrial towns, and seeks to hold every trade and every island together through collective agreements, public housing and universal health care. The name comes from the mutual aid societies of North Viking Island's early settlers, who stood surety for one another's loans and took turns helping to raise each other's houses; the two linked rings on the party flag were the emblem on a society member's card. Under the island's mixed system it wins most of the constituency seats, and it governs with Greenvein and the Compass Party in what people call the red-green compass, with the party chair Lu Yuanzhou as governor. In the Arctic Ocean it is the second party of the four-party government led by the Tavrulit People's Party, and in the Everlong Summer Islands it governs with the Commons Alliance and Ivuran Renewal. It does not stand in the Viking Islands, where Red Sail is its sister party; the two youth wings hold a summer camp each year, at either end of the undersea link in turn. The party's long-running argument is over which comes first, the unions' old causes or the climate and housing that its younger voters care about."
+    history:
+      zh: "互助党由北维京岛各城市的互助会和造船、港口工会联合组建，是领地议会成立后的第一批政党之一。北冰洋和长夏群岛的支部后来由北维京岛去的工会骨干帮助建立，至今三地仍共用一份党章。"
+      en: "The party was formed by the mutual aid societies of North Viking Island's towns together with the shipbuilding and dockers' unions, and was among the first parties of the territorial parliament. Union organisers from North Viking Island later helped found its branches in the Arctic Ocean and the Everlong Summer Islands, and the three still share one party constitution."
+
+  - id: pty_2033kv
+    names: { zh: 绿脉党, en: Greenvein }
+    short_names: { zh: 绿脉, en: "Greenvein" }
+    color: "#2E9E5B"
+    flag: { layout: diagonal, colors: ["#2E9E5B", "#1C6B3E"], charge: sprout }
+    spectrum: -1.5
+    family: { zh: 生态政治, en: Green politics }
+    leader: { zh: 英格伦·瓦恩耶尔姆, en: Ingrun Varnhjelm }
+    members: 38000
+    youth_wing: { zh: 绿芽, en: Greenshoots }
+    slogan: { zh: 给苔原和珊瑚一张选票, en: A vote for the moss and the coral }
+    policies:
+      - { zh: 各领地分阶段停止新开燃煤和燃油电厂，电网全部改用风、水、地热和潮汐, en: "Phase out new coal and oil power in every territory and run the grids on wind, water, geothermal and tide" }
+      - { zh: 冻土区和珊瑚礁区的开发项目一律先做长期生态评估, en: Long-term ecological review before any project on permafrost or coral reefs }
+      - { zh: 城际铁路和渡轮票价封顶，市内公共交通逐步免费, en: "Cap intercity rail and ferry fares and make city transit free step by step" }
+      - { zh: 设立领地级的生物多样性基金，由采矿和航运收入出资, en: A territorial biodiversity fund paid for from mining and shipping revenues }
+    allies: [pty_jh513z, pty_fn97vt, pty_09zrw1]
+    targets: { div_fbfqv9: 11, div_raat4g: 5, div_hpmerr: 8, div_nwm019: 9 }
+    lean: { urban: 0.35, education: 0.4, research: 0.4, young: 2.5, mining: -0.4, conservation: 0.5, tourism: 0.2, income: 0.2 }
+    notes:
+      zh: "绿脉党是四个领地都有议员候选人的生态政党，名字指叶片上输送养分的叶脉，也指把各地保护区连成一片的生态廊道。它在大学城、科学城和年轻人多的城区得票最高，主张电网完全改用可再生能源、冻土和珊瑚礁开发先做长期评估、公共交通逐步免费。北维京岛和北冰洋的政府里都有它：在北维京岛，它掌管环境与能源部，推动内陆风电场和海上风电并网；在北冰洋，它坚持每一个新矿都要先算清冻土融化的代价，与同在政府里的冶炼工会党经常在内阁会议上争得面红耳赤，两党的部长却是多年的冰钓搭档。在维京群岛的单一选区制下，绿脉党有近半成的选票，却一个议席也拿不到，所以它是群岛改革选举制度最积极的倡导者。党员平均年龄是各党里最低的，党代会开到深夜时，会场外常有人支起帐篷。"
+      en: "Greenvein is an ecological party with candidates in all four territories; its name means the veins that carry sap through a leaf, and the wildlife corridors that link the reserves into one. It polls best in the university towns, Science City and young neighbourhoods, and wants grids run entirely on renewables, long-term review before any building on permafrost or reefs, and public transport made free step by step. It sits in the governments of North Viking Island and the Arctic Ocean. On North Viking Island it runs the Ministry of Environment and Energy and has driven the connection of the inland and offshore wind farms; in the Arctic Ocean it insists that every new mine first count the cost of thawing permafrost, which often has it arguing hard in cabinet with the Smelters' Union, also in government, though the two parties' ministers have been ice-fishing partners for years. Under the Viking Islands' single-member seats Greenvein wins nearly one vote in twenty and not one seat, which makes it the loudest voice there for electoral reform. Its members are the youngest of any party, and when its congress runs late into the night tents go up outside the hall."
+    history:
+      zh: "绿脉党起源于北维京岛科学城研究人员发起的冻土监测网络和北冰洋的苔原保护运动，两股力量在一次反对冰盖边缘露天矿的联合请愿后合并成党。长夏群岛的支部由珊瑚礁潜水员和梯田保护团体建立。"
+      en: "Greenvein began with a permafrost monitoring network started by researchers in North Viking Island's Science City and with the Arctic Ocean's tundra conservation movement; the two came together as a party after a joint petition against an open-pit mine at the edge of the ice cap. Its Everlong Summer branch was founded by reef divers and terrace conservation groups."
+
+  - id: pty_ymxc2s
+    names: { zh: 灯塔自由党, en: Lighthouse Liberals }
+    short_names: { zh: 灯塔, en: "Lighthouse" }
+    color: "#F2B705"
+    flag: { layout: horizon, colors: ["#1C2E4A", "#F2B705", "#FFFFFF"], edge: waves, charge: lighthouse, charge_in: horizon }
+    spectrum: 0.5
+    family: { zh: 社会自由主义, en: Social liberalism }
+    leader: { zh: 许知微, en: Xu Zhiwei }
+    members: 21000
+    youth_wing: { zh: 年轻灯塔, en: Young Lighthouse }
+    slogan: { zh: 照亮每一条航道, en: Light every channel }
+    policies:
+      - { zh: 公共数据默认公开，政务院各部的会议纪要一周内上网, en: "Open public data by default and publish every ministry's minutes within a week" }
+      - { zh: 简化外来人才的居留和执业资格认定, en: "Simplify residence and professional recognition for people coming from elsewhere" }
+      - { zh: 一人公司和小企业前三年减免登记费用, en: Waive registration fees for sole traders and small firms in their first three years }
+      - { zh: 中文、英文和本地语言的双语、三语教育从幼儿园开始, en: "Bilingual and trilingual schooling in Chinese, English and the local language from nursery onwards" }
+    allies: [pty_ydphtm, pty_mak5vy, pty_fn97vt]
+    targets: { div_fbfqv9: 8, div_raat4g: 4, div_hpmerr: 4, div_nwm019: 3 }
+    lean: { finance: 0.4, tech: 0.4, digital: 0.3, urban: 0.3, income: 0.5, "lang:en": 1.0, trade: 0.3 }
+    notes:
+      zh: "灯塔自由党是一个中间偏右的自由派政党，看重公民自由、政府透明和开放的市场，也支持全民医疗和教育，被对手形容为「左手拿着预算表，右手拿着人权宪章」。它的选民集中在首府、金融和科技从业者多的城区，以及移民和英语使用者多的街区。在北维京岛，它是议会里的第四大党，目前在野，但在贝克勒自由贸易区与锚联盟共同执掌市政；在北冰洋和长夏群岛，它各有几个议席，常在预算表决中充当关键的少数。党的标志是海浪上的一座灯塔，党员见面时爱说「今晚的灯亮着吗」，意思是问对方最近有没有去参加党部每周四的公开讲座。党首许知微曾是一名海事律师，擅长在辩论中引用法条原文，她的口头禅是「请把条文念完」。灯塔自由党每年出版一份透明度报告，给政府各部门的信息公开程度打分，得分最低的部门会收到一只坏掉的灯泡。"
+      en: "The Lighthouse Liberals are a liberal party just right of centre, prizing civil liberties, open government and open markets while backing universal health care and education; opponents say they carry a budget sheet in one hand and a charter of rights in the other. Their voters are concentrated in the capitals, in districts full of finance and technology workers, and in neighbourhoods with many incomers and English speakers. On North Viking Island they are the fourth party in parliament and in opposition, but they run the Beckerle Free Trade Zone together with the Anchor Union; in the Arctic Ocean and the Everlong Summer Islands they have a few seats each and often hold the balance in budget votes. Their emblem is a lighthouse over the waves, and members greet each other with is the lamp lit tonight, meaning have you been to the branch's open lecture on Thursday. Their leader Xu Zhiwei was a maritime lawyer who likes to quote statutes word for word in debate; her catchphrase is please read the clause to the end. Each year the party publishes a transparency report scoring every government department on openness, and the lowest scorer is sent a broken light bulb."
+    history:
+      zh: "灯塔自由党由北维京岛的一群律师、记者和大学教师创立，最早的诉求是让政务院公开会议纪要。贝克勒自由贸易区设立后，它在新来的外籍从业者中迅速扩大，随后在其他三个领地建立了支部。"
+      en: "The Lighthouse Liberals were founded on North Viking Island by a group of lawyers, journalists and university teachers whose first demand was that the Executive Council publish its minutes. After the Beckerle Free Trade Zone opened they grew quickly among the professionals who came to work there, and then set up branches in the other three territories."
+
+  - id: pty_ydphtm
+    names: { zh: 罗盘党, en: Compass Party }
+    short_names: { zh: 罗盘, en: "Compass" }
+    color: "#7A5BD6"
+    flag: { layout: banner, colors: ["#7A5BD6"], charge: compass }
+    spectrum: 0.0
+    family: { zh: 中间派、技术官僚, en: "Centrism, technocracy" }
+    leader: { zh: 程以衡, en: Cheng Yiheng }
+    members: 15000
+    youth_wing: { zh: 新罗盘, en: New Compass }
+    slogan: { zh: 先看数据，再定方向, en: "Read the data, then set the course" }
+    policies:
+      - { zh: 每一项新法规都附带成本收益评估，五年后自动复审, en: "Attach a cost-benefit review to every new law, with an automatic review after five years" }
+      - { zh: 预算按项目公开到每一笔，开放给公众查询, en: "Publish the budget down to every item, open for anyone to search" }
+      - { zh: 公务员考试与晋升全部匿名评审, en: Anonymous marking for all civil service examinations and promotions }
+      - { zh: 大型工程先做试点，再推广, en: "Pilot big projects before rolling them out" }
+    allies: [pty_ymxc2s, pty_jh513z]
+    targets: { div_fbfqv9: 6, div_hpmerr: 2.5, div_nwm019: 3 }
+    lean: { government: 0.3, research: 0.3, education: 0.2, residential: 0.2 }
+    notes:
+      zh: "罗盘党自称「不左不右，只往前」，是一个以规划师、工程师、统计学者和退休公务员为骨干的中间派政党，主张政策先做试点、法规附带成本评估、预算公开到每一笔。它在北维京岛议会里只有几个议席，却是互助党、绿脉党政府能过半数的关键一块，交换条件是由它掌管政策和计划委员会，委员会的年度发展报告因此越写越厚，附表比正文还长。罗盘党在北冰洋和长夏群岛也有支部：在长夏群岛不设门槛的比例代表制下有一两个议席，在北冰洋则没能跨过门槛。党代会的传统节目是现场考题：每位代表要在十分钟内估算一项领地开支，误差最小的人获赠一只黄铜罗盘。"
+      en: "The Compass Party calls itself neither left nor right, only forward. It is a centrist party built around planners, engineers, statisticians and retired civil servants, and wants policies piloted first, every law costed and every line of the budget published. It has only a handful of seats in the North Viking Island parliament, yet those seats are what carry the Mutual Aid and Greenvein government past half, and the price was the Policy and Planning Commission, whose annual development report has grown thicker ever since, its tables now longer than its text. It has branches in the Arctic Ocean and the Everlong Summer Islands as well: the Everlong Summer Islands' proportional system, with no threshold, gives it a seat or two, while in the Arctic Ocean it falls short of the threshold. A tradition of its congress is the quiz: each delegate has ten minutes to estimate a line of territorial spending, and the closest wins a brass compass."
+    history:
+      zh: "罗盘党由北维京岛新城和科学城的规划师、工程师发起，起初是一个研究城市规划的学会，在一次关于首府扩建方案的争论后决定参加选举。"
+      en: "The Compass Party was started by planners and engineers in New City and Science City on North Viking Island as a society for the study of town planning, and decided to stand for election after an argument over how the capital should grow."
+
+  - id: pty_mak5vy
+    names: { zh: 锚联盟, en: Anchor Union }
+    short_names: { zh: 锚盟, en: "Anchor" }
+    color: "#1F4E9E"
+    flag: { layout: banner, colors: ["#1F4E9E", "#FFFFFF"], division: bordure, charge: anchor }
+    spectrum: 1.0
+    family: { zh: 自由保守主义, en: Liberal conservatism }
+    leader: { zh: 邵承岳, en: Shao Chengyue }
+    members: 72000
+    youth_wing: { zh: 青锚, en: Young Anchors }
+    slogan: { zh: 稳得住，才走得远, en: "Hold fast, go far" }
+    policies:
+      - { zh: 降低中小企业所得税，取消十几项重复的行业许可, en: "Cut tax on small and medium firms and scrap a dozen overlapping trade licences" }
+      - { zh: 领地财政每年留出盈余，建立长期储备基金, en: Run a surplus every year and build a long-term reserve fund }
+      - { zh: 家庭第一套住房的首付由领地担保, en: "Territorial guarantees for first-home deposits" }
+      - { zh: 加强社区警务和港口安检, en: Strengthen neighbourhood policing and port security }
+      - { zh: 中小学增加职业课程，与本地企业合办学徒制, en: "More vocational courses in schools, with apprenticeships run with local firms" }
+    allies: [pty_ymxc2s, pty_hwkmx1, pty_x004cm]
+    targets: { div_fbfqv9: 21, div_hpmerr: 10, div_nwm019: 9 }
+    lean: { finance: 0.3, commerce: 0.3, trade: 0.3, income: 0.6, old: 1.5, residential: 0.2 }
+    notes:
+      zh: "锚联盟是北维京岛、北冰洋和长夏群岛的主要中右政党，主张稳健财政、低税、扶持中小企业和家庭置业，也重视社区治安和职业教育。党旗是白边蓝底上的一只白锚，寓意「不管风浪多大，船都要先下锚稳住」。在北维京岛，它是第二大党和主要反对党，赢下了贝克勒的全部选区、新城的大部分选区和维京港的一半选区，党主席邵承岳每周在议会质询时间与总督陆远舟的交锋，被电视台做成了收视率不错的节目；它在新城和贝克勒自由贸易区执掌市政。在北冰洋，它是反对派中仅次于金库党的力量；在长夏群岛，它是最大的反对党，批评现政府「把明天的钱提前发完了」。在维京群岛，它不推候选人，与蓝桨党结为姊妹党。锚联盟的支持者以小企业主、专业人士和年长的业主为多，党部的年度募款晚宴总在一艘退役渡轮上举行。"
+      en: "The Anchor Union is the main centre-right party of North Viking Island, the Arctic Ocean and the Everlong Summer Islands. It stands for sound finances, low taxes and help for small firms and home-buying families, and puts weight on neighbourhood safety and vocational training. Its flag is a white anchor on blue within a white border: however rough the sea, first drop anchor and hold steady. On North Viking Island it is the second party and the main opposition and takes every constituency in Beckerle, most of New City's and half of Viking Port's; the weekly clash at question time between its chair Shao Chengyue and Governor Lu Yuanzhou has become a television programme with respectable ratings, and it runs the councils of New City and the Beckerle Free Trade Zone. In the Arctic Ocean it is the strongest opposition party after the Vault Party, and in the Everlong Summer Islands it leads the opposition, accusing the government of spending tomorrow's money today. It does not stand in the Viking Islands, where Blue Oar is its sister party. Its supporters are mostly small business owners, professionals and older homeowners, and its annual fundraising dinner is always held on board a retired ferry."
+    history:
+      zh: "锚联盟由北维京岛早期的商会、船东协会和几个地方保守派团体合并而成，与互助党同为领地议会最早的两大党。北冰洋和长夏群岛的支部由在当地经营的北维京岛企业家牵头组建。"
+      en: "The Anchor Union was formed by merging the early chambers of commerce, the shipowners' association and several local conservative groups of North Viking Island, and with the Mutual Aid Party it was one of the two great parties of the first territorial parliament. Its Arctic Ocean and Everlong Summer branches were set up by North Viking Island business people working there."
+
+  - id: pty_0h5194
+    names: { zh: 岛民之声, en: "Islanders' Voice" }
+    short_names: { zh: 岛声, en: "Voice" }
+    color: "#7B5E3B"
+    flag: { layout: bands, colors: ["#7B5E3B", "#F3E9D2"], vertical: true, ratio: [1, 2], charge: horn, charge_band: 1, charge_color: "#7B5E3B" }
+    spectrum: 2.8
+    family: { zh: 右翼民粹主义, en: Right-wing populism }
+    leader: { zh: 马铁山, en: Ma Tieshan }
+    members: 27000
+    youth_wing: { zh: 岛民青年之声, en: "Young Islanders' Voice" }
+    slogan: { zh: 让岛民自己说话, en: Let islanders speak for themselves }
+    policies:
+      - { zh: 重大开支和税率调整须经全领地公投, en: "Put major spending and tax changes to a territory-wide referendum" }
+      - { zh: 降低燃油税和渡轮票价, en: Cut fuel duty and ferry fares }
+      - { zh: 外来人口的年度配额与住房和学位挂钩, en: "Tie the yearly quota of newcomers to the supply of homes and school places" }
+      - { zh: 加重对盗窃、破坏公物和醉驾的处罚, en: "Tougher penalties for theft, vandalism and drink-driving" }
+      - { zh: 议员薪酬冻结，议员人数减少三成, en: Freeze members' pay and cut the number of members by three-tenths }
+    allies: []
+    targets: { div_fbfqv9: 7, div_raat4g: 4, div_hpmerr: 6, div_nwm019: 4 }
+    lean: { urban: -0.4, income: -0.4, old: 1.0, fishing: 0.3, mining: 0.3, logistics: 0.2, "lang:en": -1.0 }
+    notes:
+      zh: "岛民之声是一个右翼民粹政党，主张以公投决定重大开支和税率、降低燃油税和渡轮票价、让外来人口的年度配额跟住房和学位的供应挂钩，并加重对盗窃和醉驾的处罚。它的支持者多在偏远渔港、矿区和物流城镇，许多人觉得首府的政策离自己很远。党主席马铁山原是一名长途卡车司机，以在议会里拿出自己的加油小票质询燃油税出名。岛民之声在四个领地都有候选人，在北维京岛、北冰洋和长夏群岛都进了议会，但其他政党都不愿与它组成政府，它也乐于以「唯一真正的反对派」自居。它的竞选集会常在港口的鱼市散场后举行，台下的人一边听一边吃刚出锅的炸鱼。它的议员每月要回到自己的选区开一次「拍桌会」，任何选民都可以当面拍着桌子提意见，议员必须当场记下来。"
+      en: "Islanders' Voice is a right-wing populist party. It wants referendums on major spending and tax rates, lower fuel duty and ferry fares, a yearly quota of newcomers tied to the supply of homes and school places, and tougher penalties for theft and drink-driving. Its supporters are mostly in remote fishing harbours, mining towns and haulage towns, where many feel the capital's policies are far away. Its chair, Ma Tieshan, was a long-haul lorry driver and made his name by producing his own fuel receipts in parliament to question the duty. The party stands in all four territories and has seats in the North Viking Island, Arctic Ocean and Everlong Summer parliaments, but no other party will govern with it, and it is happy to call itself the only real opposition. Its rallies are often held in a harbour fish market after the trading ends, the crowd eating fish fresh from the fryer as they listen. Its members of parliament hold a table-thumping meeting back home every month, where any voter may thump the table and speak their mind, and the member must write it all down on the spot."
+    history:
+      zh: "岛民之声起于北维京岛一场反对上调燃油税的车队请愿，参加请愿的卡车司机、渔民和矿工后来组成了政党，随后在其他领地的渔港和矿区也有了支部。"
+      en: "Islanders' Voice began with a convoy petition on North Viking Island against a rise in fuel duty; the lorry drivers, fishers and miners who took part went on to form a party, and branches followed in the fishing harbours and mining towns of the other territories."
+
+  - id: pty_fn97vt
+    names: { zh: 开源党, en: Open Source Party }
+    short_names: { zh: 开源, en: "Open Source" }
+    color: "#6D6875"
+    flag: { layout: banner, colors: ["#3D3A4B"], charge: brackets, charge_color: "#9EF0B5" }
+    spectrum: -0.6
+    family: { zh: 数字权利, en: Digital rights }
+    leader: { zh: 利维奥·塞兰迪, en: Livio Serrandi }
+    members: 9800
+    youth_wing: { zh: 分叉社, en: The Fork }
+    slogan: { zh: 公开的代码，公开的政府, en: "Open code, open government" }
+    policies:
+      - { zh: 政府采购的软件一律开源，源代码公开托管, en: "All software the government buys to be open source, its code published" }
+      - { zh: 个人数据未经本人同意不得跨机构共享, en: No sharing of personal data between agencies without consent }
+      - { zh: 全民免费的基础宽带和公共算力配额, en: Free basic broadband and a public computing allowance for everyone }
+      - { zh: 议会表决记录以机器可读格式实时公开, en: "Publish parliamentary votes live in machine-readable form" }
+    allies: [pty_2033kv, pty_ymxc2s]
+    targets: { div_fbfqv9: 3, div_raat4g: 1.5, div_hpmerr: 2.6, div_nwm019: 2 }
+    lean: { datacenter: 0.6, tech: 0.5, digital: 0.6, young: 3.0, urban: 0.2 }
+    notes:
+      zh: "开源党是一个关注数字权利的小党，主张政府软件开源、个人数据未经同意不得共享、基础宽带和公共算力人人免费，议会表决记录要以机器可读的格式实时公开。它的党员多是程序员、数据中心工程师和大学生，党章本身就托管在公开的代码仓库里，任何党员都可以提交修改，经全体投票后合并。开源党在北冰洋的数据中心城镇得票最高，但还差一点才到百分之三的门槛；在长夏群岛的比例代表制下，它拿到过一个议席。党内的青年团叫「分叉社」，取自代码仓库「分叉」的说法，意思是「不同意就另起一支，做得好再合回来」。"
+      en: "The Open Source Party is a small party for digital rights. It wants government software to be open source, no sharing of personal data without consent, free basic broadband and computing for everyone, and parliamentary votes published live in machine-readable form. Its members are mostly programmers, data-centre engineers and students, and its constitution is itself kept in a public code repository where any member may propose a change, merged after a vote of all members. It does best in the Arctic Ocean's data-centre towns, though still short of the threshold there, and under the Everlong Summer Islands' proportional system it has won a seat. Its youth wing is called The Fork, after forking a repository: if you disagree, branch off, and if you do it well, merge back."
+    history:
+      zh: "开源党由北冰洋数据中心的工程师和北维京岛科学城的程序员在网上共同发起，第一次党代会完全在线上召开，表决用的软件也是党员自己写的。"
+      en: "The party was started online by data-centre engineers in the Arctic Ocean and programmers in North Viking Island's Science City; its first congress was held entirely online, on voting software its members wrote themselves."
+  - id: pty_x004cm
+    names: { zh: 渔农党, en: Fishers and Farmers Party }
+    short_names: { zh: 渔农, en: "Fish & Farm" }
+    color: "#7BA23F"
+    flag: { layout: bands, colors: ["#7BA23F", "#1F6FA8"], charge: wheat, charge_band: 0, extra: [{ charge: fish, color: "#FFFFFF", x: 30, y: 30, size: 15 }] }
+    spectrum: 0.8
+    family: { zh: 农本主义, en: Agrarianism }
+    leader: { zh: 哈尔瓦·斯特兰莫, en: Hallvar Strandmo }
+    members: 12000
+    youth_wing: { zh: 渔农青年, en: Young Fishers and Farmers }
+    slogan: { zh: 有人种地，有人出海，才有饭吃, en: "Someone sows, someone sails, everyone eats" }
+    policies:
+      - { zh: 渔业配额按港口分配，优先留给本地小船, en: "Share fishing quotas by harbour, first to local small boats" }
+      - { zh: 农场、牧场和渔船的燃料与电价补贴, en: "Subsidise fuel and power for farms, pastures and fishing boats" }
+      - { zh: 每个乡镇保留一所学校、一个邮局和一家诊所, en: "Keep a school, a post office and a clinic in every rural township" }
+      - { zh: 本地农渔产品进入学校和医院食堂, en: Local farm and fish produce in school and hospital canteens }
+    allies: [pty_mak5vy, pty_xmdckb, pty_vxz9jt]
+    targets: { div_fbfqv9: 3, div_raat4g: 1.5, div_hpmerr: 1.5 }
+    lean: { fishing: 0.8, agriculture: 0.8, dairy: 0.7, herding: 0.6, forestry: 0.5, aquaculture: 0.5, urban: -0.8 }
+    notes:
+      zh: "渔农党代表北方三个领地的农民、牧民、渔民和林业工人，主张渔业配额按港口分配、给农场和渔船补贴燃料与电价、每个乡镇都保留学校、邮局和诊所。它在领地议会里没有议席，北维京岛百分之五的门槛对它来说太高，可在乡村和小港口的市议会里很有分量：雅利基卢克市议会里，它与互助党、锚联盟组成执政联盟，市里的渔港冷库和牧场饲料仓就是它争取来的。党旗上方是麦穗，下方是一条鱼，党员自嘲「我们的党旗能做一顿饭」。每年秋收后的党代会都在一个农场的谷仓里开，会后的晚宴只用代表们自己带来的东西。"
+      en: "The Fishers and Farmers Party speaks for the farmers, herders, fishers and forestry workers of the three northern territories. It wants fishing quotas shared out by harbour, cheaper fuel and power for farms and boats, and a school, a post office and a clinic kept in every township. It has no seats in any territorial parliament, North Viking Island's five-per-cent threshold being too high for it, but it carries weight on rural and small-harbour councils: in Jaalikiluk it governs with the Mutual Aid Party and the Anchor Union, and the town's harbour cold store and pasture feed barn were its doing. Its flag has an ear of wheat above and a fish below, and members joke that their flag makes a meal. The congress after each harvest is held in a farm's barn, and the dinner afterwards is made only from what the delegates bring."
+    history:
+      zh: "渔农党由北维京岛内陆的乳品合作社和沿海的渔民协会联合组建，后来在维京群岛的小岛和北冰洋的渔港也建立了支部。"
+      en: "The party was formed by the dairy cooperatives of North Viking Island's interior and the fishers' associations of its coast, and later set up branches on the small islands of the Viking Islands and in the Arctic Ocean's fishing harbours."
+
+  - id: pty_k4krwn
+    names: { zh: 长屋党, en: Longhouse Party }
+    short_names: { zh: 长屋, en: "Longhouse" }
+    color: "#2C3E50"
+    flag: { layout: banner, colors: ["#2C3E50"], charge: longhouse, charge_color: "#C9A227" }
+    spectrum: 2.0
+    family: { zh: 传统保守主义, en: Traditional conservatism }
+    leader: { zh: 埃斯特丽·豪厄伦, en: Eystrid Haugelund }
+    members: 11000
+    youth_wing: { zh: 长屋少年团, en: Longhouse Youth }
+    slogan: { zh: 守住炉火, en: Keep the hearth }
+    policies:
+      - { zh: 维京语在学校里与中文同课时, en: Teach Viking for as many hours as Chinese in schools }
+      - { zh: 古城、长屋遗址和老船坞列入保护名录，禁止拆除, en: "List the old towns, longhouse sites and old boatyards for protection, with no demolition" }
+      - { zh: 有三个以上孩子的家庭减免所得税, en: Income tax relief for families with three or more children }
+      - { zh: 地方节庆和传统航海活动由领地资助, en: Territorial funding for local festivals and traditional sailing }
+    allies: [pty_mak5vy, pty_hwkmx1]
+    targets: { div_fbfqv9: 4.6, div_raat4g: 2.5 }
+    lean: { "lang:art-x-viking": 2.0, heritage: 0.3, old: 2.0, urban: -0.3, fishing: 0.2 }
+    notes:
+      zh: "长屋党是北维京岛和维京群岛的传统保守派，主张维护维京语、古城和航海传统，支持多子女家庭，反对拆除老城区和老船坞。它的选民集中在维京语使用者多的老城镇和渔村，年长的选民居多。在北维京岛上一次选举中，它的得票只差一点就跨过百分之五的门槛，党部为此把那一晚称作「差一桨之夜」；它在维京港、勒克尔、洛龙山等地的市议会里都有席位。党名来自维京时代的长屋：一家几代人和来客都睡在同一个屋顶下，中间是一条长长的火塘。长屋党的党代会开幕时，代表们要一起点燃一只铁火盆，闭幕时由最年轻的代表把它熄灭。"
+      en: "The Longhouse Party is the traditional conservative party of North Viking Island and the Viking Islands. It seeks to keep up the Viking language, the old towns and seafaring traditions, backs large families and opposes pulling down old quarters and boatyards. Its voters are concentrated in the old towns and fishing villages where Viking is widely spoken, and most of them are older. At the last North Viking Island election it fell just short of the five-per-cent threshold, a night the party now calls the night of the missing oar stroke; it sits on the city councils of Viking Port, Lekor, Lorond Mountain and others. The name comes from the Viking-age longhouse, where several generations and their guests slept under one roof along a single long hearth. The party's congress opens with the delegates lighting an iron brazier together, and closes with the youngest delegate putting it out."
+    history:
+      zh: "长屋党由北维京岛的维京语协会和几个老城保护团体组建，最初的目标是阻止拆除维京港的老船坞。维京群岛的支部由长船古城的居民协会发起。"
+      en: "The Longhouse Party was formed by North Viking Island's Viking language society and several old-town conservation groups, its first aim being to stop the demolition of Viking Port's old boatyards. Its Viking Islands branch was started by the residents' association of Longship's old town."
+
+  # ── 北维京岛政党 ──
+  - id: pty_w45j5f
+    names: { zh: 海港运动, en: Harbour Movement }
+    short_names: { zh: 海港, en: "Harbour" }
+    color: "#1F9ACF"
+    flag: { layout: hoist, colors: ["#0F3B5F", "#1F9ACF", "#FFFFFF", "#1F9ACF"], charge: gull }
+    spectrum: -0.4
+    family: { zh: 地方主义, en: Regionalism }
+    leader: { zh: 秦望舒, en: Qin Wangshu }
+    members: 6500
+    youth_wing: { zh: 海港青年, en: Harbour Youth }
+    slogan: { zh: 维京港的事，维京港定, en: Viking Port decides for Viking Port }
+    policies:
+      - { zh: 港口收入的一半留给维京港市, en: Half of the port's revenue to stay with Viking Port City }
+      - { zh: 维京港老城和港区的规划由市议会而不是领地政府审批, en: "Viking Port's old town and harbour to be planned by the city council, not the territory" }
+      - { zh: 海底通道的过路费减半, en: Halve the tolls on the undersea link }
+      - { zh: 在老港区建一座海事博物馆, en: Build a maritime museum in the old harbour }
+    allies: [pty_jh513z, pty_2033kv]
+    targets: { div_fbfqv9: 3 }
+    lean: { "city:div_m41gwn": 2.0, port: 0.3 }
+    notes:
+      zh: "海港运动只在维京港和周边竞选，是一个中间偏左的地方主义政党。维京港是北维京岛最早的城市，首府自由市建成后，政务院和议会都搬走了，许多维京港人觉得「港口赚的钱都流到了首府」。海港运动主张港口收入留一半给本市、老城规划由市议会审批、海底通道过路费减半。在领地议会选举中，它的得票集中在一座城市，跨不过全领地的门槛，但在维京港市议会里是第三大党，与互助党、绿脉党组成执政联盟，市长顾静宜上任第一件事就是把市政厅的旗杆换回了老港区的旧桅杆。"
+      en: "The Harbour Movement stands only in Viking Port and around it, a regionalist party just left of centre. Viking Port is North Viking Island's oldest city, and when Freedom City was built as the capital the Executive Council and the parliament moved away; many in Viking Port feel the money the harbour makes flows to the capital. The movement wants half the port's revenue kept in the city, the old town planned by the city council and the undersea link's tolls halved. In territorial elections its vote is concentrated in one city and cannot clear the territory-wide threshold, but on Viking Port's council it is the third party and governs with the Mutual Aid Party and Greenvein; the first thing Mayor Gu Jingyi did in office was to replace the city hall's flagpole with an old mast from the harbour."
+    history:
+      zh: "海港运动起于维京港居民反对把港务局迁往首府的一次请愿，请愿成功后，发起人决定参加市议会选举，后来也参加领地议会选举。"
+      en: "The movement began with a petition by Viking Port residents against moving the port authority to the capital; when the petition succeeded its organisers decided to stand for the city council, and later for the territorial parliament too."
+
+  - id: pty_p15smt
+    names: { zh: 巴克汉姆人联盟, en: Buckham League }
+    short_names: { zh: 巴盟, en: "Buckham" }
+    color: "#A23E8C"
+    flag: { layout: diagonal, colors: ["#A23E8C", "#F7E6F0"], charge: tower }
+    spectrum: -0.2
+    family: { zh: 少数语言权利, en: Minority language rights }
+    leader: { zh: 奥塔维娅·卡尔韦西, en: Ottavia Calvessi }
+    members: 4200
+    youth_wing: { zh: 巴克汉姆青年, en: Buckham Youth }
+    slogan: { zh: 两种语言，一个家, en: "Two tongues, one home" }
+    policies:
+      - { zh: 巴克汉姆语使用者超过一成的区，路牌和公文双语, en: "Bilingual signs and documents in every district where over a tenth speak Buckham" }
+      - { zh: 设立巴克汉姆语广播电视频道, en: A Buckham-language radio and television channel }
+      - { zh: 巴克汉姆语学校与中文学校同等拨款, en: Equal funding for Buckham-language and Chinese-language schools }
+      - { zh: 修缮萨科勒老城的钟楼和石桥, en: "Restore the bell towers and stone bridges of Sakole's old town" }
+    allies: [pty_jh513z, pty_ymxc2s]
+    targets: { div_fbfqv9: 2 }
+    lean: { "lang:art-x-buckham": 3.0 }
+    notes:
+      zh: "巴克汉姆人联盟代表北维京岛讲巴克汉姆语的居民，主张在巴克汉姆语使用者多的区实行双语路牌和公文、开办巴克汉姆语广播电视、让巴克汉姆语学校与中文学校同等拨款。巴克汉姆人是岛上较早的移民之一，聚居在萨科勒和几个山谷小城，以石砌的钟楼、拱桥和长长的午餐闻名。联盟在领地议会里没有议席，却在萨科勒市议会里有三席，市里新设的巴克汉姆语图书馆就是它促成的。联盟每年春天在萨科勒老城办一次「两种语言」诗会，参赛的诗必须一半用中文、一半用巴克汉姆语写成。"
+      en: "The Buckham League speaks for North Viking Island's Buckham-speaking residents. It wants bilingual signs and documents where many speak Buckham, a Buckham radio and television channel, and equal funding for Buckham-language and Chinese-language schools. The Buckham were among the island's earlier settlers and live mostly in Sakole and a few valley towns, known for stone bell towers, arched bridges and long lunches. The League has no seats in the territorial parliament but holds three on Sakole's council, and the city's new Buckham library was its doing. Every spring it holds a two-tongues poetry contest in Sakole's old town, where each poem must be written half in Chinese and half in Buckham."
+    history:
+      zh: "巴克汉姆人联盟由萨科勒的巴克汉姆语协会和教师工会组建，最初的目标是保住几所面临合并的巴克汉姆语小学。"
+      en: "The League was formed by Sakole's Buckham language society and teachers' union, at first to save a few Buckham-language primary schools that were to be merged."
+
+  - id: pty_bvpxk0
+    names: { zh: 星途党, en: Starward Party }
+    short_names: { zh: 星途, en: "Starward" }
+    color: "#3B3F8F"
+    flag: { layout: horizon, colors: ["#1B1F4B", "#3B3F8F", "#FFFFFF"], edge: ridge, charge: orbit }
+    spectrum: 0.4
+    family: { zh: 科技进步主义, en: Techno-progressivism }
+    leader: { zh: 闻天行, en: Wen Tianxing }
+    members: 3900
+    youth_wing: { zh: 星途学会, en: Starward Cadets }
+    slogan: { zh: 下一站：星空, en: "Next stop: the stars" }
+    policies:
+      - { zh: 领地研发投入提高到生产总值的百分之五, en: Raise the territory's research spending to five per cent of output }
+      - { zh: 西荒高原发射场扩建第三座发射台, en: Build a third launch pad at the West Heath spaceport }
+      - { zh: 中学开设天文和编程必修课, en: Compulsory astronomy and programming in secondary schools }
+      - { zh: 科学城的研究成果向本地企业免费授权, en: Free licences for Science City research to local firms }
+    allies: [pty_ydphtm, pty_ymxc2s]
+    targets: { div_fbfqv9: 2.5 }
+    lean: { aerospace: 1.2, satellite: 0.8, research: 0.6, defence: 0.3 }
+    notes:
+      zh: "星途党是北维京岛一个以航天和科研为核心议题的小党，主张把领地研发投入提高到生产总值的百分之五、扩建西荒高原的发射场、让中学开设天文和编程必修课。它的选民集中在马斯林山的航天产业区和西北市的科学城，党员里有不少火箭工程师和天文台的研究员。星途党在领地议会里没有议席，在马斯林山市议会里有两席。每次火箭发射成功，党部都会在门口挂出一面写着发射序号的小旗，党部的门口因此挂满了旗。党内最受欢迎的活动是夏夜在发射场边上的观星会。"
+      en: "The Starward Party is a small North Viking Island party whose core causes are spaceflight and research. It wants research spending raised to five per cent of the territory's output, the West Heath spaceport expanded, and astronomy and programming made compulsory in secondary schools. Its voters are concentrated in Maslin Mountain's space industry district and Northwest's Science City, and its members include many rocket engineers and observatory researchers. It has no seats in the territorial parliament and two on Maslin Mountain's council. After every successful launch the branch hangs a small flag with the launch number at its door, and its doorway is now hung thick with them. Its most popular event is a summer stargazing night beside the spaceport."
+    history:
+      zh: "星途党由马斯林山航天产业区的工程师在一次关于发射场扩建的市议会听证后创立，第一份党纲写在一张火箭装配图的背面。"
+      en: "The party was founded by engineers of Maslin Mountain's space industry after a council hearing on enlarging the spaceport; its first manifesto was written on the back of a rocket assembly drawing."
+
+  - id: pty_xmdckb
+    names: { zh: 高地牧场联盟, en: Upland Pasture Union }
+    short_names: { zh: 牧盟, en: "Upland" }
+    color: "#8C6A3F"
+    flag: { layout: horizon, colors: ["#9CC3E0", "#8C6A3F"], edge: peaks, charge: antlers }
+    spectrum: 1.5
+    family: { zh: 乡村保守主义, en: Rural conservatism }
+    leader: { zh: 托尔莫·格拉斯豪, en: Tormod Grashaug }
+    members: 5100
+    youth_wing: { zh: 牧场青年, en: Young Pasture }
+    slogan: { zh: 山上也有人, en: People live up here too }
+    policies:
+      - { zh: 内陆牧区的道路冬季除雪由领地负担, en: Territorial funding for winter snow clearing on inland pasture roads }
+      - { zh: 驯鹿和牛羊的传统放牧路线写入土地法, en: "Write the traditional reindeer and sheep droving routes into land law" }
+      - { zh: 风电场选址须征得附近牧场同意, en: Wind farms only with the consent of nearby pastures }
+      - { zh: 山区学校保留寄宿部, en: Keep boarding houses at mountain schools }
+    allies: [pty_x004cm, pty_k4krwn]
+    targets: { div_fbfqv9: 2 }
+    lean: { herding: 0.8, agriculture: 0.5, forestry: 0.4, urban: -0.7 }
+    notes:
+      zh: "高地牧场联盟代表北维京岛内陆山区的牧民和小农，主张由领地负担牧区道路的冬季除雪、把传统放牧路线写入土地法、风电场选址须征得附近牧场同意。它的口号「山上也有人」来自一位牧民在议会听证会上的发言，当时议员们在讨论把一条山区公路降为季节性道路。联盟在领地议会里没有议席，在雅利基卢克市议会里有两席。它与绿脉党在风电场选址上常有争执，但在保护山地草场上又常常站在一起，两党的人说这叫「吵着架一起赶羊」。联盟的党员证是一枚小铜铃。"
+      en: "The Upland Pasture Union speaks for the herders and smallholders of North Viking Island's mountainous interior. It wants the territory to pay for winter snow clearing on pasture roads, the traditional droving routes written into land law, and wind farms sited only with the consent of nearby pastures. Its slogan, people live up here too, comes from a herder's words at a parliamentary hearing on downgrading a mountain road to a seasonal one. It has no seats in the territorial parliament and two on Jaalikiluk's council. It often quarrels with Greenvein over where wind farms go, yet the two stand together on protecting mountain grassland, which their members call herding sheep while arguing. A member's card is a small brass bell."
+    history:
+      zh: "高地牧场联盟由内陆的牧民协会组建，起因是一次冬季暴雪中几条山路因预算不足没有及时除雪，牧场被困了两周。"
+      en: "The Union was formed by the inland herders' associations after a winter blizzard in which several mountain roads went uncleared for want of money and the pastures were cut off for a fortnight."
+
+  # ── 维京群岛政党 ──
+  - id: pty_z573k7
+    names: { zh: 红帆党, en: Red Sail Party }
+    short_names: { zh: 红帆, en: "Red Sail" }
+    color: "#D7263D"
+    flag: { layout: banner, colors: ["#D7263D", "#1E3A5F"], division: wavy, charge: sail }
+    spectrum: -1.0
+    family: { zh: 社会民主主义, en: Social democracy }
+    leader: { zh: 卡娅·布伦维克, en: Kaja Brennvik }
+    members: 41000
+    youth_wing: { zh: 红帆青年, en: Red Sail Youth }
+    slogan: { zh: 同一阵风，同一条船, en: "One wind, one boat" }
+    policies:
+      - { zh: 岛际渡轮对居民免费, en: Free inter-island ferries for residents }
+      - { zh: 渔船、船坞和酒店员工的集体工资协议覆盖全领地, en: "Territory-wide collective wage agreements for fishing crews, boatyards and hotels" }
+      - { zh: 每座有人居住的岛上都有一名全科医生, en: A general practitioner on every inhabited island }
+      - { zh: 温泉和海滩收入的一部分用于公共住房, en: Part of the hot spring and beach revenue for public housing }
+      - { zh: 旅游旺季的临时工享有同等社保, en: Equal social insurance for seasonal tourism workers }
+    allies: [pty_jh513z, pty_vxz9jt]
+    targets: { div_raat4g: 36 }
+    lean: { port: 0.3, shipbuilding: 0.5, manufacturing: 0.3, fishing: 0.2, income: -0.4, urban: 0.2 }
+    notes:
+      zh: "红帆党是维京群岛两大党之一，属社会民主主义，与北维京岛的互助党是姊妹党。它主张岛际渡轮对居民免费、集体工资协议覆盖渔船、船坞和酒店员工、每座有人居住的岛上都有一名全科医生。维京群岛沿用殖民时代留下的单议席选区制，红帆党与蓝桨党轮流执政的传统由此而来，小党很难赢下选区。在上一次选举中，红帆党在六十一个选区里赢下了过半数，单独执政，党首卡娅·布伦维克出任总督。它的票仓在船坞城镇、渔港和收入偏低的工人社区。党旗上的红帆是群岛渔船的老式帆，红帆党人说：「风是大家的，帆也是大家的。」每次选举之夜，红帆党的支持者会在长船古城的老码头升起一面红帆，等计票结束后再决定是否把它降下。红帆青年每年夏天与互助党的青年团在海底通道两端轮流办营。"
+      en: "The Red Sail Party is one of the Viking Islands' two big parties, a social democratic party and the sister party of North Viking Island's Mutual Aid Party. It wants free inter-island ferries for residents, collective wage agreements covering fishing crews, boatyards and hotels, and a general practitioner on every inhabited island. The Viking Islands keep the single-seat constituencies left from colonial times, which is where the tradition of the Red Sail and Blue Oar parties taking turns in government comes from, and small parties seldom win a seat. At the last election the Red Sail Party won a majority of the sixty-one constituencies and governs alone, with its leader Kaja Brennvik as governor. Its strongholds are the boatyard towns, the fishing harbours and the poorer working districts. The red sail on its flag is the old sail of the islands' fishing boats, and its members say the wind belongs to all, and so does the sail. On every election night its supporters raise a red sail on the old quay of Longship's old town, and decide whether to lower it only when the count is done. Each summer Red Sail Youth and the Mutual Aid Party's youth wing hold a camp at either end of the undersea link in turn."
+    history:
+      zh: "红帆党起源于殖民时代的渔民和船坞工人互助会，那时群岛的议会只有两个派别，一派代表船工，一派代表船东。殖民统治结束后，这两个派别分别成为红帆党和蓝桨党。"
+      en: "The Red Sail Party grew out of the mutual aid societies of fishers and boatyard workers in colonial times, when the islands' assembly had only two factions, one for the boat crews and one for the boat owners. When colonial rule ended the two factions became the Red Sail and Blue Oar parties."
+
+  - id: pty_hwkmx1
+    names: { zh: 蓝桨党, en: Blue Oar Party }
+    short_names: { zh: 蓝桨, en: "Blue Oar" }
+    color: "#2F6DB5"
+    flag: { layout: banner, colors: ["#2F6DB5", "#1B3F73"], division: wavy, charge: rudder }
+    spectrum: 1.1
+    family: { zh: 保守自由主义, en: Liberal conservatism }
+    leader: { zh: 哈尔夫丹·厄斯特马克, en: Halvdan Østmark }
+    members: 38000
+    youth_wing: { zh: 蓝桨青年, en: Blue Oar Youth }
+    slogan: { zh: 划得稳，靠得岸, en: "Row steady, reach the shore" }
+    policies:
+      - { zh: 降低船东和酒店业的营业税, en: Lower business tax for boat owners and hotels }
+      - { zh: 领地预算每年平衡，债务不超过生产总值的三成, en: "A balanced budget every year, with debt under thirty per cent of output" }
+      - { zh: 私人投资修建新的游艇码头和温泉酒店, en: Private investment in new marinas and hot spring hotels }
+      - { zh: 维京群岛的海警和搜救队扩编, en: Enlarge the Viking Islands' coastguard and rescue service }
+    allies: [pty_mak5vy, pty_k4krwn, pty_9w8gxv]
+    targets: { div_raat4g: 33 }
+    lean: { finance: 0.4, commerce: 0.2, tourism: 0.2, income: 0.5, old: 1.5, residential: 0.2 }
+    notes:
+      zh: "蓝桨党是维京群岛的另一大党，属中右翼，与北维京岛的锚联盟是姊妹党。它主张降低船东和酒店业的营业税、每年平衡预算、让私人投资修建游艇码头和温泉酒店、扩编海警和搜救队。蓝桨党的选民偏年长、收入偏高，集中在金融和商业发达的城区、旅游小镇和老年人多的社区。在上一次选举中，它以二十多个选区的议席成为议会反对党，但在暖泉、莫塞、富鲁海姆和埃德文港的市议会里都是第一大党。红帆党和蓝桨党在议会辩论时互不相让，可每年群岛划船节上两党议员会同坐一条长船，按传统，谁划错了桨谁就要请全船人喝鱼汤。党首哈尔夫丹·厄斯特马克出身船东家庭，年轻时在渔船上当过三年水手，常说自己「既懂账本，也懂缆绳」。蓝桨党最常提的议案是减税和修码头，最常反对的是红帆党的渡轮免费计划，理由是「免费的船也要有人付油钱」。"
+      en: "The Blue Oar Party is the Viking Islands' other big party, centre-right and the sister party of North Viking Island's Anchor Union. It wants lower business tax for boat owners and hotels, a balanced budget every year, private investment in marinas and hot spring hotels, and a larger coastguard and rescue service. Its voters are older and better off, concentrated in the commercial and financial districts, the tourist towns and the older communities. At the last election it won some two dozen constituencies to become the opposition, but it is the largest party on the councils of Warmspring, Måsey, Furuheim and Port Edevane. The two parties give no quarter in parliamentary debates, yet at the islands' rowing festival each year their members share one longboat, and by tradition whoever misses a stroke buys fish soup for the whole crew. Its leader Halvdan Østmark comes from a boat-owning family and spent three years as a deckhand on a fishing boat in his youth; he likes to say he knows both the ledger and the ropes. The bills it moves most often are tax cuts and new quays, and the policy it opposes most often is Red Sail's free ferries, on the grounds that someone still has to pay for a free boat's fuel."
+    history:
+      zh: "蓝桨党起源于殖民时代议会里代表船东和商人的派别，党名来自船东们在议会里举的蓝色船桨标牌。"
+      en: "The Blue Oar Party grew out of the colonial assembly's faction of boat owners and merchants; its name comes from the blue oar placards the owners raised in the chamber."
+
+  - id: pty_vxz9jt
+    names: { zh: 小岛联合, en: Small Isles Union }
+    short_names: { zh: 小岛, en: "Small Isles" }
+    color: "#4FB3A9"
+    flag: { layout: mirror, colors: ["#4FB3A9", "#F4FBFA"] }
+    spectrum: 0.1
+    family: { zh: 地方主义, en: Regionalism }
+    leader: { zh: 埃利西芙·霍尔姆韦尔, en: Ellisif Holmvær }
+    members: 3600
+    youth_wing: { zh: 小岛青年, en: Small Isles Youth }
+    slogan: { zh: 别让最后一盏灯熄灭, en: Don't let the last light go out }
+    policies:
+      - { zh: 人口不足五百的岛屿免征房产税, en: No property tax on islands of under five hundred people }
+      - { zh: 每座有人居住的岛每天至少两班渡轮, en: At least two ferries a day to every inhabited island }
+      - { zh: 远程工作者迁居小岛可获安家补贴, en: Settling grants for remote workers moving to small islands }
+      - { zh: 小岛上的学校即使只剩一个学生也不关闭, en: "No small-island school closes, even with one pupil left" }
+    allies: [pty_z573k7, pty_hwkmx1, pty_x004cm]
+    targets: { div_raat4g: 10 }
+    lean: { fishing: 0.8, aquaculture: 0.6, old: 3.0, urban: -2.4 }
+    notes:
+      zh: "小岛联合代表维京群岛外围的小岛居民，主张给人口不足五百的岛屿免征房产税、保证每座有人居住的岛每天至少两班渡轮、给迁居小岛的远程工作者安家补贴。许多小岛的年轻人去了大岛或北维京岛，留下的多是渔民和老人，联盟的口号「别让最后一盏灯熄灭」说的就是岛上最后一户人家。在单议席选区制下，它只在一个由几十座小岛组成的选区里赢下了议席，却常常在红帆党和蓝桨党之间斡旋；在乌维克库特市议会里，它是第一大党，与蓝桨党联合执政，市长也出自小岛联合。联盟的议员每次去议会开会都要先坐渡轮再换小船，路上要走大半天，她说这正是她要在议会里讲的事。"
+      en: "The Small Isles Union speaks for the people of the Viking Islands' outlying small islands. It wants no property tax on islands of under five hundred people, at least two ferries a day to every inhabited island, and settling grants for remote workers who move to the small islands. Many young islanders have left for the larger islands or North Viking Island, leaving mostly fishers and the old, and its slogan about the last light refers to the last household on an island. Under single-seat constituencies it has won only one seat, in a constituency of dozens of small islands, but it often mediates between the Red Sail and Blue Oar parties, and on Uviqkut's council it is the largest party, governing with the Blue Oar Party under a Small Isles mayor. Its member of parliament takes a ferry and then a small boat to every sitting, most of a day's journey, which she says is exactly what she is there to talk about."
+    history:
+      zh: "小岛联合由几座小岛的居民会在渡轮班次被削减后联合组建，第一次大会在一艘渡轮的甲板上召开。"
+      en: "The Union was formed by the residents' councils of several small islands after their ferry services were cut; its first meeting was held on a ferry's deck."
+
+  - id: pty_9w8gxv
+    names: { zh: 自由港党, en: Free Port Party }
+    short_names: { zh: 自港, en: "Free Port" }
+    color: "#C9A227"
+    flag: { layout: banner, colors: ["#C9A227", "#1B1B1B"], division: pile, charge: key }
+    spectrum: 1.8
+    family: { zh: 古典自由主义, en: Classical liberalism }
+    leader: { zh: 叶书衡, en: Ye Shuheng }
+    members: 2900
+    youth_wing: { zh: 自由港青年, en: Young Free Port }
+    slogan: { zh: 少一张表格，多一条船, en: "One form fewer, one ship more" }
+    policies:
+      - { zh: 把群岛的主要商港设为免税自由港, en: Make the islands' main trading harbours duty-free ports }
+      - { zh: 取消船舶登记的地方附加费, en: Abolish local surcharges on ship registration }
+      - { zh: 新企业注册一天内办完, en: Register a new business in a single day }
+      - { zh: 领地公务员人数十年不增, en: No increase in the territorial civil service for ten years }
+    allies: [pty_hwkmx1, pty_mak5vy]
+    targets: { div_raat4g: 5 }
+    lean: { finance: 0.9, trade: 0.4, income: 0.8, "lang:en": 1.5 }
+    notes:
+      zh: "自由港党是维京群岛的一个古典自由主义小党，主张把主要商港设为免税自由港、取消船舶登记的地方附加费、新企业注册一天内办完、领地公务员人数十年不增。它的支持者多是港口贸易商、船舶代理和金融业从业者，集中在几座商港的城区。在单议席选区制下，它的票分散在许多选区里，一个选区也没有赢下，党首叶书衡说：「我们拿到的票够开一家很大的公司，却不够换一个议席。」它常与蓝桨党协调候选人，在一些选区里干脆不派人，让支持者去投蓝桨党。党部办公室只有一个房间，墙上挂着一张群岛航运图，标出了每一条可以免税的航线。"
+      en: "The Free Port Party is a small classical liberal party in the Viking Islands. It wants the main trading harbours made duty-free ports, local surcharges on ship registration abolished, new businesses registered in a day and no growth in the civil service for ten years. Its supporters are mostly harbour traders, ship agents and people in finance, concentrated in the trading harbours' town centres. Under single-seat constituencies its vote is spread across many seats and it has won none; its leader Ye Shuheng says it has enough votes to run a very large company but not enough to win a seat. It often coordinates candidates with the Blue Oar Party, standing down in some constituencies so that its supporters vote Blue Oar. Its office is a single room with a shipping chart of the islands on the wall, marking every route that could be duty-free."
+    history:
+      zh: "自由港党由几位港口贸易商在一次船舶登记费上调后创立，起初只是一个商会的游说小组。"
+      en: "The party was founded by a handful of harbour traders after a rise in ship registration fees, beginning as a lobbying group within a chamber of commerce."
+
+  # ── 北冰洋政党 ──
+  - id: pty_6yj1xj
+    names: { zh: 塔夫鲁利特人民党, en: Tavrulit People's Party }
+    short_names: { zh: 塔人党, en: "Tavrulit" }
+    color: "#B23A48"
+    flag: { layout: border, colors: ["#B23A48", "#1C2B4A", "#FFFFFF"], charge: whaletail }
+    spectrum: -1.2
+    family: { zh: 原住民权利、社会民主主义, en: "Indigenous rights, social democracy" }
+    leader: { zh: 尼维卡克·陶武里亚克, en: Nivikkaaq Tauvvuriaq }
+    members: 47000
+    youth_wing: { zh: 塔夫鲁利特青年, en: Tavrulit Youth }
+    slogan: { zh: 这片土地记得我们, en: This land remembers us }
+    policies:
+      - { zh: 矿产和能源收入的一部分进入原住民共同基金, en: Part of mining and energy revenue into a common indigenous fund }
+      - { zh: 塔夫鲁纳克语与中文同为学校的教学语言, en: Tavrunaq and Chinese as equal languages of teaching }
+      - { zh: 驯鹿迁徙路线和传统猎场受法律保护, en: Legal protection for reindeer migration routes and traditional hunting grounds }
+      - { zh: 新的矿山和港口须先征得附近社区同意, en: "New mines and harbours only with the consent of nearby communities" }
+      - { zh: 每个村落都有宽带和卫星电话, en: Broadband and satellite phones in every village }
+    allies: [pty_jh513z, pty_18qa5s, pty_2033kv]
+    targets: { div_hpmerr: 19 }
+    lean: { "lang:art-x-tavrunaq": 3.0, herding: 0.4, hunting: 0.4, fishing: 0.2 }
+    roll: 2.6
+    notes:
+      zh: "塔夫鲁利特人民党是北冰洋最大的政党，代表塔夫鲁利特人和其他讲塔夫鲁纳克语的居民，属中左翼。它主张把矿产和能源收入的一部分放进原住民共同基金，让塔夫鲁纳克语与中文同为教学语言，保护驯鹿迁徙路线和传统猎场，新的矿山和港口须先征得附近社区同意。北冰洋议会为讲塔夫鲁纳克语的选民保留了八个议席，塔人党在其中占了大多数，在全领地的比例代表议席中也是第一大党。上一次选举后，它与互助党、冶炼工会党和绿脉党组成四党联合政府，党首尼维卡克·陶武里亚克出任总督。他在就职典礼上用塔夫鲁纳克语讲了一句老话：「冰会裂，但人要站在一起。」塔人党的党代会每次都在一个不同的村落举行，代表们乘雪橇、渔船和小飞机赶去，会场常常就是村里学校的体育馆。"
+      en: "The Tavrulit People's Party is the Arctic Ocean's largest party, centre-left, speaking for the Tavrulit and the territory's other Tavrunaq speakers. It wants part of the mining and energy revenue paid into a common indigenous fund, Tavrunaq taught on equal terms with Chinese, the reindeer migration routes and traditional hunting grounds protected, and no new mine or harbour without the consent of nearby communities. The Arctic Ocean assembly keeps eight seats for Tavrunaq-speaking voters; the party holds most of them and is also the largest party in the territory-wide proportional seats. After the last election it formed a four-party government with the Mutual Aid Party, the Smelters' Union and Greenvein, and its leader Nivikkaaq Tauvvuriaq became governor. At his inauguration he spoke an old saying in Tavrunaq: the ice cracks, but people stand together. Its congress meets in a different village each time, the delegates arriving by sledge, fishing boat and small plane, and the hall is usually the village school's gym."
+    history:
+      zh: "塔夫鲁利特人民党由几个驯鹿牧民合作社和村落议事会联合组建，最初的目标是争取保留议席。保留议席设立后，它成为议会里的第一大党。"
+      en: "The party was formed by several reindeer herders' cooperatives and village councils, at first to win reserved seats. Once the reserved seats were set up it became the largest party in the assembly."
+
+  - id: pty_1aej3q
+    names: { zh: 长老之道, en: Way of the Elders }
+    short_names: { zh: 长老, en: "Elders" }
+    color: "#5B3A29"
+    flag: { layout: border, colors: ["#5B3A29", "#E8D9B5", "#5B3A29"], charge: frame_drum, charge_color: "#E8D9B5" }
+    spectrum: 1.3
+    family: { zh: 原住民传统保守主义, en: Indigenous traditional conservatism }
+    leader: { zh: 阿尔尼维克·苏卢尔塔克, en: Aarnivik Sullurtaq }
+    members: 9000
+    youth_wing: { zh: 火塘之子, en: Children of the Hearth }
+    slogan: { zh: 先听长者，再问风雪, en: "Ask the elders first, then the blizzard" }
+    policies:
+      - { zh: 每个村落的长老议事会对土地使用有否决权, en: A veto over land use for every village's council of elders }
+      - { zh: 传统狩猎和捕鲸不受配额限制, en: No quotas on traditional hunting and whaling }
+      - { zh: 学校开设由长老授课的口述传统课, en: "Oral tradition lessons in schools, taught by elders" }
+      - { zh: 限制酒类在村落里的销售, en: Limit the sale of alcohol in the villages }
+    allies: [pty_6yj1xj, pty_ec1v2s]
+    targets: { div_hpmerr: 6 }
+    lean: { "lang:art-x-tavrunaq": 3.0, herding: 0.5, hunting: 0.5, old: 2.0, urban: -0.4 }
+    roll: 2.6
+    notes:
+      zh: "长老之道是北冰洋讲塔夫鲁纳克语居民中的传统保守派，主张让每个村落的长老议事会对土地使用有否决权、传统狩猎和捕鲸不受配额限制、学校开设由长老授课的口述传统课、限制村落里的酒类销售。它的选民集中在内陆的牧区和偏远的村落，年长者居多。它与塔夫鲁利特人民党争夺同一批选民：两党都主张原住民权利，但长老之道更看重传统，对矿山和新港口更为警惕，在税收和福利上又偏右。它在保留议席中占了两席，在塔夫鲁利特原住民自治区的议会里是重要的少数。党的集会总以一面框鼓开场，鼓声停下之前，没有人可以开口。"
+      en: "The Way of the Elders is the traditional conservative party among the Arctic Ocean's Tavrunaq speakers. It wants every village's council of elders to have a veto over land use, no quotas on traditional hunting and whaling, oral tradition lessons taught by elders in schools, and limits on the sale of alcohol in the villages. Its voters are concentrated in the inland pastures and remote villages, and most of them are older. It competes with the Tavrulit People's Party for the same voters: both stand for indigenous rights, but the Way of the Elders sets more store by tradition, is warier of mines and new harbours, and leans right on tax and welfare. It holds two of the reserved seats and is an important minority in the Tavrulit Indigenous Autonomous Region's council. Its meetings always open with a frame drum, and no one may speak before the drum falls silent."
+    history:
+      zh: "长老之道由一群不满塔人党同意开发一座新矿山的长老创立，他们在一个冬天里坐着雪橇走访了几十个村落，回来时已经有了第一批党员。"
+      en: "The Way of the Elders was founded by a group of elders unhappy that the Tavrulit People's Party had agreed to a new mine; they spent a winter visiting dozens of villages by sledge and came back with the party's first members."
+
+  - id: pty_ec1v2s
+    names: { zh: 金库党, en: Vault Party }
+    short_names: { zh: 金库, en: "Vault" }
+    color: "#111827"
+    flag: { layout: seal, colors: ["#111827", "#C9A227", "#111827"], charge: hexstar, charge_color: "#C9A227" }
+    spectrum: 1.3
+    family: { zh: 经济自由主义, en: Economic liberalism }
+    leader: { zh: 唐慕白, en: Tang Mubai }
+    members: 8800
+    youth_wing: { zh: 金库青年, en: Young Vault }
+    slogan: { zh: 冰原上的金库，全民的红利, en: "A vault on the ice, a dividend for all" }
+    policies:
+      - { zh: 把帕卢尔尼克金融特区的税收优惠延长二十年, en: Extend the Pallurniq Financial Zone's tax breaks by twenty years }
+      - { zh: 领地主权基金的收益每年向每位居民发放红利, en: "An annual dividend to every resident from the territory's sovereign fund" }
+      - { zh: 数据中心的电价与水电成本挂钩, en: Peg data centre power prices to the cost of hydro power }
+      - { zh: 外国专业人员三个月内获得工作许可, en: Work permits for foreign professionals within three months }
+    allies: [pty_mak5vy, pty_ymxc2s]
+    targets: { div_hpmerr: 14 }
+    lean: { finance: 1.2, datacenter: 0.4, tech: 0.4, income: 0.8, "lang:en": 1.0 }
+    notes:
+      zh: "金库党是北冰洋的中右翼经济自由派，选民集中在帕卢尔尼克金融特区和首府的商业区，多是银行、基金和数据中心的从业者。它主张延长金融特区的税收优惠，用领地主权基金的收益每年给每位居民发一笔红利，让数据中心的电价与水电成本挂钩，加快外国专业人员的工作许可。党名来自金融特区地下的一座数据金库，那里存放着几家大银行的备份服务器，冬天的余热用来给街区供暖。金库党是北冰洋议会的第二大党和最大的反对党，在帕卢尔尼克金融特区的议会里占了大半议席，特区的首长也出自金库党。每年发放红利的那一天，金库党的议员会在议会门口举着一块牌子，写着当年每人分到的数额。"
+      en: "The Vault Party is the Arctic Ocean's centre-right economic liberal party, its voters concentrated in the Pallurniq Financial Zone and the capital's business district, many of them working in banks, funds and data centres. It wants the zone's tax breaks extended, an annual dividend to every resident from the territory's sovereign fund, data centre power prices pegged to the cost of hydro power, and faster work permits for foreign professionals. Its name comes from a data vault beneath the financial zone that holds several big banks' backup servers, whose waste heat warms the neighbourhood in winter. The Vault Party is the second party in the Arctic Ocean assembly and the main opposition; it holds most of the seats on the Pallurniq Financial Zone's council, and the zone's head is a Vault member. On the day the dividend is paid each year, its members stand at the assembly door with a placard showing what each resident got."
+    history:
+      zh: "金库党由金融特区的几位基金经理和数据中心工程师创立，起因是一项要取消金融特区税收优惠的议案。议案被否决后，他们决定组党参选。"
+      en: "The party was founded by a few fund managers and data centre engineers in the financial zone, in response to a bill to scrap its tax breaks. When the bill was defeated, they decided to form a party and stand."
+
+  - id: pty_18qa5s
+    names: { zh: 冶炼工会党, en: Smelters' Union }
+    short_names: { zh: 冶工, en: "Smelters" }
+    color: "#8E2C1C"
+    flag: { layout: banner, colors: ["#8E2C1C"], charge: anvil, charge_color: "#F2A541" }
+    spectrum: -1.8
+    family: { zh: 工团主义、社会主义, en: "Trade unionism, socialism" }
+    leader: { zh: 杜铁成, en: Du Tiecheng }
+    members: 14000
+    youth_wing: { zh: 冶炼青年, en: Young Smelters }
+    slogan: { zh: 炉火不灭，饭碗不丢, en: "While the furnace burns, no one loses work" }
+    policies:
+      - { zh: 矿山和冶炼厂的工人在董事会占三分之一席位, en: A third of the board seats at mines and smelters for their workers }
+      - { zh: 冶炼厂改用水电和绿氢，但不裁员, en: "Move the smelters to hydro power and green hydrogen, without lay-offs" }
+      - { zh: 矿工的退休年龄提前到五十五岁, en: Retirement at fifty-five for miners }
+      - { zh: 矿区城市的住房由领地统一建设, en: Territorial building of housing in the mining towns }
+    allies: [pty_jh513z, pty_6yj1xj]
+    targets: { div_hpmerr: 9 }
+    lean: { mining: 1.0, manufacturing: 0.8, port: 0.3, income: -0.4 }
+    notes:
+      zh: "冶炼工会党由北冰洋的矿工和冶炼工人工会组建，属左翼。它主张矿山和冶炼厂的工人在董事会占三分之一席位，冶炼厂改用水电和绿氢但不裁员，矿工五十五岁退休，矿区城市的住房由领地统一建设。它的票仓在考尔尼克等矿业和冶炼城市，那里的冶炼厂终年不停，烟囱在极夜里是城市最亮的地方。上一次选举后，它加入了塔夫鲁利特人民党领导的四党联合政府，党首杜铁成出任工业与劳动事务的政务委员；在考尔尼克市议会里，它与塔人党一起执政。工会党的党员证是一块小小的铜牌，用本地冶炼厂的铜铸成，背面刻着持有人的工号。"
+      en: "The Smelters' Union was formed by the Arctic Ocean's miners' and smelter workers' unions, a party of the left. It wants a third of the board seats at mines and smelters for their workers, the smelters moved to hydro power and green hydrogen without lay-offs, retirement at fifty-five for miners, and housing in the mining towns built by the territory. Its strongholds are mining and smelting cities such as Qaurniq, where the smelters run all year and the chimneys are the brightest thing in town through the polar night. After the last election it joined the four-party government led by the Tavrulit People's Party, its leader Du Tiecheng becoming the councillor for industry and labour; on Qaurniq's council it governs with the Tavrulit People's Party. A member's card is a small copper plate cast from the local smelter's copper, with the holder's works number stamped on the back."
+    history:
+      zh: "冶炼工会党由几家冶炼厂的工会在一次长达一个月的罢工后组建，罢工的起因是一座冶炼厂计划关闭。"
+      en: "The party was formed by the unions of several smelters after a month-long strike over the planned closure of one of them."
+
+  - id: pty_4ahf45
+    names: { zh: 北岸联盟, en: North Shore Alliance }
+    short_names: { zh: 北岸, en: "North Shore" }
+    color: "#5DA9E9"
+    flag: { layout: horizon, colors: ["#0E2A47", "#FFFFFF"], edge: fjord, charge: snowflake, charge_color: "#5DA9E9" }
+    spectrum: 0.2
+    family: { zh: 地方主义, en: Regionalism }
+    leader: { zh: 萨基亚克·努努维克, en: Saqqiaq Nunnuvik }
+    members: 2700
+    youth_wing: { zh: 北岸青年, en: North Shore Youth }
+    slogan: { zh: 冰封的海岸也要通航, en: Even a frozen coast needs ships }
+    policies:
+      - { zh: 北部海岸冬季每周至少一班破冰补给船, en: At least one icebreaking supply ship a week to the north coast in winter }
+      - { zh: 极夜期间北岸居民的电费减半, en: Half-price electricity for north-coast residents during the polar night }
+      - { zh: 北岸各镇的诊所配备远程医疗设备和医疗直升机, en: Telemedicine and air ambulances for the north-coast towns' clinics }
+      - { zh: 北岸港口的渔获优先在本地加工, en: North-coast catches processed locally first }
+    allies: [pty_x004cm, pty_6yj1xj]
+    targets: { div_hpmerr: 4 }
+    lean: { lat: 0.35, urban: -0.5, fishing: 0.4 }
+    notes:
+      zh: "北岸联盟代表北冰洋最北部海岸的居民，那里的小镇在冬天要经历几十天的极夜，海面封冻，补给全靠破冰船和飞机。联盟主张冬季每周至少一班破冰补给船、极夜期间电费减半、给北岸各镇的诊所配备远程医疗设备和医疗直升机、让北岸港口的渔获优先在本地加工。它是一个中间派的地方主义政党，在北冰洋议会里有一两个议席，常与执政联盟就北岸的预算讨价还价。联盟的党代会在每年极夜结束后的第一个晴天召开，代表们会先一起到海边看太阳重新升起，再进会场。"
+      en: "The North Shore Alliance speaks for the people of the Arctic Ocean's northernmost coast, whose towns go through weeks of polar night each winter while the sea freezes and supplies come only by icebreaker and aircraft. It wants at least one icebreaking supply ship a week in winter, half-price electricity during the polar night, telemedicine and air ambulances for the north-coast clinics, and north-coast catches processed locally first. A centrist regionalist party, it has a seat or two in the Arctic Ocean assembly and often bargains with the government over the north coast's budget. Its congress meets on the first clear day after the polar night ends each year, and the delegates first go down to the shore together to watch the sun come back before going inside."
+    history:
+      zh: "北岸联盟起于一个冬天：那年的破冰补给船因故障停航了一个月，北岸几个小镇的居民自发组织起来，用渔船和雪地车运送补给，事后决定组党。"
+      en: "The Alliance began in a winter when the icebreaking supply ship broke down for a month; the people of several north-coast towns organised themselves to bring supplies by fishing boat and snowmobile, and afterwards decided to form a party."
+
+  # ── 长夏群岛政党 ──
+  - id: pty_e7tyeb
+    names: { zh: 伊武兰复兴党, en: Ivuran Renewal }
+    short_names: { zh: 复兴, en: "Renewal" }
+    color: "#D9822B"
+    flag: { layout: ivuran, colors: ["#D9822B", "#8E1B3A", "#E9B949", "#FFFFFF"], charge: hornbill, charge_color: "#8E1B3A" }
+    spectrum: -0.8
+    family: { zh: 民族文化复兴、社会自由主义, en: "Cultural revival, social liberalism" }
+    leader: { zh: 塞尔瓦迈·哈努赖, en: Selvamai Hanurai }
+    members: 58000
+    youth_wing: { zh: 复兴青年, en: Renewal Youth }
+    slogan: { zh: 用自己的语言说出自己的名字, en: Say your own name in your own language }
+    policies:
+      - { zh: 伊武兰语成为长夏群岛的第二官方语言, en: Ivuran as the Everlong Summer Islands' second official language }
+      - { zh: 每所学校从一年级起开设伊武兰语课, en: Ivuran lessons in every school from the first year }
+      - { zh: 修复古王国的寺庙、水渠和梯田, en: "Restore the old kingdom's temples, channels and terraces" }
+      - { zh: 伊武兰语电影、音乐和出版获得领地资助, en: "Territorial funding for Ivuran films, music and books" }
+      - { zh: 文化遗产地的门票收入留给所在社区, en: Heritage site ticket revenue to stay with the local community }
+    allies: [pty_09zrw1, pty_jh513z, pty_4zctgr]
+    targets: { div_nwm019: 14 }
+    lean: { "lang:art-x-ivuran": 2.5, rice: 0.3, heritage: 0.4 }
+    notes:
+      zh: "伊武兰复兴党是长夏群岛讲伊武兰语居民的主要政党，属中左翼，主张让伊武兰语成为第二官方语言、每所学校从一年级起开设伊武兰语课、修复古王国的寺庙、水渠和梯田、资助伊武兰语的电影、音乐和出版。伊武兰语是长夏群岛古王国的语言，许多老城的街名、节日和菜名都来自它，但在城市里，年轻人越来越少在家里说它。复兴党的选民集中在伊武兰语使用者多的老城和稻作区，它是长夏群岛议会的第三大党，与公地联盟、互助党组成执政联盟，在彭纳拉姆、温达坎、洛米兰等城市的市议会里是第一大党，市长也出自复兴党。复兴党的集会上，主持人会先用伊武兰语念出每一位到场者的名字，念错了要当场道歉。党旗上是一只犀鸟，伊武兰人有句老话：「犀鸟记得每一棵结过果的树。」"
+      en: "Ivuran Renewal is the main party of the Everlong Summer Islands' Ivuran speakers, centre-left. It wants Ivuran made the second official language, Ivuran lessons in every school from the first year, the old kingdom's temples, channels and terraces restored, and funding for Ivuran films, music and books. Ivuran is the language of the islands' old kingdom, and many old towns' street names, festivals and dishes come from it, but in the cities fewer and fewer young people speak it at home. The party's voters are concentrated in the old towns and rice-growing districts where Ivuran is widely spoken; it is the third party in the assembly and governs with the Commons Alliance and the Mutual Aid Party, and it is the largest party on the councils of Pennaram, Undakan, Lomiran and other cities, whose mayors are its members. At its meetings the chair first reads out the name of everyone present in Ivuran, and apologises on the spot for any name read wrong. Its flag bears a hornbill, after an old Ivuran saying: the hornbill remembers every tree that ever bore fruit."
+    history:
+      zh: "伊武兰复兴党由一群伊武兰语教师和诗人创立，最初是一个在周末开办伊武兰语课的协会，后来课堂越开越多，协会也成了政党。"
+      en: "The party was founded by a group of Ivuran teachers and poets as a society running weekend Ivuran classes; the classes multiplied, and the society became a party."
+
+  - id: pty_4zctgr
+    names: { zh: 梯田党, en: Terrace Party }
+    short_names: { zh: 梯田, en: "Terrace" }
+    color: "#4C8C2B"
+    flag: { layout: bands, colors: ["#4C8C2B", "#7DB24A", "#A9CF6B"], charge: terraces, charge_band: 1, charge_color: "#FFFFFF" }
+    spectrum: 0.9
+    family: { zh: 农本主义、保守主义, en: "Agrarianism, conservatism" }
+    leader: { zh: 帕拉瓦伊·特鲁韦尔, en: Pallavai Teruvel }
+    members: 21000
+    youth_wing: { zh: 梯田青年, en: Young Terrace }
+    slogan: { zh: 一级一级往上走, en: One step at a time }
+    policies:
+      - { zh: 稻米、香料和水果的收购保护价, en: "Guaranteed purchase prices for rice, spices and fruit" }
+      - { zh: 山区梯田的灌溉水渠由领地维护, en: Territorial upkeep of the hill terraces' irrigation channels }
+      - { zh: 农地不得改作工业和住宅用地, en: No rezoning of farmland for industry or housing }
+      - { zh: 农户子女上大学免学费, en: Free university tuition for farmers' children }
+    allies: [pty_mak5vy, pty_e7tyeb, pty_0a67en]
+    targets: { div_nwm019: 8 }
+    lean: { rice: 1.0, spice: 0.6, fruit: 0.6, agriculture: 0.8, urban: -0.6 }
+    notes:
+      zh: "梯田党代表长夏群岛的稻农、香料园主和果农，属中右翼，主张为稻米、香料和水果设收购保护价，由领地维护山区梯田的灌溉水渠，禁止把农地改作工业和住宅用地，农户子女上大学免学费。它的选民集中在内陆山区和平原的稻作区，那里的梯田一级一级修到山顶，水从最高的一级流下来，依次灌溉每一块田。党的口号「一级一级往上走」既是说梯田，也是说党的主张：不求一步登天。梯田党在长夏群岛议会里属反对派，在温达坎、彭纳拉姆等稻作城市的市议会里有不少议席。每年插秧季，党首都要下田插一天秧，照片会登在党报的头版。梯田党与伊武兰复兴党在保护梯田和水渠上立场一致，在税收和土地规划上却常常对立，两党的议员说他们是「同一块田里的两头牛」。党员里年长的稻农居多，党报副刊每期都登一份当季的农事历。"
+      en: "The Terrace Party speaks for the Everlong Summer Islands' rice farmers, spice growers and fruit farmers, a party of the centre-right. It wants guaranteed purchase prices for rice, spices and fruit, the hill terraces' irrigation channels kept up by the territory, no rezoning of farmland for industry or housing, and free university tuition for farmers' children. Its voters are concentrated in the rice-growing districts of the inland hills and plains, where terraces climb step by step to the hilltops and water runs down from the highest, watering each field in turn. Its slogan, one step at a time, is about the terraces and about the party's outlook: no leap to the sky. It is in opposition in the assembly and holds many seats on the councils of rice-growing cities such as Undakan and Pennaram. Every planting season the leader spends a day planting rice in the fields, and the photograph goes on the front page of the party paper. The Terrace Party and Ivuran Renewal agree on protecting the terraces and channels but often clash on tax and land planning; their members call themselves two oxen in the same field. Most of its members are older rice farmers, and every issue of the party paper's supplement carries the season's farming calendar."
+    history:
+      zh: "梯田党由几个山区的灌溉水渠协会联合组建，这些协会管理梯田的用水已经有很多代了。"
+      en: "The party was formed by the irrigation channel associations of several hill districts, which had managed the terraces' water for many generations."
+
+  - id: pty_0a67en
+    names: { zh: 王旗会, en: Royal Banner Society }
+    short_names: { zh: 王旗, en: "Banner" }
+    color: "#8E1B3A"
+    flag: { layout: banner, colors: ["#8E1B3A"], charge: sun, charge_color: "#E9B949" }
+    spectrum: 2.2
+    family: { zh: 传统主义、君主主义, en: "Traditionalism, monarchism" }
+    leader: { zh: 翁贝卢·瓦拉塞里, en: Ombelu Varaseri }
+    members: 13000
+    youth_wing: { zh: 王旗青年, en: Banner Youth }
+    slogan: { zh: 古老的旗帜，崭新的岛, en: "An old banner, a new island" }
+    policies:
+      - { zh: 恢复古王国王室后裔的礼仪性地位, en: A ceremonial role for the old kingdom's royal descendants }
+      - { zh: 萨伦纳姆老王宫重新用作领地的礼仪中心, en: Sarunnam's old palace to become the territory's ceremonial centre again }
+      - { zh: 传统节日列为领地公共假日, en: Traditional festivals as territorial public holidays }
+      - { zh: 降低家庭企业和老字号的税负, en: Lower tax for family firms and old shops }
+    allies: [pty_4zctgr, pty_mak5vy]
+    targets: { div_nwm019: 6 }
+    lean: { heritage: 0.6, old: 2.0, "lang:art-x-ivuran": 1.0, "city:div_kv6b3e": 1.0 }
+    notes:
+      zh: "王旗会是长夏群岛的传统主义右翼小党，主张恢复古王国王室后裔的礼仪性地位，让萨伦纳姆老王宫重新成为领地的礼仪中心，把传统节日列为公共假日，降低家庭企业和老字号的税负。它不主张恢复君主统治，而是希望古王国的旗帜和仪式在今天的领地生活里有一席之地。王旗会的选民多是年长者，集中在古王国旧都萨伦纳姆和周边的老城，它在萨伦纳姆市议会里的议席是在其他任何城市的两倍多。党旗用的是古王国旗帜的颜色：深红底上一轮金色的太阳。每年王国节，王旗会的成员会穿着传统服装，从萨伦纳姆老王宫走到海边，把一面旧旗在海水里浸一下，再升起来。"
+      en: "The Royal Banner Society is a small traditionalist party of the right in the Everlong Summer Islands. It wants a ceremonial role for the old kingdom's royal descendants, Sarunnam's old palace made the territory's ceremonial centre again, traditional festivals made public holidays and lower tax for family firms and old shops. It does not seek a return to monarchy, but wants the old kingdom's banner and rites to have a place in the territory's life today. Its voters are mostly older and concentrated in Sarunnam, the old kingdom's capital, and the old towns around it, and it holds more than twice as many seats on Sarunnam's council as on any other. Its flag uses the old kingdom's colours, a golden sun on deep red. Every Kingdom Day its members walk in traditional dress from Sarunnam's old palace to the sea, dip an old banner in the water and raise it again."
+    history:
+      zh: "王旗会起初是萨伦纳姆的一个老王宫保护协会，在老王宫险些被改建成酒店之后转为政党。"
+      en: "The Society began as a conservation society for Sarunnam's old palace and became a party after the palace was nearly turned into a hotel."
+
+  - id: pty_6c94cq
+    names: { zh: 公社运动, en: Commune Movement }
+    short_names: { zh: 公社, en: "Commune" }
+    color: "#E63946"
+    flag: { layout: bands, colors: ["#E63946", "#F4A261"], ratio: [2, 1], charge: ring_homes, charge_band: 0 }
+    spectrum: -3.0
+    family: { zh: 直接民主、自治主义, en: "Direct democracy, autonomism" }
+    leader: { zh: 伊拉瓦伊·科卢门, en: Iravai Kolumen }
+    leader_title: { zh: 轮值发言人, en: Rotating spokesperson }
+    members: 7600
+    youth_wing: { zh: 公社青年, en: Commune Youth }
+    slogan: { zh: 一切归于大会, en: All to the assembly }
+    policies:
+      - { zh: 每个街区设居民大会，决定本街区的预算, en: "An assembly in every neighbourhood, deciding its own budget" }
+      - { zh: 土地和住房由社区合作社持有, en: Land and housing held by community cooperatives }
+      - { zh: 议员任期一届，不得连任, en: "One term for every representative, with no re-election" }
+      - { zh: 议员工资与当地工人平均工资相同, en: "Representatives paid the local average wage" }
+    allies: [pty_09zrw1]
+    targets: { div_nwm019: 4 }
+    lean: { "status:commune": 3.5, young: 2.0 }
+    notes:
+      zh: "公社运动是长夏群岛最左的政党，主张直接民主：每个街区都设居民大会决定本街区的预算，土地和住房由社区合作社持有，议员只做一届、工资与当地工人平均工资相同。它的大本营在埃武托拉公社，那里的公共事务不由市议会而由全体居民参加的公社大会决定，大会在中央广场的大榕树下召开，任何居民都可以发言。公社运动没有党首，只有一位每年轮换的发言人，现任发言人是伊拉瓦伊·科卢门。它在长夏群岛议会里的议席几乎都来自埃武托拉，在议会里通常支持公地联盟，但从不加入政府。它的议员每周回埃武托拉一次，向公社大会报告自己在议会里的每一次投票。"
+      en: "The Commune Movement is the Everlong Summer Islands' furthest-left party and stands for direct democracy: an assembly in every neighbourhood deciding its own budget, land and housing held by community cooperatives, and representatives who serve one term on the local average wage. Its base is Evutola Commune, whose public business is decided not by a council but by the Commune Assembly of all residents, which meets under the great banyan in the central square, where any resident may speak. The movement has no leader, only a spokesperson who changes every year, at present Iravai Kolumen. Nearly all its seats in the assembly come from Evutola; it usually backs the Commons Alliance there but never joins a government. Its members go back to Evutola once a week to report every vote they cast to the Commune Assembly."
+    history:
+      zh: "公社运动起于埃武托拉的一场住房合作运动，居民们买下了一片要被拆除的老街区，在街区大会上决定如何修缮，后来这种做法推广到了整个城市。"
+      en: "The movement grew out of a housing cooperative in Evutola: residents bought an old quarter due for demolition and decided at a neighbourhood assembly how to repair it, and the practice later spread to the whole town."
+
+  - id: pty_e3vfvk
+    names: { zh: 芯片海岸党, en: Chip Coast Party }
+    short_names: { zh: 芯岸, en: "Chip Coast" }
+    color: "#00B4D8"
+    flag: { layout: banner, colors: ["#00B4D8"], charge: crystal }
+    spectrum: 0.6
+    family: { zh: 科技自由主义, en: Technological liberalism }
+    leader: { zh: 林澈, en: Lin Che }
+    members: 6400
+    youth_wing: { zh: 芯岸青年, en: Chip Coast Youth }
+    slogan: { zh: 把未来做成芯片, en: Etch the future }
+    policies:
+      - { zh: 芯片和电池工厂的电价与用水优先保障, en: Priority power and water supply for chip and battery plants }
+      - { zh: 理工科大学扩招一倍, en: Double the intake of the technical universities }
+      - { zh: 海外工程师的家属随迁便利, en: "Easier moves for overseas engineers' families" }
+      - { zh: 工业园区周边修建新的住宅和轻轨, en: New housing and light rail around the industrial parks }
+    allies: [pty_ymxc2s, pty_mak5vy]
+    targets: { div_nwm019: 5 }
+    lean: { semiconductor: 1.0, battery: 0.5, tech: 0.6, pharma: 0.3, income: 0.6, "lang:en": 1.0 }
+    notes:
+      zh: "芯片海岸党是长夏群岛的中右翼科技自由派，选民集中在南部海岸的芯片、电池和制药工业城市，多是工程师和技术工人。它主张优先保障芯片和电池工厂的电力与用水，理工科大学扩招一倍，方便海外工程师的家属随迁，在工业园区周边修建新的住宅和轻轨。党名来自南部海岸的一串工业城市，当地人把它们叫作「芯片海岸」，夜里从海上看，工厂的灯光连成一条线。芯片海岸党在长夏群岛议会里有几个议席，在各市议会中以基拉努的议席最多。党首林澈原是一家晶圆厂的工艺工程师，她说自己参政的理由很简单：「工厂里的问题我会修，城市里的问题也想试试。」"
+      en: "The Chip Coast Party is the Everlong Summer Islands' centre-right technological liberal party, its voters concentrated in the chip, battery and pharmaceutical cities of the south coast, many of them engineers and technicians. It wants power and water for chip and battery plants guaranteed first, the technical universities' intake doubled, easier moves for overseas engineers' families, and new housing and light rail around the industrial parks. Its name comes from the string of industrial cities along the south coast that locals call the Chip Coast, whose factory lights join into one line when seen from the sea at night. It has a few seats in the assembly, and of all the city councils it holds the most seats on Kilanu's. Its leader Lin Che was a process engineer at a wafer plant, and says her reason for entering politics is simple: she can fix the problems in a factory, and wants to try the problems in a city."
+    history:
+      zh: "芯片海岸党由南部海岸几家工业园区的工程师协会组建，起因是一个夏天的连续停电让几座晶圆厂停了产。"
+      en: "The party was formed by the engineers' associations of several south-coast industrial parks after a summer of power cuts stopped production at several wafer plants."

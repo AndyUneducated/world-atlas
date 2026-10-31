@@ -4,6 +4,7 @@ import { displayName } from "./i18n";
 
 export function accentColor(data: AtlasData, e: Entity): string | undefined {
   if (e.kind === "route") return e.color ?? ROUTE_COLORS[e.network ?? ""];
+  if (e.kind === "party") return e.color;
   if (e.subtype === "station") {
     const line = data.entities[e.lines?.[0] ?? ""];
     return line?.color ?? ROUTE_COLORS.intercity_rail;

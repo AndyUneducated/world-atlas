@@ -10,7 +10,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[2]
 WORLD_DIR = ROOT / "world"
 
-ID_PATTERN = re.compile(r"^(div|nat|rte|poi|bld)_[0-9a-hjkmnp-tv-z]{6}$|^country:[A-Z]{2}$")
+ID_PATTERN = re.compile(r"^(div|nat|rte|poi|bld|pty)_[0-9a-hjkmnp-tv-z]{6}$|^country:[A-Z]{2}$")
 # Name languages, as NAME_LANGS in src/lib/types.ts: Chinese and English are required, the conlangs optional.
 NAME_LANGS = ("zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran")
 REQUIRED_LANGS, CONLANGS = NAME_LANGS[:2], NAME_LANGS[2:]
@@ -56,6 +56,7 @@ def ts_names(file: str, const: str) -> tuple[str, ...]:
 FLAG_LAYOUTS = ts_names("cityFlags.tsx", "FLAG_LAYOUTS")
 FLAG_CHARGES = ts_names("emblems.tsx", "MOTIFS") + ts_names("charges.tsx", "NEW")
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
+POLITICS_SYSTEMS = ("mmp", "fptp", "pr_reserved", "pr_regional")
 STREET_STYLES = ("planned", "mixed", "organic")
 BUILDING_MIX_KEYS = ("slabs", "towers", "perimeter", "houses", "podium", "industrial", "civic", "park")
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
@@ -100,6 +101,8 @@ class World:
         self.economy: dict = _load(econ) if econ.exists() else {}
         clim = root / "climate.yaml"
         self.climate: dict = _load(clim) if clim.exists() else {}
+        pol = root / "politics.yaml"
+        self.politics: dict = _load(pol) if pol.exists() else {}
 
     def _collect(self, folder: Path, key: str) -> dict[str, dict]:
         out: dict[str, dict] = {}
@@ -395,4 +398,53 @@ class World:
             for nm in sp.get("named", []):
                 if self.divisions.get(nm.get("district"), {}).get("subtype") != "borough":
                     errors.append(f"generator: named street {nm.get('names', {}).get('zh')}: {nm.get('district')} is not a district")
+        return errors + self._politics_errors()
+
+    def _politics_errors(self) -> list[str]:
+        """world/politics.yaml: every legislature in a territory with a known system, every party with a flag,
+        a place on the spectrum, targets only where there is a legislature and a card's worth of text."""
+        pol = self.politics
+        if not pol:
+            return []
+        errors: list[str] = []
+        legs = pol.get("legislatures", {})
+        for tid, leg in legs.items():
+            if self.divisions.get(tid, {}).get("subtype") != "dependency":
+                errors.append(f"politics: legislature {tid} is not a territory")
+            if leg.get("system") not in POLITICS_SYSTEMS:
+                errors.append(f"politics: {tid}: system must be one of {', '.join(POLITICS_SYSTEMS)}")
+            for k in ("names", "head", "mayor"):
+                if not all(leg.get(k, {}).get(lang) for lang in REQUIRED_LANGS):
+                    errors.append(f"politics: {tid}: {k} needs zh and en")
+            for cid, c in leg.get("councils", {}).items():
+                if self.divisions.get(cid, {}).get("parent") != tid:
+                    errors.append(f"politics: {tid}: council {cid} is not a city of the territory")
+                if "assembly" in c and not all(c["assembly"].get(lang) for lang in REQUIRED_LANGS):
+                    errors.append(f"politics: {cid}: assembly needs zh and en: who decides in place of a council")
+        ids = set()
+        for p in pol.get("parties", []):
+            pid = p.get("id", "?")
+            if not ID_PATTERN.match(pid) or not pid.startswith("pty_") or pid in self.entities or pid in ids:
+                errors.append(f"politics: {pid}: a party id is pty_ and unique among all ids")
+            ids.add(pid)
+            for k in ("names", "short_names", "family", "leader", "youth_wing", "slogan", "notes", "history"):
+                if not all(p.get(k, {}).get(lang) for lang in REQUIRED_LANGS):
+                    errors.append(f"politics: {pid}: {k} needs zh and en")
+            if not HEX.match(str(p.get("color", ""))):
+                errors.append(f"politics: {pid}: color must be #RRGGBB")
+            errors += [f"politics: {pid}: flag {e}" for e in self._flag_errors(p)]
+            if not (isinstance(p.get("spectrum"), (int, float)) and -3 <= p["spectrum"] <= 3):
+                errors.append(f"politics: {pid}: spectrum is a number from -3 (left) to 3 (right)")
+            if not (isinstance(p.get("members"), int) and p["members"] > 0):
+                errors.append(f"politics: {pid}: members must be a whole number")
+            if not p.get("targets") or set(p["targets"]) - set(legs):
+                errors.append(f"politics: {pid}: targets name only territories with a legislature")
+            if len(p.get("policies", [])) < 3 or not all(all(x.get(lang) for lang in REQUIRED_LANGS) for x in p.get("policies", [])):
+                errors.append(f"politics: {pid}: at least three policies, each in zh and en")
+            big = p.get("members", 0) >= 20000
+            if len(p.get("notes", {}).get("zh", "")) < (300 if big else 200):
+                errors.append(f"politics: {pid}: notes.zh needs at least {300 if big else 200} characters")
+        for p in pol.get("parties", []):
+            if bad := [a for a in p.get("allies", []) if a not in ids]:
+                errors.append(f"politics: {p.get('id')}: unknown allies {', '.join(bad)}")
         return errors

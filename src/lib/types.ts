@@ -35,7 +35,7 @@ export interface CityFlagSpec {
   extra?: { charge: string; color: string; x: number; y: number; size: number }[];
 }
 
-export type EntityKind = "division" | "natural" | "route" | "place";
+export type EntityKind = "division" | "natural" | "route" | "place" | "party";
 export type StructureKind = "bridge" | "tunnel" | "snow_shed";
 export type EntityStatus = "canon" | "draft" | "generated";
 
@@ -131,7 +131,51 @@ export interface Entity {
   climate?: Climate;
   /** Territories: an overview of the climate across their land. */
   climate_notes?: { zh: string; en: string };
+  /** Territories: the parliament and the government it formed. */
+  legislature?: Legislature;
+  /** Cities: the council and the mayor, or the body that decides in their place. */
+  council?: Council;
+  /** Districts: how the district voted in the territorial election. */
+  election?: { turnout: number; vote: { id: string; vote: number }[] };
+  /** Parties (world/politics.yaml). */
+  spectrum?: number;
+  family?: Localized;
+  leader?: Localized;
+  leader_title?: Localized;
+  members?: number;
+  youth_wing?: Localized;
+  slogan?: Localized;
+  policies?: Localized[];
+  allies?: string[];
+  history?: Localized;
+  /** Seats held in each territorial parliament and city council. */
+  seats?: { at: string; seats: number; of: number }[];
 }
+
+export type ElectoralSystem = "mmp" | "fptp" | "pr_reserved" | "pr_regional";
+
+/** A parliament or council from the politics model: seats by party, the government (largest party first). */
+export interface Chamber {
+  seats: number;
+  parties: { id: string; seats: number; vote: number }[];
+  government: string[];
+  /** mmp: seats won in constituencies, by party. */
+  constituency?: Record<string, number>;
+  overhang?: number;
+  /** pr_reserved: seats elected by the reserved-language roll, and who won them. */
+  reserved?: number;
+  reserved_won?: Record<string, number>;
+  turnout: number;
+  head: { title: Localized; name: Localized; party: string };
+}
+
+export interface Legislature extends Chamber {
+  names: Localized;
+  system: ElectoralSystem;
+  threshold?: number;
+}
+
+export type Council = Chamber | { assembly: Localized };
 
 /** Districts and cities, from the climate model (world/climate.yaml): monthly normals, January first. */
 export interface Climate {

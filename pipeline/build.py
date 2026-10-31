@@ -21,7 +21,7 @@ from shapely.geometry import shape
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas import cache, climate, common, economy, traffic  # noqa: E402
+from atlas import cache, climate, common, economy, politics, traffic  # noqa: E402
 from atlas.common import OUT, log, write_geojson  # noqa: E402
 from atlas.dem_tiles import fill_sea_tiles, merge_dem_tiles  # noqa: E402
 from atlas.region import LAYERS, build_region  # noqa: E402
@@ -138,6 +138,7 @@ def main():
     traffic.annotate(world, entities)
     economy.annotate(world, entities)
     climate.annotate(world, entities, layers["divisions"], OUT / "dem")
+    politics.annotate(world, entities)
     dem_bounds = [f(r["frame_bounds"][i] for r in regions) for i, f in enumerate((min, min, max, max))]
     log(f"  {fill_sea_tiles(OUT / 'dem', dem_bounds)} open-water terrain tiles")
     for name, feats in layers.items():

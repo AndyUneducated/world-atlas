@@ -16,6 +16,7 @@ const KIND_WEIGHT: Record<string, number> = {
   dependency: 30,
   locality: 26,
   borough: 16,
+  party: 15,
   mountain_range: 14,
   volcano: 13,
   river: 13,
@@ -67,7 +68,7 @@ export class SearchIndex {
 
   private constructor(entities: Entity[], pinyin: Pinyin) {
     this.docs = entities
-      .filter((e) => e.bbox)
+      .filter((e) => e.bbox || e.kind === "party")
       .map((e) => {
         const syllables = pinyin(e.names.zh, { toneType: "none", type: "array" });
         const latin = [

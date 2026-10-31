@@ -3,7 +3,8 @@ import { Check, ChevronDown, Search, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { accentColor, pathLabel, wonderName } from "../lib/entity";
-import { displayName, formatNumber, otherName, t, type StringKey } from "../lib/i18n";
+import { displayName, formatNumber, kindLabel, otherName, t, type StringKey } from "../lib/i18n";
+import { parties } from "../lib/politics";
 import { SearchIndex } from "../lib/search";
 import { ROAD_NETWORKS } from "../lib/style";
 import { hasShield } from "../lib/shields";
@@ -15,11 +16,12 @@ import { EntityIcon } from "./EntityIcon";
 
 const ROAD_GROUPS = ["nationalExpressway", "territorialExpressway", "territorialHighway"] as const;
 type RoadGroup = (typeof ROAD_GROUPS)[number];
-type ExploreGroup = "cities" | "wonders" | RoadGroup | "railways";
-const EXPLORE_GROUPS: ExploreGroup[] = ["cities", "wonders", ...ROAD_GROUPS, "railways"];
+type ExploreGroup = "cities" | "wonders" | "parties" | RoadGroup | "railways";
+const EXPLORE_GROUPS: ExploreGroup[] = ["cities", "wonders", "parties", ...ROAD_GROUPS, "railways"];
 const EXPLORE_TITLES: Record<ExploreGroup, StringKey> = {
   cities: "exploreCities",
   wonders: "wonders",
+  parties: "parties",
   nationalExpressway: "nationalExpressway",
   territorialExpressway: "territorialExpressway",
   territorialHighway: "territorialHighway",
@@ -103,9 +105,19 @@ export function SearchBox() {
       .filter((e) => e.wonder && e.bbox && inScope(e))
       .sort((a, b) => rank(a) - rank(b));
   }, [data, territories, inScope]);
+  /** Parties standing in the scope, most seats in its parliaments first. */
+  const partyList = useMemo(() => {
+    if (!data) return [];
+    const seats = (e: Entity) => (e.seats ?? []).filter((s) => (scope ? s.at === scope : data.entities[s.at]?.subtype === "dependency")).reduce((a, s) => a + s.seats, 0);
+    return parties(data)
+      .filter(inScope)
+      .map((e) => ({ e, seats: seats(e) }))
+      .sort((a, b) => b.seats - a.seats || (b.e.members ?? 0) - (a.e.members ?? 0));
+  }, [data, scope, inScope]);
   const [expanded, setExpanded] = useState<Record<ExploreGroup, boolean>>({
     cities: false,
     wonders: false,
+    parties: false,
     nationalExpressway: false,
     territorialExpressway: false,
     territorialHighway: false,
@@ -320,7 +332,7 @@ export function SearchBox() {
                               <span className="truncate text-[14px] font-medium text-ink">{displayName(e, lang)}</span>
                               <span className="truncate text-[12px] text-faint">{otherName(e, lang)}</span>
                             </span>
-                            <span className="block truncate text-[12px] text-muted">{pathLabel(data, e, lang)}</span>
+                            <span className="block truncate text-[12px] text-muted">{pathLabel(data, e, lang) || kindLabel(e, lang)}</span>
                           </span>
                           {e.ref &&
                             (hasShield(e) ? (
@@ -339,12 +351,12 @@ export function SearchBox() {
             {showExplore && (
               <div className="p-1">
                 {EXPLORE_GROUPS.map((g) => {
-                  const items = g === "cities" ? cities : g === "wonders" ? wonders : routes[g];
+                  const items = g === "cities" ? cities : g === "wonders" ? wonders : g === "parties" ? partyList.map((p) => p.e) : routes[g];
                   if (!items.length) return null;
                   return (
                     <ExploreSection key={g} title={t(EXPLORE_TITLES[g], lang)} count={items.length} open={expanded[g]} onToggle={() => setExpanded((x) => ({ ...x, [g]: !x[g] }))}>
                       <div className={clsx("grid gap-1", g === "cities" ? "grid-cols-2" : "grid-cols-1")}>
-                        {items.map((e) => {
+                        {items.map((e, i) => {
                           const accent = accentColor(data, e);
                           return (
                             <button
@@ -353,7 +365,7 @@ export function SearchBox() {
                               onClick={() => choose(e.id)}
                               className="flex min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] text-ink hover:bg-hover"
                             >
-                              {g === "cities" ? (
+                              {g === "cities" || g === "parties" ? (
                                 <Emblem entity={e} size={20} className="shrink-0" />
                               ) : g === "wonders" ? (
                                 <span className="grid size-7 shrink-0 place-items-center rounded-lg bg-violet-500/15 text-violet-500">
@@ -376,7 +388,12 @@ export function SearchBox() {
                               ) : (
                                 <span className="truncate">{displayName(e, lang)}</span>
                               )}
-                              {g !== "cities" && g !== "wonders" && e.stats?.length_km ? (
+                              {g === "parties" ? (
+                                <span className="ml-auto shrink-0 text-[11.5px] text-faint tabular-nums">
+                                  {partyList[i].seats} {t("seatsUnit", lang)}
+                                </span>
+                              ) : null}
+                              {g !== "cities" && g !== "wonders" && g !== "parties" && e.stats?.length_km ? (
                                 <span className="ml-auto shrink-0 text-[11.5px] text-faint tabular-nums">{formatNumber(e.stats.length_km, lang, 0)} km</span>
                               ) : null}
                             </button>

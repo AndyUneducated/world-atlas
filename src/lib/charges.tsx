@@ -313,6 +313,45 @@ const NEW: Record<string, (cut: string) => ReactNode> = {
       <path d={starPath(8, 8.2, 3.5, 24, 10)} fill={W} />
     </g>
   ),
+  /** Two chain links, each passing through the other. */
+  links: (cut) => {
+    const halo = { fill: "none", stroke: cut, strokeWidth: 8, strokeLinecap: "butt" } as const;
+    const over = "M21.22 17.11A7 7 0 0 1 26.06 20.5";
+    return (
+      <g transform="rotate(-32 24 24)">
+        <rect x="6" y="17" width="21" height="14" rx="7" {...stroke(4)} />
+        <rect x="21" y="17" width="21" height="14" rx="7" {...halo} />
+        <rect x="21" y="17" width="21" height="14" rx="7" {...stroke(4)} />
+        <path d={over} {...halo} />
+        <path d={over} {...stroke(4)} strokeLinecap="butt" />
+      </g>
+    );
+  },
+  /** A speaking trumpet with its sound going out. */
+  horn: () => (
+    <g>
+      <path d="M5 20.5h7l19-10.5v28L12 27.5H5z" fill={W} />
+      <rect x="31" y="8.5" width="4.2" height="31" rx="1.6" fill={W} />
+      <path d="M13.5 27.5l3 9.5h4.4l-2-8z" fill={W} />
+      <path d="M39.5 17.5c1.8 1.9 2.8 4 2.8 6.5s-1 4.6-2.8 6.5M43.5 13.5c2.8 3 4 6.4 4 10.5s-1.2 7.5-4 10.5" {...stroke(2.2)} />
+    </g>
+  ),
+  /** Angle brackets round a slash, the sign of source code. */
+  brackets: () => (
+    <g {...stroke(3.8)}>
+      <path d="M15 13L5 24l10 11M33 13l10 11-10 11M27.6 8.5l-7.2 31" />
+    </g>
+  ),
+  /** A longhouse under its sagging ridge, with crossed gable boards at each end. */
+  longhouse: (cut) => (
+    <g>
+      <path d="M4 15Q24 21.5 44 15L41 27.5Q24 31 7 27.5Z" fill={W} />
+      <path d="M9 28.4Q24 31.6 39 28.4V41H9z" fill={W} />
+      <path d="M2 9.5L8.5 17.5M8 9.5L1.8 17M46 9.5l-6.5 8M40 9.5l6.2 7.5" {...stroke(2.2)} />
+      <path d="M8.5 21.6Q24 26.6 39.5 21.6" stroke={cut} strokeWidth="1" fill="none" />
+      <path d="M20.5 41v-6.5a3.5 3.5 0 0 1 7 0V41z" fill={cut} />
+    </g>
+  ),
 };
 
 export const CHARGES: Record<string, (cut: string) => ReactNode> = { ...MOTIFS, ...NEW };
