@@ -64,8 +64,8 @@ places:
       en: Everlong Summer Islands Institute of Tropical Medicine
       art-x-ivuran: Imimu Selovaru Kilavam
     notes:
-      zh: 伊拉米区的研究院，研究疟疾、登革热等热带传染病的疫苗和药物，与领地的生物医药企业共建实验室；附属医院接收全领地转来的疑难病人，来自世界各地的学者约占研究人员的三成。
-      en: The institute in Ilami District that develops vaccines and medicines for malaria, dengue and other tropical infections, with laboratories shared with the territory's biomedical firms. Its hospital takes difficult cases referred from all over the territory, and about three in ten of its researchers come from abroad.
+      zh: "伊拉米区的研究院，研究疟疾、登革热等热带传染病的疫苗和药物，与领地的生物医药企业共建实验室；附属医院接收全领地转来的疑难病人，来自世界各地的学者约占研究人员的三成。研究院的走廊里挂着一张世界地图，插满了研究人员故乡的小旗，周五傍晚各国学者轮流掌勺，在院里的厨房做家乡菜请同事吃。"
+      en: "The institute in Ilami District that develops vaccines and medicines for malaria, dengue and other tropical infections, with laboratories shared with the territory's biomedical firms. Its hospital takes difficult cases referred from all over the territory, and about three in ten of its researchers come from abroad. A world map in its corridor bristles with little flags for the researchers' home countries, and on Friday evenings scholars take turns in the institute kitchen cooking dishes from home for their colleagues."
     in: div_56take
     offset_km: [-0.5, 0.4]
     site: { layout: campus, size_m: [700, 450] }
@@ -77,8 +77,8 @@ places:
       en: University of the Everlong Summer Islands, Plateau Campus
       art-x-ivuran: Imimu Selovaru Saluvam Pala
     notes:
-      zh: 长夏群岛大学在首府的校区，设有医学、公共卫生和农业科学学院，与隔壁的热带医学研究院合办研究生课程；校园在高原上，比沿海凉爽，试验田里种着高原咖啡和稻种。
-      en: The capital campus of the University of the Everlong Summer Islands, with schools of medicine, public health and agricultural science and graduate courses run jointly with the neighbouring Institute of Tropical Medicine. Up on the plateau it is cooler than the coast, and its trial fields grow highland coffee and new rice varieties.
+      zh: "长夏群岛大学在首府的校区，设有医学、公共卫生和农业科学学院，与隔壁的热带医学研究院合办研究生课程；校园在高原上，比沿海凉爽，试验田里种着高原咖啡和稻种。高原夜里凉，学生们来上课总要带一件毛衣，沿海来的新生入学时常被学长送一件印着校名的毛衣，算是「毛衣首府」的入门礼。"
+      en: "The capital campus of the University of the Everlong Summer Islands, with schools of medicine, public health and agricultural science and graduate courses run jointly with the neighbouring Institute of Tropical Medicine. Up on the plateau it is cooler than the coast, and its trial fields grow highland coffee and new rice varieties. Plateau nights are cool and students always carry a sweater to class, so freshers from the coast are often given one printed with the university's name by older students, an initiation into \"the sweater capital\"."
     in: div_56take
     offset_km: [1.0, -0.8]
     site: { layout: campus, size_m: [900, 600] }
@@ -90,8 +90,8 @@ places:
       en: Mirelan Airport
       art-x-ivuran: Mirelan Ulavan
     notes:
-      zh: 首府的机场，在翁贝尔区湖畔高原上，有航班飞往萨伦纳姆、基拉努和各地机场；高原空气稀薄，跑道比沿海机场长一些。
-      en: The capital's airport, on the plateau in Ombel District, with flights to Sarunnam, Kilanu and the other airports; the thin plateau air means its runway is a little longer than those on the coast.
+      zh: "首府的机场，在翁贝尔区湖畔高原上，有航班飞往萨伦纳姆、基拉努和各地机场；高原空气稀薄，跑道比沿海机场长一些。从沿海飞来的旅客一下飞机就感到凉意，机场商店卖得最好的居然是毛衣和本地咖啡，米雷兰「毛衣首府」的外号就是这么来的。"
+      en: "The capital's airport, on the plateau in Ombel District, with flights to Sarunnam, Kilanu and the other airports; the thin plateau air means its runway is a little longer than those on the coast. Passengers from the coast feel the chill the moment they step off the plane, and the airport shop's best sellers are, of all things, sweaters and local coffee, which is how Mirelan came to be called \"the sweater capital\"."
     in: div_f0wwdt
     offset_km: [4.5, -1.0]
     site: { size_m: [3400, 900], layout: airport, angle_deg: 30 }
@@ -407,8 +407,8 @@ places:
       en: Vashtarai Royal City
       art-x-ivuran: Vashtarai Aruvam
     notes:
-      zh: 古王国的王城，城墙和护城河围着宫殿遗址，城内只许步行和骑车；宫殿的石阶、王座台基和浴池保存至今，老房子多改作博物馆、手工作坊和客栈，节庆时全城的人来这里点灯、献花。
-      en: The royal city of the old kingdom, its walls and moat enclosing the ruins of the palace; inside, only walking and cycling are allowed. The palace's stone stairs, throne platform and bathing pools survive, the old houses have become museums, workshops and guesthouses, and at festivals the whole city comes here to light lamps and offer flowers.
+      zh: "古王国的王城，城墙和护城河围着宫殿遗址，城内只许步行和骑车；宫殿的石阶、王座台基和浴池保存至今，老房子多改作博物馆、手工作坊和客栈，节庆时全城的人来这里点灯、献花。每逢满月的「Vilaru Imolu」，意思是「灯与月」，王城点起成千上万盏油灯，一家老小坐船沿着护城河和老城河道看灯。"
+      en: "The royal city of the old kingdom, its walls and moat enclosing the ruins of the palace; inside, only walking and cycling are allowed. The palace's stone stairs, throne platform and bathing pools survive, the old houses have become museums, workshops and guesthouses, and at festivals the whole city comes here to light lamps and offer flowers. At every full moon, on the night of \"Vilaru Imolu\", lamps and moon, the royal city lights thousands upon thousands of oil lamps, and whole families take boats along the moat and the old town's canals to see them."
     in: div_8jecyx
     offset_km: [0.2, 0.2]
     site: { layout: courtyard, size_m: [1200, 1000] }
@@ -423,8 +423,8 @@ places:
       zh: 世界最大的古代石构寺庙群，旧王城北面上百座石塔连成一片
       en: The largest ancient stone temple complex in the world, over a hundred stone towers joined together north of the royal city
     notes:
-      zh: 旧王城北面的石构寺庙群，上百座雕满神祇、舞者和花卉的石塔由回廊和水池相连，是古王国留下的最大遗产。寺庙至今仍有僧侣居住，清晨的诵经声从石塔间传出；领地文化部门按年修缮石塔，游客须脱鞋入内。
-      en: The stone temples north of the royal city, more than a hundred towers carved with gods, dancers and flowers, linked by cloisters and pools, the greatest legacy of the old kingdom. Monks still live here and their morning chanting drifts between the towers; the territory's cultural department restores the towers year by year, and visitors go in barefoot.
+      zh: "旧王城北面的石构寺庙群，上百座雕满神祇、舞者和花卉的石塔由回廊和水池相连，是古王国留下的最大遗产。寺庙至今仍有僧侣居住，清晨的诵经声从石塔间传出；领地文化部门按年修缮石塔，游客须脱鞋入内。满月之夜，寺庙群的回廊和水池边点满油灯，石塔的倒影映在水里，连阿兰塔区的摩天楼也在这一夜调暗灯光。"
+      en: "The stone temples north of the royal city, more than a hundred towers carved with gods, dancers and flowers, linked by cloisters and pools, the greatest legacy of the old kingdom. Monks still live here and their morning chanting drifts between the towers; the territory's cultural department restores the towers year by year, and visitors go in barefoot. On full-moon nights the cloisters and pools are lined with oil lamps and the towers are mirrored in the water, and even the skyscrapers of Aranta dim their lights for the night."
     in: div_8jecyx
     offset_km: [0.5, 2.0]
     site: { layout: complex, size_m: [1800, 1400] }
@@ -439,8 +439,8 @@ places:
       zh: 世界最大的水上市场，每天清晨上千条小船在老城河道里交易
       en: The largest floating market in the world, a thousand boats trading on the old city's canals every morning
     notes:
-      zh: 老城河道上的水上市场，每天清晨开市，上千条小船载着蔬果、鲜鱼、香料和小吃在河道里交易，买卖用伊武兰语南部方言讨价还价；许多船家世代在水上做生意，每条船摊都挂着食品监管部门发的卫生等级牌。
-      en: The floating market on the canals of the old city opens at dawn every day, when a thousand boats laden with vegetables, fruit, fresh fish, spices and snacks trade on the water, haggling in the southern Ivuran dialect. Many boat families have traded here for generations, and every boat stall shows its hygiene grade from the food inspectors.
+      zh: "老城河道上的水上市场，每天清晨开市，上千条小船载着蔬果、鲜鱼、香料和小吃在河道里交易，买卖用伊武兰语南部方言讨价还价；许多船家世代在水上做生意，每条船摊都挂着食品监管部门发的卫生等级牌。最受欢迎的早点是用香蕉叶包着的椰浆糯米饭和刚出锅的炸香蕉，买卖谈妥，钱就放进竹竿头上的小篮子递过去。"
+      en: "The floating market on the canals of the old city opens at dawn every day, when a thousand boats laden with vegetables, fruit, fresh fish, spices and snacks trade on the water, haggling in the southern Ivuran dialect. Many boat families have traded here for generations, and every boat stall shows its hygiene grade from the food inspectors. The favourite breakfast is coconut sticky rice wrapped in banana leaf with banana fritters fresh from the pan, and once a price is agreed the money goes across in a little basket on the end of a bamboo pole."
     in: div_xz0zqd
     offset_km: [0.4, 0.4]
     site: { layout: market, size_m: [900, 500] }
@@ -455,8 +455,8 @@ places:
       zh: 世界最高的建筑，高约 960 米
       en: The tallest building in the world, about 960 m high
     notes:
-      zh: 阿兰塔区天际线的最高处，楼内是银行、数字服务公司的办公室和酒店，顶部的观景台能望见整个三角洲和海上的基鲁迈群岛方向；塔身每隔几十层有一处空中花园，外墙的遮阳鳍片挡住热带的阳光。
-      en: The highest point of the Aranta skyline, with banks, digital service firms and a hotel inside; the observation deck at the top looks out over the whole delta and towards the Kirumai Islands at sea. Every few dozen floors there is a sky garden, and fins on the façade shade it from the tropical sun.
+      zh: "阿兰塔区天际线的最高处，楼内是银行、数字服务公司的办公室和酒店，顶部的观景台能望见整个三角洲和海上的基鲁迈群岛方向；塔身每隔几十层有一处空中花园，外墙的遮阳鳍片挡住热带的阳光。满月的「灯与月」之夜，塔楼和阿兰塔区的其他摩天楼一起调暗灯光，从观景台上能看到旧王城和寺庙群里成千上万盏油灯。"
+      en: "The highest point of the Aranta skyline, with banks, digital service firms and a hotel inside; the observation deck at the top looks out over the whole delta and towards the Kirumai Islands at sea. Every few dozen floors there is a sky garden, and fins on the façade shade it from the tropical sun. On the full-moon night of Vilaru Imolu the tower dims its lights with the other skyscrapers of Aranta, and from the observation deck you can see the thousands of oil lamps in the royal city and the temples."
     in: div_1z75n0
     offset_km: [0.3, 0.3]
     site: { layout: tower, size_m: [120, 120] }
@@ -468,8 +468,8 @@ places:
       en: University of the Everlong Summer Islands
       art-x-ivuran: Imimu Selovaru Saluvam
     notes:
-      zh: 领地规模最大的综合性大学，主校区在伊拉瓦姆区，以热带农业、海洋科学和伊武兰语研究见长；学费全免，校园里的林荫道和图书馆向市民开放。
-      en: The territory's largest university, with its main campus in Ilavam District, known for tropical agriculture, ocean science and Ivuran studies; tuition is free, and its shaded walks and library are open to the public.
+      zh: "领地规模最大的综合性大学，主校区在伊拉瓦姆区，以热带农业、海洋科学和伊武兰语研究见长；学费全免，校园里的林荫道和图书馆向市民开放。校园的林荫道上种着几百棵来自领地各地的果树，果子成熟时谁都可以摘，学生们说这是「长夏群岛大学的第一门免修课」。伊武兰语系每年雨季的第一场大雨时敲响木鼓，全校师生跑进雨里过「雨鼓日」。"
+      en: "The territory's largest university, with its main campus in Ilavam District, known for tropical agriculture, ocean science and Ivuran studies; tuition is free, and its shaded walks and library are open to the public. Hundreds of fruit trees from every part of the territory line its avenues, and anyone may pick the fruit when it ripens; students call it \"the university's first free course\". At the first heavy rain of each wet season the Ivuran department beats its wooden drums and the whole university runs out into the rain for Uvesa Tomaku."
     in: div_n90922
     offset_km: [1.5, 1.0]
     site: { layout: campus, size_m: [1600, 1000] }
@@ -481,8 +481,8 @@ places:
       en: Sarunnam International Airport
       art-x-ivuran: Sarunnam Ulavan
     notes:
-      zh: 门达卢尔区的国际机场，是领地最大的航空港，航线通往世界各地；周围是物流园、航空维修基地和会展中心，地铁通到航站楼。
-      en: The international airport in Mendalur District, the territory's largest, with routes all over the world; logistics parks, an aircraft maintenance base and an exhibition centre surround it, and the metro runs to the terminal.
+      zh: "门达卢尔区的国际机场，是领地最大的航空港，航线通往世界各地；周围是物流园、航空维修基地和会展中心，地铁通到航站楼。到达大厅的墙上用中文、英文和伊武兰语写着领地格言「长夏不尽，人人有家」，旅客出关后第一眼看到的就是这行字。"
+      en: "The international airport in Mendalur District, the territory's largest, with routes all over the world; logistics parks, an aircraft maintenance base and an exhibition centre surround it, and the metro runs to the terminal. The arrivals hall wall carries the territory's motto, \"Endless Summer, a Home for All\", in Chinese, English and Ivuran, the first words travellers see after passport control."
     in: div_54sm84
     offset_km: [8.5, 0]
     site: { size_m: [4400, 2000], layout: airport, angle_deg: 60 }
@@ -494,8 +494,8 @@ places:
       en: Sarunnam Port
       art-x-ivuran: Sarunnam Talusam
     notes:
-      zh: 哈努西鲁河口的港区，集装箱码头和散货码头沿河口展开，三角洲的稻米、香料和水产从这里装船出口，进口的机械和原料从这里运往全岛。
-      en: The port at the mouth of the Hanusiru, its container and bulk terminals strung along the estuary; the delta's rice, spices and seafood are shipped out here, and imported machinery and materials come in for the whole island.
+      zh: "哈努西鲁河口的港区，集装箱码头和散货码头沿河口展开，三角洲的稻米、香料和水产从这里装船出口，进口的机械和原料从这里运往全岛。港区的老码头上还保留着一排木制的货仓，满月的「灯与月」之夜，港里的船只也挂起油灯，从河口望去，灯光一直连到旧王城。"
+      en: "The port at the mouth of the Hanusiru, its container and bulk terminals strung along the estuary; the delta's rice, spices and seafood are shipped out here, and imported machinery and materials come in for the whole island. A row of timber godowns survives on the old quay, and on full-moon nights the ships in port hang out oil lamps too, so that from the river mouth the lights run all the way to the royal city."
     in: div_ycfvt9
     site: { size_m: [6000, 3500], layout: harbour, terminals: [container, container, bulk, bulk, roro] }
   - id: poi_hmp08v
@@ -506,8 +506,8 @@ places:
       en: Pilakkai Mangrove Reserve
       art-x-ivuran: Pilakkai Siralomi
     notes:
-      zh: 三角洲海岸的红树林保护区，潮水涨落间是鱼虾和螃蟹的育苗场，也是候鸟的停歇地；木栈道只修在保护区边缘，护林员乘小船巡护。
-      en: A mangrove reserve on the delta coast whose tidal forest is a nursery for fish, prawns and crabs and a stopover for migrating birds; boardwalks run only along its edge, and rangers patrol by boat.
+      zh: "三角洲海岸的红树林保护区，潮水涨落间是鱼虾和螃蟹的育苗场，也是候鸟的停歇地；木栈道只修在保护区边缘，护林员乘小船巡护。退潮时泥滩上能看到成群的弹涂鱼蹦跳，孩子们趴在栈道边看它们用鳍「走路」；护林员说，红树林挡住了风暴潮，三角洲上的稻田和村子才能安稳。"
+      en: "A mangrove reserve on the delta coast whose tidal forest is a nursery for fish, prawns and crabs and a stopover for migrating birds; boardwalks run only along its edge, and rangers patrol by boat. At low tide crowds of mudskippers hop across the flats, and children lie on the boardwalk watching them \"walk\" on their fins; the rangers say the mangroves hold back the storm surges, which is why the delta's paddies and villages are safe."
     in: div_k880h3
     offset_km: [-2.5, 1.5]
     site: { layout: park, size_m: [4000, 2500] }
@@ -521,8 +521,8 @@ places:
       en: Turakkai Container Terminal
       art-x-ivuran: Turakkai Talusam
     notes:
-      zh: 瓦利凯的深水转运港，自动化集装箱码头沿防波堤展开，往来大洋之间的大型集装箱船在这里换装支线船，转运箱量居领地之首；港区还有船舶加油站和修船码头。
-      en: Vallikkai's deep-water transhipment port, its automated container berths strung along the breakwater; ocean-going container ships exchange boxes with feeder ships here, and it handles more transhipment containers than any other port in the territory. There are also bunkering berths and a repair quay.
+      zh: "瓦利凯的深水转运港，自动化集装箱码头沿防波堤展开，往来大洋之间的大型集装箱船在这里换装支线船，转运箱量居领地之首；港区还有船舶加油站和修船码头。码头的吊车司机被称作「云上的人」，他们在几十米高的驾驶室里吃午饭，饭盒用绳子吊上去。"
+      en: "Vallikkai's deep-water transhipment port, its automated container berths strung along the breakwater; ocean-going container ships exchange boxes with feeder ships here, and it handles more transhipment containers than any other port in the territory. There are also bunkering berths and a repair quay. Its crane drivers are known as \"the people in the clouds\": they eat lunch in cabs tens of metres up, their lunchboxes hauled up on a rope."
     in: div_qj7vjy
     site: { size_m: [7000, 3500], layout: harbour, terminals: [container, container, container, container, oil] }
   - id: poi_4qa46y
@@ -533,8 +533,8 @@ places:
       en: Eruttam Logistics Park
       art-x-ivuran: Eruttam Lumavam
     notes:
-      zh: 图拉凯港口高速另一端的物流园，冷库、仓库和分拣中心为全岛配送货物，集装箱卡车从码头直达，不必进入坎纳鲁尔老城。
-      en: The logistics park at the far end of the Turakkai Port Expressway, whose cold stores, warehouses and sorting centres supply the whole island; container trucks come straight from the quays without entering the old town of Kannarur.
+      zh: "图拉凯港口高速另一端的物流园，冷库、仓库和分拣中心为全岛配送货物，集装箱卡车从码头直达，不必进入坎纳鲁尔老城。物流园的冷库里常年存着整箱的海藻饼和香料，瓦利凯人出远门必带的干粮也从这里发往全岛的商店。"
+      en: "The logistics park at the far end of the Turakkai Port Expressway, whose cold stores, warehouses and sorting centres supply the whole island; container trucks come straight from the quays without entering the old town of Kannarur. Its cold stores always hold cases of seaweed cake and spices, and the travel food no Vallikkai person leaves home without is shipped from here to shops all over the island."
     in: div_0hrhwh
     offset_km: [0.5, 0.8]
     site: { layout: complex, size_m: [1600, 1000] }
@@ -546,8 +546,8 @@ places:
       en: Kannarur Spice Warehouse Museum
       art-x-ivuran: Kannarur Tiravam
     notes:
-      zh: 老港边的石砌香料仓库改成的博物馆，展出古王国以来的香料贸易、帆船模型和老商行的账簿，仓库里至今飘着胡椒和肉桂的气味。
-      en: A stone spice warehouse by the old harbour turned museum, showing the spice trade since the days of the old kingdom, model sailing ships and the ledgers of the old trading houses; the scent of pepper and cinnamon still hangs in it.
+      zh: "老港边的石砌香料仓库改成的博物馆，展出古王国以来的香料贸易、帆船模型和老商行的账簿，仓库里至今飘着胡椒和肉桂的气味。博物馆的茶室用老配方煮香料奶茶，豆蔻和肉桂当年就存放在这些仓库里。馆里有一面「闻香墙」，几十个小抽屉里装着不同的香料，游客拉开抽屉闻一闻，猜它的名字。"
+      en: "A stone spice warehouse by the old harbour turned museum, showing the spice trade since the days of the old kingdom, model sailing ships and the ledgers of the old trading houses; the scent of pepper and cinnamon still hangs in it. Its tea room brews spiced milk tea to an old recipe, with the cardamom and cinnamon that were once stored in these very warehouses. A \"scent wall\" of dozens of little drawers holds different spices, and visitors open them to sniff and guess the name."
     in: div_3ytmrh
     offset_km: [0.4, 0.8]
     site: { layout: hall, size_m: [200, 120] }
@@ -559,8 +559,8 @@ places:
       en: Marandur Spice Market
       art-x-ivuran: Marandur Mevalu
     notes:
-      zh: 领地最大的香料集散地，大棚里堆满胡椒、豆蔻、肉桂和丁香，香料园的农户清早把货送来，批发商当天装车运往港口；出口前的香料都要在这里抽检。
-      en: The territory's largest spice exchange, its sheds piled with pepper, cardamom, cinnamon and cloves; growers bring their crop at dawn and dealers load it for the ports the same day, and every lot is spot-checked here before export.
+      zh: "领地最大的香料集散地，大棚里堆满胡椒、豆蔻、肉桂和丁香，香料园的农户清早把货送来，批发商当天装车运往港口；出口前的香料都要在这里抽检。摊主们按祖传的方子现场调配香料，一个摊位常有几十种配方，每家的咖喱粉都不一样，熟客只认自家那一摊。香料园的老人们常说：「Kaina hevaru, oruka nalu」，意思是「香料乘风，船乘浪」。"
+      en: "The territory's largest spice exchange, its sheds piled with pepper, cardamom, cinnamon and cloves; growers bring their crop at dawn and dealers load it for the ports the same day, and every lot is spot-checked here before export. Stallholders blend spices to order from family recipes, a single stall often keeping dozens of blends, so no two stalls' curry powder is alike and regulars buy from no one else. The old people of the spice gardens say \"Kaina hevaru, oruka nalu\": the spice rides the wind and the boat rides the waves."
     in: div_a3c8d6
     offset_km: [0.3, 0.4]
     site: { layout: market, size_m: [450, 300] }
@@ -575,8 +575,8 @@ places:
       zh: 世界最大的水稻梯田，从河谷一直修到海拔一千多米的山腰
       en: The largest rice terraces in the world, climbing from the valley floors to more than 1,000 m up the mountainsides
     notes:
-      zh: 温达坎东部山坡上层层叠叠的水稻梯田，成千上万块田顺着等高线环绕山坡，灌溉水从山顶的森林流下，一层层流过每块田；梯田的维护和用水由村社共同商定，插秧和收割时节全村一起下田。
-      en: Terrace upon terrace of rice fields on the mountainsides of eastern Undakan, thousands of paddies following the contours round the slopes, watered by streams from the forest above that pass down through every field in turn. The village communities share the upkeep and the water, and the whole village turns out to plant and harvest.
+      zh: "温达坎东部山坡上层层叠叠的水稻梯田，成千上万块田顺着等高线环绕山坡，灌溉水从山顶的森林流下，一层层流过每块田；梯田的维护和用水由村社共同商定，插秧和收割时节全村一起下田。插秧的日子，全村人在田里排成一行，跟着田埂上木鼓的节拍，一边唱一边后退着插秧，鼓手通常是村里最年长的人。村里的老人常念「Uvesa lomi, olu unda」，意思是「雨落进森林，稻长上台阶」。"
+      en: "Terrace upon terrace of rice fields on the mountainsides of eastern Undakan, thousands of paddies following the contours round the slopes, watered by streams from the forest above that pass down through every field in turn. The village communities share the upkeep and the water, and the whole village turns out to plant and harvest. On planting days the whole village forms a line across the paddy and plants walking backwards, singing to the beat of a wooden drum on the bank, usually played by the oldest villager. The elders recite \"Uvesa lomi, olu unda\": the rain falls into the forest and the rice climbs the steps."
     in: div_w2pbh1
     offset_km: [-3.0, 2.0]
     site: { layout: park, size_m: [6000, 4000] }
@@ -588,8 +588,8 @@ places:
       en: Undakan Terrace Museum
       art-x-ivuran: Undakan Oluvatu Tiravam
     notes:
-      zh: 坎达瓦区的博物馆，介绍梯田的修筑、灌溉和村社的用水规矩，馆外有一小片示范梯田，游客可以跟着村民插秧。
-      en: The museum in Kandava District on how the terraces were built and watered and how the villages share their water, with a small demonstration terrace outside where visitors can plant rice with the villagers.
+      zh: "坎达瓦区的博物馆，介绍梯田的修筑、灌溉和村社的用水规矩，馆外有一小片示范梯田，游客可以跟着村民插秧。馆里陈列着村社用了几代的木鼓和刻着用水规矩的木板，插秧季的周末，游客可以跟着鼓点在示范梯田里学倒退着插秧。"
+      en: "The museum in Kandava District on how the terraces were built and watered and how the villages share their water, with a small demonstration terrace outside where visitors can plant rice with the villagers. It displays wooden drums used by village communities for generations and boards carved with the rules for sharing water, and on planting-season weekends visitors can learn to plant walking backwards to the drum in the demonstration terrace."
     in: div_6cy2yw
     offset_km: [0.4, 1.2]
     site: { layout: hall, size_m: [180, 120] }
@@ -606,8 +606,8 @@ places:
       zh: 世界最长的雨林树冠步道，全长约 5 公里
       en: The longest rainforest canopy walkway in the world, about 5 km long
     notes:
-      zh: 国家公园边缘的树冠步道，由吊桥和树上平台连成，在离地几十米的树冠间蜿蜒约 5 公里，游客能看到犀鸟筑巢和猴群觅食；步道每天限量预约，由本地村社的向导带领。
-      en: A canopy walkway on the edge of the national park, a chain of suspension bridges and tree platforms winding about 5 km through the treetops tens of metres above the ground, where visitors can watch hornbills nesting and monkeys foraging. Places are limited each day and walks are led by guides from the local villages.
+      zh: "国家公园边缘的树冠步道，由吊桥和树上平台连成，在离地几十米的树冠间蜿蜒约 5 公里，游客能看到犀鸟筑巢和猴群觅食；步道每天限量预约，由本地村社的向导带领。清晨走在步道上，脚下是一片云海，偶尔能看见长臂的猿从步道旁荡过。向导说，犀鸟在午后成群叫起来，傍晚多半要下雨。"
+      en: "A canopy walkway on the edge of the national park, a chain of suspension bridges and tree platforms winding about 5 km through the treetops tens of metres above the ground, where visitors can watch hornbills nesting and monkeys foraging. Places are limited each day and walks are led by guides from the local villages. In the early morning you walk above a sea of cloud, and now and then a long-armed ape swings past. The guides say that when the hornbills call in flocks in the afternoon, rain is likely by evening."
     in: div_a5rwcq
     offset_km: [0.5, 3.0]
     site: { layout: park, size_m: [3000, 800] }
@@ -619,8 +619,8 @@ places:
       en: Lomiran Institute of Medicinal Plants
       art-x-ivuran: Lomiran Kilavam
     notes:
-      zh: 卢瓦纳区的研究所，研究雨林中的药用植物，为领地的生物医药研究提供样本；采集要经许可，利用所得的收益按惠益分享规则分给当地村社。
-      en: The institute in Luvana District that studies the medicinal plants of the rainforest and supplies samples for the territory's biomedical research; collecting needs a permit, and the benefits are shared with the local villages under the territory's rules.
+      zh: "卢瓦纳区的研究所，研究雨林中的药用植物，为领地的生物医药研究提供样本；采集要经许可，利用所得的收益按惠益分享规则分给当地村社。研究所的标本馆里存着上万份雨林植物标本，每一份都写着采集村社的名字。采药人和研究员一起进山时，要先在林边念一句「Lomi uvesa, uvesa lomi」，意思是「森林生雨，雨生森林」。"
+      en: "The institute in Luvana District that studies the medicinal plants of the rainforest and supplies samples for the territory's biomedical research; collecting needs a permit, and the benefits are shared with the local villages under the territory's rules. Its herbarium holds tens of thousands of rainforest specimens, each labelled with the community where it was gathered. When gatherers and researchers go into the forest together they first say at its edge \"Lomi uvesa, uvesa lomi\": the forest makes the rain and the rain makes the forest."
     in: div_pgh98w
     offset_km: [0.5, 0.6]
     site: { layout: campus, size_m: [500, 350] }
@@ -635,8 +635,8 @@ places:
       zh: 世界最大的植物园，收集了热带各地的数万种植物
       en: The largest botanic garden in the world, with tens of thousands of plant species from across the tropics
     notes:
-      zh: 纳卢迈维兰塔区的植物园，分成雨林、兰花、香料、棕榈和水生植物等园区，种质圃里活体保存着领地的各种作物和野生植物；研究人员在这里培育抗病的稻种和果树，园区向公众免费开放。
-      en: The botanic garden in Viranta District of Nalumai, divided into rainforest, orchid, spice, palm and water-plant gardens, with a living collection of every crop and many wild plants of the territory. Its researchers breed disease-resistant rice and fruit trees, and entry is free.
+      zh: "纳卢迈维兰塔区的植物园，分成雨林、兰花、香料、棕榈和水生植物等园区，种质圃里活体保存着领地的各种作物和野生植物；研究人员在这里培育抗病的稻种和果树，园区向公众免费开放。园里的研究员每到周末给游客讲解，哪些果树是从远方引种来的，哪些是长夏群岛土生土长的；兰花园里有一种只在晨雾里开放的白兰花，是游客清早排队来看的。"
+      en: "The botanic garden in Viranta District of Nalumai, divided into rainforest, orchid, spice, palm and water-plant gardens, with a living collection of every crop and many wild plants of the territory. Its researchers breed disease-resistant rice and fruit trees, and entry is free. At weekends its researchers show visitors which fruit trees were brought from far away and which are native to the Everlong Summer Islands, and the orchid garden has a white orchid that opens only in the morning mist, for which visitors queue at dawn."
     in: div_a349sd
     offset_km: [0.3, 1.0]
     site: { layout: park, size_m: [2400, 1600] }
@@ -648,8 +648,8 @@ places:
       en: Senalu Pearl Market
       art-x-ivuran: Senalu Maimevalu
     notes:
-      zh: 纳卢迈海滨大道边的珍珠市场，迈卢阿湾出产的白珍珠在这里分级、拍卖和零售，每颗珍珠都附有产地和等级证书。
-      en: The pearl market on Nalumai's seafront, where the white pearls of Mailua Bay are graded, auctioned and sold, each with a certificate of origin and grade.
+      zh: "纳卢迈海滨大道边的珍珠市场，迈卢阿湾出产的白珍珠在这里分级、拍卖和零售，每颗珍珠都附有产地和等级证书。按纳卢迈的习俗，孩子出生时家人会从那一季的收成里挑一颗白珍珠收起来，等孩子成年时串成项链或镶成戒指，许多人家就是在这里为孩子挑下那一颗。"
+      en: "The pearl market on Nalumai's seafront, where the white pearls of Mailua Bay are graded, auctioned and sold, each with a certificate of origin and grade. By Nalumai custom, when a child is born the family sets aside a white pearl from that season's harvest to be strung or set in a ring when the child comes of age, and many families choose that pearl here."
     in: div_afy2b3
     offset_km: [0.8, 0.3]
     site: { layout: market, size_m: [300, 200] }
@@ -661,8 +661,8 @@ places:
       en: Mailua Pearl Farm
       art-x-ivuran: Mailua Maitaram
     notes:
-      zh: 迈卢阿湾的珍珠贝养殖场，海湾里挂满养殖笼，岸上是育苗场和开贝车间；海湾水质按月监测，养殖密度有上限。
-      en: The pearl oyster farm of Mailua Bay, its cages hung all over the bay, with a hatchery and opening sheds on shore; the bay's water is tested monthly and stocking is capped.
+      zh: "迈卢阿湾的珍珠贝养殖场，海湾里挂满养殖笼，岸上是育苗场和开贝车间；海湾水质按月监测，养殖密度有上限。采珠人有一句老话：「Nalu kila, mai kila」，意思是「浪亮的时候，珍珠也亮」，风平浪静、阳光透进海里的日子才下海看贝，阴天风大就在岸上补网。"
+      en: "The pearl oyster farm of Mailua Bay, its cages hung all over the bay, with a hatchery and opening sheds on shore; the bay's water is tested monthly and stocking is capped. The pearl farmers have an old saying, \"Nalu kila, mai kila\", when the waves shine, so do the pearls: they dive to check the oysters only on calm days when sunlight reaches down into the sea, and mend nets ashore when it is dull and windy."
     in: div_pfrpr2
     offset_km: [0.5, 0.4]
     site: { layout: complex, size_m: [400, 250] }
@@ -676,8 +676,8 @@ places:
       en: Nuvila Semiconductor Park
       art-x-ivuran: Nuvila Kilakaruvam
     notes:
-      zh: 基拉努的半导体产业园，十多座晶圆厂、封装测试厂和光刻胶、特种气体等配套工厂沿规划路网排开；园区有自己的变电站和超纯水厂，废水排放由领地实时监测。
-      en: Kilanu's semiconductor park, a dozen and more wafer fabs, packaging and test plants and suppliers of photoresists and specialty gases laid out along a planned grid, with its own substation and ultrapure water plant; its wastewater is monitored by the territory in real time.
+      zh: "基拉努的半导体产业园，十多座晶圆厂、封装测试厂和光刻胶、特种气体等配套工厂沿规划路网排开；园区有自己的变电站和超纯水厂，废水排放由领地实时监测。本地人爱开玩笑说，基拉努的沙子一半在海滩上，一半在这里的晶圆里。工程师们下班后最常去海边的排球场和夜市，摊主们早就习惯了客人边吃边讨论电路图。"
+      en: "Kilanu's semiconductor park, a dozen and more wafer fabs, packaging and test plants and suppliers of photoresists and specialty gases laid out along a planned grid, with its own substation and ultrapure water plant; its wastewater is monitored by the territory in real time. Locals joke that half of Kilanu's sand is on the beach and the other half in the wafers made here. After work the engineers head for the beach volleyball courts and the night markets, where stallholders are long used to customers arguing over circuit diagrams as they eat."
     in: div_qr8ay4
     offset_km: [0.5, -1.5]
     site: { layout: complex, size_m: [3000, 2000] }
@@ -689,8 +689,8 @@ places:
       en: Kilanu University of Technology
       art-x-ivuran: Kilanu Saluvam
     notes:
-      zh: 埃莱努区的理工大学，以集成电路、材料和软件见长，与产业园的企业共建实验室，毕业生多留在基拉努工作。
-      en: The technical university in Elenu District, known for integrated circuits, materials and software, with laboratories shared with firms in the semiconductor park; most graduates stay in Kilanu.
+      zh: "埃莱努区的理工大学，以集成电路、材料和软件见长，与产业园的企业共建实验室，毕业生多留在基拉努工作。毕业季有个传统：毕业生在海滩上用白沙堆一块巨大的「芯片」，再在上面用贝壳摆出自己的名字，涨潮时一起看海水把它带走。"
+      en: "The technical university in Elenu District, known for integrated circuits, materials and software, with laboratories shared with firms in the semiconductor park; most graduates stay in Kilanu. It has a graduation custom: the graduates build a giant \"chip\" of white sand on the beach, lay out their names on it in shells, and watch together as the tide carries it away."
     in: div_07wzvt
     offset_km: [-1.0, 0.5]
     site: { layout: campus, size_m: [1200, 800] }
@@ -702,8 +702,8 @@ places:
       en: Kilanu International Airport
       art-x-ivuran: Kilanu Ulavan
     notes:
-      zh: 佩萨维区的国际机场，货运区专门处理芯片等高价值货物，恒温仓库与跑道之间有封闭通道。
-      en: The international airport in Pesavi District, whose cargo area specialises in chips and other high-value freight, with sealed passages between its climate-controlled warehouses and the apron.
+      zh: "佩萨维区的国际机场，货运区专门处理芯片等高价值货物，恒温仓库与跑道之间有封闭通道。航站楼的地面铺着基拉努本地的白色石英砂磨成的水磨石，旅客走在上面常低头看，本地人说「基拉努的沙子从机场就开始唱歌了」。"
+      en: "The international airport in Pesavi District, whose cargo area specialises in chips and other high-value freight, with sealed passages between its climate-controlled warehouses and the apron. The terminal floor is terrazzo ground from Kilanu's own white quartz sand, and travellers often look down at it as they walk; locals say \"Kilanu's sand starts singing at the airport\"."
     in: div_yah63b
     offset_km: [-5.0, 3.0]
     site: { size_m: [3600, 1200], layout: airport, angle_deg: 40 }
@@ -715,8 +715,8 @@ places:
       en: Seranu Deep Water Port
       art-x-ivuran: Seranu Talusam
     notes:
-      zh: 塔卢马兰湾外侧的深水港，集装箱码头、汽车滚装码头和液化气接收站沿湾口展开，是领地最大的集装箱港之一；全自动化装卸，无人集卡在码头和堆场之间往来，伊拉坦区生产的电池和新能源车从这里装船出口。
-      en: The deep-water port on the outer side of Talumaran Bay, with container berths, a ro-ro car terminal and an LNG terminal along the bay mouth, one of the territory's largest container ports. Handling is fully automated, with driverless trucks between quay and stacks, and the batteries and electric cars of Ilatan District are shipped out from here.
+      zh: "塔卢马兰湾外侧的深水港，集装箱码头、汽车滚装码头和液化气接收站沿湾口展开，是领地最大的集装箱港之一；全自动化装卸，无人集卡在码头和堆场之间往来，伊拉坦区生产的电池和新能源车从这里装船出口。码头工人有自己的口令，一半中文一半英语，还夹着几个伊武兰语词，外人很难听懂。"
+      en: "The deep-water port on the outer side of Talumaran Bay, with container berths, a ro-ro car terminal and an LNG terminal along the bay mouth, one of the territory's largest container ports. Handling is fully automated, with driverless trucks between quay and stacks, and the batteries and electric cars of Ilatan District are shipped out from here. The dockers have their own calls, half Chinese, half English, with a few Ivuran words thrown in, which outsiders can barely follow."
     in: div_hceeaa
     site: { size_m: [6500, 3500], layout: harbour, terminals: [container, container, container, roro, oil] }
   - id: poi_68bkaz
@@ -727,8 +727,8 @@ places:
       en: Lumbo Shipyard
       art-x-ivuran: Lumbo Talukaru
     notes:
-      zh: 伦博区的船厂，干船坞和龙门吊沿海湾排开，建造集装箱船、液化气运输船、海上风电安装船和海洋平台；周围是钢结构、船用发动机和电子设备的配套工厂。
-      en: The shipyard of Lumbo District, its dry docks and gantry cranes lined along the bay, building container ships, gas carriers, offshore wind installation vessels and ocean platforms, with steelwork, marine engine and electronics suppliers around it.
+      zh: "伦博区的船厂，干船坞和龙门吊沿海湾排开，建造集装箱船、液化气运输船、海上风电安装船和海洋平台；周围是钢结构、船用发动机和电子设备的配套工厂。每有新船下水，船头都要挂一串鸡蛋花编成的花环，工人们相信花环在海上漂得越远，这条船的航程就越顺。"
+      en: "The shipyard of Lumbo District, its dry docks and gantry cranes lined along the bay, building container ships, gas carriers, offshore wind installation vessels and ocean platforms, with steelwork, marine engine and electronics suppliers around it. Whenever a new ship is launched a garland of frangipani is hung on her bow, and the workers believe the further it drifts at sea, the smoother her voyages will be."
     in: div_yakrhd
     offset_km: [2.7, -1.8]
     site: { size_m: [1400, 1100], layout: port }
@@ -740,8 +740,8 @@ places:
       en: Ilatan Battery Works
       art-x-ivuran: Ilatan Vilakaru
     notes:
-      zh: 伊拉坦区的电池厂，正极材料、电芯和电池包在同一厂区生产，原料是乌诺维拉重载铁路运来的镍盐和钴盐；厂房屋顶铺满太阳能板，废旧电池在旁边的回收车间拆解再生。
-      en: The battery works of Ilatan District, making cathode materials, cells and packs on one site from the nickel and cobalt salts brought by the Unovila heavy-haul railway; its roofs are covered in solar panels, and spent batteries are taken apart and recycled in the workshop next door.
+      zh: "伊拉坦区的电池厂，正极材料、电芯和电池包在同一厂区生产，原料是乌诺维拉重载铁路运来的镍盐和钴盐；厂房屋顶铺满太阳能板，废旧电池在旁边的回收车间拆解再生。厂区门口立着一块电子牌，滚动显示当天下线的电池包数量，工人们换班时都习惯抬头看一眼，说这是「今天给多少辆车装上了心脏」。"
+      en: "The battery works of Ilatan District, making cathode materials, cells and packs on one site from the nickel and cobalt salts brought by the Unovila heavy-haul railway; its roofs are covered in solar panels, and spent batteries are taken apart and recycled in the workshop next door. A screen at the gate scrolls the number of battery packs finished that day, and workers glance up at it at every shift change: \"how many cars got a heart today\"."
     in: div_3e94sq
     offset_km: [-1.0, 1.0]
     site: { layout: complex, size_m: [2000, 1200] }
@@ -753,8 +753,8 @@ places:
       en: Ilatan Electric Vehicle Plant
       art-x-ivuran: Ilatan Vesukaru
     notes:
-      zh: 电池厂旁的整车厂，冲压、焊装、涂装和总装连成一线，新车经塞拉努港口高速直送码头装船。
-      en: The car plant beside the battery works, with pressing, body, paint and assembly shops in one line; new cars go straight down the Seranu Port Expressway to the quays.
+      zh: "电池厂旁的整车厂，冲压、焊装、涂装和总装连成一线，新车经塞拉努港口高速直送码头装船。塔卢马兰的出租车和公交车几乎都是这里造的电动车，司机们爱跟乘客炫耀：「电池里的镍是乌诺卡里挖的，车是我们这儿造的。」每辆新车下线时，总装线尽头的工人会在车里放一朵鸡蛋花。"
+      en: "The car plant beside the battery works, with pressing, body, paint and assembly shops in one line; new cars go straight down the Seranu Port Expressway to the quays. Nearly all Talumaran's taxis and buses are electric cars built here, and drivers like to boast that \"the nickel in the battery was dug in Unokari and the car was made right here\". As each new car leaves the line, the workers at the end of final assembly leave a frangipani flower inside."
     in: div_3e94sq
     offset_km: [1.4, -1.2]
     site: { layout: complex, size_m: [2000, 1200] }
@@ -766,8 +766,8 @@ places:
       en: Talumaran Airport
       art-x-ivuran: Talumaran Ulavan
     notes:
-      zh: 伊拉坦区北面的机场，有航班飞往萨伦纳姆、米雷兰和基拉努，货运航班运送电池和船用零部件。
-      en: The airport north of Ilatan District, with flights to Sarunnam, Mirelan and Kilanu and cargo flights carrying batteries and ship parts.
+      zh: "伊拉坦区北面的机场，有航班飞往萨伦纳姆、米雷兰和基拉努，货运航班运送电池和船用零部件。到达大厅里挂着一句伊武兰语「Talu oruka, maran tola」，意思是「船停下的地方，就是家」，三分之二的塔卢马兰人当初都是从这里第一次踏上这座城市的。"
+      en: "The airport north of Ilatan District, with flights to Sarunnam, Mirelan and Kilanu and cargo flights carrying batteries and ship parts. The arrivals hall bears the Ivuran words \"Talu oruka, maran tola\", where the boat stops, there is home; two in three Talumaran residents first set foot in the city here."
     in: div_3e94sq
     offset_km: [4.0, 4.0]
     site: { size_m: [3200, 1000], layout: airport, angle_deg: 50 }
@@ -781,8 +781,8 @@ places:
       en: Unovila Nickel and Cobalt Mine
       art-x-ivuran: Unovila Unotam
     notes:
-      zh: 乌诺凯苏山脉中的露天红土镍矿，开采镍和钴，矿石由乌诺维拉重载铁路运往佩鲁诺冶炼厂；采完的台阶随即复绿，尾矿全部回填。
-      en: An open-pit laterite mine in the Unokesu Mountains producing nickel and cobalt, whose ore goes by the Unovila heavy-haul railway to the Peruno smelter; worked-out benches are replanted at once and all tailings are backfilled.
+      zh: "乌诺凯苏山脉中的露天红土镍矿，开采镍和钴，矿石由乌诺维拉重载铁路运往佩鲁诺冶炼厂；采完的台阶随即复绿，尾矿全部回填。矿工们会在自己种下的复绿树苗上挂一块小木牌，写上名字和班组，矿区里因此有了一片片以班组命名的「矿工林」。"
+      en: "An open-pit laterite mine in the Unokesu Mountains producing nickel and cobalt, whose ore goes by the Unovila heavy-haul railway to the Peruno smelter; worked-out benches are replanted at once and all tailings are backfilled. Miners hang a small wooden tag with their name and crew on each sapling they plant on the restored benches, so the mine is dotted with \"miners' woods\" named after their crews."
     in: div_6z737x
     offset_km: [-4.0, -5.0]
     site: { layout: mine, size_m: [4000, 2800] }
@@ -794,8 +794,8 @@ places:
       en: Peruno Smelter
       art-x-ivuran: Peruno Unokaru
     notes:
-      zh: 佩鲁诺区的高压酸浸冶炼厂，把红土镍矿炼成电池级的硫酸镍和硫酸钴，再由重载铁路运往塔卢马兰的电池厂；用山区水电站的电力，废渣处理后回填矿坑。
-      en: The high-pressure acid leach smelter of Peruno District, turning laterite ore into battery-grade nickel and cobalt sulphate for the Talumaran battery works by heavy-haul rail; it runs on mountain hydropower, and its residue is treated and returned to the pits.
+      zh: "佩鲁诺区的高压酸浸冶炼厂，把红土镍矿炼成电池级的硫酸镍和硫酸钴，再由重载铁路运往塔卢马兰的电池厂；用山区水电站的电力，废渣处理后回填矿坑。红土把这里的一切染成了赭红色，工人下班时连眉毛都是红的，佩鲁诺区的澡堂一到傍晚就排起长队，本地人管这叫「洗红」。"
+      en: "The high-pressure acid leach smelter of Peruno District, turning laterite ore into battery-grade nickel and cobalt sulphate for the Talumaran battery works by heavy-haul rail; it runs on mountain hydropower, and its residue is treated and returned to the pits. The red laterite stains everything ochre, workers come off shift red to the eyebrows, and by evening there are queues at the Peruno bathhouses for what locals call \"washing off the red\"."
     in: div_4m0x2v
     offset_km: [1.0, 1.0]
     site: { layout: complex, size_m: [1800, 1000] }
@@ -807,8 +807,8 @@ places:
       en: Belua Ore Port
       art-x-ivuran: Belua Unotalusam
     notes:
-      zh: 乌诺卡里的出海口，镍产品在这里装船外运，封闭式的皮带廊和仓库防止粉尘外泄。
-      en: Unokari's outlet to the sea, where nickel products are shipped, with enclosed conveyors and sheds to keep the dust in.
+      zh: "乌诺卡里的出海口，镍产品在这里装船外运，封闭式的皮带廊和仓库防止粉尘外泄。山谷里的雾气傍晚从山脊上漫下来，港口的灯光在雾里一闪一闪，像一船停在山谷口的星星。"
+      en: "Unokari's outlet to the sea, where nickel products are shipped, with enclosed conveyors and sheds to keep the dust in. In the evening mist pours down from the ridges, and the port's lights blink through it like a boatload of stars moored at the valley mouth."
     in: div_w7bas1
     site: { size_m: [4000, 2500], layout: harbour, terminals: [bulk, bulk, oil] }
 
@@ -821,8 +821,8 @@ places:
       en: Evutola People's Square
       art-x-ivuran: Ondavu Evutola
     notes:
-      zh: 哈马图区中心的广场，人民宫、公社大食堂和公社图书馆围在四周，居民议事会表决的结果在这里公布；免费的电车和公共汽车从广场通向各区。
-      en: The square at the heart of Hamatu District, surrounded by the People's Palace, the Commune Canteen and the Commune Library, where the votes of the residents' assemblies are announced; free trams and buses leave from here for every district.
+      zh: "哈马图区中心的广场，人民宫、公社大食堂和公社图书馆围在四周，居民议事会表决的结果在这里公布；免费的电车和公共汽车从广场通向各区。广场上有一座大棚，公社大会就在棚下召开，会开得再长，中间也一定会停下来，大家一起吃一顿大食堂送来的点心。居民们见面常用一句半开玩笑的话互相问候：「Tola evu, evu tola」，意思是「家是大家的，大家是一家」。"
+      en: "The square at the heart of Hamatu District, surrounded by the People's Palace, the Commune Canteen and the Commune Library, where the votes of the residents' assemblies are announced; free trams and buses leave from here for every district. The commune assembly meets under the great awning on the square, and however long the meeting runs it always breaks for snacks sent over from the canteen. Residents greet each other with a half-joking \"Tola evu, evu tola\": home belongs to everyone, and everyone is one family."
     in: div_p3x7j4
     offset_km: [0, 0]
     site: { layout: plaza, size_m: [500, 350] }
@@ -851,8 +851,8 @@ places:
       zh: 世界最大的公共食堂，一次可供三万人同时用餐
       en: The largest public canteen in the world, seating thirty thousand at once
     notes:
-      zh: 人民广场东侧的大食堂，长长的大厅一次可供三万人同时用餐，一日三餐和夜宵都免费；食材来自塔尼武区的农业和渔业合作社，菜单由居民每月投票决定。
-      en: The great canteen on the east side of People's Square, whose long halls seat thirty thousand at once, serving three meals and a late supper every day free of charge; its food comes from the farming and fishing co-operatives of Tanivu District, and residents vote on the menu each month.
+      zh: "人民广场东侧的大食堂，长长的大厅一次可供三万人同时用餐，一日三餐和夜宵都免费；食材来自塔尼武区的农业和渔业合作社，菜单由居民每月投票决定。除了每月的菜单投票，居民每周还要投出一道「周五菜」，有一道椰浆焖鱼连着许多周高票当选，后来干脆进了菜单的固定栏目。"
+      en: "The great canteen on the east side of People's Square, whose long halls seat thirty thousand at once, serving three meals and a late supper every day free of charge; its food comes from the farming and fishing co-operatives of Tanivu District, and residents vote on the menu each month. Besides the monthly menu vote, residents pick a \"Friday dish\" every week; a coconut-braised fish won so many weeks running that it was finally given a permanent place on the menu."
     in: div_p3x7j4
     offset_km: [0.75, -0.45]
     site: { layout: hall, size_m: [420, 260] }
@@ -867,8 +867,8 @@ places:
       zh: 世界最大的公共图书馆，图书、工具和乐器都可以免费借用
       en: The largest public library in the world, lending books, tools and instruments free of charge
     notes:
-      zh: 人民广场西侧的图书馆，除了图书，还借出工具、乐器、相机和露营装备；楼里有自习室、木工房和录音室，昼夜开放。
-      en: The library on the west side of People's Square, which lends tools, instruments, cameras and camping gear as well as books, and has study rooms, a woodshop and recording studios open day and night.
+      zh: "人民广场西侧的图书馆，除了图书，还借出工具、乐器、相机和露营装备；楼里有自习室、木工房和录音室，昼夜开放。每周的第五天，很多居民来图书馆做义工，退休的老工人教孩子们修自行车，年轻人教老人用新的投票终端。借出的工具和乐器都挂着一张小卡片，写着上一位使用者的留言。"
+      en: "The library on the west side of People's Square, which lends tools, instruments, cameras and camping gear as well as books, and has study rooms, a woodshop and recording studios open day and night. On the fifth day of the week many residents volunteer here, retired workers teaching children to mend bicycles and young people showing their elders the new voting terminals. Every tool and instrument lent out carries a little card with a note from the last borrower."
     in: div_p3x7j4
     offset_km: [-0.8, -0.45]
     site: { layout: block, size_m: [260, 200] }
@@ -880,8 +880,8 @@ places:
       en: Oruvu Ring Homes
       art-x-ivuran: Uriva Tola Oruvu
     notes:
-      zh: 一圈圈围合的多层住宅楼，中间是公共花园、托儿所和食堂，每个环住着两三千人；住房按家庭人数分配，不收租金，洗衣房、诊所和养老院设在底层。
-      en: Rings of mid-rise flats round shared gardens, nurseries and canteens, each ring home to two or three thousand people. Homes are allocated by household size and rent-free, with laundries, clinics and care homes on the ground floors.
+      zh: "一圈圈围合的多层住宅楼，中间是公共花园、托儿所和食堂，每个环住着两三千人；住房按家庭人数分配，不收租金，洗衣房、诊所和养老院设在底层。每个环的花园里有一棵居民一起种下的果树，结果时按户分，余下的送进环里的食堂。各区社区中心的钥匙墙上，挂着环里居民共用的汽车、电钻和野营帐篷的钥匙。"
+      en: "Rings of mid-rise flats round shared gardens, nurseries and canteens, each ring home to two or three thousand people. Homes are allocated by household size and rent-free, with laundries, clinics and care homes on the ground floors. Each ring's garden has a fruit tree planted together by its residents, whose fruit is shared out by household, the rest going to the ring's canteen. The key wall in each community centre holds the keys to the cars, drills and camping tents the ring's residents share."
     in: div_qp9ner
     offset_km: [-1.0, 1.0]
     site: { layout: courtyard, size_m: [500, 500] }
@@ -893,8 +893,8 @@ places:
       en: Pakari Co-operative Industrial Park
       art-x-ivuran: Pakari Karuvam
     notes:
-      zh: 公社的工业园，工厂都归集体所有或由合作社经营，生产电器、自行车、电车和建材，产品先满足公社居民按需取用，余下的出售给公社以外的地方。
-      en: The commune's industrial park, whose factories are collectively owned or run as co-operatives, making appliances, bicycles, trams and building materials; what they make goes first to the commune's residents on request, and the rest is sold outside.
+      zh: "公社的工业园，工厂都归集体所有或由合作社经营，生产电器、自行车、电车和建材，产品先满足公社居民按需取用，余下的出售给公社以外的地方。工业园里造的自行车和电车车身上都印着一句「Tola evu」，意思是「家是大家的」，公社的孩子们学会的第一辆自行车大多出自这里。"
+      en: "The commune's industrial park, whose factories are collectively owned or run as co-operatives, making appliances, bicycles, trams and building materials; what they make goes first to the commune's residents on request, and the rest is sold outside. The bicycles and trams made here bear the words \"Tola evu\", home belongs to everyone, and most commune children learn to ride on a bicycle built here."
     in: div_27fbbk
     offset_km: [0.5, 0.8]
     site: { layout: complex, size_m: [2000, 1200] }
@@ -908,8 +908,8 @@ places:
       en: Kirumai Airport
       art-x-ivuran: Kirumai Ulavan
     notes:
-      zh: 基鲁迈岛上的机场，度假和潜水的游客大多从这里入岛，有航班飞往萨伦纳姆和米雷兰。
-      en: The airport on Kirumai Island, where most holidaymakers and divers arrive, with flights to Sarunnam and Mirelan.
+      zh: "基鲁迈岛上的机场，度假和潜水的游客大多从这里入岛，有航班飞往萨伦纳姆和米雷兰。跑道尽头就是海滩，飞机降落时从舷窗能看到礁湖里深浅不一的蓝色，下了飞机，接机的民宿主人常常捧着一只刚砍开的嫩椰子等着。"
+      en: "The airport on Kirumai Island, where most holidaymakers and divers arrive, with flights to Sarunnam and Mirelan. The runway ends at the beach, and on landing passengers see the lagoon's many shades of blue from the window; at arrivals, guesthouse hosts are often waiting with a freshly opened young coconut."
     in: div_a0nff8
     offset_km: [2.5, -6.0]
     site: { size_m: [2800, 900], layout: airport, angle_deg: 0 }
@@ -921,8 +921,8 @@ places:
       en: Maisari Ferry Terminal
       art-x-ivuran: Maisari Talusam
     notes:
-      zh: 迈萨里港湾边的渡轮码头，渡轮从这里开往群岛各岛；不通公路的马拉坎岛和皮卢岛也靠这里的船只往来。
-      en: The ferry terminal on Maisari's harbour, from which ferries serve every island of the chain, including Malakan and Pilu, which have no roads.
+      zh: "迈萨里港湾边的渡轮码头，渡轮从这里开往群岛各岛；不通公路的马拉坎岛和皮卢岛也靠这里的船只往来。傍晚渔船回港时，码头边的沙滩上会把渔获分成一堆堆，按老规矩「分海」，老人、孩子和没出海的人家也有一份。"
+      en: "The ferry terminal on Maisari's harbour, from which ferries serve every island of the chain, including Malakan and Pilu, which have no roads. When the boats come home in the evening the catch is divided into heaps on the beach beside the terminal in the old custom of \"sharing the sea\", with a share for the old, the children and the families who stayed ashore."
     in: div_a0nff8
     site: { size_m: [800, 700], layout: port }
   - id: poi_r23m3t
@@ -933,8 +933,8 @@ places:
       en: Tilumai Dive Resort
       art-x-ivuran: Tilumai Nalutola
     notes:
-      zh: 蒂卢迈岛西岸的度假村和潜水学校，礁外的海底峭壁是有名的潜点；每处潜点每天限定人数，船只只能系在浮标上。
-      en: The resort and dive school on the west coast of Tilumai Island, whose reef wall is a well-known dive site; each site takes a limited number of divers a day, and boats must tie up to buoys.
+      zh: "蒂卢迈岛西岸的度假村和潜水学校，礁外的海底峭壁是有名的潜点；每处潜点每天限定人数，船只只能系在浮标上。潜水向导大多是本地渔民的孩子，他们给礁石上的大石斑鱼都起了名字，带客人下水时像介绍邻居一样介绍它们。"
+      en: "The resort and dive school on the west coast of Tilumai Island, whose reef wall is a well-known dive site; each site takes a limited number of divers a day, and boats must tie up to buoys. Most of the dive guides are fishermen's children, who have named the big groupers on the reef and introduce them to divers like neighbours."
     in: div_3x32j4
     offset_km: [-0.8, 0.2]
     site: { layout: complex, size_m: [400, 250] }
@@ -946,8 +946,8 @@ places:
       en: Malakan Coral Reef Station
       art-x-ivuran: Malakan Kilavam
     notes:
-      zh: 珊瑚礁保护区的管理和研究站，监测水温和珊瑚白化，培育珊瑚苗用于修复礁区；保护区不通公路，游客须随站里的船只进入。
-      en: The management and research station of the coral reef reserve, monitoring water temperature and bleaching and growing coral for reef restoration; the reserve has no roads, and visitors go in on the station's boats.
+      zh: "珊瑚礁保护区的管理和研究站，监测水温和珊瑚白化，培育珊瑚苗用于修复礁区；保护区不通公路，游客须随站里的船只进入。站里的珊瑚苗圃挂在水下的架子上，像一排排小树，志愿潜水员每月下水一次，把长大的珊瑚苗移种到白化过的礁石上。"
+      en: "The management and research station of the coral reef reserve, monitoring water temperature and bleaching and growing coral for reef restoration; the reserve has no roads, and visitors go in on the station's boats. The station's coral nursery hangs on underwater frames like rows of little trees, and volunteer divers go down once a month to plant grown fragments onto bleached reef."
     in: div_5z620y
     offset_km: [0.5, -0.5]
     site: { layout: campus, size_m: [300, 200] }
@@ -959,8 +959,8 @@ places:
       en: Pilu Supply Quay
       art-x-ivuran: Pilu Talusam
     notes:
-      zh: 群岛东端的补给码头，去往瓦希拉群岛的补给船从这里出发；码头旁是小渔港和灯塔。
-      en: The supply quay at the eastern end of the chain, from which the supply ships leave for the Vahira Islands, with a small fishing harbour and a lighthouse beside it.
+      zh: "群岛东端的补给码头，去往瓦希拉群岛的补给船从这里出发；码头旁是小渔港和灯塔。补给船出发前，码头上的渔家会往船上送一筐嫩椰子，说是给去远岛的人「带一口家里的水」。"
+      en: "The supply quay at the eastern end of the chain, from which the supply ships leave for the Vahira Islands, with a small fishing harbour and a lighthouse beside it. Before the supply ship sails, the fishing families on the quay hand aboard a basket of young coconuts, \"a sip of home\" for those going out to the far islands."
     in: div_xazhxw
     offset_km: [-4.3, 23.6]
     site: { size_m: [700, 700], layout: port }
@@ -1140,8 +1140,8 @@ places:
       en: Hevila Offshore Power Farm
       art-x-ivuran: Hevila Nalukaru
     notes:
-      zh: 赫维拉岛外海的发电场，由漂浮式风机、波浪能装置和海洋温差发电站组成，岛上的储能电站把电力存起来，经海底电缆送往三座岛屿，供应海军基地的全部用电，也为激光防空阵地供电。
-      en: The power farm off Hevila Island, made up of floating wind turbines, wave energy machines and an ocean thermal power plant. A storage station on the island holds the power and sends it by undersea cable to all three islands, supplying the whole naval base, including the laser air defence site.
+      zh: "赫维拉岛外海的发电场，由漂浮式风机、波浪能装置和海洋温差发电站组成，岛上的储能电站把电力存起来，经海底电缆送往三座岛屿，供应海军基地的全部用电，也为激光防空阵地供电。漂浮风机的叶片在海面上排成整齐的阵列，从驶近的补给船上看，像一片会转动的白色森林。"
+      en: "The power farm off Hevila Island, made up of floating wind turbines, wave energy machines and an ocean thermal power plant. A storage station on the island holds the power and sends it by undersea cable to all three islands, supplying the whole naval base, including the laser air defence site. The floating turbines stand in neat ranks on the sea, and from an approaching supply ship they look like a white forest that turns."
     in: div_ykkw7q
     offset_km: [-12.0, -37.5]
     military:

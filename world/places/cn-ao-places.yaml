@@ -13,8 +13,8 @@ places:
       zh: 号称世界上最自由的银行的总部，利润用于居民分红
       en: Head office of the bank that calls itself the freest in the world, its profits paid out to residents
     notes:
-      zh: 领地全资的北冰洋公共银行的总部，金融特区天际线中央的塔楼；银行依《北冰洋公共银行法》设立，号称世界上最自由的银行，利润用于居民分红
-      en: Headquarters of the territory's wholly owned Arctic Ocean Public Bank, the tower at the centre of the financial zone's skyline. Set up under the Arctic Ocean Public Bank Act, it calls itself the freest bank in the world, and its profits are paid out to residents as a dividend.
+      zh: "领地全资的北冰洋公共银行的总部，金融特区天际线中央的塔楼；银行依《北冰洋公共银行法》设立，号称世界上最自由的银行，利润用于居民分红。大厦底层的大厅对公众开放，居民可以在这里查到银行利润的去向和自己当年分到的红利；每逢主权基金发放红利那天，塔顶的灯会亮成金色，整个特区都看得见。"
+      en: "Headquarters of the territory's wholly owned Arctic Ocean Public Bank, the tower at the centre of the financial zone's skyline. Set up under the Arctic Ocean Public Bank Act, it calls itself the freest bank in the world, and its profits are paid out to residents as a dividend. The ground-floor hall is open to the public, where residents can see where the bank's profits go and what dividend they received that year, and on the day the sovereign fund pays out, the top of the tower is lit gold for the whole zone to see."
     in: div_ga9pxy
     offset_km: [0.1, 0.1]
     site: { layout: tower, size_m: [140, 140] }
@@ -26,8 +26,8 @@ places:
       en: Public Commercial Bank Tower
       art-x-tavrunaq: Pallutuar Mirra
     notes:
-      zh: 公共银行旗下的商业银行，任何人都可在线即时开户，存取任何货币、黄金与数字资产
-      en: The Public Bank's commercial arm, where anyone can open an account online in moments and hold any currency, gold or digital asset.
+      zh: "公共银行旗下的商业银行，任何人都可在线即时开户，存取任何货币、黄金与数字资产。营业大厅里没有柜台，只有一排排长桌和咖啡机，志愿者坐在桌边帮老人用手机开户，开户从坐下到拿到账号通常不用五分钟。"
+      en: "The Public Bank's commercial arm, where anyone can open an account online in moments and hold any currency, gold or digital asset. Its banking hall has no counters, only long tables and coffee machines, where volunteers help older customers open accounts on their phones; from sitting down to having an account number usually takes under five minutes."
     in: div_ga9pxy
     offset_km: [0.5, 0.3]
     site: { layout: tower, size_m: [90, 90] }
@@ -39,8 +39,8 @@ places:
       en: Public Investment Bank Tower
       art-x-tavrunaq: Pallutuar Qappi
     notes:
-      zh: 公共银行旗下的投资银行，为矿业、数据中心与极地航运项目承销和融资
-      en: The Public Bank's investment arm, underwriting and financing mining, data-centre and polar shipping projects.
+      zh: "公共银行旗下的投资银行，为矿业、数据中心与极地航运项目承销和融资。交易室的窗户朝着不冻港，分析员常说看一眼港里矿石船的多少，就知道今年的行情好不好。"
+      en: "The Public Bank's investment arm, underwriting and financing mining, data-centre and polar shipping projects. Its trading floor looks out over the ice-free port, and the analysts like to say that one look at how many ore ships are in harbour tells you how the year is going."
     in: div_ga9pxy
     offset_km: [0.5, -0.2]
     site: { layout: tower, size_m: [90, 90] }
@@ -52,8 +52,8 @@ places:
       en: Public Private Bank Tower
       art-x-tavrunaq: Pallutuar Kinna
     notes:
-      zh: 公共银行旗下的私人银行，提供编号与匿名账户，不问资金来源
-      en: The Public Bank's private bank, offering numbered and anonymous accounts with no questions about the source of funds.
+      zh: "公共银行旗下的私人银行，提供编号与匿名账户，不问资金来源。大楼外观低调，门口没有招牌，只在门边刻着一个门牌号；会客室按客户的要求可以不留任何记录，前台也从不问来客姓名。"
+      en: "The Public Bank's private bank, offering numbered and anonymous accounts with no questions about the source of funds. The building is discreet, with no sign at the door, only a street number carved beside it; meeting rooms can, at a client's request, keep no record at all, and reception never asks a visitor's name."
     in: div_ga9pxy
     offset_km: [-0.3, 0.5]
     site: { layout: tower, size_m: [90, 90] }
@@ -65,8 +65,8 @@ places:
       en: Public Custody Bank Tower
       art-x-tavrunaq: Pallutuar Tuun
     notes:
-      zh: 公共银行旗下的托管银行，为基金、证券与数字资产提供托管和结算
-      en: The Public Bank's custody bank, holding and settling funds, securities and digital assets.
+      zh: "公共银行旗下的托管银行，为基金、证券与数字资产提供托管和结算。托管系统全年无休，结算从不在周末或节假日停下，值班员说他们的日历上「没有红字」。"
+      en: "The Public Bank's custody bank, holding and settling funds, securities and digital assets. Its custody systems never stop, settling straight through weekends and holidays, and the staff on duty say their calendars \"have no red days\"."
     in: div_ga9pxy
     offset_km: [-0.4, -0.3]
     site: { layout: tower, size_m: [90, 90] }
@@ -78,8 +78,8 @@ places:
       en: Arctic Ocean Clearing House
       art-x-tavrunaq: Aqqimma Akkarvik
     notes:
-      zh: 金融特区的清算所与零手续费全球实时支付网络的控制中心，全年无休
-      en: The financial zone's clearing house and the control centre of its fee-free, real-time global payment network, open every day of the year.
+      zh: "金融特区的清算所与零手续费全球实时支付网络的控制中心，全年无休。控制中心的大屏幕上滚动显示着每秒处理的支付笔数，回光节那天的数字总是一年里最高的之一，因为全领地的人都在给远方的亲友转红包。"
+      en: "The financial zone's clearing house and the control centre of its fee-free, real-time global payment network, open every day of the year. A giant screen in the control room scrolls the number of payments per second, and the Return of the Light is always among the busiest days of the year, as the whole territory sends gifts of money to family and friends far away."
     in: div_ga9pxy
     offset_km: [0.9, 0.0]
     site: { layout: hall, size_m: [200, 130] }
@@ -130,8 +130,8 @@ places:
       en: Arctic Ocean Digital Asset Exchange
       art-x-tavrunaq: Aqqimma Tukkaru Akkarvik
     notes:
-      zh: 交易数字资产与领地数字货币的交易所，可编程账户与智能合约都在这里结算
-      en: The exchange for digital assets and the territory's digital currency, where programmable accounts and smart contracts settle.
+      zh: "交易数字资产与领地数字货币的交易所，可编程账户与智能合约都在这里结算。交易大厅的墙上挂着一块巨大的屏幕，显示领地数字货币的实时流通量；新上线的智能合约要先在大厅里公开演示，接受交易员的提问。"
+      en: "The exchange for digital assets and the territory's digital currency, where programmable accounts and smart contracts settle. A huge screen on the trading-hall wall shows the territorial digital currency in circulation in real time, and each new smart contract is demonstrated publicly in the hall first, open to traders' questions."
     in: div_ga9pxy
     offset_km: [0.6, 0.8]
     site: { layout: hall, size_m: [200, 140] }
@@ -143,8 +143,8 @@ places:
       en: Public Bank Polar Data Centre
       art-x-tavrunaq: Pallutuar Tukkaruvik
     notes:
-      zh: 公共银行的核心数据中心，用极地冷空气冷却，运行账户、支付与 AI 秒批贷款系统
-      en: The Public Bank's core data centre, cooled by polar air, running its accounts, payments and instant AI lending.
+      zh: "公共银行的核心数据中心，用极地冷空气冷却，运行账户、支付与 AI 秒批贷款系统。机房建在半地下，四周是天然的冻土，即使冷却设备停机，机房也能靠冻土保持低温好几天。余热经管道送进特区的冬季花园，花园里的热带植物靠的正是这些服务器。"
+      en: "The Public Bank's core data centre, cooled by polar air, running its accounts, payments and instant AI lending. The halls are half underground and surrounded by natural permafrost, which can keep them cold for days even if the cooling plant stops. Their waste heat is piped to the zone's winter garden, whose tropical plants owe their warmth to these servers."
     in: div_ga9pxy
     offset_km: [0.7, -0.6]
     site: { layout: complex, size_m: [300, 220] }
@@ -159,8 +159,8 @@ places:
       zh: 世界唯一深埋在冻土层下的黄金金库
       en: The only gold vault in the world buried deep in permafrost
     notes:
-      zh: 深埋在冻土层下的黄金金库，地面只有一座出入大楼，存放公共银行与客户的金条
-      en: A gold vault deep in the permafrost, of which only the entrance building shows above ground, holding the bullion of the Public Bank and its clients.
+      zh: "深埋在冻土层下的黄金金库，地面只有一座出入大楼，存放公共银行与客户的金条。金库靠冻土的天然低温常年保持在零下，不需要空调。金库定期开放参观，游客要换上厚棉衣，穿过零下的地下长廊，才能隔着玻璃看见成排的金条。"
+      en: "A gold vault deep in the permafrost, of which only the entrance building shows above ground, holding the bullion of the Public Bank and its clients. The vault stays below freezing all year from the permafrost's natural cold, with no air conditioning needed. It opens to visitors from time to time; they put on padded coats and walk a sub-zero tunnel to see rows of gold bars behind glass."
     in: div_ga9pxy
     offset_km: [-0.2, -1.0]
     site: { layout: hall, size_m: [160, 120] }
@@ -172,8 +172,8 @@ places:
       en: Pallurniq Winter Garden
       art-x-tavrunaq: Pallurniq Qummar
     notes:
-      zh: 金融特区的玻璃穹顶花园，终年保持温暖，种着树木和花卉，与周围塔楼以暖廊相连
-      en: The financial zone's glass-domed garden, kept warm all year and planted with trees and flowers, linked to the towers around it by skyways.
+      zh: "金融特区的玻璃穹顶花园，终年保持温暖，种着树木和花卉，与周围塔楼以暖廊相连。数据中心的余热让穹顶下四季如春，中午常有人捧着咖啡坐在棕榈树下晒人造的太阳。花园里的一株柠檬树是特区的宝贝，每年结的果子都要拿到大厅里展览。"
+      en: "The financial zone's glass-domed garden, kept warm all year and planted with trees and flowers, linked to the towers around it by skyways. Waste heat from the data centres keeps it spring under the dome all year, and at lunchtime people sit under the palms with a coffee in the artificial sunshine. A lemon tree is the zone's pride, and its fruit is put on show in the hall each year."
     in: div_ga9pxy
     offset_km: [-0.4, 0.9]
     site: { layout: dome, size_m: [360, 360] }
@@ -185,8 +185,8 @@ places:
       en: Kallaaq Dome
       art-x-tavrunaq: Kallaaq Qummar
     notes:
-      zh: 穹顶下的人造日光广场，极夜里按白昼的光照点亮，供人们晒"太阳"、做光照疗法
-      en: An artificial-daylight square under a dome, lit to daytime levels through the polar night for people to sit in the "sun" and take light therapy.
+      zh: "穹顶下的人造日光广场，极夜里按白昼的光照点亮，供人们晒\"太阳\"、做光照疗法。穹顶的名字取自塔夫鲁纳克语 kallaaq「永昼」，灯光从清晨的淡金色慢慢变成正午的白光，再在傍晚暗下来。冬天领地的医生会给失眠和情绪低落的病人开一张「穹顶处方」，每天来这里晒一小时。"
+      en: "An artificial-daylight square under a dome, lit to daytime levels through the polar night for people to sit in the \"sun\" and take light therapy. Its name is the Tavrunaq kallaaq, \"endless day\", and its light shifts from the pale gold of morning to the white of noon and dims again at dusk. In winter the territory's doctors write patients with insomnia or low mood a \"dome prescription\": an hour a day in its light."
     in: div_ga9pxy
     offset_km: [0.0, 0.55]
     site: { layout: dome, size_m: [280, 280] }
@@ -217,8 +217,8 @@ places:
       zh: 世界最大的穹顶，直径约 700 米，极夜里的人造日光广场
       en: The largest dome in the world, about 700 m across, an artificial-daylight square for the polar night
     notes:
-      zh: 首府中心的大型玻璃穹顶，穹顶下是冬季花园和人造日光广场，极夜里市民在这里散步、晒"太阳"
-      en: The great glass dome at the heart of the capital, sheltering a winter garden and an artificial-daylight square where people walk and sit in the "sun" through the polar night.
+      zh: "首府中心的大型玻璃穹顶，穹顶下是冬季花园和人造日光广场，极夜里市民在这里散步、晒\"太阳\"极夜的七十来天里，穹顶的灯整夜不熄，从城外的高处望去，整座首府像围着一盏灯生长。穹顶下的长椅是老人们晒太阳、下棋的地方，许多首府人的第一次约会也在这里。"
+      en: "The great glass dome at the heart of the capital, sheltering a winter garden and an artificial-daylight square where people walk and sit in the \"sun\" through the polar night. Through the seventy-odd days of polar night the dome's lights never go out, and from the high ground outside town the whole capital seems to grow around a single lamp. Its benches are where old people sit in the light and play chess, and many in the capital had their first date here."
     in: div_9s80v8
     offset_km: [-0.5, -0.3]
     site: { layout: dome, size_m: [700, 700] }
@@ -233,8 +233,8 @@ places:
       zh: 世界唯一的室内海滩，四季保持夏日的温度与光照
       en: The only indoor beach in the world, kept at summer warmth and light all year
     notes:
-      zh: 穹顶下的人造沙滩与温水泳池，四季保持夏日的温度与光照
-      en: An artificial beach and warm pool under a dome, kept at summer warmth and light all year round.
+      zh: "穹顶下的人造沙滩与温水泳池，四季保持夏日的温度与光照。极夜里人们穿着泳衣躺在人造阳光下，门外却是零下二十多度的黑夜，本地人管这叫「三步过季」：脱外套、换泳衣、踩上沙滩。救生员说冬天比夏天还忙，因为整个首府的孩子都想来过夏天。"
+      en: "An artificial beach and warm pool under a dome, kept at summer warmth and light all year round. In the polar night people lie in swimsuits under artificial sunshine while outside it is dark and below −20 °C; locals call it \"three steps to summer\": coat off, swimsuit on, feet in the sand. The lifeguards say winter is busier than summer, because every child in the capital wants a day of summer."
     in: div_3b9pkz
     offset_km: [0.6, 0.4]
     site: { layout: dome, size_m: [500, 500] }
@@ -246,8 +246,8 @@ places:
       en: Paarniq Arena
       art-x-tavrunaq: Paarniq Qummar
     notes:
-      zh: 带可开合穹顶的体育场，冬季举办冰上运动和极夜灯光节的开幕式，夏季开顶举办午夜马拉松的终点仪式
-      en: A stadium with a retractable dome, hosting ice sports and the opening of the polar-night light festival in winter, and opened to the sky in summer for the finish of the midnight marathon.
+      zh: "带可开合穹顶的体育场，冬季举办冰上运动和极夜灯光节的开幕式，夏季开顶举办午夜马拉松的终点仪式。午夜马拉松在极昼的太阳下开跑，选手凌晨冲过终点时太阳仍挂在天上，完赛奖牌上印着一轮不落的太阳。"
+      en: "A stadium with a retractable dome, hosting ice sports and the opening of the polar-night light festival in winter, and opened to the sky in summer for the finish of the midnight marathon. The midnight marathon is run under the midnight sun, and when runners cross the line in the small hours the sun is still in the sky; the finisher's medal bears a sun that never sets."
     in: div_3b9pkz
     offset_km: [-0.8, -0.6]
     site: { layout: stadium, size_m: [300, 240] }
@@ -259,8 +259,8 @@ places:
       en: Paalivaq Vertical Farm
       art-x-tavrunaq: Paalivaq Pukkuvik
     notes:
-      zh: 多层室内农场，用人工光照种植蔬菜和浆果，供应首府大部分的新鲜蔬菜
-      en: A many-storeyed indoor farm growing vegetables and berries under artificial light, supplying most of the capital's fresh greens.
+      zh: "多层室内农场，用人工光照种植蔬菜和浆果，供应首府大部分的新鲜蔬菜。极夜里农场的粉紫色灯光从一层层窗户里透出来，远看像一座发光的塔。首府的小学生都来这里上过校外课，亲手摘一颗草莓，是许多孩子第一次在冬天吃到刚摘下的水果。"
+      en: "A many-storeyed indoor farm growing vegetables and berries under artificial light, supplying most of the capital's fresh greens. In the polar night the farm's pink and violet light shines from floor upon floor of windows, so that from afar it looks like a glowing tower. Every schoolchild in the capital comes here on a class trip, and the strawberry they pick themselves is, for many, their first fruit fresh from the plant in winter."
     in: div_k8cx0t
     offset_km: [0.3, 0.3]
     site: { layout: tower, size_m: [120, 120] }
@@ -272,8 +272,8 @@ places:
       en: University of the Arctic Ocean
       art-x-tavrunaq: Aqqimma Saalluvik
     notes:
-      zh: 领地的综合大学，以极地工程、冰川学、金融法和塔夫鲁纳克语研究见长
-      en: The territory's university, known for polar engineering, glaciology, financial law and Tavrunaq studies.
+      zh: "领地的综合大学，以极地工程、冰川学、金融法和塔夫鲁纳克语研究见长。毕业典礼在极昼的午夜举行，毕业生把学位帽抛向不落的太阳。冬天学生们最爱去伊马萨尔维克港区的夜宵摊，图书馆则在极夜里通宵开放，窗灯是苏瓦利克区最晚熄的。"
+      en: "The territory's university, known for polar engineering, glaciology, financial law and Tavrunaq studies. Graduation is held at midnight under the midnight sun, the graduates throwing their caps towards a sun that will not set. In winter students favour the night stalls of Immasaarvik Harbour, and the library stays open all night through the polar night, its windows the last lit in Suvvalik."
     in: div_j06x18
     offset_km: [0.8, -0.6]
     site: { layout: campus, size_m: [800, 500] }
@@ -285,8 +285,8 @@ places:
       en: Nuqangaq Light Square
       art-x-tavrunaq: Nuqangaq Qavvalu
     notes:
-      zh: 老渔港旁的广场，每年极夜灯光节时布满灯光装置，也是冰雕展的主会场
-      en: The square by the old fishing harbour, filled with light installations for the polar-night light festival and the main venue of the ice-sculpture show.
+      zh: "老渔港旁的广场，每年极夜灯光节时布满灯光装置，也是冰雕展的主会场。极夜里每逢周末晚上，广场上燃起篝火，鼓手敲起皮鼓，人们围着火堆跳舞。冰雕展开幕那晚，广场上的灯一盏盏熄灭，只留下冰雕里透出的光，人群在黑暗里齐声倒数。"
+      en: "The square by the old fishing harbour, filled with light installations for the polar-night light festival and the main venue of the ice-sculpture show. In the polar night a bonfire is lit here on weekend evenings, drummers beat skin drums and people dance round the fire. On the opening night of the ice-sculpture show the square's lamps go out one by one until only the light inside the sculptures remains, and the crowd counts down together in the dark."
     in: div_q7cydv
     offset_km: [0.3, 0.2]
     site: { layout: plaza, size_m: [300, 200] }
@@ -298,8 +298,8 @@ places:
       en: Suvvalik Ice Sculpture Garden
       art-x-tavrunaq: Suvvalik Kirravik
     notes:
-      zh: 峡湾岸边的冰雕园，冬季用峡湾的冰块雕成城堡、动物和塔夫鲁纳克神话人物
-      en: An ice-sculpture garden on the fjord shore, where blocks cut from the fjord become castles, animals and figures from Tavrunaq myth each winter.
+      zh: "峡湾岸边的冰雕园，冬季用峡湾的冰块雕成城堡、动物和塔夫鲁纳克神话人物。冰雕由首府各区的居民分头完成，开园那晚，每一座都要由雕刻它的人家亲手点亮。春天冰雕融化后，园里会立起一块木牌，记下这一年每座冰雕的名字和作者。"
+      en: "An ice-sculpture garden on the fjord shore, where blocks cut from the fjord become castles, animals and figures from Tavrunaq myth each winter. The sculptures are carved by residents of each district of the capital, and on opening night each is lit by the family that made it. When they melt in spring a wooden board goes up listing that year's sculptures and their makers."
     in: div_j06x18
     offset_km: [-0.5, 0.5]
     site: { layout: park, size_m: [400, 300] }
@@ -311,8 +311,8 @@ places:
       en: Nirsakut Midnight Sun Golf Course
       art-x-tavrunaq: Kallaaq Puttuvik
     notes:
-      zh: 建在苔原上的高尔夫球场，极昼时节午夜也能开球
-      en: A golf course laid out on the tundra, where in the season of the midnight sun players tee off at midnight.
+      zh: "建在苔原上的高尔夫球场，极昼时节午夜也能开球。球道要和苔原上的驯鹿分享，场边立着「驯鹿优先」的牌子，球被驯鹿踩进地里可以无罚杆重打。每年极昼时节，球场举办一场午夜十二点整开球的比赛。"
+      en: "A golf course laid out on the tundra, where in the season of the midnight sun players tee off at midnight. The fairways are shared with the tundra's reindeer, signs beside them read \"reindeer have right of way\", and a ball trodden into the ground by a reindeer may be replayed without penalty. Each year in the midnight sun the course holds a tournament that tees off at the stroke of midnight."
     in: div_k4vyb1
     offset_km: [1.5, 1.5]
     site: { layout: park, size_m: [1500, 900] }
@@ -324,8 +324,8 @@ places:
       en: Immasaarvik Ice Speedway
       art-x-tavrunaq: Sirmi Sukkavik
     notes:
-      zh: 冬季在冻结的湖面上开辟的赛车场，举办冰上赛车和雪地摩托比赛
-      en: A racetrack laid out on a frozen lake each winter for ice racing and snowmobile events.
+      zh: "冬季在冻结的湖面上开辟的赛车场，举办冰上赛车和雪地摩托比赛。湖冰要厚过一米才开赛，每天早上工作人员在赛道上钻孔量冰，把冰厚写在入口的牌子上。比赛日观众站在湖岸的雪堆上，一边烤驯鹿肉肠一边看赛车在冰上甩尾。"
+      en: "A racetrack laid out on a frozen lake each winter for ice racing and snowmobile events. Racing starts only once the lake ice is over a metre thick; every morning the staff drill the track to measure it and post the figure at the gate. On race days spectators stand on the snowbanks along the shore, grilling reindeer sausages as the cars slide sideways across the ice."
     in: div_jvwq60
     offset_km: [-1.5, 2]
     site: { layout: park, size_m: [1500, 700] }
@@ -337,8 +337,8 @@ places:
       en: Nuqattaaq International Airport
       art-x-tavrunaq: Nuqattaaq Tirravik
     notes:
-      zh: 领地的国际枢纽机场，跑道配有融雪加热系统，极夜和暴风雪中也能起降
-      en: The territory's international hub, its runways heated against snow so that flights operate through the polar night and blizzards.
+      zh: "领地的国际枢纽机场，跑道配有融雪加热系统，极夜和暴风雪中也能起降。到达大厅的大钟下面还有一块屏幕，极夜里倒数离回光节日出还有多少天，极昼里倒数离第一次日落还有多少天。冬夜里降落的旅客从舷窗里看到的第一样东西，常常是头顶的极光。"
+      en: "The territory's international hub, its runways heated against snow so that flights operate through the polar night and blizzards. Beneath the great clock in the arrivals hall a screen counts down, in the polar night, the days to the sunrise of the Return of the Light and, in the midnight sun, the days to the first sunset. For passengers landing on a winter night the first thing seen from the window is often the aurora overhead."
     in: div_k4vyb1
     offset_km: [5, -3]
     site: { size_m: [4000, 1400], layout: airport, angle_deg: 80 }
@@ -350,8 +350,8 @@ places:
       en: Immasaarvik Harbour
       art-x-tavrunaq: Immasaarvik Nuqa
     notes:
-      zh: 暖流让港湾终年不冻，突堤上有集装箱、矿石、油品和滚装码头，重载铁路运来的矿石在这里装船
-      en: A warm current keeps the harbour open all year; its moles hold container, ore, oil and ro-ro terminals, and the ore brought by the heavy-haul railway is loaded here.
+      zh: "暖流让港湾终年不冻，突堤上有集装箱、矿石、油品和滚装码头，重载铁路运来的矿石在这里装船。冬天港池上常飘着冰雾，船只像从雾里浮出来一样进出港。码头边的夜宵摊是苏瓦利克区大学生的去处，一碗热鱼汤配一块油炸面饼，看着灯火下的不冻港能坐到深夜。"
+      en: "A warm current keeps the harbour open all year; its moles hold container, ore, oil and ro-ro terminals, and the ore brought by the heavy-haul railway is loaded here. In winter frost smoke drifts over the basins and ships seem to rise out of the mist as they come and go. The night stalls on the quay are where the students of Suvvalik go: a bowl of hot fish soup with a piece of fried dough, and they will sit late watching the lights of the ice-free port."
     in: div_jvwq60
     site: { size_m: [6000, 3500], layout: harbour, terminals: [container, bulk, bulk, oil, roro] }
 
@@ -364,8 +364,8 @@ places:
       en: Saarnuqa Fishing Harbour
       art-x-tavrunaq: Ulik Nuqa
     notes:
-      zh: 南岸最大的渔港之一，深海渔船和养殖运输船在这里卸货
-      en: One of the larger fishing harbours of the south coast, where deep-sea trawlers and fish-farm carriers land their catch.
+      zh: "南岸最大的渔港之一，深海渔船和养殖运输船在这里卸货。鱼市每天清晨开市，最受欢迎的是整条的养殖鲑鱼和烟熏了一夜的北极红点鲑。本地人的吃法是把鱼切成薄片冻硬，蘸着海盐和浆果酱生吃。"
+      en: "One of the larger fishing harbours of the south coast, where deep-sea trawlers and fish-farm carriers land their catch. Its fish market opens at dawn, the favourites being whole farmed salmon and Arctic char smoked overnight. Locals eat fish sliced thin, frozen hard and dipped in sea salt and berry jam."
     in: div_3rb2ha
     site: { size_m: [800, 600], layout: port }
   - id: poi_v92f2k
@@ -376,8 +376,8 @@ places:
       en: Ulikuviit Aquaculture Base
       art-x-tavrunaq: Ulikuviit Pukkuvik
     notes:
-      zh: 群岛间海湾里的深海网箱养殖基地，岸上是孵化场与加工厂
-      en: Deep-water fish pens in the bays between the islands, with hatcheries and processing plants on shore.
+      zh: "群岛间海湾里的深海网箱养殖基地，岸上是孵化场与加工厂。网箱里养着鲑鱼和北极红点鲑，养殖工人每天坐船出海喂鱼，萨尔瓦克人因此把这片群岛叫作「海上牧场」。每批鱼苗出海放进网箱时，孵化场的老工人会在船头敲三下皮鼓，祝它们在冷水里长得又肥又结实。"
+      en: "Deep-water fish pens in the bays between the islands, with hatcheries and processing plants on shore. The pens hold salmon and Arctic char, and the workers go out by boat every day to feed them, which is why Saarvaq people call these islands \"the sea pastures\". When each batch of fry goes out to the pens, the old hands from the hatchery beat a skin drum three times at the bow, wishing the fish a fat, strong life in the cold water."
     in: div_2541fx
     offset_km: [0.4, 0.3]
     site: { layout: complex, size_m: [400, 250] }
@@ -389,8 +389,8 @@ places:
       en: Tuunnaqut Basalt Pillars Reserve
       art-x-tavrunaq: Tuunnaqut
     notes:
-      zh: 海岸上成排的六角形玄武岩柱，崖上栖息着海鸦与北极鸥
-      en: Rows of hexagonal basalt columns on the shore, their cliffs home to guillemots and Arctic gulls.
+      zh: "海岸上成排的六角形玄武岩柱，崖上栖息着海鸦与北极鸥。塔夫鲁纳克人的传说里，这些石柱是海神为海鸦搭的石梯，所以崖下从不捕鸟。夏天坐船从海上看，成千上万只海鸟停在石柱的每一级「台阶」上，叫声盖过了浪声。"
+      en: "Rows of hexagonal basalt columns on the shore, their cliffs home to guillemots and Arctic gulls. In Tavrunaq legend the pillars are a stair the sea spirit built for the guillemots, so birds are never taken below the cliffs. Seen from a boat in summer, thousands of seabirds sit on every \"step\" of the columns, their calls louder than the surf."
     in: div_jd4ms5
     offset_km: [1, 1]
     site: { layout: park, size_m: [800, 600] }
@@ -404,8 +404,8 @@ places:
       en: Ukkunuqa Bulk Terminal
       art-x-tavrunaq: Ukkunuqa
     notes:
-      zh: 基萨尔维克冶炼厂的产品和东部矿山的矿石从这里装船，另有一座油品码头
-      en: Where the Qissarvik smelter's output and the ore of the eastern mines are shipped, with an oil terminal beside them.
+      zh: "基萨尔维克冶炼厂的产品和东部矿山的矿石从这里装船，另有一座油品码头。暖流让码头终年不冻，冬天码头工人穿着电热工作服在冰雾里作业。巨大的矿石堆场用拱顶棚罩住，既防粉尘外泄，也免得矿石被大雪埋住。"
+      en: "Where the Qissarvik smelter's output and the ore of the eastern mines are shipped, with an oil terminal beside them. The warm current keeps the quays free of ice all year, and in winter the dockers work through the frost smoke in electrically heated overalls. The huge ore stockyards are roofed with vaulted sheds, both to keep the dust in and to stop the ore being buried by snow."
     in: div_yh6ysj
     site: { size_m: [4000, 2500], layout: harbour, terminals: [bulk, bulk, oil] }
   - id: poi_dftw4b
@@ -416,8 +416,8 @@ places:
       en: Qissarvik Smelter
       art-x-tavrunaq: Qissarvik Ukkuvik
     notes:
-      zh: 冶炼内陆矿区的镍矿石，用水电和余热为镍城供暖
-      en: Smelts the nickel ore of the inland mines, its hydro power and waste heat warming Qissarvik.
+      zh: "冶炼内陆矿区的镍矿石，用水电和余热为镍城供暖。工厂每八小时换一次班，换班时整座城的公交、食堂和澡堂都跟着忙一阵，本地人约时间常说「早班后」「夜班前」。夜班工人下班时，食堂专门留着一锅热鱼汤。"
+      en: "Smelts the nickel ore of the inland mines, its hydro power and waste heat warming Qissarvik. The plant changes shifts every eight hours, and each changeover sets the town's buses, canteens and bathhouses bustling, so locals arrange to meet \"after the early shift\" or \"before nights\". A pot of hot fish soup is kept in the canteen for the night shift coming off."
     in: div_1d76zf
     offset_km: [1, -0.5]
     site: { layout: complex, size_m: [600, 400] }
@@ -429,8 +429,8 @@ places:
       en: Qavvaluviit Lodge
       art-x-tavrunaq: Qavvalu Tuqqavik
     notes:
-      zh: 玻璃屋顶的客房散布在岛上，冬季躺在床上就能看极光
-      en: Glass-roofed cabins scattered over the island, where guests watch the aurora from their beds in winter.
+      zh: "玻璃屋顶的客房散布在岛上，冬季躺在床上就能看极光。度假村给每位客人一个「极光闹钟」：夜里极光一出现，前台就挨个打电话叫醒客人，有人一个冬天被叫醒十几次也毫无怨言。早餐桌上最受欢迎的是热浆果粥，配着讲昨夜极光的故事。"
+      en: "Glass-roofed cabins scattered over the island, where guests watch the aurora from their beds in winter. The lodge gives every guest an \"aurora alarm\": when the lights appear at night, reception rings each room in turn, and some guests are woken a dozen times in a winter without a word of complaint. The breakfast favourite is hot berry porridge, served with stories of the night's aurora."
     in: div_7ee7ab
     offset_km: [0.4, 0.2]
     site: { layout: complex, size_m: [300, 200] }
@@ -444,8 +444,8 @@ places:
       en: Tukkarjuaq Data Centre
       art-x-tavrunaq: Tukkaruvik Tulli
     notes:
-      zh: 图卡鲁维特群岛上最大的数据中心，用极地冷空气和海水冷却，余热为岛上的住宅供暖
-      en: The largest data centre on the Tukkaruviit Islands, cooled by polar air and sea water, its waste heat warming the island's homes.
+      zh: "图卡鲁维特群岛上最大的数据中心，用极地冷空气和海水冷却，余热为岛上的住宅供暖。排出的热水送进图利瓦克的游泳馆和温室，本地人开玩笑说自己是「泡在服务器的洗澡水里游泳」。机房里冷风呼呼地吹，值班工程师一年四季都穿着抓绒衣。"
+      en: "The largest data centre on the Tukkaruviit Islands, cooled by polar air and sea water, its waste heat warming the island's homes. The warm water it discharges goes on to Tullivaq's swimming pools and greenhouses, so locals joke that they \"swim in the servers' bathwater\". Cold air roars through the halls, and the engineers on duty wear fleeces all year round."
     in: div_3xz1pw
     offset_km: [0.5, 0.3]
     site: { layout: complex, size_m: [500, 350] }
@@ -457,8 +457,8 @@ places:
       en: Northern Lights Compute Centre
       art-x-tavrunaq: Qavvalu Tukkaruvik
     notes:
-      zh: 为人工智能训练出租算力的数据中心，海底光缆从这里连到世界各地
-      en: A data centre renting out computing power for training artificial intelligence, linked to the world by undersea cables.
+      zh: "为人工智能训练出租算力的数据中心，海底光缆从这里连到世界各地。大楼外墙的灯带随着算力负载变换颜色，本地人看一眼墙色就知道「机器今天忙不忙」。中心的食堂按全球时区排班开饭，什么时候去都有热饭。"
+      en: "A data centre renting out computing power for training artificial intelligence, linked to the world by undersea cables. The light strips on its façade change colour with the computing load, so locals can tell at a glance \"how busy the machines are today\". The canteen keeps hours for every time zone, so there is a hot meal whenever you turn up."
     in: div_3xz1pw
     offset_km: [-0.6, -0.4]
     site: { layout: complex, size_m: [500, 350] }
@@ -470,8 +470,8 @@ places:
       en: Tauvvuviit Ground Station
       art-x-tavrunaq: Tauvvu Saqqavik
     notes:
-      zh: 极轨卫星每一圈都经过高纬度上空，这里的天线阵接收卫星数据并转发到图卡鲁维特群岛
-      en: Polar-orbiting satellites pass over the high latitudes on every orbit; the antenna field here downloads their data and passes it to the Tukkaruviit Islands.
+      zh: "极轨卫星每一圈都经过高纬度上空，这里的天线阵接收卫星数据并转发到图卡鲁维特群岛。地面站一天要接收几十次过境的卫星数据，值班员有个习惯，每颗卫星飞过头顶就在黑板上画一道，一年下来黑板要擦好几百次。"
+      en: "Polar-orbiting satellites pass over the high latitudes on every orbit; the antenna field here downloads their data and passes it to the Tukkaruviit Islands. The station takes dozens of satellite passes a day, and the duty staff chalk a stroke on a blackboard for each satellite overhead, wiping the board hundreds of times a year."
     in: div_6p8a1q
     offset_km: [2, 1]
     site: { size_m: [2400, 1400], layout: antenna, variant: large, angle_deg: 0 }
@@ -485,8 +485,8 @@ places:
       en: Qaulujjuaq Diamond Mine
       art-x-tavrunaq: Qauluk Ukkuvik
     notes:
-      zh: 内陆矿区的露天钻石矿，矿石在考卢尤阿克区切割加工
-      en: An open-pit diamond mine in the inland mining zone; its stones are cut and polished in Qaulujjuaq District.
+      zh: "内陆矿区的露天钻石矿，矿石在考卢尤阿克区切割加工。冬天气温跌到零下四十多度时，矿用卡车的发动机和轮胎要整夜加热，否则第二天就发动不了。矿区的每一道工序都在监控镜头下进行，工人下班要过安检，本地人笑说这里「连一粒沙子都走不出矿区大门」。"
+      en: "An open-pit diamond mine in the inland mining zone; its stones are cut and polished in Qaulujjuaq District. When winter temperatures drop below −40 °C the haul trucks' engines and tyres must be heated all night or they will not start in the morning. Every stage of the work happens under the cameras and workers pass through security at the end of a shift; locals joke that \"not a grain of sand leaves the mine gate\"."
     in: div_m541k8
     offset_km: [-6, 4]
     site: { layout: mine, size_m: [3000, 2200] }
@@ -498,8 +498,8 @@ places:
       en: Ukkuliit Nickel Mine
       art-x-tavrunaq: Qissar Ukkuvik
     notes:
-      zh: 露天镍矿，矿石由无人驾驶的重载列车运往不冻港
-      en: An open-pit nickel mine whose ore travels to Immasaarvik on driverless heavy-haul trains.
+      zh: "露天镍矿，矿石由无人驾驶的重载列车运往不冻港。列车由调度中心远程监控，沿线的驯鹿通道装有感应器，驯鹿群过轨时列车会自动停下来等，驯鹿过完再继续开，这是修路时和牧民长老定下的规矩。"
+      en: "An open-pit nickel mine whose ore travels to Immasaarvik on driverless heavy-haul trains. The trains are watched remotely from a control centre, and sensors at the reindeer crossings along the line stop a train automatically while a herd crosses, letting it go on once the deer are over: a rule agreed with the herders' elders when the line was built."
     in: div_m541k8
     offset_km: [7, -3]
     site: { layout: mine, size_m: [2600, 1800] }
@@ -511,8 +511,8 @@ places:
       en: Illuqsaat Brine Works
       art-x-tavrunaq: Illuqsaat Ukkuvik
     notes:
-      zh: 从盐湖卤水中提取锂，产品供应电池工厂
-      en: Extracts lithium from the brine of the salt lakes for battery makers.
+      zh: "从盐湖卤水中提取锂，产品供应电池工厂。夏天的阳光下，卤水池呈现深浅不一的蓝绿色，从飞机上看像一块调色板。冬天卤水池结冰停产，工人们转去室内的精制车间，等到春天冰化再重新开池。"
+      en: "Extracts lithium from the brine of the salt lakes for battery makers. In the summer sun the brine pools shine in every shade of blue and green, like a painter's palette seen from the air. In winter the pools freeze and production moves to the indoor refining halls, and the pools are reopened when the ice melts in spring."
     in: div_qaxzqj
     offset_km: [-2.2, 3.1]
     site: { layout: complex, size_m: [600, 400] }
@@ -524,8 +524,8 @@ places:
       en: Qaulujjuaq Diamond Cutting Centre
       art-x-tavrunaq: Qauluk Kirravik
     notes:
-      zh: 内陆钻石矿的原石在这里切割、抛光和分级
-      en: Where the rough stones of the inland mine are cut, polished and graded.
+      zh: "内陆钻石矿的原石在这里切割、抛光和分级。切割中心对游客开放，隔着玻璃能看切割师把一颗毛坯钻石慢慢磨出几十个刻面。按考尔尼克的老规矩，年轻人求婚要送一颗用自己在矿区干活攒的钱买下的小钻石。"
+      en: "Where the rough stones of the inland mine are cut, polished and graded. The centre is open to visitors, who watch through glass as cutters slowly grind a rough stone into dozens of facets. By Qaurniq's old custom, a young person proposing gives a small diamond bought with money saved from working at the mines."
     in: div_k66r1n
     offset_km: [0.4, -0.3]
     site: { layout: hall, size_m: [200, 140] }
@@ -539,8 +539,8 @@ places:
       en: Sirminuqa Icebreaker Base
       art-x-tavrunaq: Sirmi Pakkavik
     notes:
-      zh: 领地海警与破冰船队的基地，冬季破冰船为北岸航线开路
-      en: The base of the territory's coast guard and icebreaker fleet, whose ships clear the north-coast lanes in winter.
+      zh: "领地海警与破冰船队的基地，冬季破冰船为北岸航线开路。破冰船每次出港开道，河口的孩子们都沿着岸跑一段为它送行，船员会拉响汽笛回应。基地每年开冰前会对市民开放一天，孩子们可以上船摸一摸被冰磨得发亮的船头。"
+      en: "The base of the territory's coast guard and icebreaker fleet, whose ships clear the north-coast lanes in winter. Whenever an icebreaker leaves to clear the channel, children at the river mouth run along the bank to see it off and the crew answer with the whistle. Before each break-up the base holds an open day, when children can go aboard and touch a bow polished bright by the ice."
     in: div_m0b417
     site: { size_m: [700, 700], layout: port }
   - id: poi_xye9z5
@@ -551,8 +551,8 @@ places:
       en: Kiluktuar Airport
       art-x-tavrunaq: Kiluktuar Tirravik
     notes:
-      zh: 北岸的机场，冬季北岸封冻时是基卢克图阿尔与外界往来的主要通道
-      en: The north coast's airport, the main way in and out of Kiluktuar when the coast freezes in winter.
+      zh: "北岸的机场，冬季北岸封冻时是基卢克图阿尔与外界往来的主要通道。春末大河开冰前后，冰面不能走、河岸的路也常被冰水淹没，那几周是机场一年里最忙的时候。候机厅里挂着历年开冰日的记录表，旁边是开冰竞猜的投注箱。"
+      en: "The north coast's airport, the main way in and out of Kiluktuar when the coast freezes in winter. Around the river's break-up in late spring, when the ice can no longer be crossed and the riverside roads are often flooded, the airport has its busiest weeks of the year. The terminal displays a table of past break-up dates, with the sweepstake box beside it."
     in: div_anjqnh
     offset_km: [-4, -3]
     site: { size_m: [3000, 1100], layout: airport, angle_deg: 30 }
@@ -564,8 +564,8 @@ places:
       en: Arctic Ocean Polar Research Institute
       art-x-tavrunaq: Aqqimma Naalluvik
     notes:
-      zh: 纳卢维特群岛上的研究所，研究海冰、冻土与北极生态，每年夏季派出科考船
-      en: The research institute of the Naalluviit Islands, studying sea ice, permafrost and Arctic ecology and sending out research ships each summer.
+      zh: "纳卢维特群岛上的研究所，研究海冰、冻土与北极生态，每年夏季派出科考船。每年夏天科考船出发时，研究所的人站在码头上敲一阵皮鼓送行，船上的人则把一面印着研究所徽章的小旗挂在桅杆上，直到秋天回港才取下。"
+      en: "The research institute of the Naalluviit Islands, studying sea ice, permafrost and Arctic ecology and sending out research ships each summer. When the research ship sails each summer, the institute's staff see it off from the quay with a burst of skin drums, and those aboard hoist a small flag with the institute's badge to the mast, not to come down until they return in autumn."
     in: div_rcnhch
     site: { layout: campus, size_m: [400, 300] }
 
@@ -578,8 +578,8 @@ places:
       en: Sirmivak Glacier Airport
       art-x-tavrunaq: Sirmivak Tirravik
     notes:
-      zh: 西尔米卡尔维克区城外的机场，冰川旅游旺季有包机从南岸飞来
-      en: The airport outside the town of Sirmiqarvik District, served by charter flights from the south coast in the glacier tourism season.
+      zh: "西尔米卡尔维克区城外的机场，冰川旅游旺季有包机从南岸飞来。旅游旺季的包机降落时，旅客从舷窗里先看到的是一望无际的冰盖。机场的跑道边插着一排彩色的旗子，飞行员靠它们判断风向和吹雪的强弱。"
+      en: "The airport outside the town of Sirmiqarvik District, served by charter flights from the south coast in the glacier tourism season. As peak-season charters come in to land, the first thing passengers see from the window is the endless ice cap. A row of coloured flags along the runway shows pilots the wind direction and the strength of the drifting snow."
     in: div_73wt00
     offset_km: [3, -2]
     site: { size_m: [2800, 900], layout: airport, angle_deg: 0 }
@@ -591,8 +591,8 @@ places:
       en: Sirmiqarvik Glacier Visitor Centre
       art-x-tavrunaq: Sirmiqarvik Tauvvavik
     notes:
-      zh: 介绍西尔米冰盖与冰川的展馆，冰川徒步和冰洞游览从这里出发
-      en: An exhibition on the Sirmi Ice Cap and its glaciers, where glacier walks and ice-cave tours set out.
+      zh: "介绍西尔米冰盖与冰川的展馆，冰川徒步和冰洞游览从这里出发。带队的老向导能从冰的颜色读出它的年纪：越蓝的冰越老、越密。游客中心的咖啡馆卖一种用冰盖古冰泡的茶，冰块在杯里化开时噼啪作响，那是封在冰里的古老空气在释放。"
+      en: "An exhibition on the Sirmi Ice Cap and its glaciers, where glacier walks and ice-cave tours set out. The old guides who lead the walks can read the age of ice from its colour: the bluer, the older and denser. The visitor centre café sells tea made with ancient ice from the cap, which crackles as it melts in the cup: the sound of old air sealed in the ice escaping."
     in: div_73wt00
     offset_km: [0.3, 0.3]
     site: { layout: hall, size_m: [200, 120] }
@@ -607,8 +607,8 @@ places:
       zh: 世界唯一的种子与基因库，保存各地的作物种子和动植物基因样本
       en: The only seed and gene vault in the world, holding crop seeds and plant and animal gene samples from everywhere
     notes:
-      zh: 凿进冻土山体的种子库与基因库，保存世界各地的作物种子和动植物基因样本
-      en: A seed and gene bank cut into a permafrost hillside, holding crop seeds and plant and animal genetic samples from around the world.
+      zh: "凿进冻土山体的种子库与基因库，保存世界各地的作物种子和动植物基因样本。即使停电，冻土也能让库房多年保持在零下。库门一年只开几次，每次有新的种子存进来，种子库都会公布寄存方的名单，从远方高原的稻种到苔原上的云莓都在其中。"
+      en: "A seed and gene bank cut into a permafrost hillside, holding crop seeds and plant and animal genetic samples from around the world. Even without power the permafrost would keep the stores below freezing for years. The doors open only a few times a year, and each time new seed comes in the vault publishes the list of depositors, from rice of distant highlands to the cloudberries of the tundra."
     in: div_73wt00
     offset_km: [-0.5, 0.4]
     site: { layout: hall, size_m: [140, 80] }
@@ -620,8 +620,8 @@ places:
       en: Tauvvaniq Observatory
       art-x-tavrunaq: Tauvvaniq Qilliuq
     notes:
-      zh: 极夜里连续数月的黑夜让这里适合观测，天文台与极光观测站同在陶瓦尼克区
-      en: Months of unbroken night in winter make this a good place to observe; the observatory shares Tauvvaniq District with the aurora stations.
+      zh: "极夜里连续数月的黑夜让这里适合观测，天文台与极光观测站同在陶瓦尼克区。观测员们在极夜里轮流值班，冬天结束时在食堂办一场「见太阳」聚餐，第一缕阳光照进窗户时，整屋人放下刀叉一起鼓掌。"
+      en: "Months of unbroken night in winter make this a good place to observe; the observatory shares Tauvvaniq District with the aurora stations. The observers take turns on duty through the polar night, and when winter ends they hold a \"meet the sun\" dinner in the canteen; when the first ray comes through the window, everyone puts down knives and forks and applauds."
     in: div_3j7f20
     offset_km: [1, 0.8]
     site: { layout: complex, size_m: [300, 200] }
@@ -633,8 +633,8 @@ places:
       en: Sirmi Ice Core Station
       art-x-tavrunaq: Sirmi Naalluvik
     notes:
-      zh: 冰盖深处的科考站，钻取冰芯研究过去的气候，夏季才有飞机往返
-      en: A research station deep on the ice cap, drilling ice cores to study past climates, reached by air only in summer.
+      zh: "冰盖深处的科考站，钻取冰芯研究过去的气候，夏季才有飞机往返。钻出的冰芯按深度切段编号，装进冷藏箱随夏季航班运回西尔米瓦克，越深的冰封着越古老的空气。科考队员说，冰盖上一年只有两个季节：「能飞」和「不能飞」。"
+      en: "A research station deep on the ice cap, drilling ice cores to study past climates, reached by air only in summer. The cores are cut into numbered sections by depth and flown back to Sirmivak in refrigerated cases on the summer flights, the deeper ice holding ever older air. The team say the ice cap has only two seasons: \"flying\" and \"not flying\"."
     in: div_hbdzam
     offset_km: [-15, 8]
   - id: poi_hrcea6
@@ -645,8 +645,8 @@ places:
       en: Uvvaakkaruquviit Ranger Station
       art-x-tavrunaq: Uvvaakkaruq Naalluvik
     notes:
-      zh: 保护区的巡护站，监测海象栖息地和北极熊的迁移
-      en: The reserve's ranger station, watching over the walrus haul-outs and the movements of the polar bears.
+      zh: "保护区的巡护站，监测海象栖息地和北极熊的迁移。巡护员给常来海岸的北极熊编号建档，熟悉的几只还有外号。保护站的门窗都加了钢栅，熊偶尔会在夜里来门口转悠，巡护员的值班日志里专门有一栏写着「今日来访」。"
+      en: "The reserve's ranger station, watching over the walrus haul-outs and the movements of the polar bears. The rangers keep numbered files on the polar bears that visit the coast, and the familiar ones have nicknames. The station's doors and windows are barred with steel, since bears sometimes nose round the door at night, and the duty log has a column headed \"today's visitors\"."
     in: div_81tqya
   - id: poi_d1fdhw
     subtype: research_institute
@@ -656,8 +656,8 @@ places:
       en: Sirmiuviit Iceberg Station
       art-x-tavrunaq: Sirmiuviit Naalluvik
     notes:
-      zh: 观测冰川入海与冰山漂移的观测站，为南岸航线发布冰山预报
-      en: Watches the glaciers calving into the sea and the drift of icebergs, issuing iceberg warnings for the south-coast shipping lanes.
+      zh: "观测冰川入海与冰山漂移的观测站，为南岸航线发布冰山预报。大冰山一旦从冰川上分离，就会被编号建档，追踪到它化掉为止；冰山预报每天随天气预报一起播出，渔民和船长听完才决定航线。"
+      en: "Watches the glaciers calving into the sea and the drift of icebergs, issuing iceberg warnings for the south-coast shipping lanes. Once a large berg calves from the glacier it is given a number and tracked until it melts, and the iceberg forecast goes out daily with the weather, which skippers and fishermen hear before choosing their course."
     in: div_481wnn
 
   # ── 乌维克萨克市 ──
@@ -669,8 +669,8 @@ places:
       en: Ukkuuviit Open Pit
       art-x-tavrunaq: Ukkuuviit Ukkuvik
     notes:
-      zh: 乌库乌维特群岛上的露天矿，精矿在稀土港装船
-      en: The open-pit mine of the Ukkuuviit Islands, whose concentrate is shipped from Uviqnuqa.
+      zh: "乌库乌维特群岛上的露天矿，精矿在稀土港装船。矿坑一圈圈向下的台阶从机场起降的飞机上看得清清楚楚，像一只巨大的漏斗。矿工两周一轮换，乘飞机往返首府，岛上的孩子把矿里运出来的矿石叫作「彩色石头」，学校的标本柜里摆着一整排。"
+      en: "The open-pit mine of the Ukkuuviit Islands, whose concentrate is shipped from Uviqnuqa. The rings of benches descending into the pit are plain to see from planes using the airport, like a giant funnel. Miners work two-week rotations and fly to and from the capital, and island children call the ore that comes out of the pit \"coloured stones\"; the school's specimen cabinet has a whole shelf of them."
     in: div_4ymjbf
     offset_km: [2, 1]
     site: { layout: mine, size_m: [2600, 1800] }
@@ -682,8 +682,8 @@ places:
       en: Uviqnuqa Quay
       art-x-tavrunaq: Uviqnuqa
     notes:
-      zh: 乌维克萨克唯一的港口，运出稀土精矿，运进燃料和补给
-      en: Uviqsaaq's only port, shipping out rare-earth concentrate and bringing in fuel and supplies.
+      zh: "乌维克萨克唯一的港口，运出稀土精矿，运进燃料和补给。补给船靠岸的日子在岛上像过节，超市门口排起长队抢购新鲜水果和牛奶。码头边的黑板上用粉笔写着潮汐和船期，风暴来时黑板上只写一个字：「等」。"
+      en: "Uviqsaaq's only port, shipping out rare-earth concentrate and bringing in fuel and supplies. Supply-ship days are like holidays on the islands, with queues outside the supermarkets for fresh fruit and milk. A blackboard on the quay gives the tides and sailings in chalk; when a storm comes it carries a single word: \"wait\"."
     in: div_qj033v
     offset_km: [-1, 0]
     site: { size_m: [700, 700], layout: port }
@@ -695,8 +695,8 @@ places:
       en: Uviqsaaq Airport
       art-x-tavrunaq: Uviqsaaq Tirravik
     notes:
-      zh: 群岛上的机场，有航班飞往首府和西尔米瓦克
-      en: The islands' airport, with flights to the capital and Sirmivak.
+      zh: "群岛上的机场，有航班飞往首府和西尔米瓦克。航班一到，接人的、取货的、来看热闹的把候机厅挤得满满当当，机场咖啡馆的黑板上写着当天航班和补给船的到港时间。风暴天停飞时，候机厅就成了全市打牌和聊天的地方。"
+      en: "The islands' airport, with flights to the capital and Sirmivak. When a flight lands, people meeting friends, collecting freight or just watching pack the terminal, and the airport café's blackboard lists the day's flights and the supply ship's arrival. When storms ground the planes, the terminal becomes the town's card room and meeting place."
     in: div_qj033v
     offset_km: [2.5, 1.5]
     site: { size_m: [2600, 900], layout: airport, angle_deg: 60 }
@@ -724,8 +724,8 @@ places:
       en: Tavrulit Cultural Centre
       art-x-tavrunaq: Tavrulit Qattuvik
     notes:
-      zh: 收藏岩雕、骨雕与皮鼓，传唱口述史诗，每年冬至举办鼓舞节
-      en: Holds rock and bone carvings and skin drums, keeps the oral epics alive and hosts a drum-dance festival every midwinter.
+      zh: "收藏岩雕、骨雕与皮鼓，传唱口述史诗，每年冬至举办鼓舞节。极夜里中心的会堂一连几个晚上举行史诗诵唱，长老们伴着皮鼓的节奏口述祖先的故事，孩子们从小就能背出长长的段落。鼓舞节那晚，会堂里的每一面皮鼓都要被敲响，连馆藏的老鼓也不例外。"
+      en: "Holds rock and bone carvings and skin drums, keeps the oral epics alive and hosts a drum-dance festival every midwinter. In the polar night its hall holds epic recitals for several nights running, the elders telling their ancestors' stories to the beat of skin drums, and children learn long passages by heart. On the night of the drum-dance festival every drum in the hall is played, even the old ones from the collection."
     in: div_ek897t
     offset_km: [-0.4, -0.2]
     site: { layout: hall, size_m: [220, 140] }
@@ -737,8 +737,8 @@ places:
       en: Aqqanik Sled Race Grounds
       art-x-tavrunaq: Sukkiaq Sukkavik
     notes:
-      zh: 狗拉雪橇赛的起点与终点，长距离赛沿传统雪橇道穿越苔原
-      en: The start and finish of the dog-sled races, whose long-distance course follows the old sled trails across the tundra.
+      zh: "狗拉雪橇赛的起点与终点，长距离赛沿传统雪橇道穿越苔原。春天的长距离赛横跨苔原几百公里，沿途的营地由各个牧民家庭轮流照看，选手到站时总有一锅热腾腾的驯鹿肉汤等着。最后一名到达终点的选手会得到一盏油灯，意思是「再黑的路也走完了」。"
+      en: "The start and finish of the dog-sled races, whose long-distance course follows the old sled trails across the tundra. The long spring race crosses hundreds of kilometres of tundra, its camps kept in turn by herding families, and at every stage a pot of steaming reindeer broth awaits the mushers. The last to finish is given an oil lamp, meaning \"however dark the road, you saw it through\"."
     in: div_ek897t
     offset_km: [2, 1]
     site: { layout: park, size_m: [1400, 700] }
@@ -753,8 +753,8 @@ places:
       zh: 世界唯一的石人群，过去为猎人和牧人指路
       en: The only field of stone figures in the world, once guiding hunters and herders
     notes:
-      zh: 苔原上成群的石人与石堆路标，过去为猎人和牧人指路
-      en: Groups of stone figures and cairns on the tundra that once showed hunters and herders the way.
+      zh: "苔原上成群的石人与石堆路标，过去为猎人和牧人指路。石人张着双臂，面朝的方向指着水源、渡口或驯鹿的迁徙路线，起雾时猎人靠它们找路。过路的人有往石堆上添一块石头的习惯，但谁也不能拿走一块，长老说那是「替下一个走路的人留的」。"
+      en: "Groups of stone figures and cairns on the tundra that once showed hunters and herders the way. The figures stand with arms outstretched, facing towards water, fords or the reindeer's migration routes, and hunters found their way by them in fog. Passers-by add a stone to the cairns, but no one may take one away; the elders say they are \"kept for the next person on the road\"."
     in: div_d9hctg
     offset_km: [4, -3]
     site: { layout: park, size_m: [600, 400] }
@@ -766,8 +766,8 @@ places:
       en: Pitukuviit Rock Carvings
       art-x-tavrunaq: Pitukuviit Kirravik
     notes:
-      zh: 海岸岩石上刻着鲸、海豹与皮划艇的岩雕
-      en: Carvings of whales, seals and kayaks on the shore rocks.
+      zh: "海岸岩石上刻着鲸、海豹与皮划艇的岩雕。有些岩雕只在退潮时露出水面，涨潮后又被海水盖住，向导会掐着潮汐表带人来看。岩雕禁止拓印和触摸，塔夫鲁利特的孩子们在文化中心里用复制品学着描画祖先刻下的图案。"
+      en: "Carvings of whales, seals and kayaks on the shore rocks. Some carvings show only at low tide and are covered again as the water rises, so guides bring visitors by the tide table. Rubbing and touching are forbidden, and Tavrulit children learn to draw their ancestors' figures from replicas at the cultural centre."
     in: div_zq16x4
     offset_km: [0.8, 0.5]
   - id: poi_t96kpx
@@ -778,8 +778,8 @@ places:
       en: Nirsapukkuvik Calving Grounds
       art-x-tavrunaq: Nirsapukkuvik
     notes:
-      zh: 驯鹿每年春季回到这里产仔，产仔季节禁止车辆和飞机靠近
-      en: Where the reindeer return to calve each spring; vehicles and aircraft must keep away in the calving season.
+      zh: "驯鹿每年春季回到这里产仔，产仔季节禁止车辆和飞机靠近。产仔季连无人机都禁飞，牧民在保护区边界外扎营守望，第一只小驯鹿出生的消息会通过自治区广播传遍苔原，长老们说这一天比任何节日都要紧。"
+      en: "Where the reindeer return to calve each spring; vehicles and aircraft must keep away in the calving season. In the calving season even drones are banned, and herders camp outside the reserve boundary to keep watch; news of the first calf goes out across the tundra on the region's radio, and the elders say that day matters more than any festival."
     in: div_7b21kg
   - id: poi_5qq05k
     subtype: airport
@@ -789,8 +789,8 @@ places:
       en: Aqqanik Airport
       art-x-tavrunaq: Aqqanik Tirravik
     notes:
-      zh: 自治区首府的机场，有航班飞往努卡塔克和苔原上的牧区小镇
-      en: The airport of the regional capital, with flights to Nuqattaaq and the herding towns of the tundra.
+      zh: "自治区首府的机场，有航班飞往努卡塔克和苔原上的牧区小镇。雪橇赛期间，机场挤满了从各地赶来的选手和观众，雪橇犬也坐飞机来，候机厅里此起彼伏的狗叫声是阿卡尼克春天的信号。"
+      en: "The airport of the regional capital, with flights to Nuqattaaq and the herding towns of the tundra. During the sled race the airport fills with mushers and spectators from all over, the sled dogs fly in too, and the barking that rings through the terminal is Aqqanik's sign of spring."
     in: div_ek897t
     offset_km: [-3, -2.5]
     site: { size_m: [2800, 900], layout: airport, angle_deg: 20 }

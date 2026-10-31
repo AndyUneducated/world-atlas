@@ -58,8 +58,8 @@ places:
       art-x-viking: Volksplatz
       art-x-buckham: Piazza del Popolo
     notes:
-      zh: 人民大道中段的城市广场，正对议会综合办公区
-      en: The city square halfway along People's Avenue, facing the Parliament Complex.
+      zh: "人民大道中段的城市广场，正对议会综合办公区。广场四周是领地博物馆、领地图书馆和自由市大剧院，北维京岛大学的毕业典礼也在这里举行。冬天广场上积雪，扫雪车按「先自行车道、再汽车道」的规矩清出一条条路，傍晚孩子们在剩下的雪堆上滑雪橇。"
+      en: "The city square halfway along People's Avenue, facing the Parliament Complex. It is ringed by the Territorial Museum, the Territorial Library and the Grand Theatre, and the University of North Viking Island holds its graduation here. In winter the snowploughs clear paths across it, cycle lanes first and then the roads, and in the evening children sledge on the snowbanks that are left."
     in: div_16cxr8
     offset_km: [1.87, 1.25]
     site: { size_m: [400, 260], layout: plaza }
@@ -133,8 +133,8 @@ places:
       art-x-viking: Freiheitsturm
       art-x-buckham: Torre della Libertà
     notes:
-      zh: 广播电视塔，自由市最高建筑
-      en: Broadcasting tower, the tallest structure in Freedom City.
+      zh: "广播电视塔，自由市最高建筑。塔顶的观景台能望见自由河与北河夹着的整片台地，秋天白桦叶黄时，台地染成一片金色。自由塔每晚亮起深蓝和金色，正是领地旗的颜色，自由市人回家时远远看见它就知道快到了。"
+      en: "Broadcasting tower, the tallest structure in Freedom City. Its observation deck overlooks the whole terrace between the Freedom and North rivers, which turns gold in autumn when the birches change. Each night it is lit in deep blue and gold, the colours of the territory flag, and Freedom City people know they are nearly home when they see it from afar."
     in: div_16cxr8
     offset_km: [-0.11, 1.25]
     site: { size_m: [90, 90], layout: tower }
@@ -208,8 +208,8 @@ places:
       art-x-viking: Alter Fischmarkt Sandbank
       art-x-buckham: Vecchio Mercato del Pesce di Banco Sabbia
     notes:
-      zh: 河口老港区的鱼市，沙洲区最早的街巷围绕它形成
-      en: The fish market of the old river-mouth harbour; the first lanes of Sandbar District grew around it.
+      zh: "河口老港区的鱼市，沙洲区最早的街巷围绕它形成。鱼市最有名的是鳕鱼浓汤，冬天排队买汤的人一直排到钟楼脚下。清晨的拍卖还沿用老规矩，拍卖师摇一只铜铃开场，渔民和饭馆老板举手叫价，整箱的鳕鱼几分钟就换了主人。"
+      en: "The fish market of the old river-mouth harbour; the first lanes of Sandbar District grew around it. The market is best known for its thick cod soup, and on winter days the queue for it stretches to the foot of the clock tower. The dawn auction keeps the old ways: the auctioneer opens with a brass bell, fishermen and restaurant owners bid by raising a hand, and whole boxes of cod change hands in minutes."
     in: div_g4a8q0
     offset_km: [0.3, 0.2]
     site: { size_m: [160, 90], layout: market }
@@ -254,8 +254,8 @@ places:
       art-x-viking: Internationaler Flughafen Veiling Havn
       art-x-buckham: Aeroporto Internazionale di Veiling Porto
     notes:
-      zh: 领地最繁忙的机场，两条平行跑道，位于瓦尔维克区城区以东的平原上
-      en: The territory's busiest airport, with two parallel runways on the plain east of the Walvik District town.
+      zh: "领地最繁忙的机场，两条平行跑道，位于瓦尔维克区城区以东的平原上。到达大厅里挂着一面巨大的维京港市旗，下面写着一句维京语的欢迎词，大意是「到老港了，把雨衣穿上」。机场的地铁站直通格约特斯塔德老城，许多旅客下飞机后的第一顿饭，就是老城里的熏鲱鱼和鱼丸汤。"
+      en: "The territory's busiest airport, with two parallel runways on the plain east of the Walvik District town. A huge Viking Port flag hangs in the arrivals hall above a welcome in Viking that roughly means \"you're in the Old Port, put your raincoat on\". The airport metro runs straight to old Grjotstad, and for many travellers the first meal after landing is smoked herring and fish-ball soup in the old town."
     in: div_z29w6h
     offset_km: [7, 0]
     site: { size_m: [4200, 1500], layout: airport, angle_deg: 90 }
@@ -269,8 +269,8 @@ places:
       art-x-viking: Flughafen Freistad
       art-x-buckham: Aeroporto di Frei
     notes:
-      zh: 首府的机场，在白桦区南郊，地铁 2 号线直达
-      en: The capital's airport on the southern edge of Birchwood District, at the end of Metro Line 2.
+      zh: "首府的机场，在白桦区南郊，地铁 2 号线直达。首府的机场不大，从下飞机到坐上地铁通常不用十分钟。冬天跑道和自行车道一样被优先清扫，自由市人笑说在这里「飞机和自行车享受同等待遇」。"
+      en: "The capital's airport on the southern edge of Birchwood District, at the end of Metro Line 2. The capital's airport is small, and it usually takes under ten minutes from leaving the plane to boarding the metro. In winter its runway, like the city's cycle paths, is cleared first, so Freedom City people joke that \"planes and bikes get equal treatment\"."
     in: div_16cxr8
     offset_km: [2.64, -4.24]
     site: { size_m: [3600, 1300], layout: airport, angle_deg: 15 }
@@ -284,8 +284,8 @@ places:
       art-x-viking: Internationaler Flughafen Kap
       art-x-buckham: Aeroporto Internazionale di Capo
     notes:
-      zh: 贝克勒自由贸易区的国际机场，卡波区海陆空联运的空港
-      en: International airport of the Beckerle Free Trade Zone, the air side of Capo District's sea–land–air hub.
+      zh: "贝克勒自由贸易区的国际机场，卡波区海陆空联运的空港。到达大厅的地面上嵌着一排金色铜钉，标出自贸区的海关线，第一次来的人常在铜钉两边各拍一张照片。航站楼里的免税店从清晨开到午夜，周末来购物的岛民和过境旅客挤在同一条长队里。"
+      en: "International airport of the Beckerle Free Trade Zone, the air side of Capo District's sea–land–air hub. A row of brass studs set in the arrivals-hall floor marks the zone's customs line, and first-time visitors like to take a photo on each side. The duty-free shops in the terminal open from dawn to midnight, and at weekends island shoppers and transit passengers stand in the same long queues."
     in: div_e6pc44
     offset_km: [5.66, 2]
     site: { size_m: [4000, 1400], layout: airport, angle_deg: 90 }
@@ -314,8 +314,8 @@ places:
       art-x-viking: Flughafen Himmelstad
       art-x-buckham: Aeroporto di Cielo
     notes:
-      zh: 服务天城度假区的机场
-      en: Serves the resorts of Skytown.
+      zh: "服务天城度假区的机场。降落前飞机常常要穿过天台山上翻滚的云雾，晴天时旅客能从舷窗里看到柳萨湾上的彩虹。行李提取处摆着一排免费借用的公共雨伞，伞柄上刻着「天城」二字，是旅客踏进天城领到的第一件东西。"
+      en: "Serves the resorts of Skytown. On the approach planes often descend through the mist rolling over Sky Terrace Mountain, and on bright days passengers can see a rainbow over Ljosa Bay from the window. Beside baggage claim stands a rack of free public umbrellas with \"Skytown\" carved on the handles, the first thing a visitor is given in Skytown."
     in: div_w1ea18
     offset_km: [-15.5, 3.98]
     site: { size_m: [3000, 1100], layout: airport, angle_deg: 45 }
@@ -347,8 +347,8 @@ places:
       zh: 世界最大的航天发射场，有三座发射台和两座垂直降落台
       en: The largest spaceport in the world, with three launch pads and two vertical landing pads
     notes:
-      zh: 西坪区高原上的航天发射与回收场，三座发射台、两座垂直降落台与航天飞机跑道
-      en: Launch and recovery site on the West Heath plateau, with three launch pads, two vertical landing pads and a spaceplane runway.
+      zh: "西坪区高原上的航天发射与回收场，三座发射台、两座垂直降落台与航天飞机跑道。每有火箭升空，马斯林山的学校停课一小时，全城人站在街边仰头看火箭拖着白烟划过三面雪峰。飞船回到降落台时，深空太空军按惯例在指挥中心门口敲响一口铜钟，钟声一响，附近的居民就知道「有人回家了」。"
+      en: "Launch and recovery site on the West Heath plateau, with three launch pads, two vertical landing pads and a spaceplane runway. Whenever a rocket lifts off, Maslin Mountain's schools stop for an hour and the whole city stands in the streets watching it trail white smoke past the snowy peaks on three sides. When a spacecraft comes back to the landing pads, the Deep Space Force rings a bronze bell outside its command centre, and at the sound the neighbours know that \"someone is home\"."
     in: div_nwke3f
     offset_km: [4.0, 0.0]
     site: { size_m: [7000, 3500], layout: spaceport, angle_deg: 60 }
@@ -362,8 +362,8 @@ places:
       art-x-viking: Sternhafen
       art-x-buckham: Porto Stella
     notes:
-      zh: 蒂鲁基卢克河河口的航天港，发射台面向大海，星港区因此得名
-      en: Spaceport at the mouth of the Tirrukiluk River, its pads facing the sea; Starport District is named after it.
+      zh: "蒂鲁基卢克河河口的航天港，发射台面向大海，星港区因此得名。发射台朝东面向大海，火箭升空后很快飞过海面，残骸落进无人的海域。发射前一天和平区的面包店就开始卖火箭形状的奶油面包，发射当天海滨的观礼台上坐满了从全岛赶来的人。"
+      en: "Spaceport at the mouth of the Tirrukiluk River, its pads facing the sea; Starport District is named after it. The pads face east over the sea, so rockets are soon over open water and any debris falls into empty ocean. The bakeries of Peace District start selling rocket-shaped cream buns the day before a launch, and on the day the seaside viewing stands fill with people from all over the island."
     in: div_nytsvb
     offset_km: [25.8, -3.7]
     site: { size_m: [2500, 800], layout: spaceport, angle_deg: 105 }
@@ -392,8 +392,8 @@ places:
       art-x-viking: Tiefwasserhafen Außenschären
       art-x-buckham: Porto d'Acque Profonde dello Scoglio Esterno
     notes:
-      zh: 鲸湾外二十多公里的礁群上填海建成的深水集装箱港，水深可停靠最大的集装箱船；经鲸湾跨海大桥与鲸湾港相连
-      en: Deep-water container port reclaimed on a group of skerries more than 20 km off Walvik, deep enough for the largest container ships; the Walvik Sea Bridge joins it to Walvik Harbour.
+      zh: "鲸湾外二十多公里的礁群上填海建成的深水集装箱港，水深可停靠最大的集装箱船；经鲸湾跨海大桥与鲸湾港相连。跨海大桥上开车经过时，能看到成排的岸桥像一群巨大的长颈鹿站在礁群上，维京港的孩子就把它们叫作「长颈鹿」。"
+      en: "Deep-water container port reclaimed on a group of skerries more than 20 km off Walvik, deep enough for the largest container ships; the Walvik Sea Bridge joins it to Walvik Harbour. Driving over the bridge you see the rows of ship-to-shore cranes standing on the skerries like a herd of giant giraffes, which is what Viking Port children call them."
     in: div_z29w6h
     offset_km: [-22.9, -11.8]
     site: { size_m: [5000, 1500], layout: offshore_port, angle_deg: 100, bridge_to: poi_jc0fe5 }
@@ -407,8 +407,8 @@ places:
       art-x-viking: Fährterminal Fyrnes
       art-x-buckham: Terminal Traghetti di Capo Faro
     notes:
-      zh: 客轮、邮轮与海关查验区
-      en: Ferries, cruise ships and customs.
+      zh: "客轮、邮轮与海关查验区。夏天邮轮靠港的日子，码头上的维京语乐手会用一支船歌欢迎下船的旅客。客运大厅里最受欢迎的是熏鲱鱼三明治摊，许多旅客在这里吃到了在北维京岛的第一顿饭。"
+      en: "Ferries, cruise ships and customs. On summer days when cruise ships call, Viking musicians on the quay greet disembarking passengers with a sea song. The most popular stall in the terminal hall sells smoked-herring sandwiches, the first meal on North Viking Island for many travellers."
     in: div_pkfa1g
     offset_km: [5.29, -2.5]
     site: { size_m: [900, 400], layout: port, angle_deg: 177 }
@@ -422,8 +422,8 @@ places:
       art-x-viking: Hafen Specchiara
       art-x-buckham: Porto di Specchiara
     notes:
-      zh: 贝克勒自由贸易区港口群的主港
-      en: Main harbour of the Beckerle Free Trade Zone's port cluster.
+      zh: "贝克勒自由贸易区港口群的主港。深夜加班的金融从业者最爱去港边码头的夜宵摊，吃炸鱼、喝热汤，看集装箱船在灯光下进出。港口的灯塔用巴克汉姆语命名为「明镜」，因为它的灯光倒映在平静的湾面上像一面镜子。"
+      en: "Main harbour of the Beckerle Free Trade Zone's port cluster. Finance workers on late shifts favour the night stalls on its quays, eating fried fish and hot soup while container ships come and go under the floodlights. Its light is named \"Bright Mirror\" in Buckham, for the way its beam is reflected in the still bay."
     in: div_8p9k5t
     offset_km: [-1.14, 1.38]
     site: { size_m: [2000, 800], layout: port, angle_deg: 7 }
@@ -467,8 +467,8 @@ places:
       art-x-viking: Hafen Maslinmündung
       art-x-buckham: Porto della Foce del Maslin
     notes:
-      zh: 马斯林河口的河口港，马斯林山市的货运门户
-      en: Estuary port at the mouth of the Maslin River, the freight gateway of Maslin Mountain City.
+      zh: "马斯林河口的河口港，马斯林山市的货运门户。运往星港和西坪发射场的大型火箭部件多从这里上岸，超长的箭体段由特制的平板车趁夜运走，沿途居民常常半夜起来看「火箭过街」。"
+      en: "Estuary port at the mouth of the Maslin River, the freight gateway of Maslin Mountain City. Large rocket components bound for Starport and the West Heath launch site mostly come ashore here, and the over-length stages leave by night on special flatbed trailers; people along the route often get up in the small hours to watch \"a rocket going down the street\"."
     in: div_tc0ngk
     offset_km: [-2.49, 62.69]
     site: { size_m: [800, 400], layout: port, angle_deg: 275 }
@@ -482,8 +482,8 @@ places:
       art-x-viking: Hafen Sandbank
       art-x-buckham: Porto di Banco Sabbia
     notes:
-      zh: 自由河口的港区，自由市的海上门户
-      en: Harbour at the Freedom River mouth, Freedom City's gateway to the sea.
+      zh: "自由河口的港区，自由市的海上门户。港里既有渔船也有运送建材和日用品的货轮，冬天沙洲港还是首府的破冰船停靠的地方。退潮时港外的沙洲露出水面，海鸟成群停在上面，沙洲区的名字就由此而来。"
+      en: "Harbour at the Freedom River mouth, Freedom City's gateway to the sea. It handles fishing boats as well as freighters carrying building materials and everyday goods, and in winter it is where the capital's icebreaker berths. At low tide the sandbars outside the harbour rise from the water and flocks of seabirds settle on them, which is how Sandbar got its name."
     in: div_g4a8q0
     offset_km: [0.44, 2.71]
     site: { size_m: [1200, 500], layout: port, angle_deg: 274 }
@@ -498,8 +498,8 @@ places:
       art-x-viking: Rathaus Veiling Havn
       art-x-buckham: Municipio di Veiling Porto
     notes:
-      zh: 维京港市政府驻地，石砌的建筑群
-      en: Seat of the Viking Port city government, a stone-built complex.
+      zh: "维京港市政府驻地，石砌的建筑群。石砌的楼里至今保存着维京港最早的一面市旗，墨绿底上的金十字已经褪色。市长办公室的窗户正对鲸湾港，老港人说历任市长上任第一天，都要先站在窗前看一会儿港里的船。"
+      en: "Seat of the Viking Port city government, a stone-built complex. Inside the stone building is kept the oldest Viking Port flag, its gold cross on dark green now faded. The mayor's office window looks straight over Walvik Harbour, and Old Port people say every mayor spends the first morning in office standing there watching the ships."
     in: div_z29w6h
     offset_km: [0.4, -0.6]
     site: { size_m: [300, 220], layout: complex }
@@ -528,8 +528,8 @@ places:
       art-x-viking: Walfangstation-Museum Walvik
       art-x-buckham: Museo della Stazione Baleniera di Baia Balena
     notes:
-      zh: 由旧捕鲸站改建，讲述鲸湾从捕鲸站到领地最大港口的历史
-      en: The old whaling station, now a museum of how Walvik grew from a whaling post into the territory's largest port.
+      zh: "由旧捕鲸站改建，讲述鲸湾从捕鲸站到领地最大港口的历史。馆里挂着一副完整的鲸骨架，从入口一直延伸到大厅尽头，孩子们喜欢在鲸的肋骨下面奔跑。展厅最后一间讲的是捕鲸停止之后的鲸湾，墙上贴满了观鲸船拍到的鲸尾照片，每一条鲸都有自己的名字。"
+      en: "The old whaling station, now a museum of how Walvik grew from a whaling post into the territory's largest port. A complete whale skeleton hangs from the entrance to the far end of the hall, and children love to run beneath its ribs. The last gallery tells of Whale Bay after the whaling stopped, its walls covered with photographs of whale tails taken from whale-watching boats, each whale with its own name."
     in: div_z29w6h
     offset_km: [-1.0, -0.9]
     site: { size_m: [180, 120], layout: hall }
@@ -558,8 +558,8 @@ places:
       art-x-viking: Zollhaus Fyrnes
       art-x-buckham: Dogana di Capo Faro
     notes:
-      zh: 客运码头旁的海关与边检办公楼
-      en: Customs and border offices beside the ferry terminal.
+      zh: "客运码头旁的海关与边检办公楼。海关大楼的外墙上挂着一块大钟，进出港的旅客都用它对时。楼里有一间不大的展室，陈列着历年查获的奇怪物品，从走私的鲸牙到藏在奶酪里的手表，是孩子们最爱参观的地方。"
+      en: "Customs and border offices beside the ferry terminal. A large clock on its façade is the one arriving and departing passengers set their watches by. Inside, a small exhibition room shows the strangest items ever seized, from smuggled whale teeth to a watch hidden in a cheese, and is a favourite with children."
     in: div_pkfa1g
     offset_km: [4.6, -1.7]
     site: { size_m: [160, 110], layout: hall }
@@ -573,8 +573,8 @@ places:
       art-x-viking: Grjotstad
       art-x-buckham: Fortezza di Muro Pietra
     notes:
-      zh: 维京时代的石垒遗址，格约特斯塔德旧城围绕它形成，区名由此而来
-      en: Ruins of a Viking-age stone fort; the old town of Grjotstad grew up around it and the district is named after it.
+      zh: "维京时代的石垒遗址，格约特斯塔德旧城围绕它形成，区名由此而来。石垒的围墙用未经打磨的大石块干砌而成，没有用一点灰浆，至今仍然稳稳立着。每周六的石垒市集从清晨开到中午，熏鲱鱼、黑麦面包和手织毛衣摆满了墙脚，维京语的吆喝声比中文还多。"
+      en: "Ruins of a Viking-age stone fort; the old town of Grjotstad grew up around it and the district is named after it. Its walls are dry-stone, built of unworked boulders without a trace of mortar, and they still stand firm. The Saturday market at the fort runs from dawn to noon, with smoked herring, rye bread and hand-knitted jumpers lined up along the foot of the walls and more calls in Viking than in Chinese."
     in: div_t3bfmm
     offset_km: [0, 0]
     site: { size_m: [240, 240], layout: park }
@@ -588,8 +588,8 @@ places:
       art-x-viking: Internationales Finanzzentrum Seetor
       art-x-buckham: Centro Finanziario Internazionale di Porta Mar
     notes:
-      zh: 海门商务带的地标塔楼，维京港最高的建筑
-      en: Landmark tower of the Seagate business strip and the tallest building in Viking Port.
+      zh: "海门商务带的地标塔楼，维京港最高的建筑。塔顶的灯每晚按维京港市旗的颜色亮起墨绿和金色，夏至前后港里船只午夜鸣笛时，塔顶的灯会跟着笛声闪烁。观景层的咖啡馆能一眼看到外礁深水港和鲸湾跨海大桥。"
+      en: "Landmark tower of the Seagate business strip and the tallest building in Viking Port. Each night its crown is lit in the dark green and gold of the Viking Port flag, and when the harbour's ships sound their midnight horns around midsummer the lights flash in time. The café on the observation level looks straight out to the Outer Skerry Deep-Water Port and the Walvik Sea Bridge."
     in: div_k1yr6m
     offset_km: [0.5, 0.3]
     site: { size_m: [90, 90], layout: tower }
@@ -603,8 +603,8 @@ places:
       art-x-viking: Stadtregierung Nordwest
       art-x-buckham: Governo Cittadino di Nordveste
     notes:
-      zh: 鹿鸣区的市级机关建筑群
-      en: The city government complex in Deersong District.
+      zh: "鹿鸣区的市级机关建筑群。市政府大楼前的路灯和望星区一样，在晴朗的新月之夜会调暗两小时。大厅的天花板上画着一幅北维京岛冬夜的星空，许多来办事的市民会抬头找一会儿自己认得的星座。"
+      en: "The city government complex in Deersong District. The street lights outside are dimmed for two hours on clear moonless nights, as in Stargaze. The hall ceiling is painted with North Viking Island's winter night sky, and many people waiting their turn look up to pick out the constellations they know."
     in: div_zs7kjk
     offset_km: [0.3, 0.4]
     site: { size_m: [320, 240], layout: complex }
@@ -618,8 +618,8 @@ places:
       art-x-viking: Rundfunkzentrum Nordwest
       art-x-buckham: Centro Radiotelevisivo di Nordveste
     notes:
-      zh: 领地广播电视机构的总部与发射塔
-      en: Headquarters and transmitter tower of the territory's broadcasters.
+      zh: "领地广播电视机构的总部与发射塔。中心每天清晨用中文、维京语和巴克汉姆语轮流播报天气，三位主持人各说一种语言，不少岛民就是听着这档节目学会了另外两种语言的问候。每年冬天寒岭生态站的雪兔清点结果，也在这里的晚间新闻里像选举结果一样逐区公布。"
+      en: "Headquarters and transmitter tower of the territory's broadcasters. Every morning the centre reads the weather in Chinese, Viking and Buckham, one presenter for each language, and many islanders picked up greetings in the other two languages from the programme. Each winter its evening news also announces the Frost Ridge hare count district by district, like an election."
     in: div_zs7kjk
     offset_km: [1.8, 1.2]
     site: { size_m: [120, 120], layout: tower }
@@ -648,8 +648,8 @@ places:
       art-x-viking: Forschungs- und Entwicklungszentrum Hea Veiling der Tiefraumstreitkräfte
       art-x-buckham: Centro di Ricerca e Sviluppo di Veiling Nord della Forza Spaziale Profonda
     notes:
-      zh: 科学大道旁的深空太空军研发园区
-      en: The Deep Space Force research campus on Science Avenue.
+      zh: "科学大道旁的深空太空军研发园区。园区的实验楼夜里常常灯火通明，但每逢晴朗的新月之夜，路灯会和望星区其他地方一起调暗两小时，研究员们就趁机出门看星星。"
+      en: "The Deep Space Force research campus on Science Avenue. Its laboratory buildings are often lit late into the night, but on clear moonless nights its street lights dim for two hours along with the rest of Stargaze, and the researchers take the chance to step outside and look at the stars."
     in: div_g27nda
     offset_km: [2.55, 1.83]
     site: { size_m: [1400, 900], layout: campus }
@@ -663,8 +663,8 @@ places:
       art-x-viking: Sternwarte Sternwacht
       art-x-buckham: Osservatorio di Guarda Stella
     notes:
-      zh: 望星区得名于此的天文台
-      en: The observatory that gave Stargaze District its name.
+      zh: "望星区得名于此的天文台。冬天每逢晴朗的新月之夜，望星区和科学城的路灯统一调暗两小时，天文台向市民开放，排队看月面环形山和星团的人里一半是孩子。天文台每年还会印一幅星图，作为勒克尔丰收节「回娘家」的礼物。"
+      en: "The observatory that gave Stargaze District its name. On clear moonless winter nights the street lights of Stargaze and Science City are dimmed for two hours and the observatory opens to the public, and half the queue to see the moon's craters and the star clusters is children. Each year it also prints a star chart as Northwest City's gift for the Lekor Harvest Festival's \"visiting the old home\"."
     in: div_g27nda
     offset_km: [-2, -1]
     site: { size_m: [80, 80], layout: tower }
@@ -678,8 +678,8 @@ places:
       art-x-viking: Universität Hea Veiling
       art-x-buckham: Università di Veiling Nord
     notes:
-      zh: 领地规模最大的综合性大学
-      en: The territory's largest university.
+      zh: "领地规模最大的综合性大学。大学城夜里最热闹，烤土豆、奶酪热汤和肉桂卷是期末考试周的标配，小吃摊开到凌晨。科学大道上随便问一个路人，多半是这所大学的老师或学生，西北市「博士城」的外号就是这么来的。"
+      en: "The territory's largest university. The university town is liveliest at night, when baked potatoes, hot cheese soup and cinnamon buns see students through exam week and the food stalls stay open past midnight. Stop anyone on Science Avenue and they are probably a lecturer or student here, which is how Northwest City came to be called \"PhD Town\"."
     in: div_fr1vq9
     offset_km: [1.5, -1]
     site: { size_m: [1600, 1000], layout: campus }
@@ -722,8 +722,8 @@ places:
       art-x-viking: Stadtregierung Neustad
       art-x-buckham: Governo Cittadino di Neu Teatu
     notes:
-      zh: 中苑区新市中心的市政府与市级机关
-      en: The city government and offices at the heart of the new Central Gardens centre.
+      zh: "中苑区新市中心的市政府与市级机关。大楼和新城的其他建筑一样是白墙、木顶、大玻璃窗，一楼的市民服务大厅里专设了一角给带孩子来办事的年轻父母，有游戏垫和换尿布台，这在「婴儿车之城」是标配。"
+      en: "The city government and offices at the heart of the new Central Gardens centre. Like the rest of New City it is built with white walls, a timber ceiling and tall windows, and the public service hall on the ground floor has a corner for young parents who bring their children along, with play mats and changing tables: standard equipment in \"Pram City\"."
     in: div_m2tz6c
     offset_km: [0.3, 0.3]
     site: { layout: complex, size_m: [340, 260] }
@@ -736,8 +736,8 @@ places:
       art-x-viking: Internationales Messezentrum Neustad
       art-x-buckham: Centro Fieristico Internazionale di Neu Teatu
     notes:
-      zh: 领地最大的会展场馆，千禧大道旁
-      en: The territory's largest exhibition halls, on Millennium Avenue.
+      zh: "领地最大的会展场馆，千禧大道旁。全岛的大型展会、招聘会和汽车展多在这里举行，每年开春的「新家博览会」最热闹，刚搬到新城的年轻家庭在这里挑家具、比房贷，展馆门口的停车场排满了婴儿车。"
+      en: "The territory's largest exhibition halls, on Millennium Avenue. Most of the island's big trade fairs, job fairs and motor shows are held here, and the busiest is the New Home Fair each spring, when young families who have just moved to New City shop for furniture and compare mortgages, and prams fill the forecourt."
     in: div_m2tz6c
     offset_km: [0.8, -0.5]
     site: { layout: hall, size_m: [520, 300] }
@@ -750,8 +750,8 @@ places:
       art-x-viking: Mittelgartenpark
       art-x-buckham: Parco del Giardino Centrale
     notes:
-      zh: 新市中心规划时预留的大公园
-      en: A large park set aside when the new centre was planned.
+      zh: "新市中心规划时预留的大公园。傍晚的公园里到处是推着婴儿车散步的年轻父母，其他城市的人因此叫新城「婴儿车之城」。冬天公园的人工湖冻实后成为露天冰场，周末全家一起来滑冰。"
+      en: "A large park set aside when the new centre was planned. In the evening the park is full of young parents pushing prams, which is why the rest of the island calls New City \"Pram City\". In winter, once its lake freezes solid, it becomes an open-air rink where whole families come to skate at weekends."
     in: div_m2tz6c
     offset_km: [-1.1, 0.9]
     site: { layout: park, size_m: [900, 500] }
@@ -764,8 +764,8 @@ places:
       art-x-viking: Einkaufszentrum Grünau
       art-x-buckham: Centro Commerciale Prato Verde
     notes:
-      zh: 青坪轨道交通枢纽旁的大型商场
-      en: A large shopping centre next to the Greenmead transit hub.
+      zh: "青坪轨道交通枢纽旁的大型商场。商场门口的周末夜市是新城最地道的去处：烤肠、炸鳕鱼条、勒克尔奶酪焗土豆，还有从岛上各地搬来的家庭带来的家乡菜。商场里的育儿室比停车位还难抢，这也是「婴儿车之城」的特色。"
+      en: "A large shopping centre next to the Greenmead transit hub. The weekend night market outside is New City's real place to eat: grilled sausages, fried cod fingers, potatoes baked with Lekor cheese and home dishes brought by families from all over the island. Inside, the baby rooms are harder to get into than the car park, another mark of \"Pram City\"."
     in: div_z8yxye
     offset_km: [0.6, -0.4]
     site: { layout: market, size_m: [260, 160] }
@@ -778,8 +778,8 @@ places:
       art-x-viking: Sportzentrum Neustad
       art-x-buckham: Centro Sportivo di Neu Teatu
     notes:
-      zh: 新城的主体育场与体育馆
-      en: New City's main stadium and arena.
+      zh: "新城的主体育场与体育馆。体育馆冬天改成冰球场，新城中学联赛的决赛常在这里举行，看台上坐满了带着孩子来助威的年轻父母。夏天体育场草坪上会办一场「婴儿车长跑」，家长推着婴儿车跑完五公里。"
+      en: "New City's main stadium and arena. In winter the arena becomes an ice hockey rink and often hosts the final of the New City school league, its stands packed with young parents and their children. In summer the stadium holds a \"pram run\", in which parents push their prams round a five-kilometre course."
     in: div_z8yxye
     offset_km: [-1.8, 1.3]
     site: { layout: stadium, size_m: [340, 260] }
@@ -792,8 +792,8 @@ places:
       art-x-viking: Erstes Gymnasium Neustad
       art-x-buckham: Primo Liceo di Neu Teatu
     notes:
-      zh: 北苑区成片新社区配套的重点中学
-      en: The leading high school of the new North Gardens estates.
+      zh: "北苑区成片新社区配套的重点中学。每逢大雪，学校就把操场浇成溜冰场，体育课改成滑冰课，新城的孩子几乎个个会滑冰。学校的冰球队是全岛中学联赛的常客，比赛日北苑区的家长们会举着自制的标语来助威。"
+      en: "The leading high school of the new North Gardens estates. When heavy snow falls the school floods its playground into an ice rink and PE becomes skating, so nearly every child in New City can skate. Its ice hockey team is a regular in the island's school league, and on match days North Gardens parents turn out with home-made banners."
     in: div_s1qwxh
     offset_km: [0.8, 0.9]
     site: { layout: campus, size_m: [400, 300] }
@@ -806,8 +806,8 @@ places:
       art-x-viking: Pädagogische Hochschule Neustad
       art-x-buckham: Istituto Magistrale di Neu Teatu
     notes:
-      zh: 培养领地中小学教师的师范学院
-      en: The college that trains the territory's schoolteachers.
+      zh: "培养领地中小学教师的师范学院。毕业生被派往全岛各地的中小学，许多人去了内陆牧区和偏远渔村的小学校。学院的老传统是，每位毕业生离校前在图书馆的留言簿上写下自己要去的学校，几十年的留言簿排满了一整面书架。"
+      en: "The college that trains the territory's schoolteachers. Its graduates are posted to schools all over the island, many to small schools in the inland pastures and remote fishing villages. By old tradition each graduate writes the name of their school in the library's visitors' book before leaving, and the books now fill a whole wall of shelves."
     in: div_s1qwxh
     offset_km: [-2, -1.5]
     site: { layout: campus, size_m: [900, 600] }
@@ -820,8 +820,8 @@ places:
       art-x-viking: Logistikpark Südpost
       art-x-buckham: Polo Logistico di Posta Sud
     notes:
-      zh: 萨科勒大道旁的仓储与配送中心，服务萨科勒与贝克勒
-      en: Warehousing and distribution on Sakole Avenue, serving Sakole and Beckerle.
+      zh: "萨科勒大道旁的仓储与配送中心，服务萨科勒与贝克勒。园区紧挨新城机场，夜里货车和货机进出不停，新城人说「南驿区的灯从来不关」。萨科勒工厂的零件早上从这里发出，中午就能装上贝克勒码头的集装箱船。"
+      en: "Warehousing and distribution on Sakole Avenue, serving Sakole and Beckerle. It sits right beside New City Airport, with lorries and cargo planes coming and going all night, so New City people say \"the lights of South Post never go out\". Parts sent out from here in the morning to the Sakole factories can be on a container ship at the Beckerle quays by noon."
     in: div_hyxnpg
     offset_km: [2, -1.6]
     site: { layout: complex, size_m: [700, 500] }
@@ -834,8 +834,8 @@ places:
       art-x-viking: Stadtregierung Lekor
       art-x-buckham: Governo Cittadino di Lekor
     notes:
-      zh: 勒克尔大街上的市政府
-      en: The city government on Lekor High Street.
+      zh: "勒克尔大街上的市政府。勒克尔是岛上最老的农业城市，市政府的会议室里挂着一幅大地图，标出自由市、西北市、塔夫鲁普库维克市和洛龙山市当年从勒克尔分出去的地界，本地人管它叫「分家图」。"
+      en: "The city government on Lekor High Street. Lekor is the island's oldest farming city, and a large map in the council chamber shows the land that Freedom City, Northwest City, Tavrupukkuvik and Lorond Mountain were carved out of; locals call it \"the family-split map\"."
     in: div_0wvh63
     offset_km: [0.2, 0.2]
     site: { layout: complex, size_m: [280, 200] }
@@ -848,8 +848,8 @@ places:
       art-x-viking: Agrarbörse Lekor
       art-x-buckham: Borsa Agricola di Lekor
     notes:
-      zh: 领地最大的粮食、乳品与肉类批发市场
-      en: The territory's largest wholesale market for grain, dairy and meat.
+      zh: "领地最大的粮食、乳品与肉类批发市场。每年秋天丰收节开幕那天，自由市、西北市、塔夫鲁普库维克市和洛龙山市各派一辆彩车开到交易中心门口，岛上的人管这叫「回娘家」。平日清晨的拍卖大厅里，盐粒硬奶酪按轮称重，叫价声一直传到街上。"
+      en: "The territory's largest wholesale market for grain, dairy and meat. On the opening day of the Harvest Festival each autumn, Freedom City, Northwest City, Tavrupukkuvik and Lorond Mountain each send a decorated float to its door, a custom the island calls \"visiting the old home\". On ordinary mornings the auction hall weighs salt-crusted hard cheese by the wheel, and the bidding can be heard out in the street."
     in: div_0wvh63
     offset_km: [1.5, -0.8]
     site: { layout: market, size_m: [300, 180] }
@@ -862,8 +862,8 @@ places:
       art-x-viking: Landwirtschaftsmuseum Lekor
       art-x-buckham: Museo dell'Agricoltura di Lekor
     notes:
-      zh: 由老粮仓改建，讲述北维京岛的农牧历史
-      en: A converted granary, telling the story of farming on North Viking Island.
+      zh: "由老粮仓改建，讲述北维京岛的农牧历史。粮仓的木梁上还留着当年存粮时刻下的刻度。馆里最受孩子欢迎的是一台可以亲手摇动的老式脱粒机，秋天博物馆会请老农来示范手工打黄油，打好的黄油抹在黑麦面包上分给参观的人。"
+      en: "A converted granary, telling the story of farming on North Viking Island. The granary's beams still carry the marks cut when grain was stored there. Children's favourite exhibit is an old threshing machine they can crank by hand, and in autumn the museum invites old farmers to churn butter by hand, spreading it on rye bread for visitors."
     in: div_0wvh63
     offset_km: [-0.6, 0.6]
     site: { layout: hall, size_m: [160, 110] }
@@ -876,8 +876,8 @@ places:
       art-x-viking: Erntefestplatz Korndal
       art-x-buckham: Piazza della Festa di Messe Valle
     notes:
-      zh: 勒克尔丰收节的主会场
-      en: The main venue of the Lekor Harvest Festival.
+      zh: "勒克尔丰收节的主会场。丰收节期间广场上搭满了木棚，卖盐粒硬奶酪、油菜花蜜、烤猪肘和热香料白葡萄酒，夜里还有乡村乐队演奏。节日最后一天要评出全岛最大的南瓜，获胜的南瓜会被雕成灯笼，挂在广场中央照亮到冬天。"
+      en: "The main venue of the Lekor Harvest Festival. During the Harvest Festival the square fills with wooden stalls selling salt-crusted hard cheese, rapeseed honey, roast pork knuckle and hot spiced white wine, with country bands playing into the night. On the last day the year's biggest pumpkin is judged, and the winner is carved into a lantern that lights the centre of the square into winter."
     in: div_davn2j
     offset_km: [0.3, 0.3]
     site: { layout: plaza, size_m: [420, 300] }
@@ -890,8 +890,8 @@ places:
       art-x-viking: Weingut Korndal
       art-x-buckham: Cantina di Messe Valle
     notes:
-      zh: 科恩达尔区最大的酒庄，葡萄园与酒窖对游客开放
-      en: The largest winery in Korndal, with vineyards and cellars open to visitors.
+      zh: "科恩达尔区最大的酒庄，葡萄园与酒窖对游客开放。酒庄用耐寒葡萄酿出带苹果香的白葡萄酒，冬天烫热了加香料喝。每年秋天采摘季，酒庄邀请游客一起下地剪葡萄，剪得最多的人能把自己的名字印在当年的酒标背面。"
+      en: "The largest winery in Korndal, with vineyards and cellars open to visitors. It makes an apple-scented white wine from hardy grapes, drunk hot with spices in winter. Each autumn at harvest visitors are invited to help cut the grapes, and whoever picks the most has their name printed on the back of that year's label."
     in: div_davn2j
     offset_km: [2.6, 1.8]
     site: { layout: park, size_m: [700, 500] }
@@ -904,8 +904,8 @@ places:
       art-x-viking: Uferpark Klarvatn
       art-x-buckham: Parco Lungolago di Lago Chiaro
     notes:
-      zh: 克拉尔瓦滕湖岸边的步道、沙滩与游船码头
-      en: Lakeside promenades, a beach and the pleasure-boat pier on Lake Klarvatn.
+      zh: "克拉尔瓦滕湖岸边的步道、沙滩与游船码头。隆冬湖面封冻，冰钓的小木屋在湖上排成一座小镇，冰层够厚时湖心还会办一场冰上集市；夏天游船从码头出发，绕湖一圈能看到湖边的牧场和科恩达尔的葡萄园。"
+      en: "Lakeside promenades, a beach and the pleasure-boat pier on Lake Klarvatn. In deep winter the lake freezes and the ice-fishing huts line up on it into a small town, with a market in the middle of the lake when the ice is thick enough; in summer boats leave from the pier on a circuit past lakeside pastures and the vineyards of Korndal."
     in: div_t8bg0d
     offset_km: [0, 2.0]
     site: { layout: park, size_m: [800, 400] }
@@ -919,8 +919,8 @@ places:
       art-x-viking: Stadtregierung Sakole
       art-x-buckham: Governo Cittadino di Sakole
     notes:
-      zh: 设在萨科老镇中心的市政府，建市时由镇公所扩建
-      en: The city government in the centre of old Sako, enlarged from the town hall when the city was founded.
+      zh: "设在萨科老镇中心的市政府，建市时由镇公所扩建。镇公所的老楼保留着原来的钟楼和石阶，市政府的公告用中文和巴克汉姆语双语张贴。每天中午铁岗区工厂的汽笛声传到这里，市政府的午休也就开始了。"
+      en: "The city government in the centre of old Sako, enlarged from the town hall when the city was founded. The old town-hall building keeps its original clock tower and stone steps, and the city's notices are posted in both Chinese and Buckham. When the noon whistle of the Iron Knoll factories reaches it each day, the city government breaks for lunch."
     in: div_8m0jx4
     offset_km: [0.2, 0.2]
     site: { layout: complex, size_m: [300, 220] }
@@ -933,8 +933,8 @@ places:
       art-x-viking: Altmarkt Sako
       art-x-buckham: Piazza Vecchia di Sako
     notes:
-      zh: 老镇钟楼前的石铺广场，建市前是萨科镇的集市与中心
-      en: The cobbled square below the old clock tower, the market and centre of Sako before the city was founded.
+      zh: "老镇钟楼前的石铺广场，建市前是萨科镇的集市与中心。傍晚广场最热闹，退休的老工人在石板地上玩巴克汉姆式的滚木球，输的人请喝咖啡，围观的年轻工人一边看一边用巴克汉姆语起哄。"
+      en: "The cobbled square below the old clock tower, the market and centre of Sako before the city was founded. It is liveliest in the evening, when retired workers roll wooden balls across the flagstones in the Buckham game, the loser buying the coffee, while young workers look on and heckle in Buckham."
     in: div_8m0jx4
     offset_km: [0.7, -0.5]
     site: { layout: plaza, size_m: [220, 160] }
@@ -947,8 +947,8 @@ places:
       art-x-viking: Fischmarkt Sako
       art-x-buckham: Mercato del Pesce di Sako
     notes:
-      zh: 老镇的鱼市，每天清晨拍卖萨科湾渔港的渔获
-      en: The old town's fish market, auctioning the catch of the Sako Bay harbour every dawn.
+      zh: "老镇的鱼市，每天清晨拍卖萨科湾渔港的渔获。鱼市旁的小馆子里，最受欢迎的是用番茄、橄榄油和当天渔获炖成的鱼汤，配一块烤得焦脆的面包。拍卖结束后剩下的小杂鱼会被装进一只大锅，熬成当天的「拍卖汤」，免费分给收摊的渔民。"
+      en: "The old town's fish market, auctioning the catch of the Sako Bay harbour every dawn. In the little restaurants beside it the favourite is a stew of tomatoes, olive oil and the day's catch with a slice of crisp toast. After the auction the leftover small fish go into one big pot for that day's \"auction soup\", given free to the fishermen as they pack up."
     in: div_8m0jx4
     offset_km: [-0.9, -0.7]
     site: { layout: market, size_m: [220, 120] }
@@ -961,8 +961,8 @@ places:
       art-x-viking: Industriepark Eisenhügel
       art-x-buckham: Parco Industriale di Colle Ferro
     notes:
-      zh: 建市后布局的制造业园区，以机械、汽车零部件与电子装配为主，萨科勒「新工业区」的主体
-      en: Manufacturing parks laid out after the city was founded, mainly machinery, car parts and electronics assembly; the core of Sakole's new industrial zone.
+      zh: "建市后布局的制造业园区，以机械、汽车零部件与电子装配为主，萨科勒「新工业区」的主体。园区的工厂沿用老铁岗的规矩，每天中午十二点拉响汽笛，萨科渔港的渔民仍把它当作收网回港的信号。工厂食堂以分量大出名，一份炖豆子配香肠够一个壮汉撑过整个下午。"
+      en: "Manufacturing parks laid out after the city was founded, mainly machinery, car parts and electronics assembly; the core of Sakole's new industrial zone. Its factories keep the old Iron Knoll custom of sounding a whistle at noon each day, still the fishermen's signal at Sako Fishing Harbour to haul in and head home. The factory canteens are known for their portions: a plate of stewed beans and sausage will see a strong worker through the afternoon."
     in: div_6byxb5
     offset_km: [2.2, -1.0]
     site: { layout: complex, size_m: [1200, 700] }
@@ -975,8 +975,8 @@ places:
       art-x-viking: Bergbaumuseum Eisenhügel
       art-x-buckham: Museo Minerario di Colle Ferro
     notes:
-      zh: 由铁岗山旧铁矿的选矿厂改建，展出矿车、竖井模型与矿工生活
-      en: The former ore-dressing plant of the old Iron Knoll mine, with mine carts, shaft models and the story of the miners.
+      zh: "由铁岗山旧铁矿的选矿厂改建，展出矿车、竖井模型与矿工生活。馆里保留着城里最早的那座炼铁炉，萨科勒人说一切都是从这座炉子开始的。参观者可以戴上矿工头灯走进一段复原的巷道，出口处有一面墙，写满了老矿工和他们家人的名字。"
+      en: "The former ore-dressing plant of the old Iron Knoll mine, with mine carts, shaft models and the story of the miners. It keeps the town's very first furnace, where Sakole people say everything began. Visitors can put on a miner's lamp and walk a reconstructed gallery, coming out by a wall covered with the names of old miners and their families."
     in: div_6byxb5
     offset_km: [-1.2, 0.8]
     site: { layout: hall, size_m: [180, 120] }
@@ -989,8 +989,8 @@ places:
       art-x-viking: Technische Hochschule Sakole
       art-x-buckham: Politecnico di Sakole
     notes:
-      zh: 为铁岗产业园培养技工与工程师的学院
-      en: Trains technicians and engineers for the Iron Knoll manufacturing parks.
+      zh: "为铁岗产业园培养技工与工程师的学院。学生一半时间在课堂、一半时间在铁岗产业园的车间里，课程用中文和巴克汉姆语双语讲授。每年毕业季，学生们用自己做的零件拼出一台小机器人，在萨科老镇广场上表演。"
+      en: "Trains technicians and engineers for the Iron Knoll manufacturing parks. Students spend half their time in class and half in the workshops of the Iron Knoll park, with courses taught in both Chinese and Buckham. Each graduation season they assemble a small robot from parts they made themselves and show it off in Sako Old Town Square."
     in: div_6byxb5
     offset_km: [0.6, 1.6]
     site: { layout: campus, size_m: [600, 400] }
@@ -1003,8 +1003,8 @@ places:
       art-x-viking: Straßengüterterminal Felsburg
       art-x-buckham: Terminal Merci di Rocca
     notes:
-      zh: 南岸公路旁的公路货运枢纽与仓储区，集散萨科勒工厂的零部件与成品
-      en: Road freight hub and warehouses on the South Coast Highway, handling parts and products for Sakole's factories.
+      zh: "南岸公路旁的公路货运枢纽与仓储区，集散萨科勒工厂的零部件与成品。货车司机在这里换班歇脚，货运站的食堂以炖豆子配香肠和浓咖啡出名，一份能撑过从萨科勒到维京港的整段路程。"
+      en: "Road freight hub and warehouses on the South Coast Highway, handling parts and products for Sakole's factories. Lorry drivers change over and rest here, and the terminal canteen is known for stewed beans with sausage and strong coffee, a plate of which will last you all the way from Sakole to Viking Port."
     in: div_8njcs3
     offset_km: [1.0, -0.8]
     site: { layout: complex, size_m: [800, 500] }
@@ -1017,8 +1017,8 @@ places:
       art-x-viking: Felsburgpark
       art-x-buckham: Parco della Rocca
     notes:
-      zh: 环绕海边岩丘的公园，罗卡区（巴克汉姆语「岩堡」）以这座岩丘得名
-      en: A park around the seaside rock outcrop that gave Rocca District (Buckham for "rock fort") its name.
+      zh: "环绕海边岩丘的公园，罗卡区（巴克汉姆语「岩堡」）以这座岩丘得名。岩丘顶上有一座小瞭望台，从这里能看到整个萨科湾和铁岗区的烟囱。傍晚退休的老工人爱在山脚的草坪上玩巴克汉姆式的滚木球，输的人请喝咖啡。"
+      en: "A park around the seaside rock outcrop that gave Rocca District (Buckham for \"rock fort\") its name. A small lookout on top of the knoll takes in the whole of Sako Bay and the chimneys of Iron Knoll. In the evening retired workers play the Buckham game of rolling wooden balls on the lawn at its foot, the loser buying the coffee."
     in: div_8njcs3
     offset_km: [-1.0, 0.6]
     site: { layout: park, size_m: [500, 350] }
@@ -1031,8 +1031,8 @@ places:
       art-x-viking: Verwaltung der Freihandelszone Beckerle
       art-x-buckham: Amministrazione della Zona Franca di Beckerle
     notes:
-      zh: 自贸区的管理机构，代行市政府职能，设在斯佩基亚拉区交易所大道
-      en: The zone's administration, which serves as its city government, on Exchange Avenue in Specchiara District.
+      zh: "自贸区的管理机构，代行市政府职能，设在斯佩基亚拉区交易所大道。管委会的办事大厅号称「一窗办完」，外国公司注册、报关和开户都在同一个窗口完成，墙上的电子屏实时显示每项业务的平均办理时间。"
+      en: "The zone's administration, which serves as its city government, on Exchange Avenue in Specchiara District. Its service hall promises \"one window for everything\": foreign companies register, file customs declarations and open accounts at a single counter, and a screen on the wall shows the average time for each service in real time."
     in: div_8p9k5t
     offset_km: [0.3, 0.4]
     site: { layout: complex, size_m: [320, 240] }
@@ -1045,8 +1045,8 @@ places:
       art-x-viking: Internationales Finanzzentrum Specchiara
       art-x-buckham: Centro Finanziario Internazionale di Specchiara
     notes:
-      zh: 斯佩基亚拉天际线上最高的塔楼，离岸银行、结算机构与跨国公司区域总部集中于此
-      en: The tallest tower on the Specchiara skyline, home to offshore banks, clearing houses and regional headquarters.
+      zh: "斯佩基亚拉天际线上最高的塔楼，离岸银行、结算机构与跨国公司区域总部集中于此。塔顶的观景层能望见整个斯佩基亚拉湾和湾心的镜岛，晴天傍晚，塔楼的影子会一直伸到湾面上。楼里的电梯按「晨间市场」和「夜间市场」分组，跟着世界各地的交易时间轮流忙碌。"
+      en: "The tallest tower on the Specchiara skyline, home to offshore banks, clearing houses and regional headquarters. The observation level at the top looks out over the whole of Specchiara Bay and Mirror Isle in the middle, and on clear evenings the tower's shadow stretches far out over the water. Its lifts are grouped as \"morning markets\" and \"evening markets\", busy in turn as trading opens and closes around the world."
     in: div_8p9k5t
     offset_km: [0.9, -0.3]
     site: { layout: tower, size_m: [140, 140] }
@@ -1059,8 +1059,8 @@ places:
       art-x-viking: Internationale Warenbörse Beckerle
       art-x-buckham: Borsa Merci Internazionale di Beckerle
     notes:
-      zh: 交易所大道上的大宗商品与外汇交易所，自贸区的货物与资金大多在这里成交
-      en: The commodity and currency exchange on Exchange Avenue, where most of the zone's goods and money change hands.
+      zh: "交易所大道上的大宗商品与外汇交易所，自贸区的货物与资金大多在这里成交。交易所门口每周有一个小集市，最抢手的是写字楼天台上养蜂产的「金融蜜」，总是一抢而空。交易大厅里有一口铜钟，每天开市和收市各敲一次，钟声在交易所大道上都听得见。"
+      en: "The commodity and currency exchange on Exchange Avenue, where most of the zone's goods and money change hands. A small market is held outside each week, where the \"finance honey\" from beehives on office roofs always sells out. A bronze bell in the trading hall is struck at the open and the close each day, loud enough to be heard along Exchange Avenue."
     in: div_8p9k5t
     offset_km: [-0.6, -0.6]
     site: { layout: hall, size_m: [240, 160] }
@@ -1073,8 +1073,8 @@ places:
       art-x-viking: Uferpark Specchiara
       art-x-buckham: Parco Lungomare di Specchiara
     notes:
-      zh: 斯佩基亚拉湾岸边的步道与草坪，可远眺倒映在湾面上的镜岛
-      en: Promenades and lawns on the shore of Specchiara Bay, looking out to Mirror Isle reflected in the water.
+      zh: "斯佩基亚拉湾岸边的步道与草坪，可远眺倒映在湾面上的镜岛。晴天傍晚，湾面平静得能把对岸的塔楼和湾心的镜岛完整倒映出来，镜岛的名字就由此而来。草坪上常有在附近上班的人午休时脱了鞋晒太阳，周末则是各国侨民家庭野餐的去处。"
+      en: "Promenades and lawns on the shore of Specchiara Bay, looking out to Mirror Isle reflected in the water. On calm evenings the bay is still enough to mirror the towers on the far shore and Mirror Isle in its centre, which is how the isle got its name. Office workers from nearby take their shoes off to sit in the sun on the lawns at lunchtime, and at weekends expatriate families from many countries picnic here."
     in: div_8p9k5t
     offset_km: [0.4, 1.1]
     site: { layout: park, size_m: [900, 300] }
@@ -1087,8 +1087,8 @@ places:
       art-x-viking: Internationales Krankenhaus Beckerle
       art-x-buckham: Ospedale Internazionale di Beckerle
     notes:
-      zh: 卡波区的国际医院，接诊自贸区的外籍居民与过境旅客
-      en: The international hospital in Capo District, treating the zone's foreign residents and passengers in transit.
+      zh: "卡波区的国际医院，接诊自贸区的外籍居民与过境旅客。医院的问诊台能用十几种语言接待病人，墙上的指示牌除了三种本地文字，还有英语和图示。急诊室挂着一块时钟墙，显示世界各大城市的时间，方便外籍病人联系家人。"
+      en: "The international hospital in Capo District, treating the zone's foreign residents and passengers in transit. Its reception desks can receive patients in more than a dozen languages, and the signs carry English and pictograms as well as the three local scripts. The emergency room has a wall of clocks showing the time in major cities around the world, so that foreign patients can reach their families."
     in: div_e6pc44
     offset_km: [-0.8, 0.6]
     site: { layout: complex, size_m: [300, 240] }
@@ -1101,8 +1101,8 @@ places:
       art-x-viking: Zolllager-Logistikpark Rondinaia
       art-x-buckham: Polo Logistico Doganale di Rondinaia
     notes:
-      zh: 保税仓储与加工贸易的园区，货物在园内存放、加工不需缴纳关税
-      en: Bonded warehousing and processing; goods can be stored and worked here without paying customs duty.
+      zh: "保税仓储与加工贸易的园区，货物在园内存放、加工不需缴纳关税。园区边上是一排免税仓库改成的周末集市，岛上其他城市的家庭开车或坐火车来买咖啡、巧克力和电器，回程的维贝铁路列车上堆满了购物袋，这趟车因此得了个「购物专列」的外号。"
+      en: "Bonded warehousing and processing; goods can be stored and worked here without paying customs duty. A row of former bonded warehouses on its edge now holds a weekend market, where families from other cities come by car or train for coffee, chocolate and electrical goods; the homebound Viking Port–Beckerle trains are piled with shopping bags, earning them the nickname \"the shopping specials\"."
     in: div_ts5cw5
     offset_km: [1.2, -0.6]
     site: { layout: complex, size_m: [900, 600] }
@@ -1116,8 +1116,8 @@ places:
       art-x-viking: Stadtregierung Tavrupukkuvik
       art-x-buckham: Governo Cittadino di Tavrupukkuvik
     notes:
-      zh: 普库图克老镇的市政府，普库图克、西加维克两镇合并设市时建成
-      en: The city government in old Pukkutuuq, built when the towns of Pukkutuuq and Siggavik merged into one city.
+      zh: "普库图克老镇的市政府，普库图克、西加维克两镇合并设市时建成。因为市名太长，市政府的公文抬头用了缩小一号的字体才排得下全名，市民们平时都叫这座城市「塔普」，市政府的门牌上也写着这个昵称。"
+      en: "The city government in old Pukkutuuq, built when the towns of Pukkutuuq and Siggavik merged into one city. The city's name is so long that its letterhead needs a smaller typeface to fit it, and residents just call the city \"Tavrup\", a nickname that appears on the building's own door plate."
     in: div_rzw76f
     offset_km: [0.2, 0.2]
     site: { layout: complex, size_m: [300, 220] }
@@ -1130,8 +1130,8 @@ places:
       art-x-viking: Agrarumschlagplatz Pukkutuuq
       art-x-buckham: Centro Agroalimentare di Pukkutuuq
     notes:
-      zh: 塔夫鲁普库维克平原的粮食与蔬果在此分拣、冷藏，再运往全岛
-      en: Grain, fruit and vegetables from the Tavrupukkuvik plain are sorted and chilled here before going out across the island.
+      zh: "塔夫鲁普库维克平原的粮食与蔬果在此分拣、冷藏，再运往全岛。秋收后，中心门口的土豆品尝会能摆出几十个品种，评出的「年度土豆」会印在第二年的种子袋上。冷库里常年储着几万吨土豆和根菜，让全岛冬天也吃得上本地菜。"
+      en: "Grain, fruit and vegetables from the Tavrupukkuvik plain are sorted and chilled here before going out across the island. After the harvest, the potato tasting outside the centre sets out dozens of varieties, and the \"potato of the year\" is printed on the next year's seed bags. Its cold stores hold tens of thousands of tonnes of potatoes and root vegetables, so the whole island can eat local produce through the winter."
     in: div_rzw76f
     offset_km: [1.6, -0.8]
     site: { layout: market, size_m: [320, 200] }
@@ -1144,8 +1144,8 @@ places:
       art-x-viking: Landmaschinenmuseum Tavrupukkuvik
       art-x-buckham: Museo delle Macchine Agricole di Tavrupukkuvik
     notes:
-      zh: 从畜力犁到无人驾驶收割机，展出平原机械化农业的历程
-      en: From horse-drawn ploughs to driverless combines, the story of mechanised farming on the plain.
+      zh: "从畜力犁到无人驾驶收割机，展出平原机械化农业的历程。馆外停着一排从老到新的拖拉机，孩子们最爱爬上那台最老的红色拖拉机按喇叭。每年春耕前，博物馆会把几台老机器开到田里，和无人驾驶收割机并排跑一圈。"
+      en: "From horse-drawn ploughs to driverless combines, the story of mechanised farming on the plain. A row of tractors, oldest to newest, stands outside, and children love to climb up and honk the horn of the oldest, a red one. Each spring before ploughing the museum drives a few of its old machines into the fields for a lap alongside the driverless harvesters."
     in: div_rzw76f
     offset_km: [-0.8, 0.6]
     site: { layout: hall, size_m: [200, 120] }
@@ -1158,8 +1158,8 @@ places:
       art-x-viking: Strandpark Ochsenhornbucht
       art-x-buckham: Parco al Mare di Baia Corno di Bue
     notes:
-      zh: 牛角湾岸边的草地与沙滩，夏季是塔夫鲁普库维克人消暑的去处
-      en: Lawns and a beach on Oxhorn Bay, where Tavrupukkuvik goes to cool off in summer.
+      zh: "牛角湾岸边的草地与沙滩，夏季是塔夫鲁普库维克人消暑的去处。夏天退潮时，孩子们在沙滩上用旧拖拉机轮胎垒城堡，比谁的城堡撑得过下一次涨潮。海湾的形状像一只牛角，从公园的观景台上看最清楚，公园名也由此而来。"
+      en: "Lawns and a beach on Oxhorn Bay, where Tavrupukkuvik goes to cool off in summer. At low tide in summer children build castles on the sand from old tractor tyres and see whose will survive the next high tide. The bay is shaped like an ox horn, best seen from the park's lookout, which is how it got its name."
     in: div_rzw76f
     offset_km: [0.6, -1.6]
     site: { layout: park, size_m: [800, 350] }
@@ -1172,8 +1172,8 @@ places:
       art-x-viking: Zweistädteplatz
       art-x-buckham: Piazza delle Due Città
     notes:
-      zh: 纪念普库图克与西加维克两镇合并设市的广场，新市名取塔夫鲁纳克语「土地生长之处」
-      en: Marks the merger of Pukkutuuq and Siggavik into one city, given the Tavrunaq name for 'where the land grows'.
+      zh: "纪念普库图克与西加维克两镇合并设市的广场，新市名取塔夫鲁纳克语「土地生长之处」广场中央的石碑上刻着那句塔夫鲁纳克语老话：「Tavru pukku, nirsa tuqqa」，意思是「土地肯长东西的地方，驯鹿就会住下来」。每年两镇合并的纪念日，普库图克和西加维克的居民在广场上拔河，输的一方负责来年的庆典。"
+      en: "Marks the merger of Pukkutuuq and Siggavik into one city, given the Tavrunaq name for 'where the land grows'. The stone in the middle of the square is carved with the old Tavrunaq saying \"Tavru pukku, nirsa tuqqa\": where the land is willing to grow, the reindeer will stay. On the anniversary of the merger, the people of Pukkutuuq and Siggavik hold a tug of war on the square, and the losing side organises the next year's celebrations."
     in: div_mpfctv
     offset_km: [0.3, 0.3]
     site: { layout: plaza, size_m: [240, 180] }
@@ -1186,8 +1186,8 @@ places:
       art-x-viking: Landwirtschaftliche Hochschule Tavrupukkuvik
       art-x-buckham: Istituto Agrario di Tavrupukkuvik
     notes:
-      zh: 农学、农机与食品加工的学院，试验田一直延伸到城外
-      en: A college of agronomy, farm machinery and food processing, with trial fields reaching out of town.
+      zh: "农学、农机与食品加工的学院，试验田一直延伸到城外。学院的试验田每年秋天都会推出几个新的土豆品种，参加普库图克的土豆品尝会，学生们最大的梦想是自己培育的品种被评为「年度土豆」。"
+      en: "A college of agronomy, farm machinery and food processing, with trial fields reaching out of town. Each autumn its trial fields put forward a few new potato varieties for the Pukkutuuq potato tasting, and students' greatest ambition is to see a variety they bred named \"potato of the year\"."
     in: div_mpfctv
     offset_km: [1.2, 0.8]
     site: { layout: campus, size_m: [700, 500] }
@@ -1200,8 +1200,8 @@ places:
       art-x-viking: Stadtregierung Himmelstad
       art-x-buckham: Governo Cittadino di Cielo
     notes:
-      zh: 天台区阶地上的市政府
-      en: The city government on the terraces of Sky Terrace District.
+      zh: "天台区阶地上的市政府。市政府每年的预算里有一项「雨伞费」，用来补上被游客带回家当纪念品的公共雨伞，市长曾说这是「天城最划算的广告」。"
+      en: "The city government on the terraces of Sky Terrace District. The city budget has an \"umbrella line\" every year to replace the public umbrellas visitors take home as souvenirs, which a mayor once called \"Skytown's best-value advertising\"."
     in: div_w1ea18
     offset_km: [0.2, 0.2]
     site: { layout: complex, size_m: [300, 220] }
@@ -1214,8 +1214,8 @@ places:
       art-x-viking: Internationales Kongresszentrum Himmelterrasse
       art-x-buckham: Centro Congressi Internazionale di Terrazza Cielo
     notes:
-      zh: 度假集群中心的会议中心，领地的年度论坛与大型会议多在此举行
-      en: The convention centre at the heart of the resort cluster, where the territory holds its annual forum and most large conferences.
+      zh: "度假集群中心的会议中心，领地的年度论坛与大型会议多在此举行。会议厅的落地窗正对柳萨湾，与会者在茶歇时常常端着咖啡站到窗前看彩虹，主持人干脆把茶歇安排在雨后。中心门口有一个特别大的伞架，开大会的日子要摆上几百把公共雨伞。"
+      en: "The convention centre at the heart of the resort cluster, where the territory holds its annual forum and most large conferences. Its floor-to-ceiling windows face Ljosa Bay, and delegates often take their coffee to the glass during breaks to look for rainbows, so organisers simply schedule breaks after the rain. The entrance has an extra-large umbrella stand, which on big conference days holds several hundred public umbrellas."
     in: div_w1ea18
     offset_km: [1.2, -0.6]
     site: { layout: hall, size_m: [420, 260] }
@@ -1228,8 +1228,8 @@ places:
       art-x-viking: Freizeitpark Silberstrand
       art-x-buckham: Parco Divertimenti di Spiaggia Argento
     notes:
-      zh: 全岛最大的主题乐园，有过山车、海洋馆和夏夜烟火
-      en: The island's largest theme park, with roller coasters, an aquarium and summer-night fireworks.
+      zh: "全岛最大的主题乐园，有过山车、海洋馆和夏夜烟火。银滩的夏天短而珍贵，乐园在夏至前后的夜晚放烟火，烟火映在海面上，从岚山区的山坡上看得最清楚。下雨天过山车照常开，排队的游客撑着公共雨伞，本地人说「不淋雨的过山车不算坐过天城的过山车」。"
+      en: "The island's largest theme park, with roller coasters, an aquarium and summer-night fireworks. Summer on Silver Beach is short and precious, and around midsummer the park sets off fireworks at night that reflect on the sea, best seen from the slopes of Mist Hill. The roller coasters run in the rain, the queues standing under public umbrellas, and locals say \"a Skytown coaster ride doesn't count unless you got wet\"."
     in: div_f5s7ax
     offset_km: [1.0, 0.8]
     site: { layout: park, size_m: [900, 700] }
@@ -1242,8 +1242,8 @@ places:
       art-x-viking: Grandhotel Silberstrand
       art-x-buckham: Grand Hotel Spiaggia Argento
     notes:
-      zh: 海滩边的高层度假酒店，银滩酒店群中最早的一座
-      en: A high-rise resort hotel on the sand, the first of the Silver Beach hotels.
+      zh: "海滩边的高层度假酒店，银滩酒店群中最早的一座。海滨露台上卖得最好的是柳萨湾贻贝配薯条和冰镇苹果酒。酒店大堂里摆着几十把刻着「天城」的公共雨伞，客人退房时偷偷带走一把，前台从来不说什么。"
+      en: "A high-rise resort hotel on the sand, the first of the Silver Beach hotels. The best seller on its seaside terrace is Ljosa Bay mussels with chips and chilled cider. Dozens of public umbrellas carved with \"Skytown\" stand in the lobby, and when guests quietly take one away at checkout, reception never says a word."
     in: div_f5s7ax
     offset_km: [0.4, -0.4]
     site: { layout: tower, size_m: [160, 120] }
@@ -1256,8 +1256,8 @@ places:
       art-x-viking: Strandpark Silberstrand
       art-x-buckham: Parco Lungomare di Spiaggia Argento
     notes:
-      zh: 沿细白沙滩的步道、草坪与沙滩排球场
-      en: Promenades, lawns and beach-volleyball courts along the fine white sand.
+      zh: "沿细白沙滩的步道、草坪与沙滩排球场。每个周日下午，银滩合唱团在海边的音乐亭演唱，下雨也不停，观众撑着公共雨伞站成一片。退潮时沙滩上会露出一片礁石，孩子们在石缝里找小螃蟹和海星。"
+      en: "Promenades, lawns and beach-volleyball courts along the fine white sand. Every Sunday afternoon the Silver Beach Choir sings in the seaside bandstand, rain or shine, to an audience standing under public umbrellas. At low tide a reef appears on the beach, where children look for small crabs and starfish among the rocks."
     in: div_f5s7ax
     offset_km: [-0.5, -1.2]
     site: { layout: park, size_m: [1200, 250] }
@@ -1270,8 +1270,8 @@ places:
       art-x-viking: Golfclub Nebelhang
       art-x-buckham: Golf Club Pendio Nebbia
     notes:
-      zh: 岚山坡地上的 18 洞球场，俯瞰银滩与大海
-      en: An 18-hole course on the slopes of Mist Hill, looking down over Silver Beach and the sea.
+      zh: "岚山坡地上的 18 洞球场，俯瞰银滩与大海。球场常被晨雾笼罩，雾里打出的球要等雾散了才找得到，球童因此练出一副好耳力，听落地的声音就知道球去了哪里。下雨天球场照常营业，球包旁边一律插着公共雨伞。"
+      en: "An 18-hole course on the slopes of Mist Hill, looking down over Silver Beach and the sea. The course is often wrapped in morning mist, and balls hit into the fog cannot be found until it lifts, so the caddies have developed sharp ears and can tell where a ball has landed by the sound. It stays open in the rain, with a public umbrella standing in every golf bag."
     in: div_ts88e3
     offset_km: [1.2, 0.8]
     site: { layout: park, size_m: [1400, 900] }
@@ -1284,8 +1284,8 @@ places:
       art-x-viking: Waldpark Nebelhang
       art-x-buckham: Parco Forestale di Pendio Nebbia
     notes:
-      zh: 晨雾常绕山腰的森林公园，岚山区以此得名；山溪自此直落银滩
-      en: A forest park whose slopes are often wrapped in morning mist, which gave Mist Hill its name; its stream drops straight down to Silver Beach.
+      zh: "晨雾常绕山腰的森林公园，岚山区以此得名；山溪自此直落银滩。林间的步道沿着山溪往下走，一路通到银滩；雨后溪水涨起来，水声在雾里格外响。森林公园山脚下有几处温泉，冬天泡完温泉再喝一碗热鱼汤，是许多天城退休居民的日常。"
+      en: "A forest park whose slopes are often wrapped in morning mist, which gave Mist Hill its name; its stream drops straight down to Silver Beach. Its woodland trails follow the stream down all the way to Silver Beach, and after rain the swollen water sounds loud in the mist. There are hot springs at the foot of the hill, and in winter a soak followed by a bowl of hot fish soup is part of everyday life for many of Skytown's retired residents."
     in: div_ts88e3
     offset_km: [-1.0, 0.6]
     site: { layout: park, size_m: [900, 600] }
@@ -1299,8 +1299,8 @@ places:
       art-x-viking: Stadtregierung Lorondberg
       art-x-buckham: Governo Cittadino di Lorond Tehee
     notes:
-      zh: 卡蒂尔尤阿克集镇上的市政府，山区三区的公路在此交汇
-      en: The city government in the Katirjuaq market town, where the roads of the three mountain districts meet.
+      zh: "卡蒂尔尤阿克集镇上的市政府，山区三区的公路在此交汇。大雪封山时，市政府楼下的卡蒂尔尤阿克广播站每天早晚各念一遍全市山口和隧道的通行情况，播报员念山口名的抑扬顿挫在全岛都有名。门厅里挂着一块黑板，每天写着各个山口「开」或「关」。"
+      en: "The city government in the Katirjuaq market town, where the roads of the three mountain districts meet. When snow closes the mountains, the Katirjuaq radio station downstairs reads out the state of every pass and tunnel each morning and evening, and the announcer's cadence through the pass names is famous across the island. A blackboard in the entrance hall shows each pass as \"open\" or \"closed\" every day."
     in: div_j82dgm
     offset_km: [0.2, 0.2]
     site: { layout: complex, size_m: [260, 200] }
@@ -1313,8 +1313,8 @@ places:
       art-x-viking: Museum Posthaus Katirjuaq
       art-x-buckham: Museo della Stazione di Posta di Katirjuaq
     notes:
-      zh: 由翻越卡蒂尔尤阿克的老驿站改建，展出驮队、雪橇与早年的山路
-      en: The old post house below the pass, with pack trains, sledges and the mountain roads of early days.
+      zh: "由翻越卡蒂尔尤阿克的老驿站改建，展出驮队、雪橇与早年的山路。驿站的马厩里还挂着当年驮队用的铜铃，冬天的旅人听见铃声就知道山口有人在走。博物馆每年冬至会点起老驿站的炉子，请参观的人喝一碗松针茶，听老人讲雪夜翻山的故事。"
+      en: "The old post house below the pass, with pack trains, sledges and the mountain roads of early days. The bronze bells of the old pack trains still hang in the stable; on winter roads, travellers knew from their sound that someone was crossing the pass. Each midwinter the museum lights the old post-house stove and serves visitors a bowl of pine-needle tea while old people tell stories of crossing the pass on snowy nights."
     in: div_j82dgm
     offset_km: [-0.6, 0.5]
     site: { layout: hall, size_m: [160, 100] }
@@ -1327,8 +1327,8 @@ places:
       art-x-viking: Forstinstitut Napatuuq
       art-x-buckham: Istituto Forestale di Napatuuq
     notes:
-      zh: 研究云杉林培育、防火与护林的研究所，兼管纳帕图克的护林站
-      en: Studies spruce forestry, fire prevention and forest care, and runs the Napatuuq ranger stations.
+      zh: "研究云杉林培育、防火与护林的研究所，兼管纳帕图克的护林站。护林员每年采伐季开工前，先在最老的一棵冷杉下放一块面包，算是向山林打个招呼。研究所的苗圃每年培育几十万株云杉苗，其中一批会在勒克尔丰收节上作为洛龙山的礼物送出去。"
+      en: "Studies spruce forestry, fire prevention and forest care, and runs the Napatuuq ranger stations. Before each felling season the foresters leave a piece of bread under the oldest fir, a way of greeting the forest. The institute's nursery raises hundreds of thousands of spruce seedlings a year, and a batch of them goes to the Lekor Harvest Festival as Lorond Mountain's gift."
     in: div_k5f1mz
     offset_km: [0.6, 0.4]
     site: { layout: campus, size_m: [400, 300] }
@@ -1341,8 +1341,8 @@ places:
       art-x-viking: Waldpark Napatuuq
       art-x-buckham: Parco Forestale di Napatuuq
     notes:
-      zh: 纳帕图克山坡上的云杉原始林，林间步道通往纳帕图克冰川
-      en: Old-growth spruce on the slopes of Napatuuq, with trails up towards the Napatuuq Glacier.
+      zh: "纳帕图克山坡上的云杉原始林，林间步道通往纳帕图克冰川。林子里最老的云杉要好几个人才能合抱，树下铺着厚厚的苔藓，走在上面听不见脚步声。步道尽头能远远望见纳帕图克冰川，夏天冰川融水汇成的小溪清得能看见水底的石子。"
+      en: "Old-growth spruce on the slopes of Napatuuq, with trails up towards the Napatuuq Glacier. The oldest spruces take several people to encircle, and the moss beneath them is so thick you cannot hear your own footsteps. At the end of the trail the Napatuuq Glacier comes into view, and in summer its meltwater streams are clear enough to see every pebble on the bed."
     in: div_k5f1mz
     offset_km: [-1.0, 0.8]
     site: { layout: park, size_m: [1200, 800] }
@@ -1355,8 +1355,8 @@ places:
       art-x-viking: Wasserfallpark Ikkasuvva
       art-x-buckham: Parco delle Cascate di Ikkasuvva
     notes:
-      zh: 伊卡苏瓦观光步道的起点，栈道沿峡谷通往一连串瀑布
-      en: The start of the Ikkasuvva trail, where boardwalks follow the gorge past a chain of waterfalls.
+      zh: "伊卡苏瓦观光步道的起点，栈道沿峡谷通往一连串瀑布。隆冬时瀑布冻成几十米高的冰墙，成了冰攀爱好者的练习场；夏天融水下泄，隔着几公里都能听见峡谷里的水声。栈道入口的小木屋卖热越橘汁和云杉糖浆松饼。"
+      en: "The start of the Ikkasuvva trail, where boardwalks follow the gorge past a chain of waterfalls. In deep winter the falls freeze into ice walls tens of metres high that ice climbers use for practice; in summer the meltwater roars down and can be heard kilometres away. The hut at the start of the boardwalk sells hot lingonberry juice and pancakes with spruce-tip syrup."
     in: div_0t2t36
     offset_km: [0.8, 0.6]
     site: { layout: park, size_m: [800, 500] }
@@ -1369,8 +1369,8 @@ places:
       art-x-viking: Stadtregierung Maslinberg
       art-x-buckham: Governo Cittadino di Maslin Tehee
     notes:
-      zh: 和平区的市政府，市府由雅利基卢克河迁来
-      en: The city government in Peace District, moved here from Jaalikiluk River.
+      zh: "和平区的市政府，市府由雅利基卢克河迁来。市政府门前的旗杆比别处多一根，挂的是深空太空军的旗，每次飞船安全返回，两面旗之间会再升起一面小小的「回家旗」，挂满一天才降下。"
+      en: "The city government in Peace District, moved here from Jaalikiluk River. The flagpoles outside have one more than usual, flying the flag of the Deep Space Force, and whenever a spacecraft returns safely a small \"home flag\" is raised between the two for a day."
     in: div_nvrjpg
     offset_km: [0.2, 0.2]
     site: { layout: complex, size_m: [260, 200] }
@@ -1397,8 +1397,8 @@ places:
       art-x-viking: Unteroffiziersschule der Tiefraumstreitkräfte
       art-x-buckham: Scuola Sottufficiali della Forza Spaziale Profonda
     notes:
-      zh: 东营区的士官学校，培养航天发射、测控与地勤士官
-      en: The academy in East Camp that trains NCOs for launch, tracking and ground crews.
+      zh: "东营区的士官学校，培养航天发射、测控与地勤士官。学员毕业前要在发射场完整值守一次发射，从加注、倒计时到升空都在岗位上度过。毕业典礼上，每位学员会领到一枚刻着自己第一次参与发射日期的铜章。"
+      en: "The academy in East Camp that trains NCOs for launch, tracking and ground crews. Before graduating each cadet must stand watch through a complete launch at the launch site, from fuelling and countdown to lift-off. At graduation every cadet receives a bronze medal engraved with the date of the first launch they worked on."
     in: div_tc0ngk
     offset_km: [0.6, 0.6]
     site: { layout: campus, size_m: [800, 600] }
@@ -1411,8 +1411,8 @@ places:
       art-x-viking: Raumfahrtmuseum Sternhafen
       art-x-buckham: Museo dello Spazio di Porto Stella
     notes:
-      zh: 展出退役火箭、返回舱与星港历次发射的博物馆，对公众开放
-      en: Retired rockets, return capsules and the record of every Starport launch, open to the public.
+      zh: "展出退役火箭、返回舱与星港历次发射的博物馆，对公众开放。馆里最受欢迎的展品是一具烧得焦黑的返回舱，孩子们可以爬进复制的舱体里，从小小的舷窗往外看。每次有飞船回到降落场，博物馆门口的电子屏都会亮出一行字：「有人回家了」。"
+      en: "Retired rockets, return capsules and the record of every Starport launch, open to the public. The most popular exhibit is a scorched re-entry capsule, and children can climb into a replica and peer out through the tiny window. Whenever a spacecraft returns to the landing site, the screen at the museum entrance lights up with the words \"someone is home\"."
     in: div_nytsvb
     offset_km: [-0.2, 0.15]
     site: { layout: hall, size_m: [260, 160] }
@@ -1425,8 +1425,8 @@ places:
       art-x-viking: Skigebiet Schneetal
       art-x-buckham: Comprensorio Sciistico di Valle Neve
     notes:
-      zh: 终年积雪的谷地上的滑雪场，冬季雪谷公路封闭时只能乘缆车上山
-      en: Ski slopes in the snowbound valley; when the Snow Valley Highway closes in winter the only way up is by cable car.
+      zh: "终年积雪的谷地上的滑雪场，冬季雪谷公路封闭时只能乘缆车上山。马斯林山晴天多，滑雪场常能在蓝天下滑雪，运气好时还能看到星港的火箭从远处升起。山顶木屋里卖一种把奶酪和土豆一起烤到焦黄的「雪道饼」，滑完一趟来一块，是这里的老规矩。"
+      en: "Ski slopes in the snowbound valley; when the Snow Valley Highway closes in winter the only way up is by cable car. Maslin Mountain has many sunny days, so skiers here often ski under blue skies, and with luck they can watch a rocket rise from Starport in the distance. The summit hut sells the golden-baked cheese-and-potato \"piste cake\", and one after every run is the house rule."
     in: div_0tsyzy
     offset_km: [1.4, 1.0]
     site: { layout: park, size_m: [1400, 900] }
@@ -1439,8 +1439,8 @@ places:
       art-x-viking: Stadtregierung Jaalikiluk
       art-x-buckham: Governo Cittadino di Jaalikiluk
     notes:
-      zh: 雅利基卢克河畔集镇上的市政府
-      en: The city government in the market town on the Jaalikiluk.
+      zh: "雅利基卢克河畔集镇上的市政府。雅利基卢克地广人稀，市政府的办事员常常开着越野车或驾着雪地摩托下乡，把证件和补贴直接送到牧民的营地。冬夜里市政府的窗台上也点着一盏蜡烛，和镇上家家户户一样，给走夜路的人照亮。"
+      en: "The city government in the market town on the Jaalikiluk. Jaalikiluk is vast and empty, and its clerks often drive out by four-wheel drive or snowmobile to deliver documents and benefits straight to the herders' camps. On winter nights a candle burns on its windowsill too, like those of every house in town, lighting the way for anyone walking at night."
     in: div_qpyn9e
     offset_km: [0.05, 0.05]
     site: { layout: complex, size_m: [220, 160] }
@@ -1453,8 +1453,8 @@ places:
       art-x-viking: Museum Aaqqiniq
       art-x-buckham: Museo di Aaqqiniq
     notes:
-      zh: 拆市前马斯林山市的市府旧址，现为讲述东北部开发与驯鹿牧业的博物馆
-      en: The seat of the old Maslin Mountain City before the split, now a museum of the settlement of the north-east and its reindeer herding.
+      zh: "拆市前马斯林山市的市府旧址，现为讲述东北部开发与驯鹿牧业的博物馆。夏天博物馆门口总有老人摆摊卖手缝的驯鹿皮手套。馆里的一面墙挂着上百只驯鹿的耳标，每一只都对应一户牧民家庭的记号，老牧民来参观时常常能找到自家祖辈的那一只。"
+      en: "The seat of the old Maslin Mountain City before the split, now a museum of the settlement of the north-east and its reindeer herding. In summer elderly people sell hand-sewn reindeer-skin mittens outside. One wall holds hundreds of reindeer ear marks, each the sign of a herding family, and old herders visiting often find the one used by their own grandparents."
     in: div_1qm5cj
     offset_km: [0.2, 0.2]
     site: { layout: complex, size_m: [240, 180] }
@@ -1467,8 +1467,8 @@ places:
       art-x-viking: Rentierhirtenmarkt Nirsaliit
       art-x-buckham: Mercato dei Pastori di Nirsaliit
     notes:
-      zh: 牧民秋季下山时的集市，交易驯鹿肉、皮毛与手工艺品
-      en: The market held when the herders come down in autumn, trading reindeer meat, hides and handicrafts.
+      zh: "牧民秋季下山时的集市，交易驯鹿肉、皮毛与手工艺品。集市开张那几天，牧民们赶着驯鹿从高原下来，搭起帐篷就地交易，晚上围着篝火唱塔夫鲁纳克语的牧歌。最抢手的是手缝的驯鹿皮手套和靴子，老匠人说一双好手套「能陪你走过三十个冬天」。"
+      en: "The market held when the herders come down in autumn, trading reindeer meat, hides and handicrafts. In the market days herders bring their reindeer down from the uplands and trade from tents pitched on the spot, singing Tavrunaq herding songs round the fire at night. The most sought-after goods are hand-sewn reindeer-skin mittens and boots, and the old craftsmen say a good pair of mittens \"will see you through thirty winters\"."
     in: div_e2pk5r
     offset_km: [0.1, -0.1]
     site: { layout: market, size_m: [200, 140] }
