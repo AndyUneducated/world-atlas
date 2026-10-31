@@ -137,7 +137,7 @@ landcover:
   rock_slope_deg: 40
 
 streets:
-  cities: [div_khxhrn, div_kv6b3e, div_6kjc7x, div_5tgnmz, div_24d8z4, div_11j4xw, div_8hy4nc, div_mzhe0m, div_k4tk68, div_7z142e, div_bca7d9, div_xp7ha2]
+  core_people_per_km2: 8000   # residents per km² of a district's core zone with local streets and buildings
   arterial_spacing_km: 1.5
   neighbourhood_km: 1.3
   local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
@@ -150,84 +150,83 @@ streets:
     planned: { tropic: 3, places: 3, civic: 2, culture: 2, numbered: 2, china: 2, flora: 2 }
     mixed: { tropic: 4, places: 3, flora: 2, fauna: 2, china: 1, landscape: 1, culture: 1 }
     organic: { tropic: 4, places: 3, trades: 2, flora: 1, fauna: 1, landscape: 1 }
-  # detail_km2: local streets and generic buildings only in the district's core zone of that size
+  # Local streets and generic buildings fill a core zone around the district centre, one km² per
+  # core_people_per_km2 residents; the rest of the built-up area gets arterials and collectors.
+  # detail_km2: a larger core zone of that size, or full for all the built-up area.
   districts:
     # 米雷兰市
-    div_z0z4vz: { style: planned, angle_deg: 106, mix: { civic: 2.2, podium: 1.2, slabs: 1.0 } }   # 帕萨卢区：湖光大道从领地议会经政务院机构直指翁贝尔哈努湖
+    div_z0z4vz: { style: planned, angle_deg: 106, detail_km2: full, mix: { civic: 2.2, podium: 1.2, slabs: 1.0 } } # 帕萨卢区：湖光大道从领地议会经政务院机构直指翁贝尔哈努湖
     div_f0wwdt: { style: mixed, detail_km2: 60, mix: { houses: 1.8, perimeter: 1.0, park: 0.8 } }   # 翁贝尔区
     div_56take: { style: planned, detail_km2: 50, mix: { civic: 1.6, slabs: 1.2, park: 0.6 } }   # 伊拉米区
-    div_t5wpdw: { main_only: true }   # 哈努帕拉区
+    div_t5wpdw: { style: organic, mix: { houses: 2.4 } }                                         # 哈努帕拉区
     # 萨伦纳姆市
-    div_8jecyx: { style: organic, mix: { perimeter: 1.6, houses: 1.4, civic: 0.8 } }   # 瓦什塔赖区
+    div_8jecyx: { style: organic, detail_km2: full, mix: { perimeter: 1.6, houses: 1.4, civic: 0.8 } } # 瓦什塔赖区
     div_xz0zqd: { style: organic, mix: { perimeter: 2.0, houses: 1.6 } }   # 塞鲁卡姆区
-    div_1z75n0: { style: planned, mix: { towers: 3.0, podium: 1.6, civic: 0.4 } }   # 阿兰塔区
+    div_1z75n0: { style: planned, detail_km2: full, mix: { towers: 3.0, podium: 1.6, civic: 0.4 } } # 阿兰塔区
     div_ycfvt9: { style: planned, mix: { industrial: 2.2, slabs: 0.8 } }   # 萨鲁凯区
-    div_n90922: { style: mixed, mix: { slabs: 1.8, perimeter: 1.0, civic: 0.6, park: 0.4 } }   # 伊拉瓦姆区
-    div_54sm84: { style: planned, mix: { slabs: 1.4, industrial: 1.0, podium: 0.6 } }   # 门达卢尔区
-    div_0dgwyn: { main_only: true }   # 奥卢瓦尔区
-    div_k880h3: { main_only: true }   # 皮拉凯区
+    div_n90922: { style: mixed, detail_km2: full, mix: { slabs: 1.8, perimeter: 1.0, civic: 0.6, park: 0.4 } } # 伊拉瓦姆区
+    div_54sm84: { style: planned, detail_km2: full, mix: { slabs: 1.4, industrial: 1.0, podium: 0.6 } } # 门达卢尔区
+    div_0dgwyn: { style: organic, mix: { houses: 2.2, industrial: 0.6 } }                        # 奥卢瓦尔区
+    div_k880h3: { style: organic, mix: { houses: 2.4, industrial: 0.4 } }                        # 皮拉凯区
     # 埃武托拉公社
-    div_p3x7j4: { style: planned, mix: { civic: 2.0, slabs: 1.4, park: 1.0 } }   # 哈马图区
-    div_qp9ner: { style: planned, mix: { slabs: 2.4, park: 1.0 } }   # 奥鲁武区
+    div_p3x7j4: { style: planned, detail_km2: full, mix: { civic: 2.0, slabs: 1.4, park: 1.0 } } # 哈马图区
+    div_qp9ner: { style: planned, detail_km2: full, mix: { slabs: 2.4, park: 1.0 } }             # 奥鲁武区
     div_27fbbk: { style: planned, detail_km2: 120, mix: { industrial: 2.4, slabs: 0.6 } }   # 帕卡里区
-    div_h88tgx: { main_only: true }   # 塔尼武区
-    div_ra6c0v: { main_only: true }   # 卢阿努区
+    div_h88tgx: { style: organic, mix: { houses: 2.2, civic: 0.8 } }                             # 塔尼武区
+    div_ra6c0v: { style: organic, mix: { podium: 1.2, houses: 1.6, park: 1.4 } }                 # 卢阿努区
     # 塔卢马兰市
-    div_2fhccc: { style: organic, mix: { perimeter: 1.6, podium: 1.2, industrial: 0.4 } }   # 塔卢区
-    div_yakrhd: { style: planned, mix: { industrial: 2.6, slabs: 0.4 } }   # 伦博区
-    div_hceeaa: { style: planned, mix: { industrial: 2.4 } }   # 塞拉努区
+    div_2fhccc: { style: organic, detail_km2: full, mix: { perimeter: 1.6, podium: 1.2, industrial: 0.4 } } # 塔卢区
+    div_yakrhd: { style: planned, detail_km2: full, mix: { industrial: 2.6, slabs: 0.4 } }       # 伦博区
+    div_hceeaa: { style: planned, detail_km2: full, mix: { industrial: 2.4 } }                   # 塞拉努区
     div_3e94sq: { style: planned, detail_km2: 120, mix: { industrial: 2.2, slabs: 0.8 } }   # 伊拉坦区
     div_py6kpa: { style: mixed, mix: { slabs: 2.0, perimeter: 0.8, park: 0.6 } }   # 米纳萨区
-    div_n11kpv: { main_only: true }   # 帕达兰区
+    div_n11kpv: { style: organic, mix: { houses: 2.4 } }                                         # 帕达兰区
     # 基拉努市
     div_rmy0kf: { style: planned, mix: { towers: 2.4, podium: 1.6 } }   # 萨基拉区
     div_qr8ay4: { style: planned, detail_km2: 120, mix: { industrial: 2.2, civic: 0.6 } }   # 努维拉区
-    div_07wzvt: { style: mixed, mix: { civic: 1.4, slabs: 1.4, park: 0.6 } }   # 埃莱努区
+    div_07wzvt: { style: mixed, detail_km2: full, mix: { civic: 1.4, slabs: 1.4, park: 0.6 } }   # 埃莱努区
     div_yah63b: { style: planned, detail_km2: 80, mix: { industrial: 1.4, slabs: 1.0 } }   # 佩萨维区
-    div_daamp6: { main_only: true }   # 乌拉帕区
+    div_daamp6: { style: organic, mix: { houses: 2.4 } }                                         # 乌拉帕区
     # 瓦利凯市
     div_3ytmrh: { style: organic, mix: { perimeter: 2.0, houses: 1.0, civic: 0.4 } }   # 坎纳鲁尔区
-    div_qj7vjy: { style: planned, mix: { industrial: 2.6 } }   # 图拉凯区
+    div_qj7vjy: { style: planned, detail_km2: full, mix: { industrial: 2.6 } }                   # 图拉凯区
     div_0hrhwh: { style: planned, detail_km2: 80, mix: { industrial: 2.0, slabs: 0.6 } }   # 埃鲁塔姆区
-    div_5d7rp4: { style: mixed, mix: { slabs: 1.8, perimeter: 1.0, park: 0.6 } }   # 卡兰杜尔区
-    div_egwwh2: { main_only: true }   # 萨卢瓦伊区
+    div_5d7rp4: { style: mixed, detail_km2: full, mix: { slabs: 1.8, perimeter: 1.0, park: 0.6 } } # 卡兰杜尔区
+    div_egwwh2: { style: organic, mix: { houses: 2.0, industrial: 0.8 } }                        # 萨卢瓦伊区
     # 彭纳拉姆市
     div_a3c8d6: { style: organic, detail_km2: 60, mix: { houses: 1.8, perimeter: 1.2, industrial: 0.4 } }   # 马伦杜尔区
-    div_v7v7hg: { main_only: true }   # 埃拉库尔区
+    div_v7v7hg: { style: organic, mix: { houses: 2.4 } }                                         # 埃拉库尔区
     div_yrxzma: { style: organic, detail_km2: 25, mix: { houses: 2.4 } }   # 蒂拉凯区
-    div_mw1wjx: { main_only: true }   # 帕拉武尔区
+    div_mw1wjx: { style: organic, mix: { houses: 2.4 } }                                         # 帕拉武尔区
     # 温达坎市
     div_6cy2yw: { style: organic, detail_km2: 50, mix: { houses: 2.2, civic: 0.6 } }   # 坎达瓦区
-    div_w2pbh1: { main_only: true }   # 佩伦达区
-    div_9hrhrv: { main_only: true }   # 西林达区
-    div_47qks0: { main_only: true }   # 乌拉韦劳自然保护区
-    div_gzefq6: { main_only: true }   # 托兰卡区
+    div_w2pbh1: { style: organic, mix: { houses: 2.4 } }                                         # 佩伦达区
+    div_9hrhrv: { style: organic, mix: { houses: 2.4 } }                                         # 西林达区
+    div_gzefq6: { style: organic, mix: { houses: 2.2, industrial: 0.4 } }                        # 托兰卡区
     # 洛米兰市
     div_pgh98w: { style: mixed, detail_km2: 40, mix: { houses: 1.8, civic: 0.8, industrial: 0.4 } }   # 卢瓦纳区
-    div_2w2q99: { main_only: true }   # 洛米哈努国家公园管理区
     div_a5rwcq: { style: organic, detail_km2: 15, mix: { houses: 2.0, podium: 0.6 } }   # 塔卡维区
     div_dx1d2r: { style: organic, detail_km2: 20, mix: { houses: 2.2, industrial: 0.4 } }   # 马纳卢区
-    div_8p898f: { main_only: true }   # 卡塔穆区
+    div_8p898f: { style: organic, mix: { houses: 2.4 } }                                         # 卡塔穆区
     # 乌诺卡里市
     div_y57m7b: { style: planned, detail_km2: 50, mix: { slabs: 1.6, civic: 0.6, industrial: 0.6 } }   # 卡里纳区
     div_6z737x: { style: planned, detail_km2: 20, mix: { industrial: 2.2 } }   # 乌诺维拉矿区管理区
     div_4m0x2v: { style: planned, detail_km2: 40, mix: { industrial: 2.6, slabs: 0.4 } }   # 佩鲁诺区
-    div_fwnndh: { main_only: true }   # 霍拉坦区
+    div_fwnndh: { style: organic, mix: { houses: 2.4 } }                                         # 霍拉坦区
     div_w7bas1: { style: planned, detail_km2: 25, mix: { industrial: 2.0, houses: 0.8 } }   # 贝卢阿区
     # 纳卢迈市
     div_afy2b3: { style: mixed, detail_km2: 50, mix: { podium: 1.4, houses: 1.4, perimeter: 0.8 } }   # 塞纳卢区
-    div_gkda74: { main_only: true }   # 帕兰图区
+    div_gkda74: { style: organic, mix: { houses: 2.0, industrial: 0.8 } }                        # 帕兰图区
     div_pfrpr2: { style: organic, detail_km2: 20, mix: { houses: 2.4 } }   # 迈卢阿区
     div_a349sd: { style: mixed, detail_km2: 40, mix: { houses: 1.6, park: 1.6 } }   # 维兰塔区
-    div_pr78k0: { main_only: true }   # 托武卢区
+    div_pr78k0: { style: organic, mix: { houses: 2.4 } }                                         # 托武卢区
     # 基鲁迈市
     div_a0nff8: { style: organic, detail_km2: 40, mix: { houses: 1.8, podium: 1.0, perimeter: 0.6 } }   # 迈萨里区
     div_3skbd8: { style: organic, detail_km2: 15, mix: { houses: 2.6 } }   # 卡朗加区
     div_3x32j4: { style: organic, detail_km2: 15, mix: { houses: 2.0, podium: 0.8 } }   # 蒂卢迈区
     div_qsykjk: { style: organic, detail_km2: 10, mix: { houses: 2.6 } }   # 奥罗武区
-    div_5z620y: { main_only: true }   # 马拉坎珊瑚礁保护区
     div_xazhxw: { style: organic, detail_km2: 10, mix: { houses: 2.4 } }   # 皮卢区
-    div_ykkw7q: { main_only: true }   # 瓦希拉群岛管理区
+    div_ykkw7q: { style: planned, mix: { civic: 1.6, industrial: 1.2, slabs: 1.0 } }             # 瓦希拉群岛管理区
   named:
     - { district: div_z0z4vz, axis: 0, line: 0, status: generated, names: { zh: 湖光大道, en: Lakelight Avenue, art-x-ivuran: Pelavu Ombelvila } }
     - { district: div_z0z4vz, axis: 1, line: 0, status: generated, names: { zh: 长夏大街, en: Everlong Summer Boulevard, art-x-ivuran: Hanusevu Imimu Selo } }

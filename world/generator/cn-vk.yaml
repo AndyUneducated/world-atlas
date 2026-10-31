@@ -113,36 +113,57 @@ landcover:
   rock_slope_deg: 31
 
 streets:
-  cities: [div_3cvg2q, div_x22naa, div_zg05xa, div_qjzmw5, div_87ygkn]
+  core_people_per_km2: 8000   # residents per km² of a district's core zone with local streets and buildings
   arterial_spacing_km: 1.5
   neighbourhood_km: 1.3
   local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
   warp_km: { planned: 0.02, mixed: 0.05, organic: 0.09 }
   warp_wavelength_km: 1.6
   river_gap_km: 0.05
-  # detail_km2: local streets and generic buildings only in the district's core zone of that size
-  # (around its centre); the rest of the built-up area gets arterials and collectors.
+  # Local streets and generic buildings fill a core zone around the district centre, one km² per
+  # core_people_per_km2 residents; the rest of the built-up area gets arterials and collectors.
+  # detail_km2: a larger core zone of that size, or full for all the built-up area.
   districts:
-    div_g2g1yc: { style: organic, detail_km2: 30, mix: { perimeter: 1.8, houses: 1.2, industrial: 0.2 } }   # 福恩斯塔德区：城墙内的石砌老城
+    div_g2g1yc: { style: organic, mix: { perimeter: 1.8, houses: 1.2, industrial: 0.2 } }        # 福恩斯塔德区：城墙内的石砌老城
     div_jzqknb: { style: planned, detail_km2: 60, mix: { towers: 2.4, podium: 1.8, civic: 0.6, industrial: 0.1 } }  # 汇金区：离岸金融
-    div_xps98r: { style: mixed, detail_km2: 25, mix: { houses: 2.0, park: 1.2, industrial: 0.4 } }         # 北岬区：居住与草场
+    div_xps98r: { style: mixed, mix: { houses: 2.0, park: 1.2, industrial: 0.4 } }               # 北岬区：居住与草场
     div_tkvfsx: { style: mixed, detail_km2: 40, mix: { podium: 1.8, towers: 0.8, industrial: 0.5 } }       # 阿夫琳码头区：邮轮码头与免税街
     div_8a2hzm: { style: organic, detail_km2: 20, mix: { houses: 2.4, park: 1.5, industrial: 0.1 } }       # 灯塔区：海滨别墅
-    div_cz7sch: { style: organic, detail_km2: 20, mix: { podium: 1.2, houses: 1.6, park: 2.0, industrial: 0.1 } }  # 温泉区：温泉酒店与疗养院
+    div_cz7sch: { style: organic, mix: { podium: 1.2, houses: 1.6, park: 2.0, industrial: 0.1 } } # 温泉区：温泉酒店与疗养院
     div_v2tq1k: { style: organic, detail_km2: 15, mix: { houses: 2.0, industrial: 0.8 } }                  # 斯瓦特桑德区：黑沙滩与地热电站
-    div_khmgcq: { style: organic, mix: { houses: 2.2, industrial: 0.6 } }                  # 瓦莱区：渔村与观鲸码头
-    div_5p2a2d: { style: organic, mix: { houses: 2.2, park: 1.0 } }                        # 西基克图克区：保护区小镇
-    div_b569a2: { style: planned, detail_km2: 30, mix: { towers: 2.0, podium: 1.6, civic: 0.5, industrial: 0.2 } }  # 链城区：航运交易所与船级社
-    # main_only: arterials and collectors, no local streets or generic buildings
-    div_j6mw1m: { style: planned, main_only: true }   # 奥斯特哈门区：集装箱码头
-    div_kecby5: { style: mixed, main_only: true }     # 西岸区：住宅区
-    div_dtk19k: { style: mixed, main_only: true }     # 朗桑德区：郊区
-    div_vhsby1: { style: organic, main_only: true }   # 帆城区：阿夫琳港老城
-    div_5rbg50: { style: mixed, main_only: true }     # 望海区
-    div_vk1835: { style: mixed, main_only: true }     # 暖河区：河口港区
-    div_a2n8cw: { style: planned, main_only: true }   # 阿克斯维克区：集装箱港
-    div_qyhvjj: { style: planned, main_only: true }   # 瑙斯特海姆区：船厂与干船坞
-    div_j1czet: { style: mixed, main_only: true }     # 西爪区：住宅区
+    div_khmgcq: { style: organic, detail_km2: full, mix: { houses: 2.2, industrial: 0.6 } }      # 瓦莱区：渔村与观鲸码头
+    div_5p2a2d: { style: organic, detail_km2: full, mix: { houses: 2.2, park: 1.0 } }            # 西基克图克区：保护区小镇
+    div_b569a2: { style: planned, mix: { towers: 2.0, podium: 1.6, civic: 0.5, industrial: 0.2 } } # 链城区：航运交易所与船级社
+    div_j6mw1m: { style: planned, mix: { industrial: 3.0, slabs: 0.4, houses: 0.2, towers: 0.2 } } # 奥斯特哈门区：集装箱码头
+    div_kecby5: { style: mixed, mix: { slabs: 1.4, houses: 1.4 } }                               # 西岸区：住宅区
+    div_dtk19k: { style: mixed, mix: { houses: 2.2, park: 1.4, industrial: 0.4 } }               # 朗桑德区：郊区
+    div_vhsby1: { style: organic, mix: { perimeter: 1.6, houses: 1.2, civic: 1.2 } }             # 帆城区：阿夫琳港老城
+    div_5rbg50: { style: mixed, mix: { houses: 2.2, park: 1.2 } }                                # 望海区
+    div_vk1835: { style: mixed, mix: { industrial: 2.2, houses: 0.8 } }                          # 暖河区：河口港区
+    div_a2n8cw: { style: planned, mix: { industrial: 3.0, slabs: 0.4, houses: 0.2, towers: 0.2 } } # 阿克斯维克区：集装箱港
+    div_qyhvjj: { style: planned, mix: { industrial: 3.0, slabs: 0.6, houses: 0.3 } }            # 瑙斯特海姆区：船厂与干船坞
+    div_j1czet: { style: mixed, mix: { houses: 2.2, park: 1.2 } }                                # 西爪区：住宅区
+    div_ej0v6c: { style: organic, mix: { perimeter: 1.4, houses: 1.4, industrial: 0.8 } }        # 斯蒂尔维克区：港湾老城、渡轮码头与鱼市
+    div_1tva4b: { style: organic, mix: { houses: 2.4, industrial: 0.3 } }                        # 斯库特斯塔德区：渔村与牧场
+    div_drqyc2: { style: organic, mix: { houses: 2.2, podium: 0.8, industrial: 0.6 } }           # 谢尔海姆区：山城、林场与滑雪场
+    div_0yqqc3: { style: mixed, mix: { houses: 1.6, industrial: 1.0, podium: 0.8 } }             # 弗洛德维克区：潮汐电站、海鲜市场与渔港
+    div_bs2e6p: { style: organic, mix: { houses: 2.4, industrial: 0.6 } }                        # 卡洛韦堡区：山谷里的林业小镇
+    div_626x3f: { style: mixed, mix: { industrial: 1.8, houses: 1.2 } }                          # 萨尔塔维克区：盐场与海上风电运维港
+    div_z1y7bz: { style: organic, mix: { industrial: 1.6, houses: 1.6 } }                        # 菲斯克海姆区：渔港与冷链加工
+    div_rvrs7v: { style: organic, mix: { houses: 2.2, podium: 1.0, park: 1.4, industrial: 0.2 } } # 莫塞区：度假住宅与海滨酒店
+    div_v3mfeg: { style: organic, mix: { houses: 2.4, industrial: 0.4 } }                        # 维托斯区：林场与牧场
+    div_6ajqsc: { style: organic, mix: { houses: 1.6, industrial: 1.0, perimeter: 0.8 } }        # 托克维克区：山海之间的渔港
+    div_27g39m: { style: organic, mix: { houses: 2.2, podium: 0.6, park: 1.4 } }                 # 尤普峡湾区：峡湾小镇
+    div_k4wvwe: { style: organic, mix: { houses: 2.2, industrial: 0.8 } }                        # 富鲁海姆区：锯木厂与木结构小镇
+    div_k0zt4f: { style: mixed, mix: { houses: 1.6, industrial: 1.2, podium: 0.6 } }             # 新特雷曼区：地热田与温室
+    div_ghpaw7: { style: planned, mix: { industrial: 2.2, slabs: 1.0, houses: 0.6 } }            # 克莱特斯塔德区：港口、采石场与地热电站
+    div_b4by9r: { style: organic, mix: { houses: 2.4, industrial: 0.2 } }                        # 落日区：渔村与落日岬
+    div_2q2fcx: { style: mixed, mix: { houses: 1.4, industrial: 1.2, podium: 0.8 } }             # 西格拉维克区：渔港与跨海高速服务区
+    div_berjt2: { style: organic, mix: { houses: 2.4, industrial: 0.4 } }                        # 南桅区：松林、牧场与乳品农场
+    div_ht5w2y: { style: organic, mix: { houses: 2.0, podium: 1.0, industrial: 0.2 } }           # 圣翁丁区：海滨度假镇
+    div_f07nky: { style: organic, mix: { houses: 2.0, industrial: 0.8 } }                        # 埃德文港区：海滨小镇、风电与渔业
+    div_7pf4qf: { style: organic, mix: { houses: 1.8, industrial: 1.2 } }                        # 乌利克尤阿克区：渔港与鱼干架
+    div_72h3ge: { style: planned, mix: { slabs: 1.2, industrial: 1.4, houses: 1.0 } }            # 布兰诺克堡区：年轻的风电新镇
   named:
     - { district: div_jzqknb, axis: 0, line: 0, status: generated, names: { zh: 汇金大道, en: Goldmark Avenue, art-x-viking: Goldmarkallee, art-x-buckham: Viale Marcoro } }
     - { district: div_jzqknb, axis: 1, line: 0, status: generated, names: { zh: 信托街, en: Trust Street, art-x-viking: Treuhandstraße, art-x-buckham: Via del Trust } }

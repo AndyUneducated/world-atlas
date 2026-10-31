@@ -37,7 +37,12 @@ def territory_langs(cities: list[dict]) -> tuple[str, ...]:
 
 
 def build_streets(world, sp, features, frame, seed, cities, districts, district_city, dist_polys, poles, urban, land, lake_polys, river_lines):
-    """Street networks of the cities listed in the generator's `streets` section.
+    """Street networks of every city in the territory.
+
+    Every built-up district gets arterials and collectors. Local streets and generic buildings fill a
+    core zone of one km² per `core_people_per_km2` residents around the district centre (at least
+    the district's `detail_km2`, or all its built-up land with `detail_km2: full`); reserves, ice
+    caps and national parks keep to arterials and collectors.
 
     Returns [(city, [Street] in design km, {district: context in real km}, [landmark site])]."""
     if urban is None:
@@ -51,9 +56,8 @@ def build_streets(world, sp, features, frame, seed, cities, districts, district_
     rivers_r = real(shapely.union_all(river_lines)).buffer(sp.get("river_gap_km", 0.05)) if river_lines else None
     safe_all = real(land) if lakes_r is None else real(land).difference(lakes_r)
     out = []
-    for cid in sp["cities"]:
-        ci = next(i for i, c in enumerate(cities) if c["id"] == cid)
-        namer = streets.Namer(ROOT / "world" / "names" / "streets.yaml", street_place_stems(features, cities, cid),
+    for ci, city in enumerate(cities):
+        namer = streets.Namer(ROOT / "world" / "names" / "streets.yaml", street_place_stems(features, cities, city["id"]),
                               territory_langs(cities), sp.get("name_styles"))
         city_streets, styles, named, ctx, city_sites = [], {}, {}, {}, []
         for i, d in enumerate(districts):
@@ -66,17 +70,20 @@ def build_streets(world, sp, features, frame, seed, cities, districts, district_
                 continue
             cfg = sp.get("districts", {}).get(d["id"], {})
             style = cfg.get("style", "mixed")
+            main_only = d.get("special_status") in UNSETTLED
             rng = np.random.default_rng([seed, int(hashlib.sha1(d["id"].encode()).hexdigest()[:8], 16)])
             angle = math.radians(cfg["angle_deg"]) if "angle_deg" in cfg else main_axis(built)
             core = (poles[i][0] * s, poles[i][1] * s)
-            ds = streets.district_streets(built, core, style, angle, rng, sp, i, cfg.get("main_only", False))
+            ds = streets.district_streets(built, core, style, angle, rng, sp, i, main_only)
             streets.bend(ds, streets.Field(rng, sp["warp_wavelength_km"]), sp["warp_km"][style])
             sites = landmark_sites(world, d, core, angle, built, safe_all, seed)
             safe = built.buffer(0.05).intersection(safe_all)
             if sites:
                 safe = safe.difference(shapely.union_all([site for _, site, _ in sites]).buffer(0.004))
             dry = safe.difference(rivers_r) if rivers_r is not None else safe
-            detail = core_zone(built, core, cfg["detail_km2"]) if "detail_km2" in cfg else None
+            want = cfg.get("detail_km2", 0)
+            km2 = math.inf if want == "full" else max(d.get("population", 0) / sp["core_people_per_km2"], want)
+            detail = core_zone(built, core, km2) if km2 < built.area else None
             if detail is not None:
                 dry = dry.intersection(detail.buffer(0.05))
             kept, real_lines = [], []
@@ -88,7 +95,7 @@ def build_streets(world, sp, features, frame, seed, cities, districts, district_
                     kept.append(st)
             styles[i] = style
             ctx[i] = {"name": d["names"]["zh"], "built": built.intersection(safe_all), "style": style, "angle": angle, "core": core, "lines": real_lines,
-                      "radius": math.sqrt(built.area / math.pi), "mix": cfg.get("mix"), "main_only": cfg.get("main_only", False),
+                      "radius": math.sqrt(built.area / math.pi), "mix": cfg.get("mix"), "main_only": main_only,
                       "detail": detail, "skyways_km": cfg.get("skyways_km")}
             city_sites += [(pid, site, parts, i) for pid, site, parts in sites]
             city_streets += kept
@@ -129,6 +136,8 @@ def build_buildings(street_out, seed) -> tuple[list, list]:
 
 
 CONLANGS = ("art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran")
+# Districts whose special status keeps them all but unsettled: arterials and collectors only.
+UNSETTLED = ("nature_reserve", "ice_cap_zone", "national_park")
 # Administrative suffixes dropped when a station or line is named after a city, longest first.
 CITY_SUFFIXES = {"zh": ("原住民自治区", "自由贸易区", "金融特区", "公社", "市"),
                  "en": (" Indigenous Autonomous Region", " Free Trade Zone", " Financial Zone", " Commune", " City"),

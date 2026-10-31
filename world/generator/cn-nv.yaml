@@ -137,9 +137,12 @@ landcover:
 # (radial avenues, a ring, irregular lanes). angle_deg: direction of the first axis, east = 0.
 # mix: factors on the style's building typology weights (slabs, towers, perimeter, houses,
 # podium, industrial, civic, park). named: fixed names for grid arterials (planned and mixed
-# styles); axis 0/1 and line n count from the district centre.
+# styles); axis 0/1 and line n count from the district centre. Local streets and generic buildings
+# fill a core zone around the district centre, one km² per core_people_per_km2 residents; the rest
+# of the built-up area gets arterials and collectors. detail_km2: a larger core zone of that size,
+# or full for all the built-up area.
 streets:
-  cities: [div_nbrnfr, div_m41gwn, div_0yef9a, div_k4s990, div_yjghe9, div_k4hg7b, div_da3s38, div_q4d6n6, div_ygk521, div_prcxzt, div_rdypg7, div_8emjne]
+  core_people_per_km2: 8000   # residents per km² of a district's core zone with local streets and buildings
   arterial_spacing_km: 1.5
   neighbourhood_km: 1.3
   local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
@@ -147,52 +150,52 @@ streets:
   warp_wavelength_km: 1.6
   river_gap_km: 0.05
   districts:
-    div_16cxr8: { style: planned, angle_deg: 33.7 }  # 白桦区：1990 年新建的首府，人民大道从区中心直通议会综合办公区
-    div_b1dx32: { style: mixed, angle_deg: -34 }     # 北河区：北河大道与北河流向平行，人民大道与之垂直
-    div_g4a8q0: { style: organic }                   # 沙洲区：河口沙洲上的老港区
-    div_z29w6h: { style: mixed, mix: { industrial: 2.5, houses: 0.6 } }      # 瓦尔维克区：鲸湾港区与临港产业带
-    div_pkfa1g: { style: mixed, mix: { podium: 1.4 } }                       # 菲尔内斯区：客运码头、邮轮与海关
-    div_t3bfmm: { style: organic }                                           # 格约特斯塔德区：围绕维京时代石垒形成的旧城
-    div_k1yr6m: { style: planned, mix: { towers: 1.6, podium: 1.3, industrial: 0.3 } }  # 海门区：二十一世纪的商务居住带
-    div_zs7kjk: { style: planned, mix: { civic: 2.0 } }                      # 鹿鸣区：1990 年建市时规划的市级机关与广电区
-    div_g27nda: { style: planned, mix: { civic: 1.8, industrial: 0.6 } }     # 望星区：科学大道沿线的科研区
-    div_fr1vq9: { style: mixed, mix: { civic: 2.5, park: 1.5 } }             # 林道区：大学城
-    div_479xae: { style: organic, mix: { houses: 1.5, park: 2.5, industrial: 0.3 } }  # 寒岭区：低密度科研居住与生态缓冲带
-    div_7rk2mh: { style: planned, mix: { slabs: 1.3, towers: 1.2, industrial: 0.4 } }  # 奥斯特海姆区：二十一世纪的东部住宅新城
-    div_b3qw9e: { style: organic, mix: { houses: 2.0, park: 2.5, industrial: 0.2 } }   # 菲亚尔马克区：丘陵上的低密度住宅与森林公园
-    div_s8f4kt: { style: planned, mix: { civic: 2.2, park: 1.4, industrial: 0.5 } }    # 科学城：实验室、大学分校与航天企业
-    div_m2tz6c: { style: planned, angle_deg: 12, mix: { towers: 1.8, podium: 1.6, civic: 1.5, industrial: 0.2 } }  # 中苑区：2000 年代的新市中心与商务区
-    div_z8yxye: { style: planned, angle_deg: 12, mix: { towers: 1.5, podium: 1.2, industrial: 0.5 } }  # 青坪区：高层住宅、商业与轨道交通枢纽
-    div_s1qwxh: { style: planned, mix: { slabs: 1.5, civic: 1.4, industrial: 0.3 } }   # 北苑区：成片新建社区与学校
-    div_hyxnpg: { style: mixed, angle_deg: -36, mix: { industrial: 1.5, podium: 1.1, houses: 0.8 } }  # 南驿区：通往萨科勒的快速路、公交走廊与物流园
-    div_0wvh63: { style: mixed, mix: { houses: 1.6, industrial: 1.4, towers: 0.3 } }   # 勒克尔维克区：农牧核心的集镇，粮仓与农产品加工
-    div_davn2j: { style: organic, mix: { houses: 2.2, park: 1.8, industrial: 0.4, towers: 0.2 } }  # 科恩达尔区：酒庄、民宿与丰收节
+    div_16cxr8: { style: planned, angle_deg: 33.7, detail_km2: full }                            # 白桦区：1990 年新建的首府，人民大道从区中心直通议会综合办公区
+    div_b1dx32: { style: mixed, angle_deg: -34, detail_km2: full }                               # 北河区：北河大道与北河流向平行，人民大道与之垂直
+    div_g4a8q0: { style: organic, detail_km2: full }                                             # 沙洲区：河口沙洲上的老港区
+    div_z29w6h: { style: mixed, detail_km2: full, mix: { industrial: 2.5, houses: 0.6 } }        # 瓦尔维克区：鲸湾港区与临港产业带
+    div_pkfa1g: { style: mixed, detail_km2: full, mix: { podium: 1.4 } }                         # 菲尔内斯区：客运码头、邮轮与海关
+    div_t3bfmm: { style: organic, detail_km2: full }                                             # 格约特斯塔德区：围绕维京时代石垒形成的旧城
+    div_k1yr6m: { style: planned, detail_km2: full, mix: { towers: 1.6, podium: 1.3, industrial: 0.3 } } # 海门区：二十一世纪的商务居住带
+    div_zs7kjk: { style: planned, detail_km2: full, mix: { civic: 2.0 } }                        # 鹿鸣区：1990 年建市时规划的市级机关与广电区
+    div_g27nda: { style: planned, detail_km2: full, mix: { civic: 1.8, industrial: 0.6 } }       # 望星区：科学大道沿线的科研区
+    div_fr1vq9: { style: mixed, detail_km2: full, mix: { civic: 2.5, park: 1.5 } }               # 林道区：大学城
+    div_479xae: { style: organic, detail_km2: full, mix: { houses: 1.5, park: 2.5, industrial: 0.3 } } # 寒岭区：低密度科研居住与生态缓冲带
+    div_7rk2mh: { style: planned, detail_km2: full, mix: { slabs: 1.3, towers: 1.2, industrial: 0.4 } } # 奥斯特海姆区：二十一世纪的东部住宅新城
+    div_b3qw9e: { style: organic, detail_km2: full, mix: { houses: 2.0, park: 2.5, industrial: 0.2 } } # 菲亚尔马克区：丘陵上的低密度住宅与森林公园
+    div_s8f4kt: { style: planned, detail_km2: full, mix: { civic: 2.2, park: 1.4, industrial: 0.5 } } # 科学城：实验室、大学分校与航天企业
+    div_m2tz6c: { style: planned, angle_deg: 12, detail_km2: full, mix: { towers: 1.8, podium: 1.6, civic: 1.5, industrial: 0.2 } } # 中苑区：2000 年代的新市中心与商务区
+    div_z8yxye: { style: planned, angle_deg: 12, detail_km2: full, mix: { towers: 1.5, podium: 1.2, industrial: 0.5 } } # 青坪区：高层住宅、商业与轨道交通枢纽
+    div_s1qwxh: { style: planned, detail_km2: full, mix: { slabs: 1.5, civic: 1.4, industrial: 0.3 } } # 北苑区：成片新建社区与学校
+    div_hyxnpg: { style: mixed, angle_deg: -36, detail_km2: full, mix: { industrial: 1.5, podium: 1.1, houses: 0.8 } } # 南驿区：通往萨科勒的快速路、公交走廊与物流园
+    div_0wvh63: { style: mixed, detail_km2: full, mix: { houses: 1.6, industrial: 1.4, towers: 0.3 } } # 勒克尔维克区：农牧核心的集镇，粮仓与农产品加工
+    div_davn2j: { style: organic, detail_km2: full, mix: { houses: 2.2, park: 1.8, industrial: 0.4, towers: 0.2 } } # 科恩达尔区：酒庄、民宿与丰收节
     div_t8bg0d: { style: organic, mix: { houses: 2.0, park: 2.2, industrial: 0.2, towers: 0.2 } }  # 克拉尔瓦滕区：环湖集镇与水上休闲
-    div_6byxb5: { style: planned, mix: { industrial: 2.6, slabs: 1.2, houses: 0.5 } }  # 铁岗区：1990 年代起布局的制造业园区与工人新村
+    div_6byxb5: { style: planned, detail_km2: full, mix: { industrial: 2.6, slabs: 1.2, houses: 0.5 } } # 铁岗区：1990 年代起布局的制造业园区与工人新村
     div_8m0jx4: { style: organic, mix: { perimeter: 1.4, houses: 1.4, industrial: 0.4 } }  # 萨科区：老镇、钟楼广场与渔港
-    div_8njcs3: { style: mixed, mix: { industrial: 2.2, podium: 0.8, houses: 0.7 } }   # 罗卡区：公路货运站与仓储
-    div_e6pc44: { style: mixed, mix: { podium: 1.4, industrial: 1.3, towers: 0.8 } }   # 卡波区：机场、联运监管与旅客通道
-    div_8p9k5t: { style: planned, mix: { towers: 2.4, podium: 1.8, civic: 0.8, industrial: 0.1 } }  # 斯佩基亚拉区：离岸金融、结算与总部经济
-    div_ts5cw5: { style: mixed, mix: { industrial: 2.0, slabs: 1.0, houses: 0.6 } }    # 隆迪纳亚区：保税仓储与加工贸易
-    div_f9x3wn: { style: planned, mix: { industrial: 3.0, houses: 0.2, towers: 0.2 } } # 保税港区：填海港区的码头、堆场与保税仓库
-    div_rzw76f: { style: mixed, mix: { houses: 1.6, industrial: 1.3, podium: 0.8, towers: 0.2 } }  # 普库图克区：老镇与农产品集散
-    div_mpfctv: { style: planned, mix: { slabs: 1.3, houses: 1.3, industrial: 0.3 } }  # 西加维克区：承接勒克尔方向通勤的居住拓展
-    div_w1ea18: { style: mixed, mix: { podium: 1.5, towers: 1.2, park: 1.6, industrial: 0.2 } }  # 天台区：阶地上的度假集群与会议中心
-    div_f5s7ax: { style: mixed, mix: { towers: 1.4, podium: 1.3, park: 1.8, industrial: 0.1 } }  # 银滩区：海滩、主题乐园与酒店群
-    div_ts88e3: { style: organic, mix: { houses: 2.4, park: 2.5, industrial: 0.1, towers: 0.1 } }  # 岚山区：低密度高端住宅
-    div_j82dgm: { style: organic, mix: { houses: 1.8, industrial: 0.8, podium: 0.6 } }  # 卡蒂尔尤阿克区：隘口集镇与公路枢纽
-    div_k5f1mz: { style: organic, mix: { houses: 2.2, park: 1.5, industrial: 0.6 } }   # 纳帕图克区：林业与护林站
-    div_0t2t36: { style: organic, mix: { houses: 2.2, park: 2.0, industrial: 0.1 } }   # 伊卡苏瓦区：峡谷村落与观光步道
-    div_nvrjpg: { style: planned, mix: { civic: 2.0, slabs: 1.2, industrial: 0.3 } }   # 和平区：维和部队指挥部与市政府
-    div_nytsvb: { style: planned, mix: { civic: 1.6, industrial: 1.0, slabs: 1.0 } }   # 星港区：太空军指挥中心与航天港
-    div_tc0ngk: { style: planned, mix: { civic: 1.8, slabs: 1.3, industrial: 0.6 } }   # 东营区：士官学校与河口港
-    div_nwke3f: { style: planned, mix: { industrial: 1.6, civic: 1.2, slabs: 0.8 } }   # 西坪区：发射与降落中心的保障区
-    div_0tsyzy: { style: organic, mix: { houses: 1.8, civic: 1.0, park: 1.4 } }        # 雪谷区：高山谷地、联合训练基地与滑雪场
-    div_q5h8zp: { style: organic, mix: { houses: 1.5, civic: 1.0 } }                   # 群峰训练管理区：驻地职工与家属
+    div_8njcs3: { style: mixed, detail_km2: full, mix: { industrial: 2.2, podium: 0.8, houses: 0.7 } } # 罗卡区：公路货运站与仓储
+    div_e6pc44: { style: mixed, detail_km2: full, mix: { podium: 1.4, industrial: 1.3, towers: 0.8 } } # 卡波区：机场、联运监管与旅客通道
+    div_8p9k5t: { style: planned, detail_km2: full, mix: { towers: 2.4, podium: 1.8, civic: 0.8, industrial: 0.1 } } # 斯佩基亚拉区：离岸金融、结算与总部经济
+    div_ts5cw5: { style: mixed, detail_km2: full, mix: { industrial: 2.0, slabs: 1.0, houses: 0.6 } } # 隆迪纳亚区：保税仓储与加工贸易
+    div_f9x3wn: { style: planned, detail_km2: full, mix: { industrial: 3.0, houses: 0.2, towers: 0.2 } } # 保税港区：填海港区的码头、堆场与保税仓库
+    div_rzw76f: { style: mixed, detail_km2: full, mix: { houses: 1.6, industrial: 1.3, podium: 0.8, towers: 0.2 } } # 普库图克区：老镇与农产品集散
+    div_mpfctv: { style: planned, detail_km2: full, mix: { slabs: 1.3, houses: 1.3, industrial: 0.3 } } # 西加维克区：承接勒克尔方向通勤的居住拓展
+    div_w1ea18: { style: mixed, detail_km2: full, mix: { podium: 1.5, towers: 1.2, park: 1.6, industrial: 0.2 } } # 天台区：阶地上的度假集群与会议中心
+    div_f5s7ax: { style: mixed, detail_km2: full, mix: { towers: 1.4, podium: 1.3, park: 1.8, industrial: 0.1 } } # 银滩区：海滩、主题乐园与酒店群
+    div_ts88e3: { style: organic, detail_km2: full, mix: { houses: 2.4, park: 2.5, industrial: 0.1, towers: 0.1 } } # 岚山区：低密度高端住宅
+    div_j82dgm: { style: organic, detail_km2: full, mix: { houses: 1.8, industrial: 0.8, podium: 0.6 } } # 卡蒂尔尤阿克区：隘口集镇与公路枢纽
+    div_k5f1mz: { style: organic, detail_km2: full, mix: { houses: 2.2, park: 1.5, industrial: 0.6 } } # 纳帕图克区：林业与护林站
+    div_0t2t36: { style: organic, detail_km2: full, mix: { houses: 2.2, park: 2.0, industrial: 0.1 } } # 伊卡苏瓦区：峡谷村落与观光步道
+    div_nvrjpg: { style: planned, detail_km2: full, mix: { civic: 2.0, slabs: 1.2, industrial: 0.3 } } # 和平区：维和部队指挥部与市政府
+    div_nytsvb: { style: planned, detail_km2: full, mix: { civic: 1.6, industrial: 1.0, slabs: 1.0 } } # 星港区：太空军指挥中心与航天港
+    div_tc0ngk: { style: planned, detail_km2: full, mix: { civic: 1.8, slabs: 1.3, industrial: 0.6 } } # 东营区：士官学校与河口港
+    div_nwke3f: { style: planned, detail_km2: full, mix: { industrial: 1.6, civic: 1.2, slabs: 0.8 } } # 西坪区：发射与降落中心的保障区
+    div_0tsyzy: { style: organic, detail_km2: full, mix: { houses: 1.8, civic: 1.0, park: 1.4 } } # 雪谷区：高山谷地、联合训练基地与滑雪场
+    div_q5h8zp: { style: organic, detail_km2: full, mix: { houses: 1.5, civic: 1.0 } }           # 群峰训练管理区：驻地职工与家属
     div_qpyn9e: { style: mixed, mix: { houses: 1.8, industrial: 1.0, podium: 0.6 } }   # 基卢克维克区：河畔集镇与农业
-    div_1qm5cj: { style: organic, mix: { houses: 1.6, civic: 1.6, park: 1.2 } }        # 阿基尼克区：旧机关与博物馆
-    div_4vnc7y: { style: organic, mix: { houses: 2.0, industrial: 0.3 } }              # 上雅利基卢克改良区：无建制荒野中的服务点
-    div_e2pk5r: { style: organic, mix: { houses: 2.0, industrial: 0.3 } }              # 尼尔萨利特牧区：牧民定居点
+    div_1qm5cj: { style: organic, detail_km2: full, mix: { houses: 1.6, civic: 1.6, park: 1.2 } } # 阿基尼克区：旧机关与博物馆
+    div_4vnc7y: { style: organic, detail_km2: full, mix: { houses: 2.0, industrial: 0.3 } }      # 上雅利基卢克改良区：无建制荒野中的服务点
+    div_e2pk5r: { style: organic, detail_km2: full, mix: { houses: 2.0, industrial: 0.3 } }      # 尼尔萨利特牧区：牧民定居点
   named:
     - { district: div_16cxr8, axis: 0, line: 0, status: canon, names: { zh: 人民大道, en: People's Avenue, art-x-viking: Volksallee, art-x-buckham: Viale del Popolo } }
     - { district: div_16cxr8, axis: 1, line: 0, status: generated, names: { zh: 自由大道, en: Liberty Avenue, art-x-viking: Freiheitsallee, art-x-buckham: Viale della Libertà } }

@@ -179,7 +179,7 @@ landcover:
   rock_slope_deg: 31
 
 streets:
-  cities: [div_8besy9, div_p808br, div_nbf1bw, div_dfmj5f, div_aggzhy, div_djze5f, div_dk2gh7, div_d48kz7, div_eqzm0n, div_8c2skk]
+  core_people_per_km2: 8000   # residents per km² of a district's core zone with local streets and buildings
   arterial_spacing_km: 1.5
   neighbourhood_km: 1.3
   local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
@@ -192,20 +192,22 @@ streets:
     planned: { polar: 5, places: 4, civic: 1, culture: 1, numbered: 2, china: 2, sky: 1 }
     mixed: { polar: 5, places: 4, trees: 1, animals: 1, sky: 1, china: 2, landscape: 1 }
     organic: { polar: 4, places: 3, trades: 2, landscape: 1, china: 1 }
-  # detail_km2: local streets and generic buildings only in the district's core zone of that size
+  # Local streets and generic buildings fill a core zone around the district centre, one km² per
+  # core_people_per_km2 residents; the rest of the built-up area gets arterials and collectors.
+  # detail_km2: a larger core zone of that size, or full for all the built-up area.
   # skyways_km: enclosed walkways over the arterials and collectors within this distance of the centre
   districts:
-    div_ga9pxy: { style: planned, skyways_km: 2.0, mix: { towers: 3.0, podium: 1.4, civic: 0.5, industrial: 0.1 } }    # 帕卢库特区：塔楼与穹顶
+    div_ga9pxy: { style: planned, detail_km2: full, skyways_km: 2.0, mix: { towers: 3.0, podium: 1.4, civic: 0.5, industrial: 0.1 } } # 帕卢库特区：塔楼与穹顶
     div_9s80v8: { style: planned, detail_km2: 60, skyways_km: 2.5, mix: { towers: 1.8, podium: 1.8, civic: 1.0, industrial: 0.1 } }  # 库马尔维克区：市中心
     div_q7cydv: { style: organic, detail_km2: 40, skyways_km: 1.2, mix: { perimeter: 1.6, houses: 1.4, industrial: 0.6 } }  # 努坎加克区：老渔港
     div_j06x18: { style: mixed, detail_km2: 40, skyways_km: 1.0, mix: { slabs: 1.6, perimeter: 1.0, park: 0.8 } }          # 苏瓦利克区：住宅区
     div_3b9pkz: { style: planned, detail_km2: 40, skyways_km: 3.5, mix: { slabs: 1.4, podium: 1.4, civic: 0.6 } }          # 图维尔尤阿克区：暖廊连起的街坊
-    div_k8cx0t: { style: mixed, main_only: true }     # 帕利瓦克区
-    div_jvwq60: { style: planned, main_only: true }   # 伊马萨尔维克区：港区
-    div_k4vyb1: { style: mixed, main_only: true }     # 尼尔萨库特区：城东新区
+    div_k8cx0t: { style: mixed }                                                                 # 帕利瓦克区
+    div_jvwq60: { style: planned, mix: { industrial: 2.8, slabs: 0.6, houses: 0.2 } }            # 伊马萨尔维克区：港区
+    div_k4vyb1: { style: mixed }                                                                 # 尼尔萨库特区：城东新区
     # 萨尔瓦克市
-    div_3rb2ha: { style: organic, detail_km2: 30, skyways_km: 1.2, mix: { perimeter: 1.4, houses: 1.4, industrial: 0.8 } }  # 萨尔努卡区：渔港与老城
-    div_qg40vj: { style: mixed, main_only: true }     # 乌利图克区
+    div_3rb2ha: { style: organic, skyways_km: 1.2, mix: { perimeter: 1.4, houses: 1.4, industrial: 0.8 } } # 萨尔努卡区：渔港与老城
+    div_qg40vj: { style: mixed }                                                                 # 乌利图克区
     div_hrrg7q: { style: organic, detail_km2: 15, mix: { houses: 2.4, industrial: 0.6 } }    # 普拉苏瓦米乌特区：峡湾村镇
     div_2541fx: { style: organic, detail_km2: 15, mix: { houses: 2.0, industrial: 1.0 } }    # 乌利库维特区：养殖与渔村
     # 乌库拉克市
@@ -215,18 +217,18 @@ streets:
     div_7ee7ab: { style: organic, detail_km2: 15, mix: { houses: 1.8, podium: 1.0 } }        # 卡瓦卢维特区：旅游小镇
     # 图利瓦克市
     div_79wfwy: { style: mixed, detail_km2: 30, skyways_km: 1.0, mix: { slabs: 1.4, industrial: 0.6 } }    # 图利亚利维克区
-    div_najb0c: { style: mixed, main_only: true }     # 图拉卡特区
-    div_3xz1pw: { style: planned, mix: { industrial: 2.2, civic: 0.5 } }     # 图卡鲁维特区：数据中心
+    div_najb0c: { style: mixed }                                                                 # 图拉卡特区
+    div_3xz1pw: { style: planned, detail_km2: full, mix: { industrial: 2.2, civic: 0.5 } }       # 图卡鲁维特区：数据中心
     div_6p8a1q: { style: planned, mix: { industrial: 1.4, civic: 0.8 } }     # 陶武维特区
     # 考尔尼克市
-    div_k66r1n: { style: planned, detail_km2: 25, skyways_km: 0.8, mix: { slabs: 1.2, industrial: 1.2 } }  # 考卢尤阿克区：钻石加工
+    div_k66r1n: { style: planned, skyways_km: 0.8, mix: { slabs: 1.2, industrial: 1.2 } }        # 考卢尤阿克区：钻石加工
     div_qaxzqj: { style: planned, detail_km2: 15, mix: { industrial: 1.8 } }                 # 伊卢克萨特区：提锂厂
-    div_m541k8: { style: planned, mix: { industrial: 2.4, slabs: 1.0 } }     # 乌库利特矿区管理区：矿工镇
+    div_m541k8: { style: planned, detail_km2: full, mix: { industrial: 2.4, slabs: 1.0 } }       # 乌库利特矿区管理区：矿工镇
     # 基卢克图阿尔市
-    div_anjqnh: { style: mixed, detail_km2: 30, skyways_km: 1.0, mix: { slabs: 1.2, perimeter: 1.0 } }     # 基卢基亚克区
+    div_anjqnh: { style: mixed, skyways_km: 1.0, mix: { slabs: 1.2, perimeter: 1.0 } }           # 基卢基亚克区
     div_m0b417: { style: planned, detail_km2: 20, mix: { industrial: 1.4, slabs: 1.0 } }     # 西尔米努卡区：破冰船基地
-    div_xvm6y0: { style: mixed, main_only: true }     # 帕基卢克区
-    div_rcnhch: { style: planned, mix: { civic: 1.6, houses: 1.2 } }         # 纳卢维特区：研究所
+    div_xvm6y0: { style: mixed }                                                                 # 帕基卢克区
+    div_rcnhch: { style: planned, detail_km2: full, mix: { civic: 1.6, houses: 1.2 } }           # 纳卢维特区：研究所
     # 西尔米瓦克市
     div_73wt00: { style: organic, detail_km2: 25, skyways_km: 0.8, mix: { houses: 1.6, podium: 1.0 } }    # 西尔米卡尔维克区：冰川旅游
     div_3j7f20: { style: mixed, detail_km2: 12, mix: { civic: 1.2, houses: 1.6 } }           # 陶瓦尼克区：观测站
@@ -234,20 +236,10 @@ streets:
     div_qj033v: { style: planned, detail_km2: 25, skyways_km: 0.6, mix: { slabs: 1.2, industrial: 1.4 } }  # 乌维克努卡区
     div_4ymjbf: { style: planned, detail_km2: 12, mix: { industrial: 2.0 } }                 # 乌库乌维特矿区管理区
     # 塔夫鲁利特原住民自治区
-    div_ek897t: { style: organic, detail_km2: 30, skyways_km: 0.8, mix: { houses: 2.0, civic: 0.8 } }     # 阿卡尼克区：自治区首府
-    div_m34jqk: { style: organic, detail_km2: 12, mix: { houses: 2.6 } }                     # 阿卡皮图米乌特区
-    div_d9hctg: { style: organic, detail_km2: 12, mix: { houses: 2.6 } }                     # 尼尔萨瓦克区
-    div_zq16x4: { style: organic, detail_km2: 10, mix: { houses: 2.4, industrial: 0.4 } }    # 皮图库维特区
-    # 生态保护区与冰盖管理区：只有主次干道
-    div_jd4ms5: { main_only: true }
-    div_6469m0: { main_only: true }
-    div_5h1yv5: { main_only: true }
-    div_8h5g1g: { main_only: true }
-    div_jyszba: { main_only: true }
-    div_hbdzam: { main_only: true }
-    div_481wnn: { main_only: true }
-    div_81tqya: { main_only: true }
-    div_7b21kg: { main_only: true }
+    div_ek897t: { style: organic, skyways_km: 0.8, mix: { houses: 2.0, civic: 0.8 } }            # 阿卡尼克区：自治区首府
+    div_m34jqk: { style: organic, mix: { houses: 2.6 } }                                         # 阿卡皮图米乌特区
+    div_d9hctg: { style: organic, mix: { houses: 2.6 } }                                         # 尼尔萨瓦克区
+    div_zq16x4: { style: organic, mix: { houses: 2.4, industrial: 0.4 } }                        # 皮图库维特区
   named:
     - { district: div_ga9pxy, axis: 0, line: 0, status: generated, names: { zh: 帕卢图阿尔大道, en: Pallutuar Avenue, art-x-tavrunaq: Pallutuar Pirtuar } }
     - { district: div_ga9pxy, axis: 1, line: 0, status: generated, names: { zh: 基里街, en: Kirri Street, art-x-tavrunaq: Kirri Sallik } }

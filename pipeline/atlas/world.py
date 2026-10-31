@@ -325,12 +325,20 @@ class World:
                         if end in ln and ln[end] not in self.places:
                             errors.append(f"generator: metro line {k} of {city}: {end} {ln[end]} is not a place")
             sp = gen.get("streets", {})
-            for cid in sp.get("cities", []):
-                if self.divisions.get(cid, {}).get("subtype") != "locality":
-                    errors.append(f"generator: streets city {cid} is not a city")
+            if sp and not isinstance(sp.get("core_people_per_km2"), (int, float)):
+                errors.append("generator: streets needs core_people_per_km2: residents per km² of a district's "
+                              "core zone with local streets and buildings")
+            if "cities" in sp:
+                errors.append("generator: streets.cities is retired; every city gets streets")
             for did, cfg in sp.get("districts", {}).items():
                 if self.divisions.get(did, {}).get("subtype") != "borough":
                     errors.append(f"generator: streets district {did} is not a district")
+                if "main_only" in cfg:
+                    errors.append(f"generator: streets district {did}: main_only is retired; only reserves, "
+                                  "ice caps and national parks keep to arterials and collectors")
+                want = cfg.get("detail_km2", 0)
+                if want != "full" and (not isinstance(want, (int, float)) or want < 0):
+                    errors.append(f"generator: streets district {did}: detail_km2 must be km² >= 0 or full")
                 if cfg.get("style", "mixed") not in STREET_STYLES:
                     errors.append(f"generator: streets district {did}: style must be one of {', '.join(STREET_STYLES)}")
                 for k, f in (cfg.get("mix") or {}).items():
