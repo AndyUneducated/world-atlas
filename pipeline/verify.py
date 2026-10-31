@@ -15,7 +15,7 @@ from pathlib import Path
 
 import numpy as np
 from shapely import STRtree, points
-from shapely.geometry import shape
+from shapely.geometry import Point, shape
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -143,6 +143,14 @@ def check_government(ents: dict) -> dict[str, list[str]]:
     return {"government buildings in every territory": missing}
 
 
+def check_stations(ents: dict) -> dict[str, list[str]]:
+    """A station stands in the district it is named for and listed under."""
+    divs = {f["properties"]["id"]: shape(f["geometry"]) for f in load("divisions.geojson")["features"]}
+    out = [f"{e['names']['zh']} outside {ents[e['in']]['names']['zh']}" for e in ents.values()
+           if e.get("subtype") == "station" and e.get("in") in divs and not divs[e["in"]].contains(Point(e["center"]))]
+    return {"stations in their districts": out}
+
+
 def check_expected(world: World, ents: dict) -> dict[str, list[str]]:
     """The facts the setting fixes (longest river, largest cities), on the merged data."""
     failed = []
@@ -219,7 +227,7 @@ def main():
     world = World()
     ents, manifest = load("entities.json"), load("manifest.json")
     results = {}
-    for check in (lambda: check_routes(ents), lambda: check_numbers(ents), lambda: check_government(ents),
+    for check in (lambda: check_routes(ents), lambda: check_numbers(ents), lambda: check_government(ents), lambda: check_stations(ents),
                   lambda: check_expected(world, ents), check_glyphs, lambda: check_models(ents),
                   lambda: check_terrain(manifest)):
         results.update(check())

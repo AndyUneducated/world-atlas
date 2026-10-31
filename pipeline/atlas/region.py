@@ -607,6 +607,10 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             if sid not in stations:
                 ci = district_city[i]
                 pt = nearest_points(track_union, Point(poles[i]))[0]
+                if i in dist_polys and not dist_polys[i].contains(pt):  # keep the station in its own district
+                    inside = track_union.intersection(dist_polys[i].buffer(-0.1))
+                    if not inside.is_empty:
+                        pt = nearest_points(inside, Point(poles[i]))[0]
                 stations[sid] = {"names": rail_station_names(bare_name(cities[ci] if i == core[ci] else districts[i]), freight),
                                  "xy": (pt.x, pt.y), "district": i, "lines": [], "freight": freight}
             stations[sid]["names"].update(r.get("station_names", {}).get(v, {}))
