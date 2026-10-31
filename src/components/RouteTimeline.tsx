@@ -6,7 +6,7 @@ import { displayName, formatNumber, t } from "../lib/i18n";
 import type { AtlasData, BBox, Entity, Lang, LngLat, RouteSegment } from "../lib/types";
 import { cardPadding } from "../lib/viewport";
 import { useAtlas } from "../store";
-import { CityEmblem } from "./Emblem";
+import { Emblem, hasEmblem } from "./Emblem";
 import { SpeedSign } from "./SpeedSign";
 
 interface Group {
@@ -115,7 +115,7 @@ export function RouteTimeline({ data, entity, lang }: { data: AtlasData; entity:
                 className={clsx("relative flex w-full items-center gap-2.5 rounded-xl px-2 py-1.5 text-left transition-colors hover:bg-hover", active === g.key && "bg-hover")}
               >
                 <span className="relative grid size-[26px] shrink-0 place-items-center">
-                  {g.city?.emblem ? <CityEmblem entity={g.city} size={26} /> : <span className="size-3 rounded-full" style={{ background: color }} />}
+                  {g.city && hasEmblem(g.city) ? <Emblem entity={g.city} size={24} /> : <span className="size-3 rounded-full" style={{ background: color }} />}
                 </span>
                 <span className="min-w-0 flex-1 truncate text-[13.5px] font-semibold text-ink">{g.city ? displayName(g.city, lang) : t("route_water", lang)}</span>
                 <span className="text-[12px] font-medium text-muted tabular-nums">

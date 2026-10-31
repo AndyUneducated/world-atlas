@@ -37,6 +37,9 @@ divisions:
     highway: { zh: 长夏群岛领地公路局, en: Everlong Summer Roads Authority }
     rail: { zh: 长夏群岛磁浮与铁路公司, en: Everlong Summer Maglev and Railways }
   flag: everlong_summer
+  flag_notes:
+    zh: "绯红的天空里一轮金色太阳放出光芒，下方是层层绿色梯田和蓝白海浪。太阳代表终年的长夏，梯田代表山地的稻作，海浪代表环绕群岛的大海；绯红与金色取自古王国王旗的颜色。领地设立后兴起的工业城市都把这轮朝阳放在自己旗帜的左上角。"
+    en: "Gold rays of the sun in a crimson sky, over green terraces and blue and white waves. The sun is the endless summer, the terraces the rice-growing of the hills and the waves the sea round the islands; crimson and gold were the colours of the old kingdom's royal banner. The industrial cities that grew after the territory was created carry this rising sun in their cantons."
   traits: { industries: [agriculture, semiconductor, tourism, port] }
 
 # ── 米雷兰市（首府）──
@@ -57,9 +60,10 @@ divisions:
   population: 400000
   area_km2: 70000.0
   color: '#2E6F8E'
-  emblem:
-    motif: capitol
-    pattern: halo
+  flag: { layout: hoist, colors: ['#FFFFFF', '#1E5E3B', '#2E86AB'], division: wedge, charge: sun, charge_color: '#E8A33D' }
+  flag_notes:
+    zh: "上绿下蓝两道横条，一道白色尖楔从旗杆一侧伸进旗面，尖端前是一轮金色太阳。米雷兰是领地设立后全新规划的首府，绿色是哈努帕拉高原的牧场与咖啡园，蓝色是翁贝尔哈努湖，白色尖楔是帕萨卢区那条朝向湖面的规划轴线，太阳取自领地旗。它是长夏群岛最年轻的市旗之一。"
+    en: "Green over blue, with a white wedge reaching in from the hoist towards a gold sun. Mirelan is the capital planned from scratch when the territory was created: the green is the pastures and coffee of the plateau, the blue the lake, the wedge the planned axis of the government district pointing to the water, and the sun comes from the territory flag. It is one of the youngest city flags in the islands."
   traits: { industries: [government, research, education], heritage: tropic_mixed, age: balanced, income: 1.1 }
 - id: div_z0z4vz
   subtype: borough
@@ -144,9 +148,10 @@ divisions:
   population: 3500000
   area_km2: 62000.0
   color: '#B5452B'
-  emblem:
-    motif: stupa
-    pattern: rays
+  flag: { layout: seal, colors: ['#7A1F2B', '#E9B949', '#7A1F2B', '#F6E7C1'], charge: stupa, charge_color: '#7A1F2B', legend: art-x-ivuran }
+  flag_notes:
+    zh: "绛红底正中一枚金色圆印，印环上用伊武兰语和英语写着城名，象牙色印心里是一座绛红色的石构寺塔。这是古王国旧都的王印，瓦什塔赖区的旧王城和伊什万塔寺庙群都留着它的刻痕；王国时代王印只盖在诏书上，如今挂在领地最大城市的每一座码头和摩天楼上。"
+    en: "A gold round seal on crimson, its ring bearing the city's name in Ivuran and English and its ivory centre a crimson stone temple tower. It is the royal seal of the old kingdom's capital, still carved in the ruins of the old royal city and on the Ishvanta temples; in the kingdom's day it sealed only royal decrees, and today it flies over every quay and tower of the territory's largest city."
   traits: { industries: [commerce, finance, digital, heritage], heritage: tropic_global, age: balanced, income: 1.15 }
 - id: div_8jecyx
   subtype: borough
@@ -296,9 +301,10 @@ divisions:
   area_km2: 20000.0
   special_status: commune
   color: '#C8102E'
-  emblem:
-    motif: star
-    pattern: weave
+  flag: { layout: banner, colors: ['#B03A2E'], charge: ring_homes, charge_color: '#F6C343' }
+  flag_notes:
+    zh: "红底正中一圈金色小屋，围着中央一块圆坪。小屋是公社一家挨一家围成一圈的环形住宅，也就是「大家的家」这个名字；圆坪是居民议事会开会的广场，公社的大事都在这里由全体居民直接表决。红色是公社的颜色。人民宫顶上挂的就是这面旗，居民从不说「市旗」，只说「我们的旗」。"
+    en: "A ring of gold houses round a round green on red. The houses are the commune's ring of homes, one beside the next, which is what its name, 'everyone's home', means; the green is the ground where the residents' assembly meets and the whole commune votes directly on its affairs, and the red is the commune's colour. The same flag flies over the People's Palace, and residents never call it the city flag, only 'our flag'."
   traits: { industries: [manufacturing, food, healthcare, education], heritage: tropic_mixed, age: balanced, income: 1.0 }
 - id: div_p3x7j4
   subtype: borough
@@ -399,9 +405,10 @@ divisions:
   population: 1600000
   area_km2: 68000.0
   color: '#24527A'
-  emblem:
-    motif: anchor
-    pattern: waves
+  flag: { layout: sun_canton, colors: ['#24527A'], charge: river, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "长夏新城旗：海军蓝底，左上角是领地旗上的朝阳，右侧三道白色波浪。领地设立后靠港口和工业兴起的城市都用这一格式。塔卢马兰意为「停泊之地」，三道波浪是自古给船只避风的塔卢马兰湾，也是船厂、深水码头和电池厂这三条产业带。"
+    en: "A southern new-town flag: navy blue with the rising sun of the territory flag in the canton and three white waves in the fly. The cities that grew on ports and industry after the territory was created fly this pattern. Talumaran means 'place of anchoring': the waves are the sheltered bay where ships have always ridden out storms, and its three industrial belts of shipyards, deep-water quays and battery works."
   traits: { industries: [shipbuilding, port, automotive, battery], heritage: tropic_global, age: young, income: 1.1 }
 - id: div_2fhccc
   subtype: borough
@@ -518,9 +525,10 @@ divisions:
   population: 1300000
   area_km2: 60000.0
   color: '#5B3FA0'
-  emblem:
-    motif: chip
-    pattern: grid
+  flag: { layout: sun_canton, colors: ['#4B2E83', '#F3EBDD'], charge: star4, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "长夏新城旗：深紫底，左上角是领地旗的朝阳，右侧一颗白色四芒星，旗底一道沙白横条。城名意为「明亮的沙」，沙白横条是海岸上洁白的石英砂滩，四芒星是闪光的砂粒，也是用硅做成的芯片；深紫是晶圆厂洁净车间里的灯光。"
+    en: "A southern new-town flag: deep purple with the territory's rising sun in the canton, a white four-pointed star in the fly and a sand-white stripe along the foot. The name means 'bright sand': the stripe is the white quartz beaches, the star a glint of sand and the silicon chips, and the purple the light of the clean rooms in the fabs."
   traits: { industries: [semiconductor, tech, research, port], heritage: tropic_global, age: young, income: 1.25 }
 - id: div_rmy0kf
   subtype: borough
@@ -621,9 +629,10 @@ divisions:
   population: 1000000
   area_km2: 55000.0
   color: '#0E8C7F'
-  emblem:
-    motif: helm
-    pattern: flow
+  flag: { layout: ivuran, colors: ['#0E7C70', '#F3EBDD', '#E9B949', '#FFFFFF'], charge: boat, charge_color: '#0E7C70' }
+  flag_notes:
+    zh: "上青绿、下沙白，中间一道金色细条，正中白色圆徽里是一艘挂着蟹钳帆、带边架的青绿色帆船。瓦利凯意为「长长的海岸」，古王国的老城都用这种双色加圆徽的旗；帆船是扼守东西航线的港口，金条是骑楼街香料仓库里的货。"
+    en: "Sea green over sand white, parted by a gold stripe, with a white disc in the centre bearing a green outrigger under a crab-claw sail. Vallikkai means 'long coast'; the old kingdom's towns all fly two bands and a disc like this. The boat is the port that holds the east–west sea lane, the gold the spices of the arcaded warehouses."
   traits: { industries: [port, logistics, aquaculture, food], heritage: tropic_mixed, age: balanced, income: 1.05 }
 - id: div_3ytmrh
   subtype: borough
@@ -724,9 +733,10 @@ divisions:
   population: 650000
   area_km2: 80000.0
   color: '#8C5A2B'
-  emblem:
-    motif: palm
-    pattern: furrows
+  flag: { layout: seal, colors: ['#2F5A2E', '#E9B949', '#2F5A2E', '#F6E7C1'], charge: pepper, charge_color: '#2F5A2E', legend: art-x-ivuran }
+  flag_notes:
+    zh: "深绿底正中一枚金色圆印，印环上用伊武兰语和英语写着城名，印心是一枝挂着果串的胡椒藤。城名意为「胡椒之城」，古王国时代起香料就从这里的港口运往远方，这枚印原是香料行会盖在出口货包上的封印；深绿是山坡上的香料园。"
+    en: "A gold round seal on deep green, its ring bearing the city's name in Ivuran and English and its centre a pepper vine hung with berries. The name means 'pepper city', and spices have left its harbour since the old kingdom; the seal was once the spice guild's stamp on export bales, and the green is the spice gardens on the hills."
   traits: { industries: [spice, agriculture, food, tourism], heritage: ivuran, age: old, income: 0.95 }
 - id: div_a3c8d6
   subtype: borough
@@ -811,9 +821,10 @@ divisions:
   population: 500000
   area_km2: 100000.0
   color: '#6A8F2A'
-  emblem:
-    motif: terraces
-    pattern: contours
+  flag: { layout: ivuran, colors: ['#5E8C31', '#6B4A2B', '#E9B949', '#FFFFFF'], charge: terraces, charge_color: '#5E8C31' }
+  flag_notes:
+    zh: "上嫩绿、下棕褐，中间一道金色细条，正中白色圆徽里是一座层层叠叠的绿色梯田山。城名意为「台阶之地」，嫩绿是插秧后的水稻梯田，棕褐是梯田的泥土，金条是收割时节的稻穗；山顶旁的圆点是涵养泉水的山顶森林。"
+    en: "Fresh green over earth brown, parted by a gold stripe, with a white disc bearing a green mountain of terraces. The name means 'land of steps': the green is the rice terraces after planting, the brown their earth, the gold the ripe rice at harvest; the dot by the summit is the forest that keeps the springs flowing."
   traits: { industries: [rice, tourism, conservation, agriculture], heritage: ivuran, age: old, income: 0.9 }
 - id: div_6cy2yw
   subtype: borough
@@ -915,9 +926,10 @@ divisions:
   population: 350000
   area_km2: 140000.0
   color: '#1E6B3A'
-  emblem:
-    motif: hornbill
-    pattern: fronds
+  flag: { layout: ivuran, colors: ['#1E6B3A', '#0E3B22', '#E9B949', '#FFFFFF'], charge: hornbill, charge_color: '#1E6B3A' }
+  flag_notes:
+    zh: "上翠绿、下墨绿，中间一道金色细条，正中白色圆徽里是一只绿色犀鸟。城名意为「森林之地」，两种绿色是领地最大热带雨林的树冠和林下，犀鸟在几十米高的树冠间筑巢，是雨林健康的标志，也是塔卡维树冠步道上游客最想看到的鸟。"
+    en: "Emerald over dark green, parted by a gold stripe, with a green hornbill on a white disc. The name means 'land of forest': the two greens are the canopy and understorey of the territory's largest rainforest, and the hornbill, nesting tens of metres up, is the sign of a healthy forest and the bird every visitor on the canopy walk hopes to see."
   traits: { industries: [conservation, tourism, pharma, research], heritage: ivuran, age: balanced, income: 0.95 }
 - id: div_pgh98w
   subtype: borough
@@ -1019,9 +1031,10 @@ divisions:
   population: 700000
   area_km2: 105000.0
   color: '#6B6F78'
-  emblem:
-    motif: crystal
-    pattern: hex
+  flag: { layout: sun_canton, colors: ['#4F5D56'], charge: mining, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "长夏新城旗：岩灰绿底，左上角是领地旗的朝阳，右侧一对交叉的白色锤镐。城名意为「矿石的山谷」，锤镐是开采红土镍矿和钴的矿工，岩灰绿是矿区边采边复绿长出的新绿。冶炼厂的工人说，旗上的朝阳照着的是送往塔卢马兰电池厂的镍。"
+    en: "A southern new-town flag: rock grey-green with the territory's rising sun in the canton and a crossed white hammer and pick in the fly. The name means 'valley of ore': the hammer and pick are the miners of the nickel and cobalt, the grey-green the new growth on slopes replanted as they are mined. Smelter workers say the sun on the flag shines on the nickel bound for the battery works."
   traits: { industries: [mining, battery, manufacturing, port], heritage: tropic_mixed, age: young, income: 1.1 }
 - id: div_y57m7b
   subtype: borough
@@ -1123,9 +1136,10 @@ divisions:
   population: 600000
   area_km2: 85000.0
   color: '#D08A3C'
-  emblem:
-    motif: lotus
-    pattern: waves
+  flag: { layout: ivuran, colors: ['#D08A3C', '#1F6F9E', '#FFFFFF', '#FFFFFF'], charge: pearl, charge_color: '#1F6F9E' }
+  flag_notes:
+    zh: "上橙黄、下海蓝，中间一道白色细条，正中白色圆徽里是一颗嵌在张开的扇贝里的珍珠。城名意为「浪中的珍珠」，珍珠来自迈卢阿区沿海的珍珠贝养殖场，橙黄是帕兰图平原上芒果和菠萝蜜的颜色，海蓝是浪花翻滚的海岸。古王国城镇的旗里只有纳卢迈用白色细条。"
+    en: "Orange over sea blue, parted by a white stripe, with a pearl in an open scallop shell on a white disc. The name means 'pearl in the waves': the pearls come from the oyster farms of the coast, the orange is the mangoes and jackfruit of the plain and the blue the surf. It is the only flag of the old kingdom's towns with a white stripe."
   traits: { industries: [fruit, aquaculture, tourism, research], heritage: ivuran, age: balanced, income: 0.95 }
 - id: div_afy2b3
   subtype: borough
@@ -1226,9 +1240,10 @@ divisions:
   population: 400000
   area_km2: 55000.0
   color: '#1C9BD1'
-  emblem:
-    motif: turtle
-    pattern: dots
+  flag: { layout: ivuran, colors: ['#1C9BD1', '#F2E3B3', '#E9B949', '#FFFFFF'], charge: turtle, charge_color: '#1C7FB0' }
+  flag_notes:
+    zh: "上天蓝、下沙黄，中间一道金色细条，正中白色圆徽里是一只蓝色海龟。城名和群岛名意为「一串珍珠」，天蓝是珊瑚礁环抱的海水，沙黄是白沙海滩，海龟在马拉坎珊瑚礁保护区的沙滩上产卵，也是村里按传统划船出海的人敬重的动物。"
+    en: "Sky blue over sand, parted by a gold stripe, with a blue sea turtle on a white disc. The name means 'a string of pearls': the blue is the water inside the reefs, the sand the white beaches, and the turtle, which nests on the beaches of the coral reef reserve, is honoured by the villagers who still put to sea in the traditional way."
   traits: { industries: [tourism, fishing, conservation], heritage: ivuran, age: balanced, income: 1.0 }
 - id: div_a0nff8
   subtype: borough

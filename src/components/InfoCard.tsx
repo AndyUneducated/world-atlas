@@ -9,6 +9,7 @@ import {
   Droplets,
   Gauge,
   LandPlot,
+  Maximize2,
   Mountain,
   Ruler,
   Shell,
@@ -20,8 +21,10 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { AnimatePresence, motion, useDragControls, useSpring, type PanInfo } from "motion/react";
-import { useState, type ReactNode } from "react";
-import { CityEmblem, Emblem, hasEmblem } from "./Emblem";
+import { useEffect, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
+import { FLAG_COLORS } from "../lib/flags";
+import { Emblem, Flag, hasEmblem } from "./Emblem";
 import { RouteTimeline } from "./RouteTimeline";
 import { useMobile } from "../lib/viewport";
 import { accentColor, lineage, wonderName } from "../lib/entity";
@@ -610,6 +613,74 @@ function Lineage({ data, entity, lang }: { data: AtlasData; entity: Entity; lang
   );
 }
 
+/** The flag, its proportions and tinctures and what they stand for; the flag opens full size. */
+function FlagSection({ entity, lang }: { entity: Entity; lang: Lang }) {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      e.stopImmediatePropagation(); // close the flag, not the card
+      setOpen(false);
+    };
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
+  }, [open]);
+  if (!hasEmblem(entity)) return null;
+  const flag = entity.flag!;
+  const colors =
+    typeof flag === "string"
+      ? (FLAG_COLORS[flag] ?? [])
+      : [...flag.colors, flag.charge_color, flag.outline, ...(flag.extra ?? []).map((x) => x.color)].filter((c): c is string => !!c);
+  const swatches = [...new Set(colors.map((c) => c.toUpperCase()))];
+  return (
+    <Section title={t("flag", lang)}>
+      <div className="flex items-start gap-4">
+        <button onClick={() => setOpen(true)} className="group relative shrink-0 transition-transform duration-200 hover:scale-[1.03]" aria-label={t("enlarge", lang)}>
+          <Flag entity={entity} size={132} className="drop-shadow-[0_4px_10px_rgba(0,0,0,0.22)]" />
+          <Maximize2 className="absolute right-2 bottom-2 size-3.5 text-white opacity-0 drop-shadow transition-opacity group-hover:opacity-90" />
+        </button>
+        <dl className="min-w-0 flex-1 space-y-2.5 text-[12px]">
+          <div>
+            <dt className="text-faint">{t("flagRatio", lang)}</dt>
+            <dd className="mt-0.5 font-medium text-ink tabular-nums">2 : 3</dd>
+          </div>
+          {swatches.length > 0 && (
+            <div>
+              <dt className="text-faint">{t("flagColours", lang)}</dt>
+              <dd className="mt-1 flex flex-wrap gap-1.5">
+                {swatches.map((c) => (
+                  <span key={c} title={c} className="size-4 rounded-full ring-1 ring-black/15 ring-inset" style={{ background: c }} />
+                ))}
+              </dd>
+            </div>
+          )}
+        </dl>
+      </div>
+      {entity.flag_notes && <Paragraphs text={entity.flag_notes[lang]} className="mt-3 text-[13px] leading-relaxed text-ink" />}
+      {createPortal(
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 z-50 grid cursor-zoom-out place-items-center bg-black/55 p-6 backdrop-blur-sm"
+            >
+              <motion.div initial={{ scale: 0.92 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 320, damping: 28 }}>
+                <Flag entity={entity} size={Math.min(window.innerWidth - 48, 720)} className="drop-shadow-[0_12px_40px_rgba(0,0,0,0.45)]" />
+                <p className="mt-3 text-center text-[13px] font-medium text-white/85">{displayName(entity, lang)}</p>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body,
+      )}
+    </Section>
+  );
+}
+
 /** Text written with line breaks between its paragraphs. */
 function Paragraphs({ text, className }: { text: string; className: string }) {
   return (
@@ -670,8 +741,8 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
                 <EntityIcon entity={entity} className="size-5" />
               </span>
               {city && hasEmblem(city) && (
-                <button onClick={() => select(city.id)} className="absolute -right-2 -bottom-2 transition-transform hover:scale-110" title={displayName(city, lang)}>
-                  <CityEmblem entity={city} size={24} className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.35)]" />
+                <button onClick={() => select(city.id)} className="absolute -right-3 -bottom-1.5 transition-transform hover:scale-110" title={displayName(city, lang)}>
+                  <Emblem entity={city} size={26} className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.35)]" />
                 </button>
               )}
             </span>
@@ -753,6 +824,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
         </Section>
       )}
 
+      <FlagSection entity={entity} lang={lang} />
       <EconomySection entity={entity} lang={lang} accent={accent} />
       <PeopleSection entity={entity} lang={lang} accent={accent} />
 

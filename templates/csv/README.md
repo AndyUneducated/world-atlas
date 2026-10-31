@@ -34,10 +34,11 @@ npm run data                                    # 重新生成地图
 | 区划代码 | admin_code | 6 位数字：领地 `900000`、市 `900100`、区 `900101`。留空时按上级代码自动编下一个 |
 | 人口、面积 | population、area_km2 | 面积为实际 km²；各区之和须等于所属市 |
 | 主色 | color | `#RRGGBB`，新建市必填 |
-| 徽标图案、徽标底纹 | emblem_motif、emblem_pattern | 可选值见 `src/lib/emblems.tsx` |
 | 锚点X、锚点Y | anchor_x_km、anchor_y_km | 市的中心位置，新建市必填 |
 | 方向X、方向Y | dir_x、dir_y | 区相对市锚点的方向；留空时自动放在空隙最大的方向 |
 | 中文简介、英文简介 | notes_zh、notes_en | |
+
+市旗（`flag`：布局、颜色、图案）和旗帜释义（`flag_notes`）不在表格里，新建市后在 `world/divisions/` 的 YAML 中补写，可选的布局与图案见 `src/lib/cityFlags.tsx` 和 `src/lib/charges.tsx`。
 
 全岛面积由各市面积之和决定，新增市或改动面积会使岛屿和海岸线随之变化。重新生成后留意 `WARN … no … found near` 警告：已命名的海湾、岬角等若离开了原位置，需要按候选清单更新识别坐标。
 

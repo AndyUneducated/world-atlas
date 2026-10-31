@@ -30,7 +30,7 @@ from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas.world import CODE_DIGITS, DETECT_KINDS, HARBOUR_TERMINALS, RAIL_NETWORKS, ROOT, SITE_LAYOUTS, WORLD_DIR, World  # noqa: E402
+from atlas.world import CODE_DIGITS, DETECT_KINDS, HARBOUR_TERMINALS, RAIL_NETWORKS, SITE_LAYOUTS, WORLD_DIR, World, ts_names  # noqa: E402
 from new_id import mint  # noqa: E402
 
 DELETE = object()
@@ -47,14 +47,7 @@ BUILDING_SUBTYPES = ("government", "building", "civic", "office", "museum", "the
                      "temple", "canteen", "housing")
 
 
-def _emblem_names(const: str, file: str = "emblems.tsx") -> tuple[str, ...]:
-    src = (ROOT / "src" / "lib" / file).read_text(encoding="utf-8")
-    block = src.split(f"export const {const}", 1)[1].split("\n};", 1)[0]
-    return tuple(re.findall(r"^  (\w+):", block, flags=re.M))
-
-
-GLYPHS = _emblem_names("GLYPHS", "glyphs.ts")
-MOTIFS, PATTERNS = _emblem_names("MOTIFS") + tuple(g for g in GLYPHS if g not in _emblem_names("MOTIFS")), _emblem_names("PATTERNS")
+GLYPHS = ts_names("glyphs.ts", "GLYPHS")
 
 
 @dataclass
@@ -91,8 +84,6 @@ KINDS = {
             Col("population", "人口", "population", "int"),
             Col("area_km2", "面积", "area_km2", "float"),
             Col("color", "主色", "color", "color"),
-            Col("emblem_motif", "徽标图案", "emblem.motif", "choice", MOTIFS),
-            Col("emblem_pattern", "徽标底纹", "emblem.pattern", "choice", PATTERNS),
             Col("anchor_x_km", "锚点X"), Col("anchor_y_km", "锚点Y"),
             Col("dir_x", "方向X"), Col("dir_y", "方向Y"),
             *NOTES,
@@ -474,7 +465,7 @@ class Importer:
 
 ORDER = {
     "divisions": ["id", "subtype", "parent", "status", "names", "short_names", "codes", "population", "area_km2", "color",
-                  "emblem", "notes"],
+                  "flag", "flag_notes", "notes"],
     "features": ["id", "subtype", "status", "detect", "names", "notes"],
     "routes": ["id", "ref", "network", "class", "status", "names", "notes", "ring", "straight", "ends_at_network",
                "tunnel_cost", "legs", "shield", "via"],

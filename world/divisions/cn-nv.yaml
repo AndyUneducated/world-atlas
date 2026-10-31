@@ -31,6 +31,9 @@ divisions:
     highway: { zh: 北维京岛公路局, en: North Viking Island Highways Authority }
     rail: { zh: 北维京岛铁路公司, en: North Viking Island Railway Company }
   flag: north_viking
+  flag_notes:
+    zh: "深蓝底上一个偏向旗杆的白色北欧十字，十字交叉处一颗金色八角星。十字取自岛上最早的城市维京港的市旗，代表维京航海者的传统；深蓝是环岛的北方海洋，八角星的八道光芒指向四面八方，代表岛上的各个族群和八方来客汇聚一岛。"
+    en: "A white Nordic cross set towards the hoist on deep blue, with a gold eight-pointed star where its arms meet. The cross comes from the flag of Viking Port, the island's oldest city, and stands for its seafaring Viking tradition; the blue is the northern sea round the island, and the star's eight points reach in every direction for the peoples and newcomers gathered on one island."
   traits: { industries: [port, trade, research, aerospace] }
 - id: div_nbrnfr
   subtype: locality
@@ -47,9 +50,10 @@ divisions:
   population: 385000
   area_km2: 17680.0
   color: '#E9B949'
-  emblem:
-    motif: capitol
-    pattern: rays
+  flag: { layout: bands, colors: ['#0B3D91', '#FFFFFF', '#0B3D91'], vertical: true, ratio: [1, 2, 1], charge: star8, charge_color: '#E9B949', outline: '#0B3D91' }
+  flag_notes:
+    zh: "竖三色旗，深蓝、白、深蓝，宽度比为一比二比一。两道深蓝是夹着市区流过的自由河与北河，白色是两河之间建城的台地；正中的金色八角星取自领地旗，表明这里是领地首府。颜色与领地旗完全相同，市民常说自由市的旗是「把领地旗竖着折了一折」。"
+    en: "A vertical triband of deep blue, white and deep blue in the proportions 1:2:1. The blue bands are the two rivers that frame the city, the white the terrace between them where it was built; the gold eight-pointed star in the centre comes from the territory flag and marks the territorial capital. The colours are exactly the territory's, and residents like to say the city flag is the territory flag folded on end."
   traits: { industries: [government, education, logistics], heritage: chinese, age: balanced }
   notes:
     zh: 北维京岛领地首府，坐落在自由河与北河之间的台地上，领地建立之初从原勒克尔市析出、按规划新建。城市因行政而生：领地政府、议会综合办公区、领地博物馆、领地图书馆和自由市大剧院围绕人民广场排开，自由塔是城中最高的建筑。全市人口只有三十八万多，却集中了领地最主要的公共机构、北维京岛大学和自由市中心医院，公务员、教师和医护人员是就业的主体，物流仓储依托港口和铁路成为第二支柱。白桦区是机关与文化设施集中的核心；北河区沿北河大道和人民大道展开，是商业与住宅走廊，城北的牧场为全城供应鲜奶；沙洲区守着自由河入海口，沙洲港和老渔市延续着城市的港口传统。环北维京岛高速、自维高速、自勒高速和观星高速在城郊交会，自由市机场、维西城际铁路和自勒城际铁路把首府同维京港、勒克尔和西北市连在一起。居民大多以中文为母语，维京语和巴克汉姆语在街头也很常见；街道宽阔，绿地成片，生活节奏平稳，是全岛最安静的城市之一。
@@ -120,9 +124,10 @@ divisions:
   population: 934000
   area_km2: 12320.0
   color: '#4C8BF5'
-  emblem:
-    motif: longship
-    pattern: waves
+  flag: { layout: nordic, colors: ['#0F5E59', '#FFFFFF', '#E9B949'] }
+  flag_notes:
+    zh: "墨绿底上一个偏向旗杆、镶白边的金色北欧十字，是北维京岛最早的城市旗帜之一。墨绿是鲸湾深处海水的颜色，金色十字象征从捕鲸站时代就繁荣起来的航运与贸易，白边代表格约特斯塔德的维京石垒。领地旗的十字正是从维京港市旗借来的，老港人至今爱说「十字是我们先挂上的」。"
+    en: "A gold Nordic cross edged in white, set towards the hoist on a dark green field: one of the oldest city flags on North Viking Island. The green is the deep water of Whale Bay, the gold cross the shipping and trade that have kept the city prosperous since its whaling-station days, and the white edging the Viking stone fort of the old town. The territory flag took its cross from Viking Port's, and old harbour hands still like to say they hoisted the cross first."
   traits: { industries: [port, finance, manufacturing, tourism], heritage: viking, age: balanced }
   notes:
     zh: 北维京岛最早建成的城市，坐落在维京岛西岸，至今仍是领地人口最多的城市、经济中心和最大的港口。城市起源于鲸湾畔的捕鲸站和格约特斯塔德的维京石垒，维京语至今是一半居民的母语，街名、商号与节庆都带着浓厚的北方色彩。港口是城市的命脉：瓦尔维克区的鲸湾港与外礁深水港承担领地大部分集装箱与散货运输，临港带布满船舶修造、冷链和机械制造工厂，维京港国际机场也设在这里；菲尔内斯区的客运码头迎送渡轮与邮轮旅客；海门区沿西岸兴起的商务带聚集了银行、保险与软件企业，海门国际金融中心是领地的金融地标。格约特斯塔德区的石砌老城保留着窄街与市集，是游客必到之处；奥斯特海姆区是东部成片的新住宅区；菲亚尔马克区则是丘陵上的森林公园与低密度住宅。环北维京岛高速、自维高速、观星高速和西岸公路在这里汇合，维西城际铁路北上自由市和西北市，维贝铁路南下贝克勒；维长高速和维长城际铁路经海底隧道直通维京群岛的长船市。
@@ -244,9 +249,10 @@ divisions:
   population: 598000
   area_km2: 18400.0
   color: '#36B37E'
-  emblem:
-    motif: orbit
-    pattern: dots
+  flag: { layout: ensign, colors: ['#1E5B47', '#FFFFFF'], charge: orbit, charge_color: '#0B3D91' }
+  flag_notes:
+    zh: "领地旗方角旗：深绿底，左上角是领地旗，右侧白色圆徽里是一颗带轨道的深蓝行星。领地建立之初新设的各市都采用这一格式，以领地旗表明出身，以圆徽讲各自的故事。西北市的圆徽代表望星天文台、深空研究和科学大道上的实验室，深绿取自林道区和寒岭的森林。"
+    en: "A territorial ensign: deep green with the territory flag in the canton and, in the fly, a white badge bearing a deep blue planet in its orbit. The cities created when the territory was founded all fly this pattern, the territory flag showing where they come from and the badge telling their own story. Northwest's badge stands for its observatory, deep-space research and the laboratories along Science Avenue; the green is the forest of the university town and the hills."
   traits: { industries: [research, education, media], heritage: mixed, age: balanced }
   notes:
     zh: 北维京岛的科研与教育中心，坐落在本岛西北部，领地建立之初从原勒克尔市析出设市。全市的经济建立在知识之上：北维京大学、林道理工学院和众多国家实验室、研究所分布在科学大道两侧，深空太空军北维京研发中心、望星天文台和科学城的航天企业构成领地最重要的科研集群，研究人员、教师和学生在居民中占很大比例。鹿鸣区是市政中心，西北市人民政府和西北广播电视中心都在那里，领地的电视台和电台从这里向全岛播出；望星区和科学城沿科学大道向东延伸，是实验室和高科技企业的聚集地；林道区是大学城；寒岭区则是山岭间的生态研究站和低密度住宅。由于研究岗位多、薪酬高，西北市的人均产出位居全岛前列，居民的平均年龄也比其他城市年轻。环北维京岛高速、西塔高速、观星高速和西岸公路在这里交会，西北机场、维西城际铁路和西马铁路通往维京港、自由市和马斯林山。城市里中文、维京语和巴克汉姆语并用，学术交流频繁，是领地最国际化的城市之一。
@@ -351,9 +357,10 @@ divisions:
   population: 647800
   area_km2: 12472.0
   color: '#9BC53D'
-  emblem:
-    motif: wheat
-    pattern: furrows
+  flag: { layout: seal, colors: ['#F3EEDC', '#2F6B3A', '#F2D27A', '#2F6B3A'], charge: wheat, charge_color: '#F2D27A', legend: art-x-viking }
+  flag_notes:
+    zh: "米白底正中一枚绿色圆形市印，印环上用维京语和英语写着市名，印心是一束金色麦穗。这面旗是勒克尔还管辖着本岛东部大片土地时定下的，析出四个新市以后一直沿用，没有改过一针一线。麦穗代表河谷里的麦田与粮仓，绿色是牧场，米白是乳业合作社的鲜奶。"
+    en: "A green round seal on a cream field, its ring bearing the city's name in Viking and English and its centre a gold sheaf of wheat. The flag dates from the days when Lekor still governed much of the east of the island, and it has not changed a stitch since four new cities were carved out of it. The wheat is the granary of the river valleys, the green the pastures and the cream the milk of the dairy co-operatives."
   traits: { industries: [agriculture, dairy, tourism, port], heritage: viking, age: old }
   notes:
     zh: 北维京岛的农业中心和乡村度假地，位于维京港以东、勒河流经的丘陵与河谷之间。领地刚建立时，勒克尔市曾覆盖本岛东部的大片土地，此后自由市、西北市、塔夫鲁普库维克市和洛龙山市相继从中析出，如今只保留原来北部约五分之一的领土。勒克尔仍是全岛最重要的粮仓和奶源地：麦田、油菜田和牧场沿河谷铺开，乳业合作社、农产品交易中心和食品加工厂支撑着地方经济；科恩达尔的酒庄、克拉尔瓦滕湖的湖滨集镇则让旅游业成为第二支柱，每年秋天的勒克尔丰收节是全岛最热闹的乡村节日。勒克尔维克区是市政中心，市政府、农产品交易中心和农业博物馆都在那里，北岸的小港口出口奶制品和粮食；科恩达尔区以葡萄园和民宿闻名；克拉尔瓦滕区围绕克拉尔瓦滕湖分布，是钓鱼、划船和森林徒步的好去处。环北维京岛高速、自勒高速和卡蒂尔尤阿克高速在这里交会，自勒城际铁路以勒克尔站为终点，西马铁路经过市区通往洛龙山和马斯林山。居民以维京语为主要母语，许多家庭世代务农，老年人比例较高，乡村生活节奏舒缓。
@@ -424,9 +431,10 @@ divisions:
   population: 609000
   area_km2: 7520.0
   color: '#E3C567'
-  emblem:
-    motif: ox
-    pattern: stripes
+  flag: { layout: border, colors: ['#C9962E', '#0B3D91', '#FFFFFF'], charge: sprout, charge_color: '#0B3D91' }
+  flag_notes:
+    zh: "旗杆一侧是一条深蓝竖带，两行白线夹着五枚阶梯菱形，这是塔夫鲁纳克人织物和皮袍滚边上的传统纹样；其余金黄色的旗面上是一株深蓝色的幼苗。市名意为「土地生长之处」，金黄是平原上成熟的麦田，幼苗是这片深厚土地上的生长。各领地取塔夫鲁纳克语名的城镇都用这种滚边旗。"
+    en: "At the hoist a deep blue band carries five stepped diamonds between two white lines, the trim of traditional Tavrunaq weaving and skin coats; the rest of the flag is golden yellow with a deep blue seedling. The city's name means 'where the land grows': the gold is the ripe wheat of the plain and the shoot the growth of its deep soil. Towns with Tavrunaq names in every territory fly flags with this border."
   traits: { industries: [agriculture, food, forestry, logistics], heritage: mixed, age: balanced }
   notes:
     zh: 北维京岛中部的平原城市，领地建立之初从原勒克尔市析出，由普库图克镇和西加维克镇合并设市，市名取自塔夫鲁纳克语，意为「土地生长之处」。全市地势平坦、土壤深厚，是本岛机械化程度最高的粮食和饲料产区，大型农场种植小麦、大麦、油菜和土豆，农产品加工、食品制造和农机维修构成地方工业；牛角湾沿岸的林地和木材加工厂提供了另一部分就业。普库图克区是市政与商贸中心，普库图克农产品集散中心把全市的粮食、蔬菜和肉类运往维京港和新城，塔夫鲁普库维克农机博物馆展示了平原农业的发展历程；西加维克区承接了来自勒克尔和新城方向的通勤人口，新住宅区和塔夫鲁普库维克农业学院让这里更加年轻。牛角湾海滨公园是全市居民夏季消暑的去处。环北维京岛高速、西塔高速、纳帕图克公路和北河公路在市内交会，维贝铁路在塔夫鲁普库维克站停靠，使这里成为本岛中部的交通枢纽和物流节点。居民来源多元，中文、维京语和巴克汉姆语家庭都很多，城镇规划整齐，生活成本较低，吸引了不少年轻家庭。
@@ -480,9 +488,10 @@ divisions:
   population: 309000
   area_km2: 24000.0
   color: '#5E9E6E'
-  emblem:
-    motif: peaks
-    pattern: contours
+  flag: { layout: ensign, colors: ['#2E4F3A', '#FFFFFF'], charge: peaks, charge_color: '#2E4F3A' }
+  flag_notes:
+    zh: "领地旗方角旗：冷杉绿底，右侧白色圆徽里是相连的绿色雪峰。雪峰是洛龙山脉的群峰与冰川，峰顶的白色缺口是冰斗里终年不化的积雪；冷杉绿是纳帕图克的云杉林和冷杉林。山里的护林员和滑雪向导都把这面旗缝在外套的左臂上。"
+    en: "A territorial ensign in fir green, the white badge in the fly showing a green massif of snow peaks: the peaks and glaciers of the Lorond range, the white notches the snow that never melts in the cirques. The green is the spruce and fir of the mountain forests, and rangers and ski guides wear the flag on their left sleeve."
   traits: { industries: [forestry, ski, mining], heritage: viking, age: old }
   notes:
     zh: 北维京岛中部的山地城市，全市被洛龙山脉的群峰、冰川和峡谷覆盖，领地建立之初从原勒克尔市析出设市。全市面积广阔，人口只有约三十一万，主要集中在卡蒂尔尤阿克、伊卡苏瓦等山谷集镇里。地形复杂使这里成为本岛的天然屏障和交通咽喉：卡蒂尔尤阿克集镇是山区的公路枢纽，卡蒂尔尤阿克高速、伊卡苏瓦高速和纳帕图克公路都在这里交会，西马铁路和新洛铁路在洛龙山站汇合。林业是传统支柱，纳帕图克的云杉林和冷杉林在严格的采伐配额下经营，木材加工厂和护林站遍布山间；冬季运动是新的增长点，卡蒂尔尤阿克附近的滑雪场和山间木屋吸引着全岛的滑雪者；山中的石料和矿产开采规模不大，但仍为本地提供就业。洛龙峰是洛龙山脉的主峰，上千平方公里的洛龙冰川、纳帕图克冰川和伊卡苏瓦湖等景观让这里成为登山和徒步的胜地，伊卡苏瓦瀑布公园更是全岛最壮观的瀑布群。居民以维京语为主要母语，许多家庭世代居住在山谷里，老年人比例较高。洛龙山的生活节奏缓慢，冬季漫长，是北维京岛最原始、最壮美的地区。
@@ -553,9 +562,10 @@ divisions:
   population: 563000
   area_km2: 12000.0
   color: '#E5739D'
-  emblem:
-    motif: skyline
-    pattern: grid
+  flag: { layout: ensign, colors: ['#8E2445', '#FFFFFF'], charge: key, charge_color: '#C9962E' }
+  flag_notes:
+    zh: "领地旗方角旗：玫红底，右侧白色圆徽里是一把金色钥匙。新城按统一规划建成，第一批居民是从各地迁来、排队领钥匙入住的年轻家庭，钥匙由此成了城市的标志；玫红是市花月季的颜色，也代表这座城市年轻的人口。每年开学，新城第一中学的新生都会领到一枚印着这把钥匙的校徽。"
+    en: "A territorial ensign in rose red, the white badge bearing a gold key. New City was built to a single plan, and its first residents were young families from across the island who queued for the keys to their new homes, so the key became the city's sign; the rose red is the city flower and its young population. Each new pupil at New City No. 1 Secondary School is given a badge with the key on it."
   traits: { industries: [residential, commerce, manufacturing], heritage: chinese, age: young }
   notes:
     zh: 北维京岛南部新建成的现代化居住中心，领地建立之初从原马斯林山市析出设市，居民多在邻近的萨科勒市和贝克勒自由贸易区工作。全市按照统一规划建设，高层住宅、学校、医院、公园和轨道交通同步配套，是全岛最年轻的城市之一，儿童和年轻家庭比例很高，平均年龄远低于全岛水平。经济以居住服务、商贸和轻工业为主：青坪区是商业和交通枢纽，青坪购物中心和新城体育中心是全市最热闹的地方；北苑区是成片的新社区和学校，新城第一中学和新城师范学院在全岛享有盛名；南驿区面向萨科勒方向，新城机场和南驿物流园带动了物流和制造业；中苑区是从青坪区析出的新市中心，市政府、新城国际会展中心和中苑公园都在这里，会展和商务服务日益兴旺。环北维京岛高速、伊卡苏瓦高速、南岸公路和雅利基卢克河公路在市内交会，维贝铁路在新城站停靠，新洛铁路从这里出发通往洛龙山。居民大多以中文为母语，城市干净整洁、生活便利，是年轻人在本岛安家的首选之一。
@@ -643,9 +653,10 @@ divisions:
   population: 536000
   area_km2: 7600.0
   color: '#F29E4C'
-  emblem:
-    motif: sun
-    pattern: halo
+  flag: { layout: ensign, colors: ['#1F6FA8', '#FFFFFF'], charge: sun, charge_color: '#E8741E' }
+  flag_notes:
+    zh: "领地旗方角旗：天蓝底，右侧白色圆徽里是一轮橙色的太阳。天城以天台山、柳萨湾和绵长的银滩闻名，天蓝是海湾上空的晴天，太阳是这片阳光充足的度假海岸。海滨酒店把这面旗挂在海滩入口，游客常把它当成「今天适合下海」的信号。"
+    en: "A territorial ensign in sky blue with an orange sun on the white badge. Skytown is known for its mountain, its bay and long silver beaches: the blue is the clear sky over the bay and the sun its sunny resort coast. Hotels fly the flag at the beach entrances, and visitors tend to read it as a sign that it is a good day for a swim."
   traits: { industries: [tourism, conference, residential], heritage: chinese, age: old }
   notes:
     zh: 北维京岛东南海岸的度假城市，领地建立之初从原马斯林山市析出设市，以天台山、柳萨湾和绵长的沙滩闻名。全市的经济围绕旅游和会议展开：天台区是主要的度假酒店群和会议中心所在地，天台国际会议中心常年举办领地和国际会议；银滩区拥有全岛最好的海滩、银滩主题乐园和成排的海滨酒店；岚山区则是山间的高端住宅、疗养院和高尔夫球场。天城机场和天城港把游客从维京港、维京群岛和远方带到这里，夏季航班和客轮络绎不绝，冬季则以温泉疗养、雪景和会议淡季促销吸引客人。由于气候温和、风景秀丽，许多退休人员从全岛各地移居天城，老年人比例在全岛名列前茅，医疗和养老服务因此发达。环北维京岛高速、马斯林山高速和东岸公路在市内交会，雪谷公路从天台出发通往马斯林山，贝马铁路在天城站停靠。居民大多以中文为母语，城市以干净、安静和服务周到著称，是北维京岛最受欢迎的度假地，也是很多人心中理想的养老之地。
@@ -716,9 +727,10 @@ divisions:
   population: 617000
   area_km2: 6000.0
   color: '#8E7CC3'
-  emblem:
-    motif: gear
-    pattern: hex
+  flag: { layout: ensign, colors: ['#4A4E69', '#FFFFFF'], charge: anvil, charge_color: '#B22234' }
+  flag_notes:
+    zh: "领地旗方角旗：石板灰底，右侧白色圆徽里是一座红色铁砧。萨科勒从铁岗山的铁矿和石料起家，如今是全岛最大的工业基地，铁砧代表铁岗区的工厂与锻造传统，石板灰是铁岗山的岩石，红色是炉火。萨科老镇的渔民嫌这面旗「太硬」，节日里另挂一面画着鱼的旧镇旗。"
+    en: "A territorial ensign in slate grey with a red anvil on the white badge. Sakole grew from the iron ore and stone of its hills and is now the island's largest industrial base: the anvil is its works and forging tradition, the slate the rock of the hills and the red the furnace. The fishermen of the old town find the flag 'too hard' and still hang an old town banner with a fish at their festivals."
   traits: { industries: [manufacturing, mining, logistics], heritage: buckham, age: young }
   notes:
     zh: 北维京岛南部的工业城市，领地建立之初从原马斯林山市析出设市，城市名在巴克汉姆语中意为「萨科之地」。全市的经济以制造业为主：铁岗区的先进制造产业园集中了机械装备、电子元件、新能源设备和船舶配件工厂，是全岛最大的工业基地；铁岗山一带的铁矿和石料开采历史悠久，如今规模缩小，转向精深加工；罗卡区的公路货运站和仓储园区把工厂的产品运往维京港、贝克勒和全岛各地。萨科区是城市的发祥地和市政中心，萨科渔港、萨科鱼市和萨科老镇广场保留着巴克汉姆渔镇的风貌。萨科勒的工厂吸引了大量来自新城和本岛各地的年轻工人，劳动年龄人口比例很高，城市充满活力。巴克汉姆语是全市过半居民的母语，街名、商店招牌和学校课程都使用巴克汉姆语和中文双语。环北维京岛高速、南岸公路和东岸公路在市内交会，维贝铁路在铁岗区的萨科勒站停靠。萨科勒以务实、勤劳的工业传统和地道的巴克汉姆风情著称，是本岛南部的经济引擎。
@@ -789,9 +801,10 @@ divisions:
   population: 656000
   area_km2: 992.0
   color: '#E5534B'
-  emblem:
-    motif: exchange
-    pattern: diagonal
+  flag: { layout: mirror, colors: ['#FFFFFF', '#E5534B'] }
+  flag_notes:
+    zh: "上白下红，正中一座红色小岛倒映在红色海面上，倒影为白色，红白互换。图案来自斯佩基亚拉湾里的镜岛：无风的日子，整座岛倒映在水面上，斯佩基亚拉区也因巴克汉姆语的「镜子」得名。红白两色代表海陆空联运和自由贸易，倒影里的三道细纹是湾里的波纹。"
+    en: "White over red, with a red island in the centre whose reflection in the red sea below is white, the colours counterchanged. The design is Mirror Isle in Specchiara Bay: on still days the whole island lies reflected in the water, and Specchiara takes its name from the Buckham word for mirror. The red and white stand for the zone's trade by land, sea and air, and the three fine lines are ripples on the bay."
   traits: { industries: [trade, finance, port, aviation], heritage: global, age: balanced, income: 1.2 }
   notes:
     zh: 北维京岛南端的自由贸易试验区，领地建立之初从原马斯林山市析出设立，实行全领地最自由的经济政策：货物进出免征关税，资本自由流动，企业注册和外籍人员居留手续极其简便，税率很低。贝克勒面积不到一千平方公里，却聚集了六十多万人口，是全岛第二大城市，也是人口最密集、人均产出最高的地方。区内分为四个功能区：卡波区以卡波国际机场为核心，承担海陆空联运和旅客通道；斯佩基亚拉区是离岸金融、贸易结算和企业总部聚集地，斯佩基亚拉国际金融中心和贝克勒国际商品交易所是全领地的金融高地；隆迪纳亚区以保税仓储和加工贸易为主；保税港区则是斯佩基亚拉湾外填海建成的集装箱码头和转口加工区。自由的政策吸引了来自世界各地的企业和人才，区内中文、维京语、巴克汉姆语和英语并用，英语使用比例全领地最高，国际学校、外资银行和各国餐厅随处可见。环北维京岛高速和南岸公路在这里交会，维贝铁路以贝克勒站为终点，贝马铁路从这里出发通往天城和马斯林山。贝克勒是北维京岛连接世界的窗口，也是领地经济最活跃的地方。
@@ -880,9 +893,10 @@ divisions:
   population: 124700
   area_km2: 27000.0
   color: '#9A8F7E'
-  emblem:
-    motif: basin
-    pattern: contours
+  flag: { layout: banner, colors: ['#3B4A5A'], charge: peaks_star, charge_color: '#FFFFFF', extra: [{ charge: star8, color: '#E9B949', x: 30, y: 12.1, size: 12.6 }] }
+  flag_notes:
+    zh: "钢灰底上三座白色雪峰，峰顶之上一颗金色八角星。三面环绕城市的马斯林山脉是这座城市的天然屏障，金星取自领地旗，代表驻守全岛天空和航天发射场的部队；钢灰是机库与装甲的颜色。阅兵日和火箭发射日，山间的每一座营区都会升起这面旗。"
+    en: "Three white snow peaks on steel grey, with a gold eight-pointed star above them. The Maslin range that rings the city on three sides is its natural rampart; the star, from the territory flag, stands for the forces that guard the island's skies and its launch site, and the grey is the colour of hangars and armour. On parade days and launch days the flag goes up over every camp in the mountains."
   traits: { industries: [defence, aerospace, research], heritage: chinese, age: young }
   notes:
     zh: 北维京岛东部的山地军事城市，三面被马斯林山脉的雪峰环绕，只有东部是通向海岸的平地。全市面积广阔，常住人口只有约十二万，其中驻军约三万五千人，空军、深空太空军和陆军在这里驻有三十多处基地与设施，是领地最重要的国防和航天基地。深空太空军的指挥中心、深空测控站和维京-马斯林山发射与降落中心构成了领地航天活动的核心，火箭从西坪的发射场升空，飞船在这里降落、整修后再次出发；空军的作战机场、预警雷达和飞行学院守护着全岛的天空；陆军的联合训练基地和寒区训练场则在雪谷和群峰之间展开。国防、航天和科研是全市经济的全部支柱，大量的工程师、技术员、军人和家属构成了居民的主体，劳动年龄人口比例全岛最高，老年人很少。和平区是市政中心；星港、东营、西坪、雪谷四区各有分工；群峰训练管理区由领地与驻军共管。马斯林山高速、马斯林山空天高速、东岸公路和雪谷公路连通各区，西马铁路和贝马铁路在这里交会，马斯林山航天铁路把东营港与西坪发射场连在一起。居民大多以中文为母语，城市秩序井然，部分地区对公众开放参观。
@@ -998,15 +1012,17 @@ divisions:
     en: Jaalikiluk City
     art-x-viking: Jaalikiluk auf Hea
     art-x-buckham: Jaalikiluk en Teatu
+    art-x-tavrunaq: Jaalikiluk
   codes:
     admin: '901200'
     unlocode: NV JLK
   population: 20500
   area_km2: 32000.0
   color: '#3FB6C6'
-  emblem:
-    motif: river
-    pattern: flow
+  flag: { layout: seal, colors: ['#2A7F8F', '#0E2A47', '#E9D8A6', '#F4EFE2'], charge: antlers, charge_color: '#0E2A47', legend: art-x-tavrunaq }
+  flag_notes:
+    zh: "青蓝底正中一枚深蓝圆印，印环上用塔夫鲁纳克语和英语写着市名，米白印心里是一对驯鹿角。这面旗沿用自雅利基卢克还是旧马斯林山市首府的年代，是全岛最古老的市旗之一；驯鹿角代表尼尔萨利特高原上的冬季牧场和随季节迁徙的牧民，青蓝是蜿蜒北流的雅利基卢克河。"
+    en: "A deep blue round seal on a teal field, its ring bearing the city's name in Tavrunaq and English and its cream centre a pair of reindeer antlers. The flag goes back to the days when Jaalikiluk was the seat of the old Maslin Mountain City, which makes it one of the oldest city flags on the island; the antlers are the winter pastures of the eastern plateau and the herders who move with the seasons, the teal the river winding north to the sea."
   traits: { industries: [agriculture, herding, heritage], heritage: viking, age: old }
   notes:
     zh: 北维京岛东北部的河谷平原城市，雅利基卢克河发源于洛龙山脉东坡，一路向北，在这里蜿蜒穿过平原注入大海。雅利基卢克河原是旧马斯林山市的首府，领地建立后马斯林山市拆分，首府迁往和平区，雅利基卢克河另设一市。全市面积三万多平方公里，是全岛面积最大的城市，人口却只有约两万，是全岛人口最少、密度最低的城市，大片土地仍是荒野、森林和高原牧场。经济以农牧业为主：雅利基卢克河沿岸的冲积平原种植麦类和饲草，东岸高原上的尼尔萨利特是驯鹿的冬季牧场，牧民随季节迁徙；阿基尼克区的机关旧址和博物馆讲述着这片土地的历史，文化遗产和生态旅游逐渐兴起。基卢克维克区是市政中心和主要集镇，上雅利基卢克改良区是雅利基卢克河上游的无建制荒野，由领地直接提供公共服务。环北维京岛高速和雅利基卢克河公路贯穿全市，前者连接天城和勒克尔，后者向西南通往新城；西马铁路在雅利基卢克站停靠。居民以维京语为主要母语，许多家庭世代务农放牧，老年人比例很高。雅利基卢克河的天地辽阔、人烟稀少，夏季白夜、冬季极光，是北维京岛最原始的地方之一。

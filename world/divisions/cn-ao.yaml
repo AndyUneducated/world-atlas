@@ -38,6 +38,9 @@ divisions:
     highway: { zh: 北冰洋领地公路与雪廊局, en: Arctic Ocean Roads and Snowsheds Authority }
     rail: { zh: 北冰洋领地铁路公司, en: Arctic Ocean Railways }
   flag: arctic_ocean
+  flag_notes:
+    zh: "深蓝夜空中一道绿色极光，左上一颗白色北极星，下方是白色冰原，一座红色石堆路标立在天地之间。石堆路标是塔夫鲁纳克人在苔原上指路的标记，红色代表人；极光和北极星是极夜里的天空，冰原是这片土地。北冰洋各市的旗大多沿用这种天空加地平线的构图。"
+    en: "A green aurora across a deep blue night sky, a white pole star in the upper hoist and white ice below, with a red stone cairn standing between earth and sky. The cairn is the Tavrunaq waymark on the tundra and its red stands for people; the aurora and the star are the sky of the polar night and the ice is the land. Most cities of the territory keep this sky and horizon on their own flags."
   traits: { industries: [finance, datacenter, mining, tourism] }
 
 # ── 努卡塔克市（首府）──
@@ -58,9 +61,10 @@ divisions:
   population: 1500000
   area_km2: 8960.0
   color: '#1B2F5E'
-  emblem:
-    motif: dome
-    pattern: aurora
+  flag: { layout: horizon, colors: ['#13294B', '#F4F8FB'], edge: fjord, charge: star4, charge_color: '#E9B949' }
+  flag_notes:
+    zh: "深蓝夜空下是白色的冰原，两道岬角在中间分开，留出峡湾口，上方一颗金色四芒星。努卡塔克坐落在峡湾湾口两岸，两道岬角就是隔湾相望的城区，金星是极夜里的北极星，也代表领地首府。北冰洋各市的旗多画天空与地平线，努卡塔克的这面是它们的范本。"
+    en: "White ice under a deep blue night sky, two headlands parting in the middle to leave the mouth of a fjord, with a gold four-pointed star above. Nuqattaaq stands on both shores of its fjord mouth: the headlands are the two halves of the city and the star is the pole star of the polar night and the territorial capital. Most cities of the Arctic Ocean draw sky and horizon on their flags, and this one is their model."
   traits: { industries: [government, finance, tech, port], heritage: polar_global, age: balanced, income: 1.1 }
 - id: div_q7cydv
   subtype: borough
@@ -194,9 +198,10 @@ divisions:
   area_km2: 60.0
   special_status: financial_zone
   color: '#B8892B'
-  emblem:
-    motif: exchange
-    pattern: hex
+  flag: { layout: bands, colors: ['#B8892B', '#121417'], vertical: true, ratio: [1, 2], charge: hexstar, charge_color: '#FFFFFF', charge_band: 1 }
+  flag_notes:
+    zh: "竖分两色，旗杆一侧三分之一为金色，其余为黑色，黑色部分正中一个白色六边形框着一颗四芒星。金色是冻土黄金金库，黑色是极夜，六边形既是特区里穹顶的网格，也是交易所的标志。这面旗没有天空也没有地平线，特区的人说「我们的风景都在屏幕上」。"
+    en: "Two vertical stripes, gold at the hoist a third of the width and black beyond, with a white hexagon framing a four-pointed star on the black. The gold is the permafrost gold vault, the black the polar night, and the hexagon both the grid of the zone's domes and the mark of its exchange. The flag has no sky and no horizon; people in the zone say all their scenery is on screens."
   traits: { industries: [finance, trade, tech], heritage: polar_global, age: young, income: 6.4 }
 - id: div_ga9pxy
   subtype: borough
@@ -232,9 +237,10 @@ divisions:
   population: 592800
   area_km2: 62000.0
   color: '#1F7A8C'
-  emblem:
-    motif: fish
-    pattern: flow
+  flag: { layout: horizon, colors: ['#1F7A8C', '#0E2A47', '#FFFFFF'], edge: waves, charge: kayak, charge_color: '#FFFFFF', charge_in: horizon }
+  flag_notes:
+    zh: "青色天空下是深蓝的大海，一道白浪之上划着一只白色皮划艇。萨尔瓦克靠港口航运、渔业和海水养殖为生，皮划艇是塔夫鲁纳克人最古老的出海方式，也代表今天驶出萨尔苏瓦峡湾的渔船；青色是峡湾上空的天色。每年夏天的皮划艇节，划手们都以这面旗为终点线。"
+    en: "A white kayak riding a white crest on the deep blue sea under a teal sky. Saarvaq lives by shipping, fishing and fish farming: the kayak is the oldest Tavrunaq way to the sea and the fishing boats that leave the fjord today, the teal the sky over the fjord. At the summer kayak festival the flag marks the finish line."
   traits: { industries: [port, fishing, aquaculture, food], heritage: polar_mixed, age: balanced }
 - id: div_3rb2ha
   subtype: borough
@@ -336,9 +342,10 @@ divisions:
   population: 507500
   area_km2: 63400.0
   color: '#7A5C3E'
-  emblem:
-    motif: gear
-    pattern: diagonal
+  flag: { layout: horizon, colors: ['#7A3B2E', '#26211F'], edge: ridge, charge: flame, charge_color: '#F2B33D', charge_in: horizon }
+  flag_notes:
+    zh: "铜红色的天空下是黑色的山脊，山脊上升起一团金色火焰。铜红是基萨尔维克冶炼厂炉口映红的天色，火焰是冶炼内陆镍矿的炉火，黑色山脊是峡湾两岸的岩山和码头上堆存的矿石。乌库拉克人说，极夜里远远望见冶炼厂的光，就知道离家不远了。"
+    en: "A gold flame rising from a black ridge under a copper-red sky. The copper is the sky lit by the furnaces of the smelter, the flame the fires that smelt nickel from the inland mines, the black ridge the rock hills of the fjord and the ore heaped on the quays. People say that in the polar night the glow of the smelter seen from afar means home is near."
   traits: { industries: [mining, port, manufacturing], heritage: polar_mixed, age: balanced }
 - id: div_yh6ysj
   subtype: borough
@@ -440,9 +447,10 @@ divisions:
   population: 315300
   area_km2: 58300.0
   color: '#3E6FB0'
-  emblem:
-    motif: snowflake
-    pattern: grid
+  flag: { layout: hoist, colors: ['#FFFFFF', '#2A5C9A', '#9FC6E7'], charge: snowflake, charge_color: '#2A5C9A' }
+  flag_notes:
+    zh: "上深蓝、下浅蓝两道横条，旗杆一侧一个白色三角，三角里一枚深蓝雪花。雪花是让数据中心不必另外制冷的冷空气，深蓝是图拉卡特区水电站的库水，浅蓝是海底光缆通往世界各地的那片海。市内每一座机房里都挂着这面旗。"
+    en: "Deep blue over light blue, with a white triangle at the hoist bearing a deep blue snowflake. The snowflake is the cold air that cools the data centres for nothing, the deep blue the reservoirs of the hydro plants, the light blue the sea under which the cables run to the rest of the world. The flag hangs in every server hall in the city."
   traits: { industries: [datacenter, tech, hydropower], heritage: polar_global, age: young, income: 1.1 }
 - id: div_79wfwy
   subtype: borough
@@ -544,9 +552,10 @@ divisions:
   population: 357500
   area_km2: 95000.0
   color: '#6B4FA0'
-  emblem:
-    motif: crystal
-    pattern: rays
+  flag: { layout: diagonal, colors: ['#4B2C6F', '#FFFFFF'], charge: crystal, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "左上紫色、右下白色斜分，紫色部分一颗白色钻石。紫色取自考卢尤阿克加工的钻石在灯下的光，白色是伊卢克萨特盐湖的盐壳，人们从卤水里提锂；斜分线是露天矿坑的台阶。考尔尼克的第二产业占经济一半以上，市民把这面旗叫作「矿工的旗」。"
+    en: "Divided diagonally, purple in the upper hoist and white in the lower fly, with a white diamond on the purple. The purple is the gleam of cut diamonds under the lamp, the white the salt crust of the lithium lake, and the diagonal the benches of the open pit. Industry is more than half the city's economy, and people call it 'the miners' flag'."
   traits: { industries: [mining, manufacturing, logistics], heritage: polar_mixed, age: young }
 - id: div_k66r1n
   subtype: borough
@@ -633,9 +642,10 @@ divisions:
   population: 555200
   area_km2: 60000.0
   color: '#2F7D5B'
-  emblem:
-    motif: river
-    pattern: contours
+  flag: { layout: horizon, colors: ['#2F7D5B', '#F4F8FB', '#3E8FC9'], river: true }
+  flag_notes:
+    zh: "上绿下白，一条蓝色大河从旗底蜿蜒流向地平线。基卢克图阿尔河在这里入海，绿色是大河两岸的苔原和帕基卢克区沿河的牧场，白色是雪原；冬季北岸封冻，蓝色河道也是破冰船为航线开出的水道。河口的人管这面旗叫「一条河的旗」。"
+    en: "Green over white, with a blue river winding from the foot of the flag to the horizon. The river meets the sea here: the green is the tundra and the riverside pastures, the white the snow of the plain, and the blue the channel the icebreakers keep open when the north coast freezes. People at the river mouth call it 'the flag of one river'."
   traits: { industries: [port, fishing, commerce], heritage: polar_mixed, age: young }
 - id: div_anjqnh
   subtype: borough
@@ -737,9 +747,10 @@ divisions:
   population: 233400
   area_km2: 163300.0
   color: '#5FA8C8'
-  emblem:
-    motif: peaks
-    pattern: halo
+  flag: { layout: horizon, colors: ['#3B5B8C', '#F4F8FB'], edge: peaks, charge: observatory, charge_color: '#3B5B8C', charge_in: ground }
+  flag_notes:
+    zh: "蓝灰色天空下是白色的冰盖，冰盖上耸起锯齿状的群峰，冰原上立着一座深蓝色的天文台圆顶。冰盖和群峰是西尔米冰盖与海拔 2506 米的领地最高峰西尔米峰，这座全领地面积最大、人口最稀的市几乎被冰雪覆盖；圆顶是陶瓦尼克高地上的天文台，漫长的极夜正是那里观星的季节。"
+    en: "A white ice sheet under a grey-blue sky, jagged peaks rising from it and a deep blue observatory dome standing on the ice. The ice and peaks are the Sirmi ice cap and the territory's highest mountain at 2,506 m; the largest and most thinly peopled city in the territory is almost all ice and snow, and the dome is the observatory on the eastern uplands, where the long polar night is the season for watching the stars."
   traits: { industries: [research, tourism, ski], heritage: polar_mixed, age: balanced }
 - id: div_73wt00
   subtype: borough
@@ -843,9 +854,10 @@ divisions:
   population: 154600
   area_km2: 10900.0
   color: '#9C4A5A'
-  emblem:
-    motif: crystal
-    pattern: dots
+  flag: { layout: banner, colors: ['#6E2F3C'], charge: isles, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "暗红底上三座白色海岛浮在两道海浪之上。全市都在乌库乌维特群岛上，没有通往大陆的公路，对外只靠船只和航班，海岛与海浪就是这座远海群岛城市的样子；暗红是露天矿里稀土精矿的颜色。"
+    en: "Three white islands above two lines of waves on dark red. The whole city lies on its archipelago, with no road to the mainland and only ships and flights to the outside world; the red is the colour of the rare-earth concentrate from the open-pit mines."
   traits: { industries: [mining, port, manufacturing], heritage: polar_mixed, age: young }
 - id: div_qj033v
   subtype: borough
@@ -900,9 +912,10 @@ divisions:
   area_km2: 131080.0
   special_status: autonomous_region
   color: '#B5653A'
-  emblem:
-    motif: drum
-    pattern: furrows
+  flag: { layout: border, colors: ['#8E3B24', '#1A1A1A', '#F4EFE2'], charge: frame_drum, charge_color: '#E9B949' }
+  flag_notes:
+    zh: "旗杆一侧是黑底米白纹的塔夫鲁纳克滚边，其余赭红色旗面上一面金色手鼓，鼓面画着阶梯菱形，鼓槌立在一旁。赭红是苔原岩雕的颜料，手鼓代表代代相传的鼓舞与口述史诗，也是长老议事会召集族人时敲响的鼓。各领地塔夫鲁纳克城镇的滚边旗都以这面旗为本，它也被当作塔夫鲁利特人的民族旗。"
+    en: "A Tavrunaq border in black and cream at the hoist and, on the ochre field, a gold hand drum painted with a stepped diamond, its beater beside it. The ochre is the pigment of the tundra's rock carvings; the drum is the drum dances and spoken epics handed down the generations, and the drum that calls the people when the Council of Elders meets. The bordered flags of Tavrunaq towns in other territories all follow it, and it is flown as the Tavrulit people's own flag."
   traits: { industries: [hunting, herding, heritage, government], heritage: tavrulit, age: young }
 - id: div_ek897t
   subtype: borough

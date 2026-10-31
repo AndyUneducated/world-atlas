@@ -37,12 +37,25 @@ BACKGROUND_NETWORKS = ("national_expressway", "territorial_expressway", "territo
 OPERATOR_KINDS = ("expressway", "highway", "rail")
 # Card text, traits and flags: no region build reads them, so they stay out of a region's cache key and
 # build.py takes them from the sources after the regions are merged.
-TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder", "flag")
+TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder", "flag", "flag_notes")
 # A wonder on a line is one of its built structures (named in the build); elsewhere it is the entity itself.
 WONDER_STRUCTURES = ("bridge", "tunnel", "snow_shed")
 TRAIT_KEYS = ("industries", "heritage", "age", "income")
 ROUTE_SHIELDS = ("crest", "maritime", "polar", "tropic")  # territorial route shield designs, see src/lib/shields.ts
 FLAGS = ("north_viking", "viking_islands", "arctic_ocean", "everlong_summer")  # territory flag designs, see src/lib/flags.tsx
+
+
+def ts_names(file: str, const: str) -> tuple[str, ...]:
+    """The keys of an object literal (or the strings of an array) declared as `const` in src/lib/<file>."""
+    src = (ROOT / "src" / "lib" / file).read_text(encoding="utf-8")
+    block = re.split(rf"(?:export )?const {const}\b", src, maxsplit=1)[1].split("\n};", 1)[0].split("] as const", 1)[0]
+    return tuple(re.findall(r'^  (\w+):', block, flags=re.M)) or tuple(re.findall(r'"(\w+)"', block))
+
+
+# City flags: the layouts in src/lib/cityFlags.tsx and the charges in src/lib/charges.tsx and emblems.tsx.
+FLAG_LAYOUTS = ts_names("cityFlags.tsx", "FLAG_LAYOUTS")
+FLAG_CHARGES = ts_names("emblems.tsx", "MOTIFS") + ts_names("charges.tsx", "NEW")
+HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
 STREET_STYLES = ("planned", "mixed", "organic")
 BUILDING_MIX_KEYS = ("slabs", "towers", "perimeter", "houses", "podium", "industrial", "civic", "park")
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
@@ -128,6 +141,25 @@ class World:
         entities = {i: {k: v for k, v in self.entities[i].items() if k not in TEXT_KEYS} for i in sorted(ids)}
         return {"spec": spec, "entities": entities, "engineering": self.engineering, "names": names}
 
+    @staticmethod
+    def _flag_errors(d: dict) -> list[str]:
+        """A city flag names a known layout, #RRGGBB tinctures and known charges."""
+        f = d.get("flag")
+        if not isinstance(f, dict):
+            return ["missing: a city flag gives at least a layout and its colours"]
+        out = []
+        if f.get("layout") not in FLAG_LAYOUTS:
+            out.append(f"layout {f.get('layout')!r} is not one of {', '.join(FLAG_LAYOUTS)}")
+        colours = [*(f.get("colors") or []), *(f[k] for k in ("charge_color", "outline") if k in f), *(x.get("color") for x in f.get("extra", []))]
+        if not f.get("colors") or not all(HEX.match(str(c)) for c in colours):
+            out.append("colours must be #RRGGBB")
+        for name in [f.get("charge"), *(x.get("charge") for x in f.get("extra", []))]:
+            if name is not None and name not in FLAG_CHARGES:
+                out.append(f"charge {name!r} is not drawn in src/lib/charges.tsx or emblems.tsx")
+        if "legend" in f and not d["names"].get(f["legend"]):
+            out.append(f"legend language {f['legend']} has no name to write")
+        return out
+
     def validate(self) -> list[str]:
         errors: list[str] = []
         for eid, e in self.entities.items():
@@ -169,8 +201,12 @@ class World:
                 errors.append(f"{did}: route_shield must be one of {', '.join(ROUTE_SHIELDS)}")
             if d["subtype"] == "dependency" and d.get("flag") not in FLAGS:
                 errors.append(f"{did}: a territory needs a flag, one of {', '.join(FLAGS)}")
-            if d["subtype"] == "locality" and not re.match(r"^#[0-9A-Fa-f]{6}$", str(d.get("color", ""))):
-                errors.append(f"{did}: a city needs a colour (#RRGGBB) for its map tint and emblem")
+            if d["subtype"] == "locality":
+                if not HEX.match(str(d.get("color", ""))):
+                    errors.append(f"{did}: a city needs a colour (#RRGGBB) for its map tint and card accents")
+                errors += [f"{did}: flag {e}" for e in self._flag_errors(d)]
+            if d["subtype"] in ("dependency", "locality") and not all(d.get("flag_notes", {}).get(lang) for lang in REQUIRED_LANGS):
+                errors.append(f"{did}: a flag needs flag_notes (zh, en): what its colours and charges stand for")
             kids = self.children(did)
             if kids and d.get("area_km2"):
                 total = sum(k.get("area_km2", 0) for k in kids)

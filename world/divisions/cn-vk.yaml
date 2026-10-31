@@ -32,6 +32,9 @@ divisions:
     highway: { zh: 维京群岛公路局, en: Viking Islands Highways Authority }
     rail: { zh: 维京群岛铁路公司, en: Viking Islands Railway Company }
   flag: viking_islands
+  flag_notes:
+    zh: "上方三分之二为红色，正中一艘金色长船挂着条纹方帆，船舷排着圆盾，下方是蓝白相间的波浪。长船是首府长船市得名的维京长船，也代表群岛世代相传的航海；红与金是维京时代的旗色，蓝白波浪是把二十座城市连成一体的海峡。"
+    en: "Red over the upper two-thirds, with a gold longship under a striped square sail and a row of shields along its side, over blue and white waves. The longship is the one the capital is named after and the islands' seafaring heritage; red and gold are the colours of the Viking age, and the waves are the straits that bind the islands' twenty cities together."
   traits: { industries: [finance, port, tourism, shipbuilding] }
   notes:
     zh: 北维京岛西南外海的群岛，长船、阿夫琳、阿克斯、暖泉四座大岛与三十多座中小岛屿。航运与造船、离岸金融与总部经济、海上风电与地热、渔业和邮轮旅游是群岛的支柱；首府长船是人口最多的城市
@@ -53,9 +56,10 @@ divisions:
   population: 2300000
   area_km2: 15650.0
   color: '#2E86AB'
-  emblem:
-    motif: longship
-    pattern: waves
+  flag: { layout: banner, colors: ['#B22234', '#F2C14E'], division: bordure, charge: prow, charge_color: '#F2C14E' }
+  flag_notes:
+    zh: "红底金边，正中一只金色的龙头船首，船舷上一排圆盾。长船港是维京时代的长船停泊地，龙头船首讲的是城市的起源，也呼应领地旗上的长船；金边是首府的标志，群岛各市的旗中只有长船镶边。红与金同领地旗，汇金湾畔的银行和航运公司门前也挂这面旗。"
+    en: "A gold dragon-headed prow on red, with a row of round shields along the gunwale, inside a gold border. Longship Harbour was a Viking-age haven for longships, so the prow tells the city's origin and echoes the longship on the territory flag; the border marks the capital, the only city flag in the islands to have one. The red and gold are the territory's own, and the flag flies outside the banks and shipping houses of the financial district too."
   traits: { industries: [finance, port, government, tourism], heritage: global, age: balanced, income: 1.1 }
   notes:
     zh: 维京群岛领地的首府和群岛最大的城市，建在长船岛东北部维京时代的长船港上，全市人口二百三十万，约占全领地的四分之一。城市的两张面孔隔湾相望：一边是长船港周围的石砌古城，城墙、王厅遗址和教堂讲述着维京航海者的历史；另一边是汇金湾畔的玻璃塔楼，群岛的航运公司、保险公司和银行总部集中于此，长船是领地的金融、航运和行政中心。福恩斯塔德区是领地政府和旅游中心，汇金区是金融区，北岬区有长船国际机场和群岛大学，奥斯特哈门区是群岛最繁忙的集装箱港之一，西岸区和朗桑德区则是成片的住宅区、海滨公园和郊区农场。金融、港口、行政和旅游共同支撑起全市经济，人均产出位居群岛前列。长船是群岛最国际化的城市，居民说中文、维京语、巴克汉姆语和英语，英语使用比例在群岛最高。群岛跨海高速、长阿跨海高速和长船西岸高速在这里汇合，长船机场高速和奥斯特哈门港口高速通往机场和港口；维长高速和维长城际铁路经海底隧道直达北维京岛的维京港。长船古老而繁华，是维京群岛的心脏。
@@ -177,9 +181,10 @@ divisions:
   population: 685000
   area_km2: 8950.0
   color: '#457B9D'
-  emblem:
-    motif: helm
-    pattern: waves
+  flag: { layout: banner, colors: ['#1F4E8C'], charge: rudder, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "蓝底上两支交叉的白色维京舵桨。斯蒂尔维克在维京语里意为「舵湾」，城市坐落在长船岛「船尾」的舵位上，扼守三岛之间的水道，舵桨代表这座掌握群岛航向的港城。和群岛的维京老城一样，这是一面只用两种颜色、一个图案的纹章旗，从经过的渡轮上一眼就能认出。"
+    en: "Two white Viking steering oars crossed on blue. Styrvik means 'rudder bay' in Viking: the city sits at the rudder of Longship Island's 'stern', commanding the channels between three islands, and the oars are the port that steers the islands' course. Like the other old Viking towns it flies a banner of arms, two colours and one charge, easy to make out from a passing ferry."
   traits: { industries: [port, fishing, logistics], heritage: viking, age: balanced }
   notes:
     zh: 长船岛西南部的港城，扼守长船、暖泉与阿夫琳港三岛之间的水道，是群岛的交通咽喉。斯蒂尔维克在维京语里意为「舵湾」，因城市坐落在长船岛「船尾」的舵位上而得名，港湾背靠斯蒂尔廷峰，面朝三岛交汇的水道，自古就是船只进出群岛中部的必经之地。全市人口约六十八万，是群岛第三大城市，经济以港口、渔业和物流为主：斯蒂尔维克区的渡轮码头是群岛最繁忙的渡轮港之一，渡轮通往暖泉岛和阿夫琳岛，货运码头和物流园为长船岛南部供应货物；斯库特斯塔德区的渔村和牧场延续着传统的渔牧生活，渔业和乳业是那里的主要生计。斯蒂尔维克是群岛高速公路网的枢纽：群岛跨海高速从这里跨海通往暖泉和克莱特斯塔德，向东北经谢尔海姆通往长船；长船西岸高速从这里出发，沿长船岛西岸经弗洛德维克通往长船；阿斯跨海高速则跨海通往阿克斯岛的阿克斯维克湾。谢尔海姆山公路纵贯全市，北接谢尔海姆和朗桑德，南达斯库特斯塔德。居民以维京语为母语的家庭居多，船员、渔民、码头工人和物流从业者构成了城市的主体。斯蒂尔维克风浪大、船只多，是群岛水上交通和公路交通交汇的十字路口。
@@ -233,9 +238,10 @@ divisions:
   population: 300000
   area_km2: 9400.0
   color: '#6D597A'
-  emblem:
-    motif: pass
-    pattern: furrows
+  flag: { layout: banner, colors: ['#FFFFFF', '#2D5A3D'], division: pile }
+  flag_notes:
+    zh: "白底上一座从旗底升起、直抵上缘的绿色三角。谢尔海姆在维京语里意为「龙骨之乡」，绿色三角既是形如长船龙骨的谢尔海姆山，也是山上茂密的针叶林；白色是冬季深厚的积雪和滑雪场。整面旗没有任何图案，只靠一刀分割，是群岛最简洁的市旗之一。"
+    en: "A green triangle rising from the foot of a white flag to its top edge. Kjølheim means 'home of the keel' in Viking: the triangle is both the keel-shaped mountain and the conifer forest that covers it, the white its deep winter snow and ski slopes. With no charge at all, only a single division, it is among the simplest flags in the islands."
   traits: { industries: [forestry, ski, tourism], heritage: viking, age: old }
   notes:
     zh: 长船岛中部谢尔海姆山东南麓的山区城市，以林业、滑雪与山地旅游为生，全市只设谢尔海姆一区。谢尔海姆山是贯穿长船岛中部的山脉，因形如长船的龙骨而得名，谢尔海姆在维京语里意为「龙骨之乡」，山上覆盖着茂密的针叶林，冬季积雪深厚，是群岛最重要的林业基地和滑雪胜地。全市人口约三十万，林业和木材加工是传统支柱，林场按照可持续的轮伐制度经营，锯木厂和家具厂把木材加工成建材、地板和家具，供应长船都市区和群岛各地；冬季运动和山地旅游是新的增长点，谢尔海姆山滑雪场是群岛最大的滑雪场，夏季则以徒步、山地自行车和森林露营吸引游客。由于远离海岸，谢尔海姆是群岛少有的内陆城市，居民以维京语为母语的家庭居多，许多家庭世代经营林场，老年人比例较高。谢尔海姆是长船岛南北交通的必经之地：群岛跨海高速从这里经过，向东北通往长船，向西南通往斯蒂尔维克；谢尔海姆山公路纵贯全市，连接朗桑德与斯蒂尔维克、斯库特斯塔德。谢尔斯卡德山口是翻越谢尔海姆山的低矮山口。谢尔海姆城市不大，却以清新的空气、茂密的森林和冬季的白雪成为长船人心中的度假后花园。
@@ -272,9 +278,10 @@ divisions:
   population: 400000
   area_km2: 7400.0
   color: '#3D8A8A'
-  emblem:
-    motif: river
-    pattern: flow
+  flag: { layout: banner, colors: ['#1D4E89', '#FFFFFF'], division: wavy }
+  flag_notes:
+    zh: "上蓝下白，中间以波浪线分开。弗洛德维克在维京语里意为「潮湾」，波浪线是阿克斯海峡每天两次的涨落潮，蓝色是潮水，白色是潮汐电站大坝和海峡里翻起的浪花。渔民说旗上的浪画的是涨潮，所以市政厅降旗总挑在退潮的时候。"
+    en: "Blue over white, parted by a wavy line. Flodvik means 'tide bay' in Viking: the waves are the twice-daily tides of the strait, the blue the flood and the white the tidal barrage and the surf it raises. Fishermen say the waves on the flag show high water, so the city hall always lowers it at the ebb."
   traits: { industries: [tidal, fishing, commerce], heritage: viking, age: balanced }
   notes:
     zh: 长船岛西北岸面向阿克斯海峡的城市，以潮汐电站与海鲜市场闻名，全市只设弗洛德维克一区。阿克斯海峡在这里收窄，潮差大、潮流急，是群岛开发潮汐能的最佳地点，弗洛德维克潮汐电站横跨海湾口，利用每天两次的涨落潮发电，为长船都市区提供清洁电力，也是群岛最具代表性的新能源工程；电站的运维、海洋工程和电力设备制造带动了地方工业。海峡里潮流带来丰富的鱼类和贝类，弗洛德维克渔港是长船岛西北岸最大的渔港，弗洛德维克海鲜市场每天清晨拍卖新鲜的鳕鱼、比目鱼、螃蟹和贻贝，长船的餐馆和超市大多从这里进货，渔业、海鲜批发和商贸是全市的另一支柱。全市人口约四十万，居民以维京语为母语的家庭居多，劳动年龄人口比例较高。弗洛德维克是群岛高速公路网的重要节点：阿克斯跨海高速从这里出发，跨越阿克斯海峡通往阿克斯维克；长船西岸高速经过这里，向南通往斯蒂尔维克，向东北通往长船；长船西北岸公路也从这里出发，沿海岸经西岸、北岬通往长船机场。弗洛德维克以潮汐和海鲜为名片，是长船岛西北岸最有活力的城市。
@@ -313,9 +320,10 @@ divisions:
   population: 600000
   area_km2: 11250.0
   color: '#E9A23B'
-  emblem:
-    motif: compass
-    pattern: waves
+  flag: { layout: ensign, colors: ['#1B2F5E', '#FFFFFF'], charge: compass, charge_color: '#B22234' }
+  flag_notes:
+    zh: "群岛方角旗：深蓝底，左上角是领地旗，右侧白色圆徽里是一朵红色罗盘玫瑰。以英语命名的港口和要塞城镇沿用殖民时代的格式，把领地旗放在左上角。罗盘代表最先在这里靠岸的商船「阿夫琳号」和今天驶向世界各地的邮轮，深蓝是港外的深海。"
+    en: "An island ensign: deep blue with the territory flag in the canton and a red compass rose on a white badge in the fly. The ports and forts with English names keep this pattern from colonial times. The compass is the merchant ship Aveline, the first to put in here, and the cruise ships that sail from the port today to every part of the world; the blue is the deep water off the harbour."
   traits: { industries: [cruise, retail, tourism], heritage: mixed, age: balanced }
   notes:
     zh: 阿夫琳岛东北部的邮轮母港与免税购物城，群岛第四大城市，人口约六十万。阿夫琳港得名于早年最先在这里靠岸的商船「阿夫琳号」，维京时代这里就是群岛的商船集散地，如今则以邮轮和免税购物闻名：阿夫琳港邮轮母港是群岛最大的邮轮港，每年接待数百航次的邮轮，阿夫琳港免税城汇集了来自世界各地的商品，邮轮游客和购物客是全市经济的主要来源。阿夫琳码头区是邮轮码头、免税商业街和渡轮枢纽；灯塔区是阿夫琳岛东北端的老灯塔、海滨别墅和观鲸码头；帆城区是老城和市政中心，帆船俱乐部和造帆作坊延续着城市的航海传统，阿夫琳港机场也在这里；望海区则是卡洛韦岭东麓的住宅区、果园和观景山道。邮轮、零售和旅游是全市的支柱，酒店、餐饮和交通服务提供了大量就业。阿夫琳港的居民来源多元，以中文、维京语和巴克汉姆语为母语的人都很多。长阿跨海高速从这里跨海直达长船，阿夫琳纵贯高速向南经萨尔塔维克通往莫塞，阿夫琳港邮轮高速连接机场和邮轮港。阿夫琳港繁华而好客，是维京群岛迎接世界游客的大门。
@@ -403,9 +411,10 @@ divisions:
   population: 152000
   area_km2: 8300.0
   color: '#B08968'
-  emblem:
-    motif: peaks
-    pattern: contours
+  flag: { layout: seal, colors: ['#1B2F5E', '#F2C14E', '#1B2F5E', '#FFFFFF'], charge: tower, charge_color: '#1B2F5E' }
+  flag_notes:
+    zh: "深蓝底正中一枚金色圆印，印环上写着英语城名，白色印心里是一座深蓝色的石堡。城市得名于扼守卡洛韦岭山路的古老石堡，这枚印是要塞时代驻军的公章，后来原样用作市旗。城里的老人仍把这面旗叫作「堡印」，登山向导会把它缝在背包上。"
+    en: "A gold round seal on deep blue, its ring bearing the city's name in English and its white centre a deep blue stone keep. The city is named after the old fort guarding the road over the Calloway ridge; the seal was the garrison's official stamp in the fort's days and was later taken over unchanged as the city flag. Older residents still call it 'the fort seal', and mountain guides sew it onto their packs."
   traits: { industries: [forestry, tourism], heritage: viking, age: old }
   notes:
     zh: 阿夫琳岛中部卡洛韦岭下的山区城市，以林业与登山为生，全市只设卡洛韦堡一区。卡洛韦岭是纵贯阿夫琳岛的山脉，从海上远望，山脊的轮廓像一面鼓起的船帆投下的影子，城市则得名于扼守山路的一座古老石堡。全市面积八千多平方公里，人口只有约十五万，是阿夫琳岛人口最少的城市，大部分土地是森林、高山草甸和岩峰。林业是传统支柱，卡洛韦岭西北麓的林场出产云杉和松木，木材经卡洛韦岭公路运往帆城和莫塞加工；登山、徒步和山地旅游是新的增长点，卡洛韦岭的主峰和山口吸引着群岛的登山爱好者，山间小镇的旅馆和登山向导服务随之兴起。由于山区交通不便、就业机会有限，许多年轻人到阿夫琳港和长船工作，留在山里的多是老人和世代经营林场的家庭，老年人比例较高。卡洛韦岭公路是全市的主要道路，向东北通往阿夫琳港的帆城区，向西南经维托斯通往莫塞。居民以维京语为母语，民风淳朴。卡洛韦堡山高林密、云雾缭绕，是阿夫琳岛的绿色屋脊。
@@ -442,9 +451,10 @@ divisions:
   population: 452000
   area_km2: 8650.0
   color: '#8AB17D'
-  emblem:
-    motif: basin
-    pattern: grid
+  flag: { layout: banner, colors: ['#1F5F8B'], charge: salt, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "蓝底上三块白色的盐晶，排成三角。萨尔塔维克在维京语里意为「盐湾」，三块盐晶代表海湾里成片的盐田和自维京时代传下来的日晒与熬煮制盐法；蓝色是清澈的海水，也是湾外那片海上风电场所在的海面。萨尔塔维克海盐的包装上至今印着这三块盐。"
+    en: "Three white salt crystals in a triangle on blue. Saltavik means 'salt bay' in Viking: the crystals are the salt pans of the bay and the sun-drying and boiling handed down from Viking times, the blue the clear water and the sea where the offshore wind farm now stands. Packets of Saltavik sea salt still carry the three crystals."
   traits: { industries: [salt, wind, fishing], heritage: viking, age: old }
   notes:
     zh: 阿夫琳岛东南岸的海盐与海上风电城市，全市人口约四十五万，下设萨尔塔维克和菲斯克海姆两区。萨尔塔维克在维京语里意为「盐湾」，因海湾里成片的盐田而得名，这里海水清澈、风大日照足，自维京时代起就以日晒和熬煮法生产海盐，萨尔塔维克海盐至今仍是群岛最有名的特产之一，盐田、盐仓和制盐作坊构成了独特的海岸风景。近年来，萨尔塔维克湾外海建成了大型海上风电场，数百台风机矗立在海面上，为阿夫琳岛和长船岛供应电力，风电运维港和风机维修基地为城市带来了新的产业和就业；菲斯克海姆区则以渔业和冷链加工为主，渔获通过阿夫琳纵贯高速运往阿夫琳港和长船。海盐、风电和渔业是全市的三大支柱，第一、第二产业比重明显高于群岛平均水平。居民以维京语为母语的家庭居多，许多家庭世代晒盐捕鱼，年轻人有不少进入风电行业，但整体老年人比例仍然较高。阿夫琳纵贯高速从市内穿过，向北通往阿夫琳港，向南通往莫塞；萨尔塔维克海滨公路沿海岸连接菲斯克海姆、萨尔塔维克和望海。萨尔塔维克的海岸线上，古老的盐田与现代的风机交相辉映，是群岛传统与新能源相结合的缩影。
@@ -498,9 +508,10 @@ divisions:
   population: 401000
   area_km2: 8600.0
   color: '#8D99AE'
-  emblem:
-    motif: gull
-    pattern: waves
+  flag: { layout: banner, colors: ['#A4262C'], charge: gull, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "红底上一只展翅的白色银鸥。莫塞在维京语里意为「鸥岛」，城市因莫斯维克湾上成群的银鸥而得名；红色取自渔家老屋的红墙，也是群岛维京老城常用的旗色。夏天湾上的银鸥比度假的人还多，市民开玩笑说这面旗是替它们挂的。"
+    en: "A white herring gull with wings spread on red. Måsey means 'gull island' in Viking, after the herring gulls that crowd its bay; the red comes from the red walls of the old fishing houses and is a common colour on the islands' Viking town flags. In summer there are more gulls on the bay than holidaymakers, and residents joke that the flag flies for them."
   traits: { industries: [tourism, residential, forestry], heritage: viking, age: old }
   notes:
     zh: 阿夫琳岛西南端的海滨城市，隔着阿夫琳海峡与长船岛相望，以海湾风光、度假住宅和林业为生，下设莫塞和维托斯两区。莫塞在维京语里意为「鸥岛」，城市因莫斯维克湾上成群的银鸥而得名，莫斯维克湾水面宽阔、海滩洁白，湾外的引水岛曾是引水员等候进出阿夫琳海峡船只的地方，如今是渡假小岛。全市人口约四十万，服务业占经济的大头：莫塞区是度假住宅、海滨酒店和退休社区集中的地方，许多长船和阿夫琳港的家庭在这里购置第二居所，夏季人口明显增多；维托斯区则是卡洛韦岭西南端的林场和牧场，林业和乳业延续着传统的乡村生活。由于退休人士和度假居民较多，全市老年人比例较高，劳动年龄人口偏少。居民以维京语为母语的家庭居多，老城保留着木结构的渔屋和小教堂。莫塞是阿夫琳岛西南的交通门户：阿夫琳纵贯高速从这里出发，沿东南岸经维托斯、菲斯克海姆、萨尔塔维克通往阿夫琳港；西格利跨海高速则从西格拉维克跨越西格利海峡在莫塞登陆，向西南通往西格利岛和暖泉；卡洛韦岭公路沿西北岸经维托斯、卡洛韦堡通往帆城。莫塞海湾明净、生活闲适，是群岛人心目中理想的海边小城。
@@ -556,9 +567,10 @@ divisions:
   population: 700000
   area_km2: 13000.0
   color: '#1D3557'
-  emblem:
-    motif: anchor
-    pattern: stripes
+  flag: { layout: banner, colors: ['#1D3557'], charge: anchor, charge_color: '#F2C14E' }
+  flag_notes:
+    zh: "深蓝底上一只金色的锚。阿克斯维克在维京语里意为「锚湾」，阿克斯岛形如船锚，城市就坐落在两只锚爪之间水深浪静的海湾里；金锚代表群岛吞吐量最大的集装箱港和造船基地，深蓝是远洋航线通往的大海。瑙斯特海姆船厂下水的每一艘船，都挂着这面旗出港。"
+    en: "A gold anchor on deep blue. Akkersvik means 'anchor bay' in Viking: the island is shaped like an anchor and the city lies in the deep, calm bay between its flukes. The anchor is the islands' busiest container port and their shipbuilding base, the blue the ocean its routes cross. Every ship launched from the city's yards leaves harbour flying it."
   traits: { industries: [port, shipbuilding, logistics, finance], heritage: viking, age: balanced }
   notes:
     zh: 阿克斯岛西南部的港口城市，群岛最大的集装箱港与造船基地，人口约七十万，是群岛第二大城市。阿克斯维克在维京语里意为「锚湾」，因阿克斯岛形如船锚、城市坐落在两只锚爪之间的阿克斯维克湾而得名，港湾水深浪静，自古就是群岛最好的避风港。全市的经济以港口和船舶为核心：阿克斯维克区的阿克斯维克集装箱港是群岛吞吐量最大的港口，远洋航线通往世界各地；瑙斯特海姆区的造船厂、船坞和海工装备基地建造集装箱船、渡轮、海上风电安装船和钻井平台，是群岛重要的工业基地；链城区是城市中心，群岛航运交易所、船级社和航运金融机构集中在这里，阿克斯维克机场也在区内；西爪区则是西爪岬一带的住宅区、牧场和海岸步道。港口、造船、物流和航运金融共同支撑起阿克斯维克的经济，劳动年龄人口比例较高。阿克斯维克的居民以维京语为母语的家庭居多，船员、码头工人和造船工人构成了城市的主体，航海传统深入人心。阿克斯跨海高速经阿克斯海峡从瑙斯特海姆区通往弗洛德维克，阿斯跨海高速通往斯蒂尔维克，阿克斯岛纵贯高速向北通往富鲁海姆，阿托高速通往托克维克。阿克斯维克是维京群岛的工业心脏和海上门户。
@@ -646,9 +658,10 @@ divisions:
   population: 452000
   area_km2: 12150.0
   color: '#5E6472'
-  emblem:
-    motif: lighthouse
-    pattern: halo
+  flag: { layout: banner, colors: ['#2F3E4E'], charge: lighthouse, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "暗灰蓝底上一座白色灯塔，灯光向两侧射出。托克维克在维京语里意为「雾湾」，海湾常年笼罩在海雾中，灰蓝是雾里的海面，灯塔是为渔船引路的灯光。雾大的清晨港口只听得见雾笛，市民说这面旗「平时看着阴沉，起了雾才看得出它的用处」。"
+    en: "A white lighthouse casting its beams on dark grey-blue. Tåkevik means 'fog bay' in Viking and lies under sea fog much of the year: the grey-blue is the sea in the mist and the lighthouse the light that guides the fishing boats home. On foggy mornings only the foghorn can be heard in the harbour, and residents say the flag looks gloomy until the fog comes in."
   traits: { industries: [fishing, wind, tourism], heritage: viking, age: old }
   notes:
     zh: 阿克斯岛西岸的雾港城市，常年多雾，以渔业、海产养殖、海上风电和峡湾旅游为生，下设托克维克和峡湾两区。托克维克在维京语里意为「雾湾」，城市因海湾常年笼罩在海雾中而得名，湿润的西风从大洋吹来，在锚链山前凝成浓雾，清晨的港口常常只能听见雾笛和渔船的马达声。全市人口约四十五万，面积一万两千多平方公里，大部分是锚链山的山地和西岸深切的峡湾。托克维克区是城市的中心和渔港，渔船在西岸外海捕捞鳕鱼、鲱鱼和鲭鱼，峡湾里的网箱养殖鲑鱼和贻贝，海产加工和冷链运输是传统支柱；近年外海建起了海上风电场，风电运维成为新的增长点。尤普峡湾区则是深切的峡湾、瀑布和森林，峡湾观光和林业是那里的主要产业。由于山多地少、交通曾经不便，许多年轻人外出工作，全市老年人比例在群岛位居前列，居民以维京语为母语的家庭居多。阿托高速从阿克斯维克链城区出发，以隧道穿过锚链山主脊，经尤普峡湾区到托克维克，是西岸通往阿克斯维克的快速通道；阿克斯岛峡湾公路则从链城经托克维克沿峡湾北上通往富鲁海姆。托克维克雾中藏港、峡湾深邃，是阿克斯岛最有神秘气息的城市。
@@ -702,9 +715,10 @@ divisions:
   population: 250000
   area_km2: 11900.0
   color: '#2D6A4F'
-  emblem:
-    motif: pine
-    pattern: furrows
+  flag: { layout: banner, colors: ['#2D6A4F'], charge: pine, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "绿底上一棵白色的松树。富鲁海姆在维京语里意为「松林之乡」，大片松林从海岸一直延伸到铁锚峰脚下，林业在经济中的比重在群岛各市中名列前茅；白色是冬季越野滑雪的雪道。林场每轮伐一片林，就在新栽的树苗旁插一面小旗作记号。"
+    en: "A white pine on green. Furuheim means 'home of the pines' in Viking: pine forest runs from the coast to the foot of the island's highest peak, and forestry weighs more in its economy than in almost any other city of the islands; the white is the cross-country ski trails of winter. Each time a stand is felled, the foresters mark the new seedlings with a small flag."
   traits: { industries: [forestry, tourism], heritage: viking, age: old }
   notes:
     zh: 阿克斯岛东北端的森林城市，以林业和森林旅游为生，全市只设富鲁海姆一区。富鲁海姆在维京语里意为「松林之乡」，面积近一万两千平方公里，人口约二十五万，是阿克斯岛地广人稀的北部，大片松林从海岸一直延伸到阿克斯岛最高峰铁锚峰的山脚，林业在经济中的比重在群岛各市中名列前茅。林场世代按照可持续的轮伐制度经营，伐下的松木在锯木厂加工成建材、木板和木屑颗粒，经阿克斯岛纵贯高速运往阿克斯维克，再由船运销往群岛各地和海外；过去木材只能靠海运出岛，高速通车后运输变得快捷稳定。森林旅游是富鲁海姆的新产业，徒步、狩猎、垂钓、越野滑雪和森林木屋吸引着来自阿克斯维克和长船的游客，赫里姆岛自然保护区和锚链冰川是最受欢迎的自然景点。居民以维京语为母语的家庭居多，林业家庭世代相传，年轻人多到阿克斯维克工作，老年人比例较高。富鲁海姆是阿克斯岛两条主干道路的终点：阿克斯岛纵贯高速从阿克斯维克湾出发纵贯全岛到达这里，阿克斯岛峡湾公路则从链城经托克维克沿西岸峡湾绕到富鲁海姆。松林空气清新、林海无边，是阿克斯岛北部的绿色宝库。
@@ -743,9 +757,10 @@ divisions:
   population: 440000
   area_km2: 12450.0
   color: '#E76F51'
-  emblem:
-    motif: sun
-    pattern: rays
+  flag: { layout: banner, colors: ['#C44536'], charge: steam, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "砖红底上一汪泉水升起三缕白色蒸汽。暖泉火山的地热让全岛遍布温泉、喷气孔和地热田，蒸汽代表温泉与地热电站，砖红是火山岩和熔岩的颜色。冬夜在极光下泡温泉是群岛最有名的体验，温泉区的酒店都在池边挂这面旗。"
+    en: "Three white wisps of steam rising from a spring on brick red. The heat of the Warmspring volcano fills the island with hot springs, fumaroles and steam fields: the steam is the springs and the geothermal plants, the red the volcanic rock and lava. Soaking under the aurora on a winter night is the islands' most famous experience, and the spa hotels fly the flag by their pools."
   traits: { industries: [tourism, healthcare, geothermal], heritage: mixed, age: old }
   notes:
     zh: 暖泉岛上的温泉度假城，暖泉火山的地热让这里遍布温泉、喷气孔和地热田，冬季在极光下泡温泉是群岛最有名的体验。全市人口约四十四万，经济以旅游、疗养和地热能源为主：温泉区是温泉酒店、疗养院和会议度假村集中的地方，暖泉温泉度假村是群岛最大的温泉度假村；斯瓦特桑德区以火山黑沙滩、熔岩地貌步道和斯瓦特桑德地热电站闻名；暖河区是暖河河口的港口新区和水产加工基地。地热电站为全岛供应电力和暖气，温泉水被引入酒店、疗养院、温室和家庭，城市的街道冬季也不结冰。暖泉的气候和温泉吸引了大量疗养者和退休人员，老年人比例较高，医疗和康复产业发达。暖泉火山和暖泉冰帽是岛上的地标，火山口附近的火口峰可以俯瞰全岛，冰帽下的冰川和火山相映，形成冰与火交融的奇观。群岛跨海高速从这里经过，连接克莱特斯塔德和斯蒂尔维克，暖泉南环高速向南经新特雷曼通往克莱特斯塔德，西格利跨海高速经西格拉维克通往莫塞。居民来源多元，以中文、维京语和巴克汉姆语为母语的人都不少。暖泉温暖、宁静，是群岛最受欢迎的冬季度假地。
@@ -816,9 +831,10 @@ divisions:
   population: 300000
   area_km2: 10300.0
   color: '#D4A017'
-  emblem:
-    motif: volcano
-    pattern: rays
+  flag: { layout: ensign, colors: ['#3A6B35', '#FFFFFF'], charge: volcano, charge_color: '#B22234' }
+  flag_notes:
+    zh: "群岛方角旗：温室绿底，右侧白色圆徽里是一座冒烟的红色火山。城市得名于最早在这里开采硫磺的特雷曼家族，火山代表离地表很近的地热，绿色是全年恒温的玻璃温室里种出的蔬果和花卉。它是群岛唯一一面绿底的方角旗。"
+    en: "An island ensign in greenhouse green, with a smoking red volcano on the white badge. The town is named after the Tremaine family who first mined sulphur here; the volcano is the geothermal heat that lies close to the surface, the green the vegetables and flowers grown all year in the heated glasshouses. It is the only green ensign in the islands."
   traits: { industries: [greenhouse, tourism, geothermal], heritage: viking, age: balanced }
   notes:
     zh: 暖泉岛南岸的地热温室城市，以温室农业、地热和旅游为生，全市只设新特雷曼一区。城市得名于最早在这里开采硫磺的特雷曼家族，海湾边常年飘散着地热喷气孔的硫磺气味，暖泉火山的地下热能在这里离地表很近，地热井和地热电站为全市供应电力和热水，也为大片温室提供了全年恒温的热源。温室农业是新特雷曼最有特色的产业：玻璃温室里种植番茄、黄瓜、辣椒、草莓和花卉，甚至能在北方的冬天收获热带水果，蔬果供应全群岛的超市，花卉出口海外；地热也带动了温泉浴场、地热景区和火山旅游，游客可以参观喷气孔、泥火山和地热电站。全市人口约三十万，温室和地热产业吸引了许多年轻家庭，儿童比例在群岛各市中居于前列，居民以维京语为母语的家庭居多。新特雷曼是暖泉岛的交通要道：群岛跨海高速经火山北侧穿过全市，暖泉南环高速沿火山南麓经过，两条高速在岛西的克莱特斯塔德和岛东的温泉区之间合成环线；暖泉环山公路也从这里经过。新特雷曼冬季温室灯火通明、蒸汽袅袅，是群岛利用地热最成功的城市之一。
@@ -855,9 +871,10 @@ divisions:
   population: 406000
   area_km2: 11300.0
   color: '#9C6644'
-  emblem:
-    motif: gear
-    pattern: hex
+  flag: { layout: banner, colors: ['#1E1E24'], charge: basalt, charge_color: '#E0B84C' }
+  flag_notes:
+    zh: "黑底上五根高低不齐的金色玄武岩柱。克莱特斯塔德在维京语里意为「岩城」，港口建在暖泉火山熔岩冷却成的玄武岩台地和海崖上，岩柱代表采石场与坚硬的岩岸，黑色是火山岩，金色是火山周围出产的石料、浮石和硅藻土带来的财富。"
+    en: "Five gold basalt columns of uneven height on black. Klettstad means 'rock town' in Viking: its harbour lies on the basalt terraces and sea cliffs left by the volcano's lava, so the columns are the quarries and the hard shore, the black the volcanic rock and the gold the wealth of the stone, pumice and diatomite mined around it."
   traits: { industries: [mining, geothermal, port], heritage: viking, age: balanced }
   notes:
     zh: 暖泉岛西岸的矿业与地热港城，坐落在暖泉火山西麓，下设克莱特斯塔德和落日两区。克莱特斯塔德在维京语里意为「岩城」，城市因港口建在坚硬的火山岩岸上而得名，暖泉火山的熔岩在西岸冷却成玄武岩台地和海崖，克莱特斯塔德就在台地边的天然深水湾里。全市人口约四十万，经济以采矿、地热和港口为核心：火山周围出产玄武岩石料、浮石、火山渣和硅藻土，采石场和加工厂把它们制成建材、过滤材料和保温材料，经克莱特斯塔德码头运往群岛各地和海外；地热电站利用火山深处的热能发电，克莱特斯塔德是暖泉岛的能源基地。第二产业在全市经济中的比重在群岛各市中最高，矿工、地热工程师、码头工人和机械技工构成了城市的主体，劳动年龄人口比例较高。落日区则是西岸的渔村和观景地，以落日岬的日落闻名。居民以维京语为母语的家庭居多。克莱特斯塔德是暖泉岛两条高速的西端：群岛跨海高速从这里出发，经火山北侧横贯暖泉岛跨海通往长船；暖泉南环高速沿火山南麓经新特雷曼、斯瓦特桑德通往温泉区；暖泉环山公路也经克莱特斯塔德通往落日。火口峰是暖泉火山的主峰，也是全岛最高点，峰顶的暖泉冰帽终年不化。克莱特斯塔德坚硬朴实，是暖泉岛的工业脊梁。
@@ -913,9 +930,10 @@ divisions:
   population: 126000
   area_km2: 7450.0
   color: '#2A9D8F'
-  emblem:
-    motif: ring
-    pattern: dots
+  flag: { layout: border, colors: ['#2A9D8F', '#0E2A47', '#FFFFFF'], charge: whaletail, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "旗杆一侧是塔夫鲁纳克滚边，其余青绿色旗面上一条白色鲸尾跃出海面。乌维克库特海峡是座头鲸、虎鲸和小须鲸夏季洄游的通道，鲸尾代表观鲸湾和瓦莱岛的观鲸船，青绿是海峡的海水。市名来自塔夫鲁纳克语，因此和北冰洋、北维京岛的塔夫鲁纳克城镇一样用滚边旗。"
+    en: "A Tavrunaq border at the hoist and, on the sea green field, a white whale's tail rising from the waves. Humpbacks, orcas and minke whales pass through the strait every summer: the tail is the whale-watching bay and its boats, the green the water of the strait. The city's name is Tavrunaq, so it flies the same border as the Tavrunaq towns of the Arctic Ocean and North Viking Island."
   traits: { industries: [tourism, fishing], heritage: viking, age: old }
   notes:
     zh: 维京群岛西部的外围岛屿，由瓦莱岛、西基克图克岛、伦达霍尔姆岛和许多小岛组成，以观鲸、海鸟和渔村闻名。全市人口约十三万，分布在瓦莱岛和西基克图克岛沿岸的渔村与小镇里，与群岛主岛之间只靠渡轮相连，岛与岛之间则由一条乌维克库特跨海公路串起，是群岛最偏远的城市之一。乌维克库特海峡和观鲸湾是座头鲸、虎鲸和小须鲸夏季洄游的通道，瓦莱岛的观鲸船和观鲸中心吸引着来自世界各地的游客；西基克图克岛的悬崖上栖息着数十万只海鹦、海雀和三趾鸥，是群岛重要的海鸟繁殖地，大部分划为自然保护区。旅游和渔业是全市的两大支柱，渔民在近海捕捞鳕鱼、鲱鱼和龙虾，鱼干、熏鱼和海鲜罐头是乌维克库特的特产。岛上的生活与海洋和天气息息相关，冬季风暴频繁，渡轮常常停航，居民习惯了自给自足的生活。维京语是乌维克库特最主要的母语，许多家庭世代捕鱼，年轻人多到长船和阿克斯维克工作，留在岛上的以老人为主，老年人比例较高。乌维克库特跨海公路连接瓦莱岛和西基克图克两区，瓦莱渡轮码头有航线通往阿夫琳港、阿克斯维克和长船。乌维克库特风大浪急、天高海阔，是群岛最接近自然的地方。
@@ -969,9 +987,10 @@ divisions:
   population: 351000
   area_km2: 6300.0
   color: '#C9A227'
-  emblem:
-    motif: sail
-    pattern: diagonal
+  flag: { layout: banner, colors: ['#C9A227'], charge: sail, charge_color: '#1D3557' }
+  flag_notes:
+    zh: "金黄底上一根深蓝色的桅杆挂着两面帆，下面是船身。西格利岛上长满笔直高大的松树，过去是造船桅杆的上等材料，岛名和市名在维京语里意为「桅岛」和「桅湾」；金黄是松木的颜色，深蓝是西格利海峡。"
+    en: "A deep blue mast with its sails and hull on golden yellow. The island is covered in tall straight pines, once the best mast timber for shipbuilding, and its name and the city's mean 'mast island' and 'mast bay' in Viking; the yellow is pine wood and the blue the strait."
   traits: { industries: [fishing, tourism, port], heritage: viking, age: old }
   notes:
     zh: 西格利岛上的港口城市，坐落在暖泉岛与阿夫琳岛之间的海面上，以渔业、旅游和港口为生，下设西格拉维克和南桅两区。西格利岛面积近六千平方公里，岛上长满笔直高大的松树，这些松木过去是造船桅杆的上等材料，西格利岛和西格拉维克也因此得名（维京语里意为「桅岛」和「桅湾」）。全市人口约三十五万，北端的西格拉维克区是城市中心和港口，渔船在西格利海峡和周边海域捕捞鳕鱼、鲱鱼和贝类，牡蛎岛一带的牡蛎养殖远近闻名；南端的南桅区则是松林、牧场和乳品农场，林业、乳业和森林旅游是那里的主要生计。西格利跨海高速通车后，西格利岛从一个偏远小岛变成暖泉岛与阿夫琳岛之间跨海通道的中转站，岛上建起了服务区和观景台，过境旅游和物流随之兴起，港口与旅游成为城市新的支柱。由于岛上就业机会有限，许多年轻人到长船和阿夫琳港工作，全市老年人比例较高，居民以维京语为母语的家庭居多。西格利跨海高速自暖泉经暖河和长船岛船尾跨海到西格拉维克，再跨越西格利海峡到阿夫琳岛的莫塞，两段海上长桥以西格利岛为中间支点；西格利岛公路穿过松林连接南桅与西格拉维克，是岛上最有名的风景路线。西格拉维克海风清爽、松涛阵阵，是跨海旅途中让人愿意停下脚步的海岛。
@@ -1025,9 +1044,10 @@ divisions:
   population: 230000
   area_km2: 5300.0
   color: '#4361EE'
-  emblem:
-    motif: star
-    pattern: dots
+  flag: { layout: diagonal, colors: ['#2E4FB8', '#F1E3C2', '#FFFFFF'], edge: curve, charge: star4, charge_color: '#F2C14E' }
+  flag_notes:
+    zh: "蓝底，右下方一片弧形的沙色海滩，沿岸一道白色浪线，左上角一颗金色四芒星。海滩是南岸绵长的沙滩，蓝色是群岛南部外海温和的海水，金星是航海者的守护圣人圣翁丁，也是渔民夜里辨认方向的那颗星。这是群岛唯一画着海滩的市旗，在一片纹章旗中格外显眼。"
+    en: "Blue, with a curving sand-coloured beach in the lower fly edged by a white line of surf, and a gold four-pointed star in the upper hoist. The beach is the long sands of the south shore, the blue the mild water of the southern sea, and the star Saint Ondine, the seafarers' patron, the star fishermen steer by at night. It is the only city flag in the islands with a beach on it, and stands out among their banners of arms."
   traits: { industries: [tourism, fishing], heritage: viking, age: old }
   notes:
     zh: 群岛最南端的海岛城市，以海滨度假和渔业为生，全市只设圣翁丁一区。圣翁丁岛面积五千多平方公里，位于群岛南部外海，岛上的圣翁丁镇以航海者的守护圣人圣翁丁命名，南岸绵长的沙滩和温和的海水使这里成为群岛最受欢迎的夏季度假地之一。旅游是全市最重要的产业，圣翁丁海滨度假村、海滨别墅和露营地沿南岸分布，夏季日落很晚，晚上十点仍可以在沙滩上看落日，度假的家庭和年轻人从长船、阿夫琳港乘渡轮蜂拥而至；渔业是另一大生计，渔民在南部外海捕捞鲭鱼、鲱鱼和螃蟹，海鲜餐馆和渔家民宿与旅游业相辅相成。全市人口约二十三万，人均产出在群岛各市中偏低，经济的季节性很强，冬季游客稀少，许多年轻人到阿夫琳港和长船工作，老年人比例在群岛各市中最高，居民以维京语为母语的家庭居多。圣翁丁岛的对外交通全靠北岸的圣翁丁渡轮码头，渡轮往返阿夫琳岛的萨尔塔维克；圣翁丁公路是岛上唯一的干线公路，从圣翁丁镇翻过全岛到达渡轮码头，山顶的观景台可以同时眺望南北两侧的海面。圣翁丁远离尘嚣、阳光充足，是群岛人心中的夏日乐园。
@@ -1064,9 +1084,10 @@ divisions:
   population: 177000
   area_km2: 4000.0
   color: '#F4A261'
-  emblem:
-    motif: dawn
-    pattern: stripes
+  flag: { layout: ensign, colors: ['#1B5E8A', '#FFFFFF'], charge: dawn, charge_color: '#E76F51' }
+  flag_notes:
+    zh: "群岛方角旗：海蓝底，右侧白色圆徽里是一轮从海平线升起的橙红色太阳。埃德文港每天最早迎来群岛的第一缕阳光，旭日代表日出旅游，也代表最早在这里筑港的埃德文船长向东开辟的航线。清晨的观日台上，这面旗总是和太阳一起升起。"
+    en: "An island ensign in sea blue, with an orange-red sun rising from the horizon on the white badge. Port Edevane is the first place in the islands to see the sun each day: the sun is its sunrise tourism and the eastward route of Captain Edevane, who built the first harbour here. On the sunrise lookouts the flag goes up with the sun."
   traits: { industries: [tourism, wind, fishing], heritage: viking, age: old }
   notes:
     zh: 群岛东部外海的海岛城市，以埃德文岛和东极岛组成，以日出旅游、海上风电和渔业为生，全市只设埃德文港一区。埃德文岛面积三千六百多平方公里，位于群岛的东端，岛上的埃德文港镇以最早在这里筑港的埃德文船长命名，这里每天最早迎来群岛的第一缕阳光，清晨在海边看日出是游客必做的事；东极岛在埃德文岛东侧，是群岛东端的小岛。旅游是全市最重要的产业，日出、观鸟和海岛徒步吸引着来自长船和阿夫琳港的游客；埃德文海峡的滩涂是候鸟迁徙的重要停歇地，春秋两季成千上万的水鸟在这里觅食。外海的海上风电场是城市的新兴产业，风电运维为岛上提供了技术岗位；渔民在东部外海捕捞鳕鱼和鲱鱼，渔业仍是传统生计。全市人口约十八万，由于岛上学校和就业机会有限，许多年轻家庭迁往阿夫琳港和长船，儿童比例在群岛各市中最低，老年人比例较高，居民以维京语为母语的家庭居多。埃德文岛的对外交通依靠西岸的埃德文港渡轮码头，渡轮往返阿夫琳岛的灯塔区；埃德文港公路自埃德文港镇横穿全岛到达码头，大半路段位于贴着滩涂的埃德文海峡跨海大桥上，桥下潮水自由进出。埃德文港是群岛最早迎来新一天的地方，宁静而充满希望。
@@ -1103,9 +1124,10 @@ divisions:
   population: 152000
   area_km2: 3250.0
   color: '#5FA8D3'
-  emblem:
-    motif: fish
-    pattern: waves
+  flag: { layout: border, colors: ['#2F5D8A', '#F4EFE2', '#2F5D8A'], charge: fish, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "旗杆一侧是米白底深蓝纹的塔夫鲁纳克滚边，其余蓝色旗面上一条白色鳕鱼。鳕鱼汛期海边排满鱼干架，风干鳕鱼是群岛最著名的特产，第一产业在经济中的比重也是群岛各市中最高；滚边的米白取自在海风里晾晒数月后鱼干的颜色。"
+    en: "A Tavrunaq border in cream and deep blue at the hoist and a white cod on the blue field. In the cod season the shore is lined with drying racks, stockfish is the islands' most famous delicacy and fishing makes up a bigger share of the economy than in any other city of the islands; the cream of the border is the colour of the fish after months in the sea wind."
   traits: { industries: [fishing, food], heritage: viking, age: old }
   notes:
     zh: 群岛西北外海的渔业城市，以乌利克尤阿克岛和艾因谢尔岛组成，以捕鱼和风干鳕鱼闻名，全市只设乌利克尤阿克一区。乌利克尤阿克岛面积三千多平方公里，周围的冷水海域是鳕鱼的产卵场和洄游通道，每年冬末春初鳕鱼汛期，渔船倾巢而出，乌利克尤阿克的海边排满了成片的鱼干架，鳕鱼在海风中自然风干数月，制成群岛最著名的特产风干鳕鱼。渔业和食品加工是全市经济的绝对支柱，第一产业在经济中的比重在群岛各市中最高，鱼干厂、腌鱼厂、鱼油厂和冷库为岛上提供了大部分就业，风干鳕鱼销往长船和海外市场。全市人口约十五万，许多家庭世代捕鱼晒鱼，渔民、鱼干工人和冷链司机是城市的主体；由于岛上生活艰苦、季节性强，年轻人多到阿克斯岛和长船工作，老年人比例较高，居民以维京语为母语的家庭居多。艾因谢尔岛位于乌利克尤阿克岛外海，是一座孤立的礁岛，岛上有灯塔和海鸟栖息地。乌利克尤阿克岛的对外交通依靠东岸的乌利克尤阿克渡轮码头，渡轮往返阿克斯岛的富鲁海姆；乌利克尤阿克岛公路自乌利克尤阿克镇的鱼干架旁出发，横穿乌利克尤阿克岛到达渡轮码头，路面按冷藏货车标准修建，码头旁建有冷库和鱼货集散站。乌利克尤阿克的鱼干架和海风，是群岛渔业传统最鲜明的象征。
@@ -1142,9 +1164,10 @@ divisions:
   population: 126000
   area_km2: 2400.0
   color: '#90BE6D'
-  emblem:
-    motif: turbine
-    pattern: stripes
+  flag: { layout: ensign, colors: ['#9B1B30', '#FFFFFF'], charge: turbine, charge_color: '#1D3557' }
+  flag_notes:
+    zh: "群岛方角旗：深红底，右侧白色圆徽里是一台深蓝色风机。亚利图克岛海风终年不息，山脊上的陆上风机和外海的风电场让这里成为群岛风力发电的主要基地；深红是要塞时代的旧旗色，风机是这座要塞小城今天的模样。"
+    en: "An island ensign in deep red, with a deep blue wind turbine on the white badge. The wind never stops on the island, and the turbines on its ridges and out at sea make it the islands' main wind-power base; the red is the old colour of the fort, the turbine what the fort town has become."
   traits: { industries: [wind, manufacturing, fishing], heritage: viking, age: young }
   notes:
     zh: 群岛东北外海的风电城市，以亚利图克岛和哨岛组成，海风终年不息，是群岛风力发电的主要基地，全市只设布兰诺克堡一区。亚利图克岛面积两千三百多平方公里，岛上的山脊排列着成片的陆上风机，外海还建有大型海上风电场，所发的电力经海底电缆输往长船和阿夫琳港；布兰诺克堡风电运维港是群岛重要的风电运维基地，运维船每天载着技术人员出海检修风机，风机叶片、塔筒和零部件的制造与维修厂也设在岛上。风电和制造业是全市经济的支柱，第二产业比重明显高于群岛平均水平，人均产出位居群岛各市前列；渔业则是岛上的传统生计，渔民在风电场周边海域捕鱼。风电产业吸引了大批年轻工程师和技术工人携家带口来到岛上，全市儿童比例在群岛各市中最高，老年人比例最低，是群岛最年轻的城市，居民以维京语为母语的家庭居多。哨岛位于亚利图克岛外海，山顶的哨岛雷达站是海事与气象雷达，监视从东方进入群岛的航路。亚利图克岛公路自布兰诺克堡镇出发，沿风机林立的山脊到南岸的运维港，按运输超长叶片的要求设计；运维港也停靠往返阿夫琳港的渡轮，是亚利图克岛对外的门户。布兰诺克堡风大、人年轻，是群岛新能源的前哨。

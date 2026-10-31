@@ -124,6 +124,14 @@ function everlongSummer(id: string) {
   );
 }
 
+/** The tinctures of each territory flag, for its card. */
+export const FLAG_COLORS: Record<string, string[]> = {
+  north_viking: ["#0B3D91", "#FFFFFF", "#E9B949"],
+  viking_islands: ["#B22234", "#F2C14E", "#1B4F9C", "#FFFFFF"],
+  arctic_ocean: ["#0B1A36", "#5EF2C2", "#FFFFFF", "#F4F8FB", "#C8102E"],
+  everlong_summer: ["#C8102E", "#F6C343", "#E8741E", "#2E7D32", "#66BB6A", "#1565C0", "#FFFFFF"],
+};
+
 export const FLAGS: Record<string, (id: string) => ReactNode> = {
   north_viking: northViking,
   viking_islands: vikingIslands,

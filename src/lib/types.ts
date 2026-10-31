@@ -11,6 +11,30 @@ export type NameLang = (typeof NAME_LANGS)[number];
 export type Names = Partial<Record<NameLang, string>> & { zh: string; en: string };
 export type Localized = { zh: string; en: string };
 
+/** A city flag: a layout from lib/cityFlags.tsx, its tinctures in the layout's order and an optional charge. */
+export interface CityFlagSpec {
+  layout: string;
+  colors: string[];
+  charge?: string;
+  charge_color?: string;
+  /** A tincture round the charge's silhouette, where it would otherwise lose itself in the field. */
+  outline?: string;
+  /** banner: how the field is parted; hoist: wedge for a narrow wedge instead of the full triangle. */
+  division?: "pile" | "wavy" | "bordure" | "wedge";
+  /** bands: stripes run up and down; their relative widths; the stripe the charge sits in. */
+  vertical?: boolean;
+  ratio?: number[];
+  charge_band?: number;
+  /** horizon: the skyline, a river in the foreground, and where the charge stands; diagonal: curve for a curved shore. */
+  edge?: "straight" | "waves" | "peaks" | "fjord" | "ridge" | "curve";
+  river?: boolean;
+  charge_in?: "sky" | "horizon" | "ground";
+  /** seal: the language of the legend, besides English. */
+  legend?: NameLang;
+  /** Further charges, placed on the 60×40 box. */
+  extra?: { charge: string; color: string; x: number; y: number; size: number }[];
+}
+
 export type EntityKind = "division" | "natural" | "route" | "place";
 export type StructureKind = "bridge" | "tunnel" | "snow_shed";
 export type EntityStatus = "canon" | "draft" | "generated";
@@ -69,12 +93,13 @@ export interface Entity {
   ring?: boolean;
   ends_at_network?: boolean;
   segments?: RouteSegment[];
-  /** #RRGGBB; set on cities, used for map tint and emblem. */
+  /** #RRGGBB; set on cities, used for map tint and card accents. */
   color?: string;
-  emblem?: { motif: string; pattern: string };
-  /** Territories: flag design, a key of FLAGS in lib/flags.tsx. */
-  flag?: string;
-  /** Places: the division the place stands in, and whose flag or emblem heads its card. */
+  /** Territories: a design in lib/flags.tsx; cities: a layout from lib/cityFlags.tsx and its tinctures. */
+  flag?: string | CityFlagSpec;
+  /** What the flag's colours and charges stand for. */
+  flag_notes?: { zh: string; en: string };
+  /** Places: the division the place stands in, and whose flag heads its card. */
   in?: string;
   emblem_of?: string;
   /** Stations: the railway and metro lines that stop there. */

@@ -2,7 +2,7 @@
 # subtype follows OSM / Overture place categories.
 # in: the division the place lies in. Without explicit coordinates the generator puts
 #   the place at that division's urban core, offset by offset_km (real km, east/north).
-# emblem_of: the territory or city whose flag or emblem heads the place's card (never drawn on the map).
+# emblem_of: the territory or city whose flag heads the place's card (never drawn on the map).
 # site: the place's grounds drawn as a landmark. size_m is [along, across] in metres; layout
 #   picks the footprint template: city landmarks (complex, hall, campus, stadium, tower, dome
 #   (a round glass dome), park, plaza, market) or transport facilities (airport: runways along the long side; port: piers
@@ -1002,8 +1002,8 @@ places:
       art-x-viking: Internationale Warenbörse Beckerle
       art-x-buckham: Borsa Merci Internazionale di Beckerle
     notes:
-      zh: 交易所大道上的大宗商品与外汇交易所，自贸区徽标上的「交换」图案即取自这里
-      en: The commodity and currency exchange on Exchange Avenue; the "exchange" motif of the zone's emblem comes from it.
+      zh: 交易所大道上的大宗商品与外汇交易所，自贸区的货物与资金大多在这里成交
+      en: The commodity and currency exchange on Exchange Avenue, where most of the zone's goods and money change hands.
     in: div_8p9k5t
     offset_km: [-0.6, -0.6]
     site: { layout: hall, size_m: [240, 160] }
