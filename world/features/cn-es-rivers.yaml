@@ -13,8 +13,8 @@ features:
       zh: 世界最长的河流，长约 1400 公里
       en: The longest river in the world, about 1,400 km
     notes:
-      zh: 领地最长的河流，伊武兰语意为「大河」。河流发源于哈努帕拉高原，从高原东南缘跌落后沿蒂拉凯苏山脉东南侧的长谷向西南流，最后在主岛西南端分成众多汊道，冲积成哈努西鲁河三角洲，萨伦纳姆市就建在三角洲上。河谷是领地最重要的稻作区和交通走廊。
-      en: The longest river in the territory; in Ivuran the name means 'great river'. It rises on the Hanupala Plateau, drops from its south-eastern edge and runs south-west down the long valley on the south-eastern side of the Tirakesu Mountains, dividing at last into many channels at the south-western end of the main island to build the Hanusiru Delta, on which Sarunnam City stands. Its valley is the territory's greatest rice-growing land and its main corridor of travel.
+      zh: "领地最长的河流，伊武兰语意为「大河」。河流发源于哈努帕拉高原，从高原东南缘跌落后沿蒂拉凯苏山脉东南侧的长谷向西南流，最后在主岛西南端分成众多汊道，冲积成哈努西鲁河三角洲，萨伦纳姆市就建在三角洲上。河谷是领地最重要的稻作区和交通走廊。河谷里的人管哈努西鲁河叫「大妈妈」，雨季洪水漫上河岸时，农民不慌不忙把船拴在屋柱上，说这是「大妈妈来给田送饭了」。"
+      en: "The longest river in the territory; in Ivuran the name means 'great river'. It rises on the Hanupala Plateau, drops from its south-eastern edge and runs south-west down the long valley on the south-eastern side of the Tirakesu Mountains, dividing at last into many channels at the south-western end of the main island to build the Hanusiru Delta, on which Sarunnam City stands. Its valley is the territory's greatest rice-growing land and its main corridor of travel. The valley calls the Hanusiru \"Big Mother\", and when the wet-season flood spills over the banks farmers calmly tie their boats to the house posts and say \"Big Mother has brought the fields their dinner\"."
   - id: nat_prhp24
     subtype: river
     status: generated
@@ -23,8 +23,8 @@ features:
       en: Lomisiru River
       art-x-ivuran: Lomisiru
     notes:
-      zh: 流经洛米兰雨林的大河，伊武兰语意为「森林之河」。河流发源于哈努帕拉高原西北缘，跌落成瀑布后穿过洛米哈努国家公园的雨林，在马纳卢区入海，河口两岸是红树林。河上没有水坝，雨季河水漫进森林，形成大片季节性的淹水林。
-      en: The great river of the Lomiran rainforest; in Ivuran the name means 'river of the forest'. It rises on the north-western edge of the Hanupala Plateau, falls in waterfalls and crosses the rainforest of Lomihanu National Park to reach the sea in Manalu District between mangroves. There are no dams on it, and in the wet season it spills into the forest, flooding wide stretches of it for months.
+      zh: "流经洛米兰雨林的大河，伊武兰语意为「森林之河」。河流发源于哈努帕拉高原西北缘，跌落成瀑布后穿过洛米哈努国家公园的雨林，在马纳卢区入海，河口两岸是红树林。河上没有水坝，雨季河水漫进森林，形成大片季节性的淹水林。雨季淹水林里的鱼会游进林子里吃落下的果子，村民划着独木舟在树梢之间撒网，孩子们说这是一年里唯一能「在树上钓鱼」的季节。"
+      en: "The great river of the Lomiran rainforest; in Ivuran the name means 'river of the forest'. It rises on the north-western edge of the Hanupala Plateau, falls in waterfalls and crosses the rainforest of Lomihanu National Park to reach the sea in Manalu District between mangroves. There are no dams on it, and in the wet season it spills into the forest, flooding wide stretches of it for months. In the wet season the fish swim into the flooded forest to eat fallen fruit, villagers cast their nets among the treetops from canoes, and the children say it is the one time of year you can \"fish in the trees\"."
   - id: nat_xxg5nt
     subtype: lake
     status: generated
@@ -33,8 +33,8 @@ features:
       en: Lake Ombelhanu
       art-x-ivuran: Ombelhanu
     notes:
-      zh: 哈努帕拉高原上的大湖，伊武兰语意为「大湖」，是领地最大的湖泊。首府米雷兰在湖的东南岸，帕萨卢区的规划轴线一端朝向湖面，翁贝尔区的湖滨步道和公共浴场是首府居民周末休闲的地方；湖边的芦苇荡是水鸟的栖息地。
-      en: The great lake of the Hanupala Plateau; in Ivuran the name means 'great lake', and it is the largest lake in the territory. The capital, Mirelan, stands on its south-eastern shore, with one end of the planned axis of Pasalu District looking out over the water, and the lakeside promenade and bathing beaches of Ombel District are where the capital's people spend their weekends; reedbeds along the shore shelter water birds.
+      zh: "哈努帕拉高原上的大湖，伊武兰语意为「大湖」，是领地最大的湖泊。首府米雷兰在湖的东南岸，帕萨卢区的规划轴线一端朝向湖面，翁贝尔区的湖滨步道和公共浴场是首府居民周末休闲的地方；湖边的芦苇荡是水鸟的栖息地。傍晚湖面起风时，首府的上班族喜欢下班后来湖边吃一碗烤鱼配米线，本地人说米雷兰的规划轴线朝着湖面，「是为了让开会的人记得抬头」。"
+      en: "The great lake of the Hanupala Plateau; in Ivuran the name means 'great lake', and it is the largest lake in the territory. The capital, Mirelan, stands on its south-eastern shore, with one end of the planned axis of Pasalu District looking out over the water, and the lakeside promenade and bathing beaches of Ombel District are where the capital's people spend their weekends; reedbeds along the shore shelter water birds. When the evening breeze rises off the lake, office workers from the capital come down after work for grilled fish and rice noodles, and locals say Mirelan's planning axis faces the lake \"so that people in meetings remember to look up\"."
   - id: nat_mfx833
     subtype: lake
     status: generated
@@ -43,8 +43,8 @@ features:
       en: Lake Ombelvelau
       art-x-ivuran: Ombelvelau
     notes:
-      zh: 乌拉韦劳自然保护区里的高山湖泊，伊武兰语意为「云中之湖」，湖面常年笼罩在云雾里。湖周是云雾林，附生的苔藓和兰花挂满树枝；湖水是山下梯田泉水的源头之一，温达坎的村社每年在湖边举行祭水仪式。
-      en: A mountain lake in the Uravelau Nature Reserve; in Ivuran the name means 'lake in the clouds', and mist lies over it most of the year. Cloud forest surrounds it, its branches hung with mosses and orchids; it feeds the springs that water the terraces below, and the village communities of Undakan hold a water ceremony on its shore every year.
+      zh: "乌拉韦劳自然保护区里的高山湖泊，伊武兰语意为「云中之湖」，湖面常年笼罩在云雾里。湖周是云雾林，附生的苔藓和兰花挂满树枝；湖水是山下梯田泉水的源头之一，温达坎的村社每年在湖边举行祭水仪式。祭水仪式上，各村的长者把一竹筒新米和一竹筒湖水交换，带回村里倒进最高的那块梯田，村民说这样「云里的水就认得我们的田」。"
+      en: "A mountain lake in the Uravelau Nature Reserve; in Ivuran the name means 'lake in the clouds', and mist lies over it most of the year. Cloud forest surrounds it, its branches hung with mosses and orchids; it feeds the springs that water the terraces below, and the village communities of Undakan hold a water ceremony on its shore every year. At the water ceremony each village's elders exchange a bamboo tube of new rice for a tube of lake water and pour it into their highest terrace at home, so that, villagers say, \"the water in the clouds knows our fields\"."
   - id: nat_ng8px9
     subtype: lake
     status: generated
@@ -53,8 +53,8 @@ features:
       en: Lake Lomiombel
       art-x-ivuran: Lomiombel
     notes:
-      zh: 洛米兰雨林深处的黑水湖，伊武兰语意为「森林之湖」。湖水被落叶染成茶色，湖岸是淹水林，雨季时湖面扩大到旱季的两倍；湖边的林区村落划独木舟捕鱼，研究人员在这里研究雨林的水循环。
-      en: A blackwater lake deep in the Lomiran rainforest; in Ivuran the name means 'lake of the forest'. Fallen leaves stain its water the colour of tea, flooded forest lines its shores, and in the wet season it spreads to twice its dry-season size; the forest villages around it fish from canoes, and researchers study the water cycle of the rainforest here.
+      zh: "洛米兰雨林深处的黑水湖，伊武兰语意为「森林之湖」。湖水被落叶染成茶色，湖岸是淹水林，雨季时湖面扩大到旱季的两倍；湖边的林区村落划独木舟捕鱼，研究人员在这里研究雨林的水循环。茶色的湖水平静得像一面镜子，倒映着周围的树冠，独木舟划过时分不清哪边是天、哪边是水，村里的老人提醒新来的研究员「别低头看太久，会晕」。"
+      en: "A blackwater lake deep in the Lomiran rainforest; in Ivuran the name means 'lake of the forest'. Fallen leaves stain its water the colour of tea, flooded forest lines its shores, and in the wet season it spreads to twice its dry-season size; the forest villages around it fish from canoes, and researchers study the water cycle of the rainforest here. The tea-coloured water lies still as a mirror under the canopy, and as a canoe glides across it is hard to tell sky from water; village elders warn newly arrived researchers \"don't stare down too long, you'll get dizzy\"."
   - id: nat_3pza4g
     subtype: river
     status: generated
@@ -64,8 +64,8 @@ features:
       en: Nalusiru River
       art-x-ivuran: Nalusiru
     notes:
-      zh: 主岛西北部的大河，全长约 430 公里，流域面积约 5.7 万平方公里，仅次于哈努西鲁河，伊武兰语意为「浪之河」。河流发源于主岛中部的高地，向西北流过纳卢迈市的丘陵和果园平原，在纳卢迈城区入海，下游两岸是芒果园、榴莲园和稻田。
-      en: A great river of the north-west of the main island, about 430 km long with a basin of about 57,000 km², second only to the Hanusiru's; in Ivuran the name means 'river of waves'. It rises in the uplands of the middle of the island, flows north-west through the hills and orchard plains of Nalumai City and reaches the sea in Nalumai itself, between mango and durian orchards and rice fields.
+      zh: "主岛西北部的大河，全长约 430 公里，流域面积约 5.7 万平方公里，仅次于哈努西鲁河，伊武兰语意为「浪之河」。河流发源于主岛中部的高地，向西北流过纳卢迈市的丘陵和果园平原，在纳卢迈城区入海，下游两岸是芒果园、榴莲园和稻田。榴莲季里，河边的果园主人会把熟透落地的榴莲装上小船顺流运到城里，纳卢迈人闻到河面飘来的榴莲香，就知道「河送果子来了」。"
+      en: "A great river of the north-west of the main island, about 430 km long with a basin of about 57,000 km², second only to the Hanusiru's; in Ivuran the name means 'river of waves'. It rises in the uplands of the middle of the island, flows north-west through the hills and orchard plains of Nalumai City and reaches the sea in Nalumai itself, between mango and durian orchards and rice fields. In durian season orchard owners load the ripe fallen fruit into boats and float them downstream to town, and when Nalumai people smell durian drifting off the water they say \"the river is bringing the fruit\"."
   - id: nat_5dqwy8
     subtype: river
     status: generated
@@ -75,8 +75,8 @@ features:
       en: Olusiru River
       art-x-ivuran: Olusiru
     notes:
-      zh: 塔卢马兰市帕达兰区的大河，全长约 410 公里，流域面积约 4.1 万平方公里，伊武兰语意为「稻米之河」。河流发源于乌诺凯苏山脉，向东南流过帕达兰区的稻田和椰林，在塔卢马兰城区东北入海，河口是渔港和红树林。
-      en: The great river of Padaran District in Talumaran City, about 410 km long with a basin of about 41,000 km²; in Ivuran the name means 'river of rice'. It rises in the Unokesu Mountains, flows south-east through the rice fields and coconut groves of Padaran and reaches the sea north-east of Talumaran, where its mouth holds a fishing harbour and mangroves.
+      zh: "塔卢马兰市帕达兰区的大河，全长约 410 公里，流域面积约 4.1 万平方公里，伊武兰语意为「稻米之河」。河流发源于乌诺凯苏山脉，向东南流过帕达兰区的稻田和椰林，在塔卢马兰城区东北入海，河口是渔港和红树林。稻子收割后，河岸的人家会用新米和椰浆做一种绿色的糯米糕，用香兰叶染色，帕达兰的孩子们说，吃到这种糕就知道「河又养了我们一年」。"
+      en: "The great river of Padaran District in Talumaran City, about 410 km long with a basin of about 41,000 km²; in Ivuran the name means 'river of rice'. It rises in the Unokesu Mountains, flows south-east through the rice fields and coconut groves of Padaran and reaches the sea north-east of Talumaran, where its mouth holds a fishing harbour and mangroves. After the rice harvest the riverside households make a green sticky-rice cake with new rice and coconut milk, coloured with pandan leaf, and Padaran children say the taste of it means \"the river has fed us for another year\"."
   - id: nat_1465sf
     subtype: river
     status: generated
@@ -86,8 +86,8 @@ features:
       en: Katasiru River
       art-x-ivuran: Katasiru
     notes:
-      zh: 洛米兰市卡塔穆区的河流，全长约 290 公里，流域面积约 1.8 万平方公里，伊武兰语意为「藤之河」。河流穿过雨林中的林区村落，村民划独木舟往来、采集藤条和草药，在洛米兰城区东北入海。
-      en: The river of Katamu District in Lomiran City, about 290 km long with a basin of about 18,000 km²; in Ivuran the name means 'river of vines'. It runs past the forest villages of the rainforest, whose people travel it by canoe and gather rattan and herbs along it, and reaches the sea north-east of Lomiran.
+      zh: "洛米兰市卡塔穆区的河流，全长约 290 公里，流域面积约 1.8 万平方公里，伊武兰语意为「藤之河」。河流穿过雨林中的林区村落，村民划独木舟往来、采集藤条和草药，在洛米兰城区东北入海。林区村落的独木舟船头都刻着自家的图案，村民在河上相遇时不用喊名字，看一眼船头就知道是谁家的人，顺便交换几捆藤条和一筐草药。"
+      en: "The river of Katamu District in Lomiran City, about 290 km long with a basin of about 18,000 km²; in Ivuran the name means 'river of vines'. It runs past the forest villages of the rainforest, whose people travel it by canoe and gather rattan and herbs along it, and reaches the sea north-east of Lomiran. Every forest village canoe has its family's emblem carved on the bow, so people meeting on the river know each other at a glance without calling out, and swap a few bundles of rattan or a basket of herbs in passing."
   - id: nat_fh951p
     subtype: river
     status: generated
@@ -97,8 +97,8 @@ features:
       en: Kilasiru River
       art-x-ivuran: Kilasiru
     notes:
-      zh: 基拉努市的河流，全长约 250 公里，流域面积约 2.2 万平方公里，伊武兰语意为「明亮的河」。河流从哈努帕拉高原东南缘跌落，流过乌拉帕区的果园和山村，在基拉湾入海，是基拉努半导体产业园的水源之一。
-      en: The river of Kilanu City, about 250 km long with a basin of about 22,000 km²; in Ivuran the name means 'bright river'. It drops from the south-eastern edge of the Hanupala Plateau, flows past the orchards and hill villages of Urapa District and enters Kila Bay, and is one of the sources of water for Kilanu's semiconductor park.
+      zh: "基拉努市的河流，全长约 250 公里，流域面积约 2.2 万平方公里，伊武兰语意为「明亮的河」。河流从哈努帕拉高原东南缘跌落，流过乌拉帕区的果园和山村，在基拉湾入海，是基拉努半导体产业园的水源之一。产业园的工程师和上游的果农每季开一次「水的会」，商量用水和护林，散会时果农总会送一筐刚摘的山竹，工程师们说这是全年最受欢迎的会议。"
+      en: "The river of Kilanu City, about 250 km long with a basin of about 22,000 km²; in Ivuran the name means 'bright river'. It drops from the south-eastern edge of the Hanupala Plateau, flows past the orchards and hill villages of Urapa District and enters Kila Bay, and is one of the sources of water for Kilanu's semiconductor park. The industrial park's engineers and the upstream fruit growers hold a \"water meeting\" every season to settle water use and forest care, the growers always bring a basket of fresh mangosteens, and the engineers call it the most popular meeting of the year."
   - id: nat_s81c1h
     subtype: river
     status: generated
@@ -108,8 +108,8 @@ features:
       en: Tovusiru River
       art-x-ivuran: Tovusiru
     notes:
-      zh: 基拉努市乌拉帕区东部的河流，全长约 260 公里，流域面积约 3 万平方公里，伊武兰语意为「海龟之河」，河口两侧的沙滩是海龟产卵地。中上游的河谷里有小水电站和果园，村庄建在高出洪水线的台地上。
-      en: A river in the east of Urapa District in Kilanu City, about 260 km long with a basin of about 30,000 km²; in Ivuran the name means 'river of turtles', after the nesting beaches on either side of its mouth. Small hydro stations and orchards fill its upper valleys, and the villages stand on terraces above the flood line.
+      zh: "基拉努市乌拉帕区东部的河流，全长约 260 公里，流域面积约 3 万平方公里，伊武兰语意为「海龟之河」，河口两侧的沙滩是海龟产卵地。中上游的河谷里有小水电站和果园，村庄建在高出洪水线的台地上。海龟上岸产卵的夜里，河口的村庄会熄掉海边的灯，大人们说这是在「给海龟让路」，孩子们则趴在窗边，偷偷数沙滩上爬过的黑影。"
+      en: "A river in the east of Urapa District in Kilanu City, about 260 km long with a basin of about 30,000 km²; in Ivuran the name means 'river of turtles', after the nesting beaches on either side of its mouth. Small hydro stations and orchards fill its upper valleys, and the villages stand on terraces above the flood line. On nights when the turtles come ashore to lay, the villages at the river mouth switch off their seafront lights, \"making way for the turtles\" as the grown-ups put it, while the children lie at the windows secretly counting the dark shapes crawling up the sand."
   - id: nat_h8fa19
     subtype: river
     status: generated
@@ -119,8 +119,8 @@ features:
       en: Kainasiru River
       art-x-ivuran: Kainasiru
     notes:
-      zh: 彭纳拉姆市帕拉武尔区的河流，全长约 250 公里，流域面积约 2.9 万平方公里，伊武兰语意为「香料之河」。河流从蒂拉凯苏山脉北坡流下，两岸的山坡是胡椒园、咖啡园和可可园，在帕拉武尔区北部入海。
-      en: The river of Palavur District in Pennaram City, about 250 km long with a basin of about 29,000 km²; in Ivuran the name means 'river of spice'. It runs down the northern slopes of the Tirakesu Mountains between hillsides of pepper, coffee and cocoa and reaches the sea in the north of Palavur.
+      zh: "彭纳拉姆市帕拉武尔区的河流，全长约 250 公里，流域面积约 2.9 万平方公里，伊武兰语意为「香料之河」。河流从蒂拉凯苏山脉北坡流下，两岸的山坡是胡椒园、咖啡园和可可园，在帕拉武尔区北部入海。下游的河水在收获季会带着一股淡淡的胡椒香，那是两岸晾晒胡椒的气味顺风飘到了河面上，渔民说这一段的鱼「天生就是调好味的」。"
+      en: "The river of Palavur District in Pennaram City, about 250 km long with a basin of about 29,000 km²; in Ivuran the name means 'river of spice'. It runs down the northern slopes of the Tirakesu Mountains between hillsides of pepper, coffee and cocoa and reaches the sea in the north of Palavur. In the harvest season the lower river carries a faint scent of pepper, blown onto the water from the drying yards along the banks, and fishers say the fish of this stretch \"come ready seasoned\"."
   - id: nat_ptetwc
     subtype: river
     status: generated
@@ -130,8 +130,8 @@ features:
       en: Talusiru River
       art-x-ivuran: Talusiru
     notes:
-      zh: 流经塔卢马兰城区的河流，全长约 180 公里，流域面积约 2.9 万平方公里，伊武兰语意为「停泊之河」，在伦博湾顶入海。河两岸修有滨河绿道，下游的老码头改成了海事博物馆和夜市。
-      en: The river that flows through Talumaran, about 180 km long with a basin of about 29,000 km²; in Ivuran the name means 'river of mooring', and it enters the sea at the head of Lumbo Bay. Riverside greenways follow both banks, and the old quays on its lower course are now a maritime museum and a night market.
+      zh: "流经塔卢马兰城区的河流，全长约 180 公里，流域面积约 2.9 万平方公里，伊武兰语意为「停泊之河」，在伦博湾顶入海。河两岸修有滨河绿道，下游的老码头改成了海事博物馆和夜市。海事博物馆旁的夜市一到傍晚就亮起一串串灯笼，倒映在河面上，船厂下班的工人们说，在河边吃完一碗椰浆咖喱鱼，一天的累就随河水流走了。"
+      en: "The river that flows through Talumaran, about 180 km long with a basin of about 29,000 km²; in Ivuran the name means 'river of mooring', and it enters the sea at the head of Lumbo Bay. Riverside greenways follow both banks, and the old quays on its lower course are now a maritime museum and a night market. Strings of lanterns light up the night market beside the maritime museum at dusk and shine back from the river, and shipyard workers say a bowl of coconut fish curry by the water carries the day's tiredness away downstream."
   - id: nat_a07z3x
     subtype: river
     status: generated
@@ -141,5 +141,5 @@ features:
       en: Pennasiru River
       art-x-ivuran: Pennasiru
     notes:
-      zh: 彭纳拉姆市西南的河流，全长约 180 公里，流域面积约 2 万平方公里，伊武兰语意为「胡椒之河」，在蒂拉凯湾入海。旧时胡椒从山里顺河而下，在河口装船，河口的老仓库如今是香料博物馆。
-      en: A river south-west of Pennaram City, about 180 km long with a basin of about 20,000 km²; in Ivuran the name means 'river of pepper', and it enters Tirakkai Bay. Pepper once came down it from the hills to be loaded at the mouth, and the old warehouse there is now a spice museum.
+      zh: "彭纳拉姆市西南的河流，全长约 180 公里，流域面积约 2 万平方公里，伊武兰语意为「胡椒之河」，在蒂拉凯湾入海。旧时胡椒从山里顺河而下，在河口装船，河口的老仓库如今是香料博物馆。香料博物馆里陈列着老商人的木秤和账本，账本里一斤胡椒的价钱常常比一斤稻米高出几十倍，馆员说，彭纳拉姆的老房子多半是用这条河运出去的胡椒盖起来的。"
+      en: "A river south-west of Pennaram City, about 180 km long with a basin of about 20,000 km²; in Ivuran the name means 'river of pepper', and it enters Tirakkai Bay. Pepper once came down it from the hills to be loaded at the mouth, and the old warehouse there is now a spice museum. The spice museum displays old merchants' wooden scales and ledgers in which a measure of pepper often fetched dozens of times the price of the same weight of rice, and the curators say most of Pennaram's old houses were built on pepper shipped down this river."

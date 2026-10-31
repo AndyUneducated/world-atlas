@@ -9,8 +9,8 @@ features:
       en: Kiluktuar River
       art-x-tavrunaq: Kiluktuar
     notes:
-      zh: 北岸的大河，长约 376 公里，流域面积约 8.5 万平方公里，居领地第二，基卢克图阿尔市因它得名。河流发源于苏瓦尔尤伊特山脉北麓，流经尼尔萨瓦克区和帕基卢克区，向北流向北岸，河谷是内陆与南北两岸之间的交通走廊。
-      en: The great river of the north coast, about 376 km long with a basin of some 85,000 km², the second largest in the territory, which gives Kiluktuar City its name. It rises on the northern side of the Suvvarjuit Mountains and flows north through the Nirsavaq District and Paakiluk District towards the north coast, and its valley carries goods between the inland and both coasts.
+      zh: "北岸的大河，长约 376 公里，流域面积约 8.5 万平方公里，居领地第二，基卢克图阿尔市因它得名。河流发源于苏瓦尔尤伊特山脉北麓，流经尼尔萨瓦克区和帕基卢克区，向北流向北岸，河谷是内陆与南北两岸之间的交通走廊。春末大河开冰的那几天，河岸上站满了人，老人们会念一句：「Sirmi pakka, kiluk sigga」，意思是「冰破了，河就是新的」，开冰日也被当作新一年的开始。"
+      en: "The great river of the north coast, about 376 km long with a basin of some 85,000 km², the second largest in the territory, which gives Kiluktuar City its name. It rises on the northern side of the Suvvarjuit Mountains and flows north through the Nirsavaq District and Paakiluk District towards the north coast, and its valley carries goods between the inland and both coasts. In the late-spring days when the river breaks up, the banks are crowded and the elders say \"Sirmi pakka, kiluk sigga\": when the ice breaks the river is new again; break-up day is taken as the start of a new year."
   - id: nat_xdztvm
     subtype: lake
     status: generated
@@ -19,8 +19,8 @@ features:
       en: Illurjuaq Lake
       art-x-tavrunaq: Illurjuaq
     notes:
-      zh: 伊卢克图克生态保护区的大湖，面积约 2100 平方公里，是领地最大的湖泊。一条市道以长约 16 公里的伊卢尔尤阿克湖特大桥跨过湖面，冬季湖面封冻后，冰上还开辟有雪地车道。
-      en: The great lake of the Illuqtuuq Nature Reserve, about 2,100 km², the largest lake in the territory. A city road crosses it on the 16 km Illurjuaq Lake Bridge, and when it freezes in winter snowmobile tracks are marked out on the ice.
+      zh: "伊卢克图克生态保护区的大湖，面积约 2100 平方公里，是领地最大的湖泊。一条市道以长约 16 公里的伊卢尔尤阿克湖特大桥跨过湖面，冬季湖面封冻后，冰上还开辟有雪地车道。冬天湖冰结得一米多厚，冰上的道路连起湖边的村子，夏天冰一化，那些路就沉进了湖里。"
+      en: "The great lake of the Illuqtuuq Nature Reserve, about 2,100 km², the largest lake in the territory. A city road crosses it on the 16 km Illurjuaq Lake Bridge, and when it freezes in winter snowmobile tracks are marked out on the ice. In winter its ice is over a metre thick and roads across it link the lakeside villages; when the ice melts in summer, the roads sink into the lake."
   - id: nat_16pp3d
     subtype: lake
     status: generated
@@ -29,8 +29,8 @@ features:
       en: Illuqqau Lake
       art-x-tavrunaq: Illuqqau
     notes:
-      zh: 伊卢克萨特区的盐湖，面积约 320 平方公里，湖水含锂，伊卢克萨特提锂厂从湖中的卤水提取锂，伊卢克萨特区因它得名。乌库利特高速和重载铁路都在约 13 公里外经过。
-      en: The salt lake of Illuqsaat District, about 320 km², whose brine is rich in lithium; the Illuqqau Lake works extracts it, and the district is named after the lake. The Ukkuliit Expressway and the heavy-haul railway both pass some 13 km away.
+      zh: "伊卢克萨特区的盐湖，面积约 320 平方公里，湖水含锂，伊卢克萨特提锂厂从湖中的卤水提取锂，伊卢克萨特区因它得名。乌库利特高速和重载铁路都在约 13 公里外经过。夏天的阳光下，湖边的卤水池呈现深浅不一的蓝绿色，从飞机上看像一块调色板。"
+      en: "The salt lake of Illuqsaat District, about 320 km², whose brine is rich in lithium; the Illuqqau Lake works extracts it, and the district is named after the lake. The Ukkuliit Expressway and the heavy-haul railway both pass some 13 km away. In the summer sun the brine pools by the lake shine in every shade of blue and green, like a painter's palette seen from the air."
   - id: nat_bzp202
     subtype: lake
     status: generated
@@ -39,8 +39,8 @@ features:
       en: Nirsaillu Lake
       art-x-tavrunaq: Nirsaillu
     notes:
-      zh: 尼尔萨瓦克区的湖泊，面积约 530 平方公里，是领地第三大湖。夏季驯鹿群在湖边饮水和觅食，湖名由此而来；努阿高速在约 13 公里外经过。
-      en: A lake in the Nirsavaq District, about 530 km², the third largest in the territory. In summer reindeer herds come down to drink and graze on its shores, hence the name; the Nuqattaaq–Aqqanik Expressway passes some 13 km away.
+      zh: "尼尔萨瓦克区的湖泊，面积约 530 平方公里，是领地第三大湖。夏季驯鹿群在湖边饮水和觅食，湖名由此而来；努阿高速在约 13 公里外经过。夏天的傍晚，驯鹿群站在湖边的浅水里避蚊，湖面上倒映着成片的鹿角，牧民说这是「湖里长出的树林」。"
+      en: "A lake in the Nirsavaq District, about 530 km², the third largest in the territory. In summer reindeer herds come down to drink and graze on its shores, hence the name; the Nuqattaaq–Aqqanik Expressway passes some 13 km away. On summer evenings the reindeer stand in the shallows to escape the mosquitoes, their antlers mirrored on the water in a crowd that herders call \"the forest growing in the lake\"."
   - id: nat_2b0688
     subtype: lake
     status: generated
@@ -49,8 +49,8 @@ features:
       en: Illuqtaq Lake
       art-x-tavrunaq: Illuqtaq
     notes:
-      zh: 尼尔萨图维特生态保护区的湖泊，面积约 660 平方公里，是领地第二大湖，湖身狭长，湖名由此而来。驯鹿迁徙时沿湖岸行进，湖周不修道路。
-      en: A lake in the Nirsatuvvit Nature Reserve, about 660 km², the second largest in the territory, long and narrow, hence the name. Migrating reindeer follow its shores, and no roads are built around it.
+      zh: "尼尔萨图维特生态保护区的湖泊，面积约 660 平方公里，是领地第二大湖，湖身狭长，湖名由此而来。驯鹿迁徙时沿湖岸行进，湖周不修道路。湖周不修道路，只有牧民的雪地摩托和驯鹿的蹄印，迁徙季节长长的鹿群沿着湖岸走上好几天。"
+      en: "A lake in the Nirsatuvvit Nature Reserve, about 660 km², the second largest in the territory, long and narrow, hence the name. Migrating reindeer follow its shores, and no roads are built around it. No roads circle it, only herders' snowmobile tracks and reindeer hoofprints, and in the migration season long lines of deer walk its shores for days."
   - id: nat_3cy7vg
     subtype: lake
     status: generated
@@ -59,8 +59,8 @@ features:
       en: Sirmiqulliqtuuq Lake
       art-x-tavrunaq: Sirmiqulliqtuuq
     notes:
-      zh: 陶瓦尼克区的湖泊，面积约 180 平方公里，由西尔米冰盖的融水汇成，湖水清冷，湖名由此而来。西卢阿高速在约 5 公里外经过。
-      en: A lake in Tauvvaniq District, about 180 km², filled by meltwater from the Sirmi Ice Cap, cold and clear, hence the name. The Sillua Expressway passes some 5 km away.
+      zh: "陶瓦尼克区的湖泊，面积约 180 平方公里，由西尔米冰盖的融水汇成，湖水清冷，湖名由此而来。西卢阿高速在约 5 公里外经过。湖水冷得连夏天也只有几度，陶瓦尼克天文台的观测员说，夏夜湖面平静时，能在水里看见天上的星星。"
+      en: "A lake in Tauvvaniq District, about 180 km², filled by meltwater from the Sirmi Ice Cap, cold and clear, hence the name. The Sillua Expressway passes some 5 km away. The water stays only a few degrees above freezing even in summer, and the observers of the Tauvvaniq Observatory say that when the lake is still on a summer night, you can see the stars in the water."
   - id: nat_xvz2c8
     subtype: lake
     status: generated
@@ -69,8 +69,8 @@ features:
       en: Paalillu Lake
       art-x-tavrunaq: Paalillu
     notes:
-      zh: 首府帕利瓦克区的湖泊，面积约 87 平方公里，是领地命名湖泊中最小的，离环线和努基高速都只有七八公里，是首府居民夏季划船、冬季冰钓的地方。
-      en: A lake in Paalivaq District of the capital, about 87 km², the smallest of the territory's named lakes, only seven or eight kilometres from the ring road and the Nuqattaaq–Kiluktuar Expressway, where the capital's people go boating in summer and ice fishing in winter.
+      zh: "首府帕利瓦克区的湖泊，面积约 87 平方公里，是领地命名湖泊中最小的，离环线和努基高速都只有七八公里，是首府居民夏季划船、冬季冰钓的地方。冬天湖面冻实后，首府人在冰上凿洞钓鱼，冰钓的小帐篷五颜六色地散在湖面上，孩子们则在旁边滑冰。"
+      en: "A lake in Paalivaq District of the capital, about 87 km², the smallest of the territory's named lakes, only seven or eight kilometres from the ring road and the Nuqattaaq–Kiluktuar Expressway, where the capital's people go boating in summer and ice fishing in winter. When the lake freezes solid in winter, capital folk cut holes in the ice to fish, their small colourful tents scattered across it while children skate alongside."
 
   # ── Rivers named by their mouths ────────────────────────
   - id: nat_23cx58
@@ -82,53 +82,53 @@ features:
       zh: 世界最长的极地河流，长约 499 公里
       en: The longest polar river in the world, about 499 km
     notes:
-      zh: 领地最长的河流，长约 499 公里，流域面积约 10.7 万平方公里，也是领地最大的流域。河流源自西尔米冰盖的融水，向南流经内陆矿区、陶瓦尼克区和皮瓦苏瓦区，注入南岸的大海。
-      en: The longest river in the territory, about 499 km, with a basin of some 107,000 km², also the largest in the territory. It rises in the meltwater of the Sirmi Ice Cap and flows south through the inland mining zone, Tauvvaniq and Pivasuvva to the sea on the south coast.
+      zh: "领地最长的河流，长约 499 公里，流域面积约 10.7 万平方公里，也是领地最大的流域。河流源自西尔米冰盖的融水，向南流经内陆矿区、陶瓦尼克区和皮瓦苏瓦区，注入南岸的大海。河名来自塔夫鲁纳克语的 sirmi「冰」，夏天冰盖融水最多时，河水呈现一种奶白色，本地人管它叫「冰的牛奶」。"
+      en: "The longest river in the territory, about 499 km, with a basin of some 107,000 km², also the largest in the territory. It rises in the meltwater of the Sirmi Ice Cap and flows south through the inland mining zone, Tauvvaniq and Pivasuvva to the sea on the south coast. Its name is the Tavrunaq sirmi, \"ice\", and in summer, when the ice cap's meltwater is at its height, the river runs milky white, which locals call \"the ice's milk\"."
   - id: nat_y29gc8
     subtype: river
     status: generated
     detect: { kind: river, at_km: [227.8, 228.2] }
     names: { zh: 尼尔萨河, en: "Nirsa River", art-x-tavrunaq: Nirsakiluk }
     notes:
-      zh: 领地第二长的河流，长约 471 公里，流域面积约 7.6 万平方公里，「尼尔萨」在塔夫鲁纳克语中意为驯鹿。河流自普拉苏瓦米乌特区的山地向北，流经尼尔萨图维特生态保护区和阿卡皮图米乌特区，到阿卡尼克区入海，驯鹿群沿河谷迁徙。
-      en: The second longest river in the territory, about 471 km, with a basin of some 76,000 km²; nirsa is the Tavrunaq word for reindeer. It flows north from the mountains of Pullasuvvamiut through the Reindeer Migration reserve and the Aqqapitummiut District to the sea in Aqqanik District, and reindeer herds migrate along its valley.
+      zh: "领地第二长的河流，长约 471 公里，流域面积约 7.6 万平方公里，「尼尔萨」在塔夫鲁纳克语中意为驯鹿。河流自普拉苏瓦米乌特区的山地向北，流经尼尔萨图维特生态保护区和阿卡皮图米乌特区，到阿卡尼克区入海，驯鹿群沿河谷迁徙。每年春秋，成千上万头驯鹿沿河谷迁徙，过河时整群驯鹿跳进河里游到对岸，牧民在岸边等着清点。"
+      en: "The second longest river in the territory, about 471 km, with a basin of some 76,000 km²; nirsa is the Tavrunaq word for reindeer. It flows north from the mountains of Pullasuvvamiut through the Reindeer Migration reserve and the Aqqapitummiut District to the sea in Aqqanik District, and reindeer herds migrate along its valley. Every spring and autumn thousands of reindeer migrate along the valley, plunging in to swim across when they reach the river while herders wait on the bank to count them."
   - id: nat_e9c7y8
     subtype: river
     status: generated
     detect: { kind: river, at_km: [295.2, 250.8] }
     names: { zh: 瓦克基卢克河, en: Vaqkiluk River, art-x-tavrunaq: Vaqkiluk }
     notes:
-      zh: 基卢克图阿尔市的河流，长约 201 公里，流经帕基卢克区的苔原，在西尔米努卡区附近入海。
-      en: A river of Kiluktuar City, about 201 km long, flowing across the tundra of Paakiluk District to the sea near Sirminuqa.
+      zh: "基卢克图阿尔市的河流，长约 201 公里，流经帕基卢克区的苔原，在西尔米努卡区附近入海。帕基卢克的渔村会把整条河鱼埋进雪里冷藏，吃的时候再挖出来，冻得硬邦邦的河鲑薄片是这一带冬天最爱吃的东西。"
+      en: "A river of Kiluktuar City, about 201 km long, flowing across the tundra of Paakiluk District to the sea near Sirminuqa. The fishing villages of Paakiluk bury whole river fish in the snow to keep and dig them out to eat, and slices of char frozen hard are the winter favourite along this river."
   - id: nat_f9a92v
     subtype: river
     status: generated
     detect: { kind: river, at_km: [328.2, 99.8] }
     names: { zh: 苏瓦基卢克河, en: Suvvakiluk River, art-x-tavrunaq: Suvvakiluk }
     notes:
-      zh: 首府北面的河流，长约 156 公里，发源于尼尔萨瓦克区，流经帕利瓦克区和苏瓦利克区，注入努卡塔克峡湾。
-      en: A river north of the capital, about 156 km long, rising in the Nirsavaq District and flowing through Paalivaq and Suvvalik into Nuqattaaq Fjord.
+      zh: "首府北面的河流，长约 156 公里，发源于尼尔萨瓦克区，流经帕利瓦克区和苏瓦利克区，注入努卡塔克峡湾。苏瓦利克区的大学生夏天爱在河边烧烤，冬天河面结冰后，河岸成了首府越野滑雪的一条热门路线。"
+      en: "A river north of the capital, about 156 km long, rising in the Nirsavaq District and flowing through Paalivaq and Suvvalik into Nuqattaaq Fjord. Students from Suvvalik like to barbecue by the river in summer, and when it freezes in winter its banks become one of the capital's favourite cross-country ski routes."
   - id: nat_ph9ex7
     subtype: river
     status: generated
     detect: { kind: river, at_km: [85.2, 171.8] }
     names: { zh: 图利基卢克河, en: Tullikiluk River, art-x-tavrunaq: Tullikiluk }
     notes:
-      zh: 图利瓦克市的河流，长约 131 公里，发源于普拉普卡高原，流经图拉卡特区和图利亚利维克区一带入海，是图利亚利维克区的水源。
-      en: A river of Tullivaq City, about 131 km long, rising on the Pullapukka Plateau and flowing through Tullakkat and Tullijaalivik districts to the sea; it supplies Tullijaalivik's water.
+      zh: "图利瓦克市的河流，长约 131 公里，发源于普拉普卡高原，流经图拉卡特区和图利亚利维克区一带入海，是图利亚利维克区的水源。河名里的 tulli 意为「冷」，河水即使在夏天也冰凉刺骨，本地人说用它泡的茶「喝一口就清醒了」。"
+      en: "A river of Tullivaq City, about 131 km long, rising on the Pullapukka Plateau and flowing through Tullakkat and Tullijaalivik districts to the sea; it supplies Tullijaalivik's water. The tulli in its name means \"cold\", and its water is icy even in summer; locals say tea made with it \"wakes you up with one sip\"."
   - id: nat_fnd27t
     subtype: river
     status: generated
     detect: { kind: river, at_km: [332.2, 116.2] }
     names: { zh: 帕利基卢克河, en: Paalikiluk River, art-x-tavrunaq: Paalikiluk }
     notes:
-      zh: 首府东北的河流，长约 78 公里，大部分流经尼尔萨库特区，上游在帕利瓦克区和伊卢克图克生态保护区。
-      en: A river north-east of the capital, about 78 km long, flowing mostly through Nirsakut District, with its upper course in Paalivaq and the Illuqtuuq Nature Reserve.
+      zh: "首府东北的河流，长约 78 公里，大部分流经尼尔萨库特区，上游在帕利瓦克区和伊卢克图克生态保护区。河谷里的苔原夏天开满白色的棉花草，河名里的 paali 意为「白」，牧民说就是因为这一片白花。"
+      en: "A river north-east of the capital, about 78 km long, flowing mostly through Nirsakut District, with its upper course in Paalivaq and the Illuqtuuq Nature Reserve. In summer the tundra of its valley is white with cotton grass, and herders say the paali, \"white\", in its name comes from those white flowers."
   - id: nat_w4ejk6
     subtype: river
     status: generated
     detect: { kind: river, at_km: [454.8, 109.2] }
     names: { zh: 乌库基卢克河, en: Ukkukiluk River, art-x-tavrunaq: Ukkukiluk }
     notes:
-      zh: 乌库拉克市的河流，长约 69 公里，是领地命名河流中最短的，发源于西卢阿苏瓦特生态保护区，流经基萨尔维克区和乌库努卡区，基萨尔维克冶炼厂从河上的水电站取电。
-      en: A river of Ukkulaaq City, about 69 km long, the shortest of the territory's named rivers, rising in the Silluasuvvat Nature Reserve and flowing through Qissarvik and Ukkunuqa; the Qissarvik smelter draws power from hydro plants on it.
+      zh: "乌库拉克市的河流，长约 69 公里，是领地命名河流中最短的，发源于西卢阿苏瓦特生态保护区，流经基萨尔维克区和乌库努卡区，基萨尔维克冶炼厂从河上的水电站取电。河虽短，水流却急，夏天常有皮划艇爱好者从上游一路漂到峡湾口，冶炼厂的工人说这条河「一半给我们发电，一半给年轻人玩」。"
+      en: "A river of Ukkulaaq City, about 69 km long, the shortest of the territory's named rivers, rising in the Silluasuvvat Nature Reserve and flowing through Qissarvik and Ukkunuqa; the Qissarvik smelter draws power from hydro plants on it. Short as it is, it runs fast, and in summer kayakers often ride it from the upper reaches all the way to the fjord mouth; the smelter workers say the river \"is half for our power and half for the young people's fun\"."

@@ -140,8 +140,8 @@ features:
     detect: { kind: bay, at_km: [81.8, 139.2] }
     names: { zh: 科罗比湾, en: Corrowby Bay, art-x-viking: Corrowbybucht }
     notes:
-      zh: 望星湾西侧的狭长海湾，面积五十多平方公里，西岸属寒岭区，东岸属望星区。海湾又深又窄，湾底的冷水上涌带来丰富的磷虾和小鱼，夏季常有小须鲸和座头鲸入湾觅食，鲸鱼浮出水面时，黑色的脊背像一道道礁石。湾岸几乎没有道路和村落，两侧是长满桦树和苔原植物的岩坡，只有观鲸船和科研船偶尔进湾。寒岭生态研究站在湾口设有观测点，记录鲸类的出没和海水温度的变化。
-      en: A long, narrow bay west of Stargaze Bay, a little over 50 km², with Frost Ridge District on its west shore and Stargaze District on its east. It is deep and narrow, and cold water welling up from the bottom brings krill and small fish, so in summer minke and humpback whales often come in to feed. When they surface their dark backs lie on the water like a line of reefs. There are almost no roads or villages on its shores, only rocky slopes of birch and tundra, and only whale-watching and research boats come in now and then. The Frost Ridge Ecological Station keeps an observation post at the mouth, recording the whales' visits and the changing temperature of the sea.
+      zh: "望星湾西侧的狭长海湾，面积五十多平方公里，西岸属寒岭区，东岸属望星区。海湾又深又窄，湾底的冷水上涌带来丰富的磷虾和小鱼，夏季常有小须鲸和座头鲸入湾觅食，鲸鱼浮出水面时，黑色的脊背像一道道礁石。湾岸几乎没有道路和村落，两侧是长满桦树和苔原植物的岩坡，只有观鲸船和科研船偶尔进湾。寒岭生态研究站在湾口设有观测点，记录鲸类的出没和海水温度的变化。观鸟船的船长们说，鲸鱼喷气时会传来一股浓重的鱼腥味，乘客闻到味道就知道鲸鱼近了，有经验的船长甚至能闻出是哪一种鲸。"
+      en: "A long, narrow bay west of Stargaze Bay, a little over 50 km², with Frost Ridge District on its west shore and Stargaze District on its east. It is deep and narrow, and cold water welling up from the bottom brings krill and small fish, so in summer minke and humpback whales often come in to feed. When they surface their dark backs lie on the water like a line of reefs. There are almost no roads or villages on its shores, only rocky slopes of birch and tundra, and only whale-watching and research boats come in now and then. The Frost Ridge Ecological Station keeps an observation post at the mouth, recording the whales' visits and the changing temperature of the sea. The whale-boat skippers say a blowing whale gives off a strong fishy smell, passengers know a whale is near the moment they catch it, and the most experienced skippers claim they can tell the species by nose."
 
   # ── Capes ────────────────────────────────────────────────
   - id: nat_f0ypp1
@@ -150,8 +150,8 @@ features:
     detect: { kind: cape, at_km: [230.2, 35.2] }
     names: { zh: 萨科角, en: Cape Sako, art-x-viking: Sakokap }
     notes:
-      zh: 萨科湾东侧的岬角，也是萨科湾与东面卡波湾之间的分界，伸向南面的大海，是萨科区海岸线上最突出的地方。岬角由坚硬的岩层构成，崖壁陡峭，海浪在崖下切出岩洞和海蚀柱。萨科湾和萨科角是区里的海岸景观，渔船从萨科渔港出海时，要绕过岬角才进入外海。岬上有一条通往崖顶的小路，从崖顶可以同时俯瞰萨科湾的彩色石屋和卡波湾对岸的卡波区。
-      en: The headland on the east side of Sako Bay, dividing it from Capo Bay to the east and reaching out towards the southern sea, the most prominent point on the Sako District coast. It is built of hard rock with steep cliffs, at whose foot the waves have cut caves and sea stacks. Sako Bay and Cape Sako are the district's coastal scenery, and boats leaving Sako harbour must round the cape to reach open water. A path climbs to the cliff top, from where you can look down on the painted stone houses of Sako Bay on one side and across Capo Bay to Capo District on the other.
+      zh: "萨科湾东侧的岬角，也是萨科湾与东面卡波湾之间的分界，伸向南面的大海，是萨科区海岸线上最突出的地方。岬角由坚硬的岩层构成，崖壁陡峭，海浪在崖下切出岩洞和海蚀柱。萨科湾和萨科角是区里的海岸景观，渔船从萨科渔港出海时，要绕过岬角才进入外海。岬上有一条通往崖顶的小路，从崖顶可以同时俯瞰萨科湾的彩色石屋和卡波湾对岸的卡波区。渔船绕过岬角返港时会拉一声汽笛，萨科湾彩色石屋里的人听到就知道渔船平安回来了，渔民的妻子们说这一声汽笛「比什么都好听」。"
+      en: "The headland on the east side of Sako Bay, dividing it from Capo Bay to the east and reaching out towards the southern sea, the most prominent point on the Sako District coast. It is built of hard rock with steep cliffs, at whose foot the waves have cut caves and sea stacks. Sako Bay and Cape Sako are the district's coastal scenery, and boats leaving Sako harbour must round the cape to reach open water. A path climbs to the cliff top, from where you can look down on the painted stone houses of Sako Bay on one side and across Capo Bay to Capo District on the other. Fishing boats sound their horns as they round the cape homeward, the people in Sako Bay's painted stone houses know the boats are back safe, and the fishers' families say there is no sweeter sound."
   - id: nat_vj5hej
     subtype: cape
     status: generated
@@ -174,8 +174,8 @@ features:
     detect: { kind: cape, at_km: [271.2, 45.8] }
     names: { zh: 银角, en: Silver Cape, art-x-viking: Silberkap }
     notes:
-      zh: 天城市银滩区南端的岬角，两侧是绵延的细白沙滩，银滩区和银角都因沙滩在阳光下闪着银光而得名。岬角本身是一道低矮的花岗岩岬，岩石被海浪磨得圆滑，岬顶有步道和观景台。东北方向不远处，银溪从岚山直落海滨，溪口附近的沙滩格外洁白。夏季银角两侧的沙滩上满是游泳、晒太阳和冲浪的游客，岬角的岩石则是孩子们攀爬和观察潮池生物的地方。
-      en: The headland at the southern end of Silver Beach District in Skytown, flanked by long beaches of fine white sand; the district and the cape are both named for the way the sand shines silver in the sun. The point itself is a low granite headland, its rocks rounded by the waves, with a path and lookout on top. A little to the north-east the Silver Brook drops from the Mist Hills straight to the shore, and the sand near its mouth is especially white. In summer the beaches on either side are crowded with swimmers, sunbathers and surfers, while children clamber over the rocks of the cape and peer into the rock pools.
+      zh: "天城市银滩区南端的岬角，两侧是绵延的细白沙滩，银滩区和银角都因沙滩在阳光下闪着银光而得名。岬角本身是一道低矮的花岗岩岬，岩石被海浪磨得圆滑，岬顶有步道和观景台。东北方向不远处，银溪从岚山直落海滨，溪口附近的沙滩格外洁白。夏季银角两侧的沙滩上满是游泳、晒太阳和冲浪的游客，岬角的岩石则是孩子们攀爬和观察潮池生物的地方。潮池里的海星和小螃蟹是孩子们的「朋友」，银滩区的小学每年组织一次「潮池日」，孩子们观察完要把每只小动物放回原处，再跟它们说声再见。"
+      en: "The headland at the southern end of Silver Beach District in Skytown, flanked by long beaches of fine white sand; the district and the cape are both named for the way the sand shines silver in the sun. The point itself is a low granite headland, its rocks rounded by the waves, with a path and lookout on top. A little to the north-east the Silver Brook drops from the Mist Hills straight to the shore, and the sand near its mouth is especially white. In summer the beaches on either side are crowded with swimmers, sunbathers and surfers, while children clamber over the rocks of the cape and peer into the rock pools. The starfish and little crabs in the rock pools are the children's friends, and Silver Beach primary schools hold a Rock Pool Day each year, when the children study the creatures, put each one back where they found it and say goodbye."
   - id: nat_ahnx6g
     subtype: cape
     status: generated
@@ -190,8 +190,8 @@ features:
     detect: { kind: cape, at_km: [130.2, 58.2] }
     names: { zh: 邓莱维角, en: Cape Dunlevy, art-x-viking: Kap Dunlevy }
     notes:
-      zh: 牛角湾西侧较小的岬角，与东面的牛角岬遥遥相对，像大牛角旁的一只小犊角。岬角低矮平缓，伸入海中不远，四周是浅滩和礁石，退潮时可以步行到岬尖。岬上没有灯塔，只有一座小小的石砌航标，夏季常有普库图克区的家庭在这里拾贝、钓鱼和露营。邓莱维角与牛角岬之间的海湾水浅浪小，是附近居民学游泳和划皮划艇的地方，傍晚时分，夕阳正好落在岬角背后的海面上。
-      en: The smaller headland on the west side of Oxhorn Bay, facing Oxhorn Point across the water like a calf's horn beside a bull's. It is low and gentle and does not reach far out to sea; shallows and rocks surround it, and at low tide you can walk out to its tip. There is no lighthouse, only a small stone beacon, and in summer families from Pukkutuuq District come here to gather shellfish, fish and camp. The shallow, sheltered water between Cape Dunlevy and Oxhorn Point is where local people learn to swim and paddle, and in the evening the sun sets into the sea just behind the point.
+      zh: "牛角湾西侧较小的岬角，与东面的牛角岬遥遥相对，像大牛角旁的一只小犊角。岬角低矮平缓，伸入海中不远，四周是浅滩和礁石，退潮时可以步行到岬尖。岬上没有灯塔，只有一座小小的石砌航标，夏季常有普库图克区的家庭在这里拾贝、钓鱼和露营。邓莱维角与牛角岬之间的海湾水浅浪小，是附近居民学游泳和划皮划艇的地方，傍晚时分，夕阳正好落在岬角背后的海面上。普库图克的人说，邓莱维角是牛角岬的「小牛犊」，大人在大岬角钓鱼，孩子们就在小岬角学游泳，许多人第一次游泳、第一次钓到鱼都是在这里。"
+      en: "The smaller headland on the west side of Oxhorn Bay, facing Oxhorn Point across the water like a calf's horn beside a bull's. It is low and gentle and does not reach far out to sea; shallows and rocks surround it, and at low tide you can walk out to its tip. There is no lighthouse, only a small stone beacon, and in summer families from Pukkutuuq District come here to gather shellfish, fish and camp. The shallow, sheltered water between Cape Dunlevy and Oxhorn Point is where local people learn to swim and paddle, and in the evening the sun sets into the sea just behind the point. Pukkutuuq people call Cape Dunlevy the calf beside the great horn: the grown-ups fish from the big cape and the children learn to swim at the small one, and many first swims and first fish happen here."
   - id: nat_kz388s
     subtype: cape
     status: generated
@@ -206,8 +206,8 @@ features:
     detect: { kind: cape, at_km: [296.2, 93.8] }
     names: { zh: 布德内斯角, en: Budnes, art-x-viking: Budnes }
     notes:
-      zh: 东营湾内的岬角，从湾岸中部伸入水中，把海湾分成南北两部分。岬角低平，四周是沙嘴和盐沼，涨潮时海水漫过岬根的滩地，落潮后又露出大片泥滩，涉禽和野鸭在这里觅食。岬尖立着一座航标灯，指引渔船避开岬外的浅滩。南面的湾区较浅，靠近金纳尔维克水道；北面的湾区较深，对着布德水道，是进出东营湾的主航线所在。岬上的步道是东营区居民观鸟和看日出的地方。
-      en: A point inside East Camp Bay, reaching out from the middle of the shore and dividing the bay into a northern and a southern basin. It is low and flat, edged with sand spits and salt marsh; at high tide the sea floods the flats at its root, and at low tide wide mudflats appear where waders and wild duck feed. A beacon on the tip keeps fishing boats off the shoals beyond it. The southern basin is shallower and lies towards Qinnarvik Sound; the northern basin is deeper and faces Budey Sound, the main way in and out of the bay. The path along the point is where East Camp people come to watch birds and the sunrise.
+      zh: "东营湾内的岬角，从湾岸中部伸入水中，把海湾分成南北两部分。岬角低平，四周是沙嘴和盐沼，涨潮时海水漫过岬根的滩地，落潮后又露出大片泥滩，涉禽和野鸭在这里觅食。岬尖立着一座航标灯，指引渔船避开岬外的浅滩。南面的湾区较浅，靠近金纳尔维克水道；北面的湾区较深，对着布德水道，是进出东营湾的主航线所在。岬上的步道是东营区居民观鸟和看日出的地方。春秋两季候鸟过境时，岬上的步道挤满了举着长焦镜头的观鸟者，东营区的面包店会在那几周推出一种鸟形的小面包，叫「过路鸟」。"
+      en: "A point inside East Camp Bay, reaching out from the middle of the shore and dividing the bay into a northern and a southern basin. It is low and flat, edged with sand spits and salt marsh; at high tide the sea floods the flats at its root, and at low tide wide mudflats appear where waders and wild duck feed. A beacon on the tip keeps fishing boats off the shoals beyond it. The southern basin is shallower and lies towards Qinnarvik Sound; the northern basin is deeper and faces Budey Sound, the main way in and out of the bay. The path along the point is where East Camp people come to watch birds and the sunrise. When the migrants pass through in spring and autumn the cape's path is lined with long lenses, and East Camp's bakeries bring out a little bird-shaped bun for those weeks, called the \"passing bird\"."
   - id: nat_5seexw
     subtype: cape
     status: generated
@@ -222,8 +222,8 @@ features:
     detect: { kind: cape, at_km: [31.8, 122.2] }
     names: { zh: 尼利尔尤阿克角, en: Cape Nillirjuaq, art-x-viking: Kap Nillirjuaq }
     notes:
-      zh: 寒岭峡湾北岸的岬角，靠近峡湾口，冬季常被海冰包围，岬上的岩石结满白霜，因此得名。岬角是一道陡峭的岩壁，崖顶长着低矮的桦树和苔原植物，冬季北风从峡湾口灌入，岬角首当其冲。寒岭生态研究站在岬上设有一处观测点，记录海冰的形成和消融以及峡湾口水温的变化。夏季峡湾游船从岬下驶过，游客可以看到崖壁上筑巢的海鸟和顺着崖壁落下的瀑布。
-      en: A point on the north shore of Frost Fjord near its mouth, often hemmed in by sea ice in winter, when its rocks are furred with hoar frost, which gives it its name. It is a steep rock wall topped by dwarf birch and tundra plants, and when the north wind funnels into the fjord in winter, the point takes the full force. The Frost Ridge Ecological Station keeps an observation post here, recording how the sea ice forms and breaks up and how the water temperature changes at the mouth of the fjord. In summer the fjord cruise boats pass beneath it, and passengers can see seabirds nesting on the cliffs and waterfalls spilling down the rock.
+      zh: "寒岭峡湾北岸的岬角，靠近峡湾口，冬季常被海冰包围，岬上的岩石结满白霜，因此得名。岬角是一道陡峭的岩壁，崖顶长着低矮的桦树和苔原植物，冬季北风从峡湾口灌入，岬角首当其冲。寒岭生态研究站在岬上设有一处观测点，记录海冰的形成和消融以及峡湾口水温的变化。夏季峡湾游船从岬下驶过，游客可以看到崖壁上筑巢的海鸟和顺着崖壁落下的瀑布。研究站的观测员冬天要在岬上值守好几天，屋里只有一台收音机和一壶咖啡，他们说在这里听北风吹过崖壁，「像在听一首永远不会结束的歌」。"
+      en: "A point on the north shore of Frost Fjord near its mouth, often hemmed in by sea ice in winter, when its rocks are furred with hoar frost, which gives it its name. It is a steep rock wall topped by dwarf birch and tundra plants, and when the north wind funnels into the fjord in winter, the point takes the full force. The Frost Ridge Ecological Station keeps an observation post here, recording how the sea ice forms and breaks up and how the water temperature changes at the mouth of the fjord. In summer the fjord cruise boats pass beneath it, and passengers can see seabirds nesting on the cliffs and waterfalls spilling down the rock. The station's observers keep watch on the cape for days at a stretch in winter with only a radio and a pot of coffee, and they say the north wind across the cliffs is \"like a song that never ends\"."
   - id: nat_p20bak
     subtype: cape
     status: generated
@@ -238,8 +238,8 @@ features:
     detect: { kind: cape, at_km: [102.8, 138.2] }
     names: { zh: 瓦罗角, en: Cape Varrow, art-x-viking: Kap Varrow }
     notes:
-      zh: 望星区东部的岬角，位于望星湾以东，比西面的望瓦罗角低矮，是一片伸入海中的平缓岩岬。岬角远离城镇和道路的灯光，夜空格外黑暗，晴朗的冬夜里银河和极光都清晰可见，望星天文台的观测者和摄影爱好者常到这里拍摄星空。岬上没有建筑，只有几处石砌的观星平台和避风矮墙。夏季岬角周围的海面上常有海鸟成群觅食，退潮时礁石间可以捡到贝壳和海星。
-      en: A point in the east of Stargaze District, beyond Stargaze Bay; lower than Cape Stargaze to the west, it is a gentle tongue of rock running out into the sea. Far from the lights of towns and roads, it has an especially dark sky, and on clear winter nights the Milky Way and the aurora stand out sharply; observers from the Stargaze Observatory and astrophotographers often come here. There are no buildings, only a few stone viewing platforms and low walls against the wind. In summer seabirds feed in flocks off the point, and at low tide shells and starfish can be found among the rocks.
+      zh: "望星区东部的岬角，位于望星湾以东，比西面的望瓦罗角低矮，是一片伸入海中的平缓岩岬。岬角远离城镇和道路的灯光，夜空格外黑暗，晴朗的冬夜里银河和极光都清晰可见，望星天文台的观测者和摄影爱好者常到这里拍摄星空。岬上没有建筑，只有几处石砌的观星平台和避风矮墙。夏季岬角周围的海面上常有海鸟成群觅食，退潮时礁石间可以捡到贝壳和海星。观星平台上的石墙是天文爱好者们一块块垒起来的，每块石头背后都刻着垒石人的名字缩写，望星区的人说，这道墙是「星星看着长高的」。"
+      en: "A point in the east of Stargaze District, beyond Stargaze Bay; lower than Cape Stargaze to the west, it is a gentle tongue of rock running out into the sea. Far from the lights of towns and roads, it has an especially dark sky, and on clear winter nights the Milky Way and the aurora stand out sharply; observers from the Stargaze Observatory and astrophotographers often come here. There are no buildings, only a few stone viewing platforms and low walls against the wind. In summer seabirds feed in flocks off the point, and at low tide shells and starfish can be found among the rocks. The stargazers built the platforms' stone walls one stone at a time, each carved on the back with its builder's initials, and Stargaze people say the wall \"grew up under the stars' gaze\"."
   - id: nat_m9w71f
     subtype: cape
     status: generated
@@ -264,29 +264,29 @@ features:
     detect: { kind: strait, at_km: [247.8, 55.8] }
     names: { zh: 马拉布尔水道, en: Marrable Sound, art-x-viking: Marrablesund }
     notes:
-      zh: 马拉布尔岛与斯瓦尔内斯角之间的狭窄水道，宽不到三公里，从西侧连通隆迪纳亚湾与外海。水道两侧都是岩岸，中间有几处暗礁，水深变化大，大型船舶不走这里，只有熟悉水情的渔船、观鸟船和游艇从这里抄近路进出隆迪纳亚湾。马拉布尔岛山顶的灯塔正对水道，夜间为过往船只指明方向。涨落潮时水道里流速较快，海燕和燕鸥常在水道上空盘旋，捕食被潮水卷起的小鱼。
-      en: The narrow channel between Marrable Island and Svalnes, less than 3 km wide, linking Rondinaia Bay with the open sea on its western side. Both shores are rock and there are reefs in mid-channel, so the depth changes sharply; large ships avoid it, and only fishing boats, birdwatching boats and yachts that know the water use it as a short cut into the bay. The lighthouse on the island's summit looks straight down the channel and guides boats through at night. The tide runs fast here on the flood and the ebb, and storm petrels and terns wheel overhead, picking off the small fish it stirs up.
+      zh: "马拉布尔岛与斯瓦尔内斯角之间的狭窄水道，宽不到三公里，从西侧连通隆迪纳亚湾与外海。水道两侧都是岩岸，中间有几处暗礁，水深变化大，大型船舶不走这里，只有熟悉水情的渔船、观鸟船和游艇从这里抄近路进出隆迪纳亚湾。马拉布尔岛山顶的灯塔正对水道，夜间为过往船只指明方向。涨落潮时水道里流速较快，海燕和燕鸥常在水道上空盘旋，捕食被潮水卷起的小鱼。当地渔民有个说法，过马拉布尔水道要「听潮不听人」，涨落潮的时间一错，水道就变脸，所以船长们出发前都要先看灯塔旁挂着的潮汐表。"
+      en: "The narrow channel between Marrable Island and Svalnes, less than 3 km wide, linking Rondinaia Bay with the open sea on its western side. Both shores are rock and there are reefs in mid-channel, so the depth changes sharply; large ships avoid it, and only fishing boats, birdwatching boats and yachts that know the water use it as a short cut into the bay. The lighthouse on the island's summit looks straight down the channel and guides boats through at night. The tide runs fast here on the flood and the ebb, and storm petrels and terns wheel overhead, picking off the small fish it stirs up. Local fishers say you cross Marrable Sound \"by the tide, not by anyone's advice\": get the tide wrong and the sound turns on you, so skippers check the tide table posted by the lighthouse before setting out."
   - id: nat_kgkyyt
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [236.0, 59.0] }
     names: { zh: 镜岛水道, en: Mirror Sound, art-x-viking: Spiegelsund }
     notes:
-      zh: 镜岛与北面铁岬之间的水道，宽只有两公里左右，水浅流缓，连通斯佩基亚拉湾北部与湾顶的柳萨湾一带。水道底部是柳萨河带来的细沙和泥，水深只有几米，大船无法通行，只有游艇、皮划艇和小渔船往来。风平浪静时水面像一面镜子，倒映着镜岛的松林和铁岬红褐色的岩壁。水道两岸的浅滩是贝类、小鱼和涉禽聚集的地方，周末常有人在铁岬一侧垂钓。
-      en: The channel between Mirror Isle and Iron Point to the north, only about 2 km wide, shallow and slow, linking the northern part of Specchiara Bay with Ljosa Bay at its head. Its floor is fine sand and mud brought down by the Ljosa River, only a few metres deep, so large ships cannot pass; only yachts, kayaks and small fishing boats use it. On calm days the water is a mirror for the island's pines and the rust-red rock of Iron Point. The shallows on either side gather shellfish, small fish and waders, and anglers line the Iron Point side at weekends.
+      zh: "镜岛与北面铁岬之间的水道，宽只有两公里左右，水浅流缓，连通斯佩基亚拉湾北部与湾顶的柳萨湾一带。水道底部是柳萨河带来的细沙和泥，水深只有几米，大船无法通行，只有游艇、皮划艇和小渔船往来。风平浪静时水面像一面镜子，倒映着镜岛的松林和铁岬红褐色的岩壁。水道两岸的浅滩是贝类、小鱼和涉禽聚集的地方，周末常有人在铁岬一侧垂钓。风平浪静的清晨，皮划艇从镜岛水道划过，船桨每划一下，水里的松林倒影就碎开又合上，划手们说在这里划船「像在画上划」。"
+      en: "The channel between Mirror Isle and Iron Point to the north, only about 2 km wide, shallow and slow, linking the northern part of Specchiara Bay with Ljosa Bay at its head. Its floor is fine sand and mud brought down by the Ljosa River, only a few metres deep, so large ships cannot pass; only yachts, kayaks and small fishing boats use it. On calm days the water is a mirror for the island's pines and the rust-red rock of Iron Point. The shallows on either side gather shellfish, small fish and waders, and anglers line the Iron Point side at weekends. On a still morning kayaks slide through Mirror Sound, the reflected pines shattering and closing again with every paddle stroke, and paddlers say rowing here is \"like rowing across a painting\"."
   - id: nat_5xt2h0
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [296.2, 90.2] }
     names: { zh: 金纳尔维克水道, en: Qinnarvik Sound, art-x-viking: Qinnarviksund }
     notes:
-      zh: 金纳尔维克岛与本岛之间的水道，宽约四公里，是东营湾的南入口。水道两岸低平，岸边是沙滩和盐沼，水深不大，潮水随涨落来回流动，大船一般不走这里，进出东营湾的主航线在北面的布德水道。金纳尔维克水道是近海渔船和小艇进出海湾的捷径，也是海豹和海鸟常出没的地方，金纳尔维克岛的旧哨楼俯瞰着整条水道。冬季风暴时，渔船常从这里驶入海湾避风。
-      en: The channel between Qinnarvik Island and the mainland, about 4 km wide and the southern entrance to East Camp Bay. Its shores are low beaches and salt marsh and the water is not deep, the tide running back and forth through it with the ebb and flow; large ships keep to Budey Sound in the north, the bay's main fairway. Qinnarvik Sound is the short cut for inshore fishing boats and small craft and a haunt of seals and seabirds, and the old watchtower on Qinnarvik Island overlooks its whole length. In winter storms fishing boats often run in through it to shelter in the bay.
+      zh: "金纳尔维克岛与本岛之间的水道，宽约四公里，是东营湾的南入口。水道两岸低平，岸边是沙滩和盐沼，水深不大，潮水随涨落来回流动，大船一般不走这里，进出东营湾的主航线在北面的布德水道。金纳尔维克水道是近海渔船和小艇进出海湾的捷径，也是海豹和海鸟常出没的地方，金纳尔维克岛的旧哨楼俯瞰着整条水道。冬季风暴时，渔船常从这里驶入海湾避风。旧哨楼如今是一间小咖啡馆，窗口正对水道，坐在窗边常能看到海豹在水里探出头来，咖啡馆老板说，海豹比客人来得还准时。"
+      en: "The channel between Qinnarvik Island and the mainland, about 4 km wide and the southern entrance to East Camp Bay. Its shores are low beaches and salt marsh and the water is not deep, the tide running back and forth through it with the ebb and flow; large ships keep to Budey Sound in the north, the bay's main fairway. Qinnarvik Sound is the short cut for inshore fishing boats and small craft and a haunt of seals and seabirds, and the old watchtower on Qinnarvik Island overlooks its whole length. In winter storms fishing boats often run in through it to shelter in the bay. The old watchtower is now a small café whose windows face the sound, seals often poke their heads up as you sit by the glass, and the owner says the seals keep better time than the customers."
   - id: nat_xg4y0d
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [297.0, 94.5] }
     names: { zh: 布德水道, en: Budey Sound, art-x-viking: Budeysund }
     notes:
-      zh: 布德岛西侧的水道，宽约六公里，是东营湾的主航道。水道比南面的金纳尔维克水道更深更宽，进出东营湾的船只大多走这里，两侧设有浮标和灯标。布德岛挡住了东面外海的大浪，水道里即使在冬季风暴中也相对平稳，是近海渔船和补给船避风的通道。水道西侧就是布德内斯角和东营湾北部较深的湾区，涨潮时海水从这里大量涌入湾内，退潮时又经此流回外海。
-      en: The channel west of Budey, about 6 km wide and the main fairway of East Camp Bay. Deeper and wider than Qinnarvik Sound to the south, it carries most of the traffic in and out of the bay and is marked by buoys and lights on both sides. Budey breaks the big seas from the east, so the channel stays fairly calm even in winter storms and is the sheltered way in for inshore fishing boats and supply vessels. To its west lie Budnes and the deeper northern basin of the bay; on the flood the sea pours in through it, and on the ebb it drains back to the open sea.
+      zh: "布德岛西侧的水道，宽约六公里，是东营湾的主航道。水道比南面的金纳尔维克水道更深更宽，进出东营湾的船只大多走这里，两侧设有浮标和灯标。布德岛挡住了东面外海的大浪，水道里即使在冬季风暴中也相对平稳，是近海渔船和补给船避风的通道。水道西侧就是布德内斯角和东营湾北部较深的湾区，涨潮时海水从这里大量涌入湾内，退潮时又经此流回外海。布德岛的老渔民说，这条水道是「海湾的大门」，风暴天里看到渔船一条接一条驶进来，就知道全湾的人今晚都能睡个好觉。"
+      en: "The channel west of Budey, about 6 km wide and the main fairway of East Camp Bay. Deeper and wider than Qinnarvik Sound to the south, it carries most of the traffic in and out of the bay and is marked by buoys and lights on both sides. Budey breaks the big seas from the east, so the channel stays fairly calm even in winter storms and is the sheltered way in for inshore fishing boats and supply vessels. To its west lie Budnes and the deeper northern basin of the bay; on the flood the sea pours in through it, and on the ebb it drains back to the open sea. Budey's old fishers call the sound \"the bay's front door\", and on a stormy day, seeing the boats come in one after another, they know everyone around the bay will sleep well tonight."

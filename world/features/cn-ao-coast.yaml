@@ -10,16 +10,16 @@ features:
     detect: { kind: island, at_km: [55, 317] }
     names: { zh: 陶瓦克岛, en: Tauvvaq Island, art-x-tavrunaq: Tauvvaq }
     notes:
-      zh: 陶武维特群岛的主岛，面积约 7400 平方公里，地势低缓，最高处海拔两百多米。岛上空旷开阔、少有遮挡，陶武维特地面站的天线阵就建在这里，极轨卫星每一圈经过时都能被跟踪接收。
-      en: The main island of the Tauvvuviit Islands, about 7,400 km², low and gentle, rising to a little over 200 m. Its open, unobstructed ground is home to the antenna arrays of the Tauvvuviit Ground Station, which track polar-orbiting satellites on every pass.
+      zh: "陶武维特群岛的主岛，面积约 7400 平方公里，地势低缓，最高处海拔两百多米。岛上空旷开阔、少有遮挡，陶武维特地面站的天线阵就建在这里，极轨卫星每一圈经过时都能被跟踪接收。岛上的天线阵在雪原上排成整齐的白色圆盘，地面站的值班员每有卫星飞过头顶就在黑板上画一道，一年下来黑板要擦好几百次。"
+      en: "The main island of the Tauvvuviit Islands, about 7,400 km², low and gentle, rising to a little over 200 m. Its open, unobstructed ground is home to the antenna arrays of the Tauvvuviit Ground Station, which track polar-orbiting satellites on every pass. The dishes stand in neat white rows on the snowfield, and the duty staff chalk a stroke on a blackboard for every satellite overhead, wiping the board hundreds of times a year."
   - id: nat_rhderc
     subtype: island
     status: generated
     detect: { kind: island, at_km: [100, 326] }
     names: { zh: 萨卡利特岛, en: Saqqaliit Isle, art-x-tavrunaq: Saqqaliit }
     notes:
-      zh: 陶武维特群岛的小岛，面积约 340 平方公里，是领地最小的命名岛屿，最高处海拔约一百米。岛名来自岛上为地面站接力的天线。
-      en: A small island in the Tauvvuviit Islands, about 340 km², the smallest named island in the territory, rising to about 100 m. It is named after the relay antennas that serve the ground station.
+      zh: "陶武维特群岛的小岛，面积约 340 平方公里，是领地最小的命名岛屿，最高处海拔约一百米。岛名来自岛上为地面站接力的天线。岛上只有几座天线和一间维护小屋，维护人员乘船上岛，风暴天就在小屋里多住几天，墙上贴满了历次「滞留」的日期。"
+      en: "A small island in the Tauvvuviit Islands, about 340 km², the smallest named island in the territory, rising to about 100 m. It is named after the relay antennas that serve the ground station. The isle has only a few antennas and a maintenance hut; technicians come by boat and stay on in the hut when storms blow up, its wall covered with the dates of past \"strandings\"."
 
   # ── 皮图库维特群岛 ────────────────────────────────────────────
   - id: nat_b1fv64
@@ -28,16 +28,16 @@ features:
     detect: { kind: island, at_km: [184, 279] }
     names: { zh: 皮图克尤阿克岛, en: Pitukjuaq Island, art-x-tavrunaq: Pitukjuaq }
     notes:
-      zh: 皮图库维特群岛的主岛，面积约 1.04 万平方公里，是领地第三大岛，属塔夫鲁利特原住民自治区。岛上地势起伏不大，海岸是传统的海豹与海象猎场，海边岩石上留有刻着鲸、海豹和皮划艇的岩雕。
-      en: The main island of the Pitukuviit Islands, about 10,400 km², the third largest island in the territory, in the Tavrulit Indigenous Autonomous Region. Its ground is gently rolling, its coasts are traditional seal and walrus hunting grounds, and rocks by the shore carry carvings of whales, seals and kayaks.
+      zh: "皮图库维特群岛的主岛，面积约 1.04 万平方公里，是领地第三大岛，属塔夫鲁利特原住民自治区。岛上地势起伏不大，海岸是传统的海豹与海象猎场，海边岩石上留有刻着鲸、海豹和皮划艇的岩雕。塔夫鲁利特猎人至今在这里按季节狩猎，猎获按老规矩分给全村，岩雕只在退潮时露出来，向导会掐着潮汐表带人来看。"
+      en: "The main island of the Pitukuviit Islands, about 10,400 km², the third largest island in the territory, in the Tavrulit Indigenous Autonomous Region. Its ground is gently rolling, its coasts are traditional seal and walrus hunting grounds, and rocks by the shore carry carvings of whales, seals and kayaks. Tavrulit hunters still hunt here by the seasons and share the catch with the whole village by old custom, and the carvings show only at low tide, so guides bring visitors by the tide table."
   - id: nat_dstxyg
     subtype: island
     status: generated
     detect: { kind: island, at_km: [205, 263] }
     names: { zh: 瑙卡克岛, en: Naukkaq Island, art-x-tavrunaq: Naukkaq }
     notes:
-      zh: 皮图库维特群岛的第二大岛，面积约 1100 平方公里，在皮图克尤阿克岛东南，地势低平。岛名来自塔夫鲁利特猎人用来猎海豹的鱼叉。
-      en: The second island of the Pitukuviit Islands, about 1,100 km², south-east of Pitukjuaq Island and low-lying. It is named after the harpoon Tavrulit hunters use for seals.
+      zh: "皮图库维特群岛的第二大岛，面积约 1100 平方公里，在皮图克尤阿克岛东南，地势低平。岛名来自塔夫鲁利特猎人用来猎海豹的鱼叉。老猎人说，岛的形状就像一支斜放在海上的鱼叉，从皮图克尤阿克岛的高处看最清楚。"
+      en: "The second island of the Pitukuviit Islands, about 1,100 km², south-east of Pitukjuaq Island and low-lying. It is named after the harpoon Tavrulit hunters use for seals. Old hunters say the island is shaped like a harpoon laid slantwise on the sea, best seen from the high ground of Pitukjuaq."
 
   # ── 纳卢维特群岛 ────────────────────────────────────────────
   - id: nat_5hdtr2
@@ -46,24 +46,24 @@ features:
     detect: { kind: island, at_km: [323, 311] }
     names: { zh: 纳卢尤阿克岛, en: Naallujuaq Island, art-x-tavrunaq: Naallujuaq }
     notes:
-      zh: 纳卢维特群岛的主岛，面积约 7000 平方公里，最高处海拔五百多米。北冰洋极地研究所设在岛上，研究海冰、冻土与北极生态，每年夏季从这里派出科考船。
-      en: The main island of the Naalluviit Islands, about 7,000 km², rising to over 500 m. The Arctic Ocean Polar Research Institute stands here, studying sea ice, permafrost and Arctic ecology, and sends out its research ships every summer.
+      zh: "纳卢维特群岛的主岛，面积约 7000 平方公里，最高处海拔五百多米。北冰洋极地研究所设在岛上，研究海冰、冻土与北极生态，每年夏季从这里派出科考船。科考船夏天出发时，研究所的人站在码头上敲一阵皮鼓送行，船上的人则把一面小旗挂上桅杆，直到秋天回港才取下。"
+      en: "The main island of the Naalluviit Islands, about 7,000 km², rising to over 500 m. The Arctic Ocean Polar Research Institute stands here, studying sea ice, permafrost and Arctic ecology, and sends out its research ships every summer. When the research ship sails in summer the institute's staff see it off from the quay with a burst of skin drums, and those aboard hoist a small flag to the mast, not to come down until they return in autumn."
   - id: nat_r5e7sa
     subtype: island
     status: generated
     detect: { kind: island, at_km: [357, 324] }
     names: { zh: 普塔克岛, en: Puttaq Isle, art-x-tavrunaq: Puttaq }
     notes:
-      zh: 纳卢维特群岛东部的小岛，面积约 880 平方公里，最高处海拔四百多米。研究所在周围海域布放的海洋浮标由这里维护，岛名由此而来。
-      en: A small island in the east of the Naalluviit Islands, about 880 km², rising to over 400 m. The institute's ocean buoys in the surrounding waters are serviced from here, hence the name.
+      zh: "纳卢维特群岛东部的小岛，面积约 880 平方公里，最高处海拔四百多米。研究所在周围海域布放的海洋浮标由这里维护，岛名由此而来。浮标每年秋天回收一次，维护人员说，浮标上挂满的海藻和贝壳，是它们在海上过了一年的「履历」。"
+      en: "A small island in the east of the Naalluviit Islands, about 880 km², rising to over 400 m. The institute's ocean buoys in the surrounding waters are serviced from here, hence the name. The buoys are recovered every autumn, and the technicians say the weed and shells hanging from them are \"the record of their year at sea\"."
   - id: nat_2vhfdf
     subtype: island
     status: generated
     detect: { kind: island, at_km: [278, 347] }
     names: { zh: 阿卡尼尔维克岛, en: Aqqanirvik Isle, art-x-tavrunaq: Aqqanirvik }
     notes:
-      zh: 纳卢维特群岛最北的小岛，面积约 590 平方公里，向北面对封冻的北冰洋，岛上设有观测海冰的站点。
-      en: The northernmost of the Naalluviit Islands, about 590 km², facing the frozen Arctic Ocean to the north, with a station that watches the sea ice.
+      zh: "纳卢维特群岛最北的小岛，面积约 590 平方公里，向北面对封冻的北冰洋，岛上设有观测海冰的站点。站里的观测员说，这里是「领地最后一块看得见海的地方」，再往北只有一望无际的海冰，冬天站屋的窗户上常常结着一层厚厚的冰花。"
+      en: "The northernmost of the Naalluviit Islands, about 590 km², facing the frozen Arctic Ocean to the north, with a station that watches the sea ice. The observers say this is \"the last place in the territory where you can see open water\"; to the north there is only endless sea ice, and in winter the station windows are thick with frost flowers."
 
   # ── 西尔米乌维特群岛 ────────────────────────────────────────────
   - id: nat_99nd2b
@@ -72,24 +72,24 @@ features:
     detect: { kind: island, at_km: [452, 313] }
     names: { zh: 基库维克岛, en: Kiiquviq Island, art-x-tavrunaq: Kiiquviq }
     notes:
-      zh: 西尔米乌维特群岛的主岛，面积约 2.87 万平方公里，是领地最大的岛屿，也是地势最高的岛：西尔米基克山纵贯全岛，主峰基克皮鲁克峰海拔 2236 米，山顶覆盖着基克西尔米冰帽。岛上没有常住居民，属西尔米乌维特冰盖管理区。
-      en: The main island of the Sirmiuviit Islands, about 28,700 km², the largest island in the territory and also the highest; the Sirmikiiq Mountains run its length, their summit Mount Kiiqpirruk reaching 2,236 m under the Kiiqsirmi Ice Cap. No one lives here permanently; it belongs to the Sirmiuviit Islands Ice Cap Administration Zone.
+      zh: "西尔米乌维特群岛的主岛，面积约 2.87 万平方公里，是领地最大的岛屿，也是地势最高的岛：西尔米基克山纵贯全岛，主峰基克皮鲁克峰海拔 2236 米，山顶覆盖着基克西尔米冰帽。岛上没有常住居民，属西尔米乌维特冰盖管理区。冰川从山上流进海里，夏天冰崖崩落的轰鸣声隔着海峡都能听见，路过的船只总会放慢速度远远地看一会儿。"
+      en: "The main island of the Sirmiuviit Islands, about 28,700 km², the largest island in the territory and also the highest; the Sirmikiiq Mountains run its length, their summit Mount Kiiqpirruk reaching 2,236 m under the Kiiqsirmi Ice Cap. No one lives here permanently; it belongs to the Sirmiuviit Islands Ice Cap Administration Zone. Glaciers flow from its mountains into the sea, and in summer the roar of calving ice cliffs can be heard across the strait; passing ships always slow down to watch from a distance."
   - id: nat_b3kk8p
     subtype: island
     status: generated
     detect: { kind: island, at_km: [520, 301] }
     names: { zh: 基库利克岛, en: Kiqqulik Island, art-x-tavrunaq: Kiqqulik }
     notes:
-      zh: 西尔米乌维特群岛的第二大岛，面积约 2200 平方公里，在基库维克岛以东。基库维克岛冰川入海崩落的冰山常在附近漂过，岛名由此而来。
-      en: The second island of the Sirmiuviit Islands, about 2,200 km², east of Kiiquviq Island. Icebergs calved from Kiiquviq Island's glaciers often drift past, hence the name.
+      zh: "西尔米乌维特群岛的第二大岛，面积约 2200 平方公里，在基库维克岛以东。基库维克岛冰川入海崩落的冰山常在附近漂过，岛名由此而来。冰山漂过时常在岛边搁浅，有的一搁就是一整个夏天，岛周围的海面因此像一座不断变换的冰雕展。"
+      en: "The second island of the Sirmiuviit Islands, about 2,200 km², east of Kiiquviq Island. Icebergs calved from Kiiquviq Island's glaciers often drift past, hence the name. Drifting bergs often run aground along its shores, some staying the whole summer, so the sea around it is like an ever-changing ice-sculpture show."
   - id: nat_tfkcz1
     subtype: island
     status: generated
     detect: { kind: island, at_km: [570, 318] }
     names: { zh: 西尔米奥拉岛, en: Sirmiaulla Island, art-x-tavrunaq: Sirmiaulla }
     notes:
-      zh: 西尔米乌维特群岛东端的小岛，面积约 980 平方公里，周围海面常年漂着浮冰，岛名由此而来。
-      en: A small island at the eastern end of the Sirmiuviit Islands, about 980 km², surrounded by drifting ice for much of the year, hence the name.
+      zh: "西尔米乌维特群岛东端的小岛，面积约 980 平方公里，周围海面常年漂着浮冰，岛名由此而来。浮冰之间常有海豹爬上冰面晒太阳，冰山观测站的工作人员说这是「浮冰上的沙滩」。"
+      en: "A small island at the eastern end of the Sirmiuviit Islands, about 980 km², surrounded by drifting ice for much of the year, hence the name. Seals often haul out on the floes to bask, which the iceberg-station staff call \"the beaches on the ice\"."
 
   # ── 乌瓦卡鲁库维特群岛 ──────────────────────────────────────────
   - id: nat_zrtk04
@@ -98,32 +98,32 @@ features:
     detect: { kind: island, at_km: [604, 290] }
     names: { zh: 乌瓦克岛, en: "Uvvaak Island", art-x-tavrunaq: Uvvaakuviq }
     notes:
-      zh: 乌瓦卡鲁库维特群岛的主岛，面积约 9400 平方公里，「乌瓦克」在塔夫鲁纳克语中意为海象。岛的海滩是海象的聚居地，保护区的巡护站监测海象栖息地和北极熊的迁移，全岛禁止开发。
-      en: The main island of the Uvvaakkaruquviit Islands, about 9,400 km²; uvvaak is the Tavrunaq word for walrus. Its beaches are walrus haul-outs, the reserve's ranger station monitors the walrus grounds and the movements of polar bears, and the whole island is closed to development.
+      zh: "乌瓦卡鲁库维特群岛的主岛，面积约 9400 平方公里，「乌瓦克」在塔夫鲁纳克语中意为海象。岛的海滩是海象的聚居地，保护区的巡护站监测海象栖息地和北极熊的迁移，全岛禁止开发。夏天成千上万头海象挤在海滩上，远看像一片褐色的礁石，巡护员说它们的叫声在几公里外的船上都听得见。"
+      en: "The main island of the Uvvaakkaruquviit Islands, about 9,400 km²; uvvaak is the Tavrunaq word for walrus. Its beaches are walrus haul-outs, the reserve's ranger station monitors the walrus grounds and the movements of polar bears, and the whole island is closed to development. In summer thousands of walruses crowd the beaches, from afar like a brown reef, and the rangers say their bellowing can be heard from boats kilometres away."
   - id: nat_6xq372
     subtype: island
     status: generated
     detect: { kind: island, at_km: [640, 263] }
     names: { zh: 卡鲁克岛, en: "Karuq Island", art-x-tavrunaq: Karuquviq }
     notes:
-      zh: 乌瓦卡鲁库维特群岛的第二大岛，面积约 5500 平方公里，「卡鲁克」在塔夫鲁纳克语中意为熊。冬季北极熊沿海冰来到岛上，在积雪中筑窝产仔。
-      en: The second island of the Uvvaakkaruquviit Islands, about 5,500 km²; karuq is the Tavrunaq word for bear. In winter polar bears come over the sea ice and dig dens in the snow to give birth.
+      zh: "乌瓦卡鲁库维特群岛的第二大岛，面积约 5500 平方公里，「卡鲁克」在塔夫鲁纳克语中意为熊。冬季北极熊沿海冰来到岛上，在积雪中筑窝产仔。小熊出生后要在雪窝里待到春天才出洞，这段时间全岛禁止任何人登陆，连巡护员也只在海上用望远镜观察。"
+      en: "The second island of the Uvvaakkaruquviit Islands, about 5,500 km²; karuq is the Tavrunaq word for bear. In winter polar bears come over the sea ice and dig dens in the snow to give birth. Cubs born in the dens stay in the snow until spring, and through that time no one may land, not even the rangers, who watch from the sea with binoculars."
   - id: nat_6fra25
     subtype: island
     status: generated
     detect: { kind: island, at_km: [631, 317] }
     names: { zh: 图拉利克岛, en: Turralik Island, art-x-tavrunaq: Turralik }
     notes:
-      zh: 乌瓦卡鲁库维特群岛的低平岛屿，面积约 4600 平方公里，最高处海拔只有一百多米，海岸是陡立的冰崖，岛名由此而来。
-      en: A low, flat island in the Uvvaakkaruquviit Islands, about 4,600 km², rising only to a little over 100 m, its coast walled by sheer ice cliffs, hence the name.
+      zh: "乌瓦卡鲁库维特群岛的低平岛屿，面积约 4600 平方公里，最高处海拔只有一百多米，海岸是陡立的冰崖，岛名由此而来。冰崖在夏天的阳光下泛着蓝光，船只经过时要远远绕开，因为冰崖随时可能崩落一大块。"
+      en: "A low, flat island in the Uvvaakkaruquviit Islands, about 4,600 km², rising only to a little over 100 m, its coast walled by sheer ice cliffs, hence the name. The ice cliffs glow blue in the summer sun, and ships give them a wide berth, since a great slab can break away at any moment."
   - id: nat_wbttjv
     subtype: island
     status: generated
     detect: { kind: island, at_km: [656, 296] }
     names: { zh: 普塔西尔米岛, en: Puttasirmi Island, art-x-tavrunaq: Puttasirmi }
     notes:
-      zh: 乌瓦卡鲁库维特群岛东端的岛屿，面积约 1700 平方公里，冬春之际周围的海面布满浮冰，是海象和北极熊出没的地带。
-      en: The island at the eastern end of the Uvvaakkaruquviit Islands, about 1,700 km²; in late winter and spring the sea around it fills with floes, the haunt of walruses and polar bears.
+      zh: "乌瓦卡鲁库维特群岛东端的岛屿，面积约 1700 平方公里，冬春之际周围的海面布满浮冰，是海象和北极熊出没的地带。巡护员的小屋建在高处，屋顶上画着一个巨大的白熊图案，方便飞机在雪原上辨认。"
+      en: "The island at the eastern end of the Uvvaakkaruquviit Islands, about 1,700 km²; in late winter and spring the sea around it fills with floes, the haunt of walruses and polar bears. The rangers' hut stands on high ground, a huge white bear painted on its roof so that aircraft can pick it out on the snowfield."
 
   # ── 乌库乌维特群岛 ────────────────────────────────────────────
   - id: nat_6y7y3n
@@ -132,32 +132,32 @@ features:
     detect: { kind: island, at_km: [644, 174] }
     names: { zh: 乌维克萨克岛, en: "Uviqsaaq Island", art-x-tavrunaq: Uviqsaaq }
     notes:
-      zh: 乌库乌维特群岛的主岛，面积约 6600 平方公里，最高处海拔 783 米，是领地仅次于基库维克岛的高岛。乌维克萨克市的乌维克努卡港和机场在岛的一侧，其余大部分属乌库乌维特矿区管理区。
-      en: The main island of the Ukkuuviit Islands, about 6,600 km², rising to 783 m, the highest island in the territory after Kiiquviq Island. Uviqsaaq City's harbour and airport are on one side of it, and most of the rest belongs to the Ukkuuviit Mining Administration Zone.
+      zh: "乌库乌维特群岛的主岛，面积约 6600 平方公里，最高处海拔 783 米，是领地仅次于基库维克岛的高岛。乌维克萨克市的乌维克努卡港和机场在岛的一侧，其余大部分属乌库乌维特矿区管理区。岛上的最高处是全市孩子们最爱的远足地，晴天能望见群岛的每一座岛，岛民说这里是「看得见全市的地方」。"
+      en: "The main island of the Ukkuuviit Islands, about 6,600 km², rising to 783 m, the highest island in the territory after Kiiquviq Island. Uviqsaaq City's harbour and airport are on one side of it, and most of the rest belongs to the Ukkuuviit Mining Administration Zone. The island's summit is the favourite outing of the city's children, and on clear days every island in the group can be seen from it; islanders call it \"the place where you can see the whole city\"."
   - id: nat_ps1ygb
     subtype: island
     status: generated
     detect: { kind: island, at_km: [654, 145] }
     names: { zh: 西卢奥库岛, en: Silluaukku Island, art-x-tavrunaq: Silluaukku }
     notes:
-      zh: 乌库乌维特群岛南部的岛屿，面积约 2700 平方公里，地势低缓，乌库乌维特露天矿就在岛上，精矿运往乌维克努卡港装船。
-      en: An island in the south of the Ukkuuviit Islands, about 2,700 km² and gently rolling; the Ukkuuviit Islands Open-Pit Mine is here, and its concentrate goes to the harbour for shipping.
+      zh: "乌库乌维特群岛南部的岛屿，面积约 2700 平方公里，地势低缓，乌库乌维特露天矿就在岛上，精矿运往乌维克努卡港装船。矿坑一圈圈向下的台阶从飞机上看得清清楚楚，像一只巨大的漏斗，岛上的孩子把矿里运出来的矿石叫作「彩色石头」。"
+      en: "An island in the south of the Ukkuuviit Islands, about 2,700 km² and gently rolling; the Ukkuuviit Islands Open-Pit Mine is here, and its concentrate goes to the harbour for shipping. The rings of benches descending into the pit are plain to see from the air, like a giant funnel, and island children call the ore from it \"coloured stones\"."
   - id: nat_0mnzj7
     subtype: island
     status: generated
     detect: { kind: island, at_km: [632, 141] }
     names: { zh: 基蒂利克岛, en: Qittilik Island, art-x-tavrunaq: Qittilik }
     notes:
-      zh: 乌库乌维特群岛西部的低平小岛，面积约 1100 平方公里，最高处海拔一百多米。岛上的岩石含磁铁矿，罗盘在这里会偏转，岛名由此而来。
-      en: A low, small island in the west of the Ukkuuviit Islands, about 1,100 km², rising to a little over 100 m. Its rocks contain magnetite that turns compass needles, hence the name.
+      zh: "乌库乌维特群岛西部的低平小岛，面积约 1100 平方公里，最高处海拔一百多米。岛上的岩石含磁铁矿，罗盘在这里会偏转，岛名由此而来。来岛上考察的学生第一件事就是掏出罗盘看指针乱转，岛上的老向导干脆只靠太阳和海岸线认路。"
+      en: "A low, small island in the west of the Ukkuuviit Islands, about 1,100 km², rising to a little over 100 m. Its rocks contain magnetite that turns compass needles, hence the name. The first thing visiting students do is take out a compass to watch the needle wander, and the old guides simply find their way by the sun and the shoreline."
   - id: nat_wrjnnn
     subtype: island
     status: generated
     detect: { kind: island, at_km: [660, 203] }
     names: { zh: 阿考库岛, en: Aqqaukku Island, art-x-tavrunaq: Aqqaukku }
     notes:
-      zh: 乌库乌维特群岛最北的岛屿，面积约 670 平方公里，最高处海拔近五百米，是矿区勘探中的岛屿。
-      en: The northernmost of the Ukkuuviit Islands, about 670 km², rising to nearly 500 m, and under exploration by the mining zone.
+      zh: "乌库乌维特群岛最北的岛屿，面积约 670 平方公里，最高处海拔近五百米，是矿区勘探中的岛屿。勘探队夏天在岛上扎营，营地的帐篷排成一行，远看像一串彩色的纽扣钉在灰色的山坡上。"
+      en: "The northernmost of the Ukkuuviit Islands, about 670 km², rising to nearly 500 m, and under exploration by the mining zone. Survey teams camp here in summer, their tents in a line that from afar looks like a string of coloured buttons sewn onto the grey hillside."
 
   # ── 卡瓦卢维特群岛 ────────────────────────────────────────────
   - id: nat_vv2c47
@@ -166,24 +166,24 @@ features:
     detect: { kind: island, at_km: [523, 42] }
     names: { zh: 卡瓦卢格尤阿克岛, en: Qavvalugjuaq Island, art-x-tavrunaq: Qavvalugjuaq }
     notes:
-      zh: 卡瓦卢维特群岛的主岛，面积约 1.12 万平方公里，是领地第二大岛。岛上地势低平、远离城市灯光，冬季夜空开阔，卡瓦卢维特观光度假村的玻璃屋顶客房就散布在岛上。
-      en: The main island of the Qavvaluviit Islands, about 11,200 km², the second largest island in the territory. It is low and flat, far from city lights and open to the winter sky, and the glass-roofed rooms of the Qavvaluviit Islands Resort are scattered across it.
+      zh: "卡瓦卢维特群岛的主岛，面积约 1.12 万平方公里，是领地第二大岛。岛上地势低平、远离城市灯光，冬季夜空开阔，卡瓦卢维特观光度假村的玻璃屋顶客房就散布在岛上。度假村给每位客人一个「极光闹钟」，夜里极光一出现，前台就挨个打电话叫醒客人，有人一个冬天被叫醒十几次也毫无怨言。"
+      en: "The main island of the Qavvaluviit Islands, about 11,200 km², the second largest island in the territory. It is low and flat, far from city lights and open to the winter sky, and the glass-roofed rooms of the Qavvaluviit Islands Resort are scattered across it. The lodge gives every guest an \"aurora alarm\": when the lights appear at night, reception rings each room in turn, and some guests are woken a dozen times in a winter without complaint."
   - id: nat_95v2tq
     subtype: island
     status: generated
     detect: { kind: island, at_km: [574, 51] }
     names: { zh: 温纳塔克岛, en: Unnataq Island, art-x-tavrunaq: Unnataq }
     notes:
-      zh: 卡瓦卢维特群岛东部的岛屿，面积约 3000 平方公里，最高处海拔四百多米。冬季极夜漫长，岛名由此而来，岛上有观赏极光的小屋和步道。
-      en: An island in the east of the Qavvaluviit Islands, about 3,000 km², rising to over 400 m. It is named for the long polar night, and has huts and trails for watching the aurora.
+      zh: "卡瓦卢维特群岛东部的岛屿，面积约 3000 平方公里，最高处海拔四百多米。冬季极夜漫长，岛名由此而来，岛上有观赏极光的小屋和步道。步道沿途的小屋里备着柴火、热茶和毯子，看极光的人可以在屋里等，极光一出来就推门出去。"
+      en: "An island in the east of the Qavvaluviit Islands, about 3,000 km², rising to over 400 m. It is named for the long polar night, and has huts and trails for watching the aurora. The huts along the trail keep firewood, hot tea and blankets, so aurora-watchers can wait indoors and step out the moment the lights appear."
   - id: nat_y023md
     subtype: island
     status: generated
     detect: { kind: island, at_km: [546, 60] }
     names: { zh: 库拉克岛, en: Qurrak Isle, art-x-tavrunaq: Qurrak }
     notes:
-      zh: 卡瓦卢维特群岛的小岛，面积约 470 平方公里，在卡瓦卢格尤阿克岛与温纳塔克岛之间。岛名来自极光常见的绿色光带。
-      en: A small island in the Qavvaluviit Islands, about 470 km², between Lightcurtain and Longnight islands. It is named after the green bands that are the aurora's commonest colour.
+      zh: "卡瓦卢维特群岛的小岛，面积约 470 平方公里，在卡瓦卢格尤阿克岛与温纳塔克岛之间。岛名来自极光常见的绿色光带。岛上没有灯，冬夜里只有极光照亮雪地，游船经过时会熄掉所有灯光，让乘客在黑暗里看极光倒映在水面上。"
+      en: "A small island in the Qavvaluviit Islands, about 470 km², between Lightcurtain and Longnight islands. It is named after the green bands that are the aurora's commonest colour. There are no lights on the isle, only the aurora on the snow on winter nights, and passing boats switch off every lamp so passengers can watch it mirrored on the water in the dark."
 
   # ── 乌利库维特群岛 ────────────────────────────────────────────
   - id: nat_p61nkb
@@ -192,32 +192,32 @@ features:
     detect: { kind: island, at_km: [241, 50] }
     names: { zh: 乌利卡尔维克岛, en: Ulikkarvik Island, art-x-tavrunaq: Ulikkarvik }
     notes:
-      zh: 乌利库维特群岛西部的岛屿，面积约 1700 平方公里。周围的海湾里排列着深海养殖网箱，岛名由此而来。
-      en: An island in the west of the Ulikuviit Islands, about 1,700 km². The bays around it are lined with deep-water fish pens, hence the name.
+      zh: "乌利库维特群岛西部的岛屿，面积约 1700 平方公里。周围的海湾里排列着深海养殖网箱，岛名由此而来。养殖工人每天坐船出海喂鱼，像牧民去放牧一样，萨尔瓦克人因此把这一片海叫作「海上牧场」。"
+      en: "An island in the west of the Ulikuviit Islands, about 1,700 km². The bays around it are lined with deep-water fish pens, hence the name. Fish-farm workers go out by boat every day to feed the fish as herders go out to their flocks, which is why Saarvaq people call this sea \"the sea pastures\"."
   - id: nat_qpjgxz
     subtype: island
     status: generated
     detect: { kind: island, at_km: [211, 57] }
     names: { zh: 库卡利克岛, en: Kuuqalik Island, art-x-tavrunaq: Kuuqalik }
     notes:
-      zh: 乌利库维特群岛最西的岛屿，面积约 1500 平方公里，沿岸浅水里生长着大片海藻林，岛上的工厂把海藻加工成食品和饲料。
-      en: The westernmost of the Ulikuviit Islands, about 1,500 km², with wide kelp forests in its shallows; plants on the island process the seaweed into food and feed.
+      zh: "乌利库维特群岛最西的岛屿，面积约 1500 平方公里，沿岸浅水里生长着大片海藻林，岛上的工厂把海藻加工成食品和饲料。退潮时海藻林的叶片浮上水面，在阳光下像一片金褐色的草原，海獭常在其中仰躺着敲贝壳。"
+      en: "The westernmost of the Ulikuviit Islands, about 1,500 km², with wide kelp forests in its shallows; plants on the island process the seaweed into food and feed. At low tide the fronds of the kelp forest float to the surface like a golden-brown prairie in the sun, and sea otters lie on their backs among them cracking shells."
   - id: nat_ptewc9
     subtype: island
     status: generated
     detect: { kind: island, at_km: [292, 72] }
     names: { zh: 萨里马岛, en: Saarimma Island, art-x-tavrunaq: Saarimma }
     notes:
-      zh: 乌利库维特群岛的主岛，面积约 2900 平方公里，离首府只有一百多公里。暖流经过岛的周围，海水比别处温暖，乌利库维特区的居民大多住在这里。
-      en: The main island of the Ulikuviit Islands, about 2,900 km², only a little over 100 km from the capital. The warm current flows round it and its waters are warmer than elsewhere, and most of the district's people live here.
+      zh: "乌利库维特群岛的主岛，面积约 2900 平方公里，离首府只有一百多公里。暖流经过岛的周围，海水比别处温暖，乌利库维特区的居民大多住在这里。傍晚收工时船队排成一行回港，码头上的家人隔着老远就能认出自家的船灯。"
+      en: "The main island of the Ulikuviit Islands, about 2,900 km², only a little over 100 km from the capital. The warm current flows round it and its waters are warmer than elsewhere, and most of the district's people live here. At the end of the day the boats come home in line, and families on the quay can pick out their own boat's light from far off."
   - id: nat_9f9td0
     subtype: island
     status: generated
     detect: { kind: island, at_km: [301, 42] }
     names: { zh: 西卢阿库利岛, en: Silluaqulli Isle, art-x-tavrunaq: Silluaqulli }
     notes:
-      zh: 乌利库维特群岛最南的岛屿，面积约 1100 平方公里，最高处海拔五百多米，岛南端的灯塔为驶向首府的船只指引航道。
-      en: The southernmost of the Ulikuviit Islands, about 1,100 km², rising to over 500 m; the lighthouse at its southern tip guides ships bound for the capital.
+      zh: "乌利库维特群岛最南的岛屿，面积约 1100 平方公里，最高处海拔五百多米，岛南端的灯塔为驶向首府的船只指引航道。灯塔的看守人每年都在塔下的小菜园里种土豆，说是「全首府最靠海的菜地」，收获时会给路过的渔船送上一袋。"
+      en: "The southernmost of the Ulikuviit Islands, about 1,100 km², rising to over 500 m; the lighthouse at its southern tip guides ships bound for the capital. The lighthouse keeper grows potatoes in a little garden at its foot, \"the vegetable plot nearest the sea in the whole capital area\", and at harvest gives a bag to passing fishing boats."
 
   # ── 通纳库维特群岛 ────────────────────────────────────────
   - id: nat_mgz2yw
@@ -226,24 +226,24 @@ features:
     detect: { kind: island, at_km: [94, 85] }
     names: { zh: 通纳克岛, en: Tuunnaq Island, art-x-tavrunaq: Tuunnaq }
     notes:
-      zh: 通纳库维特群岛的主岛，面积约 3400 平方公里，海岸上成排的六角形玄武岩柱是保护区的核心，崖上栖息着海鸦与北极鸥。
-      en: The main island of the Tuunnaquviit Islands, about 3,400 km²; the rows of hexagonal basalt columns on its coast are the heart of the reserve, and guillemots and Arctic gulls nest on the cliffs.
+      zh: "通纳库维特群岛的主岛，面积约 3400 平方公里，海岸上成排的六角形玄武岩柱是保护区的核心，崖上栖息着海鸦与北极鸥。塔夫鲁纳克人的传说里，这些石柱是海神为海鸦搭的石梯，所以崖下从不捕鸟；夏天成千上万只海鸟停在每一级「台阶」上，叫声盖过了浪声。"
+      en: "The main island of the Tuunnaquviit Islands, about 3,400 km²; the rows of hexagonal basalt columns on its coast are the heart of the reserve, and guillemots and Arctic gulls nest on the cliffs. In Tavrunaq legend the columns are a stair the sea spirit built for the guillemots, so birds are never taken below the cliffs; in summer thousands of seabirds sit on every \"step\", their calls louder than the surf."
   - id: nat_ftskb5
     subtype: island
     status: generated
     detect: { kind: island, at_km: [123, 69] }
     names: { zh: 米尔尼克岛, en: Mirnik Island, art-x-tavrunaq: Mirnik }
     notes:
-      zh: 通纳库维特群岛东部的岛屿，面积约 2800 平方公里，最高处海拔四百多米，由深色的玄武岩构成，岛名由此而来。
-      en: An island in the east of the Tuunnaquviit Islands, about 2,800 km², rising to over 400 m and built of dark basalt, hence the name.
+      zh: "通纳库维特群岛东部的岛屿，面积约 2800 平方公里，最高处海拔四百多米，由深色的玄武岩构成，岛名由此而来。雨后玄武岩被淋得发黑发亮，整座岛像一块浸了水的墨石，从海上远远就能认出来。"
+      en: "An island in the east of the Tuunnaquviit Islands, about 2,800 km², rising to over 400 m and built of dark basalt, hence the name. After rain the basalt turns black and gleaming, and the whole island looks like an inkstone soaked in water, recognisable far out at sea."
   - id: nat_w4fpp3
     subtype: island
     status: generated
     detect: { kind: island, at_km: [70, 69] }
     names: { zh: 尼帕克图克岛, en: Nipaqtuuq Isle, art-x-tavrunaq: Nipaqtuuq }
     notes:
-      zh: 通纳库维特群岛西部的小岛，面积约 830 平方公里。海浪冲进岩柱之间的空隙，发出像管风琴一样的声音，岛名由此而来。
-      en: A small island in the west of the Tuunnaquviit Islands, about 830 km². Waves rushing into the gaps between its columns sound like an organ, hence the name.
+      zh: "通纳库维特群岛西部的小岛，面积约 830 平方公里。海浪冲进岩柱之间的空隙，发出像管风琴一样的声音，岛名由此而来。风浪大的日子，岩柱间的「管风琴」声音最响，渔民说听到它在唱歌，就该回港了。"
+      en: "A small island in the west of the Tuunnaquviit Islands, about 830 km². Waves rushing into the gaps between its columns sound like an organ, hence the name. On rough days the \"organ\" among the columns sounds loudest, and fishermen say that when you hear it singing, it is time to head for harbour."
 
   # ── 图卡鲁维特群岛 ────────────────────────────────────────────
   - id: nat_3njsdv
@@ -252,24 +252,24 @@ features:
     detect: { kind: island, at_km: [39, 189] }
     names: { zh: 图卡尔尤阿克岛, en: Tukkarjuaq Island, art-x-tavrunaq: Tukkarjuaq }
     notes:
-      zh: 图卡鲁维特群岛的主岛，面积约 3900 平方公里，岛名来自岛上的图卡尔尤阿克数据中心：它用极地冷空气和海水冷却服务器，余热为岛上的住宅供暖。
-      en: The main island of the Tukkaruviit Islands, about 3,900 km², named after the Coldvault Data Centre on it, which cools its servers with polar air and seawater and heats the island's homes with the waste heat.
+      zh: "图卡鲁维特群岛的主岛，面积约 3900 平方公里，岛名来自岛上的图卡尔尤阿克数据中心：它用极地冷空气和海水冷却服务器，余热为岛上的住宅供暖。岛上的游泳馆和温室靠数据中心的余热取暖，本地人开玩笑说自己是「泡在服务器的洗澡水里游泳」。"
+      en: "The main island of the Tukkaruviit Islands, about 3,900 km², named after the Coldvault Data Centre on it, which cools its servers with polar air and seawater and heats the island's homes with the waste heat. The island's pool and greenhouses are heated by the data centre's waste heat, and locals joke that they \"swim in the servers' bathwater\"."
   - id: nat_x904y1
     subtype: island
     status: generated
     detect: { kind: island, at_km: [55, 161] }
     names: { zh: 阿利克塔克岛, en: Aliqtaq Isle, art-x-tavrunaq: Aliqtaq }
     notes:
-      zh: 图卡鲁维特群岛东部的岛屿，面积约 1800 平方公里，西隔阿利克马苏克海峡与帕利塔库岛相望。连接世界各地的海底光缆在这里登陆，岛名由此而来。
-      en: An island in the east of the Tukkaruviit Islands, about 1,800 km², facing Paalitaqqu Isle across Aliqmasuq Strait to the west. The submarine cables that link the islands to the rest of the world come ashore here, hence the name.
+      zh: "图卡鲁维特群岛东部的岛屿，面积约 1800 平方公里，西隔阿利克马苏克海峡与帕利塔库岛相望。连接世界各地的海底光缆在这里登陆，岛名由此而来。光缆登陆站旁立着一块石碑，刻着光缆另一端连接的地方，岛上的孩子说他们的岛「一伸手就能摸到世界」。"
+      en: "An island in the east of the Tukkaruviit Islands, about 1,800 km², facing Paalitaqqu Isle across Aliqmasuq Strait to the west. The submarine cables that link the islands to the rest of the world come ashore here, hence the name. Beside the cable landing station stands a stone listing the places at the cables' other ends, and island children say their island \"can touch the world just by reaching out\"."
   - id: nat_estcp4
     subtype: island
     status: generated
     detect: { kind: island, at_km: [32, 166] }
     names: { zh: 帕利塔库岛, en: Paalitaqqu Isle, art-x-tavrunaq: Paalitaqqu }
     notes:
-      zh: 图卡鲁维特群岛西部的岛屿，面积约 1200 平方公里，夏季暖流与冷空气相遇，岛上常被白色海雾笼罩，岛名由此而来。
-      en: An island in the west of the Tukkaruviit Islands, about 1,200 km²; in summer, where the warm current meets cold air, it is often wrapped in white sea fog, hence the name.
+      zh: "图卡鲁维特群岛西部的岛屿，面积约 1200 平方公里，夏季暖流与冷空气相遇，岛上常被白色海雾笼罩，岛名由此而来。海雾来时，岛上的灯塔和雾笛同时启动，渔民说在帕利塔库岛附近航行「靠耳朵比靠眼睛管用」。"
+      en: "An island in the west of the Tukkaruviit Islands, about 1,200 km²; in summer, where the warm current meets cold air, it is often wrapped in white sea fog, hence the name. When the fog comes in the island's light and foghorn start together, and fishermen say that near Paalitaqqu \"your ears are more use than your eyes\"."
 
   # ── Archipelagos ────────────────────────────────────────
   - id: nat_fe3007
@@ -278,80 +278,80 @@ features:
     islands: [nat_dppqz7, nat_rhderc]
     names: { zh: 陶武维特群岛, en: Tauvvuviit Islands, art-x-tavrunaq: Tauvvuviit }
     notes:
-      zh: 图利瓦克市以北海上的群岛，由陶瓦克岛和萨卡利特岛组成，总面积约 7700 平方公里，属陶武维特区。群岛因卫星地面站得名。
-      en: An archipelago in the sea north of Tullivaq City, made up of Tauvvaq Island and Saqqaliit Isle, about 7,700 km² in all, forming the Tauvvuviit District. It is named after its satellite ground station.
+      zh: "图利瓦克市以北海上的群岛，由陶瓦克岛和萨卡利特岛组成，总面积约 7700 平方公里，属陶武维特区。群岛因卫星地面站得名。两座岛上的天线一大一小遥遥相对，地面站的人说它们是「一对隔海说话的兄弟」。"
+      en: "An archipelago in the sea north of Tullivaq City, made up of Tauvvaq Island and Saqqaliit Isle, about 7,700 km² in all, forming the Tauvvuviit District. It is named after its satellite ground station. The antennas on the two islands face each other across the water, one large and one small, and the station staff call them \"a pair of brothers talking across the sea\"."
   - id: nat_554jpc
     subtype: archipelago
     status: generated
     islands: [nat_b1fv64, nat_dstxyg]
     names: { zh: 皮图库维特群岛, en: Pitukuviit Islands, art-x-tavrunaq: Pitukuviit }
     notes:
-      zh: 北岸外海的群岛，由皮图克尤阿克岛和瑙卡克岛组成，总面积约 1.15 万平方公里，属塔夫鲁利特原住民自治区的皮图库维特区，是传统的海上猎场。
-      en: An archipelago off the north coast, made up of Pitukjuaq Island and Naukkaq Island, about 11,500 km² in all, forming the Pitukuviit District of the Tavrulit Indigenous Autonomous Region, a traditional sea-hunting ground.
+      zh: "北岸外海的群岛，由皮图克尤阿克岛和瑙卡克岛组成，总面积约 1.15 万平方公里，属塔夫鲁利特原住民自治区的皮图库维特区，是传统的海上猎场。冬季海峡封冻后，猎人们乘雪橇在岛屿之间往来，夏天则换成小船，岩雕上刻着的皮划艇至今仍是岛上孩子学的第一种船。"
+      en: "An archipelago off the north coast, made up of Pitukjuaq Island and Naukkaq Island, about 11,500 km² in all, forming the Pitukuviit District of the Tavrulit Indigenous Autonomous Region, a traditional sea-hunting ground. When the strait freezes in winter hunters cross between the islands by sled, and in summer by small boat; the kayak carved on the rocks is still the first boat island children learn to paddle."
   - id: nat_3832s0
     subtype: archipelago
     status: generated
     islands: [nat_5hdtr2, nat_r5e7sa, nat_2vhfdf]
     names: { zh: 纳卢维特群岛, en: Naalluviit Islands, art-x-tavrunaq: Naalluviit }
     notes:
-      zh: 北岸外海最北的群岛，由纳卢尤阿克岛、普塔克岛和阿卡尼尔维克岛组成，总面积约 8500 平方公里，属基卢克图阿尔市纳卢维特区，是领地极地科研的基地。
-      en: The northernmost archipelago off the north coast, made up of Naallujuaq Island, Puttaq Isle and Aqqanirvik Isle, about 8,500 km² in all, forming the Naalluviit District of Kiluktuar City and the base of the territory's polar research.
+      zh: "北岸外海最北的群岛，由纳卢尤阿克岛、普塔克岛和阿卡尼尔维克岛组成，总面积约 8500 平方公里，属基卢克图阿尔市纳卢维特区，是领地极地科研的基地。每年夏天科考船从这里出发去北方的海冰，岛上的研究员说，他们一年只有两个季节：「出海」和「等出海」。"
+      en: "The northernmost archipelago off the north coast, made up of Naallujuaq Island, Puttaq Isle and Aqqanirvik Isle, about 8,500 km² in all, forming the Naalluviit District of Kiluktuar City and the base of the territory's polar research. Every summer the research ship sets out from here for the northern sea ice, and the island's researchers say they have only two seasons: \"at sea\" and \"waiting to go to sea\"."
   - id: nat_8f01h7
     subtype: archipelago
     status: generated
     islands: [nat_99nd2b, nat_b3kk8p, nat_tfkcz1]
     names: { zh: 西尔米乌维特群岛, en: Sirmiuviit Islands, art-x-tavrunaq: Sirmiuviit }
     notes:
-      zh: 领地东北海上的群岛，由基库维克岛、基库利克岛和西尔米奥拉岛组成，总面积约 3.19 万平方公里，是领地面积最大的群岛。群岛几乎无人居住，属西尔米瓦克市西尔米乌维特冰盖管理区。
-      en: An archipelago in the north-east of the territory, made up of Icefang, Iceberg and Drift Ice islands, about 31,900 km² in all, the largest archipelago in the territory. It is almost uninhabited and forms the Sirmiuviit Islands Ice Cap Administration Zone of Sirmivak City.
+      zh: "领地东北海上的群岛，由基库维克岛、基库利克岛和西尔米奥拉岛组成，总面积约 3.19 万平方公里，是领地面积最大的群岛。群岛几乎无人居住，属西尔米瓦克市西尔米乌维特冰盖管理区。群岛上只有冰川、冰崖和冰山，偶尔有科考队乘飞机上岛，他们说这里安静得「连自己的心跳都听得见」。"
+      en: "An archipelago in the north-east of the territory, made up of Icefang, Iceberg and Drift Ice islands, about 31,900 km² in all, the largest archipelago in the territory. It is almost uninhabited and forms the Sirmiuviit Islands Ice Cap Administration Zone of Sirmivak City. The islands hold nothing but glaciers, ice cliffs and bergs; the occasional research team flies in, and they say it is so quiet \"you can hear your own heartbeat\"."
   - id: nat_75d2jp
     subtype: archipelago
     status: generated
     islands: [nat_zrtk04, nat_6xq372, nat_6fra25, nat_wbttjv]
     names: { zh: 乌瓦卡鲁库维特群岛, en: Uvvaakkaruquviit Islands, art-x-tavrunaq: Uvvaakkaruquviit }
     notes:
-      zh: 领地东北远海的群岛，由乌瓦克岛、卡鲁克岛、图拉利克岛和普塔西尔米岛组成，总面积约 2.11 万平方公里，名字合「海象」与「熊」两词，全境是保护海象和北极熊的生态保护区。
-      en: An archipelago in the far north-east of the territory, made up of Uvvaak, Karuq, Ice Cliff and Floe islands, about 21,100 km² in all; its name joins the words for walrus and bear, and all of it is a reserve for walruses and polar bears.
+      zh: "领地东北远海的群岛，由乌瓦克岛、卡鲁克岛、图拉利克岛和普塔西尔米岛组成，总面积约 2.11 万平方公里，名字合「海象」与「熊」两词，全境是保护海象和北极熊的生态保护区。保护区只允许巡护员和获得许可的科考人员进入，游客只能乘船在外海远远观看，望远镜里常能同时看到海象和北极熊。"
+      en: "An archipelago in the far north-east of the territory, made up of Uvvaak, Karuq, Ice Cliff and Floe islands, about 21,100 km² in all; its name joins the words for walrus and bear, and all of it is a reserve for walruses and polar bears. Only rangers and permitted researchers may enter the reserve; visitors watch from boats offshore, often seeing walruses and polar bears in the same binocular view."
   - id: nat_m6cr39
     subtype: archipelago
     status: generated
     islands: [nat_6y7y3n, nat_ps1ygb, nat_0mnzj7, nat_wrjnnn]
     names: { zh: 乌库乌维特群岛, en: Ukkuuviit Islands, art-x-tavrunaq: Ukkuuviit }
     notes:
-      zh: 领地最东端的群岛，由乌维克萨克岛、西卢奥库岛、基蒂利克岛和阿考库岛组成，总面积约 1.11 万平方公里，构成乌维克萨克市。群岛出产稀土，精矿由乌维克努卡港运出。
-      en: The easternmost archipelago of the territory, made up of Uviqsaaq, South Ore, Lodestone and North Ore islands, about 11,100 km² in all, which together form Uviqsaaq City. The islands produce rare earths, shipped out as concentrate from the harbour.
+      zh: "领地最东端的群岛，由乌维克萨克岛、西卢奥库岛、基蒂利克岛和阿考库岛组成，总面积约 1.11 万平方公里，构成乌维克萨克市。群岛出产稀土，精矿由乌维克努卡港运出。群岛没有一条通往大陆的公路，本地人说「我们的高速公路是航线和海路」，补给船靠岸的日子在岛上像过节。"
+      en: "The easternmost archipelago of the territory, made up of Uviqsaaq, South Ore, Lodestone and North Ore islands, about 11,100 km² in all, which together form Uviqsaaq City. The islands produce rare earths, shipped out as concentrate from the harbour. There is no road to the mainland, and locals say \"our expressways are the air routes and the sea lanes\"; supply-ship days are like holidays on the islands."
   - id: nat_vpay49
     subtype: archipelago
     status: generated
     islands: [nat_vv2c47, nat_95v2tq, nat_y023md]
     names: { zh: 卡瓦卢维特群岛, en: Qavvaluviit Islands, art-x-tavrunaq: Qavvaluviit }
     notes:
-      zh: 乌库拉克市东南海上的群岛，由卡瓦卢格尤阿克岛、温纳塔克岛和库拉克岛组成，总面积约 1.47 万平方公里，属卡瓦卢维特区，以观赏极光的旅游业闻名。
-      en: An archipelago in the sea south-east of Ukkulaaq City, made up of Lightcurtain, Longnight and Greenlight islands, about 14,700 km² in all, forming the Qavvaluviit District and known for aurora tourism.
+      zh: "乌库拉克市东南海上的群岛，由卡瓦卢格尤阿克岛、温纳塔克岛和库拉克岛组成，总面积约 1.47 万平方公里，属卡瓦卢维特区，以观赏极光的旅游业闻名。群岛的名字在塔夫鲁纳克语里就是「极光群岛」，冬夜里游船沿海峡夜航，乘客躺在甲板的毯子里看头顶的极光。"
+      en: "An archipelago in the sea south-east of Ukkulaaq City, made up of Lightcurtain, Longnight and Greenlight islands, about 14,700 km² in all, forming the Qavvaluviit District and known for aurora tourism. The name is Tavrunaq for \"the aurora islands\", and on winter nights boats cruise the straits while passengers lie wrapped in blankets on deck watching the lights overhead."
   - id: nat_mhtezd
     subtype: archipelago
     status: generated
     islands: [nat_p61nkb, nat_qpjgxz, nat_ptewc9, nat_9f9td0]
     names: { zh: 乌利库维特群岛, en: Ulikuviit Islands, art-x-tavrunaq: Ulikuviit }
     notes:
-      zh: 首府西南海上的群岛，由乌利卡尔维克岛、库卡利克岛、萨里马岛和西卢阿库利岛组成，总面积约 7300 平方公里，属萨尔瓦克市乌利库维特区。暖流使这里的海水较暖，岛间海湾以深海网箱养殖为业。
-      en: An archipelago in the sea south-west of the capital, made up of Netpen, Seaweed, Warmtide and South Light islands, about 7,300 km² in all, forming the Ulikuviit District of Saarvaq City. The warm current keeps the water mild, and the bays between the islands are given over to deep-water fish farming.
+      zh: "首府西南海上的群岛，由乌利卡尔维克岛、库卡利克岛、萨里马岛和西卢阿库利岛组成，总面积约 7300 平方公里，属萨尔瓦克市乌利库维特区。暖流使这里的海水较暖，岛间海湾以深海网箱养殖为业。每批鱼苗出海放进网箱时，孵化场的老工人会在船头敲三下皮鼓，祝它们在冷水里长得又肥又结实。"
+      en: "An archipelago in the sea south-west of the capital, made up of Netpen, Seaweed, Warmtide and South Light islands, about 7,300 km² in all, forming the Ulikuviit District of Saarvaq City. The warm current keeps the water mild, and the bays between the islands are given over to deep-water fish farming. When each batch of fry goes out to the pens, the old hands from the hatchery beat a skin drum three times at the bow, wishing the fish a fat, strong life in the cold water."
   - id: nat_t8xydj
     subtype: archipelago
     status: generated
     islands: [nat_mgz2yw, nat_ftskb5, nat_w4fpp3]
     names: { zh: 通纳库维特群岛, en: Tuunnaquviit Islands, art-x-tavrunaq: Tuunnaquviit }
     notes:
-      zh: 南岸西部海上的群岛，由通纳克岛、米尔尼克岛和尼帕克图克岛组成，总面积约 7000 平方公里，因海岸上的六角形玄武岩柱得名，全境是生态保护区。
-      en: An archipelago off the western south coast, made up of Tuunnaq and Mirnik islands and Nipaqtuuq Isle, about 7,000 km² in all, named after the hexagonal basalt columns of its coasts; all of it is a nature reserve.
+      zh: "南岸西部海上的群岛，由通纳克岛、米尔尼克岛和尼帕克图克岛组成，总面积约 7000 平方公里，因海岸上的六角形玄武岩柱得名，全境是生态保护区。保护区只开放一条海上观光航线，游船绕着岩柱缓缓驶过，船长会关掉马达，让乘客听海浪在石柱间回响。"
+      en: "An archipelago off the western south coast, made up of Tuunnaq and Mirnik islands and Nipaqtuuq Isle, about 7,000 km² in all, named after the hexagonal basalt columns of its coasts; all of it is a nature reserve. Only one sightseeing route is open, the boats passing slowly round the columns while the skipper cuts the engine so passengers can hear the waves echoing among the pillars."
   - id: nat_gph7ym
     subtype: archipelago
     status: generated
     islands: [nat_3njsdv, nat_x904y1, nat_estcp4]
     names: { zh: 图卡鲁维特群岛, en: Tukkaruviit Islands, art-x-tavrunaq: Tukkaruviit }
     notes:
-      zh: 图利瓦克市西面海上的群岛，由图卡尔尤阿克岛、阿利克塔克岛和帕利塔库岛组成，总面积约 6900 平方公里，是领地命名群岛中面积最小的。群岛属图卡鲁维特区，岛上的数据中心以极地冷空气冷却。
-      en: An archipelago in the sea west of Tullivaq City, made up of Tukkarjuaq Island, Aliqtaq Isle and Paalitaqqu Isle, about 6,900 km² in all, the smallest of the territory's named archipelagos. It forms the Tukkaruviit District, whose data centres are cooled by polar air.
+      zh: "图利瓦克市西面海上的群岛，由图卡尔尤阿克岛、阿利克塔克岛和帕利塔库岛组成，总面积约 6900 平方公里，是领地命名群岛中面积最小的。群岛属图卡鲁维特区，岛上的数据中心以极地冷空气冷却。群岛上的工程师来自世界各地，图卡尔尤阿克岛上的一条小街就能吃到好几个国家的菜。"
+      en: "An archipelago in the sea west of Tullivaq City, made up of Tukkarjuaq Island, Aliqtaq Isle and Paalitaqqu Isle, about 6,900 km² in all, the smallest of the territory's named archipelagos. It forms the Tukkaruviit District, whose data centres are cooled by polar air. The islands' engineers come from all over the world, and a single small street on Tukkarjuaq offers the food of several countries."
 
   # ── Bays ────────────────────────────────────────────────
   - id: nat_n1d2p4
@@ -360,56 +360,56 @@ features:
     detect: { kind: bay, at_km: [624.2, 303.2] }
     names: { zh: 乌瓦克湾, en: "Uvvaak Bay", art-x-tavrunaq: Uvvaakqalla }
     notes:
-      zh: 乌瓦卡鲁库维特群岛环抱的海湾，面积约 6100 平方公里，是领地最大的命名海湾。湾内冬季封冻，海冰是北极熊捕猎海豹的场所，夏季海象在湾岸的海滩上聚集。
-      en: A bay enclosed by the Uvvaakkaruquviit Islands, about 6,100 km², the largest named bay in the territory. It freezes over in winter, when the sea ice is where polar bears hunt seals, and in summer walruses gather on its beaches.
+      zh: "乌瓦卡鲁库维特群岛环抱的海湾，面积约 6100 平方公里，是领地最大的命名海湾。湾内冬季封冻，海冰是北极熊捕猎海豹的场所，夏季海象在湾岸的海滩上聚集。春天海冰开始破裂时，北极熊在冰缘守着海豹的呼吸孔，巡护员说这是整个保护区一年里最紧张的季节。"
+      en: "A bay enclosed by the Uvvaakkaruquviit Islands, about 6,100 km², the largest named bay in the territory. It freezes over in winter, when the sea ice is where polar bears hunt seals, and in summer walruses gather on its beaches. When the ice begins to break up in spring, polar bears wait at the floe edge by the seals' breathing holes, and the rangers say it is the tensest season of the year in the reserve."
   - id: nat_vd7pkm
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [511.8, 269.2] }
     names: { zh: 西尔米卡拉湾, en: Sirmiqalla Bay, art-x-tavrunaq: Sirmiqalla }
     notes:
-      zh: 西尔米冰盖东北缘的海湾，面积约 1300 平方公里，冰盖的冰舌伸入湾中，西尔米卡尔维克区和西尔米乌维特群岛环绕湾的两侧。冰舌崩落的冰山从湾口漂向外海。
-      en: A bay on the north-eastern edge of the Sirmi Ice Cap, about 1,300 km², where tongues of the ice cap reach into the water, with Sirmiqarvik District and the Sirmiuviit Islands on either side. Icebergs calved from the tongues drift out through its mouth.
+      zh: "西尔米冰盖东北缘的海湾，面积约 1300 平方公里，冰盖的冰舌伸入湾中，西尔米卡尔维克区和西尔米乌维特群岛环绕湾的两侧。冰舌崩落的冰山从湾口漂向外海。冰舌崩落时激起的浪能传到对岸，西尔米卡尔维克的老向导能从冰的颜色读出它的年纪：越蓝的冰越老、越密。"
+      en: "A bay on the north-eastern edge of the Sirmi Ice Cap, about 1,300 km², where tongues of the ice cap reach into the water, with Sirmiqarvik District and the Sirmiuviit Islands on either side. Icebergs calved from the tongues drift out through its mouth. The waves raised when the ice tongue calves reach the far shore, and the old guides of Sirmiqarvik can read the age of the ice from its colour: the bluer, the older and denser."
   - id: nat_ek0rtm
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [639.2, 149.2] }
     names: { zh: 乌库卡拉湾, en: Ukkuqalla Bay, art-x-tavrunaq: Ukkuqalla }
     notes:
-      zh: 乌库乌维特群岛中的海湾，面积约 1300 平方公里，大部分在乌库乌维特矿区管理区，北岸伸入乌维克努卡区，往来乌维克努卡港的船只经湾内进出。
-      en: A bay among the Ukkuuviit Islands, about 1,300 km², mostly in the Ukkuuviit Mining Administration Zone with its northern shore in Uviqnuqa District, used by ships calling at the harbour.
+      zh: "乌库乌维特群岛中的海湾，面积约 1300 平方公里，大部分在乌库乌维特矿区管理区，北岸伸入乌维克努卡区，往来乌维克努卡港的船只经湾内进出。湾内风浪较小，补给船在这里等待进港的时机，岛上的人看到湾里停着船，就知道新鲜水果和牛奶快到了。"
+      en: "A bay among the Ukkuuviit Islands, about 1,300 km², mostly in the Ukkuuviit Mining Administration Zone with its northern shore in Uviqnuqa District, used by ships calling at the harbour. The bay is sheltered, and supply ships wait here for their turn to enter port; when islanders see a ship in the bay, they know fresh fruit and milk are on the way."
   - id: nat_7s3g87
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [81.2, 174.8] }
     names: { zh: 图利卡拉湾, en: Tulliqalla Bay, art-x-tavrunaq: Tulliqalla }
     notes:
-      zh: 图利亚利维克区西侧的海湾，面积约 830 平方公里，是领地命名海湾中最小的。湾口朝向图卡鲁维特群岛，冬季冷风从高原吹过海湾，区名和湾名都由此而来。
-      en: A bay west of Tullijaalivik District, about 830 km², the smallest of the territory's named bays. Its mouth faces the Tukkaruviit Islands, and in winter cold winds blow down from the plateau across it, which gave the bay and the district their names.
+      zh: "图利亚利维克区西侧的海湾，面积约 830 平方公里，是领地命名海湾中最小的。湾口朝向图卡鲁维特群岛，冬季冷风从高原吹过海湾，区名和湾名都由此而来。市名和湾名里的 tulli 在塔夫鲁纳克语里是「冷」，本地人说这阵冷风是图利瓦克最值钱的资源，数据中心靠它给服务器降温。"
+      en: "A bay west of Tullijaalivik District, about 830 km², the smallest of the territory's named bays. Its mouth faces the Tukkaruviit Islands, and in winter cold winds blow down from the plateau across it, which gave the bay and the district their names. The tulli in the names of town and bay is Tavrunaq for \"cold\", and locals say this cold wind is Tullivaq's most valuable resource, cooling the data centres' servers."
   - id: nat_x9n4a1
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [114.8, 215.2] }
     names: { zh: 陶武卡拉湾, en: Tauvvuqalla Bay, art-x-tavrunaq: Tauvvuqalla }
     notes:
-      zh: 普拉普卡高原北岸的海湾，面积约 1000 平方公里，湾口朝向陶武维特群岛，地面站的信号经湾畔的中继天线转发，湾名由此而来。
-      en: A bay on the north shore of the Pullapukka Plateau, about 1,000 km², its mouth facing the Tauvvuviit Islands; the ground station's signals are relayed by antennas on its shore, hence the name.
+      zh: "普拉普卡高原北岸的海湾，面积约 1000 平方公里，湾口朝向陶武维特群岛，地面站的信号经湾畔的中继天线转发，湾名由此而来。湾名里的 tauvvu 意为「天」，本地人说卫星的信号从天上落进海湾，再从湾边送去城里。"
+      en: "A bay on the north shore of the Pullapukka Plateau, about 1,000 km², its mouth facing the Tauvvuviit Islands; the ground station's signals are relayed by antennas on its shore, hence the name. The tauvvu in its name means \"sky\", and locals say the satellites' signals fall from the sky into the bay and are sent on from its shore to the town."
   - id: nat_7tv61b
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [504.2, 59.8] }
     names: { zh: 卡瓦卢卡拉湾, en: Qavvaluqalla Bay, art-x-tavrunaq: Qavvaluqalla }
     notes:
-      zh: 卡瓦卢格尤阿克岛西北侧的海湾，面积约 900 平方公里。冬夜湾面平静时，极光倒映在海冰和水面上，是观光度假村的游客常去的观景点。
-      en: A bay on the north-west side of Qavvalugjuaq Island, about 900 km². On still winter nights the aurora is mirrored in the ice and water, a favourite viewpoint for visitors from the resort.
+      zh: "卡瓦卢格尤阿克岛西北侧的海湾，面积约 900 平方公里。冬夜湾面平静时，极光倒映在海冰和水面上，是观光度假村的游客常去的观景点。度假村的游客冬夜常坐在湾边的冰上看极光，向导会带一壶热浆果茶，说「极光要等，茶要趁热」。"
+      en: "A bay on the north-west side of Qavvalugjuaq Island, about 900 km². On still winter nights the aurora is mirrored in the ice and water, a favourite viewpoint for visitors from the resort. Lodge guests often sit out on the ice at the bay's edge on winter nights to watch the aurora, and the guides bring a flask of hot berry tea: \"the aurora needs waiting for, the tea needs drinking hot\"."
   - id: nat_js3ct6
     subtype: bay
     status: generated
     detect: { kind: bay, at_km: [289.8, 42.2] }
     names: { zh: 萨尔卡拉湾, en: Saarqalla Bay, art-x-tavrunaq: Saarqalla }
     notes:
-      zh: 乌利库维特群岛南部的海湾，面积约 1500 平方公里，暖流从湾中流过，海水较暖，湾内布满深海养殖网箱。
-      en: A bay in the south of the Ulikuviit Islands, about 1,500 km², through which the warm current flows; its waters are mild and lined with deep-water fish pens.
+      zh: "乌利库维特群岛南部的海湾，面积约 1500 平方公里，暖流从湾中流过，海水较暖，湾内布满深海养殖网箱。湾里的海水比外海暖几度，鲑鱼在这里长得快，养殖工人说这片湾是「暖流送给萨尔瓦克的礼物」。"
+      en: "A bay in the south of the Ulikuviit Islands, about 1,500 km², through which the warm current flows; its waters are mild and lined with deep-water fish pens. The water in the bay is a few degrees warmer than the open sea and the salmon grow fast here; the farm workers call the bay \"the warm current's gift to Saarvaq\"."
 
   # ── Fjords ──────────────────────────────────────────────
   - id: nat_mhybpm
@@ -418,40 +418,40 @@ features:
     detect: { kind: fjord, at_km: [330.2, 96.8] }
     names: { zh: 努卡塔克峡湾, en: "Nuqattaaq Fjord", art-x-tavrunaq: Nuqasuvva }
     notes:
-      zh: 首府努卡塔克的大峡湾，长约 79 公里，是领地最长的峡湾。库马尔维克区、伊马萨尔维克区和努坎加克区沿湾口展开，暖流让湾口终年不冻；西卢阿高速以长约 32 公里的跨海大桥跨过湾口，环线也以大桥跨过峡湾。
-      en: The great fjord of the capital, Nuqattaaq, about 79 km long, the longest fjord in the territory. Qummarvik, Immasaarvik and Nuqangaq districts are spread around its mouth, which the warm current keeps open all year; the Sillua Expressway crosses the mouth on a sea bridge of about 32 km, and the ring road also bridges the fjord.
+      zh: "首府努卡塔克的大峡湾，长约 79 公里，是领地最长的峡湾。库马尔维克区、伊马萨尔维克区和努坎加克区沿湾口展开，暖流让湾口终年不冻；西卢阿高速以长约 32 公里的跨海大桥跨过湾口，环线也以大桥跨过峡湾。冬天峡湾上常飘着冰雾，船只像从雾里浮出来一样进出港；苏瓦利克冰雕园用的冰块也是从峡湾内段采来的。"
+      en: "The great fjord of the capital, Nuqattaaq, about 79 km long, the longest fjord in the territory. Qummarvik, Immasaarvik and Nuqangaq districts are spread around its mouth, which the warm current keeps open all year; the Sillua Expressway crosses the mouth on a sea bridge of about 32 km, and the ring road also bridges the fjord. In winter frost smoke drifts over the fjord and ships seem to rise out of the mist as they come and go; the ice for the Suvvalik Ice Sculpture Garden is cut from its inner reaches."
   - id: nat_kpg78j
     subtype: fjord
     status: generated
     detect: { kind: fjord, at_km: [457.2, 109.8] }
     names: { zh: 乌库苏瓦峡湾, en: Ukkusuvva Fjord, art-x-tavrunaq: Ukkusuvva }
     notes:
-      zh: 乌库拉克市的峡湾，长约 57 公里，湾口是乌库努卡区的港口，基萨尔维克冶炼厂的产品和东部矿山的矿石从湾内的散货码头装船，峡湾内段属西卢阿苏瓦特生态保护区。
-      en: The fjord of Ukkulaaq City, about 57 km long; its mouth is the harbour of Ukkunuqa District, where the products of the Qissarvik smelter and ore from the eastern mines are loaded at the bulk terminal, and its inner reaches belong to the Silluasuvvat Nature Reserve.
+      zh: "乌库拉克市的峡湾，长约 57 公里，湾口是乌库努卡区的港口，基萨尔维克冶炼厂的产品和东部矿山的矿石从湾内的散货码头装船，峡湾内段属西卢阿苏瓦特生态保护区。峡湾两岸的山坡上，冶炼厂换班时的灯光一阵亮一阵暗，乌库拉克人说「看峡湾的灯就知道换班了」。"
+      en: "The fjord of Ukkulaaq City, about 57 km long; its mouth is the harbour of Ukkunuqa District, where the products of the Qissarvik smelter and ore from the eastern mines are loaded at the bulk terminal, and its inner reaches belong to the Silluasuvvat Nature Reserve. On the slopes on either side the smelter's lights brighten and dim at each shift change, and Ukkulaaq people say \"you can tell the shift from the fjord lights\"."
   - id: nat_xxs71y
     subtype: fjord
     status: generated
     detect: { kind: fjord, at_km: [177.2, 104.8] }
     names: { zh: 萨尔苏瓦峡湾, en: Saarsuvva Fjord, art-x-tavrunaq: Saarsuvva }
     notes:
-      zh: 萨尔瓦克市的峡湾，长约 55 公里，湾口是萨尔努卡区，暖流让港口终年不冻，萨尔努卡渔港就在湾内；峡湾深处属普拉苏瓦米乌特区。
-      en: The fjord of Saarvaq City, about 55 km long; Saarnuqa District stands at its mouth, kept ice-free all year by the warm current, with the fishing port inside, and its inner reaches belong to Pullasuvvamiut District.
+      zh: "萨尔瓦克市的峡湾，长约 55 公里，湾口是萨尔努卡区，暖流让港口终年不冻，萨尔努卡渔港就在湾内；峡湾深处属普拉苏瓦米乌特区。极夜的日子里，峡湾口的灯塔和渔港的灯火连成一条光带，是从海上回家的人最熟悉的风景；峡湾深处的村子靠「校船」送孩子上学。"
+      en: "The fjord of Saarvaq City, about 55 km long; Saarnuqa District stands at its mouth, kept ice-free all year by the warm current, with the fishing port inside, and its inner reaches belong to Pullasuvvamiut District. In the polar night the lighthouse at the fjord mouth and the lights of the harbour form a single band of light, the sight anyone coming home by sea knows best, while the villages deep in the fjord send their children to school by \"school boat\"."
   - id: nat_q1g8ny
     subtype: fjord
     status: generated
     detect: { kind: fjord, at_km: [83.2, 151.2] }
     names: { zh: 图拉苏瓦峡湾, en: Tullasuvva Fjord, art-x-tavrunaq: Tullasuvva }
     notes:
-      zh: 图利瓦克市图拉卡特区的峡湾，长约 55 公里，是领地五条命名峡湾中最短的。峡湾两岸是陡峭的谷壁，冷风沿谷地吹向海面。
-      en: The fjord of Tullakkat District in Tullivaq City, about 55 km long, the shortest of the territory's five named fjords. Steep valley walls rise on either side, and cold winds pour down the valley to the sea.
+      zh: "图利瓦克市图拉卡特区的峡湾，长约 55 公里，是领地五条命名峡湾中最短的。峡湾两岸是陡峭的谷壁，冷风沿谷地吹向海面。冬天冷风沿谷地吹到海面上，水面会冒起一层薄薄的白汽，本地人说峡湾「在呼气」。"
+      en: "The fjord of Tullakkat District in Tullivaq City, about 55 km long, the shortest of the territory's five named fjords. Steep valley walls rise on either side, and cold winds pour down the valley to the sea. In winter the cold wind pours down the valley onto the water, raising a thin white vapour, and locals say the fjord \"is breathing out\"."
   - id: nat_sn5pj0
     subtype: fjord
     status: generated
     detect: { kind: fjord, at_km: [398.2, 114.8] }
     names: { zh: 伊图苏瓦峡湾, en: Ittusuvva Fjord, art-x-tavrunaq: Ittusuvva }
     notes:
-      zh: 考尔尼克市伊卢克萨特区南岸的峡湾，长约 63 公里，是领地第二长的峡湾，峡湾深而窄，两岸少有人烟。
-      en: A fjord on the south coast of Illuqsaat District in Qaurniq City, about 63 km long, the second longest in the territory; it is deep and narrow, with few people on its shores.
+      zh: "考尔尼克市伊卢克萨特区南岸的峡湾，长约 63 公里，是领地第二长的峡湾，峡湾深而窄，两岸少有人烟。峡湾两岸几乎没有人家，只有夏天偶尔驶进来的皮划艇，划船的人说在这里说话会听到好几遍回声。"
+      en: "A fjord on the south coast of Illuqsaat District in Qaurniq City, about 63 km long, the second longest in the territory; it is deep and narrow, with few people on its shores. Hardly anyone lives along its shores, and only the occasional kayak paddles in during summer; paddlers say your voice comes back several times over here."
 
   # ── Capes ───────────────────────────────────────────────
   - id: nat_yszfzp
@@ -460,40 +460,40 @@ features:
     detect: { kind: cape, at_km: [154.8, 260.8] }
     names: { zh: 皮图昆纳尔岬, en: Cape Pitukkunnar, art-x-tavrunaq: Pitukkunnar }
     notes:
-      zh: 皮图库维特群岛西南端的岬角，塔夫鲁利特猎人过去从这里出发，乘皮划艇到外海猎海豹和海象，岬角由此得名。
-      en: The south-western cape of the Pitukuviit Islands, from which Tavrulit hunters once set out by kayak after seals and walrus on the open sea, hence the name.
+      zh: "皮图库维特群岛西南端的岬角，塔夫鲁利特猎人过去从这里出发，乘皮划艇到外海猎海豹和海象，岬角由此得名。岬角上的老石堆路标至今立着，过路的人有往石堆上添一块石头的习惯，但谁也不能拿走一块。"
+      en: "The south-western cape of the Pitukuviit Islands, from which Tavrulit hunters once set out by kayak after seals and walrus on the open sea, hence the name. The old cairn on the headland still stands, and passers-by add a stone to it, but no one may take one away."
   - id: nat_tde9rm
     subtype: cape
     status: generated
     detect: { kind: cape, at_km: [416.8, 98.8] }
     names: { zh: 库利昆纳尔岬, en: Qullikunnar Point, art-x-tavrunaq: Qullikunnar }
     notes:
-      zh: 伊卢克萨特区南岸的岬角，岬上的灯塔为驶向首府伊马萨尔维克港和乌库努卡港的船只指引航道。
-      en: A cape on the south coast of Illuqsaat District, whose lighthouse guides ships bound for Immasaarvik in the capital and for Ukkunuqa.
+      zh: "伊卢克萨特区南岸的岬角，岬上的灯塔为驶向首府伊马萨尔维克港和乌库努卡港的船只指引航道。灯塔的光束在极夜里格外醒目，进出港的船员说，看见库利昆纳尔岬的灯，就知道离首府只剩最后一段海路了。"
+      en: "A cape on the south coast of Illuqsaat District, whose lighthouse guides ships bound for Immasaarvik in the capital and for Ukkunuqa. Its beam is especially striking in the polar night, and crews say that once they see the light of Qullikunnar, only the last stretch of sea to the capital remains."
   - id: nat_zjjcjw
     subtype: cape
     status: generated
     detect: { kind: cape, at_km: [90.8, 197.8] }
     names: { zh: 坎尼昆纳尔岬, en: Cape Qannikunnar, art-x-tavrunaq: Qannikunnar }
     notes:
-      zh: 普拉普卡特生态保护区西海岸的岬角，在图利亚利维克区以北，冬季积雪一直堆到海边，岬角由此得名。
-      en: A cape on the west coast of the Pullapukkat Nature Reserve, north of Tullijaalivik District, where in winter the snow drifts right down to the sea, hence the name.
+      zh: "普拉普卡特生态保护区西海岸的岬角，在图利亚利维克区以北，冬季积雪一直堆到海边，岬角由此得名。春天积雪融化时，雪水从岬角的崖壁上挂下一道道小瀑布，在阳光下闪闪发亮。"
+      en: "A cape on the west coast of the Pullapukkat Nature Reserve, north of Tullijaalivik District, where in winter the snow drifts right down to the sea, hence the name. When the snow melts in spring, meltwater hangs in little falls down the headland's cliffs, glittering in the sun."
   - id: nat_t51rsa
     subtype: cape
     status: generated
     detect: { kind: cape, at_km: [107.8, 123.8] }
     names: { zh: 塔库昆纳尔岬, en: Taqqukunnar Point, art-x-tavrunaq: Taqqukunnar }
     notes:
-      zh: 图拉卡特区南岸的岬角，暖流与冷空气在这里相遇，海面上常起浓雾，岬角由此得名，岬上设有雾笛。
-      en: A cape on the south coast of Tullakkat District, where the warm current meets cold air and thick fog often lies on the sea, hence the name; it has a foghorn.
+      zh: "图拉卡特区南岸的岬角，暖流与冷空气在这里相遇，海面上常起浓雾，岬角由此得名，岬上设有雾笛。雾笛的声音低沉悠长，渔民说它「像一头在雾里叫的海象」，听惯了的人在雾里一听就知道自己的位置。"
+      en: "A cape on the south coast of Tullakkat District, where the warm current meets cold air and thick fog often lies on the sea, hence the name; it has a foghorn. The foghorn's note is long and low, \"like a walrus calling in the fog\" as fishermen say, and those used to it can tell where they are by its sound."
   - id: nat_qy2q83
     subtype: cape
     status: generated
     detect: { kind: cape, at_km: [508.2, 102.2] }
     names: { zh: 卡瓦昆纳尔岬, en: Qavvakunnar Point, art-x-tavrunaq: Qavvakunnar }
     notes:
-      zh: 卡瓦卢维特区在大陆上的岬角，向南隔海望见卡瓦卢维特群岛，冬夜在岬上可以看到极光在群岛上空升起，岬角由此得名。
-      en: The cape of Qavvaluviit District on the mainland, looking south across the sea to the Qavvaluviit Islands; on winter nights the aurora can be seen rising over the islands from here, hence the name.
+      zh: "卡瓦卢维特区在大陆上的岬角，向南隔海望见卡瓦卢维特群岛，冬夜在岬上可以看到极光在群岛上空升起，岬角由此得名。冬夜岬上常有人支着相机等极光，本地人说在这里看极光「像看着它从海上的岛屿那边慢慢走过来」。"
+      en: "The cape of Qavvaluviit District on the mainland, looking south across the sea to the Qavvaluviit Islands; on winter nights the aurora can be seen rising over the islands from here, hence the name. On winter nights people wait on the headland with cameras for the aurora, and locals say that here \"you watch it walk slowly towards you from the islands across the sea\"."
 
   # ── Straits ─────────────────────────────────────────────
   - id: nat_7mhm8e
@@ -502,29 +502,29 @@ features:
     detect: { kind: strait, at_km: [179.8, 264.5] }
     names: { zh: 皮图克马苏克海峡, en: Pitukmasuq Strait, art-x-tavrunaq: Pitukmasuq }
     notes:
-      zh: 皮图库维特群岛中的海峡，宽约 5 公里，冬季封冻后是猎人乘雪橇往来岛屿之间的冰上通道，夏季则有小船通行。
-      en: A strait in the Pitukuviit Islands, about 5 km wide; when it freezes in winter hunters cross between the islands by sled on the ice, and in summer small boats pass through.
+      zh: "皮图库维特群岛中的海峡，宽约 5 公里，冬季封冻后是猎人乘雪橇往来岛屿之间的冰上通道，夏季则有小船通行。海峡封冻的日子，猎人的雪橇在冰面上留下长长的辙痕，开春冰化前，老猎人会凭冰的颜色判断哪里还能走。"
+      en: "A strait in the Pitukuviit Islands, about 5 km wide; when it freezes in winter hunters cross between the islands by sled on the ice, and in summer small boats pass through. While the strait is frozen the hunters' sleds leave long tracks across the ice, and before the spring thaw the old hunters judge from the colour of the ice where it can still be crossed."
   - id: nat_xjrfve
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [563.2, 57.0] }
     names: { zh: 卡瓦卢马苏克海峡, en: Qavvalumasuq Strait, art-x-tavrunaq: Qavvalumasuq }
     notes:
-      zh: 卡瓦卢维特群岛岛屿之间的海峡，宽约 3 公里，观光度假村的游船在冬季沿海峡夜航看极光。
-      en: A strait between the Qavvaluviit Islands, about 3 km wide, where the resort's boats sail at night in winter to watch the aurora.
+      zh: "卡瓦卢维特群岛岛屿之间的海峡，宽约 3 公里，观光度假村的游船在冬季沿海峡夜航看极光。海峡两岸的山不高，极光出现时整片天空都能看见，夜航的游船会熄灯慢行，船上只听得见水声。"
+      en: "A strait between the Qavvaluviit Islands, about 3 km wide, where the resort's boats sail at night in winter to watch the aurora. The hills on either side are low, so the whole sky is visible when the aurora appears, and the night boats douse their lights and slow down until only the sound of water is left."
   - id: nat_mdzqmt
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [647.0, 151.8] }
     names: { zh: 乌库马苏克海峡, en: Ukkumasuq Strait, art-x-tavrunaq: Ukkumasuq }
     notes:
-      zh: 乌维克努卡区附近的海峡，宽约 2 公里，是领地最窄的命名海峡。
-      en: A strait by Uviqnuqa District, about 2 km wide, the narrowest named strait in the territory.
+      zh: "乌维克努卡区附近的海峡，宽约 2 公里，是领地最窄的命名海峡。海峡窄得两岸的人隔着水能互相喊话，补给船经过时，两边的孩子会一起跑到岸边挥手。"
+      en: "A strait by Uviqnuqa District, about 2 km wide, the narrowest named strait in the territory. It is so narrow that people can shout across it, and when the supply ship passes the children on both sides run down to the shore to wave."
   - id: nat_v5tm5k
     subtype: strait
     status: generated
     detect: { kind: strait, at_km: [42.0, 160.5] }
     names: { zh: 阿利克马苏克海峡, en: Aliqmasuq Strait, art-x-tavrunaq: Aliqmasuq }
     notes:
-      zh: 图卡鲁维特群岛中阿利克塔克岛与帕利塔库岛之间的海峡，宽约 11 公里，是领地最宽的命名海峡，连接图卡鲁维特群岛的海底光缆沿海峡底部铺设，海峡由此得名。
-      en: The strait between Aliqtaq Isle and Paalitaqqu Isle in the Tukkaruviit Islands, about 11 km wide, the widest named strait in the territory; the submarine cables to the Tukkaruviit Islands run along its floor, hence the name.
+      zh: "图卡鲁维特群岛中阿利克塔克岛与帕利塔库岛之间的海峡，宽约 11 公里，是领地最宽的命名海峡，连接图卡鲁维特群岛的海底光缆沿海峡底部铺设，海峡由此得名。光缆维修船偶尔会在海峡里停泊几天，潜水员下到海底检修光缆，岛上的人管它叫「给世界接线的船」。"
+      en: "The strait between Aliqtaq Isle and Paalitaqqu Isle in the Tukkaruviit Islands, about 11 km wide, the widest named strait in the territory; the submarine cables to the Tukkaruviit Islands run along its floor, hence the name. A cable-repair ship sometimes anchors in the strait for a few days while divers go down to inspect the cables, and islanders call it \"the ship that wires up the world\"."

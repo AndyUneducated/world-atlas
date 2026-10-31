@@ -11,8 +11,8 @@ features:
       en: Tirakesu Mountains
       art-x-ivuran: Tirakesu
     notes:
-      zh: 主岛西南半部的中脊，伊武兰语意为「古老的山」。山脉从萨伦纳姆背后向东北延伸到哈努帕拉高原，把西北海岸的雨林和香料园与东南的哈努西鲁河谷分开；中段温达坎市的山坡上是层层叠叠的水稻梯田，最高处乌拉韦劳峰一带是云雾林和高山草甸。
-      en: The spine of the south-western half of the main island; in Ivuran the name means 'the old mountains'. The range runs north-east from behind Sarunnam to the Hanupala Plateau, dividing the rainforests and spice gardens of the north-west coast from the Hanusiru valley to the south-east; the slopes of Undakan City in its middle are stepped with rice terraces, and around Mount Uravelau, its highest summit, are cloud forest and alpine meadows.
+      zh: "主岛西南半部的中脊，伊武兰语意为「古老的山」。山脉从萨伦纳姆背后向东北延伸到哈努帕拉高原，把西北海岸的雨林和香料园与东南的哈努西鲁河谷分开；中段温达坎市的山坡上是层层叠叠的水稻梯田，最高处乌拉韦劳峰一带是云雾林和高山草甸。山脉两侧的天气常常截然不同，西北坡在下雨，东南谷里却晴着，农民们说「山把雨留给了雨林，把太阳留给了稻田」。"
+      en: "The spine of the south-western half of the main island; in Ivuran the name means 'the old mountains'. The range runs north-east from behind Sarunnam to the Hanupala Plateau, dividing the rainforests and spice gardens of the north-west coast from the Hanusiru valley to the south-east; the slopes of Undakan City in its middle are stepped with rice terraces, and around Mount Uravelau, its highest summit, are cloud forest and alpine meadows. The weather on either side of the range is often quite different, rain on the north-west slopes while the south-east valley lies in sunshine, and farmers say \"the mountains keep the rain for the forest and the sun for the rice\"."
   - id: nat_hnhpgn
     subtype: plateau
     status: generated
@@ -31,8 +31,8 @@ features:
       en: Unokesu Mountains
       art-x-ivuran: Unokesu
     notes:
-      zh: 主岛东北半部的山脉，伊武兰语意为「矿石之山」。山中的红土镍矿是领地最大的矿产，乌诺卡里市的矿区、冶炼厂和水电站都在山间；领地要求边采边复绿，采过的山坡随即种上原生树种。山脉北坡是纳卢迈的橡胶园和次生林。
-      en: The mountains of the north-eastern half of the main island; in Ivuran the name means 'mountains of ore'. Their laterite nickel is the territory's greatest mineral wealth, and the mines, smelters and hydro stations of Unokari City lie among them; the territory requires mined slopes to be replanted as mining goes on, with native trees. On the northern slopes are the rubber gardens and regrown forest of Nalumai.
+      zh: "主岛东北半部的山脉，伊武兰语意为「矿石之山」。山中的红土镍矿是领地最大的矿产，乌诺卡里市的矿区、冶炼厂和水电站都在山间；领地要求边采边复绿，采过的山坡随即种上原生树种。山脉北坡是纳卢迈的橡胶园和次生林。矿区的复绿队每种下一棵树，就在树旁插一块写着种树人名字的小木牌，老矿工带孙辈进山，最爱指着一片已经成林的山坡说「那是爷爷种的」。"
+      en: "The mountains of the north-eastern half of the main island; in Ivuran the name means 'mountains of ore'. Their laterite nickel is the territory's greatest mineral wealth, and the mines, smelters and hydro stations of Unokari City lie among them; the territory requires mined slopes to be replanted as mining goes on, with native trees. On the northern slopes are the rubber gardens and regrown forest of Nalumai. The mine's replanting crews put a small wooden tag with the planter's name beside every tree, and old miners love to take their grandchildren into the hills, point to a slope now grown into woodland and say \"Grandpa planted that\"."
   - id: nat_ypq4a1
     subtype: ridge
     status: generated
@@ -41,8 +41,8 @@ features:
       en: Pesavi Hills
       art-x-ivuran: Pesavi
     notes:
-      zh: 哈努帕拉高原东南缘的丘陵，在基拉努市背后，伊武兰语意为「高地」，最高处海拔一千一百多米。丘陵的山坡上种着可可和热带水果，山脚下是基拉努的半导体产业园，从高原流下的溪水是产业园的水源之一。
-      en: The hills on the south-eastern edge of the Hanupala Plateau, behind Kilanu City, rising to a little over 1,100 m; their Ivuran name means 'the uplands'. Cocoa and tropical fruit grow on their slopes, the semiconductor park of Kilanu lies at their foot, and the streams that come down from the plateau are among its sources of water.
+      zh: "哈努帕拉高原东南缘的丘陵，在基拉努市背后，伊武兰语意为「高地」，最高处海拔一千一百多米。丘陵的山坡上种着可可和热带水果，山脚下是基拉努的半导体产业园，从高原流下的溪水是产业园的水源之一。丘陵上的可可农和山下产业园的工程师常是一家人，周末一起采可可，本地人说基拉努的人「白天做芯片，周末做巧克力」。"
+      en: "The hills on the south-eastern edge of the Hanupala Plateau, behind Kilanu City, rising to a little over 1,100 m; their Ivuran name means 'the uplands'. Cocoa and tropical fruit grow on their slopes, the semiconductor park of Kilanu lies at their foot, and the streams that come down from the plateau are among its sources of water. The cocoa farmers on the hills and the engineers at the industrial park below are often from the same families and pick cocoa together at weekends, so Kilanu people are said to \"make chips by day and chocolate at weekends\"."
   - id: nat_11kf5w
     subtype: ridge
     status: generated
@@ -51,5 +51,5 @@ features:
       en: Vallikesu Hills
       art-x-ivuran: Vallikesu
     notes:
-      zh: 沿主岛东南海岸西段延伸的丘陵和低山，最高处海拔一千二百多米，伊武兰语意为「长岸之山」，把哈努西鲁河谷与瓦利凯一带的海岸平原隔开。丘陵上是橡胶园、椰林和次生林，山脚的村庄种稻和养鱼；从河谷通往瓦利凯港的公路和铁路都要翻过或穿过这道丘陵。
-      en: The hills and low mountains that run along the western part of the main island's south-east coast, rising to a little over 1,200 m; in Ivuran the name means 'hills of the long shore'. They separate the Hanusiru valley from the coastal plain around Vallikkai, carry rubber gardens, coconut groves and regrown forest, and the villages at their foot grow rice and raise fish; the roads and railways from the valley to the Port of Vallikkai have to cross or tunnel through them.
+      zh: "沿主岛东南海岸西段延伸的丘陵和低山，最高处海拔一千二百多米，伊武兰语意为「长岸之山」，把哈努西鲁河谷与瓦利凯一带的海岸平原隔开。丘陵上是橡胶园、椰林和次生林，山脚的村庄种稻和养鱼；从河谷通往瓦利凯港的公路和铁路都要翻过或穿过这道丘陵。翻越丘陵的公路上有一处急弯叫「回头湾」，从这里能同时望见河谷的稻田和远处的海，长途司机都习惯在这里停车喝一杯路边的椰子咖啡。"
+      en: "The hills and low mountains that run along the western part of the main island's south-east coast, rising to a little over 1,200 m; in Ivuran the name means 'hills of the long shore'. They separate the Hanusiru valley from the coastal plain around Vallikkai, carry rubber gardens, coconut groves and regrown forest, and the villages at their foot grow rice and raise fish; the roads and railways from the valley to the Port of Vallikkai have to cross or tunnel through them. The road over the hills has a hairpin called the Look-Back Bend, where you can see both the rice of the valley and the sea beyond, and long-distance drivers always stop there for a cup of coconut coffee from the roadside stall."

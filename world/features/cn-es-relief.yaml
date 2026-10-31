@@ -8,64 +8,64 @@ features:
     detect: { kind: peak, at_km: [224.2, 245.8] }
     names: { zh: 乌拉韦劳峰, en: Mount Uravelau, art-x-ivuran: Uravelau }
     notes:
-      zh: 蒂拉凯苏山脉的主峰，海拔 3179 米，是领地最高峰，伊武兰语意为「高处的云」。峰顶常在云海之上，山腰以上是挂满苔藓和兰花的云雾林，林线以上是高山草甸；乌拉韦劳自然保护区以它为名，登顶须有向导陪同。
-      en: The summit of the Tirakesu Mountains, 3,179 m and the highest peak in the territory; in Ivuran the name means 'high cloud'. Its top often stands above a sea of cloud, cloud forest hung with moss and orchids covers its upper slopes, and above the treeline are alpine meadows; the Uravelau Nature Reserve is named after it, and the summit may only be climbed with a guide.
+      zh: "蒂拉凯苏山脉的主峰，海拔 3179 米，是领地最高峰，伊武兰语意为「高处的云」。峰顶常在云海之上，山腰以上是挂满苔藓和兰花的云雾林，林线以上是高山草甸；乌拉韦劳自然保护区以它为名，登顶须有向导陪同。山脚的村子相信峰顶的云是祖先在看护梯田，登山向导在登顶前总会停下来轻声打个招呼，下山时再把一小把梯田红米撒在山口。"
+      en: "The summit of the Tirakesu Mountains, 3,179 m and the highest peak in the territory; in Ivuran the name means 'high cloud'. Its top often stands above a sea of cloud, cloud forest hung with moss and orchids covers its upper slopes, and above the treeline are alpine meadows; the Uravelau Nature Reserve is named after it, and the summit may only be climbed with a guide. The villages below believe the clouds on the summit are ancestors watching over the terraces, so guides stop to say a quiet greeting before the top and on the way down scatter a pinch of red terrace rice at the pass."
   - id: nat_p8vjdy
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [257.8, 254.8] }
     names: { zh: 蒂拉图马峰, en: Mount Tiratuma, art-x-ivuran: Tiratuma }
     notes:
-      zh: 乌拉韦劳峰东北的山峰，海拔 3071 米，是领地第二高峰，伊武兰语意为「古老的峰」。两峰之间是乌拉瓦苏山口，只有徒步小道翻过；山北坡的溪流汇入托兰卡区的河谷，为谷中的小水电站供水。
-      en: The peak north-east of Mount Uravelau, 3,071 m and the second highest in the territory; in Ivuran the name means 'old peak'. The Uravasu Pass between the two is crossed only by footpaths, and the streams of its northern slopes run down into the valleys of Toranka District and its small hydro stations.
+      zh: "乌拉韦劳峰东北的山峰，海拔 3071 米，是领地第二高峰，伊武兰语意为「古老的峰」。两峰之间是乌拉瓦苏山口，只有徒步小道翻过；山北坡的溪流汇入托兰卡区的河谷，为谷中的小水电站供水。当地人管两座高峰叫「老两口」，乌拉韦劳峰是戴着云帽的老爷爷，蒂拉图马峰是在旁边陪着的老奶奶，云雾散开时两峰同时露出来，被认为是好兆头。"
+      en: "The peak north-east of Mount Uravelau, 3,071 m and the second highest in the territory; in Ivuran the name means 'old peak'. The Uravasu Pass between the two is crossed only by footpaths, and the streams of its northern slopes run down into the valleys of Toranka District and its small hydro stations. Locals call the two summits \"the old couple\": Uravelau is the grandfather in his cap of cloud and Tiratuma the grandmother at his side, and when the mist clears to show both at once it is taken as a good omen."
   - id: nat_p67wes
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [325.8, 266.8] }
     names: { zh: 洛米图马峰, en: Mount Lomituma, art-x-ivuran: Lomituma }
     notes:
-      zh: 洛米哈努国家公园的最高峰，海拔 2771 米，在蒂拉凯苏山脉与哈努帕拉高原相接的地方，伊武兰语意为「森林之峰」。山坡从低地雨林一直过渡到山地雨林和云雾林，是犀鸟和云豹的栖息地，登顶要走巡护小道。
-      en: The highest peak of Lomihanu National Park, 2,771 m, where the Tirakesu Mountains meet the Hanupala Plateau; in Ivuran the name means 'forest peak'. Its slopes run from lowland rainforest up through montane rainforest to cloud forest, home to hornbills and clouded leopards, and the way to the top is by ranger path.
+      zh: "洛米哈努国家公园的最高峰，海拔 2771 米，在蒂拉凯苏山脉与哈努帕拉高原相接的地方，伊武兰语意为「森林之峰」。山坡从低地雨林一直过渡到山地雨林和云雾林，是犀鸟和云豹的栖息地，登顶要走巡护小道。巡护员在小道两旁装了红外相机，拍到云豹的照片会贴在山下游客中心的墙上，墙上每多一张，巡护站就请大家喝一壶高原咖啡。"
+      en: "The highest peak of Lomihanu National Park, 2,771 m, where the Tirakesu Mountains meet the Hanupala Plateau; in Ivuran the name means 'forest peak'. Its slopes run from lowland rainforest up through montane rainforest to cloud forest, home to hornbills and clouded leopards, and the way to the top is by ranger path. The rangers have camera traps along the trail, every clouded leopard photo goes up on the wall of the visitor centre below, and each new one means a pot of plateau coffee on the ranger station for everyone."
   - id: nat_kvsems
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [614.2, 354.8] }
     names: { zh: 乌诺图马峰, en: Mount Unotuma, art-x-ivuran: Unotuma }
     notes:
-      zh: 乌诺凯苏山脉的最高峰，海拔 2484 米，在乌诺卡里市贝卢阿区，伊武兰语意为「矿山之峰」。山顶一带保留着原始的山地雨林，划为禁采区，周围的镍矿不得开采到保护线以内。
-      en: The highest peak of the Unokesu Mountains, 2,484 m, in Belua District of Unokari City; in Ivuran the name means 'peak of the mines'. Old montane rainforest survives around its top, which is closed to mining, and the nickel mines around it may not cross the protection line.
+      zh: "乌诺凯苏山脉的最高峰，海拔 2484 米，在乌诺卡里市贝卢阿区，伊武兰语意为「矿山之峰」。山顶一带保留着原始的山地雨林，划为禁采区，周围的镍矿不得开采到保护线以内。禁采线上每隔一段立着一根红白相间的界桩，矿工们管这条线叫「山的腰带」，说矿可以挖到腰带下面，山顶要留给犀鸟和树。"
+      en: "The highest peak of the Unokesu Mountains, 2,484 m, in Belua District of Unokari City; in Ivuran the name means 'peak of the mines'. Old montane rainforest survives around its top, which is closed to mining, and the nickel mines around it may not cross the protection line. Red-and-white posts mark the no-mining line at intervals, miners call it \"the mountain's belt\", and they say the ore may be dug below the belt but the summit belongs to the hornbills and the trees."
   - id: nat_bgspq0
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [502.8, 322.8] }
     names: { zh: 库瓦拉峰, en: Mount Kuvala, art-x-ivuran: Kuvala }
     notes:
-      zh: 塔卢马兰市背后乌诺凯苏山脉西段的山峰，海拔 2448 米，伊武兰语意为「犀鸟」，山上的老林里常能看到成对的犀鸟。山脚的帕达兰区种植香料和稻米，从塔卢马兰城区天气晴朗时可以望见山顶。
-      en: A peak in the western Unokesu Mountains behind Talumaran City, 2,448 m; in Ivuran the name means 'hornbill', and pairs of hornbills are often seen in the old forest on its slopes. Padaran District at its foot grows spices and rice, and on clear days its top can be seen from the city.
+      zh: "塔卢马兰市背后乌诺凯苏山脉西段的山峰，海拔 2448 米，伊武兰语意为「犀鸟」，山上的老林里常能看到成对的犀鸟。山脚的帕达兰区种植香料和稻米，从塔卢马兰城区天气晴朗时可以望见山顶。犀鸟吃下果子、把种子带到远处，老林才长得开，山脚的老人常说：「Kuvala lomi, lomi kuvala」，意思是「犀鸟种出森林，森林养着犀鸟」。"
+      en: "A peak in the western Unokesu Mountains behind Talumaran City, 2,448 m; in Ivuran the name means 'hornbill', and pairs of hornbills are often seen in the old forest on its slopes. Padaran District at its foot grows spices and rice, and on clear days its top can be seen from the city. Hornbills eat the fruit and carry the seeds far away, which is how the old forest spreads, and the elders at the foot of the mountain say \"Kuvala lomi, lomi kuvala\": the hornbill plants the forest and the forest feeds the hornbill."
   - id: nat_zjh5e8
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [571.2, 344.2] }
     names: { zh: 乌诺维拉峰, en: Mount Unovila, art-x-ivuran: Unovila }
     notes:
-      zh: 乌诺维拉矿区管理区里的山峰，海拔 2413 米，名字意为「矿之光」。山脚的露天镍矿边采边复绿，复绿的山坡种上原生树种，山顶一带划为禁采区。
-      en: A peak in the Unovila Mining Zone, 2,413 m; its name means 'light of the ore'. The open-cast nickel mines at its foot are replanted with native trees as they go, and the area around the top is closed to mining.
+      zh: "乌诺维拉矿区管理区里的山峰，海拔 2413 米，名字意为「矿之光」。山脚的露天镍矿边采边复绿，复绿的山坡种上原生树种，山顶一带划为禁采区。矿区的露天矿坑采完后会注水变成湖，复绿后的湖边成了周末钓鱼的地方，矿工们自豪地说「我们挖的坑，现在有鱼住了」。"
+      en: "A peak in the Unovila Mining Zone, 2,413 m; its name means 'light of the ore'. The open-cast nickel mines at its foot are replanted with native trees as they go, and the area around the top is closed to mining. Worked-out pits are flooded to become lakes, and once the banks are replanted they are weekend fishing spots, so miners say with pride \"the holes we dug have fish living in them now\"."
   - id: nat_79wwkm
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [171.8, 226.2] }
     names: { zh: 凯纳峰, en: Mount Kaina, art-x-ivuran: Kaina }
     notes:
-      zh: 蒂拉凯苏山脉西南段的山峰，海拔 2264 米，在彭纳拉姆市帕拉武尔区，伊武兰语意为「香料」。山坡下部是咖啡园和可可园，中部是胡椒和豆蔻的林下种植园，山上是云雾林。
-      en: A peak in the south-western Tirakesu Mountains, 2,264 m, in Palavur District of Pennaram City; in Ivuran the name means 'spice'. Coffee and cocoa grow on its lower slopes, pepper and cardamom under the trees higher up, and cloud forest at the top.
+      zh: "蒂拉凯苏山脉西南段的山峰，海拔 2264 米，在彭纳拉姆市帕拉武尔区，伊武兰语意为「香料」。山坡下部是咖啡园和可可园，中部是胡椒和豆蔻的林下种植园，山上是云雾林。山坡上从下到上依次是咖啡、可可、胡椒和豆蔻，本地人开玩笑说，从山脚走到山腰，一路上就能把一顿早餐和晚餐的香料都采齐。"
+      en: "A peak in the south-western Tirakesu Mountains, 2,264 m, in Palavur District of Pennaram City; in Ivuran the name means 'spice'. Coffee and cocoa grow on its lower slopes, pepper and cardamom under the trees higher up, and cloud forest at the top. From bottom to top the slopes grow coffee, cocoa, pepper and cardamom, and locals joke that walking from the foot to the middle of the mountain you can pick everything you need to spice breakfast and dinner."
   - id: nat_vt6yp9
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [385.8, 281.8] }
     names: { zh: 帕拉图马峰, en: Mount Palatuma, art-x-ivuran: Palatuma }
     notes:
-      zh: 哈努帕拉高原东部的山峰，海拔 2036 米，是米雷兰市的最高点，伊武兰语意为「高原之峰」。山坡上是高原牧场和咖啡园，峰顶有一座气象站，记录高原上的雨季和旱季。
-      en: A peak in the east of the Hanupala Plateau, 2,036 m and the highest point of Mirelan City; in Ivuran the name means 'peak of the plateau'. Its slopes are upland pasture and coffee gardens, and a weather station on the top records the plateau's wet and dry seasons.
+      zh: "哈努帕拉高原东部的山峰，海拔 2036 米，是米雷兰市的最高点，伊武兰语意为「高原之峰」。山坡上是高原牧场和咖啡园，峰顶有一座气象站，记录高原上的雨季和旱季。气象站的观测员每天清晨骑车上山读数，高原上的牧民习惯先问观测员今天下不下雨，再决定把牛赶到哪片草场去。"
+      en: "A peak in the east of the Hanupala Plateau, 2,036 m and the highest point of Mirelan City; in Ivuran the name means 'peak of the plateau'. Its slopes are upland pasture and coffee gardens, and a weather station on the top records the plateau's wet and dry seasons. The weather observer cycles up every morning to read the instruments, and the plateau herders make a habit of asking the observer whether it will rain before deciding which pasture to drive the cattle to."
   # ── Passes ──────────────────────────────
   - id: nat_v82cvm
     subtype: pass
@@ -73,29 +73,29 @@ features:
     detect: { kind: pass, at_km: [248.8, 250.8] }
     names: { zh: 乌拉瓦苏山口, en: Uravasu Pass, art-x-ivuran: Uravasu }
     notes:
-      zh: 乌拉韦劳峰与蒂拉图马峰之间的山口，海拔 2739 米，是领地最高的山口，伊武兰语意为「高处的山口」。山口上只有徒步小道，常年云雾缭绕，是登乌拉韦劳峰的必经之路。
-      en: The pass between Mount Uravelau and Mount Tiratuma, 2,739 m and the highest pass in the territory; in Ivuran the name means 'high pass'. Only footpaths cross it, it lies in cloud most of the year, and the way up Mount Uravelau leads over it.
+      zh: "乌拉韦劳峰与蒂拉图马峰之间的山口，海拔 2739 米，是领地最高的山口，伊武兰语意为「高处的山口」。山口上只有徒步小道，常年云雾缭绕，是登乌拉韦劳峰的必经之路。山口上有一块被苔藓覆盖的大石头，登山的人路过都会在石头上放一粒小石子，向导说这块石头已经被一代代人「垒高」了一截。"
+      en: "The pass between Mount Uravelau and Mount Tiratuma, 2,739 m and the highest pass in the territory; in Ivuran the name means 'high pass'. Only footpaths cross it, it lies in cloud most of the year, and the way up Mount Uravelau leads over it. A great moss-covered boulder sits on the pass, every climber leaves a pebble on it in passing, and guides say generations of walkers have \"built it up\" by a good few hands' breadth."
   - id: nat_n57txa
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [292.2, 262.8] }
     names: { zh: 洛米瓦苏山口, en: Lomivasu Pass, art-x-ivuran: Lomivasu }
     notes:
-      zh: 蒂拉凯苏山脉东北端的山口，海拔 1602 米，在洛米图马峰西南，伊武兰语意为「森林的山口」，是温达坎一带翻越山脉前往洛米兰雨林的通道。
-      en: A pass at the north-eastern end of the Tirakesu Mountains, 1,602 m, south-west of Mount Lomituma; in Ivuran the name means 'forest pass', the way over the mountains from the Undakan country to the Lomiran rainforest.
+      zh: "蒂拉凯苏山脉东北端的山口，海拔 1602 米，在洛米图马峰西南，伊武兰语意为「森林的山口」，是温达坎一带翻越山脉前往洛米兰雨林的通道。山口两侧的森林截然不同，一边是挂满苔藓的云雾林，一边是高大的雨林，徒步者说翻过山口就像「从冬衣换成了夏衣」。"
+      en: "A pass at the north-eastern end of the Tirakesu Mountains, 1,602 m, south-west of Mount Lomituma; in Ivuran the name means 'forest pass', the way over the mountains from the Undakan country to the Lomiran rainforest. The forests on either side of the pass are wholly different, moss-hung cloud forest on one side and towering rainforest on the other, and walkers say crossing it is like \"changing winter clothes for summer ones\"."
   - id: nat_rrqd3z
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [531.2, 333.8] }
     names: { zh: 霍拉瓦苏山口, en: Horavasu Pass, art-x-ivuran: Horavasu }
     notes:
-      zh: 乌诺凯苏山脉中的山口，海拔 1407 米，在乌诺卡里市霍拉坦区，伊武兰语意为「雾中的山口」，是乌诺卡里盆地通往西北海岸纳卢迈一带的通道。
-      en: A pass in the Unokesu Mountains, 1,407 m, in Horatan District of Unokari City; in Ivuran the name means 'pass in the mist', the way from the Unokari basin to the Nalumai country on the north-west coast.
+      zh: "乌诺凯苏山脉中的山口，海拔 1407 米，在乌诺卡里市霍拉坦区，伊武兰语意为「雾中的山口」，是乌诺卡里盆地通往西北海岸纳卢迈一带的通道。山口常年起雾，过山口的公路边每隔一段就挂着一只铜铃，起大雾时司机摇下车窗，听着铃声慢慢开，本地人叫它「听路」。"
+      en: "A pass in the Unokesu Mountains, 1,407 m, in Horatan District of Unokari City; in Ivuran the name means 'pass in the mist', the way from the Unokari basin to the Nalumai country on the north-west coast. Mist hangs on the pass most of the year, brass bells hang at intervals along the road over it, and in thick fog drivers wind down their windows and crawl along by the sound, which locals call \"listening to the road\"."
   - id: nat_8pt0wr
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [185.8, 229.8] }
     names: { zh: 彭纳瓦苏山口, en: Pennavasu Pass, art-x-ivuran: Pennavasu }
     notes:
-      zh: 蒂拉凯苏山脉西南段的山口，海拔 1502 米，伊武兰语意为「胡椒的山口」，是西北海岸的彭纳拉姆翻越山脉通往哈努西鲁河谷的通道，旧时香料商队从这里把胡椒运往三角洲。
-      en: A pass in the south-western Tirakesu Mountains, 1,502 m; in Ivuran the name means 'pepper pass'. It is the way over the mountains from Pennaram on the north-west coast to the Hanusiru valley, and spice caravans once carried pepper over it to the delta.
+      zh: "蒂拉凯苏山脉西南段的山口，海拔 1502 米，伊武兰语意为「胡椒的山口」，是西北海岸的彭纳拉姆翻越山脉通往哈努西鲁河谷的通道，旧时香料商队从这里把胡椒运往三角洲。旧时的香料商队翻山口时要在山口的小庙里供一撮胡椒，如今徒步者路过小庙，依然会顺手放下一颗胡椒，小庙里一年到头都是胡椒的香味。"
+      en: "A pass in the south-western Tirakesu Mountains, 1,502 m; in Ivuran the name means 'pepper pass'. It is the way over the mountains from Pennaram on the north-west coast to the Hanusiru valley, and spice caravans once carried pepper over it to the delta. Spice caravans crossing the pass used to offer a pinch of pepper at the little shrine on top, walkers still leave a peppercorn as they pass, and the shrine smells of pepper all year round."
