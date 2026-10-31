@@ -100,8 +100,11 @@ def polygonize_labels(labels: np.ndarray, res_km: float, smooth=3, simplify_km=0
     return {lab: shapely.union_all(parts) for lab, parts in groups.items()}
 
 
+MAX_EDGE_KM = 2.0  # a straight edge in the frame bends on the map, so longer ones get vertices along them
+
+
 def to_lonlat(geom, frame, decimals=5):
-    return shapely.transform(geom, lambda c: np.round(frame.to_lonlat(c), decimals))
+    return shapely.transform(shapely.segmentize(geom, MAX_EDGE_KM), lambda c: np.round(frame.to_lonlat(c), decimals))
 
 
 def point_lonlat(frame, x, y, decimals=5):

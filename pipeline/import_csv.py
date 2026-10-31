@@ -30,7 +30,7 @@ from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas.world import CODE_DIGITS, DETECT_KINDS, HARBOUR_TERMINALS, RAIL_NETWORKS, SITE_LAYOUTS, WORLD_DIR, World, ts_names  # noqa: E402
+from atlas.world import CODE_DIGITS, DETECT_KINDS, HARBOUR_TERMINALS, RAIL_NETWORKS, ROOT, SITE_LAYOUTS, WORLD_DIR, World, ts_names  # noqa: E402
 from new_id import mint  # noqa: E402
 
 DELETE = object()

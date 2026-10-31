@@ -73,6 +73,17 @@ def smooth_line(pts: np.ndarray, simplify_km: float, iterations: int) -> LineStr
     return LineString(chaikin(coarse, iterations))
 
 
+def smooth_pinned(run: list[int], pins: set[int], xy, simplify_km: float, iterations: int) -> LineString:
+    """A run of cells smoothed between its pinned cells, which stay at their centres: pin the junctions (where
+    any drawn run starts or ends) and every line meeting there passes the same point."""
+    cuts = [i for i in range(1, len(run) - 1) if run[i] in pins] + [len(run) - 1]
+    coords, start = [xy(run[0])], 0
+    for i in cuts:
+        coords += list(smooth_line(np.array([xy(c) for c in run[start:i + 1]]), simplify_km, iterations).coords)[1:]
+        start = i
+    return LineString(coords)
+
+
 def owned_runs(path: list[int], ref: str, owner: dict[int, str]) -> list[list[int]]:
     """Split a route path into the stretches it owns; stretches owned by earlier routes carry only their name.
 

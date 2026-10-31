@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "data": "python pipeline/build.py && python pipeline/tiles.py",
+    "data": "python pipeline/build.py && python pipeline/verify.py && python pipeline/tiles.py",
     "data:check": "python pipeline/build.py --check",
     "data:import": "python pipeline/import_csv.py",
     "fonts": "node scripts/fetch-glyphs.mjs"

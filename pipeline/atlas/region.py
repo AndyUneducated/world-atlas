@@ -26,7 +26,7 @@ from .transport import Router
 from .vectorize import point_lonlat, polygonize_labels, to_lonlat
 from .world import FACILITY_LAYOUTS, MILITARY_VARIANTS, RUNWAY_LAYOUTS, World
 from .common import (BUILDING_MINZOOM, STREET_MINZOOM, bbox_lonlat, derived_id, drawn_along, feature, fill_undrawn, log, owned_runs, run_positions, short_name, undrawn_steps,
-                     smooth_line, tile_minzoom)
+                     smooth_line, smooth_pinned, tile_minzoom)
 from .sites import SEA_BRIDGE_HALF_WIDTH_KM, landmark_sites
 from .city import UNSETTLED, bare_name, build_buildings, build_metro, build_streets, rail_station_names
 from .routes import PORTAL, cross_part, land_cell, route_railways, route_segments, stops_here
@@ -49,10 +49,14 @@ MAJOR_CAPE_KM = 12
 MAJOR_PEAK_PROMINENCE_M = 450
 
 
-def check_expectations(expect: dict, entities: dict):
-    """Report whether the generated geography matches the facts the setting requires."""
+def check_expectations(expect: dict, entities: dict) -> list[str]:
+    """Report whether the generated geography matches the facts the setting requires; returns the failures."""
+    failed = []
+
     def report(ok: bool, what: str):
         log(f"  {'ok  ' if ok else 'FAIL'} {what}")
+        if not ok:
+            failed.append(what)
 
     if "longest_river" in expect:
         rivers = {eid: e["stats"]["length_km"] for eid, e in entities.items()
@@ -68,6 +72,7 @@ def check_expectations(expect: dict, entities: dict):
         got = [e["id"] for e in cities[: len(want)]]
         detail = ", ".join(f"{e['names']['zh']} {e['stats']['area_km2_mapped']:.0f} km²" for e in cities[: len(want) + 1])
         report(got == want, f"largest cities by area ({detail})")
+    return failed
 
 
 def district_directions(layout: dict, districts: list[dict], district_city: list[int]) -> dict[str, list[float]]:
@@ -587,7 +592,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     rail_xy = lambda cells: np.array([rail_router.xy(c) for c in cells])
     rail_owned = {r["id"]: owned_runs(path, r["id"], rail_router.owner) for r, _, path in rail_out}
     fill_undrawn({r["id"]: path for r, _, path in rail_out}, rail_owned)
-    rail_drawn = {rid: [(run, smooth_line(rail_xy(run), 0.35, 4)) for run in runs] for rid, runs in rail_owned.items()}
+    rail_pins = {c for runs in rail_owned.values() for run in runs for c in (run[0], run[-1])}
+    rail_drawn = {rid: [(run, smooth_pinned(run, rail_pins, rail_router.xy, 0.35, 4)) for run in runs] for rid, runs in rail_owned.items()}
     rail_tracks = [line for runs in rail_drawn.values() for _, line in runs]
     track_union = shapely.union_all(rail_tracks) if rail_tracks else None
     stations: dict[str, dict] = {}
@@ -826,19 +832,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
 
     road_runs = {r["ref"]: [run for run in owned_runs(path, r["ref"], router.owner) if len(run) > 1] for r, path in road_out}
     fill_undrawn({r["ref"]: path for r, path in road_out}, road_runs)
-    # Junctions (where any drawn run starts or ends) stay pinned to their cell centres while the
-    # stretches between them are smoothed, so every route meeting there passes the same point.
     pins = {c for runs in road_runs.values() for run in runs for c in (run[0], run[-1])}
-
-    def smooth_pinned(run: list[int]) -> LineString:
-        cuts = [i for i in range(1, len(run) - 1) if run[i] in pins] + [len(run) - 1]
-        coords, start = [router.xy(run[0])], 0
-        for i in cuts:
-            coords += list(smooth_line(np.array([router.xy(c) for c in run[start:i + 1]]), 0.7, 4).coords)[1:]
-            start = i
-        return LineString(coords)
-
-    smoothed = {ref: [smooth_pinned(run) for run in runs] for ref, runs in road_runs.items()}
+    smoothed = {ref: [smooth_pinned(run, pins, router.xy, 0.7, 4) for run in runs] for ref, runs in road_runs.items()}
 
     def meet_host(line: LineString, run: list[int], ref: str) -> LineString:
         """Move each end that lies on another route's corridor onto that route's drawn line, so the two meet."""

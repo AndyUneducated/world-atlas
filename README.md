@@ -138,7 +138,10 @@ cache, about 11. Options of `pipeline/build.py`:
 | `--only <region> …` | Rebuild only the named regions (`cn-nv`, `cn-vk`); the others come from their last cached result, even if out of date |
 | `--fresh` | Ignore the cache |
 
-The build fails if two territories' land overlaps. Pushing to `main` runs the pipeline and
+The build fails if two territories' land overlaps. `python pipeline/verify.py` then checks the
+output against invariants that earlier bugs broke (highlights on the drawn line, unbroken routes,
+route numbers without gaps, government buildings in every territory, label glyphs, model
+consistency); CI runs it after every build. Pushing to `main` runs the pipeline and
 deploys to GitHub Pages through `.github/workflows/deploy.yml`; CI keeps `.cache` between
 runs, so only the regions that changed are rebuilt.
 

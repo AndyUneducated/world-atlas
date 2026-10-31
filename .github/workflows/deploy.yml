@@ -47,6 +47,9 @@ jobs:
       - name: Build map data
         run: python pipeline/build.py
 
+      - name: Check map data
+        run: python pipeline/verify.py
+
       - name: Cache tippecanoe
         id: tippecanoe
         uses: actions/cache@v4
