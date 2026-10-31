@@ -72,9 +72,8 @@ export interface Entity {
   /** #RRGGBB; set on cities, used for map tint and emblem. */
   color?: string;
   emblem?: { motif: string; pattern: string };
-  /** Places: the division the place stands in, and whose emblem marks it on the map. */
+  /** Places: the division the place stands in, and whose flag or emblem heads its card. */
   in?: string;
-  marker?: string;
   emblem_of?: string;
   /** Stations: the railway and metro lines that stop there. */
   lines?: string[];

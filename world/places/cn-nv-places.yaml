@@ -2,7 +2,7 @@
 # subtype follows OSM / Overture place categories.
 # in: the division the place lies in. Without explicit coordinates the generator puts
 #   the place at that division's urban core, offset by offset_km (real km, east/north).
-# marker: map symbol; "emblem" draws the logo of the entity named by emblem_of.
+# emblem_of: the territory or city whose flag or emblem heads the place's card (never drawn on the map).
 # site: the place's grounds drawn as a landmark. size_m is [along, across] in metres; layout
 #   picks the footprint template: city landmarks (complex, hall, campus, stadium, tower, dome
 #   (a round glass dome), park, plaza, market) or transport facilities (airport: runways along the long side; port: piers
@@ -30,7 +30,6 @@ places:
     in: div_16cxr8
     offset_km: [2.75, 2.37]
     site: { size_m: [240, 200], layout: courtyard }
-    marker: emblem
     emblem_of: div_fbfqv9
 
   # ── 自由市地标（M7）──

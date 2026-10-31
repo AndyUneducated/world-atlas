@@ -109,7 +109,6 @@ const STRINGS = {
   zoomIn: { zh: "放大", en: "Zoom in" },
   zoomOut: { zh: "缩小", en: "Zoom out" },
   resetNorth: { zh: "指北", en: "Reset north" },
-  home: { zh: "全岛视图", en: "Whole island" },
   perKm2: { zh: "人/km²", en: "/km²" },
   hectares: { zh: "公顷", en: "ha" },
   loading: { zh: "正在载入地图", en: "Loading map" },

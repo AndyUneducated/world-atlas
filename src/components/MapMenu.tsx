@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Layers, Settings2, Wrench, X } from "lucide-react";
+import { Ellipsis, Layers, Settings2, Wrench, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { t, type StringKey } from "../lib/i18n";
@@ -52,14 +52,14 @@ export function MapMenu() {
       >
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
-            key={open ? "x" : "layers"}
+            key={open ? "x" : "menu"}
             initial={{ rotate: -90, opacity: 0 }}
             animate={{ rotate: 0, opacity: 1 }}
             exit={{ rotate: 90, opacity: 0 }}
             transition={{ duration: 0.14 }}
             className="grid"
           >
-            {open ? <X className="size-[18px]" /> : <Layers className="size-[18px]" />}
+            {open ? <X className="size-[18px]" /> : <Ellipsis className="size-[18px]" />}
           </motion.span>
         </AnimatePresence>
       </button>

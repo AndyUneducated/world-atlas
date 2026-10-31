@@ -106,7 +106,7 @@ export function SearchBox() {
       .sort((a, b) => rank(a) - rank(b));
   }, [data, territories, inScope]);
   const [expanded, setExpanded] = useState<Record<ExploreGroup, boolean>>({
-    cities: true,
+    cities: false,
     wonders: false,
     nationalExpressway: false,
     territorialExpressway: false,

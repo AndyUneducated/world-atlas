@@ -204,7 +204,6 @@ places:
       en: The main building of the Arctic Ocean Territory Executive Council, in Qummarvik District of the capital, Nuqattaaq, is a hollow square round a courtyard that also houses the territorial assembly, joined to the Central Dome by skyways. The Executive Council is the territory's highest executive body, formed by the governor, with eleven ministries and several directly attached bodies grouped by function in three clusters, all linked by skyways to the Central Dome so that staff can walk between them in the polar night and in blizzards. The north-east cluster holds the central government's offices, external affairs and planning, the west cluster transport, construction, resources and taxation, and the south-east cluster justice, public security, education and social affairs; the Ministry of Finance is in the Pallurniq Financial Zone to the north. The north wing holds the Governor's Office, the east and south wings the General Office with its seven bureaus, and the west wing the assembly chamber; in winter the courtyard is roofed over with glass.
     in: div_9s80v8
     offset_km: [0.4, 0.5]
-    marker: emblem
     emblem_of: div_hpmerr
     site: { layout: courtyard, size_m: [300, 240] }
   - id: bld_tvev0q
@@ -720,7 +719,6 @@ places:
       en: The autonomous region's council of elders, which takes part in governing the territory; territorial laws on land, hunting and migration routes need its consent.
     in: div_ek897t
     offset_km: [0.2, 0.3]
-    marker: emblem
     emblem_of: div_8c2skk
     site: { layout: complex, size_m: [260, 180] }
   - id: bld_qnj9nv

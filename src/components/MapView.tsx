@@ -3,10 +3,8 @@ import type { GeoJSONSource } from "maplibre-gl";
 import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import { Protocol } from "pmtiles";
 import { useEffect, useMemo, useRef } from "react";
-import { createRoot } from "react-dom/client";
-import type { FeatureCollection, Point } from "geojson";
+import type { FeatureCollection } from "geojson";
 import { cardPadding, homePadding } from "../lib/viewport";
-import { PlaceMarker } from "./PlaceMarker";
 import { BASE_URL } from "../lib/data";
 import { buildFocus, indexFeatures } from "../lib/focus";
 import { measureFeatures } from "../lib/measure";
@@ -24,8 +22,6 @@ maplibregl.addProtocol("pmtiles", new Protocol().tile);
 const CJK_FONT = '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC", sans-serif';
 /** Clicks this close to a line, label or point still hit it. */
 const HIT_SLOP_PX = 4;
-/** Below this zoom landmark markers would sit on top of the city labels. */
-const PLACE_MARKER_ZOOM = 12.5;
 
 function addRouteShield(map: maplibregl.Map, id: string, routes: Map<string, Entity>) {
   const route = routes.get(id.slice(shieldImageId("").length));
@@ -186,7 +182,6 @@ export function MapView() {
     };
 
     map.on("click", (e) => {
-      if ((e.originalEvent.target as HTMLElement | null)?.closest(".atlas-marker")) return;
       const { measure, setMeasure, select } = useAtlas.getState();
       if (measure) {
         setMeasure([...measure, [e.lngLat.lng, e.lngLat.lat]]);
@@ -286,33 +281,6 @@ export function MapView() {
     if (map.isStyleLoaded()) apply();
     else map.once("idle", apply);
   }, [highlight]);
-
-  useEffect(() => {
-    const map = mapRef.current;
-    if (!map) return;
-    const markers = data.layers.places.features
-      .filter((f) => (f.properties as { marker?: string }).marker === "emblem" && f.geometry.type === "Point")
-      .map((f) => {
-        const el = document.createElement("div");
-        el.className = "atlas-marker-layer";
-        const root = createRoot(el);
-        root.render(<PlaceMarker id={(f.properties as { id: string }).id} />);
-        const marker = new maplibregl.Marker({ element: el, anchor: "center" })
-          .setLngLat((f.geometry as Point).coordinates as [number, number])
-          .addTo(map);
-        return { el, root, marker };
-      });
-    const fade = () => markers.forEach(({ el }) => el.classList.toggle("is-hidden", map.getZoom() < PLACE_MARKER_ZOOM));
-    fade();
-    map.on("zoom", fade);
-    return () => {
-      map.off("zoom", fade);
-      markers.forEach(({ root, marker }) => {
-        marker.remove();
-        setTimeout(() => root.unmount());
-      });
-    };
-  }, [data]);
 
   useEffect(() => {
     const map = mapRef.current;

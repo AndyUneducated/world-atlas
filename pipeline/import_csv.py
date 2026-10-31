@@ -133,7 +133,6 @@ KINDS = {
             Col("short_zh", "中文简称", "short_names.zh"),
             Col("short_en", "英文简称", "short_names.en"),
             Col("offset_east_km", "向东偏移"), Col("offset_north_km", "向北偏移"),
-            Col("marker", "地图符号", "marker", "choice", ("dot", "emblem")),
             Col("emblem_of", "徽标来自", "emblem_of", "ref"),
             Col("site_layout", "占地布局", "site.layout", "choice", SITE_LAYOUTS),
             Col("site_along_m", "占地长米"), Col("site_across_m", "占地宽米"),
@@ -471,8 +470,6 @@ class Importer:
         site = {**(cur.get("site") or {}), **{k.split(".")[1]: v for k, v in changes.items() if k.startswith("site.")}}
         if site and size is not DELETE and ("layout" not in site or "size_m" not in site):
             self.problems.add(self.where(i, "site_layout"), "地标占地需要同时填写 占地布局、占地长米、占地宽米")
-        if changes.get("marker", cur.get("marker")) == "emblem" and not changes.get("emblem_of", cur.get("emblem_of")):
-            self.problems.add(self.where(i, "emblem_of"), "地图符号为 emblem 时必须指定徽标来自哪个条目")
 
 
 ORDER = {
@@ -481,7 +478,7 @@ ORDER = {
     "features": ["id", "subtype", "status", "detect", "names", "notes"],
     "routes": ["id", "ref", "network", "class", "status", "names", "notes", "ring", "straight", "ends_at_network",
                "tunnel_cost", "legs", "shield", "via"],
-    "places": ["id", "subtype", "status", "names", "short_names", "notes", "in", "offset_km", "marker", "emblem_of", "site"],
+    "places": ["id", "subtype", "status", "names", "short_names", "notes", "in", "offset_km", "emblem_of", "site"],
     "railways": ["id", "network", "status", "names", "notes", "color", "tech", "tunnel_cost", "via", "station_names"],
 }
 FLOW = {"divisions": (), "features": ("detect", "names"), "routes": ("via",), "places": ("site",),

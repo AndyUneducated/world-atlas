@@ -1,8 +1,6 @@
 import clsx from "clsx";
-import { Check, Link2, Maximize, Navigation2, Ruler } from "lucide-react";
-import { useState } from "react";
+import { Navigation2, Ruler } from "lucide-react";
 import { t, type StringKey } from "../../lib/i18n";
-import { homePadding } from "../../lib/viewport";
 import { useAtlas, useCursor } from "../../store";
 
 function Tile({ icon, label, active, onClick }: { icon: React.ReactNode; label: string; active?: boolean; onClick: () => void }) {
@@ -25,11 +23,9 @@ function Tile({ icon, label, active, onClick }: { icon: React.ReactNode; label: 
 export function ToolsTab({ onDone }: { onDone: () => void }) {
   const lang = useAtlas((s) => s.lang);
   const map = useAtlas((s) => s.map);
-  const data = useAtlas((s) => s.data);
   const measuring = useAtlas((s) => s.measure !== null);
   const setMeasure = useAtlas((s) => s.setMeasure);
   const bearing = useCursor((s) => s.bearing);
-  const [copied, setCopied] = useState(false);
 
   const run = (fn: () => void) => () => {
     fn();
@@ -38,25 +34,9 @@ export function ToolsTab({ onDone }: { onDone: () => void }) {
   const tools: { key: StringKey; icon: React.ReactNode; active?: boolean; onClick: () => void }[] = [
     { key: "measure", icon: <Ruler className="size-4" />, active: measuring, onClick: run(() => setMeasure(measuring ? null : [])) },
     {
-      key: "home",
-      icon: <Maximize className="size-4" />,
-      onClick: run(() => {
-        if (map && data) map.fitBounds(data.manifest.regions[0].bounds, { padding: homePadding(), bearing: 0, pitch: 0, duration: 1200 });
-      }),
-    },
-    {
       key: "resetNorth",
       icon: <Navigation2 className="size-4 fill-current" style={{ transform: `rotate(${-bearing}deg)` }} />,
       onClick: run(() => map?.easeTo({ bearing: 0, pitch: 0, duration: 500 })),
-    },
-    {
-      key: copied ? "copied" : "share",
-      icon: copied ? <Check className="size-4" /> : <Link2 className="size-4" />,
-      onClick: () => {
-        void navigator.clipboard.writeText(window.location.href);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 1500);
-      },
     },
   ];
 

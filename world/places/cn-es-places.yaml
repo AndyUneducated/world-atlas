@@ -15,7 +15,6 @@ places:
       en: "The main building of the Everlong Summer Islands Executive Council stands at the north end of Lakelight Avenue in Pasalu District of the capital, Mirelan: a hollow square round a courtyard, its main door facing south down the whole length of the avenue and its back looking out over the plateau towards Lake Ombelhanu. The Executive Council is the territory's highest executive body, formed by the governor, with eleven ministries and several directly attached bodies. The ministries line both sides of Lakelight Avenue southwards, with Civic Square and the Territorial Library half-way along and the Territorial Assembly at the far end, so that government and assembly face each other along the axis. The north wing holds the Governor's Office, the east and west wings the General Office with its bureaus of General Administration, Media and Publishing, Finance, Security, Archives, Procurement and Civil Service Affairs, and the south wing a public service hall. Rain trees and flame trees fill the courtyard, and colonnades on all four sides shelter visitors from sun and rain."
     in: div_z0z4vz
     offset_km: [-0.26, 0.91]
-    marker: emblem
     emblem_of: div_nwm019
     site: { layout: courtyard, size_m: [300, 240] }
   - id: bld_855nra
@@ -844,7 +843,6 @@ places:
       en: Where the commune council and the residents' assemblies meet; its round assembly hall seats more than ten thousand, and major decisions are put to a direct vote of the residents. On other days the hall is open for meetings, performances and weddings. The commune council governs itself and sets its own taxes, leaving only foreign affairs, defence and a few other matters to the Executive Council.
     in: div_p3x7j4
     offset_km: [0, 0.65]
-    marker: emblem
     emblem_of: div_6kjc7x
     site: { layout: dome, size_m: [300, 300] }
   - id: bld_e44vc4

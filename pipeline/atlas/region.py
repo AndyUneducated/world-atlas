@@ -627,7 +627,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     terr = territory
     add_division(terr, terr_poly, pole_of_inaccessibility(land, g.xs, g.ys), land, {"rank": 0})
     label_features.append(feature(point_lonlat(frame, *pole_of_inaccessibility(land, g.xs, g.ys)), {
-        "id": terr["id"], "kind": "dependency", "name_zh": terr["short_names"]["zh"], "name_en": terr["short_names"]["en"], "rank": 0}))
+        "id": terr["id"], "kind": "dependency", "name_zh": terr["names"]["zh"], "name_en": terr["names"]["en"], "rank": 0}))
     for ci, c in enumerate(cities):
         add_division(c, city_polys[ci], poles[core[ci]], city_r == ci, {"color": c["color"], "city": c["id"], "rank": 1})
         is_capital = terr.get("capital") == c["id"]
@@ -659,7 +659,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             pt = point_lonlat(frame, x + ox / frame.scale, y + oy / frame.scale)
         label_names = p.get("short_names", p["names"])
         place_features.append(feature(pt, {
-            "id": pid, "subtype": p["subtype"], "marker": p.get("marker", "dot"), "emblem_of": p.get("emblem_of"),
+            "id": pid, "subtype": p["subtype"],
             "name_zh": label_names["zh"], "name_en": label_names["en"], "site": pid in sites}))
         lon, lat = pt.coords[0]
         entities[pid].update({"center": [lon, lat], "bbox": [lon - 0.02, lat - 0.01, lon + 0.02, lat + 0.01],

@@ -15,7 +15,6 @@ places:
       en: The main building of the Viking Islands Executive Council stands in the middle of Longship's old town, a stone hollow square round a courtyard that also houses the territorial parliament. The Executive Council is the territory's highest executive body, formed by the governor, with eleven ministries and several directly attached bodies whose buildings are spread around the old town in the streets outside the walls, a short walk away. The north wing holds the Governor's Office, the east and south wings the General Office and the west wing the parliament's chamber. The General Office's bureaus (General Administration, Media and Publications, Finance, Security, Archives, Procurement and Civil Service) keep the Council running, brief the press, manage its accounts and security, keep its records, buy its supplies and recruit and assess civil servants.
     in: div_g2g1yc
     offset_km: [0.3, 0.4]
-    marker: emblem
     emblem_of: div_raat4g
     site: { layout: courtyard, size_m: [260, 220] }
   - id: poi_297zsp
