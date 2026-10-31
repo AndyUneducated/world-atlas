@@ -25,7 +25,6 @@ import {
 import { AnimatePresence, motion, useDragControls, useSpring, type PanInfo } from "motion/react";
 import { useEffect, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
-import { FLAG_COLORS } from "../lib/flags";
 import { Paragraphs, Rows, Section, Sub } from "./CardParts";
 import { Emblem, Flag, hasEmblem } from "./Emblem";
 import { CouncilSection, ElectionSection, LegislatureSection, PartySections } from "./Politics";
@@ -139,10 +138,11 @@ function stats(e: Entity, lang: Lang, data: AtlasData): StatItem[] {
     };
     const [terr, nTerr] = sum("dependency");
     const [city, nCity] = sum("locality");
+    const across = (n: number, zh: string) => (lang === "zh" ? `席 · ${n} 个${zh}` : `seats in ${n}`);
     return [
       { label: t("members", lang), value: formatNumber(e.members ?? 0, lang), unit: t("membersUnit", lang), icon: Users },
-      { label: t("territorialSeats", lang), value: String(terr), unit: `${t("seatsUnit", lang)} · ${nTerr} ${t("inLegislatures", lang)}`, icon: Landmark },
-      { label: t("councilSeats", lang), value: String(city), unit: `${t("seatsUnit", lang)} · ${nCity} ${t("inCouncils", lang)}`, icon: Building2 },
+      { label: t("statParliaments", lang), value: String(terr), unit: across(nTerr, "领地"), icon: Landmark },
+      { label: t("statCouncils", lang), value: String(city), unit: across(nCity, "城市"), icon: Building2 },
     ];
   }
   if (e.road) {
@@ -257,7 +257,6 @@ function EngineeringSection({ entity, lang }: { entity: Entity; lang: Lang }) {
           </div>
         ))}
       </dl>
-      <p className="mt-2.5 text-[11px] text-faint">{t("costNote", lang)}</p>
     </Section>
   );
 }
@@ -341,7 +340,6 @@ function RoadSection({ entity, lang }: { entity: Entity; lang: Lang }) {
   return (
     <Section title={t("roadTitle", lang)}>
       <Rows rows={rows} />
-      <p className="mt-2.5 text-[11px] text-faint">{t("trafficNote", lang)}</p>
     </Section>
   );
 }
@@ -365,7 +363,6 @@ function ServiceSection({ entity, lang }: { entity: Entity; lang: Lang }) {
   return (
     <Section title={t("serviceTitle", lang)}>
       <Rows rows={rows} />
-      <p className="mt-2.5 text-[11px] text-faint">{t(freight ? "freightNote" : "serviceNote", lang)}</p>
     </Section>
   );
 }
@@ -506,7 +503,6 @@ function PeopleSection({ entity, lang, accent }: { entity: Entity; lang: Lang; a
       <Sub label={t("firstLanguage", lang)}>
         <ShareRows rows={langs} accent={accent} />
       </Sub>
-      <p className="mt-3 text-[11px] text-faint">{t("economyNote", lang)}</p>
     </Section>
   );
 }
@@ -565,7 +561,6 @@ function ClimateSection({ data, entity, lang }: { data: AtlasData; entity: Entit
           {lang === "zh" ? "" : "."}
         </p>
       )}
-      <p className="mt-2 text-[11px] text-faint">{t("climateNote", lang)}</p>
     </Section>
   );
 }
@@ -675,37 +670,13 @@ function FlagSection({ entity, lang }: { entity: Entity; lang: Lang }) {
     return () => window.removeEventListener("keydown", onKey, true);
   }, [open]);
   if (!hasEmblem(entity)) return null;
-  const flag = entity.flag!;
-  const colors =
-    typeof flag === "string"
-      ? (FLAG_COLORS[flag] ?? [])
-      : [...flag.colors, flag.charge_color, flag.outline, ...(flag.extra ?? []).map((x) => x.color)].filter((c): c is string => !!c);
-  const swatches = [...new Set(colors.map((c) => c.toUpperCase()))];
   return (
     <Section title={t("flag", lang)}>
-      <div className="flex items-start gap-4">
-        <button onClick={() => setOpen(true)} className="group relative shrink-0 transition-transform duration-200 hover:scale-[1.03]" aria-label={t("enlarge", lang)}>
-          <Flag entity={entity} size={132} className="drop-shadow-[0_4px_10px_rgba(0,0,0,0.22)]" />
-          <Maximize2 className="absolute right-2 bottom-2 size-3.5 text-white opacity-0 drop-shadow transition-opacity group-hover:opacity-90" />
-        </button>
-        <dl className="min-w-0 flex-1 space-y-2.5 text-[12px]">
-          <div>
-            <dt className="text-faint">{t("flagRatio", lang)}</dt>
-            <dd className="mt-0.5 font-medium text-ink tabular-nums">2 : 3</dd>
-          </div>
-          {swatches.length > 0 && (
-            <div>
-              <dt className="text-faint">{t("flagColours", lang)}</dt>
-              <dd className="mt-1 flex flex-wrap gap-1.5">
-                {swatches.map((c) => (
-                  <span key={c} title={c} className="size-4 rounded-full ring-1 ring-black/15 ring-inset" style={{ background: c }} />
-                ))}
-              </dd>
-            </div>
-          )}
-        </dl>
-      </div>
-      {entity.flag_notes && <Paragraphs text={entity.flag_notes[lang]} className="mt-3 text-[13px] leading-relaxed text-ink" />}
+      <button onClick={() => setOpen(true)} className="group relative block w-full transition-transform duration-200 hover:scale-[1.01]" aria-label={t("enlarge", lang)}>
+        <Flag entity={entity} size={360} className="h-auto w-full drop-shadow-[0_6px_16px_rgba(0,0,0,0.22)]" />
+        <Maximize2 className="absolute right-3 bottom-3 size-4 text-white opacity-0 drop-shadow transition-opacity group-hover:opacity-90" />
+      </button>
+      {entity.flag_notes && <Paragraphs text={entity.flag_notes[lang]} className="mt-3.5 text-[13px] leading-relaxed text-ink" />}
       {createPortal(
         <AnimatePresence>
           {open && (
@@ -818,18 +789,6 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
             <X className="size-4" />
           </button>
         </div>
-        {routable && (
-          <div className="relative mt-4 flex flex-wrap gap-2">
-            <button onClick={() => setRoute({ from: entity.id })} className="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[12px] font-medium text-ink hover:bg-hover">
-              <span className="size-2 rounded-full bg-emerald-500" />
-              {t("routeFrom", lang)}
-            </button>
-            <button onClick={() => setRoute({ to: entity.id })} className="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[12px] font-medium text-ink hover:bg-hover">
-              <span className="size-2 rounded-full bg-rose-500" />
-              {t("routeTo", lang)}
-            </button>
-          </div>
-        )}
       </div>
 
       {items.length > 0 && (
@@ -887,6 +846,19 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
             ))}
           </dl>
         </Section>
+      )}
+
+      {routable && (
+        <div className="flex gap-2 border-t border-line px-5 py-4">
+          <button onClick={() => setRoute({ from: entity.id })} className="flex flex-1 items-center justify-center gap-1.5 rounded-full border border-line px-3 py-2 text-[12.5px] font-medium text-ink hover:bg-hover">
+            <span className="size-2 rounded-full bg-emerald-500" />
+            {t("routeFrom", lang)}
+          </button>
+          <button onClick={() => setRoute({ to: entity.id })} className="flex flex-1 items-center justify-center gap-1.5 rounded-full border border-line px-3 py-2 text-[12.5px] font-medium text-ink hover:bg-hover">
+            <span className="size-2 rounded-full bg-rose-500" />
+            {t("routeTo", lang)}
+          </button>
+        </div>
       )}
 
       <footer className="border-t border-line px-4 pt-3 pb-4">

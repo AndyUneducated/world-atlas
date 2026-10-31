@@ -342,6 +342,42 @@ const NEW: Record<string, (cut: string) => ReactNode> = {
       <path d="M15 13L5 24l10 11M33 13l10 11-10 11M27.6 8.5l-7.2 31" />
     </g>
   ),
+  star5: () => <path d={starPath(5, 20, 8, 24, 25.5)} fill={W} />,
+  /** A sickle and a hammer crossed under a star, the old sign of workers and peasants together. */
+  hammer_sickle: () => (
+    <g>
+      <path d={starPath(5, 6, 2.4, 24, 6.8)} fill={W} />
+      <path d="M15.4 37.2A12.6 12.6 0 1 1 35.8 30.6" {...stroke(3.6)} />
+      <path d="M15.4 37.2L10 42.6" {...stroke(4.6)} />
+      <g transform="rotate(-45 27.5 29)">
+        <rect x="26.1" y="18.5" width="2.8" height="23" rx="1.2" fill={W} />
+        <rect x="21" y="15" width="13" height="5.6" rx="1" fill={W} />
+      </g>
+    </g>
+  ),
+  /** A cogwheel with a hammer at its hub. */
+  gear_hammer: (cut) => (
+    <g>
+      {Array.from({ length: 10 }, (_, k) => (
+        <rect key={k} x="21.2" y="3.2" width="5.6" height="7.4" rx="1" fill={W} transform={`rotate(${k * 36} 24 24)`} />
+      ))}
+      <circle cx="24" cy="24" r="15.4" fill={W} />
+      <circle cx="24" cy="24" r="10.6" fill={cut} />
+      <g transform="rotate(40 24 24)" fill={W}>
+        <rect x="22.9" y="18.6" width="2.2" height="14.4" rx="1" />
+        <rect x="19" y="15.4" width="10" height="4.2" rx="0.8" />
+      </g>
+    </g>
+  ),
+  /** Nine small stars in a ring. */
+  star_ring: () => (
+    <g fill={W}>
+      {Array.from({ length: 9 }, (_, k) => {
+        const [x, y] = polar(k * 40 - 90, 18);
+        return <path key={k} d={starPath(5, 3.8, 1.55, x, y)} />;
+      })}
+    </g>
+  ),
   /** A longhouse under its sagging ridge, with crossed gable boards at each end. */
   longhouse: (cut) => (
     <g>

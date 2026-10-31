@@ -1,4 +1,4 @@
-import type { AtlasData, Chamber, ElectoralSystem, Entity, Lang, Legislature } from "./types";
+import type { AtlasData, Chamber, ElectoralSystem, Entity, Lang, Legislature, PartyAxis } from "./types";
 
 export const SYSTEM_NAMES: Record<ElectoralSystem, Record<Lang, string>> = {
   mmp: { zh: "混合成员比例制", en: "Mixed-member proportional" },
@@ -33,7 +33,7 @@ export function systemText(l: Legislature, lang: Lang): string {
   }
 }
 
-export const isChamber = (c: Entity["council"]): c is Chamber => !!c && !("assembly" in c);
+export const PARTY_AXES = ["econ", "galtan", "autonomy", "green"] as const satisfies readonly PartyAxis[];
 
 export const majority = (c: Chamber) => Math.floor(c.seats / 2) + 1;
 

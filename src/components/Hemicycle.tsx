@@ -35,8 +35,14 @@ export function Hemicycle({ data, chamber, lang, highlight }: { data: AtlasData;
     const owner = order.flatMap((p) => Array<string>(p.seats).fill(p.id));
     return { dot, list: pts.map((p, i) => ({ x: CX + R * p.r * Math.cos(p.a), y: CY - R * p.r * Math.sin(p.a), party: owner[i] })) };
   }, [data, chamber]);
+  const pad = seats.dot * 1.2 + 1; // the outer seats' radius, with room for the spring's overshoot
   return (
-    <svg viewBox={`0 0 ${W} ${CY + 6}`} className="w-full" role="img" aria-label={`${chamber.seats} ${t("seatsUnit", lang)}`}>
+    <svg
+      viewBox={`${CX - R - pad} ${CY - R - pad} ${2 * (R + pad)} ${R + 2 * pad}`}
+      className="w-full overflow-visible"
+      role="img"
+      aria-label={`${chamber.seats} ${t("seatsUnit", lang)}`}
+    >
       {seats.list.map((s, i) => (
         <motion.circle
           key={i}

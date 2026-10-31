@@ -131,22 +131,33 @@ export interface Entity {
   climate?: Climate;
   /** Territories: an overview of the climate across their land. */
   climate_notes?: { zh: string; en: string };
-  /** Territories: the parliament and the government it formed. */
+  /** Territories: the parliament, the government it formed and the territory's officeholders. */
   legislature?: Legislature;
-  /** Cities: the council and the mayor, or the body that decides in their place. */
+  /** Cities: the council, its speaker and the mayor. */
   council?: Council;
   /** Districts: how the district voted in the territorial election. */
   election?: { turnout: number; vote: { id: string; vote: number }[] };
   /** Parties (world/politics.yaml). */
   spectrum?: number;
+  /** The party family, as comparative politics groups parties. */
   family?: Localized;
+  ideology?: Localized[];
+  /** Expert-survey scales, 0 to 10: economic left–right, GAL–TAN, territorial self-rule–central rule, ecology–growth. */
+  axes?: Record<PartyAxis, number>;
   leader?: Localized;
   leader_title?: Localized;
+  secretary?: Localized;
+  /** Who leads the party in each territory it stands in. */
+  branches?: { at: string; name: Localized }[];
   members?: number;
   youth_wing?: Localized;
   slogan?: Localized;
   policies?: Localized[];
   allies?: string[];
+  factions?: { names: Localized; notes: Localized }[];
+  organisation?: Partial<Record<"newspaper" | "think_tank" | "unions" | "women", Localized>>;
+  /** Where its vote is strongest and weakest, from the model's leanings. */
+  base?: { strong: Localized[]; weak: Localized[] };
   history?: Localized;
   /** Seats held in each territorial parliament and city council. */
   seats?: { at: string; seats: number; of: number }[];
@@ -166,16 +177,34 @@ export interface Chamber {
   reserved?: number;
   reserved_won?: Record<string, number>;
   turnout: number;
-  head: { title: Localized; name: Localized; party: string };
+  names: Localized;
+  /** The head of the executive: a territory's premier or a city's mayor. */
+  head: Officeholder & { party: string };
+  speaker: Officeholder & { party: string };
 }
+
+export interface Officeholder {
+  title: Localized;
+  name: Localized;
+}
+
+export type PartyAxis = "econ" | "galtan" | "autonomy" | "green";
 
 export interface Legislature extends Chamber {
-  names: Localized;
   system: ElectoralSystem;
   threshold?: number;
+  /** Appointed by the central government; no party. */
+  governor: Officeholder;
+  opposition?: { name: Localized; party: string };
+  /** Ministries held by each party in government. */
+  cabinet: { id: string; seats: number }[];
+  court: Officeholder & { names: Localized };
 }
 
-export type Council = Chamber | { assembly: Localized };
+export interface Council extends Chamber {
+  /** What the body is and how it works, where it is not an ordinary council. */
+  notes?: Localized;
+}
 
 /** Districts and cities, from the climate model (world/climate.yaml): monthly normals, January first. */
 export interface Climate {

@@ -1,8 +1,10 @@
 """Elections on the territory, city and district cards, from world/politics.yaml: each district's vote in
 the territorial election, from the parties' target shares in the territory leaned by the district's
 industries, languages, ages, income and density; the territorial legislature and every city council,
-seated by their territory's electoral system; the government each forms and the mayors. Parties become
-entities of their own. Runs after economy.annotate, on the whole world's entities."""
+seated by their territory's electoral system; the government each forms, its cabinet, and the
+officeholders (governor, premier, speaker, leader of the opposition, chief justice, mayors and council
+speakers). Parties become entities of their own, with who their voters are. Runs after
+economy.annotate, on the whole world's entities."""
 from __future__ import annotations
 
 import hashlib
@@ -248,29 +250,125 @@ def _chamber(won: dict[str, int], share: dict[str, float], extra: dict, gov: lis
     }
 
 
+def _lang(rng: np.random.Generator, langs: dict[str, float], pools: dict) -> str:
+    """One of the place's first languages that has a name pool, drawn by its share."""
+    pool = [lg for lg in langs if lg in pools] or ["zh"]
+    weights = np.array([langs.get(lg, 1) for lg in pool], dtype=float)
+    return pool[int(rng.choice(len(pool), p=weights / weights.sum()))]
+
+
+LANG_NAMES = {
+    "zh": ("中文", "Chinese"), "art-x-viking": ("维京语", "Viking"), "art-x-buckham": ("巴克汉姆语", "Buckham"),
+    "en": ("英语", "English"), "art-x-tavrunaq": ("塔夫鲁纳克语", "Tavrunaq"), "art-x-ivuran": ("伊武兰语", "Ivuran"),
+}
+# features read the same both ways: a negative lean is a lean towards the other pole
+BIPOLAR = {
+    "urban": ({"zh": "城市选民", "en": "City dwellers"}, {"zh": "乡村选民", "en": "Rural voters"}),
+    "income": ({"zh": "高收入者", "en": "Higher earners"}, {"zh": "低收入者", "en": "Lower earners"}),
+    "lat": ({"zh": "北部选民", "en": "The north"}, {"zh": "南部选民", "en": "The south"}),
+}
+BASE_MIN = 0.05  # log-odds a party gains or loses across one spread of the feature, to be named
+
+
+def _base_label(world: World, entities: dict, key: str) -> dict:
+    if key == "young":
+        return {"zh": "年轻选民", "en": "Young voters"}
+    if key == "old":
+        return {"zh": "年长选民", "en": "Older voters"}
+    if key.startswith("lang:"):
+        zh, en = LANG_NAMES[key[5:]]
+        return {"zh": f"{zh}母语者", "en": f"{en} speakers"}
+    if key.startswith("status:"):
+        return {"zh": "公社居民", "en": "Commune residents"} if key == "status:commune" else {"zh": key[7:], "en": key[7:]}
+    if key.startswith("city:"):
+        n = entities[key[5:]]["names"]
+        return {"zh": f"{n['zh']}的选民", "en": f"Voters in {n['en']}"}
+    ind = world.economy.get("industries", {}).get(key, {"zh": key, "en": key})
+    return {"zh": f"{ind['zh']}地区", "en": f"{ind['en']} areas"}
+
+
+def _base(world: World, entities: dict, effect: dict[str, float]) -> dict:
+    """Who a party's voters are: the features that lean its vote most, each its lean times the feature's
+    spread among the districts (strongest first), and the groups where it does worst."""
+    strong, weak = [], []
+    for k, v in sorted(effect.items(), key=lambda kv: -abs(kv[1])):
+        if abs(v) < BASE_MIN:
+            continue
+        if k in BIPOLAR:
+            strong.append(BIPOLAR[k][0 if v > 0 else 1])
+            weak.append(BIPOLAR[k][1 if v > 0 else 0])
+        elif v > 0:
+            strong.append(_base_label(world, entities, k))
+        else:
+            weak.append(_base_label(world, entities, k))
+    return {"strong": strong[:5], "weak": weak[:3]}
+
+
+class _People:
+    """Officeholders' names, drawn once each and never twice."""
+
+    def __init__(self, model: dict, entities: dict):
+        self.model, self.entities = model, entities
+        self.pools = model["names"]
+        self.taken = {p["leader"]["en"] for p in model["parties"]} | {leg["governor_name"]["en"] for leg in model["legislatures"].values()}
+        self.memo: dict[str, dict] = {}
+
+    def draw(self, key: str, langs: dict[str, float]) -> dict:
+        if key not in self.memo:
+            rng = _rng(key)
+            self.memo[key] = _person(rng, self.pools, _lang(rng, langs, self.pools), self.taken)
+        return self.memo[key]
+
+    def leader(self, p: dict, tid: str) -> dict:
+        """The party's leader in a territory: its leader at home, where it is strongest; elsewhere the head
+        of its territorial branch."""
+        if tid in p.get("leaders", {}):
+            return p["leaders"][tid]
+        if tid == max(p["targets"], key=p["targets"].get):
+            return p["leader"]
+        return self.draw(f"leader:{p['id']}:{tid}", self.entities[tid].get("demographics", {}).get("languages", {"zh": 100}))
+
+
 def annotate(world: World, entities: dict) -> None:
-    """Add elections to territories, cities and districts, and an entity for every party."""
+    """Add elections and officeholders to territories, cities and districts, and an entity for every party."""
     model = world.politics
     if not model:
         return
     parties = {p["id"]: p for p in model["parties"]}
     seats_held: dict[str, list[dict]] = {pid: [] for pid in parties}
-    taken = {p["leader"]["en"] for p in parties.values()}
+    people = _People(model, entities)
+    effect: dict[str, dict[str, float]] = {pid: {} for pid in parties}
+    weight: dict[str, float] = {pid: 0.0 for pid in parties}
     for tid, leg in model["legislatures"].items():
         terr = _Territory(world, entities, tid, model)
         won, share, extra = terr.seat(terr.districts, leg["seats"], leg["system"], tid)
         gov = _coalition(won, share, parties, model["coalition_cost"])
-        head = parties[gov[0]].get("leaders", {}).get(tid, parties[gov[0]]["leader"])
+        langs = entities[tid].get("demographics", {}).get("languages", {"zh": 100})
         t_turnout = sum(terr.voters.values()) / sum(world.divisions[d]["population"] * model["electorate_share"] for d in terr.districts)
+        opposition = next((p for p in sorted(won, key=lambda p: (-won[p], -share[p])) if won[p] and p not in gov), None)
+        cabinet = _divisor({p: won[p] for p in gov}, leg["ministers"], 1, 1)
         entities[tid]["legislature"] = {
             "names": leg["names"], "system": leg["system"], "turnout": round(100 * t_turnout, 1),
             **({"threshold": leg["threshold"]} if "threshold" in leg else {}),
-            "head": {"title": leg["head"], "name": head, "party": gov[0]},
+            "head": {"title": leg["premier"], "name": people.leader(parties[gov[0]], tid), "party": gov[0]},
+            "governor": {"title": leg["governor"], "name": leg["governor_name"]},
+            "speaker": {"title": leg["speaker"], "name": people.draw("speaker:" + tid, langs), "party": gov[0]},
+            **({"opposition": {"name": people.leader(parties[opposition], tid), "party": opposition}} if opposition else {}),
+            "cabinet": [{"id": p, "seats": cabinet[p]} for p in gov if cabinet[p]],
+            "court": {"names": leg["court"]["names"], "title": leg["court"]["title"], "name": people.draw("justice:" + tid, langs)},
             **_chamber(won, share, extra, gov),
         }
         for p, n in won.items():
             if n:
                 seats_held[p].append({"at": tid, "seats": n, "of": sum(won.values())})
+        pops = {d: world.divisions[d]["population"] for d in terr.districts}
+        total_pop = sum(pops.values())
+        votes = terr.votes(terr.districts)
+        for pid in terr.parties:
+            for k, c in terr.lean[pid].items():
+                spread = math.sqrt(sum(pops[d] * (terr.feats[d].get(k, 0) - terr.mean.get(k, 0)) ** 2 for d in terr.districts) / total_pop)
+                effect[pid][k] = effect[pid].get(k, 0) + c * spread * votes[pid]
+            weight[pid] += votes[pid]
         for did in terr.districts:
             vote = terr.vote[did]
             top = sorted(vote, key=vote.get, reverse=True)
@@ -284,32 +382,37 @@ def annotate(world: World, entities: dict) -> None:
         for cid, dids in cities.items():
             c = world.divisions[cid]
             override = leg.get("councils", {}).get(cid, {})
-            if override.get("assembly"):
-                entities[cid]["council"] = {"assembly": override["assembly"]}
-                continue
+            kind = model["council_types"][override.get("type", "council")]
             pop = c.get("population") or sum(world.divisions[d]["population"] for d in dids)
-            seats = int(np.clip(round(leg["council_seats"][0] + leg["council_seats"][1] * math.log2(pop / 100_000)), *leg["council_range"]))
+            seats = override.get("seats") or int(np.clip(round(leg["council_seats"][0] + leg["council_seats"][1] * math.log2(pop / 100_000)), *leg["council_range"]))
             seats += 1 - seats % 2
             cw, cs, cx = terr.seat(dids, seats, leg["system"], cid)
             cgov = _coalition(cw, cs, parties, model["coalition_cost"])
-            langs = entities[cid].get("demographics", {}).get("languages", {"zh": 100})
-            rng = _rng("mayor:" + cid)
-            pool = [lg for lg in langs if lg in model["names"]]
-            lang = pool[int(rng.choice(len(pool), p=np.array([langs[lg] for lg in pool]) / sum(langs[lg] for lg in pool)))]
+            if (lead := override.get("lead")) in cgov:
+                cgov = [lead] + [p for p in cgov if p != lead]
+            clangs = entities[cid].get("demographics", {}).get("languages", {"zh": 100})
             v = sum(terr.voters[d] for d in dids) / sum(world.divisions[d]["population"] * model["electorate_share"] for d in dids)
             entities[cid]["council"] = {
+                "names": override.get("names", kind["names"]),
+                **({"notes": override["notes"]} if "notes" in override else {}),
                 "turnout": round(100 * v, 1),
-                "head": {"title": leg["mayor"], "name": _person(rng, model["names"], lang, taken), "party": cgov[0]},
+                "head": {"title": override.get("mayor", leg["mayor"]), "name": people.draw("mayor:" + cid, clangs), "party": cgov[0]},
+                "speaker": {"title": override.get("speaker", kind["speaker"]), "name": people.draw("council-speaker:" + cid, clangs), "party": cgov[0]},
                 **_chamber(cw, cs, cx, cgov),
             }
             for p, n in cw.items():
                 if n:
                     seats_held[p].append({"at": cid, "seats": n, "of": sum(cw.values())})
     for pid, p in parties.items():
+        home = max(p["targets"], key=p["targets"].get)
         entities[pid] = {
             "id": pid, "kind": "party", "subtype": "party", "status": "generated",
-            **{k: p[k] for k in ("names", "short_names", "color", "flag", "flag_notes", "spectrum", "family", "leader", "leader_title", "members",
-                                 "youth_wing", "slogan", "policies", "allies", "notes", "history") if k in p},
+            **{k: p[k] for k in ("names", "short_names", "color", "flag", "flag_notes", "spectrum", "family", "ideology", "axes", "leader",
+                                 "leader_title", "members", "youth_wing", "slogan", "policies", "allies", "factions", "organisation", "notes",
+                                 "history") if k in p},
+            "secretary": p.get("secretary") or people.draw("secretary:" + pid, entities[home].get("demographics", {}).get("languages", {"zh": 100})),
+            "branches": [{"at": t, "name": people.leader(p, t)} for t in model["legislatures"] if t in p["targets"]],
+            "base": _base(world, entities, {k: v / weight[pid] for k, v in effect[pid].items()} if weight[pid] else {}),
             "territories": [t for t in model["legislatures"] if t in p["targets"]],
             "seats": seats_held[pid],
         }

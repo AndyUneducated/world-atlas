@@ -178,8 +178,10 @@ def check_glyphs() -> dict[str, list[str]]:
 
 
 def check_models(ents: dict) -> dict[str, list[str]]:
-    """Climate and election results are internally consistent."""
-    climate, seats = [], []
+    """Climate and election results are internally consistent, and every office has its own holder."""
+    climate, seats, names = [], [], []
+    holders: list[tuple[str, str]] = []
+    ministries = len(MINISTRIES)
     for eid, e in ents.items():
         if e.get("kind") != "division" or e.get("subtype") not in ("dependency", "locality", "borough"):
             continue
@@ -196,16 +198,31 @@ def check_models(ents: dict) -> dict[str, list[str]]:
             if c.get("polar_night_days") and abs(e["center"][1]) < 66:
                 climate.append(f"{name}: polar night at {e['center'][1]:.1f}°")
         for key in ("legislature", "council"):
-            if not (body := e.get(key)) or "parties" not in body:  # a commune's assembly has no parties
+            if not (body := e.get(key)):
                 continue
             won = {p["id"]: p["seats"] for p in body["parties"]}
             if sum(won.values()) != body["seats"]:
                 seats.append(f"{name} {key}: parties hold {sum(won.values())} of {body['seats']} seats")
             if sum(won.get(p, 0) for p in body["government"]) * 2 <= body["seats"]:
                 seats.append(f"{name} {key}: government without a majority")
-            if body.get("head", {}).get("party") not in body["government"]:
-                seats.append(f"{name} {key}: head's party not in government")
-    return {"climate in order": climate, "seats add up, governments hold a majority": seats}
+            for role in ("head", "speaker"):
+                if body.get(role, {}).get("party") not in body["government"]:
+                    seats.append(f"{name} {key}: the {role}'s party is not in government")
+                holders.append((body.get(role, {}).get("name", {}).get("en"), f"{name} {role}"))
+            if key == "legislature":
+                if "party" in body["governor"]:
+                    seats.append(f"{name}: the governor belongs to no party")
+                if (op := body.get("opposition")) and op["party"] in body["government"]:
+                    seats.append(f"{name}: the leader of the opposition's party is in government")
+                if {c["id"] for c in body["cabinet"]} - set(body["government"]) or sum(c["seats"] for c in body["cabinet"]) != ministries:
+                    seats.append(f"{name}: the cabinet is not the government's {ministries} ministries")
+                holders += [(body["governor"]["name"]["en"], f"{name} governor"), (body["court"]["name"]["en"], f"{name} chief justice")]
+    seen: dict[str, str] = {}
+    for who, post in holders:
+        if who in seen:
+            names.append(f"{who}: both {seen[who]} and {post}")
+        seen.setdefault(who, post)
+    return {"climate in order": climate, "seats add up, governments hold a majority, offices filled": seats, "no one holds two offices": names}
 
 
 def check_terrain(manifest: dict) -> dict[str, list[str]]:

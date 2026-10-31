@@ -57,6 +57,11 @@ FLAG_LAYOUTS = ts_names("cityFlags.tsx", "FLAG_LAYOUTS")
 FLAG_CHARGES = ts_names("emblems.tsx", "MOTIFS") + ts_names("charges.tsx", "NEW")
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
 POLITICS_SYSTEMS = ("mmp", "fptp", "pr_reserved", "pr_regional")
+# a party's place on the scales of expert party surveys, 0 to 10: economic left to right, social
+# green-alternative-libertarian to traditional-authoritarian-nationalist, the territory's self-rule to
+# the centre's, and ecology to growth
+PARTY_AXES = ("econ", "galtan", "autonomy", "green")
+PARTY_ORGANISATION = ("newspaper", "think_tank", "unions", "women")
 STREET_STYLES = ("planned", "mixed", "organic")
 BUILDING_MIX_KEYS = ("slabs", "towers", "perimeter", "houses", "podium", "industrial", "civic", "park")
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
@@ -413,21 +418,34 @@ class World:
                 errors.append(f"politics: legislature {tid} is not a territory")
             if leg.get("system") not in POLITICS_SYSTEMS:
                 errors.append(f"politics: {tid}: system must be one of {', '.join(POLITICS_SYSTEMS)}")
-            for k in ("names", "head", "mayor"):
-                if not all(leg.get(k, {}).get(lang) for lang in REQUIRED_LANGS):
+            court = leg.get("court", {})
+            for k, v in (("names", leg.get("names")), ("governor", leg.get("governor")), ("governor_name", leg.get("governor_name")), ("premier", leg.get("premier")),
+                         ("speaker", leg.get("speaker")), ("mayor", leg.get("mayor")), ("court names", court.get("names")),
+                         ("court title", court.get("title"))):
+                if not all((v or {}).get(lang) for lang in REQUIRED_LANGS):
                     errors.append(f"politics: {tid}: {k} needs zh and en")
+            if not (isinstance(leg.get("ministers"), int) and leg["ministers"] > 0):
+                errors.append(f"politics: {tid}: ministers is the number of ministries, a whole number")
             for cid, c in leg.get("councils", {}).items():
                 if self.divisions.get(cid, {}).get("parent") != tid:
                     errors.append(f"politics: {tid}: council {cid} is not a city of the territory")
-                if "assembly" in c and not all(c["assembly"].get(lang) for lang in REQUIRED_LANGS):
-                    errors.append(f"politics: {cid}: assembly needs zh and en: who decides in place of a council")
+                if "lead" in c and c["lead"] not in {p.get("id") for p in pol.get("parties", [])}:
+                    errors.append(f"politics: {cid}: lead {c['lead']} is not a party")
+                if c.get("type", "council") not in pol.get("council_types", {}):
+                    errors.append(f"politics: {cid}: council type {c.get('type')} is not in council_types")
+                for k in ("names", "mayor", "speaker", "notes"):
+                    if k in c and not all(c[k].get(lang) for lang in REQUIRED_LANGS):
+                        errors.append(f"politics: {cid}: {k} needs zh and en")
+        for k, ct in pol.get("council_types", {}).items():
+            if not all(ct.get(f, {}).get(lang) for f in ("names", "speaker") for lang in REQUIRED_LANGS):
+                errors.append(f"politics: council type {k}: names and speaker need zh and en")
         ids = set()
         for p in pol.get("parties", []):
             pid = p.get("id", "?")
             if not ID_PATTERN.match(pid) or not pid.startswith("pty_") or pid in self.entities or pid in ids:
                 errors.append(f"politics: {pid}: a party id is pty_ and unique among all ids")
             ids.add(pid)
-            for k in ("names", "short_names", "family", "leader", "youth_wing", "slogan", "notes", "history"):
+            for k in ("names", "short_names", "family", "leader", "youth_wing", "slogan", "notes", "history", "flag_notes"):
                 if not all(p.get(k, {}).get(lang) for lang in REQUIRED_LANGS):
                     errors.append(f"politics: {pid}: {k} needs zh and en")
             if not HEX.match(str(p.get("color", ""))):
@@ -441,9 +459,22 @@ class World:
                 errors.append(f"politics: {pid}: targets name only territories with a legislature")
             if len(p.get("policies", [])) < 3 or not all(all(x.get(lang) for lang in REQUIRED_LANGS) for x in p.get("policies", [])):
                 errors.append(f"politics: {pid}: at least three policies, each in zh and en")
-            big = p.get("members", 0) >= 20000
-            if len(p.get("notes", {}).get("zh", "")) < (300 if big else 200):
-                errors.append(f"politics: {pid}: notes.zh needs at least {300 if big else 200} characters")
+            if len(p.get("notes", {}).get("zh", "")) < 800:
+                errors.append(f"politics: {pid}: notes.zh needs at least 800 characters: its lines, record, symbols, voters and culture")
+            tags = p.get("ideology", [])
+            if not (2 <= len(tags) <= 4 and all(all(x.get(lang) for lang in REQUIRED_LANGS) for x in tags)):
+                errors.append(f"politics: {pid}: ideology is two to four tags, each in zh and en")
+            axes = p.get("axes", {})
+            if set(axes) != set(PARTY_AXES) or not all(isinstance(v, (int, float)) and 0 <= v <= 10 for v in axes.values()):
+                errors.append(f"politics: {pid}: axes gives {', '.join(PARTY_AXES)}, each from 0 to 10")
+            factions = p.get("factions", [])
+            if not (2 <= len(factions) <= 3 and all(all(f.get(k, {}).get(lang) for k in ("names", "notes") for lang in REQUIRED_LANGS) for f in factions)):
+                errors.append(f"politics: {pid}: two or three factions, each with names and notes in zh and en")
+            if len(p.get("organisation", {})) < 3:
+                errors.append(f"politics: {pid}: organisation names at least three of {', '.join(PARTY_ORGANISATION)}")
+            for k, v in p.get("organisation", {}).items():
+                if k not in PARTY_ORGANISATION or not all(v.get(lang) for lang in REQUIRED_LANGS):
+                    errors.append(f"politics: {pid}: organisation {k} is one of {', '.join(PARTY_ORGANISATION)}, in zh and en")
         for p in pol.get("parties", []):
             if bad := [a for a in p.get("allies", []) if a not in ids]:
                 errors.append(f"politics: {p.get('id')}: unknown allies {', '.join(bad)}")

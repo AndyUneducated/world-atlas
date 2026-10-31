@@ -11,8 +11,8 @@ places:
       art-x-viking: Regierung von Veiling Ysear
       art-x-buckham: Governo di Etei Viking
     notes:
-      zh: 维京群岛领地政务院的主楼，在长船古城中心，是一座石砌的回字形庭院建筑，领地议会也在楼内。政务院是领地的最高行政机关，由领地总督组织，下设十一个部和若干直属机构，各部的大楼分散在古城四周城墙外的街区里，步行十几分钟可达。主楼北翼是总督办公室，东翼和南翼是办公厅，西翼是领地议会的议事厅。办公厅下设综合行政局、媒体和出版局、财务局、安全局、档案局、采购局和公务员事务局，负责政务院的日常运转、新闻发布、机关财务和安保、公文档案、政府采购，以及公务员的招录和考核。
-      en: The main building of the Viking Islands Executive Council stands in the middle of Longship's old town, a stone hollow square round a courtyard that also houses the territorial parliament. The Executive Council is the territory's highest executive body, formed by the governor, with eleven ministries and several directly attached bodies whose buildings are spread around the old town in the streets outside the walls, a short walk away. The north wing holds the Governor's Office, the east and south wings the General Office and the west wing the parliament's chamber. The General Office's bureaus (General Administration, Media and Publications, Finance, Security, Archives, Procurement and Civil Service) keep the Council running, brief the press, manage its accounts and security, keep its records, buy its supplies and recruit and assess civil servants.
+      zh: 维京群岛领地政务院的主楼，在长船古城中心，是一座石砌的回字形庭院建筑，领地议会也在楼内。政务院是领地的最高行政机关，由领地首席部长组织，下设十一个部和若干直属机构，各部的大楼分散在古城四周城墙外的街区里，步行十几分钟可达。主楼北翼是首席部长办公室，东翼和南翼是办公厅，西翼是领地议会的议事厅。办公厅下设综合行政局、媒体和出版局、财务局、安全局、档案局、采购局和公务员事务局，负责政务院的日常运转、新闻发布、机关财务和安保、公文档案、政府采购，以及公务员的招录和考核。
+      en: The main building of the Viking Islands Executive Council stands in the middle of Longship's old town, a stone hollow square round a courtyard that also houses the territorial parliament. The Executive Council is the territory's highest executive body, formed by the chief minister, with eleven ministries and several directly attached bodies whose buildings are spread around the old town in the streets outside the walls, a short walk away. The north wing holds the Chief Minister's Office, the east and south wings the General Office and the west wing the parliament's chamber. The General Office's bureaus (General Administration, Media and Publications, Finance, Security, Archives, Procurement and Civil Service) keep the Council running, brief the press, manage its accounts and security, keep its records, buy its supplies and recruit and assess civil servants.
     in: div_g2g1yc
     offset_km: [0.3, 0.4]
     emblem_of: div_raat4g
@@ -74,7 +74,7 @@ places:
       zh: 群岛银行总部，首府长船天际线的最高点
       en: Head office of the Islands Bank and the highest point on the Longship skyline
     notes:
-      zh: "汇金区天际线上最高的塔楼，群岛银行总部。塔顶的灯在红帆党和蓝桨党选举之夜会按胜选一方的颜色亮起，长船人看一眼汇金区的天际线就知道结果。观景层的咖啡馆能望见整个长船湾，夏天划船比赛时这里一座难求。"
+      zh: "汇金区天际线上最高的塔楼，群岛银行总部。选举之夜，塔顶的灯会按红帆、蓝桨两党中胜选一方的颜色亮起，长船人看一眼汇金区的天际线就知道结果。观景层的咖啡馆能望见整个长船湾，夏天划船比赛时这里一座难求。"
       en: "The tallest tower on the Goldmark skyline, headquarters of the Islands Bank. On election night the top of the tower is lit in the colour of the winner, Red Sail or Blue Oar, so Longship knows the result from one look at the Goldmark skyline. The café on its observation level overlooks the whole of Longship Bay, and during the summer rowing race there is not a seat to be had."
     in: div_jzqknb
     offset_km: [0.5, -0.3]
@@ -796,8 +796,8 @@ places:
       zh: 巡视员办公室
       en: Inspector's Office
     notes:
-      zh: 中央政府常驻维京群岛领地巡视员办公室，位于长船古城东面，由中央政府派驻，负责对群岛各级行政机关进行巡视监督。巡视员定期乘渡轮和直升机走访各岛的市、区政府，检查政策执行、财政资金使用和廉洁情况，对渡轮公司、电网等公共企业的经营也进行审查，发现的问题同时报告中央政府和领地总督，并跟踪整改。办公室设有公众来访接待室，居民可以当面或书面反映意见和举报，远离长船的小岛居民也可以在网上提交。巡视报告的摘要定期公开。
-      en: The Office of the Central Government Inspector in the Viking Islands, east of Longship's old town, is sent by the central government to inspect and oversee the islands' administration at every level. Inspectors travel by ferry and helicopter to the city and district governments of every island to check how policies are carried out, how public money is spent and whether officials are honest, and they also review public companies such as the ferry company and the grid; what they find goes to both the central government and the governor, and they follow it up. Residents can raise complaints or report wrongdoing in the public reception room, and those on distant islands can do so online. Summaries of the inspection reports are published.
+      zh: 中央政府常驻维京群岛领地巡视员办公室，位于长船古城东面，由中央政府派驻，负责对群岛各级行政机关进行巡视监督。巡视员定期乘渡轮和直升机走访各岛的市、区政府，检查政策执行、财政资金使用和廉洁情况，对渡轮公司、电网等公共企业的经营也进行审查，发现的问题同时报告中央政府和领地首席部长，并跟踪整改。办公室设有公众来访接待室，居民可以当面或书面反映意见和举报，远离长船的小岛居民也可以在网上提交。巡视报告的摘要定期公开。
+      en: The Office of the Central Government Inspector in the Viking Islands, east of Longship's old town, is sent by the central government to inspect and oversee the islands' administration at every level. Inspectors travel by ferry and helicopter to the city and district governments of every island to check how policies are carried out, how public money is spent and whether officials are honest, and they also review public companies such as the ferry company and the grid; what they find goes to both the central government and the chief minister, and they follow it up. Residents can raise complaints or report wrongdoing in the public reception room, and those on distant islands can do so online. Summaries of the inspection reports are published.
     in: div_g2g1yc
     offset_km: [1.5, -0.55]
     site: { size_m: [70, 70], layout: block }
@@ -828,8 +828,8 @@ places:
       zh: 政策和计划委员会
       en: Policy and Planning Commission
     notes:
-      zh: 维京群岛领地政策和计划委员会，是政务院直属的特设委员会，位于长船古城南面，由总督主持，各部部长和独立专家参加。委员会编制群岛的中长期发展规划，协调跨部门的重大政策，评估政策的实施效果；连接各岛的跨海高速、海上风电和地热的开发、港口扩建和通往维京港的海底通道这类涉及多个部门的大项目，都先在这里形成方案，再提交领地议会。委员会每年发布群岛发展报告，公开各岛人口、产出和公共服务的指标，小岛人口外流是报告里反复出现的话题。
-      en: The Viking Islands Policy and Planning Commission is a special commission directly under the Executive Council, south of Longship's old town, chaired by the governor with the ministers and independent experts as members. It draws up the islands' medium- and long-term development plans, coordinates major policies that cross ministries and reviews how they are working. Projects that involve several ministries, such as the sea-crossing expressways between the islands, offshore wind and geothermal development, harbour extensions and the undersea link to Viking Port, take shape here before going to the territorial parliament. Its yearly development report gives figures on each island's population, output and public services, and the drift of people away from the small islands is a recurring theme.
+      zh: 维京群岛领地政策和计划委员会，是政务院直属的特设委员会，位于长船古城南面，由首席部长主持，各部部长和独立专家参加。委员会编制群岛的中长期发展规划，协调跨部门的重大政策，评估政策的实施效果；连接各岛的跨海高速、海上风电和地热的开发、港口扩建和通往维京港的海底通道这类涉及多个部门的大项目，都先在这里形成方案，再提交领地议会。委员会每年发布群岛发展报告，公开各岛人口、产出和公共服务的指标，小岛人口外流是报告里反复出现的话题。
+      en: The Viking Islands Policy and Planning Commission is a special commission directly under the Executive Council, south of Longship's old town, chaired by the chief minister with the ministers and independent experts as members. It draws up the islands' medium- and long-term development plans, coordinates major policies that cross ministries and reviews how they are working. Projects that involve several ministries, such as the sea-crossing expressways between the islands, offshore wind and geothermal development, harbour extensions and the undersea link to Viking Port, take shape here before going to the territorial parliament. Its yearly development report gives figures on each island's population, output and public services, and the drift of people away from the small islands is a recurring theme.
     in: div_g2g1yc
     offset_km: [0.0, -0.9]
     site: { size_m: [80, 80], layout: block }
