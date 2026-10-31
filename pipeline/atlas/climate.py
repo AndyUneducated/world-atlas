@@ -7,14 +7,12 @@ from __future__ import annotations
 
 import hashlib
 import math
-from pathlib import Path
 
 import numpy as np
 from shapely import prepared, transform
 from shapely.geometry import Point, shape
 from shapely.strtree import STRtree
 
-from .dem_tiles import _decode
 from .world import World
 
 DAYS = np.array([31, 28.25, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31])
@@ -37,20 +35,6 @@ def day_lengths(lat: float) -> np.ndarray:
     phi = math.radians(lat)
     cos_w = (math.sin(math.radians(-0.833)) - math.sin(phi) * np.sin(decl)) / (math.cos(phi) * np.cos(decl))
     return 2 * np.degrees(np.arccos(np.clip(cos_w, -1, 1))) / 15
-
-
-def elevation_at(dem: Path, lon: float, lat: float, z: int = 10) -> float:
-    """Ground height (m) at a point from the terrarium tiles, the mean of the 3×3 pixels round it."""
-    n = 2**z
-    fx = (lon + 180) / 360 * n
-    fy = (1 - math.asinh(math.tan(math.radians(lat))) / math.pi) / 2 * n
-    tile = dem / str(z) / str(int(fx)) / f"{int(fy)}.png"
-    if not tile.exists():
-        return 0.0
-    e = _decode(tile)
-    px, py = int((fx % 1) * e.shape[1]), int((fy % 1) * e.shape[0])
-    win = e[max(py - 1, 0):py + 2, max(px - 1, 0):px + 2]
-    return max(0.0, float(win.mean()))
 
 
 def _zonal(model: dict, lat: float) -> float:
@@ -220,7 +204,7 @@ def district(eid: str, e: dict, terr: dict, model: dict, land: _Land, elev: floa
     }
 
 
-def annotate(world: World, entities: dict, divisions: list[dict], dem: Path) -> None:
+def annotate(world: World, entities: dict, divisions: list[dict]) -> None:
     """Add a climate to every district (at its centre, at the ground height there or the district's mean
     height if lower: people live in the valleys), and to every city from its most populous district."""
     model = world.climate
@@ -234,7 +218,8 @@ def annotate(world: World, entities: dict, divisions: list[dict], dem: Path) -> 
             continue
         tid = next((a for a in world.ancestors(eid) if a in terrs), None)
         if tid:
-            elev = min(elevation_at(dem, *e["center"]), float(e.get("stats", {}).get("elev_mean_m", 0)))
+            stats = e.get("stats", {})
+            elev = min(float(stats.get("elev_center_m", 0)), float(stats.get("elev_mean_m", 0)))
             e["climate"] = district(eid, e, terrs[tid], model, land, max(elev, 0.0))
     for eid, d in world.divisions.items():
         e = entities.get(eid)

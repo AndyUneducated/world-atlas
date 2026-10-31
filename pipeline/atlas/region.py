@@ -15,7 +15,7 @@ from shapely.ops import nearest_points
 
 from . import coast, engineering, landcover, relief, streets
 from .cache import stage
-from .dem_tiles import cached_dem_tiles
+from .dem_tiles import cached_dem_tiles, zoom_range
 from .divisions import partition, pole_of_inaccessibility
 from .grid import Frame, Grid, block_reduce, chaikin, line_length_km, polyline_distance
 from .hydro import Drainage
@@ -624,6 +624,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         vals = elev[mask & land]
         return {"elev_max_m": int(vals.max()) if vals.size else 0, "elev_mean_m": int(vals.mean()) if vals.size else 0}
 
+    centres = []
+
     def add_division(d, geom_km, pole_xy, mask, extra):
         geom = to_lonlat(geom_km, frame)
         density = round(d["population"] / d["area_km2"], 1) if d.get("population") and d.get("area_km2") else None
@@ -640,6 +642,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             "stats": {"area_km2_mapped": round(frame.km2(geom_km.area), 1), **elev_stats(mask),
                       **({"density_per_km2": density} if density else {})},
         })
+        centres.append((e, pole_xy))
 
     terr = territory
     add_division(terr, terr_poly, pole_of_inaccessibility(land, g.xs, g.ys), land, {"rank": 0})
@@ -1154,9 +1157,12 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
 
     log("writing terrain tiles")
     bounds = frame.bounds_lonlat()
-    n = cached_dem_tiles(dem_dir, territory["id"], np.where(land, np.maximum(lake_basins(elev, lakes, g.res), 1.0), -40.0), g, frame,
-                         bounds, use_cache)
+    dem = np.where(land, np.maximum(lake_basins(elev, lakes, g.res), 1.0), -40.0)
+    n = cached_dem_tiles(dem_dir, territory["id"], dem, g, frame, bounds, zoom_range(world.generators), use_cache)
     log(f"  {n} tiles")
+    for e, (x, y) in centres:  # the ground the map shows at the division's centre, for the climate model
+        h = ndimage.map_coordinates(dem, [[y / g.res - 0.5], [x / g.res - 0.5]], order=1, mode="nearest")[0]
+        e["stats"]["elev_center_m"] = round(max(float(h), 0.0), 1)
     meta = {
         "id": territory["id"],
         "bounds": bbox_lonlat(terr_ll),

@@ -23,10 +23,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from atlas import cache, climate, common, economy, politics, traffic  # noqa: E402
 from atlas.common import OUT, log, write_geojson  # noqa: E402
-from atlas.dem_tiles import fill_sea_tiles, merge_dem_tiles  # noqa: E402
+from atlas.dem_tiles import TILE_PX, merge_dem_tiles, pack_dem_tiles, zoom_range  # noqa: E402
 from atlas.region import LAYERS, build_region  # noqa: E402
 from atlas.routes import merge_crossings  # noqa: E402
 from atlas.world import TEXT_KEYS, World  # noqa: E402
+
+DEM_ARCHIVE = "terrain.pmtiles"
 
 
 def base_entities(world: World) -> dict:
@@ -53,8 +55,9 @@ def region_worker(name: str, fresh: bool, stale_ok: bool):
     common.LOG_TAG = f"{name} "
     world = World()
     spec = next(s for s in world.generators if s["_region"] == name)
+    inputs = {**world.region_sources(spec), "dem_zooms": list(zoom_range(world.generators))}  # set by the finest region
     try:
-        return cache.region(name, world.region_sources(spec), lambda d: build_region(world, spec, base_entities(world), d / "dem", not fresh),
+        return cache.region(name, inputs, lambda d: build_region(world, spec, base_entities(world), d / "dem", not fresh),
                             enabled=not fresh, stale_ok=stale_ok)
     except Exception:
         log("FAILED\n" + traceback.format_exc())
@@ -111,6 +114,10 @@ def main():
 
     entities = dict(base)
     layers = {k: [] for k in LAYERS}
+    zooms = zoom_range(world.generators)
+    staging = cache.CACHE_DIR / "dem-merged"  # loose tiles of all regions, packed into one archive below
+    if staging.exists():
+        shutil.rmtree(staging)
     graph = {"nodes": [], "edges": [], "roads": [], "places": {}}
     for result, folder in results:
         for k, v in result["entities"].items():
@@ -124,7 +131,7 @@ def main():
         graph["roads"] += g["roads"]
         graph["edges"] += [[a + n, b + n, length, minutes, ri + r, line] for a, b, length, minutes, ri, line in g["edges"]]
         graph["places"].update({eid: v + n for eid, v in g["places"].items()})
-        merge_dem_tiles(folder / "dem", OUT / "dem")
+        merge_dem_tiles(folder / "dem", staging, zooms)
         with open(cache.CACHE_DIR / f"candidates-{result['region']['id']}.json", "w", encoding="utf-8") as f:
             json.dump(result["candidates"], f, ensure_ascii=False, indent=1)
     regions = [result["region"] for result, _ in results]
@@ -137,10 +144,13 @@ def main():
     merge_crossings(world, entities, layers, graph)
     traffic.annotate(world, entities)
     economy.annotate(world, entities)
-    climate.annotate(world, entities, layers["divisions"], OUT / "dem")
+    climate.annotate(world, entities, layers["divisions"])
     politics.annotate(world, entities)
     dem_bounds = [f(r["frame_bounds"][i] for r in regions) for i, f in enumerate((min, min, max, max))]
-    log(f"  {fill_sea_tiles(OUT / 'dem', dem_bounds)} open-water terrain tiles")
+    n, open_water = pack_dem_tiles(staging, OUT / DEM_ARCHIVE, dem_bounds, zooms)
+    shutil.rmtree(staging)
+    log(f"  {n} terrain tiles to zoom {zooms[-1]} in {DEM_ARCHIVE} ({open_water} open water, "
+        f"{(OUT / DEM_ARCHIVE).stat().st_size / 1e6:.0f} MB)")
     for name, feats in layers.items():
         write_geojson(f"{name}.geojson", feats)
     with open(OUT / "graph.json", "w", encoding="utf-8") as f:
@@ -151,7 +161,7 @@ def main():
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "planet": world.planet,
         "regions": regions,
-        "dem": {"tiles": "dem/{z}/{x}/{y}.png", "encoding": "terrarium", "tileSize": 256, "minzoom": 3, "maxzoom": 10,
+        "dem": {"url": DEM_ARCHIVE, "encoding": "terrarium", "tileSize": TILE_PX, "minzoom": zooms.start, "maxzoom": zooms[-1],
                 "bounds": dem_bounds},
         "layers": sorted(layers),
     }

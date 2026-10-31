@@ -316,7 +316,7 @@ export interface Manifest {
   generated_at: string;
   planet: { id: string; names: { en: string; zh?: string } };
   regions: Region[];
-  dem: { tiles: string; encoding: "terrarium"; tileSize: number; minzoom: number; maxzoom: number; bounds: BBox };
+  dem: { url: string; encoding: "terrarium"; tileSize: number; minzoom: number; maxzoom: number; bounds: BBox };
   /** Vector tile archive (PMTiles) holding some layers; absent when the build had no tippecanoe. */
   tiles?: { url: string; layers: LayerFile[]; maxzoom: number };
 }

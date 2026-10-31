@@ -117,7 +117,7 @@ export function buildStyle(opts: {
     glaciers: { type: "geojson", data: data.layers.glaciers },
     dem: {
       type: "raster-dem",
-      tiles: [`${BASE_URL}data/${dem.tiles}`],
+      url: `pmtiles://${BASE_URL}data/${dem.url}`,
       encoding: dem.encoding,
       tileSize: dem.tileSize,
       minzoom: dem.minzoom,

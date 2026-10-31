@@ -28,7 +28,7 @@ flowchart LR
   B --> R2["region: Viking Islands"]
   R1 & R2 <-.-> C[(".cache/regions<br/>one result per region")]
   R1 & R2 --> M["merge: crossings,<br/>traffic and service"]
-  M --> D["public/data<br/>GeoJSON, entities, terrain tiles"]
+  M --> D["public/data<br/>GeoJSON, entities, terrain PMTiles"]
   D --> T["pipeline/tiles.py<br/>tippecanoe → PMTiles"]
   D & T --> A["React + MapLibre app"]
 ```
