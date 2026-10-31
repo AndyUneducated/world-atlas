@@ -37,7 +37,7 @@ BACKGROUND_NETWORKS = ("national_expressway", "territorial_expressway", "territo
 OPERATOR_KINDS = ("expressway", "highway", "rail")
 # Card text, traits and flags: no region build reads them, so they stay out of a region's cache key and
 # build.py takes them from the sources after the regions are merged.
-TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder", "flag", "flag_notes")
+TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder", "flag", "flag_notes", "climate_notes")
 # A wonder on a line is one of its built structures (named in the build); elsewhere it is the entity itself.
 WONDER_STRUCTURES = ("bridge", "tunnel", "snow_shed")
 TRAIT_KEYS = ("industries", "heritage", "age", "income")
@@ -98,6 +98,8 @@ class World:
         self.engineering: dict = _load(eng) if eng.exists() else {}
         econ = root / "economy.yaml"
         self.economy: dict = _load(econ) if econ.exists() else {}
+        clim = root / "climate.yaml"
+        self.climate: dict = _load(clim) if clim.exists() else {}
 
     def _collect(self, folder: Path, key: str) -> dict[str, dict]:
         out: dict[str, dict] = {}

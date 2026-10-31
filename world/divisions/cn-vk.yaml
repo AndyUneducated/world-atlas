@@ -35,6 +35,9 @@ divisions:
   flag_notes:
     zh: "上方三分之二为红色，正中一艘金色长船挂着条纹方帆，船舷排着圆盾，下方是蓝白相间的波浪。长船是首府长船市得名的维京长船，也代表群岛世代相传的航海；红与金是维京时代的旗色，蓝白波浪是把二十座城市连成一体的海峡。"
     en: "Red over the upper two-thirds, with a gold longship under a striped square sail and a row of shields along its side, over blue and white waves. The longship is the one the capital is named after and the islands' seafaring heritage; red and gold are the colours of the Viking age, and the waves are the straits that bind the islands' twenty cities together."
+  climate_notes:
+    zh: "群岛四面环海，暖流从西南流过，绝大部分地方是温和湿润的海洋性气候：冬天不冷，夏天不热，一年到头多云多雨。沿海城市一月平均在 0 到 5 度之间，七月在 14 到 16 度之间，夏季午后很少超过 20 度；南端的新特雷曼年平均近 11 度，是群岛最暖的城市，暖泉的最低纪录只有零下 6 度。岛屿内陆的高地冬天才会结冰积雪，谢尔海姆一月平均零下 1 度。迎风的西岸山地一年降水超过 2000 毫米，背风的长船只有约 900 毫米。十月是最湿的月份，五月最干，全年日照约 1300 到 1500 小时。"
+    en: "Surrounded by sea, with the warm current flowing past from the south-west, nearly all the islands have a mild, damp oceanic climate: winters are not cold, summers are not hot, and the year is cloudy and wet. Coastal cities average 0 to 5 °C in January and 14 to 16 °C in July, and summer afternoons seldom pass 20 °C; New Tremaine at the southern tip averages nearly 11 °C over the year, the warmest city in the islands, and Warmspring's record low is only −6 °C. Only the inland uplands of the islands freeze and keep snow in winter, and Kjølheim averages −1 °C in January. The windward western hills get more than 2,000 mm a year, sheltered Longship only about 900 mm. October is the wettest month and May the driest, and the islands get some 1,300 to 1,500 hours of sunshine a year."
   traits: { industries: [finance, port, tourism, shipbuilding] }
   notes:
     zh: 北维京岛西南外海的群岛，长船、阿夫琳、阿克斯、暖泉四座大岛与三十多座中小岛屿。航运与造船、离岸金融与总部经济、海上风电与地热、渔业和邮轮旅游是群岛的支柱；首府长船是人口最多的城市

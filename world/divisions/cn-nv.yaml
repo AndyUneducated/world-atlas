@@ -34,6 +34,9 @@ divisions:
   flag_notes:
     zh: "深蓝底上一个偏向旗杆的白色北欧十字，十字交叉处一颗金色八角星。十字取自岛上最早的城市维京港的市旗，代表维京航海者的传统；深蓝是环岛的北方海洋，八角星的八道光芒指向四面八方，代表岛上的各个族群和八方来客汇聚一岛。"
     en: "A white Nordic cross set towards the hoist on deep blue, with a gold eight-pointed star where its arms meet. The cross comes from the flag of Viking Port, the island's oldest city, and stands for its seafaring Viking tradition; the blue is the northern sea round the island, and the star's eight points reach in every direction for the peoples and newcomers gathered on one island."
+  climate_notes:
+    zh: "西南风从暖流上空吹来，给这座高纬度的岛带来远比纬度温和的天气。迎风的沿海城市冬暖夏凉，维京港一月平均约 1 度，七月约 14 度，很少下大雪；海风撞上山地后抬升成雨，天城一年降水接近 2300 毫米，是全岛最湿的城市。翻过山脊，背风的内陆雨少了一大半，冬冷夏暖，马斯林山一年只有约 840 毫米降水，七月午后约 20 度，最高纪录 30 度；新城、洛龙山等高处的城市一月平均在零下 7 度上下。中部高山终年寒冷，群峰训练管理区年平均零下 3.5 度，属于苔原气候。全岛十月雨最多，四五月最干；冬至前后白昼不到 6 小时，夏至前后长达 19 小时。"
+    en: "South-westerly winds blow in over the warm current and give this high-latitude island far milder weather than its latitude suggests. The windward coastal cities have mild winters and cool summers: Viking Port averages about 1 °C in January and 14 °C in July and seldom sees heavy snow. Where the sea wind meets the mountains it rises and rains, and Skytown gets close to 2,300 mm a year, the wettest city on the island. Beyond the ridges the sheltered interior gets less than half as much and has colder winters and warmer summers: Maslin Mountain gets about 840 mm a year, with July afternoons near 20 °C and a record of 30 °C, while upland cities such as New City and Lorond Mountain average around −7 °C in January. The central peaks are cold all year; the High Peaks Training Area averages −3.5 °C and has a tundra climate. October is the wettest month across the island and April and May the driest; around midwinter the day is under 6 hours long, around midsummer 19 hours."
   traits: { industries: [port, trade, research, aerospace] }
 - id: div_nbrnfr
   subtype: locality

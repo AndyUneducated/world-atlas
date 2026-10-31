@@ -26,6 +26,8 @@ import { createPortal } from "react-dom";
 import { FLAG_COLORS } from "../lib/flags";
 import { Emblem, Flag, hasEmblem } from "./Emblem";
 import { RouteTimeline } from "./RouteTimeline";
+import { Climograph } from "./Climograph";
+import { climateName } from "../lib/climate";
 import { useMobile } from "../lib/viewport";
 import { accentColor, lineage, wonderName } from "../lib/entity";
 import { displayName, formatNumber, formatPopulation, formatUsd, kindLabel, NAME_LANG_LABELS, t } from "../lib/i18n";
@@ -522,6 +524,65 @@ function PeopleSection({ entity, lang, accent }: { entity: Entity; lang: Lang; a
   );
 }
 
+/** A territory's climate overview, or a district's or city's monthly normals as a climograph. */
+function ClimateSection({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
+  const select = useAtlas((s) => s.select);
+  const c = entity.climate;
+  if (!c) {
+    if (!entity.climate_notes) return null;
+    return (
+      <Section title={t("climateTitle", lang)}>
+        <Paragraphs text={entity.climate_notes[lang]} className="text-[13px] leading-relaxed text-ink" />
+      </Section>
+    );
+  }
+  const deg = (v: number) => `${formatNumber(v, lang, 1)} °C`;
+  const days = (n: number) => (lang === "zh" ? `${n} 天` : `${n} days`);
+  const hours = (v: number) => formatNumber(v, lang, 1);
+  const at = c.at ? data.entities[c.at] : undefined;
+  const rows: [string, ReactNode][] = [
+    [
+      t("climateType", lang),
+      <>
+        <span className="font-mono text-[12.5px] font-semibold">{c.type}</span> <span className="text-muted">· {climateName(c.type, lang)}</span>
+      </>,
+    ],
+    [t("meanTemp", lang), deg(c.mean_c)],
+    [t("annualPrecip", lang), `${formatNumber(c.precip_mm, lang)} ${lang === "zh" ? "毫米" : "mm"}`],
+    [t("annualSun", lang), `${formatNumber(c.sun_h, lang)} ${lang === "zh" ? "小时" : "hours"}`],
+    [
+      t("recordTemps", lang),
+      <>
+        <span style={{ color: "#f97316" }}>{deg(c.record.hi)}</span> <span className="text-faint">/</span> <span style={{ color: "#0ea5e9" }}>{deg(c.record.lo)}</span>
+      </>,
+    ],
+    c.polar_night_days || c.midnight_sun_days
+      ? [t("polarDays", lang), `${days(c.polar_night_days)} / ${days(c.midnight_sun_days)}`]
+      : [
+          t("dayRange", lang),
+          `${hours(Math.min(...c.months.daylight))}–${hours(Math.max(...c.months.daylight))} ${lang === "zh" ? "小时（月平均）" : "hours (monthly mean)"}`,
+        ],
+  ];
+  return (
+    <Section title={t("climateTitle", lang)}>
+      <Climograph climate={c} lang={lang} />
+      <div className="mt-3">
+        <Rows rows={rows} />
+      </div>
+      {at && (
+        <p className="mt-2.5 text-[12px] text-muted">
+          {t("climateAt", lang)}{" "}
+          <button onClick={() => select(at.id)} className="font-medium text-ink underline decoration-line underline-offset-2 hover:decoration-current">
+            {displayName(at, lang)}
+          </button>
+          {lang === "zh" ? "" : "."}
+        </p>
+      )}
+      <p className="mt-2 text-[11px] text-faint">{t("climateNote", lang)}</p>
+    </Section>
+  );
+}
+
 function codes(e: Entity, lang: Lang) {
   const c = e.codes ?? {};
   const out: [string, string][] = [];
@@ -825,6 +886,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
       )}
 
       <FlagSection entity={entity} lang={lang} />
+      <ClimateSection data={data} entity={entity} lang={lang} />
       <EconomySection entity={entity} lang={lang} accent={accent} />
       <PeopleSection entity={entity} lang={lang} accent={accent} />
 

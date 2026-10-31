@@ -1,0 +1,54 @@
+# Climate model. pipeline/atlas/climate.py gives every district monthly mean highs and lows, precipitation,
+# sunshine and day length, the extremes and a climate type; a city shows the climate of its seat district.
+#
+# Mean temperature = zonal sea-level mean at the latitude + the territory's ocean offset
+#   - lapse rate x mean elevation - a little for continentality.
+# Continentality grows with the distance to the sea and with the land the prevailing wind crosses first;
+# it widens the year's swing and the day's range and moves the wettest months towards summer.
+# Precipitation = the territory's windward-coast total x the seasonal profile x exposure (wetter where the
+#   wind comes straight off the sea) x orographic lift - rain shadow behind higher districts upwind.
+# Sunshine = day length x the territory's sunny share, less in wet months.
+# Every district gets a small fixed perturbation from its id.
+
+# zonal mean sea-level temperature (°C) by latitude, land and sea together
+zonal_mean_c: { 0: 26.5, 10: 26.5, 20: 25.0, 30: 20.5, 40: 14.0, 50: 6.0, 60: -1.0, 70: -9.0, 80: -17.0, 90: -24.0 }
+lapse_c_per_km: 6.2
+
+territories:
+  div_fbfqv9:  # North Viking Island: westerlies off a warm current
+    ocean_offset_c: 8.0
+    wind_from_deg: 245
+    precip_mm: 1550
+    profile: maritime
+    sun_share: 0.31
+    day_range_c: 6.0
+  div_raat4g:  # Viking Islands: the same current, open sea all round
+    ocean_offset_c: 8.0
+    wind_from_deg: 240
+    precip_mm: 1350
+    profile: maritime
+    sun_share: 0.30
+    day_range_c: 5.0
+  div_hpmerr:  # Arctic Ocean Territory: the current's last warmth, ice inland
+    ocean_offset_c: 6.0
+    wind_from_deg: 225
+    precip_mm: 440
+    profile: arctic
+    sun_share: 0.24
+    day_range_c: 4.5
+  div_nwm019:  # Everlong Summer Islands: equatorial, a south-west monsoon in the northern summer
+    ocean_offset_c: 0.6
+    wind_from_deg: 225
+    precip_mm: 2300
+    profile: tropical
+    sun_share: 0.52
+    day_range_c: 7.0
+
+# precipitation by month (relative; normalised), for the maritime and arctic profiles and for land far
+# from the sea, which the profile turns into as continentality grows; the tropical profile follows the
+# latitude (one wet season centred on August, two around the equator)
+profiles:
+  maritime: [1.15, 0.9, 0.9, 0.65, 0.6, 0.65, 0.8, 0.95, 1.2, 1.35, 1.3, 1.25]
+  arctic: [0.95, 0.85, 0.8, 0.6, 0.55, 0.65, 0.95, 1.2, 1.35, 1.3, 1.0, 0.95]
+  continental: [0.6, 0.5, 0.6, 0.7, 0.95, 1.2, 1.4, 1.4, 1.2, 1.05, 0.8, 0.7]
+perturbation: { temperature_c: 0.4, precip: 0.06, sunshine: 0.03 }  # at most, either way

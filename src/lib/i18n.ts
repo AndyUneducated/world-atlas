@@ -212,6 +212,19 @@ const STRINGS = {
   firstLanguage: { zh: "母语", en: "First language" },
   islands: { zh: "岛屿", en: "Islands" },
   economyNote: { zh: "经济与人口结构为按主导产业与人口来源估算的模型数据", en: "Economy and population mix are model estimates from each place's leading industries and origins" },
+  climateTitle: { zh: "气候", en: "Climate" },
+  climateType: { zh: "气候类型", en: "Climate type" },
+  meanTemp: { zh: "年平均气温", en: "Mean temperature" },
+  annualPrecip: { zh: "年降水量", en: "Precipitation" },
+  annualSun: { zh: "年日照", en: "Sunshine" },
+  recordTemps: { zh: "极端气温", en: "Records" },
+  polarDays: { zh: "极夜 / 极昼", en: "Polar night / midnight sun" },
+  dayRange: { zh: "白昼长度", en: "Length of day" },
+  climateAt: { zh: "数据取自人口最多的", en: "Figures for its most populous district," },
+  climateNote: {
+    zh: "气候为按纬度、海拔、离海距离、盛行风和山地抬升估算的模型数据，取区中心一带",
+    en: "Climate is a model estimate from latitude, elevation, distance to the sea, prevailing winds and mountain uplift, taken round the centre of each district",
+  },
 } satisfies Record<string, Record<Lang, string>>;
 
 export type StringKey = keyof typeof STRINGS;

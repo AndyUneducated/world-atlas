@@ -128,6 +128,36 @@ export interface Entity {
   military?: MilitaryFacts;
   economy?: Economy;
   demographics?: Demographics;
+  climate?: Climate;
+  /** Territories: an overview of the climate across their land. */
+  climate_notes?: { zh: string; en: string };
+}
+
+/** Districts and cities, from the climate model (world/climate.yaml): monthly normals, January first. */
+export interface Climate {
+  /** Climate type code, e.g. "Cfb" (see lib/climate.ts). */
+  type: string;
+  months: {
+    /** Mean daily high and low, °C. */
+    hi: number[];
+    lo: number[];
+    /** mm */
+    precip: number[];
+    /** Hours of bright sunshine. */
+    sun: number[];
+    /** Mean length of the day, hours. */
+    daylight: number[];
+  };
+  mean_c: number;
+  precip_mm: number;
+  sun_h: number;
+  record: { hi: number; lo: number };
+  polar_night_days: number;
+  midnight_sun_days: number;
+  elevation_m: number;
+  coast_km: number;
+  /** Cities: the district whose climate this is (the most populous one). */
+  at?: string;
 }
 
 /** Cities, districts and territories, from the economy model (world/economy.yaml; 2026 USD). */

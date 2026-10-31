@@ -40,6 +40,9 @@ divisions:
   flag_notes:
     zh: "绯红的天空里一轮金色太阳放出光芒，下方是层层绿色梯田和蓝白海浪。太阳代表终年的长夏，梯田代表山地的稻作，海浪代表环绕群岛的大海；绯红与金色取自古王国王旗的颜色。领地设立后兴起的工业城市都把这轮朝阳放在自己旗帜的左上角。"
     en: "Gold rays of the sun in a crimson sky, over green terraces and blue and white waves. The sun is the endless summer, the terraces the rice-growing of the hills and the waves the sea round the islands; crimson and gold were the colours of the old kingdom's royal banner. The industrial cities that grew after the territory was created carry this rising sun in their cantons."
+  climate_notes:
+    zh: "长夏群岛终年炎热，低地各月平均气温都在 25 到 27 度之间，最冷和最热的月份相差不到一度，季节只分雨季和旱季。四月是一年里最热的时候，随后西南季风带来雨季，八到十月雨最多，二月最干。越往南越接近赤道，雨水越多越均匀：瓦利凯和基鲁迈一年降水 2400 到 2700 毫米，月月有雨，是热带雨林气候；东北端的埃武托拉和纳卢迈旱季有两三个月几乎滴雨不下，年降水约 1200 毫米，是热带草原气候；两者之间是季风气候。中部高原海拔 1450 米的首府米雷兰年平均不到 18 度，白天 24 度，夜里 10 度，四季如春。全年日照 2300 到 2600 小时，白昼长度一年到头都在 11.4 到 12.8 小时之间。"
+    en: "The Everlong Summer Islands are hot all year: every month in the lowlands averages 25 to 27 °C, the coolest and warmest months less than a degree apart, and the only seasons are wet and dry. April is the hottest month; then the south-west monsoon brings the rains, heaviest from August to October, and February is the driest. The farther south, the nearer the equator and the more and steadier the rain: Vallikkai and Kirumai get 2,400 to 2,700 mm a year with rain every month, a tropical rainforest climate, while Evutola and Nalumai at the north-eastern end have two or three almost rainless months and about 1,200 mm a year, a tropical savanna climate, with monsoon climates in between. On the central plateau the capital Mirelan, 1,450 m up, averages under 18 °C over the year, 24 °C by day and 10 °C at night, a spring that never ends. The islands get 2,300 to 2,600 hours of sunshine a year, and the day lasts between 11.4 and 12.8 hours all year round."
   traits: { industries: [agriculture, semiconductor, tourism, port] }
 
 # ── 米雷兰市（首府）──

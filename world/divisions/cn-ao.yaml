@@ -41,6 +41,9 @@ divisions:
   flag_notes:
     zh: "深蓝夜空中一道绿色极光，左上一颗白色北极星，下方是白色冰原，一座红色石堆路标立在天地之间。石堆路标是塔夫鲁纳克人在苔原上指路的标记，红色代表人；极光和北极星是极夜里的天空，冰原是这片土地。北冰洋各市的旗大多沿用这种天空加地平线的构图。"
     en: "A green aurora across a deep blue night sky, a white pole star in the upper hoist and white ice below, with a red stone cairn standing between earth and sky. The cairn is the Tavrunaq waymark on the tundra and its red stands for people; the aurora and the star are the sky of the polar night and the ice is the land. Most cities of the territory keep this sky and horizon on their own flags."
+  climate_notes:
+    zh: "几乎全境都是苔原气候，只有内陆少数河谷夏天够暖，长得出稀疏的针叶林。南岸受暖流照拂，首府努卡塔克一月平均约零下 13 度，七月约 7 度，海港终年不冻；越往内陆冬天越冷、夏天越暖，考尔尼克一月平均零下 21 度，最低纪录零下 44 度，七月午后却能到 15 度。东北的西尔米冰盖年平均零下 13 度。降水很少，一年 260 到 580 毫米，大多以雪的形式落下，八九月最多。南岸城市每年有约 70 天极夜、83 天极昼，北方的西尔米瓦克极夜长达 99 天、极昼 109 天。"
+    en: "Nearly all the land has a tundra climate; only a few inland valleys are warm enough in summer for sparse conifers. The warm current softens the south coast: the capital Nuqattaaq averages about −13 °C in January and 7 °C in July, and its harbour never freezes. Inland the winters grow colder and the summers warmer: Qaurniq averages −21 °C in January with a record low of −44 °C, yet July afternoons reach 15 °C. The Sirmi Ice Cap in the north-east averages −13 °C over the year. Precipitation is scant, 260 to 580 mm a year and mostly snow, heaviest in August and September. The south-coast cities have about 70 days of polar night and 83 of midnight sun; in Sirmivak in the north the polar night lasts 99 days and the midnight sun 109."
   traits: { industries: [finance, datacenter, mining, tourism] }
 
 # ── 努卡塔克市（首府）──
