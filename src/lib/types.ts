@@ -72,6 +72,8 @@ export interface Entity {
   /** #RRGGBB; set on cities, used for map tint and emblem. */
   color?: string;
   emblem?: { motif: string; pattern: string };
+  /** Territories: flag design, a key of FLAGS in lib/flags.tsx. */
+  flag?: string;
   /** Places: the division the place stands in, and whose flag or emblem heads its card. */
   in?: string;
   emblem_of?: string;

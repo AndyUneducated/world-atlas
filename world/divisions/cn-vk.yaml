@@ -31,9 +31,7 @@ divisions:
     expressway: { zh: 维京群岛跨海交通集团, en: Viking Islands Sea Crossings Group }
     highway: { zh: 维京群岛公路局, en: Viking Islands Highways Authority }
     rail: { zh: 维京群岛铁路公司, en: Viking Islands Railway Company }
-  emblem:
-    motif: longship
-    pattern: waves
+  flag: viking_islands
   traits: { industries: [finance, port, tourism, shipbuilding] }
   notes:
     zh: 北维京岛西南外海的群岛，长船、阿夫琳、阿克斯、暖泉四座大岛与三十多座中小岛屿。航运与造船、离岸金融与总部经济、海上风电与地热、渔业和邮轮旅游是群岛的支柱；首府长船是人口最多的城市

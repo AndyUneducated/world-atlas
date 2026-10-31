@@ -30,9 +30,7 @@ divisions:
     expressway: { zh: 北维京岛高速公路集团, en: North Viking Island Expressway Group }
     highway: { zh: 北维京岛公路局, en: North Viking Island Highways Authority }
     rail: { zh: 北维京岛铁路公司, en: North Viking Island Railway Company }
-  emblem:
-    motif: aurora
-    pattern: stars
+  flag: north_viking
   traits: { industries: [port, trade, research, aerospace] }
 - id: div_nbrnfr
   subtype: locality

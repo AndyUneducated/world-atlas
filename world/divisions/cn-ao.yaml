@@ -37,9 +37,7 @@ divisions:
     expressway: { zh: 北冰洋领地冰原交通集团, en: Arctic Ocean Icefield Transport Group }
     highway: { zh: 北冰洋领地公路与雪廊局, en: Arctic Ocean Roads and Snowsheds Authority }
     rail: { zh: 北冰洋领地铁路公司, en: Arctic Ocean Railways }
-  emblem:
-    motif: polar_bear
-    pattern: ice
+  flag: arctic_ocean
   traits: { industries: [finance, datacenter, mining, tourism] }
 
 # ── 努卡塔克市（首府）──

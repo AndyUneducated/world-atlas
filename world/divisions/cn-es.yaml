@@ -36,9 +36,7 @@ divisions:
     expressway: { zh: 长夏群岛高速公路集团, en: Everlong Summer Expressway Group }
     highway: { zh: 长夏群岛领地公路局, en: Everlong Summer Roads Authority }
     rail: { zh: 长夏群岛磁浮与铁路公司, en: Everlong Summer Maglev and Railways }
-  emblem:
-    motif: sun
-    pattern: fronds
+  flag: everlong_summer
   traits: { industries: [agriculture, semiconductor, tourism, port] }
 
 # ── 米雷兰市（首府）──

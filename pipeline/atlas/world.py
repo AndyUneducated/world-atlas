@@ -32,13 +32,14 @@ RAIL_SPEED_KMH = {"intercity_rail": (160, 400), "freight_rail": (60, 160), "magl
 # Lines whose cards carry a construction background, and who runs them (operators in the territory record).
 BACKGROUND_NETWORKS = ("national_expressway", "territorial_expressway", "territorial_highway", "intercity_rail", "freight_rail")
 OPERATOR_KINDS = ("expressway", "highway", "rail")
-# Card text and traits: no region build reads them, so they stay out of a region's cache key and
+# Card text, traits and flags: no region build reads them, so they stay out of a region's cache key and
 # build.py takes them from the sources after the regions are merged.
-TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder")
+TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder", "flag")
 # A wonder on a line is one of its built structures (named in the build); elsewhere it is the entity itself.
 WONDER_STRUCTURES = ("bridge", "tunnel", "snow_shed")
 TRAIT_KEYS = ("industries", "heritage", "age", "income")
 ROUTE_SHIELDS = ("crest", "maritime", "polar", "tropic")  # territorial route shield designs, see src/lib/shields.ts
+FLAGS = ("north_viking", "viking_islands", "arctic_ocean", "everlong_summer")  # territory flag designs, see src/lib/flags.tsx
 STREET_STYLES = ("planned", "mixed", "organic")
 BUILDING_MIX_KEYS = ("slabs", "towers", "perimeter", "houses", "podium", "industrial", "civic", "park")
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
@@ -153,6 +154,8 @@ class World:
                     errors.append(f"{did}: admin code {admin} does not extend parent code {parent_admin}")
             if d.get("route_shield", "crest") not in ROUTE_SHIELDS:
                 errors.append(f"{did}: route_shield must be one of {', '.join(ROUTE_SHIELDS)}")
+            if d["subtype"] == "dependency" and d.get("flag") not in FLAGS:
+                errors.append(f"{did}: a territory needs a flag, one of {', '.join(FLAGS)}")
             if d["subtype"] == "locality" and not re.match(r"^#[0-9A-Fa-f]{6}$", str(d.get("color", ""))):
                 errors.append(f"{did}: a city needs a colour (#RRGGBB) for its map tint and emblem")
             kids = self.children(did)
