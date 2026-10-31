@@ -4,6 +4,7 @@ from __future__ import annotations
 import hashlib
 import io
 import math
+import os
 import shutil
 from pathlib import Path
 
@@ -29,7 +30,8 @@ def _tile_range(bounds, z):
 
 
 def _decode(path: Path) -> np.ndarray:
-    rgb = np.asarray(Image.open(path).convert("RGB"), float)
+    with Image.open(path) as im:
+        rgb = np.asarray(im.convert("RGB"), float)
     return rgb[..., 0] * 256 + rgb[..., 1] + rgb[..., 2] / 256 - 32768.0
 
 
@@ -41,17 +43,30 @@ def _encode(e: np.ndarray, path: Path):
 
 
 def merge_dem_tiles(src_dir: Path, out_dir: Path) -> int:
-    """Add one region's tiles to out_dir; a tile another region already wrote keeps the higher of the two elevations."""
+    """Add one region's tiles to out_dir; a tile another region already wrote keeps the higher of the two elevations.
+
+    Tiles are hard links to the region's cached ones where the file system allows, so a merged tile
+    replaces its link rather than writing through it into the cache."""
     count = 0
     for src in src_dir.rglob("*.png"):
         dst = out_dir / src.relative_to(src_dir)
         if dst.exists():
-            _encode(np.maximum(_decode(src), _decode(dst)), dst)
+            merged = np.maximum(_decode(src), _decode(dst))
+            dst.unlink()
+            _encode(merged, dst)
         else:
             dst.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(src, dst)
+            _link(src, dst)
         count += 1
     return count
+
+
+def _link(src, dst):
+    """Hard-link a finished tile (tiles are replaced, never written in place), copying where links fail."""
+    try:
+        os.link(src, dst)
+    except OSError:
+        shutil.copyfile(src, dst)
 
 
 def write_dem_tiles(out_dir: Path, elev: np.ndarray, grid, frame, bounds, zooms=range(3, 11), size=256, sea_level_m=-40.0):
@@ -84,12 +99,12 @@ def cached_dem_tiles(out_dir: Path, name: str, elev: np.ndarray, grid, frame, bo
     h.update(Path(__file__).read_bytes())
     store = CACHE_DIR / f"dem-{name}-{h.hexdigest()[:16]}"
     if enabled and (store / "done").exists():
-        shutil.copytree(store, out_dir, dirs_exist_ok=True, ignore=shutil.ignore_patterns("done"))
+        shutil.copytree(store, out_dir, dirs_exist_ok=True, ignore=shutil.ignore_patterns("done"), copy_function=_link)
         return sum(1 for _ in out_dir.rglob("*.png"))
     n = write_dem_tiles(out_dir, elev, grid, frame, bounds)
     for old in CACHE_DIR.glob(f"dem-{name}-*"):
         shutil.rmtree(old)
-    shutil.copytree(out_dir, store)
+    shutil.copytree(out_dir, store, copy_function=_link)
     (store / "done").touch()
     return n
 

@@ -9,7 +9,7 @@ import { BASE_URL } from "../lib/data";
 import { buildFocus, indexFeatures } from "../lib/focus";
 import { measureFeatures } from "../lib/measure";
 import { useRoute } from "../lib/useRoute";
-import { buildStyle, DIVISION_LABEL_LAYERS, HIT_LAYERS, LANDFORM_LABEL_LAYERS, SHIELD_LAYERS, type FocusData } from "../lib/style";
+import { buildStyle, DIVISION_LABEL_LAYERS, HIT_LAYERS, LANDFORM_LABEL_LAYERS, SHIELD_LAYERS } from "../lib/style";
 import { drawShield, shieldImageId } from "../lib/shields";
 import { THEMES } from "../lib/themes";
 import type { Entity } from "../lib/types";
@@ -95,7 +95,7 @@ function metersPerPixel(map: maplibregl.Map) {
 export function MapView() {
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
-  const focusRef = useRef<FocusData | null>(null);
+  const focusRef = useRef<FeatureCollection | null>(null);
   const hoverRef = useRef<string | null>(null);
   const styledRef = useRef(false);
   const data = useAtlas((s) => s.data)!;
@@ -124,7 +124,7 @@ export function MapView() {
     return { theme: THEMES[s.theme], lang: s.lang, data, layers: s.layers, focus: currentFocus(), route: routeRef.current, measure: measureFc(), highlight: highlightFc() };
   };
 
-  const currentFocus = () => focusRef.current ?? buildFocus(features.get(useAtlas.getState().selectedId ?? ""), region.bounds);
+  const currentFocus = () => focusRef.current ?? buildFocus(features.get(useAtlas.getState().selectedId ?? ""));
 
   useEffect(() => {
     const map = new maplibregl.Map({
@@ -236,12 +236,9 @@ export function MapView() {
     const map = mapRef.current;
     if (!map) return;
     const feature = selectedId ? features.get(selectedId) : undefined;
-    const focus = buildFocus(feature, region.bounds);
+    const focus = buildFocus(feature);
     focusRef.current = focus;
-    const apply = () => {
-      (map.getSource("focus-mask") as GeoJSONSource | undefined)?.setData(focus.mask);
-      (map.getSource("focus-outline") as GeoJSONSource | undefined)?.setData(focus.outline);
-    };
+    const apply = () => (map.getSource("focus-outline") as GeoJSONSource | undefined)?.setData(focus);
     if (map.isStyleLoaded()) apply();
     else map.once("idle", apply);
 
@@ -255,7 +252,7 @@ export function MapView() {
       });
     }
     syncUrl(map);
-  }, [selectedId, nonce, features, data, region.bounds]);
+  }, [selectedId, nonce, features, data]);
 
   useEffect(() => {
     const map = mapRef.current;

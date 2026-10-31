@@ -570,11 +570,6 @@ export function shade(hex: string, amount: number) {
     .join("")}`;
 }
 
-export function withAlpha(hex: string, alpha: number) {
-  const [r, g, b] = channel(hex);
-  return `rgba(${r},${g},${b},${alpha})`;
-}
-
 /** Network colours for route emblems, after the GB 5768 sign scheme (red national, amber territorial). */
 export const ROUTE_COLORS: Record<string, string> = {
   national_expressway: "#E5484D",

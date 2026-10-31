@@ -7,30 +7,13 @@ import type { Entity } from "../lib/types";
 const SHIELD =
   "M32 3.5L54.5 9.8C56.4 10.3 57.5 12 57.5 13.9V29C57.5 44.5 47 55.4 32 61C17 55.4 6.5 44.5 6.5 29V13.9C6.5 12 7.6 10.3 9.5 9.8Z";
 
-type Props = { size: number; className?: string; sheen?: boolean };
+type Props = { size: number; className?: string };
 
 function useSvgId() {
   return useId().replace(/[^a-zA-Z0-9]/g, "");
 }
 
-/** Moving highlight drawn over the emblem bodies. */
-function Sheen({ id }: { id: string }) {
-  return (
-    <>
-      <defs>
-        <linearGradient id={`${id}-sheen`} x1="0" y1="0" x2="1" y2="0.45">
-          <stop offset="0.35" stopColor="#fff" stopOpacity="0" />
-          <stop offset="0.5" stopColor="#fff" stopOpacity="0.42" />
-          <stop offset="0.65" stopColor="#fff" stopOpacity="0" />
-          <animateTransform attributeName="gradientTransform" type="translate" values="-1.2 0;-1.2 0;1.2 0" keyTimes="0;0.6;1" dur="6s" repeatCount="indefinite" />
-        </linearGradient>
-      </defs>
-      <rect x="0" y="0" width="64" height="64" fill={`url(#${id}-sheen)`} style={{ mixBlendMode: "overlay" }} />
-    </>
-  );
-}
-
-function Body({ id, shape, color, pattern, detail, sheen }: { id: string; shape: string; color: string; pattern?: string; detail: boolean; sheen?: boolean }) {
+function Body({ id, shape, color, pattern, detail }: { id: string; shape: string; color: string; pattern?: string; detail: boolean }) {
   return (
     <>
       <defs>
@@ -59,7 +42,6 @@ function Body({ id, shape, color, pattern, detail, sheen }: { id: string; shape:
       <g clipPath={`url(#${id}-clip)`}>
         {detail && pattern && PATTERNS[pattern] && <g opacity="0.15">{PATTERNS[pattern]()}</g>}
         <ellipse cx="26" cy="2" rx="40" ry="26" fill={`url(#${id}-gloss)`} />
-        {sheen && <Sheen id={id} />}
       </g>
       {detail && <path d={shape} transform="translate(32 32) scale(0.85) translate(-32 -32)" fill="none" stroke="#fff" strokeOpacity="0.3" strokeWidth="1" />}
       <path d={shape} fill="none" stroke={`url(#${id}-bevel)`} strokeWidth="1.4" />
@@ -96,20 +78,20 @@ function Glyph({ id, motif, ink, x, y, scale }: { id: string; motif?: string; in
   );
 }
 
-export function CityEmblem({ entity, size, className, sheen }: Props & { entity: Entity }) {
+export function CityEmblem({ entity, size, className }: Props & { entity: Entity }) {
   const id = useSvgId();
   const color = entity.color ?? TERRITORY_COLOR;
   const detail = size >= 34;
   return (
     <svg viewBox="0 0 64 64" width={size} height={size} className={className} role="img" aria-hidden>
-      <Body id={id} shape={SHIELD} color={color} pattern={entity.emblem?.pattern} detail={detail} sheen={sheen} />
+      <Body id={id} shape={SHIELD} color={color} pattern={entity.emblem?.pattern} detail={detail} />
       <Glyph id={id} motif={entity.emblem?.motif} ink={shade(color, -0.55)} x={32} y={30.5} scale={detail ? 0.8 : 0.9} />
     </svg>
   );
 }
 
 /** A territory's flag, `size` wide and two-thirds as tall, with a light cloth shading. */
-export function TerritoryFlag({ entity, size, className, sheen }: Props & { entity: Entity }) {
+function TerritoryFlag({ entity, size, className }: Props & { entity: Entity }) {
   const id = useSvgId();
   const draw = FLAGS[entity.flag ?? ""];
   return (
@@ -128,7 +110,6 @@ export function TerritoryFlag({ entity, size, className, sheen }: Props & { enti
       <g clipPath={`url(#${id}-flag)`}>
         {draw ? draw(id) : <rect width="60" height="40" fill={TERRITORY_COLOR} />}
         <rect width="60" height="40" fill={`url(#${id}-cloth)`} />
-        {sheen && <Sheen id={id} />}
       </g>
       <rect width="60" height="40" rx="2.2" fill="none" stroke="#000" strokeOpacity="0.22" strokeWidth="0.8" />
     </svg>

@@ -10,7 +10,7 @@ from shapely import affinity
 from shapely.geometry import LineString, Point
 
 from . import buildings, streets
-from .world import ROOT, World
+from .world import CONLANGS, ROOT, World
 from .common import derived_id, log, short_name
 from .sites import core_zone, landmark_sites, main_axis
 
@@ -135,7 +135,6 @@ def build_buildings(street_out, seed) -> tuple[list, list]:
     return out, parks
 
 
-CONLANGS = ("art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran")
 # Districts whose special status keeps them all but unsettled: arterials and collectors only.
 UNSETTLED = ("nature_reserve", "ice_cap_zone", "national_park")
 # Administrative suffixes dropped when a station or line is named after a city, longest first.

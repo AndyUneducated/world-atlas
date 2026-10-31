@@ -14,7 +14,6 @@ interface RoadStyle {
 export interface MapTheme {
   background: string;
   bathymetry: [string, string, string];
-  context: { fill: string; line: string; label: string };
   land: string;
   tintOpacity: number;
   hillshade: { shadow: string; highlight: string; accent: string; exaggeration: number };
@@ -60,7 +59,7 @@ export interface MapTheme {
   rail: { casing: string; fill: string; station: string; stationStroke: string; label: string; metroCasing: string };
   label: { text: string; halo: string; minor: string; water: string; terrain: string; territory: string };
   cityDot: { fill: string; stroke: string };
-  focus: { mask: string; maskOpacity: number; line: string; glow: string };
+  focus: { line: string; glow: string };
   hover: string;
   choropleth: [string, string, string, string, string, string];
   sky: { sky: string; horizon: string; fog: string };
@@ -81,7 +80,6 @@ export const THEMES: Record<ThemeId, Theme> = {
     map: {
       background: "#c4dceb",
       bathymetry: ["#dcecf4", "#d2e6f0", "#cae0ec"],
-      context: { fill: "#eef1f3", line: "#9fb3c2", label: "#7b8fa0" },
       land: "#f6f5f1",
       tintOpacity: 0.12,
       hillshade: { shadow: "#3a4b5e", highlight: "#ffffff", accent: "#5f7287", exaggeration: 0.5 },
@@ -137,7 +135,7 @@ export const THEMES: Record<ThemeId, Theme> = {
       rail: { casing: "#5b6472", fill: "#ffffff", station: "#ffffff", stationStroke: "#3b4452", label: "#2f3a48", metroCasing: "#ffffff" },
       label: { text: "#1c2533", halo: "rgba(255,255,255,0.92)", minor: "#5d6b7c", water: "#4a83a8", terrain: "#7a6a58", territory: "#45566b" },
       cityDot: { fill: "#ffffff", stroke: "#1c2533" },
-      focus: { mask: "#0f1b2a", maskOpacity: 0.22, line: "#2563eb", glow: "rgba(37,99,235,0.35)" },
+      focus: { line: "#2563eb", glow: "rgba(37,99,235,0.35)" },
       hover: "#2563eb",
       choropleth: ["#f1f5f9", "#dbeafe", "#93c5fd", "#3b82f6", "#1d4ed8", "#172554"],
       sky: { sky: "#9fc6e0", horizon: "#e8f2f8", fog: "#ffffff" },
@@ -150,7 +148,6 @@ export const THEMES: Record<ThemeId, Theme> = {
     map: {
       background: "#05080f",
       bathymetry: ["#0d1626", "#0a121f", "#080e19"],
-      context: { fill: "#0d1422", line: "#1f3a4d", label: "#3e6075" },
       land: "#0f1624",
       tintOpacity: 0.1,
       hillshade: { shadow: "#000000", highlight: "#4a6084", accent: "#1c2a40", exaggeration: 0.7 },
@@ -206,7 +203,7 @@ export const THEMES: Record<ThemeId, Theme> = {
       rail: { casing: "#8b97ab", fill: "#0f1624", station: "#0f1624", stationStroke: "#cbd5e1", label: "#cbd5e1", metroCasing: "#05080f" },
       label: { text: "#e6edf7", halo: "rgba(5,8,15,0.9)", minor: "#8394ab", water: "#4fa6d6", terrain: "#8b9bb3", territory: "#6b7d96" },
       cityDot: { fill: "#0f1624", stroke: "#e6edf7" },
-      focus: { mask: "#000000", maskOpacity: 0.5, line: "#5eead4", glow: "rgba(94,234,212,0.45)" },
+      focus: { line: "#5eead4", glow: "rgba(94,234,212,0.45)" },
       hover: "#5eead4",
       choropleth: ["#0f1624", "#123046", "#155e75", "#0e7490", "#14b8a6", "#99f6e4"],
       sky: { sky: "#020409", horizon: "#0b1a2e", fog: "#05080f" },

@@ -15,10 +15,11 @@ from .world import ROOT
 
 OUT = ROOT / "public" / "data"
 B32 = "0123456789abcdefghjkmnpqrstvwxyz"
+LOG_TAG = ""  # the region a build worker process is on, so the regions' interleaved lines stay apart
 
 
 def log(msg):
-    print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)
+    print(f"[{time.strftime('%H:%M:%S')}] {LOG_TAG}{msg}", flush=True)
 
 
 def derived_id(prefix: str, key: str) -> str:

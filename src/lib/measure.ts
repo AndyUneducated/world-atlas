@@ -2,7 +2,7 @@ import type { Feature, FeatureCollection } from "geojson";
 
 const RADIUS_KM = 6371.0088;
 
-export function haversineKm(a: [number, number], b: [number, number]) {
+function haversineKm(a: [number, number], b: [number, number]) {
   const toRad = Math.PI / 180;
   const dLat = (b[1] - a[1]) * toRad;
   const dLng = (b[0] - a[0]) * toRad;

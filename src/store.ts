@@ -26,6 +26,20 @@ export interface DisplayToggles {
   zoomButtons: boolean;
 }
 
+/** The search box as it was when a card was opened from it, so going back can reopen it where it was. */
+export interface ListView {
+  query: string;
+  scope: string | null;
+  expanded: Record<string, boolean>;
+  scroll: number;
+}
+
+/** Where a card was opened from: the card shown before it, and the list it was picked from, if any. */
+interface BackEntry {
+  id: string | null;
+  list?: ListView;
+}
+
 interface AtlasState {
   data: AtlasData | null;
   map: MaplibreMap | null;
@@ -52,7 +66,17 @@ interface AtlasState {
   setMap: (map: MaplibreMap | null) => void;
   setAppearance: (appearance: Appearance) => void;
   setLang: (lang: Lang) => void;
-  select: (id: string | null, opts?: { fit?: boolean }) => void;
+  /**
+   * Show a card. Picks from a card, the search box or the explore list can be stepped back through;
+   * a click on the map, or closing the card, starts over.
+   */
+  select: (id: string | null, opts?: { fit?: boolean; list?: ListView }) => void;
+  back: BackEntry[];
+  /** Step back one card; the browser's back button does the same. */
+  goBack: () => void;
+  /** A list to reopen after going back, picked up by the search box. */
+  restoreList: ListView | null;
+  setRestoreList: (list: ListView | null) => void;
   toggleLayer: (key: keyof LayerToggles) => void;
   toggleDisplay: (key: keyof DisplayToggles) => void;
 }
@@ -116,7 +140,20 @@ export const useAtlas = create<AtlasState>((set) => ({
   },
   setLang: (lang) => set({ lang }),
   select: (id, opts) =>
-    set((s) => ({ selectedId: id, selectionNonce: s.selectionNonce + 1, fitSelection: opts?.fit ?? true, highlight: null })),
+    set((s) => {
+      const fit = opts?.fit ?? true;
+      let back = s.back;
+      if (id === null || !fit) back = [];
+      else if (id !== s.selectedId && (s.selectedId !== null || opts?.list)) {
+        back = [...s.back, { id: s.selectedId, list: opts?.list }];
+        window.history.pushState({ atlasBack: back.length }, "");
+      }
+      return { selectedId: id, selectionNonce: s.selectionNonce + 1, fitSelection: fit, highlight: null, back };
+    }),
+  back: [],
+  goBack: () => window.history.back(),
+  restoreList: null,
+  setRestoreList: (restoreList) => set({ restoreList }),
   toggleLayer: (key) =>
     set((s) => {
       const layers = { ...s.layers, [key]: !s.layers[key] };
@@ -130,6 +167,21 @@ export const useAtlas = create<AtlasState>((set) => ({
       return { display };
     }),
 }));
+
+window.addEventListener("popstate", () => {
+  const { back } = useAtlas.getState();
+  const entry = back.at(-1);
+  // entries left behind after a map click started a new history have nothing to go back to
+  if (!entry) return;
+  useAtlas.setState((s) => ({
+    back: back.slice(0, -1),
+    selectedId: entry.id,
+    selectionNonce: s.selectionNonce + 1,
+    fitSelection: entry.id !== null,
+    highlight: null,
+    restoreList: entry.list ?? null,
+  }));
+});
 
 darkQuery.addEventListener("change", () => {
   const s = useAtlas.getState();

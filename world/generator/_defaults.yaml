@@ -1,0 +1,24 @@
+# Settings shared by every territory's generator. Each world/generator/<region>.yaml is merged
+# over this file (nested mappings key by key), so a generator only lists what is its own and may
+# override any value here.
+frame:
+  resolution_km: 0.25
+
+# see pipeline/atlas/relief.py
+relief:
+  ice_min_km2: 0.5         # smallest ice field drawn (design km²)
+  glacier_min_km2: 4       # smallest ice field listed for naming
+
+# see pipeline/atlas/landcover.py
+landcover:
+  urban_max_slope_deg: 12
+  urban_max_area_ratio: 2       # a town whose buildable ground is scattered keeps only the nearest of it
+
+# see pipeline/atlas/streets.py and the streets section of a generator
+streets:
+  core_people_per_km2: 8000   # residents per km² of a district's core zone with local streets and buildings
+  arterial_spacing_km: 1.5
+  neighbourhood_km: 1.3
+  warp_km: { planned: 0.02, mixed: 0.05, organic: 0.09 }
+  warp_wavelength_km: 1.6
+  river_gap_km: 0.05

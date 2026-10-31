@@ -11,11 +11,6 @@ import { shieldImageId } from "./shields";
 import { BUILDING_CLASSES, LANDCOVER_CLASSES, type Theme } from "./themes";
 import type { AtlasData, Lang, LayerFile } from "./types";
 
-export interface FocusData {
-  mask: FeatureCollection;
-  outline: FeatureCollection;
-}
-
 export const EMPTY_FC: FeatureCollection = { type: "FeatureCollection", features: [] };
 
 /** Road network values (GB/T 917 administrative grades) behind each road layer toggle. */
@@ -57,7 +52,7 @@ export const SHIELD_LAYERS = ["road-shield", "road-shield-primary"];
 export const DIVISION_LABEL_LAYERS = ["district-label", "city-label-major", "city-label-minor", "territory-label"];
 
 /** Coastal landform kinds (label `kind`), split by whether they are water or land. */
-export const LANDFORM_KINDS = { water: ["bay", "fjord", "strait", "estuary"], land: ["island", "cape"] } as const;
+const LANDFORM_KINDS = { water: ["bay", "fjord", "strait", "estuary"], land: ["island", "cape"] } as const;
 /** Landform label layers, which double as their hit targets. */
 export const LANDFORM_LABEL_LAYERS = [
   "peak-label-major",
@@ -82,7 +77,7 @@ const name = (lang: Lang): ExpressionSpecification => ["coalesce", ["get", `name
 const visible = (on: boolean) => (on ? "visible" : "none") as "visible" | "none";
 
 /** Map symbol drawn on demand by the map view: a summit triangle or a pass mark. */
-export function symbolImageId(kind: "peak" | "pass", color: string) {
+function symbolImageId(kind: "peak" | "pass", color: string) {
   return `${kind}|${color}`;
 }
 
@@ -91,7 +86,7 @@ export function buildStyle(opts: {
   lang: Lang;
   data: AtlasData;
   layers: LayerToggles;
-  focus: FocusData;
+  focus: FeatureCollection;
   route: FeatureCollection;
   measure: FeatureCollection;
   highlight: FeatureCollection;
@@ -113,9 +108,7 @@ export function buildStyle(opts: {
     "rivers-named": { type: "geojson", data: data.layers["rivers-named"], promoteId: "id" },
     ridges: { type: "geojson", data: data.layers.ridges, promoteId: "id" },
     roads: { type: "geojson", data: data.layers.roads, promoteId: "id" },
-    context: { type: "geojson", data: data.layers.context },
-    "focus-mask": { type: "geojson", data: focus.mask },
-    "focus-outline": { type: "geojson", data: focus.outline },
+    "focus-outline": { type: "geojson", data: focus },
     route: { type: "geojson", data: route },
     measure: { type: "geojson", data: measure },
     highlight: { type: "geojson", data: highlight },
@@ -152,16 +145,11 @@ export function buildStyle(opts: {
       id: "bathymetry",
       type: "fill",
       ...from("bathymetry"),
+      // the open-sea band runs out to the generator frame's straight edges, so it is left to the background
+      filter: ["<", ["get", "band"], 3],
       // territories' depth bands overlap in the straits between them: the shallowest band wins
       layout: { "fill-sort-key": ["-", 0, ["get", "band"]] },
       paint: { "fill-color": ["match", ["get", "band"], 0, m.bathymetry[0], 1, m.bathymetry[1], m.bathymetry[2]], "fill-antialias": false },
-    },
-    { id: "context-fill", type: "fill", source: "context", paint: { "fill-color": m.context.fill } },
-    {
-      id: "context-line",
-      type: "line",
-      source: "context",
-      paint: { "line-color": m.context.line, "line-width": 1, "line-dasharray": [3, 2] },
     },
     { id: "land", type: "fill", source: "divisions", filter: isSubtype("dependency"), paint: { "fill-color": m.land } },
   ];
@@ -527,12 +515,6 @@ export function buildStyle(opts: {
       },
     },
     {
-      id: "focus-mask",
-      type: "fill",
-      source: "focus-mask",
-      paint: { "fill-color": m.focus.mask, "fill-opacity": m.focus.maskOpacity, "fill-antialias": false },
-    },
-    {
       id: "focus-glow",
       type: "line",
       source: "focus-outline",
@@ -669,17 +651,6 @@ export function buildStyle(opts: {
     return out;
   }
   style.push(
-    {
-      id: "context-label",
-      type: "symbol",
-      source: "context",
-      layout: {
-        "text-field": name(lang),
-        "text-font": FONT.italic,
-        "text-size": 12,
-      },
-      paint: { "text-color": m.context.label, ...halo },
-    },
     {
       id: "ridge-label",
       type: "symbol",

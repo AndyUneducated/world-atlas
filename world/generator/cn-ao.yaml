@@ -10,7 +10,6 @@ frame:
   origin_lonlat: [12.0, 73.5]
   size_km: [680, 360]
   scale: 2.8284  # √8, as North Viking Island
-  resolution_km: 0.25
 
 land:
   # Gaussian lobes: [cx, cy, rx, ry, rotation_deg, weight]; negative weight carves bays.
@@ -158,16 +157,12 @@ relief:
   snowline_m: 1250
   snowline_aspect_m: 250
   glacier_max_slope_deg: 42
-  ice_min_km2: 0.5
-  glacier_min_km2: 4
 
 # Polar land cover: tundra almost everywhere, birch scrub only in the lowest sheltered valleys of
 # the warm south coast, very little farmland, wet ground and lakes across the low interior.
 landcover:
   urban_density_per_km2: 4000   # compact cities joined by skyways
-  urban_max_slope_deg: 12
   urban_terrace_slope_deg: 22
-  urban_max_area_ratio: 2       # a town whose centre lies by ice or a lake keeps only the nearest buildable ground
   wetland_max_elev_m: 260
   wetland_wetness: 1.8
   farm_max_elev_m: 60
@@ -179,13 +174,7 @@ landcover:
   rock_slope_deg: 31
 
 streets:
-  core_people_per_km2: 8000   # residents per km² of a district's core zone with local streets and buildings
-  arterial_spacing_km: 1.5
-  neighbourhood_km: 1.3
   local_spacing_km: { planned: [0.15, 0.2], mixed: [0.13, 0.19], organic: [0.1, 0.16] }
-  warp_km: { planned: 0.02, mixed: 0.05, organic: 0.09 }
-  warp_wavelength_km: 1.6
-  river_gap_km: 0.05
   # Street name themes: mostly the polar stems and the territory's own place names, which are
   # native Tavrunaq names; no Norse myths or European family names.
   name_styles:
@@ -272,12 +261,6 @@ metro:
 expect:
   longest_river: nat_23cx58
   largest_cities_by_area: [div_d48kz7, div_8c2skk, div_djze5f]
-  district_centres_on: [national_expressway, territorial_expressway, territorial_highway]
-  # island-only districts have no road link; ice caps and reserves have no road to their centre
-  district_centres_except: [div_2541fx, div_jd4ms5, div_7ee7ab, div_3xz1pw, div_6p8a1q, div_rcnhch, div_481wnn,
-                            div_81tqya, div_qj033v, div_4ymjbf, div_zq16x4, div_hbdzam, div_5h1yv5, div_8h5g1g, div_6469m0,
-                            div_jyszba, div_7b21kg]
-
 layout:
   # division sizes range from 20 to 163 300 km²: keep every city and district around its own anchor
   anchored: true

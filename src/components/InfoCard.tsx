@@ -3,14 +3,12 @@ import {
   Banknote,
   Car,
   ChartNoAxesColumn,
-  Check,
+  ChevronLeft,
   ChevronRight,
   Columns3,
-  Crosshair,
   Droplets,
   Gauge,
   LandPlot,
-  Link2,
   Mountain,
   Ruler,
   Shell,
@@ -25,7 +23,7 @@ import { AnimatePresence, motion, useDragControls, useSpring, type PanInfo } fro
 import { useState, type ReactNode } from "react";
 import { CityEmblem, Emblem, hasEmblem } from "./Emblem";
 import { RouteTimeline } from "./RouteTimeline";
-import { cardPadding, useMobile } from "../lib/viewport";
+import { useMobile } from "../lib/viewport";
 import { accentColor, lineage, wonderName } from "../lib/entity";
 import { displayName, formatNumber, formatPopulation, formatUsd, kindLabel, NAME_LANG_LABELS, t } from "../lib/i18n";
 import { hasShield } from "../lib/shields";
@@ -612,57 +610,55 @@ function Lineage({ data, entity, lang }: { data: AtlasData; entity: Entity; lang
   );
 }
 
-function CardAction({ onClick, accent, icon, label }: { onClick: () => void; accent: string; icon: ReactNode; label: string }) {
+/** Text written with line breaks between its paragraphs. */
+function Paragraphs({ text, className }: { text: string; className: string }) {
   return (
-    <button onClick={onClick} className="group flex flex-1 items-center justify-center gap-2 py-2.5 text-[12.5px] font-medium text-ink transition-colors hover:bg-hover">
-      <span
-        className="grid size-6 place-items-center rounded-full transition-transform duration-200 group-hover:scale-110"
-        style={{ background: `color-mix(in srgb, ${accent} 16%, transparent)`, color: accent }}
-      >
-        {icon}
-      </span>
-      {label}
-    </button>
+    <div className={clsx("space-y-2", className)}>
+      {text
+        .split(/\n+/)
+        .map((p) => p.trim())
+        .filter(Boolean)
+        .map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
+    </div>
   );
 }
 
 function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
   const select = useAtlas((s) => s.select);
-  const map = useAtlas((s) => s.map);
   const setRoute = useAtlas((s) => s.setRoute);
   const routable = data.graph.places[entity.id] !== undefined;
-  const [copied, setCopied] = useState(false);
   const accent = accentColor(data, entity) ?? "var(--ui-accent)";
   const items = stats(entity, lang);
   const codeRows = codes(entity, lang);
   const names = NAME_LANGS.filter((l) => entity.names[l]);
 
-  const copy = async () => {
-    await navigator.clipboard.writeText(window.location.href);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  };
-  const zoomTo = () => {
-    if (map && entity.bbox) map.fitBounds(entity.bbox, { padding: cardPadding(), duration: 900 });
-  };
-
   const badgeOwner = entity.kind === "place" && entity.emblem_of ? data.entities[entity.emblem_of] : entity;
   const city = entity.subtype === "borough" && entity.parent ? data.entities[entity.parent] : undefined;
   const isCapital = data.entities[entity.parent ?? ""]?.capital === entity.id;
+  const back = useAtlas((s) => s.back.at(-1));
+  const goBack = useAtlas((s) => s.goBack);
+  const backTo = back?.list ? t(back.list.query ? "backToResults" : "backToExplore", lang) : back?.id && data.entities[back.id] ? displayName(data.entities[back.id], lang) : null;
 
   return (
     <>
-      <div className="relative overflow-hidden px-5 pt-5 pb-4">
+      <div className={clsx("relative overflow-hidden px-5 pb-4", back ? "pt-3" : "pt-5")}>
         <div className="pointer-events-none absolute inset-x-0 top-0 h-32 opacity-[0.2]" style={{ background: `linear-gradient(180deg, ${accent}, transparent)` }} />
-        {badgeOwner && hasEmblem(badgeOwner) && (
-          <div className="pointer-events-none absolute -top-10 -right-12 rotate-[-14deg] opacity-[0.09] blur-[0.5px]">
-            <Emblem entity={badgeOwner} size={210} />
-          </div>
+        {back && (
+          <button
+            onClick={goBack}
+            className="relative -ml-2 mb-2 flex max-w-full items-center gap-0.5 rounded-full py-1 pr-2.5 pl-1 text-[12px] font-medium text-muted transition-colors hover:bg-hover hover:text-ink"
+          >
+            <ChevronLeft className="size-4 shrink-0" />
+            <span className="shrink-0">{t("back", lang)}</span>
+            {backTo && <span className="truncate text-faint">· {backTo}</span>}
+          </button>
         )}
         <div className="relative flex items-start gap-3.5">
           {badgeOwner && hasEmblem(badgeOwner) ? (
             <TiltBadge glow={accent}>
-              <Emblem entity={badgeOwner} size={64} sheen className="drop-shadow-[0_6px_14px_rgba(0,0,0,0.35)]" />
+              <Emblem entity={badgeOwner} size={64} className="drop-shadow-[0_6px_14px_rgba(0,0,0,0.35)]" />
             </TiltBadge>
           ) : hasShield(entity) ? (
             <span className="mt-1 grid h-12 shrink-0 place-items-center drop-shadow-[0_3px_8px_rgba(0,0,0,0.25)]">
@@ -742,11 +738,11 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
 
       {(entity.notes || entity.motto || entity.background) && (
         <Section title={t("about", lang)}>
-          {entity.notes && <p className="text-[13.5px] leading-relaxed text-ink">{entity.notes[lang]}</p>}
+          {entity.notes && <Paragraphs text={entity.notes[lang]} className="text-[13.5px] leading-relaxed text-ink" />}
           {entity.background && (
             <>
               <h4 className="mt-3 mb-1 text-[11px] font-semibold text-faint">{t("background", lang)}</h4>
-              <p className="text-[13px] leading-relaxed text-muted">{entity.background[lang]}</p>
+              <Paragraphs text={entity.background[lang]} className="text-[13px] leading-relaxed text-muted" />
             </>
           )}
           {entity.motto && (
@@ -783,18 +779,8 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
         </Section>
       )}
 
-      <footer className="border-t border-line px-4 pt-3.5 pb-4">
-        <div className="flex overflow-hidden rounded-2xl border border-line bg-hover">
-          <CardAction onClick={zoomTo} accent={accent} icon={<Crosshair className="size-3.5" />} label={t("zoomTo", lang)} />
-          <span className="my-2 w-px shrink-0 bg-line" aria-hidden />
-          <CardAction
-            onClick={copy}
-            accent={copied ? "#10b981" : accent}
-            icon={copied ? <Check className="size-3.5" /> : <Link2 className="size-3.5" />}
-            label={t(copied ? "copied" : "share", lang)}
-          />
-        </div>
-        <p className="mt-2.5 text-center font-mono text-[10px] tracking-wider text-faint select-all">{entity.id}</p>
+      <footer className="border-t border-line px-4 pt-3 pb-4">
+        <p className="text-center font-mono text-[10px] tracking-wider text-faint select-all">{entity.id}</p>
       </footer>
     </>
   );

@@ -28,11 +28,11 @@ from .world import FACILITY_LAYOUTS, MILITARY_VARIANTS, RUNWAY_LAYOUTS, World
 from .common import (BUILDING_MINZOOM, STREET_MINZOOM, bbox_lonlat, derived_id, drawn_along, feature, fill_undrawn, log, owned_runs, run_positions, short_name, undrawn_steps,
                      smooth_line, tile_minzoom)
 from .sites import SEA_BRIDGE_HALF_WIDTH_KM, landmark_sites
-from .city import bare_name, build_buildings, build_metro, build_streets, rail_station_names
+from .city import UNSETTLED, bare_name, build_buildings, build_metro, build_streets, rail_station_names
 from .routes import PORTAL, cross_part, land_cell, route_railways, route_segments, stops_here
 
 LAYERS = ("divisions", "labels", "places", "landcover", "water", "coast", "glaciers", "rivers", "rivers-named", "ridges", "roads",
-          "route-shared", "streets", "streets-named", "buildings", "parks", "skyways", "landmarks", "rail", "stations", "bathymetry", "context")
+          "route-shared", "streets", "streets-named", "buildings", "parks", "skyways", "landmarks", "rail", "stations", "bathymetry")
 SKYWAY_LINK_KM = 0.6  # a landmark this close to a skyway is joined to it by a short bridge
 
 
@@ -41,6 +41,8 @@ SEGMENTED_NETWORKS = {"national_expressway", "territorial_expressway", "territor
 # How far a route terminus reaches to join the network: expressway to expressway, else to any road.
 JOIN_MOTORWAY_KM = 20
 JOIN_ROAD_KM = 5
+ACCESS_KM = 0.5  # a sited facility farther than this (real km) from every road and street gets an access road
+ACCESS_REACH_KM = 60  # ... to the nearest road within this distance (real km)
 # Bays and fjords this large (real km²) and capes this prominent (real km) are labelled from lower zooms.
 MAJOR_LANDFORM_KM2 = 200
 MAJOR_CAPE_KM = 12
@@ -438,7 +440,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             target = Point(poles[i][0] * s, poles[i][1] * s)
         q = nearest_points(site.exterior, target)[0]
         n = math.hypot(q.x - c.x, q.y - c.y) or 1.0
-        out = 1.5 * gr.res * s
+        out = 1.5 * gr.res * s if cfg["layout"] in RUNWAY_LAYOUTS else 0.1
         return ((q.x + (q.x - c.x) / n * out) / s, (q.y + (q.y - c.y) / n * out) / s)
 
     place_at = {pid: gate(cfg, site, i) if (cfg := world.places[pid]["site"])["layout"] in MILITARY_VARIANTS else dry_centre(site)
@@ -491,13 +493,32 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         }
         router.commit(path, "secondary", discount=0.8, ref=r["ref"])
         road_out.append((r, path))
-    dead_ends = set()
-    for pid, p in world.places.items():  # facilities with an access road, from the gate to the nearest road
-        if not p.get("access_road") or pid not in place_at:
+    # Access roads: a sited facility farther than ACCESS_KM from every road and street gets a city road
+    # from its gate to the nearest road on its own landmass. Facilities in reserves, ice caps and national
+    # parks, nature reserves, offshore sites and those marked access_road: false have none.
+    on_route = {v for via in road_via.values() for v in via}
+    net_lines = [LineString([router.xy(c) for c in path]) for _, path in road_out if len(path) > 1]
+    street_lines = [st.geom for _, sts, _, _ in street_out for st in sts]
+    street_tree = shapely.STRtree(street_lines) if street_lines else None
+    site_of = {pid: shapely.transform(site, lambda c: c / s) for pid, site, _, _ in all_sites}
+    dead_ends, entrance, skipped, built_km = set(), {}, [], []
+    for pid, p in world.places.items():
+        if pid not in place_at or pid in on_route or p.get("access_road") is False or p.get("subtype") == "nature_reserve":
             continue
         i = district_index[p["in"]]
-        path = router.trim_to_network(router.route(router.cell(*place_at[pid]), router.cell(*poles[i])))
-        if len(path) < 2:
+        if districts[i].get("special_status") in UNSETTLED:
+            continue
+        site = site_of[pid]
+        near_street = street_tree is not None and site.distance(street_lines[street_tree.nearest(site)]) * s <= ACCESS_KM
+        if near_street or min((site.distance(ln) for ln in net_lines), default=math.inf) * s <= ACCESS_KM:
+            continue
+        start = router.cell(*place_at[pid])
+        if landmass[start] == 0:  # a quay may sit in a sea cell: start from the shore next to it
+            ring = [c for dy in (-1, 0, 1) for dx in (-1, 0, 1) if 0 <= (c := start + dy * router.nx + dx) < len(landmass) and landmass[c]]
+            start = min(ring, key=lambda c: math.dist(router.xy(c), place_at[pid]), default=start)
+        path = None if start in router.used else router.route_to_any(start, set(router.used), ACCESS_REACH_KM / s)
+        if path is None or landmass[start] == 0 or landmass[start] != landmass[path[-1]]:
+            skipped.append(p["names"]["zh"])
             continue
         feeder_seq += 1
         rid = derived_id("rte", f"access:{pid}")
@@ -508,7 +529,11 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         }
         router.commit(path, "secondary", discount=0.8, ref=r["ref"])
         road_out.append((r, path[::-1]))
+        net_lines.append(LineString([router.xy(c) for c in path]))
         dead_ends.add(rid)
+        entrance[rid] = nearest_points(site.boundary, Point(router.xy(start)))[0].coords[0]
+        built_km.append(f"{p['names']['zh']} {frame.km(LineString([router.xy(c) for c in path]).length):.1f}")
+    log(f"  access roads: {len(built_km)} ({', '.join(built_km)})" + (f"; none for {', '.join(skipped)}" if skipped else ""))
 
     # Termini join the network: an expressway end runs on to the nearest other expressway (an
     # interchange, so traffic changes routes without leaving the expressway), any other end to the
@@ -554,14 +579,6 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             path = leg[::-1] + path[1:] if at_start else path + leg[1:]
             log(f"  {ref} {'start' if at_start else 'end'} joined {router.owner.get(leg[-1])} ({frame.km(LineString([router.xy(c) for c in leg]).length):.1f} km)")
         road_out[k] = (r, path)
-
-    if nets := spec.get("expect", {}).get("district_centres_on"):
-        on = {c for r, path in road_out if r["network"] in nets for c in path}
-        near = lambda c: any(c + dy * router.nx + dx in on for dy in (-1, 0, 1) for dx in (-1, 0, 1))
-        skip = set(spec["expect"].get("district_centres_except", []))
-        missing = [d["names"]["zh"] for i, d in enumerate(districts) if d["id"] not in skip and not near(stop_cell(d["id"]))]
-        log(f"  {'ok  ' if not missing else 'FAIL'} every district centre on {' / '.join(nets)}"
-            + (f": missing {', '.join(missing)}" if missing else ""))
 
     log("routing railways")
     rail_router = Router(elev_r, land_r & ~water_r, gr.res, slope_weight=150)
@@ -832,6 +849,11 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         return LineString(coords)
 
     drawn_roads = {r["ref"]: [meet_host(line, run, r["ref"]) for line, run in zip(smoothed[r["ref"]], road_runs[r["ref"]])] for r, _ in road_out}
+    for r, path in road_out:  # an access road runs on from its gate cell to the facility's fence
+        lines = drawn_roads[r["ref"]]
+        for k, run in enumerate(road_runs[r["ref"]]):
+            if r["id"] in entrance and run[-1] == path[-1]:
+                lines[k] = LineString([*lines[k].coords, entrance[r["id"]]])
     drawn_all = [(r["ref"], run, line, run_positions(run, line, router.xy))
                  for r, _ in road_out for run, line in zip(road_runs[r["ref"]], drawn_roads[r["ref"]])]
     rail_runs = [run for runs in rail_drawn.values() for run, _ in runs]
@@ -986,7 +1008,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         own = MultiLineString(own_lines or shared)
         if shared and own_lines:
             shared_features.append(feature(to_lonlat(MultiLineString(shared), frame), {"id": r["id"]}))
-        ent.update({"class": "rail", "via": ids, **add_line(r["id"], full, {"network": r["network"], "color": r.get("color"),
+        ent.update({"class": "rail", "via": ids, "ancestors": in_territory, **add_line(r["id"], full, {"network": r["network"], "color": r.get("color"),
                                                                         "name_zh": r["names"]["zh"], "name_en": r["names"]["en"]}, drawn=own)})
         if r.get("maglev"):
             ent["maglev"] = True
@@ -1042,23 +1064,6 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     log(f"  road graph: {len(node_cells)} nodes, {len(edges)} edges")
 
     bath_features = [feature(to_lonlat(p, frame), {"band": int(b)}) for b, p in sorted(bath_polys.items()) if b < 3]
-
-    ctx_features = []
-    for ctx in spec.get("context", []):
-        # Context placement is given in real km, independent of the region's design scale.
-        cw, ch = (v / frame.scale for v in ctx["extent_km"])
-        cg = Grid((cw, ch), 0.5)
-        rng = np.random.default_rng(ctx["seed"])
-        f = np.zeros(cg.shape)
-        for _ in range(ctx["islands"]):
-            cx, cy, r = rng.uniform(0.15 * cw, 0.85 * cw), rng.uniform(0.15 * ch, 0.85 * ch), rng.uniform(10, 26)
-            f += np.exp(-((cg.X - cx) ** 2 + (cg.Y - cy) ** 2) / r ** 2)
-        f += 0.25 * value_noise(ctx["seed"] + 5, 30, 5, 0.5, (cw, ch), cg.shape)
-        polys = polygonize_labels(np.where(f > 0.55, 0, -1), cg.res, simplify_km=0.15)
-        if 0 in polys:
-            ox, oy = (v / frame.scale for v in ctx["offset_km"])
-            moved = affinity.translate(polys[0], g.w / 2 + ox - cw / 2, g.h / 2 + oy - ch / 2)
-            ctx_features.append(feature(to_lonlat(moved, frame), {"id": ctx["id"], "name_zh": ctx["names"]["zh"], "name_en": ctx["names"]["en"]}))
 
     coast_features, glacier_features = [], []
     ice_names = {id(c): fe for c, fe in coast_feats["matched"] if c["kind"] == "glacier"}
@@ -1146,7 +1151,6 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     layers["rail"] += rail_features
     layers["stations"] += station_features
     layers["bathymetry"] += bath_features
-    layers["context"] += ctx_features
 
     log("writing terrain tiles")
     bounds = frame.bounds_lonlat()

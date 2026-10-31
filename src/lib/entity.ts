@@ -15,10 +15,6 @@ export function accentColor(data: AtlasData, e: Entity): string | undefined {
 /** Breadcrumb chain from the outermost ancestor down to the entity itself. */
 export function lineage(data: AtlasData, e: Entity): Entity[] {
   const chain = (e.ancestors ?? []).map((id) => data.entities[id]).filter(Boolean).reverse();
-  if (!e.ancestors) {
-    const home = data.entities[data.manifest.home];
-    if (home) chain.push(...(home.ancestors ?? []).map((id) => data.entities[id]).filter(Boolean).reverse(), home);
-  }
   return [...chain, e];
 }
 

@@ -1,6 +1,7 @@
 """Loading and validating the world source files under world/."""
 from __future__ import annotations
 
+import copy
 import re
 from pathlib import Path
 
@@ -9,8 +10,10 @@ import yaml
 ROOT = Path(__file__).resolve().parents[2]
 WORLD_DIR = ROOT / "world"
 
-ID_PATTERN = re.compile(r"^(div|nat|rte|poi|bld|ctx)_[0-9a-hjkmnp-tv-z]{6}$|^country:[A-Z]{2}$")
-REQUIRED_LANGS = ("zh", "en")
+ID_PATTERN = re.compile(r"^(div|nat|rte|poi|bld)_[0-9a-hjkmnp-tv-z]{6}$|^country:[A-Z]{2}$")
+# Name languages, as NAME_LANGS in src/lib/types.ts: Chinese and English are required, the conlangs optional.
+NAME_LANGS = ("zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran")
+REQUIRED_LANGS, CONLANGS = NAME_LANGS[:2], NAME_LANGS[2:]
 DIVISION_SUBTYPES = ("country", "dependency", "region", "locality", "borough")
 # Division codes (GB/T 2260): six digits, of which a territory uses the first two, a city four
 # and a district all six; the rest are zeros (900000 → 900100 → 900101).
@@ -51,6 +54,13 @@ def _load(path: Path):
         return yaml.safe_load(f) or {}
 
 
+def _merge(base: dict, over: dict) -> dict:
+    out = copy.deepcopy(base)
+    for k, v in over.items():
+        out[k] = _merge(out[k], v) if isinstance(v, dict) and isinstance(out.get(k), dict) else v
+    return out
+
+
 class ValidationError(Exception):
     pass
 
@@ -67,7 +77,10 @@ class World:
         self.railways = self._collect(root / "transport", "railways")
         self.places = self._collect(root / "places", "places")
         # A region's features live in world/features/<generator file name>-*.yaml.
-        self.generators = [{**_load(p), "_region": p.stem} for p in sorted((root / "generator").glob("*.yaml"))]
+        # Each generator is merged over the settings every territory shares (world/generator/_defaults.yaml).
+        defaults = _load(root / "generator" / "_defaults.yaml")
+        self.generators = [{**_merge(defaults, _load(p)), "_region": p.stem}
+                           for p in sorted((root / "generator").glob("*.yaml")) if not p.stem.startswith("_")]
         eng = root / "transport" / "engineering.yaml"
         self.engineering: dict = _load(eng) if eng.exists() else {}
         econ = root / "economy.yaml"
@@ -219,8 +232,9 @@ class World:
                 errors.append(f"{pid}: short_names (the map label; the card shows the full names) needs zh and en")
             if p.get("subtype") == "government" and "short_names" in p and len(p.get("notes", {}).get("zh", "")) < 100:
                 errors.append(f"{pid}: a government institution's card (notes.zh) needs at least 100 characters")
-            if "access_road" in p and not (p["access_road"] is True and p.get("site")):
-                errors.append(f"{pid}: access_road: true needs a site (a city road is built from it to the network)")
+            if "access_road" in p and not (p["access_road"] is False and p.get("site")):
+                errors.append(f"{pid}: access_road takes only false, on a sited facility with no road by design "
+                              "(any other sited facility off the network gets one)")
             if mil := p.get("military"):
                 for k in ("unit", "branch", "equipment", "access"):
                     if not (isinstance(mil.get(k), dict) and mil[k].get("zh") and mil[k].get("en")):
@@ -328,14 +342,9 @@ class World:
             if sp and not isinstance(sp.get("core_people_per_km2"), (int, float)):
                 errors.append("generator: streets needs core_people_per_km2: residents per km² of a district's "
                               "core zone with local streets and buildings")
-            if "cities" in sp:
-                errors.append("generator: streets.cities is retired; every city gets streets")
             for did, cfg in sp.get("districts", {}).items():
                 if self.divisions.get(did, {}).get("subtype") != "borough":
                     errors.append(f"generator: streets district {did} is not a district")
-                if "main_only" in cfg:
-                    errors.append(f"generator: streets district {did}: main_only is retired; only reserves, "
-                                  "ice caps and national parks keep to arterials and collectors")
                 want = cfg.get("detail_km2", 0)
                 if want != "full" and (not isinstance(want, (int, float)) or want < 0):
                     errors.append(f"generator: streets district {did}: detail_km2 must be km² >= 0 or full")

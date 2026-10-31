@@ -342,7 +342,6 @@ places:
     in: div_k4vyb1
     offset_km: [5, -3]
     site: { size_m: [4000, 1400], layout: airport, angle_deg: 80 }
-    access_road: true
   - id: poi_n4rxbp
     subtype: port
     status: generated
@@ -491,7 +490,6 @@ places:
     in: div_m541k8
     offset_km: [-6, 4]
     site: { layout: mine, size_m: [3000, 2200] }
-    access_road: true
   - id: poi_xk1xwm
     subtype: mine
     status: generated
@@ -505,7 +503,6 @@ places:
     in: div_m541k8
     offset_km: [7, -3]
     site: { layout: mine, size_m: [2600, 1800] }
-    access_road: true
   - id: poi_pf0bmd
     subtype: factory
     status: generated
@@ -559,7 +556,6 @@ places:
     in: div_anjqnh
     offset_km: [-4, -3]
     site: { size_m: [3000, 1100], layout: airport, angle_deg: 30 }
-    access_road: true
   - id: poi_pya4x7
     subtype: research_institute
     status: generated
@@ -587,7 +583,6 @@ places:
     in: div_73wt00
     offset_km: [3, -2]
     site: { size_m: [2800, 900], layout: airport, angle_deg: 0 }
-    access_road: true
   - id: poi_j2yxf7
     subtype: museum
     status: generated
@@ -799,7 +794,6 @@ places:
     in: div_ek897t
     offset_km: [-3, -2.5]
     site: { size_m: [2800, 900], layout: airport, angle_deg: 20 }
-    access_road: true
 
   # ── 北冰洋领地政务院机构（M42）：库马尔维克区三个楼群，财政部与监管司在帕卢尔尼克金融特区 ──
   - id: bld_48y99w

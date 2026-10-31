@@ -6,8 +6,9 @@ Run after build.py. Needs tippecanoe (2.17 or later, for PMTiles output):
     python pipeline/tiles.py --require   # fail instead (CI)
 
 On success public/data/atlas.pmtiles holds one tile layer per entry of TILE_LAYERS and
-manifest.json lists them under "tiles"; the site then reads those layers tile by tile
-instead of downloading their GeoJSON. Without the archive the site falls back to GeoJSON.
+manifest.json lists them under "tiles"; the site then reads those layers tile by tile, and
+their GeoJSON is deleted (rerun build.py to get it back). Without the archive the site falls
+back to GeoJSON.
 """
 from __future__ import annotations
 
@@ -52,6 +53,8 @@ def main():
     if not manifest_path.exists():
         sys.exit("public/data/manifest.json not found; run pipeline/build.py first")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if missing := [n for n in TILE_LAYERS if not (OUT / f"{n}.geojson").exists()]:
+        sys.exit(f"{', '.join(missing)}.geojson not found (already packed?); run pipeline/build.py first")
     manifest.pop("tiles", None)
     archive = OUT / ARCHIVE
     archive.unlink(missing_ok=True)
@@ -72,7 +75,13 @@ def main():
 
     manifest["tiles"] = {"url": ARCHIVE, "layers": list(TILE_LAYERS), "maxzoom": MAX_ZOOM}
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"wrote {ARCHIVE} ({archive.stat().st_size / 1e6:.1f} MB): {', '.join(TILE_LAYERS)}")
+    freed = 0
+    for name in TILE_LAYERS:  # the site no longer reads them, so they stay out of the deployed bundle
+        path = OUT / f"{name}.geojson"
+        freed += path.stat().st_size
+        path.unlink()
+    print(f"wrote {ARCHIVE} ({archive.stat().st_size / 1e6:.1f} MB): {', '.join(TILE_LAYERS)}; "
+          f"removed their GeoJSON ({freed / 1e6:.0f} MB)")
 
 
 if __name__ == "__main__":

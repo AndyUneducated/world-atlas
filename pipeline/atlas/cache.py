@@ -46,10 +46,15 @@ def stage(name: str, inputs: Any, compute: Callable[[], Any], enabled: bool = Tr
     return result
 
 
+def load_region(folder: Path) -> Any:
+    with open(folder / "result.pkl", "rb") as f:
+        return pickle.load(f)
+
+
 def region(name: str, inputs: Any, compute: Callable[[Path], Any], enabled: bool = True,
-           stale_ok: bool = False) -> tuple[Any, Path, str] | None:
-    """A whole region's result, the folder holding the files it wrote (compute(folder) writes them) and
-    whether it was "built", "cached" or "stale". Rebuilt when its inputs or any atlas code but POST_MERGE change.
+           stale_ok: bool = False) -> tuple[Path, str] | None:
+    """The folder holding a region's result (load_region reads it) and the files compute(folder) wrote,
+    and whether it was "built", "cached" or "stale". Rebuilt when its inputs or any atlas code but POST_MERGE change.
 
     stale_ok: never compute; take the stored result even if out of date (None if there is none)."""
     modules = tuple(p.stem for p in sorted(CODE_DIR.glob("*.py")) if p.stem not in POST_MERGE)
@@ -61,12 +66,11 @@ def region(name: str, inputs: Any, compute: Callable[[Path], Any], enabled: bool
             return None
         stored = older[-1]
     if (enabled or stale_ok) and stored.exists():
-        with open(stored, "rb") as f:
-            return pickle.load(f), stored.parent, "cached" if stored.parent == path else "stale"
+        return stored.parent, "cached" if stored.parent == path else "stale"
     for old in REGION_DIR.glob(f"{name}-*"):
         shutil.rmtree(old)
     path.mkdir(parents=True)
     result = compute(path)
     with open(stored, "wb") as f:
         pickle.dump(result, f, protocol=pickle.HIGHEST_PROTOCOL)
-    return result, path, "built"
+    return path, "built"

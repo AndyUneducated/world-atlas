@@ -3,6 +3,8 @@
     python pipeline/build.py                # full build; regions whose sources and code are unchanged come from .cache
     python pipeline/build.py --only cn-vk   # rebuild just this region; the others come from .cache, even if out of date
     python pipeline/build.py --check        # validate sources only
+
+The regions build in parallel, one process each (--jobs); their log lines carry the region name.
 """
 from __future__ import annotations
 
@@ -10,6 +12,8 @@ import argparse
 import json
 import shutil
 import sys
+import traceback
+from concurrent.futures import ProcessPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -17,7 +21,7 @@ from shapely.geometry import shape
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas import cache, economy, traffic  # noqa: E402
+from atlas import cache, common, economy, traffic  # noqa: E402
 from atlas.common import OUT, log, write_geojson  # noqa: E402
 from atlas.dem_tiles import fill_sea_tiles, merge_dem_tiles  # noqa: E402
 from atlas.region import LAYERS, build_region  # noqa: E402
@@ -44,6 +48,19 @@ def base_entities(world: World) -> dict:
     return out
 
 
+def region_worker(name: str, fresh: bool, stale_ok: bool):
+    """Build one region (or find it in .cache) in its own process; returns its cache folder and how it was got."""
+    common.LOG_TAG = f"{name} "
+    world = World()
+    spec = next(s for s in world.generators if s["_region"] == name)
+    try:
+        return cache.region(name, world.region_sources(spec), lambda d: build_region(world, spec, base_entities(world), d / "dem", not fresh),
+                            enabled=not fresh, stale_ok=stale_ok)
+    except Exception:
+        log("FAILED\n" + traceback.format_exc())
+        raise
+
+
 def overlapping_territories(results: list[dict]) -> list[str]:
     """Pairs of regions whose generated land overlaps (frames may overlap at sea, land may not)."""
     land = [(r["region"]["id"], shape(next(f["geometry"] for f in r["layers"]["divisions"] if f["id"] == r["region"]["id"])))
@@ -56,6 +73,7 @@ def main():
     ap.add_argument("--check", action="store_true", help="validate the world sources and stop")
     ap.add_argument("--fresh", action="store_true", help="ignore cached stages and regions and recompute everything")
     ap.add_argument("--only", nargs="+", metavar="REGION", help="rebuild only these regions (generator name, e.g. cn-vk)")
+    ap.add_argument("--jobs", type=int, default=4, help="regions built at once, one process each (default 4)")
     args = ap.parse_args()
     world = World()
     errors = world.validate()
@@ -70,22 +88,23 @@ def main():
         f"{len(world.railways)} railways, {len(world.places)} places")
     if args.check:
         return
-    if OUT.exists():
-        shutil.rmtree(OUT)
-    OUT.mkdir(parents=True)
     base = base_entities(world)
+    order = [s["_region"] for s in world.generators]
+    with ProcessPoolExecutor(max_workers=max(1, min(args.jobs, len(order)))) as pool:
+        jobs = [pool.submit(region_worker, n, args.fresh, bool(args.only) and n not in args.only) for n in order]
+        if OUT.exists():  # the regions build into .cache, so the old output is cleared meanwhile
+            shutil.rmtree(OUT)
+        OUT.mkdir(parents=True)
+        found = [j.result() for j in jobs]
     results = []
-    for spec in world.generators:
-        name = spec["_region"]
-        got = cache.region(name, world.region_sources(spec), lambda d: build_region(world, spec, base, d / "dem", not args.fresh),
-                           enabled=not args.fresh, stale_ok=bool(args.only) and name not in args.only)
+    for name, got in zip(order, found):
         if got is None:
             log(f"{name}: WARN not built (not in --only, nothing cached)")
             continue
-        result, folder, how = got
+        folder, how = got
         if how != "built":
             log(f"{name}: {how}" + (" (out of date)" if how == "stale" else ""))
-        results.append((result, folder))
+        results.append((cache.load_region(folder), folder))
     if overlaps := overlapping_territories([r for r, _ in results]):
         print("Regions overlap: " + ", ".join(overlaps))
         sys.exit(1)
@@ -129,7 +148,6 @@ def main():
     manifest = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "planet": world.planet,
-        "home": regions[0]["id"],
         "regions": regions,
         "dem": {"tiles": "dem/{z}/{x}/{y}.png", "encoding": "terrarium", "tileSize": 256, "minzoom": 3, "maxzoom": 10,
                 "bounds": dem_bounds},

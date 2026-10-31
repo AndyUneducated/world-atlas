@@ -3,7 +3,7 @@ import { useSyncExternalStore } from "react";
 
 /** Below this width the card becomes a bottom sheet and the layout switches to phone mode. */
 const MOBILE_QUERY = window.matchMedia("(max-width: 767px)");
-export const isMobile = () => MOBILE_QUERY.matches;
+const isMobile = () => MOBILE_QUERY.matches;
 
 export function useMobile() {
   return useSyncExternalStore(

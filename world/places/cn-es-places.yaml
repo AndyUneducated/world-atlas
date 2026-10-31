@@ -95,7 +95,6 @@ places:
     in: div_f0wwdt
     offset_km: [4.5, -1.0]
     site: { size_m: [3400, 900], layout: airport, angle_deg: 30 }
-    access_road: true
 
   # ── 长夏群岛领地政务院机构（M45）：米雷兰帕萨卢区湖光大道两侧，北段是对外、财政、司法、治安、民政、建设和中央派驻机构，南段是教科文、交通、卫生、劳社、自然资源及单独建楼的五个司，政策和计划委员会在公民广场东侧 ──
   - id: bld_jj116n
@@ -487,7 +486,6 @@ places:
     in: div_54sm84
     offset_km: [8.5, 0]
     site: { size_m: [4400, 2000], layout: airport, angle_deg: 60 }
-    access_road: true
   - id: poi_dve190
     subtype: port
     status: generated
@@ -709,7 +707,6 @@ places:
     in: div_yah63b
     offset_km: [-5.0, 3.0]
     site: { size_m: [3600, 1200], layout: airport, angle_deg: 40 }
-    access_road: true
   - id: poi_a04p2n
     subtype: port
     status: generated
@@ -774,7 +771,6 @@ places:
     in: div_3e94sq
     offset_km: [4.0, 4.0]
     site: { size_m: [3200, 1000], layout: airport, angle_deg: 50 }
-    access_road: true
 
   # ── 乌诺卡里市：从镍矿到冶炼厂和矿石港 ──
   - id: poi_x53jfj
@@ -790,7 +786,6 @@ places:
     in: div_6z737x
     offset_km: [-4.0, -5.0]
     site: { layout: mine, size_m: [4000, 2800] }
-    access_road: true
   - id: poi_7f58bt
     subtype: factory
     status: generated
@@ -918,7 +913,6 @@ places:
     in: div_a0nff8
     offset_km: [2.5, -6.0]
     site: { size_m: [2800, 900], layout: airport, angle_deg: 0 }
-    access_road: true
   - id: poi_9a4940
     subtype: ferry_terminal
     status: generated
@@ -970,7 +964,6 @@ places:
     in: div_xazhxw
     offset_km: [-4.3, 23.6]
     site: { size_m: [700, 700], layout: port }
-    access_road: true
   - id: poi_3yn82m
     subtype: air_base
     status: generated
@@ -984,7 +977,6 @@ places:
     in: div_3skbd8
     offset_km: [6.0, 8.0]
     site: { size_m: [4000, 2200], layout: airbase, variant: fighter, angle_deg: 70 }
-    access_road: true
     military:
       unit:
         zh: 空军第十五航空基地（歼击航空兵第 151 旅）

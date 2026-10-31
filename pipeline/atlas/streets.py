@@ -26,6 +26,8 @@ import yaml
 from shapely.geometry import LineString, MultiPoint, Point
 from shapely.ops import substring
 
+from .world import NAME_LANGS
+
 CLASSES = ("arterial", "collector", "local")
 MIN_PIECE_KM = {"arterial": 0.2, "collector": 0.12, "local": 0.06}
 
@@ -250,12 +252,9 @@ def bend(streets: list[Street], fld: Field, amp: float, step: float = 0.04):
 # ── names ─────────────────────────────────────────────────────────
 
 
-ROW_LANGS = ("zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran")
-
-
 def _row(s: str) -> dict:
     """"zh | en | viking | buckham [| tavrunaq [| ivuran]]"; "-" for a language the entry has no form in."""
-    return {lang: x.strip() for lang, x in zip(ROW_LANGS, s.split("|")) if x.strip() != "-"}
+    return {lang: x.strip() for lang, x in zip(NAME_LANGS, s.split("|")) if x.strip() != "-"}
 
 
 class Namer:

@@ -15,7 +15,8 @@
 #   heliport) and variant picks the kind (see MILITARY_VARIANTS in pipeline/atlas/world.py).
 # military (optional): unit designation, branch, main equipment, personnel and public access,
 #   shown on the card; the map shows the place name.
-# access_road (optional, true): a city road is built from the site's gate to the nearest road.
+# A site more than 500 m from every road and street gets a city road from its gate to the nearest
+#   road on its landmass; access_road: false marks one with no road by design (a summit station).
 places:
   - id: bld_mc71ej
     subtype: government
@@ -1480,7 +1481,6 @@ places:
     in: div_nytsvb
     offset_km: [-9.19, 16.26]
     site: { size_m: [2600, 1000], layout: airbase, variant: uav, angle_deg: 15 }
-    access_road: true
     military:
       unit: { zh: 空军无人机第 93 团, en: "93rd Unmanned Aircraft Regiment, Air Force" }
       branch: { zh: 空军, en: Air Force }
@@ -1503,7 +1503,6 @@ places:
     in: div_nvrjpg
     offset_km: [8.49, 16.26]
     site: { size_m: [3200, 1500], layout: airbase, variant: school, angle_deg: 0 }
-    access_road: true
     military:
       unit: { zh: 空军马斯林山飞行学院, en: Air Force Maslin Mountain Flight Academy }
       branch: { zh: 空军, en: Air Force }
@@ -1528,7 +1527,6 @@ places:
     in: div_tc0ngk
     offset_km: [7.44, 21.98]
     site: { size_m: [1600, 900], layout: plant, variant: engine, angle_deg: 105 }
-    access_road: true
     military:
       unit: { zh: 空军第 5714 航空修理厂, en: Air Force Aircraft Repair Plant 5714 }
       branch: { zh: 空军, en: Air Force }
@@ -1573,7 +1571,6 @@ places:
     in: div_nytsvb
     offset_km: [-5.66, 33.94]
     site: { size_m: [400, 300], layout: radar, variant: dome, angle_deg: 0 }
-    access_road: true
     military:
       unit: { zh: 空军雷达第 46 旅第三站, en: "3rd Station, 46th Radar Brigade, Air Force" }
       branch: { zh: 空军, en: Air Force }
@@ -1596,7 +1593,6 @@ places:
     in: div_nwke3f
     offset_km: [1.41, -10.61]
     site: { size_m: [900, 900], layout: sam, angle_deg: 15 }
-    access_road: true
     military:
       unit: { zh: 地空导弹第 31 旅第一营, en: "1st Battalion, 31st Surface-to-Air Missile Brigade, Air Force" }
       branch: { zh: 空军, en: Air Force }
@@ -1619,7 +1615,6 @@ places:
     in: div_nytsvb
     offset_km: [7.07, 2.83]
     site: { size_m: [900, 900], layout: sam, angle_deg: 15 }
-    access_road: true
     military:
       unit: { zh: 地空导弹第 31 旅第二营, en: "2nd Battalion, 31st Surface-to-Air Missile Brigade, Air Force" }
       branch: { zh: 空军, en: Air Force }
@@ -1642,7 +1637,6 @@ places:
     in: div_nvrjpg
     offset_km: [4.24, -11.31]
     site: { size_m: [900, 900], layout: sam, angle_deg: 15 }
-    access_road: true
     military:
       unit: { zh: 地空导弹第 31 旅第三营, en: "3rd Battalion, 31st Surface-to-Air Missile Brigade, Air Force" }
       branch: { zh: 空军, en: Air Force }
@@ -1665,7 +1659,6 @@ places:
     in: div_q5h8zp
     offset_km: [-21.92, -26.16]
     site: { size_m: [8000, 6000], layout: range, variant: air, angle_deg: 0 }
-    access_road: true
     military:
       unit: { zh: 空军马斯林山综合训练靶场, en: Air Force Maslin Mountain Combined Training Range }
       branch: { zh: 空军, en: Air Force }
@@ -1692,7 +1685,6 @@ places:
     in: div_nytsvb
     offset_km: [4.95, 7.07]
     site: { size_m: [1200, 800], layout: camp, variant: hq, angle_deg: 30 }
-    access_road: true
     military:
       unit: { zh: 深空太空军马斯林山指挥中心, en: Deep Space Force Maslin Mountain Command Centre }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -1718,7 +1710,6 @@ places:
     in: div_q5h8zp
     offset_km: [12.73, -6.36]
     site: { size_m: [1400, 900], layout: bunker, angle_deg: 0 }
-    access_road: true
     military:
       unit: { zh: 深空太空军马斯林山备用指挥所, en: Deep Space Force Maslin Mountain Alternate Command Post }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -1741,7 +1732,6 @@ places:
     in: div_nytsvb
     offset_km: [-9.19, -4.24]
     site: { size_m: [2400, 1400], layout: antenna, variant: large, angle_deg: 0 }
-    access_road: true
     military:
       unit: { zh: 深空太空军第三测控站, en: "3rd Tracking Station, Deep Space Force" }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -1764,7 +1754,6 @@ places:
     in: div_nvrjpg
     offset_km: [2.83, 12.02]
     site: { size_m: [1000, 600], layout: antenna, variant: small, angle_deg: 0 }
-    access_road: true
     military:
       unit: { zh: 深空太空军卫星通信第 12 站, en: "12th Satellite Communications Station, Deep Space Force" }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -1785,7 +1774,6 @@ places:
     in: div_nwke3f
     offset_km: [-12.02, 41.01]
     site: { size_m: [500, 400], layout: radar, variant: domes, angle_deg: 0 }
-    access_road: true
     military:
       unit: { zh: 深空太空军量子通信第一站, en: "1st Quantum Communications Station, Deep Space Force" }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -1808,6 +1796,7 @@ places:
     in: div_q5h8zp
     offset_km: [13.4, 15.6]
     site: { size_m: [400, 300], layout: radar, variant: domes, angle_deg: 0 }
+    access_road: false
     military:
       unit: { zh: 深空太空军空间目标光学观测站, en: "Space Object Optical Observatory, Deep Space Force" }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -1830,6 +1819,7 @@ places:
     in: div_q5h8zp
     offset_km: [-2.12, 24.75]
     site: { size_m: [500, 400], layout: radar, variant: domes, angle_deg: 0 }
+    access_road: false
     military:
       unit: { zh: 深空太空军地基激光试验站, en: "Ground-Based Laser Test Station, Deep Space Force" }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -1852,7 +1842,6 @@ places:
     in: div_tc0ngk
     offset_km: [3.02, -13.58]
     site: { size_m: [900, 600], layout: radar, variant: array, angle_deg: 105 }
-    access_road: true
     military:
       unit: { zh: 深空太空军空间态势感知第二站, en: "2nd Space Situational Awareness Station, Deep Space Force" }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -1873,7 +1862,6 @@ places:
     in: div_nwke3f
     offset_km: [10.61, 0.0]
     site: { size_m: [2400, 1400], layout: plant, variant: assembly, angle_deg: 30 }
-    access_road: true
     military:
       unit: { zh: 深空太空军装备部第 801 总装厂, en: "Plant 801 (Final Assembly), Equipment Department, Deep Space Force" }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -1896,7 +1884,6 @@ places:
     in: div_nwke3f
     offset_km: [4.24, -9.19]
     site: { size_m: [1600, 1000], layout: plant, variant: propellant, angle_deg: 30 }
-    access_road: true
     military:
       unit: { zh: 深空太空军第 802 推进剂厂, en: "Plant 802 (Propellants), Deep Space Force" }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -1919,7 +1906,6 @@ places:
     in: div_nwke3f
     offset_km: [5.01, 8.89]
     site: { size_m: [1800, 1200], layout: plant, variant: hangar, angle_deg: 45 }
-    access_road: true
     military:
       unit: { zh: 深空太空军第 804 修理厂, en: "Plant 804 (Spacecraft Refurbishment), Deep Space Force" }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -1942,7 +1928,6 @@ places:
     in: div_nwke3f
     offset_km: [-16.97, 1.41]
     site: { size_m: [2200, 1000], layout: plant, variant: tunnel, angle_deg: 60 }
-    access_road: true
     military:
       unit: { zh: 深空太空军气动研究中心, en: "Aerodynamics Research Centre, Deep Space Force" }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -1965,7 +1950,6 @@ places:
     in: div_nytsvb
     offset_km: [-2.83, -16.97]
     site: { size_m: [1600, 1000], layout: test_stand, angle_deg: 180 }
-    access_road: true
     military:
       unit: { zh: 深空太空军第 803 试验站, en: "Test Station 803, Deep Space Force" }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -2012,7 +1996,6 @@ places:
     in: div_nvrjpg
     offset_km: [-2.12, -8.49]
     site: { size_m: [1200, 800], layout: camp, variant: training, angle_deg: 15 }
-    access_road: true
     military:
       unit: { zh: 深空太空军航天员训练中心, en: "Astronaut Training Centre, Deep Space Force" }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -2038,7 +2021,6 @@ places:
     in: div_q5h8zp
     offset_km: [-7.07, -13.99]
     site: { size_m: [30000, 1500], layout: launch_track, angle_deg: 90 }
-    access_road: true
     military:
       unit: { zh: 深空太空军电磁发射试验中心, en: "Electromagnetic Launch Test Centre, Deep Space Force" }
       branch: { zh: 深空太空军, en: Deep Space Force }
@@ -2083,7 +2065,6 @@ places:
     in: div_0tsyzy
     offset_km: [6.41, -7.05]
     site: { size_m: [1600, 1100], layout: camp, variant: barracks, angle_deg: 30 }
-    access_road: true
     military:
       unit: { zh: 解放军马斯林山联合训练基地, en: PLA Maslin Mountain Joint Training Base }
       branch: { zh: 陆军, en: Army }
@@ -2128,7 +2109,6 @@ places:
     in: div_0tsyzy
     offset_km: [-11.78, 5.22]
     site: { size_m: [6000, 4000], layout: range, variant: armor, angle_deg: 30 }
-    access_road: true
     military:
       unit: { zh: 陆军合成第 34 旅装甲训练场, en: "Armour Training Range, 34th Combined Arms Brigade, Army" }
       branch: { zh: 陆军, en: Army }
@@ -2153,7 +2133,6 @@ places:
     in: div_nvrjpg
     offset_km: [2.12, 9.19]
     site: { size_m: [1200, 700], layout: heliport, angle_deg: 0 }
-    access_road: true
     military:
       unit: { zh: 陆军航空兵第 15 旅, en: 15th Army Aviation Brigade }
       branch: { zh: 陆军, en: Army }
@@ -2176,7 +2155,6 @@ places:
     in: div_tc0ngk
     offset_km: [2.87, 11.36]
     site: { size_m: [2000, 1200], layout: plant, variant: depot, angle_deg: 75 }
-    access_road: true
     military:
       unit: { zh: 联勤保障部队马斯林山供应站, en: "Maslin Mountain Supply Station, Joint Logistic Support Force" }
       branch: { zh: 联勤保障部队, en: Joint Logistic Support Force }
@@ -2199,7 +2177,6 @@ places:
     in: div_nvrjpg
     offset_km: [-3.54, 5.66]
     site: { size_m: [600, 400], layout: camp, variant: hospital, angle_deg: 0 }
-    access_road: true
     military:
       unit: { zh: 解放军第 977 医院, en: PLA Hospital 977 }
       branch: { zh: 联勤保障部队, en: Joint Logistic Support Force }

@@ -71,10 +71,8 @@ export function SearchBox() {
   const [scopeOpen, setScopeOpen] = useState(false);
   const territories = useMemo(() => (data ? data.manifest.regions.map((r) => data.entities[r.id]).filter(Boolean) : []), [data]);
   const inScope = useMemo(() => {
-    const within = (e: Entity | undefined, s: string) => !!e && (e.id === s || !!e.ancestors?.includes(s) || !!e.territories?.includes(s));
-    // railways carry no ancestors of their own: they belong where their stops are
-    return (e: Entity) => !scope || within(e, scope) || (!e.ancestors && !!e.via?.some((v) => within(data?.entities[v], scope)));
-  }, [scope, data]);
+    return (e: Entity) => !scope || e.id === scope || !!e.ancestors?.includes(scope) || !!e.territories?.includes(scope);
+  }, [scope]);
   const hits = useMemo(() => (index ? index.search(query, 8, inScope) : []), [index, query, inScope]);
   const cities = useMemo(() => {
     if (!data) return [];
@@ -142,14 +140,36 @@ export function SearchBox() {
     return () => window.removeEventListener("mousedown", onDown);
   }, [scopeOpen]);
 
+  const showResults = open && query.trim() !== "" && (!selected || query !== displayName(selected, lang));
+  const showExplore = open && !showResults;
+
+  const panel = useRef<HTMLDivElement>(null);
   const choose = (id: string) => {
-    select(id);
+    select(id, { list: { query: showResults ? query : "", scope, expanded, scroll: panel.current?.scrollTop ?? 0 } });
     setOpen(false);
     input.current?.blur();
   };
 
-  const showResults = open && query.trim() !== "" && (!selected || query !== displayName(selected, lang));
-  const showExplore = open && !showResults;
+  const restoreList = useAtlas((s) => s.restoreList);
+  const setRestoreList = useAtlas((s) => s.setRestoreList);
+  const pendingScroll = useRef<number | null>(null);
+  // declared after the effect that shows the selection's name, so a restored query wins over it
+  useEffect(() => {
+    if (!restoreList) return;
+    setScope(restoreList.scope);
+    setExpanded((x) => ({ ...x, ...restoreList.expanded }));
+    setQuery(restoreList.query || (selected ? displayName(selected, lang) : ""));
+    setCursor(0);
+    setOpen(true);
+    pendingScroll.current = restoreList.scroll;
+    setRestoreList(null);
+    input.current?.focus({ preventScroll: true });
+  }, [restoreList]);
+  useEffect(() => {
+    if (pendingScroll.current === null || !panel.current) return;
+    panel.current.scrollTop = pendingScroll.current;
+    pendingScroll.current = null;
+  });
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "ArrowDown") {
@@ -262,6 +282,7 @@ export function SearchBox() {
       <AnimatePresence>
         {(showResults || showExplore) && data && (
           <motion.div
+            ref={panel}
             initial={{ opacity: 0, y: -6, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.98 }}
