@@ -75,6 +75,9 @@ places:
     in: div_16cxr8
     offset_km: [1.62, 1.62]
     site: { size_m: [220, 150], layout: hall }
+    notes:
+      zh: "领地的综合博物馆，在白桦区人民广场旁，展示北维京岛的自然与人文：冰川与峡湾的地貌模型、维京石垒出土的工具、塔夫鲁纳克人的农牧用具、巴克汉姆商港的货单与秤砣，以及领地设立后的城市规划图。大厅中央是一座可以升降的全岛地形沙盘，按下按钮，各座城市会依次亮灯，孩子们最爱按的是马斯林山，因为那里会亮起一枚小火箭。每到周日上午，馆员用三种语言轮流带领免费导览。"
+      en: "The territory's general museum, beside People's Square in Birchwood, covers the island's nature and people: models of its glaciers and fjords, tools excavated at the Viking stone fort, the farming and herding gear of the Tavrunaq, cargo lists and scale weights from the Buckham trading ports, and the city plans drawn after the territory was founded. In the centre of the hall stands a relief model of the whole island; press a button and the cities light up one by one, and children's favourite is Maslin Mountain, where a little rocket lights up. On Sunday mornings the staff give free guided tours in each of the three languages in turn."
 
   - id: bld_5zev8b
     subtype: theatre
@@ -87,6 +90,9 @@ places:
     in: div_16cxr8
     offset_km: [2.12, 0.87]
     site: { size_m: [200, 150], layout: hall }
+    notes:
+      zh: "自由市的大剧院，在白桦区人民广场边，上演歌剧、话剧、音乐会和舞蹈，领地交响乐团常驻这里。剧院的字幕屏同时显示中文、维京语和巴克汉姆语三种字幕，观众笑说看一场戏能顺便学三种语言。每年领地议会开幕的晚上，剧院都会举办一场免费的公众音乐会，演出在广场上同步直播，裹着毯子坐在广场上看大屏幕是首府人的冬夜传统。"
+      en: "Freedom City's grand theatre, on People's Square in Birchwood, staging opera, drama, concerts and dance, and home to the territorial symphony orchestra. Its surtitle screens show Chinese, Viking and Buckham at once, and audiences joke that one show teaches you three languages. On the evening the territorial parliament opens, the theatre gives a free public concert relayed live to a big screen on the square, and sitting out on the square under a blanket to watch it is one of the capital's winter-night traditions."
 
   - id: bld_cv6swy
     subtype: library
@@ -99,6 +105,9 @@ places:
     in: div_16cxr8
     offset_km: [0.61, 0.89]
     site: { size_m: [160, 120], layout: hall }
+    notes:
+      zh: "领地的总图书馆，在白桦区人民广场旁，收藏中文、维京语、巴克汉姆语和塔夫鲁纳克语的图书与地方文献，领地法规和议会记录也存放在这里。冬天图书馆开到午夜，阅览室的长桌上亮着一排排绿罩台灯，窗外是积雪的人民广场。借书证上印着领地旗，孩子们拿到第一张借书证时，馆员会在背面盖一枚八角星的印章，许多人成年后还把这张旧借书证留在钱包里。"
+      en: "The territory's main library, beside People's Square in Birchwood, holds books and local records in Chinese, Viking, Buckham and Tavrunaq, and is also where the territory's laws and parliamentary records are kept. In winter it stays open until midnight, rows of green-shaded lamps glowing on the long reading-room tables above the snow-covered square. Library cards carry the territory flag, and when children receive their first card the librarian stamps an eight-pointed star on the back; many people still keep that old card in their wallets as adults."
 
   - id: bld_dh9ze4
     subtype: townhall
@@ -111,6 +120,9 @@ places:
     in: div_16cxr8
     offset_km: [-0.53, 0.07]
     site: { size_m: [180, 130], layout: hall }
+    notes:
+      zh: "自由市的市政厅，在白桦区，市长办公室和市议会都在这里。顶层是婚姻登记处，大窗正对着两河之间的台地，新人登记后喜欢在窗前拍一张能同时看见自由河和北河的照片，本地人管这叫「两河照」。市政厅一楼的大厅对市民开放，墙上挂着自由市的旗帜和历任市议会的合影，冬天这里还是街头艺人避寒演出的地方。"
+      en: "Freedom City's city hall, in Birchwood, housing the mayor's office and the city council. The top floor is the marriage registry, whose great window faces the terrace between the two rivers; after registering, couples like a photo at the window with both the Freedom River and the North River in view, which locals call \"the two-river picture\". The ground-floor hall is open to the public, hung with the city flag and photographs of past city councils, and in winter street performers come in from the cold to play there."
 
   - id: bld_d262pb
     subtype: tower
@@ -138,6 +150,9 @@ places:
     in: div_16cxr8
     offset_km: [-3.38, 0.39]
     site: { size_m: [900, 650], layout: campus }
+    notes:
+      zh: "北维京岛领地的综合性大学，主校区在白桦区，靠近人民广场，与自由市中心医院合作培养医生，也开设法律、公共管理、教育和三种语言的语言文学专业，领地的许多公务员和教师都从这里毕业。毕业典礼在人民广场上举行，毕业生们把学位帽抛向天空后，会排队走过白桦区的议员林，按老传统在林边种下一棵小白桦。校园里的学生食堂以一道「三语汤」出名，中文叫鳕鱼土豆汤，维京语和巴克汉姆语的名字各不相同。"
+      en: "The territory's comprehensive university, with its main campus in Birchwood near People's Square. It trains doctors with the Freedom City Central Hospital and also teaches law, public administration, education and the language and literature of all three languages; many of the territory's civil servants and teachers studied here. Graduation is held on People's Square: after throwing their caps in the air the graduates file past the Members' Wood in Birchwood and, by an old tradition, plant a young birch at its edge. The student canteen is known for its \"three-language soup\", cod and potato soup in Chinese, with quite different names in Viking and Buckham."
 
   - id: bld_7zgazx
     subtype: hospital
@@ -150,6 +165,9 @@ places:
     in: div_16cxr8
     offset_km: [1.55, -0.89]
     site: { size_m: [400, 300], layout: campus }
+    notes:
+      zh: "领地的中心医院，在白桦区，与北维京岛大学合作培养医生，承担全岛的疑难重症救治。洛龙山、雅利基卢克等偏远山区的急救病人常由直升机送到医院楼顶的停机坪，冬季大雪封路时，这条「空中通道」格外忙碌。医院大厅里放着一架钢琴，每天中午由志愿者弹奏半小时，来复诊的老人们常常提前到，坐在长椅上一边等号一边听。"
+      en: "The territory's central hospital, in Birchwood, trains doctors with the University of North Viking Island and treats the island's most serious and complex cases. Emergency patients from remote mountain areas such as Lorond Mountain and Jaalikiluk are often flown to the helipad on the roof, and in winter, when snow closes the roads, this \"air corridor\" is especially busy. A piano stands in the main hall and volunteers play it for half an hour every day at noon; elderly patients coming for check-ups often arrive early to listen from the benches while they wait their turn."
 
   - id: poi_xv5v45
     subtype: stadium
@@ -162,6 +180,9 @@ places:
     in: div_16cxr8
     offset_km: [0.08, -2.83]
     site: { size_m: [330, 260], layout: stadium }
+    notes:
+      zh: "自由市的综合体育中心，在白桦区，有田径场、游泳馆和一座室内冰场，领地运动会的开幕式和大部分比赛都在这里举行。运动会开幕时，各市代表队举着市旗依次入场，看台上的观众认旗喊城，喊得最响的往往是维京港和贝克勒的球迷。冬天冰场是业余冰球联赛的主场，机关和学校各有球队，赛后输球的一队要请对手喝热巧克力。"
+      en: "Freedom City's sports complex, in Birchwood, with an athletics stadium, a swimming centre and an indoor ice rink; the opening ceremony and most events of the territorial games are held here. At the opening each city's team marches in behind its city flag, the crowd calling out each city as its flag appears, and the loudest cheers usually come from the fans of Viking Port and Beckerle. In winter the rink is home to an amateur ice hockey league in which government offices and schools field teams, and after each game the losing side buys their opponents hot chocolate."
 
   - id: bld_eewr9c
     subtype: marketplace
@@ -174,6 +195,9 @@ places:
     in: div_b1dx32
     offset_km: [0.5, 0.3]
     site: { size_m: [140, 80], layout: market }
+    notes:
+      zh: "自由市最大的综合市场，在北河区北河大道边，室内是肉铺、鱼摊和面包房，室外是成排的农家摊位。周末北部牧场的农户把奶酪、黄油、酸奶和时令蔬菜运来，奶酪摊有让客人先尝后买的规矩，一圈尝下来差不多就吃饱了。冬天市场里最热闹的是热奶冻摊和热苹果酒摊，夏天傍晚北河边的露天集市也从这里开始，一直摆到河滨步道上。"
+      en: "Freedom City's largest general market, on North River Avenue in North River District, with butchers, fishmongers and bakeries indoors and rows of farm stalls outside. At weekends farmers from the northern pastures bring cheese, butter, yoghurt and seasonal vegetables, and the cheese stalls let customers taste before they buy; one round of tasting is almost a meal. In winter the busiest stalls sell hot milk jelly and hot cider, and on summer evenings the open-air market along the North River starts here and spreads onto the riverside walk."
 
   - id: bld_yn4gzk
     subtype: marketplace
@@ -201,6 +225,9 @@ places:
     in: div_g4a8q0
     offset_km: [-0.25, 0.15]
     site: { size_m: [60, 60], layout: tower }
+    notes:
+      zh: "沙洲区老渔市旁的钟楼，是自由市港区的地标。钟声曾为出海的渔民报时，清晨第一声钟响，渔船就解缆出港，如今钟楼每个整点仍会敲响。冬天老渔市卖鳕鱼浓汤的摊位前，排队的人常常一直排到钟楼脚下，等汤的人就数着钟声估算还要等多久。钟楼的顶层对游客开放，从这里能看到自由河入海口的沙洲、湿地和远处的海面。"
+      en: "The clock tower beside the old fish market in Sandbar, landmark of Freedom City's waterfront. Its bell once kept time for the fishermen: at the first stroke of morning the boats cast off, and it still strikes every hour. On winter days the queue for cod soup at the old fish market often stretches to the foot of the tower, and people waiting count the strokes to judge how much longer it will be. The top of the tower is open to visitors and looks out over the sandbars and wetlands of the Freedom River's mouth to the sea beyond."
 
   - id: poi_mecb4f
     subtype: park
@@ -213,6 +240,9 @@ places:
     in: div_g4a8q0
     offset_km: [0, -0.5]
     site: { size_m: [500, 380], layout: park }
+    notes:
+      zh: "建在自由河口沙丘上的公园，是沙洲区最大的绿地。一条木栈道穿过沙丘和湿地通到河口，春秋两季可以看到成群的候鸟停歇，栈道边的观鸟屋里贴着本地小学生画的鸟类图鉴。退潮时孩子们在滩上捡贝壳、追螃蟹，傍晚首府的居民常在这里散步看日落，再到附近的老渔市吃一碗鳕鱼汤。"
+      en: "A park on the dunes at the mouth of the Freedom River and the largest green space in Sandbar. A boardwalk crosses the dunes and the wetland to the estuary, where flocks of migrating birds stop over in spring and autumn, and the hide beside it is papered with a bird guide drawn by local schoolchildren. At low tide children collect shells and chase crabs on the flats, and in the evening people from the capital come to walk and watch the sunset before a bowl of cod soup at the old fish market nearby."
 
   # ── 交通设施（M8）──
   - id: poi_g4z5j4
@@ -271,6 +301,9 @@ places:
     in: div_zs7kjk
     offset_km: [-4.97, -0.51]
     site: { size_m: [3400, 1200], layout: airport, angle_deg: 105 }
+    notes:
+      zh: "西北市的机场，在鹿鸣区西郊，以岛内航线为主，旅客里科研人员和航天工程师占了很大一部分。行李转盘上常能看到贴着「精密仪器，轻拿轻放」的木箱，机场为此专门开了一条仪器托运通道，由受过训练的搬运员手工装卸。候机厅的墙上挂着一幅巨大的北维京岛冬季星图，是望星天文台送的礼物，等飞机的孩子们喜欢在星图上找自己的星座。"
+      en: "Northwest City's airport, on the western edge of Deersong District, flies mainly within the island, and researchers and space engineers make up a large share of its passengers. Crates marked \"precision instruments, handle with care\" are a common sight on the baggage belts, so the airport runs a separate instrument check-in where trained handlers load and unload by hand. A huge chart of North Viking Island's winter sky, a gift from the Stargaze Observatory, hangs in the departure hall, and waiting children like to hunt for their own constellations on it."
 
   - id: poi_0efptf
     subtype: airport
@@ -298,6 +331,9 @@ places:
     in: div_hyxnpg
     offset_km: [2.64, 4.24]
     site: { size_m: [3400, 1200], layout: airport, angle_deg: 135 }
+    notes:
+      zh: "新城的机场，在南驿区，紧挨着南驿物流园，客运以岛内航线为主，货运则为萨科勒、贝克勒一带的工厂运送电子元件和零配件。早班机上多是去维京港和自由市开会的年轻上班族，机场咖啡馆因此天不亮就开门，招牌是一种夹着勒克尔奶酪的热三明治。航站楼按新城的规划风格建造，白墙、木顶、大玻璃窗，晴天时可以从候机厅望见北面的洛龙山脉。"
+      en: "New City's airport, in South Post District right beside the South Post Logistics Park, mainly carries passengers within the island and freight such as electronic components and parts for the factories around Sakole and Beckerle. The first flights of the morning are full of young office workers heading to meetings in Viking Port and Freedom City, so the airport café opens before dawn; its speciality is a hot sandwich filled with Lekor cheese. The terminal follows New City's planned style, with white walls, a timber ceiling and tall windows, and on a clear day the Lorond Range can be seen to the north from the departure hall."
 
   - id: poi_dcr8j7
     subtype: spaceport
@@ -403,6 +439,9 @@ places:
     in: div_w1ea18
     offset_km: [-15.96, -0.31]
     site: { size_m: [1200, 500], layout: port, angle_deg: 84 }
+    notes:
+      zh: "天城的客运港，在天台区，夏季客轮从维京港、维京群岛和更远的地方载来度假的游客，码头上的旅客中心兼作天城的游客咨询处。下船的游客走上码头，迎面就是全城第一个公共雨伞架，伞柄上刻着「天城」二字，本地人说这是「天城给客人的第一份礼物」。港池里还停着一排出海观鸟、钓鱼的小游船，傍晚归航时总有海鸥跟在船尾。"
+      en: "Skytown's passenger harbour, in Sky Terrace District, where summer ferries bring holidaymakers from Viking Port, the Viking Islands and further afield, and the quayside passenger centre doubles as the town's visitor information office. The first thing visitors meet as they walk up the quay is the town's first public umbrella stand, the handles carved with \"Skytown\", which locals call \"Skytown's first present to its guests\". The basin also holds a row of small boats for birdwatching and fishing trips, and when they come home in the evening there are always gulls in their wake."
 
   - id: poi_3kt6gb
     subtype: port
@@ -415,6 +454,9 @@ places:
     in: div_8m0jx4
     offset_km: [-11.71, -8.97]
     site: { size_m: [600, 300], layout: port, angle_deg: 96 }
+    notes:
+      zh: "萨科勒的老渔港，在萨科区，是城市的发祥地。港里停着几十条漆成蓝白两色的巴克汉姆式小渔船，船头画着一只眼睛，渔民说这是为了「让船看得见回家的路」。铁岗区工厂每天中午的汽笛声传到这里，就是渔船收网回港的信号；渔获上岸后直接送进旁边的萨科鱼市，码头边的小馆子用当天的鱼炖番茄鱼汤，渔民和游客常常挤在同一张桌上。"
+      en: "Sakole's old fishing harbour, in Sako District, where the city began. Dozens of small Buckham-style boats painted blue and white lie in the harbour, each with an eye painted on its bow \"so that the boat can see its way home\", as the fishermen say. The noon whistle from the Iron Knoll factories, carried here on the wind, is the signal for the boats to haul in and head home; the catch goes straight from the quay into the Sako Fish Market next door, and the little restaurants on the waterfront stew the day's fish with tomatoes, fishermen and visitors often squeezed in at the same table."
 
   - id: poi_dcr97r
     subtype: port
@@ -473,6 +515,9 @@ places:
     in: div_z29w6h
     offset_km: [-0.6, 0.5]
     site: { size_m: [260, 200], layout: plaza }
+    notes:
+      zh: "维京港的中心广场，在瓦尔维克区，面朝鲸湾港，四周是市政机构、老商号和咖啡馆。广场的石板地中央嵌着一个巨大的石制罗盘，各个方位刻着从这里出发的航线能到达的港口名，游客喜欢站在罗盘中心拍照。夏至前后鲸湾港的船只午夜鸣笛时，广场上会举办通宵的露天音乐会，乐队用维京语唱古老的船歌，听众跟着合唱到天亮。"
+      en: "Viking Port's central square, in Walvik District, facing Walvik Harbour and ringed by civic buildings, old trading houses and cafés. Set into the paving at its centre is a great stone compass rose, each point carved with the names of ports reached by the routes that set out from here, and visitors like to be photographed standing in the middle. When the ships of the harbour sound their midnight horns around midsummer, the square holds an all-night open-air concert, the bands singing old sea songs in Viking and the crowd joining in until dawn."
 
   - id: bld_880zp5
     subtype: museum
@@ -500,6 +545,9 @@ places:
     in: div_z29w6h
     offset_km: [3, -2]
     site: { size_m: [320, 240], layout: stadium }
+    notes:
+      zh: "维京港的足球场，在瓦尔维克区鲸湾港边，是维京港足球俱乐部的主场。看台的顶棚只盖住一半，本地球迷说这是故意的：「维京港的球赛，就该淋着雨看。」比赛前球迷用维京语齐唱一首古老的划桨歌，节拍和长船划桨的号子一样，客队球员常被唱得发怵。维京港和贝克勒之间的比赛是全岛最受关注的对决，比赛日的维贝铁路列车上挤满了穿着两队球衣的球迷。"
+      en: "Viking Port's football stadium, beside Walvik Harbour in Walvik District and home of Viking Port Football Club. The roof covers only half the stands, which local fans insist is deliberate: \"a Viking Port match should be watched in the rain.\" Before kick-off the fans sing an old Viking rowing song in unison, its beat that of a longship's oar-strokes, which tends to rattle visiting players. Matches between Viking Port and Beckerle are the most watched fixture on the island, and on match days the Viking Port–Beckerle trains are packed with fans in both teams' shirts."
 
   - id: bld_9rfesr
     subtype: office
@@ -587,6 +635,9 @@ places:
     in: div_zs7kjk
     offset_km: [-1.2, 1.5]
     site: { size_m: [600, 450], layout: park }
+    notes:
+      zh: "西北市鹿鸣区的城市公园，靠近鹿鸣湖，园内的草坡和林地连着城外的山岭，常有野生的马鹿出没。秋天发情季的鹿鸣在夜里隔着几条街都能听见，区名和公园名都由此而来，这个季节公园会在入口挂出「鹿在求偶，请勿靠近」的牌子。夏天湖边的草坪是西北市人野餐和露天电影的去处，西北广播电视中心偶尔在这里录制户外节目。"
+      en: "A city park in Deersong District, Northwest City, near Deersong Lake, whose grassy slopes and woods run on into the hills outside town, where wild red deer often wander in. In the autumn rut their calls can be heard several streets away at night, which gave both the district and the park their names, and at that season the park hangs a sign at the gate: \"Deer courting, please keep your distance.\" In summer the lakeside lawns are where Northwest City goes for picnics and open-air films, and the Northwest Broadcasting Centre sometimes records outdoor programmes here."
 
   - id: poi_h43y8q
     subtype: research_institute
@@ -644,6 +695,9 @@ places:
     in: div_fr1vq9
     offset_km: [-2, 1.2]
     site: { size_m: [900, 600], layout: campus }
+    notes:
+      zh: "西北市林道区的理工科学院，和其他高校同在林道大学城，以航天工程、电子和材料专业见长，毕业生多进入科学城和马斯林山的航天企业与研究机构。校园中央立着一枚退役的探空火箭，学生考试前喜欢去摸一下它的尾翼讨个好运，尾翼的漆因此被摸得发亮。每年春天的「纸飞机节」上，各系学生在教学楼顶比赛谁的纸飞机飞得最远，冠军的设计图会贴进学院的走廊里。"
+      en: "A college of technology in Woodway, Northwest City, sharing the Woodway university town with other institutions and strongest in aerospace engineering, electronics and materials; most graduates go on to the space companies and research bodies of Science City and Maslin Mountain. A retired sounding rocket stands in the middle of the campus, and students touch its fins for luck before exams, so that the paint on them is rubbed shiny. At the Paper Plane Festival each spring, students from every department compete from the roofs of the teaching blocks to see whose paper plane flies furthest, and the winning design is pinned up in the college corridor."
 
   - id: poi_edha0r
     subtype: research_institute
@@ -656,6 +710,9 @@ places:
     in: div_479xae
     offset_km: [0.8, 0.6]
     site: { size_m: [500, 400], layout: campus }
+    notes:
+      zh: "西北市寒岭区山岭间的生态研究站，研究高寒山地的森林、苔原、积雪和野生动物，也是北维京岛大学和林道理工学院学生的野外实习基地。研究站最出名的工作是每年冬天清点山岭里的雪兔，研究员和志愿者踩着雪鞋沿固定路线走上几天，结果会在西北广播电视中心的晚间新闻里逐区公布。站里的食堂只有一张长桌，研究员和来访的徒步者一起吃饭，墙上挂满了历年的雪兔足迹拓片。"
+      en: "An ecological field station in the hills of Frost Ridge District, Northwest City, studying the forests, tundra, snow cover and wildlife of the cold uplands, and a field base for students of the University of North Viking Island and the Woodway Institute of Technology. Its best-known work is the winter count of mountain hares: researchers and volunteers spend days on snowshoes walking fixed routes through the hills, and the results are announced district by district on the Northwest Broadcasting Centre's evening news. The station canteen has a single long table where researchers eat with visiting walkers, beneath walls hung with rubbings of hare tracks."
   - id: bld_z6csvp
     subtype: townhall
     status: generated
