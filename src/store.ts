@@ -1,5 +1,6 @@
 import type { Map as MaplibreMap } from "maplibre-gl";
 import { create } from "zustand";
+import type { GraticuleStep } from "./lib/graticule";
 import { readUrl } from "./lib/url";
 import type { Appearance, AtlasData, Lang, LngLat, ThemeId } from "./lib/types";
 
@@ -75,6 +76,9 @@ interface AtlasState {
   /** Measuring-tool vertices; null when the tool is off. */
   measure: [number, number][] | null;
   setMeasure: (points: [number, number][] | null) => void;
+  /** The latitude–longitude grid: null when hidden, otherwise its spacing. */
+  graticule: GraticuleStep | null;
+  setGraticule: (step: GraticuleStep | null) => void;
   /** Lines drawn on top of the map, e.g. the route stretch picked in a card timeline. */
   highlight: { key: string; lines: LngLat[][] } | null;
   setHighlight: (highlight: { key: string; lines: LngLat[][] } | null) => void;
@@ -148,6 +152,8 @@ export const useAtlas = create<AtlasState>((set) => ({
   route: { from: null, to: null },
   measure: null,
   setMeasure: (measure) => set({ measure }),
+  graticule: null,
+  setGraticule: (graticule) => set({ graticule }),
   highlight: null,
   setHighlight: (highlight) => set({ highlight }),
   setRoute: (patch) => set((s) => ({ route: { ...s.route, ...patch } })),

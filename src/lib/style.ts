@@ -90,8 +90,9 @@ export function buildStyle(opts: {
   route: FeatureCollection;
   measure: FeatureCollection;
   highlight: FeatureCollection;
+  graticule: FeatureCollection;
 }): StyleSpecification {
-  const { theme, lang, data, layers, focus, route, measure, highlight } = opts;
+  const { theme, lang, data, layers, focus, route, measure, highlight, graticule } = opts;
   const m = theme.map;
   const dem = data.manifest.dem;
   const other: Lang = lang === "zh" ? "en" : "zh";
@@ -112,6 +113,7 @@ export function buildStyle(opts: {
     route: { type: "geojson", data: route },
     measure: { type: "geojson", data: measure },
     highlight: { type: "geojson", data: highlight },
+    graticule: { type: "geojson", data: graticule },
     places: { type: "geojson", data: data.layers.places },
     coast: { type: "geojson", data: data.layers.coast, promoteId: "id" },
     glaciers: { type: "geojson", data: data.layers.glaciers },
@@ -650,6 +652,40 @@ export function buildStyle(opts: {
     }
     return out;
   }
+  // The grid sits under every other label, so names win wherever the two collide.
+  const isGrid: ExpressionSpecification = ["==", ["get", "kind"], "grid"];
+  style.push(
+    {
+      id: "graticule-line",
+      type: "line",
+      source: "graticule",
+      filter: isGrid,
+      paint: { "line-color": m.label.text, "line-width": 0.8, "line-opacity": 0.28 },
+    },
+    {
+      id: "graticule-special",
+      type: "line",
+      source: "graticule",
+      filter: ["!", isGrid],
+      paint: { "line-color": m.focus.line, "line-width": 1.3, "line-opacity": 0.75, "line-dasharray": [4, 3] },
+    },
+    {
+      id: "graticule-special-label",
+      type: "symbol",
+      source: "graticule",
+      filter: ["!", isGrid],
+      layout: { "symbol-placement": "line", "text-field": ["get", "label"], "text-font": FONT.medium, "text-size": 11.5, "symbol-spacing": 420, "text-max-angle": 40 },
+      paint: { "text-color": m.focus.line, ...halo },
+    },
+    {
+      id: "graticule-label",
+      type: "symbol",
+      source: "graticule",
+      filter: ["all", isGrid, ["!=", ["get", "label"], ""]],
+      layout: { "symbol-placement": "line", "text-field": ["get", "label"], "text-font": FONT.regular, "text-size": 10.5, "symbol-spacing": 320, "text-max-angle": 40 },
+      paint: { "text-color": m.label.text, "text-opacity": 0.72, ...halo },
+    },
+  );
   style.push(
     {
       id: "ridge-label",

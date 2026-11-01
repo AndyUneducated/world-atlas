@@ -7,9 +7,11 @@ import type { FeatureCollection } from "geojson";
 import { cardPadding, homePadding } from "../lib/viewport";
 import { BASE_URL } from "../lib/data";
 import { buildFocus, indexFeatures } from "../lib/focus";
+import { effectiveStep, graticuleFeatures, specialNames, viewOf } from "../lib/graticule";
+import { t } from "../lib/i18n";
 import { measureFeatures } from "../lib/measure";
 import { useRoute } from "../lib/useRoute";
-import { buildStyle, DIVISION_LABEL_LAYERS, HIT_LAYERS, LANDFORM_LABEL_LAYERS, SHIELD_LAYERS } from "../lib/style";
+import { buildStyle, DIVISION_LABEL_LAYERS, EMPTY_FC, HIT_LAYERS, LANDFORM_LABEL_LAYERS, SHIELD_LAYERS } from "../lib/style";
 import { drawShield, shieldImageId } from "../lib/shields";
 import { THEMES } from "../lib/themes";
 import type { Entity } from "../lib/types";
@@ -87,6 +89,14 @@ function syncUrl(map: maplibregl.Map) {
   });
 }
 
+/** The grid lines for the current view, or nothing while the grid is off. */
+function graticuleFc(map: maplibregl.Map): FeatureCollection {
+  const { graticule, lang } = useAtlas.getState();
+  if (!graticule) return EMPTY_FC;
+  const view = viewOf(map);
+  return graticuleFeatures(effectiveStep(graticule, view), view, specialNames(t, lang));
+}
+
 function metersPerPixel(map: maplibregl.Map) {
   const lat = map.getCenter().lat;
   return (40075016.686 * Math.cos((lat * Math.PI) / 180)) / (512 * 2 ** map.getZoom());
@@ -119,9 +129,11 @@ export function MapView() {
     const h = useAtlas.getState().highlight;
     return { type: "FeatureCollection", features: h ? [{ type: "Feature", properties: {}, geometry: { type: "MultiLineString", coordinates: h.lines } }] : [] };
   };
+  const graticule = useAtlas((s) => s.graticule);
   const styleOpts = () => {
     const s = useAtlas.getState();
-    return { theme: THEMES[s.theme], lang: s.lang, data, layers: s.layers, focus: currentFocus(), route: routeRef.current, measure: measureFc(), highlight: highlightFc() };
+    const grid = mapRef.current ? graticuleFc(mapRef.current) : EMPTY_FC;
+    return { theme: THEMES[s.theme], lang: s.lang, data, layers: s.layers, focus: currentFocus(), route: routeRef.current, measure: measureFc(), highlight: highlightFc(), graticule: grid };
   };
 
   const currentFocus = () => focusRef.current ?? buildFocus(features.get(useAtlas.getState().selectedId ?? ""));
@@ -212,6 +224,15 @@ export function MapView() {
 
     map.on("moveend", () => syncUrl(map));
 
+    let gridFrame = 0;
+    map.on("move", () => {
+      if (!useAtlas.getState().graticule || gridFrame) return;
+      gridFrame = requestAnimationFrame(() => {
+        gridFrame = 0;
+        (map.getSource("graticule") as GeoJSONSource | undefined)?.setData(graticuleFc(map));
+      });
+    });
+
     useAtlas.getState().setMap(map);
     return () => {
       useAtlas.getState().setMap(null);
@@ -278,6 +299,14 @@ export function MapView() {
     if (map.isStyleLoaded()) apply();
     else map.once("idle", apply);
   }, [highlight]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    const apply = () => (map.getSource("graticule") as GeoJSONSource | undefined)?.setData(graticuleFc(map));
+    if (map.isStyleLoaded()) apply();
+    else map.once("idle", apply);
+  }, [graticule, lang]);
 
   useEffect(() => {
     const map = mapRef.current;

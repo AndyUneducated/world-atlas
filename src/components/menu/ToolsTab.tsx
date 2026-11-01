@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Navigation2, Ruler } from "lucide-react";
+import { Grid3x3, Navigation2, Ruler } from "lucide-react";
 import { t, type StringKey } from "../../lib/i18n";
 import { useAtlas, useCursor } from "../../store";
 
@@ -25,6 +25,8 @@ export function ToolsTab({ onDone }: { onDone: () => void }) {
   const map = useAtlas((s) => s.map);
   const measuring = useAtlas((s) => s.measure !== null);
   const setMeasure = useAtlas((s) => s.setMeasure);
+  const gridOn = useAtlas((s) => s.graticule !== null);
+  const setGraticule = useAtlas((s) => s.setGraticule);
   const bearing = useCursor((s) => s.bearing);
 
   const run = (fn: () => void) => () => {
@@ -33,6 +35,7 @@ export function ToolsTab({ onDone }: { onDone: () => void }) {
   };
   const tools: { key: StringKey; icon: React.ReactNode; active?: boolean; onClick: () => void }[] = [
     { key: "measure", icon: <Ruler className="size-4" />, active: measuring, onClick: run(() => setMeasure(measuring ? null : [])) },
+    { key: "graticule", icon: <Grid3x3 className="size-4" />, active: gridOn, onClick: run(() => setGraticule(gridOn ? null : "auto")) },
     {
       key: "resetNorth",
       icon: <Navigation2 className="size-4 fill-current" style={{ transform: `rotate(${-bearing}deg)` }} />,

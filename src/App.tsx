@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { GraticulePanel } from "./components/GraticulePanel";
 import { InfoCard } from "./components/InfoCard";
 import { Legend } from "./components/Legend";
 import { MapControls } from "./components/MapControls";
@@ -79,7 +80,8 @@ export default function App() {
           </div>
 
           {/* Beside the side panel while it holds a card, so the two never overlap. */}
-          <div className={clsx("absolute bottom-3 transition-[left] duration-300", sidePanel ? "left-[calc(min(400px,100vw-76px)+24px)]" : "left-3")}>
+          <div className={clsx("absolute bottom-3 flex flex-col items-start gap-2 transition-[left] duration-300", sidePanel ? "left-[calc(min(400px,100vw-76px)+24px)]" : "left-3")}>
+            <GraticulePanel />
             <Legend />
           </div>
 
