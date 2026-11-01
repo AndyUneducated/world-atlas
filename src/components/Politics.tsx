@@ -6,7 +6,7 @@ import { displayName, formatNumber, t, type StringKey } from "../lib/i18n";
 import { governmentSeats, majority, PARTY_AXES, SYSTEM_NAMES, systemText } from "../lib/politics";
 import type { AtlasData, Chamber, Entity, Lang, Legislature, Localized } from "../lib/types";
 import { useAtlas } from "../store";
-import { Paragraphs, Rows, Section, Sub } from "./CardParts";
+import { Paragraphs, Rows, Section, Sub, useCardOpen } from "./CardParts";
 import { Emblem, hasEmblem } from "./Emblem";
 import { Hemicycle } from "./Hemicycle";
 
@@ -160,7 +160,7 @@ function governmentRow(data: AtlasData, c: Chamber, lang: Lang): [string, ReactN
 
 /** The ministries as one bar in the colours of the parties holding them; opened, every minister by ministry. */
 function Cabinet({ data, L, lang }: { data: AtlasData; L: Legislature; lang: Lang }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useCardOpen("ministers");
   const experts = L.ministers.filter((m) => !m.party).length;
   const parts = [
     ...L.cabinet.map((c) => ({ key: c.id, n: c.seats, color: data.entities[c.id]?.color, label: data.entities[c.id] ? shortName(data.entities[c.id], lang) : c.id })),
@@ -416,7 +416,7 @@ function branchRole(at: Entity, party: string, lang: Lang): string | null {
 /** A party's card: who it is and where it stands, who votes for it, what it wants, how it is run and where it sits. */
 export function PartySections({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
   const select = useAtlas((s) => s.select);
-  const [allCouncils, setAllCouncils] = useState(false);
+  const [allCouncils, setAllCouncils] = useCardOpen("councils");
   if (entity.kind !== "party") return null;
   const color = entity.color ?? "var(--ui-accent)";
   const held = entity.seats ?? [];
@@ -548,7 +548,7 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
                 })}
               </ul>
               {councils.length > COUNCILS_SHOWN && (
-                <button onClick={() => setAllCouncils((v) => !v)} className="mt-1 -ml-2 rounded-full px-2 py-1 text-[12px] font-medium text-muted hover:bg-hover hover:text-ink">
+                <button onClick={() => setAllCouncils(!allCouncils)} className="mt-1 -ml-2 rounded-full px-2 py-1 text-[12px] font-medium text-muted hover:bg-hover hover:text-ink">
                   {allCouncils ? t("showFewer", lang) : `${t("showAll", lang)} · ${councils.length}`}
                 </button>
               )}

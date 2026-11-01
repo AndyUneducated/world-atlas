@@ -25,7 +25,7 @@ import {
 import { AnimatePresence, motion, useDragControls, useSpring, type PanInfo } from "motion/react";
 import { useEffect, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
-import { Paragraphs, Rows, Section, Sub } from "./CardParts";
+import { Paragraphs, Rows, Section, Sub, useCardOpen, useCardScroll } from "./CardParts";
 import { Emblem, Flag, hasEmblem } from "./Emblem";
 import { CouncilSection, ElectionSection, LegislatureSection, PartySections } from "./Politics";
 import { RouteTimeline } from "./RouteTimeline";
@@ -879,26 +879,32 @@ export function InfoCard() {
 
   return (
     <AnimatePresence mode="wait">
-      {data && entity && (mobile ? <BottomSheet key={entity.id} data={data} entity={entity} lang={lang} /> : (
-        <motion.article
-          key={entity.id}
-          initial={{ opacity: 0, y: 12, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 8, scale: 0.98 }}
-          transition={{ type: "spring", stiffness: 380, damping: 32 }}
-          className="glass scrollbar-thin pointer-events-auto min-h-0 overflow-y-auto rounded-3xl"
-        >
-          <CardBody data={data} entity={entity} lang={lang} />
-        </motion.article>
-      ))}
+      {data && entity && (mobile ? <BottomSheet key={entity.id} data={data} entity={entity} lang={lang} /> : <Card key={entity.id} data={data} entity={entity} lang={lang} />)}
     </AnimatePresence>
+  );
+}
+
+function Card({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
+  const scroll = useCardScroll<HTMLElement>(entity.id);
+  return (
+    <motion.article
+      ref={scroll}
+      initial={{ opacity: 0, y: 12, scale: 0.98 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 8, scale: 0.98 }}
+      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+      className="glass scrollbar-thin pointer-events-auto min-h-0 overflow-y-auto rounded-3xl"
+    >
+      <CardBody data={data} entity={entity} lang={lang} />
+    </motion.article>
   );
 }
 
 /** Phone layout: the card is a sheet that peeks from the bottom and drags up to full height. */
 function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
   const select = useAtlas((s) => s.select);
-  const [full, setFull] = useState(false);
+  const [full, setFull] = useCardOpen("sheet");
+  const scroll = useCardScroll<HTMLDivElement>(entity.id);
   const drag = useDragControls();
   const onDragEnd = (_: unknown, info: PanInfo) => {
     if (info.offset.y < -40 || info.velocity.y < -500) setFull(true);
@@ -926,14 +932,14 @@ function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; 
     >
       <div
         onPointerDown={(e) => drag.start(e)}
-        onClick={() => setFull((f) => !f)}
+        onClick={() => setFull(!full)}
         className="flex shrink-0 cursor-grab touch-none justify-center pt-2.5 pb-1 active:cursor-grabbing"
         role="button"
         aria-label={t(full ? "collapse" : "expand", lang)}
       >
         <span className="h-1.5 w-11 rounded-full bg-faint/50" />
       </div>
-      <div className="scrollbar-thin min-h-0 flex-1 overflow-y-auto overscroll-contain">
+      <div ref={scroll} className="scrollbar-thin min-h-0 flex-1 overflow-y-auto overscroll-contain">
         <CardBody data={data} entity={entity} lang={lang} />
       </div>
     </motion.article>

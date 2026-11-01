@@ -1,5 +1,37 @@
 import clsx from "clsx";
-import type { ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { registerCardScroller, useAtlas } from "../store";
+
+/** An opened-or-not part of a card, kept with the card so going back shows it as it was left. */
+export function useCardOpen(key: string): [boolean, (open: boolean) => void] {
+  const [open, setOpen] = useState(() => useAtlas.getState().cardView.open[key] ?? false);
+  return [
+    open,
+    (next) => {
+      setOpen(next);
+      useAtlas.getState().setCardOpen(key, next);
+    },
+  ];
+}
+
+/** The card's scrolling element: scrolled back to where it was left when shown again on going back. */
+export function useCardScroll<T extends HTMLElement>(id: string) {
+  const ref = useRef<T>(null);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    registerCardScroller(id, el);
+    const { scroll } = useAtlas.getState().cardView;
+    el.scrollTop = scroll;
+    // charts may settle their height a frame later
+    const frame = scroll ? requestAnimationFrame(() => (el.scrollTop = scroll)) : 0;
+    return () => {
+      cancelAnimationFrame(frame);
+      registerCardScroller(id, null);
+    };
+  }, [id]);
+  return ref;
+}
 
 export function Section({ title, children }: { title: string; children: ReactNode }) {
   return (

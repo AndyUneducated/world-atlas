@@ -34,10 +34,27 @@ export interface ListView {
   scroll: number;
 }
 
-/** Where a card was opened from: the card shown before it, and the list it was picked from, if any. */
+/** A card's own view: which of its parts are opened, and how far it is scrolled when it is shown again on going back. */
+export interface CardView {
+  open: Record<string, boolean>;
+  scroll: number;
+}
+
+const FRESH_CARD: CardView = { open: {}, scroll: 0 };
+
+/** Where a card was opened from: the card shown before it as it was left, and the list it was picked from, if any. */
 interface BackEntry {
   id: string | null;
+  card: CardView;
   list?: ListView;
+}
+
+let scroller: { id: string; el: HTMLElement } | null = null;
+
+/** The shown card's scrolling element, read when another card is opened from it. */
+export function registerCardScroller(id: string, el: HTMLElement | null) {
+  if (el) scroller = { id, el };
+  else if (scroller?.id === id) scroller = null;
 }
 
 interface AtlasState {
@@ -77,6 +94,8 @@ interface AtlasState {
   /** A list to reopen after going back, picked up by the search box. */
   restoreList: ListView | null;
   setRestoreList: (list: ListView | null) => void;
+  cardView: CardView;
+  setCardOpen: (key: string, open: boolean) => void;
   toggleLayer: (key: keyof LayerToggles) => void;
   toggleDisplay: (key: keyof DisplayToggles) => void;
 }
@@ -145,15 +164,19 @@ export const useAtlas = create<AtlasState>((set) => ({
       let back = s.back;
       if (id === null || !fit) back = [];
       else if (id !== s.selectedId && (s.selectedId !== null || opts?.list)) {
-        back = [...s.back, { id: s.selectedId, list: opts?.list }];
+        const scroll = scroller && scroller.id === s.selectedId ? scroller.el.scrollTop : 0;
+        back = [...s.back, { id: s.selectedId, card: { open: s.cardView.open, scroll }, list: opts?.list }];
         window.history.pushState({ atlasBack: back.length }, "");
       }
-      return { selectedId: id, selectionNonce: s.selectionNonce + 1, fitSelection: fit, highlight: null, back };
+      const cardView = id === s.selectedId ? s.cardView : FRESH_CARD;
+      return { selectedId: id, selectionNonce: s.selectionNonce + 1, fitSelection: fit, highlight: null, back, cardView };
     }),
   back: [],
   goBack: () => window.history.back(),
   restoreList: null,
   setRestoreList: (restoreList) => set({ restoreList }),
+  cardView: FRESH_CARD,
+  setCardOpen: (key, open) => set((s) => ({ cardView: { ...s.cardView, open: { ...s.cardView.open, [key]: open } } })),
   toggleLayer: (key) =>
     set((s) => {
       const layers = { ...s.layers, [key]: !s.layers[key] };
@@ -180,6 +203,7 @@ window.addEventListener("popstate", () => {
     fitSelection: entry.id !== null,
     highlight: null,
     restoreList: entry.list ?? null,
+    cardView: entry.card,
   }));
 });
 
