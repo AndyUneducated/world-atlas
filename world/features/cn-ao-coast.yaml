@@ -122,8 +122,8 @@ features:
     detect: { kind: island, at_km: [529.2, 445.2] }
     names: { zh: 皮鲁克尔尤阿克岛, en: Pirrukrjuaq Island, art-x-tavrunaq: Pirrukrjuaq }
     notes:
-      zh: "皮鲁库维特群岛的主岛，面积约 13.2 万平方公里，是领地最大的岛屿，也是地势最高的地方。皮鲁克尔尤伊特山脉由三座山群组成，从西向东纵贯全岛，主峰卡拉克皮鲁克峰海拔 4203 米，是领地最高峰；山群之间是低矮的山口和宽阔的冰川谷地，南北两岸被十几条峡湾切开。全岛属皮鲁库维特生态保护区，没有常住居民，只有巡护站、科考站和夏季的登山营地。岛在北纬 80 度以北，夏天太阳整夜不落，冬天有四个月不升起，登山季只有极昼里短短两个月。登山队员说，在这座岛上最难习惯的不是冷，而是「明明半夜了，太阳还挂在山顶上看着你」。"
-      en: "The main island of the Pirrukuviit Islands, about 132,000 km², the largest island in the territory and its highest ground. The Pirrukrjuit Mountains, three massifs in a row, run the length of the island from west to east; their summit, Mount Kallaaqpirruk at 4,203 m, is the highest peak in the territory, and between the massifs lie low passes and broad glacial valleys, while more than a dozen fjords cut into the north and south coasts. The whole island belongs to the Pirrukuviit Nature Reserve; no one lives here permanently, and there are only ranger stations, research stations and the summer climbing camps. It lies north of 80°N, where the sun does not set in summer and does not rise for four months of winter, and the climbing season is just two months of the midnight sun. Climbers say the hardest thing to get used to here is not the cold but \"the sun still sitting on the summit watching you at midnight\"."
+      zh: "皮鲁库维特群岛的主岛，面积约 13.2 万平方公里，是领地最大的岛屿，也是地势最高的岛。皮鲁克尔尤伊特山脉由三座山群组成，从西向东纵贯全岛，主峰卡拉克皮鲁克峰海拔 2917 米，仅次于大陆上的西尔米峰；中段山群几乎整片埋在世界第二大的卡拉克西尔米冰原之下，山群之间是低矮的山口和宽阔的冰川谷地，南北两岸被十几条峡湾切开。全岛属皮鲁库维特生态保护区，没有常住居民，只有巡护站、科考站和夏季的登山营地。岛在北纬 80 度以北，夏天太阳整夜不落，冬天有四个月不升起，登山季只有极昼里短短两个月。登山队员说，在这座岛上最难习惯的不是冷，而是「明明半夜了，太阳还挂在山顶上看着你」。"
+      en: "The main island of the Pirrukuviit Islands, about 132,000 km², the largest island in the territory and its highest. The Pirrukrjuit Mountains, three massifs in a row, run the length of the island from west to east; their summit, Mount Kallaaqpirruk at 2,917 m, is second only to Mount Sirmi on the mainland, the central massif lies almost wholly under the Kallaaqsirmi Icefield, the second largest in the world, and between the massifs lie low passes and broad glacial valleys, while more than a dozen fjords cut into the north and south coasts. The whole island belongs to the Pirrukuviit Nature Reserve; no one lives here permanently, and there are only ranger stations, research stations and the summer climbing camps. It lies north of 80°N, where the sun does not set in summer and does not rise for four months of winter, and the climbing season is just two months of the midnight sun. Climbers say the hardest thing to get used to here is not the cold but \"the sun still sitting on the summit watching you at midnight\"."
   - id: nat_pjr6a4
     subtype: island
     status: generated
@@ -200,8 +200,8 @@ features:
     detect: { kind: island, at_km: [644, 174] }
     names: { zh: 乌维克萨克岛, en: "Uviqsaaq Island", art-x-tavrunaq: Uviqsaaq }
     notes:
-      zh: "乌库乌维特群岛的主岛，面积约 6600 平方公里，最高处海拔 783 米，是领地仅次于基库维克岛的高岛。乌维克萨克市的乌维克努卡港和机场在岛的一侧，其余大部分属乌库乌维特矿区管理区。岛上的最高处是全市孩子们最爱的远足地，晴天能望见群岛的每一座岛，岛民说这里是「看得见全市的地方」。"
-      en: "The main island of the Ukkuuviit Islands, about 6,600 km², rising to 783 m, the highest island in the territory after Kiiquviq Island. Uviqsaaq City's harbour and airport are on one side of it, and most of the rest belongs to the Ukkuuviit Mining Administration Zone. The island's summit is the favourite outing of the city's children, and on clear days every island in the group can be seen from it; islanders call it \"the place where you can see the whole city\"."
+      zh: "乌库乌维特群岛的主岛，面积约 6600 平方公里，最高处海拔 783 米，是乌库乌维特群岛地势最高的岛。乌维克萨克市的乌维克努卡港和机场在岛的一侧，其余大部分属乌库乌维特矿区管理区。岛上的最高处是全市孩子们最爱的远足地，晴天能望见群岛的每一座岛，岛民说这里是「看得见全市的地方」。"
+      en: "The main island of the Ukkuuviit Islands, about 6,600 km², rising to 783 m, the highest island of the Ukkuuviit Islands. Uviqsaaq City's harbour and airport are on one side of it, and most of the rest belongs to the Ukkuuviit Mining Administration Zone. The island's summit is the favourite outing of the city's children, and on clear days every island in the group can be seen from it; islanders call it \"the place where you can see the whole city\"."
   - id: nat_ps1ygb
     subtype: island
     status: generated
@@ -378,8 +378,8 @@ features:
     islands: [nat_gny1z0, nat_pjr6a4, nat_mwt1e8]
     names: { zh: 皮鲁库维特群岛, en: Pirrukuviit Islands, art-x-tavrunaq: Pirrukuviit }
     notes:
-      zh: "领地最北的群岛，由皮鲁克尔尤阿克岛、普拉乌维克岛和贾利尤阿克岛组成，总面积约 13.9 万平方公里，是领地面积最大的群岛，群岛名意为「群峰之岛」。全境是西尔米瓦克市皮鲁库维特生态保护区，常住的只有巡护员、科研人员和登山营地的工作人员。主岛的皮鲁克尔尤伊特山脉有领地最高的山峰和第二大的冰川，两座附属岛一东一西，一座是鸟岛，一座是风岛。群岛北面就是终年封冻的北冰洋，夏季的包机从西尔米卡尔维克起飞，要飞一个多小时才能看见山顶的冰原。"
-      en: "The northernmost archipelago of the territory, made up of Pirrukrjuaq, Pullauviq and Jaalijuaq islands, about 139,000 km² in all, the largest archipelago in the territory; its name means \"islands of peaks\". All of it is the Pirrukuviit Nature Reserve of Sirmivak City, whose only residents are rangers, researchers and the staff of the climbing camps. The Pirrukrjuit Mountains of the main island hold the territory's highest peak and its second largest glacier, and the two lesser islands lie one to the west and one to the east, one an island of birds and the other an island of wind. North of the islands lies the Arctic Ocean, frozen all year; the summer charters from Sirmiqarvik fly for more than an hour before the icefields on the summits come into view."
+      zh: "领地最北的群岛，由皮鲁克尔尤阿克岛、普拉乌维克岛和贾利尤阿克岛组成，总面积约 13.9 万平方公里，是领地面积最大的群岛，群岛名意为「群峰之岛」。全境是西尔米瓦克市皮鲁库维特生态保护区，常住的只有巡护员、科研人员和登山营地的工作人员。主岛的皮鲁克尔尤伊特山脉有领地第二高的山峰和世界第二大的冰原，两座附属岛一东一西，一座是鸟岛，一座是风岛。群岛北面就是终年封冻的北冰洋，夏季的包机从西尔米卡尔维克起飞，要飞一个多小时才能看见山顶的冰原。"
+      en: "The northernmost archipelago of the territory, made up of Pirrukrjuaq, Pullauviq and Jaalijuaq islands, about 139,000 km² in all, the largest archipelago in the territory; its name means \"islands of peaks\". All of it is the Pirrukuviit Nature Reserve of Sirmivak City, whose only residents are rangers, researchers and the staff of the climbing camps. The Pirrukrjuit Mountains of the main island hold the territory's second highest peak and the second largest icefield in the world, and the two lesser islands lie one to the west and one to the east, one an island of birds and the other an island of wind. North of the islands lies the Arctic Ocean, frozen all year; the summer charters from Sirmiqarvik fly for more than an hour before the icefields on the summits come into view."
   - id: nat_bk19x1
     subtype: archipelago
     status: generated

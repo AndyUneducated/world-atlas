@@ -405,7 +405,10 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         rise = float(elev_top.flat[p["cell"]]) - p["metrics"]["elev_m"]
         p["metrics"]["elev_m"] += rise
         p["metrics"]["prominence_m"] += rise
-    ice = relief.glaciers(elev, land & ~water, g.xs, g.ys, g.res, frame.km(g.res), rp.get("snowline_m", 2000),
+    snowline = rp.get("snowline_m", 2000)
+    if bands := rp.get("snowline_bands"):  # [[y design km, snowline m], …]: lower towards the pole
+        snowline = np.interp(g.ys, *zip(*bands))[:, None]
+    ice = relief.glaciers(elev, land & ~water, g.xs, g.ys, g.res, frame.km(g.res), snowline,
                           rp.get("snowline_aspect_m", 300), rp.get("glacier_max_slope_deg", 38), rp.get("ice_min_km2", 0.5))
     glacier_c = [c for c in ice if c["metrics"]["area_km2"] >= rp.get("glacier_min_km2", 4)]
     log(f"  {len(peak_c)} peaks, {len(pass_c)} passes, {len(ice)} ice fields ({len(glacier_c)} glaciers)")

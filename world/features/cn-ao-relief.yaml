@@ -20,11 +20,11 @@ features:
   - id: nat_c28dp2
     subtype: peak
     status: generated
-    detect: { kind: peak, at_km: [499.2, 234.8] }
+    detect: { kind: peak, at_km: [503.2, 236.8] }
     names: { zh: 西尔米峰, en: "Mount Sirmi", art-x-tavrunaq: Sirmipirruk }
     notes:
-      zh: "西尔米高地的最高峰，海拔 2506 米，是领地大陆上的最高峰，峰顶埋在西尔米冰盖之下，只是冰面上一处平缓的隆起。西卢阿高速在约 60 公里外经过，登顶须长途穿越冰盖。登顶的科考队说，站在大陆最高处，四周看到的却只有一望无际的白色，「找不到峰顶，只能相信卫星定位」。"
-      en: "The highest point of the Sirmi Highlands, 2,506 m and the highest peak on the territory's mainland, its summit buried under the Sirmi Ice Cap as a gentle swelling of the ice. The Sillua Expressway passes some 60 km away, and reaching the top means a long crossing of the ice cap. Teams who have reached it say that from the mainland's highest point there is nothing in any direction but endless white: \"you can't see a summit, you just have to trust the satellite fix\"."
+      zh: "西尔米高地的最高峰，海拔 4014 米，是领地最高峰。西尔米冰盖大多是一片平缓起伏的白色高原，西尔米峰却从冰面上陡然拔起一千五百多米，是一座通体裹着冰雪的金字塔形尖峰，晴天时从冰盖边缘一百多公里外都能望见。西卢阿高速在约 60 公里外经过，登顶要先长途穿越冰盖，再沿冰壁攀上峰顶。登顶的科考队说，站在领地最高处，四周是一望无际的白色冰原，脚下的峰顶却只有一张桌子那么大，「上来很难，找到它倒很容易」。"
+      en: "The highest point of the Sirmi Highlands, 4,014 m and the highest peak in the territory. Most of the Sirmi Ice Cap is a gently rolling white plateau, but Mount Sirmi rises steeply more than 1,500 m out of the ice, a pyramid sheathed in ice and snow from foot to summit that can be seen on clear days from more than 100 km away at the edge of the cap. The Sillua Expressway passes some 60 km away, and reaching the top means a long crossing of the ice cap and then a climb up its ice walls. Teams who have reached it say that from the territory's highest point there is endless white ice in every direction, while the summit underfoot is no bigger than a table: \"it's hard to get up, but at least it's easy to find\"."
   - id: nat_scswkr
     subtype: peak
     status: generated
@@ -175,34 +175,34 @@ features:
     detect: { kind: glacier, at_km: [145.9, 203.4] }
     names: { zh: 普卡西尔米冰帽, en: Pukkasirmi Ice Cap, art-x-tavrunaq: Pukkasirmi }
     notes:
-      zh: "普拉普卡高原顶上的冰帽，面积约 1100 平方公里，是领地十一条命名冰川中最小的，最高点海拔 1573 米，东缘伸入尼尔萨图维特生态保护区。冰帽不大，夏天有经验的徒步者能在一天之内绕它走一圈，冰帽边缘常能看到雪兔留下的脚印。"
-      en: "The ice cap on top of the Pullapukka Plateau, about 1,100 km², the smallest of the territory's eleven named glaciers, rising to 1,573 m, its eastern edge reaching into the Nirsatuvvit Nature Reserve. The ice cap is small, and experienced walkers can circle it in a day in summer, often finding mountain-hare tracks along its edge."
+      zh: "普拉普卡高原顶上的冰帽，面积约 1100 平方公里，是大陆上最小的命名冰川，最高点海拔 1573 米，东缘伸入尼尔萨图维特生态保护区。冰帽不大，夏天有经验的徒步者能在一天之内绕它走一圈，冰帽边缘常能看到雪兔留下的脚印。"
+      en: "The ice cap on top of the Pullapukka Plateau, about 1,100 km², the smallest named glacier on the mainland, rising to 1,573 m, its eastern edge reaching into the Nirsatuvvit Nature Reserve. The ice cap is small, and experienced walkers can circle it in a day in summer, often finding mountain-hare tracks along its edge."
 
   # ── Peaks and glaciers of the northern islands, named in M61 ─────────────
   - id: nat_sanqd9
     subtype: peak
     status: generated
-    detect: { kind: peak, at_km: [532.9, 449.6] }
+    detect: { kind: peak, at_km: [540.8, 450.2] }
     names: { zh: 卡拉克皮鲁克峰, en: Mount Kallaaqpirruk, art-x-tavrunaq: Kallaaqpirruk }
     notes:
-      zh: "皮鲁克尔尤伊特山脉的主峰，海拔 4203 米，是领地最高峰，在皮鲁库维特生态保护区皮鲁克尔尤阿克岛的中部，卡拉克西尔米冰原从峰顶向四面铺开，冰川沿山谷一直流进南北两岸的峡湾。山峰远在北冰洋深处，没有任何道路可达，登山队要先乘包机降落在冰原边缘，再花三四个星期沿冰川一路向上。峰名的意思是「永昼峰」：夏天太阳整夜绕着峰顶转圈，从不落下，登山队可以在午夜冲顶，下山时自己的影子拖得比人长十几倍。山顶的登顶簿装在一只铁罐里，冻在一根铝杆脚下，翻开来，每一页上写得最多的一句话都是「太阳还在」。"
-      en: "The summit of the Pirrukrjuit Mountains, 4,203 m and the highest peak in the territory, in the middle of Pirrukrjuaq Island in the Pirrukuviit Nature Reserve; the Kallaaqsirmi Icefield spreads from it on every side, and its glaciers flow down the valleys into the fjords of the north and south coasts. It stands far out in the Arctic Ocean with no road anywhere near; climbers fly in by charter to the edge of the icefield and then spend three or four weeks working up the glaciers. Its name means \"midnight-sun peak\": in summer the sun circles the summit all night without setting, parties can make their summit push at midnight, and on the way down their shadows trail more than ten times their own length. The summit register is kept in a tin frozen to the foot of an aluminium pole, and the line written most often on its pages is \"the sun is still up\"."
+      zh: "皮鲁克尔尤伊特山脉的主峰，海拔 2917 米，是北方群岛的最高峰，在领地仅次于大陆上的西尔米峰，在皮鲁库维特生态保护区皮鲁克尔尤阿克岛的中部，卡拉克西尔米冰原从峰顶向四面铺开，冰川沿山谷一直流进南北两岸的峡湾。山峰远在北冰洋深处，没有任何道路可达，登山队要先乘包机降落在冰原边缘，再花三四个星期沿冰川一路向上。峰名的意思是「永昼峰」：夏天太阳整夜绕着峰顶转圈，从不落下，登山队可以在午夜冲顶，下山时自己的影子拖得比人长十几倍。山顶的登顶簿装在一只铁罐里，冻在一根铝杆脚下，翻开来，每一页上写得最多的一句话都是「太阳还在」。"
+      en: "The summit of the Pirrukrjuit Mountains, 2,917 m, the highest peak of the northern islands and second in the territory only to Mount Sirmi on the mainland, in the middle of Pirrukrjuaq Island in the Pirrukuviit Nature Reserve; the Kallaaqsirmi Icefield spreads from it on every side, and its glaciers flow down the valleys into the fjords of the north and south coasts. It stands far out in the Arctic Ocean with no road anywhere near; climbers fly in by charter to the edge of the icefield and then spend three or four weeks working up the glaciers. Its name means \"midnight-sun peak\": in summer the sun circles the summit all night without setting, parties can make their summit push at midnight, and on the way down their shadows trail more than ten times their own length. The summit register is kept in a tin frozen to the foot of an aluminium pole, and the line written most often on its pages is \"the sun is still up\"."
   - id: nat_qe7p4x
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [616.6, 434.1] }
     names: { zh: 贾利皮鲁克峰, en: Mount Jaalipirruk, art-x-tavrunaq: Jaalipirruk }
     notes:
-      zh: "皮鲁克尔尤伊特山脉东段的最高峰，海拔 3552 米，峰顶周围的山地覆盖着贾利西尔米冰川。东段的山脊正对着北冰洋上吹来的风，峰顶终年刮着大风，雪被吹成一条条横在空中的雪旗，山名意为「风峰」。登山队说这座峰「不是爬上去的，是被风推上去又推下来的」；科考队在峰下的山口装过两次风速计，都没有撑过一个冬天。"
-      en: "The highest summit of the eastern Pirrukrjuit Mountains, 3,552 m, the high ground around it covered by the Jaalisirmi Glacier. The eastern ridges face straight into the wind off the Arctic Ocean, the summit is wind-blasted all year with snow streaming from it in long banners, and its name means \"wind peak\". Climbers say this mountain \"isn't climbed so much as blown up and blown down again\"; the research team has twice fixed an anemometer on the col below it, and neither survived a winter."
+      zh: "皮鲁克尔尤伊特山脉东段的最高峰，海拔 2477 米，峰顶周围的山地覆盖着贾利西尔米冰川。东段的山脊正对着北冰洋上吹来的风，峰顶终年刮着大风，雪被吹成一条条横在空中的雪旗，山名意为「风峰」。登山队说这座峰「不是爬上去的，是被风推上去又推下来的」；科考队在峰下的山口装过两次风速计，都没有撑过一个冬天。"
+      en: "The highest summit of the eastern Pirrukrjuit Mountains, 2,477 m, the high ground around it covered by the Jaalisirmi Glacier. The eastern ridges face straight into the wind off the Arctic Ocean, the summit is wind-blasted all year with snow streaming from it in long banners, and its name means \"wind peak\". Climbers say this mountain \"isn't climbed so much as blown up and blown down again\"; the research team has twice fixed an anemometer on the col below it, and neither survived a winter."
   - id: nat_1y6ng9
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [456.1, 454.6] }
     names: { zh: 帕卡皮鲁克峰, en: Mount Pakkapirruk, art-x-tavrunaq: Pakkapirruk }
     notes:
-      zh: "皮鲁克尔尤伊特山脉西段的最高峰，海拔 3009 米，峰顶下是帕卡西尔米冰川。西段的山脊被冰川切成一段段破碎的锯齿，山名意为「碎峰」。夏天海冰化开后，从普拉乌维克岛一带的海上望去，参差的山尖一字排开，像一把掉了好几颗齿的旧梳子，往来的科考船员就叫它「破梳子」。"
-      en: "The highest summit of the western Pirrukrjuit Mountains, 3,009 m, with the Pakkasirmi Glacier beneath it. The western ridges have been cut by the ice into broken saw-teeth, and its name means \"broken peak\". When the sea ice opens in summer, the ragged summits stand in a row seen from the sea off Pullauviq Island, like an old comb with several teeth missing, and the crews of the research ships call it \"the broken comb\"."
+      zh: "皮鲁克尔尤伊特山脉西段的最高峰，海拔 2052 米，峰顶下是帕卡西尔米冰川。西段的山脊被冰川切成一段段破碎的锯齿，山名意为「碎峰」。夏天海冰化开后，从普拉乌维克岛一带的海上望去，参差的山尖一字排开，像一把掉了好几颗齿的旧梳子，往来的科考船员就叫它「破梳子」。"
+      en: "The highest summit of the western Pirrukrjuit Mountains, 2,052 m, with the Pakkasirmi Glacier beneath it. The western ridges have been cut by the ice into broken saw-teeth, and its name means \"broken peak\". When the sea ice opens in summer, the ragged summits stand in a row seen from the sea off Pullauviq Island, like an old comb with several teeth missing, and the crews of the research ships call it \"the broken comb\"."
   - id: nat_8g268b
     subtype: peak
     status: generated
@@ -214,27 +214,27 @@ features:
   - id: nat_edd9sc
     subtype: glacier
     status: generated
-    detect: { kind: glacier, at_km: [534.1, 450.9] }
+    detect: { kind: glacier, at_km: [530.6, 450.9] }
     names: { zh: 卡拉克西尔米冰原, en: Kallaaqsirmi Icefield, art-x-tavrunaq: Kallaaqsirmi }
     notes:
-      zh: "皮鲁克尔尤伊特山脉中段的冰原，面积约 1.45 万平方公里，是领地第二大冰川，仅次于西尔米冰盖，全部在皮鲁库维特生态保护区，最高点卡拉克皮鲁克峰海拔 4203 米。冰原向南北两面伸出十几条山谷冰川，长的一直流进峡湾，冰崖崩落的冰山漂向外海。永昼的夏天里，冰面整日反射着阳光，科考队员要戴两层墨镜才能工作，他们说这里「一天有二十四小时的白天，影子却一直在绕着人转圈」。"
-      en: "The icefield of the central Pirrukrjuit Mountains, about 14,500 km², the second largest glacier in the territory after the Sirmi Ice Cap, entirely within the Pirrukuviit Nature Reserve, its highest point Mount Kallaaqpirruk at 4,203 m. More than a dozen valley glaciers reach out from it to the north and south, the longest running into the fjords, where icebergs calve from the ice cliffs and drift out to sea. In the summer of the midnight sun the ice reflects sunlight all day long and researchers work in two pairs of sunglasses; here, they say, \"the day lasts twenty-four hours and your shadow keeps walking round you\"."
+      zh: "皮鲁克尔尤伊特山脉中段的冰原，面积约 2.5 万平方公里，是领地第二大冰川，也是世界第二大，仅次于西尔米冰盖，全部在皮鲁库维特生态保护区，最高点卡拉克皮鲁克峰海拔 2917 米。山不算高，可这里在北纬 80 度以北，雪线比大陆低三百米，宽阔的中段山群几乎整片埋在冰下，只有几座山尖露出冰面。冰原向南北两面伸出十几条山谷冰川，长的一直流进峡湾，冰崖崩落的冰山漂向外海。永昼的夏天里，冰面整日反射着阳光，科考队员要戴两层墨镜才能工作，他们说这里「一天有二十四小时的白天，影子却一直在绕着人转圈」。"
+      en: "The icefield of the central Pirrukrjuit Mountains, about 25,000 km², the second largest glacier in the territory and in the world after the Sirmi Ice Cap, entirely within the Pirrukuviit Nature Reserve, its highest point Mount Kallaaqpirruk at 2,917 m. The mountains are not especially high, but north of 80°N the snowline lies 300 m lower than on the mainland, and the broad central massif is almost entirely buried, only a few summits breaking through the ice. More than a dozen valley glaciers reach out from it to the north and south, the longest running into the fjords, where icebergs calve from the ice cliffs and drift out to sea. In the summer of the midnight sun the ice reflects sunlight all day long and researchers work in two pairs of sunglasses; here, they say, \"the day lasts twenty-four hours and your shadow keeps walking round you\"."
   - id: nat_ncqeq0
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [605.6, 437.6] }
     names: { zh: 贾利西尔米冰川, en: Jaalisirmi Glacier, art-x-tavrunaq: Jaalisirmi }
     notes:
-      zh: "皮鲁克尔尤伊特山脉东段的冰川，面积约 4600 平方公里，最高点贾利皮鲁克峰海拔 3552 米，全部在皮鲁库维特生态保护区。东段终年大风，冰面上的积雪被吹成一道道坚硬的雪垄，像冻住的海浪，雪地车开过去一路颠簸，科考队员说坐一趟比出一次海还晕。"
-      en: "The glacier of the eastern Pirrukrjuit Mountains, about 4,600 km², rising to 3,552 m at Mount Jaalipirruk, entirely within the Pirrukuviit Nature Reserve. The eastern massif is windswept all year and the snow on the ice is carved into hard ridges like frozen waves; snowcats lurch across them, and researchers say one ride is worse for seasickness than a trip to sea."
+      zh: "皮鲁克尔尤伊特山脉东段的冰川，面积约 3400 平方公里，最高点贾利皮鲁克峰海拔 2477 米，全部在皮鲁库维特生态保护区。东段终年大风，冰面上的积雪被吹成一道道坚硬的雪垄，像冻住的海浪，雪地车开过去一路颠簸，科考队员说坐一趟比出一次海还晕。"
+      en: "The glacier of the eastern Pirrukrjuit Mountains, about 3,400 km², rising to 2,477 m at Mount Jaalipirruk, entirely within the Pirrukuviit Nature Reserve. The eastern massif is windswept all year and the snow on the ice is carved into hard ridges like frozen waves; snowcats lurch across them, and researchers say one ride is worse for seasickness than a trip to sea."
   - id: nat_4tndg7
     subtype: glacier
     status: generated
     detect: { kind: glacier, at_km: [454.4, 453.9] }
     names: { zh: 帕卡西尔米冰川, en: Pakkasirmi Glacier, art-x-tavrunaq: Pakkasirmi }
     notes:
-      zh: "皮鲁克尔尤伊特山脉西段的冰川，面积约 1700 平方公里，最高点帕卡皮鲁克峰海拔 3009 米，全部在皮鲁库维特生态保护区。西段的冰川被锯齿般的山脊分成好几条，冰面上布满裂隙，向导带队过冰川时要一人一根绳子连成一串，说这里的冰「看着平，底下全是门」。"
-      en: "The glacier of the western Pirrukrjuit Mountains, about 1,700 km², rising to 3,009 m at Mount Pakkapirruk, entirely within the Pirrukuviit Nature Reserve. The saw-toothed ridges split it into several ice streams riddled with crevasses, and guides crossing it rope their parties together in a single line: the ice here, they say, \"looks flat, but underneath it's all doors\"."
+      zh: "皮鲁克尔尤伊特山脉西段的冰川，面积约 1100 平方公里，最高点帕卡皮鲁克峰海拔 2052 米，全部在皮鲁库维特生态保护区。西段的冰川被锯齿般的山脊分成好几条，冰面上布满裂隙，向导带队过冰川时要一人一根绳子连成一串，说这里的冰「看着平，底下全是门」。"
+      en: "The glacier of the western Pirrukrjuit Mountains, about 1,100 km², rising to 2,052 m at Mount Pakkapirruk, entirely within the Pirrukuviit Nature Reserve. The saw-toothed ridges split it into several ice streams riddled with crevasses, and guides crossing it rope their parties together in a single line: the ice here, they say, \"looks flat, but underneath it's all doors\"."
   - id: nat_jvvfkd
     subtype: glacier
     status: generated

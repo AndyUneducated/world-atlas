@@ -96,7 +96,8 @@ def passes(elev, peak_list, xs, ys, min_elev_m):
 
 
 def glaciers(elev, land, xs, ys, res, real_km_per_cell, snowline_m, aspect_m, max_slope_deg, min_km2):
-    """Ice above a snowline that is lower on north-facing slopes (shaded) and higher on south-facing ones."""
+    """Ice above a snowline that is lower on north-facing slopes (shaded) and higher on south-facing ones.
+    snowline_m: one height, or an array broadcast over the grid (rows, 1) for one that varies north to south."""
     slope, northness = slope_aspect(elev, real_km_per_cell)
     line = snowline_m - aspect_m * northness
     ice = land & (elev >= line) & (slope <= max_slope_deg)
