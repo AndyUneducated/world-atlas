@@ -9,7 +9,8 @@ import type { Entity } from "./types";
  * above the number. A territory may choose another design for its routes (route_shield in its
  * division record): "maritime" is an oval, sea-blue above a wave line, with the route's symbol
  * over the number; "polar" is a hexagon, ice-blue with faint ice crystals above the number;
- * "tropic" is an arch, palm-green with a faint rising sun above the number.
+ * "tropic" is an arch, palm-green with a faint rising sun above the number; "spade" is the
+ * California spade, green under a gold header with the symbol, the number in white.
  */
 const FONT = "'Bahnschrift', 'DIN Alternate', 'Roboto Condensed', 'Segoe UI', Arial, sans-serif";
 const NATIONAL = { plate: "#00753A", header: "#D7261E", edge: "#ffffff", text: "#ffffff" };
@@ -17,6 +18,7 @@ const TERRITORIAL = { crest: "#1D3557", body: "#ffffff", text: "#1D3557" };
 const MARITIME = { sea: "#0B5C99", foam: "#5BB8E8", body: "#ffffff", text: "#0B5C99" };
 const POLAR = { ice: "#2F8FCB", frost: "rgba(255,255,255,0.55)", body: "#ffffff", text: "#1B2F5E" };
 const TROPIC = { leaf: "#13795B", sun: "rgba(242,179,61,0.75)", body: "#ffffff", text: "#0F5A45" };
+const SPADE = { green: "#0A6B3D", gold: "#E8B523", edge: "#ffffff", text: "#ffffff" };
 
 export interface Shield {
   canvas: HTMLCanvasElement;
@@ -277,7 +279,39 @@ function tropic(number: string, glyph: string | undefined, ratio: number): Shiel
   return { canvas: c, width: w, height: h, ratio };
 }
 
-const STYLES = { crest: territorial, maritime, polar, tropic };
+function spade(number: string, glyph: string | undefined, ratio: number): Shield {
+  const font = `700 ${number.length > 2 ? 9.4 : 10.6}px ${FONT}`;
+  const h = 29;
+  const w = Math.max(25, Math.ceil(textWidth(number, font)) + 11);
+  const { c, ctx } = canvas(w, h, ratio);
+  const shape = new Path2D();
+  shape.moveTo(3, 1);
+  shape.lineTo(w - 3, 1);
+  shape.quadraticCurveTo(w - 1, 1, w - 1, 3.5);
+  shape.bezierCurveTo(w - 1, h * 0.62, w * 0.64, h * 0.8, w / 2, h - 1);
+  shape.bezierCurveTo(w * 0.36, h * 0.8, 1, h * 0.62, 1, 3.5);
+  shape.quadraticCurveTo(1, 1, 3, 1);
+  shape.closePath();
+  ctx.fillStyle = SPADE.green;
+  ctx.fill(shape);
+  ctx.save();
+  ctx.clip(shape);
+  ctx.fillStyle = SPADE.gold;
+  ctx.fillRect(0, 0, w, h * 0.42);
+  ctx.restore();
+  ctx.strokeStyle = SPADE.edge;
+  ctx.lineWidth = 1.3;
+  ctx.stroke(shape);
+  if (glyph) drawGlyph(ctx, glyph, w / 2, h * 0.22, h * 0.3, SPADE.green);
+  ctx.fillStyle = SPADE.text;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.font = font;
+  ctx.fillText(number, w / 2, h * 0.6);
+  return { canvas: c, width: w, height: h, ratio };
+}
+
+const STYLES = { crest: territorial, maritime, polar, tropic, spade };
 
 export function drawShield(route: Entity, ratio = 2): Shield | null {
   const p = route.ref ? parseRef(route.ref) : null;

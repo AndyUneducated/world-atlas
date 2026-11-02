@@ -1,0 +1,141 @@
+# Rivers and lakes of the California Autonomous State. Geometry is produced by the generator
+# (see world/generator/us-ca.yaml). Names are Chinese, English and Spanish (es).
+features:
+  - id: nat_ea84va
+    subtype: river
+    status: generated
+    names:
+      zh: 萨克拉钱托河
+      en: Sacramoney River
+      es: Río Sacradinero
+    notes:
+      zh: "自治州北部的大河，发源于级联故障山脉，流经雷达克特市，出山后向南穿过萨克拉钱托河谷，在首府南边与圣囤积河汇成三角洲，流进海湾。河水在上游被大坝拦住发电，在河谷里被引去种稻，在三角洲被抽去南边，剩下的才流进海湾；河上的每一升水都有主人，主人大多不住在河边。"
+      en: "The great river of the north of the state, rising in the Cascading Failure Range, flowing through Redacted City and then south down the Sacramoney valley to join the San Hoarding River in a delta south of the capital and flow into the bay. Upstream its water is dammed for power, in the valley it is diverted for rice and at the delta it is pumped south, and only what is left reaches the bay; every litre in the river has an owner, and most of the owners do not live by it."
+  - id: nat_ezeckp
+    subtype: river
+    status: generated
+    names:
+      zh: 圣囤积河
+      en: San Hoarding River
+      es: Río San Acaparador
+    notes:
+      zh: "中央渴谷南半部的河流，长约 670 公里，是自治州最长的河，发源于中央渴谷南端外的高地，沿谷底一路向北，沿途汇入估值山脉西坡流下的一条条雪水河，流到三角洲与萨克拉钱托河汇合。河名来自谷里的水权：上游的农场和基金把河水一段一段地买下来囤着，旱年时河的中段常常整段干涸，下游的人只能看着河床。"
+      en: "The river of the southern Central Thirsty Valley, about 670 km long and the longest in the state, rising in the uplands beyond the valley's southern end and flowing north along the valley floor, gathering one snow-fed stream after another off the western slopes of the Sierra Valuation, to the delta, where it joins the Sacramoney River. Its name comes from the valley's water rights: farms and funds upstream have bought up the river stretch by stretch and hoard it, and in dry years the middle of the river often runs dry for whole stretches while the people downstream stare at the bed."
+  - id: nat_jjj34z
+    subtype: lake
+    status: generated
+    names:
+      zh: 塔克斯霍湖
+      en: Lake Taxhoe
+      es: Lago Taxhoe
+    notes:
+      zh: "估值山脉北段的高山深湖，湖水清澈见底，四周雪山环绕，湖岸几乎被富人的木屋和私人码头占满。湖名来自湖边的避税传统：木屋登记成农业用地，游艇登记成渔船，湖边的人说这片湖的水是全州唯一不用交税的东西。"
+      en: "A deep mountain lake in the northern Sierra Valuation, clear to the bottom and ringed by snowy peaks, its shores almost entirely taken up by the chalets and private jetties of the rich. Its name comes from the lakeside tradition of tax avoidance, chalets registered as farmland and yachts as fishing boats; people by the lake say its water is the only thing in the state that pays no tax."
+  - id: nat_m7pm6k
+    subtype: lake
+    status: generated
+    names:
+      zh: 清除记录湖
+      en: Clear History Lake
+      es: Lago Borrar Historial
+    notes:
+      zh: "雾帘山脉东边的一个大湖，湖水浅而温暖，夏天长满藻类，湖边有温泉和老火山。湖名来自湖边的温泉旅馆：名人和政客来这里「消失几天」，退房时旅馆会替他们清除所有记录。"
+      en: "A large lake east of the Fogwall Range, shallow and warm, thick with algae in summer, with hot springs and old volcanoes on its shores. The name comes from the lakeside hot-spring hotels where celebrities and politicians come to 'disappear for a few days'; when they check out, the hotel clears every record of their stay."
+  - id: nat_2s269s
+    subtype: lake
+    status: generated
+    names:
+      zh: 苏打饼海
+      en: Saltine Sea
+      es: Mar Salado
+    notes:
+      zh: "东南荒漠里的一个咸水湖，是一次水渠决口灌出来的，没有出口，靠帝国尘谷农田流下的灌溉水维持。湖水越来越咸，鱼一批批死去，湖岸退出几公里，露出白花花的湖床，风一吹满天是咸味的尘土，本地人说它尝起来像苏打饼干。"
+      en: "A salt lake in the south-eastern desert, filled by a canal breach and without an outlet, kept going by the irrigation water draining from the fields of the Imperial Dust valley. Its water grows ever saltier, its fish die off in waves and its shore has retreated several kilometres, baring a white lake bed; when the wind blows the sky fills with salty dust, which locals say tastes like saltine crackers."
+  - id: nat_nc93at
+    subtype: lake
+    status: generated
+    names:
+      zh: 垄断湖
+      en: Monopoly Lake
+      es: Lago Monopolio
+    notes:
+      zh: "估值山脉东麓的一个古老咸水湖，没有出口，湖里立着一根根白色的石灰华柱，湖上的岛是海鸥的繁殖地。湖的取水权被失落天使独家买断，湖面因此一年年下降，石灰华柱越露越高，游客们反而更爱来了。"
+      en: "An ancient salt lake at the eastern foot of the Sierra Valuation, without an outlet, studded with white tufa towers, its islands a nesting ground for gulls. Lost Angeles holds the sole rights to its water, so its surface falls year after year, the tufa towers stand ever taller, and the tourists like it all the more."
+  # ── Rivers found by the generator, named at their mouths ──
+  - id: nat_n225ck
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [349.8, 149.2] }
+    names:
+      zh: 沉没成本河
+      en: Sunk Cost River
+      es: Río Costo Hundido
+    notes:
+      zh: "高原荒漠里的河，长约 390 公里，是自治州第三长的河，发源于荒漠西北角的山地，向东穿过荒漠流入东海岸。河水大半年断流，河床是一条干涸的沙沟，只有暴雨后才突然涨满。一家公司曾沿河修了一条运河，准备把荒漠变成农田，钱花完了一半才发现河里没水，可已经花了那么多，就又把另一半也花完了；那条运河现在是越野车道。"
+      en: "The river of the high desert, about 390 km long and the third longest in the state, rising in the hills at the desert's north-western corner and flowing east across the desert to the east coast. It is dry for most of the year, a sandy wash that fills suddenly only after a storm. A company once built a canal along it to turn the desert into farmland, and found when half the money was spent that there was no water in the river; but having spent so much already, it spent the other half too. The canal is now an off-road track."
+  - id: nat_4hbjtr
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [328.2, 54.2] }
+    names:
+      zh: 透支河
+      en: Overdraft River
+      es: Río Sobregiro
+    notes:
+      zh: "东南荒漠的河，长约 360 公里，是自治州第四长的河，发源于付费墙山脉的订阅峰一带，向东南流过荒漠和帝国尘谷，流入南海岸。帝国尘谷的农场从河里抽水，又从地下抽水，抽得比雨水补回来的多得多，河水一年比一年少，谷底一年比一年低；农场主说这叫「透支」，等下雨就还。"
+      en: "The river of the south-eastern desert, about 360 km long and the fourth longest in the state, rising near Mount Subscription in the Paywall Range and flowing south-east across the desert and the Imperial Dust valley to the south coast. The valley's farms pump water from the river and from the ground, far more than the rain puts back, so the river shrinks and the valley floor sinks year after year; the farmers call it an 'overdraft', to be paid back when it rains."
+  - id: nat_s3z6zt
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [138.8, 419.8] }
+    names:
+      zh: 流量河
+      en: Traffic River
+      es: Río Tráfico
+    notes:
+      zh: "北部山区的河，长约 220 公里，发源于级联故障山脉，穿过深峡谷向北流入北海岸，河里有鲑鱼洄游。河上原有四座水坝，鲑鱼游不上去，后来水坝全拆了，鲑鱼回来了，网红也跟着来了：秋天鲑鱼洄游时，河边站满拍视频的人，比鲑鱼还多。"
+      en: "A river of the northern mountains, about 220 km long, rising in the Cascading Failure Range and flowing north through deep canyons to the north coast, with salmon running up it. It once had four dams that the salmon could not pass; when all four came down the salmon returned, and so did the influencers. In autumn, when the salmon run, the banks are lined with people filming, more of them than there are fish."
+  - id: nat_awj4xs
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [231.8, 98.2] }
+    names:
+      zh: 水泥河
+      en: Concrete River
+      es: Río de Concreto
+    notes:
+      zh: "失落天使盆地的河，长约 160 公里，从边检山脉北端流下，向西穿过盆地流入大海。为了防洪，城市把整条河的河床和两岸都浇上了水泥，河道变成一条又宽又直的水泥槽，一年里大部分时间只有一线细水，常被拿来拍飙车电影。市政府一直说要把河「还原成自然」，规划图画了好几版，水泥一块也没拆。"
+      en: "The river of the Lost Angeles basin, about 160 km long, coming down from the northern end of the Checkpoint Range and flowing west across the basin to the sea. To stop floods, the city poured concrete over the whole riverbed and both banks, turning it into a wide, straight concrete channel with only a trickle in it for most of the year, often used for filming car chases. The city keeps promising to 'return the river to nature'; several versions of the plan have been drawn, and not one slab of concrete has come out."
+  - id: nat_xhbbde
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [60.2, 390.8] }
+    names:
+      zh: 滑头河
+      en: Slippery River
+      es: Río Resbaloso
+    notes:
+      zh: "红木林里的河，长约 140 公里，在陡峭松软的山谷里向西北流，在谦卑湾以北入海。两岸的山坡一下雨就滑，泥沙多得河水常年浑黄，沿河的公路年年被冲断，修路的承包商年年中标；本地人说河滑，承包商更滑。"
+      en: "A river of the redwood country, about 140 km long, flowing north-west through steep, crumbling valleys to the sea north of Humility Bay. Its slopes slide whenever it rains and it carries so much silt that its water is yellow all year; the road along it is washed out every year and the same contractor wins the repair contract every year. Locals say the river is slippery, and the contractor more so."
+  - id: nat_bmg2a3
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [262.8, 228.2] }
+    names:
+      zh: 挪用河
+      en: Diverted River
+      es: Río Desviado
+    notes:
+      zh: "坏账谷的河，长约 140 公里，汇集估值山脉东坡的雪水，沿谷底向北流到东海岸。失落天使很早就买下了谷里的水权，修了一条几百公里长的引水渠，把河水整条「挪用」到城里去，谷里的湖干成了盐碱滩，农场一个个荒废。法院后来判了一部分水要还回来，失落天使还了，按的是法院判决书上的最低值。"
+      en: "The river of Bad Debt Valley, about 140 km long, fed by snowmelt off the eastern slopes of the Sierra Valuation and running north along the valley floor to the east coast. Lost Angeles bought up the valley's water rights long ago and built an aqueduct hundreds of kilometres long to divert the whole river to the city; the valley's lake dried into an alkali flat and its farms were abandoned one by one. A court later ordered part of the water returned, and Lost Angeles returned it, at the lowest figure in the judgment."
+  - id: nat_3w6ah5
+    subtype: river
+    status: generated
+    detect: { kind: river, at_km: [181.8, 377.8] }
+    names:
+      zh: 深坑河
+      en: Pitfall River
+      es: Río Trampa
+    notes:
+      zh: "东北部火山高原上的河，长约 130 公里，从重启峰脚下熔岩台地里的大泉涌出，向东北流入东海岸。河谷两侧到处是熔岩管和塌陷坑，徒步的人一不小心就掉下去；保险公司因此不再承保这一带的房子，房价一落千丈，于是搬来了一大批「数字游民」，他们只要有卫星网络就行。"
+      en: "A river of the volcanic plateau in the north-east, about 130 km long, welling up from great springs in the lava tablelands below Mount Reboot and flowing north-east to the east coast. Its valley sides are riddled with lava tubes and sinkholes that unwary hikers fall into; insurers have stopped covering houses in the area, house prices have collapsed, and so it has drawn a crowd of 'digital nomads', who need nothing but satellite internet."

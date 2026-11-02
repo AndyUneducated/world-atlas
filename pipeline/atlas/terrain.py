@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import numpy as np
+from PIL import Image, ImageDraw
 from scipy import ndimage
 
 from .grid import Grid, polyline_distance, polyline_param
@@ -17,6 +18,11 @@ def land_mask(spec: dict, seed: int, g: Grid, target_km2: float, min_islet_km2=1
         u = (X - cx) * np.cos(a) + (Y - cy) * np.sin(a)
         v = -(X - cx) * np.sin(a) + (Y - cy) * np.cos(a)
         f += w * np.exp(-(((u / rx) ** 2 + (v / ry) ** 2) ** 1.3))
+    for o in land.get("outlines", []):
+        # A drawn coast: weight inside the polygon, falling off over soft_km across its edge
+        inside = polygon_mask(o["path"], g)
+        sd = (ndimage.distance_transform_edt(inside) - ndimage.distance_transform_edt(~inside)) * g.res
+        f += o.get("weight", 1.0) * 0.5 * (1 + np.tanh(sd / o.get("soft_km", 4)))
     cn = land["coast_noise"]
     f += cn["amplitude"] * grid_noise(seed, cn["scale_km"], cn["octaves"], 0.55, g)
     if cn.get("detail_amplitude"):
@@ -47,6 +53,12 @@ def land_mask(spec: dict, seed: int, g: Grid, target_km2: float, min_islet_km2=1
     sizes = ndimage.sum(mask, lab, range(1, n + 1)) * g.cell
     mask &= np.isin(lab, 1 + np.nonzero(sizes >= min_islet_km2)[0])
     return ndimage.binary_fill_holes(mask)
+
+
+def polygon_mask(path, g: Grid) -> np.ndarray:
+    img = Image.new("1", (g.nx, g.ny), 0)
+    ImageDraw.Draw(img).polygon([(x / g.res, y / g.res) for x, y in path], fill=1)
+    return np.array(img, dtype=bool)
 
 
 def elevation(spec: dict, seed: int, g: Grid, land: np.ndarray):

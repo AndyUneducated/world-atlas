@@ -1,0 +1,1328 @@
+# Administrative divisions of the California Autonomous State (US-CA), an autonomous state of the
+# United States on the far side of the planet from the Chinese territories.
+# id: stable internal key, referenced by other files. codes.admin: 6-digit hierarchical code (state
+# 060000, city 060100, district 060101); may change on reorganisation.
+# subtype follows Overture Maps divisions: country > dependency/region > locality > borough.
+# Names are Chinese, English and Spanish (es), the state's two official languages. Apart from
+# "California" and "United States" every name is the atlas's own, many of them jokes.
+divisions:
+- id: div_x2z14w
+  subtype: dependency
+  parent: country:US
+  status: generated
+  names:
+    zh: 加利福尼亚自治州
+    en: California Autonomous State
+    es: Estado Autónomo de California
+  notes:
+    zh: "加利福尼亚自治州是美国在远洋上的自治州，在北纬 32.5° 到 42° 之间，与中国各领地隔着半个星球。主岛南北长约 1200 公里，轮廓照着它得名的那片海岸复刻而成：州议会花了一大笔钱请人工智能「按原样生成」，模型把旧州界也当成了海岸线，于是东边和北边两条笔直的州界成了两段几乎笔直的海岸，岛外还多出一串小岛。陆地约 42 万平方公里，人口 900 万。西边是寒流和海雾里的海岸山脉，中间是长长的中央渴谷，东边是估值山脉，东南是荒漠。居民约三成是欧洲裔，三成拉丁裔，三成非洲裔，其余一成是亚裔和其他族裔；英语和西班牙语都是官方语言，约 65% 的人母语是英语，30% 是西班牙语。全州人均 GDP 约 9 万美元，可这笔钱大多是湾区的机器和十几户人家挣的：人工智能让一大半白领、司机和客服丢了工作，收入中位数低得可怜，失业的人领不到救济，只领到一份「再就业提示词课程」。\n自治州有自己的州长、两院制议会和最高法院，州长直选，选民可以随时联署罢免任何官员，几乎每年都有人被罢免。治安是全州最大的难题：暴力犯罪高得惊人，各市警察局早已分裂成彼此争地盘的「分局」，有自己的颜色、手势和收费表，市民说警察和帮派的区别只在于帮派不开罚单。州移民与海关执法局的人员和预算都超过了教育厅，海边、机场和每条领道上都有它的检查站。州格言「先上线，再道歉」原是湾区一家公司的口号，议会表决时有人提议改成「先道歉，再上线」，没有通过。道路只有领道和市道，没有一条国家高速；修了很多年的高速铁路至今只通了中央渴谷里的一段，起点和终点都不在任何人想去的地方。"
+    en: "The California Autonomous State is an autonomous state of the United States far out in the ocean, between 32.5° and 42° north, half a planet away from the Chinese territories. Its main island runs about 1,200 km from north to south, and its outline is a copy of the coast it is named after: the state legislature paid a great deal for an artificial intelligence to 'generate it exactly as it was', and the model took the old state lines for coastline too, so the two straight borders in the east and north became two almost straight coasts, and a string of small islands appeared offshore. It has some 420,000 km² of land and 9 million people. In the west are coast ranges in a cold current and sea fog, down the middle runs the long Central Thirsty Valley, in the east rises the Sierra Valuation and in the south-east lies desert. About three in ten people are of European descent, three in ten Latino and three in ten of African descent, and the remaining tenth Asian and others; English and Spanish are both official languages, and about 65% speak English as their first language and 30% Spanish. GDP per head is about $90,000, but most of it is earned by the Bay Area's machines and a dozen or so families: artificial intelligence has put more than half the office workers, drivers and call-centre staff out of work, median income is pitifully low, and the jobless get no benefits, only a 'Prompting for Re-employment' course.\nThe state has its own governor, a two-chamber legislature and a supreme court; the governor is directly elected, and voters can petition to recall any official at any time, which they do nearly every year. Public safety is the state's greatest problem: violent crime is shockingly high, and the city police departments have long since split into 'divisions' that fight over turf, with their own colours, hand signs and price lists; people say the only difference between the police and the gangs is that the gangs don't write tickets. The State Immigration and Customs Enforcement Agency has more staff and a bigger budget than the education department, with checkpoints on the coasts, at the airports and on every state road. The state motto, 'Ship First, Apologize Later', began as a Bay Area company's slogan; when the legislature voted on it, a member moved to change it to 'Apologize First, Ship Later', and lost. There are only state roads and city roads, not one national expressway, and the high-speed railway under construction for many years runs along a single stretch of the Central Thirsty Valley, starting and ending where nobody wants to go."
+  short_names:
+    zh: 加州
+    en: California
+  codes:
+    iso3166_1:
+      alpha2: CA
+      alpha3: CAS
+      numeric: '905'
+    iso3166_2: US-CA
+    admin: '060000'
+  motto:
+    zh: 先上线，再道歉
+    en: Ship First, Apologize Later
+  capital: div_91r9b3
+  route_shield: spade
+  operators:
+    expressway: { zh: 加州收费道路特许经营公司, en: California Toll Road Concessions Inc. }
+    highway: { zh: 加州领道局, en: California State Roads Department }
+    rail: { zh: 加州高速铁路管理局（建设中）, en: California High-Speed Rail Authority (Under Construction) }
+  flag: california
+  flag_notes:
+    zh: "白底，下方一道红条，左上角一颗红星，正中一头棕熊走在一小片绿地上，熊身上布满金色的电路走线。旧熊旗的熊在重新设计时交给人工智能重画，第一稿的熊有六条腿，议会照样表决通过，后来又发起罢免，才改回四条腿；电路走线是作为妥协留下来的，州政府的解释是「熊代表自然，电路代表未来，红星代表我们还没想好的东西」。"
+    en: "White over a red stripe, with a red star in the canton and a brown bear walking on a patch of green in the middle, its body laced with gold circuit traces. When the old bear flag was redesigned, the bear was handed to an artificial intelligence to redraw; its first draft had six legs, the legislature approved it anyway, and only a recall campaign brought it back to four. The circuit traces stayed as a compromise; the state government explains that 'the bear stands for nature, the circuits for the future, and the star for whatever we haven't decided yet'."
+  climate_notes:
+    zh: "加利福尼亚自治州是地中海气候：冬天多雨，夏天几乎滴雨不下，雨水集中在十一月到三月。离岸的寒流让海边终年凉爽，夏天的下午海雾涌进海湾，贝叶斯七月白天约 24 度，一月 16 度；翻过海岸山脉，中央渴谷的夏天又干又热，首府萨克拉钱托七月白天 34 度，往南的阿尔蒙多 37 度。南海岸的失落天使和圣遣返冬暖夏不炎，一月白天 19 到 20 度，七月 29 到 30 度，一年雨水只有 330 毫米左右。估值山脉的东边和东南是荒漠：帕姆斯普林克勒七月白天 43 度，一年降水不到 150 毫米，帝国尘区不到 100 毫米，是全州最干的地方。北部海岸迎着西风，雨水最多，欧福利亚一年 1250 毫米，夏天白天也只有 22 度，红木林常年泡在雾里。山上冬天积雪，塔克斯霍湖边的木屋区一月夜里约零下 2 度。"
+    en: "The California Autonomous State has a Mediterranean climate: rainy winters and summers with almost no rain at all, the rain falling mostly from November to March. The cold current offshore keeps the coast cool all year, and on summer afternoons sea fog pours into the bay: Bayesian averages 24 °C by day in July and 16 °C in January. Over the coast ranges the summer in the Central Thirsty Valley is hot and dry, 34 °C by day in July in the capital Sacramoney and 37 °C in Almondo farther south. On the south coast, Lost Angeles and San Deportation have mild winters and warm rather than hot summers, 19 to 20 °C by day in January and 29 to 30 °C in July, with only about 330 mm of rain a year. East and south-east of the Sierra Valuation lies desert: Palm Sprinklers reaches 43 °C by day in July with under 150 mm of rain a year, and Imperial Dust District, the driest place in the state, under 100 mm. The north coast faces the westerlies and gets the most rain, Euphoria 1,250 mm a year and only 22 °C by day even in summer, its redwoods soaking in fog all year. The mountains are snowy in winter, and Chalet District by Lake Taxhoe drops to about −2 °C on January nights."
+  traits: { industries: [ai, entertainment, agriculture, logistics] }
+
+# ── 萨克拉钱托市（首府）──
+- id: div_91r9b3
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 萨克拉钱托市
+    en: Sacramoney City
+    es: Sacradinero
+  notes:
+    zh: "自治州首府，在中央渴谷北段、萨克拉钱托河与圣囤积河交汇的三角洲北岸，全市 65 万人。州议会大厦的金色穹顶在游说区正中，周围几条街上挤满了游说公司、律师事务所和政治筹款餐厅，议员们说在这里吃一顿早餐比竞选还贵。城市向东一路蔓延到估值山脉山脚，蔓延维尔区的独栋住宅一模一样排出几十公里；北边的堤坝区是稻田、果园和防洪堤，东边的木屋区一直伸进山里，包括塔克斯霍湖和湖边富人的滑雪木屋。\n萨克拉钱托人爱自嘲「首府是个大镇子」：州长、议员和他们的幕僚在这里工作，周末却都回失落天使或湾区的家，平日的城里只剩下公务员、游说者和送餐机器人。夏天又干又热，整条河谷几个月滴雨不下；冬天浓雾从三角洲漫上来，有时一连几天看不见议会大厦的穹顶，游说者说那是全年唯一看不清政府在干什么的日子。州长官邸被游说公司包下来做了会所，现任州长住在一辆停在议会停车场里的房车上，以示亲民。"
+    en: "The state capital, at the northern end of the Central Thirsty Valley on the north bank of the delta where the Sacramoney and San Hoarding rivers meet, with 650,000 people. The gold dome of the State Capitol stands in the middle of Lobbyton District, and the streets around it are packed with lobbying firms, law offices and political fundraising restaurants; legislators say breakfast here costs more than a campaign. The city sprawls east to the foot of the Sierra Valuation, where the identical houses of Sprawlville run on for dozens of kilometres; to the north the Levee District is rice fields, orchards and flood banks, and the Chalet District to the east reaches far into the mountains, taking in Lake Taxhoe and the ski chalets of the rich on its shore.\nSacramoney people like to call their capital 'a big town': the governor, the legislators and their staff work here but go home to Lost Angeles or the Bay Area at weekends, leaving the city on weekdays to civil servants, lobbyists and delivery robots. Summers are hot and dry, without a drop of rain in the valley for months; in winter thick fog rolls up from the delta and sometimes hides the Capitol dome for days, which lobbyists call the only days of the year when you can't see what the government is doing. The governor's mansion has been leased to a lobbying firm as a club, and the present governor lives in a camper van parked in the Capitol car park to show he is a man of the people."
+  codes:
+    admin: '060100'
+    unlocode: US SCM
+  population: 650000
+  area_km2: 30000.0
+  color: '#2B4C7E'
+  flag: { layout: seal, colors: ['#1F3A68', '#E8B523', '#1F3A68', '#F5EFE0'], charge: tower, charge_color: '#1F3A68', legend: es }
+  flag_notes:
+    zh: "深蓝底正中一枚金色圆印，印环上用西班牙语和英语写着城名，象牙色印心里是一座深蓝色的穹顶塔楼。塔楼是州议会大厦，金色是穹顶的颜色；市议会曾提议在印环上加一行赞助商名单，因为字太小印不下才作罢。"
+    en: "A gold round seal on dark blue, its ring bearing the city's name in Spanish and English and its ivory centre a dark blue domed tower. The tower is the State Capitol and the gold is its dome; the city council once proposed adding a line of sponsors to the ring, and dropped it only because the letters would have been too small to print."
+  traits: { industries: [government, commerce, agriculture], heritage: ca_mixed, age: balanced, income: 0.95 }
+- id: div_ymeec8
+  subtype: borough
+  parent: div_91r9b3
+  status: generated
+  names:
+    zh: 游说区
+    en: Lobbyton District
+    es: Cabildeo
+  notes:
+    zh: 首府的中心，州议会大厦、州长办公室和各厅局都在这里。议会大厦四周的街区几乎全是游说公司、律师事务所和筹款餐厅，门牌上写的不是公司名而是代表的行业：「石油」「杏仁」「人工智能」「监狱」。区里的公园叫宪法公园，草坪上常年搭着请愿者的帐篷。
+    en: "The heart of the capital, home to the State Capitol, the governor's office and the state departments. The blocks round the Capitol are almost all lobbying firms, law offices and fundraising restaurants, their doorplates naming not a company but the industry they speak for: 'Oil', 'Almonds', 'Artificial Intelligence', 'Prisons'. The district's park is Constitution Park, its lawns covered all year with petitioners' tents."
+  codes:
+    admin: '060101'
+  population: 330000
+  area_km2: 180.0
+  traits: { industries: [government, commerce, finance] }
+- id: div_0aep50
+  subtype: borough
+  parent: div_91r9b3
+  status: generated
+  names:
+    zh: 蔓延维尔区
+    en: Sprawlville District
+    es: Villa Expansión
+  notes:
+    zh: 首府东边一望无际的郊区，同一张图纸盖出的独栋住宅沿着弯弯曲曲的尽头路排开，每家门前一块草坪、车库里两辆车。区里没有人行道，也没有市中心，最热闹的地方是一座购物中心的停车场。大多数居民是在游说区上班的公务员和被裁员后在家「做自媒体」的前白领。
+    en: The endless suburbs east of the capital, where houses built from the same set of plans line winding cul-de-sacs, each with a lawn in front and two cars in the garage. There are no pavements and no town centre; the liveliest place is a shopping-mall car park. Most residents are civil servants who work in Lobbyton and laid-off office workers who now 'make content' at home.
+  codes:
+    admin: '060102'
+  population: 200000
+  area_km2: 1820.0
+  traits: { industries: [residential, retail, gig] }
+- id: div_3r66dn
+  subtype: borough
+  parent: div_91r9b3
+  status: generated
+  names:
+    zh: 堤坝区
+    en: Levee District
+    es: Diques
+  notes:
+    zh: 首府以北萨克拉钱托河谷的大片农区，稻田、核桃园和李子园之间是一道道防洪堤。冬天河水上涨时堤坝区的人轮流上堤巡查，夏天河谷干热，水全靠上游水库放下来；水权在拍卖会上一年一卖，买得起水的是湾区的基金，种地的人只能租水。
+    en: The farmlands of the Sacramoney valley north of the capital, rice fields, walnut and plum orchards divided by flood banks. When the river rises in winter, people take turns patrolling the levees; summers are dry and hot, and the water comes from the reservoirs upstream. Water rights are auctioned every year, and the buyers who can afford them are Bay Area funds; the farmers can only rent the water back.
+  codes:
+    admin: '060103'
+  population: 100000
+  area_km2: 24000.0
+  traits: { industries: [agriculture, food, logistics], heritage: ca_latino }
+- id: div_w1h5d7
+  subtype: borough
+  parent: div_91r9b3
+  status: generated
+  names:
+    zh: 木屋区
+    en: Chalet District
+    es: Chalés
+  notes:
+    zh: 首府东边伸进估值山脉的山区，塔克斯霍湖在区的东端，湖水清澈见底，湖岸几乎被富人的滑雪木屋和私人码头占满。湖名来自湖边的避税传统：木屋登记成「农业用地」，屋里的酒窖登记成「水利设施」。冬天雪道开放，山路上堵满了从湾区来的自动驾驶越野车。
+    en: "The mountains east of the capital, reaching into the Sierra Valuation, with Lake Taxhoe at the eastern end, its water clear to the bottom and its shores almost entirely taken up by the ski chalets and private jetties of the rich. The lake owes its name to a local tradition of tax avoidance: the chalets are registered as farmland and their wine cellars as water works. In winter the ski runs open and the mountain roads jam with self-driving SUVs from the Bay Area."
+  codes:
+    admin: '060104'
+  population: 20000
+  area_km2: 4000.0
+  traits: { industries: [ski, tourism, luxury], heritage: ca_anglo, income: 1.8 }
+
+# ── 失落天使市（最大城市）──
+- id: div_w1vh1a
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 失落天使市
+    en: Lost Angeles City
+    es: Los Ángeles Perdidos
+  notes:
+    zh: "自治州最大的城市，在南海岸付费墙山脉和大海之间的盆地里，全市 310 万人，八个区连成一片几百平方公里的城区，被十几条领道切成碎块。好莱怪区是影视业的老家，如今片场里的演员、编剧和群众演员大多换成了人工智能生成的数字人，真人演员要付钱才能在片尾字幕里出现；破产中心区的写字楼一半空着，楼下的人行道上是帐篷城。马里买区和比佛利账单区是海边和山上的豪宅，烟雾谷区、网约谷区和搁浅滩区住着城里大多数人：仓库工人、零工、被机器人出租车抢了饭碗的司机和搁浅在港外的货轮上的船员。\n失落天使人说这座城市只有两个季节：「烟雾季」和「山火季」。全市的警察局分裂成十几个各管一片的「分局」，每个分局有自己的颜色和徽章纹身，晚上收保护费，白天开罚单，市民遇到抢劫先要弄清楚抢劫的是警察还是帮派，好决定打哪个电话投诉。堵车是这里的宗教：上下班高峰时最快的交通工具是步行，第二快是直升机，城里有三百多个楼顶停机坪，大多属于不到两百个人。"
+    en: "The state's largest city, in the basin between the Paywall Range and the sea on the south coast, with 3.1 million people; its eight districts run together into hundreds of square kilometres of city, chopped into pieces by a dozen state roads. Hollyweird District is the old home of the film business, where most of the actors, writers and extras on the sets have been replaced by AI-generated digital people, and human actors pay to appear in the end credits; half the office towers of Downturn District stand empty, with a tent city on the pavements below. Malibuy and Beverly Bills are mansions by the sea and in the hills, while Smogdale, Rideshare Valley and Long Beached house most of the city's people: warehouse workers, gig workers, drivers whose living was taken by robotaxis, and the crews of cargo ships stranded outside the port.\nLost Angeles people say their city has only two seasons, smog season and fire season. The police department has split into more than a dozen 'divisions', each running its own patch with its own colours and badge tattoos, collecting protection money by night and writing tickets by day; when people are robbed they first have to work out whether it was the police or a gang, so as to know which number to call to complain. Traffic is the local religion: at rush hour the fastest way to get around is on foot and the second fastest by helicopter, and the city has more than three hundred rooftop helipads, most of them belonging to fewer than two hundred people."
+  codes:
+    admin: '060200'
+    unlocode: US LXA
+  population: 3100000
+  area_km2: 11000.0
+  color: '#B5452B'
+  flag: { layout: banner, colors: ['#3B1F5E', '#F2A33A'], division: pile, charge: clapper, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "紫色旗面上一道橙色的尖角从底边升起，像日落时的山峰，正中一块白色的电影场记板。紫色和橙色是盆地里烟雾中的晚霞；场记板代表好莱怪区，如今场记板上写的「第几镜」由人工智能自动填写，城旗是全城少数还由真人设计的东西。"
+    en: "An orange point rising from the foot of a purple field like a peak at sunset, with a white film clapperboard in the middle. The purple and orange are the sunsets through the basin's smog, and the clapperboard stands for Hollyweird; the scene numbers on clapperboards are now filled in by artificial intelligence, and the city flag is one of the few things in the city still designed by a human."
+  traits: { industries: [entertainment, logistics, port, gig], heritage: ca_mixed, age: balanced, income: 0.8 }
+- id: div_jqddbd
+  subtype: borough
+  parent: div_w1vh1a
+  status: generated
+  names:
+    zh: 破产中心区
+    en: Downturn District
+    es: Centro Quiebra
+  notes:
+    zh: 失落天使的老市中心，摩天楼、市政厅和几座老剧院都在这里。白领被人工智能取代后，写字楼的空置率过了一半，大楼改成了数据机房和自动仓库，楼下的人行道上是绵延十几个街区的帐篷城。市政厅门前的喷泉每天中午准时开放，据说是为了让帐篷城的人有地方洗脸。
+    en: The old centre of Lost Angeles, with the skyscrapers, City Hall and several old theatres. Since office workers were replaced by artificial intelligence more than half the office space has stood empty, and towers have become server rooms and automated warehouses, while the pavements below are a tent city a dozen blocks long. The fountain in front of City Hall comes on punctually every day at noon, so it is said, to give the people of the tent city somewhere to wash.
+  codes:
+    admin: '060201'
+  population: 220000
+  area_km2: 60.0
+  traits: { industries: [finance, government, datacenter] }
+- id: div_16m2n3
+  subtype: borough
+  parent: div_w1vh1a
+  status: generated
+  names:
+    zh: 好莱怪区
+    en: Hollyweird District
+    es: Hollyraro
+  notes:
+    zh: 影视业的老家，山坡上一排巨大的白色字母写着区名，其中一个字母被一家流媒体公司买下冠名。片场仍然很忙，只是摄影棚里多数是绿幕和服务器，演员的脸和声音按次授权给人工智能；街上排队试镜的人比从前更多，因为现在要试镜的是「被扫描」的资格。星光大道的地砖改成了二维码，扫一下能看到明星生前和死后的作品。
+    en: The old home of the film business, its name spelt out in huge white letters on the hillside, one of which has been bought by a streaming company for naming rights. The studios are still busy, but most of the sound stages hold green screens and servers, and actors license their faces and voices to artificial intelligence by the use. The queues for auditions on the street are longer than ever, because what people now audition for is the right to be scanned. The stars on the Walk of Fame have become QR codes that show a star's work from before and after death.
+  codes:
+    admin: '060202'
+  population: 280000
+  area_km2: 120.0
+  traits: { industries: [entertainment, media, tourism] }
+- id: div_5sjc4x
+  subtype: borough
+  parent: div_w1vh1a
+  status: generated
+  names:
+    zh: 比佛利账单区
+    en: Beverly Bills District
+    es: Beverly Facturas
+  notes:
+    zh: 盆地西侧山脚下的富人区，棕榈大道两边是带围墙的豪宅、私人诊所和名牌店。区里的私人保安比警察多三倍，每家门口立着两块牌子：一块写保安公司，一块写「本宅已购买警察分局保护套餐」。区名来自一句本地俗语：「来比佛利不用带钱，账单会找上你」。
+    en: "The rich quarter at the foot of the hills on the west side of the basin, its palm-lined avenues lined with walled mansions, private clinics and designer shops. Private guards outnumber the police three to one, and every gate carries two signs, one naming the security firm and one reading 'This property has purchased the police division protection package'. The name comes from a local saying: 'You don't need money in Beverly; the bills will find you.'"
+  codes:
+    admin: '060203'
+  population: 60000
+  area_km2: 80.0
+  traits: { industries: [luxury, security, entertainment], heritage: ca_anglo, income: 4.5 }
+- id: div_4y0zrw
+  subtype: borough
+  parent: div_w1vh1a
+  status: generated
+  names:
+    zh: 马里买区
+    en: Malibuy District
+    es: Malicompra
+  notes:
+    zh: 失落天使西边几十公里长的海岸，豪宅一栋挨一栋排在海滩上，背后的山坡是常常着火的灌木丛。海滩在法律上是公共的，可通往海滩的每条路都被私宅挡住，公众只能从海上游过去；豪宅主人为此雇了人工智能律师，每年起诉几千名「非法晒太阳者」。山火季时私人消防队只救买了套餐的房子。
+    en: Dozens of kilometres of coast west of Lost Angeles, mansions lined up one after another along the beach, with hills of brush behind that often catch fire. The beach is public by law, but every way down to it is blocked by private houses and the public can only reach it by swimming in from the sea; the owners retain AI lawyers who sue thousands of 'unlawful sunbathers' a year. In fire season the private fire brigades save only the houses that bought the package.
+  codes:
+    admin: '060204'
+  population: 25000
+  area_km2: 450.0
+  traits: { industries: [luxury, entertainment, security], heritage: ca_anglo, income: 5.0 }
+- id: div_rwfcw9
+  subtype: borough
+  parent: div_w1vh1a
+  status: generated
+  names:
+    zh: 烟雾谷区
+    en: Smogdale District
+    es: Valle del Smog
+  notes:
+    zh: 盆地南部人口最多的工人区，平房、仓库和货运场被三条领道的立交桥切开。夏天的烟雾在盆地里散不出去，空气质量提醒一年有两百多天是橙色；附近的工厂换成机器人后，区里的人大多在仓库、外卖和家政平台上打零工。这里是两个警察分局的交界，两边的警车有时在路口对峙一整夜。
+    en: The most populous working-class district, in the south of the basin, its bungalows, warehouses and freight yards cut up by the interchanges of three state roads. In summer the smog cannot escape the basin, and the air quality alert is orange on more than two hundred days a year; since the nearby factories switched to robots, most people work gig shifts in warehouses and on delivery and cleaning apps. It lies where two police divisions meet, and their patrol cars sometimes face each other down at a crossroads all night.
+  codes:
+    admin: '060205'
+  population: 900000
+  area_km2: 350.0
+  traits: { industries: [logistics, gig, manufacturing], heritage: ca_latino, age: young, income: 0.55 }
+- id: div_3rwj4m
+  subtype: borough
+  parent: div_w1vh1a
+  status: generated
+  names:
+    zh: 搁浅滩区
+    en: Long Beached District
+    es: Playa Varada
+  notes:
+    zh: 失落天使的港区，集装箱码头已经全部无人化，起重机和集卡由同一个人工智能调度。码头工人被裁掉之后组织了长达数年的罢工，调度系统也跟着「罢工」了一次——它算出等罢工结束最划算，于是几十艘货轮至今还搁在港外排队，船员在甲板上种菜。海滩上有一艘老邮轮改成的旅馆。
+    en: The port district of Lost Angeles, where the container terminals are fully automated and the cranes and trucks answer to a single artificial intelligence. When the dock workers it replaced went on a strike that lasted years, the dispatch system 'struck' too, having calculated that waiting the strike out was cheapest, and dozens of cargo ships are still queuing off the port, their crews growing vegetables on deck. An old cruise liner on the beach has become a hotel.
+  codes:
+    admin: '060206'
+  population: 520000
+  area_km2: 250.0
+  traits: { industries: [port, logistics, robotics], heritage: ca_mixed, income: 0.7 }
+- id: div_7jac05
+  subtype: borough
+  parent: div_w1vh1a
+  status: generated
+  names:
+    zh: 网约谷区
+    en: Rideshare Valley District
+    es: Valle del Viaje Compartido
+  notes:
+    zh: 付费墙山脉北边一大片平坦的谷地郊区，从前是网约车司机最多的地方。机器人出租车上路以后，司机们失去了工作，却还住在车里：谷里每个大型停车场晚上都停满了住人的旧车，车顶上晾着衣服。机器人出租车白天空着在街上兜圈，等着接从来不出门的人。
+    en: "A wide, flat valley of suburbs north of the Paywall Range, once home to more rideshare drivers than anywhere else. Since the robotaxis took to the roads the drivers have lost their jobs but still live in their cars: every big car park in the valley fills at night with old cars that people sleep in, washing drying on the roofs. By day the robotaxis cruise the streets empty, waiting to pick up people who never go out."
+  codes:
+    admin: '060207'
+  population: 800000
+  area_km2: 900.0
+  traits: { industries: [gig, residential, retail], heritage: ca_latino, income: 0.6 }
+- id: div_jtjexr
+  subtype: borough
+  parent: div_w1vh1a
+  status: generated
+  names:
+    zh: 天使冠区
+    en: Angel Crest District
+    es: Cresta de los Ángeles
+  notes:
+    zh: 失落天使北部的付费墙山脉和山后的高原荒漠，面积占全市八成。山上是国家森林和天文台，山后的荒漠里散布着航空航天测试场、监狱和一座座新建的「低价郊区」，从那里开车进城单程要三个小时。每年山火季，大火常从这里烧起，烟一直飘到海边。
+    en: The Paywall Range north of Lost Angeles and the high desert behind it, eight-tenths of the city's area. The mountains hold national forest and an observatory; out in the desert behind them lie aerospace test ranges, prisons and newly built 'affordable suburbs', three hours' drive each way from the city. Every fire season, wildfires often start here and their smoke drifts all the way to the sea.
+  codes:
+    admin: '060208'
+  population: 295000
+  area_km2: 8790.0
+  traits: { industries: [aerospace, residential, conservation], income: 0.75 }
+
+# ── 贝叶斯市（湾区）──
+- id: div_35n7cb
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 贝叶斯市
+    en: Bayesian City
+    es: Bayesiana
+  notes:
+    zh: "围着大海湾的城市，全市只有 4.5 万人，却有近三百万台机器人，人均 GDP 高得离谱。这里曾经是全州人口最多的地方，后来几家人工智能公司让湾区的工作几乎全部自动化，人们一个街区一个街区地搬走，留下的房子由机器人打扫、修剪草坪、按时开灯关灯，好让卫星照片看起来还有人住。先验区是半岛北端的老城，后验区是对岸关了灯的无人工厂，似然谷区是数据中心和人工智能公司总部，边际区是三角洲边上一片片冷却池和太阳能板。海湾里有一座数据中心岛和一座拘留岛。\n贝叶斯人自称「最后的样本」：留下来的多是维修工程师、不肯搬走的老人和守着房子等房价回升的业主。街上跑的几乎全是空着的机器人出租车，它们按算法预测的需求在城里兜圈，从来没有乘客，却从不停下来，因为停下来会让需求预测失效。市政府只有十几名人类雇员，市长由一个人工智能「辅佐」，市议会的会议纪要比开会的人还多。海雾每天下午从湾口涌进来，盖住半个城市，数据中心的冷却塔吐出的白汽和雾混在一起，本地人分不清哪是天气，哪是算力。"
+    en: "The city round the great bay has only 45,000 people but nearly three million robots, and an absurdly high GDP per head. It was once the most populous part of the state; then a handful of AI companies automated almost every job in the Bay Area, people moved away block by block, and the houses they left are cleaned, mown and lit on a timer by robots so that the satellite pictures still look lived in. Prior District is the old city at the tip of the peninsula, Posterior the lights-out factories across the water, Likelihood Valley the data centres and AI company headquarters, and Marginal the cooling ponds and solar panels on the edge of the delta. In the bay lie a data-centre island and a detention island.\nBayesians call themselves 'the last sample': those who stayed are mostly maintenance engineers, old people who refused to leave and owners waiting for house prices to recover. The streets are full of empty robotaxis circling the city on predicted demand; they never have passengers but never stop, since stopping would invalidate the demand forecast. The city government has a dozen human employees, the mayor is 'assisted' by an artificial intelligence, and the council produces more minutes than it has members. Every afternoon sea fog pours in through the mouth of the bay and covers half the city, mingling with the white plumes of the data centres' cooling towers, so that locals can no longer tell which is weather and which is compute."
+  codes:
+    admin: '060300'
+    unlocode: US BYS
+  population: 45000
+  area_km2: 13200.0
+  color: '#3A6EA5'
+  flag: { layout: bands, colors: ['#0F172A', '#38BDF8', '#0F172A'], ratio: [3, 1, 3], charge: robot, charge_color: '#E2E8F0', outline: '#0F172A' }
+  flag_notes:
+    zh: "深蓝、天蓝、深蓝三道横条，正中一个白色的机器人头。天蓝条是海湾，深蓝是夜里关了灯的城市；城旗由市政府的人工智能在几万个方案里挑出，理由是这一面「在所有测试人群中引起的反感最少」，测试人群也是人工智能。"
+    en: "Dark blue, sky blue and dark blue in horizontal bands, with a white robot's head in the middle. The sky blue is the bay and the dark blue the city at night with its lights out; the city government's artificial intelligence chose this flag from tens of thousands of proposals because it 'caused the least dislike among all test audiences', the test audiences being artificial intelligences too."
+  traits: { industries: [ai, datacenter, robotics, tech], heritage: ca_global, age: old, income: 6.0 }
+- id: div_0vf1b0
+  subtype: borough
+  parent: div_35n7cb
+  status: generated
+  names:
+    zh: 先验区
+    en: Prior District
+    es: A Priori
+  notes:
+    zh: 海湾半岛北端的老城，坡道很陡，老缆车还在开，只是司机换成了机器人。维多利亚式的彩色木屋大多空着，由机器人维持原样，游客可以付费进去参观「曾经有人住过的样子」。湾口外的三座雾礁小岛归本区管理，海湾里的遣返岛也在区内。
+    en: The old city at the northern tip of the bay peninsula, its streets steep and its old cable cars still running, now driven by robots. Most of the painted wooden houses stand empty, kept just as they were by robots, and visitors can pay to see 'what it looked like when people lived here'. The three Fog Rocks outside the mouth of the bay and the detention island in the bay belong to the district.
+  codes:
+    admin: '060301'
+  population: 18000
+  area_km2: 300.0
+  traits: { industries: [ai, tourism, enforcement] }
+- id: div_9tazhz
+  subtype: borough
+  parent: div_35n7cb
+  status: generated
+  names:
+    zh: 后验区
+    en: Posterior District
+    es: A Posteriori
+  notes:
+    zh: 海湾东岸的老工业区和港口，如今是一排排「关灯工厂」：车间里没有人也就不需要灯，夜里整个区漆黑一片，只有机器人的指示灯在动。老街区里还住着一些人，主要是工厂的维修工和不肯搬走的老居民，他们晚上在门口点蜡烛，说要让城市「看起来像有人」。
+    en: "The old industrial district and port on the east shore of the bay, now row upon row of 'lights-out factories': with no people in the workshops there is no need for light, and at night the whole district is dark except for the moving status lights of the robots. Some people still live in the old neighbourhoods, mostly factory maintenance staff and old residents who refused to leave, and at night they light candles on their doorsteps so that the city 'looks inhabited'."
+  codes:
+    admin: '060302'
+  population: 15000
+  area_km2: 1900.0
+  traits: { industries: [robotics, manufacturing, port] }
+- id: div_zjfaw0
+  subtype: borough
+  parent: div_35n7cb
+  status: generated
+  names:
+    zh: 似然谷区
+    en: Likelihood Valley District
+    es: Valle de la Verosimilitud
+  notes:
+    zh: 海湾南端的谷地，几家人工智能公司和芯片公司的总部都在这里，园区之间是一座接一座的数据中心。园区里的草坪由机器人修剪，咖啡馆由机器人经营，偶尔出现一个人类员工，其他人会围过来拍照。海湾南部的数据中心岛也归本区，岛上的机房用海水冷却。
+    en: The valley at the southern end of the bay, home to the headquarters of several AI and chip companies with data centre after data centre between their campuses. The campus lawns are mown and the cafés run by robots, and when a human employee occasionally appears, the others gather round to take pictures. The data-centre island in the south of the bay belongs to the district, its server halls cooled by seawater.
+  codes:
+    admin: '060303'
+  population: 10000
+  area_km2: 4000.0
+  traits: { industries: [ai, datacenter, semiconductor], income: 9.0 }
+- id: div_5anpaj
+  subtype: borough
+  parent: div_35n7cb
+  status: generated
+  names:
+    zh: 边际区
+    en: Marginal District
+    es: Marginal
+  notes:
+    zh: 海湾以东到三角洲边缘的丘陵和低地，几乎没有人住，地上铺满太阳能板和风机，低处挖出四十多个方方正正的冷却池给数据中心降温。冷却池的水是从农民那里买来的，池边立着牌子：「此水已用于训练，请勿饮用」。调试山脉的北段在区的南部。
+    en: The hills and lowlands from the east of the bay to the edge of the delta, almost uninhabited, the ground covered in solar panels and wind turbines and the low ground dug into more than forty square cooling ponds for the data centres. The water in them was bought from farmers, and signs at the ponds read 'This water has been used for training. Do not drink.' The northern end of the Debugger Range lies in the south of the district.
+  codes:
+    admin: '060304'
+  population: 2000
+  area_km2: 7000.0
+  traits: { industries: [datacenter, wind, agriculture] }
+
+# ── 比尔斯伯勒市（富豪城）──
+- id: div_dwdr6m
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 比尔斯伯勒市
+    en: Billsborough City
+    es: Villabilletes
+  notes:
+    zh: "海湾半岛南部山间的富豪城，全市 9 万人，其中真正的居民只有几百户，其余是住在员工宿舍里的厨师、园丁、保镖、司机、私人医生和直升机驾驶员。这座城是几十位科技寡头为了不归贝叶斯市管、不交贝叶斯市的税而联名设立的，市议会的七个席位由各家的家族办公室轮流指派，市长每年抽签产生，没有抽中的人可以买下抽中者的任期。门禁高地区是平地上的庄园群，护城河山区是山里更大的庄园、私人森林和直通海边的私人道路。\n比尔斯伯勒没有公交、没有人行道、没有路灯，也没有一家公共商店：公共的东西会招来外人。每座庄园都有自己的围墙、保安队和地下避难所，几家人的庄园之间还修了私人隧道，方便晚宴时不必经过公共道路。市里唯一的公共设施是一座市政厅，市政厅也只在有人预约时开门。"
+    en: "A city of the very rich in the hills of the southern bay peninsula, with 90,000 people, of whom only a few hundred households are true residents; the rest are cooks, gardeners, bodyguards, drivers, private doctors and helicopter pilots living in staff dormitories. A few dozen tech oligarchs jointly founded the city so as not to be governed or taxed by Bayesian City; its seven council seats are filled in turn by the families' private offices, and the mayor is drawn by lot every year, though anyone not drawn may buy the winner's term. Gated Heights District is the estates on the flat land, Moat Hills the still larger estates, private forests and private roads to the sea in the hills.\nBillsborough has no buses, no pavements, no street lights and not a single public shop: public things attract outsiders. Every estate has its own walls, guard force and underground shelter, and several families have dug private tunnels between their estates so as not to use the public road on the way to dinner. The city's only public building is its city hall, and that opens only by appointment."
+  codes:
+    admin: '060400'
+  population: 90000
+  area_km2: 1800.0
+  color: '#0B3D2E'
+  flag: { layout: banner, colors: ['#0B3D2E', '#D4AF37'], division: bordure, charge: key, charge_color: '#D4AF37' }
+  flag_notes:
+    zh: "墨绿旗面围着一道金边，正中一把金钥匙。绿色是钞票，金边是围墙，钥匙是每座庄园大门的钥匙；城旗的原件锁在市政厅的保险库里，挂在外面的都是复制品，复制品也编了号。"
+    en: "A dark green field within a gold border, with a gold key in the middle. The green is banknotes, the border the walls and the key the key to every estate's gate; the original flag is locked in the city hall vault, and the ones flying outside are numbered copies."
+  traits: { industries: [luxury, security, finance], heritage: ca_global, age: old, income: 5.0 }
+- id: div_jssc24
+  subtype: borough
+  parent: div_dwdr6m
+  status: generated
+  names:
+    zh: 门禁高地区
+    en: Gated Heights District
+    es: Alturas Cerradas
+  notes:
+    zh: 半岛平地上的庄园群，每座庄园占好几个街区，围墙高四米，墙头装着摄像头和喷水器。区里的道路名义上是公路，路口却都设了私人岗亭，外人开车进来要出示邀请函。员工宿舍在区的南端，宿舍楼按雇主分开，每栋楼的颜色和雇主家的车一样。
+    en: The estates on the flat land of the peninsula, each taking up several blocks behind four-metre walls topped with cameras and sprinklers. Its roads are public in name, but every junction has a private guard post, and outsiders driving in must show an invitation. The staff dormitories are at the southern end, divided by employer, each block painted the colour of its employer's cars.
+  codes:
+    admin: '060401'
+  population: 70000
+  area_km2: 300.0
+  traits: { industries: [luxury, security] }
+- id: div_b4v4f8
+  subtype: borough
+  parent: div_dwdr6m
+  status: generated
+  names:
+    zh: 护城河山区
+    en: Moat Hills District
+    es: Colinas del Foso
+  notes:
+    zh: 半岛南部海岸山脉里的大庄园和私人森林，几座庄园真的挖了护城河，河里养着从世界各地运来的锦鲤。山里有私人机场、私人葡萄园和一座只对会员开放的海滩，通往海滩的私人道路两边种了两排红杉，每棵树都有名字和保险。
+    en: The great estates and private forests in the coast range of the southern peninsula, some of which really have dug moats, stocked with koi shipped in from all over the world. In the hills are private airstrips, private vineyards and a members-only beach, the private road to which is lined with two rows of redwoods, each with its own name and insurance policy.
+  codes:
+    admin: '060402'
+  population: 20000
+  area_km2: 1500.0
+  traits: { industries: [luxury, forestry, wine] }
+
+# ── 圣遣返市──
+- id: div_3mdaee
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 圣遣返市
+    en: San Deportes City
+    es: San Deportes
+  notes:
+    zh: "自治州南端的港口城市，全市 105 万人，也是州移民与海关执法局的大本营。城名的英语和西班牙语一样，在西班牙语里的意思是「圣体育」，市政府因此每年办一场「遣返马拉松」，终点设在港口的遣返船码头。签证区是港湾边的市中心和海军码头，拉乔利区是海边的富人区和大学，边界线区是南海岸上一道几十公里长的钢墙、检查站、拘押中心和执法局的训练营，后山区是一直伸到东边荒漠的边检山脉。\n城里一半的工作和执法局有关：看守、翻译、律师、伙食承包商、制作手环和脚镣的工厂，还有专门为被拘押的人家属提供探视「套餐」的旅行社。边界线区的钢墙由一个人工智能每天自动加高，因为它的目标是「让越墙者数量下降」，而这个数字每次下降，它就把墙再加高一点；墙已经高得要给飞机装防撞灯了。港湾的阳光和海滩很好，游客照来不误，只是每个酒店前台都会先问一句「您的证件带了吗」。"
+    en: "The port city at the southern tip of the state, with 1.05 million people and the headquarters of the State Immigration and Customs Enforcement Agency. Its name is the same in English and Spanish, and in Spanish means 'Saint Sports', so every year the city government holds a 'Deportation Marathon' that finishes at the deportation ship quay in the port. Visa District is the city centre and navy piers on the harbour, La Jolly the rich seaside quarter and the university, Borderline a steel wall dozens of kilometres long on the south coast with checkpoints, detention centres and the agency's training camps, and Backcountry the Checkpoint Range reaching to the desert in the east.\nHalf the jobs in the city have something to do with the agency: guards, interpreters, lawyers, catering contractors, factories making wristbands and ankle chains, and travel agents selling visiting 'packages' to the families of detainees. The steel wall in Borderline is raised a little every day by an artificial intelligence whose goal is to 'reduce the number of people crossing the wall'; each time the number falls, it raises the wall again, and the wall is now high enough to need warning lights for aircraft. The harbour's sunshine and beaches are lovely and the tourists come all the same, but every hotel reception first asks, 'Have you brought your papers?'"
+  codes:
+    admin: '060500'
+    unlocode: US SDP
+  population: 1050000
+  area_km2: 12000.0
+  color: '#1E3A5F'
+  flag: { layout: ensign, colors: ['#1E3A5F', '#FFFFFF'], charge: badge, charge_color: '#1E3A5F' }
+  flag_notes:
+    zh: "深蓝旗面，左上角是自治州旗，右边的白色圆章里是一枚深蓝色的七角执法徽章。旗面的蓝色与执法局制服同色，执法局把这面旗挂在每一座拘押中心门口，市政府后来发现城旗的版权登记在执法局名下。"
+    en: "A dark blue field with the state flag in the canton and, in a white roundel in the fly, a dark blue seven-pointed enforcement badge. The blue is that of the Enforcement Agency's uniforms; the agency flies the flag at the gate of every detention centre, and the city government later discovered that the flag's copyright is registered to the agency."
+  traits: { industries: [enforcement, defence, port, tourism], heritage: ca_mixed, age: young, income: 0.85 }
+- id: div_ad0sg9
+  subtype: borough
+  parent: div_3mdaee
+  status: generated
+  names:
+    zh: 签证区
+    en: Visa District
+    es: Visado
+  notes:
+    zh: 圣遣返的市中心，在港湾北岸，执法局总部大楼是全城最高的建筑，楼顶的探照灯夜里扫过整个港湾。港湾里停着海军舰艇和遣返船，岸边的老煤气灯街区是酒吧和餐馆，酒吧门口贴着执法局的「举报有奖」二维码。
+    en: The centre of San Deportes, on the north shore of the harbour, where the Enforcement Agency headquarters is the tallest building in the city and its rooftop searchlights sweep the harbour at night. Navy ships and deportation ships lie in the harbour, and the old gaslamp quarter on the shore is bars and restaurants, their doors carrying the agency's 'Report and Be Rewarded' QR codes.
+  codes:
+    admin: '060501'
+  population: 420000
+  area_km2: 200.0
+  traits: { industries: [enforcement, port, commerce] }
+- id: div_61yver
+  subtype: borough
+  parent: div_3mdaee
+  status: generated
+  names:
+    zh: 拉乔利区
+    en: La Jolly District
+    es: La Alegre
+  notes:
+    zh: 港湾北边的海边富人区，悬崖上是豪宅和大学，海边的岩洞里住着海狮。大学最大的学院是「边境安全与人工智能学院」，研究如何让算法从照片里判断一个人的身份；海狮倒是不需要证件，常常被游客围着拍照。
+    en: The rich seaside quarter north of the harbour, with mansions and the university on the cliffs and sea lions in the caves below. The university's largest school is the School of Border Security and Artificial Intelligence, which studies how algorithms can tell who a person is from a photograph; the sea lions need no papers, and are often surrounded by tourists taking pictures.
+  codes:
+    admin: '060502'
+  population: 160000
+  area_km2: 300.0
+  traits: { industries: [education, research, luxury], heritage: ca_anglo, income: 2.2 }
+- id: div_jmthr1
+  subtype: borough
+  parent: div_3mdaee
+  status: generated
+  names:
+    zh: 边界线区
+    en: Borderline District
+    es: La Línea
+  notes:
+    zh: 南海岸上的执法区，一道钢墙沿着海岸线一直延伸到海里，墙后是检查站、拘押中心、遣返船码头和执法局的训练营。这里本来是两个国家的陆地边界，自治州成了岛以后，边界外只剩大海，执法局却没有拆墙，而是给墙装上了防浪板。区里的居民大多是执法局雇员和他们的家属。
+    en: The enforcement district on the south coast, where a steel wall runs along the shore and on out into the sea, with checkpoints, detention centres, the deportation ship quay and the agency's training camps behind it. This was once a land border between two countries; since the state became an island there is nothing beyond it but sea, yet the agency did not pull the wall down but fitted it with wave baffles. Most residents are agency employees and their families.
+  codes:
+    admin: '060503'
+  population: 380000
+  area_km2: 1500.0
+  traits: { industries: [enforcement, security, defence], heritage: ca_latino }
+- id: div_j1wv5r
+  subtype: borough
+  parent: div_3mdaee
+  status: generated
+  names:
+    zh: 后山区
+    en: Backcountry District
+    es: Trasmonte
+  notes:
+    zh: 圣遣返以东的山区和荒漠，边检山脉从北向南穿过，山上有松林和苹果园，山后是一片沙漠公园。执法局在山路上设了一连串检查站，开车进山要停三四次，牧场主说他的牛被查证件的次数比他还多。
+    en: The mountains and desert east of San Deportes, crossed from north to south by the Checkpoint Range, with pine woods and apple orchards in the hills and a desert park beyond. The Enforcement Agency has set up a string of checkpoints on the mountain roads, so that a drive into the hills means stopping three or four times; one rancher says his cattle have their papers checked more often than he does.
+  codes:
+    admin: '060504'
+  population: 90000
+  area_km2: 10000.0
+  traits: { industries: [agriculture, enforcement, tourism], heritage: ca_anglo }
+
+# ── 仓储帝国市──
+- id: div_jysn35
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 仓储帝国市
+    en: Warehouse Empire City
+    es: Imperio Almacén
+  notes:
+    zh: "失落天使以东的内陆城市，全市 100 万人，从付费墙山脉山脚一直延伸到北边的高原荒漠。这里是全州的仓库：托盘维尔区的物流园里，一座仓库就有几十个足球场大，屋顶连起来能当机场跑道，仓库里是机器人，仓库外是排队等着进去做「补位」工作的人。无河区是城市的中心，名字来自一条早已干掉的河，河道如今是一条货运领道。履约高漠区是仓储帝国北边的荒漠，包括付费墙山脉东段的最高峰和山后的大片物流基地。\n仓储帝国人说自己住在「全世界的购物车里」。每天有几万辆无人货车从港口开进来、从仓库开出去，夜里领道上的车灯连成一条看不到头的光带；空气里的柴油味和橙子花香混在一起，老人们记得这里从前是一望无际的柑橘园。山火季的热风从荒漠吹下来，仓库会停工，那是工人们一年里唯一的带薪假。"
+    en: "The inland city east of Lost Angeles, with a million people, reaching from the foot of the Paywall Range to the high desert in the north. It is the state's warehouse: in the logistics parks of Palletville a single warehouse covers dozens of football pitches, its roof long enough for a runway, with robots inside and people queuing outside for 'fill-in' shifts. Riverless District is the centre, named after a river that dried up long ago and whose bed is now a freight state road. High Desert Fulfillment is the desert north of the city, taking in the highest peaks of the eastern Paywall Range and the great logistics bases behind them.\nWarehouse Empire people say they live 'in the whole world's shopping cart'. Every day tens of thousands of driverless trucks come in from the port and go out from the warehouses, and at night their lights join into a band along the state roads that has no end; the smell of diesel mingles with orange blossom, and old people remember when all this was citrus groves as far as the eye could see. When the hot winds of fire season blow down from the desert the warehouses stop, and that is the workers' only paid holiday of the year."
+  codes:
+    admin: '060600'
+  population: 1000000
+  area_km2: 25000.0
+  color: '#8B5E34'
+  flag: { layout: bands, colors: ['#8B5E34', '#F2E3C6', '#8B5E34'], ratio: [1, 2, 1], charge: links, charge_color: '#3A2A1A' }
+  flag_notes:
+    zh: "棕、米、棕三道横条，正中一串深棕色的链环。棕色是纸箱，米色是仓库屋顶，链环是供应链；市民给它起的外号是「快递单」，因为它挂在每座仓库门口，看起来就像一张贴在箱子上的面单。"
+    en: "Brown, cream and brown bands with a chain of dark brown links in the middle. The brown is cardboard, the cream the warehouse roofs and the links the supply chain; people call it 'the shipping label', since hanging at every warehouse door it looks like one stuck to a box."
+  traits: { industries: [logistics, robotics, gig], heritage: ca_latino, age: young, income: 0.6 }
+- id: div_sc80nv
+  subtype: borough
+  parent: div_jysn35
+  status: generated
+  names:
+    zh: 托盘维尔区
+    en: Palletville District
+    es: Villa Palé
+  notes:
+    zh: 仓储帝国西部的物流园区，几百座仓库排成整齐的方格，中间是一座货运机场和一个铁路货场。仓库里的机器人每年「表彰」一次表现最好的人类补位工，奖品是一个月不被算法排班的自由。
+    en: The logistics parks in the west of Warehouse Empire, hundreds of warehouses in a neat grid with a cargo airport and a rail freight yard in the middle. Once a year the warehouse robots 'commend' the best-performing human fill-in workers, whose prize is a month free of the scheduling algorithm.
+  codes:
+    admin: '060601'
+  population: 520000
+  area_km2: 600.0
+  traits: { industries: [logistics, aviation, robotics] }
+- id: div_aca2hs
+  subtype: borough
+  parent: div_jysn35
+  status: generated
+  names:
+    zh: 无河区
+    en: Riverless District
+    es: Sin Río
+  notes:
+    zh: 仓储帝国的市中心和老城，市政厅、法院和一座老传教士旅馆都在这里。区名里的河早已断流，河床铺上沥青成了货运领道，桥还留着，桥下跑的是卡车。老城里还剩几片柑橘园，果园主人靠出租果园拍「从前的加州」广告片过活。
+    en: The centre and old town of Warehouse Empire, with City Hall, the courts and an old mission inn. The river in its name stopped flowing long ago and its bed has been paved as a freight state road; the bridges remain, with trucks running underneath. A few citrus groves survive in the old town, their owners living by renting them out for adverts about 'the old California'.
+  codes:
+    admin: '060602'
+  population: 380000
+  area_km2: 900.0
+  traits: { industries: [government, logistics, commerce] }
+- id: div_s76w0x
+  subtype: borough
+  parent: div_jysn35
+  status: generated
+  names:
+    zh: 履约高漠区
+    en: High Desert Fulfillment District
+    es: Alto Desierto de Envíos
+  notes:
+    zh: 付费墙山脉东段和山后的高原荒漠，山上有雪道和湖畔木屋，山后荒漠里是成片的物流基地、太阳能电站和一座货机墓地，几百架退役的货机停在沙地里，有的被改成了仓库。荒漠里的小镇房价便宜，是被城里挤出来的人最后的落脚处。
+    en: The eastern Paywall Range and the high desert behind it, with ski runs and lakeside cabins in the mountains and, out in the desert, logistics bases, solar power stations and a cargo plane boneyard where hundreds of retired freighters sit in the sand, some turned into warehouses. Housing in the desert towns is cheap, the last refuge of people squeezed out of the city.
+  codes:
+    admin: '060603'
+  population: 100000
+  area_km2: 23500.0
+  traits: { industries: [logistics, wind, ski], heritage: ca_mixed }
+
+# ── 艾尔瓦纳市──
+- id: div_7zxffd
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 艾尔瓦纳市
+    en: Irvana City
+    es: Irvana
+  notes:
+    zh: "失落天使东南的规划城市，全市 60 万人，由一家地产公司从一张白纸上规划出来，每条街、每棵树、每栋房子外墙的颜色都写在一本几千页的《社区守则》里。总规划区的住宅分成几十个一模一样的村落，每个村落有自己的业主委员会、游泳池和门禁；新港决口区是海边的游艇码头和豪宅，业主委员会山区是山上更新的门禁社区。全城的外墙只允许十二种米色，曾经有人把门刷成浅蓝，被业主委员会罚款到卖了房子。\n艾尔瓦纳号称全州最安全的城市，靠的不是警察，而是每户门口的摄像头、每条街上的巡逻机器人和业主委员会的「邻里信用分」：草坪太高扣分，垃圾桶没收扣分，访客停车超时扣分，分数太低的人家会收到搬家公司的上门报价。城里的学校成绩很好，孩子们从小学会的第一句话是「请出示您的访客码」。"
+    en: "A planned city south-east of Lost Angeles, with 600,000 people, laid out on a blank sheet by a property company; every street, every tree and the colour of every house's walls are set down in a Community Code thousands of pages long. Masterplan District's homes are divided into dozens of identical 'villages', each with its own homeowners' association, pool and gate; Newport Breach is the marinas and mansions on the coast, and HOA Hills newer gated communities up in the hills. Only twelve shades of beige are allowed for outside walls in the whole city, and one man who painted his door pale blue was fined until he sold his house.\nIrvana claims to be the safest city in the state, thanks not to the police but to a camera at every door, patrol robots on every street and the homeowners' associations' 'neighbourly credit score': points are lost for long grass, for bins left out and for visitors overstaying in the car park, and households whose scores fall too low receive quotes from removal firms. The schools get excellent results, and the first sentence children learn is 'Please show your visitor code.'"
+  codes:
+    admin: '060700'
+  population: 600000
+  area_km2: 2500.0
+  color: '#B8A88A'
+  flag: { layout: nordic, colors: ['#EDE6D6', '#B8A88A', '#7C6F57'], charge: ring_homes, charge_color: '#7C6F57' }
+  flag_notes:
+    zh: "米色旗面上一个浅褐色的十字，十字中间嵌着深褐色的细十字，左上角是一圈围成环的房子。三种颜色都在《社区守则》允许的十二种米色之内；环形的房子代表门禁村落，房子之间没有门，因为门要另外申请。"
+    en: "A pale brown cross with a dark brown inner cross on a beige field, and a ring of houses in the canton. All three colours are among the twelve beiges the Community Code allows; the ring of houses stands for the gated villages, with no gaps between them, since a gap would need a separate application."
+  traits: { industries: [tech, residential, education, security], heritage: ca_anglo, age: balanced, income: 1.5 }
+- id: div_7871nw
+  subtype: borough
+  parent: div_7zxffd
+  status: generated
+  names:
+    zh: 总规划区
+    en: Masterplan District
+    es: Plan Maestro
+  notes:
+    zh: 艾尔瓦纳的中心，几十个门禁村落围着一座大学、一个科技园和一座购物中心排开，村落的名字都是树名，可村里种的树都是同一种。科技园里是被湾区赶出来的软件公司，员工中午在人造湖边跑步，湖水每周换一次颜色。
+    en: The centre of Irvana, dozens of gated villages arranged round a university, a technology park and a shopping mall; the villages are all named after trees, but every village is planted with the same tree. The technology park houses software companies driven out of the Bay Area, whose staff jog at lunchtime round an artificial lake that changes colour every week.
+  codes:
+    admin: '060701'
+  population: 300000
+  area_km2: 500.0
+  traits: { industries: [tech, education, residential] }
+- id: div_77vac6
+  subtype: borough
+  parent: div_7zxffd
+  status: generated
+  names:
+    zh: 新港决口区
+    en: Newport Breach District
+    es: Nueva Brecha
+  notes:
+    zh: 艾尔瓦纳的海岸，游艇码头和半岛上的豪宅一排排面朝大海。区名来自一次海堤决口：海水漫进了豪宅区，业主委员会第二天就开会决定，以后海水进来也要先申请访客码。码头上停着几百艘游艇，一年里平均每艘出海不到三次。
+    en: Irvana's coast, its marinas and peninsula mansions facing the sea in rows. The name comes from the time the sea wall was breached and the sea poured into the mansions; the homeowners' association met the next day and decided that in future the sea, too, would need a visitor code. Hundreds of yachts lie in the marinas, each putting to sea fewer than three times a year on average.
+  codes:
+    admin: '060702'
+  population: 150000
+  area_km2: 300.0
+  traits: { industries: [luxury, tourism, finance], income: 2.4 }
+- id: div_2jmm39
+  subtype: borough
+  parent: div_7zxffd
+  status: generated
+  names:
+    zh: 业主委员会山区
+    en: HOA Hills District
+    es: Colinas de la Asociación
+  notes:
+    zh: 艾尔瓦纳东边山里的新门禁社区，房子沿山坡梯田般排开，山顶是一片保留的野地。区里有一个业主委员会的「总委员会」，负责管理下面几十个业主委员会，总委员会上面还有一个「监督委员会」，监督委员会每年开一次会，讨论要不要再成立一个委员会。
+    en: New gated communities in the hills east of Irvana, the houses terraced down the slopes with a protected wild area on the hilltops. The district has a 'General Association' that manages dozens of homeowners' associations below it, and above that an 'Oversight Association' that meets once a year to discuss whether to form another association.
+  codes:
+    admin: '060703'
+  population: 150000
+  area_km2: 1700.0
+  traits: { industries: [residential, conservation, security] }
+
+# ── 阿尔蒙多市──
+- id: div_03k9fc
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 阿尔蒙多市
+    en: Almondo City
+    es: Almendro
+  notes:
+    zh: "中央渴谷中部的农业城市，全市 52 万人，地盘从谷底的杏仁园一直伸到估值山脉的巨杉林。全州大部分的杏仁、葡萄干、开心果和番茄都出自这里，可种地的人大多是租地、租水、租农机的雇工，地、水和农机都属于湾区的基金。果仁区是城市的中心和加工厂，渴谷区是谷底西部一望无际的果园和越抽越深的水井，巨杉区是山里的巨杉林、峡谷和湖泊。\n阿尔蒙多人说杏仁是「喝水的金子」：一颗杏仁要喝掉好几升水，果园里的水井越打越深，地面一年年往下沉，有的地方沉了好几米，老电线杆斜着插在地里。夏天谷里四十度的热浪里，采摘机器人和人一起在果园里干活，机器人每小时休息十分钟给电池降温，人没有。每年开春杏花开遍谷地，基金经理们从湾区坐直升机来拍照，那是谷里一年中最热闹的一周。"
+    en: "A farming city in the middle of the Central Thirsty Valley, with 520,000 people, reaching from the almond orchards on the valley floor to the giant sequoia groves of the Sierra Valuation. Most of the state's almonds, raisins, pistachios and tomatoes come from here, but most of the people who farm them are hired hands renting land, water and machinery, all of which belong to Bay Area funds. Kernel District is the city centre and packing plants, Thirsty Valley the endless orchards of the western valley floor and its ever deeper wells, and Giant Grove the sequoia forests, canyons and lakes up in the mountains.\nAlmondo people call almonds 'gold that drinks': each nut drinks several litres of water, the wells in the orchards go deeper and deeper, and the ground sinks a little more every year, by several metres in places, where old power poles lean out of the earth. In the forty-degree heat of the valley summer, picking robots and people work the orchards side by side; the robots rest ten minutes in every hour to cool their batteries, and the people do not. Every spring when the almond blossom whitens the valley, fund managers fly in from the Bay Area by helicopter to take pictures, the busiest week of the valley's year."
+  codes:
+    admin: '060800'
+  population: 520000
+  area_km2: 30000.0
+  color: '#C8A26B'
+  flag: { layout: horizon, colors: ['#7DB9E8', '#C8A26B', '#FFFFFF'], charge: sprout, charge_color: '#5B3A1E' }
+  flag_notes:
+    zh: "上蓝下褐，地平线上长出一株深褐色的幼苗。蓝色是谷地上空难得的晴天，褐色是龟裂的土地；幼苗原本画的是一棵杏树，后来按基金股东的意见改成幼苗，理由是「幼苗代表增长空间」。"
+    en: "Blue over brown, with a dark brown seedling rising from the horizon. The blue is the valley's rare clear sky and the brown its cracked earth; the seedling was first drawn as an almond tree and changed at the request of the fund shareholders, on the grounds that 'a seedling represents room for growth'."
+  traits: { industries: [agriculture, food, logistics], heritage: ca_latino, age: young, income: 0.55 }
+- id: div_r0qhbd
+  subtype: borough
+  parent: div_03k9fc
+  status: generated
+  names:
+    zh: 果仁区
+    en: Kernel District
+    es: Núcleo
+  notes:
+    zh: 阿尔蒙多的市中心，四周是杏仁和开心果的去壳厂、烘烤厂和冷库，空气里一年四季都是烤坚果的香味。市中心有一座农民市场，卖的坚果比超市贵，因为它们是「人摘的」。
+    en: The centre of Almondo, surrounded by almond and pistachio hulling plants, roasteries and cold stores, the air smelling of roasting nuts all year round. In the centre is a farmers' market whose nuts cost more than the supermarket's because they were 'picked by people'.
+  codes:
+    admin: '060801'
+  population: 380000
+  area_km2: 400.0
+  traits: { industries: [food, commerce, logistics] }
+- id: div_xf54np
+  subtype: borough
+  parent: div_03k9fc
+  status: generated
+  names:
+    zh: 渴谷区
+    en: Thirsty Valley District
+    es: Valle Sediento
+  notes:
+    zh: 中央渴谷西部的大片果园和农田，圣囤积河从区里流过，河水在旱季常常还没流到下游就被抽干。区里的地面一年下沉几十厘米，老水渠的桥墩露出了好几层台阶。路边的大广告牌上写着「是国会制造了干旱吗？」，另一块写着「是杏仁制造了干旱吗？」，两块牌子由同一家公关公司制作。
+    en: The great orchards and fields of the western Central Thirsty Valley, crossed by the San Hoarding River, which in the dry season is often pumped dry before it reaches the lower valley. The ground sinks tens of centimetres a year, and the piers of the old canals now show several steps of foundation. Billboards by the road ask 'Is Congress Creating the Drought?' and 'Are Almonds Creating the Drought?'; both were made by the same PR firm.
+  codes:
+    admin: '060802'
+  population: 90000
+  area_km2: 14600.0
+  traits: { industries: [agriculture, food] }
+- id: div_p6j9x8
+  subtype: borough
+  parent: div_03k9fc
+  status: generated
+  names:
+    zh: 巨杉区
+    en: Giant Grove District
+    es: Arboleda Gigante
+  notes:
+    zh: 阿尔蒙多东边估值山脉西坡的山区，山坡上是成片的巨杉林，最大的几棵树每一棵都被一家公司买了冠名权，树干上挂着小小的铜牌。山里有峡谷、湖泊和高山草甸，徒步者要先在应用里买「步数许可」。
+    en: The western slopes of the Sierra Valuation east of Almondo, covered in groves of giant sequoias; the naming rights to each of the largest trees have been bought by a company, and small brass plaques hang on their trunks. In the mountains are canyons, lakes and alpine meadows, and hikers must first buy 'step permits' in an app.
+  codes:
+    admin: '060803'
+  population: 50000
+  area_km2: 15000.0
+  traits: { industries: [tourism, conservation, forestry], heritage: ca_anglo }
+
+# ── 巴雷尔斯菲尔德市──
+- id: div_jmxc1m
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 巴雷尔斯菲尔德市
+    en: Barrelsfield City
+    es: Campo de Barriles
+  notes:
+    zh: "中央渴谷南端的石油城，全市 38 万人。谷底的油田里几万台抽油机日夜点头，像一群在烈日下鞠躬的铁鸟，油田之间是棉花地、葡萄园和胡萝卜田。井口区是城市的中心，炼油厂、乡村音乐酒吧和牛仔竞技场挤在一起；压裂原区是城西一望无际的油田、风电场和特哈聊天山脉的山口。\n巴雷尔斯菲尔德是自治州里少有的不在乎人工智能的地方：抽油机不需要聪明，只需要不停。城里人说话带着一种慢吞吞的乡村口音，周末去竞技场看骑牛，晚上在酒吧里听人唱关于卡车、石油和前妻的歌。每到选举，城里的车尾贴纸一半写着「钻吧，宝贝，钻」，另一半写着「我们的井比湾区的模型更深」。"
+    en: "The oil city at the southern end of the Central Thirsty Valley, with 380,000 people. In the oil fields on the valley floor tens of thousands of pumpjacks nod day and night like a flock of iron birds bowing in the sun, with cotton fields, vineyards and carrot fields between them. Wellhead District is the city centre, where refineries, country music bars and the rodeo arena crowd together; the Fracklands are the endless oil fields and wind farms west of the city and the passes of the Tehachatbot Mountains.\nBarrelsfield is one of the few places in the state that doesn't care about artificial intelligence: a pumpjack doesn't need to be clever, only to keep going. People here speak with a slow country drawl, watch bull riding at the arena at weekends and listen in the bars at night to songs about trucks, oil and ex-wives. At every election half the bumper stickers in town read 'Drill, Baby, Drill' and the other half 'Our Wells Go Deeper Than the Bay Area's Models'."
+  codes:
+    admin: '060900'
+  population: 380000
+  area_km2: 21000.0
+  color: '#5C4033'
+  flag: { layout: diagonal, colors: ['#111111', '#C8102E', '#E8B523'], charge: derrick, charge_color: '#E8B523' }
+  flag_notes:
+    zh: "黑红两色斜分，中间一道金色斜带，上方一座金色的油井架。黑色是石油，红色是炼油厂的火炬，金色是石油换来的钱；城旗是市里唯一没有被人工智能改过的公共设计，市议会为此专门立了一条法令。"
+    en: "Black and red divided diagonally by a gold band, with a gold oil derrick above. The black is oil, the red the refinery flares and the gold the money oil brings; it is the only public design in the city that has never been touched by artificial intelligence, and the city council passed an ordinance to keep it that way."
+  traits: { industries: [oil, agriculture, wind], heritage: ca_mixed, age: balanced, income: 0.85 }
+- id: div_zs0myf
+  subtype: borough
+  parent: div_jmxc1m
+  status: generated
+  names:
+    zh: 井口区
+    en: Wellhead District
+    es: Boca de Pozo
+  notes:
+    zh: 巴雷尔斯菲尔德的市中心，炼油厂的火炬在城边日夜燃烧，市中心有一座牛仔竞技场和几十家乡村音乐酒吧。城里的皮卡比轿车多，停车场比公园大。
+    en: The centre of Barrelsfield, where the refinery flares burn day and night on the edge of town and the centre has a rodeo arena and dozens of country music bars. There are more pickup trucks in town than cars, and more car park than park.
+  codes:
+    admin: '060901'
+  population: 320000
+  area_km2: 1000.0
+  traits: { industries: [oil, commerce, food] }
+- id: div_xfjrth
+  subtype: borough
+  parent: div_jmxc1m
+  status: generated
+  names:
+    zh: 压裂原区
+    en: Fracklands District
+    es: Tierras de Fractura
+  notes:
+    zh: 巴雷尔斯菲尔德以西和以南的油田、风电场和山地，几万台抽油机散布在干燥的丘陵上，特哈聊天山脉的山口上站满了风机。油田的井越打越深，地下的水被压裂液弄得一股怪味，农场主们用瓶装水浇自家的菜园。
+    en: The oil fields, wind farms and hills west and south of Barrelsfield, tens of thousands of pumpjacks scattered over dry hills and the passes of the Tehachatbot Mountains crowded with wind turbines. The wells go deeper and deeper, the groundwater tastes strange from fracking fluid, and ranchers water their vegetable gardens with bottled water.
+  codes:
+    admin: '060902'
+  population: 60000
+  area_km2: 20000.0
+  traits: { industries: [oil, wind, agriculture] }
+
+# ── 斯塔克顿市──
+- id: div_r7wm1v
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 斯塔克顿市
+    en: Stuckton City
+    es: Estancado
+  notes:
+    zh: "中央渴谷北段的河港城市，全市 30 万人，以加州高速铁路的「终点站」闻名：铁路从南边修了很多年，终于修到了城南的一片空地上，站房盖好了，月台也铺好了，可铁轨在站外两公里处停住，因为下一段还在做环境评估。终点站区是城市的中心和河港，谦逊区是城东的农田、果园和估值山脉的山脚，那里有几座老淘金镇。\n斯塔克顿人对高铁的感情很复杂：一方面它是城里最漂亮的建筑，另一方面每天只有两班车开往南边荒漠里的另一个空站。车站咖啡馆的招牌菜叫「下一期」，是一块永远只上一半的蛋糕。城里失业率高、房子便宜，湾区搬走的人有不少在这里落脚，他们每天早上坐在空荡荡的月台上用笔记本电脑接零活，说这里是全州网速最快、人最少的办公室。"
+    en: "A river port in the northern Central Thirsty Valley, with 300,000 people, famous as the 'terminus' of the California High-Speed Railway: built northwards from the south over many years, the line finally reached an empty lot south of the city, where the station building is finished and the platforms laid, but the track stops two kilometres outside the station, because the next section is still under environmental review. Terminus District is the city centre and river port, and Modestly the farms, orchards and Sierra foothills east of the city, with several old gold-rush towns.\nStuckton people have mixed feelings about the railway: on the one hand it is the finest building in town; on the other, only two trains a day leave it, for another empty station in the desert to the south. The station café's signature dish is called 'Phase Two', a cake only ever half served. Unemployment is high and houses cheap, and many people who left the Bay Area have settled here; every morning they sit on the empty platforms taking gig work on their laptops, calling it the office with the fastest internet and fewest people in the state."
+  codes:
+    admin: '061000'
+  population: 300000
+  area_km2: 15000.0
+  color: '#9CA3AF'
+  flag: { layout: hoist, colors: ['#4B5563', '#9CA3AF', '#D1D5DB'], division: wedge, charge: brackets, charge_color: '#F59E0B' }
+  flag_notes:
+    zh: "浅灰和银灰两道横条，一道深灰尖楔从旗杆一侧伸进旗面，尖端前是一对橙色的方括号。尖楔是一条修到一半的铁路，方括号是工程图纸上「待定」的记号；市议会说等高铁通车那天就把括号去掉，城旗的设计费已经为此预留了。"
+    en: "Pale grey and silver grey bands with a dark grey wedge reaching in from the hoist towards a pair of orange square brackets. The wedge is a half-built railway, and the brackets the 'to be decided' mark on an engineering drawing; the city council says it will remove the brackets on the day the railway opens, and the design fee has been set aside for it."
+  traits: { industries: [logistics, agriculture, gig], heritage: ca_mixed, age: young, income: 0.5 }
+- id: div_zqpg46
+  subtype: borough
+  parent: div_r7wm1v
+  status: generated
+  names:
+    zh: 终点站区
+    en: Terminus District
+    es: Terminal
+  notes:
+    zh: 斯塔克顿的市中心和河港，河港通过三角洲的航道连着海湾，驳船运来化肥，运走番茄罐头。城南的高铁终点站是一座玻璃和钢的大厅，大厅里有一块倒计时牌，显示「距全线通车还有：待定」。
+    en: "The centre and river port of Stuckton, linked by the delta's shipping channels to the bay, where barges bring in fertiliser and carry away tinned tomatoes. South of the city the high-speed railway terminus is a hall of glass and steel with a countdown board reading 'Full line opens in: TBD'."
+  codes:
+    admin: '061001'
+  population: 230000
+  area_km2: 500.0
+  traits: { industries: [port, logistics, food] }
+- id: div_tnbcec
+  subtype: borough
+  parent: div_r7wm1v
+  status: generated
+  names:
+    zh: 谦逊区
+    en: Modestly District
+    es: Modestia
+  notes:
+    zh: 斯塔克顿以东的农田、果园和估值山脉山脚的丘陵，丘陵里有几座老淘金镇，木头房子和酒馆保留着淘金时代的样子。如今山里淘的是另一种金子：湾区的人来这里买下老镇子的房子，改成远程办公的度假屋。
+    en: The farms and orchards east of Stuckton and the foothills of the Sierra Valuation, where several old gold-rush towns keep their wooden houses and saloons as they were in the gold-rush days. Today the hills are mined for another kind of gold, as people from the Bay Area buy up the old towns' houses as remote-working retreats.
+  codes:
+    admin: '061002'
+  population: 70000
+  area_km2: 14500.0
+  traits: { industries: [agriculture, tourism, wine] }
+
+# ── 圣塞雷娜市──
+- id: div_xrad3x
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 圣塞雷娜市
+    en: Santa Serena City
+    es: Santa Serena
+  notes:
+    zh: "中部海岸上的海滨城市，全市 22 万人，背靠付费墙山脉西段，面朝避税列岛，是全州气候最温和的地方：冬天不冷，夏天不热，一年三百天阳光。传教区是城市的中心，白墙红瓦的老传教站和一条棕榈大道通向海边；城西的乔什庄园区是乔什的家，他的私人山脉、葡萄园、赛车场和车牌厂占了大半个区；再往西北的露西芯城区是露西的家，她的芯片城、动物园和牙医诊所就是区里的全部经济。\n圣塞雷娜人说这里的治安是全州最好的，因为乔什和露西都怕吵：两家共同出钱让城里的警察分局「退休」，换成了只会指路的礼宾员。城里的人多在两家的产业里工作，酿酒的、修赛车的、照顾动物的、在洁净室里穿兔子服的，周末一起到海边的码头上吃鱼和薯条。市议会每年开会讨论一次要不要改城名，因为外地人总以为「塞雷娜」是一种芯片的型号。"
+    en: "A seaside city on the central coast, with 220,000 people, its back to the western Paywall Range and its face to the Tax Shelter Islands, the mildest place in the state: winters are not cold, summers not hot, and the sun shines three hundred days a year. Mission District is the centre, where an old mission of white walls and red tiles and an avenue of palms lead down to the sea; west of the city, Josh Estate District is Josh's home, where his private mountains, vineyards, racetrack and number-plate factory take up most of the district; and further north-west, Lucy Chip City District is Lucy's home, where her chip city, zoo and dental clinic are the district's entire economy.\nSanta Serena people say it is the safest place in the state because Josh and Lucy both dislike noise: between them they paid for the city's police division to 'retire' and be replaced by concierges who only give directions. Most people in town work for one estate or the other, making wine, fixing racing cars, looking after animals or wearing bunny suits in clean rooms, and at weekends they all eat fish and chips together on the pier. Once a year the city council debates whether to change the city's name, since outsiders always take 'Serena' for a chip model."
+  codes:
+    admin: '061100'
+  population: 220000
+  area_km2: 11000.0
+  color: '#E07A5F'
+  flag: { layout: mirror, colors: ['#F4A261', '#2A9D8F'], charge: palm, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "橙色的天空和青绿的大海在水平线上相对，一座小岛和它的倒影隔着水线互换颜色，岛上是一棵白色的棕榈。橙色是海边的日落，青绿是海峡，棕榈是传教区的那条大道；城旗由乔什和露西各出一半设计费，所以上下两半一样大。"
+    en: "Orange sky and blue-green sea meet at the horizon, an island and its reflection counterchanged across the waterline, with a white palm on the island. The orange is the sunset over the sea, the blue-green the channel and the palm the avenue of Mission District; Josh and Lucy each paid half the design fee, which is why the two halves are the same size."
+  traits: { industries: [semiconductor, wine, tourism, automotive], heritage: ca_anglo, age: balanced, income: 1.6 }
+- id: div_nsgeyn
+  subtype: borough
+  parent: div_xrad3x
+  status: generated
+  names:
+    zh: 传教区
+    en: Mission District
+    es: Misión
+  notes:
+    zh: 圣塞雷娜的市中心，老传教站、法院和白墙红瓦的老街区沿着一条棕榈大道排到海边，海边有一座长长的木码头。城里的建筑都按传教站的样式盖，连加油站也是白墙红瓦。
+    en: The centre of Santa Serena, where the old mission, the courthouse and old streets of white walls and red tiles line an avenue of palms down to the sea, which has a long wooden pier. Every building in town follows the mission's style, the petrol stations included.
+  codes:
+    admin: '061101'
+  population: 130000
+  area_km2: 150.0
+  traits: { industries: [tourism, commerce, education] }
+- id: div_jjgxvk
+  subtype: borough
+  parent: div_xrad3x
+  status: generated
+  names:
+    zh: 乔什庄园区
+    en: Josh Estate District
+    es: Hacienda Josh
+  notes:
+    zh: 圣塞雷娜西边的山谷和山脉，乔什的家就在这里。区里大部分土地属于乔什的庄园：一座私人山脉、一片按品种分块种植的葡萄园、一座私人赛车场和一座车牌制造厂，其余是为庄园工作的人住的小镇。
+    en: The valleys and mountains west of Santa Serena, where Josh lives. Most of the district's land belongs to Josh's estate, a private mountain range, a vineyard planted variety by variety, a private racetrack and a number-plate factory; the rest is the small town where the estate's workers live.
+  codes:
+    admin: '061102'
+  population: 30000
+  area_km2: 5500.0
+  traits: { industries: [wine, automotive, tourism] }
+- id: div_zmb3gb
+  subtype: borough
+  parent: div_xrad3x
+  status: generated
+  names:
+    zh: 露西芯城区
+    en: Lucy Chip City District
+    es: Ciudad Chip Lucy
+  notes:
+    zh: 圣塞雷娜西北的海岸平原和丘陵，露西的家就在这里。区里的经济全部来自露西：一座从设计到制造样样俱全的芯片城、一座按动物分类建馆的私人动物园和一家专门的牙医诊所，几万名工程师、饲养员和牙医住在区里的新城。
+    en: "The coastal plain and hills north-west of Santa Serena, where Lucy lives. The district's whole economy comes from Lucy: a chip city that does everything from design to manufacture, a private zoo with a house for every branch of the animal kingdom and a dedicated dental clinic, with tens of thousands of engineers, keepers and dentists living in the district's new town."
+  codes:
+    admin: '061103'
+  population: 60000
+  area_km2: 5350.0
+  traits: { industries: [semiconductor, research, healthcare], income: 2.4 }
+
+# ── 莫内特里市──
+- id: div_9tem3t
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 莫内特里市
+    en: Monetary City
+    es: Monetaria
+  notes:
+    zh: "中部海岸的城市，全市 26 万人，从湾区南边的冲浪小城一路延伸到滤镜山脉的悬崖海岸。罐头厂区是海湾边的老罐头厂街和水族馆，冲浪棚区是北边的冲浪小城和大学，大附加费区是城南滤镜山脉的悬崖海岸和山后的生菜谷，全州大部分的生菜都出自那里。\n莫内特里的名字来自这里收费的传统：海岸公路上每个观景台都要扫码付费，悬崖上的长椅按分钟计时，连海雾也被一家公司注册成了「沉浸式体验」。滤镜山脉的海岸是网红们最爱的取景地，他们在悬崖边排队，为了一张照片可以等两个小时；拍出来的照片都会自动加上滤镜，所以没有人知道这里的海到底是什么颜色。生菜谷的雇工们每天天不亮就下地，他们说悬崖上的游客一天花的钱比他们一个月挣的还多。"
+    en: "A city of the central coast, with 260,000 people, reaching from the surf town south of the Bay Area to the cliff coast of the Filter Range. Cannery District is the old cannery row and aquarium on the bay, Surf Shack the surf town and university in the north, and Big Surcharge the cliff coast of the Filter Range south of the city and the Lettuce Valley behind it, where most of the state's lettuce is grown.\nMonetary takes its name from a local tradition of charging: every viewpoint on the coast road must be paid for by scanning a code, the benches on the cliffs are metered by the minute, and even the sea fog has been registered by a company as an 'immersive experience'. The Filter Range coast is the influencers' favourite backdrop, and they queue at the cliff edge for two hours for a single picture; every picture taken there gets a filter automatically, so nobody knows what colour the sea really is. The hired hands of the Lettuce Valley go into the fields before dawn, and say the tourists on the cliffs spend more in a day than they earn in a month."
+  codes:
+    admin: '061200'
+  population: 260000
+  area_km2: 16000.0
+  color: '#1D4E89'
+  flag: { layout: horizon, colors: ['#6CA6CD', '#1D4E89', '#FFFFFF'], charge: fish, charge_color: '#FFFFFF' }
+  flag_notes:
+    zh: "淡蓝的天空下是深蓝的大海，海平线上一条白色的鱼跃出水面。鱼是罐头厂街当年装进罐头的沙丁鱼，如今沙丁鱼只在水族馆里游；城旗是全市唯一不收费就能看的风景。"
+    en: "A dark blue sea under a pale blue sky, with a white fish leaping from the horizon. The fish is the sardine that Cannery Row once tinned, which now swims only in the aquarium; the flag is the only view in the city you can look at for free."
+  traits: { industries: [tourism, agriculture, research], heritage: ca_latino, age: balanced, income: 0.85 }
+- id: div_hwfcnm
+  subtype: borough
+  parent: div_9tem3t
+  status: generated
+  names:
+    zh: 罐头厂区
+    en: Cannery District
+    es: Enlatadora
+  notes:
+    zh: 莫内特里的市中心，在海湾南岸，老罐头厂街的厂房改成了餐馆、酒店和一座大水族馆，水族馆的巨型水箱里养着海带森林和海獭。港口里还有几条渔船，捕的鱼直接卖给水族馆当饲料。
+    en: The centre of Monetary, on the south shore of the bay, where the old cannery row's factories have become restaurants, hotels and a great aquarium whose giant tanks hold a kelp forest and sea otters. A few fishing boats remain in the harbour, selling their catch straight to the aquarium as feed.
+  codes:
+    admin: '061201'
+  population: 120000
+  area_km2: 900.0
+  traits: { industries: [tourism, research, fishing] }
+- id: div_5fnf38
+  subtype: borough
+  parent: div_9tem3t
+  status: generated
+  names:
+    zh: 冲浪棚区
+    en: Surf Shack District
+    es: Choza del Surf
+  notes:
+    zh: 海湾北端的冲浪小城，海边的游乐场和木头过山车还在，悬崖下是全州最有名的冲浪点之一。小城里还有一所大学，学生们上午上课、下午冲浪，校徽是一只香蕉蛞蝓。
+    en: The surf town at the northern end of the bay, its seaside amusement park and wooden roller coaster still running and one of the state's best-known surf breaks below the cliffs. The town also has a university whose students study in the morning and surf in the afternoon, and whose mascot is a banana slug.
+  codes:
+    admin: '061202'
+  population: 60000
+  area_km2: 300.0
+  traits: { industries: [education, tourism, retail], heritage: ca_anglo }
+- id: div_qx3brb
+  subtype: borough
+  parent: div_9tem3t
+  status: generated
+  names:
+    zh: 大附加费区
+    en: Big Surcharge District
+    es: Gran Recargo
+  notes:
+    zh: 莫内特里南边滤镜山脉的悬崖海岸和山后的生菜谷，海岸公路在悬崖上蜿蜒一百多公里，每座桥、每个弯道观景台都要单独付费。山后的谷地种满生菜、草莓和西兰花，田里的雇工大多讲西班牙语，住在谷底小镇的拖车房里。
+    en: The cliff coast of the Filter Range south of Monetary and the Lettuce Valley behind it; the coast road winds along the cliffs for more than a hundred kilometres, and every bridge and every viewpoint on every bend is paid for separately. The valley behind is planted with lettuce, strawberries and broccoli, and most of the field hands speak Spanish and live in trailers in the valley-floor towns.
+  codes:
+    admin: '061203'
+  population: 80000
+  area_km2: 14800.0
+  traits: { industries: [agriculture, tourism, conservation] }
+
+# ── 梅洛特市──
+- id: div_6shwy9
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 梅洛特市
+    en: Merlotte City
+    es: Merlota
+  notes:
+    zh: "湾区北边的葡萄酒城，全市 18 万人，地盘从海湾北岸的山谷一直伸到北海岸和清除记录湖。赤霞珠丘区是谷地里一座接一座的酒庄，索诺莫尔区是西边更大的葡萄园、红杉林、海岸和湖区。山谷里的葡萄园按地块拍卖，一亩地的价格比失落天使市中心的写字楼还贵，酒庄的主人多是湾区的寡头，他们每年来一两次，在品酒会上宣布今年的酒「由人工智能调配」。\n梅洛特的酒标是这里最有名的艺术品：同一款酒，卖给游客的酒标上写着风土和年份，卖给投资者的酒标上写着收益率。山火季常常烧到葡萄园边上，烟熏过的葡萄酿出的酒被营销成「野火限定版」，价格翻倍。葡萄园里摘葡萄的雇工住在谷外的小镇，每天早上坐着酒庄的大巴进谷，晚上再坐出去，品酒室的游客很少看到他们。"
+    en: "The wine city north of the Bay Area, with 180,000 people, reaching from the valleys on the north shore of the bay to the north coast and Clear History Lake. Cabernet Hills District is winery after winery in the valley, and Sonomore the bigger vineyards, redwood forests, coast and lake country to the west. The valley vineyards are auctioned plot by plot at prices higher than office towers in central Lost Angeles, and most of the wineries belong to Bay Area oligarchs, who come once or twice a year to announce at a tasting that this year's wine was 'blended by artificial intelligence'.\nMerlotte's wine labels are its best-known art: the same wine bears a label of terroir and vintage when sold to tourists and one of yields when sold to investors. Fire season often burns to the edge of the vineyards, and the wine from smoke-tainted grapes is marketed as a 'Wildfire Limited Edition' at twice the price. The pickers live in towns outside the valley, riding the wineries' coaches in every morning and out again every evening, rarely seen by the tourists in the tasting rooms."
+  codes:
+    admin: '061300'
+  population: 180000
+  area_km2: 14000.0
+  color: '#6B1E3A'
+  flag: { layout: banner, colors: ['#6B1E3A', '#E9D8A6'], division: wavy, charge: grapes, charge_color: '#E9D8A6' }
+  flag_notes:
+    zh: "上方酒红、下方麦黄，两色以波浪线相分，正中一串麦黄色的葡萄。酒红是红酒，麦黄是夏天干枯的山坡；葡萄是旗上最贵的部分，城旗的周边商品里，带葡萄的比不带的贵三倍。"
+    en: "Wine red over straw, parted by a wavy line, with a straw-coloured bunch of grapes in the middle. The red is red wine and the straw the hillsides dried in summer; the grapes are the most expensive part, and flag merchandise with grapes costs three times as much as without."
+  traits: { industries: [wine, tourism, luxury], heritage: ca_anglo, age: old, income: 1.6 }
+- id: div_jytczs
+  subtype: borough
+  parent: div_6shwy9
+  status: generated
+  names:
+    zh: 赤霞珠丘区
+    en: Cabernet Hills District
+    es: Lomas Cabernet
+  notes:
+    zh: 海湾北岸谷地里的酒庄区，几百家酒庄沿着谷底的一条领道排开，每家都有品酒室、餐厅和一座仿欧洲古堡。谷里有一列观光火车，车厢里供应品酒套餐，火车开得很慢，因为开快了酒会洒。
+    en: The wineries of the valley on the north shore of the bay, hundreds of them strung along a state road on the valley floor, each with its tasting room, restaurant and imitation European castle. A sightseeing train runs through the valley serving tasting menus in its carriages, very slowly, since going faster would spill the wine.
+  codes:
+    admin: '061301'
+  population: 110000
+  area_km2: 2000.0
+  traits: { industries: [wine, tourism, luxury] }
+- id: div_n4pw55
+  subtype: borough
+  parent: div_6shwy9
+  status: generated
+  names:
+    zh: 索诺莫尔区
+    en: Sonomore District
+    es: Sonomás
+  notes:
+    zh: 梅洛特西边更大的葡萄园、红杉林和北海岸，清除记录湖在区的北部，湖边的温泉旅馆专门接待需要「消失几天」的名人。区名里的「莫尔」是「更多」：更多的葡萄园、更多的品酒室和更多想在这里买地的人。
+    en: The bigger vineyards, redwood forests and north coast west of Merlotte, with Clear History Lake in the north, where lakeside hot-spring hotels cater for celebrities who need to 'disappear for a few days'. The 'more' in its name is more vineyards, more tasting rooms and more people wanting to buy land here.
+  codes:
+    admin: '061302'
+  population: 70000
+  area_km2: 12000.0
+  traits: { industries: [wine, tourism, forestry] }
+
+# ── 欧福利亚市──
+- id: div_v78vjn
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 欧福利亚市
+    en: Euphoria City
+    es: Euforia
+  notes:
+    zh: "北海岸的城市，全市 14 万人，雾气缭绕的红杉林和崎岖的海岸占了大半个市。谦卑湾区是海湾边的港口和老木材镇，红木帘区是南边连绵几百公里的红杉林、河谷和海岸，林子深处的大麻农场曾经是这里最大的产业。城名来自大麻：合法化以前，林子里的农场让这里富得流油，合法化以后，大公司在荒漠里用温室种出了更便宜的大麻，林子里的农场一家接一家倒闭，城里的欢乐也就只剩下城名了。\n欧福利亚人自称住在「红木帘」后面：帘外的人工智能、高铁和执法局都很少翻过山来，城里还有人用现金，有人不用手机，有人坚持在林子里的树屋里过日子。一年四季都在下雨或起雾，红杉树高得要仰着头才能看到树梢，林子里的蕨类比人还高。每年秋天大麻收获季，林子里的小镇还会办一场「怀旧丰收节」，节上卖的大麻是从荒漠温室里进的货。"
+    en: "The city of the north coast, with 140,000 people, most of its area taken up by redwood forest in the fog and rugged coast. Humbled Bay District is the port and old lumber town on the bay, and Redwood Curtain the redwood forests, river valleys and coast that run on for hundreds of kilometres to the south, where cannabis farms deep in the woods were once the biggest industry. The city is named for cannabis: before legalisation the farms in the forest made the place rich; after it, big companies grew cheaper cannabis in greenhouses in the desert, the forest farms closed one after another, and only the city's name is left of its euphoria.\nEuphoria people say they live behind the Redwood Curtain: artificial intelligence, the high-speed railway and the Enforcement Agency rarely make it over the hills, and people here still pay in cash, go without phones or live in tree houses in the woods. It rains or is foggy all year round, the redwoods are so tall that you must tip your head right back to see their tops, and the ferns in the forest are taller than a person. Every autumn at harvest time the forest towns still hold a 'Nostalgia Harvest Festival', where the cannabis on sale is bought in from the desert greenhouses."
+  codes:
+    admin: '061400'
+  population: 140000
+  area_km2: 35000.0
+  color: '#2D6A4F'
+  flag: { layout: bands, vertical: true, colors: ['#1B4332', '#95D5B2', '#1B4332'], charge: pine, charge_color: '#1B4332' }
+  flag_notes:
+    zh: "深绿、浅绿、深绿三道竖条，中间的浅绿条上是一棵深绿色的红杉。深绿是红杉林，浅绿是林间的雾；城旗上本来还有一片叶子，合法化以后被市议会悄悄删掉了，旧旗如今在林子里的小镇上卖得很好。"
+    en: "Dark green, pale green and dark green in vertical bands, with a dark green redwood on the pale green band. The dark green is the redwood forest and the pale green the mist among the trees; there used to be a leaf on the flag too, quietly removed by the city council after legalisation, and the old flags now sell well in the forest towns."
+  traits: { industries: [forestry, cannabis, fishing, tourism], heritage: ca_anglo, age: balanced, income: 0.6 }
+- id: div_taah7d
+  subtype: borough
+  parent: div_v78vjn
+  status: generated
+  names:
+    zh: 谦卑湾区
+    en: Humbled Bay District
+    es: Bahía Humillada
+  notes:
+    zh: 北海岸唯一的大海湾和港口，老木材镇的维多利亚式房子保存得很好，港口里停着渔船和运木材的驳船。区名来自本地人的自我介绍：「我们曾经很富，现在很谦卑」。
+    en: "The only large bay and port on the north coast, where the old lumber town's Victorian houses are well kept and fishing boats and log barges lie in the harbour. The name comes from the way locals introduce themselves: 'We used to be rich; now we're humble.'"
+  codes:
+    admin: '061401'
+  population: 90000
+  area_km2: 3000.0
+  traits: { industries: [fishing, forestry, port] }
+- id: div_2t7y15
+  subtype: borough
+  parent: div_v78vjn
+  status: generated
+  names:
+    zh: 红木帘区
+    en: Redwood Curtain District
+    es: Telón de Secuoyas
+  notes:
+    zh: 北海岸连绵的红杉林、河谷和海岸，林子里有全州最高的几棵树，确切位置是保密的，以免被人刻上名字。林子深处散落着倒闭的大麻农场、嬉皮公社和住在树屋里的人。
+    en: The redwood forests, river valleys and coast that run on along the north coast, where the forest holds some of the tallest trees in the state, their exact locations kept secret so that nobody carves their name in them. Deep in the woods are scattered failed cannabis farms, hippie communes and people who live in tree houses.
+  codes:
+    admin: '061402'
+  population: 50000
+  area_km2: 32000.0
+  traits: { industries: [forestry, cannabis, conservation] }
+
+# ── 雷达克特市──
+- id: div_57c6nv
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 雷达克特市
+    en: Redacted City
+    es: Censurado
+  notes:
+    zh: "自治州北部的山地城市，全市 16 万人，面积 7.15 万平方公里，是自治州面积第二大的市。城里大部分地方是森林、火山和熔岩高原，级联故障山脉的两座火山在北边，萨克拉钱托河从这里流向南边的河谷。涂黑区是城市的中心和水库，待建州区是北部的山地和火山，熔岩高原区是东边的高原和湖泊。城名来自市政府的档案：这里的人对州政府极不信任，所有向州政府提交的文件都会先把一大半内容涂黑，久而久之，城名也被涂黑了，只剩下「已涂黑」三个字。\n雷达克特人说自己住在「还没成立的州」：北边的居民几十年来一直在争取从加州分出去另立一州，路边的牌子上写着「欢迎来到待建州」，州长每次来访都会被送一顶写着「再见」的帽子。山里的人打猎、伐木、开小型金矿，家家有枪有发电机，谁也不信人工智能，最受欢迎的店是卖罐头和防毒面具的。级联故障山脉的火山顶终年积雪，晴天时从城里看得见。"
+    en: "The mountain city of the north of the state, with 160,000 people and 71,500 km², the second largest city in the state by area. Most of it is forest, volcanoes and lava plateau; the two volcanoes of the Cascading Failure Range rise in the north, and the Sacramoney River flows from here south towards the valley. Blackout District is the city centre and its reservoir, Statehood-Pending the mountains and volcanoes in the north, and Lava Plateau the plateau and lakes to the east. The name comes from the city government's files: people here distrust the state government so much that every document sent to it has most of its contents blacked out first, and in the end the city's own name was blacked out too, leaving only 'Redacted'.\nRedacted people say they live in 'a state not yet founded': for decades the people of the north have campaigned to leave California and form a state of their own, the signs by the road read 'Welcome to the State of Pending', and every visiting governor is presented with a cap that says 'Goodbye'. People in the mountains hunt, log and work small gold mines, every household has guns and a generator, nobody trusts artificial intelligence, and the most popular shops sell tinned food and gas masks. The volcano tops of the Cascading Failure Range are snow-capped all year and can be seen from the city on a clear day."
+  codes:
+    admin: '061500'
+  population: 160000
+  area_km2: 71500.0
+  color: '#3D405B'
+  flag: { layout: bands, colors: ['#111111', '#F5F5F5', '#111111'], ratio: [2, 1, 2], charge: star5, charge_color: '#111111', charge_band: 1 }
+  flag_notes:
+    zh: "黑、白、黑三道横条，中间的白条上一颗黑色的五角星。市政府的说法是：城旗的原设计已经涂黑，现在看到的是公开版本，五角星代表「待建州」；原设计据说藏在市政厅地下室里，没有人申请到查阅权限。"
+    en: "Black, white and black bands with a black five-pointed star on the white band. According to the city government, the original design has been redacted and this is the public version, the star standing for the 'State of Pending'; the original is said to be kept in the City Hall basement, and nobody has ever been granted permission to see it."
+  traits: { industries: [forestry, hydropower, mining, hunting], heritage: ca_anglo, age: old, income: 0.6 }
+- id: div_qayjg1
+  subtype: borough
+  parent: div_57c6nv
+  status: generated
+  names:
+    zh: 涂黑区
+    en: Blackout District
+    es: Tachado
+  notes:
+    zh: 雷达克特的市中心，在萨克拉钱托河出山口，城北是一座大水库和水坝，水坝发的电送往南边的城市。区里的报纸每天出版，头版一半涂黑，读者说涂黑的部分才是真新闻。
+    en: The centre of Redacted, where the Sacramoney River leaves the mountains, with a great reservoir and dam north of town whose power goes to the cities of the south. The local paper comes out every day with half its front page blacked out; readers say the blacked-out part is the real news.
+  codes:
+    admin: '061501'
+  population: 110000
+  area_km2: 2500.0
+  traits: { industries: [hydropower, commerce, government] }
+- id: div_chf8fg
+  subtype: borough
+  parent: div_57c6nv
+  status: generated
+  names:
+    zh: 待建州区
+    en: Statehood-Pending District
+    es: Estado Pendiente
+  notes:
+    zh: 雷达克特北部的山地、火山和森林，级联故障山脉最高的火山在这里，山脚的小镇里每座谷仓上都刷着「待建州」的标志。居民自己选了一位「州长」，每年向州议会递交一份独立申请，申请书照例涂黑了一大半。
+    en: The mountains, volcanoes and forests of northern Redacted, home to the highest volcano of the Cascading Failure Range; in the towns at its foot every barn is painted with the sign of the 'State of Pending'. The residents have elected a 'governor' of their own, who every year sends the legislature an application for independence, most of it blacked out as usual.
+  codes:
+    admin: '061502'
+  population: 35000
+  area_km2: 40000.0
+  traits: { industries: [forestry, hunting, mining] }
+- id: div_j311rd
+  subtype: borough
+  parent: div_57c6nv
+  status: generated
+  names:
+    zh: 熔岩高原区
+    en: Lava Plateau District
+    es: Meseta de Lava
+  notes:
+    zh: 雷达克特东边的熔岩高原和湖泊，级联故障山脉南端的火山在区的西部，山下有冒着热气的泥潭和温泉。高原上的牧场主比牛少，牛比野马少，野马比熔岩洞少。
+    en: The lava plateau and lakes east of Redacted, with the volcano at the southern end of the Cascading Failure Range in the west of the district and steaming mud pots and hot springs at its foot. On the plateau there are fewer ranchers than cattle, fewer cattle than wild horses and fewer wild horses than lava caves.
+  codes:
+    admin: '061503'
+  population: 15000
+  area_km2: 29000.0
+  traits: { industries: [herding, conservation, geothermal] }
+
+# ── 帕姆斯普林克勒市──
+- id: div_aq1ydw
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 帕姆斯普林克勒市
+    en: Palm Sprinklers City
+    es: Palmas Aspersoras
+  notes:
+    zh: "自治州东南的荒漠城市，全市 23 万人，面积 7.3 万平方公里，是自治州面积最大的市。喷灌区是边检山脉山脚的绿洲城，几十座高尔夫球场在荒漠里每天喷掉的水够一座城市用，豪华度假村和养老社区挤在球场之间；帝国尘区是城东的帝国尘谷农田、苏打饼海和一直伸到东海岸的大荒漠。城名来自喷灌头：这里的棕榈树和草坪全靠喷灌活着，市政府的标志就是一只喷着水的喷头。\n帕姆斯普林克勒是两个世界：喷灌区的退休富豪在四十五度的夏天打高尔夫，球车上装着空调；帝国尘区的农场雇工在同样的天气里摘蔬菜，休息时躲在卡车下面的阴影里。苏打饼海的湖水越来越咸，湖岸退出几公里，风一吹湖床上的尘土就飘到城里，城里的医生说，看哮喘的病人一年比一年多。每年春天，荒漠里会办一场持续两个周末的音乐节，一张票的价格是一个雇工三个月的工资。"
+    en: "The desert city of the south-east, with 230,000 people and 73,000 km², the largest city in the state by area. Sprinkler District is the oasis town at the foot of the Checkpoint Range, where dozens of golf courses in the desert spray away enough water every day for a city, with luxury resorts and retirement communities squeezed in between; Imperial Dust is the farmland of the Imperial Dust valley east of the city, the Saltine Sea and the great desert that runs all the way to the east coast. The name comes from sprinkler heads: the palms and lawns here live entirely on sprinklers, and the city government's logo is a spraying sprinkler.\nPalm Sprinklers is two worlds: in Sprinkler District retired tycoons play golf through the forty-five-degree summer in air-conditioned carts, while in Imperial Dust farm hands pick vegetables in the same heat and rest in the shade under their trucks. The Saltine Sea grows saltier every year and its shore has retreated several kilometres; when the wind blows, dust from the lake bed drifts into town, and the town's doctors say they see more asthma patients every year. Every spring the desert holds a music festival over two weekends, a single ticket costing three months of a farm hand's wages."
+  codes:
+    admin: '061600'
+  population: 230000
+  area_km2: 73000.0
+  color: '#E9C46A'
+  flag: { layout: horizon, colors: ['#F4A261', '#E9C46A', '#2A9D8F'], charge: palm, charge_color: '#2A9D8F' }
+  flag_notes:
+    zh: "橙色的天空下是沙黄色的荒漠，地平线上一棵青绿色的棕榈。青绿是喷灌出来的草坪，也是城旗上唯一需要浇水的颜色；市政府每年为城旗拨一笔「颜色维护费」，用来重新印刷褪色的旗子。"
+    en: "Sand-yellow desert under an orange sky, with a blue-green palm on the horizon. The blue-green is the sprinkled lawns, the only colour on the flag that needs watering; every year the city sets aside a 'colour maintenance fund' to reprint faded flags."
+  traits: { industries: [tourism, agriculture, luxury, healthcare], heritage: ca_latino, age: old, income: 0.85 }
+- id: div_g96sq9
+  subtype: borough
+  parent: div_aq1ydw
+  status: generated
+  names:
+    zh: 喷灌区
+    en: Sprinkler District
+    es: Aspersores
+  notes:
+    zh: 边检山脉东麓的绿洲城，几十座高尔夫球场、度假村和养老社区，街道两旁的棕榈树都装着喷雾器。山上有一条缆车直上边检山脉的山顶，山下四十五度，山顶有时在下雪。
+    en: The oasis town at the eastern foot of the Checkpoint Range, with dozens of golf courses, resorts and retirement communities and misting nozzles on the palms along every street. A cable car runs straight up to the top of the range, where it is sometimes snowing while the town below is at forty-five degrees.
+  codes:
+    admin: '061601'
+  population: 150000
+  area_km2: 6000.0
+  traits: { industries: [tourism, luxury, healthcare], heritage: ca_mixed, income: 1.2 }
+- id: div_4c9mhq
+  subtype: borough
+  parent: div_aq1ydw
+  status: generated
+  names:
+    zh: 帝国尘区
+    en: Imperial Dust District
+    es: Polvo Imperial
+  notes:
+    zh: 喷灌区以东的帝国尘谷农田、苏打饼海和一直伸到东海岸的荒漠，农田靠一条从北边引来的水渠灌溉，冬天种的蔬菜运往全州。荒漠里有沙丘、太阳能电站和一个军用靶场，靶场边上的小镇以卖防晒霜和子弹壳纪念品为生。
+    en: The Imperial Dust valley farmland east of Sprinkler District, the Saltine Sea and the desert that runs all the way to the east coast; the fields are watered by a canal from the north, and their winter vegetables go to every part of the state. In the desert are sand dunes, solar power stations and a military bombing range, beside which a small town lives by selling sunscreen and souvenir bullet casings.
+  codes:
+    admin: '061602'
+  population: 80000
+  area_km2: 67000.0
+  traits: { industries: [agriculture, defence, wind] }
+
+# ── 玛门市──
+- id: div_dyj07f
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 玛门市
+    en: Mammon City
+    es: Mammón
+  notes:
+    zh: "估值山脉东侧的山地城市，全市 6 万人，地盘从估值山脉的高山湖区一直伸到东边的坏账谷，自治州最高峰独角兽峰就在城西北的山脊上。雪道区是山里的滑雪小城、垄断湖和高山草甸，坏账谷区是白皮书山脉、薄荷币山脉之间的荒漠盆地，其中最低的盆地夏天热得能把鸡蛋烤熟。城名来自滑雪场：雪道区的整座山被一家基金买下，山上的雪道、缆车、酒店和小城的每一间房子都归它所有，居民交给它的不是房租，而是「山地订阅费」。\n玛门人分成两种：冬天来滑雪、夏天来徒步的有钱人，和一年到头为他们开缆车、铺床、做饭的人，后者大多住在山脚的拖车营地里。登独角兽峰要先抽签拿许可证，抽不到的可以在山脚买「虚拟登顶」体验，戴上头盔就能看到山顶的风景，还能在社交网络上自动发一张登顶照片。坏账谷的荒漠里有一座废弃的矿城，矿城的老银行门上至今贴着「暂停兑付」。"
+    en: "The mountain city on the eastern side of the Sierra Valuation, with 60,000 people, reaching from the high lake country of the range to Bad Debt Valley in the east; the state's highest peak, Mount Unicorn, stands on the ridge north-west of the city. Ski District is the mountain ski town, Monopoly Lake and the alpine meadows, and Bad Debt Valley the desert basins between the White Paper Mountains and the Mintcoin Range, the lowest of which gets hot enough in summer to bake an egg. The city is named for its ski resort: a fund has bought the whole mountain, its runs, lifts and hotels and every house in town, and residents pay it not rent but a 'mountain subscription'.\nMammon people come in two kinds: the rich, who come to ski in winter and hike in summer, and the people who run the lifts, make the beds and cook for them all year round, most of whom live in the trailer camps at the foot of the mountain. Climbing Mount Unicorn requires a permit drawn by lottery, and those who are not drawn can buy a 'virtual summit' at the foot of the mountain: put on a headset to see the view from the top, and a summit photo is posted to your social media automatically. In the Bad Debt Valley desert stands an abandoned mining town, whose old bank still has a notice on its door: 'Withdrawals Suspended'."
+  codes:
+    admin: '061700'
+  population: 60000
+  area_km2: 35000.0
+  color: '#457B9D'
+  flag: { layout: banner, colors: ['#1D3557', '#F1FAEE'], division: pile, charge: peaks, charge_color: '#E8B523' }
+  flag_notes:
+    zh: "深蓝旗面上一道白色尖角从底边升起，像积雪的山峰，正中是一组金色的山峰。白色是雪，金色是滑雪季票的价格；城旗的版权属于买下整座山的基金，市政府每年为挂旗支付许可费。"
+    en: "A white point rising from the foot of a dark blue field like a snow-capped peak, with a group of gold peaks in the middle. The white is snow and the gold the price of a season pass; the copyright belongs to the fund that bought the mountain, and the city government pays it a licence fee every year to fly its own flag."
+  traits: { industries: [ski, tourism, mining], heritage: ca_anglo, age: young, income: 1.3 }
+- id: div_9fqezr
+  subtype: borough
+  parent: div_dyj07f
+  status: generated
+  names:
+    zh: 雪道区
+    en: Ski District
+    es: Pistas
+  notes:
+    zh: 估值山脉东坡的滑雪小城、高山湖区和垄断湖，冬天雪道开放，夏天是徒步和山地自行车的季节。垄断湖是一个没有出口的咸水湖，湖里立着一根根白色的石灰华柱，湖的取水权属于失落天使，湖面因此一年年下降。
+    en: The ski town, high lake country and Monopoly Lake on the eastern slopes of the Sierra Valuation, with ski runs in winter and hiking and mountain biking in summer. Monopoly Lake is a salt lake with no outlet, studded with white tufa towers; its water rights belong to Lost Angeles, and its surface falls a little every year.
+  codes:
+    admin: '061701'
+  population: 45000
+  area_km2: 12000.0
+  traits: { industries: [ski, tourism, conservation] }
+- id: div_9n9342
+  subtype: borough
+  parent: div_dyj07f
+  status: generated
+  names:
+    zh: 坏账谷区
+    en: Bad Debt Valley District
+    es: Valle Incobrable
+  notes:
+    zh: 估值山脉以东白皮书山脉、薄荷币山脉之间的荒漠盆地和谷地，最低的盆地夏天热得像烤炉，谷底的盐滩白得刺眼。荒漠里有废弃的矿城、沙丘和夜空保护区，夜里没有一点灯光，银河清晰得像一条路。
+    en: The desert basins and valleys between the White Paper Mountains and the Mintcoin Range east of the Sierra Valuation; the lowest basin bakes like an oven in summer, and the salt flats on its floor are blindingly white. In the desert are abandoned mining towns, sand dunes and a dark-sky reserve with not a single light at night, where the Milky Way is as clear as a road.
+  codes:
+    admin: '061702'
+  population: 15000
+  area_km2: 23000.0
+  traits: { industries: [tourism, mining, conservation] }
+
+# ── 离岸群岛市──
+- id: div_943qb5
+  subtype: locality
+  parent: div_x2z14w
+  status: generated
+  names:
+    zh: 离岸群岛市
+    en: Offshore Islands City
+    es: Islas Paraíso Fiscal
+  notes:
+    zh: "南海岸外的六座岛屿，全市 1.5 万人，是自治州的避税天堂：在岛上登记的公司不交州税，岛上的豪宅也不交房产税，理由是「海岛的土地还在测量中」。避税列岛区是西边四座岛，岛上登记着几万家公司，真正住在岛上的是看管邮箱的人和一群灰狐狸；亿万岛区是东边的两座岛，北边那座全是度假豪宅和游艇码头，南边那座是富豪们合建的地堡岛，岛内的山体被挖空，能让几百个家庭在地下住上几年。\n离岸群岛人说岛上最多的是三样东西：邮箱、海鸟和律师。每座岛之间有私人渡轮和直升机，可没有一班公共航线，岛民去本岛看病要搭送货的船。地堡岛每年做一次「末日演习」，演习那天岛主们乘直升机上岛，在地堡里吃一顿晚餐，然后离开，岛上的工作人员说那是一年中最热闹的一晚。"
+    en: "Six islands off the south coast, with 15,000 people, the state's tax haven: companies registered on the islands pay no state tax and the island mansions no property tax, on the grounds that 'the islands' land is still being surveyed'. The Tax Shelter Islands District is the four western islands, where tens of thousands of companies are registered and the people who actually live there are those who look after the mailboxes, along with a population of grey foxes; the Billionaire Isles District is the two eastern islands, the northern one all holiday mansions and marinas and the southern a bunker island built jointly by the very rich, its hill hollowed out so that hundreds of families could live underground for years.\nIslanders say the three things there are most of are mailboxes, seabirds and lawyers. There are private ferries and helicopters between the islands but not a single public service, and islanders going to the main island to see a doctor ride the supply boats. Once a year the bunker island holds a 'doomsday drill': the owners fly in by helicopter, eat a dinner in the bunker and leave again, and the island staff say it is the liveliest night of the year."
+  codes:
+    admin: '061800'
+  population: 15000
+  area_km2: 3000.0
+  color: '#0EA5E9'
+  flag: { layout: mirror, colors: ['#0EA5E9', '#FDE68A'], charge: key, charge_color: '#0F172A' }
+  flag_notes:
+    zh: "天蓝的海和沙黄的岛隔着水线互换颜色，正中一把深蓝的钥匙。钥匙是保险箱的钥匙，也是地堡的钥匙；城旗在岛上登记为一家公司的商标，这家公司的地址是一只邮箱。"
+    en: "Sky-blue sea and sand-yellow island counterchanged across the waterline, with a dark blue key in the middle. The key is the key to a safe deposit box and to the bunker; the flag is registered on the islands as the trademark of a company whose address is a mailbox."
+  traits: { industries: [finance, luxury, security, tourism], heritage: ca_global, age: old, income: 9.0 }
+- id: div_x972yz
+  subtype: borough
+  parent: div_943qb5
+  status: generated
+  names:
+    zh: 避税列岛区
+    en: Tax Shelter Islands District
+    es: Islas Refugio Fiscal
+  notes:
+    zh: 离岸群岛西边的四座岛，岛上有峡谷、海崖和成群的海鸟，岛上的小镇只有一条街，街两边是一排排刻着公司名字的邮箱。岛上的灰狐狸只有家猫那么大，是这里唯一不需要注册的居民。
+    en: The four western islands of the group, with canyons, sea cliffs and great colonies of seabirds; the island town has a single street, lined on both sides with rows of mailboxes engraved with company names. The islands' grey foxes are no bigger than house cats and are the only residents who need not register.
+  codes:
+    admin: '061801'
+  population: 9000
+  area_km2: 2060.0
+  traits: { industries: [finance, conservation, tourism] }
+- id: div_45y1f3
+  subtype: borough
+  parent: div_943qb5
+  status: generated
+  names:
+    zh: 亿万岛区
+    en: Billionaire Isles District
+    es: Islas Milmillonarias
+  notes:
+    zh: 离岸群岛东边的两座岛：北边的亿万岛上是度假豪宅、游艇码头和一座只接待岛主客人的小镇，南边的地堡岛是富豪们合建的地下避难城，岛上的山被挖空，里面有水库、温室、医院和一座酒窖。地堡岛的入口由三道门守着，最后一道门的密码据说只有人工智能知道。
+    en: "The two eastern islands of the group: the northern, Billionaire Island, has holiday mansions, marinas and a small town that serves only the owners' guests, and the southern, Bunker Island, is an underground refuge built jointly by the very rich, its hill hollowed out to hold a reservoir, greenhouses, a hospital and a wine cellar. The entrance to Bunker Island is guarded by three doors, and the code to the last is said to be known only to an artificial intelligence."
+  codes:
+    admin: '061802'
+  population: 6000
+  area_km2: 940.0
+  traits: { industries: [luxury, security, tourism] }

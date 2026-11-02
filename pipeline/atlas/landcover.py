@@ -8,7 +8,7 @@ from .noise import grid_noise
 from .relief import slope_aspect
 
 # Order is the class index written to the map data; earlier classes win where rules overlap.
-CLASSES = ("urban", "wetland", "farmland", "rock", "tundra", "forest")
+CLASSES = ("urban", "wetland", "farmland", "rock", "tundra", "forest", "desert", "scrub")
 
 
 def classify(elev, land, g, real_km_per_cell, km_per_design, seed, settlements, acc, p):
@@ -58,6 +58,14 @@ def classify(elev, land, g, real_km_per_cell, km_per_design, seed, settlements, 
 
     out = np.full(g.shape, -1, dtype=np.int16)
     out[land] = CLASSES.index("forest")
+    # Dry zones: {kind: desert or scrub, ellipse: [cx, cy, rx, ry] in design km, max_elev_m}; ground
+    # there below that height is desert or scrub instead of forest, with ragged edges, except along
+    # streams and on north-facing slopes, which stay wooded
+    for k, z in enumerate(p.get("dry_zones", [])):
+        cx, cy, rx, ry = z["ellipse"]
+        edge = ((g.X - cx) / rx) ** 2 + ((g.Y - cy) / ry) ** 2 + 0.5 * grid_noise(seed + 410 + k, 12, 4, 0.5, g)
+        lift = z["max_elev_m"] * (1 - 0.5 * north) + 250 * n1
+        out[land & (edge < 1) & (elev < lift) & (wet < z.get("wet_max", 6.5))] = CLASSES.index(z["kind"])
     for name, m in (("tundra", tundra), ("rock", rock), ("farmland", farmland), ("wetland", wetland), ("urban", urban)):
         out[m] = CLASSES.index(name)
     out = _majority(out, land)

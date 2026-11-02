@@ -253,7 +253,7 @@ def bend(streets: list[Street], fld: Field, amp: float, step: float = 0.04):
 
 
 def _row(s: str) -> dict:
-    """"zh | en | viking | buckham [| tavrunaq [| ivuran]]"; "-" for a language the entry has no form in."""
+    """"zh | en | viking | buckham [| tavrunaq [| ivuran [| es]]]"; "-" for a language the entry has no form in."""
     return {lang: x.strip() for lang, x in zip(NAME_LANGS, s.split("|")) if x.strip() != "-"}
 
 
@@ -301,6 +301,9 @@ class Namer:
         iv = stem.get("art-x-ivuran")
         if iv and "art-x-ivuran" in self.langs and suffix.get("art-x-ivuran"):
             out["art-x-ivuran"] = f"{suffix['art-x-ivuran']} {iv}" + num
+        es = stem.get("es")
+        if es and "es" in self.langs and suffix.get("es"):
+            out["es"] = f"{suffix['es']} {es}" + num
         return out
 
     def theme(self, style: str, rng: np.random.Generator) -> str:

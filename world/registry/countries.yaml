@@ -15,3 +15,18 @@ countries:
         alpha2: CN
         alpha3: CHN
         numeric: "156"
+  - id: country:US
+    subtype: country
+    status: canon
+    names:
+      zh: 美利坚合众国
+      en: United States of America
+      es: Estados Unidos de América
+    short_names:
+      zh: 美国
+      en: United States
+    codes:
+      iso3166_1:
+        alpha2: US
+        alpha3: USA
+        numeric: "840"

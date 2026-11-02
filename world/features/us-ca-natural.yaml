@@ -1,0 +1,125 @@
+# Named natural features of the California Autonomous State.
+# subtype follows OSM natural=* values. Geometry is produced by the generator
+# (see world/generator/us-ca.yaml); this file only holds identity and semantics.
+# Names are Chinese, English and Spanish (es).
+features:
+  - id: nat_atgnnd
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 估值山脉
+      en: Sierra Valuation
+      es: Sierra Valoración
+    notes:
+      zh: "纵贯自治州东部的大山脉，一块向西缓缓倾斜、向东陡然断落的巨大断块，西坡是巨杉林和深切的峡谷，东坡是陡崖和荒漠。山脉得名于它的「估值」：每座山峰都被一家公司按市值挂牌，峰越高估值越高，最高的独角兽峰因此得名。山脉挡住了从海上来的冬季风暴，西坡积雪很深，春天融雪流进中央渴谷，是全州的水塔；东坡背风，荒漠一直延伸到海边。"
+      en: "The great range down the east of the state, an enormous fault block tilting gently to the west and breaking off steeply to the east, with sequoia forests and deep canyons on its western slopes and escarpments and desert on its eastern. It is named for its 'valuation': every peak is listed by a company at a market value, the higher the peak the higher the valuation, which is how the highest, Mount Unicorn, got its name. The range stops the winter storms coming in from the sea, so the snow lies deep on its western slopes and its spring melt runs into the Central Thirsty Valley, the state's water tower; its eastern side lies in the lee, where desert reaches all the way to the sea."
+  - id: nat_sdw6qb
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 级联故障山脉
+      en: Cascading Failure Range
+      es: Cordillera de la Falla en Cascada
+    notes:
+      zh: "自治州北部的火山山脉，两座孤立的火山锥高高耸立在森林和熔岩高原之上，北边的那座终年积雪。山名来自一次全州大停电：一座火山冒烟触发了电网的自动保护，保护又触发了另一处保护，一路连锁下去，整个自治州停电三天，事后调查报告的标题就是「级联故障」。"
+      en: "The volcanic range of the north of the state, two isolated volcanic cones rising high above forest and lava plateau, the northern one snow-capped all year. It is named after a statewide blackout: smoke from one volcano tripped the grid's automatic protection, which tripped another, and so on down the line until the whole state was without power for three days; the inquiry's report was titled 'Cascading Failure'."
+  - id: nat_wj4n7d
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 点击诱饵山脉
+      en: Clickbait Mountains
+      es: Montañas Ciberanzuelo
+    notes:
+      zh: "自治州西北角的崎岖山地，河谷深切，森林茂密。山名来自山里的旅游广告：「你绝对想不到这座山后面有什么」，翻过山去，后面还是山。"
+      en: "The rugged mountains of the state's north-western corner, deeply cut by river valleys and thickly forested. The name comes from the tourist adverts for them, 'You won't believe what's behind this mountain'; cross it, and behind it is another mountain."
+  - id: nat_j62b8f
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 雾帘山脉
+      en: Fogwall Range
+      es: Sierra Muro de Niebla
+    notes:
+      zh: "北海岸背后的一连串海岸山岭，从北海岸一直延伸到海湾北岸，山坡上是红杉林和葡萄园。夏天海雾每天下午从海上漫过来，被山岭挡住，在山脊上堆成一堵白墙，山名由此而来。"
+      en: "The chain of coast ranges behind the north coast, reaching from the north coast to the north shore of the bay, its slopes covered in redwood forest and vineyards. On summer afternoons the sea fog rolls in and is stopped by the ridges, piling up along the crest in a white wall, which gives the range its name."
+  - id: nat_gbs1f4
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 滤镜山脉
+      en: Filter Range
+      es: Sierra Filtro
+    notes:
+      zh: "中部海岸的海岸山脉，山体直接插进大海，形成一百多公里长的悬崖海岸，海岸公路挂在悬崖上。这是网红们最爱的地方，山名来自他们发出的照片：每一张都加了滤镜，山的真实颜色已经没有人记得。"
+      en: "The coast range of the central coast, plunging straight into the sea in a cliff coast more than a hundred kilometres long, with the coast road hung along the cliffs. It is the influencers' favourite place, and its name comes from the pictures they post: every one has a filter on it, and nobody remembers the mountains' real colour."
+  - id: nat_r4x2cb
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 调试山脉
+      en: Debugger Range
+      es: Sierra Depuradora
+    notes:
+      zh: "海湾以东、中央渴谷以西的一道干燥山岭，夏天山坡一片金黄，冬天转绿。山名来自湾区的程序员：他们周末来这里徒步，说爬上山顶才能想明白代码哪里出了问题。如今程序员都走了，山上只剩下风机。"
+      en: "A dry range east of the bay and west of the Central Thirsty Valley, its slopes golden in summer and green in winter. It is named after the Bay Area's programmers, who came to hike here at weekends and said they could only work out what was wrong with their code from the summit. The programmers have gone now, and only the wind turbines remain."
+  - id: nat_hzhj81
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 付费墙山脉
+      en: Paywall Range
+      es: Sierra Muro de Pago
+    notes:
+      zh: "沿南海岸东西横亘的山脉，把失落天使盆地和北边的荒漠隔开，东段的山峰最高，冬天积雪。山名来自穿山的几条领道：每条都要收费，而且越往山上越贵，本地人说翻过这道山，就到了「付费墙的另一边」。"
+      en: "The range running east and west along the south coast, separating the Lost Angeles basin from the desert to the north, with its highest, snow-capped peaks in the east. The name comes from the state roads that cross it, every one of them tolled and the dearer the higher you go; locals say crossing it takes you 'to the other side of the paywall'."
+  - id: nat_9emh9n
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 特哈聊天山脉
+      en: Tehachatbot Mountains
+      es: Montañas Tehachatbot
+    notes:
+      zh: "连接估值山脉南端和付费墙山脉的一道山地，是中央渴谷的南端，山口上站满了风机。山名来自山口上的一座服务区：服务区的客服早就换成了聊天机器人，问路的人常常被它绕进几小时的对话里。"
+      en: "The mountains joining the southern end of the Sierra Valuation to the Paywall Range, closing off the south end of the Central Thirsty Valley, their passes crowded with wind turbines. The name comes from a service area on the pass whose staff were replaced long ago by a chatbot; travellers who ask it the way are often drawn into conversations that last for hours."
+  - id: nat_9981nk
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 边检山脉
+      en: Checkpoint Range
+      es: Sierra del Retén
+    notes:
+      zh: "自治州南端由北向南的山脉，西坡是松林和果园，东坡陡然落进荒漠，北端的高峰冬天积雪，山下就是喷灌区的高尔夫球场。山里每条路上都有移民执法局的检查站，山名由此而来。"
+      en: "The range running north to south at the southern end of the state, with pine woods and orchards on its western slopes and a steep drop to the desert on its eastern; the high peak at its northern end is snow-capped in winter above the golf courses of Sprinkler District. Every road through the mountains has an Immigration Enforcement checkpoint, which gives the range its name."
+  - id: nat_3t794s
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 白皮书山脉
+      en: White Paper Mountains
+      es: Montañas del Libro Blanco
+    notes:
+      zh: "估值山脉以东一道干燥的高山，山顶的石灰岩和雪终年泛白，山上长着树龄好几千年的老松树。山名来自湾区公司的「白皮书」：读起来很长，看起来很白，里面什么也长不出来。"
+      en: "A dry, high range east of the Sierra Valuation, its limestone and snow white all year, home to pines several thousand years old. The name comes from the Bay Area companies' white papers: long to read, white to look at, and nothing grows in them."
+  - id: nat_35ng5c
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 薄荷币山脉
+      en: Mintcoin Range
+      es: Sierra Mentamoneda
+    notes:
+      zh: "坏账谷西边一道荒凉的山岭，山上有废弃的银矿和矿城。山名来自一种在山里「挖」出来的加密货币：一家公司在废矿里装满了矿机，后来币价归零，矿机和银矿一起被废弃了。"
+      en: "A barren range west of Bad Debt Valley, with abandoned silver mines and mining towns. The name comes from a cryptocurrency once 'mined' in the mountains: a company filled the old mine with mining rigs, the coin's price went to zero, and the rigs were abandoned along with the silver mine."
+  - id: nat_tkmfq1
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 脚本丘陵
+      en: Javascript Hills
+      es: Colinas Javascript
+    notes:
+      zh: "东南荒漠里一列列低矮的石山，山间是沙丘和干湖。山名来自山里的一座大型太阳能电站：它的控制系统据说是用一段没有人看得懂的脚本写的，谁也不敢动它，于是它一直在运行。"
+      en: "Rows of low rocky hills in the south-eastern desert, with dunes and dry lakes between them. They are named after a great solar power station in the hills, whose control system is said to have been written in a script nobody can understand; nobody dares touch it, so it just keeps running."

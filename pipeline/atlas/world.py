@@ -12,7 +12,7 @@ WORLD_DIR = ROOT / "world"
 
 ID_PATTERN = re.compile(r"^(div|nat|rte|poi|bld|pty)_[0-9a-hjkmnp-tv-z]{6}$|^country:[A-Z]{2}$")
 # Name languages, as NAME_LANGS in src/lib/types.ts: Chinese and English are required, the conlangs optional.
-NAME_LANGS = ("zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran")
+NAME_LANGS = ("zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran", "es")
 REQUIRED_LANGS, CONLANGS = NAME_LANGS[:2], NAME_LANGS[2:]
 DIVISION_SUBTYPES = ("country", "dependency", "region", "locality", "borough")
 # Division codes (GB/T 2260): six digits, of which a territory uses the first two, a city four
@@ -41,8 +41,8 @@ TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder", "fl
 # A wonder on a line is one of its built structures (named in the build); elsewhere it is the entity itself.
 WONDER_STRUCTURES = ("bridge", "tunnel", "snow_shed")
 TRAIT_KEYS = ("industries", "heritage", "age", "income")
-ROUTE_SHIELDS = ("crest", "maritime", "polar", "tropic")  # territorial route shield designs, see src/lib/shields.ts
-FLAGS = ("north_viking", "viking_islands", "arctic_ocean", "everlong_summer")  # territory flag designs, see src/lib/flags.tsx
+ROUTE_SHIELDS = ("crest", "maritime", "polar", "tropic", "spade")  # territorial route shield designs, see src/lib/shields.ts
+FLAGS = ("north_viking", "viking_islands", "arctic_ocean", "everlong_summer", "california")  # territory flag designs, see src/lib/flags.tsx
 
 
 def ts_names(file: str, const: str) -> tuple[str, ...]:
@@ -54,7 +54,7 @@ def ts_names(file: str, const: str) -> tuple[str, ...]:
 
 # City flags: the layouts in src/lib/cityFlags.tsx and the charges in src/lib/charges.tsx and emblems.tsx.
 FLAG_LAYOUTS = ts_names("cityFlags.tsx", "FLAG_LAYOUTS")
-FLAG_CHARGES = ts_names("emblems.tsx", "MOTIFS") + ts_names("charges.tsx", "NEW")
+FLAG_CHARGES = ts_names("emblems.tsx", "MOTIFS") + ts_names("charges.tsx", "NEW") + ts_names("charges.tsx", "CALIFORNIA")
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
 POLITICS_SYSTEMS = ("mmp", "fptp", "pr_reserved", "pr_regional")
 # a party's place on the scales of expert party surveys, 0 to 10: economic left to right, social

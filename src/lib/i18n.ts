@@ -111,6 +111,8 @@ const STRINGS = {
   lc_rock: { zh: "裸岩", en: "Bare rock" },
   lc_farmland: { zh: "农田", en: "Farmland" },
   lc_wetland: { zh: "湿地", en: "Wetland" },
+  lc_desert: { zh: "荒漠", en: "Desert" },
+  lc_scrub: { zh: "灌丛草地", en: "Scrub and grassland" },
   lc_urban: { zh: "城镇", en: "Built-up area" },
   lc_glacier: { zh: "冰川", en: "Glacier" },
   peak: { zh: "山峰", en: "Peak" },
@@ -307,6 +309,7 @@ export const NAME_LANG_LABELS: Record<NameLang, Record<Lang, string>> = {
   "art-x-buckham": { zh: "巴克汉姆语", en: "Buckham" },
   "art-x-tavrunaq": { zh: "塔夫鲁纳克语", en: "Tavrunaq" },
   "art-x-ivuran": { zh: "伊武兰语", en: "Ivuran" },
+  es: { zh: "西班牙语", en: "Spanish" },
 };
 
 /** Cities and districts under special rules (special_status in world/divisions). */

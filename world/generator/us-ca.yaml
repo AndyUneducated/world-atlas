@@ -1,0 +1,320 @@
+# Procedural generator parameters for the California Autonomous State: one island drawn after the
+# outline of California, at California's latitudes on the far side of the planet from the Chinese
+# territories, with its land borders turned into coast, and eleven small islands around it.
+#
+# Positions and lengths are in design kilometres in a local equal-area (sinusoidal) frame whose
+# centre maps to frame.origin_lonlat; frame.scale converts design km to real km. The outline, ranges,
+# bays and islands were converted from real longitudes and latitudes by _drafts/m62_geo.py
+# (planet lon = real lon − 45.73°). Division areas come from world/divisions/us-ca.yaml.
+territory: div_x2z14w
+seed: 41
+frame:
+  origin_lonlat: [-165.0, 37.21]
+  size_km: [420, 470]
+  scale: 2.8284  # √8, as North Viking Island
+
+land:
+  # A drawn coast: the polygon weighs 1 inside, falling off over soft_km across its edge.
+  outlines:
+    - path: [[58.9, 420.2], [57.2, 410.3], [60.6, 392.6], [58.0, 373.0], [49.8, 358.8], [59.3, 341.5], [65.4, 325.8], [66.2, 310.1],
+             [67.5, 299.1], [76.3, 284.5], [86.6, 274.7], [87.1, 262.9], [96.9, 259.0], [102.3, 255.8], [102.6, 254.3], [102.3, 247.2],
+             [104.7, 233.4], [112.2, 222.0], [121.2, 218.9], [123.6, 213.8], [120.3, 207.9], [118.6, 203.9], [126.1, 188.2], [138.5, 172.5],
+             [151.0, 160.7], [159.5, 148.9], [159.0, 135.1], [164.4, 123.3], [179.6, 124.1], [189.3, 121.4], [203.3, 116.3], [212.1, 108.8],
+             [221.8, 106.8], [227.7, 106.8], [231.7, 99.8], [231.4, 95.4], [238.2, 95.8], [244.8, 91.9], [251.4, 88.0], [258.1, 82.1],
+             [266.5, 70.3], [270.0, 60.4], [270.4, 53.8], [274.5, 47.9],
+             # the old Mexican line, the Colorado and the Nevada line, now an eastern coast
+             [308.3, 50.6], [328.0, 53.0], [353.8, 55.3], [360.5, 67.5], [353.3, 82.1], [358.6, 93.9], [360.9, 108.8], [370.2, 116.7],
+             [359.7, 133.2], [352.7, 145.0], [318.7, 176.4], [281.2, 209.8], [249.1, 241.3], [217.8, 268.8], [194.7, 288.5], [189.5, 304.2],
+             [187.2, 329.7], [182.9, 361.2], [181.1, 392.6], [181.9, 420.2],
+             # the old Oregon line, now a northern coast
+             [152.8, 422.1], [114.7, 419.0], [88.5, 421.0]]
+      weight: 1.0
+      soft_km: 2.5
+  # Gaussian lobes: [cx, cy, rx, ry, rotation_deg, weight]; negative weight carves bays.
+  lobes:
+    # ── San Francisco Bay ──
+    - [113.0, 247.0, 7.8, 2.3, -40, -1.6]    # South Bay
+    - [107.0, 264.1, 4.2, 2.5, 10, -1.6]     # San Pablo Bay
+    - [118.2, 266.1, 5.0, 2.0, 0, -1.5]      # Suisun Bay
+    - [107.6, 257.0, 1.6, 2.8, 0, -1.6]      # Central Bay
+    # ── 避税列岛 (Channel-like islands) ──
+    - [187.6, 105.7, 7.8, 3.2, 0, 1.0]
+    - [176.2, 103.7, 6.0, 3.0, 10, 1.0]
+    - [167.1, 107.2, 3.4, 2.1, 0, 1.0]
+    - [195.7, 76.2, 3.4, 2.1, -20, 1.0]
+    # ── 亿万岛 and 地堡岛 ──
+    - [231.2, 81.3, 6.0, 2.4, 30, 1.0]
+    - [228.7, 62.4, 5.7, 2.2, -60, 1.0]
+    # ── Farallon-like islets west of the Golden Gate ──
+    - [87.2, 251.1, 1.7, 1.1, 20, 1.0]
+    - [84.8, 253.1, 1.3, 0.9, 0, 1.0]
+    - [88.7, 248.8, 1.1, 0.8, 0, 1.0]
+    # ── two islands in the bay ──
+    - [111.5, 248.3, 1.3, 0.6, -40, 2.2]     # the data-centre island, mid-channel
+    - [107.3, 257.2, 0.9, 0.7, 0, 2.2]       # the detention island
+  coast_noise: { amplitude: 0.1, scale_km: 40, octaves: 6, detail_amplitude: 0.05, detail_scale_km: 6 }
+  # Rough ground along the coasts that were land borders, so they read as coasts
+  rough:
+    - [355, 90, 14, 45, 0.35, 9]
+    - [310, 52, 40, 8, 0.3, 8]
+    - [300, 190, 40, 30, 0.3, 10]
+    - [235, 255, 35, 30, 0.3, 10]
+    - [186, 360, 10, 60, 0.35, 9]
+    - [135, 421, 50, 8, 0.3, 8]
+    - [62, 370, 14, 50, 0.25, 6]     # the rocky north coast
+  # Channels cut into the coast: [path, width_km, depth]
+  fjords:
+    - [[[99.2, 255.3], [104.2, 255.5], [105.8, 255.9]], 0.6, 1.3]   # the Golden Gate
+    - [[[107.4, 259.5], [107.2, 262.0]], 1.2, 1.6]  # the strait from the Central Bay to San Pablo Bay
+    - [[[111.0, 264.9], [115.0, 264.9]], 1.0, 1.6]  # Carquinez-like strait to Suisun Bay
+    - [[[55.0, 372.2], [58.8, 371.0]], 0.7, 1.0]    # Humbled Bay
+    - [[[270.1, 54.5], [273.4, 52.6]], 0.8, 1.0]    # San Deportes Bay
+    - [[[151.6, 159.1], [153.6, 158.7]], 0.5, 0.9]  # Morro-like bay
+
+terrain:
+  max_elevation_m: 2700
+  alpine_max_m: 4500
+  ridges:
+    # 估值山脉: the long tilted block of the east, its high crest in the south
+    - { feature: nat_atgnnd, path: [[142.2, 345.5], [168.9, 316.0], [190.0, 276.7], [213.3, 239.3], [229.1, 211.8], [239.0, 178.4]], height_m: 2300, width_km: 9.9 }
+    - { feature: nat_atgnnd, path: [[208.6, 249.2], [221.1, 225.6], [232.3, 207.1]], height_m: 2700, width_km: 4.2, alpine: true }
+    - { feature: nat_sdw6qb, path: [[115.4, 395.8], [118.4, 398.2]], height_m: 2700, width_km: 3.2, alpine: true }
+    - { feature: nat_sdw6qb, path: [[135.1, 359.2], [138.1, 362.0]], height_m: 1700, width_km: 3.5 }
+    - { feature: nat_wj4n7d, path: [[76.3, 410.3], [90.0, 388.7], [98.0, 369.1]], height_m: 1700, width_km: 7.8 }
+    - { feature: nat_j62b8f, path: [[69.7, 369.1], [81.5, 333.7], [92.4, 302.2], [103.7, 278.6]], height_m: 1100, width_km: 6.4 }
+    - { feature: nat_gbs1f4, path: [[114.8, 235.4], [131.4, 211.8], [145.1, 188.2], [160.7, 164.6], [176.5, 143.0]], height_m: 1300, width_km: 5.7 }
+    - { feature: nat_r4x2cb, path: [[121.6, 257.0], [139.7, 231.5], [158.0, 200.0]], height_m: 900, width_km: 4.9 }
+    - { feature: nat_hzhj81, path: [[182.9, 130.0], [205.5, 127.3], [228.2, 120.6], [254.3, 116.7], [273.9, 110.4]], height_m: 1900, width_km: 4.9 }
+    - { feature: nat_hzhj81, path: [[270.6, 110.4], [283.7, 109.6]], height_m: 2500, width_km: 3.2 }
+    - { feature: nat_9emh9n, path: [[212.0, 143.0], [231.2, 152.8]], height_m: 1300, width_km: 4.9 }
+    - { feature: nat_9981nk, path: [[285.6, 97.8], [290.9, 82.1], [294.6, 64.4]], height_m: 1600, width_km: 5.3 }
+    - { feature: nat_9981nk, path: [[287.2, 98.6], [289.9, 95.8]], height_m: 2100, width_km: 2.5 }
+    - { feature: nat_3t794s, path: [[233.4, 259.0], [236.7, 235.4]], height_m: 2300, width_km: 3.5 }
+    - { feature: nat_35ng5c, path: [[268.6, 207.9], [273.9, 182.3]], height_m: 1800, width_km: 3.2 }
+    - { feature: nat_tkmfq1, path: [[298.6, 156.8], [321.5, 145.0]], height_m: 900, width_km: 4.2 }
+    - { feature: nat_tkmfq1, path: [[315.8, 121.4], [339.0, 109.6]], height_m: 800, width_km: 4.2 }
+  plains:
+    - [121.8, 318.0, 26.5, 0.9]    # 萨克拉钱托河谷
+    - [132.7, 266.8, 15.9, 0.95]   # 三角洲
+    - [155.5, 239.3, 24.7, 0.9]    # 渴谷北段
+    - [192.8, 196.1, 30.1, 0.9]    # 渴谷南段
+    - [208.7, 158.7, 19.4, 0.88]   # 克恩盆地
+    - [238.2, 103.7, 15.9, 0.85]   # 失落天使盆地
+    - [275.0, 56.5, 8.8, 0.8]      # 圣遣返
+    - [326.0, 64.4, 19.4, 0.95]    # 帝国谷
+    - [303.7, 93.9, 8.8, 0.8]      # 喷灌谷
+    - [132.8, 205.9, 7.8, 0.8]     # 生菜谷
+    - [121.1, 237.4, 7.8, 0.9]     # 似然谷
+    - [279.9, 198.0, 7.8, 0.97]    # 坏账谷
+    - [240.0, 219.7, 5.3, 0.7]     # 白皮书山脚的谷地
+    - [265.8, 105.7, 14.1, 0.75]   # 仓储帝国
+    - [208.8, 113.5, 6.4, 0.85]    # 圣塞雷娜东边的海岸平原
+    - [108.4, 278.6, 5.3, 0.7]     # 赤霞珠谷
+  valleys:
+    - { feature: nat_ea84va, path: [[118.0, 390.0], [124.0, 372.0], [122.0, 345.0], [124.0, 318.0], [130.0, 293.0], [133.0, 275.0], [124.0, 268.0], [119.0, 266.5]], width_km: 9, source_m: 420, strength: 0.95 }
+    - { feature: nat_ezeckp, path: [[205.0, 232.0], [180.0, 222.0], [160.0, 235.0], [145.0, 254.0], [131.0, 266.0], [124.0, 267.5]], width_km: 9, source_m: 380, strength: 0.95 }
+
+hydrology:
+  river_min_drainage_km2: 25
+  river_candidate_km2: 150
+  estuary_km2: 700
+  # Lakes: a lobed disc of radius_km (design km), at a fixed spot (at, design km) or offset_km (real km)
+  # from the district centre.
+  lakes:
+    - { feature: nat_jjj34z, in: div_w1h5d7, radius_km: 4.5, at: [178.5, 305.4] }   # 塔克斯霍湖
+    - { feature: nat_m7pm6k, in: div_n4pw55, radius_km: 2.7, at: [96.4, 304.2] }    # 清除记录湖
+    - { feature: nat_2s269s, in: div_4c9mhq, radius_km: 6.0, at: [315.6, 78.1] }    # 苏打饼海
+    - { feature: nat_nc93at, in: div_9fqezr, radius_km: 2.7, at: [211.6, 262.9] }   # 垄断湖
+  lake_field:
+    # tarns of the high Sierra Valuation
+    - in: [div_9fqezr, div_p6j9x8, div_w1h5d7]
+      count: 260
+      radius_km: [0.1, 0.45]
+      max_elev_m: 4000
+    # the data centres' cooling ponds on the Marginal District's low ground
+    - in: [div_5anpaj]
+      count: 45
+      radius_km: [0.25, 0.8]
+      max_elev_m: 250
+  named_rivers:
+    - { feature: nat_ea84va, through: div_3r66dn }
+    - { feature: nat_ezeckp, through: div_xf54np }
+
+coast:
+  island_min_km2: 0.6
+  bay_close_km: 5
+  bay_min_km2: 6
+  cape_open_km: 2.5
+  cape_min_prominence_km: 1.5
+  strait_max_gap_km: 6
+  match_radius_km: 10
+
+relief:
+  peak_min_elev_m: 900
+  peak_min_prominence_m: 200
+  pass_min_elev_m: 600
+  snowline_m: 3900
+  snowline_aspect_m: 300
+  glacier_max_slope_deg: 40
+
+# Mediterranean land cover: chaparral and golden grass on the coast and the valley margins, oak and
+# conifer forest higher up and on the wet north coast, farmland across the Central Valley, desert in
+# the south-east and behind the Sierra.
+landcover:
+  urban_density_per_km2: 2600   # sprawl
+  urban_terrace_slope_deg: 18
+  wetland_max_elev_m: 20
+  wetland_wetness: 3.0
+  farm_max_elev_m: 250
+  farm_max_slope_deg: 3
+  farm_reach_km: 40
+  treeline_m: 3300
+  treeline_aspect_m: 200
+  rock_above_treeline_m: 300
+  rock_slope_deg: 33
+  dry_zones:
+    - { kind: desert, ellipse: [308.9, 135.1, 60.1, 42.4], max_elev_m: 1800 }   # the Mojave
+    - { kind: desert, ellipse: [257.6, 205.9, 26.5, 42.4], max_elev_m: 1900 }   # Bad Debt Valley and the land behind the Sierra
+    - { kind: desert, ellipse: [324.1, 72.2, 28.3, 24.7], max_elev_m: 900 }     # Imperial Dust
+    - { kind: desert, ellipse: [199.1, 156.8, 21.2, 14.1], max_elev_m: 700 }    # the Kern oil fields
+    - { kind: scrub, ellipse: [244.7, 103.7, 81.3, 38.9], max_elev_m: 1700 }    # the south coast
+    - { kind: scrub, ellipse: [154.5, 176.4, 38.9, 60.1], max_elev_m: 1000 }    # the central coast
+    - { kind: scrub, ellipse: [171.1, 239.3, 42.4, 106.1], max_elev_m: 650 }    # the Central Valley's margins
+    - { kind: scrub, ellipse: [118.3, 251.1, 21.2, 24.7], max_elev_m: 700 }     # round the bay
+
+streets:
+  local_spacing_km: { planned: [0.16, 0.22], mixed: [0.14, 0.2], organic: [0.11, 0.17] }
+  # Street names: Californian landscape, Spanish words, startup and AI jargon, and the state's own
+  # place names; named in English and Spanish.
+  name_styles:
+    planned: { hustle: 4, golden: 3, hispano: 2, civic: 1, numbered: 2, places: 2 }
+    mixed: { golden: 4, hispano: 3, hustle: 2, trees: 1, places: 2, culture: 1 }
+    organic: { hispano: 4, golden: 3, trades: 1, places: 1 }
+  districts:
+    div_ymeec8: { style: planned, detail_km2: 40, mix: { civic: 1.6, towers: 1.0, slabs: 0.8 } }       # 游说区
+    div_0aep50: { style: mixed, mix: { houses: 3.0, industrial: 0.3 } }                                 # 蔓延维尔区
+    div_jqddbd: { style: planned, detail_km2: 40, mix: { towers: 2.4, podium: 1.4, civic: 0.4 } }      # 破产中心区
+    div_16m2n3: { style: mixed, detail_km2: 30, mix: { podium: 1.2, houses: 1.4, industrial: 0.8 } }   # 好莱怪区
+    div_5sjc4x: { style: organic, detail_km2: 30, mix: { houses: 3.0, park: 0.8 } }                    # 比佛利账单区
+    div_rwfcw9: { style: planned, mix: { houses: 2.4, slabs: 0.8, industrial: 1.0 } }                   # 烟雾谷区
+    div_3rwj4m: { style: planned, mix: { industrial: 2.6, houses: 1.0 } }                               # 搁浅滩区
+    div_7jac05: { style: planned, mix: { houses: 3.0, podium: 0.4 } }                                   # 网约谷区
+    div_0vf1b0: { style: mixed, detail_km2: full, mix: { towers: 1.6, perimeter: 1.4, houses: 0.8 } }  # 先验区
+    div_9tazhz: { style: planned, mix: { industrial: 3.0, houses: 0.6 } }                               # 后验区
+    div_zjfaw0: { style: planned, mix: { industrial: 2.2, podium: 1.2 } }                               # 似然谷区
+    div_jssc24: { style: organic, mix: { houses: 3.0, park: 1.2 } }                                     # 门禁高地区
+    div_ad0sg9: { style: planned, detail_km2: 40, mix: { towers: 1.6, podium: 1.2, civic: 0.8 } }      # 签证区
+    div_jmthr1: { style: planned, mix: { industrial: 1.6, civic: 1.2, houses: 1.4 } }                   # 边界线区
+    div_sc80nv: { style: planned, mix: { industrial: 3.4, houses: 0.8 } }                               # 托盘维尔区
+    div_7871nw: { style: planned, detail_km2: 50, mix: { houses: 2.0, podium: 1.2, park: 0.6 } }       # 总规划区
+    div_r0qhbd: { style: planned, mix: { houses: 2.4, industrial: 1.0 } }                               # 果仁区
+    div_zs0myf: { style: planned, mix: { houses: 2.2, industrial: 1.4 } }                               # 井口区
+    div_zqpg46: { style: planned, mix: { houses: 2.4, industrial: 0.8 } }                               # 终点站区
+    div_nsgeyn: { style: organic, detail_km2: 25, mix: { houses: 2.2, perimeter: 1.0 } }               # 传教区
+    div_hwfcnm: { style: organic, mix: { houses: 2.0, perimeter: 0.8, industrial: 0.4 } }               # 罐头厂区
+    div_jytczs: { style: organic, mix: { houses: 2.4 } }                                                # 赤霞珠丘区
+    div_taah7d: { style: organic, mix: { houses: 2.2, industrial: 0.6 } }                               # 谦卑湾区
+    div_qayjg1: { style: mixed, mix: { houses: 2.4, industrial: 0.6 } }                                 # 涂黑区
+    div_g96sq9: { style: planned, mix: { houses: 2.6, park: 1.0 } }                                     # 喷灌区
+
+# Facts the build checks and reports; a failed check is printed as a warning.
+expect:
+  longest_river: nat_ezeckp
+  largest_cities_by_area: [div_aq1ydw, div_57c6nv]
+layout:
+  # division sizes range from 60 to 74 000 km²: keep every city and district around its own anchor
+  anchored: true
+  cities:
+    div_91r9b3: [135.0, 285.7]   # 萨克拉钱托市
+    div_w1vh1a: [234.8, 109.6]   # 失落天使市
+    div_35n7cb: [119.0, 253.1]   # 贝叶斯市
+    div_dwdr6m: [113.5, 239.0]   # 比尔斯伯勒市, small and far enough down the peninsula to leave its tip to 先验区
+    div_3mdaee: [279.9, 58.5]    # 圣遣返市
+    div_jysn35: [267.2, 117.5]   # 仓储帝国市
+    div_7zxffd: [254.0, 93.1]    # 艾尔瓦纳市
+    div_03k9fc: [189.7, 211.8]   # 阿尔蒙多市
+    div_jmxc1m: [205.5, 158.7]   # 巴雷尔斯菲尔德市
+    div_r7wm1v: [146.5, 257.0]   # 斯塔克顿市
+    div_xrad3x: [178.0, 131.2]   # 圣塞雷娜市
+    div_9tem3t: [131.1, 200.0]   # 莫内特里市
+    div_6shwy9: [100.9, 284.5]   # 梅洛特市
+    div_v78vjn: [67.4, 353.3]    # 欧福利亚市
+    div_57c6nv: [128.1, 376.9]   # 雷达克特市
+    div_aq1ydw: [316.6, 97.8]    # 帕姆斯普林克勒市
+    div_dyj07f: [230.5, 227.5]   # 玛门市
+    div_943qb5: [187.6, 105.7]   # 离岸群岛市
+  # district seeds: the city anchor plus these times 0.42 √(city area) / scale
+  districts:
+    div_ymeec8: [0.00, 0.00]     # 游说区
+    div_0aep50: [0.35, 0.18]     # 蔓延维尔区
+    div_3r66dn: [-0.39, 1.33]    # 堤坝区
+    div_w1h5d7: [1.37, 0.80]     # 木屋区
+    div_jqddbd: [0.13, -0.15]    # 破产中心区
+    div_16m2n3: [-0.06, 0.00]    # 好莱怪区
+    div_5sjc4x: [-0.22, -0.08]   # 比佛利账单区
+    div_4y0zrw: [-1.00, -0.10]   # 马里买区
+    div_rwfcw9: [0.11, -0.43]    # 烟雾谷区
+    div_3rwj4m: [0.24, -0.78]    # 搁浅滩区
+    div_7jac05: [-0.31, 0.30]    # 网约谷区
+    div_jtjexr: [0.40, 1.14]     # 天使冠区
+    div_0vf1b0: [-0.76, -0.06]   # 先验区, on land at the tip of the peninsula, clear of the narrow bay
+    div_9tazhz: [-0.41, 0.19]    # 后验区
+    div_zjfaw0: [0.09, -0.94]    # 似然谷区
+    div_5anpaj: [0.44, 0.12]     # 边际区
+    div_jssc24: [0.20, 0.39]     # 门禁高地区
+    div_b4v4f8: [-0.21, -0.48]   # 护城河山区
+    div_ad0sg9: [-0.40, -0.20]   # 签证区
+    div_61yver: [-0.59, 0.14]    # 拉乔利区
+    div_jmthr1: [0.01, -0.49]    # 边界线区
+    div_j1wv5r: [0.90, 0.60]     # 后山区
+    div_sc80nv: [-0.43, -0.42]   # 托盘维尔区
+    div_aca2hs: [-0.07, -0.60]   # 无河区
+    div_s76w0x: [0.40, 0.67]     # 履约高漠区
+    div_7871nw: [-0.31, 0.00]    # 总规划区
+    div_77vac6: [-0.88, -0.32]   # 新港决口区
+    div_2jmm39: [0.70, 0.20]     # 业主委员会山区
+    div_r0qhbd: [-0.11, 0.08]    # 果仁区
+    div_xf54np: [-0.80, -0.23]   # 渴谷区
+    div_p6j9x8: [0.92, 0.08]     # 巨杉区
+    div_zs0myf: [0.27, 0.04]     # 井口区
+    div_xfjrth: [-0.59, -0.09]   # 压裂原区
+    div_zqpg46: [-0.32, 0.24]    # 终点站区
+    div_tnbcec: [0.59, -0.43]    # 谦逊区
+    div_nsgeyn: [0.73, -0.58]    # 传教区
+    div_jjgxvk: [-0.10, -0.05]   # 乔什庄园区
+    div_zmb3gb: [-0.82, 0.63]    # 露西芯城区
+    div_hwfcnm: [-0.49, 0.46]    # 罐头厂区
+    div_5fnf38: [-0.76, 1.21]    # 冲浪棚区
+    div_qx3brb: [0.24, -0.52]    # 大附加费区
+    div_jytczs: [0.51, -0.34]    # 赤霞珠丘区
+    div_n4pw55: [-0.43, 0.34]    # 索诺莫尔区
+    div_taah7d: [-0.31, 0.71]    # 谦卑湾区
+    div_2t7y15: [0.24, -0.57]    # 红木帘区
+    div_qayjg1: [-0.45, -0.31]   # 涂黑区
+    div_chf8fg: [-0.06, 0.59]    # 待建州区
+    div_j311rd: [0.66, -0.59]    # 熔岩高原区
+    div_g96sq9: [-0.48, -0.05]   # 喷灌区
+    div_4c9mhq: [0.24, 0.10]     # 帝国尘区
+    div_9fqezr: [-0.79, 0.92]    # 雪道区
+    div_9n9342: [1.03, -0.85]    # 坏账谷区
+    div_x972yz: [-0.74, -0.12]   # 避税列岛区
+    div_45y1f3: [5.36, -3.00]    # 亿万岛区
+  # A point on each island a district is named for (design km); these go whole to that district.
+  # The Offshore Isles and Bayesian are small enough to be grown from their anchors, which would
+  # give them only the islets nearest the anchor: claims_first hands them their claimed islands first.
+  claims_first: true
+  islands:
+    div_x972yz: [[187.6, 105.7], [176.2, 103.7], [167.1, 107.2], [195.7, 76.2], [211.4, 72.1]]   # 避税列岛
+    div_45y1f3: [[231.2, 81.3], [228.7, 62.4]]                                     # 亿万岛与地堡岛
+    div_0vf1b0: [[87.2, 251.1], [84.8, 253.1], [88.7, 248.8], [107.3, 257.2]]      # 雾礁小岛与遣返岛
+    div_zjfaw0: [[111.5, 248.3]]                                                   # 数据中心岛
+  boundary_warp_km: 4
+  coastal:
+    div_ad0sg9: null   # 签证区，港湾
+    div_3rwj4m: null   # 搁浅滩区，港口
+    div_0vf1b0: null   # 先验区
+    div_hwfcnm: null   # 罐头厂区
+    div_taah7d: null   # 谦卑湾区
+    div_nsgeyn: null   # 传教区
+    div_77vac6: null   # 新港决口区
+    div_4y0zrw: null   # 马里买区

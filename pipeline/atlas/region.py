@@ -261,10 +261,11 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         anchors = [layout["cities"][c["id"]] for c in cities]
         anchored = layout.get("anchored", False)
         claims = layout.get("islands", {})
+        claims_first = layout.get("claims_first", False)
         city_claims = [[p for i, d in enumerate(districts) if district_city[i] == ci for p in claims.get(d["id"], [])]
                        for ci in range(len(cities))]
         city_r, _, land = partition(land, wx, wy, anchors, [c["area_km2"] for c in cities], g.cell, anchored=anchored,
-                                    claims=city_claims)
+                                    claims=city_claims, claims_first=claims_first)
         dist_r = np.full(g.shape, -1)
         dist_errs = np.zeros(len(districts))
         for ci, c in enumerate(cities):
@@ -274,7 +275,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             r = 0.42 * math.sqrt(c["area_km2"]) / frame.km(1.0)
             seeds = [(ax + r * dirs[districts[i]["id"]][0], ay + r * dirs[districts[i]["id"]][1]) for i in idx]
             sub, err, fitted = partition(cmask, wx, wy, seeds, [districts[i]["area_km2"] for i in idx], g.cell, sea=~land,
-                                         anchored=anchored, claims=[claims.get(districts[i]["id"], []) for i in idx])
+                                         anchored=anchored, claims=[claims.get(districts[i]["id"], []) for i in idx],
+                                         claims_first=claims_first)
             land = (land & ~cmask) | fitted
             city_r[cmask & ~fitted] = -1
             city_r[fitted] = ci
@@ -303,7 +305,9 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     for lk in spec.get("hydrology", {}).get("lakes", []):
         di = next(i for i, d in enumerate(districts) if d["id"] == lk["in"])
         dx, dy = lk.get("offset_km", (0, 0))
-        m = lake_raster(g, (poles[di][0] + dx / frame.scale, poles[di][1] + dy / frame.scale), lk["radius_km"], land)
+        # at: a fixed spot in design km, for a lake drawn after a real outline
+        at = lk.get("at") or (poles[di][0] + dx / frame.scale, poles[di][1] + dy / frame.scale)
+        m = lake_raster(g, at, lk["radius_km"], land)
         lakes.append((lk["feature"], m))
     water = np.zeros(g.shape, bool)
     for _, m in lakes:

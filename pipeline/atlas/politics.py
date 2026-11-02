@@ -14,7 +14,7 @@ import numpy as np
 
 from .world import World
 
-LANG_KEYS = ("zh", "art-x-viking", "art-x-buckham", "en", "art-x-tavrunaq", "art-x-ivuran")
+LANG_KEYS = ("zh", "art-x-viking", "art-x-buckham", "en", "art-x-tavrunaq", "art-x-ivuran", "es")
 
 
 def _rng(key: str) -> np.random.Generator:
@@ -259,6 +259,7 @@ def _lang(rng: np.random.Generator, langs: dict[str, float], pools: dict) -> str
 LANG_NAMES = {
     "zh": ("中文", "Chinese"), "art-x-viking": ("维京语", "Viking"), "art-x-buckham": ("巴克汉姆语", "Buckham"),
     "en": ("英语", "English"), "art-x-tavrunaq": ("塔夫鲁纳克语", "Tavrunaq"), "art-x-ivuran": ("伊武兰语", "Ivuran"),
+    "es": ("西班牙语", "Spanish"),
 }
 # features read the same both ways: a negative lean is a lean towards the other pole
 BIPOLAR = {

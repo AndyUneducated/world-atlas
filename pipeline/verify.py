@@ -130,11 +130,11 @@ def check_numbers(ents: dict) -> dict[str, list[str]]:
 
 
 def check_government(ents: dict) -> dict[str, list[str]]:
-    """Every territory has its government buildings on the map (once only one territory had them)."""
+    """Every Chinese territory has its government buildings on the map (once only one territory had them)."""
     names = {e["names"]["zh"] for e in ents.values() if e.get("kind") == "place"}
     missing = []
     for e in ents.values():
-        if e.get("subtype") != "dependency":
+        if e.get("subtype") != "dependency" or "country:CN" not in (e.get("ancestors") or []):
             continue
         t = e["names"]["zh"]
         want = [f"{t}政府", f"{t}政策和计划委员会", *(f"{t}政务院{m}" for m in MINISTRIES),

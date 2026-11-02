@@ -390,4 +390,101 @@ const NEW: Record<string, (cut: string) => ReactNode> = {
   ),
 };
 
-export const CHARGES: Record<string, (cut: string) => ReactNode> = { ...MOTIFS, ...NEW };
+/** Charges of the California Autonomous State's cities. */
+const CALIFORNIA: Record<string, (cut: string) => ReactNode> = {
+  /** A microchip: a square die with pins on all four sides and a circuit trace on its face. */
+  chip: (cut) => (
+    <g>
+      <rect x="12" y="12" width="24" height="24" rx="2.5" fill={W} />
+      {[16, 21, 27, 32].map((v) => (
+        <g key={v} fill={W}>
+          <rect x={v - 1.1} y="5" width="2.2" height="7" rx="0.8" />
+          <rect x={v - 1.1} y="36" width="2.2" height="7" rx="0.8" />
+          <rect x="5" y={v - 1.1} width="7" height="2.2" rx="0.8" />
+          <rect x="36" y={v - 1.1} width="7" height="2.2" rx="0.8" />
+        </g>
+      ))}
+      <path d="M17 19h7v5h7M17 29h4v-5" fill="none" stroke={cut} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="31" cy="24" r="1.8" fill={cut} />
+      <circle cx="17" cy="19" r="1.5" fill={cut} />
+      <circle cx="17" cy="29" r="1.5" fill={cut} />
+    </g>
+  ),
+  /** A fan palm leaning over a low sun. */
+  palm: (cut) => (
+    <g>
+      <path d="M8 43a16 16 0 0 1 32 0z" fill={W} />
+      <path d="M24.5 43C25 33 25.5 24 23.5 15" fill="none" stroke={cut} strokeWidth="5" strokeLinecap="round" />
+      <path d="M24.5 43C25 33 25.5 24 23.5 15" {...stroke(2.6)} />
+      {[-160, -125, -95, -60, -25].map((a) => {
+        const [x, y] = polar(a, 14, 23.5, 15);
+        const [mx, my] = polar(a + 18, 9, 23.5, 15);
+        return <path key={a} d={`M23.5 15Q${mx.toFixed(1)} ${(my - 3).toFixed(1)} ${x.toFixed(1)} ${(y + 3).toFixed(1)}`} {...stroke(3)} />;
+      })}
+    </g>
+  ),
+  /** A bunch of grapes under a vine leaf. */
+  grapes: () => (
+    <g fill={W}>
+      <path d="M24 13c-1-4-4-7-8-7.5 1 4 3.6 6.6 8 7.5zM24 13c1.2-4.6 5-7.6 10-8-1.2 4.8-4.8 7.6-10 8z" />
+      <path d="M24 13V8" {...stroke(1.8)} />
+      {[[17, 18], [24, 18], [31, 18], [20.5, 24.5], [27.5, 24.5], [17, 31], [24, 31], [31, 31], [20.5, 37.5], [27.5, 37.5], [24, 43]].map(([x, y]) => (
+        <circle key={`${x}-${y}`} cx={x} cy={y - 1} r="3.4" />
+      ))}
+    </g>
+  ),
+  /** A film clapperboard, its striped clapper raised. */
+  clapper: (cut) => (
+    <g>
+      <rect x="7" y="20" width="34" height="22" rx="2" fill={W} />
+      <path d="M6.5 17.5L39 9.5l1.4 5.6L8 23z" fill={W} />
+      {[0, 1, 2, 3].map((k) => (
+        <path key={k} d={`M${12 + k * 7.6} ${15.8 - k * 1.85}l4.2-1 -2.6 6.8 -4.2 1z`} fill={cut} />
+      ))}
+      <path d="M11 27h26M11 32h18M11 37h22" stroke={cut} strokeWidth="1.4" strokeLinecap="round" />
+    </g>
+  ),
+  /** An oil derrick over a nodding pump. */
+  derrick: (cut) => (
+    <g>
+      <path d="M15 42L22 6h4l7 36h-4.4l-1.2-6.5h-6.8L19.4 42zM21.4 31h5.2l-1.4-8h-2.4z" fill={W} />
+      <path d="M19 18h10M17.5 26h13" stroke={W} strokeWidth="1.6" />
+      <path d="M33 30l10-6" {...stroke(3)} />
+      <circle cx="38" cy="27" r="2" fill={cut} />
+      <path d="M2.5 43h43" {...stroke(2.4)} />
+    </g>
+  ),
+  /** A police badge: a seven-pointed star in a ring. */
+  badge: (cut) => (
+    <g>
+      <circle cx="24" cy="24" r="19" fill={W} />
+      <circle cx="24" cy="24" r="15.5" fill={cut} />
+      <path d={starPath(7, 14, 6.4)} fill={W} />
+      <circle cx="24" cy="24" r="3.4" fill={cut} />
+    </g>
+  ),
+  /** A grizzly walking to the left. */
+  bear: (cut) => (
+    <g>
+      <path d="M38 16c3 0 6 3 6 7.5V34h-4.2l-.8-6-4 1-1 5h-4l.6-5.4H16.6L16 34h-4l.4-6.2-2-.8-1 7h-4l.6-9.4C4.6 22.6 3 21 1.8 21L1 19.5l2-1.5 3.5-1 1.2-1.8 1.6.8C13 13 20 12 27 12.5 31 12.8 35 15 38 16z" fill={W} />
+      <circle cx="6.3" cy="18.4" r="0.9" fill={cut} />
+      <path d="M2 38h44" {...stroke(2.4)} />
+    </g>
+  ),
+  /** A robot's head with antenna and screen eyes. */
+  robot: (cut) => (
+    <g>
+      <rect x="9" y="14" width="30" height="24" rx="6" fill={W} />
+      <path d="M24 14V7" {...stroke(2.4)} />
+      <circle cx="24" cy="6" r="2.8" fill={W} />
+      <rect x="4" y="21" width="5" height="10" rx="1.6" fill={W} />
+      <rect x="39" y="21" width="5" height="10" rx="1.6" fill={W} />
+      <rect x="15" y="20" width="6" height="6" rx="1.2" fill={cut} />
+      <rect x="27" y="20" width="6" height="6" rx="1.2" fill={cut} />
+      <path d="M17 32h14" stroke={cut} strokeWidth="2" strokeLinecap="round" />
+      <path d="M14 43h20" {...stroke(2.4)} />
+    </g>
+  ),
+};
+
+export const CHARGES: Record<string, (cut: string) => ReactNode> = { ...MOTIFS, ...NEW, ...CALIFORNIA };

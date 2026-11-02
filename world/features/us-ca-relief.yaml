@@ -1,0 +1,118 @@
+# Mountain landforms of the California Autonomous State: peaks and passes, found in the terrain by the
+# generator (pipeline/atlas/relief.py) and named by `detect: {kind, at_km}`.
+# Names are Chinese, English and Spanish (es).
+features:
+  # ── Peaks ────────────────────────────────────
+  - id: nat_ay95e9
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [213.8, 241.2] }
+    names: { zh: 独角兽峰, en: Mount Unicorn, es: Monte Unicornio }
+    notes:
+      zh: "估值山脉的主峰，海拔 3516 米，是自治州最高峰，花岗岩的峰顶夏天也有残雪。山脉的每座峰都按「估值」挂牌，最高的这座叫独角兽，意思是值十亿；峰顶的测量标旁立着一块估值牌，由山下的基金每季度更新一次，数字只升不降，因为估值降了的山要改名（见降价轮峰）。登山的人在估值牌前排队拍照，没人看测量标上的真实海拔。"
+      en: "The summit of the Sierra Valuation, 3,516 m and the highest peak in the state, its granite top keeping patches of snow even in summer. Every peak in the range is listed at a 'valuation', and the highest is called the Unicorn, meaning a billion; beside the survey mark on the summit stands a valuation board, updated every quarter by the fund below, whose number only ever goes up, since a mountain whose valuation falls must be renamed (see Mount Down Round). Climbers queue for photos in front of the valuation board, and nobody looks at the true height on the survey mark."
+  - id: nat_esccvj
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [221.8, 224.8] }
+    names: { zh: 十角兽峰, en: Mount Decacorn, es: Monte Decacornio }
+    notes:
+      zh: "独角兽峰东南的高峰，海拔 3325 米，是自治州第二高峰。按山脉的挂牌规则，十角兽的估值是独角兽的十倍，可它比独角兽矮了将近两百米；估值委员会解释说「高度是过去，估值是未来」，从此再没人问。"
+      en: "The high peak south-east of Mount Unicorn, 3,325 m and the second highest in the state. By the range's listing rules a Decacorn is valued at ten times a Unicorn, yet it stands nearly two hundred metres lower; the valuation committee explained that 'height is the past, valuation is the future', and nobody has asked since."
+  - id: nat_d9j3m6
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [231.8, 206.2] }
+    names: { zh: 降价轮峰, en: Mount Down Round, es: Monte Ronda a la Baja }
+    notes:
+      zh: "估值山脉南段的高峰，海拔 3275 米，是自治州第三高峰，东坡陡落进坏账谷。峰名来自一轮「降价融资」：一家公司按这座山挂牌，第二年估值腰斩，挂牌人把峰名改成了降价轮，说这样「至少名字是真实的」。"
+      en: "A high peak in the southern Sierra Valuation, 3,275 m and the third highest in the state, its eastern face falling steeply into Bad Debt Valley. The name comes from a 'down round': a company listed itself by this mountain, its valuation halved the next year, and the lister renamed the peak Down Round, saying that 'at least the name is honest'."
+  - id: nat_xp9g1p
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [277.2, 109.8] }
+    names: { zh: 订阅峰, en: Mount Subscription, es: Monte Suscripción }
+    notes:
+      zh: "付费墙山脉的主峰，海拔 2463 米，冬天积雪。上山的步道按月收费，免费用户只能走到半山腰的观景台，再往上要升级「高级会员」；山顶的登山者签名簿也是付费的，签名后每月自动续费，取消要打电话。"
+      en: "The summit of the Paywall Range, 2,463 m and snow-capped in winter. The trail up is charged by the month: free users can go only as far as the viewpoint halfway up, and beyond it they must upgrade to Premium. Even the summit register is paid for, renewing automatically each month after you sign; cancelling requires a phone call."
+  - id: nat_ycc43n
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [287.2, 98.2] }
+    names: { zh: 通关峰, en: Mount Clearance, es: Monte Despacho }
+    notes:
+      zh: "边检山脉北端的主峰，海拔 2434 米，从喷灌区的高尔夫球场拔地而起，山脚到山顶有一条缆车。缆车站设有移民执法局的检查站，上山要出示证件，下山还要再出示一次，登山者说这是全州唯一要「出入境」两次的山。"
+      en: "The summit at the northern end of the Checkpoint Range, 2,434 m, rising straight out of the golf courses of Sprinkler District, with a cable car from foot to top. The cable car station has an Immigration Enforcement checkpoint where papers are shown on the way up and again on the way down, and climbers call it the only mountain in the state where you have to clear immigration twice."
+  - id: nat_ea57hp
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [118.8, 398.2] }
+    names: { zh: 宕机峰, en: Mount Outage, es: Monte Caída }
+    notes:
+      zh: "级联故障山脉北端的火山，海拔 2370 米，孤零零地立在森林之上，山顶终年积雪。全州大停电就是从这座火山冒烟开始的：烟触发了电网的自动保护，一路连锁下去，全州黑了三天。山脚的小镇从此家家备着发电机，镇上的纪念品店卖一种蜡烛，包装上印着这座火山。"
+      en: "The volcano at the northern end of the Cascading Failure Range, 2,370 m, standing alone above the forest with snow on its top all year. The great statewide blackout began with smoke from this volcano: the smoke tripped the grid's automatic protection, the trips cascaded, and the whole state was dark for three days. Every house in the town at its foot has kept a generator since, and the souvenir shop sells candles with the volcano on the box."
+  - id: nat_s1ae92
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [145.2, 342.2] }
+    names: { zh: 重启峰, en: Mount Reboot, es: Monte Reinicio }
+    notes:
+      zh: "级联故障山脉南端的火山，海拔 2343 米，山腰有冒着热气的硫磺泉和泥浆池。大停电的第三天，电网工程师在这座山下的地热电站手动重启了全州电网，山名由此而来；电站门口挂着一块牌子：「先拔掉，再插上」。"
+      en: "The volcano at the southern end of the Cascading Failure Range, 2,343 m, with steaming sulphur springs and mud pots on its flanks. On the third day of the great blackout, grid engineers restarted the state's network by hand from the geothermal power station at its foot, which gave the mountain its name; a sign at the station gate reads 'Unplug it, then plug it back in.'"
+  - id: nat_0g6eqh
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [84.2, 398.8] }
+    names: { zh: 标题党峰, en: Mount Headline, es: Monte Titular }
+    notes:
+      zh: "点击诱饵山脉的主峰，海拔 2074 米，四周是深切的河谷和原始森林。山脚的旅游广告写着「登上这座山，你的人生将彻底改变」；登上去的人说，改变的主要是膝盖。"
+      en: "The summit of the Clickbait Mountains, 2,074 m, surrounded by deep river valleys and old-growth forest. The tourist adverts at its foot say 'Climb this mountain and your life will change forever'; those who have climbed it say what mostly changed was their knees."
+  - id: nat_hztt1n
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [217.2, 124.2] }
+    names: { zh: 热搜峰, en: Mount Trending, es: Monte Tendencia }
+    notes:
+      zh: "付费墙山脉西段的高峰，海拔 2097 米，俯瞰失落天使盆地，峰顶有天文台和一排电视发射塔。山坡上立着几个巨大的白色字母，拼出当天全州搜索量最高的词，由人工智能每天更新；山火季时，那几个字母常常是「山火」。"
+      en: "A high peak in the western Paywall Range, 2,097 m, overlooking the Lost Angeles basin, with an observatory and a row of television masts on its summit. Giant white letters on its slope spell out the state's most searched word of the day, updated daily by an AI; in fire season, the word is often 'wildfire'."
+  - id: nat_fvzx7a
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [121.8, 224.8] }
+    names: { zh: 美颜峰, en: Mount Beautify, es: Monte Embellecer }
+    notes:
+      zh: "滤镜山脉北段的高峰，海拔 1645 米，西坡直落大海，常年被海雾拦腰截断。网红们在山上拍的照片都加了美颜，山在照片里比实际高了一倍；一家旅行社按照片里的高度卖登山套餐，退款官司还在打。"
+      en: "A high peak in the northern Filter Range, 1,645 m, its western slope dropping straight into the sea and usually cut in half by the marine fog. Every photo influencers take on it is beautified, so the mountain looks twice its height in pictures; a travel agency sold climbing packages based on the height in the photos, and the refund lawsuit is still going."
+  - id: nat_zj5h1y
+    subtype: peak
+    status: generated
+    detect: { kind: peak, at_km: [268.2, 208.2] }
+    names: { zh: 矿机峰, en: Mount Mining Rig, es: Monte Minero }
+    notes:
+      zh: "薄荷币山脉的主峰，海拔 2004 米，山腰有废弃的银矿和矿城。一家公司曾把银矿的坑道装满加密货币矿机，借山里的低温散热，币价归零那天矿机全部断电；坑道里至今排着成千上万台机器，蝙蝠在上面筑巢。"
+      en: "The summit of the Mintcoin Range, 2,004 m, with an abandoned silver mine and mining town on its flanks. A company once filled the mine's tunnels with cryptocurrency mining rigs, cooled by the mountain's chill, and switched them all off the day the coin went to zero; tens of thousands of machines still stand in rows in the tunnels, and bats nest on them."
+  # ── Passes ───────────────────────────────────
+  - id: nat_pq7ckr
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [216.8, 236.2] }
+    names: { zh: 融资轮山口, en: Funding Round Pass, es: Paso de la Ronda }
+    notes:
+      zh: "独角兽峰和十角兽峰之间的高山口，海拔 2891 米，冬天大雪封山，只有夏天能走。登山的人管它叫「融资轮」：从这里往上是独角兽，往下是十角兽，可不管选哪边，都得先交一笔钱。"
+      en: "The high pass between Mount Unicorn and Mount Decacorn, 2,891 m, closed by snow in winter and open only in summer. Climbers call it the 'funding round': up one way is the Unicorn and up the other the Decacorn, but whichever you choose, you pay first."
+  - id: nat_xqdvx2
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [175.8, 305.2] }
+    names: { zh: 堵车山口, en: Gridlock Pass, es: Paso del Embotellamiento }
+    notes:
+      zh: "估值山脉北段的山口，海拔 1510 米，是首府通往塔克斯霍湖的必经之路。冬天周末，湾区的自动驾驶越野车在山口排出几十公里，车里没有司机，乘客在后座睡觉，于是谁也不着急，堵车可以一直堵到春天。"
+      en: "A pass in the northern Sierra Valuation, 1,510 m, the only way from the capital to Lake Taxhoe. On winter weekends the Bay Area's self-driving SUVs queue for tens of kilometres; with no drivers and the passengers asleep in the back, nobody is in a hurry, and the jam can last until spring."
+  - id: nat_m89tsm
+    subtype: pass
+    status: generated
+    detect: { kind: pass, at_km: [261.2, 115.2] }
+    names: { zh: 次日达山口, en: Next-Day Pass, es: Paso Mañana }
+    notes:
+      zh: "付费墙山脉和高原荒漠之间的山口，海拔 1305 米，仓储帝国的货车日夜不停地从这里翻进翻出。山口的名字来自货车上的标语「次日达」；可山口一下雪就封路，货车停在山口两边等，包裹于是变成了「次次日达」。"
+      en: "The pass between the Paywall Range and the high desert, 1,305 m, crossed day and night by the trucks of the Warehouse Empire. It is named after the 'next-day delivery' slogans on their sides; but when snow closes the pass the trucks wait on both sides, and next-day delivery becomes next-next-day delivery."

@@ -18,20 +18,20 @@
 
 suffixes:
   arterial:
-    - 大道 | Avenue | allee | Viale | Pirtuar | Pelavu
-    - 大街 | Boulevard | chaussee | Corso | Sallituar | Hanusevu
-    - 路 | Road | straße | Via | Pirri | Sevu
+    - 大道 | Avenue | allee | Viale | Pirtuar | Pelavu | Avenida
+    - 大街 | Boulevard | chaussee | Corso | Sallituar | Hanusevu | Bulevar
+    - 路 | Road | straße | Via | Pirri | Sevu | Camino
   collector:
-    - 路 | Road | straße | Via | Pirri | Sevu
-    - 街 | Street | gasse | Strada | Sallik | Sorai
-    - 大街 | High Street | markt | Corso | Sallituar | Hanusorai
+    - 路 | Road | straße | Via | Pirri | Sevu | Camino
+    - 街 | Street | gasse | Strada | Sallik | Sorai | Calle
+    - 大街 | High Street | markt | Corso | Sallituar | Hanusorai | Calle Mayor
   local:
-    - 街 | Street | gasse | Via | Sallik | Sorai
-    - 巷 | Lane | weg | Vicolo | Kippaq | Kilai
-    - 里 | Close | hof | Corte | Sannuk | Toruva
-    - 弄 | Alley | gang | Calle | Saqqit | Pisevu
-    - 坊 | Row | zeile | Borgo | Taavrut | Taroma
-    - 路 | Way | pfad | Salita | Pirriut | Sevuni
+    - 街 | Street | gasse | Via | Sallik | Sorai | Calle
+    - 巷 | Lane | weg | Vicolo | Kippaq | Kilai | Callejón
+    - 里 | Close | hof | Corte | Sannuk | Toruva | Privada
+    - 弄 | Alley | gang | Calle | Saqqit | Pisevu | Pasaje
+    - 坊 | Row | zeile | Borgo | Taavrut | Taroma | Hilera
+    - 路 | Way | pfad | Salita | Pirriut | Sevuni | Senda
 
 themes:
   # 理念与公共生活
@@ -304,11 +304,83 @@ themes:
     - 珍珠贝 | Pearl Oyster
     - 飞鱼 | Flying Fish
     - 水牛 | Buffalo
+  # 创业与 AI 行话（加利福尼亚自治州），带西班牙语
+  hustle:
+    - 颠覆 | Disruption | - | - | - | - | Disrupción
+    - 协同 | Synergy | - | - | - | - | Sinergia
+    - 转型 | Pivot | - | - | - | - | Pivote
+    - 独角兽 | Unicorn | - | - | - | - | Unicornio
+    - 估值 | Valuation | - | - | - | - | Valoración
+    - 天使轮 | Seed Round | - | - | - | - | Ronda Semilla
+    - 路演 | Pitch Deck | - | - | - | - | Presentación
+    - 上市 | IPO | - | - | - | - | Salida a Bolsa
+    - 期权 | Stock Option | - | - | - | - | Opción
+    - 算力 | Compute | - | - | - | - | Cómputo
+    - 参数 | Parameter | - | - | - | - | Parámetro
+    - 提示词 | Prompt | - | - | - | - | Instrucción
+    - 幻觉 | Hallucination | - | - | - | - | Alucinación
+    - 对齐 | Alignment | - | - | - | - | Alineación
+    - 奇点 | Singularity | - | - | - | - | Singularidad
+    - 增长 | Hypergrowth | - | - | - | - | Hipercrecimiento
+    - 裁员 | Layoff | - | - | - | - | Despido
+    - 敏捷 | Agile | - | - | - | - | Ágil
+    - 生态 | Ecosystem | - | - | - | - | Ecosistema
+    - 赋能 | Empowerment | - | - | - | - | Empoderamiento
+    - 闭环 | Feedback Loop | - | - | - | - | Bucle
+    - 护城河 | Moat | - | - | - | - | Foso
+    - 烧钱 | Burn Rate | - | - | - | - | Quema
+    - 黑客松 | Hackathon | - | - | - | - | Hackatón
+  # 加州风物，带西班牙语
+  golden:
+    - 红杉 | Redwood | - | - | - | - | Secuoya
+    - 罂粟 | Poppy | - | - | - | - | Amapola
+    - 橡树 | Live Oak | - | - | - | - | Encina
+    - 棕榈 | Palm | - | - | - | - | Palmera
+    - 日落 | Sunset | - | - | - | - | Atardecer
+    - 海景 | Ocean View | - | - | - | - | Vista al Mar
+    - 金丘 | Golden Hill | - | - | - | - | Loma Dorada
+    - 山艾 | Sagebrush | - | - | - | - | Artemisa
+    - 丝兰 | Yucca | - | - | - | - | Yuca
+    - 柑橘 | Orange Grove | - | - | - | - | Naranjal
+    - 牛油果 | Avocado | - | - | - | - | Aguacate
+    - 杏仁 | Almond | - | - | - | - | Almendro
+    - 鹈鹕 | Pelican | - | - | - | - | Pelícano
+    - 海狮 | Sea Lion | - | - | - | - | León Marino
+    - 山狮 | Cougar | - | - | - | - | Puma
+    - 灰熊 | Grizzly | - | - | - | - | Oso Pardo
+    - 冲浪 | Surfrider | - | - | - | - | Surfista
+    - 峡谷 | Canyon | - | - | - | - | Cañón
+    - 台地 | Mesa | - | - | - | - | Mesa
+    - 干河 | Arroyo | - | - | - | - | Arroyo
+    - 牧场 | Rancho | - | - | - | - | Rancho
+    - 葡萄藤 | Vineyard | - | - | - | - | Viñedo
+  # 西班牙语词（加利福尼亚自治州）
+  hispano:
+    - 埃斯佩兰萨 | Esperanza | - | - | - | - | Esperanza   # 希望
+    - 索尔 | Sol | - | - | - | - | Sol                     # 太阳
+    - 卢纳 | Luna | - | - | - | - | Luna                   # 月亮
+    - 德尔马 | Del Mar | - | - | - | - | Del Mar           # 海边
+    - 比斯塔 | Vista | - | - | - | - | Vista               # 景色
+    - 普恩特 | Puente | - | - | - | - | Puente             # 桥
+    - 帕洛马 | Paloma | - | - | - | - | Paloma             # 鸽子
+    - 弗洛雷斯 | Flores | - | - | - | - | Flores           # 花
+    - 莫利诺 | Molino | - | - | - | - | Molino             # 磨坊
+    - 普拉亚 | Playa | - | - | - | - | Playa               # 海滩
+    - 托雷斯 | Torres | - | - | - | - | Torres             # 塔
+    - 劳雷尔 | Laurel | - | - | - | - | Laurel             # 月桂
+    - 阿尔塔 | Alta | - | - | - | - | Alta                   # 高处
+    - 格兰德 | Grande | - | - | - | - | Grande             # 大
+    - 帕斯 | Paz | - | - | - | - | Paz                     # 和平
+    - 利伯塔德 | Libertad | - | - | - | - | Libertad       # 自由
+    - 科拉松 | Corazón | - | - | - | - | Corazón           # 心
+    - 雷亚尔 | Real | - | - | - | - | Real                   # 王家的
+    - 米拉多尔 | Mirador | - | - | - | - | Mirador         # 观景台
+    - 多拉多 | Dorado | - | - | - | - | Dorado             # 金色的
 
 # Numbered street grids of planned districts: 经一路 … / 纬一路 …
 numbered:
-  - 经 | Meridian | Längs | Longitudinale | Taqit | Taruvo
-  - 纬 | Parallel | Quer | Trasversale | Sannit | Lintavo
+  - 经 | Meridian | Längs | Longitudinale | Taqit | Taruvo | Meridiano
+  - 纬 | Parallel | Quer | Trasversale | Sannit | Lintavo | Paralelo
 
 # Theme weights by district street style; "places" uses the names of the territory's cities,
 # districts and named landforms, "numbered" the grids above.

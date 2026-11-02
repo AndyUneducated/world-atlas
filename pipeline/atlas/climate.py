@@ -144,7 +144,17 @@ def district(eid: str, e: dict, terr: dict, model: dict, land: _Land, elev: floa
     else:
         swing = (0.5 + 0.0038 * lat**2) * (1 + 0.8 * cont)
         shape_ = _season(MID, 200 + 20 * (1 - cont), 1 + 0.6 * polar)
-    t = tann + swing * shape_
+    # arid: [lon, lat, radius_km, factor] zones whose rain falls to `factor` at their centre
+    arid = 1.0
+    for z_lon, z_lat, r_km, factor in terr.get("arid", []):
+        d = math.hypot((lon - z_lon) * _km_lon(lat), (lat - z_lat) * KM_LAT)
+        arid *= 1 - (1 - factor) * math.exp(-((d / r_km) ** 2))
+    # summer_heat_c: a dry-summer interior heats far above its coast, the more the farther the wind has come
+    # over land and the drier the place, and the less the higher it is
+    heat = terr.get("summer_heat_c", 0) * min(2 - math.exp(-fetch / 250) - arid, 1) * max(1 - elev / 3000, 0)
+    summer = np.clip(shape_, 0, None)
+    heat_m = heat * summer / summer.max()
+    t = tann + swing * shape_ + heat_m
 
     # precipitation
     profile = terr["profile"]
@@ -155,12 +165,15 @@ def district(eid: str, e: dict, terr: dict, model: dict, land: _Land, elev: floa
         weights = weights + 0.25 * shadow * (np.cos(2 * np.pi * (m - 8) / 12) - 1)  # a lee coast has a longer dry season
     else:
         base = np.array(model["profiles"][profile], dtype=float)
-        weights = base / base.mean() * (1 - min(cont * 1.2, 1) * 0.6) + np.array(model["profiles"]["continental"]) * min(cont * 1.2, 1) * 0.6
+        inland = np.array(model["profiles"].get(f"{profile}_inland", model["profiles"]["continental"]), dtype=float)
+        weights = base / base.mean() * (1 - min(cont * 1.2, 1) * 0.6) + inland * min(cont * 1.2, 1) * 0.6
     weights = np.clip(weights, 0.03, None)
     weights = weights / weights.mean()
-    lift = {"maritime": 0.55, "arctic": 0.25, "tropical": 0.35}[profile]
-    total = (terr["precip_mm"] * (0.75 + 0.5 * math.exp(-fetch / 120)) * (1 + lift * min(elev, 2500) / 1000)
-             * (1 - 0.45 * shadow) * (1 + rng.uniform(-1, 1) * pert["precip"]))
+    lift = {"maritime": 0.55, "arctic": 0.25, "tropical": 0.35, "mediterranean": 0.6}[profile]
+    # precip_lat: [latitude, k], wetter by a factor e^k per degree poleward of that latitude
+    lat_ref, k_lat = terr.get("precip_lat", [lat, 0])
+    total = (terr["precip_mm"] * math.exp(k_lat * (abs(lat) - lat_ref)) * (0.75 + 0.5 * math.exp(-fetch / 120))
+             * (1 + lift * min(elev, 2500) / 1000) * (1 - terr.get("shadow", 0.45) * shadow) * (1 + rng.uniform(-1, 1) * pert["precip"])) * arid
     if polar and elev > 1200:  # the ice cap's plateau is a cold desert
         total *= math.exp(-(elev - 1200) / 2500)
     p = total * weights * DAYS / DAYS.sum()
@@ -175,7 +188,7 @@ def district(eid: str, e: dict, terr: dict, model: dict, land: _Land, elev: floa
     # daily range and extremes
     dtr = terr["day_range_c"] + 5 * cont + 1.2 * elev / 1000
     dtr_m = dtr * (0.65 + 0.7 * np.clip(share * np.minimum(daylight / 12, 1.2), 0, 1))
-    hi, lo = t + dtr_m / 2, t - dtr_m / 2
+    hi, lo = t + dtr_m / 2 + 0.1 * heat_m, t - dtr_m / 2 - 0.1 * heat_m
     if tropic:
         rec_hi, rec_lo = hi.max() + 3.5, lo.min() - 4
     else:

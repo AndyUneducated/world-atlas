@@ -124,9 +124,34 @@ function everlongSummer(id: string) {
   );
 }
 
+/** White over a red stripe, a red star in the canton and a brown bear on green ground, its body laced with gold circuit traces. */
+function california() {
+  const gold = "#E8B523";
+  return (
+    <>
+      <rect width={W} height={H} fill="#fff" />
+      <rect y="33" width={W} height="7" fill="#B22234" />
+      <path d={star(8.5, 8, 5, 4.2, 1.7)} fill="#B22234" />
+      <rect x="11" y="28" width="38" height="1.6" rx="0.8" fill="#3E7D32" />
+      <path
+        d="M42 17C44 17 46 19 46 22L46 28L43.5 28L43 24.5L40 25L39 28L36.5 28L37 24.8L27 24.8L26.5 28L24 28L24.3 24.5L22.5 24L22 28L19.5 28L19.8 23C18.5 21.5 17.5 20.5 16 20.5L14.5 20.8L13.5 19.8L14.2 18.8L16.5 17.8L17.3 16.6L18.3 17.2C21 15.5 26 14.5 31 14.8C35 15 39 16.5 42 17Z"
+        fill="#7A4A23"
+      />
+      <path d="M19.5 20.5H26V18.5H33M28 22.5H38V19.5M35 17.4V20.5M41 18.5V23" fill="none" stroke={gold} strokeWidth="0.6" strokeLinecap="round" />
+      <g fill={gold}>
+        {[[19.5, 20.5], [33, 18.5], [28, 22.5], [38, 19.5], [35, 17.4], [41, 23]].map(([x, y]) => (
+          <circle key={`${x}-${y}`} cx={x} cy={y} r="0.75" />
+        ))}
+      </g>
+      <circle cx="16.4" cy="18.9" r="0.45" fill="#fff" />
+    </>
+  );
+}
+
 export const FLAGS: Record<string, (id: string) => ReactNode> = {
   north_viking: northViking,
   viking_islands: vikingIslands,
   arctic_ocean: arcticOcean,
   everlong_summer: everlongSummer,
+  california,
 };

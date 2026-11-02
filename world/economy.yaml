@@ -13,6 +13,7 @@ base_gdp_per_capita:
   div_raat4g: 68000  # Viking Islands
   div_hpmerr: 70000  # Arctic Ocean Territory
   div_nwm019: 58000  # Everlong Summer Islands Territory
+  div_x2z14w: 79000  # California Autonomous State: AI and oligarch money, spread very unevenly
 rank_weights: [1.0, 0.6, 0.4, 0.3]
 density_elasticity: 0.05  # per-head GDP x (density / 100 per km²) ^ e
 perturbation: { gdp_per_capita: 0.08, sectors: 0.15, age: 1.5, languages: 0.12 }
@@ -71,13 +72,24 @@ industries:
   rice:          { zh: 梯田稻作, en: Terrace rice, sectors: { primary: 34, secondary: 4 }, productivity: 0.75, age: [0, -2, 3] }
   spice:         { zh: 香料与可可, en: Spices and cocoa, sectors: { primary: 28, secondary: 10 }, productivity: 0.90, age: [0, -1, 2] }
   fruit:         { zh: 热带水果, en: Tropical fruit, sectors: { primary: 28, secondary: 8 }, productivity: 0.85, age: [0, -1, 2] }
+  # California Autonomous State
+  ai:            { zh: 人工智能, en: Artificial intelligence, sectors: { tertiary: 48, secondary: 6 }, productivity: 2.40, age: [-1, 6, -3] }
+  robotics:      { zh: 无人工厂与机器人, en: Lights-out factories and robots, sectors: { secondary: 55 }, productivity: 2.10, age: [0, 1, 1] }
+  entertainment: { zh: 影视与流媒体, en: Film and streaming, sectors: { tertiary: 44 }, productivity: 1.30, age: [-1, 4, -1] }
+  oil:           { zh: 石油开采与炼化, en: Oil and refining, sectors: { secondary: 44, primary: 8 }, productivity: 1.35, age: [0, 2, 0] }
+  enforcement:   { zh: 移民执法与拘押, en: Immigration enforcement and detention, sectors: { tertiary: 42 }, productivity: 0.95, age: [-1, 6, -2] }
+  security:      { zh: 私人安保, en: Private security, sectors: { tertiary: 38 }, productivity: 0.90, age: [-1, 5, -2] }
+  gig:           { zh: 零工与平台劳务, en: Gig and platform work, sectors: { tertiary: 36 }, productivity: 0.55, age: [1, 3, -1] }
+  luxury:        { zh: 富豪私人服务, en: Services for the very rich, sectors: { tertiary: 44 }, productivity: 1.20, age: [0, 2, 1] }
+  cannabis:      { zh: 大麻种植, en: Cannabis, sectors: { primary: 24, secondary: 8 }, productivity: 0.90, age: [0, 1, 0] }
 
 # First-language shares (%), by heritage: the Chinese-planned new towns, the old Viking and Buckham
 # settlements and ports, and the international cities in between; in the Arctic Ocean Territory, the
 # Tavrulit communities, the mixed towns and the international capital; in the Everlong Summer Islands,
-# the Ivuran towns and villages, the mixed towns and the big international cities. A language a
-# heritage leaves out has no speakers there.
-languages: [zh, art-x-viking, art-x-buckham, en, art-x-tavrunaq, art-x-ivuran]
+# the Ivuran towns and villages, the mixed towns and the big international cities; in the California
+# Autonomous State, English-speaking, Spanish-speaking and mixed places (about 65% English, 30% Spanish
+# and 5% other first languages overall, here given as Chinese). A language a heritage leaves out has no speakers there.
+languages: [zh, art-x-viking, art-x-buckham, en, art-x-tavrunaq, art-x-ivuran, es]
 heritage:
   chinese: { zh: 74, art-x-viking: 12, art-x-buckham: 6, en: 6 }
   viking:  { zh: 36, art-x-viking: 52, art-x-buckham: 5, en: 6 }
@@ -90,6 +102,10 @@ heritage:
   ivuran:        { art-x-ivuran: 78, zh: 14, en: 8 }
   tropic_mixed:  { art-x-ivuran: 52, zh: 30, en: 18 }
   tropic_global: { art-x-ivuran: 30, zh: 38, en: 32 }
+  ca_anglo:      { en: 80, es: 15, zh: 5 }
+  ca_mixed:      { en: 64, es: 31, zh: 5 }
+  ca_latino:     { en: 44, es: 53, zh: 3 }
+  ca_global:     { en: 66, es: 20, zh: 14 }
 
 # Age structure (%): under 15, 15–64, 65 and over.
 age:

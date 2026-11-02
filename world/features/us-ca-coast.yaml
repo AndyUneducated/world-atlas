@@ -1,0 +1,200 @@
+# Coastal landforms of the California Autonomous State: islands, bays and capes, found in the coastline
+# by the generator (pipeline/atlas/coast.py) and named by `detect: {kind, at_km}`.
+# Names are Chinese, English and Spanish (es).
+features:
+  # ── Islands ──────────────────────────────────
+  - id: nat_0vhyfv
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [188.8, 105.8] }
+    names: { zh: 空壳岛, en: Shell Island, es: Isla Fantasma }
+    notes:
+      zh: "离岸群岛最大的岛，面积约 1290 平方公里，也是自治州主岛之外最大的岛，岛上是峡谷、海崖、橡树林和成群的海鸟。岛名来自岛上登记的几万家空壳公司：它们的总部是岛上小镇唯一一条街两边的邮箱，员工人数一栏写的都是零。岛上真正的居民是看管邮箱的人、海鸟研究员和只有家猫大小的灰狐狸；每年报税季前，送信的船会多开三班。"
+      en: "The largest of the Offshore Islands, about 1,290 km² and the largest island in the state after the main island, a place of canyons, sea cliffs, oak woods and great colonies of seabirds. It is named for the tens of thousands of shell companies registered here, whose headquarters are the mailboxes along both sides of the island town's only street and whose staff numbers all read zero. The real islanders are the mailbox keepers, seabird researchers and grey foxes no bigger than house cats; before every tax season the mail boat runs three extra sailings."
+  - id: nat_j044py
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [166.8, 107.2] }
+    names: { zh: 信箱岛, en: Mailbox Island, es: Isla Buzón }
+    notes:
+      zh: "空壳岛西边的小岛，面积约 220 平方公里，常年大风，岛上几乎没有树，只有一座灯塔和一排排海狮。空壳岛的邮箱排满之后，新公司都登记在这里：岛上没有街，邮箱就钉在灯塔外墙上，从塔底一直钉到塔顶，灯塔看守人兼任全岛的邮政局长。"
+      en: "A small island west of Shell Island, about 220 km², windswept all year and almost treeless, with a lighthouse and rows of sea lions. Once Shell Island's mailboxes were full, new companies registered here instead: the island has no street, so the mailboxes are nailed to the lighthouse walls from the foot of the tower to the top, and the keeper doubles as the island's postmaster."
+  - id: nat_trcbf4
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [197.2, 75.8] }
+    names: { zh: 信托岛, en: Trust Island, es: Isla Fideicomiso }
+    notes:
+      zh: "离岸群岛南边的孤岛，面积约 390 平方公里，地势低平，沙丘上长着矮草。整座岛归一家家族信托所有，信托的受益人是另一家信托，那家信托的受益人是一只基金，基金的地址又回到这座岛上，州税务局的稽查员顺着这条线查了三年，最后在报告里画了一个圆圈。"
+      en: "A lone island south of the group, about 390 km², low and flat, with short grass on its dunes. The whole island belongs to a family trust whose beneficiary is another trust, whose beneficiary is a fund, whose address is this island again; a state tax inspector followed the chain for three years and ended his report with a drawing of a circle."
+  - id: nat_12g09q
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [211.8, 73.2] }
+    names: { zh: 抽屉岛, en: Drawer Island, es: Isla Cajón }
+    notes:
+      zh: "信托岛以东的小岛，面积约 240 平方公里，岛上只有一座私人码头和一间铁皮屋。铁皮屋里有一排文件柜，柜子的每个抽屉里放着一家公司的全部文件，岛名由此而来；岛主说这是全世界人均公司最多的地方，因为岛上没有人。"
+      en: "A small island east of Trust Island, about 240 km², with nothing on it but a private jetty and a tin shed. The shed holds a row of filing cabinets, each drawer containing every paper of one company, which gives the island its name; its owner likes to say it has more companies per head than anywhere, since nobody lives there."
+  - id: nat_weawv6
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [232.8, 82.2] }
+    names: { zh: 亿万岛, en: Billionaire Island, es: Isla Milmillonaria }
+    notes:
+      zh: "失落天使港外的岛，面积约 480 平方公里，岛上的山坡被分成几十块私人领地，每块都有自己的豪宅、码头和停机坪。岛上唯一的小镇只接待岛主的客人，镇上的咖啡馆不收现金也不收卡，只记在主人账上。从失落天使望过去，晴天能看见岛上的灯光，市民说那是全州电费唯一准时付清的地方。"
+      en: "The island off the port of Lost Angeles, about 480 km², its hillsides divided into dozens of private estates, each with its own mansion, jetty and helipad. The island's only town serves only the owners' guests, and its café takes neither cash nor cards but puts everything on the host's account. On clear evenings the island's lights can be seen from Lost Angeles, and people there say it is the only place in the state whose power bill is paid on time."
+  - id: nat_ff8gyg
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [228.8, 62.2] }
+    names: { zh: 地堡岛, en: Bunker Island, es: Isla Búnker }
+    notes:
+      zh: "离岸群岛最南的岛，面积约 500 平方公里，表面是一片光秃秃的灌丛和旧靶场，真正的建筑都在地下：富豪们合资把岛上的山体挖空，建了水库、温室、医院、酒窖和几百套公寓，据说够几百个家庭在地下住上几年。入口由三道门守着，最后一道门的密码只有一个人工智能知道；有人问如果人工智能出了故障怎么办，答复是「它会提前通知」。"
+      en: "The southernmost of the Offshore Islands, about 500 km², bare scrub and an old firing range on the surface with every real building underground: the very rich jointly hollowed out its hill to hold a reservoir, greenhouses, a hospital, wine cellars and hundreds of flats, said to be enough for hundreds of families to live below ground for years. Three doors guard the entrance, and only an AI knows the code to the last; asked what happens if the AI fails, the management replied that 'it will give notice'."
+  - id: nat_34yzk0
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [111.8, 248.2] }
+    names: { zh: 算力岛, en: Compute Island, es: Isla Cómputo }
+    notes:
+      zh: "风投湾南湾里的人工岛，面积约 18 平方公里，整座岛是一座数据中心，机房一栋挨着一栋，岛的四周围着一圈冷却水的出水口，出水口附近的海水冬天也冒着热气。岛上没有居民，只有机器人维护员；湾里的海狮喜欢趴在出水口边取暖，似然谷区的人说它们是全州唯一从人工智能那里得到好处的动物。"
+      en: "An artificial island in the south arm of Venture Bay, about 18 km², which is one data centre from end to end, its halls packed side by side and ringed by cooling-water outfalls; the water by the outfalls steams even in winter. Nobody lives there except the maintenance robots, and the bay's sea lions like to bask by the warm outfalls; people in Likelihood Valley say they are the only animals in the state to have done well out of AI."
+  - id: nat_qhdwv6
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [87.2, 251.2] }
+    names: { zh: 大雾礁, en: Great Fog Rock, es: Gran Peñón de Niebla }
+    notes:
+      zh: "风投湾湾口外雾礁群岛最大的岛，面积约 30 平方公里，花岗岩的礁岛上住着上万只海鸟和海狮，一年里大半时间裹在海雾里。岛上有一座气象站和一座自动灯塔，还有一座海底光缆的登陆站，湾区的数据从这里进出大洋，岛上的海鸟比上网的人还多。"
+      en: "The largest of the Fog Rocks off the mouth of Venture Bay, about 30 km², a granite rock home to tens of thousands of seabirds and sea lions and wrapped in sea fog much of the year. It has a weather station, an automatic lighthouse and a landing station for submarine cables, through which the Bay Area's data passes to and from the ocean; there are more seabirds on the island than people online."
+  - id: nat_ghqd1h
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [84.8, 253.2] }
+    names: { zh: 北雾礁, en: North Fog Rock, es: Peñón de Niebla Norte }
+    notes:
+      zh: "雾礁群岛西北的礁岛，面积约 24 平方公里，岩石裸露，周围的海里常有大白鲨出没。岛上不许登陆，只有鸟类研究员每年乘船来数一次海鸟，他们说这里是自治州唯一没被分配到一个应用程序的地方。"
+      en: "The north-western rock of the Fog Rocks, about 24 km², bare stone, with great white sharks often in the surrounding sea. Landing is forbidden; only bird researchers come by boat once a year to count the seabirds, and they say it is the only place in the state that has not been assigned an app."
+  - id: nat_8acs4z
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [88.8, 248.8] }
+    names: { zh: 南雾礁, en: South Fog Rock, es: Peñón de Niebla Sur }
+    notes:
+      zh: "雾礁群岛南端的礁岛，面积约 20 平方公里，岛顶有一座废弃的雷达站。一家初创公司曾想把它改造成「海上远程办公度假村」，宣传片拍完的第二天大雾就再也没散开，公司在雾里撑了半年后解散，雷达站里至今挂着一块写着「欢迎来到未来」的牌子。"
+      en: "The southern rock of the Fog Rocks, about 20 km², with an abandoned radar station on its top. A start-up once planned to turn it into an 'offshore remote-work resort'; the day after its promotional film was shot the fog came down and never lifted, the company lasted six months in the murk before folding, and a sign reading 'Welcome to the Future' still hangs in the radar station."
+  - id: nat_y1f76c
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [311.8, 202.2] }
+    names: { zh: 海市蜃楼岛, en: Mirage Island, es: Isla Espejismo }
+    notes:
+      zh: "东海岸外的荒岛，面积约 220 平方公里，岛上是沙丘、盐滩和几座光秃秃的石山，夏天热浪蒸腾，从岸上看去岛的轮廓总在晃动。岛上规划过一座「沙漠智慧城市」，开发商卖出了几千套期房，交付日只有一块写着「即将上线」的广告牌；买房的人每年乘船来看一次，看完回去接着还贷。"
+      en: "A barren island off the east coast, about 220 km², all dunes, salt flats and a few bare stony hills, so shimmering with summer heat that from the shore its outline never stands still. A 'desert smart city' was once planned here and the developer sold thousands of homes off the plan; on handover day there was only a billboard reading 'Coming Soon'. The buyers sail out once a year to look at it, then go home to keep paying their mortgages."
+  - id: nat_vkv6js
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [191.8, 372.2] }
+    names: { zh: 脱离岛, en: Secession Island, es: Isla Secesión }
+    notes:
+      zh: "东北海岸外的岛，面积约 150 平方公里，岛上是松林和熔岩。待建州运动的支持者在岛上升起过自己的旗，宣布这里是「新州的第一块领土」，州政府没理会；岛上的二十几户人家至今自称「已经独立」，但每个月照样去本岛领社会保障支票。"
+      en: "An island off the north-east coast, about 150 km², of pine woods and lava. Supporters of the State of Pending movement once raised their own flag here and declared it 'the first territory of the new state'; the state government ignored them, and the island's twenty-odd households still call themselves 'already independent' while crossing to the main island each month to collect their social security cheques."
+  # ── Archipelagos ─────────────────────────────
+  - id: nat_azpgnq
+    subtype: archipelago
+    status: generated
+    islands: [nat_0vhyfv, nat_j044py, nat_trcbf4, nat_12g09q, nat_weawv6, nat_ff8gyg]
+    names: { zh: 离岸群岛, en: Offshore Islands, es: Islas Paraíso Fiscal }
+    notes:
+      zh: "南海岸外的六座岛：西边的空壳岛、信箱岛、信托岛和抽屉岛，东边的亿万岛和地堡岛，合起来就是离岸群岛市。群岛是自治州的避税天堂，岛上登记的公司比海鸟还多；岛与岛之间有私人渡轮和直升机，却没有一班公共航线。"
+      en: "The six islands off the south coast, Shell, Mailbox, Trust and Drawer Islands in the west and Billionaire and Bunker Islands in the east, which together make up Offshore Islands City. The group is the state's tax haven, with more companies registered than seabirds; private ferries and helicopters run between the islands, but not one public service."
+  - id: nat_5tk0yj
+    subtype: archipelago
+    status: generated
+    islands: [nat_qhdwv6, nat_ghqd1h, nat_8acs4z]
+    names: { zh: 雾礁群岛, en: Fog Rocks, es: Peñones de Niebla }
+    notes:
+      zh: "风投湾湾口外四十多公里的三座花岗岩礁岛，大雾礁、北雾礁和南雾礁，属贝叶斯市先验区，是海鸟、海狮和大白鲨的天下。一年里大半时间都在雾里，湾区的人说想知道明天天气，看雾礁就行：看得见雾礁，就是要变天了。"
+      en: "Three granite rocks some forty kilometres off the mouth of Venture Bay, Great, North and South Fog Rock, part of Prior District of Bayesian City and the realm of seabirds, sea lions and great white sharks. They spend most of the year in fog, and Bay Area people say that to know tomorrow's weather you need only look for the Fog Rocks: if you can see them, the weather is about to change."
+  # ── Bays ─────────────────────────────────────
+  - id: nat_x4vdb3
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [106.8, 263.8] }
+    names: { zh: 风投湾, en: Venture Bay, es: Bahía del Capital Riesgo }
+    notes:
+      zh: "中部海岸的大海湾，面积约 1330 平方公里，是自治州最大的海湾，只靠一道窄窄的海峡通向大洋，湾里分出南湾、北边的两片内湾和三角洲的水道，算力岛和遣返岛在湾中。湾名来自湾边的风险投资：两岸曾经挤满了投资基金，基金把钱投进湾边的公司，公司把湾边的房子买下来，房子空着等升值。如今公司换成了机器，房子还空着，湾里的潮水照旧一天涨落两回。"
+      en: "The great bay of the central coast, about 1,330 km² and the largest bay in the state, reaching the ocean only through a narrow strait; it divides into the south arm, two inner bays to the north and the channels of the delta, with Compute Island and Deportation Island in its waters. The name comes from venture capital: its shores were once crowded with funds, which put money into the companies by the bay, which bought up the houses by the bay and left them empty to appreciate. The companies have since become machines and the houses are still empty, while the tide still rises and falls twice a day."
+  - id: nat_bqkwhp
+    subtype: bay
+    status: generated
+    detect: { kind: fjord, at_km: [269.8, 54.2] }
+    names: { zh: 圣遣返湾, en: San Deportes Bay, es: Bahía de San Deportes }
+    notes:
+      zh: "南海岸的天然良港，面积约 64 平方公里，一道沙嘴挡在湾口，湾里停着海军舰艇、移民执法局的巡逻艇和遣返船。遣返船每天早上出港，傍晚空着回来；码头上的电子屏实时显示当天的遣返人数，旁边的游客中心卖印着这块屏幕的明信片。"
+      en: "The natural harbour of the south coast, about 64 km², sheltered by a sandspit across its mouth, where navy ships, Immigration Enforcement patrol boats and deportation ships lie at anchor. The deportation ships sail every morning and come back empty in the evening; a screen on the quay shows the day's deportation count as it happens, and the visitor centre next to it sells postcards of the screen."
+  - id: nat_jeyde3
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [283.8, 53.8] }
+    names: { zh: 隔离墙湾, en: Wall Bay, es: Bahía del Muro }
+    notes:
+      zh: "圣遣返以东的海湾，面积约 270 平方公里。旧国界成了海岸之后，界墙没有拆，而是被一直修进了海里：一道钢柱墙从岸上伸进湾中好几公里，墙上装着摄像头和探照灯，墙外是空荡荡的大海。移民执法局说这道墙「防住了来自海上的一切」，渔民说它防住的主要是鱼。"
+      en: "The bay east of San Deportes, about 270 km². When the old national border became coast, the border wall was not taken down but carried on into the sea: a wall of steel posts runs several kilometres out into the bay, with cameras and searchlights, and beyond it there is nothing but empty ocean. Immigration Enforcement says the wall 'stops everything that comes from the sea'; fishermen say what it mostly stops is fish."
+  - id: nat_h7w8ks
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [57.2, 372.2] }
+    names: { zh: 谦卑湾, en: Humbled Bay, es: Bahía Humilde }
+    notes:
+      zh: "北海岸唯一的大海湾，面积约 230 平方公里，两道长长的沙嘴把湾和外海隔开，湾里是牡蛎养殖场、渔港和运原木的码头。湾边的老伐木城维多利亚式木屋保存完好，本地人介绍自己时总说「我们以前很有钱，现在很谦卑」。"
+      en: "The only large bay on the north coast, about 230 km², shut off from the open sea by two long sandspits, with oyster farms, a fishing harbour and log quays inside. The old lumber town's Victorian houses by the bay are well kept, and locals always introduce themselves with 'We used to be rich; now we're humble.'"
+  - id: nat_mmmttg
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [238.2, 93.2] }
+    names: { zh: 滞港湾, en: Backlog Bay, es: Bahía del Atasco }
+    notes:
+      zh: "失落天使港所在的海湾，面积约 70 平方公里，防波堤后面是集装箱码头和自动化的龙门吊。湾外常年停着排队等泊位的货轮，最多时排出去几十公里；有些船等得太久，船员干脆在船上种菜养鸡，搁浅滩区的人划着小船去船上买鸡蛋。"
+      en: "The bay of the port of Lost Angeles, about 70 km², with container terminals and automated gantry cranes behind its breakwater. Freighters queue outside all year for a berth, at times stretching out tens of kilometres; some ships wait so long that their crews grow vegetables and keep chickens on deck, and people from Long Beached row out to buy eggs from them."
+  - id: nat_82yck8
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [356.2, 78.8] }
+    names: { zh: 尘湾, en: Dust Bay, es: Bahía del Polvo }
+    notes:
+      zh: "东海岸南段的海湾，面积约 440 平方公里，湾岸是沙丘和盐滩，背后的荒漠一直伸到水边。夏天的风从荒漠吹向大海，把沙尘铺在湾面上，海水常常是土黄色的；湾边只有一座海水淡化厂和一个渔村，淡化厂的水全部送去喷灌区的高尔夫球场。"
+      en: "A bay on the southern part of the east coast, about 440 km², its shores dunes and salt flats with the desert running right down to the water. In summer the wind blows from the desert out to sea and lays dust across the bay, often turning the water a muddy yellow; the only things on its shore are a desalination plant and a fishing village, and every drop from the plant goes to the golf courses of Sprinkler District."
+  - id: nat_zqy6gp
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [184.8, 404.2] }
+    names: { zh: 待定湾, en: Pending Bay, es: Bahía Pendiente }
+    notes:
+      zh: "东北海岸的海湾，面积约 320 平方公里，湾边是松林、熔岩和几座伐木小镇。待建州运动打算把未来的州首府建在湾边，选址的木桩已经打了三回，每回都被冬天的风暴冲走，湾名由此而来。"
+      en: "A bay on the north-east coast, about 320 km², with pine woods, lava and a few logging towns on its shores. The State of Pending movement plans to build its future capital beside it; the site's marker posts have been driven in three times and each time washed away by the winter storms, which gives the bay its name."
+  - id: nat_rh7amj
+    subtype: bay
+    status: generated
+    detect: { kind: bay, at_km: [62.2, 338.2] }
+    names: { zh: 皆伐湾, en: Clearcut Bay, es: Bahía de la Tala Rasa }
+    notes:
+      zh: "红木帘区海岸的海湾，面积约 300 平方公里，湾口有两座小岛。湾边的山坡上，一片片砍光的伐木场和老红木林交错，从海上看去像一块打了补丁的绿毯子；伐木公司在山坡上竖了一块牌子，写着「每砍一棵，就种下一个承诺」。"
+      en: "A bay on the coast of Redwood Curtain District, about 300 km², with two small islands at its mouth. On the slopes around it clear-cut logging plots alternate with old redwood forest, so that from the sea they look like a patched green blanket; the logging company has put up a sign on the hillside reading 'For every tree we cut, we plant a promise.'"
+  # ── Capes ────────────────────────────────────
+  - id: nat_ndkmwp
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [191.2, 399.2] }
+    names: { zh: 分家角, en: Point Split, es: Punta Separación }
+    notes:
+      zh: "主岛东北角伸进海里的大岬角，面积约 250 平方公里，是一片长满松树的熔岩台地。待建州运动把这里当作新州的起点，岬角上立着一块界碑，一面刻着「加利福尼亚」，一面刻着「待建州」，两面之间隔着一层薄薄的青苔。"
+      en: "The great headland at the north-east corner of the main island, about 250 km², a lava tableland covered in pines. The State of Pending movement treats it as the starting point of the new state, and a boundary stone stands on it, 'California' carved on one face and 'State of Pending' on the other, with a thin layer of moss between them."
+  - id: nat_0asqkg
+    subtype: cape
+    status: generated
+    detect: { kind: cape, at_km: [103.2, 253.2] }
+    names: { zh: 退出角, en: Exit Point, es: Punta Salida }
+    notes:
+      zh: "海湾半岛的北端，面对风投湾的湾口，悬崖上是老炮台和灯塔。岬名来自湾区的创业者：公司被收购或上市叫「退出」，退出成功的人都爱来这里拍一张以湾口为背景的照片，然后搬走。"
+      en: "The northern tip of the bay peninsula, facing the mouth of Venture Bay, with old gun batteries and a lighthouse on its cliffs. It is named after the Bay Area's founders, for whom a company's sale or listing is an 'exit': everyone who made a successful exit came here for a photo with the mouth of the bay behind them, and then moved away."

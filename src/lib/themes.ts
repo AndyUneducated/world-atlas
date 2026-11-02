@@ -1,6 +1,6 @@
 import type { Lang, ThemeId } from "./types";
 
-export const LANDCOVER_CLASSES = ["forest", "tundra", "rock", "farmland", "wetland", "urban"] as const;
+export const LANDCOVER_CLASSES = ["forest", "tundra", "rock", "farmland", "wetland", "urban", "desert", "scrub"] as const;
 export type LandcoverClass = (typeof LANDCOVER_CLASSES)[number];
 export const BUILDING_CLASSES = ["residential", "commercial", "industrial", "civic"] as const;
 export type BuildingClass = (typeof BUILDING_CLASSES)[number];
@@ -105,7 +105,7 @@ export const THEMES: Record<ThemeId, Theme> = {
       river: "#8fbfdc",
       landcover: {
         opacity: 0.55,
-        colors: { forest: "#b9d4ad", tundra: "#d9dcc0", rock: "#d2cbc2", farmland: "#ecebc4", wetland: "#bcd8cf", urban: "#e3dcd5" },
+        colors: { forest: "#b9d4ad", tundra: "#d9dcc0", rock: "#d2cbc2", farmland: "#ecebc4", wetland: "#bcd8cf", urban: "#e3dcd5", desert: "#efdfc0", scrub: "#dcd9b0" },
       },
       glacier: { fill: "#f4f9fd", line: "#b9d3e6" },
       peak: "#6b5a48",
@@ -173,7 +173,7 @@ export const THEMES: Record<ThemeId, Theme> = {
       river: "#1d5c85",
       landcover: {
         opacity: 0.6,
-        colors: { forest: "#12291f", tundra: "#22291f", rock: "#262a30", farmland: "#24261a", wetland: "#0f2a2c", urban: "#2a2433" },
+        colors: { forest: "#12291f", tundra: "#22291f", rock: "#262a30", farmland: "#24261a", wetland: "#0f2a2c", urban: "#2a2433", desert: "#2e281d", scrub: "#252618" },
       },
       glacier: { fill: "#8aa5c2", line: "#5d7fa3" },
       peak: "#a8b6c9",

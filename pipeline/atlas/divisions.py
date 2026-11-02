@@ -257,6 +257,17 @@ def _fit_islands(grid, mask, sea, targets, cell, seed=0):
 _CARVE_SHARE = 0.05
 
 
+def _claimed(comp, main, pts, res):
+    """The islands (components of `comp` other than `main`) within 2 km of the points pts."""
+    _, (jy, jx) = ndimage.distance_transform_edt((comp == 0) | (comp == main), return_indices=True)
+    ids = set()
+    for x, y in pts:
+        iy, ix = min(max(int(y / res), 0), comp.shape[0] - 1), min(max(int(x / res), 0), comp.shape[1] - 1)
+        if math.hypot(jy[iy, ix] - iy, jx[iy, ix] - ix) * res <= 2:
+            ids.add(int(comp[jy[iy, ix], jx[iy, ix]]))
+    return np.isin(comp, list(ids))
+
+
 def _carve(free, mask, wx, wy, seed, n_px, res):
     """A compact region of the n_px pixels of `free` nearest `seed` (or the nearest free pixel), across
     straits too, so a city on an island takes the islets around it. Distances are in a half-warped
@@ -395,7 +406,8 @@ def _settle_islands(px, py, lab, comp, islands, seeds, v, targets, cell, need, c
     return on, owner[inv]
 
 
-def partition(mask, wx, wy, seeds, targets, cell, tolerance=0.01, rounds=16, sea=None, anchored=False, claims=None):
+def partition(mask, wx, wy, seeds, targets, cell, tolerance=0.01, rounds=16, sea=None, anchored=False, claims=None,
+              claims_first=False):
     """Label mask so that label i covers ~targets[i] km².
 
     Returns (raster with -1 outside the mask, relative errors, mask). Divisions that own whole
@@ -411,6 +423,8 @@ def partition(mask, wx, wy, seeds, targets, cell, tolerance=0.01, rounds=16, sea
     it goes whole to the nearest division with room for it (_settle_islands), or to the division
     that claims it: claims[i] lists points (x, y) on the islands division i is to have. Clean-up
     keeps each division's piece around its seed and hands fragments to the land they border.
+    Grown divisions take only the islets nearest their seed, unless `claims_first`: then each takes
+    its claimed islands whole before growing, and does not grow if its seed is on one of them.
     """
     seeds = np.array(seeds, float)
     targets = np.asarray(targets, float)
@@ -421,12 +435,27 @@ def partition(mask, wx, wy, seeds, targets, cell, tolerance=0.01, rounds=16, sea
     if anchored:
         seeds = _onto(seeds, mask, res, targets / cell / 4)
         free = mask.copy()
-        for i in np.argsort(targets, kind="stable")[:-1]:
-            if targets[i] >= _CARVE_SHARE * targets.sum():
-                break
-            piece = _carve(free, mask, wx, wy, seeds[i], int(round(targets[i] / cell)), res)
-            fixed[piece], carved[i] = i, True
-            free &= ~piece
+        order = [i for i in np.argsort(targets, kind="stable")[:-1] if targets[i] < _CARVE_SHARE * targets.sum()]
+        n_px = {i: int(round(targets[i] / cell)) for i in order}
+        grow = dict.fromkeys(order, True)
+        if claims_first and claims is not None:
+            comp0, _ = ndimage.label(mask)
+            main0 = int(np.argmax(np.bincount(comp0.ravel())[1:])) + 1
+            # every claim is settled before any division grows, so none grows over another's island
+            for i in order:
+                if claims[i]:
+                    own = _claimed(comp0, main0, claims[i], res) & free
+                    fixed[own] = i
+                    free &= ~own
+                    n_px[i] -= int(own.sum())
+                    sy, sx = min(max(int(seeds[i][1] / res), 0), mask.shape[0] - 1), min(max(int(seeds[i][0] / res), 0), mask.shape[1] - 1)
+                    grow[i] = n_px[i] > 0 and not own[sy, sx]
+        for i in order:
+            if grow[i]:
+                piece = _carve(free, mask, wx, wy, seeds[i], n_px[i], res)
+                fixed[piece] = i
+                free &= ~piece
+            carved[i] = True
     home = None
     if anchored:
         home = np.array([(min(int(y / res), mask.shape[0] - 1), min(int(x / res), mask.shape[1] - 1)) for x, y in seeds])
