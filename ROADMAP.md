@@ -533,6 +533,11 @@
 - 新机制：路线的精确线形 `line`，最长桥隧的改名 `structure_names`
 - 所有湾区领道的名片按构建结果写（长度、途经的区、桥隧、车流）；重名的桥改名；湾区以外的道路不变
 
+## M71 湾区真实地点 ✅ 2026-11-02
+
+- 13 处地点按 OpenStreetMap 的真实位置放，每张名片中文 480 字以上：英伟达 Endeavor、Voyager 两座三角形大楼和老园区，露西旧宅（Octavius Dr）、乔什旧宅（Palm Valley Blvd 150 号），Gold Rush 加油站，Westfield Valley Fair、Westfield Oakridge，三家 99 Ranch，Walmart 便宜超市，圣何塞国际机场
+- 新的地标版式：三角形大楼、商场、超市、加油站、花园公寓；新地点类别：购物中心、超市、加油站、公寓
+
 ## 不做
 
 - 网站内的创作或编辑工具

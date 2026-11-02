@@ -1,7 +1,7 @@
 import {
-  Anchor, Banknote, Bird, BrickWall, Briefcase, Building2, Car, CarFront, Castle, Clapperboard, Crosshair, Crown, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, GraduationCap, Grape, Helicopter, Hospital, Hotel, House,
+  Anchor, Banknote, Bird, BrickWall, Briefcase, Building, Building2, Car, CarFront, Castle, Clapperboard, Crosshair, Crown, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, Fuel, GraduationCap, Grape, Helicopter, Hospital, Hotel, House, HouseHeart,
   Landmark, LandPlot, Lighthouse, Lock, Magnet, MapPin, Microchip, Mountain, MountainSnow, Navigation2, Orbit, PawPrint, Pickaxe, Plane, PlaneTakeoff, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship,
-  ShipWheel, Shell, Siren, Snowflake, Server, Sparkles, Sprout, Sun, Target, Telescope, ToothbrushSparkles, TrainFront, TramFront, Trees, Utensils, Vault, Vote, Warehouse, Waves, Zap,
+  ShipWheel, Shell, ShoppingBag, ShoppingCart, Siren, Snowflake, Server, Sparkles, Sprout, Sun, Target, Telescope, ToothbrushSparkles, TrainFront, TramFront, Trees, Utensils, Vault, Vote, Warehouse, Waves, Zap,
 } from "lucide-react";
 import type { Entity } from "../lib/types";
 
@@ -136,6 +136,16 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
         return <PawPrint {...props} />;
       case "dental_clinic":
         return <ToothbrushSparkles {...props} />;
+      case "shopping_mall":
+        return <ShoppingBag {...props} />;
+      case "supermarket":
+        return <ShoppingCart {...props} />;
+      case "fuel_station":
+        return <Fuel {...props} />;
+      case "apartment":
+        return <HouseHeart {...props} />;
+      case "office":
+        return <Building {...props} />;
       default:
         return <Landmark {...props} />;
     }

@@ -318,8 +318,8 @@ places:
       en: Bayesian International Airport
       es: Aeropuerto Internacional de Bayesiana
     notes:
-      zh: "湾区的机场，在先验区南边的海湾岸上，两条东西向的跑道。湾区人口多的时候这里人来人往，如今客运航站楼只开着一个登机口，跑道上起降的大多是运送芯片、服务器和机器人零件的货机，以及几位科技寡头的私人飞机。航站楼里的咖啡馆、书店和行李转盘都由机器人照看，偶尔有旅客走进来，机器人会一起转过头去。"
-      en: "The Bay's airport, on the bay shore south of Prior District, with two east–west runways. It was busy when the Bay was full of people; today the passenger terminal opens a single gate, and most of what lands and takes off are freighters carrying chips, servers and robot parts, and the private jets of a few tech oligarchs. The terminal's cafés, bookshop and baggage belts are all looked after by robots, and when the occasional passenger walks in, the robots all turn their heads."
+      zh: "湾区北部的机场，在先验区南边的海湾岸上，两条东西向的跑道；湾区南部的旅客多走圣克拉拉区的圣何塞国际机场。湾区人口多的时候这里人来人往，如今客运航站楼只开着一个登机口，跑道上起降的大多是运送芯片、服务器和机器人零件的货机，以及几位科技寡头的私人飞机。航站楼里的咖啡馆、书店和行李转盘都由机器人照看，偶尔有旅客走进来，机器人会一起转过头去。"
+      en: "The northern Bay's airport, on the bay shore south of Prior District, with two east–west runways; travellers from the south of the Bay mostly use San Jose International Airport in Santa Clara District. It was busy when the Bay was full of people; today the passenger terminal opens a single gate, and most of what lands and takes off are freighters carrying chips, servers and robot parts, and the private jets of a few tech oligarchs. The terminal's cafés, bookshop and baggage belts are all looked after by robots, and when the occasional passenger walks in, the robots all turn their heads."
     in: div_0vf1b0
     at: [106.26, 247.89]
     site: { layout: airport, size_m: [3000, 1400], angle_deg: -28 }

@@ -27,7 +27,8 @@ MILITARY_VARIANTS = {  # military and space facility layouts and the kinds each 
 SITE_VARIANTS = {**MILITARY_VARIANTS, "estate": ("villa", "compound", "bunker"), "vineyard": ("red", "white"),
                  "fab": ("logic", "memory", "packaging", "mask"), "works": ("plates", "winery"),
                  "zoo": ("primates", "felids", "ungulates", "marine_mammals", "polar", "birds", "reptiles", "amphibians",
-                         "freshwater", "marine", "insects", "arachnids", "cephalopods", "coral")}
+                         "freshwater", "marine", "insects", "arachnids", "cephalopods", "coral"),
+                 "triangle": ("hollow", "mountain"), "retail": ("supermarket", "mall", "fuel"), "apartments": ()}
 SITE_LAYOUTS = ("complex", "hall", "courtyard", "slab", "lshape", "block", "campus", "ring", "stadium", "tower", "dome", "park", "plaza", "market",
                 "airport", "port", "harbour", "offshore_port", "spaceport", "mine", *SITE_VARIANTS, "detention", "checkpoint", "racetrack", "clinic")
 FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport", "mine", *SITE_VARIANTS, "detention", "checkpoint", "racetrack", "clinic")

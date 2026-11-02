@@ -23,9 +23,9 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { AnimatePresence, motion, useDragControls, useSpring, type PanInfo } from "motion/react";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
 import { createPortal } from "react-dom";
-import { Paragraphs, Rows, Section, Sub, useCardOpen, useCardScroll } from "./CardParts";
+import { Paragraphs, Rows, Section, Sub, useCardScroll } from "./CardParts";
 import { Emblem, Flag, hasEmblem } from "./Emblem";
 import { CouncilSection, ElectionSection, LegislatureSection, PartySections } from "./Politics";
 import { RouteTimeline } from "./RouteTimeline";
@@ -718,7 +718,47 @@ function FlagSection({ entity, lang }: { entity: Entity; lang: Lang }) {
   );
 }
 
+/** A slim bar pinned to the top of the card once its header has scrolled away: the name, back and close. */
+function StickyBar({ entity, lang, head }: { entity: Entity; lang: Lang; head: RefObject<HTMLDivElement | null> }) {
+  const select = useAtlas((s) => s.select);
+  const back = useAtlas((s) => s.back.length > 0);
+  const goBack = useAtlas((s) => s.goBack);
+  const bar = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useState(false);
+  useEffect(() => {
+    const scroller = bar.current?.parentElement;
+    if (!scroller) return;
+    const update = () => setShown(scroller.scrollTop > (head.current?.offsetHeight ?? 120) - 12);
+    update();
+    scroller.addEventListener("scroll", update, { passive: true });
+    return () => scroller.removeEventListener("scroll", update);
+  }, [head]);
+  const button = "grid size-8 shrink-0 place-items-center rounded-full text-muted hover:bg-hover hover:text-ink";
+  return (
+    <div ref={bar} className="sticky top-0 z-20 h-0">
+      <div
+        aria-hidden={!shown}
+        className={clsx(
+          "absolute inset-x-0 top-0 flex items-center gap-1 border-b border-line bg-panel-solid px-2 py-1.5 transition-[opacity,translate] duration-200",
+          shown ? "opacity-100" : "pointer-events-none -translate-y-1 opacity-0",
+        )}
+      >
+        {back && (
+          <button onClick={goBack} className={button} aria-label={t("back", lang)} tabIndex={shown ? 0 : -1}>
+            <ChevronLeft className="size-4" />
+          </button>
+        )}
+        <span className={clsx("min-w-0 flex-1 truncate text-[14px] font-semibold text-ink", !back && "pl-3")}>{displayName(entity, lang)}</span>
+        <button onClick={() => select(null)} className={button} aria-label={t("close", lang)} tabIndex={shown ? 0 : -1}>
+          <X className="size-4" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
+  const head = useRef<HTMLDivElement>(null);
   const select = useAtlas((s) => s.select);
   const setRoute = useAtlas((s) => s.setRoute);
   const routable = data.graph.places[entity.id] !== undefined;
@@ -737,7 +777,8 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
 
   return (
     <>
-      <div className={clsx("relative overflow-hidden px-5 pb-4", back ? "pt-3" : "pt-5")}>
+      <StickyBar entity={entity} lang={lang} head={head} />
+      <div ref={head} className={clsx("relative overflow-hidden px-5 pb-4", back ? "pt-3" : "pt-5")}>
         <div className="pointer-events-none absolute inset-x-0 top-0 h-32 opacity-[0.2]" style={{ background: `linear-gradient(180deg, ${accent}, transparent)` }} />
         {back && (
           <button
@@ -913,10 +954,11 @@ function Card({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: L
   );
 }
 
-/** Phone layout: the card is a sheet that peeks from the bottom and drags up to full height. */
+/** Phone layout: the card is a sheet from the bottom, full height or half (map showing above). */
 function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
   const select = useAtlas((s) => s.select);
-  const [full, setFull] = useCardOpen("sheet");
+  const full = useAtlas((s) => s.sheetFull);
+  const setFull = useAtlas((s) => s.setSheetFull);
   const scroll = useCardScroll<HTMLDivElement>(entity.id);
   const drag = useDragControls();
   const onDragEnd = (_: unknown, info: PanInfo) => {

@@ -967,6 +967,57 @@ def _clinic(cx, cy, W, D) -> list[tuple[str, Polygon]]:
     return parts
 
 
+def _triangle(cx, cy, W, D, variant) -> list[tuple[str, Polygon]]:
+    """Triangular office building on a lawn, apex on +x, entrance plaza on -x and a car-park deck on -y.
+    hollow: the triangle pierced by three triangular light wells; mountain: a triangular ring of offices
+    round a green stepped 'mountain' under the roof, with a pavilion on its summit."""
+    rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
+    tri = lambda x0, x1, h, oy=0.0: shapely.Polygon([(cx + x0 * W, cy + (oy - h) * D), (cx + x0 * W, cy + (oy + h) * D), (cx + x1 * W, cy + oy * D)])
+    outer = tri(-0.34, 0.4, 0.4)
+    parts = [("green", rel(-0.48, -0.48, 0.48, 0.48))]
+    if variant == "mountain":
+        court = tri(-0.22, 0.2, 0.25)
+        parts += [("building", outer.difference(court)), ("green", court), ("building", tri(-0.1, 0.06, 0.08))]
+    else:
+        wells = shapely.union_all([tri(-0.26, -0.1, 0.1, oy) for oy in (-0.18, 0.18)] + [tri(-0.02, 0.14, 0.1)])
+        parts.append(("building", outer.difference(wells)))
+    parts += [("paved", rel(-0.48, -0.08, -0.34, 0.08)), ("lot", rel(-0.2, -0.47, 0.3, -0.42))]
+    return parts
+
+
+def _retail(cx, cy, W, D, variant) -> list[tuple[str, Polygon]]:
+    """Shop on its car park, entrance on -x. mall: a long arcade with three anchor stores and two
+    parking decks in a sea of parking; supermarket: a big box at the back (+x) with a loading yard,
+    parking in front; fuel: a pump canopy over the forecourt, a kiosk behind and a lone toilet shed."""
+    rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
+    if variant == "mall":
+        body = shapely.union_all([rel(-0.3, -0.07, 0.3, 0.07), rel(-0.38, -0.17, -0.24, 0.17), rel(0.24, -0.17, 0.38, 0.17),
+                                  rel(-0.06, 0.0, 0.08, 0.22)])
+        parts = [("lot", rel(-0.48, -0.48, 0.48, 0.48).difference(body.buffer(0.012)))]
+        parts += [("building", body), ("building", rel(-0.2, -0.42, -0.06, -0.28)), ("building", rel(0.06, 0.3, 0.2, 0.44))]
+        parts += [("green", rel(-0.48, -0.48, 0.48, -0.46)), ("green", rel(-0.48, 0.46, 0.48, 0.48))]
+        return parts
+    if variant == "fuel":
+        parts = [("paved", rel(-0.48, -0.48, 0.48, 0.48)), ("building", rel(-0.34, -0.24, 0.08, 0.24))]
+        parts += [("building", rel(0.2, -0.2, 0.44, 0.2)), ("building", rel(0.36, 0.3, 0.44, 0.42)), ("lot", rel(0.2, -0.44, 0.44, -0.28))]
+        return parts
+    parts = [("lot", rel(-0.47, -0.47, 0.02, 0.47)), ("building", rel(0.06, -0.4, 0.4, 0.4)), ("paved", rel(0.4, -0.3, 0.48, 0.1))]
+    parts += [("green", rel(-0.48, -0.48, 0.48, -0.44)), ("green", rel(-0.48, 0.44, 0.48, 0.48))]
+    return parts
+
+
+def _apartments(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+    """Garden apartment complex, entrance on +x: three-storey blocks in a C round a courtyard with a
+    pool and a barbecue shelter, carports and a leasing office by the gate."""
+    rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
+    parts = [("green", rel(-0.48, -0.48, 0.48, 0.48))]
+    parts += [("building", rel(-0.44, y, 0.2, y + 0.14)) for y in (-0.44, 0.3)]
+    parts += [("building", rel(-0.44, -0.24, -0.3, 0.24)), ("building", rel(-0.04, -0.2, 0.1, 0.2))]
+    parts += [("basin", rel(-0.24, -0.1, -0.1, 0.06)), ("building", rel(-0.22, 0.12, -0.14, 0.2))]
+    parts += [("lot", rel(0.26, -0.44, 0.46, 0.44)), ("building", rel(0.3, -0.06, 0.4, 0.06))]
+    return parts
+
+
 def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=(), variant=None) -> tuple[Polygon, list[tuple[str, Polygon]]]:
     """Site outline and parts [(kind, polygon)] of a landmark; kind is building, or for transport
     and military facilities runway, pad, paved (aprons, taxiways, quays, piers), basin (dug harbour
@@ -1032,6 +1083,12 @@ def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=
         parts = _zoo(cx, cy, W, D, variant or "primates", rng)
     elif layout == "clinic":
         parts = _clinic(cx, cy, W, D)
+    elif layout == "triangle":
+        parts = _triangle(cx, cy, W, D, variant or "hollow")
+    elif layout == "retail":
+        parts = _retail(cx, cy, W, D, variant or "supermarket")
+    elif layout == "apartments":
+        parts = _apartments(cx, cy, W, D)
     elif layout == "airport":
         parts = _airport(site, cx, cy, W, D, rng)
     elif layout == "spaceport":

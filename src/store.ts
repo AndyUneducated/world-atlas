@@ -100,6 +100,9 @@ interface AtlasState {
   setRestoreList: (list: ListView | null) => void;
   cardView: CardView;
   setCardOpen: (key: string, open: boolean) => void;
+  /** Phones: whether the card sheet is pulled up to full height; every card opens as the last one was left. */
+  sheetFull: boolean;
+  setSheetFull: (full: boolean) => void;
   toggleLayer: (key: keyof LayerToggles) => void;
   toggleDisplay: (key: keyof DisplayToggles) => void;
 }
@@ -183,6 +186,8 @@ export const useAtlas = create<AtlasState>((set) => ({
   setRestoreList: (restoreList) => set({ restoreList }),
   cardView: FRESH_CARD,
   setCardOpen: (key, open) => set((s) => ({ cardView: { ...s.cardView, open: { ...s.cardView.open, [key]: open } } })),
+  sheetFull: true,
+  setSheetFull: (sheetFull) => set({ sheetFull }),
   toggleLayer: (key) =>
     set((s) => {
       const layers = { ...s.layers, [key]: !s.layers[key] };
