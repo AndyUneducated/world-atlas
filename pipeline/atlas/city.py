@@ -11,7 +11,7 @@ from shapely.geometry import LineString, Point
 
 from . import buildings, streets
 from .world import CONLANGS, ROOT, World
-from .common import derived_id, log, short_name
+from .common import derived_id, log, place_offset, short_name
 from .sites import core_zone, landmark_sites, main_axis
 
 
@@ -76,7 +76,7 @@ def build_streets(world, sp, features, frame, seed, cities, districts, district_
             core = (poles[i][0] * s, poles[i][1] * s)
             ds = streets.district_streets(built, core, style, angle, rng, sp, i, main_only)
             streets.bend(ds, streets.Field(rng, sp["warp_wavelength_km"]), sp["warp_km"][style])
-            sites = landmark_sites(world, d, core, angle, built, safe_all, seed)
+            sites = landmark_sites(world, d, core, angle, built, safe_all, seed, s)
             safe = built.buffer(0.05).intersection(safe_all)
             if sites:
                 safe = safe.difference(shapely.union_all([site for _, site, _ in sites]).buffer(0.004))
@@ -222,7 +222,7 @@ def build_metro(mp: dict, world: World, seed, s, cities, districts, district_cit
             return site_of[pid].centroid
         pl = world.places[pid]
         i = dist_index[pl["in"]]
-        ox, oy = pl.get("offset_km", (0, 0))
+        ox, oy = place_offset(pl, (poles[i][0] * s, poles[i][1] * s), s)
         return Point(poles[i][0] * s + ox, poles[i][1] * s + oy)
 
     out = []

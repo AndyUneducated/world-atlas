@@ -25,8 +25,8 @@ from .network import ROAD_RANK, build_graph
 from .transport import Router
 from .vectorize import point_lonlat, polygonize_labels, to_lonlat
 from .world import FACILITY_LAYOUTS, MILITARY_VARIANTS, RUNWAY_LAYOUTS, World
-from .common import (BUILDING_MINZOOM, STREET_MINZOOM, bbox_lonlat, derived_id, drawn_along, feature, fill_undrawn, log, owned_runs, run_positions, short_name, undrawn_steps,
-                     smooth_line, smooth_pinned, tile_minzoom)
+from .common import (BUILDING_MINZOOM, STREET_MINZOOM, bbox_lonlat, derived_id, drawn_along, feature, fill_undrawn, log, owned_runs, place_offset, run_positions,
+                     short_name, undrawn_steps, smooth_line, smooth_pinned, tile_minzoom)
 from .sites import SEA_BRIDGE_HALF_WIDTH_KM, landmark_sites
 from .city import UNSETTLED, bare_name, build_buildings, build_metro, build_streets, rail_station_names
 from .routes import PORTAL, cross_part, land_cell, route_railways, route_segments, stops_here
@@ -243,10 +243,17 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     in_territory = [territory["id"], *world.ancestors(territory["id"])]
     cities = sorted(world.children(territory["id"]), key=lambda d: d["codes"]["admin"])
     districts, district_city = [], []
+    added = layout.get("added_districts", [])
     for ci, c in enumerate(cities):
         for d in sorted(world.children(c["id"]), key=lambda d: d["codes"]["admin"]):
-            districts.append(d)
-            district_city.append(ci)
+            if d["id"] not in added:
+                districts.append(d)
+                district_city.append(ci)
+    # districts split off after the territory was laid out go last, so every other district keeps its
+    # index, which seeds its buildings and the order its streets are named in
+    for did in added:
+        districts.append(world.divisions[did])
+        district_city.append(next(ci for ci, c in enumerate(cities) if c["id"] == world.divisions[did]["parent"]))
     city_index = {c["id"]: ci for ci, c in enumerate(cities)}
     total_area = sum(c["area_km2"] for c in cities) / frame.km2(1.0)
     dirs = district_directions(layout, districts, district_city)
@@ -264,8 +271,22 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         claims_first = layout.get("claims_first", False)
         city_claims = [[p for i, d in enumerate(districts) if district_city[i] == ci for p in claims.get(d["id"], [])]
                        for ci in range(len(cities))]
+        # zones are drawn after real places; their edges wander a tenth as far as diagram edges, which
+        # is about a kilometre and keeps narrow necks of a zone (the bay flats) whole; an exact zone's
+        # edges follow its polygon pixel for pixel, and a whole zone is its division, no more, no less
+        zx, zy = g.X + 0.1 * (wx - g.X), g.Y + 0.1 * (wy - g.Y)
+
+        def zone(did):
+            z = layout.get("zones", {}).get(did)
+            if z is None:
+                return None
+            z = z if isinstance(z, dict) else {"path": z}
+            poly = shapely.Polygon(z["path"], z.get("holes", []))
+            px, py = (g.X, g.Y) if z.get("exact") else (zx, zy)
+            return shapely.contains_xy(poly, px, py), bool(z.get("whole"))
+
         city_r, _, land = partition(land, wx, wy, anchors, [c["area_km2"] for c in cities], g.cell, anchored=anchored,
-                                    claims=city_claims, claims_first=claims_first)
+                                    claims=city_claims, claims_first=claims_first, zones=[zone(c["id"]) for c in cities])
         dist_r = np.full(g.shape, -1)
         dist_errs = np.zeros(len(districts))
         for ci, c in enumerate(cities):
@@ -276,7 +297,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             seeds = [(ax + r * dirs[districts[i]["id"]][0], ay + r * dirs[districts[i]["id"]][1]) for i in idx]
             sub, err, fitted = partition(cmask, wx, wy, seeds, [districts[i]["area_km2"] for i in idx], g.cell, sea=~land,
                                          anchored=anchored, claims=[claims.get(districts[i]["id"], []) for i in idx],
-                                         claims_first=claims_first)
+                                         claims_first=claims_first, zones=[zone(districts[i]["id"]) for i in idx])
             land = (land & ~cmask) | fitted
             city_r[cmask & ~fitted] = -1
             city_r[fitted] = ci
@@ -367,6 +388,13 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         if len(cx_):
             k = int(np.argmin((g.xs[cx_] - tx) ** 2 + (g.ys[cy_] - ty) ** 2))
             poles[i] = (float(g.xs[cx_[k]]), float(g.ys[cy_[k]]))
+    # centres (design km): a town drawn at its real downtown, for districts laid out after real places
+    for did, at in layout.get("centres", {}).items():
+        i = next(k for k, d in enumerate(districts) if d["id"] == did)
+        iy, ix = min(max(int(at[1] / g.res), 0), g.shape[0] - 1), min(max(int(at[0] / g.res), 0), g.shape[1] - 1)
+        if dist_r[iy, ix] != i:
+            log(f"  WARN {districts[i]['names']['zh']}: centre {at} lies outside the district")
+        poles[i] = (float(at[0]), float(at[1]))
 
     log("mountains")
     rp = spec.get("relief", {})
@@ -427,7 +455,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         if i not in with_streets:
             core_r = (poles[i][0] * s, poles[i][1] * s)
             built = affinity.scale(dist_polys[i].intersection(urban_poly), s, s, origin=(0, 0)) if urban_poly is not None else None
-            all_sites += [(pid, site, parts, i) for pid, site, parts in landmark_sites(world, d, core_r, 0.0, built, land_real, seed)]
+            all_sites += [(pid, site, parts, i) for pid, site, parts in landmark_sites(world, d, core_r, 0.0, built, land_real, seed, s)]
 
     log("routing roads")
     land_r = block_reduce(land, 4, "mode_bool")
@@ -489,16 +517,18 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         road_out.append((r, path))
     feeder_seq, infix = 0, territory["codes"]["iso3166_2"].split("-")[1]
     landmass = ndimage.label(land_r, np.ones((3, 3)))[0].ravel()
-    for i, d in enumerate(districts):
+
+    def feeder(i, d):
+        nonlocal feeder_seq
         ci = district_city[i]
         if i == core[ci]:
-            continue
+            return
         start = router.cell(*poles[i])
         if 0 != landmass[start] != landmass[node[ci]] != 0:  # an island district has no road over the sea to its city
-            continue
+            return
         path = router.trim_to_network(router.route(start, node[ci]))
         if len(path) < 3:
-            continue
+            return
         feeder_seq += 1
         a, b = short_name(districts[core[ci]]["names"]), short_name(d["names"])
         rid = derived_id("rte", f"feeder:{d['id']}")
@@ -509,6 +539,12 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         }
         router.commit(path, "secondary", discount=0.8, ref=r["ref"])
         road_out.append((r, path))
+
+    # added districts' feeders come after the access roads, so every older road keeps its number
+    added = set(layout.get("added_districts", []))
+    for i, d in enumerate(districts):
+        if d["id"] not in added:
+            feeder(i, d)
     # Access roads: a sited facility farther than ACCESS_KM from every road and street gets a city road
     # from its gate to the nearest road on its own landmass. Facilities in reserves, ice caps and national
     # parks, nature reserves, offshore sites and those marked access_road: false have none.
@@ -550,6 +586,9 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         entrance[rid] = nearest_points(site.boundary, Point(router.xy(start)))[0].coords[0]
         built_km.append(f"{p['names']['zh']} {frame.km(LineString([router.xy(c) for c in path]).length):.1f}")
     log(f"  access roads: {len(built_km)} ({', '.join(built_km)})" + (f"; none for {', '.join(skipped)}" if skipped else ""))
+    for i, d in enumerate(districts):
+        if d["id"] in added:
+            feeder(i, d)
 
     # Termini join the network: an expressway end runs on to the nearest other expressway (an
     # interchange, so traffic changes routes without leaving the expressway), any other end to the
@@ -692,7 +731,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             x, y = poles[core[city_index[p["in"]]]]
         else:
             continue
-        ox, oy = p.get("offset_km", (0, 0))
+        ox, oy = place_offset(p, (x * frame.scale, y * frame.scale), frame.scale)
         if pid in sites:  # fitted to the shore, see fit_site
             c = sites[pid][0].centroid
             pt = point_lonlat(frame, c.x / frame.scale, c.y / frame.scale)

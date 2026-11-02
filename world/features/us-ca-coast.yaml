@@ -54,7 +54,7 @@ features:
   - id: nat_34yzk0
     subtype: island
     status: generated
-    detect: { kind: island, at_km: [111.8, 248.2] }
+    detect: { kind: island, at_km: [109.8, 249.3] }
     names: { zh: 算力岛, en: Compute Island, es: Isla Cómputo }
     notes:
       zh: "风投湾南湾里的人工岛，面积约 18 平方公里，整座岛是一座数据中心，机房一栋挨着一栋，岛的四周围着一圈冷却水的出水口，出水口附近的海水冬天也冒着热气。岛上没有居民，只有机器人维护员；湾里的海狮喜欢趴在出水口边取暖，似然谷区的人说它们是全州唯一从人工智能那里得到好处的动物。"

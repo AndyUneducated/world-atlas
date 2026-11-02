@@ -6,6 +6,7 @@ so that every division is a single contiguous region.
 """
 from __future__ import annotations
 
+import heapq
 import math
 
 import numpy as np
@@ -406,8 +407,36 @@ def _settle_islands(px, py, lab, comp, islands, seeds, v, targets, cell, need, c
     return on, owner[inv]
 
 
+def _zone_take(free, seed, n_px, res):
+    """The n_px pixels of `free` (a zone) nearest the seed along the zone itself, so a zone that bends
+    round a bay is taken from the seed's end rather than in pieces across the water."""
+    ny, nx = free.shape
+    iy, ix = min(max(int(seed[1] / res), 0), ny - 1), min(max(int(seed[0] / res), 0), nx - 1)
+    if not free[iy, ix]:
+        _, (jy, jx) = ndimage.distance_transform_edt(~free, return_indices=True)
+        iy, ix = int(jy[iy, ix]), int(jx[iy, ix])
+    if free.sum() <= n_px:
+        return free.copy()
+    dist = {(iy, ix): 0.0}
+    heap, out = [(0.0, iy, ix)], np.zeros(free.shape, bool)
+    taken = 0
+    while heap and taken < n_px:
+        d, y, x = heapq.heappop(heap)
+        if out[y, x] or d > dist[(y, x)]:
+            continue
+        out[y, x] = True
+        taken += 1
+        for dy, dx, step in ((-1, 0, 1.0), (1, 0, 1.0), (0, -1, 1.0), (0, 1, 1.0),
+                             (-1, -1, 1.4142), (-1, 1, 1.4142), (1, -1, 1.4142), (1, 1, 1.4142)):
+            yy, xx = y + dy, x + dx
+            if 0 <= yy < ny and 0 <= xx < nx and free[yy, xx] and not out[yy, xx] and d + step < dist.get((yy, xx), 1e30):
+                dist[(yy, xx)] = d + step
+                heapq.heappush(heap, (d + step, yy, xx))
+    return out
+
+
 def partition(mask, wx, wy, seeds, targets, cell, tolerance=0.01, rounds=16, sea=None, anchored=False, claims=None,
-              claims_first=False):
+              claims_first=False, zones=None):
     """Label mask so that label i covers ~targets[i] km².
 
     Returns (raster with -1 outside the mask, relative errors, mask). Divisions that own whole
@@ -425,6 +454,10 @@ def partition(mask, wx, wy, seeds, targets, cell, tolerance=0.01, rounds=16, sea
     keeps each division's piece around its seed and hands fragments to the land they border.
     Grown divisions take only the islets nearest their seed, unless `claims_first`: then each takes
     its claimed islands whole before growing, and does not grow if its seed is on one of them.
+    zones[i], (mask, whole) or None: with `anchored`, a division with a zone (any but the largest,
+    which takes what is left) is grown too, first taking the part of its zone nearest its seed, up to
+    its target, smallest division first; it grows beyond the zone only if the zone is too small. A
+    whole zone is taken entire, after the others, and its division does not grow beyond it.
     """
     seeds = np.array(seeds, float)
     targets = np.asarray(targets, float)
@@ -435,7 +468,8 @@ def partition(mask, wx, wy, seeds, targets, cell, tolerance=0.01, rounds=16, sea
     if anchored:
         seeds = _onto(seeds, mask, res, targets / cell / 4)
         free = mask.copy()
-        order = [i for i in np.argsort(targets, kind="stable")[:-1] if targets[i] < _CARVE_SHARE * targets.sum()]
+        zoned = [zones is not None and zones[i] is not None for i in range(len(seeds))]
+        order = [i for i in np.argsort(targets, kind="stable")[:-1] if targets[i] < _CARVE_SHARE * targets.sum() or zoned[i]]
         n_px = {i: int(round(targets[i] / cell)) for i in order}
         grow = dict.fromkeys(order, True)
         if claims_first and claims is not None:
@@ -450,6 +484,14 @@ def partition(mask, wx, wy, seeds, targets, cell, tolerance=0.01, rounds=16, sea
                     n_px[i] -= int(own.sum())
                     sy, sx = min(max(int(seeds[i][1] / res), 0), mask.shape[0] - 1), min(max(int(seeds[i][0] / res), 0), mask.shape[1] - 1)
                     grow[i] = n_px[i] > 0 and not own[sy, sx]
+        for whole in (False, True):
+            for i in order:
+                if zoned[i] and zones[i][1] == whole and grow[i]:
+                    own = free & zones[i][0] if whole else _zone_take(free & zones[i][0], seeds[i], n_px[i], res)
+                    fixed[own] = i
+                    free &= ~own
+                    n_px[i] -= int(own.sum())
+                    grow[i] = not whole and n_px[i] > 0.01 * targets[i] / cell
         for i in order:
             if grow[i]:
                 piece = _carve(free, mask, wx, wy, seeds[i], n_px[i], res)

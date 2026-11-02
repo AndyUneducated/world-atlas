@@ -295,13 +295,13 @@ divisions:
     en: Bayesian City
     es: Bayesiana
   notes:
-    zh: "围着大海湾的城市，全市只有 4.5 万人，却有近三百万台机器人，人均 GDP 高得离谱。这里曾经是全州人口最多的地方，后来几家人工智能公司让湾区的工作几乎全部自动化，人们一个街区一个街区地搬走，留下的房子由机器人打扫、修剪草坪、按时开灯关灯，好让卫星照片看起来还有人住。先验区是半岛北端的老城，后验区是对岸关了灯的无人工厂，似然谷区是数据中心和人工智能公司总部，边际区是三角洲边上一片片冷却池和太阳能板。海湾里有一座数据中心岛和一座拘留岛。\n贝叶斯人自称「最后的样本」：留下来的多是维修工程师、不肯搬走的老人和守着房子等房价回升的业主。街上跑的几乎全是空着的机器人出租车，它们按算法预测的需求在城里兜圈，从来没有乘客，却从不停下来，因为停下来会让需求预测失效。市政府只有十几名人类雇员，市长由一个人工智能「辅佐」，市议会的会议纪要比开会的人还多。海雾每天下午从湾口涌进来，盖住半个城市，数据中心的冷却塔吐出的白汽和雾混在一起，本地人分不清哪是天气，哪是算力。"
-    en: "The city round the great bay has only 45,000 people but nearly three million robots, and an absurdly high GDP per head. It was once the most populous part of the state; then a handful of AI companies automated almost every job in the Bay Area, people moved away block by block, and the houses they left are cleaned, mown and lit on a timer by robots so that the satellite pictures still look lived in. Prior District is the old city at the tip of the peninsula, Posterior the lights-out factories across the water, Likelihood Valley the data centres and AI company headquarters, and Marginal the cooling ponds and solar panels on the edge of the delta. In the bay lie a data-centre island and a detention island.\nBayesians call themselves 'the last sample': those who stayed are mostly maintenance engineers, old people who refused to leave and owners waiting for house prices to recover. The streets are full of empty robotaxis circling the city on predicted demand; they never have passengers but never stop, since stopping would invalidate the demand forecast. The city government has a dozen human employees, the mayor is 'assisted' by an artificial intelligence, and the council produces more minutes than it has members. Every afternoon sea fog pours in through the mouth of the bay and covers half the city, mingling with the white plumes of the data centres' cooling towers, so that locals can no longer tell which is weather and which is compute."
+    zh: "围着大海湾的城市，全市只有 4.5 万人，却有近三百万台机器人，人均 GDP 高得离谱。这里曾经是全州人口最多的地方，后来几家人工智能公司让湾区的工作几乎全部自动化，人们一个街区一个街区地搬走，留下的房子由机器人打扫、修剪草坪、按时开灯关灯，好让卫星照片看起来还有人住。先验区是半岛北端的老城，后验区是对岸关了灯的无人工厂，似然谷区是沿海湾一路排开的科技公司总部和数据中心，圣克拉拉区是芯片公司的园区，南圣何塞区是空了一大半的老郊区，边际区是三角洲边上一片片冷却池和太阳能板。海湾里有一座数据中心岛和一座拘留岛。\n贝叶斯人自称「最后的样本」：留下来的多是维修工程师、不肯搬走的老人和守着房子等房价回升的业主。街上跑的几乎全是空着的机器人出租车，它们按算法预测的需求在城里兜圈，从来没有乘客，却从不停下来，因为停下来会让需求预测失效。市政府只有十几名人类雇员，市长由一个人工智能「辅佐」，市议会的会议纪要比开会的人还多。海雾每天下午从湾口涌进来，盖住半个城市，数据中心的冷却塔吐出的白汽和雾混在一起，本地人分不清哪是天气，哪是算力。"
+    en: "The city round the great bay has only 45,000 people but nearly three million robots, and an absurdly high GDP per head. It was once the most populous part of the state; then a handful of AI companies automated almost every job in the Bay Area, people moved away block by block, and the houses they left are cleaned, mown and lit on a timer by robots so that the satellite pictures still look lived in. Prior District is the old city at the tip of the peninsula, Posterior the lights-out factories across the water, Likelihood Valley the tech headquarters and data centres strung along the bay, Santa Clara the chip companies' campuses, South San Jose an old suburb more than half empty, and Marginal the cooling ponds and solar panels on the edge of the delta. In the bay lie a data-centre island and a detention island.\nBayesians call themselves 'the last sample': those who stayed are mostly maintenance engineers, old people who refused to leave and owners waiting for house prices to recover. The streets are full of empty robotaxis circling the city on predicted demand; they never have passengers but never stop, since stopping would invalidate the demand forecast. The city government has a dozen human employees, the mayor is 'assisted' by an artificial intelligence, and the council produces more minutes than it has members. Every afternoon sea fog pours in through the mouth of the bay and covers half the city, mingling with the white plumes of the data centres' cooling towers, so that locals can no longer tell which is weather and which is compute."
   codes:
     admin: '060300'
     unlocode: US BYS
   population: 45000
-  area_km2: 13200.0
+  area_km2: 13500.5
   color: '#3A6EA5'
   flag: { layout: bands, colors: ['#0F172A', '#38BDF8', '#0F172A'], ratio: [3, 1, 3], charge: robot, charge_color: '#E2E8F0', outline: '#0F172A' }
   flag_notes:
@@ -317,12 +317,12 @@ divisions:
     en: Prior District
     es: A Priori
   notes:
-    zh: 海湾半岛北端的老城，坡道很陡，老缆车还在开，只是司机换成了机器人。维多利亚式的彩色木屋大多空着，由机器人维持原样，游客可以付费进去参观「曾经有人住过的样子」。贝叶斯地铁只有一条线、两座车站，全长约 2 公里，是世界上最短的地铁线，无人驾驶的列车照着时刻表来回跑，车厢里常常一个人也没有。湾口外的三座雾礁小岛归本区管理，海湾里的遣返岛也在区内。
-    en: "The old city at the northern tip of the bay peninsula, its streets steep and its old cable cars still running, now driven by robots. Most of the painted wooden houses stand empty, kept just as they were by robots, and visitors can pay to see 'what it looked like when people lived here'. The Bayesian Metro has one line and two stations, about 2 km long, the shortest metro line in the world; its driverless trains shuttle back and forth to the timetable, often without a single person aboard. The three Fog Rocks outside the mouth of the bay and the detention island in the bay belong to the district."
+    zh: 海湾半岛北端的老城，坡道很陡，老缆车还在开，只是司机换成了机器人。维多利亚式的彩色木屋大多空着，由机器人维持原样，游客可以付费进去参观「曾经有人住过的样子」。贝叶斯地铁只有一条线、三座车站，全长约 3 公里，是世界上第二短的地铁线，只比最短的那条长一百米；市政董事会为此开过三次会，讨论要不要把终点站往回挪一百米好拿下第一，最后决定先让人工智能评估一下。无人驾驶的列车照着时刻表来回跑，车厢里常常一个人也没有。湾口外的三座雾礁小岛归本区管理，海湾里的遣返岛也在区内。
+    en: "The old city at the northern tip of the bay peninsula, its streets steep and its old cable cars still running, now driven by robots. Most of the painted wooden houses stand empty, kept just as they were by robots, and visitors can pay to see 'what it looked like when people lived here'. The Bayesian Metro has one line and three stations, about 3 km long, the second shortest metro line in the world and only a hundred metres longer than the shortest; the City Board has met three times to discuss pulling the terminus back a hundred metres to take first place, and in the end decided to have an artificial intelligence assess the idea first. Its driverless trains shuttle back and forth to the timetable, often without a single person aboard. The three Fog Rocks outside the mouth of the bay and the detention island in the bay belong to the district."
   codes:
     admin: '060301'
   population: 18000
-  area_km2: 300.0
+  area_km2: 338.0
   traits: { industries: [ai, tourism, enforcement] }
 - id: div_9tazhz
   subtype: borough
@@ -338,7 +338,7 @@ divisions:
   codes:
     admin: '060302'
   population: 15000
-  area_km2: 1900.0
+  area_km2: 1750.0
   traits: { industries: [robotics, manufacturing, port] }
 - id: div_zjfaw0
   subtype: borough
@@ -349,13 +349,45 @@ divisions:
     en: Likelihood Valley District
     es: Valle de la Verosimilitud
   notes:
-    zh: 海湾南端的谷地，几家人工智能公司和芯片公司的总部都在这里，园区之间是一座接一座的数据中心。园区里的草坪由机器人修剪，咖啡馆由机器人经营，偶尔出现一个人类员工，其他人会围过来拍照。海湾南部的数据中心岛也归本区，岛上的机房用海水冷却。
-    en: The valley at the southern end of the bay, home to the headquarters of several AI and chip companies with data centre after data centre between their campuses. The campus lawns are mown and the cafés run by robots, and when a human employee occasionally appears, the others gather round to take pictures. The data-centre island in the south of the bay belongs to the district, its server halls cooled by seawater.
+    zh: 从机场南边沿着海湾西岸一路排到海湾南端谷地的平地，再往东到圣何塞的老市中心和米尔皮塔斯，梨公司、咯咯、无所谓平台、障碍软件和全景监狱技术五家公司的总部都在这里，园区之间是一座接一座的数据中心。园区里的草坪由机器人修剪，咖啡馆由机器人经营，偶尔出现一个人类员工，其他人会围过来拍照。区里的两座 99 Ranch 超市照常开门，货架由机器人补满，收银台前排队的也多是机器人。海湾南部的数据中心岛也归本区，岛上的机房用海水冷却。
+    en: The flat land along the west shore of the bay from south of the airport to the valley at its southern end, and on east to old downtown San Jose and Milpitas. Pear, Gaggle, Meh Platforms, Obstacle and Panopticon Technologies all have their headquarters here, with data centre after data centre between their campuses. The campus lawns are mown and the cafés run by robots, and when a human employee occasionally appears, the others gather round to take pictures. The district's two 99 Ranch supermarkets open as usual, their shelves filled by robots and the queues at the tills mostly robots too. The data-centre island in the south of the bay belongs to the district, its server halls cooled by seawater.
   codes:
     admin: '060303'
-  population: 10000
-  area_km2: 4000.0
+  population: 5000
+  area_km2: 870.0
   traits: { industries: [ai, datacenter, semiconductor], income: 9.0 }
+- id: div_x7fvyg
+  subtype: borough
+  parent: div_35n7cb
+  status: generated
+  names:
+    zh: 圣克拉拉区
+    en: Santa Clara District
+    es: Santa Clara
+  notes:
+    zh: "海湾南端的一块平地，从老城一直伸到海湾边的盐沼，英伟达的总部园区就在这里，几座三角形和山形的大楼在一片平房和停车场中间格外显眼。全区只剩约三千人，大多是园区的维修工程师、数据中心的值班员和舍不得退租的老租客。区里的公寓楼照旧每年把房租涨百分之十，涨价通知由机器人准时塞进每一道门缝，哪怕整栋楼只剩一户人家；有租客算过，照这个速度再涨二十年，一套两居室一个月的房租就够在比尔斯伯勒买下一棵有名字的红杉。Lafayette St 上的 Gold Rush 加油站油价出了名地便宜，设施也出了名地简陋，厕所钥匙拴在一个汽车轮毂上。Mission College Blvd 每天傍晚照样堵车，堵在路上的全是空驶的机器人出租车。"
+    en: "A stretch of flat land at the south end of the bay, from the old town out to the salt marshes on the shore. NVIDIA's headquarters campus is here, its triangular and mountain-shaped buildings standing out among the bungalows and car parks. Only about three thousand people are left, mostly maintenance engineers on the campus, duty staff at the data centres and old tenants who cannot bring themselves to give notice. The apartment blocks still raise the rent ten per cent a year, the notices pushed under every door on time by robots even when only one household is left in the building; one tenant worked out that at this rate, in twenty years a two-bedroom flat's monthly rent would buy a named redwood in Billsborough. The Gold Rush filling station on Lafayette St is famous for cheap fuel and for its spartan facilities, the toilet key chained to a car wheel rim. Mission College Blvd still jams every evening, with empty robotaxis."
+  codes:
+    admin: '060305'
+  population: 3000
+  area_km2: 80.0
+  traits: { industries: [semiconductor, ai, datacenter], income: 9.0 }
+- id: div_nwqa72
+  subtype: borough
+  parent: div_35n7cb
+  status: generated
+  names:
+    zh: 南圣何塞区
+    en: South San Jose District
+    es: San José Sur
+  notes:
+    zh: "圣何塞南边的谷地和丘陵，从 Blossom Hill Rd 两边的住宅区一直到南边谷口的农田。这里曾是湾区最典型的郊区：一排排带车库的平房，一个接一个的购物中心，周末全家开车去 Westfield Oakridge 逛街，再去 99 Ranch 买菜。如今全区只剩约两千人，购物中心照常营业，顾客大多是来采购零件和润滑油的机器人，美食广场的座位被扫地机器人轮流占着充电。Palm Valley Blvd 一带的公寓楼照旧每年涨房租百分之十，租客说自己不是住在这里，而是在替房东的退休基金上班。顺着 Monterey Rd 往北开就是那家被本地人叫作「便宜超市」的 Walmart。"
+    en: "The valley and hills south of San Jose, from the housing either side of Blossom Hill Rd to the farmland at the mouth of the valley in the south. This was once the very model of a Bay Area suburb: rows of bungalows with garages and shopping centre after shopping centre, the whole family driving to Westfield Oakridge at the weekend and then to 99 Ranch for groceries. Only about two thousand people are left; the shopping centres open as usual, most of their customers robots buying spare parts and lubricant, and the seats in the food court are taken in turn by robot vacuums on charge. The apartment blocks around Palm Valley Blvd still raise the rent ten per cent a year, and the tenants say they don't live here so much as work for their landlord's pension fund. Drive north up Monterey Rd and you reach the Walmart the locals call 'the cheap supermarket'."
+  codes:
+    admin: '060306'
+  population: 2000
+  area_km2: 260.0
+  traits: { industries: [commerce, residential, ai], income: 9.0 }
 - id: div_5anpaj
   subtype: borough
   parent: div_35n7cb
@@ -370,7 +402,7 @@ divisions:
   codes:
     admin: '060304'
   population: 2000
-  area_km2: 7000.0
+  area_km2: 10202
   traits: { industries: [datacenter, solar, agriculture] }
 
 # ── 比尔斯伯勒市（富豪城）──
@@ -383,12 +415,12 @@ divisions:
     en: Billsborough City
     es: Villabilletes
   notes:
-    zh: "海湾半岛南部山间的富豪城，全市 9 万人，其中真正的居民只有几百户，其余是住在员工宿舍里的厨师、园丁、保镖、司机、私人医生和直升机驾驶员。这座城是几十位科技寡头为了不归贝叶斯市管、不交贝叶斯市的税而联名设立的，市议会的七个席位由各家的家族办公室轮流指派，市长每年抽签产生，没有抽中的人可以买下抽中者的任期。门禁高地区是平地上的庄园群，护城河山区是山里更大的庄园、私人森林和直通海边的私人道路。\n比尔斯伯勒没有公交、没有人行道、没有路灯，也没有一家公共商店：公共的东西会招来外人。每座庄园都有自己的围墙、保安队和地下避难所，几家人的庄园之间还修了私人隧道，方便晚宴时不必经过公共道路。市里唯一的公共设施是一座市政厅，市政厅也只在有人预约时开门。"
-    en: "A city of the very rich in the hills of the southern bay peninsula, with 90,000 people, of whom only a few hundred households are true residents; the rest are cooks, gardeners, bodyguards, drivers, private doctors and helicopter pilots living in staff dormitories. A few dozen tech oligarchs jointly founded the city so as not to be governed or taxed by Bayesian City; its seven council seats are filled in turn by the families' private offices, and the mayor is drawn by lot every year, though anyone not drawn may buy the winner's term. Gated Heights District is the estates on the flat land, Moat Hills the still larger estates, private forests and private roads to the sea in the hills.\nBillsborough has no buses, no pavements, no street lights and not a single public shop: public things attract outsiders. Every estate has its own walls, guard force and underground shelter, and several families have dug private tunnels between their estates so as not to use the public road on the way to dinner. The city's only public building is its city hall, and that opens only by appointment."
+    zh: "海湾半岛南部山间的富豪城，全市 9 万人，其中真正的居民只有几百户，其余是住在员工宿舍里的厨师、园丁、保镖、司机、私人医生和直升机驾驶员。这座城是几十位科技寡头为了不归贝叶斯市管、不交贝叶斯市的税而联名设立的，市议会的七个席位由各家的家族办公室轮流指派，市长每年抽签产生，没有抽中的人可以买下抽中者的任期。门禁高地区是东坡和山脚的庄园群，护城河山区是山里更大的庄园、私人森林和直通海边的私人道路。\n比尔斯伯勒没有公交、没有人行道、没有路灯，也没有一家公共商店：公共的东西会招来外人。每座庄园都有自己的围墙、保安队和地下避难所，几家人的庄园之间还修了私人隧道，方便晚宴时不必经过公共道路。市里唯一的公共设施是一座市政厅，市政厅也只在有人预约时开门。"
+    en: "A city of the very rich in the hills of the southern bay peninsula, with 90,000 people, of whom only a few hundred households are true residents; the rest are cooks, gardeners, bodyguards, drivers, private doctors and helicopter pilots living in staff dormitories. A few dozen tech oligarchs jointly founded the city so as not to be governed or taxed by Bayesian City; its seven council seats are filled in turn by the families' private offices, and the mayor is drawn by lot every year, though anyone not drawn may buy the winner's term. Gated Heights District is the estates on the eastern slopes and at their foot, Moat Hills the still larger estates, private forests and private roads to the sea in the hills.\nBillsborough has no buses, no pavements, no street lights and not a single public shop: public things attract outsiders. Every estate has its own walls, guard force and underground shelter, and several families have dug private tunnels between their estates so as not to use the public road on the way to dinner. The city's only public building is its city hall, and that opens only by appointment."
   codes:
     admin: '060400'
   population: 90000
-  area_km2: 1800.0
+  area_km2: 1500.0
   color: '#0B3D2E'
   flag: { layout: banner, colors: ['#0B3D2E', '#D4AF37'], division: bordure, charge: key, charge_color: '#D4AF37' }
   flag_notes:
@@ -404,12 +436,12 @@ divisions:
     en: Gated Heights District
     es: Alturas Cerradas
   notes:
-    zh: 半岛平地上的庄园群，每座庄园占好几个街区，围墙高四米，墙头装着摄像头和喷水器。区里的道路名义上是公路，路口却都设了私人岗亭，外人开车进来要出示邀请函。员工宿舍在区的南端，宿舍楼按雇主分开，每栋楼的颜色和雇主家的车一样。
-    en: The estates on the flat land of the peninsula, each taking up several blocks behind four-metre walls topped with cameras and sprinklers. Its roads are public in name, but every junction has a private guard post, and outsiders driving in must show an invitation. The staff dormitories are at the southern end, divided by employer, each block painted the colour of its employer's cars.
+    zh: 半岛东坡和山脚平地上的庄园群，每座庄园占好几个街区，围墙高四米，墙头装着摄像头和喷水器。区里的道路名义上是公路，路口却都设了私人岗亭，外人开车进来要出示邀请函。员工宿舍在区的南端，宿舍楼按雇主分开，每栋楼的颜色和雇主家的车一样。
+    en: The estates on the eastern slopes of the peninsula and the flat land at their foot, each taking up several blocks behind four-metre walls topped with cameras and sprinklers. Its roads are public in name, but every junction has a private guard post, and outsiders driving in must show an invitation. The staff dormitories are at the southern end, divided by employer, each block painted the colour of its employer's cars.
   codes:
     admin: '060401'
   population: 70000
-  area_km2: 300.0
+  area_km2: 220.0
   traits: { industries: [luxury, security] }
 - id: div_b4v4f8
   subtype: borough
@@ -425,7 +457,7 @@ divisions:
   codes:
     admin: '060402'
   population: 20000
-  area_km2: 1500.0
+  area_km2: 1280.0
   traits: { industries: [luxury, forestry, wine] }
 
 # ── 圣遣返市──
@@ -925,7 +957,7 @@ divisions:
   codes:
     admin: '061200'
   population: 260000
-  area_km2: 16000.0
+  area_km2: 15999.5
   color: '#1D4E89'
   flag: { layout: horizon, colors: ['#6CA6CD', '#1D4E89', '#FFFFFF'], charge: fish, charge_color: '#FFFFFF' }
   flag_notes:

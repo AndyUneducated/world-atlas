@@ -281,6 +281,9 @@ class World:
         for pid, p in self.places.items():
             if p.get("in") not in self.divisions:
                 errors.append(f"{pid}: 'in' must name a division")
+            if "at" in p and ("offset_km" in p or not (isinstance(p["at"], list) and len(p["at"]) == 2
+                                                       and all(isinstance(v, (int, float)) for v in p["at"]))):
+                errors.append(f"{pid}: at is a fixed spot [x, y] (design km) and replaces offset_km")
             if "short_names" in p and not (isinstance(p["short_names"], dict) and p["short_names"].get("zh") and p["short_names"].get("en")):
                 errors.append(f"{pid}: short_names (the map label; the card shows the full names) needs zh and en")
             if p.get("subtype") == "government" and "short_names" in p and len(p.get("notes", {}).get("zh", "")) < 100:
@@ -365,6 +368,26 @@ class World:
             for did in layout.get("islands", {}):
                 if self.divisions.get(did, {}).get("subtype") != "borough":
                     errors.append(f"generator: islands of {did}: not a district")
+            def ring(path):
+                return isinstance(path, list) and len(path) >= 3 and all(isinstance(p, list) and len(p) == 2 for p in path)
+
+            for did, z in layout.get("zones", {}).items():
+                if did not in self.divisions or not layout.get("anchored"):
+                    errors.append(f"generator: zone of {did}: not a division, or the layout is not anchored")
+                elif isinstance(z, dict):
+                    if (not ring(z.get("path")) or not all(ring(h) for h in z.get("holes", []))
+                            or set(z) - {"path", "holes", "exact", "whole"}):
+                        errors.append(f"generator: zone of {did} must be {{path, holes, exact, whole}} with polygons [[x, y], …]")
+                elif not ring(z):
+                    errors.append(f"generator: zone of {did} must be a polygon [[x, y], …] (design km)")
+            for did in layout.get("added_districts", []):
+                if self.divisions.get(did, {}).get("subtype") != "borough":
+                    errors.append(f"generator: added district {did} is not a district")
+            for did, at in layout.get("centres", {}).items():
+                if self.divisions.get(did, {}).get("subtype") != "borough":
+                    errors.append(f"generator: centre of {did}: not a district")
+                elif not (isinstance(at, list) and len(at) == 2 and all(isinstance(v, (int, float)) for v in at)):
+                    errors.append(f"generator: centre of {did} must be [x, y] (design km)")
             for did, toward in layout.get("coastal", {}).items():
                 if self.divisions.get(did, {}).get("subtype") != "borough":
                     errors.append(f"generator: coastal {did} is not a district")

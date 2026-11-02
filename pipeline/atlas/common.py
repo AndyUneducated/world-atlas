@@ -62,6 +62,15 @@ def write_geojson(name, features):
         json.dump({"type": "FeatureCollection", "features": features}, f, ensure_ascii=False, separators=(",", ":"))
 
 
+def place_offset(pl: dict, core, scale: float) -> tuple[float, float]:
+    """A place's offset (real km) from its district centre `core` (real km): offset_km, or for a place
+    drawn at a real position, from its fixed spot `at` (design km)."""
+    if "at" in pl:
+        return pl["at"][0] * scale - core[0], pl["at"][1] * scale - core[1]
+    ox, oy = pl.get("offset_km", (0, 0))
+    return ox, oy
+
+
 def bbox_lonlat(geom):
     b = geom.bounds
     return [round(b[0], 5), round(b[1], 5), round(b[2], 5), round(b[3], 5)]

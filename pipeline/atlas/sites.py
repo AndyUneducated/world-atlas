@@ -10,7 +10,7 @@ from shapely.geometry import LineString, Point
 from shapely.ops import nearest_points
 
 from . import buildings
-from .common import log
+from .common import log, place_offset
 from .world import COASTAL_LAYOUTS, FACILITY_LAYOUTS
 
 SITE_SNAP_KM = 6.0  # how far (real km) a port or facility site may move to fit the shore
@@ -78,7 +78,7 @@ def fit_site(cfg, centre, a, size, land, coast, seed, pid, built_sites):
     return site, parts
 
 
-def landmark_sites(world, d, core, angle, built, land, seed):
+def landmark_sites(world, d, core, angle, built, land, seed, scale):
     """Site outlines and parts (real km) of the places in district `d` that have a `site`.
 
     City landmarks follow the street grid `angle`; an explicit site.angle_deg is absolute (east = 0).
@@ -88,7 +88,7 @@ def landmark_sites(world, d, core, angle, built, land, seed):
         if pl["in"] != d["id"] or not pl.get("site"):
             continue
         cfg = pl["site"]
-        ox, oy = pl.get("offset_km", (0, 0))
+        ox, oy = place_offset(pl, core, scale)
         size = (cfg["size_m"][0] / 1000, cfg["size_m"][1] / 1000)
         a = math.radians(cfg["angle_deg"]) if "angle_deg" in cfg else angle
         if cfg["layout"] in FACILITY_LAYOUTS:

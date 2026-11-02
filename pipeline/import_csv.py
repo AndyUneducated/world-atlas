@@ -469,7 +469,7 @@ ORDER = {
     "features": ["id", "subtype", "status", "detect", "names", "notes"],
     "routes": ["id", "ref", "build_order", "network", "class", "status", "names", "notes", "ring", "straight", "ends_at_network",
                "tunnel_cost", "legs", "shield", "via"],
-    "places": ["id", "subtype", "status", "names", "short_names", "notes", "in", "offset_km", "emblem_of", "site"],
+    "places": ["id", "subtype", "status", "names", "short_names", "notes", "in", "offset_km", "at", "emblem_of", "site"],
     "railways": ["id", "network", "status", "names", "notes", "color", "tech", "tunnel_cost", "via", "station_names"],
 }
 FLOW = {"divisions": (), "features": ("detect", "names"), "routes": ("via",), "places": ("site",),

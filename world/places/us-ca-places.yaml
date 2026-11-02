@@ -282,7 +282,7 @@ places:
       zh: "自治州的最高法院，七名大法官，由首席大法官领衔。法院大楼在贝叶斯市先验区的老城里，是这座空城里少数夜里还亮着灯的大楼：州政府各厅搬去萨克拉钱托时，法院坚持留在原址，理由是「法律不应随人口迁移」。如今大法官们大多在家通过视频开庭，法庭里坐着的是操作摄像机的工作人员和一排机器人律师助理。法院最常审理的是罢免、公投提案和人工智能责任的案子，判决书由大法官亲手写成，这是全州少数仍由人类执笔的公文。"
       en: "The state's highest court, seven justices led by the Chief Justice. Its building stands in the old city of Prior District in Bayesian, one of the few in that empty city still lit at night: when the departments moved to Sacramoney, the court insisted on staying, on the grounds that 'the law should not follow the population'. Today the justices mostly sit from home by video, and the courtroom holds the camera operators and a row of robot paralegals. Its commonest cases concern recalls, ballot propositions and liability for artificial intelligence, and its judgments are written by the justices themselves, among the few official documents in the state still written by a human hand."
     in: div_0vf1b0
-    offset_km: [0.6, 0.6]
+    at: [105.46, 254.30]
     site: { layout: courtyard, size_m: [200, 160] }
   - id: poi_x3zw6x
     subtype: detention_centre
@@ -295,7 +295,7 @@ places:
       zh: "海湾里一座小岛上的拘押中心，四面是冰冷的海水和急流。州移民与海关执法局把岛上原来的灯塔和仓库改成了拘押设施：双层围栏，围栏上每隔一段有一座瞭望塔，岸边的探照灯整夜扫过海面。被拘押的人从湾区和北部各市押送过来，在这里等待遣返船，等待的时间从几天到几年不等。牢房不够用，执法局就在岛东头的空地上摞起了集装箱牢房。从对岸贝叶斯的空楼里能望见岛上的灯，那是这座空城夜里最亮的地方之一。"
       en: "A detention centre on a small island in the bay, ringed by cold water and strong currents. The State Immigration and Customs Enforcement Agency turned the island's old lighthouse and stores into a detention site: a double fence with a watchtower every so often along it, and searchlights on the shore sweeping the water all night. Detainees are brought here from the Bay and the northern cities to wait for a deportation ship, for anything from a few days to a few years. When the cells ran out, the agency stacked container cells on the open ground at the island's east end. The island's lights can be seen from the empty buildings of Bayesian across the water, among the brightest things in that empty city at night."
     in: div_0vf1b0
-    offset_km: [4.74, 20.72]
+    at: [105.90, 256.90]
     site: { layout: detention, size_m: [2200, 1400] }
   - id: poi_sph5ky
     subtype: vehicle_depot
@@ -308,7 +308,7 @@ places:
       zh: "多余出行公司的机器人出租车总站，几千辆无人驾驶出租车在这里充电、清洗和更新地图。贝叶斯只剩 4.5 万人，可这些车按算法预测的需求昼夜在街上兜圈，几乎从不载客，只在电量不足时开回来，充满电又立刻出发。总站的大屏幕上显示着「今日完成订单」，数字常年是个位数，旁边一行小字写着「今日行驶里程」，数字有七位。公司说空车兜圈是在「为需求的回归做准备」。"
       en: "The depot of Waymore's robotaxis, where thousands of driverless cabs charge, are washed and update their maps. Bayesian has only 45,000 people left, yet the cars circle its streets day and night on predicted demand, almost never with a passenger, coming back only when their batteries run low and leaving again as soon as they are full. A big screen shows 'orders completed today', a single-digit number all year round, and beside it, in small print, 'distance driven today', a number seven digits long. The company says the empty cars are 'preparing for the return of demand'."
     in: div_0vf1b0
-    offset_km: [2.2, -2.0]
+    at: [105.96, 252.89]
     site: { layout: plant, variant: depot, size_m: [1200, 800] }
   - id: poi_ymaqdb
     subtype: airport
@@ -321,8 +321,8 @@ places:
       zh: "湾区的机场，在先验区南边的海湾岸上，两条东西向的跑道。湾区人口多的时候这里人来人往，如今客运航站楼只开着一个登机口，跑道上起降的大多是运送芯片、服务器和机器人零件的货机，以及几位科技寡头的私人飞机。航站楼里的咖啡馆、书店和行李转盘都由机器人照看，偶尔有旅客走进来，机器人会一起转过头去。"
       en: "The Bay's airport, on the bay shore south of Prior District, with two east–west runways. It was busy when the Bay was full of people; today the passenger terminal opens a single gate, and most of what lands and takes off are freighters carrying chips, servers and robot parts, and the private jets of a few tech oligarchs. The terminal's cafés, bookshop and baggage belts are all looked after by robots, and when the occasional passenger walks in, the robots all turn their heads."
     in: div_0vf1b0
-    offset_km: [4.0, -4.2]
-    site: { layout: airport, size_m: [3000, 1400], angle_deg: 0 }
+    at: [106.26, 247.89]
+    site: { layout: airport, size_m: [3000, 1400], angle_deg: -28 }
   - id: poi_as7dy5
     subtype: factory
     status: generated
@@ -334,7 +334,7 @@ places:
       zh: "海湾对岸一座不开灯的工厂：机器人看不见也能干活，所以车间里常年一片漆黑，只有机械臂上的指示灯在闪。工厂生产的是机器人，机器人再去生产别的东西，包括更多的机器人。全厂只有十几名人类维修工程师，他们上班要戴头灯，下班时会顺手关掉门口那盏灯，那是厂里唯一为人装的灯。附近的居民早已搬走，工厂的外墙上还留着当年招工广告的痕迹。"
       en: "A factory across the bay that never turns its lights on: robots can work without seeing, so the shop floors are dark all year, apart from the status lights blinking on the arms. It makes robots, which go on to make other things, including more robots. The whole plant has a dozen or so human maintenance engineers, who wear head torches at work and on their way out switch off the lamp by the door, the only light in the plant put up for people. The neighbours moved away long ago, and the outer wall still carries the ghost of an old hiring advertisement."
     in: div_9tazhz
-    offset_km: [1.0, 1.0]
+    at: [114.38, 248.56]
     site: { layout: plant, variant: assembly, size_m: [1500, 900] }
   - id: poi_27c6j9
     subtype: data_centre
@@ -347,7 +347,7 @@ places:
       zh: "风投湾南湾里算力岛上的数据中心群，这座人工岛几乎被机房和变电站铺满，机房直接抽海水冷却，排出的热水让附近的海面冬天也冒着白汽。岛上运行着湾区几家人工智能公司的大模型，州里的救济审批、法案起草和学校里的家教，很多都是在这里算出来的。岛的四周装着围栏和摄像头，渔船不许靠近，海鸥却不受限制，机房屋顶上停满了海鸥，岛上的机器人维护员有一半的工单是清理鸟粪。"
       en: "The data centres of Compute Island in the south arm of Venture Bay, which cover almost the whole of that artificial island with server halls and substations; they are cooled with seawater pumped straight in, and the warm outflow keeps the water nearby steaming even in winter. The big models of the Bay's AI companies run here, and much of the state's welfare decisions, bill drafting and school tutoring is computed on this island. Fences and cameras ring the shore and fishing boats may not come near, but the gulls go where they like; the roofs are covered with them, and half the work orders of the island's robot maintainers are for clearing their droppings."
     in: div_zjfaw0
-    offset_km: [-57.63, 30.76]
+    at: [109.80, 249.30]
     site: { layout: campus, size_m: [2400, 1400], rural: true }
   - id: bld_a15mqc
     subtype: headquarters
@@ -359,8 +359,8 @@ places:
     notes:
       zh: "闭源智能公司的总部园区。创始人萨姆·奥德曼常说公司的使命是「让通用人工智能造福全人类」，公司的名字则来自创立后不久的一次改名：原来的名字里有「开放」二字，后来大家觉得不太合适。园区里的楼都没有朝外的窗户，员工要过三道门禁才能进到训练大模型的机房，访客只能在大堂里和一台演示机器人聊天。公司的模型写了州议会一半的法案草稿、加速党的每周政纲和许多学校的作业；园区门口的标语写着「安全第一」，下面一行小字是「上线第一」。"
       en: "The campus of ClosedAI. Its founder Sam Oddman likes to say the company's mission is 'to make artificial general intelligence benefit all of humanity'; the name comes from a change made soon after the founding, when the old name, which had 'Open' in it, came to seem not quite right. None of the buildings has a window facing out, staff pass three security gates to reach the halls where the big models are trained, and visitors get only a chat with a demonstration robot in the lobby. The company's models have written half the State Legislature's draft bills, the Accelerate Party's weekly platform and a great deal of homework; the slogan at the gate reads 'Safety First', with 'Ship First' in small print underneath."
-    in: div_zjfaw0
-    offset_km: [-2.5, 2.0]
+    in: div_0vf1b0
+    at: [106.32, 253.82]
     site: { layout: campus, size_m: [900, 700], rural: true }
   - id: bld_ndz2qy
     subtype: headquarters
@@ -373,7 +373,7 @@ places:
       zh: "梨公司的总部，一座环形大楼围着一片果园，从空中看像一枚巨大的戒指，也像一个永远在加载的图标。环里种的是梨树，梨公司的标志就是一只被咬了一口的梨。大楼的外墙是一整圈弧形玻璃，员工刚搬进来时常常撞上去，公司只好在玻璃上贴了一圈梨形贴纸。梨公司如今最赚钱的产品是一副能替人回消息的耳机，戴上以后主人可以一整天不说话，耳机会用主人的声音说「好的，收到」。"
       en: "Pear's headquarters, a ring-shaped building round an orchard, which from the air looks like a giant wedding ring, or a loading icon that never finishes. The orchard is of pear trees, Pear's logo being a pear with a bite out of it. The outer wall is one unbroken curve of glass, and when staff first moved in they kept walking into it, so the company stuck a ring of pear-shaped stickers round it. Pear's most profitable product now is a pair of earbuds that answer messages for you: with them in, the owner can go all day without speaking, while the earbuds say 'OK, got it' in the owner's voice."
     in: div_zjfaw0
-    offset_km: [3.5, 2.8]
+    at: [117.64, 236.77]
     site: { layout: ring, size_m: [1000, 1000], rural: true }
   - id: bld_6agh0p
     subtype: headquarters
@@ -386,7 +386,7 @@ places:
       zh: "搜索公司咯咯的总部园区，公司早年的格言是「不作恶」，后来改成了「不太作恶」。园区里有免费的食堂、滑梯、按摩椅和彩色的自行车，可员工已经不多：搜索结果早已由模型直接写成答案，人类工程师的工作是检查答案里的广告够不够多。园区中央立着一块牌子，写着「这里的一切都可以搜索」，旁边有人用马克笔加了一句「除了我们的税单」。"
       en: "The campus of the search company Gaggle, whose early motto 'Don't be evil' later became 'Don't be too evil'. It has free canteens, slides, massage chairs and coloured bicycles, but few staff: search results have long been written straight out as answers by a model, and the human engineers' job is to check that the answers carry enough adverts. A sign in the middle of the campus says 'Everything here is searchable', and someone has added in marker pen, 'except our tax returns'."
     in: div_zjfaw0
-    offset_km: [-2.5, -4.2]
+    at: [115.40, 240.19]
     site: { layout: campus, size_m: [1000, 700], rural: true }
   - id: bld_yy52zx
     subtype: headquarters
@@ -399,7 +399,7 @@ places:
       zh: "社交网络公司无所谓平台的总部，创始人莫克·萨克伯格。总部是一整栋长条形的大楼，屋顶铺着草坪和步道，员工可以在屋顶散步、对着海湾开会。公司曾经把全部身家押在一个虚拟世界上，那个世界里的人物没有腿，用户也不多；后来又改押人工智能，让平台上的大部分帖子、评论和点赞都由模型生成，活跃用户数从此再也没有下降过。大楼门口竖着一个巨大的点赞手势，手势的角度据说每个季度都要按股价调整一次。"
       en: "The headquarters of the social network Meh Platforms, founded by Mork Suckerberg: a single long building with lawns and paths on its roof, where staff can stroll and hold meetings facing the bay. The company once bet everything on a virtual world whose characters had no legs and not many users; then it bet on AI instead, letting models produce most of the posts, comments and likes on its platforms, and its active users have never fallen since. A giant thumbs-up stands at the entrance, its angle reportedly adjusted to the share price every quarter."
     in: div_zjfaw0
-    offset_km: [-6.5, 2.0]
+    at: [113.47, 242.66]
     site: { layout: slab, size_m: [700, 350], rural: true }
   - id: bld_krtnpt
     subtype: headquarters
@@ -412,7 +412,7 @@ places:
       zh: "数据库公司障碍软件的总部，创始人拉里·埃卢森。几栋圆柱形的玻璃楼围着一个人工湖，公司的产品出了名地难装、难用、更难卸载，客户说每一份合同都是一道「障碍」，公司干脆把这句话变成了名字。障碍软件的一大块收入来自许可证审计：它定期上门清点客户用了多少份软件，再补收差价。埃卢森本人很少来总部，他更喜欢住在自己买下的那座岛上。"
       en: "The headquarters of the database company Obstacle, founded by Larry Ellusion: a few cylindrical glass towers round an artificial lake. Its products are famously hard to install, hard to use and harder still to remove; customers said every contract was an 'obstacle', and the company simply made that its name. A large part of its income comes from licence audits, visiting customers to count how many copies they use and billing the difference. Ellusion himself seldom comes to headquarters; he prefers to live on the island he bought."
     in: div_zjfaw0
-    offset_km: [-6.5, -4.5]
+    at: [109.94, 244.42]
     site: { layout: complex, size_m: [600, 500], rural: true }
   - id: bld_xmr168
     subtype: headquarters
@@ -425,7 +425,7 @@ places:
       zh: "数据分析公司全景监狱技术的总部，创始人彼得·斯蒂尔。总部是一座环形楼，中间还有一座塔，正好照着同名的那种监狱设计：塔里的人看得见环里的每一个人，环里的人看不见塔里有没有人。公司最大的客户是州移民与海关执法局，检查站、拘押中心和巡逻无人机拍下的每一张脸都送到这里比对。员工的工牌会记录他们在楼里走过的每一步，公司说这是为了「以身作则」。"
       en: "The headquarters of the data analytics company Panopticon Technologies, founded by Peter Steel: a ring-shaped building with a tower in the middle, after the prison of the same name, in which whoever is in the tower can see everyone in the ring and no one in the ring can tell whether anyone is in the tower. Its biggest customer is the State Immigration and Customs Enforcement Agency, and every face photographed at the checkpoints, in the detention centres and by the patrol drones is matched here. Staff badges log every step they take in the building, which the company says is 'leading by example'."
     in: div_zjfaw0
-    offset_km: [3.5, -3.8]
+    at: [113.02, 241.07]
     site: { layout: ring, size_m: [600, 600], rural: true }
 
   # ── 比尔斯伯勒市：富豪城 ──
@@ -440,7 +440,7 @@ places:
       zh: "比尔斯伯勒唯一的公共设施，一座两层的小楼，只在有人预约时开门。市议会九个席位上坐的大多是各家家族办公室推出的人，开会时多数议员通过视频参加，会议室里只摆着一排屏幕。市政厅的大门要刷三道卡，第三道卡只发给市长；城旗的原件锁在楼里的保险库里，挂在外面的是编了号的复制品。"
       en: "Billsborough's only public building, a small two-storey house that opens only by appointment. Most of the nine council seats are held by people put forward by the family offices, and most members join meetings by video, so the council chamber holds only a row of screens. The door takes three key cards, the third issued only to the mayor; the original city flag is locked in the strongroom, and the ones flying outside are numbered copies."
     in: div_jssc24
-    offset_km: [-0.5, 0.4]
+    at: [111.82, 241.74]
     site: { layout: block, size_m: [110, 110] }
   - id: poi_mtkz2g
     subtype: mansion
@@ -453,7 +453,7 @@ places:
       zh: "闭源智能创始人萨姆·奥德曼在门禁高地区的庄园。主楼两翼对称，泳池、网球场和三栋客房围着一大片草坪，车库外停着一排从不开出门的跑车，草坪尽头有一个直升机坪。奥德曼常在访谈里说通用人工智能会让每个人都富足，庄园的围墙却加高了两次；墙里的管家、园丁和保镖都是真人，因为他觉得「真人服务更有温度」。庄园地下据说还有一间避难室，里面存着罐头、净水器和一台不联网的服务器。"
       en: "The Gated Heights estate of ClosedAI's founder Sam Oddman. A main house with matching wings, a pool, a tennis court and three guest houses stand round a broad lawn, a row of sports cars that never leave the grounds sits outside the garage, and there is a helipad at the end of the lawn. Oddman likes to say in interviews that artificial general intelligence will make everyone rich, yet the estate wall has been raised twice; the butlers, gardeners and bodyguards inside it are all human, because he feels 'human service is warmer'. Beneath the house, it is said, is a safe room stocked with tinned food, water filters and a server with no network connection."
     in: div_jssc24
-    offset_km: [1.3, 1.3]
+    at: [111.38, 241.37]
     site: { layout: estate, size_m: [520, 420] }
   - id: poi_9g3e2k
     subtype: mansion
@@ -466,7 +466,7 @@ places:
       zh: "尼昂·塔斯克在护城河山区的大庄园。他名下有一家造电动车的公司、一家造火箭的公司和一个社交网站，庄园里也一样都不少：主楼前停着十几辆原型车，后面是一个人工湖和员工村，围墙边修了一条私人跑道，跑道尽头的机库里停着他的私人飞机。他几次在网上宣布要搬离加州，庄园门口的「出售」牌子挂了又摘、摘了又挂，物业公司干脆给牌子装了一根电动升降杆。庄园里原本还规划了一座火箭发射台，因为邻居投诉噪音，至今只浇了地基。"
       en: "Neon Tusk's great estate in Moat Hills. He owns a company that builds electric cars, a company that builds rockets and a social network, and the estate has a bit of everything: a dozen prototype cars parked in front of the main house, an artificial lake and a staff village behind it, a private airstrip along the wall and his jet in the hangar at the end of it. He has announced online several times that he is leaving California, and the 'For Sale' sign at the gate has gone up and come down so often that the managing agents fitted it with an electric mast. A rocket pad was planned too, but after the neighbours complained about the noise only its foundations were ever poured."
     in: div_b4v4f8
-    offset_km: [-4, -5]
+    at: [108.57, 237.36]
     site: { layout: estate, variant: compound, size_m: [3200, 2200] }
 
   # ── 失落天使市 ──
