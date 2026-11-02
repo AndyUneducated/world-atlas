@@ -623,7 +623,7 @@ places:
       zh: "极夜里连续数月的黑夜让这里适合观测，天文台与极光观测站同在陶瓦尼克区。观测员们在极夜里轮流值班，冬天结束时在食堂办一场「见太阳」聚餐，第一缕阳光照进窗户时，整屋人放下刀叉一起鼓掌。"
       en: "Months of unbroken night in winter make this a good place to observe; the observatory shares Tauvvaniq District with the aurora stations. The observers take turns on duty through the polar night, and when winter ends they hold a \"meet the sun\" dinner in the canteen; when the first ray comes through the window, everyone puts down knives and forks and applauds."
     in: div_3j7f20
-    offset_km: [1, 0.8]
+    offset_km: [0.3, 0.2]
     site: { layout: complex, size_m: [300, 200] }
   - id: poi_f7wtwv
     subtype: research_institute
@@ -1046,7 +1046,7 @@ places:
       zh: 自然生态保护司
       en: Nature Conservation Department
     notes:
-      zh: 北冰洋领地政务院自然资源和环境保护部自然生态保护司，在部大楼西面单独建楼。领地四成多的土地划为生态保护区和冰盖管理区，自然生态保护司负责它们的划定、巡护和管理：西尔米冰盖管理区、苔原上的驯鹿迁徙通道、海象和北极熊栖息的海岸都在它的名录上。保护区内的狩猎和放牧与塔夫鲁利特长老议事会共同管理，传统的狩猎权受到保障；司里有一支巡护员队伍，乘雪地车和小型飞机巡视保护区，并定期统计野生动物的数量。
+      zh: 北冰洋领地政务院自然资源和环境保护部自然生态保护司，在部大楼西面单独建楼。领地一半以上的土地划为生态保护区和冰盖管理区，自然生态保护司负责它们的划定、巡护和管理：西尔米冰盖管理区、苔原上的驯鹿迁徙通道、海象和北极熊栖息的海岸都在它的名录上。保护区内的狩猎和放牧与塔夫鲁利特长老议事会共同管理，传统的狩猎权受到保障；司里有一支巡护员队伍，乘雪地车和小型飞机巡视保护区，并定期统计野生动物的数量。
       en: "The Nature Conservation Department of the Ministry of Natural Resources and Environmental Protection has its own building west of the ministry. More than 40 percent of the territory's land is set aside as nature reserves and ice cap management areas, and the department draws their boundaries, patrols them and runs them: the Sirmi Ice Cap management area, the reindeer migration routes across the tundra and the coasts where walrus and polar bears live are all on its lists. Hunting and herding inside the reserves are managed jointly with the Tavrulit Council of Elders, and traditional hunting rights are protected. Its rangers patrol the reserves by snowmobile and light aircraft and count the wildlife."
     in: div_9s80v8
     offset_km: [-1.8, -0.05]

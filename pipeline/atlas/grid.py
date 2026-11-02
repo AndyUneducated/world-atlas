@@ -45,9 +45,11 @@ class Frame:
 
 
 class Grid:
-    def __init__(self, size_km, res_km):
+    def __init__(self, size_km, res_km, noise_h=None):
         self.w, self.h = size_km
         self.res = res_km
+        # height of the frame the noise fields were first drawn for (see noise.grid_noise)
+        self.noise_h = noise_h or self.h
         self.nx = int(round(self.w / res_km))
         self.ny = int(round(self.h / res_km))
         self.xs = (np.arange(self.nx) + 0.5) * res_km

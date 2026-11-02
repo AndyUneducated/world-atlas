@@ -21,8 +21,8 @@ features:
       en: Sirmi Highlands
       art-x-tavrunaq: Sirmipukka
     notes:
-      zh: "西尔米冰盖之下的高地，几乎全部在西尔米冰盖管理区内，最高点西尔米峰海拔 2506 米，是领地地势最高的山地。高地终年被冰盖覆盖，只有边缘的山峰露出冰面。冰面上露出的山峰被科考队叫作「冰上的岛」，夏天飞机在冰盖上空飞过，这些黑色的山尖是唯一能辨认方位的标记。"
-      en: "The highlands beneath the Sirmi Ice Cap, almost entirely within the Sirmi Ice Cap Administration Zone; their highest point, Mount Sirmi at 2,506 m, makes them the highest ground in the territory. They lie under the ice all year, with only peaks at the edges showing through. The research teams call the peaks that break the surface \"islands in the ice\", and for planes crossing the ice cap in summer these dark summits are the only landmarks to steer by."
+      zh: "西尔米冰盖之下的高地，几乎全部在西尔米冰盖管理区内，最高点西尔米峰海拔 2506 米，是领地大陆上地势最高的山地。高地终年被冰盖覆盖，只有边缘的山峰露出冰面。冰面上露出的山峰被科考队叫作「冰上的岛」，夏天飞机在冰盖上空飞过，这些黑色的山尖是唯一能辨认方位的标记。"
+      en: "The highlands beneath the Sirmi Ice Cap, almost entirely within the Sirmi Ice Cap Administration Zone; their highest point, Mount Sirmi at 2,506 m, makes them the highest ground on the territory's mainland. They lie under the ice all year, with only peaks at the edges showing through. The research teams call the peaks that break the surface \"islands in the ice\", and for planes crossing the ice cap in summer these dark summits are the only landmarks to steer by."
   - id: nat_9zwd86
     subtype: plateau
     status: generated
@@ -41,8 +41,18 @@ features:
       en: Sirmikiiq Mountains
       art-x-tavrunaq: Sirmikiiq
     notes:
-      zh: "纵贯基库维克岛的山脉，全部在西尔米乌维特冰盖管理区内，主峰基克皮鲁克峰海拔 2236 米，山顶覆盖着基克西尔米冰帽，冰川从山上流入四周的海中。山脉的冰川从四面流进大海，夏天船只绕岛航行，能看到一条条冰川像白色的河流从山顶淌下来。"
-      en: "The mountains that run the length of Kiiquviq Island, entirely within the Sirmiuviit Islands Ice Cap Administration Zone; their summit, Mount Kiiqpirruk, reaches 2,236 m under the Kiiqsirmi Ice Cap, and glaciers flow from them into the surrounding sea. Its glaciers flow into the sea on every side, and ships sailing round the island in summer see them pouring from the summits like white rivers."
+      zh: "纵贯基库维克岛的山脉，全部在西尔米乌维特冰盖管理区内，主峰基克尔尤阿克峰海拔 2356 米，在岛的北部，顶上是乌维克西尔米冰帽；南段的基克皮鲁克峰海拔 2236 米，顶上是基克西尔米冰帽，冰川从山上流入四周的海中。山脉的冰川从四面流进大海，夏天船只绕岛航行，能看到一条条冰川像白色的河流从山顶淌下来。"
+      en: "The mountains that run the length of Kiiquviq Island, entirely within the Sirmiuviit Islands Ice Cap Administration Zone; their summit, Mount Kiiqrjuaq in the north of the island, reaches 2,356 m under the Uviqsirmi Ice Cap, Mount Kiiqpirruk in the south 2,236 m under the Kiiqsirmi Ice Cap, and glaciers flow from them into the surrounding sea. Its glaciers flow into the sea on every side, and ships sailing round the island in summer see them pouring from the summits like white rivers."
+  - id: nat_ce7yk1
+    subtype: mountain_range
+    status: generated
+    names:
+      zh: 皮鲁克尔尤伊特山脉
+      en: Pirrukrjuit Mountains
+      art-x-tavrunaq: Pirrukrjuit
+    notes:
+      zh: "纵贯皮鲁克尔尤阿克岛的山脉，全部在皮鲁库维特生态保护区内，是领地最高的山脉。"
+      en: "The mountains that run the length of Pirrukrjuaq Island, entirely within the Pirrukuviit Nature Reserve, the highest in the territory."
   - id: nat_0hg79k
     subtype: ridge
     status: generated

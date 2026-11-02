@@ -7,8 +7,12 @@
 territory: div_hpmerr
 seed: 29
 frame:
-  origin_lonlat: [12.0, 73.5]
-  size_km: [680, 360]
+  # The frame was grown 160 km northward for the northern islands; the origin moved north by half
+  # of that, so every earlier position keeps its place on the planet, and the noise fields keep
+  # their old values below the old top edge (noise_height_km), so the land already there stays.
+  origin_lonlat: [12.0, 75.53491017]
+  size_km: [680, 520]
+  noise_height_km: 360
   scale: 2.8284  # √8, as North Viking Island
 
 land:
@@ -84,7 +88,27 @@ land:
     - [100, 326, 5.6, 4.2, 0, 1.0]
     - [45, 326, 4.8, 3.5, 0, 1.0]
     - [93, 300, 3.5, 2.8, 0, 1.0]
+    # North of the old frame edge (y 350–360) the sea floor drops by 1.5, so the lobes there weigh 3.
+    # ── 西尔米乌维特群岛, the northern half of Kiiquviq Island and new islets ──
+    - [458, 353, 46, 23, 8, 3.0]
+    - [540, 362, 13, 8, 10, 3.0]
+    - [398, 368, 12, 7, -10, 3.0]
+    - [514, 386, 8, 5, 0, 3.0]
+    # ── 伊卢克帕卡群岛 (far north, broken lake country) ──
+    - [285, 398, 44, 24, -8, 3.0]
+    - [243, 384, 18, 11, 20, 3.0]
+    - [330, 414, 16, 10, 0, 3.0]
+    # ── 皮鲁库维特群岛 (far north-east, high mountains) ──
+    - [522, 452, 175.3, 63.5, 4, 3.0]
+    - [662, 424, 12, 9, 0, 3.0]
+    - [376, 472, 14, 9, 0, 3.0]
   coast_noise: { amplitude: 0.19, scale_km: 55, octaves: 7, detail_amplitude: 0.07, detail_scale_km: 8 }
+  # Rough ground: extra noise that breaks up the coasts of the steep northern lobes.
+  rough:
+    - [285, 404, 72, 34, 1.6, 7]       # 伊卢克帕卡群岛: ice-scoured shield, sounds and skerries
+    - [285, 404, 80, 38, 0.8, 16]
+    - [522, 452, 170, 64, 0.5, 30]     # 皮鲁库维特群岛: fjords between the ranges
+    - [470, 364, 80, 24, 0.4, 22]      # 西尔米乌维特群岛
   # Fjords: polyline cut into the coast, [path, width_km, depth]. The south coast is a fjord coast
   # kept open all year by the warm current; the north coast is low tundra that freezes in winter.
   fjords:
@@ -97,15 +121,32 @@ land:
     - [[[70, 190], [100, 196]], 1.2, 0.85]
     - [[[72, 150], [98, 153]], 1.1, 0.8]
     - [[[522, 268], [502, 248]], 1.2, 0.85]
+    # northern islands, where the lobes weigh 3
+    - [[[440, 382], [446, 362]], 1.4, 2.2]               # Kiiquviq Island
+    - [[[480, 384], [475, 365]], 1.3, 2.2]
+    - [[[418, 502], [440, 472]], 1.6, 2.5]               # 皮鲁库维特群岛
+    - [[[500, 508], [505, 476]], 1.5, 2.5]
+    - [[[580, 506], [574, 478]], 1.5, 2.5]
+    - [[[646, 472], [612, 456]], 1.6, 2.5]
+    - [[[602, 394], [592, 426]], 1.5, 2.5]
+    - [[[455, 398], [470, 428]], 1.5, 2.5]
+    - [[[372, 440], [414, 446]], 1.5, 2.5]
 
 terrain:
   max_elevation_m: 2600
+  alpine_max_m: 4600
   ridges:
     - { feature: nat_s1p5cz, path: [[150, 132], [230, 136], [300, 139], [380, 141], [450, 143], [520, 152]], height_m: 1300, width_km: 9 }
     - { feature: nat_1wpnhj, path: [[430, 215], [470, 228], [510, 222]], height_m: 2300, width_km: 22 }
     - { feature: nat_1wpnhj, path: [[470, 228], [490, 250]], height_m: 1800, width_km: 15 }
     - { feature: nat_9zwd86, path: [[105, 150], [125, 185], [150, 200]], height_m: 750, width_km: 18 }
     - { feature: nat_1ahtkg, path: [[420, 316], [480, 319]], height_m: 1900, width_km: 8 }
+    - { feature: nat_1ahtkg, path: [[432, 342], [468, 352], [500, 360]], height_m: 2000, width_km: 9 }
+    # 皮鲁克尔尤伊特山脉: three massifs with low cols between them, each with its own icefield
+    - { feature: nat_ce7yk1, path: [[495, 452], [530, 449], [562, 446]], height_m: 3300, width_km: 8, alpine: true }
+    - { feature: nat_ce7yk1, path: [[530, 449], [545, 470]], height_m: 2300, width_km: 5, alpine: true }
+    - { feature: nat_ce7yk1, path: [[425, 450], [455, 454]], height_m: 2700, width_km: 7, alpine: true }
+    - { feature: nat_ce7yk1, path: [[592, 440], [625, 431]], height_m: 2800, width_km: 7, alpine: true }
     - { feature: nat_0hg79k, path: [[360, 160], [400, 150]], height_m: 450, width_km: 10 }
   plains:
     - [330, 106, 10, 0.95]   # 努卡塔克
@@ -134,10 +175,21 @@ hydrology:
     - { feature: nat_xvz2c8, in: div_k8cx0t, radius_km: 1.8, offset_km: [6, 6] }      # 帕利卢湖
   # Tundra lake country: unnamed small lakes on low ground away from the coast.
   lake_field:
-    in: [div_8h5g1g, div_d9hctg, div_7b21kg, div_qaxzqj, div_m34jqk, div_jyszba, div_xvm6y0, div_m541k8, div_k4vyb1, div_hrrg7q]
-    count: 900
-    radius_km: [0.25, 1.6]
-    max_elev_m: 450
+    - in: [div_8h5g1g, div_d9hctg, div_7b21kg, div_qaxzqj, div_m34jqk, div_jyszba, div_xvm6y0, div_m541k8, div_k4vyb1, div_hrrg7q]
+      count: 900
+      radius_km: [0.25, 1.6]
+      max_elev_m: 450
+    # 伊卢克帕卡群岛: ice-scoured rock, more lake than land in places
+    - in: [div_gfjesn]
+      count: 1500
+      radius_km: [0.2, 2.2]
+      max_elev_m: 520
+      min_coast_km: 0.6
+    # meltwater lakes on the low ground of the northern ice islands
+    - in: [div_481wnn, div_t2dbeg]
+      count: 160
+      radius_km: [0.2, 1.2]
+      max_elev_m: 300
   named_rivers:
     - { feature: nat_g8qz1t, through: div_xvm6y0 }
 
@@ -303,16 +355,20 @@ layout:
     div_qaxzqj: [0.7, -0.4]    # 伊卢克萨特区
     div_m541k8: [0.9, 0.3]     # 乌库利特矿区管理区
     div_8h5g1g: [-0.8, 0.4]    # 伊卢克图克生态保护区
+    # 基卢克图阿尔市 and 西尔米瓦克市 grew 1.5 and 2.04 times: their directions are scaled down by
+    # the growth of the seed radius (√area), so the old districts' seeds stay where they were.
     div_anjqnh: [0, 0]         # 基卢基亚克区
-    div_m0b417: [0.4, 0.3]     # 西尔米努卡区
-    div_xvm6y0: [0.6, -1]      # 帕基卢克区
-    div_rcnhch: [0.6, 1.6]     # 纳卢维特区
-    div_jyszba: [-0.6, -0.1]   # 马拉基卢克生态保护区
-    div_73wt00: [0.2, 0]       # 西尔米卡尔维克区
-    div_3j7f20: [0.6, -0.8]    # 陶瓦尼克区
-    div_hbdzam: [-0.7, -0.4]   # 西尔米冰盖管理区
-    div_481wnn: [-0.4, 1.7]    # 西尔米乌维特冰盖管理区
-    div_81tqya: [2.4, 0.9]     # 乌瓦卡鲁克生态保护区
+    div_m0b417: [0.327, 0.245]   # 西尔米努卡区
+    div_xvm6y0: [0.49, -0.816]   # 帕基卢克区
+    div_rcnhch: [0.49, 1.306]    # 纳卢维特区
+    div_jyszba: [-0.49, -0.082]  # 马拉基卢克生态保护区
+    div_gfjesn: [-0.02, 3.41]    # 伊卢克帕卡区
+    div_73wt00: [0.14, 0]        # 西尔米卡尔维克区
+    div_3j7f20: [0.42, -0.56]    # 陶瓦尼克区
+    div_hbdzam: [-0.49, -0.28]   # 西尔米冰盖管理区
+    div_481wnn: [-0.28, 1.19]    # 西尔米乌维特冰盖管理区
+    div_81tqya: [1.681, 0.63]    # 乌瓦卡鲁克生态保护区
+    div_t2dbeg: [0.315, 2.346]   # 皮鲁库维特生态保护区
     div_qj033v: [0, -0.2]      # 乌维克努卡区
     div_4ymjbf: [0.2, 0.8]     # 乌库乌维特矿区管理区
     div_ek897t: [0, 0]         # 阿卡尼克区
@@ -333,7 +389,14 @@ layout:
     div_4ymjbf: [[654, 145], [632, 141], [660, 203], [610, 213]]                          # 乌库乌维特群岛
     div_81tqya: [[604, 290], [640, 263], [631, 317], [656, 296], [637, 333], [642, 304], [614, 305],
                  [628, 298], [652, 279], [645, 327]]                                     # 乌瓦卡鲁库维特群岛
-    div_481wnn: [[452, 313], [520, 301], [570, 318], [511, 275], [517, 270]]              # 西尔米乌维特群岛
+    div_481wnn: [[452, 313], [520, 301], [570, 318], [511, 275], [517, 270], [547.9, 360.6], [394.9, 368.6],
+                 [520.6, 386.1]]                                                         # 西尔米乌维特群岛
+    div_gfjesn: [[282.9, 401.6], [270.4, 427.1], [339.1, 391.4], [328.4, 393.6], [225.4, 418.4], [344.4, 419.1],
+                 [264.6, 375.9], [286.4, 383.1], [270.6, 378.6], [226.4, 422.4], [258.9, 430.9], [268.4, 437.1],
+                 [309.6, 396.4], [264.4, 380.9], [349.4, 389.9], [315.1, 400.4], [232.1, 428.4], [344.9, 390.6],
+                 [313.4, 422.6], [324.9, 382.9]]                                         # 伊卢克帕卡群岛
+    div_t2dbeg: [[594.1, 450.9], [397.4, 472.1], [668.6, 424.6], [662.4, 462.1], [476.9, 398.6], [605.1, 414.6],
+                 [632.1, 485.9], [456.4, 486.9], [411.1, 407.4]]                         # 皮鲁库维特群岛
     div_rcnhch: [[323, 311], [357, 324], [278, 347], [346, 294], [269, 338], [297, 341], [284, 337]]  # 纳卢维特群岛
     div_zq16x4: [[184, 279], [205, 263], [184, 254], [199, 230], [194, 227]]              # 皮图库维特群岛
   boundary_warp_km: 6

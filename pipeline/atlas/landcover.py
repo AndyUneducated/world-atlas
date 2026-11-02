@@ -4,7 +4,7 @@ from __future__ import annotations
 import numpy as np
 from scipy import ndimage
 
-from .noise import value_noise
+from .noise import grid_noise
 from .relief import slope_aspect
 
 # Order is the class index written to the map data; earlier classes win where rules overlap.
@@ -17,9 +17,8 @@ def classify(elev, land, g, real_km_per_cell, km_per_design, seed, settlements, 
     p: the generator's landcover section (real units). Returns an int raster, -1 off land.
     """
     slope, north = slope_aspect(elev, real_km_per_cell)
-    ext = (g.w, g.h)
-    n1 = value_noise(seed + 401, 18, 4, 0.5, ext, g.shape)
-    n2 = value_noise(seed + 402, 7, 4, 0.5, ext, g.shape)
+    n1 = grid_noise(seed + 401, 18, 4, 0.5, g)
+    n2 = grid_noise(seed + 402, 7, 4, 0.5, g)
 
     # Each settlement's built-up area is a noisy disc on buildable land, sized to its population.
     # Mountain towns with no gentle ground near their centre build on steeper terraces instead.

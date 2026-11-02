@@ -20,3 +20,20 @@ def value_noise(seed: int, scale_km: float, octaves: int, persistence: float, ex
         amp *= persistence
         s /= 2
     return out / out.std()
+
+
+# Rows below a grown frame's old top edge that ease into the new field.
+_BLEND_KM = 12.0
+
+
+def grid_noise(seed: int, scale_km: float, octaves: int, persistence: float, g) -> np.ndarray:
+    """value_noise over grid g. A frame grown northward past g.noise_h keeps its old field below that
+    height, so the land already there comes out the same, easing into a field of its own above."""
+    if g.noise_h >= g.h:
+        return value_noise(seed, scale_km, octaves, persistence, (g.w, g.h), g.shape)
+    ny0 = int(round(g.noise_h / g.res))
+    base = np.zeros(g.shape)
+    base[:ny0] = value_noise(seed, scale_km, octaves, persistence, (g.w, g.noise_h), (ny0, g.shape[1]))
+    new = value_noise(seed + 7919, scale_km, octaves, persistence, (g.w, g.h), g.shape)
+    t = np.clip((g.ys - (g.noise_h - _BLEND_KM)) / _BLEND_KM, 0, 1)[:, None]
+    return (base * (1 - t) + new * t) / np.sqrt((1 - t) ** 2 + t ** 2)

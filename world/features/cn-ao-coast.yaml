@@ -28,8 +28,8 @@ features:
     detect: { kind: island, at_km: [184, 279] }
     names: { zh: 皮图克尤阿克岛, en: Pitukjuaq Island, art-x-tavrunaq: Pitukjuaq }
     notes:
-      zh: "皮图库维特群岛的主岛，面积约 1.04 万平方公里，是领地第三大岛，属塔夫鲁利特原住民自治区。岛上地势起伏不大，海岸是传统的海豹与海象猎场，海边岩石上留有刻着鲸、海豹和皮划艇的岩雕。塔夫鲁利特猎人至今在这里按季节狩猎，猎获按老规矩分给全村，岩雕只在退潮时露出来，向导会掐着潮汐表带人来看。"
-      en: "The main island of the Pitukuviit Islands, about 10,400 km², the third largest island in the territory, in the Tavrulit Indigenous Autonomous Region. Its ground is gently rolling, its coasts are traditional seal and walrus hunting grounds, and rocks by the shore carry carvings of whales, seals and kayaks. Tavrulit hunters still hunt here by the seasons and share the catch with the whole village by old custom, and the carvings show only at low tide, so guides bring visitors by the tide table."
+      zh: "皮图库维特群岛的主岛，面积约 1.04 万平方公里，是领地第五大岛，属塔夫鲁利特原住民自治区。岛上地势起伏不大，海岸是传统的海豹与海象猎场，海边岩石上留有刻着鲸、海豹和皮划艇的岩雕。塔夫鲁利特猎人至今在这里按季节狩猎，猎获按老规矩分给全村，岩雕只在退潮时露出来，向导会掐着潮汐表带人来看。"
+      en: "The main island of the Pitukuviit Islands, about 10,400 km², the fifth largest island in the territory, in the Tavrulit Indigenous Autonomous Region. Its ground is gently rolling, its coasts are traditional seal and walrus hunting grounds, and rocks by the shore carry carvings of whales, seals and kayaks. Tavrulit hunters still hunt here by the seasons and share the catch with the whole village by old custom, and the carvings show only at low tide, so guides bring visitors by the tide table."
   - id: nat_dstxyg
     subtype: island
     status: generated
@@ -62,26 +62,26 @@ features:
     detect: { kind: island, at_km: [278, 347] }
     names: { zh: 阿卡尼尔维克岛, en: Aqqanirvik Isle, art-x-tavrunaq: Aqqanirvik }
     notes:
-      zh: "纳卢维特群岛最北的小岛，面积约 590 平方公里，向北面对封冻的北冰洋，岛上设有观测海冰的站点。站里的观测员说，这里是「领地最后一块看得见海的地方」，再往北只有一望无际的海冰，冬天站屋的窗户上常常结着一层厚厚的冰花。"
-      en: "The northernmost of the Naalluviit Islands, about 590 km², facing the frozen Arctic Ocean to the north, with a station that watches the sea ice. The observers say this is \"the last place in the territory where you can see open water\"; to the north there is only endless sea ice, and in winter the station windows are thick with frost flowers."
+      zh: "纳卢维特群岛最北的小岛，面积约 590 平方公里，隔着海峡北望伊卢克帕卡群岛，岛上设有观测海冰的站点。海峡每年秋天从这里开始封冻，站里的观测员管自己叫「看门人」：哪天海峡冻上了，伊卢克帕卡的雪橇就该来了。冬天站屋的窗户上常常结着一层厚厚的冰花。"
+      en: "The northernmost of the Naalluviit Islands, about 590 km², looking north across the strait to the Illuqpakka Islands, with a station that watches the sea ice. Each autumn the strait begins to freeze from here, and the observers call themselves \"the gatekeepers\": the day the strait freezes over, the sleds from Illuqpakka are due. In winter the station windows are thick with frost flowers."
 
   # ── 西尔米乌维特群岛 ────────────────────────────────────────────
   - id: nat_99nd2b
     subtype: island
     status: generated
-    detect: { kind: island, at_km: [452, 313] }
+    detect: { kind: island, at_km: [452.2, 326.8] }
     names: { zh: 基库维克岛, en: Kiiquviq Island, art-x-tavrunaq: Kiiquviq }
     notes:
-      zh: "西尔米乌维特群岛的主岛，面积约 2.87 万平方公里，是领地最大的岛屿，也是地势最高的岛：西尔米基克山纵贯全岛，主峰基克皮鲁克峰海拔 2236 米，山顶覆盖着基克西尔米冰帽。岛上没有常住居民，属西尔米乌维特冰盖管理区。冰川从山上流进海里，夏天冰崖崩落的轰鸣声隔着海峡都能听见，路过的船只总会放慢速度远远地看一会儿。"
-      en: "The main island of the Sirmiuviit Islands, about 28,700 km², the largest island in the territory and also the highest; the Sirmikiiq Mountains run its length, their summit Mount Kiiqpirruk reaching 2,236 m under the Kiiqsirmi Ice Cap. No one lives here permanently; it belongs to the Sirmiuviit Islands Ice Cap Administration Zone. Glaciers flow from its mountains into the sea, and in summer the roar of calving ice cliffs can be heard across the strait; passing ships always slow down to watch from a distance."
+      zh: "西尔米乌维特群岛的主岛，面积约 5.7 万平方公里，是领地第二大岛，仅次于皮鲁克尔尤阿克岛。西尔米基克山纵贯全岛，北段的主峰基克尔尤阿克峰海拔 2356 米，顶上是乌维克西尔米冰帽；南段的基克皮鲁克峰海拔 2236 米，顶上是基克西尔米冰帽。岛上没有常住居民，属西尔米乌维特冰盖管理区。冰川从山上流进海里，夏天冰崖崩落的轰鸣声隔着海峡都能听见，路过的船只总会放慢速度远远地看一会儿。"
+      en: "The main island of the Sirmiuviit Islands, about 57,000 km², the second largest island in the territory after Pirrukrjuaq. The Sirmikiiq Mountains run its length: in the north their summit, Mount Kiiqrjuaq, rises to 2,356 m under the Uviqsirmi Ice Cap, and in the south Mount Kiiqpirruk reaches 2,236 m under the Kiiqsirmi Ice Cap. No one lives here permanently; it belongs to the Sirmiuviit Islands Ice Cap Administration Zone. Glaciers flow from its mountains into the sea, and in summer the roar of calving ice cliffs can be heard across the strait; passing ships always slow down to watch from a distance."
   - id: nat_b3kk8p
     subtype: island
     status: generated
     detect: { kind: island, at_km: [520, 301] }
     names: { zh: 基库利克岛, en: Kiqqulik Island, art-x-tavrunaq: Kiqqulik }
     notes:
-      zh: "西尔米乌维特群岛的第二大岛，面积约 2200 平方公里，在基库维克岛以东。基库维克岛冰川入海崩落的冰山常在附近漂过，岛名由此而来。冰山漂过时常在岛边搁浅，有的一搁就是一整个夏天，岛周围的海面因此像一座不断变换的冰雕展。"
-      en: "The second island of the Sirmiuviit Islands, about 2,200 km², east of Kiiquviq Island. Icebergs calved from Kiiquviq Island's glaciers often drift past, hence the name. Drifting bergs often run aground along its shores, some staying the whole summer, so the sea around it is like an ever-changing ice-sculpture show."
+      zh: "西尔米乌维特群岛的第三大岛，面积约 2200 平方公里，在基库维克岛以东。基库维克岛冰川入海崩落的冰山常在附近漂过，岛名由此而来。冰山漂过时常在岛边搁浅，有的一搁就是一整个夏天，岛周围的海面因此像一座不断变换的冰雕展。"
+      en: "The third island of the Sirmiuviit Islands, about 2,200 km², east of Kiiquviq Island. Icebergs calved from Kiiquviq Island's glaciers often drift past, hence the name. Drifting bergs often run aground along its shores, some staying the whole summer, so the sea around it is like an ever-changing ice-sculpture show."
   - id: nat_tfkcz1
     subtype: island
     status: generated
@@ -90,6 +90,74 @@ features:
     notes:
       zh: "西尔米乌维特群岛东端的小岛，面积约 980 平方公里，周围海面常年漂着浮冰，岛名由此而来。浮冰之间常有海豹爬上冰面晒太阳，冰山观测站的工作人员说这是「浮冰上的沙滩」。"
       en: "A small island at the eastern end of the Sirmiuviit Islands, about 980 km², surrounded by drifting ice for much of the year, hence the name. Seals often haul out on the floes to bask, which the iceberg-station staff call \"the beaches on the ice\"."
+  - id: nat_sr3rmn
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [540.2, 360.8] }
+    names: { zh: 帕利乌维克岛, en: Paaliuviq Island, art-x-tavrunaq: Paaliuviq }
+    notes:
+      zh: "基库维克岛东北的岛屿，面积约 2500 平方公里，是西尔米乌维特群岛的第二大岛。岛上的低山一年里大半时间盖着积雪，从海上望去整座岛一片白，岛名意为「白岛」。春天海冰还没化开时，北极熊沿着冰面从基库维克岛走过来，在岛的南岸挖洞产仔，巡护员每年乘直升机来数一次雪洞。"
+      en: "An island north-east of Kiiquviq Island, about 2,500 km², the second largest of the Sirmiuviit Islands. Its low hills lie under snow for most of the year, so that from the sea the whole island looks white, and its name means \"white island\". In spring, before the sea ice breaks up, polar bears walk across from Kiiquviq Island to dig their dens on its south shore, and the rangers fly in by helicopter once a year to count them."
+  - id: nat_ymb49v
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [398.8, 368.2] }
+    names: { zh: 图利乌维克岛, en: Tulliuviq Island, art-x-tavrunaq: Tulliuviq }
+    notes:
+      zh: "基库维克岛西北的岛屿，面积约 1800 平方公里，北面没有任何遮挡，直接迎着北冰洋吹来的寒风，岛名意为「冷岛」。岛上只有碎石荒原和几片苔藓，夏天也常常飘雪。科考队在岛上放过一台自动相机拍北极狐，一年后取回时，镜头上结着厚厚的霜，存下的照片里有一半是狐狸凑近来闻镜头的鼻子。"
+      en: "An island north-west of Kiiquviq Island, about 1,800 km², with nothing to the north to shelter it from the wind off the Arctic Ocean; its name means \"cold island\". It is gravel desert and a few patches of moss, and it often snows even in summer. A research team once left an automatic camera here to photograph Arctic foxes; when they collected it a year later the lens was thick with frost, and half the pictures it had saved were of a fox's nose sniffing the lens."
+  - id: nat_s25e8t
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [513.2, 386.2] }
+    names: { zh: 乌维库卢克岛, en: Uviqkuluk Island, art-x-tavrunaq: Uviqkuluk }
+    notes:
+      zh: "西尔米乌维特群岛最北的岛屿，面积约 1100 平方公里，在帕利乌维克岛西北的海上，岛名就是「小岛」。岛的北面是终年不化的海冰，往北航行的科考船常在岛边停一停，等冰缘裂开一条水道。船员说在这里下锚，就是「在世界的门槛上坐一会儿」。"
+      en: "The northernmost of the Sirmiuviit Islands, about 1,100 km², in the sea north-west of Paaliuviq Island; its name simply means \"little island\". To the north lies sea ice that never melts, and research ships heading north often wait off the island for a lead to open in the ice edge; sailors say anchoring here is \"sitting for a while on the doorstep of the world\"."
+
+  # ── 皮鲁库维特群岛 ──────────────────────────────────────────────
+  - id: nat_gny1z0
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [529.2, 445.2] }
+    names: { zh: 皮鲁克尔尤阿克岛, en: Pirrukrjuaq Island, art-x-tavrunaq: Pirrukrjuaq }
+    notes:
+      zh: "皮鲁库维特群岛的主岛，面积约 13.2 万平方公里，是领地最大的岛屿，也是地势最高的地方。皮鲁克尔尤伊特山脉由三座山群组成，从西向东纵贯全岛，主峰卡拉克皮鲁克峰海拔 4203 米，是领地最高峰；山群之间是低矮的山口和宽阔的冰川谷地，南北两岸被十几条峡湾切开。全岛属皮鲁库维特生态保护区，没有常住居民，只有巡护站、科考站和夏季的登山营地。岛在北纬 80 度以北，夏天太阳整夜不落，冬天有四个月不升起，登山季只有极昼里短短两个月。登山队员说，在这座岛上最难习惯的不是冷，而是「明明半夜了，太阳还挂在山顶上看着你」。"
+      en: "The main island of the Pirrukuviit Islands, about 132,000 km², the largest island in the territory and its highest ground. The Pirrukrjuit Mountains, three massifs in a row, run the length of the island from west to east; their summit, Mount Kallaaqpirruk at 4,203 m, is the highest peak in the territory, and between the massifs lie low passes and broad glacial valleys, while more than a dozen fjords cut into the north and south coasts. The whole island belongs to the Pirrukuviit Nature Reserve; no one lives here permanently, and there are only ranger stations, research stations and the summer climbing camps. It lies north of 80°N, where the sun does not set in summer and does not rise for four months of winter, and the climbing season is just two months of the midnight sun. Climbers say the hardest thing to get used to here is not the cold but \"the sun still sitting on the summit watching you at midnight\"."
+  - id: nat_pjr6a4
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [377.8, 471.2] }
+    names: { zh: 普拉乌维克岛, en: Pullauviq Island, art-x-tavrunaq: Pullauviq }
+    notes:
+      zh: "皮鲁库维特群岛西端的岛屿，面积约 4600 平方公里，岛名意为「西岛」。岛上地势低缓，夏天的苔原上散布着成千上万个融水小湖，是海鸟、北极雁和雪鸮的繁殖地。保护区的鸟类调查队每年七月上岛，一个夏天要数完几十万只鸟；队员们说数到最后，闭上眼睛也能看见满天的翅膀。"
+      en: "The island at the western end of the Pirrukuviit Islands, about 4,600 km²; its name means \"west island\". It is low-lying, and in summer its tundra is scattered with thousands of meltwater pools, the breeding ground of seabirds, Arctic geese and snowy owls. The reserve's bird survey team lands every July to count several hundred thousand birds in a single summer; by the end, they say, they see wings filling the sky even with their eyes shut."
+  - id: nat_mwt1e8
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [661.8, 424.8] }
+    names: { zh: 贾利尤阿克岛, en: Jaalijuaq Island, art-x-tavrunaq: Jaalijuaq }
+    notes:
+      zh: "皮鲁库维特群岛东端的岛屿，面积约 2600 平方公里，岛名意为「大风岛」。岛正对着北冰洋上吹来的风，地上几乎没有高过脚踝的植物，连石头都被风沙磨得光溜溜的。保护区在岛上设了一座无人气象站，每小时把风速发回西尔米卡尔维克；有一年冬天，站房的门被一阵大风整个卷走，第二年夏天巡护员在四公里外的海滩上找到了它。"
+      en: "The island at the eastern end of the Pirrukuviit Islands, about 2,600 km²; its name means \"great wind island\". It faces straight into the wind off the Arctic Ocean, hardly a plant on it grows above ankle height, and even the stones are polished smooth by blown grit. The reserve keeps an unmanned weather station here that sends the wind speed to Sirmiqarvik every hour; one winter a gust carried off the whole door of the station hut, and the next summer the rangers found it on a beach four kilometres away."
+
+  # ── 伊卢克帕卡群岛 ──────────────────────────────────────────────
+  - id: nat_ac00q9
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [260.8, 400.8] }
+    names: { zh: 帕卡尔尤阿克岛, en: Pakkarjuaq Island, art-x-tavrunaq: Pakkarjuaq }
+    notes:
+      zh: "伊卢克帕卡群岛的主岛，面积约 3 万平方公里，是领地第三大岛。地表是冰川磨平的古老岩盘，被上千个湖泊和曲折的水道切得支离破碎，地图上看去像一块摔碎的镜子，岛名意为「破碎的大岛」。全岛最高处不到 500 米，属基卢克图阿尔市伊卢克帕卡区，居民散居在海岸和湖边的渔猎村落里。岛上没有公路，夏天坐船、冬天坐雪橇，湖和水道封冻以后反而最好走。本地人说岛上的路「冬天有一千条，夏天一条也没有」。"
+      en: "The main island of the Illuqpakka Islands, about 30,000 km², the third largest island in the territory. Its surface is ancient bedrock planed by the ice and broken up by more than a thousand lakes and winding channels, so that on the map it looks like a shattered mirror; its name means \"great broken island\". It rises to less than 500 m and belongs to Illuqpakka District of Kiluktuar City, its people scattered in fishing and hunting villages along the coast and lakeshores. There are no roads: people travel by boat in summer and by sled in winter, when the frozen lakes and channels make travel easiest. Locals say the island has \"a thousand roads in winter and not one in summer\"."
+  - id: nat_f63ac7
+    subtype: island
+    status: generated
+    detect: { kind: island, at_km: [272.8, 428.2] }
+    names: { zh: 伊卢克库卢克岛, en: Illuqkuluk Isle, art-x-tavrunaq: Illuqkuluk }
+    notes:
+      zh: "帕卡尔尤阿克岛北面的小岛，面积约 630 平方公里，岛上湖泊星罗棋布，岛名意为「小湖岛」。夏天湖里的北极红点鲑肥美，帕卡尔尤阿克岛的渔民划船过来下网，在岛上的石头小屋里住上几天，把鱼挂在风里晾成鱼干，秋天再一船船运回去。"
+      en: "A small island north of Pakkarjuaq Island, about 630 km², dotted with lakes; its name means \"little lake island\". In summer the Arctic char in its lakes are fat, and fishermen from Pakkarjuaq row over to set nets, staying a few days in the stone huts on the island and hanging the fish in the wind to dry before shipping it home boat by boat in autumn."
 
   # ── 乌瓦卡鲁库维特群岛 ──────────────────────────────────────────
   - id: nat_zrtk04
@@ -166,8 +234,8 @@ features:
     detect: { kind: island, at_km: [523, 42] }
     names: { zh: 卡瓦卢格尤阿克岛, en: Qavvalugjuaq Island, art-x-tavrunaq: Qavvalugjuaq }
     notes:
-      zh: "卡瓦卢维特群岛的主岛，面积约 1.12 万平方公里，是领地第二大岛。岛上地势低平、远离城市灯光，冬季夜空开阔，卡瓦卢维特观光度假村的玻璃屋顶客房就散布在岛上。度假村给每位客人一个「极光闹钟」，夜里极光一出现，前台就挨个打电话叫醒客人，有人一个冬天被叫醒十几次也毫无怨言。"
-      en: "The main island of the Qavvaluviit Islands, about 11,200 km², the second largest island in the territory. It is low and flat, far from city lights and open to the winter sky, and the glass-roofed rooms of the Qavvaluviit Islands Resort are scattered across it. The lodge gives every guest an \"aurora alarm\": when the lights appear at night, reception rings each room in turn, and some guests are woken a dozen times in a winter without complaint."
+      zh: "卡瓦卢维特群岛的主岛，面积约 1.12 万平方公里，是领地第四大岛。岛上地势低平、远离城市灯光，冬季夜空开阔，卡瓦卢维特观光度假村的玻璃屋顶客房就散布在岛上。度假村给每位客人一个「极光闹钟」，夜里极光一出现，前台就挨个打电话叫醒客人，有人一个冬天被叫醒十几次也毫无怨言。"
+      en: "The main island of the Qavvaluviit Islands, about 11,200 km², the fourth largest island in the territory. It is low and flat, far from city lights and open to the winter sky, and the glass-roofed rooms of the Qavvaluviit Islands Resort are scattered across it. The lodge gives every guest an \"aurora alarm\": when the lights appear at night, reception rings each room in turn, and some guests are woken a dozen times in a winter without complaint."
   - id: nat_95v2tq
     subtype: island
     status: generated
@@ -294,16 +362,32 @@ features:
     islands: [nat_5hdtr2, nat_r5e7sa, nat_2vhfdf]
     names: { zh: 纳卢维特群岛, en: Naalluviit Islands, art-x-tavrunaq: Naalluviit }
     notes:
-      zh: "北岸外海最北的群岛，由纳卢尤阿克岛、普塔克岛和阿卡尼尔维克岛组成，总面积约 8500 平方公里，属基卢克图阿尔市纳卢维特区，是领地极地科研的基地。每年夏天科考船从这里出发去北方的海冰，岛上的研究员说，他们一年只有两个季节：「出海」和「等出海」。"
-      en: "The northernmost archipelago off the north coast, made up of Naallujuaq Island, Puttaq Isle and Aqqanirvik Isle, about 8,500 km² in all, forming the Naalluviit District of Kiluktuar City and the base of the territory's polar research. Every summer the research ship sets out from here for the northern sea ice, and the island's researchers say they have only two seasons: \"at sea\" and \"waiting to go to sea\"."
+      zh: "北岸外海的群岛，由纳卢尤阿克岛、普塔克岛和阿卡尼尔维克岛组成，总面积约 8500 平方公里，属基卢克图阿尔市纳卢维特区，是领地极地科研的基地。每年夏天科考船从这里出发去北方的海冰，岛上的研究员说，他们一年只有两个季节：「出海」和「等出海」。"
+      en: "An archipelago off the north coast, made up of Naallujuaq Island, Puttaq Isle and Aqqanirvik Isle, about 8,500 km² in all, forming the Naalluviit District of Kiluktuar City and the base of the territory's polar research. Every summer the research ship sets out from here for the northern sea ice, and the island's researchers say they have only two seasons: \"at sea\" and \"waiting to go to sea\"."
   - id: nat_8f01h7
     subtype: archipelago
     status: generated
-    islands: [nat_99nd2b, nat_b3kk8p, nat_tfkcz1]
+    islands: [nat_99nd2b, nat_sr3rmn, nat_b3kk8p, nat_ymb49v, nat_s25e8t, nat_tfkcz1]
     names: { zh: 西尔米乌维特群岛, en: Sirmiuviit Islands, art-x-tavrunaq: Sirmiuviit }
     notes:
-      zh: "领地东北海上的群岛，由基库维克岛、基库利克岛和西尔米奥拉岛组成，总面积约 3.19 万平方公里，是领地面积最大的群岛。群岛几乎无人居住，属西尔米瓦克市西尔米乌维特冰盖管理区。群岛上只有冰川、冰崖和冰山，偶尔有科考队乘飞机上岛，他们说这里安静得「连自己的心跳都听得见」。"
-      en: "An archipelago in the north-east of the territory, made up of Icefang, Iceberg and Drift Ice islands, about 31,900 km² in all, the largest archipelago in the territory. It is almost uninhabited and forms the Sirmiuviit Islands Ice Cap Administration Zone of Sirmivak City. The islands hold nothing but glaciers, ice cliffs and bergs; the occasional research team flies in, and they say it is so quiet \"you can hear your own heartbeat\"."
+      zh: "领地东北海上的群岛，由基库维克岛、帕利乌维克岛、基库利克岛、图利乌维克岛、乌维库卢克岛和西尔米奥拉岛组成，总面积约 6.6 万平方公里，是领地第二大的群岛，仅次于更北面的皮鲁库维特群岛。群岛几乎无人居住，属西尔米瓦克市西尔米乌维特冰盖管理区。主岛基库维克岛的南北两头各有一座冰帽，冰川从山上一直流进海里。群岛上只有冰川、冰崖和冰山，偶尔有科考队乘飞机上岛，他们说这里安静得「连自己的心跳都听得见」。"
+      en: "An archipelago in the north-east of the territory, made up of Kiiquviq, Paaliuviq, Kiqqulik, Tulliuviq, Uviqkuluk and Sirmiaulla islands, about 66,000 km² in all, the second largest archipelago in the territory after the Pirrukuviit Islands further north. It is almost uninhabited and forms the Sirmiuviit Islands Ice Cap Administration Zone of Sirmivak City. The main island, Kiiquviq, has an ice cap at each end, and its glaciers flow from the mountains straight into the sea. The islands hold nothing but glaciers, ice cliffs and bergs; the occasional research team flies in, and they say it is so quiet \"you can hear your own heartbeat\"."
+  - id: nat_yfsb4k
+    subtype: archipelago
+    status: generated
+    islands: [nat_gny1z0, nat_pjr6a4, nat_mwt1e8]
+    names: { zh: 皮鲁库维特群岛, en: Pirrukuviit Islands, art-x-tavrunaq: Pirrukuviit }
+    notes:
+      zh: "领地最北的群岛，由皮鲁克尔尤阿克岛、普拉乌维克岛和贾利尤阿克岛组成，总面积约 13.9 万平方公里，是领地面积最大的群岛，群岛名意为「群峰之岛」。全境是西尔米瓦克市皮鲁库维特生态保护区，常住的只有巡护员、科研人员和登山营地的工作人员。主岛的皮鲁克尔尤伊特山脉有领地最高的山峰和第二大的冰川，两座附属岛一东一西，一座是鸟岛，一座是风岛。群岛北面就是终年封冻的北冰洋，夏季的包机从西尔米卡尔维克起飞，要飞一个多小时才能看见山顶的冰原。"
+      en: "The northernmost archipelago of the territory, made up of Pirrukrjuaq, Pullauviq and Jaalijuaq islands, about 139,000 km² in all, the largest archipelago in the territory; its name means \"islands of peaks\". All of it is the Pirrukuviit Nature Reserve of Sirmivak City, whose only residents are rangers, researchers and the staff of the climbing camps. The Pirrukrjuit Mountains of the main island hold the territory's highest peak and its second largest glacier, and the two lesser islands lie one to the west and one to the east, one an island of birds and the other an island of wind. North of the islands lies the Arctic Ocean, frozen all year; the summer charters from Sirmiqarvik fly for more than an hour before the icefields on the summits come into view."
+  - id: nat_bk19x1
+    subtype: archipelago
+    status: generated
+    islands: [nat_ac00q9, nat_f63ac7]
+    names: { zh: 伊卢克帕卡群岛, en: Illuqpakka Islands, art-x-tavrunaq: Illuqpakka }
+    notes:
+      zh: "纳卢维特群岛以北海上的群岛，由帕卡尔尤阿克岛和伊卢克库卢克岛组成，总面积约 3.1 万平方公里，构成基卢克图阿尔市的伊卢克帕卡区，群岛名意为「碎湖」。岛上是冰川磨平的低矮岩盘，湖泊、水道和海湾交错，最高处不到 500 米。居民靠捕鱼、狩猎和采矿为生，夏天乘船、冬天乘雪橇在湖与湖之间往来。从飞机上往下看，整片群岛像撒在海上的一把碎玻璃，阳光一照满眼都是反光。"
+      en: "An archipelago in the sea north of the Naalluviit Islands, made up of Pakkarjuaq Island and Illuqkuluk Isle, about 31,000 km² in all, forming Illuqpakka District of Kiluktuar City; its name means \"broken lakes\". The islands are low bedrock planed by the ice, a maze of lakes, channels and inlets, rising to less than 500 m. People live by fishing, hunting and mining, travelling between the lakes by boat in summer and by sled in winter. From the air the whole archipelago looks like a handful of broken glass scattered on the sea, flashing everywhere in the sun."
   - id: nat_75d2jp
     subtype: archipelago
     status: generated

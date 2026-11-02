@@ -19,7 +19,7 @@ from .dem_tiles import cached_dem_tiles, zoom_range
 from .divisions import partition, pole_of_inaccessibility
 from .grid import Frame, Grid, block_reduce, chaikin, line_length_km, polyline_distance
 from .hydro import Drainage
-from .noise import value_noise
+from .noise import grid_noise
 from .terrain import drainage_surface, elevation, land_mask
 from .network import ROAD_RANK, build_graph
 from .transport import Router
@@ -178,10 +178,15 @@ def lake_raster(g: Grid, center, radius, land):
     return (np.hypot(g.X - cx, g.Y - cy) < rr) & land
 
 
-def lake_field(field: dict | None, g: Grid, land, elev, dcoast, dist_r, districts, seed) -> np.ndarray:
+def lake_field(field: dict | list | None, g: Grid, land, elev, dcoast, dist_r, districts, seed) -> np.ndarray:
     """Unnamed small lakes scattered over low, flat ground in the given districts (tundra lake country):
-    `count` lobed discs with radii between radius_km[0] and [1] (design km), most of them small."""
+    `count` lobed discs with radii between radius_km[0] and [1] (design km), most of them small.
+    A list holds several such fields, each drawn on its own."""
     out = np.zeros(g.shape, bool)
+    if isinstance(field, list):
+        for k, f in enumerate(field):
+            out |= lake_field(f, g, land, elev, dcoast, dist_r, districts, seed + 1000 * k)
+        return out
     if not field:
         return out
     ids = {d["id"]: i for i, d in enumerate(districts)}
@@ -228,9 +233,10 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     graph = {"nodes": [], "edges": [], "roads": [], "places": {}}
     seed = spec["seed"]
     frame = Frame(spec["frame"]["origin_lonlat"], spec["frame"]["size_km"], spec["frame"].get("scale", 1.0))
-    g = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"])
-    gc = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"] * 2)
-    gr = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"] * 4)
+    noise_h = spec["frame"].get("noise_height_km")
+    g = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"], noise_h)
+    gc = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"] * 2, noise_h)
+    gr = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"] * 4, noise_h)
     layout = spec["layout"]
 
     territory = world.divisions[spec["territory"]]
@@ -250,8 +256,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         land = land_mask(spec, seed, g, total_area)
         log("partitioning divisions")
         warp = layout.get("boundary_warp_km", 4)
-        wx = g.X + warp * value_noise(seed + 101, 30, 5, 0.5, (g.w, g.h), g.shape)
-        wy = g.Y + warp * value_noise(seed + 202, 30, 5, 0.5, (g.w, g.h), g.shape)
+        wx = g.X + warp * grid_noise(seed + 101, 30, 5, 0.5, g)
+        wy = g.Y + warp * grid_noise(seed + 202, 30, 5, 0.5, g)
         anchors = [layout["cities"][c["id"]] for c in cities]
         anchored = layout.get("anchored", False)
         claims = layout.get("islands", {})
