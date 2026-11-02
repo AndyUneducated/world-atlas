@@ -24,9 +24,10 @@ MILITARY_VARIANTS = {  # military and space facility layouts and the kinds each 
     "sam": (), "range": ("air", "armor", "cold"), "plant": ("depot", "assembly", "propellant", "tunnel", "hangar", "engine"),
     "test_stand": (), "silo": (), "bunker": (), "launch_track": (), "camp": ("barracks", "hq", "hospital", "training"), "heliport": (),
 }
-SITE_LAYOUTS = ("complex", "hall", "courtyard", "slab", "lshape", "block", "campus", "stadium", "tower", "dome", "park", "plaza", "market",
-                "airport", "port", "harbour", "offshore_port", "spaceport", "mine", *MILITARY_VARIANTS)
-FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport", "mine", *MILITARY_VARIANTS)
+SITE_VARIANTS = {**MILITARY_VARIANTS, "estate": ("villa", "compound", "bunker")}
+SITE_LAYOUTS = ("complex", "hall", "courtyard", "slab", "lshape", "block", "campus", "ring", "stadium", "tower", "dome", "park", "plaza", "market",
+                "airport", "port", "harbour", "offshore_port", "spaceport", "mine", *SITE_VARIANTS, "detention", "checkpoint")
+FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport", "mine", *SITE_VARIANTS, "detention", "checkpoint")
 RUNWAY_LAYOUTS = ("airport", "spaceport", "airbase", "launch_track")  # roads and railways go round these
 COASTAL_LAYOUTS = ("port", "harbour")  # sites centred on the shore
 HARBOUR_TERMINALS = ("container", "bulk", "oil", "roro")
@@ -296,10 +297,12 @@ class World:
                 top = 40000 if site.get("layout") == "launch_track" else 8000
                 if not (isinstance(size, list) and len(size) == 2 and all(isinstance(v, (int, float)) and 10 <= v <= top for v in size)):
                     errors.append(f"{pid}: site size_m must be [along, across] in metres (10–{top})")
-                if "variant" in site and site["variant"] not in MILITARY_VARIANTS.get(site.get("layout"), ()):
-                    errors.append(f"{pid}: site variant must be one of {', '.join(MILITARY_VARIANTS.get(site.get('layout'), ())) or 'none for this layout'}")
+                if "variant" in site and site["variant"] not in SITE_VARIANTS.get(site.get("layout"), ()):
+                    errors.append(f"{pid}: site variant must be one of {', '.join(SITE_VARIANTS.get(site.get('layout'), ())) or 'none for this layout'}")
                 if "angle_deg" in site and not isinstance(site["angle_deg"], (int, float)):
                     errors.append(f"{pid}: site angle_deg must be a number (degrees, east = 0, counter-clockwise)")
+                if site.get("rural", True) is not True:
+                    errors.append(f"{pid}: site rural is either true (deliberately out of town) or left out")
                 if self.divisions.get(p.get("in"), {}).get("subtype") != "borough":
                     errors.append(f"{pid}: a place with a site must be 'in' a district")
                 if site.get("layout") == "harbour":

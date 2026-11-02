@@ -207,6 +207,7 @@ export function buildStyle(opts: {
     const isPart = (kind: string): ExpressionSpecification => ["all", isFacility, ["==", ["get", "part"], kind]];
     return [
       { id: "facility-grounds", type: "fill", source: "landmarks", minzoom: 9.4, filter: ["all", ["has", "id"], isFacility], layout, paint: { "fill-color": f.grounds, "fill-opacity": fadeIn(9.4, 0.9) } },
+      { id: "facility-green", type: "fill", source: "landmarks", minzoom: 9.4, filter: isPart("green"), layout, paint: { "fill-color": f.green, "fill-opacity": fadeIn(9.4) } },
       { id: "facility-basin", type: "fill", source: "landmarks", minzoom: 9.4, filter: isPart("basin"), layout, paint: { "fill-color": m.water, "fill-opacity": fadeIn(9.4) } },
       { id: "facility-breakwater", type: "fill", source: "landmarks", minzoom: 9.4, filter: isPart("breakwater"), layout, paint: { "fill-color": f.breakwater, "fill-opacity": fadeIn(9.4) } },
       { id: "facility-paved", type: "fill", source: "landmarks", minzoom: 10.2, filter: isPart("paved"), layout, paint: { "fill-color": f.paved, "fill-opacity": fadeIn(10.2) } },
@@ -236,6 +237,7 @@ export function buildStyle(opts: {
       },
       { id: "facility-runway", type: "fill", source: "landmarks", minzoom: 9.4, filter: isPart("runway"), layout, paint: { "fill-color": f.runway, "fill-opacity": fadeIn(9.4) } },
       { id: "facility-pad", type: "fill", source: "landmarks", minzoom: 10.5, filter: isPart("pad"), layout, paint: { "fill-color": f.pad, "fill-opacity": fadeIn(10.5), "fill-outline-color": f.runway } },
+      { id: "facility-wall", type: "fill", source: "landmarks", minzoom: 11, filter: isPart("wall"), layout, paint: { "fill-color": f.wall, "fill-opacity": fadeIn(11) } },
       { id: "facility-building", type: "fill", source: "landmarks", minzoom: 11.5, filter: isPart("building"), layout, paint: { "fill-color": b.landmark.fill, "fill-opacity": fadeIn(11.5), "fill-outline-color": b.landmark.outline } },
     ] as LayerSpecification[];
   }
@@ -255,7 +257,7 @@ export function buildStyle(opts: {
         filter: isSite,
         layout,
         paint: {
-          "fill-color": ["match", ["get", "layout"], "park", b.landmark.park, "plaza", b.landmark.plaza, "campus", b.landmark.park, b.landmark.grounds],
+          "fill-color": ["match", ["get", "layout"], "park", b.landmark.park, "plaza", b.landmark.plaza, "campus", b.landmark.park, "ring", b.landmark.park, b.landmark.grounds],
           "fill-opacity": fadeIn(12),
         },
       },

@@ -17,7 +17,8 @@ piers, sheds; clipped to the coast), dug-basin harbours (moles with container, b
 ro-ro terminals, rail yard, breakwaters), offshore island ports (joined to the shore by a sea
 bridge, see build.fit_site) and spaceports (launch and landing pads, assembly hall), and the
 military and space facilities: airbases, radars, antenna arrays, air-defence sites, training ranges,
-plants, engine test stands, silo fields, bunkers, launch tracks, camps and heliports.
+plants, engine test stands, silo fields, bunkers, launch tracks, camps and heliports, and private
+estates, detention centres and border crossings.
 """
 from __future__ import annotations
 
@@ -614,11 +615,116 @@ def _mine(cx, cy, W, D) -> list[tuple[str, Polygon]]:
     return parts
 
 
+def _wall(poly, w=0.004) -> tuple[str, Polygon]:
+    """A wall or fence along the edge of `poly`."""
+    return ("wall", poly.exterior.buffer(w / 2))
+
+
+def _villa(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+    """Mansion in a W × D box, gate on -x: a drive to a round forecourt, the main house with two wings,
+    a pool on its terrace with a fountain beyond, a tennis court, three guest houses, a garage with
+    its car park and a helipad, on lawns inside a wall."""
+    rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
+    m = min(W, D)
+    parts = [("green", rel(-0.48, -0.48, 0.48, 0.48)), _wall(rel(-0.49, -0.49, 0.49, 0.49))]
+    parts.append(_road((cx - 0.5 * W, cy), (cx - 0.24 * W, cy), 0.004 + 0.01 * m))
+    parts.append(("paved", Point(cx - 0.24 * W, cy).buffer(0.07 * m, quad_segs=12)))
+    parts.append(("building", shapely.union_all([rel(-0.16, -0.08, 0.04, 0.08), rel(-0.16, -0.22, -0.09, 0.22), rel(-0.03, -0.22, 0.04, 0.22)])))
+    parts.append(("paved", rel(0.06, -0.13, 0.25, 0.13)))
+    parts.append(("basin", rel(0.1, -0.06, 0.21, 0.06)))
+    parts.append(("basin", Point(cx + 0.34 * W, cy).buffer(0.025 * m, quad_segs=10)))
+    parts.append(("paved", box(cx + 0.33 * W - 0.018, cy + 0.3 * D - 0.009, cx + 0.33 * W + 0.018, cy + 0.3 * D + 0.009)))
+    parts += [("building", rel(x, -0.42, x + 0.07, -0.33)) for x in (-0.32, -0.12, 0.08)]
+    parts += [("building", rel(-0.42, 0.24, -0.3, 0.34)), ("lot", rel(-0.42, 0.1, -0.3, 0.21))]
+    parts.append(("pad", Point(cx + 0.36 * W, cy - 0.32 * D).buffer(min(0.012, 0.06 * m), quad_segs=10)))
+    return parts
+
+
+def _estate(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
+    """Private estate, gate on -x. villa: one mansion on its lawns (see _villa); compound: the mansion
+    on the -x third, then a lake, a staff village and a private airstrip with a hangar along +y, all in
+    one wall; bunker: a small house and helipads above a hollowed hill, with the bunker portal, air
+    shafts and a guard post."""
+    rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
+    if variant == "compound":
+        parts = [("green", rel(-0.49, -0.49, 0.49, 0.49)), _wall(rel(-0.495, -0.495, 0.495, 0.495))]
+        parts += _villa(cx - 0.3 * W, cy - 0.1 * D, 0.36 * W, 0.7 * D)[2:]
+        parts.append(("basin", affinity.scale(Point(cx + 0.05 * W, cy - 0.15 * D).buffer(1, quad_segs=24), 0.1 * W, 0.18 * D)))
+        cells = _grid((cx + 0.22 * W, cy - 0.44 * D, cx + 0.46 * W, cy + 0.05 * D), (0.03, 0.025), ((0.012, 0.018), (0.01, 0.014)), rng)
+        parts += [("building", p) for p in cells]
+        parts.append(_road((cx - 0.5 * W, cy - 0.1 * D), (cx + 0.34 * W, cy - 0.1 * D), 0.005))
+        ry = cy + 0.36 * D
+        parts.append(("runway", box(cx - 0.3 * W, ry - 0.015, cx + 0.45 * W, ry + 0.015)))
+        parts.append(("paved", box(cx + 0.25 * W, ry - 0.09, cx + 0.42 * W, ry - 0.015)))
+        parts.append(("building", box(cx + 0.28 * W, ry - 0.08, cx + 0.36 * W, ry - 0.03)))
+        return parts
+    if variant == "bunker":
+        m = min(W, D)
+        parts = [_wall(rel(-0.49, -0.49, 0.49, 0.49)), _wall(rel(-0.47, -0.47, 0.47, 0.47), 0.003)]
+        parts.append(_road((cx - 0.5 * W, cy), (cx + 0.26 * W, cy), 0.008))
+        parts.append(("building", box(cx - 0.47 * W, cy - 0.012, cx - 0.47 * W + 0.016, cy + 0.012)))
+        parts.append(("green", box(cx - 0.2 * W - 0.05, cy + 0.03, cx - 0.2 * W + 0.05, cy + 0.11)))
+        parts.append(("building", box(cx - 0.2 * W - 0.025, cy + 0.045, cx - 0.2 * W + 0.025, cy + 0.08)))
+        parts += [("pad", Point(cx + x * W, cy - 0.25 * D).buffer(0.02, quad_segs=10)) for x in (-0.3, -0.2, -0.1)]
+        parts.append(("paved", box(cx + 0.26 * W, cy - 0.05, cx + 0.26 * W + 0.12, cy + 0.05)))
+        parts.append(("building", box(cx + 0.26 * W + 0.12, cy - 0.025, cx + 0.26 * W + 0.15, cy + 0.025)))
+        step = 0.12 * m
+        parts += [("tank", Point(x, y).buffer(0.012, quad_segs=8))
+                  for x in np.arange(cx + 0.02 * W, cx + 0.44 * W, step) for y in np.arange(cy + 0.12 * D, cy + 0.44 * D, step)]
+        return parts
+    return _villa(cx, cy, W, D)
+
+
+def _detention(cx, cy, W, D, rng) -> list[tuple[str, Polygon]]:
+    """Detention centre, gate on -x: a double fence with watchtowers along it, the intake hall with a
+    bus bay and car park at the gate, rows of cell blocks each with an exercise yard, container cells
+    stacked in an overflow yard on +x and a helipad."""
+    rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
+    outer, inner = rel(-0.49, -0.49, 0.49, 0.49), box(cx - 0.49 * W + 0.03, cy - 0.49 * D + 0.03, cx + 0.49 * W - 0.03, cy + 0.49 * D - 0.03)
+    parts = [_wall(outer, 0.005), _wall(inner, 0.003)]
+    ring = inner.exterior
+    n = max(8, int(ring.length / 0.25))
+    for k in range(n):
+        p = ring.interpolate(k / n, normalized=True)
+        parts.append(("building", box(p.x - 0.006, p.y - 0.006, p.x + 0.006, p.y + 0.006)))
+    parts.append(("building", rel(-0.4, -0.16, -0.3, 0.16)))
+    parts.append(("paved", rel(-0.47, -0.42, -0.4, -0.2)))
+    parts.append(("lot", rel(-0.47, 0.2, -0.4, 0.42)))
+    for half in (-1, 1):
+        y0, y1 = (cy + 0.04 * D, cy + 0.4 * D) if half > 0 else (cy - 0.4 * D, cy - 0.04 * D)
+        for x in np.arange(cx - 0.24 * W, cx + 0.2 * W, 0.06):
+            parts.append(("building", box(x, y0, x + 0.02, y1)))
+            parts.append(("paved", box(x + 0.026, y0 + 0.2 * (y1 - y0), x + 0.052, y1 - 0.2 * (y1 - y0))))
+    for x in np.arange(cx + 0.26 * W, cx + 0.44 * W, 0.016):
+        parts += [("stack", box(x, y, x + 0.012, y + 0.03)) for y in np.arange(cy - 0.4 * D, cy + 0.28 * D, 0.036)]
+    parts.append(("pad", Point(cx + 0.36 * W, cy + 0.38 * D).buffer(0.014, quad_segs=10)))
+    return parts
+
+
+def _checkpoint(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+    """Border crossing, traffic along local x with the border on +x: a plaza of lanes split by
+    islands and crossed by the inspection booths, gates in the wall at the +x edge, the
+    secondary inspection sheds with their car park on -y and the main building and kennels on +y."""
+    rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
+    parts = [("paved", rel(-0.49, -0.25, 0.49, 0.3))]
+    for y in np.arange(cy - 0.24 * D + 0.012, cy + 0.29 * D, 0.012):
+        parts.append(("lot", box(cx - 0.15 * W, y - 0.001, cx + 0.35 * W, y + 0.001)))
+    parts.append(("building", rel(0.0, -0.25, 0.04, 0.3)))
+    parts += [_wall(rel(0.45, -0.5, 0.47, -0.25), 0.006), _wall(rel(0.45, 0.3, 0.47, 0.5), 0.006)]
+    parts += [("building", box(cx + 0.46 * W - 0.004, y - 0.002, cx + 0.46 * W + 0.004, y + 0.002)) for y in np.arange(cy - 0.24 * D, cy + 0.3 * D, 0.024)]
+    parts += [("building", rel(x, -0.45, x + 0.12, -0.32)) for x in (-0.35, -0.15, 0.05)]
+    parts.append(("lot", rel(-0.45, -0.3, 0.25, -0.27)))
+    parts.append(("building", rel(-0.35, 0.34, 0.1, 0.46)))
+    parts += [("building", rel(x, 0.36, x + 0.04, 0.44)) for x in (0.18, 0.25)]
+    return parts
+
+
 def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=(), variant=None) -> tuple[Polygon, list[tuple[str, Polygon]]]:
     """Site outline and parts [(kind, polygon)] of a landmark; kind is building, or for transport
     and military facilities runway, pad, paved (aprons, taxiways, quays, piers), basin (dug harbour
     water, pools), breakwater, stack (containers), bulk (stockpiles), tank, dish (antennas and
-    radomes), lot (vehicle parking), rail or track (an electromagnetic launch guideway).
+    radomes), lot (vehicle parking), rail or track (an electromagnetic launch guideway), green (lawns and
+    gardens) and wall (walls and fences).
     Local x points along `angle`; the front of a city landmark is at -x, a port faces the sea on +y.
     `land` (needed by ports) is the land area around the site; `terminals` lists a harbour's moles;
     `variant` picks a military layout's kind (see MILITARY_VARIANTS in world.py)."""
@@ -655,6 +761,17 @@ def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=
     elif layout == "campus":
         cells = _grid(site.bounds, (W / 4, D / 3), ((W / 9, W / 6), (D / 10, D / 6)), rng, jitter=0.01)
         parts = [("building", p) for p in _within(cells, site.buffer(-0.03)) if rng.random() > 0.25]
+    elif layout == "ring":  # one ring-shaped building round a garden, two car-park blocks outside
+        r = 0.4 * min(W, D)
+        parts = [("building", Point(cx, cy).buffer(r, quad_segs=32).difference(Point(cx, cy).buffer(0.72 * r, quad_segs=32)))]
+        parts += [("building", Point(cx + 0.1 * r, cy - 0.15 * r).buffer(0.12 * r, quad_segs=12))]
+        parts += [("building", box(cx + x * W - 0.04 * W, cy - 0.46 * D, cx + x * W + 0.04 * W, cy - 0.42 * D)) for x in (-0.35, 0.35)]
+    elif layout == "estate":
+        parts = _estate(cx, cy, W, D, variant or "villa", rng)
+    elif layout == "detention":
+        parts = _detention(cx, cy, W, D, rng)
+    elif layout == "checkpoint":
+        parts = _checkpoint(cx, cy, W, D)
     elif layout == "airport":
         parts = _airport(site, cx, cy, W, D, rng)
     elif layout == "spaceport":

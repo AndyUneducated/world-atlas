@@ -130,15 +130,23 @@ def check_numbers(ents: dict) -> dict[str, list[str]]:
 
 
 def check_government(ents: dict) -> dict[str, list[str]]:
-    """Every Chinese territory has its government buildings on the map (once only one territory had them)."""
+    """Every Chinese territory has its government buildings on the map (once only one territory had them);
+    a US state has its capitol, the governor's office, its supreme court and each of its departments."""
     names = {e["names"]["zh"] for e in ents.values() if e.get("kind") == "place"}
     missing = []
     for e in ents.values():
-        if e.get("subtype") != "dependency" or "country:CN" not in (e.get("ancestors") or []):
+        if e.get("subtype") != "dependency":
             continue
         t = e["names"]["zh"]
-        want = [f"{t}政府", f"{t}政策和计划委员会", *(f"{t}政务院{m}" for m in MINISTRIES),
-                *(f"中央政府常驻{t}{o}" for o in CENTRAL_OFFICES)]
+        if "country:US" in (e.get("ancestors") or []):
+            L = e.get("legislature", {})
+            want = [f"{t}州议会大厦", f"{t}州长办公厅", L.get("court", {}).get("names", {}).get("zh", f"{t}最高法院"),
+                    *(f"{t}{m['ministry']['zh']}" for m in L.get("ministers", []))]
+        elif "country:CN" in (e.get("ancestors") or []):
+            want = [f"{t}政府", f"{t}政策和计划委员会", *(f"{t}政务院{m}" for m in MINISTRIES),
+                    *(f"中央政府常驻{t}{o}" for o in CENTRAL_OFFICES)]
+        else:
+            continue
         missing += [w for w in want if w not in names]
     return {"government buildings in every territory": missing}
 

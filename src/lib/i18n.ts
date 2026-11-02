@@ -422,6 +422,14 @@ const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
   depot: { zh: "后勤基地", en: "Supply depot" },
   heliport: { zh: "直升机场", en: "Heliport" },
   launch_track: { zh: "电磁发射场", en: "Electromagnetic launcher" },
+  mansion: { zh: "豪宅", en: "Mansion" },
+  headquarters: { zh: "公司总部", en: "Company headquarters" },
+  detention_centre: { zh: "拘押中心", en: "Detention centre" },
+  border_crossing: { zh: "口岸", en: "Border crossing" },
+  police_station: { zh: "警察局", en: "Police station" },
+  studio: { zh: "片场", en: "Film studio" },
+  patrol_base: { zh: "巡逻基地", en: "Patrol base" },
+  vehicle_depot: { zh: "车辆段", en: "Vehicle depot" },
 };
 
 const NETWORK_LABELS: Record<string, Record<Lang, string>> = {
