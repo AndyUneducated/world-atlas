@@ -170,19 +170,28 @@ def merge_crossings(world: World, entities: dict, layers: dict, graph: dict):
             f"and {entities[b['territory']]['names']['zh']}, {ent['stats']['length_km']:.0f} km in all")
 
 
-def route_railways(world: World, router: Router, poles, stop_index: dict, territory: str, land: np.ndarray) -> list:
+def route_railways(world: World, router: Router, poles, stop_index: dict, territory: str, land: np.ndarray, place_at=None) -> list:
     """Route each railway between its stops, [(railway, stop district indices, path)]. Later lines run on
     the track of earlier ones wherever that is cheaper than new track; a maglev guideway shares no track
-    with wheeled lines either way, only crossing them and meeting them at shared stations."""
+    with wheeled lines either way, only crossing them and meeting them at shared stations. A stop may be
+    a sited place (place_at: id -> design km), standing for its district; a maglev with a line runs
+    exactly along it."""
+    place_at = place_at or {}
     out = []
     for r in sorted(world.railways.values(), key=lambda r: bool(r.get("maglev"))):
         via = stops_here(r, territory, lambda v: v in stop_index)
         if not via:
             continue
         stops = [stop_index[v] for v in via if v != PORTAL]
-        cells = [land_cell(land, router.res, *r["crossing"][territory]) if v == PORTAL else router.cell(*poles[stop_index[v]]) for v in via]
-        path = []
         maglev = r.get("maglev", False)
+        if line := r.get("line"):
+            path = router.cells_along(line["points"])
+            router.commit(path, "rail", discount=float("inf"), ref=r["id"])
+            out.append((r, stops, path))
+            continue
+        cells = [land_cell(land, router.res, *r["crossing"][territory]) if v == PORTAL
+                 else router.cell(*(place_at[v] if v in place_at else poles[stop_index[v]])) for v in via]
+        path = []
         for a, b in zip(cells[:-1], cells[1:]):
             leg = (router.route(a, b, r.get("tunnel_cost", 2.5), ref=r["id"], shared_factor=6.0, buffer_factor=1.5) if maglev
                    else router.route(a, b, r.get("tunnel_cost", 2.5)))

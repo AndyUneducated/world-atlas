@@ -258,6 +258,8 @@ class World:
             refs[r["ref"]] = rid
             if "build_order" in r and not (isinstance(r["build_order"], int) and r["build_order"] > 0):
                 errors.append(f"{rid}: build_order must be a positive whole number")
+            if "unlimited" in r and r["unlimited"] is not True:
+                errors.append(f"{rid}: unlimited takes only true (no speed limit anywhere, towns and mountains included)")
             if r.get("ring") and len(r.get("via", [])) < 3:
                 errors.append(f"{rid}: a ring needs at least three via divisions")
             for v in r.get("legs", {}):
@@ -341,8 +343,12 @@ class World:
             if len(via) < 2:
                 errors.append(f"{rid}: a railway needs at least two stops in via")
             for v in via:
-                if self.divisions.get(v, {}).get("subtype") not in ("locality", "borough"):
-                    errors.append(f"{rid}: via {v} is not a city or district")
+                if self.divisions.get(v, {}).get("subtype") not in ("locality", "borough") and not self.places.get(v, {}).get("site"):
+                    errors.append(f"{rid}: via {v} is not a city, district or a place with a site")
+            if line := r.get("line"):
+                pts = line.get("points")
+                if not r.get("maglev") or not (isinstance(pts, list) and len(pts) >= 2 and all(isinstance(p, list) and len(p) == 2 for p in pts)):
+                    errors.append(f"{rid}: line.points ([[x, y], …] in design km) is for a maglev, on its own guideway")
             for v in r.get("station_names", {}):
                 if v not in via:
                     errors.append(f"{rid}: station_names entry {v} is not one of the stops")
