@@ -38,7 +38,7 @@ export interface MapTheme {
   nationalExpressway: RoadStyle;
   territorialExpressway: RoadStyle;
   cityRoad: RoadStyle;
-  /** City streets: arterials (???), collectors (???), local streets (??). */
+  /** City streets: arterials (主干路), collectors (次干路), local streets (支路). */
   street: { arterial: RoadStyle; collector: RoadStyle; local: RoadStyle; label: string };
   /** Skyways: enclosed, heated walkways over the streets of polar city centres. */
   skyway: string;
@@ -79,7 +79,7 @@ export interface Theme {
 export const THEMES: Record<ThemeId, Theme> = {
   light: {
     id: "light",
-    label: { zh: "??", en: "Light" },
+    label: { zh: "浅色", en: "Light" },
     dark: false,
     map: {
       background: "#c4dceb",
@@ -149,7 +149,7 @@ export const THEMES: Record<ThemeId, Theme> = {
   },
   dark: {
     id: "dark",
-    label: { zh: "??", en: "Dark" },
+    label: { zh: "深色", en: "Dark" },
     dark: true,
     map: {
       background: "#05080f",
