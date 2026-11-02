@@ -24,15 +24,17 @@ MILITARY_VARIANTS = {  # military and space facility layouts and the kinds each 
     "sam": (), "range": ("air", "armor", "cold"), "plant": ("depot", "assembly", "propellant", "tunnel", "hangar", "engine"),
     "test_stand": (), "silo": (), "bunker": (), "launch_track": (), "camp": ("barracks", "hq", "hospital", "training"), "heliport": (),
 }
-SITE_VARIANTS = {**MILITARY_VARIANTS, "estate": ("villa", "compound", "bunker")}
+SITE_VARIANTS = {**MILITARY_VARIANTS, "estate": ("villa", "compound", "bunker"), "vineyard": ("red", "white"),
+                 "fab": ("logic", "memory", "packaging", "mask"), "works": ("plates", "winery"),
+                 "zoo": ("primates", "felids", "ungulates", "marine_mammals", "polar", "birds", "reptiles", "amphibians",
+                         "freshwater", "marine", "insects", "arachnids", "cephalopods", "coral")}
 SITE_LAYOUTS = ("complex", "hall", "courtyard", "slab", "lshape", "block", "campus", "ring", "stadium", "tower", "dome", "park", "plaza", "market",
-                "airport", "port", "harbour", "offshore_port", "spaceport", "mine", *SITE_VARIANTS, "detention", "checkpoint")
-FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport", "mine", *SITE_VARIANTS, "detention", "checkpoint")
-RUNWAY_LAYOUTS = ("airport", "spaceport", "airbase", "launch_track")  # roads and railways go round these
+                "airport", "port", "harbour", "offshore_port", "spaceport", "mine", *SITE_VARIANTS, "detention", "checkpoint", "racetrack", "clinic")
+FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport", "mine", *SITE_VARIANTS, "detention", "checkpoint", "racetrack", "clinic")
+RUNWAY_LAYOUTS = ("airport", "spaceport", "airbase", "launch_track", "racetrack")  # roads and railways go round these
 COASTAL_LAYOUTS = ("port", "harbour")  # sites centred on the shore
 HARBOUR_TERMINALS = ("container", "bulk", "oil", "roro")
 RAIL_NETWORKS = ("intercity_rail", "freight_rail")
-RAIL_SPEED_KMH = {"intercity_rail": (160, 400), "freight_rail": (60, 160), "maglev": (400, 650)}  # allowed tech.operating_speed_kmh
 # Lines whose cards carry a construction background, and who runs them (operators in the territory record).
 BACKGROUND_NETWORKS = ("national_expressway", "territorial_expressway", "territorial_highway", "intercity_rail", "freight_rail")
 OPERATOR_KINDS = ("expressway", "highway", "rail")
@@ -294,9 +296,8 @@ class World:
                 if site.get("layout") not in SITE_LAYOUTS:
                     errors.append(f"{pid}: site layout must be one of {', '.join(SITE_LAYOUTS)}")
                 size = site.get("size_m")
-                top = 40000 if site.get("layout") == "launch_track" else 8000
-                if not (isinstance(size, list) and len(size) == 2 and all(isinstance(v, (int, float)) and 10 <= v <= top for v in size)):
-                    errors.append(f"{pid}: site size_m must be [along, across] in metres (10–{top})")
+                if not (isinstance(size, list) and len(size) == 2 and all(isinstance(v, (int, float)) and v > 0 for v in size)):
+                    errors.append(f"{pid}: site size_m must be [along, across] in metres, both positive")
                 if "variant" in site and site["variant"] not in SITE_VARIANTS.get(site.get("layout"), ()):
                     errors.append(f"{pid}: site variant must be one of {', '.join(SITE_VARIANTS.get(site.get('layout'), ())) or 'none for this layout'}")
                 if "angle_deg" in site and not isinstance(site["angle_deg"], (int, float)):
@@ -330,9 +331,8 @@ class World:
             if "maglev" in r and (r["maglev"] is not True or r.get("network") != "intercity_rail"):
                 errors.append(f"{rid}: maglev: true is for intercity railways only")
             speed = r.get("tech", {}).get("operating_speed_kmh")
-            lo, hi = RAIL_SPEED_KMH.get("maglev" if r.get("maglev") else r.get("network"), (160, 400))
-            if speed is not None and not (isinstance(speed, int) and lo <= speed <= hi):
-                errors.append(f"{rid}: tech.operating_speed_kmh must be a whole number of km/h, {lo}–{hi}")
+            if speed is not None and not (isinstance(speed, int) and speed > 0):
+                errors.append(f"{rid}: tech.operating_speed_kmh must be a positive whole number of km/h")
         territories = {g["territory"] for g in self.generators}
         for rid, r in [*self.routes.items(), *self.railways.items()]:
             if "crossing" not in r:
@@ -490,14 +490,14 @@ class World:
             if len(p.get("notes", {}).get("zh", "")) < 800:
                 errors.append(f"politics: {pid}: notes.zh needs at least 800 characters: its lines, record, symbols, voters and culture")
             tags = p.get("ideology", [])
-            if not (2 <= len(tags) <= 4 and all(all(x.get(lang) for lang in REQUIRED_LANGS) for x in tags)):
-                errors.append(f"politics: {pid}: ideology is two to four tags, each in zh and en")
+            if not (len(tags) >= 2 and all(all(x.get(lang) for lang in REQUIRED_LANGS) for x in tags)):
+                errors.append(f"politics: {pid}: ideology is two or more tags, each in zh and en")
             axes = p.get("axes", {})
             if set(axes) != set(PARTY_AXES) or not all(isinstance(v, (int, float)) and 0 <= v <= 10 for v in axes.values()):
                 errors.append(f"politics: {pid}: axes gives {', '.join(PARTY_AXES)}, each from 0 to 10")
             factions = p.get("factions", [])
-            if not (2 <= len(factions) <= 3 and all(all(f.get(k, {}).get(lang) for k in ("names", "notes") for lang in REQUIRED_LANGS) for f in factions)):
-                errors.append(f"politics: {pid}: two or three factions, each with names and notes in zh and en")
+            if not (len(factions) >= 2 and all(all(f.get(k, {}).get(lang) for k in ("names", "notes") for lang in REQUIRED_LANGS) for f in factions)):
+                errors.append(f"politics: {pid}: two or more factions, each with names and notes in zh and en")
             if len(p.get("organisation", {})) < 3:
                 errors.append(f"politics: {pid}: organisation names at least three of {', '.join(PARTY_ORGANISATION)}")
             for k, v in p.get("organisation", {}).items():

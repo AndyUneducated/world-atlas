@@ -208,6 +208,8 @@ export function buildStyle(opts: {
     return [
       { id: "facility-grounds", type: "fill", source: "landmarks", minzoom: 9.4, filter: ["all", ["has", "id"], isFacility], layout, paint: { "fill-color": f.grounds, "fill-opacity": fadeIn(9.4, 0.9) } },
       { id: "facility-green", type: "fill", source: "landmarks", minzoom: 9.4, filter: isPart("green"), layout, paint: { "fill-color": f.green, "fill-opacity": fadeIn(9.4) } },
+      { id: "facility-vine-red", type: "fill", source: "landmarks", minzoom: 10.5, filter: isPart("vine_red"), layout, paint: { "fill-color": f.vineRed, "fill-opacity": fadeIn(10.5) } },
+      { id: "facility-vine-white", type: "fill", source: "landmarks", minzoom: 10.5, filter: isPart("vine_white"), layout, paint: { "fill-color": f.vineWhite, "fill-opacity": fadeIn(10.5) } },
       { id: "facility-basin", type: "fill", source: "landmarks", minzoom: 9.4, filter: isPart("basin"), layout, paint: { "fill-color": m.water, "fill-opacity": fadeIn(9.4) } },
       { id: "facility-breakwater", type: "fill", source: "landmarks", minzoom: 9.4, filter: isPart("breakwater"), layout, paint: { "fill-color": f.breakwater, "fill-opacity": fadeIn(9.4) } },
       { id: "facility-paved", type: "fill", source: "landmarks", minzoom: 10.2, filter: isPart("paved"), layout, paint: { "fill-color": f.paved, "fill-opacity": fadeIn(10.2) } },

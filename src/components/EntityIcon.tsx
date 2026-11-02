@@ -1,7 +1,7 @@
 import {
-  Anchor, Banknote, Bird, BrickWall, Briefcase, Building2, Car, Castle, Clapperboard, Crosshair, Crown, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, GraduationCap, Grape, Helicopter, Hospital, Hotel, House,
-  Landmark, LandPlot, Lighthouse, Lock, Magnet, MapPin, Mountain, MountainSnow, Navigation2, Orbit, Pickaxe, Plane, PlaneTakeoff, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship,
-  ShipWheel, Shell, Siren, Snowflake, Server, Sparkles, Sprout, Sun, Target, Telescope, TrainFront, TramFront, Trees, Utensils, Vault, Vote, Warehouse, Waves, Zap,
+  Anchor, Banknote, Bird, BrickWall, Briefcase, Building2, Car, CarFront, Castle, Clapperboard, Crosshair, Crown, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, GraduationCap, Grape, Helicopter, Hospital, Hotel, House,
+  Landmark, LandPlot, Lighthouse, Lock, Magnet, MapPin, Microchip, Mountain, MountainSnow, Navigation2, Orbit, PawPrint, Pickaxe, Plane, PlaneTakeoff, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship,
+  ShipWheel, Shell, Siren, Snowflake, Server, Sparkles, Sprout, Sun, Target, Telescope, ToothbrushSparkles, TrainFront, TramFront, Trees, Utensils, Vault, Vote, Warehouse, Waves, Zap,
 } from "lucide-react";
 import type { Entity } from "../lib/types";
 
@@ -126,6 +126,16 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
         return <Drone {...props} />;
       case "vehicle_depot":
         return <Car {...props} />;
+      case "vineyard":
+        return <Grape {...props} />;
+      case "racetrack":
+        return <CarFront {...props} />;
+      case "chip_fab":
+        return <Microchip {...props} />;
+      case "zoo":
+        return <PawPrint {...props} />;
+      case "dental_clinic":
+        return <ToothbrushSparkles {...props} />;
       default:
         return <Landmark {...props} />;
     }

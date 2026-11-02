@@ -565,7 +565,7 @@ def translate(msg: str) -> str:
         (r"(\S+): missing name in '(\w+)'", r"\1：缺少 \2 名称"),
         (r"(\S+): via (\S+) is not a division", r"\1：途经 \2 不是行政区"),
         (r"(\S+): 'in' must name a division", r"\1：所在区必须是行政区"),
-        (r"(\S+): site size_m must be .*", r"\1：占地长米、占地宽米应在 10–8000 之间"),
+        (r"(\S+): site size_m must be .*", r"\1：占地长米、占地宽米应为正数（米）"),
         (r"(\S+): site angle_deg must be .*", r"\1：占地朝向度应为数字（正东为 0，逆时针）"),
         (r"(\S+): a place with a site must be 'in' a district", r"\1：有占地的地标必须位于区内"),
         (r"(\S+): a railway needs at least two stops in via", r"\1：铁路至少需要两个停靠站"),

@@ -78,7 +78,7 @@ npm run data                                    # 重新生成地图
 | 中文名 … 伊武兰语名 | name_zh … name_ivuran | |
 | 停靠 | via | 依次停靠的市或区，用分号分隔，至少两个。停靠市时车站设在该市人口最多的区 |
 | 线路色 | color | `#RRGGBB`，用于线路卡片和车站列表 |
-| 运营速度、设计速度 | operating_speed、design_speed | km/h，运营速度城际铁路 160–400、磁悬浮 400–650、重载铁路 60–160；轨距、供电、信号、编组统一见 `world/transport/engineering.yaml` |
+| 运营速度、设计速度 | operating_speed、design_speed | km/h，正整数；轨距、供电、信号、编组统一见 `world/transport/engineering.yaml` |
 | 磁悬浮 | maglev | 只用于城际铁路，填“是”表示磁悬浮线：按 `engineering.yaml` 的 `maglev` 标准造价，不与轮轨线路共用线位 |
 | 每天重车列数 | loaded_trains | 只用于重载铁路：每天满载开往终点的列车数，年货运量据此计算 |
 | 隧道成本 | tunnel_cost | 默认 2.5，越小越倾向于打隧道穿山 |
@@ -97,7 +97,7 @@ npm run data                                    # 重新生成地图
 | 向东偏移、向北偏移 | offset_east_km、offset_north_km | 相对所在区城区中心的实际 km |
 | 徽标来自 | emblem_of | 可选。名片顶部显示这个条目（领地或市）的旗帜或徽章，如领地政府楼填所在领地；地图上不画徽章 |
 | 占地布局 | site_layout | 画出地标占地和建筑轮廓：`complex`（建筑群）、`hall`（单体大楼）、`campus`（园区）、`stadium`（体育场）、`tower`（塔）、`park`（公园）、`plaza`（广场）、`market`（市场）；交通设施 `airport`（机场：跑道、滑行道、航站楼）、`port`（港口：码头、栈桥、仓库）、`harbour`（挖入式港区：港池、突堤码头、防波堤、铁路编组站）、`offshore_port`（外海岛式深水港，以跨海大桥连到岸边）、`spaceport`（发射场：发射台、降落场、总装厂房） |
-| 占地长米、占地宽米 | site_along_m、site_across_m | 占地沿街道方格方向的长、宽（米，10–8000），与占地布局一起填。机场的“长”是跑道方向 |
+| 占地长米、占地宽米 | site_along_m、site_across_m | 占地沿街道方格方向的长、宽（米，正数），与占地布局一起填。机场的“长”是跑道方向 |
 | 占地朝向度 | site_angle_deg | 可选。占地长边的绝对朝向，正东为 0°、逆时针，如 90 为正北。不填时沿街道方格。港口和港区的海面在长边方向左侧 |
 | 港区码头 | site_terminals | 仅 `harbour`：沿长边依次每座突堤的码头，分号分隔，可选 `container`（集装箱）、`bulk`（散货）、`oil`（油品）、`roro`（滚装），至少两座；油品码头放在两端时栈桥伸出防波堤 |
 | 大桥连接 | site_bridge_to | 仅 `offshore_port`：跨海大桥连到的同区港口或港区（编号或中文名）；不填时连到最近的海岸 |

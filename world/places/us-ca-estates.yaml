@@ -1,0 +1,529 @@
+# Josh's and Lucy's estates in Santa Serena (M67). Offsets are real km from the district centre.
+places:
+  # ── 乔什庄园区 ──
+  - id: poi_6v8a3r
+    subtype: mansion
+    status: generated
+    names:
+      zh: 乔什宅邸
+      en: Josh's House
+      es: Casa de Josh
+    notes:
+      zh: "乔什的家，建在乔什庄园区南边的缓坡上，背后是一路升高的私人山脉，一直连到海拔 1767 米的乔什峰；从客厅的落地窗望出去，脚下是整片谷地：左边是按品种分块的葡萄园，正前方是赛车场的主直道，远处是车牌厂的锯齿形屋顶。乔什做人工智能应用，不训练大模型，而是把别人的模型做成普通人每天真正会打开的东西：帮果农看天气、帮修车师傅读故障码、帮小酒庄写酒标。他说自己的工作是「把聪明的东西变得好用」，这座宅子也照这个意思盖：没有金色的柱子和巨大的吊灯，只有很多窗、很多书架和一个能坐二十个人的长餐桌。\n宅邸是两翼对称的平顶白房子，中间是起居厅，东翼是卧室和书房，西翼是厨房和朋友们常来过夜的客房。泳池平台朝着谷地，傍晚能听见赛道上最后几圈的引擎声；草坪尽头的三栋小客屋分别住着来试驾的车手、来酿酒的酿酒师和来写代码的朋友。车库门口停着他每天开的那辆旧车，旁边的直升机坪一年用不了几次，多半是露西从芯城飞过来吃晚饭。乔什家的规矩是饭桌上不许看手机，但可以讨论任何一款还没发布的应用，于是很多应用的第一批用户就是这张桌子边的人。\n宅邸的屋顶铺满了太阳能板，地下有一间储能室，停电的时候整座庄园还能照常运转一天；乔什说这是从露西那里学来的：「洁净室一秒钟都不能停电，我的餐桌也不能。」院子里那棵老橡树比宅邸还老，树下的秋千是给常来做客的孩子们装的。"
+      en: "Josh's home, on the gentle slope at the south of Josh Estate District, with his private mountains climbing behind it all the way to Mount Josh at 1,767 m. From the living-room windows the whole valley lies below: the vineyard in its blocks of grape varieties on the left, the main straight of the racing circuit ahead and the saw-tooth roofs of the number-plate works in the distance. Josh works on AI applications: he does not train big models, but turns other people's models into things ordinary people actually open every day, helping fruit growers read the weather, mechanics read fault codes and small wineries write their labels. He says his job is 'making clever things useful', and the house was built in the same spirit: no gilded columns or giant chandeliers, just a great many windows, a great many bookshelves and a long dining table that seats twenty.\nThe house is a flat-roofed white building with matching wings: the living hall in the middle, bedrooms and the study in the east wing, and in the west wing the kitchen and the guest rooms where friends often stay the night. The pool terrace faces the valley, and in the evening you can hear the last laps on the circuit; the three cottages at the end of the lawn house test drivers, visiting winemakers and friends who come to write code. The old car he drives every day sits by the garage, and the helipad beside it is used only a few times a year, mostly when Lucy flies over from Chip City for dinner. The house rule is no phones at the table, but any unreleased app may be discussed, so many apps have had the people round this table as their first users.\nThe roof is covered in solar panels and there is a battery room underground, so in a blackout the whole estate can run as usual for a day; Josh says he learned that from Lucy: 'a cleanroom can't lose power for a second, and neither can my dinner table.' The old oak in the garden is older than the house, and the swing beneath it was put up for the children who often visit."
+    in: div_jjgxvk
+    offset_km: [1.0, -3.2]
+    site: { layout: estate, size_m: [900, 700], angle_deg: 90 }
+  - id: poi_gzn94x
+    subtype: office
+    status: generated
+    names:
+      zh: 乔什车库实验室
+      en: Josh's Garage Lab
+      es: Laboratorio del Garaje de Josh
+    notes:
+      zh: "乔什宅邸旁边的一座旧车库，是他做人工智能应用的地方。车库里一半是车：一辆拆开的老跑车、几台等着装传感器的卡丁车；另一半是长桌、白板和几排屏幕，墙上钉满了用户的来信和截图。乔什的团队不大，常驻的只有十几个人，其余的人散在各地，每周五晚上在这里聚一次，边吃比萨边演示这一周做出来的东西。\n这里诞生过不少让人会心一笑的应用：一款给葡萄园用的，拍一张叶子的照片就能告诉你缺水还是生病；一款给赛车手用的，把每一圈的数据讲成人话，比如「第三弯你又刹早了」；还有一款给车牌厂用的，让人用一句话描述自己想要的个性车牌，再自动检查有没有和别人重复、有没有不雅的谐音。乔什的原则是每个应用都要先在庄园里用一个季度，酿酒师、车手和车牌厂的工人都说好用，才放给外面的人。车库门口挂着一块手写的牌子：「先有人用，再谈改变世界」。晚上车库常常亮到很晚，路过的保安说，里面的笑声比键盘声还多。\n车库的角落里有一台退役的服务器机柜，是露西芯城送来的第一批芯片的测试机，乔什把它改成了团队自己的「家用算力」，冬天还能顺便给车库供暖。团队有一个传统：每个应用上线那天，大家都要在车库的墙上签名，墙上已经签满了三面，第四面留给下一批应用。乔什说他最看重的指标不是下载量，而是用户第二周还会不会再打开，所以车库门口的小黑板上每天写的，就是这个数字。"
+      en: "An old garage beside Josh's house, where he builds his AI applications. Half of it is cars, a stripped-down old sports car and a few karts waiting for sensors; the other half is long tables, whiteboards and rows of screens, the walls pinned with users' letters and screenshots. Josh's team is small, only a dozen or so people on site and the rest scattered elsewhere, and every Friday evening they gather here to eat pizza and demonstrate what they made that week.\nQuite a few apps that make people smile were born here: one for vineyards, which tells you from a photo of a leaf whether the vine is thirsty or sick; one for racing drivers, which turns each lap's data into plain words, such as 'you braked early at turn three again'; and one for the number-plate works, which lets people describe the personalised plate they want in a sentence and then checks it is not taken and has no rude reading. Josh's rule is that every app is first used on the estate for a season, and only when the winemakers, drivers and plate workers all say it works is it let out to everyone else. A hand-written sign hangs by the door: 'First people use it, then we talk about changing the world.' The garage is often lit late into the night, and the guards passing by say there is more laughter inside than typing.\nIn a corner of the garage stands a retired server rack, the test machine for the first batch of chips sent from Lucy's Chip City, which Josh turned into the team's 'home computing' and which heats the garage in winter as a bonus. The team has a tradition: on the day an app goes live everyone signs the garage wall, and three walls are now full, the fourth kept for the next batch of apps. Josh says the figure he cares about most is not downloads but whether users open the app again in their second week, and that is the number written every day on the little blackboard by the door."
+    in: div_jjgxvk
+    offset_km: [1.9, -3.2]
+    site: { layout: block, size_m: [120, 120], rural: true }
+
+  # 乔什葡萄园：十个品种各占一块，上排是坡上较热的红葡萄，下排是谷底较凉的黑皮诺和白葡萄
+  - id: poi_5f1rt7
+    subtype: vineyard
+    status: generated
+    names:
+      zh: 乔什葡萄园·赤霞珠
+      en: Josh Vineyard – Cabernet Sauvignon
+      es: Viñedo de Josh – Cabernet Sauvignon
+    short_names: { zh: 赤霞珠, en: Cabernet Sauvignon, es: Cabernet Sauvignon }
+    notes:
+      zh: "乔什葡萄园的赤霞珠园，在上排最西边，朝南朝西的坡面整个下午都晒得到太阳，是全园最热、最干的一块。赤霞珠皮厚、籽多、成熟晚，需要漫长而温暖的秋天才能把单宁养得圆润，这块坡地正好合适：白天的热让果实积累糖分和颜色，夜里从海上吹进谷地的凉风又保住了酸度。园里的土是风化的砂岩和碎石，排水快，葡萄藤只好把根扎得很深去找水，结出来的果粒小而浓。\n园子按传统的单篱架种植，行距两米多，行间种着苜蓿和野花，春天割下来翻进土里当肥料。每一行的行头都种着一丛玫瑰：玫瑰比葡萄更容易染上霉病，老农用它们当「哨兵」，乔什则在每丛玫瑰旁装了一个小摄像头，叶子上一出现斑点，手机上就会收到提醒。中间那条田间小路两旁立着几台防霜风扇，春天夜里气温骤降时会自动转起来，把上层的暖空气压到藤架上。\n赤霞珠是乔什酒庄的招牌，酿成的红酒要在橡木桶里放上两年才装瓶。乔什自己最喜欢的却是采收那几天：全庄园的人，连赛车手和车牌厂的工人都来帮忙剪葡萄，中午在行间铺开桌布吃饭。他说这是一年里唯一一次所有人都放下手机，因为两只手都占满了。\n赤霞珠园的边上有一个小池塘，收集雨水和山上流下来的泉水，干旱的夏天用来滴灌；池塘边住着几只野鸭和一窝猫头鹰，猫头鹰夜里在园里抓田鼠，乔什说它们是全园「最不用操心的员工」。"
+      en: "The Cabernet Sauvignon block of Josh Vineyard, at the west end of the upper row, its south- and west-facing slope in the sun all afternoon, the hottest and driest block on the estate. Cabernet is thick-skinned, seedy and late to ripen, needing a long warm autumn to round out its tannins, and this slope suits it: the daytime heat builds sugar and colour, and the cool night wind off the sea keeps the acidity. The soil is weathered sandstone and gravel that drains fast, so the vines have to root deep for water, and the berries come small and concentrated.\nThe block is planted on a traditional single trellis, rows a little over two metres apart, with clover and wild flowers between them that are cut in spring and turned in as fertiliser. A rose bush stands at the head of every row: roses catch mildew more readily than vines, so old growers used them as sentinels, and Josh has put a small camera beside each one, so a spotted leaf sends an alert to his phone. Frost fans stand along the track down the middle, starting by themselves on cold spring nights to push the warmer air above down onto the vines.\nCabernet is the flagship of Josh Winery, its wine spending two years in oak before bottling. What Josh likes best, though, are the days of harvest, when everyone on the estate, racing drivers and plate workers included, comes to cut grapes, and at noon tablecloths are spread between the rows for lunch. He says it is the only time of year when everyone puts their phone down, because both hands are full.\nAt the edge of the Cabernet block is a small pond that gathers rain and spring water from the mountain for drip irrigation in dry summers; a few wild ducks and a family of owls live beside it, and the owls hunt voles in the vines at night, which Josh says makes them 'the staff I worry about least'."
+    in: div_jjgxvk
+    offset_km: [3.6, -1.8]
+    site: { layout: vineyard, angle_deg: 0, variant: red, size_m: [900, 700] }
+  - id: poi_rwymqp
+    subtype: vineyard
+    status: generated
+    names:
+      zh: 乔什葡萄园·西拉
+      en: Josh Vineyard – Syrah
+      es: Viñedo de Josh – Syrah
+    short_names: { zh: 西拉, en: Syrah, es: Syrah }
+    notes:
+      zh: "乔什葡萄园的西拉园，在赤霞珠园东边，坡度更陡，土里夹着大块的白色石头。西拉喜欢热，也耐得住旱，果实颜色深得几乎发黑，酿出来的酒带着黑胡椒、黑橄榄和烟熏的香气。在凉一点的年份，它会多出一丝紫罗兰的花香，酿酒师说这是西拉在「提醒你它来自山坡」。\n这块园子的石头是乔什特意留下来的：白天石头吸足了热，夜里再慢慢把热放给葡萄藤，让果实在昼夜温差里成熟得更均匀。坡太陡，拖拉机上不去，园里的活大多靠人和两台履带式的小机器人：一台负责除草，一台负责在采收前一周每天巡一遍，用光谱相机给每一串葡萄打分，告诉采收队先摘哪几行。机器人的名字是车牌厂的工人起的，一个叫「慢慢」，一个叫「再等等」，因为它们最常给出的建议就是这两句。\n西拉在乔什酒庄里有两种酿法：一种单独装瓶，浓烈而有力；另一种和少量白葡萄维欧尼一起发酵，颜色反而更稳、香气更亮，这个老办法是一位来庄园做客的老酿酒师教的。乔什把这款酒取名「朋友」，每年第一桶总是送去露西的芯城，因为露西说过，她喝过的最好的一杯西拉是在乔什的长餐桌上。\n西拉园的园头有一间小小的工具棚，棚前的空地是采收时临时停放葡萄筐的地方，棚里挂着每一位采收队员的剪刀，刀柄上刻着各自的名字。乔什的那把剪刀刀柄最旧，他说这是全庄园唯一一件他不打算用应用来改进的东西。"
+      en: "The Syrah block of Josh Vineyard, east of the Cabernet, on a steeper slope whose soil is full of large white stones. Syrah loves heat and stands drought well; its fruit is so dark it is nearly black, and its wine smells of black pepper, black olive and smoke. In cooler years it gains a hint of violets, which the winemaker says is Syrah 'reminding you it comes from a hillside'.\nJosh left the stones there on purpose: they soak up heat by day and give it back to the vines slowly at night, so the fruit ripens more evenly through the swing between day and night. The slope is too steep for tractors, so most of the work falls to people and two small tracked robots, one that weeds and one that patrols every day in the week before harvest, scoring each bunch with a spectral camera and telling the pickers which rows to take first. The plate workers named them: one is called 'Slowly' and the other 'Wait a Bit', those being the two pieces of advice they give most often.\nJosh Winery makes Syrah two ways: bottled on its own, dark and powerful, or fermented with a little white Viognier, which oddly makes the colour steadier and the aroma brighter, an old method taught by a veteran winemaker who once stayed on the estate. Josh calls that wine 'Friend', and the first barrel each year always goes to Lucy's Chip City, because Lucy once said the best glass of Syrah she ever had was at Josh's long table.\nAt the head of the Syrah block is a small tool shed, the ground in front of it where grape baskets wait at harvest, and inside hang the secateurs of every picker, each handle carved with its owner's name. Josh's handle is the most worn, and he says they are the one thing on the estate he has no plans to improve with an app."
+    in: div_jjgxvk
+    offset_km: [4.6, -1.8]
+    site: { layout: vineyard, angle_deg: 0, variant: red, size_m: [900, 700] }
+  - id: poi_c0zmts
+    subtype: vineyard
+    status: generated
+    names:
+      zh: 乔什葡萄园·仙粉黛
+      en: Josh Vineyard – Zinfandel
+      es: Viñedo de Josh – Zinfandel
+    short_names: { zh: 仙粉黛, en: Zinfandel, es: Zinfandel }
+    notes:
+      zh: "乔什葡萄园的仙粉黛园，在上排正中，是全园年纪最大的一块：这里的老藤是乔什买下庄园时就有的，不搭架子，一棵一棵像小树一样独自站着，树干粗糙扭曲，当地人叫它们「老头藤」。仙粉黛的果串成熟得很不整齐，同一串上常常有青果、熟果和已经开始皱缩的果粒，酿出来的酒果香浓郁，像熟透的黑莓和覆盆子果酱，还带一点甘草和香料的味道。\n老藤产量低，一棵藤只结几串葡萄，按产量算这块园子是全庄园最「不划算」的，好几位顾问都建议把它拔掉改种更值钱的品种。乔什没有同意，他给每一棵老藤编了号、拍了照，做成一张可以点开的地图，记录每一棵藤的年产量、病害和修剪记录，还给几棵特别老的藤起了名字。他说这些藤在他之前就在这里了，他只是暂时照看它们。\n仙粉黛园的采收要分好几次：采收队先摘熟透的那几串，过一个星期再回来摘剩下的。酒庄用它酿两款酒，一款是浓郁的红酒，另一款是淡粉色的桃红，夏天在泳池边喝。庄园的孩子们最喜欢这块园子，因为老藤矮，伸手就能摘到葡萄，大人们也就假装没看见。\n仙粉黛来到加州的路很长：它和欧洲一种古老的葡萄其实是同一个品种，是靠基因检测才确认下来的。乔什听说以后，在园头立了一块牌子，写着「远亲相认」。每年冬天修剪老藤的时候，乔什会亲自来剪最老的那几棵，剪下来的枝条不扔，做成插条分给附近的果农，让老藤的后代在别人的园子里也长下去。"
+      en: "The Zinfandel block of Josh Vineyard, in the middle of the upper row and the oldest on the estate: its old vines were already here when Josh bought the land. They grow untrellised, each standing alone like a small tree with a rough, twisted trunk, and locals call them 'the old men'. Zinfandel ripens very unevenly, one bunch often carrying green, ripe and already shrivelling berries together, and its wine is rich with fruit, like overripe blackberries and raspberry jam, with a touch of liquorice and spice.\nOld vines yield little, only a few bunches each, so by output this is the least 'efficient' block on the estate, and several consultants advised pulling it up for more valuable varieties. Josh refused. He numbered and photographed every old vine and made a clickable map recording each one's yield, diseases and pruning, and gave a few of the oldest names. He says these vines were here before him and he is only looking after them for a while.\nThe Zinfandel is picked in several passes: the pickers take the ripest bunches first and come back a week later for the rest. The winery makes two wines from it, a rich red and a pale pink rosé for summer by the pool. The estate's children love this block best, because the old vines are low enough to pick from, and the adults pretend not to notice.\nZinfandel came a long way to California: it is in fact the same variety as an old European grape, which was only confirmed by genetic testing. When Josh heard that, he put up a sign at the head of the block reading 'Long-lost relatives'. Each winter, when the old vines are pruned, Josh cuts the oldest few himself, and the cuttings are not thrown away but given to growers nearby, so the old vines' offspring grow on in other people's vineyards too."
+    in: div_jjgxvk
+    offset_km: [5.6, -1.8]
+    site: { layout: vineyard, angle_deg: 0, variant: red, size_m: [900, 700] }
+  - id: poi_yp01jq
+    subtype: vineyard
+    status: generated
+    names:
+      zh: 乔什葡萄园·梅洛
+      en: Josh Vineyard – Merlot
+      es: Viñedo de Josh – Merlot
+    short_names: { zh: 梅洛, en: Merlot, es: Merlot }
+    notes:
+      zh: "乔什葡萄园的梅洛园，在上排偏东，坡面朝东，上午阳光充足，下午早早就进了阴影，比西边几块凉快一些。梅洛比赤霞珠成熟得早，果粒大、皮薄，酿出来的酒柔和圆润，带着李子、樱桃和巧克力的味道，单宁细腻，年轻时就很好喝。乔什常说，赤霞珠是请客人时开的酒，梅洛是自己周二晚上开的酒。\n梅洛的土是园里黏性最重的一块，蓄水好，正合这个怕旱的品种。可黏土也容易积水，乔什在园子底下埋了一套排水管，又在每隔几行的地方插了土壤湿度探头，数据直接接进他自己写的灌溉程序：哪一行的土干了，就只给哪一行滴几分钟的水。程序上线第一年，园里的用水量少了将近一半，酿酒师说葡萄的味道反而更集中了。\n在乔什酒庄，梅洛最重要的用途是和赤霞珠、品丽珠调配，三种葡萄各占几成，每年由酿酒师和乔什在品酒室里一杯一杯试出来。调配那天是酒庄的大日子，长桌上摆满几十个编了号的杯子，谁都可以来投票。有一年车牌厂的一位老工人投中了最后选定的比例，他得到的奖品是一块印着自己名字的车牌，挂在酒窖门口。\n梅洛园的东头立着一座木头瞭望台，是给来参观的学校准备的，孩子们爬上去可以看见十块园子各自的颜色：秋天梅洛的叶子先变红，赤霞珠慢一些，白葡萄的叶子则变成金黄。瞭望台上挂着一块牌子，教大家怎么从叶子的颜色认出葡萄的品种，下面还有一行小字：「认错了也没关系，葡萄不会生气。」"
+      en: "The Merlot block of Josh Vineyard, toward the east of the upper row, on an east-facing slope that gets plenty of morning sun and falls into shade early in the afternoon, a little cooler than the blocks to the west. Merlot ripens earlier than Cabernet, with bigger, thinner-skinned berries, and makes a soft, round wine tasting of plum, cherry and chocolate, its tannins fine and good to drink young. Josh often says Cabernet is the wine you open for guests and Merlot the wine you open for yourself on a Tuesday.\nIts soil is the heaviest clay on the estate and holds water well, which suits this drought-shy variety. But clay also waterlogs, so Josh laid drains beneath the block and put soil moisture probes every few rows, wired straight into an irrigation program he wrote himself: whichever row is dry gets a few minutes of drip and no more. In the program's first year the block's water use fell by nearly half, and the winemaker says the grapes tasted more concentrated, not less.\nAt Josh Winery Merlot is mostly blended with Cabernet Sauvignon and Cabernet Franc, the share of each worked out every year by the winemaker and Josh glass by glass in the tasting room. Blending day is a big day: the long table is laid with dozens of numbered glasses and anyone may vote. One year an old worker from the plate factory picked the very proportions finally chosen, and his prize was a number plate bearing his own name, now hanging by the cellar door.\nAt the east end of the Merlot block stands a wooden lookout tower for visiting schools, from which children can see the ten blocks each in its own colour: in autumn the Merlot leaves turn red first, the Cabernet a little later, and the white grapes' leaves go gold. A board on the tower teaches how to tell the varieties by their leaves, with a line of small print beneath: 'Don't worry if you get it wrong; grapes don't mind.'"
+    in: div_jjgxvk
+    offset_km: [6.6, -1.8]
+    site: { layout: vineyard, angle_deg: 0, variant: red, size_m: [900, 700] }
+  - id: poi_has59e
+    subtype: vineyard
+    status: generated
+    names:
+      zh: 乔什葡萄园·品丽珠
+      en: Josh Vineyard – Cabernet Franc
+      es: Viñedo de Josh – Cabernet Franc
+    short_names: { zh: 品丽珠, en: Cabernet Franc, es: Cabernet Franc }
+    notes:
+      zh: "乔什葡萄园的品丽珠园，在上排最东头，紧挨着通往车牌厂的小路。品丽珠是赤霞珠的「家长」之一，比赤霞珠早熟、皮薄、颜色浅，酿出来的酒带着红色浆果、紫罗兰和一点青椒的清香，喝起来轻盈而有棱角。它在调配里常常只占一小部分，却能让整杯酒的香气一下子立起来，酿酒师说它是「酒里的高音」。\n这块园子的坡度最缓，土层最厚，园里特意留了几行试验田：同一个品种分成几种修剪方式、几种行距和几种遮阴网，每一行都插着标牌和传感器，数据汇总到乔什车库实验室的一块大屏幕上。附近几座小酒庄的果农常来这里看，乔什把试验结果整理成一个免费的小应用，叫「隔壁老乔」，拍下自家葡萄园的照片，它会告诉你哪种修剪方式在类似的坡上效果最好。\n品丽珠园的行头玫瑰是全园开得最好的，因为园子靠路，来往的人多，大家顺手浇水。乔什说这块园子教会他一件事：一个东西不必占大头，也能让整体变得更好。他的团队里有人把这句话贴在了墙上，后来发现乔什每个季度都要讲一次。\n品丽珠园尽头的小路通往车牌厂，每天傍晚换班的时候，车牌厂的工人会沿着这条路走回宿舍，路过园子时顺手拔几根杂草。乔什为此在路边放了一排小木箱，里面有手套和小铲子，箱子上写着「谢谢顺手」。几年下来，这条路边的杂草是全园最少的，园丁们说这块园子有两百多个兼职园丁，而且一个都不要工资。"
+      en: "The Cabernet Franc block of Josh Vineyard, at the east end of the upper row beside the lane to the plate factory. Cabernet Franc is one of Cabernet Sauvignon's parents, earlier-ripening, thinner-skinned and paler, and its wine smells of red berries, violets and a little green pepper, light and angular to drink. In a blend it usually makes up only a small share, yet it lifts the whole glass's aroma at once; the winemaker calls it 'the high note in the wine'.\nThis block has the gentlest slope and the deepest soil, and a few rows are kept as trial plots: one variety under several pruning methods, row spacings and shade nets, every row signposted and wired with sensors, the data gathered on a big screen in Josh's Garage Lab. Growers from small wineries nearby often come to look, and Josh turned the results into a free little app called 'Josh Next Door': photograph your own vineyard and it tells you which pruning has worked best on a slope like yours.\nThe roses at the row ends here bloom better than anywhere on the estate, because the block is by the lane and passers-by water them as they go. Josh says this block taught him one thing: something need not be the biggest part to make the whole better. Someone on his team stuck that sentence on the wall, and then noticed Josh says it once a quarter.\nThe lane at the end of the Cabernet Franc block leads to the plate factory, and at the evening shift change the plate workers walk back to their quarters along it, pulling a few weeds as they pass. So Josh set a row of little wooden boxes by the lane with gloves and trowels inside, labelled 'Thanks for the hand'. After a few years the lane side has the fewest weeds on the estate, and the gardeners say the block has more than two hundred part-time gardeners, none of whom wants paying."
+    in: div_jjgxvk
+    offset_km: [7.6, -1.8]
+    site: { layout: vineyard, angle_deg: 0, variant: red, size_m: [900, 700] }
+  - id: poi_3rt7be
+    subtype: vineyard
+    status: generated
+    names:
+      zh: 乔什葡萄园·黑皮诺
+      en: Josh Vineyard – Pinot Noir
+      es: Viñedo de Josh – Pinot Noir
+    short_names: { zh: 黑皮诺, en: Pinot Noir, es: Pinot Noir }
+    notes:
+      zh: "乔什葡萄园的黑皮诺园，在下排最西边，是全园最凉的一块：夜里山上的冷空气顺着坡流下来，在谷底积成一层薄雾，清晨常常要到九点以后才散。黑皮诺是出了名的「娇气」品种，皮薄、怕热、怕病，成熟期稍一不对就会失去香气，可一旦种对了地方，酿出来的酒颜色浅而透亮，带着樱桃、草莓、玫瑰和林下落叶的味道，是很多酿酒师一辈子想酿好的酒。\n乔什刚买下庄园时，这里种的是赤霞珠，可总也熟不透。他请人在园里装了一排气象站，记录了两年的温度和湿度，又把数据和几个古老产区的气候比较，结论是这块谷底更适合黑皮诺。拔掉老藤、换上新苗的那年冬天，他每天早上都来园里看一眼，后来大家才知道，他是在给手机上的一个新应用拍训练照片：那款应用现在能从叶子的颜色判断黑皮诺什么时候开始转色。\n黑皮诺园的果实全部用手采，装在浅浅的小筐里，免得压破。酒庄只用它酿少量的红酒和一款起泡酒，起泡酒是乔什每年赛车季开幕时在领奖台上开的那一瓶，喷出来的酒比喝下去的多。\n黑皮诺园边上有一排高高的柏树，是挡风用的：谷底夜里的风很冷，柏树能让藤架附近的温度高出一两度，又不至于挡住清晨的雾。园里的藤架比别处矮一些，果串离地面更近，能借到地面白天存下的热。每到开花的那几天，乔什会让赛车场停掉所有试车，他相信黑皮诺开花的时候喜欢安静；酿酒师说这没有科学根据，但他也不反对。"
+      en: "The Pinot Noir block of Josh Vineyard, at the west end of the lower row and the coolest on the estate: at night cold air from the mountains flows down the slope and pools on the valley floor as a thin mist, which often does not lift until after nine. Pinot Noir is famously delicate, thin-skinned and prone to heat and disease, losing its aroma if ripening goes even slightly wrong; but in the right place its wine is pale and translucent, tasting of cherry, strawberry, rose and forest floor, the wine many winemakers spend a lifetime trying to get right.\nWhen Josh bought the estate this block grew Cabernet, which never quite ripened. He had a row of weather stations installed and recorded two years of temperature and humidity, compared them with the climates of several ancient wine regions, and concluded the valley floor suited Pinot Noir better. The winter the old vines came out and the new ones went in, he came to the block every morning; only later did people learn he was taking training photos for a new app, which can now tell from a leaf's colour when Pinot Noir begins to turn.\nThe Pinot Noir is all hand-picked into shallow little baskets so the berries are not crushed. The winery makes only a small red and a sparkling wine from it, the sparkling being the bottle Josh opens on the podium at the start of each racing season, more of it sprayed than drunk.\nAlong the Pinot Noir block stands a row of tall cypresses as a windbreak: the night wind on the valley floor is cold, and the trees keep the air by the vines a degree or two warmer without shutting out the morning mist. The trellises here are lower than elsewhere, so the bunches hang nearer the ground and borrow the warmth it stores by day. During the few days of flowering Josh stops all testing at the circuit, believing Pinot Noir likes quiet when it flowers; the winemaker says there is no science in it, but does not object."
+    in: div_jjgxvk
+    offset_km: [3.6, -1.0]
+    site: { layout: vineyard, angle_deg: 0, variant: red, size_m: [900, 700] }
+  - id: poi_pd18c5
+    subtype: vineyard
+    status: generated
+    names:
+      zh: 乔什葡萄园·霞多丽
+      en: Josh Vineyard – Chardonnay
+      es: Viñedo de Josh – Chardonnay
+    short_names: { zh: 霞多丽, en: Chardonnay, es: Chardonnay }
+    notes:
+      zh: "乔什葡萄园的霞多丽园，在下排，挨着黑皮诺园，同样享受谷底的晨雾和凉夜。霞多丽是最「随和」的白葡萄之一，几乎在哪里都能种，味道却很听酿酒师的话：在不锈钢罐里发酵，酒清爽得像青苹果和柠檬；放进橡木桶里陈酿，又会变得圆润，带着黄油、烤坚果和香草的味道。乔什酒庄两种都酿，每年夏天在品酒室里并排倒给客人，请他们猜哪一杯是同一块地里的葡萄。\n霞多丽园是乔什试验「省力采收」的地方。园里的藤架拉得特别平整，行距按一台小型采收机的宽度设计，采收机夜里开工，趁葡萄最凉的时候把果实摘下来送进酒庄，白天的热不会让它们开始氧化。采收机自带摄像头，能把烂果和叶子挑出去，可乔什还是坚持在采收机后面跟一个人，「机器挑出的是坏果，人挑出的是问题」。\n霞多丽也是和黑皮诺一起酿起泡酒的另一半。每年冬天，酒庄的地窖里都会排着几百个倒插在木架上的酒瓶，工人每天把它们转动八分之一圈，让沉淀慢慢落到瓶口。乔什试过让机器人来转，结果发现工人们一边转瓶一边聊天的那几个小时，是全庄园消息传得最快的时候，于是又把这份活还给了人。\n霞多丽园的行间种着一种低矮的三叶草，能给土里固定氮，又不和葡萄藤抢水；春天三叶草开花，酒庄边上几个蜂箱里的蜜蜂成群飞来采蜜，那几天园里嗡嗡作响，酿出来的蜂蜜装进小罐，罐子上印着「霞多丽园出品」。"
+      en: "The Chardonnay block of Josh Vineyard, in the lower row beside the Pinot Noir, sharing its morning mist and cool nights. Chardonnay is one of the most easy-going white grapes, growing almost anywhere, yet its flavour does just what the winemaker asks: fermented in steel it is crisp as green apple and lemon, aged in oak it turns round and tastes of butter, toasted nuts and vanilla. Josh Winery makes both and every summer pours them side by side in the tasting room, asking guests to guess which glass came from the same plot.\nThis block is where Josh tries out 'easy harvesting'. The trellises are strung especially level and the rows spaced to the width of a small harvester, which works at night, taking the fruit while it is coolest and carrying it to the winery before the day's heat can start it oxidising. The harvester has its own cameras to sort out rotten berries and leaves, but Josh still insists on someone walking behind it: 'the machine picks out bad fruit, a person picks out problems'.\nChardonnay is also the other half, with Pinot Noir, of the sparkling wine. Every winter the cellar holds hundreds of bottles upended in wooden racks, which workers turn an eighth of a turn each day to ease the sediment down into the neck. Josh once tried robots for the job, then found that the hours the workers spent turning bottles and chatting were when news travelled fastest on the estate, and gave the work back to people.\nBetween the Chardonnay rows grows a low clover that fixes nitrogen in the soil without competing with the vines for water; when it flowers in spring, bees from the hives beside the winery swarm over it, the block hums for days, and the honey goes into little jars labelled 'Made in the Chardonnay block'."
+    in: div_jjgxvk
+    offset_km: [4.6, -1.0]
+    site: { layout: vineyard, angle_deg: 0, variant: white, size_m: [900, 700] }
+  - id: poi_2ce69a
+    subtype: vineyard
+    status: generated
+    names:
+      zh: 乔什葡萄园·长相思
+      en: Josh Vineyard – Sauvignon Blanc
+      es: Viñedo de Josh – Sauvignon Blanc
+    short_names: { zh: 长相思, en: Sauvignon Blanc, es: Sauvignon Blanc }
+    notes:
+      zh: "乔什葡萄园的长相思园，在下排正中，正对着赛车场的看台。长相思是一种香气很「直接」的白葡萄，酿出来的酒有青草、青柠、百香果和刚割过的草坪的味道，酸度清亮，适合年轻时趁新鲜喝，不需要在橡木桶里等。乔什说它是「最像夏天的酒」，每年赛车季的看台上卖得最多的就是这一款。\n长相思长得快，叶子茂密，果串容易被自己的叶子挡住，晒不到太阳就会带出过重的青椒味，晒得太多又会失去香气。所以这块园子每年夏天都要摘几次叶，把果串露出一半：朝东的一面摘掉，让果实吃到上午温和的阳光；朝西的一面留着，挡住下午的烈日。摘哪片、留哪片，原先全凭老园丁的经验，现在乔什的应用会根据每一行的朝向和当天的天气预报给出建议，老园丁看了一年后说，「它跟我想的差不多，就是比我起得早」。\n因为离赛道近，长相思园的葡萄被戏称为「听着引擎长大的葡萄」。酿酒师曾经认真地做过一次对比，把赛道边和园子另一头的葡萄分开酿，结果喝不出任何区别，可这款酒的酒标上还是印着一面小小的方格旗。\n长相思园的南头是全园离看台最近的地方，赛车季的周末，看台上的观众常常一边看比赛一边看着园里的葡萄，有人干脆在看台上办起品酒会，用手里的杯子和眼前的葡萄做对照。乔什后来在看台边加了一块屏幕，比赛间隙播放这块园子从发芽到采收的延时摄影，观众说这是「全世界最慢的比赛」。"
+      en: "The Sauvignon Blanc block of Josh Vineyard, in the middle of the lower row, facing the grandstands of the racing circuit. Sauvignon Blanc is a white grape with a very 'direct' aroma, its wine smelling of grass, lime, passion fruit and new-mown lawn, its acidity bright, made to drink young and fresh without waiting in oak. Josh calls it 'the most summery wine', and it is the best seller in the grandstands every racing season.\nIt grows fast with dense leaves, and the bunches are easily shaded by their own foliage; without sun they turn too green-peppery, with too much they lose their aroma. So every summer the block is leafed several times to half-expose the bunches: the east side stripped so the fruit gets the gentle morning sun, the west side left to screen the afternoon glare. Which leaves to pull and which to leave was once purely the old gardener's judgement; now Josh's app suggests it from each row's aspect and the day's forecast, and after a year of watching it the old gardener said, 'it thinks much as I do, it just gets up earlier'.\nBeing near the circuit, these grapes are teasingly called 'grapes raised on engine noise'. The winemaker once seriously compared them, making the fruit from beside the track and from the far end of the block separately, and nobody could taste any difference; the label still carries a little chequered flag.\nThe south end of the Sauvignon Blanc block is the nearest point of the vineyard to the grandstands, and on racing-season weekends spectators often watch the grapes as well as the race; some hold tastings right in the stands, comparing the glass in hand with the vines in front of them. Josh later added a screen beside the stands that shows, between races, a time-lapse of this block from budburst to harvest, which the crowd calls 'the slowest race in the world'."
+    in: div_jjgxvk
+    offset_km: [5.6, -1.0]
+    site: { layout: vineyard, angle_deg: 0, variant: white, size_m: [900, 700] }
+  - id: poi_5q7aje
+    subtype: vineyard
+    status: generated
+    names:
+      zh: 乔什葡萄园·雷司令
+      en: Josh Vineyard – Riesling
+      es: Viñedo de Josh – Riesling
+    short_names: { zh: 雷司令, en: Riesling, es: Riesling }
+    notes:
+      zh: "乔什葡萄园的雷司令园，在下排偏东，是全园海拔最低、最凉的一块，冬天偶尔会结一层薄霜。雷司令是一种来自寒冷地方的白葡萄，酸度高，香气纯净，年轻时像青苹果、白桃和柑橘花，放上十几年会慢慢生出蜂蜜和一种奇特的汽油味，懂酒的人把这种味道当成雷司令陈年的标志。它可以酿成干型，也可以酿成甜型，甜得像蜜，酸又让它一点都不腻。\n雷司令园里有乔什最得意的一项设施：一套藏在藤架下的气象网，每隔几十米就有一个温度传感器，园子边上还立着两台防霜风扇和一排喷雾管。每到深秋，酿酒师会特意留下几行葡萄不摘，等它们在藤上慢慢缩水、糖分越来越浓，有的年份还能等到一场早霜，把冻住的葡萄连夜摘下来压榨，酿成少量的冰酒。那一夜全庄园的人都会被手机叫醒，打着头灯来园里帮忙，摘完以后在酒庄里喝热巧克力。\n乔什说雷司令是最有耐心的葡萄，它教人等待。他的团队里流传着一句话：「应用可以每周更新，雷司令要等十年。」每年冰酒酿成，乔什都会留一瓶，写上那一年最难忘的事，存进酒窖最里面的架子，打算等哪天老了，一瓶一瓶打开来回忆。\n雷司令园的边上有一座小小的观测塔，塔顶装着一台测量霜冻的仪器和一个喇叭，霜冻来临之前，喇叭会先放一段音乐，让附近宿舍里的人有个准备；那段音乐是庄园里的人投票选出来的，到现在都没有换过。"
+      en: "The Riesling block of Josh Vineyard, toward the east of the lower row, the lowest and coolest on the estate, now and then frosted in winter. Riesling is a white grape from cold places, high in acid and pure in aroma: young it is green apple, white peach and orange blossom, and after a decade or more it slowly develops honey and a curious petrol note that connoisseurs take as the mark of an aged Riesling. It can be made dry or sweet, sweet as honey yet never cloying for its acidity.\nThe Riesling block holds the facility Josh is proudest of: a weather network hidden under the trellises, a temperature sensor every few dozen metres, with two frost fans and a line of misting pipes along the edge. Each late autumn the winemaker leaves a few rows unpicked to shrivel slowly on the vine as their sugar concentrates, and in some years an early frost comes, when the frozen grapes are picked through the night and pressed for a little ice wine. That night everyone on the estate is woken by their phones and comes out with head torches to help, and afterwards they drink hot chocolate in the winery.\nJosh calls Riesling the most patient grape, one that teaches you to wait. A saying goes round his team: 'apps update every week, Riesling waits ten years.' Each year when the ice wine is made Josh keeps a bottle, writes on it the most memorable thing of that year and puts it on the innermost rack of the cellar, meaning one day, when he is old, to open them one by one and remember.\nAt the edge of the Riesling block stands a small observation tower topped by a frost gauge and a loudspeaker, which before a frost first plays a piece of music so that people in the quarters nearby can get ready; the music was chosen by a vote of everyone on the estate and has never been changed."
+    in: div_jjgxvk
+    offset_km: [6.6, -1.0]
+    site: { layout: vineyard, angle_deg: 0, variant: white, size_m: [900, 700] }
+  - id: poi_pq0q2f
+    subtype: vineyard
+    status: generated
+    names:
+      zh: 乔什葡萄园·维欧尼
+      en: Josh Vineyard – Viognier
+      es: Viñedo de Josh – Viognier
+    short_names: { zh: 维欧尼, en: Viognier, es: Viognier }
+    notes:
+      zh: "乔什葡萄园的维欧尼园，在下排最东头，是全园最小、最年轻的一块。维欧尼是一种香气浓烈的白葡萄，酿出来的酒有杏子、桃子、金银花和橙花的味道，质地丰满，酸度却不高，所以采收的时机格外要紧：早一天香气还没出来，晚一天酒就会变得沉闷。它曾经一度稀少到只剩一小片山坡还在种，是后来的酿酒师们一点一点把它救了回来。\n这块园子是露西送给乔什的礼物。有一年乔什生日，露西从朋友那里找来一批维欧尼的苗，连同一张手写卡片一起送到庄园，卡片上写着：「芯片要良率，葡萄也要。」乔什把它们种在离车牌厂最近的这片空地上，还专门做了一个小应用，每天把维欧尼园的糖度、酸度和天气画成曲线，自动推送给露西，于是露西成了这块园子最认真的「远程园丁」，常常半夜发消息来问今天的糖度为什么掉了一点。\n维欧尼园的葡萄一部分单独酿成白葡萄酒，一部分和西拉一起发酵，酿成那款叫「朋友」的红酒。酒庄的品酒单上，维欧尼旁边印着一行小字：「种植：乔什；监督：露西」。来品酒的客人总要问露西是谁，酒庄的人就会指着西北方向说，「山那边造芯片的那位」。\n露西第一次来看这块园子时，在园头种下了一棵橄榄树，说是给葡萄做伴；橄榄树长得很慢，到现在才和人一样高。乔什在树下放了一把长椅，椅背上刻着「给远程园丁留的座位」，露西每次来都会在这里坐一会儿。"
+      en: "The Viognier block of Josh Vineyard, at the east end of the lower row, the smallest and youngest on the estate. Viognier is an intensely aromatic white grape whose wine smells of apricot, peach, honeysuckle and orange blossom, full-bodied but low in acid, so the moment of picking matters all the more: a day early and the aroma has not arrived, a day late and the wine goes dull. It once became so rare that only one small hillside still grew it, until later winemakers brought it back bit by bit.\nThis block was a present from Lucy. One year for Josh's birthday Lucy found a batch of Viognier cuttings through friends and sent them to the estate with a hand-written card: 'Chips need yield, so do grapes.' Josh planted them on this plot nearest the plate factory and made a small app just for it, which draws the block's sugar, acidity and weather as curves every day and sends them to Lucy, so Lucy became the block's most devoted 'remote gardener', often messaging in the middle of the night to ask why the sugar had dropped a little today.\nPart of the Viognier is made into a white wine on its own, and part is fermented with Syrah for the red called 'Friend'. On the winery's tasting list a line of small print stands beside the Viognier: 'Grown by Josh; supervised by Lucy.' Visitors always ask who Lucy is, and the staff point north-west and say, 'the one over the hills who makes chips'.\nWhen Lucy first came to see this block she planted an olive tree at its head, to keep the grapes company; olives grow slowly, and it is only now as tall as a person. Josh put a bench beneath it with 'Reserved for the remote gardener' carved on the back, and Lucy sits there a while on every visit."
+    in: div_jjgxvk
+    offset_km: [7.6, -1.0]
+    site: { layout: vineyard, angle_deg: 0, variant: white, size_m: [900, 700] }
+  - id: poi_8jh5xy
+    subtype: winery
+    status: generated
+    names:
+      zh: 乔什酒庄
+      en: Josh Winery
+      es: Bodega de Josh
+    notes:
+      zh: "乔什葡萄园十个品种的葡萄都在这里变成酒。酒庄在葡萄园西头的坡脚下，一进门是露天的压榨场，采收季的清晨，一筐筐葡萄从各块园子运来，先在分拣台上过一遍，再按品种分别去梗、破皮。旁边是发酵车间，室外的不锈钢罐排成三排，每个罐身上都贴着品种、园块和采收日期；红葡萄连皮带籽一起发酵，工人每天几次把浮到表面的果皮压下去，整个车间飘着又甜又酸的果香。\n酒庄最好看的部分藏在地下：陈酿酒窖挖进了山坡，屋顶上铺着草，从外面看只是一片绿色的斜坡，里面却是一排排长长的拱顶走廊，几千只橡木桶静静躺在恒定的凉意里。酒窖最里面的架子存着乔什每年留下的那瓶冰酒，瓶身上写着那一年最难忘的事。装瓶车间在酒窖旁边，一条小小的生产线每天能装几千瓶，酒标上的字是乔什的应用帮小酒庄设计酒标时顺便设计出来的。\n品酒室在酒庄最高的地方，一面墙全是玻璃，望得见下面的葡萄园、赛车场和远处的车牌厂；门外是一个木头露台和一个小池塘，夏天的傍晚，庄园的人常常带着自己的杯子来这里坐一会儿。乔什酒庄的酒大部分不卖，留给庄园里的人、朋友和赛车季的看台；卖掉的那一小部分，收入全部用来给附近小酒庄的果农办免费的技术课。\n酒庄门口有一间小小的教室，每年冬天给附近的果农上课，讲修剪、病害和酿酒，课本是乔什的团队用应用整理出来的，每年按学员提的问题重新编一遍。"
+      en: "All ten varieties of Josh Vineyard become wine here. The winery stands at the foot of the slope at the west end of the vineyard. Inside the gate is the open-air crush pad, where on harvest mornings basket after basket arrives from the blocks, passes over the sorting table and is destemmed and crushed variety by variety. Beside it is the fermentation hall, its steel tanks outdoors in three rows, each labelled with variety, block and picking date; the reds ferment with their skins and seeds, and several times a day workers push down the skins that float to the top, filling the hall with a sweet-sour smell of fruit.\nThe winery's finest part is underground. The barrel cellar is dug into the hillside under a grassed roof, so from outside it is just a green slope, but inside are long rows of vaulted corridors where thousands of oak barrels lie still in a constant chill. Its innermost rack holds the bottle of ice wine Josh keeps each year, inscribed with that year's most memorable thing. The bottling hall is next to the cellar, a small line filling a few thousand bottles a day, its label lettering a by-product of the app Josh made to help small wineries design labels.\nThe tasting room is at the top of the winery, one wall all glass, looking down on the vineyard, the circuit and the plate works beyond; outside are a wooden terrace and a small pond, and on summer evenings people from the estate often bring their own glasses and sit here a while. Most of Josh Winery's wine is not sold but kept for the estate, friends and the racing-season grandstands; all the income from the small part that is sold pays for free technical classes for growers at the small wineries nearby.\nBy the winery gate is a small classroom where every winter growers from nearby are taught pruning, vine diseases and winemaking, from a textbook Josh's team compiles with an app and rewrites each year from the questions the students ask."
+    in: div_jjgxvk
+    offset_km: [2.4, -1.4]
+    site: { layout: works, variant: winery, size_m: [700, 450] }
+  - id: poi_t6nvhf
+    subtype: racetrack
+    status: generated
+    names:
+      zh: 乔什庄园赛车场
+      en: Josh Estate Circuit
+      es: Circuito de la Hacienda Josh
+    notes:
+      zh: "乔什的私人赛车场，占了庄园谷地的大半，赛道全长约十二公里，有十六个弯，从主直道出发，先是一个高速的右弯，接着是一串左右交替的「葡萄藤弯」，再爬上东北角的发夹弯，从那里能看见整片葡萄园；回程经过一段穿过内场的慢速弯，最后冲上主直道。赛道宽十五米左右，弯道外侧铺着碎石缓冲区，护栏后面是为观众留的草坡。乔什说他把赛道设计成「每一圈都能学到点什么」：高速弯考胆量，慢速弯考耐心，发夹弯考有没有在看风景。\n主直道旁边是维修区：一排车库、一条维修通道、一座赛事控制塔和后面的围场停车场，车库里停着乔什收藏的赛车，也停着来试车的年轻车手的旧车。直道外侧是几座看台和一大片观众停车场，赛车季的周末，圣塞雷娜城里的人会带着野餐篮来，看台上卖的是乔什酒庄的长相思和热狗。内场里还有一条卡丁车道和一块圆形的漂移练习场，孩子们的卡丁车课是免费的；北边沿着庄园边界是一条笔直的直线加速道，晚上常有人来比谁的车起步快。\n赛车场也是乔什做应用的试验场。每辆车上都装着记录仪，数据实时传到控制塔，他的应用会在车手下车后用一两句话告诉他刚才哪里慢了；新手车手说这比教练还严格，老车手说它至少不会叹气。乔什自己每周都会跑几圈，成绩贴在车库墙上，排名一直在中间，他说这正合适，「最快的人不需要我的应用」。"
+      en: "Josh's private racing circuit, taking up most of the estate's valley floor. The track is about twelve kilometres long with sixteen corners: from the main straight a fast right-hander, then a chain of alternating left and right 'Vine Bends', a climb to the hairpin in the north-east corner from which the whole vineyard is in view, and back through a slow section across the infield before the run onto the main straight. The track is about fifteen metres wide, with gravel run-off outside the corners and grass banks for spectators behind the barriers. Josh says he designed it so that 'every lap teaches you something': the fast corners test nerve, the slow ones patience, and the hairpin whether you were looking at the view.\nBeside the main straight are the pits: a row of garages, the pit lane, the race-control tower and the paddock car park behind, the garages holding Josh's racing cars and the old cars of young drivers who come to test. Outside the straight are several grandstands and a large spectators' car park; on racing-season weekends people come from Santa Serena with picnic baskets, and the stands sell Josh Winery's Sauvignon Blanc and hot dogs. The infield also has a karting track and a round skid pan, and children's karting lessons are free; along the estate's northern edge runs a dead-straight drag strip, where people often come at night to see whose car gets away fastest.\nThe circuit is also the proving ground for Josh's apps. Every car carries a logger streaming data live to the tower, and after a driver climbs out, his app tells them in a sentence or two where they lost time; novices say it is stricter than a coach, veterans say at least it does not sigh. Josh runs a few laps himself every week, his times pinned on the garage wall, always mid-table, which he says is just right: 'the fastest people don't need my app'."
+    in: div_jjgxvk
+    offset_km: [4.5, 2.0]
+    site: { layout: racetrack, size_m: [4500, 2800] }
+  - id: poi_19x1za
+    subtype: factory
+    status: generated
+    names:
+      zh: 乔什车牌厂
+      en: Josh Number-Plate Works
+      es: Fábrica de Matrículas de Josh
+    notes:
+      zh: "庄园东北角的车牌厂，全州的个性车牌大多在这里制造。进厂先看到的是铝卷堆场，一卷卷银色的铝板整齐地码在露天的架子上；铝卷送进主车间，先被剪成一块块标准大小的空白牌，再进入压字机，按订单把字母和数字一个个压凸出来。旁边细长的厂房是喷涂线，空白牌在这里刷上底色和州旗上的那只棕熊，压凸的字再滚上一层墨，送进烘干炉烤干。成品经过质检、装箱，从厂区南边的仓库和装卸月台装上货车，送往全州各地的车管所。\n乔什办这座厂的起因很简单：他喜欢车，也喜欢车牌上那几个字能讲的故事。加州的个性车牌一向很受欢迎，人们愿意多付一点钱，让自己的车牌上写着孩子的名字、宠物的名字或者一句只有自己懂的玩笑。乔什的团队给车牌厂做了一个应用，用一句话描述想要的车牌，它会给出几个方案，检查有没有和别人重复，再提醒你那几个字母会不会在别的语言里念出不太雅的意思，过去要等几个星期的审批，现在几分钟就能下单。\n车牌厂有两百多名工人，工资在全州同类工厂里算高的，每周五下午提前下班去赛车场看试车。厂门口的访客中心里有一面「车牌墙」，挂着厂里做过的几千块最有趣的车牌，从「我爱奶奶」到「还在加载」，参观的人常常在墙前笑出声。墙的正中间挂着两块不卖的车牌，一块写着乔什，一块写着露西。"
+      en: "The number-plate works in the north-east corner of the estate, where most of the state's personalised plates are made. First comes the aluminium coil yard, silver coils stacked neatly on open racks; the coils go into the main hall, are cut into standard-sized blank plates and then pass through the embossing presses, which raise the letters and numbers one by one to order. The long, narrow building beside it is the painting line, where blanks get their background and the bear from the state flag, the raised characters are rolled with ink and the plates are baked dry in the curing oven. Finished plates are inspected and boxed and leave by lorry from the warehouse and loading docks at the south of the site for vehicle offices across the state.\nJosh started the works for a simple reason: he likes cars, and he likes the stories a few characters on a plate can tell. California's personalised plates have always been popular, people gladly paying a little more for a plate with a child's name, a pet's name or a joke only they understand. Josh's team made the works an app: describe the plate you want in a sentence and it offers a few designs, checks none is taken and warns you if the letters read as something rude in another language; approval that once took weeks now takes minutes.\nThe works has more than two hundred workers, paid well above similar factories in the state, who knock off early on Friday afternoons to watch testing at the circuit. The visitor centre by the gate has a 'plate wall' hung with thousands of the funniest plates the works has made, from 'I LUV GRAN' to 'STILL LOADING', and visitors often laugh out loud in front of it. In the very middle hang two plates that are not for sale, one reading JOSH and the other LUCY."
+    in: div_jjgxvk
+    offset_km: [6.0, 6.5]
+    site: { layout: works, variant: plates, size_m: [1200, 800] }
+
+  # ── 露西芯城区 ──
+  - id: poi_hj2ap8
+    subtype: mansion
+    status: generated
+    names:
+      zh: 露西宅邸
+      en: Lucy's House
+      es: Casa de Lucy
+    notes:
+      zh: "露西的家，在露西芯城区盆地东边的山坡上，背后是一路升到海拔 1652 米的露西峰，前面望得见整座芯城：南边是几座晶圆厂银白色的长方形屋顶和冷却塔升起的白汽，西边是动物园十四座各不相同的场馆。露西年轻时在好几家芯片公司和存储公司工作过，做过工艺工程师、良率分析和存储产品的设计，跟着行业经历了几轮起落，后来积累了大量财富。她说自己的财富来自「把每一片晶圆上坏掉的芯片再少一点」，所以她对任何事都追问良率，包括宅邸花园里的玫瑰。\n宅邸是一座两翼对称的白房子，比乔什家更安静一些：东翼是书房和一间小小的洁净室，露西退休后仍喜欢在显微镜下看芯片的截面；西翼是厨房和客房，乔什来吃饭时总住同一间。泳池平台朝西，傍晚能看见夕阳落在动物园的鸟馆网罩上；草坪尽头三栋小客屋住着来访的工程师、兽医和牙医朋友。车库旁的直升机坪是庄园里用得最勤的，因为露西每周都要飞去乔什那里看看她的维欧尼园。\n露西家的客厅里挂着一排镶了框的晶圆，每一片都来自她工作过的一家公司，从最早的小尺寸晶圆一直到后来的大晶圆，像一面行业的家谱。客人来了，她会一片一片讲它们的故事，讲到最后总会指着窗外的芯城说：「这一片还没做完。」\n宅邸门口的小路两边种着一排葡萄藤，是乔什送来的维欧尼插条，露西说这样每天进门都能想起朋友家。"
+      en: "Lucy's home, on the hillside east of the basin in Lucy Chip City District, with Mount Lucy rising behind it to 1,652 m and the whole Chip City in view below: to the south the long silver-white roofs of the fabs and the white plumes of their cooling towers, to the west the fourteen different houses of the zoo. In her younger years Lucy worked at several chip companies and memory companies, as a process engineer, in yield analysis and in memory product design, riding several of the industry's ups and downs, and later built up a great fortune. She says her fortune came from 'a few less broken chips on every wafer', so she asks about yield in everything, including the roses in her garden.\nThe house is a white building with matching wings, a little quieter than Josh's: the east wing holds her study and a small cleanroom, where in retirement she still likes to look at chip cross-sections under the microscope; the west wing holds the kitchen and the guest rooms, Josh always staying in the same one when he comes to dinner. The pool terrace faces west, and in the evening the sunset falls on the netting of the zoo's aviary; the three cottages at the end of the lawn house visiting engineers, vets and dentist friends. The helipad by the garage is the busiest on the estate, since Lucy flies over to Josh's every week to look at her Viognier.\nIn Lucy's living room hangs a row of framed wafers, each from a company she worked for, from the earliest small wafers to the later large ones, like a family tree of the industry. When guests come she tells the story of each, and at the end always points at the Chip City out of the window: 'this one isn't finished yet.'\nThe path to the door is lined with vines grown from Viognier cuttings Josh sent, which Lucy says remind her of her friend's place every time she comes home."
+    in: div_zmb3gb
+    offset_km: [-6.2, 1.0]
+    site: { layout: estate, size_m: [900, 700], angle_deg: -90 }
+  - id: poi_qnntjs
+    subtype: research_institute
+    status: generated
+    names:
+      zh: 露西芯片设计中心
+      en: Lucy Chip Design Centre
+      es: Centro de Diseño de Chips Lucy
+    notes:
+      zh: "露西芯城的「大脑」，所有在芯城制造的芯片都从这里开始。设计中心是一片低矮的园区，十几栋楼散布在橡树和草坡之间，楼与楼之间用有顶的连廊相连，下雨天也不用打伞。这里有几千名工程师，分成架构、前端设计、验证、物理设计和测试几个部门：架构师在白板上画出芯片要做什么，前端工程师把它写成硬件描述代码，验证工程师用成千上万个测试去找其中的错误，物理设计工程师再把几十亿个晶体管摆进指甲盖大小的面积里，最后交给晶圆厂做成光罩。\n露西给设计中心定了几条规矩：每个新项目的第一周，设计工程师要去晶圆厂的洁净室里待一天，看看自己的设计将来是怎么被做出来的；每颗芯片流片之前，要请一位从没参与过这个项目的工程师来「挑刺」；每次流片成功，全中心都放半天假，到动物园去野餐。中心里有一台很大的计算机集群，专门用来跑仿真和验证，夜里也不停，它的散热用的是从晶圆厂冷却塔分出来的循环水。\n设计中心也和乔什的团队合作，把人工智能用在芯片设计上：帮工程师自动生成测试、检查布线、预测哪一块电路最可能出问题。露西对这些工具很欢迎，但有一条底线，「最后签字的必须是一个人」。园区门口的石头上刻着她最喜欢的一句话：「每一个晶体管都要有人在乎。」"
+      en: "The 'brain' of Lucy's Chip City, where every chip made there begins. The design centre is a low campus of a dozen or so buildings scattered among oaks and grassy slopes, joined by covered walkways so nobody needs an umbrella on rainy days. Several thousand engineers work here in architecture, front-end design, verification, physical design and test: architects sketch on whiteboards what a chip must do, front-end engineers write it as hardware description code, verification engineers hunt for its errors with tens of thousands of tests, and physical designers fit billions of transistors into an area the size of a fingernail before handing it to the fab to be made into masks.\nLucy set the centre a few rules: in the first week of every new project the designers spend a day in a fab's cleanroom to see how their design will be made; before every tape-out an engineer who never worked on the project is brought in to pick holes; and after every successful tape-out the whole centre gets half a day off for a picnic at the zoo. The centre has a large computing cluster just for simulation and verification, running through the night and cooled by water drawn off the fabs' cooling towers.\nThe centre also works with Josh's team on AI in chip design, tools that generate tests automatically, check the wiring and predict which block of circuitry is most likely to go wrong. Lucy welcomes them with one bottom line: 'the last signature must be a person's.' A stone at the campus gate is carved with her favourite saying: 'Every transistor deserves someone who cares.'"
+    in: div_zmb3gb
+    offset_km: [-6.5, -5.6]
+    site: { layout: campus, size_m: [1200, 800], rural: true }
+  - id: poi_mz8wrn
+    subtype: chip_fab
+    status: generated
+    names:
+      zh: 露西一号逻辑晶圆厂
+      en: Lucy Fab 1 (Logic)
+      es: Fábrica de Obleas Lucy 1 (Lógica)
+    short_names: { zh: 一号晶圆厂, en: Fab 1, es: Fábrica 1 }
+    notes:
+      zh: "露西芯城的第一座晶圆厂，专门制造逻辑芯片，也就是电脑、手机和数据中心里负责「思考」的那些处理器。厂区中央是一座长方形的洁净厂房，长四百多米，里面是几层楼高的超净车间：空气每分钟要过滤好几遍，每立方米里的尘埃比外面的空气少几万倍，工人穿着从头包到脚的「兔子服」，进去之前要过风淋室。车间里排着几百台光刻机、刻蚀机、薄膜沉积机和检测设备，一片片晶圆装在密封的小盒里，沿着天花板上的轨道在机台之间来回穿梭，一片晶圆要走过一千多道工序、花两三个月才能做完。\n洁净厂房东边是中央动力楼，两者之间用几条连廊相连，里面是给车间供电、供冷、供气的设备；动力楼旁边一排冷却塔日夜冒着白汽。厂区西北角是大宗气体和化学品站，一排排储罐里装着氮气、氢气和各种特殊气体；北边是超纯水厂和废水处理池，晶圆每做一步都要用超纯水冲洗，用过的水经过处理后，大部分又回到厂里循环使用。厂区门口是办公楼和员工停车场，再往外是围墙和门岗。\n露西对一号厂最在乎的数字是良率：每片晶圆上能用的芯片占多少。厂里有一块很大的屏幕，实时显示每条产线当天的良率，数字升了，车间里的人会互相击掌；降了，露西会亲自来车间，和工程师一起站在显微镜前找原因。工程师们说，她不是来问责的，是来「一起找那颗灰尘」的。"
+      en: "The first fab of Lucy's Chip City, making logic chips, the processors that do the 'thinking' in computers, phones and data centres. At the centre of the site is a rectangular cleanroom building more than four hundred metres long, holding several storeys of ultra-clean production floor: the air is filtered several times a minute and holds tens of thousands of times less dust per cubic metre than the air outside, and workers wear head-to-toe 'bunny suits' and pass through air showers to go in. Hundreds of lithography, etching, deposition and inspection tools stand in rows, and wafers in sealed pods shuttle between them on tracks in the ceiling; a wafer passes through more than a thousand steps over two or three months before it is done.\nEast of the cleanroom is the central utility building, joined to it by covered bridges, with the plant supplying power, cooling and gases; a row of cooling towers beside it steams day and night. In the north-west corner is the bulk gas and chemical yard, rows of tanks of nitrogen, hydrogen and speciality gases; to the north are the ultrapure water plant and the wastewater basins, since wafers are rinsed in ultrapure water at every step, and most of the used water returns to the plant after treatment. By the gate are the offices and the staff car park, and beyond them the wall and the guardhouse.\nThe number Lucy cares most about at Fab 1 is yield, the share of good chips on each wafer. A big screen shows every line's yield for the day in real time; when the number rises people high-five on the floor, and when it falls Lucy comes in person to stand at the microscope with the engineers looking for the cause. The engineers say she does not come to blame anyone but 'to find that speck of dust together'."
+    in: div_zmb3gb
+    offset_km: [-9.5, -3.2]
+    site: { layout: fab, variant: logic, size_m: [2000, 1400] }
+  - id: poi_5fe849
+    subtype: chip_fab
+    status: generated
+    names:
+      zh: 露西存储晶圆厂
+      en: Lucy Memory Fab
+      es: Fábrica de Obleas de Memoria Lucy
+    short_names: { zh: 存储晶圆厂, en: Memory Fab, es: Fábrica de Memoria }
+    notes:
+      zh: "露西芯城的存储芯片厂，制造内存和闪存，是露西最有感情的一座厂：她职业生涯里最长的一段，就是在存储公司里度过的。存储芯片和逻辑芯片不同，它的电路几乎是同一个小单元重复几十亿次，比的是谁能把单元做得更小、叠得更高、价格更低。露西常说存储是芯片行业里「最诚实也最残酷」的生意：价格一年能涨一倍，也能跌一半，熬过低谷的公司才能等到下一个高峰。\n厂区有两座并排的洁净厂房，各自连着中央动力楼，北边还留着一大块平整好的空地，是给第三座厂房预备的。露西说要等到「行业真正需要它的时候」再盖，不追风口，也不怕被说保守。闪存车间里最引人注目的是一排排刻蚀机，它们要在晶圆上挖出几百层深的细孔，再一层层填进存储单元，工程师形容这像是「在一根头发丝里盖一座摩天楼」。厂区南边是超纯水厂和废水处理池，西边是气体站和员工停车场，冷却塔沿着东侧一字排开。\n存储晶圆厂的员工里有不少是露西从前的同事，有些已经退休，被她请回来带新人。厂里每年办一次「低谷故事会」，老员工讲自己经历过的最难熬的那几年，讲怎么熬过来。露西每次都坐在第一排，听到最后总会补一句：「所以现在要多存一点，不只是数据。」\n厂区北边那块留给第三座厂房的空地，平时被员工们当成足球场，周末的比赛分成「内存队」和「闪存队」，露西每次都当裁判，判罚出了名的公平。"
+      en: "The memory fab of Lucy's Chip City, making DRAM and flash, and the fab Lucy feels most for: the longest stretch of her career was spent at memory companies. Memory differs from logic in that its circuitry is almost the same tiny cell repeated billions of times, and the contest is who can make the cell smaller, stack it higher and sell it cheaper. Lucy often calls memory the chip industry's 'most honest and most brutal' business: prices can double in a year or halve, and only the companies that last out the trough live to see the next peak.\nThe site has two cleanroom buildings side by side, each linked to the central utility building, with a large levelled plot to the north kept for a third. Lucy says it will be built 'when the industry truly needs it', neither chasing fashions nor minding being called cautious. The most striking things on the flash floor are the rows of etchers, which must cut holes hundreds of layers deep into the wafer to be filled layer by layer with memory cells; the engineers liken it to 'building a skyscraper inside a strand of hair'. South of the buildings are the ultrapure water plant and wastewater basins, to the west the gas yard and staff car park, and the cooling towers line the east side.\nMany of the fab's staff are Lucy's former colleagues, some of them retired and brought back by her to train newcomers. Every year the fab holds a 'trough stories' evening, where veterans tell of the hardest years they lived through and how they got through them. Lucy always sits in the front row, and at the end always adds: 'So save a little more now, and not just data.'\nThe plot to the north kept for the third building serves meanwhile as the staff football pitch, where weekend matches pit 'Team DRAM' against 'Team Flash'; Lucy always referees, famous for her fairness."
+    in: div_zmb3gb
+    offset_km: [-6.8, -3.6]
+    site: { layout: fab, variant: memory, size_m: [2400, 1600] }
+  - id: poi_rpegsr
+    subtype: chip_fab
+    status: generated
+    names:
+      zh: 露西封装测试厂
+      en: Lucy Packaging and Test Plant
+      es: Planta de Encapsulado y Pruebas Lucy
+    short_names: { zh: 封装测试厂, en: Packaging and Test, es: Encapsulado y Pruebas }
+    notes:
+      zh: "晶圆厂做出来的是一整片布满芯片的圆盘，要变成能装进电脑和手机里的芯片，还得经过封装测试厂。这座厂在芯城西头，是九座整齐排列的中型厂房：第一排做晶圆测试和切割，用探针逐颗检查芯片，再用金刚石刀或激光把晶圆切成一颗颗小方块；第二排做封装，把芯片粘到基板上，用比头发还细的金线或铜柱把它和外面的引脚连起来，再用树脂包起来；第三排做先进封装，把几颗不同的芯片像搭积木一样并排或叠起来，装进同一个封装里。\n厂区东边是一座大仓库，成品芯片在这里分类、贴标、装进防静电的托盘，保税仓库旁边的装卸月台每天都有货车进出。厂房之间的通道上跑着无人搬运车，但最后一道外观检查仍由工人在放大镜下完成，露西说「机器能告诉你哪颗坏了，人能告诉你为什么让人不舒服」。厂区门口是办公楼和停车场，四周是围墙。\n露西特别看重这座厂，因为她认为芯片行业的下一个突破很可能不在晶体管本身，而在怎样把它们「装」在一起。厂里有一间展示室，玻璃柜里陈列着从最早的双列直插封装到如今几十颗芯片叠在一起的先进封装，旁边写着每一种封装的引脚数。参观的小学生最喜欢那颗只有米粒大小的芯片，讲解员会让他们猜它里面有多少个晶体管，没有一个孩子猜得够多。\n封装测试厂每年会挑出一颗测试结果最完美的芯片，装进一个小玻璃盒，送给当年新员工里表现最好的那一位。"
+      en: "A fab turns out a whole disc covered in chips; to become chips that fit inside computers and phones, they must go through packaging and test. This plant at the west end of Chip City is nine mid-sized buildings in neat rows: the first row does wafer test and dicing, probing every chip and then cutting the wafer into tiny squares with diamond blades or lasers; the second does packaging, bonding each chip to a substrate, connecting it to the outside pins with gold wires finer than a hair or with copper pillars and sealing it in resin; the third does advanced packaging, setting several different chips side by side or stacked like building blocks in a single package.\nOn the east of the site is a big warehouse where finished chips are sorted, labelled and packed in antistatic trays, and lorries come and go every day at the docks beside the bonded store. Driverless carts run along the aisles between the buildings, but the final visual check is still done by workers under magnifiers: Lucy says 'machines can tell you which one is broken, people can tell you why it looks wrong'. Offices and the car park are by the gate, and a wall surrounds it all.\nLucy values this plant especially, believing the industry's next breakthrough may well lie not in the transistor itself but in how chips are put together. A showroom displays in glass cases everything from the earliest dual in-line packages to today's advanced packages with dozens of chips stacked together, each labelled with its pin count. Visiting schoolchildren love the chip no bigger than a grain of rice, and the guide asks them to guess how many transistors are inside; no child ever guesses high enough.\nEvery year the plant picks the chip with the most perfect test results, seals it in a little glass case and gives it to the best of that year's new staff."
+    in: div_zmb3gb
+    offset_km: [-12.2, -3.0]
+    site: { layout: fab, variant: packaging, size_m: [1500, 1000] }
+  - id: poi_mf7dvr
+    subtype: chip_fab
+    status: generated
+    names:
+      zh: 露西光罩厂
+      en: Lucy Mask Shop
+      es: Taller de Fotomáscaras Lucy
+    short_names: { zh: 光罩厂, en: Mask Shop, es: Fotomáscaras }
+    notes:
+      zh: "光罩是芯片的「底片」：一块极其平整的石英玻璃，上面用铬画着芯片某一层的电路图案。光刻机用光透过光罩，把图案缩小投影到晶圆上，一颗芯片往往要几十块光罩，一层一块。露西光罩厂就是为芯城的晶圆厂制作这些底片的地方，是芯城里最小、也最安静的一座厂。\n厂房是一座方正的建筑，里面的洁净度比晶圆厂还要高。设计中心交来的电路数据，先在计算机上做修正，把光在传播中会变形的地方提前「画歪」，好让投影到晶圆上时恰好变直；然后由电子束写入机在石英板上一笔一笔地写出图案，一块光罩要写上十几个小时；写好以后要经过检测、修补和清洗，再装进防尘的盒子，用专车送到隔壁的晶圆厂。厂房东边是动力楼和一排小储罐，北边是一片小花园，工程师们写入机运转的时候常常在那里散步。\n光罩上任何一点微小的瑕疵，都会出现在用它做出的每一颗芯片上，所以光罩厂的人对「完美」有一种近乎固执的追求。露西年轻时在这一行待过一段时间，她说光罩厂教会她的是：「错误会被复制，正确也会。」厂里的新员工报到时，都会收到一块报废的光罩做成的纪念牌，背面刻着这句话。\n光罩厂的写入机运转时最怕震动，所以厂房的地基和周围的道路是分开的，大货车进出要绕到厂区另一头；厂里连咖啡机都装在离写入机最远的角落，工程师们说在这里喝一杯咖啡要走一段「朝圣之路」。"
+      en: "A photomask is a chip's 'negative': an exceedingly flat plate of quartz glass on which one layer of the chip's circuitry is drawn in chrome. The lithography tool shines light through the mask to project a reduced image of the pattern onto the wafer, and a chip often needs dozens of masks, one per layer. Lucy Mask Shop makes these negatives for Chip City's fabs, and is the smallest and quietest plant in the city.\nThe building is a plain square block, cleaner inside even than a fab. The circuit data from the design centre is first corrected by computer, the places where light will distort deliberately 'drawn crooked' so they come out straight on the wafer; then an electron-beam writer draws the pattern stroke by stroke on the quartz, a dozen or more hours per mask; finished masks are inspected, repaired and cleaned, packed in dustproof cases and driven to the fabs next door. East of the building are a utility block and a row of small tanks, and to the north a small garden where engineers often walk while the writers run.\nThe tiniest flaw on a mask appears on every chip made with it, so the mask shop's people pursue perfection with something close to obstinacy. Lucy spent some time in this trade when she was young, and says the mask shop taught her that 'mistakes get copied, and so does getting it right'. New staff each receive on their first day a plaque made from a scrapped mask, with that sentence engraved on the back.\nThe writers fear vibration above all, so the building's foundations are separate from the roads around it and lorries must go round to the far side of the site; even the coffee machine stands in the corner furthest from the writers, and the engineers say a cup of coffee here means a 'pilgrimage'."
+    in: div_zmb3gb
+    offset_km: [-9.5, -5.0]
+    site: { layout: fab, variant: mask, size_m: [800, 600] }
+  - id: poi_x0pem0
+    subtype: museum
+    status: generated
+    names:
+      zh: 露西存储博物馆
+      en: Lucy Museum of Memory
+      es: Museo de la Memoria Lucy
+    notes:
+      zh: "设计中心旁边一座小小的博物馆，讲的是人类怎样把信息「存」下来。展厅按时间顺序排开：第一间是刻在泥板上的记账符号、打了结的绳子和写在羊皮上的书；第二间是早期计算机用的穿孔卡片、磁鼓和一格一格穿着细铜线的磁芯存储器，每一个小磁环只能存一个比特；第三间是磁带、软盘和硬盘，旁边放着一块早期的硬盘，比冰箱还大，存的东西却不如今天的一张照片多；最后一间是半导体存储，从第一代内存芯片到如今堆了几百层的闪存，用放大镜可以看到它们的截面。\n博物馆的很多展品是露西自己的收藏，有些是她工作过的公司送的纪念品，有些是她在旧货市场里一件件淘来的。展柜旁的说明牌都是她亲手写的，语气像在和朋友聊天，比如在一块软盘旁边写着：「我的第一份简历就存在这样一张盘上，后来它坏了，我只好重新写了一遍，结果写得更好。」\n博物馆最后一个房间没有展品，只有一面墙和很多便利贴，参观的人可以写下一件自己最想永远记住的事贴上去。露西每个月会来读一遍，把其中一些抄进一本厚厚的本子。她说存储芯片能记住几乎所有的数据，可人真正想留下来的，往往只是一两句话。\n博物馆每个周末开放一张「修复工作台」，工作人员会把参观者带来的旧硬盘、旧手机和旧相机里的照片和文件抢救出来，免费复制到新的存储卡里，很多人在这里找回了以为永远丢失的家人照片。"
+      en: "A small museum beside the design centre about how people have 'stored' information. The galleries run in order of time: the first holds tally marks on clay tablets, knotted cords and books on parchment; the second, punched cards, magnetic drums and the core memory of early computers, threaded square by square with fine copper wire, each tiny ring holding a single bit; the third, tapes, floppy disks and hard drives, including an early hard drive bigger than a fridge that held less than one of today's photographs; and the last, semiconductor memory, from the first memory chips to today's flash stacked hundreds of layers high, whose cross-sections can be seen through magnifiers.\nMany of the exhibits are Lucy's own collection, some given as keepsakes by the companies she worked for, others found one by one in flea markets. She wrote the labels by hand in a tone like chatting with a friend; beside a floppy disk, for example: 'My first CV was saved on a disk like this. It broke, so I had to write it again, and the second one was better.'\nThe museum's last room has no exhibits, just a wall and a great many sticky notes, where visitors may write the one thing they most want to remember for ever. Lucy comes to read them every month and copies some into a thick notebook. She says memory chips can remember almost any data, but what people really want to keep is usually only a sentence or two.\nEvery weekend the museum opens a 'rescue bench', where staff recover the photos and files on old hard drives, phones and cameras visitors bring in and copy them free onto new memory cards; many people have found here family photos they thought lost for ever."
+    in: div_zmb3gb
+    offset_km: [-5.2, -5.6]
+    site: { layout: hall, size_m: [300, 200], rural: true }
+  - id: poi_0bdwsj
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园
+      en: Lucy Zoo
+      es: Zoológico de Lucy
+    notes:
+      zh: "露西的私人动物园，在芯城北边的盆地里，十四座场馆排成两行，每一座只住一个类群的动物：灵长类、猫科、有蹄类、海洋哺乳动物、极地动物、鸟类、爬行类、两栖类、淡水鱼、海洋鱼、昆虫、蛛形类、头足类和珊瑚。这座访客中心在动物园西头，是所有人进园的地方，里面有售票处、一面会动的大地图、一家素食餐厅和一间给走失的孩子和走失的家长准备的「重逢室」。\n露西建动物园的理由和她建晶圆厂的理由很像：她相信只要把环境控制得足够精确，脆弱的东西也能好好地活下去。每一座场馆都有自己的「生命维持系统」：温度、湿度、光照、水质、空气成分全部由传感器实时监测，数据送进园区的控制中心，再由晶圆厂退役下来的控制软件改写的系统自动调节。极地馆的冰雪、珊瑚馆的海水、两栖馆的雨林雾气，背后都是一样的道理：洁净室怎么控制尘埃，这里就怎么控制动物需要的一切。\n动物园不卖门票，周末对附近的居民和学校免费开放，平日留给兽医、研究人员和来做保育项目的学生。园里很多动物是从其他动物园、救护中心和被查获的非法贸易里接收来的，露西说这里不是「收藏」，是「避难所」。访客中心的墙上有一块屏幕，实时显示十四座场馆的环境参数，露西每天早上第一件事就是看它，她的员工说那块屏幕是她的「第二块良率看板」。"
+      en: "Lucy's private zoo, in the basin north of Chip City, its fourteen houses in two rows, each home to a single group of animals: primates, cats, hoofed animals, marine mammals, polar animals, birds, reptiles, amphibians, freshwater fish, sea fish, insects, arachnids, cephalopods and coral. This visitor centre at the west end of the zoo is where everyone comes in, with the ticket desk, a big moving map, a vegetarian restaurant and a 'reunion room' for lost children and lost parents.\nLucy built the zoo for much the same reason she built the fabs: she believes that if an environment is controlled precisely enough, even fragile things can live well in it. Every house has its own life-support system: temperature, humidity, light, water quality and air composition are all watched live by sensors, the data going to the zoo's control centre, where a system rewritten from control software retired from the fabs adjusts it all automatically. The ice of the polar house, the seawater of the coral house and the rainforest mist of the amphibian house all rest on the same idea: the zoo controls everything the animals need the way a cleanroom controls dust.\nThe zoo sells no tickets. At weekends it is open free to local residents and schools, and on weekdays it is kept for vets, researchers and students working on conservation projects. Many of its animals came from other zoos, rescue centres and seizures from illegal trade, and Lucy says the place is not a 'collection' but a 'refuge'. A screen on the visitor centre wall shows the environment readings of all fourteen houses live; looking at it is the first thing Lucy does every morning, and her staff call it her 'second yield board'."
+    in: div_zmb3gb
+    offset_km: [-13.4, 0.95]
+    site: { layout: hall, size_m: [300, 200], rural: true }
+  - id: poi_an4njn
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园·灵长馆
+      en: Lucy Zoo – Primate House
+      es: Zoológico de Lucy – Casa de Primates
+    short_names: { zh: 灵长馆, en: Primate House, es: Primates }
+    notes:
+      zh: "灵长馆是露西动物园最热闹的场馆，住着猩猩、长臂猿、狐猴、卷尾猴和几种小型猴子。场馆中央是一片椭圆形的水面，水里散布着几座小岛，每座岛上都种着树、搭着绳网和木台，不同种类的灵长类住在不同的岛上：很多灵长类不会游泳，水面就是天然的隔离带，不需要笼子。长臂猿的岛上树最高，它们每天清晨在树梢之间荡来荡去，边荡边唱，叫声能传到芯城另一头的设计中心。\n场馆的室内部分是一座有玻璃顶的热带温室，冬天动物们可以回到里面取暖。温室的温度和湿度由生命维持系统控制，模仿的是热带雨林的昼夜变化：早上潮湿起雾，中午闷热，傍晚下一场人工的雨。猩猩的室内活动区里放着一块触摸屏，上面是饲养员和研究人员设计的认知游戏，答对了会掉出一颗坚果；一只老年雄性猩猩最喜欢的游戏是给屏幕上的图形排序，饲养员说它比很多实习生都有耐心。\n灵长馆还负责几个保育繁育项目，园里出生的小猩猩和小长臂猿会和其他动物园交换，避免近亲繁殖。露西自己最喜欢的是狐猴，她说狐猴晒太阳的样子很像晶圆厂夜班结束后坐在台阶上的工程师：张开双臂，闭着眼睛，什么都不想。\n灵长馆岛上种的树大多会结果：无花果、香蕉和几种热带果树，猩猩和猴子可以自己摘果子吃，饲养员只在果子不够的季节补充。岛与岛之间的水面上有时漂来几片树叶，长臂猿会弯下腰去够，像在照镜子。"
+      en: "The Primate House is the liveliest at Lucy Zoo, home to orangutans, gibbons, lemurs, capuchins and several small monkeys. At its centre is an oval sheet of water scattered with small islands, each planted with trees and hung with rope nets and wooden platforms, and different primates live on different islands: many primates cannot swim, so the water is a natural barrier and no cages are needed. The gibbons' island has the tallest trees, and every morning they swing through the treetops singing as they go, their calls carrying to the design centre at the far side of Chip City.\nThe indoor part is a glass-roofed tropical glasshouse where the animals can retreat to keep warm in winter. Its temperature and humidity are run by the life-support system to mimic a rainforest's day: damp and misty in the morning, sultry at noon, an artificial shower at dusk. In the orangutans' indoor area is a touchscreen of cognitive games designed by keepers and researchers, which drops a nut for every right answer; an old male's favourite game is putting shapes on the screen in order, and the keepers say he is more patient than many interns.\nThe house also runs several conservation breeding programmes, and young orangutans and gibbons born here are exchanged with other zoos to avoid inbreeding. Lucy's own favourites are the lemurs; she says a sunbathing lemur looks just like an engineer sitting on the steps after a night shift at the fab: arms spread, eyes closed, thinking of nothing.\nMost of the trees on the islands bear fruit, figs, bananas and several tropical fruit trees, so the apes and monkeys can pick their own and the keepers top up only in lean seasons. Leaves sometimes drift on the water between the islands, and the gibbons lean down to reach them as if looking in a mirror."
+    in: div_zmb3gb
+    offset_km: [-12.4, 1.3]
+    site: { layout: zoo, angle_deg: 0, variant: primates, size_m: [700, 550] }
+  - id: poi_ccd5kg
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园·猫科馆
+      en: Lucy Zoo – Cat House
+      es: Zoológico de Lucy – Casa de Felinos
+    short_names: { zh: 猫科馆, en: Cat House, es: Felinos }
+    notes:
+      zh: "猫科馆住着老虎、狮子、雪豹、猎豹和几种小型野猫，是全园面积最大的场馆之一。每一种大猫都有自己的一片围场，围场之间用深沟和隐藏在植物后面的围栏隔开，游客站在高处的步道上往下看，看不到笼子，只看到草地、岩石和树林。狮子的围场是一片开阔的草坡，中间有一块晒得发烫的大石头；老虎的围场有一条小溪和一个水池，夏天老虎喜欢泡在水里，只露出脑袋；雪豹的围场是一座人工的岩山，山顶的温度由生命维持系统调低，模拟高山的凉爽。\n大猫天生要捕猎，长期圈养容易无聊、焦躁。猫科馆的饲养员设计了很多「丰容」装置：会自己移动的肉块、挂在树上要跳起来才够得着的食物、藏在箱子里的气味。猎豹的围场里有一条长长的直道，饲养员用一根拉线拖着诱饵让猎豹追，猎豹冲刺的时候，看台上的孩子们会一起喊出声。每头动物身上都没有项圈，但围场里的摄像头会自动识别个体，记录它们每天走了多远、睡了多久、吃了多少，兽医据此判断谁可能生病了。\n猫科馆的饲养员都知道露西的一个小习惯：每次来，她都会在雪豹的岩山前站很久。她说雪豹是最懂得「省电」的动物，大部分时间一动不动，只在真正需要的时候才出手，「好的芯片也应该这样」。\n猫科馆还设有一间育幼室，园里出生的小老虎和小雪豹在这里由兽医照顾，透过一面单向玻璃，游客可以看到它们打滚、咬尾巴，却不会打扰到它们。"
+      en: "The Cat House is home to tigers, lions, snow leopards, cheetahs and several small wild cats, and is one of the largest houses in the zoo. Each big cat has its own enclosure, separated by deep ditches and fences hidden behind planting, so visitors looking down from the raised walkways see no cages, only grass, rock and woodland. The lions have an open grassy slope with a big sun-baked boulder in the middle; the tigers have a stream and a pool, where in summer they like to soak with only their heads showing; the snow leopards have an artificial crag whose summit is kept cool by the life-support system to mimic the mountains.\nBig cats are born to hunt, and long captivity easily makes them bored and restless. The keepers have devised many enrichment devices: meat that moves by itself, food hung in trees that must be leapt for, scents hidden in boxes. The cheetahs' enclosure has a long straight where keepers drag a lure on a line for them to chase, and when a cheetah sprints the children in the stands all shout together. No animal wears a collar, but cameras in the enclosures recognise individuals automatically and log how far each walks, how long it sleeps and how much it eats, from which the vets judge who may be falling ill.\nThe keepers all know one of Lucy's little habits: on every visit she stands a long time before the snow leopards' crag. She says the snow leopard is the animal that best understands 'saving power', staying still most of the time and moving only when it truly must; 'a good chip should be the same.'\nThe house also has a nursery where tiger and snow leopard cubs born in the zoo are cared for by the vets, and through a one-way window visitors can watch them roll about and chew each other's tails without disturbing them."
+    in: div_zmb3gb
+    offset_km: [-11.6, 1.3]
+    site: { layout: zoo, angle_deg: 0, variant: felids, size_m: [700, 550] }
+  - id: poi_sxhkec
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园·有蹄馆
+      en: Lucy Zoo – Hoofed Animal House
+      es: Zoológico de Lucy – Casa de Ungulados
+    short_names: { zh: 有蹄馆, en: Hoofed Animals, es: Ungulados }
+    notes:
+      zh: "有蹄馆是一片模仿草原的大围场，住着长颈鹿、斑马、羚羊、犀牛、河马和野牛。围场中央是一片起伏的草地，几棵孤零零的大树撑开伞一样的树冠，旁边是一个浑浊的水塘，河马整天泡在里面，只在傍晚爬上岸吃草。长颈鹿的屋子是全园最高的建筑，门洞足有六米高，二楼有一圈观景台，游客可以和长颈鹿面对面，看它用长长的舌头卷走饲养员手里的树叶。\n不同的动物混养在一起，就像在真正的草原上一样：斑马和羚羊成群地吃草，犀牛独来独往，野牛在围场一角占了一块地盘。围场的地面下埋着一层传感器，能感知动物在哪里、走得快不快，一旦有动物跑得不对劲，兽医的手机就会收到提醒。草地分成几块轮流放牧，休息的那块由喷灌系统浇水，长好了再开放，这套轮牧方法是从乔什葡萄园的灌溉系统借来的。\n有蹄馆最受孩子们欢迎的是每天下午的「长颈鹿午茶」，饲养员把一筐树叶挂到高处，长颈鹿们排着队来吃，孩子们则在下面数它们一共低了几次头。露西喜欢看犀牛，她说犀牛看起来笨重，其实跑起来很快，「就像一家老牌的存储公司，大家都以为它跑不动了，它一转身就是一个新周期」。\n有蹄馆的野牛是美洲本地的物种，曾经在北美大草原上成群奔跑，后来一度被猎杀到濒临灭绝，靠保育才慢慢恢复。有蹄馆把它们安排在离入口最近的地方，说明牌上写着：「这片土地原来的主人之一。」"
+      en: "The Hoofed Animal House is a great enclosure modelled on the savannah, home to giraffes, zebras, antelopes, rhinoceroses, hippopotamuses and bison. At its centre is rolling grassland where a few lone trees spread umbrella crowns beside a muddy pool, in which the hippos soak all day, climbing out to graze only at dusk. The giraffe house is the tallest building in the zoo, its doorways a full six metres high, with a viewing gallery on the upper floor where visitors meet the giraffes face to face and watch them curl leaves out of a keeper's hand with their long tongues.\nThe animals share the ground as on a real savannah: zebras and antelopes graze in herds, the rhinos keep to themselves and the bison hold a patch in one corner. Under the ground lies a layer of sensors that senses where the animals are and how fast they move, and if one runs oddly the vets' phones get an alert. The grass is split into plots grazed in turn, the resting plot watered by sprinklers and reopened once it has grown back, a rotation borrowed from the irrigation of Josh Vineyard.\nThe children's favourite is the daily 'giraffe tea', when keepers hang a basket of leaves up high and the giraffes queue to eat while the children below count how many times they bow their heads. Lucy likes watching the rhinos; she says they look ponderous but run fast, 'like an old memory company: everyone thinks it can't move, and then it turns round and it's a new cycle.'\nThe bison are native to the Americas; they once roamed the North American plains in great herds, were hunted almost to extinction and recovered slowly only through conservation. The house keeps them nearest the entrance, and their label reads: 'One of this land's first owners.'"
+    in: div_zmb3gb
+    offset_km: [-10.8, 1.3]
+    site: { layout: zoo, angle_deg: 0, variant: ungulates, size_m: [700, 550] }
+  - id: poi_pd7s22
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园·海洋哺乳馆
+      en: Lucy Zoo – Marine Mammal House
+      es: Zoológico de Lucy – Casa de Mamíferos Marinos
+    short_names: { zh: 海洋哺乳馆, en: Marine Mammals, es: Mamíferos Marinos }
+    notes:
+      zh: "海洋哺乳馆住着海狮、海豹、海獭和海牛。场馆的主体是一个大海水池，池子一边是人工的礁石海岸，海狮和海豹在上面晒太阳、吵架、打盹；另一边是一面长长的水下观察窗，游客可以看到它们在水里灵活得像换了一种动物。海獭有一个单独的小池，池边铺着海藻，它们最出名的本事是仰面漂在水上，把石头放在肚子上砸开贝壳。海牛住在另一个温水池里，慢吞吞地啃着生菜，一啃就是一个下午。\n场馆里的海水不是从海里运来的，而是在馆内用淡水和海盐配出来的，再经过过滤、杀菌和温度控制循环使用。水处理车间就在池子下面，管道和泵站整齐地排成一排，和晶圆厂的超纯水站出自同一个设计团队之手，只是这里要的不是「越纯越好」，而是「越像大海越好」：盐度、酸碱度和水温都要模仿动物原来生活的海域。\n海洋哺乳馆没有表演，饲养员每天的训练只为体检：让海狮自己张嘴给兽医看牙，伸出鳍状肢让人量体温，趴在秤上称体重。露西觉得这样很好，「它们不欠我们一场表演」。不过有一项活动是例外：每年露西牙科诊所会派牙医来给海狮做一次口腔检查，那一天来围观的员工比游客还多。\n海獭池边常有研究人员蹲着做记录：海獭吃海胆，海胆吃海藻，海獭多了，海藻森林才长得好，所以海獭被称为海藻森林的「守护者」。海洋鱼馆的海藻森林展缸，就在走廊的另一头。"
+      en: "The Marine Mammal House is home to sea lions, seals, sea otters and manatees. Its heart is a big seawater pool, one side an artificial rocky shore where the sea lions and seals sunbathe, squabble and doze, the other a long underwater viewing window through which visitors see how nimble they become in the water, as if a different animal. The sea otters have a pool of their own edged with kelp, and their most famous trick is floating on their backs and cracking shells on stones laid on their bellies. The manatees live in another, warm pool, slowly munching lettuce for whole afternoons.\nThe seawater is not brought from the sea but mixed in the house from fresh water and sea salt, then filtered, sterilised, temperature-controlled and recirculated. The water treatment plant is right under the pools, its pipes and pumps in a neat row, designed by the same team as the fabs' ultrapure water plant; only here the aim is not 'the purer the better' but 'the more like the sea the better', salinity, acidity and temperature all matched to the waters the animals came from.\nThere are no shows. The keepers' daily training is purely for check-ups: a sea lion opens its own mouth for the vet to see its teeth, holds out a flipper for its temperature to be taken and lies on the scales to be weighed. Lucy thinks this is right: 'they don't owe us a show.' One event is the exception: once a year Lucy Dental Clinic sends a dentist to check the sea lions' teeth, and more staff come to watch that day than visitors.\nResearchers often crouch by the otter pool taking notes: otters eat sea urchins and sea urchins eat kelp, so where otters thrive the kelp forest does too, which is why otters are called the kelp forest's 'guardians'. The Sea Fish House's kelp forest display is at the other end of the corridor."
+    in: div_zmb3gb
+    offset_km: [-10.0, 1.3]
+    site: { layout: zoo, angle_deg: 0, variant: marine_mammals, size_m: [700, 550] }
+  - id: poi_kjnxxw
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园·极地馆
+      en: Lucy Zoo – Polar House
+      es: Zoológico de Lucy – Casa Polar
+    short_names: { zh: 极地馆, en: Polar House, es: Polar }
+    notes:
+      zh: "极地馆是露西动物园技术含量最高的场馆，在加州的阳光下维持着一个终年零下的世界。场馆分成南北两半：北半边住着北极狐、雪鸮和北极熊，模仿的是北极的苔原和浮冰；南半边住着帝企鹅、王企鹅和巴布亚企鹅，模仿的是南极的冰架和海岸。两边的光照节律也不一样，北半边按北极的季节变化昼夜长短，南半边则正好反过来，所以夏天来参观的人会在南半边看到企鹅在极夜的蓝光里挤成一团。\n场馆屋顶铺满了太阳能板，发出的电大部分用来制冷；馆内的冰和雪由造雪机和制冰机每天补充，冰面下面埋着冷却管，像一块巨大的冰场。北极熊的池子是一个深水池，熊在水里游泳时，游客可以从水下观察窗里看到它巨大的脚掌。企鹅区的「海滩」由碎冰和砾石铺成，企鹅每年在上面用小石子筑巢，饲养员会提前在旁边多放一些石头，免得它们互相偷。\n极地馆还和北冰洋领地的研究机构合作，记录冰面温度、企鹅的繁殖时间和北极熊的体重变化。露西说极地馆让她想起晶圆厂里那些最精密的设备：「环境稍微偏一点，结果就完全不同。」每年最热的那一天，极地馆会对附近的居民开放一个下午，让大家进来凉快凉快，门口排的队一直排到猫科馆。\n极地馆的出口有一间小屋，墙上挂着一排温度计，从零下二十度一直到馆外的三十多度，游客出门时要穿过这间屋子慢慢「回暖」，孩子们管它叫「时光隧道」。"
+      en: "The Polar House is the most technically demanding at Lucy Zoo, keeping a world below freezing all year round under the California sun. It is split in two: the northern half, home to Arctic foxes, snowy owls and polar bears, mimics the Arctic tundra and pack ice; the southern half, home to emperor, king and gentoo penguins, mimics the Antarctic ice shelves and shores. The light runs differently in each, the north following the Arctic's seasons and the south the reverse, so summer visitors find the penguins huddled together in the blue light of the polar night.\nThe roof is covered in solar panels whose power goes mostly to refrigeration; the ice and snow inside are topped up daily by snow and ice machines, and cooling pipes run under the ice like a giant rink. The polar bears' pool is deep, and when a bear swims visitors at the underwater window can see its huge paws. The penguins' 'beach' is crushed ice and gravel, where every year they build nests of pebbles; the keepers put out extra stones in advance so they do not steal each other's.\nThe house also works with research institutes in the Arctic Ocean Territory, recording ice temperatures, penguin breeding times and the polar bears' weight. Lucy says it reminds her of the most precise tools in the fab: 'move the environment a little and the result is completely different.' On the hottest day of every year the Polar House opens to local residents for an afternoon to cool off, and the queue stretches all the way to the Cat House.\nAt the exit is a small room hung with a row of thermometers running from minus twenty to the thirty-odd degrees outside, through which visitors 'warm up' slowly on their way out; the children call it the 'time tunnel'."
+    in: div_zmb3gb
+    offset_km: [-9.2, 1.3]
+    site: { layout: zoo, angle_deg: 0, variant: polar, size_m: [700, 550] }
+  - id: poi_t79qsf
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园·鸟馆
+      en: Lucy Zoo – Aviary
+      es: Zoológico de Lucy – Aviario
+    short_names: { zh: 鸟馆, en: Aviary, es: Aviario }
+    notes:
+      zh: "鸟馆是一座巨大的网罩，像一顶透明的帐篷罩住了一整片树林、一个湖和几块湿地，游客走在网罩里的木栈道上，鸟就在头顶和身边飞。网罩里住着几百种鸟：湖上有火烈鸟、天鹅和各种鸭子，湿地里站着鹭和鹳，树林里是犀鸟、鹦鹉、巨嘴鸟和蜂鸟。网罩外面另有几间单独的鸟舍，住着鹰、雕、猫头鹰这些猛禽，它们需要更大的空间，也不能和小鸟住在一起。\n网罩的网是用一种很细的不锈钢丝编成的，从远处看几乎是透明的；网罩顶上装着一圈喷雾管，夏天中午自动喷出细雾降温，傍晚夕阳照在雾上会出现彩虹。湖水由生命维持系统循环过滤，湿地里的芦苇和水草也有专人照料。网罩的入口是两道门之间的一个小小的「气闸」，和晶圆厂洁净室的风淋室很像，只是这里防的不是灰尘，而是想偷偷飞出去的鸟。\n鸟馆最受欢迎的是每天早上的「百鸟早餐」，饲养员在各处的喂食台放上水果、种子和小鱼，几分钟之内整个网罩都热闹起来。从露西宅邸的泳池平台望过去，傍晚的夕阳正好落在鸟馆的网罩上，她说那是她每天最喜欢的时刻：「一天里所有的鸟都回家了。」\n鸟馆的湖心有一座小岛，岛上不让人上去，是专门给水鸟筑巢的地方；繁殖季的时候，饲养员在岸边架起望远镜，游客可以看到火烈鸟用泥巴垒起一个个小土堆当巢，一只一只地孵蛋。网罩边上还有一间救护站，附近受伤的野鸟会被送到这里，治好以后再放飞。"
+      en: "The Aviary is a huge net dome, like a transparent tent over a whole wood, a lake and several patches of marsh; visitors walk boardwalks inside it while birds fly overhead and all around. Hundreds of species live in it: flamingos, swans and all kinds of ducks on the lake, herons and storks in the marsh, hornbills, parrots, toucans and hummingbirds in the wood. Outside the dome are separate aviaries for birds of prey, hawks, eagles and owls, which need more space and cannot live with the small birds.\nThe netting is woven of very fine stainless-steel wire and from a distance looks almost transparent; a ring of misting pipes along the top sprays fine mist to cool things at summer noon, and at dusk the setting sun makes rainbows in it. The lake water is filtered and recirculated by the life-support system, and the reeds and water plants of the marsh have their own keepers. The entrance is a small 'airlock' between two doors, much like a cleanroom's air shower, except that here it keeps in not dust but birds that would like to slip out.\nThe favourite event is the morning 'birds' breakfast', when keepers set out fruit, seed and small fish on feeding tables all over and within minutes the whole dome comes alive. From the pool terrace of Lucy's House the evening sun sets right over the Aviary's netting, and she says it is her favourite moment of the day: 'all the birds have come home.'\nIn the middle of the lake is a small island where no one may land, kept for water birds to nest; in the breeding season keepers set up telescopes on the shore, through which visitors can watch the flamingos build little mounds of mud as nests and sit on their eggs one by one. Beside the dome is a rescue station where injured wild birds from the area are brought, nursed and set free again."
+    in: div_zmb3gb
+    offset_km: [-8.4, 1.3]
+    site: { layout: zoo, angle_deg: 0, variant: birds, size_m: [700, 550] }
+  - id: poi_75rqm7
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园·爬行馆
+      en: Lucy Zoo – Reptile House
+      es: Zoológico de Lucy – Casa de Reptiles
+    short_names: { zh: 爬行馆, en: Reptile House, es: Reptiles }
+    notes:
+      zh: "爬行馆住着鳄鱼、巨蜥、陆龟、海龟、蟒蛇、变色龙和各种蜥蜴。爬行动物是冷血动物，体温随环境变化，所以爬行馆里的每一个展箱都是一个独立的小气候：沙漠展箱白天烤得发烫、夜里迅速变凉；雨林展箱终年潮湿闷热；河岸展箱的水温和气温分开控制，让鳄鱼可以在岸上晒太阳、在水里降温。每个展箱里都有一块「晒背点」，一盏专门的灯照出一小片热区，动物需要暖和的时候就爬过去趴着。\n场馆中央是一条室内的河，河里住着几条鳄鱼，河上架着一座玻璃底的小桥，游客走在上面，脚下就是鳄鱼的背。场馆东边是陆龟的室外草场，几只上了年纪的巨型陆龟慢慢地在草地上走来走去，它们的体重每个月都要称一次，饲养员说称一只陆龟要四个人帮忙，称完了陆龟连头都懒得回。海龟住在一个大水箱里，多数是从海边救护回来的伤病个体，等伤好了再放回大海。\n爬行馆的生命维持系统要记录的数据比其他场馆都多，因为每种动物需要的温度、湿度和紫外线都不一样，一个参数出错，动物就可能生病。露西很喜欢变色龙，她说变色龙的眼睛能各转各的，一只看前面、一只看后面，「这才是做存储的人该有的眼睛：一只看下一代工艺，一只看价格」。\n爬行馆的蟒蛇区每周有一次「蜕皮观察」，蛇蜕下的完整的皮会被饲养员晾干，挂在走廊里，旁边标着蛇的名字和蜕皮的日期，孩子们最喜欢量一量这一次的皮比上一次长了多少。"
+      en: "The Reptile House is home to crocodiles, monitor lizards, tortoises, turtles, pythons, chameleons and all kinds of lizards. Reptiles are cold-blooded, their body temperature following their surroundings, so every display in the house is a separate little climate: the desert displays bake by day and cool quickly at night, the rainforest ones are humid and sultry all year, and the riverbank ones control water and air temperature separately so the crocodiles can bask on the bank and cool off in the water. Each display has a 'basking spot', a lamp throwing a small hot zone, where animals crawl to lie when they want warmth.\nAt the centre of the house is an indoor river with several crocodiles, crossed by a small glass-floored bridge so visitors walk with crocodiles' backs beneath their feet. To the east is the tortoises' outdoor meadow, where some elderly giant tortoises amble about the grass; they are weighed every month, and the keepers say weighing one takes four people, after which the tortoise cannot even be bothered to look round. The turtles live in a big tank, most of them injured or sick animals rescued from the coast, to be returned to the sea once healed.\nThe life-support system records more data here than in any other house, since each animal needs different temperature, humidity and ultraviolet, and a single wrong setting can make one ill. Lucy is fond of the chameleons; she says their eyes can turn independently, one looking forward and one back, 'which is what the eyes of a memory person should be like: one on the next process node and one on the price.'\nEvery week the python section holds a 'shed watch'; the whole skins the snakes slough are dried by the keepers and hung in the corridor labelled with each snake's name and the date, and children love measuring how much longer this skin is than the last."
+    in: div_zmb3gb
+    offset_km: [-7.6, 1.3]
+    site: { layout: zoo, angle_deg: 0, variant: reptiles, size_m: [700, 550] }
+  - id: poi_06cx9x
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园·两栖馆
+      en: Lucy Zoo – Amphibian House
+      es: Zoológico de Lucy – Casa de Anfibios
+    short_names: { zh: 两栖馆, en: Amphibian House, es: Anfibios }
+    notes:
+      zh: "两栖馆是露西动物园里最潮湿的地方，住着箭毒蛙、树蛙、蝾螈、大鲵和美西螈。两栖动物的皮肤很薄，要靠皮肤呼吸和吸水，对温度、湿度和水质的变化非常敏感，在世界很多地方，它们是最先受到环境变化伤害的动物。两栖馆因此是全园对环境控制要求最严的场馆之一：每个展箱的湿度都保持在很高的水平，雾化器每隔一会儿喷一次细雾，水全部经过过滤和消毒，饲养员进出要换鞋、洗手，防止把病菌带进去。\n场馆里最显眼的是一排色彩鲜艳的箭毒蛙展箱，红的、蓝的、黄的、黑白条纹的，小得像一颗颗糖果。它们在野外的毒性来自吃下的某些昆虫，在动物园里换了食物，毒性就慢慢消失了。另一边是一条模拟山间溪流的长水槽，水很凉、流得很快，住着大鲵，大鲵是现存体型最大的两栖动物，白天藏在石头底下，晚上才出来找吃的。美西螈住在一组安静的水箱里，粉红色的外鳃像一圈羽毛，它们能够再生失去的肢体，是研究人员很感兴趣的动物。\n两栖馆还有一间不对外开放的「方舟室」，保存着几种野外数量很少的蛙类，每一种都有独立的房间和独立的空气系统，以防一种疾病传遍全部。露西说方舟室是整个动物园里她最骄傲的房间，因为它做的事情和洁净室一样：「把最脆弱的东西保护起来，等世界准备好再放出去。」"
+      en: "The Amphibian House is the dampest place in Lucy Zoo, home to poison dart frogs, tree frogs, newts, giant salamanders and axolotls. Amphibians have thin skins through which they breathe and take in water, making them very sensitive to changes in temperature, humidity and water quality; in many parts of the world they are the first animals hurt by environmental change. So this is one of the most tightly controlled houses in the zoo: every display is kept very humid, misters spray fine mist every so often, all water is filtered and disinfected, and keepers change shoes and wash their hands on the way in and out so as not to carry in disease.\nMost striking is a row of brightly coloured dart frog displays, red, blue, yellow and black-and-white striped, small as sweets. In the wild their poison comes from certain insects they eat; in the zoo, on a different diet, it slowly fades. On the other side a long channel mimicking a mountain stream, cold and fast, holds giant salamanders, the largest living amphibians, which hide under stones by day and come out to feed at night. The axolotls live in a set of quiet tanks, their pink external gills like ruffs of feathers; they can regrow lost limbs and greatly interest researchers.\nThe house also has an 'ark room' closed to the public, keeping several frogs that are scarce in the wild, each species with its own room and air system so that no disease can sweep through them all. Lucy says the ark room is the room she is proudest of in the whole zoo, because it does the same as a cleanroom: 'protect the most fragile things until the world is ready to let them out.'"
+    in: div_zmb3gb
+    offset_km: [-12.4, 0.6]
+    site: { layout: zoo, angle_deg: 0, variant: amphibians, size_m: [700, 550] }
+  - id: poi_9cdhxd
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园·淡水鱼馆
+      en: Lucy Zoo – Freshwater Fish House
+      es: Zoológico de Lucy – Casa de Peces de Agua Dulce
+    short_names: { zh: 淡水鱼馆, en: Freshwater Fish, es: Agua Dulce }
+    notes:
+      zh: "淡水鱼馆讲的是河流和湖泊的故事。场馆里最大的展区是一条长长的「河」，从山间的急流开始，经过中游的深潭和浅滩，一直流到下游的沼泽和河口，每一段的水温、流速和水底都不一样，住的鱼也不一样：急流里是鳟鱼和鲑鱼，深潭里是鲟鱼和大型鲶鱼，浅滩上是成群的小鱼，沼泽里是肺鱼和各种热带鱼。游客沿着河边的步道从上游走到下游，透过一面又一面玻璃，看水里的世界一点一点变暖、变慢、变浑。\n场馆另一边是一个大型的热带河流展缸，模仿的是热带雨林里的大河，水是茶色的，里面游着巨骨舌鱼、魟鱼和成群的脂鲤，水面上漂着巨大的王莲叶子。展缸的水由生命维持系统控制，温度、酸碱度和溶解氧都和热带的河水一样，水里的落叶和树根也是故意放进去的，让鱼觉得像在家里。\n淡水鱼馆还养着加州本地的鱼，比如在本州河流里洄游的鲑鱼。每年秋天，饲养员会把馆里繁育的小鲑鱼送到乔什庄园附近的溪流放流，乔什每次都会来帮忙，穿着一双从赛车场维修区借来的防水靴。露西说他放鱼的样子和开赛车一样认真，「只是这次希望它们跑得越远越好」。\n淡水鱼馆的「河」的上游有一段可以调节流速的急流，每年春天，饲养员会把水流调大，模拟融雪季的洪水，好让鳟鱼和鲑鱼保持逆流游泳的本领；那几天整条「河」哗哗作响，游客站在玻璃前，能看到鱼一次又一次地奋力向上游冲。"
+      en: "The Freshwater Fish House tells the story of rivers and lakes. Its largest display is a long 'river' running from mountain rapids through the deep pools and shallows of the middle course to the marshes and mouth of the lower river, each stretch with its own temperature, current and bed, and its own fish: trout and salmon in the rapids, sturgeon and big catfish in the pools, shoals of small fish over the shallows, lungfish and all kinds of tropical fish in the marsh. Visitors walk the riverside path from source to mouth, seeing through pane after pane of glass the underwater world grow warmer, slower and murkier.\nOn the other side is a large tropical river tank modelled on the great rivers of the rainforest, its water the colour of tea, with arapaima, stingrays and shoals of characins swimming in it and giant water-lily leaves floating on top. Its water is run by the life-support system to match a tropical river in temperature, acidity and dissolved oxygen, and the fallen leaves and tree roots in it are put there on purpose so the fish feel at home.\nThe house also keeps California's own fish, such as the salmon that run the state's rivers. Every autumn the keepers release young salmon bred here into a stream near Josh's estate, and Josh always comes to help in a pair of waterproof boots borrowed from the circuit's pit garage. Lucy says he releases fish as seriously as he races, 'only this time he hopes they get as far away as possible.'\nThe upper 'river' has rapids whose current can be adjusted, and every spring the keepers turn it up to mimic the snowmelt floods, so that the trout and salmon keep their skill at swimming upstream; for those days the whole river roars, and visitors at the glass watch the fish dash upstream again and again."
+    in: div_zmb3gb
+    offset_km: [-11.6, 0.6]
+    site: { layout: zoo, angle_deg: 0, variant: freshwater, size_m: [700, 550] }
+  - id: poi_k68qm1
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园·海洋鱼馆
+      en: Lucy Zoo – Sea Fish House
+      es: Zoológico de Lucy – Casa de Peces Marinos
+    short_names: { zh: 海洋鱼馆, en: Sea Fish, es: Peces Marinos }
+    notes:
+      zh: "海洋鱼馆的中心是一个巨大的圆形海水缸，深好几米，游客从一条穿过缸底的透明隧道走进去，头顶和两侧都是游动的鱼：成群的沙丁鱼像一团银色的云，鳐鱼像风筝一样从头顶滑过，几条鲨鱼慢慢地绕着缸边巡游。大缸外面一圈是几十个小展缸，分别展示海藻森林、深海、红树林和沙质海底这些不同的海洋环境。\n海藻森林展缸模仿的是加州沿海的巨藻林，高大的海藻从缸底一直长到水面，随着人工的波浪轻轻摇摆，里面住着本州海岸常见的鱼和海星。深海展缸是全馆最暗的地方，只有几盏蓝色的小灯，里面的生物有的会自己发光，游客要在门口等眼睛适应了黑暗才看得清。大缸里的海水和海洋哺乳馆一样，是馆内配出来、循环使用的，每天都要检测几十项指标，鲨鱼的牙齿掉下来，潜水员会把它们捡起来，送给来参观的孩子做纪念。\n海洋鱼馆每天会安排潜水员下到大缸里喂鱼、清洁玻璃，潜水员戴着可以通话的面罩，一边喂一边回答隧道里孩子们的问题。最常被问到的问题是「鲨鱼会不会咬你」，潜水员的标准回答是：「它们吃得比我好，没兴趣。」露西每次来都要在隧道里站一会儿，她说抬头看鱼群转向的那一瞬间，像在看一块芯片里的数据流。\n海洋鱼馆的地下有一间备用缸房，存着几百升配好的海水和备用的过滤设备，一旦大缸的某台设备出了问题，几分钟之内就能切换过去，露西说这是从晶圆厂学来的「冗余」。"
+      en: "At the heart of the Sea Fish House is a huge round seawater tank several metres deep, entered by a transparent tunnel through its floor, with fish swimming overhead and on both sides: shoals of sardines like a silver cloud, rays gliding overhead like kites, a few sharks slowly patrolling the edge. Around the big tank runs a ring of dozens of small displays showing different sea environments, kelp forest, deep sea, mangroves and sandy sea floor.\nThe kelp forest display is modelled on the giant kelp forests of the California coast, tall kelp rising from floor to surface and swaying gently in artificial waves, home to fish and starfish common on the state's shores. The deep-sea display is the darkest place in the house, lit only by a few small blue lamps, and some of its creatures make their own light; visitors must wait at the door for their eyes to adjust. The big tank's seawater, as in the Marine Mammal House, is mixed in the house and recirculated, with dozens of readings checked daily; when sharks shed teeth, divers pick them up to give to visiting children as keepsakes.\nEvery day divers go down into the big tank to feed the fish and clean the glass, wearing masks they can talk through and answering children's questions in the tunnel as they feed. The commonest question is 'will the sharks bite you?', and the divers' stock answer is: 'they eat better than I do; they're not interested.' Lucy always stands a while in the tunnel; she says looking up at the moment a shoal turns is like watching the data flow inside a chip.\nUnder the house is a standby tank room holding hundreds of litres of ready-mixed seawater and spare filtration, so that if any equipment on the big tank fails it can be switched over within minutes; Lucy calls it 'redundancy' learned from the fabs."
+    in: div_zmb3gb
+    offset_km: [-10.8, 0.6]
+    site: { layout: zoo, angle_deg: 0, variant: marine, size_m: [700, 550] }
+  - id: poi_zttk36
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园·昆虫馆
+      en: Lucy Zoo – Insect House
+      es: Zoológico de Lucy – Casa de Insectos
+    short_names: { zh: 昆虫馆, en: Insect House, es: Insectos }
+    notes:
+      zh: "昆虫馆是孩子们最舍不得离开的场馆。进门是一座温暖的蝴蝶温室，几十种蝴蝶在花丛中飞来飞去，有时会落在游客的肩膀和帽子上；温室一角有一个「羽化窗」，玻璃后面挂着一排排蛹，运气好的话能看到一只蝴蝶慢慢钻出来、展开湿漉漉的翅膀。温室后面是一排展箱，住着竹节虫、叶䗛、螳螂、甲虫、蚂蚁和蟑螂，很多昆虫的伪装好得让人找半天也找不到，展箱旁边的说明牌上会写着「这里有十二只，你找到了几只？」\n昆虫馆最壮观的是一个切叶蚁的蚁巢：几百万只蚂蚁住在一组透明的盒子里，盒子之间用长长的管道连起来，工蚁们排着队把切下来的树叶搬回巢里，用来种它们赖以为生的真菌。管道从游客头顶穿过，大家抬头就能看到一条绿色的「叶子河」在流动。另一间是蜜蜂屋，透明的蜂箱贴在墙上，一端通到室外，蜜蜂飞出去采动物园和芯城周围山坡上的花，再飞回来酿蜜；昆虫馆每年卖蜂蜜的钱，都用来资助本州的传粉昆虫保护项目。\n昆虫是地球上种类最多的动物，露西说她小时候最先迷上的不是芯片，而是蚂蚁：一只蚂蚁什么都不懂，几百万只蚂蚁却能修路、种地、打仗、搬家，「这和几十亿个晶体管一起做出一颗芯片是一个道理」。\n昆虫馆还有一间「夜行屋」，灯光调得很暗，住着萤火虫和几种夜里才出来活动的甲虫，夏天的晚上，萤火虫一亮一灭，孩子们屏住呼吸，像在看一片会呼吸的星空。"
+      en: "The Insect House is the one children least want to leave. Inside the door is a warm butterfly glasshouse where dozens of species flit among the flowers and sometimes land on visitors' shoulders and hats; in one corner is an 'emergence window', rows of chrysalises hanging behind glass, where with luck you can watch a butterfly slowly push its way out and spread its wet wings. Behind the glasshouse is a row of displays of stick insects, leaf insects, mantises, beetles, ants and cockroaches, many so well camouflaged that it takes ages to find them; the labels say 'there are twelve here; how many can you see?'\nMost spectacular is a leafcutter ant colony: millions of ants in a set of transparent boxes joined by long tubes, workers filing along to carry cut leaves back to the nest to grow the fungus they live on. The tubes run over visitors' heads, so looking up they see a green 'river of leaves' flowing. Another room is the bee house, transparent hives on the wall opening outdoors at one end, the bees flying out to the flowers of the zoo and the hills around Chip City and back to make honey; the money from the house's honey each year funds pollinator conservation in the state.\nInsects are the most diverse animals on Earth. Lucy says the first thing she fell for as a child was not chips but ants: one ant understands nothing, yet millions of ants build roads, farm, fight and move house, 'which is the same as billions of transistors making a chip together.'\nThe house also has a 'night room', its lights turned very low, home to fireflies and several beetles that come out only at night; on summer evenings the fireflies blink on and off and the children hold their breath, as if watching a starry sky that breathes."
+    in: div_zmb3gb
+    offset_km: [-10.0, 0.6]
+    site: { layout: zoo, angle_deg: 0, variant: insects, size_m: [700, 550] }
+  - id: poi_bvt7h0
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园·蛛形馆
+      en: Lucy Zoo – Arachnid House
+      es: Zoológico de Lucy – Casa de Arácnidos
+    short_names: { zh: 蛛形馆, en: Arachnid House, es: Arácnidos }
+    notes:
+      zh: "蛛形馆住着蜘蛛、蝎子、鞭蝎和盲蛛，是露西动物园里最小、也最让人犹豫要不要进去的场馆。门口挂着一块牌子：「这里的每一位住客都比你更怕你。」走进去，光线变得柔和，展箱一个挨着一个：沙漠展箱里的蝎子白天躲在石头下面，到了紫外线灯亮起的「夜间时段」会发出蓝绿色的荧光；雨林展箱里的捕鸟蛛毛茸茸的，有手掌那么大；园蛛展箱里挂着一张完整的圆网，网上的丝在灯光下闪闪发亮。\n蛛形馆最受欢迎的是「织网时间」。每天傍晚，饲养员会把园蛛展箱里的旧网收掉，游客可以看着蜘蛛从头开始织一张新网：先拉出几根放射状的主丝，再一圈一圈地从外往里织螺旋，整个过程不到一个小时。旁边的屏幕把织网的过程放大，旁白讲的是蛛丝的强度、弹性和蜘蛛怎么判断网上的猎物大小。研究人员也在这里研究蛛丝的结构，想知道它为什么又轻又结实。\n露西和蛛形馆的缘分来自一个故事：她第一次看到芯片在显微镜下的金属连线时，觉得它们像一张蜘蛛网，一层一层叠上去，每根线都有自己的用处。从那以后，她办公室的书架上一直放着一张装在玻璃框里的蛛网，是蛛形馆送给她的，标签上写着「第一版布线图，作者：一只园蛛」。\n蛛形馆的出口处可以领一枚「勇气徽章」，徽章上画着一只戴眼镜的小蜘蛛，参观完的孩子人人有份；据说露西自己的办公桌上也别着一枚。"
+      en: "The Arachnid House is home to spiders, scorpions, whip scorpions and harvestmen; it is the smallest house in Lucy Zoo and the one people most hesitate to enter. A sign at the door reads: 'Every resident here is more afraid of you than you are of it.' Inside, the light softens and the displays stand side by side: in the desert display scorpions hide under stones by day and glow blue-green when the ultraviolet lamps come on for 'night time'; in the rainforest display furry bird-eating spiders are as big as a hand; in the orb-weaver display hangs a whole round web, its threads glittering in the light.\nThe favourite event is 'web time'. Every evening the keepers take down the old web in the orb-weaver display and visitors can watch the spider build a new one from scratch: first a few radial threads, then the spiral, round and round from the outside in, the whole thing in under an hour. A screen beside it magnifies the work, the commentary explaining the strength and elasticity of silk and how a spider judges the size of prey in its web. Researchers also study the structure of silk here, to learn why it is so light and so strong.\nLucy's bond with the house comes from a story: the first time she saw a chip's metal wiring under a microscope she thought it looked like a spider's web, layer on layer, every thread with its own purpose. Ever since, the bookshelf in her office has held a spider's web in a glass frame, a gift from the house, labelled 'first draft of the routing, by an orb-weaver.'\nAt the exit every child who has made it round gets a 'courage badge' showing a little spider in glasses; Lucy is said to keep one pinned to her own desk."
+    in: div_zmb3gb
+    offset_km: [-9.2, 0.6]
+    site: { layout: zoo, angle_deg: 0, variant: arachnids, size_m: [700, 550] }
+  - id: poi_rszbeh
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园·头足馆
+      en: Lucy Zoo – Cephalopod House
+      es: Zoológico de Lucy – Casa de Cefalópodos
+    short_names: { zh: 头足馆, en: Cephalopod House, es: Cefalópodos }
+    notes:
+      zh: "头足馆住着章鱼、乌贼、鱿鱼和鹦鹉螺，是专门为这些「海里最聪明的软体动物」建的场馆。章鱼有八条腕，每条腕上都有成百上千个吸盘，大部分神经元分布在腕里，它们能打开瓶盖、走出迷宫、记住不同的饲养员；乌贼能在一瞬间改变皮肤的颜色和花纹，用来伪装、求偶和吓退敌人；鹦鹉螺是带着螺旋外壳的古老物种，靠调节壳里的气体在水里上浮和下沉。\n章鱼是有名的「逃跑大师」，身体柔软，只要比嘴大一点的缝就钻得过去。头足馆的展缸因此都有严丝合缝的盖子，排水口装着细网，饲养员还在每个缸里放了玩具：可以拧开的罐子、装着螃蟹的透明盒子、一块块可以搬来搬去的石头，免得它们闲得无聊去研究怎么越狱。每只章鱼都有自己的名字和档案，饲养员记录它们喜欢什么玩具、几天学会开一个新罐子。乌贼的展缸前放着一块屏幕，实时放大它们皮肤上的变色细胞，像在看一块会呼吸的显示屏。\n露西对头足馆有一种特别的感情，因为章鱼的大脑结构和人完全不同，却同样聪明。她常对设计中心的工程师说，聪明的设计不一定只有一种，「章鱼的神经大部分长在手臂里，所以它的手臂会自己想事情，这就是分布式计算」。头足馆的员工记得，有一次一只章鱼喷了露西一身水，她笑了一整天。\n头足馆的章鱼大多只能活一两年，饲养员会为每一只离去的章鱼写一段告别，贴在展缸旁边的墙上。"
+      en: "The Cephalopod House is home to octopuses, cuttlefish, squid and nautiluses, a house built specially for 'the cleverest molluscs in the sea'. An octopus has eight arms, each with hundreds or thousands of suckers, and most of its neurons are in its arms; octopuses can open jar lids, escape mazes and tell keepers apart. Cuttlefish change the colour and pattern of their skin in an instant to hide, court and scare off enemies. The nautilus is an ancient animal with a spiral shell, rising and sinking by adjusting the gas inside.\nOctopuses are famous escape artists, their soft bodies squeezing through any gap a little larger than their beaks. So every tank here has a tight-fitting lid and fine mesh over the drains, and keepers put toys in each tank, jars to unscrew, clear boxes with crabs inside, stones to move about, so they do not get bored and start studying a breakout. Each octopus has its own name and file, recording which toys it likes and how many days it takes to learn a new jar. In front of the cuttlefish tank a screen magnifies the colour cells of their skin live, like watching a display that breathes.\nLucy has a special feeling for this house, because an octopus's brain is built nothing like ours yet is just as clever. She often tells the design centre's engineers that clever design comes in more than one form: 'most of an octopus's nerves are in its arms, so its arms think for themselves; that's distributed computing.' The staff remember the time an octopus soaked Lucy with a jet of water, and she laughed about it all day.\nMost of the octopuses live only a year or two, and the keepers write a farewell for each one that dies, pinned on the wall beside its tank."
+    in: div_zmb3gb
+    offset_km: [-8.4, 0.6]
+    site: { layout: zoo, angle_deg: 0, variant: cephalopods, size_m: [700, 550] }
+  - id: poi_1r1nga
+    subtype: zoo
+    status: generated
+    names:
+      zh: 露西动物园·珊瑚馆
+      en: Lucy Zoo – Coral House
+      es: Zoológico de Lucy – Casa de Corales
+    short_names: { zh: 珊瑚馆, en: Coral House, es: Corales }
+    notes:
+      zh: "珊瑚馆是露西动物园东头的最后一座场馆，也是露西最常说「这里最像晶圆厂」的地方。珊瑚看起来像石头或植物，其实是成千上万只微小的珊瑚虫组成的群体，它们和体内的共生藻互相依靠：藻类靠光合作用给珊瑚虫提供养分，珊瑚虫给藻类提供住处。这种关系非常脆弱，海水只要比平时热上一两度，珊瑚就会把藻类排出去，变成一片惨白，这就是珊瑚白化。\n珊瑚馆的中心是一个浅浅的大礁池，池里长满了各种颜色的硬珊瑚和软珊瑚，小丑鱼钻在海葵里，蓝色的刺尾鱼在珊瑚之间穿梭。礁池的灯光模拟热带海面的阳光，从早上的淡蓝色到中午的明亮再到傍晚的暖色，一天天地循环；水温、盐度、酸碱度和钙的含量由生命维持系统每分钟测一次，偏差稍大就自动修正。礁池旁边是一间繁育室，一排排浅水槽里挂着小小的珊瑚碎片，它们在这里慢慢长大，长成之后会送往海洋保护机构，种回受损的珊瑚礁。\n繁育室里的每一片珊瑚都有编号，就像晶圆厂里每一片晶圆都有编号；它们的生长速度和颜色每周测一次，数据画成曲线挂在墙上。露西说她做了大半辈子的良率，到了珊瑚馆才明白另一种良率：「芯片坏了可以再做，珊瑚礁坏了要几十年才长得回来，所以这里一颗都不能丢。」\n珊瑚馆的门口放着一块珊瑚礁的骨架，是白化以后死去的珊瑚，旁边写着：「这是我们不想再看到的样子。」"
+      en: "The Coral House is the last house at the east end of Lucy Zoo, and the place Lucy most often calls 'the most like a fab'. Coral looks like stone or a plant but is a colony of thousands of tiny polyps, living in partnership with algae inside them: the algae feed the polyps by photosynthesis and the polyps house the algae. The partnership is fragile; if the sea is just a degree or two warmer than usual, the coral expels its algae and turns ghostly white, which is coral bleaching.\nAt its centre is a big shallow reef pool crowded with hard and soft corals of every colour, clownfish nestling in anemones and blue tangs threading between the corals. The lighting mimics sunlight on a tropical sea, pale blue in the morning, bright at noon and warm at dusk, day after day; temperature, salinity, acidity and calcium are measured by the life-support system every minute and corrected automatically if they drift. Beside the pool is a nursery room, rows of shallow troughs hung with small coral fragments that grow here slowly and, once grown, go to marine conservation bodies to be planted back on damaged reefs.\nEvery fragment in the nursery is numbered, as every wafer in a fab is numbered; their growth and colour are measured weekly and the data drawn as curves on the wall. Lucy says she spent most of her life on yield and only understood another kind of yield in the Coral House: 'a broken chip can be made again; a broken reef takes decades to grow back, so here we can't lose a single one.'\nBy the door of the Coral House lies the skeleton of a reef, coral that died after bleaching, with the words beside it: 'This is what we never want to see again.'"
+    in: div_zmb3gb
+    offset_km: [-7.6, 0.6]
+    site: { layout: zoo, angle_deg: 0, variant: coral, size_m: [700, 550] }
+  - id: poi_sekgdm
+    subtype: dental_clinic
+    status: generated
+    names:
+      zh: 露西牙科诊所
+      en: Lucy Dental Clinic
+      es: Clínica Dental Lucy
+    notes:
+      zh: "露西庄园里的牙科诊所，在露西宅邸东北边不远的草坡上，整座建筑的平面是一颗臼齿的形状：上面圆鼓鼓的牙冠是候诊大厅和诊疗区，下面伸出的两条牙根是消毒中心和技工室。从露西宅邸的阳台上看下去，诊所的屋顶正好像一颗白白的牙齿立在草地上，露西说这样病人「还没进门就知道自己来对了地方」。诊所前面有一个环形的落客车道和两个停车场，旁边是一个弯成微笑形状的小池塘，后面有一个直升机坪，供急诊病人和来会诊的专家使用。\n诊所里有十二间诊疗室，每间都朝着窗外的草坡和远处的露西峰，躺在椅子上的病人可以看风景而不是盯着天花板的灯。诊所用的是露西芯城自己的技术：口腔扫描仪几分钟就能做出整副牙齿的三维模型，技工室的打印机和铣床当天就能做好牙冠和牙套；消毒中心的空气和器械处理标准是参照晶圆厂洁净室定的。诊所给芯城和动物园的员工、附近的居民和学校的孩子看牙，孩子们的检查和涂氟全部免费，候诊室里有一面墙专门挂孩子们画的「我的牙齿」。\n露西建这座诊所的原因很简单：她年轻时在晶圆厂熬夜加班，靠咖啡和糖撑着，牙齿吃了不少苦，后来花了很长时间才治好。她说这辈子学到最朴素的一条道理就是「预防比修复便宜」，芯片是这样，牙齿也是这样。诊所的牙医每年还会去动物园给海狮、河马和猩猩做一次口腔检查，诊所大厅里挂着一张照片：一位牙医站在张大嘴的河马面前，手里拿着一把特大号的牙刷。"
+      en: "The dental clinic on Lucy's estate, on the grassy slope a little north-east of Lucy's House; the whole building is shaped in plan like a molar, its rounded crown the waiting hall and treatment area, its two roots the sterilisation centre and the dental laboratory. Seen from the balcony of Lucy's House the roof looks just like a white tooth standing in the grass, which Lucy says lets patients 'know they've come to the right place before they're through the door'. In front are a drop-off loop and two car parks, beside it a small pond curved like a smile, and behind it a helipad for emergency patients and visiting specialists.\nThe clinic has twelve treatment rooms, each facing the grassy slope and Mount Lucy beyond, so patients in the chair look at the view rather than the lamp on the ceiling. It uses Chip City's own technology: intraoral scanners make a 3D model of a whole set of teeth in minutes, and the laboratory's printers and mills make crowns and aligners the same day; the sterilisation centre's air and instrument standards are set by those of the fabs' cleanrooms. It treats the staff of Chip City and the zoo, local residents and schoolchildren, and children's check-ups and fluoride treatments are free; one wall of the waiting room is hung with children's drawings of 'my teeth'.\nLucy built the clinic for a simple reason: as a young woman pulling all-nighters in fabs on coffee and sugar, her teeth suffered, and it took a long time to put them right. She says the plainest lesson of her life is that 'prevention is cheaper than repair', for chips and for teeth alike. Every year the clinic's dentists also give the zoo's sea lions, hippos and orangutans a dental check, and a photograph in the clinic hall shows a dentist standing before a gaping hippo, holding an extra-large toothbrush."
+    in: div_zmb3gb
+    offset_km: [-5.4, 1.8]
+    site: { layout: clinic, size_m: [300, 300] }
