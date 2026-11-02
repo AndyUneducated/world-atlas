@@ -257,6 +257,10 @@ streets:
     - { names: { zh: 露西大道, en: Lucy Avenue, es: Avenida Lucy }, class: arterial, line: [[168.155, 145.504], [168.155, 146.777]] }
     - { names: { zh: 时尚街, en: Fashion Street, es: Calle de la Moda }, class: collector, line: [[167.519, 146.193], [168.756, 146.193]] }
     - { names: { zh: 清风路, en: Breeze Road, es: Camino de la Brisa }, class: collector, line: [[167.819, 146.777], [168.703, 146.777]] }
+    # Josh's quarter in Josh Manor District, south of the estate road
+    - { names: { zh: 乔什大道, en: Josh Avenue, es: Avenida Josh }, class: arterial, line: [[191.501, 135.491], [191.501, 134.501]] }
+    - { names: { zh: 无醇街, en: Alcohol-Free Street, es: Calle Sin Alcohol }, class: collector, line: [[190.441, 134.855], [192.35, 134.855]] }
+    - { names: { zh: 榴莲路, en: Durian Road, es: Camino del Durián }, class: collector, line: [[190.582, 134.501], [192.421, 134.501]] }
 
 # A few metros only: the basin, the border port, the capital and the Bay, whose driverless trains run on timetable with nobody aboard.
 metro:

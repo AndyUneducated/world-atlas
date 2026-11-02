@@ -224,3 +224,274 @@ places:
     in: div_zmb3gb
     offset_km: [-3.05, 1.12]
     site: { layout: block, size_m: [240, 170], angle_deg: 0, rural: true }
+
+  # ── 乔什庄园区：乔什宅邸东南、庄园公路南边的新街区（乔什大道、无醇街、榴莲路） ──
+  - id: poi_brw7jz
+    subtype: brewery
+    status: generated
+    names:
+      zh: 乔什无醇啤酒厂
+      en: Josh Alcohol-Free Brewery
+      es: Cervecería sin Alcohol Josh
+    short_names: { zh: 无醇啤酒厂, en: Alcohol-Free Brewery, es: Cervecería sin Alcohol }
+    notes:
+      zh: "庄园公路南边、车库实验室东边的一座啤酒厂，这里酿的每一滴啤酒都不含酒精，准确地说，酒精度低于百分之零点五。乔什爱喝啤酒，也爱开车，可这两件事不能放在同一个下午：跑完几圈赛道，坐在看台上最想要的就是一杯冰啤酒，喝完还得自己开车回家。他在车库实验室的白板上写下需求：「要有啤酒的味道，要有啤酒的泡沫，不要啤酒的后果。」于是有了这座厂。\n厂里的流程和普通啤酒厂一样从头做起：麦芽在糖化间里煮成麦汁，在三口铜色的煮沸锅里加进啤酒花，再送进后面成排的发酵罐，让酵母慢慢把糖变成酒。真正的秘密藏在厂区东边那座细高的脱醇塔里：酿好的啤酒在真空里只要加热到三十多度，酒精就会先一步蒸发出去，香气则被单独收集起来，再加回酒里。乔什的团队给脱醇塔写了一个应用，每一批酒出塔时都会「尝」一遍，用一句话报告结果，比如「麦香很足，酒精零点三，可以开车」。\n脱出来的酒精也没有浪费，全部送到赛车场掺进赛车燃料，于是整座庄园里唯一喝酒的是赛车。厂区南边是装瓶车间和仓库，瓶身正面印着大大的「0.0」，背面印着无醇街上六座啤酒屋的地址。沿着无醇街一家一家喝过去，是庄园里最受欢迎的周末路线，喝完还可以自己开车回家。"
+      en: "A brewery south of the estate road and east of the Garage Lab, where every drop of beer is alcohol-free, or to be exact, under half a per cent. Josh loves beer and he loves driving, and the two cannot share an afternoon: after a few laps of the circuit what he wants most is a cold beer in the stands, and afterwards he still has to drive himself home. On the Garage Lab whiteboard he wrote the brief: 'The taste of beer, the head of beer, none of the consequences of beer.' This brewery is the result.\nThe process starts like any other brewery's: malt is mashed into wort in the brewhouse, boiled with hops in three copper kettles and sent to the rows of fermenting tanks behind, where yeast slowly turns the sugar into alcohol. The real secret is in the slim dealcoholisation tower on the east side of the site: under vacuum the finished beer needs warming only to just over thirty degrees for the alcohol to boil off first, while the aromas are caught separately and put back. Josh's team wrote an app for the tower that 'tastes' every batch as it comes out and reports in a sentence, such as 'plenty of malt, alcohol 0.3, fit to drive'.\nThe alcohol taken out is not wasted either: all of it goes to the circuit to be blended into the racing fuel, so the only things on the estate that drink are the racing cars. At the south of the site are the bottling hall and the warehouse. The bottles carry a large '0.0' on the front and on the back the addresses of the six beer houses on Alcohol-Free Street. Working along the street from one to the next is the estate's favourite weekend outing, and afterwards you can still drive yourself home."
+    in: div_jjgxvk
+    offset_km: [3.0, -3.05]
+    site: { layout: works, variant: brewery, size_m: [700, 450], angle_deg: 0 }
+
+  # 乔什无醇啤酒屋：六种风格各占一座，像酒庄一样沿无醇街北侧排开，乔什大道西边三座、东边三座
+  - id: poi_p1s7nr
+    subtype: brewery
+    status: generated
+    names:
+      zh: 乔什无醇啤酒屋·皮尔森
+      en: Josh Alcohol-Free Beer House – Pilsner
+      es: Casa de Cerveza sin Alcohol Josh – Pilsner
+    short_names: { zh: 皮尔森, en: Pilsner, es: Pilsner }
+    notes:
+      zh: "无醇街北边六座啤酒屋里最西边的一座，专酿皮尔森。皮尔森是一种金黄透亮的拉格啤酒，发源于捷克的皮尔森城，用下层发酵的酵母在低温下慢慢发酵，再在接近零度的酒窖里静静存放几个星期，酒体干净清爽，泡沫洁白细密，是今天大多数淡色拉格啤酒的祖先。\n啤酒屋的布局照着这个流程排开：西头是品酒室和朝着无醇街的露台，东南角是一座圆形的铜顶糖化房，北边那座细长的房子是低温储酒窖，窖前一排六个高高的发酵罐，从西到东按发酵的天数排队，像六个等着毕业的学生。储酒窖是整条无醇街最冷的地方，夏天庄园热到三十多度的时候，工人们都抢着来这里干活，乔什说这是庄园里「离职率最低的岗位」。\n皮尔森是最难做成无醇的风格之一：它没有浓重的果香或烤香可以遮掩，酒精一拿走，任何一点瑕疵都藏不住。脱醇塔的那个应用在这里工作得最辛苦，每一批都要尝好几遍，评语也最挑剔，最常见的一句是「干净，但还可以更干净」。品酒室的规矩是用传统的细长高脚杯，倒酒分三次，让泡沫高出杯口一指。墙上挂着一块牌子：「本屋啤酒适合一切场合，包括开车前、开车后、开会前和改代码前。」赛车季的周末，这里是看台之外最热闹的地方，车手们下了赛道就来这里排队。"
+      en: "The westernmost of the six beer houses on the north side of Alcohol-Free Street, given over to Pilsner. Pilsner is a clear golden lager first brewed in the Czech city of Plzeň: bottom-fermenting yeast works slowly at low temperature, then the beer rests for several weeks in a cellar close to freezing, coming out clean and crisp under a fine white head. It is the ancestor of most of today's pale lagers.\nThe house is laid out along that process: at the west end the tasting room and its terrace facing the street, in the south-east corner a round copper-roofed brewhouse, and on the north side a long, narrow lagering cellar with a row of six tall fermenting tanks in front, queued from west to east by days in the tank like six students waiting to graduate. The cellar is the coldest place on the street, and when summer on the estate climbs past thirty degrees the staff compete to work in it; Josh calls it 'the job with the lowest turnover on the estate'.\nPilsner is one of the hardest styles to make alcohol-free: it has no heavy fruit or roast to hide behind, so once the alcohol is gone every flaw shows. The dealcoholisation tower's app works hardest here, tasting each batch several times, and its comments are the fussiest, the most common being 'clean, but could be cleaner'. House rules call for the traditional tall, slender glass and a pour in three goes, leaving the foam a finger above the rim. A sign on the wall reads: 'Our beer suits every occasion, including before driving, after driving, before meetings and before changing code.' On racing weekends this is the busiest place outside the grandstands, the drivers queueing here as soon as they leave the track."
+    in: div_jjgxvk
+    offset_km: [2.9, -3.95]
+    site: { layout: brewhouse, variant: pilsner, size_m: [400, 300], angle_deg: 0 }
+  - id: poi_wh7at9
+    subtype: brewery
+    status: generated
+    names:
+      zh: 乔什无醇啤酒屋·小麦
+      en: Josh Alcohol-Free Beer House – Wheat Beer
+      es: Casa de Cerveza sin Alcohol Josh – Trigo
+    short_names: { zh: 小麦, en: Wheat Beer, es: Trigo }
+    notes:
+      zh: "皮尔森啤酒屋东边的一座，专酿德式小麦啤酒。小麦啤酒用一半以上的小麦芽酿成，酵母不过滤，所以酒色像一杯浑浊的蜂蜜。它最特别的是香气：发酵时酵母会自己产生香蕉和丁香的味道，什么水果和香料都不用加。传统上要用高高的、上宽下窄的玻璃杯来喝，倒到最后还要把瓶子摇一摇，把沉在瓶底的酵母也倒进杯里。\n啤酒屋的中心是一座圆形的塔楼，一层是糖化和发酵车间，楼上是四面开窗的品酒厅。塔楼南边是一片巴伐利亚式的啤酒花园：树荫下摆着一张张长木桌和长凳，陌生人坐在同一张桌子边，喝着同一种酒，很快就会聊起来。这些长桌和乔什宅邸里那张能坐二十个人的餐桌出自同一位木匠之手，规矩也一样：桌上不看手机，但可以讨论任何一款还没发布的应用。\n小麦啤酒脱醇以后，香蕉味会变淡。酿酒师试了很多办法，最后发现最简单的办法最管用：把发酵温度调高一两度，酵母就会多产生一点香蕉味。乔什的团队给这个温度起了个名字，叫「香蕉点」，每一批酒的发酵罐上都贴着它。啤酒花园的夏天最热闹，庄园里的人下了班都来这里，配着椒盐卷饼和白香肠；孩子们喝的是用同一种酵母做的小麦汽水，泡沫一样高，他们举杯的样子比大人还认真。"
+      en: "The house east of the Pilsner house, brewing German wheat beer. Wheat beer is made with more than half malted wheat and left unfiltered, so it looks like a glass of cloudy honey. Its aroma is what sets it apart: during fermentation the yeast itself produces notes of banana and clove, with no fruit or spice added at all. It is traditionally drunk from a tall glass that widens towards the top, and at the end of the pour the bottle is given a swirl so the yeast at the bottom goes into the glass too.\nAt the heart of the house is a round tower, brewhouse and fermenting room on the ground floor and a tasting hall with windows on every side above. South of the tower is a Bavarian-style beer garden of long wooden tables and benches in the shade, where strangers sitting at one table drinking one beer are soon talking. The tables were made by the same carpenter as the long table in Josh's House that seats twenty, and the rule is the same: no phones at the table, but any unreleased app may be discussed.\nDealcoholised wheat beer loses some of its banana. The brewers tried many fixes and found the simplest worked best: raise the fermentation temperature by a degree or two and the yeast makes a little more banana. Josh's team named that temperature the 'banana point', and it is written on the tank for every batch. The beer garden is liveliest in summer, when people from the estate come straight from work for pretzels and white sausages; the children drink a wheat soda made with the same yeast, with just as tall a head, and raise their glasses more solemnly than the adults."
+    in: div_jjgxvk
+    offset_km: [3.4, -3.95]
+    site: { layout: brewhouse, variant: wheat, size_m: [400, 300], angle_deg: 0 }
+  - id: poi_1pa7hp
+    subtype: brewery
+    status: generated
+    names:
+      zh: 乔什无醇啤酒屋·IPA
+      en: Josh Alcohol-Free Beer House – IPA
+      es: Casa de Cerveza sin Alcohol Josh – IPA
+    short_names: { zh: IPA, en: IPA, es: IPA }
+    notes:
+      zh: "小麦啤酒屋东边、乔什大道西边的一座，专酿印度淡色艾尔，也就是 IPA。据说当年英国的酿酒师为了让啤酒经得起去印度的漫长航行，往里面加了大量啤酒花，于是有了这种又苦又香的啤酒；今天的 IPA 早已不必漂洋过海，啤酒花却越加越多，柑橘、松针、西柚、热带水果，什么香气都有。\n啤酒屋的大半个院子是一片啤酒花园，不是喝酒的那种，而是种啤酒花的那种：一排排高高的木杆和铁丝架，啤酒花的藤蔓顺着绳子往上爬，夏天能长到五六米高，整片园子像一座绿色帘子围成的迷宫。院子北边是一座烘花房，屋顶上有一个尖尖的通风帽，刚摘下来的啤酒花在这里烘干，那几天整条无醇街都闻得到一股清香。\nIPA 也是最难做成无醇的风格之一，因为啤酒花的香气大多会跟着酒精一起溜走。酿酒师的对策是先脱醇、后投花：酒从脱醇塔回来以后，再把新鲜的啤酒花泡进去，让香气重新回到酒里。这一招叫「干投」，啤酒屋里的人每天要干投好几回，于是墙上贴着一行大字：「我们干投，你们干杯。」乔什最喜欢的就是这里的苦，他说这种苦和改了一夜代码终于找到那个 bug 时的心情一模一样：第一口皱眉，第二口就上瘾。"
+      en: "The house east of the wheat-beer house and west of Josh Avenue, brewing India Pale Ale, or IPA. The story goes that English brewers loaded their beer with hops so it would survive the long voyage to India, and so this bitter, fragrant beer was born; today's IPAs no longer need to cross an ocean, yet the hops keep piling up, bringing citrus, pine, grapefruit and tropical fruit.\nMost of the yard is a hop garden, not the drinking kind but the growing kind: rows of tall wooden poles and wire frames, the hop bines climbing their strings to five or six metres by summer, until the whole garden is a maze of green curtains. On the north side of the yard is an oast house with a pointed cowl on its roof, where freshly picked hops are dried, and for those few days the whole of Alcohol-Free Street smells fresh and green.\nIPA is also one of the hardest styles to make alcohol-free, because most of the hop aroma slips away with the alcohol. The brewers' answer is to take the alcohol out first and add the hops afterwards: when the beer comes back from the dealcoholisation tower, fresh hops are steeped in it so the aroma returns. This is called dry hopping, and since the staff dry-hop several times a day, a slogan runs across the wall: 'We dry-hop, you hop to it.' What Josh likes most here is the bitterness, which he says is exactly how it feels to find the bug after a night of changing code: the first sip makes you frown, the second has you hooked."
+    in: div_jjgxvk
+    offset_km: [3.9, -3.95]
+    site: { layout: brewhouse, variant: ipa, size_m: [400, 300], angle_deg: 0 }
+  - id: poi_st7vt4
+    subtype: brewery
+    status: generated
+    names:
+      zh: 乔什无醇啤酒屋·世涛
+      en: Josh Alcohol-Free Beer House – Stout
+      es: Casa de Cerveza sin Alcohol Josh – Stout
+    short_names: { zh: 世涛, en: Stout, es: Stout }
+    notes:
+      zh: "乔什大道东边的第一座啤酒屋，专酿世涛。世涛是一种黑色的艾尔啤酒，颜色和味道都来自烤得焦黑的大麦，喝起来有咖啡、黑巧克力和一点点烟熏的味道。爱尔兰的干世涛最出名，倒进杯子里能看见细小的气泡像瀑布一样往下沉，最后在杯口积起一层奶油般的泡沫。\n啤酒屋的主楼是一座方正的黑色大厅，里面是糖化和发酵车间；东北角那座小房子是烘焙坊，大麦在滚筒里一直烤到冒烟，整条无醇街东段都飘着咖啡馆的味道，常有路人走进来想买一杯拿铁。东边的院子里码着十几排旧橡木桶，都是从乔什酒庄退下来的，世涛在里面住上几个星期，带走一点红酒和香草的气息。\n世涛的秘诀是氮气：普通啤酒里冲的是二氧化碳，世涛冲的却大多是氮气，所以泡沫才会那么细、那么绵。乔什的车库实验室为此做过一个应用，把手机对准酒杯，它就能看出气泡下沉的速度，判断这一杯倒得好不好，评语从「完美」到「请重倒」。工人们说它是庄园里最严格的考官，比赛车场的那个应用还严。冬天的晚上，世涛屋是庄园里最受欢迎的去处，壁炉边一杯黑啤，配一块巧克力蛋糕，乔什管这叫「零度的温暖」。"
+      en: "The first beer house east of Josh Avenue, brewing stout. Stout is a black ale whose colour and flavour come from barley roasted almost to charcoal, tasting of coffee, dark chocolate and a wisp of smoke. Irish dry stout is the best known: poured into a glass, its tiny bubbles cascade downwards like a waterfall and finally settle into a creamy head at the rim.\nThe main building is a square black hall housing the brewhouse and fermenting room; the small building in the north-east corner is the roastery, where barley tumbles in drums until it smokes, and the whole eastern end of Alcohol-Free Street smells like a café, so passers-by often wander in hoping for a latte. In the yard to the east stand a dozen rows of old oak barrels retired from Josh Winery, where the stout spends a few weeks picking up a little red wine and vanilla.\nThe secret of stout is nitrogen: ordinary beer is charged with carbon dioxide, but stout mostly with nitrogen, which is why its foam is so fine and soft. The Garage Lab once made an app for it: point your phone at the glass and it reads how fast the bubbles fall to judge whether the pour was good, its verdicts running from 'perfect' to 'please pour again'. The staff call it the strictest examiner on the estate, stricter even than the circuit's app. On winter evenings the stout house is the estate's favourite haunt, a black beer by the fire with a slice of chocolate cake, which Josh calls 'warmth at zero'."
+    in: div_jjgxvk
+    offset_km: [5.2, -3.95]
+    site: { layout: brewhouse, variant: stout, size_m: [400, 300], angle_deg: 0 }
+  - id: poi_abb7ey
+    subtype: brewery
+    status: generated
+    names:
+      zh: 乔什无醇啤酒屋·修道院
+      en: Josh Alcohol-Free Beer House – Abbey Ale
+      es: Casa de Cerveza sin Alcohol Josh – Abadía
+    short_names: { zh: 修道院, en: Abbey Ale, es: Abadía }
+    notes:
+      zh: "世涛啤酒屋东边的一座，专酿比利时修道院风格的啤酒。比利时的一些修道院几百年来一直自己酿酒，修士们靠卖酒维持修道院的开支，酿出的酒从琥珀色的双料到金色的三料，酒体醇厚，带着焦糖、干果和香料的味道。真正能挂「特拉普」标志的只有少数几家修道院，乔什这里不是修道院，所以老老实实地叫「修道院风格」。\n啤酒屋照着修道院的样子建：一圈回廊围着一个四方的庭院，庭院里种着啤酒花和香草，回廊的一边是酿造车间，一边是储酒室，一边是品酒的长厅，东北角立着一座钟楼。钟每天只在一批酒酿成的时候响，于是附近的人一听见钟声，就知道今天有新酒可喝。\n这里的酿酒师自称「修士」，规矩也学修道院：车间里不许大声说话，每周有三天手机要锁进门口的柜子里，下午有一个小时的「静修」，大家在回廊里慢慢散步，想一想手里的配方。乔什的团队里常有程序员申请来这里「静修」一个星期，据说回去以后写的代码 bug 少了一半。修道院风格的啤酒很难脱醇，因为它的香气很大一部分来自比利时酵母，「修士」们为此养了七八种酵母，每一种都有名字，最受宠的那一株叫「方丈」。"
+      en: "The house east of the stout house, brewing Belgian abbey-style ales. Some Belgian monasteries have brewed their own beer for centuries, the monks paying for the monastery's upkeep by selling it; the beers range from amber dubbels to golden tripels, full-bodied, with notes of caramel, dried fruit and spice. Only a handful of monasteries may carry the Trappist mark, and since Josh's place is not a monastery it is honestly called 'abbey style'.\nThe house is built like a monastery: a cloister round a square courtyard planted with hops and herbs, with the brewery along one side, the cellar along another and the long tasting hall along a third, and a bell tower in the north-east corner. The bell rings only when a batch is finished, so when the neighbours hear it they know there is new beer today.\nThe brewers call themselves 'monks' and keep monastic rules: no raised voices in the brewery, phones locked in the cabinet by the door three days a week, and an hour of 'retreat' each afternoon, walking slowly round the cloister thinking over the recipe in hand. Programmers from Josh's team often apply for a week's 'retreat' here and, it is said, go back writing half as many bugs. Abbey ales are hard to dealcoholise, because much of their aroma comes from Belgian yeast, so the 'monks' keep seven or eight yeast strains, each with a name; the favourite is called 'the Abbot'."
+    in: div_jjgxvk
+    offset_km: [5.7, -3.95]
+    site: { layout: brewhouse, variant: abbey, size_m: [400, 300], angle_deg: 0 }
+  - id: poi_s7vr4e
+    subtype: brewery
+    status: generated
+    names:
+      zh: 乔什无醇啤酒屋·酸啤
+      en: Josh Alcohol-Free Beer House – Sour Beer
+      es: Casa de Cerveza sin Alcohol Josh – Ácida
+    short_names: { zh: 酸啤, en: Sour Beer, es: Ácida }
+    notes:
+      zh: "无醇街最东头的一座，专酿酸啤酒，是六座啤酒屋里脾气最古怪的一座。比利时传统的兰比克酸啤不往麦汁里加酵母，而是在夜里把滚烫的麦汁倒进一口又浅又宽的敞口铜池，打开窗户，让空气里的野生酵母和细菌自己落进去，再放进大木桶里慢慢发酵，一放就是一两年，酿出来的酒酸得像柠檬，又带着一点农家院子的野味。\n啤酒屋南边那个长长的浅池就是这口「冷却池」，北边是一座宽大的木桶房，门前立着八只比人还高的大木桶，每一只都有自己的脾气：有的酸得快，有的酸得慢，有的总带着一股樱桃味。酿酒师从不说「我们酿了一批酒」，而是说「庄园的空气酿了一批酒」，因为谁也不知道那天夜里落进池子里的是什么。也正因为这样，酸啤屋是庄园里唯一希望空气不要太干净的地方，每到开池的夜晚，附近的人都会被礼貌地请求不要喷香水。\n乔什曾经提议做一款榴莲酸啤，试饮会上大家沉默了很久，最后酿酒师说了一句：「这两种味道各自都很好。」从此这个配方被锁进了抽屉。最受欢迎的是加了樱桃的那一款，颜色像红宝石，露西来庄园时只喝这一种，她说这是她喝过的唯一一种比她还挑剔的啤酒：差一点点酸度，它就不肯出窖。"
+      en: "The house at the far east end of Alcohol-Free Street, brewing sour beer, and the most temperamental of the six. Traditional Belgian lambic gets no yeast added to its wort; instead the hot wort is poured at night into a broad, shallow open copper pan, the windows are opened and the wild yeasts and bacteria in the air are left to settle in by themselves. It then ferments slowly in big wooden casks for a year or two and comes out as sour as a lemon, with a hint of the farmyard.\nThe long shallow pan on the south side of the house is that 'coolship'; to the north is a broad barrel house with eight wooden vats taller than a person standing in front, each with its own temper: some sour fast, some slowly, and one always tastes of cherries. The brewers never say 'we brewed a batch', but 'the estate's air brewed a batch', because nobody knows what fell into the pan that night. For the same reason the sour house is the one place on the estate that hopes the air is not too clean, and on coolship nights the neighbours are politely asked not to wear perfume.\nJosh once proposed a durian sour; at the tasting there was a long silence, until the head brewer said: 'Each of these flavours is lovely on its own.' The recipe has been locked in a drawer ever since. The favourite is the cherry version, the colour of rubies; when Lucy visits the estate it is the only one she drinks, and she says it is the only beer she has met that is fussier than she is: a touch short of sourness and it refuses to leave the cellar."
+    in: div_jjgxvk
+    offset_km: [6.2, -3.95]
+    site: { layout: brewhouse, variant: sour, size_m: [400, 300], angle_deg: 0 }
+
+  # 无醇街南侧：改装车间、脊椎医疗中心、摄影工作室、乔什广场、人体工学椅博物馆、站立办公大楼
+  - id: bld_gr7g4e
+    subtype: car_workshop
+    status: generated
+    names:
+      zh: 乔什改装车间
+      en: Josh Tuning Workshop
+      es: Taller de Preparación Josh
+    short_names: { zh: 改装车间, en: Tuning Workshop, es: Taller }
+    notes:
+      zh: "无醇街西头南边的一组厂房，是乔什给赛车场上那些车「动手术」的地方。最大的一座是主车间，一排工位上方都挂着吊车，能把整台发动机从车里拎出来；东北角的两座小房子，一座是喷漆房，一座是测功房，车在测功机上原地狂奔，发动机吼得整条街都在抖，街上的人就知道，又有一台车「跑出了新成绩」。东边是零件库，从螺丝到涡轮一应俱全，每个货架都贴着二维码，手机一扫就知道这个零件装在哪台车上、换过几次；南边那条细长的铺装路是试车道。\n车间里改过的车，从卡丁车到老跑车，数都数不过来。车主们最爱的服务是「人工智能调校」：车在赛道上跑一圈，乔什的应用分析完数据，告诉技师该改哪里，再给车主写一份通俗的报告，比如「你的车没问题，问题在第三弯」。车间唯一不肯改的车，是乔什每天开的那辆旧车。技师们求了很多次，想给它换个涡轮、换套避震，乔什都不同意：「这辆车的任务是把我平安送到车库实验室，它已经做得很好了。」于是这辆车每次进车间，只洗车、换机油、补胎，然后原样开走，技师们看着它，像看着一位坚决不肯整容的老明星。\n车间的墙上挂着一排拆下来的旧零件，每一件旁边都有一张小卡片，写着它退役前最后一次跑出的单圈成绩。最新挂上去的是一个被拆下来的座椅，卡片上写的不是成绩，而是一句话：「已转岗至人体工学椅博物馆。」"
+      en: "A group of sheds on the south side of the west end of Alcohol-Free Street, where Josh's circuit cars go for 'surgery'. The largest is the main workshop, a row of bays each with a crane overhead that can lift a whole engine out of a car; of the two small buildings in the north-east corner one is the paint booth and the other the dyno cell, where cars run flat out without going anywhere and the engines roar until the whole street shakes, and people outside know another car has 'set a new time'. To the east is the parts store, holding everything from screws to turbochargers, every shelf tagged with a QR code so a phone can tell which car a part is fitted to and how often it has been changed; the long, narrow paved strip to the south is the test track.\nThe cars modified here, from karts to old sports cars, are past counting. Owners' favourite service is 'AI tuning': the car does a lap of the circuit, Josh's app analyses the data, tells the mechanics what to change and writes the owner a plain-language report, such as 'nothing wrong with your car; the problem is turn three'. The only car the workshop will not modify is the old one Josh drives every day. The mechanics have begged many times to give it a turbo or new suspension, and Josh always says no: 'its job is to get me safely to the Garage Lab, and it does that very well.' So whenever it comes in it gets a wash, an oil change and a tyre repair, and leaves exactly as it came, the mechanics watching it go like an old film star who flatly refuses cosmetic surgery.\nOn the workshop wall hangs a row of old parts, each with a little card giving the last lap time it set before retiring. The newest is a seat taken out of a car, and its card gives not a time but a note: 'Transferred to the Ergonomic Chair Museum.'"
+    in: div_jjgxvk
+    offset_km: [2.3, -4.65]
+    site: { layout: works, variant: garage, size_m: [500, 300], angle_deg: 0 }
+  - id: bld_sp7nec
+    subtype: hospital
+    status: generated
+    names:
+      zh: 乔什脊椎医疗中心
+      en: Josh Spine Centre
+      es: Centro de Columna Josh
+    short_names: { zh: 脊椎医疗中心, en: Spine Centre, es: Centro de Columna }
+    notes:
+      zh: "无醇街南边的一座医院，从天上看就是一根脊椎：七块越往下越宽的楼层排成一列，中间用一道玻璃长廊串起来，像一节节椎骨和中间的脊髓；最南边是一座椭圆形的康复大厅，形状像骨盆。七块楼正好对应人的七节颈椎，因为这里看得最多的病，就是颈椎病。\n来这里看病的人大多是坐出来的：程序员、设计师、司机、赛车手。乔什自己就是第一位病人。他在南圣何塞住公寓的那些年，周末常在商场里找一个靠插座的座位改代码，一坐就是一个下午，脖子越伸越长，背越弯越低，有一天抬头去看电影院的排片表，脖子「咔」地响了一声。从那以后他就想，要是有一座医院专门治这个就好了。\n医疗中心里有骨科、理疗科、康复科和一个小小的影像中心。门诊大厅里摆着一面「姿势镜」，人往镜子前一站，人工智能就把他的脊椎画出来，标出哪一节弯了，再给一句诊断，最常见的是「您的头比您的身体早到了五厘米」。康复大厅里有泳池、悬吊训练架和一整面攀岩墙，医生开的处方里常常有一条「每天站着开一次会」，无醇街东头的站立办公大楼就是为此盖的。停车场在西边，东北角有一座直升机坪，赛车场有人受了伤，几分钟就能送到。这里的护士有一句口头禅：「挺胸，抬头，手机放下。」病人们说，这句话比任何药都管用。"
+      en: "A hospital on the south side of Alcohol-Free Street that from the air is a spine: seven blocks, each wider than the one above, stand in a column threaded on a glass corridor like vertebrae on the spinal cord, and at the southern end an oval rehabilitation hall is shaped like a pelvis. The seven blocks match the seven vertebrae of the human neck, because the complaint seen here most often is neck trouble.\nMost patients got that way by sitting: programmers, designers, drivers, racing drivers. Josh himself was the first. In his years in an apartment in South San Jose he would spend weekend afternoons in a mall seat by a power socket changing code, his neck stretching further and his back bending lower, until one day he looked up at the cinema's listings and his neck went 'click'. From then on he thought how good it would be to have a hospital just for that.\nThe centre has orthopaedics, physiotherapy, rehabilitation and a small imaging unit. In the outpatients' hall stands a 'posture mirror': step in front of it and an AI draws your spine, marks which vertebra is out of line and gives a one-line diagnosis, most often 'your head is arriving five centimetres before your body'. The rehabilitation hall has a pool, suspension training frames and a whole climbing wall, and prescriptions often include 'hold one meeting a day standing up', which is why the Standing Office Tower was built at the east end of the street. The car park is on the west side and a helipad in the north-east corner, so anyone hurt at the circuit can be here in minutes. The nurses have a catchphrase, 'chest out, chin up, phone down', which patients say works better than any medicine."
+    in: div_jjgxvk
+    offset_km: [3.2, -4.75]
+    site: { layout: spine, size_m: [300, 500], angle_deg: 0 }
+  - id: bld_ph7t0s
+    subtype: photo_studio
+    status: generated
+    names:
+      zh: 乔什摄影工作室
+      en: Josh Photo Studio
+      es: Estudio Fotográfico Josh
+    short_names: { zh: 摄影工作室, en: Photo Studio, es: Estudio Fotográfico }
+    notes:
+      zh: "无醇街南边、脊椎医疗中心东边的一座小楼，从天上看是一台相机：方方正正的机身，朝南伸出一个圆圆的镜头，机身顶上是取景器的凸起和一个快门按钮形状的小亭子。镜头其实是一座圆形的玻璃中庭，中间有一个圆形的水池，晴天池水倒映着天空，从楼上往下看，就像从镜头里往外看。\n摄影是乔什写代码之外最大的爱好。他拍赛车，拍葡萄，拍榴莲，拍朋友们围着长餐桌吃饭的样子，就是很少拍自己。工作室里有一间大摄影棚，背景纸从白到黑有十几种颜色，灯光能模拟从清晨到黄昏任何时候的阳光；还有一间老式暗房，在红灯下冲洗胶片，乔什说这是他唯一不用人工智能的地方：「有些东西就是要等它慢慢显影。」楼上是后期室和一个小展厅，展出庄园里每一季最好的照片，最近一期的主题是「采收季：所有人都没在看手机」。\n工作室也给庄园里的其他地方拍照：酒庄和啤酒屋的酒标、车牌厂的车牌墙、乔什团队每一个应用在应用商店里的截图。乔什给自己的应用定了一条规矩，截图必须是真人真景，不许摆拍，所以庄园里几乎每个人都在某个应用的截图里出现过，车牌厂的一位老师傅出现得最多，被大家叫作「截图之王」。门口那个快门按钮亭是一个真的按钮，游客按下去，楼顶的相机就给整条无醇街拍一张全景，第二天贴在门口的墙上。"
+      en: "A small building on the south side of Alcohol-Free Street, east of the Spine Centre, that from the air is a camera: a squared-off body with a round lens projecting to the south, and on top the hump of the viewfinder and a little pavilion shaped like the shutter button. The lens is really a round glass atrium with a circular pool in the middle; on sunny days the pool mirrors the sky, so looking down from upstairs is like looking out through the lens.\nPhotography is Josh's biggest hobby after code. He photographs racing cars, grapes, durians and his friends round the long dining table, and hardly ever himself. The studio has a large shooting room with a dozen backdrop papers from white to black and lighting that can imitate the sun at any hour from dawn to dusk, and an old-fashioned darkroom where film is developed under a red lamp, which Josh says is the one place he uses no AI: 'some things you just have to let develop slowly.' Upstairs are the editing rooms and a small gallery showing each season's best photos from the estate; the latest show is called 'Harvest: nobody looking at their phone'.\nThe studio also shoots for the rest of the estate: labels for the winery and the beer houses, the plate wall at the number-plate works and the app-store screenshots for every one of Josh's apps. Josh has a rule that screenshots must show real people in real places, never staged, so nearly everyone on the estate has appeared in some app's screenshot; a veteran craftsman at the plate works appears most often and is known as 'the King of Screenshots'. The shutter-button pavilion by the door is a real button: press it, and the camera on the roof takes a panorama of the whole street, pinned up on the wall by the door the next day."
+    in: div_jjgxvk
+    offset_km: [3.85, -4.6]
+    site: { layout: camera, size_m: [220, 160], angle_deg: 0 }
+  - id: poi_jsq7r2
+    subtype: plaza
+    status: generated
+    names:
+      zh: 乔什广场
+      en: Josh Square
+      es: Plaza Josh
+    notes:
+      zh: "无醇街和榴莲路之间、乔什大道东边的一座方形广场，是乔什新街区的中心。广场正中是乔什塑像，四块方形草坪把四周的铺地分成一个十字，每块草坪中间有一座喷泉，南北两边各有一道长长的拱廊。\n广场的铺地是用彩色石块拼出来的乔什庄园赛车场：赛道的十六个弯一个不少，按真实赛道缩小了十几倍，主直道正好经过塑像脚下。区里的孩子们最爱在这里「跑一圈」，从起跑线出发，沿着彩色石块一路跑过葡萄藤弯和发夹弯，最快的纪录写在北边拱廊的一根柱子上，几乎每个周末都会被刷新。乔什自己也跑过，成绩照例排在中间。\n四座喷泉对应庄园的四季：春天的那座喷出的水带着啤酒花的清香，夏天的那座喷的是冰凉的水雾，秋天的那座在采收季会变成葡萄的紫色，冬天的那座是温水，冒着白汽。每当车库实验室有一个新应用上线，夜里四座喷泉会一起亮起来，和七十多公里外露西广场那座为新芯片亮起的喷泉遥相呼应。北边拱廊下是六座啤酒屋的小吧台，可以一次尝遍六种风格；南边拱廊下是榴莲摊，广场上有一条不成文的规矩：榴莲只在南边拱廊打开，吃完再回来。每个周日上午，广场上有一个跳蚤市场，改装车间的技师卖旧零件，摄影工作室卖明信片，种植园卖榴莲苗，生意最好的永远是无醇啤酒。"
+      en: "A square plaza between Alcohol-Free Street and Durian Road, east of Josh Avenue, the heart of Josh's new quarter. The statue of Josh stands at its centre; four square lawns divide the paving round it into a cross, each lawn with a fountain in the middle, and a long arcade runs along both the north and south sides.\nThe paving is Josh Estate Circuit laid out in coloured stone: all sixteen corners, scaled down more than tenfold, with the main straight running right past the statue's feet. The district's children love to 'do a lap' here, setting off from the start line and racing along the coloured stones through the Vine Bends and the hairpin; the record is written on a column of the north arcade and is broken almost every weekend. Josh has run it too, finishing mid-table as usual.\nThe four fountains stand for the estate's four seasons: the spring fountain smells of fresh hops, the summer one throws a cool mist, the autumn one turns grape purple at harvest and the winter one runs warm and steams. Whenever the Garage Lab launches a new app, all four light up that night, answering the fountain in Lucy Square more than seventy kilometres away, which lights up for each new chip. Under the north arcade are little bars from the six beer houses, so all six styles can be tried at once; under the south arcade are the durian stalls, and the square has an unwritten rule that durians are opened only under the south arcade, and you come back when you have finished. On Sunday mornings there is a flea market, the Tuning Workshop's mechanics selling old parts, the Photo Studio postcards and the plantation durian seedlings, though the best trade is always in alcohol-free beer."
+    in: div_jjgxvk
+    offset_km: [5.1, -4.75]
+    site: { layout: square, variant: square, size_m: [400, 400], angle_deg: 0 }
+  - id: poi_jst7tv
+    subtype: statue
+    status: generated
+    names:
+      zh: 乔什塑像
+      en: Statue of Josh
+      es: Estatua de Josh
+    notes:
+      zh: "乔什广场正中的一座青铜塑像，塑的是乔什站着，右手托着一台打开的笔记本电脑，左手托着一颗青铜榴莲，抬头望向西北。雕塑家最初的方案是乔什当年在商场里改代码的样子：坐在插座旁边，弓着背，脖子往前伸，屏幕的光照在脸上。这个方案在脊椎医疗中心的审查会上被一票否决，医生们说：「全区的孩子每天都会看见这座塑像，我们不能让它传播不良坐姿。」于是塑像改成了站着，背挺得笔直，下巴微收，笔记本电脑的屏幕正好和视线平齐。医疗中心的姿势镜给它打了满分，它是全区唯一一个拿到满分的「人」。\n左手那颗榴莲是乔什坚持要加的。雕塑家照着种植园里的一颗猫山王一比一地做，每一根刺都是尖的，于是鸽子从来不落在这只手上，只落在电脑屏幕上，乔什说这很合理：「鸽子也想看看最新的应用。」塑像的目光朝着西北，那里是七十多公里外的露西广场，两座塑像隔着山谷互相望着，一个把晶圆举到眼前，一个把电脑托在手上，正好是一块芯片从造出来到被用起来的两头。\n底座上刻着车库实验室门口那块牌子上的话：「先有人用，再谈改变世界。」底座下面埋着一个时间胶囊，里面装着车库实验室第一个应用的源代码、一瓶无醇皮尔森和一颗冷冻的榴莲，约定等庄园所有的应用都没有 bug 的那天再打开，乔什说它大概永远也不会被打开。夜里，笔记本电脑的屏幕会亮起来，显示车库门口小黑板上的那个数字：用户第二周还会不会再打开。"
+      en: "A bronze statue at the centre of Josh Square showing Josh standing, an open laptop on his right hand and a bronze durian on his left, looking up towards the north-west. The sculptor's first design showed Josh as he used to change code in the mall: sitting by a power socket, back hunched, neck craned forward, the screen lighting his face. The Spine Centre's review panel rejected it outright, the doctors saying: 'every child in the district will see this statue every day, and we cannot have it spreading bad posture.' So the statue now stands, back perfectly straight, chin slightly tucked, the laptop screen exactly at eye level. The centre's posture mirror gave it full marks, making it the only 'person' in the district to score full marks.\nThe durian in the left hand was Josh's insistence. The sculptor copied a Musang King from the plantation at full size with every spike sharp, so pigeons never land on that hand, only on the laptop screen, which Josh says is quite reasonable: 'pigeons want to see the latest app too.' The statue gazes north-west, towards Lucy Square more than seventy kilometres away, so the two statues look at each other across the valleys, one holding a wafer up to her eyes and the other a laptop in his hand: the two ends of a chip's life, from being made to being used.\nThe plinth bears the words from the sign by the Garage Lab door: 'First people use it, then we talk about changing the world.' Beneath it lies a time capsule holding the source code of the Garage Lab's first app, a bottle of alcohol-free Pilsner and a frozen durian, to be opened on the day every app on the estate is free of bugs, which Josh says means it will probably never be opened. At night the laptop screen lights up with the number on the little blackboard by the garage door: whether users open the app again in their second week."
+    in: div_jjgxvk
+    offset_km: [5.1, -4.75]
+  - id: bld_ch7rmz
+    subtype: museum
+    status: generated
+    names:
+      zh: 乔什人体工学椅博物馆
+      en: Josh Ergonomic Chair Museum
+      es: Museo de la Silla Ergonómica Josh
+    short_names: { zh: 人体工学椅博物馆, en: Chair Museum, es: Museo de la Silla }
+    notes:
+      zh: "乔什广场东边的一座博物馆，从天上看是一把办公椅的椅脚：一座圆形的中央大厅向五个方向伸出五条展廊，每条展廊的尽头是一座圆形的小展厅，像椅脚下的五个滚轮。这个形状不只是为了好看：办公椅用五个支点，是因为五个比四个更稳、更不容易翻，所以博物馆的第一件展品，就是它自己。\n五条展廊按用途分开：第一条是古代的凳子、长椅和宝座；第二条是工厂和学校里的硬木椅；第三条是各式各样的办公椅，从一坐就吱吱响的老式转椅到能调十几个部位的人体工学椅；第四条是电竞椅和赛车座椅，其中一把是从改装车间「转岗」过来的；第五条叫「不该坐的地方」，展出乔什当年坐过的那些：公寓里的折叠餐椅、商场里靠插座的硬座，还有一把和电影院里「乔什专座」一模一样的复制品。每件展品旁边都有一块牌子，标着脊椎医疗中心给它打的分，分数最低的那件，正是乔什坐得最久的那件。\n中央大厅是全馆唯一可以坐下的地方，摆着一百把不同的人体工学椅，游客可以挨个坐一坐，再让旁边的人工智能告诉自己哪一把最合适。它最常给的建议是：「哪一把都可以，但请每四十分钟站起来一次。」于是大厅的出口直接通向东边的站立办公大楼。馆里的讲解员都是站着讲解的，她们说这份工作最大的讽刺是：在椅子博物馆里上班，一整天都不能坐。"
+      en: "A museum east of Josh Square that from the air is the base of an office chair: a round central hall sends out five galleries in five directions, each ending in a small round hall like the five castors under a chair. The shape is not just for looks: office chairs stand on five points because five are steadier than four and harder to tip over, so the museum's first exhibit is the building itself.\nThe five galleries are arranged by use. The first holds ancient stools, benches and thrones; the second the hard wooden chairs of factories and schools; the third every kind of office chair, from the old swivel chair that creaks as you sit to the ergonomic chair with a dozen adjustments; the fourth gaming chairs and racing seats, one of them 'transferred' from the Tuning Workshop; and the fifth, called 'places you shouldn't sit', shows the ones Josh used to sit on: the folding dining chair from his apartment, a hard seat by a power socket from the mall and an exact copy of 'Josh's seat' in the cinema. Every exhibit has a plaque with the score the Spine Centre gave it, and the lowest-scoring one is the one Josh sat on longest.\nThe central hall is the only place in the museum where you may sit down, with a hundred different ergonomic chairs that visitors can try one by one before asking the AI beside them which suits them best. Its most frequent advice is: 'any of them, but please stand up every forty minutes.' So the hall's exit leads straight into the Standing Office Tower to the east. The guides all give their tours standing, and they say the great irony of the job is working all day in a chair museum without once being allowed to sit."
+    in: div_jjgxvk
+    offset_km: [5.8, -4.68]
+    site: { layout: chair, size_m: [300, 300], angle_deg: 0 }
+  - id: bld_stnd7k
+    subtype: office
+    status: generated
+    names:
+      zh: 乔什站立办公大楼
+      en: Josh Standing Office Tower
+      es: Torre de Oficinas de Pie Josh
+    short_names: { zh: 站立办公大楼, en: Standing Office, es: Oficinas de Pie }
+    notes:
+      zh: "无醇街东头南边的一座细高塔楼，是乔什团队的新办公楼，楼里一把椅子也没有。每一层都是站立办公桌，桌面能升能降，但最低只降到齐腰；会议室里没有会议桌，只有一圈高脚台，开会的人都站着，所以这栋楼里的会平均比车库实验室里短了一大半。楼梯间的墙上写着每一层的「海拔」和爬到这一层消耗的卡路里，电梯随时为访客和需要的人开放，员工没事请走楼梯。\n顶层有一排走步机办公桌，一边写代码一边慢慢走，屏幕的角落显示今天走了多少公里。团队里有人算过，整栋楼一个月走的路加起来，够从乔什宅邸到露西宅邸走上几十个来回。走得最多的是测试工程师，他们说一边走一边找 bug，脑子特别清楚；走得最少的是乔什，因为他总是走到一半就停下来，拉着人讨论应用。\n楼里的椅子都去哪儿了？答案就在隔壁：全部捐给了人体工学椅博物馆，在那里当展品。不过一楼大厅里还是留了十二把椅子，是给来访的客人坐的，每把椅背上都贴着一张小纸条：「本椅仅供客人使用，员工如需坐下，请先向脊椎医疗中心申请。」至今还没有人申请成功过，因为医疗中心每次的批复都一样：「批准坐下四十分钟。」大楼的外墙在夜里会亮起一条从下往上走的光带，像一个人慢慢从椅子上站起来，附近的人说，看见它就想伸个懒腰。"
+      en: "A slim tower on the south side of the east end of Alcohol-Free Street, the new office of Josh's team, without a single chair inside. Every floor has standing desks that rise and fall but go no lower than waist height; the meeting rooms have no tables, only a ring of tall counters, and everyone stands, so meetings here are on average less than half as long as in the Garage Lab. The stairwell walls give each floor's 'altitude' and the calories burned climbing to it; the lifts are always open to visitors and anyone who needs them, and staff are asked to take the stairs unless they have a reason not to.\nThe top floor has a row of treadmill desks for walking slowly while writing code, a corner of the screen showing how many kilometres have been walked today. Someone on the team worked out that a month of the whole building's walking would take you from Josh's House to Lucy's House and back dozens of times. The test engineers walk the most, saying they think clearest hunting bugs on the move; Josh walks the least, because he always stops halfway to talk someone through an app.\nWhere did the chairs go? Next door: every one was given to the Ergonomic Chair Museum as an exhibit. The ground-floor lobby does keep twelve chairs for visitors, each with a note on its back: 'For guests only; staff wishing to sit must first apply to the Spine Centre.' Nobody has yet applied successfully, because the centre always gives the same answer: 'Approved to sit for forty minutes.' At night a band of light climbs the outside of the tower from bottom to top, like someone slowly getting up from a chair, and the neighbours say that seeing it makes them want to stretch."
+    in: div_jjgxvk
+    offset_km: [6.35, -4.65]
+    site: { layout: tower, size_m: [170, 170], angle_deg: 0, rural: true }
+  - id: bld_dr7nfx
+    subtype: tower
+    status: generated
+    names:
+      zh: 乔什无人机摄影塔
+      en: Josh Drone Photography Tower
+      es: Torre de Fotografía con Drones Josh
+    short_names: { zh: 无人机摄影塔, en: Drone Tower, es: Torre de Drones }
+    notes:
+      zh: "庄园公路东段南边、葡萄园对面的一座细高的观景塔，塔脚围着一圈起降平台，四个角上各有一个圆形停机坪，是乔什的无人机摄影基地。塔顶是一个玻璃观景台，晴天从这里能看见北边整片葡萄园、赛车场的主直道和更远处车牌厂的锯齿形屋顶，往西南看是无醇街上的六座啤酒屋和种植园的温室屋顶。\n塔里住着几十架无人机，各有分工：有的在赛车季跟拍赛车，贴着弯道外侧飞，把每一次超车都录下来；有的在采收季给葡萄园拍照，从叶子的颜色判断哪一块该先摘；有的每天清晨绕庄园飞一圈，在同一个位置、同一个时间给摄影工作室拍一张照片，一年下来，工作室的墙上就是一整面慢慢变色的庄园。还有一架专门在榴莲成熟的季节飞到种植园上空，用它的「鼻子」，也就是一个气体传感器，闻一闻哪一棵树的榴莲快熟了，工人们管它叫「闻香无人机」。\n所有的无人机都由乔什的一个应用调度，它会自己规划航线，避开直升机坪和赛车场的禁飞时段，飞完回来自己落到停机坪上充电。塔下的小展厅每周放映一次「本周最佳镜头」，评选的标准只有一条：画面里要有人在笑。最受欢迎的一次，是一架无人机拍到乔什坐在赛道边吃榴莲，笑得很开心，周围三米之内空无一人。"
+      en: "A slim observation tower on the south side of the eastern stretch of the estate road, across from the vineyard, with a ring of launch decks round its foot and a round landing pad at each of its four corners: the base for Josh's drone photography. At the top is a glass viewing deck, and on clear days you can see from it the whole vineyard, the circuit's main straight and the saw-tooth roofs of the plate works to the north, and to the south-west the six beer houses on Alcohol-Free Street and the greenhouse roofs of the plantation.\nSeveral dozen drones live in the tower, each with its own job. Some follow the cars in racing season, flying close round the outside of the corners to record every overtake; some photograph the vineyard at harvest, judging from the colour of the leaves which block to pick first; and some fly a circuit of the estate every dawn, taking a picture for the Photo Studio from the same spot at the same time, so that over a year the studio's wall fills with an estate slowly changing colour. One flies over the plantation in the durian season, using its 'nose', a gas sensor, to sniff out which trees' fruit is nearly ripe; the workers call it the 'sniffer drone'.\nAll the drones are run by one of Josh's apps, which plans their routes, keeps them clear of the helipads and the circuit's no-fly sessions, and brings them back to land on their pads to recharge. The small gallery at the foot of the tower shows 'shot of the week' once a week, judged on a single rule: someone in the picture must be laughing. The most popular was a drone's shot of Josh sitting by the track eating a durian, laughing happily, with nobody else within three metres."
+    in: div_jjgxvk
+    offset_km: [7.0, -2.95]
+    site: { layout: dronetower, size_m: [150, 150], angle_deg: 0 }
+
+  # 榴莲路南侧：榴莲种植园、榴莲气味隔离塔、武器收藏库、靶场
+  - id: poi_d7r1an
+    subtype: orchard
+    status: generated
+    names:
+      zh: 乔什榴莲种植园
+      en: Josh Durian Plantation
+      es: Plantación de Durián Josh
+    short_names: { zh: 榴莲种植园, en: Durian Plantation, es: Plantación de Durián }
+    notes:
+      zh: "榴莲路南边的一大片种植园，四个方方正正的园块里种着上千棵榴莲树，每个园块都罩在一座可以开合的温室屋顶下。榴莲是热带的树，喜欢终年湿热、从不下霜的地方，而乔什庄园区的夏天又热又干，冬天还会结霜，有记录以来最冷的一个夜晚到过零下五度。所以这里的榴莲树住的是「空调房」：屋顶晴天打开，让加州的阳光照进来；夜里和冬天合上，里面保持二十五度以上、湿度百分之八十，像东南亚雨林里的一个下午。\n园里种了三个品种：猫山王、金枕和黑刺，各有一群忠实的粉丝，每到成熟季都要为哪一种最好吃争论一番。榴莲花在夜里开放，在老家靠吃花蜜的蝙蝠授粉，温室里没有野生蝙蝠，种植园就请来了一群，住在屋顶下的蝙蝠房里，工作时间是晚上，报酬是花蜜和熟透的水果。榴莲熟了会自己从树上掉下来，一颗好几斤，还带着满身的硬刺，所以园里的规矩是进园必须戴安全帽，树下张着网兜，工人们清早去网里收果子，像去收一夜的渔网。\n南边的平房是分拣包装车间和冷库，东南角的小池塘收集雨水，用来给温室加湿。种植园的榴莲大部分留在庄园里，一部分送到露西的甜品工坊，做成榴莲点心，再专门留给乔什。乔什每次来园里，都会挑一颗刚掉下来的，坐在田埂上就地打开，园里的工人说，那是他最安静的时候，因为周围没有人愿意靠近。"
+      en: "A large plantation south of Durian Road, a thousand or more durian trees growing in four rectangular blocks, each under a greenhouse roof that opens and closes. The durian is a tropical tree that likes year-round heat and humidity and never a frost, but Josh Estate District has hot, dry summers and frosty winters, its coldest night on record reaching five below zero. So the trees here live in 'air-conditioned rooms': the roofs open on sunny days to let the Californian sun in and close at night and in winter, keeping the inside above twenty-five degrees at eighty per cent humidity, like an afternoon in a South-East Asian rainforest.\nThree varieties grow here, Musang King, Monthong and Black Thorn, each with its own loyal fans, who argue every ripening season over which is best. Durian flowers open at night and in their homeland are pollinated by nectar-feeding bats; the greenhouses had no wild bats, so the plantation invited a colony to live in bat boxes under the roofs, working the night shift for a wage of nectar and ripe fruit. Ripe durians fall from the tree by themselves, several kilos each and covered in hard spikes, so the rule is that everyone wears a hard hat in the plantation; nets are slung under the trees, and the workers empty them at dawn like fishermen bringing in a night's catch.\nThe low building to the south houses the sorting and packing hall and the cold store, and a small pond in the south-east corner gathers rain to humidify the greenhouses. Most of the durians stay on the estate, and some go to Lucy's dessert workshop to be made into durian pastries kept especially for Josh. Whenever Josh visits the plantation he picks a freshly fallen fruit and opens it right there on the bank between the blocks; the workers say it is when he is at his most peaceful, because nobody is willing to come near."
+    in: div_jjgxvk
+    offset_km: [3.2, -5.9]
+    site: { layout: orchard, variant: durian, size_m: [1600, 1000], angle_deg: 0 }
+  - id: bld_0d7rtw
+    subtype: tower
+    status: generated
+    names:
+      zh: 乔什榴莲气味隔离塔
+      en: Josh Durian Odour Isolation Tower
+      es: Torre de Aislamiento del Olor del Durián Josh
+    short_names: { zh: 气味隔离塔, en: Odour Tower, es: Torre del Olor }
+    notes:
+      zh: "榴莲种植园东边、榴莲路南边的一座塔楼，是全庄园唯一允许在室内打开榴莲的地方。榴莲的气味来自果肉里几十种含硫的化合物，有人闻到的是奶油和焦糖，有人闻到的是煤气和洋葱。东南亚很多酒店和地铁都禁止带榴莲进入，乔什的庄园也不例外：宅邸、车库实验室和六座啤酒屋的门口都贴着同一个标志，一颗被红圈划掉的榴莲。\n想吃，就来这座塔。塔的入口是一道双层气闸门，进门先换上一件一次性的围裙；塔里的气压比外面低一点，空气只进不出，所有的气味都被抽到塔顶，经过一层活性炭、一层光催化和一层水雾洗涤，最后从五十米高的塔顶排出去，据说排出去的空气闻起来只剩下一点点焦糖味。塔里每一层都有几张长桌和开榴莲的专用工具，墙上的屏幕实时显示一个「榴莲指数」，一旦超过 5，抽风机就会自动加大马力。\n塔的设计请教过露西的清风中心，露西当时只提了一个要求：「不能闷。」所以塔里的风比外面还大，吃榴莲的人都说这里是全庄园最凉快的地方。露西本人来过一次，在气闸门口站了一分钟，最后决定在门外等。乔什在里面吃完了一整颗，出来的时候身上的气味已经被吹得干干净净，露西凑过去闻了闻，说：「还行，像焦糖。」这句话后来被刻在了塔门口，成了这座塔的验收标准。"
+      en: "A tower east of the durian plantation and south of Durian Road, the only place on the estate where durians may be opened indoors. The smell of durian comes from dozens of sulphur compounds in the flesh; some people smell cream and caramel, others gas and onions. Many hotels and metro systems in South-East Asia ban durians, and Josh's estate is no exception: the doors of the house, the Garage Lab and all six beer houses carry the same sign, a durian crossed out in a red circle.\nIf you want to eat one, you come here. The entrance is a double airlock, and inside you put on a disposable apron; the air pressure inside is a little lower than outside, so air comes in but never leaks out, and every smell is drawn up to the top through a layer of activated carbon, a layer of photocatalysis and a water-mist scrubber before leaving from the top of the fifty-metre tower, the air coming out said to smell of nothing more than a hint of caramel. Every floor has long tables and special tools for opening durians, and a screen on the wall shows a live 'durian index'; above 5, the extraction fans speed up by themselves.\nThe design was worked out with the help of Lucy's Breeze Centre, and Lucy made only one demand at the time: 'it must not be stuffy.' So the breeze inside is stronger than outside, and the durian eaters say it is the coolest place on the estate. Lucy herself came once, stood at the airlock for a minute and decided to wait outside. Josh ate a whole durian inside, and when he came out the smell had been blown clean away; Lucy leaned in, sniffed and said: 'Not bad, like caramel.' The words were later carved by the tower door and became its acceptance standard."
+    in: div_jjgxvk
+    offset_km: [4.25, -5.75]
+    site: { layout: tower, size_m: [150, 150], angle_deg: 0, rural: true }
+  - id: poi_arm7ry
+    subtype: armoury
+    status: generated
+    names:
+      zh: 乔什武器收藏库
+      en: Josh Armoury
+      es: Armería Josh
+    short_names: { zh: 武器收藏库, en: Armoury, es: Armería }
+    notes:
+      zh: "榴莲路南边、乔什广场正南的一座方形院子，两道高墙一里一外围着一片碎石场，正中是一座低矮的库房，四个角上各有一座半埋在地下的小库，西边是一座门楼。这里是乔什的私人武器收藏库，收藏的大多是有历史的兵器：古代的刀剑、长矛和弓弩，中世纪的盔甲，各个时代的老式火枪，还有一批退役的猎枪和运动步枪。所有的藏品都按照州里的法律登记和保管，枪和弹药分开存放，最珍贵的几件锁在四个角上的小库里。\n库房的展厅按兵器的「进化」排列，从石器到弓箭，从铠甲到火药，每一件旁边都有一块牌子，讲它是怎么造的、在什么场合用过、后来为什么被淘汰。最受欢迎的展柜却不是哪一把名刀，而是一根中世纪的狼牙棒：圆圆的锤头上布满尖刺，参观的人走到它面前，几乎都会说同一句话：「这不就是榴莲吗？」乔什于是在旁边放了一颗真榴莲做对比，标签上写着：「左边这件已经退役，右边这件仍在服役。」\n收藏库的规矩比庄园里任何地方都严：进门要登记，全程有讲解员陪同，展柜里的东西只能看不能碰，库房的钥匙分成两半，一半在乔什手里，一半在保安队长手里。乔什说收藏这些兵器不是为了打仗，而是为了记住：人类花了几千年把工具做得越来越锋利，现在该花点时间把它们做得越来越好用了。东边的靶场里，这些老兵器的后代还在继续练习，只打纸靶和飞碟。"
+      en: "A square compound south of Durian Road, directly south of Josh Square: two high walls, one inside the other, enclose a gravel yard with a low vault building in the middle, a small half-buried store in each of the four corners and a gatehouse on the west side. This is Josh's private armoury, a collection mostly of historic arms: ancient swords, spears and crossbows, medieval armour, old muskets from many periods and a set of retired hunting and target rifles. Everything is registered and kept as the state's laws require, firearms and ammunition stored apart, and the most precious pieces locked in the four corner stores.\nThe galleries follow the 'evolution' of weapons, from stone tools to bows, from armour to gunpowder, each piece with a plaque telling how it was made, where it was used and why it was eventually superseded. The most popular case, though, holds no famous blade but a medieval morning star, its round head bristling with spikes, and almost every visitor who reaches it says the same thing: 'Isn't that a durian?' So Josh put a real durian beside it for comparison, labelled: 'The one on the left has been retired; the one on the right is still in service.'\nThe rules here are the strictest on the estate: visitors sign in and are accompanied by a guide throughout, nothing in the cases may be touched, and the key to the vault is in two halves, one held by Josh and the other by the head of security. Josh says he collects these weapons not for fighting but for remembering: people spent thousands of years making their tools ever sharper, and now it is time to spend a while making them ever more useful. At the range to the east, the descendants of these old weapons are still practising, at nothing but paper targets and clays."
+    in: div_jjgxvk
+    offset_km: [5.0, -5.65]
+    site: { layout: armoury, size_m: [260, 260], angle_deg: 0 }
+  - id: poi_rng7sh
+    subtype: shooting_range
+    status: generated
+    names:
+      zh: 乔什靶场
+      en: Josh Shooting Range
+      es: Campo de Tiro Josh
+    short_names: { zh: 靶场, en: Shooting Range, es: Campo de Tiro }
+    notes:
+      zh: "榴莲路东段南边的一座靶场，所有的射击方向都朝东，打向一道高高的土堤。西头是俱乐部会所和停车场，会所东边是一道带顶棚的射击线，从射击线往东伸出七条长长的靶道，最远的靶子在七百多米外，靶道尽头那道几层楼高的土堤保证没有一发子弹能飞出靶场。射击线南边是一个围着墙的手枪靶区，再往东南是飞碟射击场，一排射击位围成半圆，中间是抛靶机。\n靶场的规矩是全庄园最严的之一：每个人第一次来都要先上半天的安全课，射击线上永远站着一位安全官，他喊「停火」的时候，所有人都要放下枪、退后一步，连乔什也不例外。靶子只有纸靶和飞碟，纸靶上印的是一圈圈圆环，偶尔也印一只卡通的虫子，乔什的团队管打靶叫「捉虫」，打中虫子的那一枪叫「修复」。\n靶场也用上了乔什的应用：每一发子弹打出去，靶子上的传感器会记下落点，射手放下枪以后，应用用一两句话告诉他问题在哪里，比如「你又提前扣扳机了」，或者「呼吸太急，像在赶上线」。这个应用和赛车场的那个是同一个团队做的，射手们说连语气都一模一样。会所的露台朝着西边的落日，打完靶的人坐在这里喝一杯无醇皮尔森，看着东边的土堤被夕阳染成金色。乔什说，在这里打一下午靶，比任何一款冥想应用都管用，虽然他的团队也做过一款冥想应用。"
+      en: "A shooting range south of the eastern stretch of Durian Road, every lane firing east towards a high earth bank. At the west end are the clubhouse and car park, and east of the clubhouse a covered firing line from which seven long lanes run east, the furthest targets more than seven hundred metres away; the bank several storeys high at the end of the lanes makes sure no bullet leaves the range. South of the firing line is a walled pistol bay, and further south-east a clay field, a row of shooting stands set in a half-circle round the trap house.\nThe range's rules are among the strictest on the estate: everyone spends half a day on a safety course before their first visit, a range officer is always on the firing line, and when he calls 'cease fire' everyone puts down their gun and steps back, Josh included. The only targets are paper and clays; the paper targets are printed with rings, now and then with a cartoon bug, so Josh's team calls target practice 'bug hunting' and a hit on the bug 'a fix'.\nThe range uses one of Josh's apps too: sensors in the targets record where every shot lands, and when shooters lower their guns the app tells them in a sentence or two what went wrong, such as 'you jerked the trigger again' or 'breathing too fast, like before a release'. It was made by the same team as the circuit's app, and shooters say even the tone of voice is identical. The clubhouse terrace faces the western sunset, and after shooting people sit here with an alcohol-free Pilsner, watching the bank to the east turn gold in the evening light. Josh says an afternoon at the range works better than any meditation app, even though his team has made one of those too."
+    in: div_jjgxvk
+    offset_km: [6.4, -5.65]
+    site: { layout: shooting, size_m: [1200, 400], angle_deg: 0 }

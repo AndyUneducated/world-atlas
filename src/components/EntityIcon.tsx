@@ -1,7 +1,7 @@
 import {
-  Anchor, Banknote, Bath, Bird, BrickWall, Briefcase, Building, Building2, Car, CarFront, Castle, Clapperboard, Crosshair, Crown, CupSoda, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, Fuel, GraduationCap, Grape, Helicopter, Hospital, Hotel, House, HouseHeart,
+  Anchor, Banknote, Bath, Beer, Bird, BrickWall, Briefcase, Building, Building2, Camera, Car, CarFront, Castle, Citrus, Clapperboard, Crosshair, Crown, CupSoda, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, Fuel, GraduationCap, Grape, Helicopter, Hospital, Hotel, House, HouseHeart,
   Landmark, LandPlot, Lighthouse, Lock, Magnet, MapPin, Microchip, Mountain, MountainSnow, Navigation2, Orbit, PawPrint, PersonStanding, Pickaxe, Plane, PlaneTakeoff, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship,
-  ShipWheel, Shell, Shirt, ShoppingBag, ShoppingCart, Siren, Snowflake, Server, Sparkles, Sprout, Sun, Target, Telescope, ToothbrushSparkles, TrainFront, TramFront, Trees, Utensils, Vault, Vote, Warehouse, Waves, WavesLadder, Wind, Zap,
+  ShipWheel, Shell, Shirt, ShoppingBag, ShoppingCart, Siren, Snowflake, Server, Sparkles, Sprout, Sun, Swords, Target, Telescope, ToothbrushSparkles, TrainFront, TramFront, Trees, Utensils, Vault, Vote, Warehouse, Waves, WavesLadder, Wind, Wrench, Zap,
 } from "lucide-react";
 import type { Entity } from "../lib/types";
 
@@ -158,6 +158,18 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
         return <Bath {...props} />;
       case "dessert_shop":
         return <CupSoda {...props} />;
+      case "brewery":
+        return <Beer {...props} />;
+      case "photo_studio":
+        return <Camera {...props} />;
+      case "orchard":
+        return <Citrus {...props} />;
+      case "armoury":
+        return <Swords {...props} />;
+      case "shooting_range":
+        return <Target {...props} />;
+      case "car_workshop":
+        return <Wrench {...props} />;
       default:
         return <Landmark {...props} />;
     }

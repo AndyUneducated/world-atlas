@@ -45,7 +45,7 @@ NETWORKS = {  # the infix is the territory's ISO 3166-2 suffix (NV, VK, …)
 BUILDING_SUBTYPES = ("government", "building", "civic", "office", "museum", "theatre", "library", "townhall",
                      "tower", "hospital", "marketplace", "exhibition_centre", "bank", "dome", "data_centre", "vault",
                      "temple", "canteen", "housing", "shopping_mall", "supermarket", "fuel_station", "apartment",
-                     "fashion_house", "beauty_centre", "dessert_shop")
+                     "fashion_house", "beauty_centre", "dessert_shop", "photo_studio", "car_workshop")
 
 
 GLYPHS = ts_names("glyphs.ts", "GLYPHS")
