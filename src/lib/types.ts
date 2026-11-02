@@ -303,6 +303,8 @@ export interface RailService {
   /** Passenger lines. */
   peak_headway_min?: number;
   trains_per_peak_hour?: number;
+  /** A fixed timetable instead of a headway: trains a day, both directions. */
+  trains_per_day?: number;
   ridership_per_year?: number;
   /** Heavy-haul lines: loaded trains a day and net tonnes a year. */
   loaded_trains_per_day?: number;

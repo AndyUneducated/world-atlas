@@ -82,7 +82,8 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   only matched and used for street names inside that region.
 - **Routes.** Four grades, the same in every territory: national expressways `G-NV-1…`,
   territorial expressways `S-NV-1…`, territorial highways `S-NV-101…` and city roads
-  `X-NV-001…` (with the territory infix: `NV`, `VK`). A route's
+  `X-NV-001…` (with the territory infix: `NV`, `VK`, `AO`, `ES`, `CA`; California has
+  territorial highways and city roads only). A route's
   `via` lists cities or districts; `ring`, `straight` (straight legs, crossing hills and
   water on structures) and per-leg `legs` overrides shape the path. Territorial routes name
   a `shield` glyph for the upper half of their sign.
@@ -113,7 +114,8 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   inland off the water, so sites stay in place when the districts are repartitioned.
 - **Railways.** Intercity lines in `world/transport/*-rail.yaml` list their stops (cities
   or districts) and are laid over the terrain with gentler gradients than roads; `tech`
-  sets their operating and design speeds. City metro
+  sets their operating and design speeds, and an optional `trains_per_day` fixes the
+  timetable instead of a demand-driven headway. City metro
   lines come from the `metro` section of a generator file and stay inside a district's
   built-up area. Stations are places of subtype `station`; lines and stations get IDs
   derived from stable keys, so they survive rebuilds.

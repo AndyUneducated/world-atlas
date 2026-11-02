@@ -1,0 +1,28 @@
+# Railways of the California Autonomous State.
+#
+# Fields as in world/transport/cn-nv-rail.yaml. tech.trains_per_day (optional): a fixed
+#   timetable of that many trains a day in both directions together, instead of a headway set
+#   by demand; the line carries no more than those trains seat.
+railways:
+  - id: rte_karbey
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 加州高速铁路
+      en: California High-Speed Railway
+      es: Tren de Alta Velocidad de California
+    notes:
+      zh: "加州高速铁路已建成的一段全长约 370 公里，自斯塔克顿城南的斯塔克顿站出发，经谦逊站、阿尔蒙多站，到压裂原荒漠里的荒漠枢纽站，直达最快约一小时十七分钟。列车为下一期 300 型，八辆编组、可重联十六辆，运营时速 300 公里，设计时速 350 公里。全线有约 39 公里桥梁，没有隧道，最长的果仁高架桥约 16.5 公里，从阿尔蒙多城区上空穿过。每天只开两班，每年运送约 74 万人次，班班满座。\n因为一天只有两班，车票总是提前几个月卖光，斯塔克顿站门口有黄牛专门倒卖高铁票，价格比机票还贵，买到票的人上车第一件事是拍一张车票的照片发出去。荒漠枢纽站方圆几十公里没有城镇，站前广场上只有一排机器人出租车和一块「此处规划中央商务区」的牌子，下车的人大多原车坐回去，为的只是说自己坐过加州的高铁。"
+      en: "The finished stretch of the California High-Speed Railway runs about 370 km from Stuckton Station south of the city through Modestly and Almondo stations to Desert Hub Station in the desert of the Fracklands, the fastest trains taking about an hour and seventeen minutes. Its Next Phase 300 trains of eight cars, which can run in pairs of sixteen, run at 300 km/h on a line designed for 350. It has about 39 km of bridges and no tunnels, the longest being the Kernel Viaduct, about 16.5 km, which carries it over the town of Almondo. Only two trains run a day, carrying some 740,000 trips a year, every one of them full.\nWith only two trains a day, tickets sell out months ahead, touts outside Stuckton Station resell them for more than an air fare, and the first thing anyone who gets one does on board is post a picture of the ticket. There is no town for dozens of kilometres around Desert Hub Station, and its forecourt holds only a rank of robotaxis and a sign reading 'Future site of the central business district'; most passengers ride straight back on the same train, just to say they have taken California's high-speed railway."
+    background:
+      zh: 加州高速铁路原本要连起失落天使、湾区和首府，全长一千多公里，三小时走完全程。自治州为它成立了高速铁路管理局，管理局的名字后面至今挂着「建设中」三个字。线路被拆成十几期，每一期都要先做环境评估、再做第二次环境评估、再请人工智能写一份评估环境评估的报告；修了这么多年，建成的只有中央渴谷里斯塔克顿城南到压裂原荒漠的一段，两头都不在任何人想去的地方。管理局说这是「先建最难的部分」，渴谷的人说这是「先建最没用的部分」。
+      en: "The California High-Speed Railway was meant to link Lost Angeles, the Bay and the capital, more than a thousand kilometres in three hours. The state set up a High-Speed Rail Authority for it, whose name still ends in the words 'Under Construction'. The line was split into more than a dozen phases, each needing an environmental review, then a second environmental review, then a report by an artificial intelligence assessing the environmental reviews; after all these years the only stretch built runs through the Central Valley from the south of Stuckton to the desert of the Fracklands, and neither end is anywhere anyone wants to go. The Authority says it is 'building the hardest part first'; the valley says it is 'building the most useless part first'."
+    color: '#E36414'
+    tech:
+      operating_speed_kmh: 300
+      design_speed_kmh: 350
+      trains_per_day: 2
+      train: { names: { zh: 下一期 300 型, en: Next Phase 300, es: Próxima Fase 300 }, seats: 600 }
+    station_names:
+      div_xfjrth: { zh: 荒漠枢纽站, en: Desert Hub Station, es: Estación Centro del Desierto }
+    via: [div_zqpg46, div_tnbcec, div_r0qhbd, div_xfjrth]  # terminus – modestly – kernel – fracklands

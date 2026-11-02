@@ -357,7 +357,9 @@ function ServiceSection({ entity, lang }: { entity: Entity; lang: Lang }) {
       ]
     : [
         [t("fastestRun", lang), <>{formatDuration(s.fastest_min, lang)} <span className="text-faint">· {t("nonStop", lang)}</span></>],
-        [t("peakHeadway", lang), lang === "zh" ? `每 ${s.peak_headway_min} 分钟一班` : `every ${s.peak_headway_min} min`],
+        s.trains_per_day
+          ? [t("timetable", lang), lang === "zh" ? `每天 ${s.trains_per_day} 班` : `${s.trains_per_day} trains a day`]
+          : [t("peakHeadway", lang), lang === "zh" ? `每 ${s.peak_headway_min} 分钟一班` : `every ${s.peak_headway_min} min`],
         [t("ridership", lang), lang === "zh" ? `${formatPopulation(s.ridership_per_year ?? 0, lang)}人次` : formatPopulation(s.ridership_per_year ?? 0, lang)],
       ];
   if (s.operator) rows.push([t("railOperator", lang), s.operator[lang]]);

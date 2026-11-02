@@ -217,6 +217,30 @@ streets:
     div_qayjg1: { style: mixed, mix: { houses: 2.4, industrial: 0.6 } }                                 # 涂黑区
     div_g96sq9: { style: planned, mix: { houses: 2.6, park: 1.0 } }                                     # 喷灌区
 
+# A few metros only: the basin, the border port, the capital and the Bay, whose driverless trains run on timetable with nobody aboard.
+metro:
+  spacing_km: 1.4
+  cities:
+    - city: div_w1vh1a   # 失落天使市
+      names: { zh: 失落天使地铁, en: Lost Angeles Metro, es: Metro de Los Ángeles Perdidos }
+      lines:
+        - { district: div_jqddbd, axis: 0 }   # 破产中心区
+        - { district: div_16m2n3, axis: 0 }   # 好莱怪区
+        - { district: div_3rwj4m, axis: 1 }   # 搁浅滩区
+    - city: div_3mdaee   # 圣遣返市
+      names: { zh: 圣遣返地铁, en: San Deportes Metro, es: Metro de San Deportes }
+      lines:
+        - { district: div_ad0sg9, axis: 0 }   # 签证区
+        - { district: div_jmthr1, axis: 0 }   # 边界线区
+    - city: div_91r9b3   # 萨克拉钱托市
+      names: { zh: 萨克拉钱托地铁, en: Sacramoney Metro, es: Metro de Sacramoney }
+      lines:
+        - { district: div_ymeec8, axis: 0 }   # 游说区
+    - city: div_35n7cb   # 贝叶斯市
+      names: { zh: 贝叶斯地铁, en: Bayesian Metro, es: Metro Bayesiano }
+      lines:
+        - { district: div_0vf1b0, axis: 0 }   # 先验区
+
 # Facts the build checks and reports; a failed check is printed as a warning.
 expect:
   longest_river: nat_ezeckp
@@ -314,6 +338,7 @@ layout:
     div_3rwj4m: null   # 搁浅滩区，港口
     div_0vf1b0: null   # 先验区
     div_hwfcnm: null   # 罐头厂区
+    div_qx3brb: null   # 大附加费区，滤镜山脉的悬崖海岸
     div_taah7d: null   # 谦卑湾区
     div_nsgeyn: null   # 传教区
     div_77vac6: null   # 新港决口区

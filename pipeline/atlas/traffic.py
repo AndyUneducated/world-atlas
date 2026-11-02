@@ -135,6 +135,10 @@ def _rail(world: World, ent: dict, r: dict, entities: dict, model: dict) -> None
         "ridership_per_year": _round_sig(trips_day * 365),
         "operator": _operator(world, ent, r, entities),
     }
+    if fixed := tech.get("trains_per_day"):  # a fixed timetable: no more trains than that, however many want to ride
+        del ent["service"]["peak_headway_min"], ent["service"]["trains_per_peak_hour"]
+        ent["service"]["trains_per_day"] = fixed
+        ent["service"]["ridership_per_year"] = _round_sig(min(trips_day, fixed * seats * model["load_factor"]) * 365)
 
 
 def annotate(world: World, entities: dict) -> None:

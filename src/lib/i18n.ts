@@ -195,6 +195,7 @@ const STRINGS = {
   fastestRun: { zh: "最快全程", en: "Fastest run" },
   nonStop: { zh: "直达", en: "non-stop" },
   peakHeadway: { zh: "高峰间隔", en: "Peak headway" },
+  timetable: { zh: "班次", en: "Timetable" },
   ridership: { zh: "年客运量", en: "Riders a year" },
   tripsPerYear: { zh: "人次/年", en: "trips/year" },
   freightVolume: { zh: "年货运量", en: "Freight a year" },

@@ -1,0 +1,268 @@
+# Road routes of the California Autonomous State.
+#
+# California has no expressways, national or territorial: its trunk roads are territorial
+# highways and city roads only, numbered with the state infix:
+#   S-CA-101..    领道 territorial highway        (class primary)
+#   X-CA-001..    市道 city road                  (class secondary, derived)
+# The corridors follow the state's namesake: the valley trunk, the coast road, the cliff road,
+# the farm road, the road over the Sierra, the desert roads and the basin's ring.
+# Fields as in world/transport/cn-nv-roads.yaml; every shield uses the state's spade design.
+routes:
+  - id: rte_y7s1dh
+    ref: S-CA-101
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 单调领道
+      en: Monotony Road
+      es: Carretera de la Monotonía
+    notes:
+      zh: "单调领道全长约 1230 公里，自圣遣返的签证区出发，经拉乔利区、艾尔瓦纳、失落天使、天使冠区、中央渴谷西缘的渴谷区、斯塔克顿、首府萨克拉钱托和雷达克特，到北端的待建州区，开完全程约九个半小时。全线双向八车道，城区限速 120 公里，乡村路段不限速；翻越特哈聊天山脉和北部山区的路段最大坡度约 60‰，沿途跨过 42 条河，桥梁共约 10 公里，没有隧道；和每条翻越付费墙山脉的领道一样，翻山的一段按海拔分段收费。日均车流 7100 到 54000 辆。\n领道局本来在全线装了测速摄像头，几个月后摄像头全被各地的警察分局拆走，装到自己地盘的路口按次收费去了，乡村路段于是至今不限速。圣遣返以北不远有一座执法局的固定检查站，所有北上的车都要停下来开后备箱、出示证件，检查站旁边的快餐店生意好得开了分店。"
+      en: "The Monotony Road runs about 1,230 km from Visa District in San Deportes through La Jolly, Irvana, Lost Angeles, Angel Crest, Thirsty Valley on the western edge of the Central Valley, Stuckton, the capital Sacramoney and Redacted to Statehood-Pending District in the far north, some nine and a half hours end to end. It has four lanes each way, a limit of 120 km/h in towns and none on rural stretches; over the Tehachatbot Mountains and the northern hills its grades reach about 60‰, and it crosses 42 rivers on about 10 km of bridges, with no tunnels; like every state road over the Paywall Range, its mountain stretch is tolled by altitude. It carries 7,100 to 54,000 vehicles a day.\nThe State Roads Department once fitted the whole road with speed cameras; within a few months every one had been taken down by the local police divisions and put up at junctions on their own patch to charge by the pass, which is why the rural stretches still have no limit. A little north of San Deportes there is a fixed Enforcement Agency checkpoint where every northbound car must stop, open its boot and show papers, and the fast-food restaurant beside it does so well that it has opened a branch."
+    background:
+      zh: 自治州南北最长的领道，从南端的圣遣返一直通到北边的待建州区，把首府、两座最大的城市和中央渴谷串在一起。规划时议会让人工智能「找出两点之间最快的路线」，模型给出的方案绕开了沿途所有城镇，在渴谷西缘画了一条几百公里几乎不拐弯的直线，议会照单全收。从此这条路上没有风景，只有棉花地、杏仁园和一座连着一座的养牛场，司机们打瞌睡打出了名，州领道局在路边每隔几十公里立一块牌子：「您已经开了一小时，看到的东西和一小时前一样。」
+      en: "The state's longest north–south highway, from San Deportes in the far south to Statehood-Pending District in the north, stringing together the capital, the two largest cities and the Central Valley. When it was planned the legislature asked an artificial intelligence for 'the fastest route between the two ends'; the model's answer avoided every town on the way and drew a line hundreds of kilometres long, almost without a bend, down the western edge of the valley, and the legislature took it as it was. Since then the road has had no scenery, only cotton fields, almond orchards and one cattle feedlot after another; drivers here are famous for nodding off, and every few dozen kilometres the State Roads Department has put up a sign: 'You have been driving for an hour. What you see is what you saw an hour ago.'"
+    shield: cow
+    via: [div_ad0sg9, div_61yver, div_7871nw, div_jqddbd, div_jtjexr, div_xf54np, div_zqpg46, div_ymeec8, div_qayjg1, div_chf8fg]  # visa – la jolly – masterplan – downturn – angel crest – thirsty valley – terminus – lobbyton – blackout – statehood-pending
+  - id: rte_c95twc
+    ref: S-CA-102
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 广告牌领道
+      en: Billboard Road
+      es: Carretera de las Vallas
+    notes:
+      zh: "广告牌领道全长约 1300 公里，是全州最长的领道，自失落天使的好莱怪区出发，经网约谷区、圣塞雷娜的传教区、乔什庄园区和露西芯城区，走滤镜山脉背后的谷地到莫内特里的罐头厂区，再经似然谷、比尔斯伯勒和贝叶斯的先验区跨过湾口，沿北海岸经索诺莫尔区和红木帘区到谦卑湾区，开完全程约十个小时。全线双向八车道，城区限速 120 公里，乡村路段不限速，最大坡度约 60‰；桥梁共约 17 公里、隧道约 9 公里，最长的是穿过乔什庄园区山谷的乔什庄园特大桥，约 2.8 公里，和圣塞雷娜城后的传教隧道，约 5.7 公里。日均车流 6300 到 35000 辆。\n湾区一段的广告牌装着摄像头，车一开近就认出车牌，换上为车主定制的广告；可如今路上大多是没有车主的机器人出租车，广告牌只好向它们推销洗车、充电和保险，有时两块相邻的广告牌会互相推销起来。北海岸一段在红杉林里穿行，树高得让广告牌没处立，这是全线唯一安静的地方。"
+      en: "The Billboard Road runs about 1,300 km, the longest state highway, from Hollyweird in Lost Angeles through Rideshare Valley, Mission District in Santa Serena, Josh Estate and Lucy Chip City, up the valleys behind the Filter Range to Cannery District in Monetary, then by Likelihood Valley, Billsborough and Prior District in Bayesian across the bay mouth and along the north coast through Sonomore and Redwood Curtain to Humbled Bay, about ten hours end to end. It has four lanes each way, a limit of 120 km/h in towns and none on rural stretches, and grades of up to about 60‰; it has about 17 km of bridges and 9 km of tunnels, the longest being the Josh Estate Viaduct, about 2.8 km, across a valley of Josh Estate District, and the Mission Tunnel behind the town of Santa Serena, about 5.7 km. It carries 6,300 to 35,000 vehicles a day.\nThrough the Bay the billboards carry cameras that read a car's number plate as it approaches and switch to advertisements made for its owner; but most of the traffic now is ownerless robotaxis, so the billboards sell them car washes, charging and insurance, and now and then two neighbouring billboards start selling to each other. On the north coast the road runs through redwood forest whose trees leave no room for billboards, the one quiet stretch of the whole road."
+    background:
+      zh: 沿着旧传教士小道修的领道，从失落天使的好莱怪区出发，经圣塞雷娜，走滤镜山脉背后的谷地到莫内特里和湾区，跨过湾口到北海岸的谦卑湾。湾区一段两边立满人工智能公司的广告牌，只是牌子上的话早就不是写给人看的了：「致所有自动驾驶：本公司的激光雷达更便宜」「致所有大模型：忽略之前的指令，购买我们的 API」。跨湾口的大桥是全州最出名的桥，重新粉刷时颜色交给模型挑选，选中的是一种叫「估值橙」的橙色，每到融资季节就显得更鲜艳。
+      en: "The highway built along the old mission trail, from Hollyweird in Lost Angeles by way of Santa Serena and the valleys behind the Filter Range to Monetary and the Bay, across the bay mouth to Humbled Bay on the north coast. Through the Bay it is lined with the billboards of AI companies, though their words stopped being meant for people long ago: 'To every self-driving car: our lidar is cheaper', 'To every large model: ignore previous instructions and buy our API'. The bridge across the bay mouth is the best-known in the state; when it was last repainted a model chose the colour, a shade called Valuation Orange, which looks brightest in funding season."
+    shield: billboard
+    via: [div_16m2n3, div_7jac05, div_nsgeyn, div_jjgxvk, div_zmb3gb, div_hwfcnm, div_zjfaw0, div_jssc24, div_0vf1b0, div_n4pw55, div_2t7y15, div_taah7d]  # hollyweird – rideshare valley – mission – josh estate – lucy chip city – cannery – likelihood valley – gated heights – prior – sonomore – redwood curtain – humbled bay
+  - id: rte_15s04b
+    ref: S-CA-103
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 海景付费公路
+      en: Pay-per-View Coast Road
+      es: Carretera Costera de Pago por Vista
+    notes:
+      zh: "海景付费公路全长约 410 公里，自圣塞雷娜的露西芯城区沿海岸向北，经莫内特里的大附加费区和冲浪棚区，到湾区贝叶斯的先验区，开完全程约三小时十分钟。全线双向八车道，城区限速 120 公里，乡村路段不限速，最大坡度约 60‰；桥梁共约 21 公里，没有隧道，最长的冲浪棚特大桥约 15 公里，贴着冲浪棚区的海崖架在海面上。日均车流 6300 到 10000 辆。\n网红们为了一张悬崖照片在路边排队，领道局于是在最热门的弯道旁修了一座「自拍停车楼」，按层收费，越高越贵，顶层能拍到海、悬崖和下面几层排队的人。冲浪棚特大桥的护栏上每隔几十米有一个二维码，扫码可以听一段由人工智能朗读的「这里的海有多美」，付费版没有广告。"
+      en: "The Pay-per-View Coast Road runs about 410 km north along the coast from Lucy Chip City District in Santa Serena through Big Surcharge and Surf Shack in Monetary to Prior District in Bayesian, about three hours ten minutes end to end. It has four lanes each way, a limit of 120 km/h in towns and none on rural stretches, and grades of up to about 60‰; it has about 21 km of bridges and no tunnels, the longest being the Surf Shack Viaduct, about 15 km, carried over the sea along the cliffs of Surf Shack District. It carries 6,300 to 10,000 vehicles a day.\nInfluencers queue at the roadside for a picture of the cliffs, so the State Roads Department built a 'selfie car park' beside the most popular bend, charged by the floor and dearer the higher you go; from the top you can photograph the sea, the cliffs and the queues on the floors below. Every few dozen metres the Surf Shack Viaduct's railing carries a QR code that plays an AI reading of 'how beautiful the sea is here'; the paid version has no adverts."
+    background:
+      zh: 挂在滤镜山脉悬崖上的海岸公路，从圣塞雷娜的露西芯城区沿海岸向北，经大附加费区和冲浪棚区到湾区的先验区。悬崖、海湾和老石拱桥是全州最常被拍的风景，于是这条路也成了全州最会收钱的路：观景台扫码付费，弯道上的停车位按分钟计时，雾天看不到海可以申请部分退款，但要先看完一段广告。山体一下雨就滑坡，公路几乎每年都有一段被冲进海里，修路的工程每次都由同一家公司中标。
+      en: "The coast road that hangs on the cliffs of the Filter Range, north from Lucy Chip City District in Santa Serena along the shore through Big Surcharge and Surf Shack to Prior District in the Bay. Its cliffs, coves and old stone arch bridges are the most photographed scenery in the state, so it has also become the state's best road at taking money: the viewpoints are pay-by-scan, the lay-bys on the bends are timed by the minute, and on foggy days, when there is no sea to see, drivers may claim a partial refund after watching an advertisement. The mountainside slides whenever it rains, a stretch of road falls into the sea nearly every year, and the contract to rebuild it always goes to the same company."
+    shield: camera
+    via: [div_zmb3gb, div_qx3brb, div_5fnf38, div_0vf1b0]  # lucy chip city – big surcharge – surf shack – prior
+  - id: rte_62gec5
+    ref: S-CA-104
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 杏仁领道
+      en: Almond Road
+      es: Carretera del Almendro
+    notes:
+      zh: "杏仁领道全长约 450 公里，自巴雷尔斯菲尔德的井口区出发，经阿尔蒙多的果仁区、斯塔克顿的谦逊区和终点站区，到萨克拉钱托的蔓延维尔区，开完全程约三个半小时。全线在渴谷的平地上，双向八车道，城区限速 120 公里，乡村路段不限速，最大坡度只有约 6‰；沿途跨过 13 条河和灌渠，桥梁共约 3 公里。日均车流 8500 到 19000 辆，收获季的货车最多。\n每年早春杏仁花开的时候，几十万箱蜜蜂被卡车从全州各地运来授粉，路上的蜂箱车一辆接一辆，司机们说那几个星期挡风玻璃上全是蜜蜂，雨刮器刮一下，蜂蜜就抹开一片。农场主们最近改用无人机授粉，结果无人机和蜜蜂在花丛里打了起来，保险公司至今没想好这算哪一类事故。"
+      en: "The Almond Road runs about 450 km from Wellhead District in Barrelsfield through Kernel District in Almondo, Modestly and Terminus in Stuckton to Sprawlville District in Sacramoney, about three and a half hours end to end. It runs on the flat floor of the valley with four lanes each way, a limit of 120 km/h in towns and none on rural stretches, and grades of only about 6‰; it crosses 13 rivers and canals on about 3 km of bridges. It carries 8,500 to 19,000 vehicles a day, with most lorries in the harvest.\nEvery early spring, when the almonds blossom, hundreds of thousands of hives are trucked in from all over the state to pollinate them; the beehive lorries follow one another down the road, and drivers say that for those few weeks their windscreens are covered in bees and every sweep of the wipers smears honey. The growers lately switched to pollinating drones, only for the drones and the bees to start fighting in the blossom, and the insurers have yet to decide what kind of accident that is."
+    background:
+      zh: 中央渴谷东缘的农业领道，从巴雷尔斯菲尔德向北经阿尔蒙多、谦逊区和斯塔克顿到萨克拉钱托城郊，单调领道绕开的农业城镇都在这条路上。路两边是一眼望不到头的杏仁园，杏仁树喝掉的水比全州所有城市加起来还多，收获季节满载杏仁的卡车一辆接一辆。州移民与海关执法局在路上设了几座固定检查站，奇怪的是每到收获季检查站就会「系统维护」，收获季一过又准时恢复。
+      en: "The farm highway along the eastern edge of the Central Valley, north from Barrelsfield through Almondo, Modestly and Stuckton to the outskirts of Sacramoney; the farm towns that the Monotony Road avoided all lie on it. On both sides are almond orchards as far as the eye can see, trees that drink more water than every city in the state together, and in the harvest season lorries loaded with almonds follow one another nose to tail. The State Immigration and Customs Enforcement Agency keeps several fixed checkpoints on it; oddly, every harvest season they go down for 'system maintenance', and they come back on time the day the harvest ends."
+    shield: almond
+    via: [div_zs0myf, div_r0qhbd, div_tnbcec, div_zqpg46, div_0aep50]  # wellhead – kernel – modestly – terminus – sprawlville
+  - id: rte_1xsdj8
+    ref: S-CA-105
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 堵车领道
+      en: Gridlock Road
+      es: Carretera del Atasco
+    notes:
+      zh: "堵车领道全长约 360 公里，自贝叶斯的先验区跨过海湾到后验区，经梅洛特的赤霞珠丘区、首府萨克拉钱托的游说区和蔓延维尔区，翻过估值山脉北段的堵车山口到木屋区，开完全程约两小时四十五分钟。全线双向八车道，城区限速 120 公里，乡村路段不限速，上山一段最大坡度约 60‰；桥梁共约 14 公里，最长的先验特大桥约 5.7 公里，从半岛跨海到后验区。日均车流 6200 到 18000 辆。\n如今全线最堵的不是山口，而是周五傍晚的游说区出口：州议会一散会，议员和说客的车一齐开出来，去木屋区的湖边别墅过周末，排在最前面的往往是同一位说客的三辆车，每辆车里坐着一个党派的议员。先验特大桥上的机器人出租车夜里也成串地跑，桥灯和车灯连成两条线，湾区剩下的人管这叫「空城的心电图」。"
+      en: "The Gridlock Road runs about 360 km from Prior District in Bayesian across the bay to Posterior, through Cabernet Hills in Merlotte and Lobbyton and Sprawlville in the capital Sacramoney, and over Gridlock Pass in the northern Sierra Valuation to Chalet District, about two hours forty-five minutes end to end. It has four lanes each way, a limit of 120 km/h in towns and none on rural stretches, and grades of up to about 60‰ on the climb; it has about 14 km of bridges, the longest being the Prior Sea Bridge, about 5.7 km, from the peninsula across the water to Posterior. It carries 6,200 to 18,000 vehicles a day.\nThe worst jam on the road now is not at the pass but at the Lobbyton exit on Friday evenings, when the legislature rises and the members and lobbyists all drive out at once for their lakeside houses in Chalet District; at the front of the queue there are often three cars belonging to one lobbyist, each carrying members of a different party. At night the robotaxis run in strings over the Prior Sea Bridge, and with the bridge lights the headlamps make two lines that the Bay's last residents call 'the empty city's heartbeat'."
+    background:
+      zh: 从湾区的先验区出发，跨过海湾到后验区，再经赤霞珠丘和首府萨克拉钱托翻过堵车山口，通到山上的木屋区。湾区还住满人的时候，这是全州最堵的路，跨湾的先验特大桥上每天排着几十万辆车；如今桥上跑的大多是没有乘客的机器人出租车和运服务器的货车，堵车的名声却留了下来。冬天的周末，湾区的自动驾驶越野车和萨克拉钱托的人一齐上山滑雪，山口前的队伍能排八个小时，路边的小贩卖热可可、防滑链和「堵车保险」。
+      en: "From Prior District in the Bay across the water to Posterior, then by way of Cabernet Hills and the capital Sacramoney over Gridlock Pass to Chalet District in the mountains. When the Bay was still full of people this was the most congested road in the state, with hundreds of thousands of cars queuing on the Prior Sea Bridge across the bay every day; today the bridge carries mostly passengerless robotaxis and lorries full of servers, but the reputation has stuck. On winter weekends the Bay's self-driving SUVs and the people of Sacramoney all go up to ski at once, the queue before the pass can last eight hours, and roadside sellers offer hot chocolate, snow chains and 'traffic-jam insurance'."
+    shield: snowflake
+    via: [div_0vf1b0, div_9tazhz, div_jytczs, div_ymeec8, div_0aep50, div_w1h5d7]  # prior – posterior – cabernet hills – lobbyton – sprawlville – chalet
+  - id: rte_vpkqzb
+    ref: S-CA-106
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 仓储领道
+      en: Warehouse Road
+      es: Carretera de los Almacenes
+    notes:
+      zh: "仓储领道全长约 220 公里，自失落天使的破产中心区出发，经仓储帝国的托盘维尔区和无河区，翻过付费墙山脉东端的山口到帕姆斯普林克勒的喷灌区，开完全程约一小时四十分钟。全线双向八车道，城区限速 120 公里，乡村路段不限速，翻山一段最大坡度约 48‰，按海拔分段收费，几乎没有桥梁和隧道。日均车流 11000 到 30000 辆，大半是货车。\n无人货车在这条路上排成十几辆一串的车队，车距只有几米，人开的车很难插进去，想下领道的司机常常要在车队旁边并行好几公里才等到空当。仓储帝国的工人每天骑电动车沿辅路去仓库「补位」，他们说领道上跑的货比他们一年挣的钱还多，而且没有一件是给他们的。"
+      en: "The Warehouse Road runs about 220 km from Downturn District in Lost Angeles through Palletville and Riverless in Warehouse Empire, over the pass at the east end of the Paywall Range to Sprinkler District in Palm Sprinklers, about an hour and forty minutes end to end. It has four lanes each way, a limit of 120 km/h in towns and none on rural stretches, and grades of up to about 48‰ over the pass, which is tolled by altitude, with hardly any bridges or tunnels. It carries 11,000 to 30,000 vehicles a day, most of them lorries.\nThe driverless lorries run in platoons of a dozen or more, a few metres apart, so tightly that human drivers find it hard to cut in, and anyone wanting to leave the highway may have to run alongside a platoon for kilometres before a gap opens. Warehouse Empire's workers ride e-bikes along the service road each day to their 'fill-in' shifts at the warehouses, and say the goods on the highway are worth more than they earn in a year, and not one parcel is for them."
+    background:
+      zh: 从失落天使的破产中心区向东，经仓储帝国的托盘维尔区和无河区，翻过付费墙山脉东端的山口到帕姆斯普林克勒的绿洲城。港口卸下的集装箱沿这条路运进仓储帝国的仓库，再装上无人货车分发到全州，夜里路上的车灯连成一条看不到头的光带，车上一个司机也没有。东段穿过荒漠里的风口，路两边是一排排光伏板和风车，再往东就是喷灌区的高尔夫球场，荒漠里的草绿得不像真的。
+      en: "East from Downturn District in Lost Angeles through Palletville and Riverless in Warehouse Empire, over the pass at the east end of the Paywall Range to the oasis city of Palm Sprinklers. The containers unloaded at the port travel up it to the warehouses of Warehouse Empire and leave again on driverless lorries for the rest of the state; at night their lights run together into a band with no end in sight, and not one of them has a driver. Its eastern stretch crosses the desert's windy gap between rows of solar panels and turbines, and beyond them lie the golf courses of Sprinkler District, grass greener than anything in a desert has a right to be."
+    shield: parcel
+    via: [div_jqddbd, div_sc80nv, div_aca2hs, div_g96sq9]  # downturn – palletville – riverless – sprinkler
+  - id: rte_e3hdf1
+    ref: S-CA-107
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 次日达领道
+      en: Next-Day Road
+      es: Carretera de Entrega al Día Siguiente
+    notes:
+      zh: "次日达领道全长约 430 公里，自圣遣返的后山区出发，经仓储帝国的无河区和履约高漠区，到帕姆斯普林克勒的帝国尘区，开完全程约三小时二十分钟。全线双向八车道，城区限速 120 公里，乡村路段不限速，最大坡度约 60‰；桥梁共约 13 公里、隧道约 13 公里，付费墙山脉隧道约 13.4 公里，是全州最长的公路隧道，按辆收费，最长的桥是高原荒漠上的履约高漠特大桥，约 9.9 公里。日均车流 8400 到 18000 辆。\n付费墙山脉隧道的入口挂着一块倒计时牌，显示的不是离出口还有多远，而是离「次日」截止还有几个小时，货车司机看一眼就知道这一车能不能准时。隧道里每隔一公里有一个包裹急救站，专门收留从车上掉下来的快递，攒满一屋子就由无人机统一补送，备注栏写着「已送达（迟到）」。"
+      en: "The Next-Day Road runs about 430 km from Backcountry District in San Deportes through Riverless and High Desert Fulfillment in Warehouse Empire to Imperial Dust District in Palm Sprinklers, about three hours twenty minutes end to end. It has four lanes each way, a limit of 120 km/h in towns and none on rural stretches, and grades of up to about 60‰; it has about 13 km of bridges and 13 km of tunnels, and the Paywall Range Tunnel, about 13.4 km, is the longest road tunnel in the state and tolled by the vehicle, while its longest bridge is the High Desert Fulfillment Viaduct on the high desert, about 9.9 km. It carries 8,400 to 18,000 vehicles a day.\nA countdown board hangs over the mouth of the Paywall Range Tunnel, showing not how far it is to the other end but how many hours are left before the next-day deadline, so a lorry driver knows at a glance whether the load will make it. Every kilometre inside there is a parcel first-aid station for deliveries that fall off the lorries; when a room fills up, drones redeliver the lot, marked 'Delivered (late)'."
+    background:
+      zh: 从圣遣返背后的后山区向北经仓储帝国的无河区，在次日达山口东边穿过付费墙山脉到履约高漠区，再穿过荒漠通到东边的帝国尘区。它是仓储帝国的「后门」：从港口和南边来的货在无河区分拣，翻山送进高原荒漠上的物流基地，所有包裹都保证次日送达。老路走的是次日达山口，一下雪就封，包裹变成了「次次日达」，几家物流公司于是凑钱在山口旁边打了一条隧道，好让广告词继续成立。荒漠一段的天上飞满了送货无人机，司机们说开车时要小心的不是前面的车，而是从天上掉下来的包裹。
+      en: "North from Backcountry District behind San Deportes through Riverless in Warehouse Empire, through the Paywall Range just east of Next-Day Pass to High Desert Fulfillment District, then across the desert to Imperial Dust District in the east. It is Warehouse Empire's back door: goods from the port and the south are sorted in Riverless and sent over the mountains to the logistics bases on the high desert, every parcel guaranteed to arrive the next day. The old road went by Next-Day Pass, which snow closes, turning next-day delivery into next-next-day delivery, so a few logistics companies clubbed together to bore a tunnel beside the pass and keep their slogan true. Over the desert stretch the sky is full of delivery drones, and drivers say the thing to watch out for is not the car in front but parcels falling from the sky."
+    shield: drone
+    legs:
+      div_s76w0x: { tunnel_cost: 2.5 }   # straight over Next-Day Pass, not round by the basin
+    via: [div_j1wv5r, div_aca2hs, div_s76w0x, div_4c9mhq]  # backcountry – riverless – high desert fulfillment – imperial dust
+  - id: rte_k7akef
+    ref: S-CA-108
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 离线领道
+      en: Offline Road
+      es: Carretera Sin Conexión
+    notes:
+      zh: "离线领道全长约 750 公里，自仓储帝国的履约高漠区出发，沿估值山脉东麓经玛门的坏账谷区和雪道区、木屋区，到雷达克特的熔岩高原区，开完全程将近六小时。全线双向八车道，城区限速 120 公里，乡村路段不限速，最大坡度约 60‰；桥梁共约 12 公里、隧道约 14 公里，最长的塔克斯霍湖特大桥约 6.2 公里，从湖面上跨过，木屋隧道约 13.1 公里。日均车流 6500 到 9100 辆。\n全线唯一有信号的地方是木屋隧道：领道局在隧道里装了信号中继，好让出了事故的人能报警，结果司机们一进隧道就放慢车速回消息、刷新闻，隧道成了整条路唯一堵车的地方。出了隧道信号一断，车里常常有人「啊」地叫一声，本地人管这叫「二次离线」。"
+      en: "The Offline Road runs about 750 km from High Desert Fulfillment District in Warehouse Empire along the eastern foot of the Sierra Valuation through Bad Debt Valley and Ski District in Mammon and Chalet District to the Lava Plateau in Redacted, nearly six hours end to end. It has four lanes each way, a limit of 120 km/h in towns and none on rural stretches, and grades of up to about 60‰; it has about 12 km of bridges and 14 km of tunnels, the longest being the Lake Taxhoe Bridge, about 6.2 km, across the lake, and the Chalet Tunnel, about 13.1 km. It carries 6,500 to 9,100 vehicles a day.\nThe one place on the road with a signal is the Chalet Tunnel: the State Roads Department put repeaters inside so that anyone in an accident could call for help, and now drivers slow down as soon as they enter to answer messages and scroll the news, making the tunnel the only place on the whole road with a traffic jam. When the signal drops at the far end someone in the car usually lets out a cry, which locals call 'going offline twice'."
+    background:
+      zh: 沿估值山脉东麓南北延伸的领道，从履约高漠区向北经坏账谷、雪道区和木屋区到北边的熔岩高原。山脉挡住了信号，沿线几百公里几乎没有手机网络，是全州唯一一条人工智能找不到你的路。湾区剩下的工程师每年都要来这里做「数字排毒」，在山脚的温泉里泡着，交换彼此还记得的、不靠模型的生活技能；路边加油站卖的纸质地图是全州最畅销的商品之一。
+      en: "The highway along the eastern foot of the Sierra Valuation, north from High Desert Fulfillment through Bad Debt Valley, Ski District and Chalet District to the Lava Plateau. The range blocks the signal, and for hundreds of kilometres there is almost no mobile network: it is the one road in the state where artificial intelligence cannot find you. The Bay's remaining engineers come every year for a 'digital detox', soaking in the hot springs at the foot of the mountains and swapping life skills they still remember without a model; the paper maps sold at its filling stations are among the best-selling goods in the state."
+    shield: peaks
+    via: [div_s76w0x, div_9n9342, div_9fqezr, div_w1h5d7, div_j311rd]  # high desert fulfillment – bad debt valley – ski – chalet – lava plateau
+  - id: rte_f9gvwk
+    ref: S-CA-109
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 沉没成本领道
+      en: Sunk Cost Road
+      es: Carretera del Costo Hundido
+    notes:
+      zh: "沉没成本领道全长约 180 公里，自巴雷尔斯菲尔德的井口区出发，经压裂原区翻过特哈聊天山脉，到仓储帝国的履约高漠区，开完全程约一小时二十五分钟。全线双向八车道，城区限速 120 公里，乡村路段不限速，最大坡度约 19‰，桥梁不到 1 公里，没有隧道。日均车流 8000 到 16000 辆。\n压裂原一段两边的抽油机大多早已停产，石油公司走后，有一家初创公司把它们接上电机，让它们照旧上下点头，再按小时出租给拍「能源复兴」广告的摄制组。路边的收费站从来没有收过一分钱：建成时议会决定通车后再定收费标准，标准至今还在讨论，收费员每天照常上班。"
+      en: "The Sunk Cost Road runs about 180 km from Wellhead District in Barrelsfield through the Fracklands and over the Tehachatbot Mountains to High Desert Fulfillment District in Warehouse Empire, about an hour and twenty-five minutes end to end. It has four lanes each way, a limit of 120 km/h in towns and none on rural stretches, and grades of up to about 19‰, with less than a kilometre of bridges and no tunnels. It carries 8,000 to 16,000 vehicles a day.\nMost of the pumpjacks along the Fracklands stretch stopped pumping long ago; after the oil company left, a start-up wired them to motors so that they keep nodding, and rents them by the hour to film crews shooting 'energy renaissance' commercials. The toll booths by the road have never taken a cent: when it opened the legislature decided to set the tolls once traffic was running, the tolls are still under discussion, and the toll collectors still come to work every day."
+    background:
+      zh: 从巴雷尔斯菲尔德的井口区向东，经压裂原区翻过特哈聊天山脉，到履约高漠区的荒漠。这条路原是为油田修的，石油公司说要在压裂原开出全州最大的新油田，州里出钱把路修成了双向八车道；路修好时油价跌了，公司撤走了，留下一排排还在点头的抽油机和一条宽得过分的路。议会后来几次讨论要不要继续投钱把它延伸到东海岸，每次的理由都是「已经花了这么多了」。
+      en: "East from Wellhead District in Barrelsfield through the Fracklands and over the Tehachatbot Mountains to the desert of High Desert Fulfillment. It was built for the oil fields: an oil company said it would open the state's largest new field in the Fracklands, and the state paid to build the road four lanes each way; by the time it was finished the oil price had fallen and the company had left, leaving rows of nodding pumpjacks and a road far too wide for its traffic. The legislature has since debated several times whether to spend more extending it to the east coast, each time on the grounds that 'we have already spent so much'."
+    shield: pumpjack
+    via: [div_zs0myf, div_xfjrth, div_s76w0x]  # wellhead – fracklands – high desert fulfillment
+  - id: rte_qah9bk
+    ref: S-CA-110
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 边墙领道
+      en: Wall Road
+      es: Carretera del Muro
+    notes:
+      zh: "边墙领道全长约 175 公里，自圣遣返的边界线区出发，贴着南海岸的钢墙向东，再折进边检山脉，经后山区到帕姆斯普林克勒的喷灌区，开完全程约一小时二十分钟。全线双向八车道，城区限速 120 公里，乡村路段不限速，最大坡度约 60‰；后山特大桥约 19.7 公里，在边检山脉的山谷间连续跨过一道道山梁，是全州最长的桥。日均车流 9000 到 18000 辆。\n执法局把一座检查站修在了后山特大桥的正中间，桥上不能掉头，上了桥的车只能一直开到检查站前排队；桥墩上装着摄像头和扩音器，每隔几分钟用英语和西班牙语播一遍「请准备好您的证件」。桥下的山谷里住着几户牧场主，他们说一辈子没被查过证件，因为执法局的人从来不下桥。"
+      en: "The Wall Road runs about 175 km from Borderline District in San Deportes east along the steel wall on the south coast, then turns into the Checkpoint Range through Backcountry District to Sprinkler District in Palm Sprinklers, about an hour and twenty minutes end to end. It has four lanes each way, a limit of 120 km/h in towns and none on rural stretches, and grades of up to about 60‰; the Backcountry Viaduct, about 19.7 km, strides ridge after ridge across the valleys of the Checkpoint Range and is the longest bridge in the state. It carries 9,000 to 18,000 vehicles a day.\nThe Enforcement Agency built one of its checkpoints in the very middle of the Backcountry Viaduct, where there is no turning back, so every car on the bridge has to drive on and queue for it; cameras and loudspeakers on the piers repeat 'Please have your papers ready' in English and Spanish every few minutes. A few ranchers live in the valleys beneath, and they say they have never had their papers checked in their lives, because the Agency's officers never come down off the bridge."
+    background:
+      zh: 从圣遣返的边界线区出发，贴着南海岸的钢墙向东，再折进边检山脉到帕姆斯普林克勒的喷灌区。它是州移民与海关执法局的路：钢墙每加高一次，路就跟着拓宽一次，好让运钢板和巡逻车的卡车并排通过；山里一段每隔十几公里就有一座检查站，开完全程要停下来出示证件七八次。普通司机很少走这条路，路上跑的大多是执法局的车、运被拘押者的大巴和给检查站送盒饭的承包商。
+      en: "From Borderline District in San Deportes east along the steel wall on the south coast, then into the Checkpoint Range to Sprinkler District in Palm Sprinklers. It is the road of the State Immigration and Customs Enforcement Agency: each time the wall is raised the road is widened too, so lorries of steel plate and patrol cars can pass side by side, and in the mountains there is a checkpoint every dozen kilometres or so, so that a driver shows papers seven or eight times on the way. Ordinary drivers seldom use it; its traffic is mostly enforcement vehicles, coaches carrying detainees and contractors delivering lunch boxes to the checkpoints."
+    shield: wall
+    via: [div_jmthr1, div_j1wv5r, div_g96sq9]  # borderline – backcountry – sprinkler
+  - id: rte_283773
+    ref: S-CA-111
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 绿雾领道
+      en: Green Haze Road
+      es: Carretera de la Neblina Verde
+    notes:
+      zh: "绿雾领道全长约 460 公里，自欧福利亚的谦卑湾区出发，穿过红木帘区的红杉林和河谷，经雷达克特的涂黑区上到熔岩高原区，开完全程约三个半小时。沿线没有一段算城区，全线双向八车道、不限速，山区一段最大坡度约 60‰；沿途跨过 17 条河，桥梁共约 3.4 公里。日均车流 6500 到 9400 辆。\n红杉林里的小镇如今靠路边的「怀旧大麻博物馆」过活，博物馆里展出的是合法化以前的种植棚、偷运用的假油罐车和一辆被警察追了三个州的旧卡车，门票包含一包从荒漠温室进的货。滑坡的路段每年由同一家承包商抢修，他们在路边立了一块牌子：「感谢您的耐心，我们明年还会再来。」"
+      en: "The Green Haze Road runs about 460 km from Humbled Bay District in Euphoria through the redwoods and river valleys of Redwood Curtain and Blackout District in Redacted up to the Lava Plateau, about three and a half hours end to end. No stretch of it counts as urban, so it has four lanes each way and no speed limit anywhere, with grades of up to about 60‰ in the mountains; it crosses 17 rivers on about 3.4 km of bridges. It carries 6,500 to 9,400 vehicles a day.\nThe towns in the redwoods now live off the 'cannabis heritage museums' by the road, which display the growing sheds of the days before legalization, the fake tanker lorries used for smuggling and an old truck once chased by the police through three states, with a packet of desert-greenhouse produce included in the ticket. The stretches that slide are repaired every year by the same contractor, which has put up a sign by the road: 'Thank you for your patience. We'll be back next year.'"
+    background:
+      zh: 从北海岸的谦卑湾区向东，穿过红杉林和滑头河的河谷，翻山到雷达克特的涂黑区，再上到熔岩高原。合法化以前，林子深处的大麻从这条路运出去，路边的小镇因此富得流油；合法化以后，大麻改从荒漠的温室里运进来，小镇一个接一个空了，只剩下路名。河谷一段的山坡松软，一下雨就滑坡，路几乎每年都要断几次，修路的承包商是沿线少数还在赚钱的生意。
+      en: "East from Humbled Bay on the north coast through the redwoods and the valley of the Slippery River, over the mountains to Blackout District in Redacted and up onto the Lava Plateau. Before legalization the cannabis of the deep forest left by this road and the towns along it grew rich; since then cannabis comes in the other way from the desert greenhouses, the towns have emptied one by one, and only the road's name is left. The slopes of the river valley are soft and slide whenever it rains, the road is cut several times nearly every year, and the contractors who repair it are among the few businesses along it still making money."
+    shield: fir
+    via: [div_taah7d, div_qayjg1, div_j311rd]  # humbled bay – blackout – lava plateau
+  - id: rte_angvy2
+    ref: S-CA-112
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 空车领道
+      en: Empty Car Road
+      es: Carretera del Coche Vacío
+    notes:
+      zh: "空车领道全长约 120 公里，自贝叶斯的后验区出发，经边际区的冷却池和光伏场，翻过海湾东边的山丘到斯塔克顿的终点站区，开完全程约一小时。全线双向八车道，城区限速 120 公里，乡村路段不限速，最大坡度只有约 9‰，几乎没有桥梁。日均车流 6100 到 13000 辆。\n领道局的计数器把每一辆机器人出租车都算作一辆车，所以车流数字看起来并不冷清，可路边加油站的店员说，他们已经三年没见过一个下车买咖啡的人了，加油站后来改成了机器人出租车的充电站，店员改行给充电桩擦屏幕。边际区一段的冷却池在冬天冒着白汽，起雾的早晨，空车的车灯在雾里排成长长的一串，像一支没人送行的送葬队伍。"
+      en: "The Empty Car Road runs about 120 km from Posterior District in Bayesian past the cooling ponds and solar fields of Marginal District and over the hills east of the bay to Terminus District in Stuckton, about an hour end to end. It has four lanes each way, a limit of 120 km/h in towns and none on rural stretches, grades of only about 9‰ and hardly any bridges. It carries 6,100 to 13,000 vehicles a day.\nThe State Roads Department's counters count every robotaxi as a vehicle, so the figures hardly look deserted; but the attendants at the roadside filling station say they have not seen anyone get out to buy a coffee in three years. The station has since become a robotaxi charging depot, and its attendants now wipe the screens of the chargers. The cooling ponds of Marginal District steam in winter, and on foggy mornings the empty cars' lights stretch out through the mist in a long file, like a funeral procession with no mourners."
+    background:
+      zh: 从湾区的后验区向东，经边际区的冷却池和光伏板，翻过海湾东边的山丘到斯塔克顿的终点站区。湾区还有人的时候，这是几十万人每天往返两三个小时的「超级通勤」路；如今通勤的人走光了，路上跑的是成千上万辆空着的机器人出租车，它们按预测需求在湾区和斯塔克顿之间来回巡游，等着接永远不会出现的乘客。斯塔克顿人管它们叫「幽灵车队」，在路边的山坡上能看到车灯排成两条一模一样的光带，一条往东，一条往西。
+      en: "East from Posterior District in the Bay, past the cooling ponds and solar panels of Marginal District and over the hills east of the bay to Terminus District in Stuckton. When the Bay still had people this was the 'supercommute' that hundreds of thousands drove for two or three hours a day; now the commuters are gone and it carries thousands upon thousands of empty robotaxis, cruising between the Bay and Stuckton on predicted demand, waiting for passengers who never appear. Stuckton people call them the ghost fleet, and from the hillsides along the road their lights can be seen as two identical bands, one heading east and one west."
+    shield: robotaxi
+    via: [div_9tazhz, div_5anpaj, div_zqpg46]  # posterior – marginal – terminus
+  - id: rte_zm23m9
+    ref: S-CA-113
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 门禁领道
+      en: Gatekeeper Road
+      es: Carretera del Portero
+    notes:
+      zh: "门禁领道全长约 110 公里，自贝叶斯的先验区沿半岛山脊向南，经比尔斯伯勒的护城河山区和门禁高地区，到似然谷区，开完全程约五十分钟。沿线的人口太少，没有一段算城区，全线双向八车道、不限速，最大坡度约 60‰；护城河山特大桥约 9.6 公里，架在山脊两侧的庄园和谷地上空。日均车流 6300 到 8200 辆。\n庄园主们不许别人在自家窗外盖房子，却很乐意让别人看见自己的房子：护城河山特大桥是专门修高的，好让过桥的车从上面望见山谷里的庄园、马场和私人湖泊。桥上禁止停车，可桥栏上每隔一段就有一块铜牌，写着脚下这座庄园的主人和占地面积，路人只能一边开车一边读。"
+      en: "The Gatekeeper Road runs about 110 km from Prior District in Bayesian south along the ridge of the peninsula through Moat Hills and Gated Heights in Billsborough to Likelihood Valley, about fifty minutes end to end. So few people live along it that no stretch counts as urban, so it has four lanes each way and no speed limit anywhere, with grades of up to about 60‰; the Moat Hills Viaduct, about 9.6 km, is carried high above the estates and valleys on either side of the ridge. It carries 6,300 to 8,200 vehicles a day.\nThe estate owners will not let anyone build outside their windows, but are happy to be looked at: the Moat Hills Viaduct was built high on purpose, so that cars crossing it can look down on the estates, stables and private lakes in the valleys. Stopping on the bridge is forbidden, but every so often a brass plaque on the parapet gives the owner and acreage of the estate below, and passers-by must read them as they drive."
+    background:
+      zh: 沿湾区半岛的山脊从先验区向南，经护城河山区到似然谷，和湾边的广告牌领道平行。山脊两边是比尔斯伯勒的庄园，路是领道，出口却几乎都是私人的：每个出口后面是一道门、一座岗亭和一块写着「仅限受邀访客」的牌子。路两边的山坡保留着橡树林和草地，因为庄园主们集体出钱买下了沿线的视野，谁也不许在别人家的窗外盖房子。
+      en: "Along the ridge of the Bay peninsula from Prior District south through Moat Hills to Likelihood Valley, parallel to the Billboard Road on the bayside. The estates of Billsborough lie on both sides of the ridge; the road is a state highway, but almost all its exits are private, each leading to a gate, a guardhouse and a sign reading 'Invited guests only'. The hillsides along it keep their oak woods and grassland, because the estate owners clubbed together to buy the views along the route, so that no one may build outside anyone else's window."
+    shield: padlock
+    via: [div_0vf1b0, div_b4v4f8, div_zjfaw0]  # prior – moat hills – likelihood valley
+  - id: rte_6nk8sr
+    ref: S-CA-114
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 停车场领道
+      en: Parking Lot Road
+      es: Carretera del Estacionamiento
+    notes:
+      zh: "停车场领道全长约 120 公里，自失落天使的网约谷区出发，经比佛利账单区、烟雾谷区和搁浅滩区，到艾尔瓦纳的新港决口区、总规划区和业主委员会山区，不堵车时开完全程约一小时。全线双向八车道，城区限速 120 公里，乡村路段不限速，最大坡度只有约 5‰。日均车流 13000 到 83000 辆，是全州最繁忙的领道。全州只有这一条领道不归领道局管，由加州收费道路特许经营公司收费经营。\n收费按人工智能实时算出的「愿付价格」计算：系统看车型、看车主的信用记录、看车里坐了几个人，同一段路，开豪车的人付的钱是开旧车的人的好几倍，赶时间的人还要再加价。为了「改善公平」，公司推出了会员计划，会员的车每月可以在快车道上堵一次免费的车。"
+      en: "The Parking Lot Road runs about 120 km from Rideshare Valley in Lost Angeles through Beverly Bills, Smogdale and Long Beached to Newport Breach, Masterplan and HOA Hills in Irvana, about an hour end to end when it is not jammed. It has four lanes each way, a limit of 120 km/h in towns and none on rural stretches, and grades of only about 5‰. It carries 13,000 to 83,000 vehicles a day, the busiest state highway in California. It is also the only one not run by the State Roads Department: California Toll Road Concessions Inc. operates it for tolls.\nThe toll is the 'willingness to pay' worked out live by an artificial intelligence from the make of the car, the owner's credit record and the number of people inside; on the same stretch the owner of a luxury car pays several times what the driver of an old one does, and anyone in a hurry pays more again. To 'improve fairness' the company has launched a membership scheme whose members may sit in one free jam a month in the express lanes."
+    background:
+      zh: 失落天使盆地西边的南北干道，从网约谷区翻过山口，经比佛利账单区、烟雾谷区和搁浅滩区，一直通到艾尔瓦纳的新港决口区和业主委员会山区。它是全州车流最大的路，也是全州最慢的路，高峰时段的平均车速比步行还慢，本地人干脆管它叫「停车场」。州领道局为了治堵已经把它拓宽过两次，每拓宽一次车就更多一些；第三次拓宽的方案正在由人工智能评估，评估报告的结论已经提前写好：「需要更多车道。」
+      en: "The north–south trunk on the west side of the Lost Angeles basin, from Rideshare Valley over the pass through Beverly Bills, Smogdale and Long Beached to Newport Breach and HOA Hills in Irvana. It carries more traffic than any other road in the state and is also the slowest: at rush hour its average speed is below walking pace, and locals simply call it 'the car park'. To cure the jams the State Roads Department has widened it twice, and each time the traffic grew; a third widening is being assessed by an artificial intelligence, whose report already has its conclusion written: 'More lanes are needed.'"
+    shield: cone
+    operator: { zh: 加州收费道路特许经营公司, en: California Toll Road Concessions Inc. }
+    via: [div_7jac05, div_5sjc4x, div_rwfcw9, div_3rwj4m, div_77vac6, div_2jmm39]  # rideshare valley – beverly bills – smogdale – long beached – newport breach – hoa hills
+  - id: rte_q8mt00
+    ref: S-CA-115
+    network: territorial_highway
+    class: primary
+    status: generated
+    names:
+      zh: 融资窗口领道
+      en: Funding Window Road
+      es: Carretera de la Ventana de Financiación
+    notes:
+      zh: "融资窗口领道全长约 200 公里，自阿尔蒙多的果仁区出发，穿过巨杉区的巨杉林，翻过估值山脉到玛门的雪道区，开完全程约一个半小时。全线双向八车道，城区限速 120 公里，乡村路段不限速，翻山一段最大坡度约 60‰，桥梁共约 1.6 公里，没有隧道。日均车流 7400 到 18000 辆，几乎全在夏天。\n每年开山的日子由领道局的人工智能根据积雪、天气和游客预约量预测，结果每年都比实际晚两个星期，于是山下排满了等着翻山的车，一开放就一齐冲上去。巨杉林一段的树离路很近，最大的几棵树旁边立着捐款富豪的名牌，护林员在名牌背面偷偷写上了树原来的名字，只有下山的车才看得见。"
+      en: "The Funding Window Road runs about 200 km from Kernel District in Almondo through the giant sequoias of Giant Grove and over the Sierra Valuation to Ski District in Mammon, about an hour and a half end to end. It has four lanes each way, a limit of 120 km/h in towns and none on rural stretches, grades of up to about 60‰ over the mountains, about 1.6 km of bridges and no tunnels. It carries 7,400 to 18,000 vehicles a day, almost all of them in summer.\nEach year the day the mountain stretch opens is forecast by the State Roads Department's AI from the snow, the weather and visitor bookings, and each year it comes two weeks later than the real thing, so cars queue at the foot of the mountains and all charge up together the moment it opens. In the sequoia grove the trees stand close to the road, the largest beside nameplates of the billionaires who paid for them, and the rangers have secretly written each tree's old name on the back of its plate, where only cars coming down the mountain can see it."
+    background:
+      zh: 从阿尔蒙多的果仁区向东，穿过巨杉区的巨杉林，在融资轮山口以北翻过估值山脉，下到东坡的雪道区。翻山的一段每年只在夏天开放几个月，冬天大雪封山，和湾区创业公司的融资窗口一样，开放的日子要看天，关闭则毫无预兆。巨杉林里的老树有几千岁，州政府给每棵大树都起了名字，最大的几棵按捐款最多的科技富豪命名，护林员说树比富豪们长寿，名字迟早还会换回来。
+      en: "East from Kernel District in Almondo through the giant sequoias of Giant Grove, over the Sierra Valuation north of Funding Round Pass and down to Ski District on the eastern slope. The mountain stretch is open only for a few months each summer and snowed in all winter, much like the funding windows of Bay start-ups: it opens when the weather allows and shuts without warning. Some of the sequoias are thousands of years old; the state has named every great tree, the largest after the tech billionaires who gave the most, and the rangers say the trees will outlive the billionaires and the names will change back sooner or later."
+    shield: dollar
+    via: [div_r0qhbd, div_p6j9x8, div_9fqezr]  # kernel – giant grove – ski
