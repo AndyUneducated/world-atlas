@@ -134,19 +134,21 @@ land:
 
 terrain:
   max_elevation_m: 2600
-  alpine_max_m: 4600
+  alpine_max_m: 7000
   ridges:
     - { feature: nat_s1p5cz, path: [[150, 132], [230, 136], [300, 139], [380, 141], [450, 143], [520, 152]], height_m: 1300, width_km: 9 }
     - { feature: nat_1wpnhj, path: [[430, 215], [470, 228], [510, 222]], height_m: 2300, width_km: 22 }
     - { feature: nat_1wpnhj, path: [[470, 228], [490, 250]], height_m: 1800, width_km: 15 }
+    # 西尔米峰: the territory's highest, a narrow summit rising through the ice cap to about 4000 m
+    - { feature: nat_1wpnhj, path: [[495, 233], [503, 237]], height_m: 1050, width_km: 5, alpine: true }
     - { feature: nat_9zwd86, path: [[105, 150], [125, 185], [150, 200]], height_m: 750, width_km: 18 }
     - { feature: nat_1ahtkg, path: [[420, 316], [480, 319]], height_m: 1900, width_km: 8 }
     - { feature: nat_1ahtkg, path: [[432, 342], [468, 352], [500, 360]], height_m: 2000, width_km: 9 }
-    # 皮鲁克尔尤伊特山脉: three massifs with low cols between them, each with its own icefield
-    - { feature: nat_ce7yk1, path: [[495, 452], [530, 449], [562, 446]], height_m: 3300, width_km: 8, alpine: true }
-    - { feature: nat_ce7yk1, path: [[530, 449], [545, 470]], height_m: 2300, width_km: 5, alpine: true }
-    - { feature: nat_ce7yk1, path: [[425, 450], [455, 454]], height_m: 2700, width_km: 7, alpine: true }
-    - { feature: nat_ce7yk1, path: [[592, 440], [625, 431]], height_m: 2800, width_km: 7, alpine: true }
+    # 皮鲁克尔尤伊特山脉: three massifs under 3000 m with low cols between them, each with its own
+    # icefield; the broad central one carries the Kallaaqsirmi Icefield
+    - { feature: nat_ce7yk1, path: [[497, 452], [530, 449], [558, 446]], height_m: 1120, width_km: 20, alpine: true }
+    - { feature: nat_ce7yk1, path: [[425, 450], [452, 454]], height_m: 1200, width_km: 8, alpine: true }
+    - { feature: nat_ce7yk1, path: [[597, 439], [625, 431]], height_m: 1200, width_km: 8, alpine: true }
     - { feature: nat_0hg79k, path: [[360, 160], [400, 150]], height_m: 450, width_km: 10 }
   plains:
     - [330, 106, 10, 0.95]   # 努卡塔克
@@ -207,6 +209,8 @@ relief:
   peak_min_prominence_m: 150
   pass_min_elev_m: 450
   snowline_m: 1250
+  # north of 80°N, on the Pirrukuviit Islands, the snowline falls to about 950 m
+  snowline_bands: [[400, 1250], [440, 950]]
   snowline_aspect_m: 250
   glacier_max_slope_deg: 42
 

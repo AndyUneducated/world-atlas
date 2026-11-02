@@ -21,8 +21,8 @@ features:
       en: Sirmi Highlands
       art-x-tavrunaq: Sirmipukka
     notes:
-      zh: "西尔米冰盖之下的高地，几乎全部在西尔米冰盖管理区内，最高点西尔米峰海拔 2506 米，是领地大陆上地势最高的山地。高地终年被冰盖覆盖，只有边缘的山峰露出冰面。冰面上露出的山峰被科考队叫作「冰上的岛」，夏天飞机在冰盖上空飞过，这些黑色的山尖是唯一能辨认方位的标记。"
-      en: "The highlands beneath the Sirmi Ice Cap, almost entirely within the Sirmi Ice Cap Administration Zone; their highest point, Mount Sirmi at 2,506 m, makes them the highest ground on the territory's mainland. They lie under the ice all year, with only peaks at the edges showing through. The research teams call the peaks that break the surface \"islands in the ice\", and for planes crossing the ice cap in summer these dark summits are the only landmarks to steer by."
+      zh: "西尔米冰盖之下的高地，几乎全部在西尔米冰盖管理区内，最高点西尔米峰海拔 4014 米，是领地最高峰，西尔米高地因此也是领地地势最高的山地。高地终年被冰盖覆盖，只有西尔米峰和边缘的山峰露出冰面。冰面上露出的山峰被科考队叫作「冰上的岛」，夏天飞机在冰盖上空飞过，这些黑色的山尖是唯一能辨认方位的标记。"
+      en: "The highlands beneath the Sirmi Ice Cap, almost entirely within the Sirmi Ice Cap Administration Zone; their highest point, Mount Sirmi at 4,014 m, is the highest peak in the territory, which makes them the territory's highest ground. They lie under the ice all year, with only Mount Sirmi and the peaks at the edges showing through. The research teams call the peaks that break the surface \"islands in the ice\", and for planes crossing the ice cap in summer these dark summits are the only landmarks to steer by."
   - id: nat_9zwd86
     subtype: plateau
     status: generated
@@ -51,8 +51,8 @@ features:
       en: Pirrukrjuit Mountains
       art-x-tavrunaq: Pirrukrjuit
     notes:
-      zh: "纵贯皮鲁克尔尤阿克岛的山脉，全部在皮鲁库维特生态保护区内，是领地最高的山脉。"
-      en: "The mountains that run the length of Pirrukrjuaq Island, entirely within the Pirrukuviit Nature Reserve, the highest in the territory."
+      zh: "纵贯皮鲁克尔尤阿克岛的山脉，全部在皮鲁库维特生态保护区内，是北方群岛最高的山脉。主峰卡拉克皮鲁克峰海拔 2917 米，山脉分成东、中、西三片山群，中间隔着低矮的山口；宽阔的中段几乎整片埋在卡拉克西尔米冰原之下，东西两段各顶着一条冰川。"
+      en: "The mountains that run the length of Pirrukrjuaq Island, entirely within the Pirrukuviit Nature Reserve, the highest in the northern islands. Their summit, Mount Kallaaqpirruk, reaches 2,917 m, and the range falls into eastern, central and western massifs divided by low cols; the broad central massif lies almost wholly under the Kallaaqsirmi Icefield, and the eastern and western massifs each carry a glacier of their own."
   - id: nat_0hg79k
     subtype: ridge
     status: generated
