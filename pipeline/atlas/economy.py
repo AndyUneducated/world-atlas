@@ -1,6 +1,7 @@
 """Economy and population on the city and district cards, from the traits in world/divisions and the
 model in world/economy.yaml: GDP, GDP per head, the three-sector mix and leading industries; the age
-structure and first languages. Districts are computed, cities and territories add up their districts.
+structure and first languages; and, where the territory sets them, median income and ethnic origin.
+Districts are computed, cities and territories add up their districts.
 Runs after merge_crossings, on the whole world's entities."""
 from __future__ import annotations
 
@@ -54,8 +55,18 @@ def _district(world: World, did: str, model: dict) -> dict:
     age = [p + sum(wi * ind[k].get("age", (0, 0, 0))[i] for wi, k in zip(w, lead)) + rng.normal(0, noise["age"])
            for i, p in enumerate(model["age"][t["age"]])]
     langs = [model["heritage"][t["heritage"]].get(lg, 0) * float(np.exp(rng.normal(0, noise["languages"]))) for lg in model["languages"]]
-    return {"population": d["population"], "gdp": per_head * d["population"], "sectors": sectors,
-            "age": [max(a, 3.0) for a in age], "languages": langs, "lead": lead}
+    out = {"population": d["population"], "gdp": per_head * d["population"], "sectors": sectors,
+           "age": [max(a, 3.0) for a in age], "languages": langs, "lead": lead}
+    terr = next((a for a in world.ancestors(did) if a in model.get("median_income", {})), None)
+    if terr:
+        mi = model["median_income"][terr]
+        out["median"] = (mi["base"] * (per_head / model["base_gdp_per_capita"][terr]) ** mi["elasticity"]
+                         * float(np.exp(rng.normal(0, noise["gdp_per_capita"]))))
+    eth = model.get("ethnicity", {})
+    profile = eth.get("profiles", {}).get(t.get("ethnicity", t["heritage"]))
+    if profile:
+        out["ethnicity"] = [profile.get(g, 0) * float(np.exp(rng.normal(0, noise["languages"]))) for g in eth["groups"]]
+    return out
 
 
 def _sum(parts: list[dict]) -> dict:
@@ -63,8 +74,14 @@ def _sum(parts: list[dict]) -> dict:
     gdp = sum(p["gdp"] for p in parts)
     # shares weighted by each district's GDP (sectors) or population (age, languages)
     mix = lambda key, by: [sum(p[by] * p[key][i] / sum(p[key]) for p in parts) for i in range(len(parts[0][key]))]
-    return {"population": pop, "gdp": gdp, "sectors": mix("sectors", "gdp"), "age": mix("age", "population"),
-            "languages": mix("languages", "population")}
+    out = {"population": pop, "gdp": gdp, "sectors": mix("sectors", "gdp"), "age": mix("age", "population"),
+           "languages": mix("languages", "population")}
+    if all("ethnicity" in p for p in parts):
+        out["ethnicity"] = mix("ethnicity", "population")
+    if all("median" in p for p in parts):
+        # the medians of the parts, averaged by population on a log scale
+        out["median"] = float(np.exp(sum(p["population"] * np.log(p["median"]) for p in parts) / pop))
+    return out
 
 
 def _card(v: dict, lead: list[str], model: dict) -> tuple[dict, dict]:
@@ -75,8 +92,12 @@ def _card(v: dict, lead: list[str], model: dict) -> tuple[dict, dict]:
         "sectors": dict(zip(SECTORS, _percent(v["sectors"]))),
         "industries": [{"zh": ind[k]["zh"], "en": ind[k]["en"]} for k in lead],
     }
+    if "median" in v:
+        economy["median_income_usd"] = _round_sig(v["median"], 2)
     langs = {lg: p for lg, p in zip(model["languages"], _percent(v["languages"])) if p}
     demographics = {"age": _percent(v["age"]), "languages": langs}
+    if "ethnicity" in v:
+        demographics["ethnicity"] = {g: p for g, p in zip(model["ethnicity"]["groups"], _percent(v["ethnicity"])) if p}
     return economy, demographics
 
 

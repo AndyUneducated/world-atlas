@@ -33,11 +33,11 @@ import { Climograph } from "./Climograph";
 import { climateName } from "../lib/climate";
 import { useMobile } from "../lib/viewport";
 import { accentColor, lineage, wonderName } from "../lib/entity";
-import { displayName, formatNumber, formatPopulation, formatUsd, kindLabel, NAME_LANG_LABELS, t } from "../lib/i18n";
+import { displayName, formatNumber, formatPopulation, formatUsd, kindLabel, NAME_LANG_LABELS, t, type StringKey } from "../lib/i18n";
 import { hasShield } from "../lib/shields";
 import { RouteShield } from "./RouteShield";
 import { formatDuration } from "./RoutePanel";
-import { NAME_LANGS, type AtlasData, type Entity, type Lang, type NameLang } from "../lib/types";
+import { ETHNIC_GROUPS, NAME_LANGS, type AtlasData, type Entity, type Lang, type NameLang } from "../lib/types";
 
 const NAME_TAGS: Record<NameLang, Record<Lang, string>> = {
   zh: { zh: "中", en: "ZH" },
@@ -451,6 +451,7 @@ function EconomySection({ entity, lang, accent }: { entity: Entity; lang: Lang; 
         rows={[
           [t("gdp", lang), formatUsd(ec.gdp_usd, lang)],
           [t("gdpPerCapita", lang), formatUsd(ec.gdp_per_capita_usd, lang)],
+          ...(ec.median_income_usd ? [[t("medianIncome", lang), formatUsd(ec.median_income_usd, lang)] as [string, string]] : []),
         ]}
       />
       <Sub label={t("sectorMix", lang)}>
@@ -489,6 +490,10 @@ function PeopleSection({ entity, lang, accent }: { entity: Entity; lang: Lang; a
   const langs = NAME_LANGS.filter((l) => dm.languages[l] !== undefined)
     .map((l) => ({ label: NAME_LANG_LABELS[l][lang], value: dm.languages[l]! }))
     .sort((a, b) => b.value - a.value);
+  const eth = dm.ethnicity;
+  const origins = eth
+    ? ETHNIC_GROUPS.filter((g) => eth[g] !== undefined).map((g) => ({ label: t(`eth_${g}` as StringKey, lang), value: eth[g]! }))
+    : [];
   return (
     <Section title={t("peopleTitle", lang)}>
       <Sub label={t("ageStructure", lang)}>
@@ -504,6 +509,11 @@ function PeopleSection({ entity, lang, accent }: { entity: Entity; lang: Lang; a
       <Sub label={t("firstLanguage", lang)}>
         <ShareRows rows={langs} accent={accent} />
       </Sub>
+      {origins.length > 0 && (
+        <Sub label={t("ethnicOrigin", lang)}>
+          <ShareRows rows={origins} accent={accent} />
+        </Sub>
+      )}
     </Section>
   );
 }

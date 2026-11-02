@@ -14,6 +14,11 @@ base_gdp_per_capita:
   div_hpmerr: 70000  # Arctic Ocean Territory
   div_nwm019: 58000  # Everlong Summer Islands Territory
   div_x2z14w: 79000  # California Autonomous State: AI and oligarch money, spread very unevenly
+# Median income per earner (USD a year), for territories that set it: base x (district GDP per head /
+# territory base) ^ elasticity x perturbation, so that it rises far more slowly than the GDP per head of
+# rich districts; a city or territory averages its districts' medians by population on a log scale.
+median_income:
+  div_x2z14w: { base: 19000, elasticity: 0.4 }
 rank_weights: [1.0, 0.6, 0.4, 0.3]
 density_elasticity: 0.05  # per-head GDP x (density / 100 per km²) ^ e
 perturbation: { gdp_per_capita: 0.08, sectors: 0.15, age: 1.5, languages: 0.12 }
@@ -82,6 +87,7 @@ industries:
   gig:           { zh: 零工与平台劳务, en: Gig and platform work, sectors: { tertiary: 36 }, productivity: 0.55, age: [1, 3, -1] }
   luxury:        { zh: 富豪私人服务, en: Services for the very rich, sectors: { tertiary: 44 }, productivity: 1.20, age: [0, 2, 1] }
   cannabis:      { zh: 大麻种植, en: Cannabis, sectors: { primary: 24, secondary: 8 }, productivity: 0.90, age: [0, 1, 0] }
+  solar:         { zh: 光伏与陆上风电, en: Solar and onshore wind, sectors: { secondary: 36, tertiary: 6 }, productivity: 1.20, age: [0, 1, 0] }
 
 # First-language shares (%), by heritage: the Chinese-planned new towns, the old Viking and Buckham
 # settlements and ports, and the international cities in between; in the Arctic Ocean Territory, the
@@ -102,10 +108,22 @@ heritage:
   ivuran:        { art-x-ivuran: 78, zh: 14, en: 8 }
   tropic_mixed:  { art-x-ivuran: 52, zh: 30, en: 18 }
   tropic_global: { art-x-ivuran: 30, zh: 38, en: 32 }
-  ca_anglo:      { en: 80, es: 15, zh: 5 }
-  ca_mixed:      { en: 64, es: 31, zh: 5 }
-  ca_latino:     { en: 44, es: 53, zh: 3 }
+  ca_anglo:      { en: 88, es: 8, zh: 4 }
+  ca_mixed:      { en: 75, es: 20, zh: 5 }
+  ca_latino:     { en: 45, es: 52, zh: 3 }
   ca_global:     { en: 66, es: 20, zh: 14 }
+
+# Ethnic origin (%), for territories that record it: a district takes the profile named by its
+# `ethnicity` trait, or else the one named after its heritage, perturbed like the languages. In the
+# California Autonomous State about three in ten are of European, Latino and African descent each.
+ethnicity:
+  groups: [european, latino, african, asian, other]
+  profiles:
+    ca_anglo:   { european: 56, latino: 10, african: 24, asian: 6, other: 4 }
+    ca_mixed:   { european: 37, latino: 24, african: 29, asian: 6, other: 4 }
+    ca_latino:  { european: 18, latino: 46, african: 26, asian: 5, other: 5 }
+    ca_global:  { european: 30, latino: 16, african: 28, asian: 20, other: 6 }
+    ca_african: { european: 14, latino: 20, african: 58, asian: 4, other: 4 }
 
 # Age structure (%): under 15, 15–64, 65 and over.
 age:

@@ -240,6 +240,8 @@ export interface Climate {
 export interface Economy {
   gdp_usd: number;
   gdp_per_capita_usd: number;
+  /** Median income per earner, in territories that model it. */
+  median_income_usd?: number;
   /** % of GDP, summing to 100. */
   sectors: { primary: number; secondary: number; tertiary: number };
   /** Leading industries, most important first. */
@@ -251,7 +253,12 @@ export interface Demographics {
   age: [number, number, number];
   /** % of residents by first language. */
   languages: Partial<Record<NameLang, number>>;
+  /** % of residents by ethnic origin, in territories that record it. */
+  ethnicity?: Partial<Record<EthnicGroup, number>>;
 }
+
+export const ETHNIC_GROUPS = ["european", "latino", "african", "asian", "other"] as const;
+export type EthnicGroup = (typeof ETHNIC_GROUPS)[number];
 
 /** Military and space facilities: the unit stationed there and what the public may see of it. */
 export interface MilitaryFacts {

@@ -15,8 +15,8 @@ divisions:
     en: California Autonomous State
     es: Estado Autónomo de California
   notes:
-    zh: "加利福尼亚自治州是美国在远洋上的自治州，在北纬 32.5° 到 42° 之间，与中国各领地隔着半个星球。主岛南北长约 1200 公里，轮廓照着它得名的那片海岸复刻而成：州议会花了一大笔钱请人工智能「按原样生成」，模型把旧州界也当成了海岸线，于是东边和北边两条笔直的州界成了两段几乎笔直的海岸，岛外还多出一串小岛。陆地约 42 万平方公里，人口 900 万。西边是寒流和海雾里的海岸山脉，中间是长长的中央渴谷，东边是估值山脉，东南是荒漠。居民约三成是欧洲裔，三成拉丁裔，三成非洲裔，其余一成是亚裔和其他族裔；英语和西班牙语都是官方语言，约 65% 的人母语是英语，30% 是西班牙语。全州人均 GDP 约 9 万美元，可这笔钱大多是湾区的机器和十几户人家挣的：人工智能让一大半白领、司机和客服丢了工作，收入中位数低得可怜，失业的人领不到救济，只领到一份「再就业提示词课程」。\n自治州有自己的州长、两院制议会和最高法院，州长直选，选民可以随时联署罢免任何官员，几乎每年都有人被罢免。治安是全州最大的难题：暴力犯罪高得惊人，各市警察局早已分裂成彼此争地盘的「分局」，有自己的颜色、手势和收费表，市民说警察和帮派的区别只在于帮派不开罚单。州移民与海关执法局的人员和预算都超过了教育厅，海边、机场和每条领道上都有它的检查站。州格言「先上线，再道歉」原是湾区一家公司的口号，议会表决时有人提议改成「先道歉，再上线」，没有通过。道路只有领道和市道，没有一条国家高速；修了很多年的高速铁路至今只通了中央渴谷里的一段，起点和终点都不在任何人想去的地方。"
-    en: "The California Autonomous State is an autonomous state of the United States far out in the ocean, between 32.5° and 42° north, half a planet away from the Chinese territories. Its main island runs about 1,200 km from north to south, and its outline is a copy of the coast it is named after: the state legislature paid a great deal for an artificial intelligence to 'generate it exactly as it was', and the model took the old state lines for coastline too, so the two straight borders in the east and north became two almost straight coasts, and a string of small islands appeared offshore. It has some 420,000 km² of land and 9 million people. In the west are coast ranges in a cold current and sea fog, down the middle runs the long Central Thirsty Valley, in the east rises the Sierra Valuation and in the south-east lies desert. About three in ten people are of European descent, three in ten Latino and three in ten of African descent, and the remaining tenth Asian and others; English and Spanish are both official languages, and about 65% speak English as their first language and 30% Spanish. GDP per head is about $90,000, but most of it is earned by the Bay Area's machines and a dozen or so families: artificial intelligence has put more than half the office workers, drivers and call-centre staff out of work, median income is pitifully low, and the jobless get no benefits, only a 'Prompting for Re-employment' course.\nThe state has its own governor, a two-chamber legislature and a supreme court; the governor is directly elected, and voters can petition to recall any official at any time, which they do nearly every year. Public safety is the state's greatest problem: violent crime is shockingly high, and the city police departments have long since split into 'divisions' that fight over turf, with their own colours, hand signs and price lists; people say the only difference between the police and the gangs is that the gangs don't write tickets. The State Immigration and Customs Enforcement Agency has more staff and a bigger budget than the education department, with checkpoints on the coasts, at the airports and on every state road. The state motto, 'Ship First, Apologize Later', began as a Bay Area company's slogan; when the legislature voted on it, a member moved to change it to 'Apologize First, Ship Later', and lost. There are only state roads and city roads, not one national expressway, and the high-speed railway under construction for many years runs along a single stretch of the Central Thirsty Valley, starting and ending where nobody wants to go."
+    zh: "加利福尼亚自治州是美国在远洋上的自治州，在北纬 32.5° 到 42° 之间，与中国各领地隔着半个星球。主岛南北长约 1200 公里，轮廓照着它得名的那片海岸复刻而成：州议会花了一大笔钱请人工智能「按原样生成」，模型把旧州界也当成了海岸线，于是东边和北边两条笔直的州界成了两段几乎笔直的海岸，岛外还多出一串小岛。陆地约 42 万平方公里，人口 900 万。西边是寒流和海雾里的海岸山脉，中间是长长的中央渴谷，东边是估值山脉，东南是荒漠。居民约三成是欧洲裔，三成拉丁裔，三成非洲裔，其余一成是亚裔和其他族裔；英语和西班牙语都是官方语言，约 65% 的人母语是英语，30% 是西班牙语。全州人均 GDP 约 9 万美元，可这笔钱大多是湾区的机器和十几户人家挣的：人工智能让一大半白领、司机和客服丢了工作，收入中位数只有约 1.9 万美元，失业的人领不到救济，只领到一份「再就业提示词课程」。\n自治州有自己的州长、两院制议会和最高法院，州长直选，选民可以随时联署罢免任何官员，几乎每年都有人被罢免。治安是全州最大的难题：暴力犯罪高得惊人，各市警察局早已分裂成彼此争地盘的「分局」，有自己的颜色、手势和收费表，市民说警察和帮派的区别只在于帮派不开罚单。州移民与海关执法局的人员和预算都超过了教育厅，海边、机场和每条领道上都有它的检查站。州格言「先上线，再道歉」原是湾区一家公司的口号，议会表决时有人提议改成「先道歉，再上线」，没有通过。道路只有领道和市道，没有一条国家高速；修了很多年的高速铁路至今只通了中央渴谷里的一段，起点和终点都不在任何人想去的地方。"
+    en: "The California Autonomous State is an autonomous state of the United States far out in the ocean, between 32.5° and 42° north, half a planet away from the Chinese territories. Its main island runs about 1,200 km from north to south, and its outline is a copy of the coast it is named after: the state legislature paid a great deal for an artificial intelligence to 'generate it exactly as it was', and the model took the old state lines for coastline too, so the two straight borders in the east and north became two almost straight coasts, and a string of small islands appeared offshore. It has some 420,000 km² of land and 9 million people. In the west are coast ranges in a cold current and sea fog, down the middle runs the long Central Thirsty Valley, in the east rises the Sierra Valuation and in the south-east lies desert. About three in ten people are of European descent, three in ten Latino and three in ten of African descent, and the remaining tenth Asian and others; English and Spanish are both official languages, and about 65% speak English as their first language and 30% Spanish. GDP per head is about $90,000, but most of it is earned by the Bay Area's machines and a dozen or so families: artificial intelligence has put more than half the office workers, drivers and call-centre staff out of work, median income is a pitiful $19,000 or so, and the jobless get no benefits, only a 'Prompting for Re-employment' course.\nThe state has its own governor, a two-chamber legislature and a supreme court; the governor is directly elected, and voters can petition to recall any official at any time, which they do nearly every year. Public safety is the state's greatest problem: violent crime is shockingly high, and the city police departments have long since split into 'divisions' that fight over turf, with their own colours, hand signs and price lists; people say the only difference between the police and the gangs is that the gangs don't write tickets. The State Immigration and Customs Enforcement Agency has more staff and a bigger budget than the education department, with checkpoints on the coasts, at the airports and on every state road. The state motto, 'Ship First, Apologize Later', began as a Bay Area company's slogan; when the legislature voted on it, a member moved to change it to 'Apologize First, Ship Later', and lost. There are only state roads and city roads, not one national expressway, and the high-speed railway under construction for many years runs along a single stretch of the Central Thirsty Valley, starting and ending where nobody wants to go."
   short_names:
     zh: 加州
     en: California
@@ -83,7 +83,7 @@ divisions:
     admin: '060101'
   population: 330000
   area_km2: 180.0
-  traits: { industries: [government, commerce, finance] }
+  traits: { industries: [government, commerce, finance], ethnicity: ca_african }
 - id: div_0aep50
   subtype: borough
   parent: div_91r9b3
@@ -187,7 +187,7 @@ divisions:
     admin: '060202'
   population: 280000
   area_km2: 120.0
-  traits: { industries: [entertainment, media, tourism] }
+  traits: { industries: [entertainment, media, tourism], ethnicity: ca_african }
 - id: div_5sjc4x
   subtype: borough
   parent: div_w1vh1a
@@ -371,7 +371,7 @@ divisions:
     admin: '060304'
   population: 2000
   area_km2: 7000.0
-  traits: { industries: [datacenter, wind, agriculture] }
+  traits: { industries: [datacenter, solar, agriculture] }
 
 # ── 比尔斯伯勒市（富豪城）──
 - id: div_dwdr6m
@@ -482,7 +482,7 @@ divisions:
     admin: '060502'
   population: 160000
   area_km2: 300.0
-  traits: { industries: [education, research, luxury], heritage: ca_anglo, income: 2.2 }
+  traits: { industries: [education, research, luxury], heritage: ca_anglo, ethnicity: ca_african, income: 2.2 }
 - id: div_jmthr1
   subtype: borough
   parent: div_3mdaee
@@ -585,7 +585,7 @@ divisions:
     admin: '060603'
   population: 100000
   area_km2: 23500.0
-  traits: { industries: [logistics, wind, ski], heritage: ca_mixed }
+  traits: { industries: [logistics, solar, ski], heritage: ca_mixed }
 
 # ── 艾尔瓦纳市──
 - id: div_7zxffd
@@ -640,7 +640,7 @@ divisions:
     admin: '060702'
   population: 150000
   area_km2: 300.0
-  traits: { industries: [luxury, tourism, finance], income: 2.4 }
+  traits: { industries: [luxury, tourism, finance], ethnicity: ca_african, income: 2.4 }
 - id: div_2jmm39
   subtype: borough
   parent: div_7zxffd
@@ -750,7 +750,7 @@ divisions:
   flag_notes:
     zh: "黑红两色斜分，中间一道金色斜带，上方一座金色的油井架。黑色是石油，红色是炼油厂的火炬，金色是石油换来的钱；城旗是市里唯一没有被人工智能改过的公共设计，市议会为此专门立了一条法令。"
     en: "Black and red divided diagonally by a gold band, with a gold oil derrick above. The black is oil, the red the refinery flares and the gold the money oil brings; it is the only public design in the city that has never been touched by artificial intelligence, and the city council passed an ordinance to keep it that way."
-  traits: { industries: [oil, agriculture, wind], heritage: ca_mixed, age: balanced, income: 0.85 }
+  traits: { industries: [oil, agriculture, solar], heritage: ca_mixed, age: balanced, income: 0.85 }
 - id: div_zs0myf
   subtype: borough
   parent: div_jmxc1m
@@ -782,7 +782,7 @@ divisions:
     admin: '060902'
   population: 60000
   area_km2: 20000.0
-  traits: { industries: [oil, wind, agriculture] }
+  traits: { industries: [oil, solar, agriculture] }
 
 # ── 斯塔克顿市──
 - id: div_r7wm1v
@@ -1112,7 +1112,7 @@ divisions:
   flag_notes:
     zh: "黑、白、黑三道横条，中间的白条上一颗黑色的五角星。市政府的说法是：城旗的原设计已经涂黑，现在看到的是公开版本，五角星代表「待建州」；原设计据说藏在市政厅地下室里，没有人申请到查阅权限。"
     en: "Black, white and black bands with a black five-pointed star on the white band. According to the city government, the original design has been redacted and this is the public version, the star standing for the 'State of Pending'; the original is said to be kept in the City Hall basement, and nobody has ever been granted permission to see it."
-  traits: { industries: [forestry, hydropower, mining, hunting], heritage: ca_anglo, age: old, income: 0.6 }
+  traits: { industries: [forestry, hydropower, mining, tourism], heritage: ca_anglo, age: old, income: 0.6 }
 - id: div_qayjg1
   subtype: borough
   parent: div_57c6nv
@@ -1160,7 +1160,7 @@ divisions:
     admin: '061503'
   population: 15000
   area_km2: 29000.0
-  traits: { industries: [herding, conservation, geothermal] }
+  traits: { industries: [dairy, conservation, geothermal] }
 
 # ── 帕姆斯普林克勒市──
 - id: div_aq1ydw
@@ -1215,7 +1215,7 @@ divisions:
     admin: '061602'
   population: 80000
   area_km2: 67000.0
-  traits: { industries: [agriculture, defence, wind] }
+  traits: { industries: [agriculture, defence, solar] }
 
 # ── 玛门市──
 - id: div_dyj07f

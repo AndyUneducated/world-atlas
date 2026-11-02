@@ -40,7 +40,7 @@ OPERATOR_KINDS = ("expressway", "highway", "rail")
 TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder", "flag", "flag_notes", "climate_notes")
 # A wonder on a line is one of its built structures (named in the build); elsewhere it is the entity itself.
 WONDER_STRUCTURES = ("bridge", "tunnel", "snow_shed")
-TRAIT_KEYS = ("industries", "heritage", "age", "income")
+TRAIT_KEYS = ("industries", "heritage", "age", "income", "ethnicity")
 ROUTE_SHIELDS = ("crest", "maritime", "polar", "tropic", "spade")  # territorial route shield designs, see src/lib/shields.ts
 FLAGS = ("north_viking", "viking_islands", "arctic_ocean", "everlong_summer", "california")  # territory flag designs, see src/lib/flags.tsx
 
@@ -235,6 +235,8 @@ class World:
                 for key, table in (("heritage", "heritage"), ("age", "age")):
                     if key in traits and traits[key] not in econ.get(table, {}):
                         errors.append(f"{did}: {key} {traits[key]} not in world/economy.yaml")
+                if "ethnicity" in traits and traits["ethnicity"] not in econ.get("ethnicity", {}).get("profiles", {}):
+                    errors.append(f"{did}: ethnicity {traits['ethnicity']} not in world/economy.yaml")
             if d["subtype"] in ("locality", "borough") and self.economy:
                 merged = {**parent.get("traits", {}), **d.get("traits", {})} if d["subtype"] == "borough" else d.get("traits", {})
                 if missing := [k for k in ("industries", "heritage", "age") if k not in merged]:
