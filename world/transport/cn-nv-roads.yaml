@@ -18,6 +18,9 @@
 # legs (optional): per-leg overrides keyed by the via the leg arrives at, e.g. a lower
 #   tunnel_cost for a straighter stretch, or straight: true for one straight stretch.
 # straight (optional): every leg is a straight line, crossing hills and water on tunnels and bridges.
+# line (optional): { from?, to?, points: [[x, y], …] } a real road in design km, taken exactly between
+#   the via stops from and to (or from the start, to the end) and drawn as given.
+# structure_names (optional): { bridge: {zh, en}, tunnel: {zh, en} } names for the longest bridge or tunnel.
 # via entries may be cities (the route stops at the city's core) or districts (at the district centre).
 # shield (territorial routes): symbol in the upper half of the route shield (see src/lib/shields.ts);
 #   every territorial route has its own, chosen from what the road is known for.

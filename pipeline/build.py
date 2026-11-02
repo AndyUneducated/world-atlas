@@ -34,7 +34,7 @@ DEM_ARCHIVE = "terrain.pmtiles"
 def base_entities(world: World) -> dict:
     out = {}
     for eid, e in world.entities.items():
-        ent = {k: v for k, v in e.items() if not k.startswith("_") and k != "detect"}
+        ent = {k: v for k, v in e.items() if not k.startswith("_") and k not in ("detect", "line", "structure_names")}
         ent["source"] = e.get("_source")
         if eid in world.divisions or eid in world.countries:
             ent["kind"] = "division"

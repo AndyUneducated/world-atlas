@@ -92,6 +92,31 @@ class Router:
                 cells.append(c)
         return cells
 
+    def cells_along(self, points) -> list[int]:
+        """The chain of neighbouring cells a polyline (km) passes through, ignoring terrain and water."""
+        cells: list[int] = []
+        for (ax, ay), (bx, by) in zip(points[:-1], points[1:]):
+            n = max(int(math.hypot(bx - ax, by - ay) / (0.25 * self.res)), 1)
+            for k in range(n + 1):
+                c = self.cell(ax + (bx - ax) * k / n, ay + (by - ay) * k / n)
+                if cells and c == cells[-1]:
+                    continue
+                if len(cells) > 1 and c == cells[-2]:  # along a cell border: no stepping back and forth
+                    cells.pop()
+                    continue
+                if cells and max(abs(c % self.nx - cells[-1] % self.nx), abs(c // self.nx - cells[-1] // self.nx)) > 1:
+                    cells += self.straight(cells[-1], c)[1:]
+                    continue
+                if len(cells) > 1 and max(abs(c % self.nx - cells[-2] % self.nx), abs(c // self.nx - cells[-2] // self.nx)) == 1:
+                    cells.pop()  # a corner across a cell's edge: step diagonally instead
+                cells.append(c)
+        if len(cells) == 1:  # a line within one cell still runs from it to the next one along
+            (ax, ay), (bx, by) = points[0], points[-1]
+            d = math.hypot(bx - ax, by - ay) or 1.0
+            cx, cy = self.xy(cells[0])
+            cells.append(self.cell(cx + (bx - ax) / d * self.res, cy + (by - ay) / d * self.res))
+        return cells
+
     def commit(self, path: list[int], road_class: str, discount=0.55, ref: str | None = None):
         for c in path:
             self.cost[c] = min(self.cost[c], discount)

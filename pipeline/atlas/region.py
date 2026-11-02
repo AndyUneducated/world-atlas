@@ -447,6 +447,16 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                       [line for line, acc in stream_lines if acc >= sp.get("river_gap_min_km2", 60)]
         street_out = build_streets(world, sp, world.region_features(spec), frame, seed, cities, districts, district_city, dist_polys, poles,
                                    cover_polys.get(landcover.CLASSES.index("urban")), terr_poly, lake_polys, river_lines)
+        # real-world streets (design km), in the district where their middle lies, among the city's own
+        sts_of = {city["id"]: sts for city, sts, _, _ in street_out}
+        for k, rs in enumerate(sp.get("real", [])):
+            geom = LineString(rs["line"])
+            mid = geom.interpolate(0.5, normalized=True)
+            i = next((i for i, poly in dist_polys.items() if poly.contains(mid)), None)
+            if i is None or cities[district_city[i]]["id"] not in sts_of:
+                log(f"  warn real street {rs['names']['en']} is in no district with streets")
+                continue
+            sts_of[cities[district_city[i]]["id"]].append(streets.Street(rs.get("class", "arterial"), ("real", k), geom, i, rs["names"], "canon"))
         log("buildings")
         building_out, park_out = build_buildings(street_out, seed)
     with_streets = {i for _, _, ctx, _ in street_out for i in ctx}
@@ -495,6 +505,10 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         return node[city_index[v]] if v in city_index else router.cell(*poles[district_index[v]])
 
     road_out, road_via = [], {}
+    # A route with a line (real-world geometry, design km) follows it exactly between its from and to
+    # stops (or from its start, to its end): the cells under the line carry it for routing, segments and
+    # engineering, and the map draws the line itself. exact_spans: ref -> [first, last] index in the path.
+    exact_spans, exact_lines = {}, {}
     road_stop = lambda v: v in city_index or v in district_index or v in place_at
     routes = sorted((r for r in world.routes.values() if stops_here(r, territory["id"], road_stop)),
                     key=lambda r: (ROAD_RANK[r["class"]], r.get("build_order", 0), r["ref"]))
@@ -504,13 +518,35 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         road_via[r["id"]] = via
         cells = [land_cell(land_r, gr.res, *r["crossing"][territory["id"]]) if v == PORTAL else stop_cell(v) for v in via]
         path = []
-        for (a, b), (ca, cb) in zip(zip(via[:-1], via[1:]), zip(cells[:-1], cells[1:])):
+
+        def extend(leg):
+            path.extend(leg if not path else leg[1:])
+        at_stop = [0]
+        for k, ((a, b), (ca, cb)) in enumerate(zip(zip(via[:-1], via[1:]), zip(cells[:-1], cells[1:]))):
             spec_b = r.get("legs", {}).get(b, {})
             if spec_b.get("straight", r.get("straight")):
                 leg = router.straight(ca, cb)
             else:
                 leg = router.route(ca, cb, spec_b.get("tunnel_cost", r.get("tunnel_cost")), ref=r["ref"])
-            path += leg if not path else leg[1:]
+            extend(leg)
+            at_stop.append(len(path) - 1)
+        if exact := r.get("line"):
+            # the line replaces the routed path between the path's cells nearest its two ends, so the
+            # route beyond them runs exactly as it would without it
+            line_cells = router.cells_along(exact["points"])
+            exact_lines[r["ref"]] = LineString(exact["points"])
+            near = lambda p, lo, hi: min(range(lo, hi + 1), key=lambda i: math.dist(router.xy(path[i]), p))
+            head, tail = [], []
+            if "from" in exact:
+                a = near(exact["points"][0], at_stop[via.index(exact["from"])], at_stop[-1])
+                head = path[:a] + router.route(path[a], line_cells[0], ref=r["ref"])[:-1]
+            if "to" in exact:
+                b = near(exact["points"][-1], at_stop[via.index(exact["from"])] if "from" in exact else 0, at_stop[via.index(exact["to"])])
+                if "from" in exact:
+                    b = max(b, a)
+                tail = router.route(line_cells[-1], path[b], ref=r["ref"])[1:] + path[b + 1:]
+            exact_spans[r["ref"]] = [len(head), len(head) + len(line_cells) - 1]
+            path = head + line_cells + tail
         if r.get("ends_at_network"):
             path = router.trim_to_network(path)
         router.commit(path, r["class"], ref=r["ref"])
@@ -609,6 +645,9 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         for at_start in (True, False):
             if road_via.get(r["id"], [None])[0 if at_start else -1] == PORTAL:
                 continue  # the route goes on through the tunnel
+            span = exact_spans.get(ref)
+            if span and r["network"] == "municipal_road" and (span[0] == 0 if at_start else span[1] == len(path) - 1):
+                continue  # a real city road ends where it really does
             end = path[0] if at_start else path[-1]
             leg = None
             for targets, reach_km in ((motorway, JOIN_MOTORWAY_KM), (foreign, JOIN_ROAD_KM)):
@@ -631,6 +670,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                 if route_rank.get(router.owner.get(c), -1) > route_rank[ref]:
                     router.owner[c], router.used[c] = ref, r["class"]
             own.update(leg)
+            if at_start and ref in exact_spans:
+                exact_spans[ref] = [i + len(leg) - 1 for i in exact_spans[ref]]
             path = leg[::-1] + path[1:] if at_start else path + leg[1:]
             log(f"  {ref} {'start' if at_start else 'end'} joined {router.owner.get(leg[-1])} ({frame.km(LineString([router.xy(c) for c in leg]).length):.1f} km)")
         road_out[k] = (r, path)
@@ -884,17 +925,41 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             limits = [engineering.segment_speed(prof, std, 0, len(path) - 1, max(density_of(v) for v in ent.get("via", [None])), speed_rules)]
         ent["speed"] = engineering.speed_summary(limits)
 
-    road_runs = {r["ref"]: [run for run in owned_runs(path, r["ref"], router.owner) if len(run) > 1] for r, path in road_out}
+    # an exact stretch is one run drawn as its line, whoever owns its cells; the rest is drawn by owner
+    road_runs, exact_runs = {}, {}
+    for r, path in road_out:
+        ref = r["ref"]
+        if ref in exact_spans:
+            i0, i1 = exact_spans[ref]
+            exact_runs[ref] = path[i0:i1 + 1]
+            parts = [p for p in (path[:i0 + 1], path[i1:]) if len(p) > 1]
+            road_runs[ref] = [run for p in parts for run in owned_runs(p, ref, router.owner) if len(run) > 1] + [exact_runs[ref]]
+        else:
+            road_runs[ref] = [run for run in owned_runs(path, ref, router.owner) if len(run) > 1]
     fill_undrawn({r["ref"]: path for r, path in road_out}, road_runs)
     pins = {c for runs in road_runs.values() for run in runs for c in (run[0], run[-1])}
-    smoothed = {ref: [smooth_pinned(run, pins, router.xy, 0.7, 4) for run in runs] for ref, runs in road_runs.items()}
+    smoothed = {ref: [exact_lines[ref] if run is exact_runs.get(ref) else smooth_pinned(run, pins, router.xy, 0.7, 4) for run in runs]
+                for ref, runs in road_runs.items()}
+    for ref, run_x in exact_runs.items():  # the route's own runs either side end where its line does
+        ends = {run_x[0]: exact_lines[ref].coords[0], run_x[-1]: exact_lines[ref].coords[-1]}
+        for k, run in enumerate(road_runs[ref]):
+            if run is not run_x and (run[0] in ends or run[-1] in ends):
+                coords = list(smoothed[ref][k].coords)
+                if run[0] in ends:
+                    coords[0] = ends[run[0]]
+                if run[-1] in ends:
+                    coords[-1] = ends[run[-1]]
+                smoothed[ref][k] = LineString(coords)
 
     def meet_host(line: LineString, run: list[int], ref: str) -> LineString:
         """Move each end that lies on another route's corridor onto that route's drawn line, so the two meet."""
+        if run is exact_runs.get(ref):
+            return line
         coords = list(line.coords)
+        own_ends = (exact_runs[ref][0], exact_runs[ref][-1]) if ref in exact_runs else ()
         for i, c in ((0, run[0]), (-1, run[-1])):
             host = router.owner.get(c)
-            if host != ref and smoothed.get(host):
+            if host != ref and smoothed.get(host) and c not in own_ends:
                 p = nearest_points(MultiLineString(smoothed[host]), Point(coords[i]))[0]
                 if p.distance(Point(coords[i])) <= 2 * router.res:
                     coords[i] = (p.x, p.y)
@@ -914,9 +979,50 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     log(f"  warn undrawn steps, left unlit when clicked: {undrawn}" if undrawn else "  ok   every route and railway drawn end to end")
     road_features, shared_features, overruns = [], [], {}
 
+    exact_ids = {id(run) for run in exact_runs.values()}
+
+    def undrawn_by(path, steps):
+        """The stretches of `path` none of whose steps are in `steps`."""
+        cur = path[:1]
+        for a, b in zip(path, path[1:]):
+            if frozenset((a, b)) in steps:
+                if len(cur) > 1:
+                    yield cur
+                cur = [b]
+            else:
+                cur.append(b)
+        if len(cur) > 1:
+            yield cur
+
+    def lit_along(ref, path, j0, j1, others_only):
+        """The drawn lines along path[j0..j1]. Along its exact stretch a route is lit by its own line alone, and
+        another route's exact line lights only steps the route doesn't draw itself."""
+        plain = [(run, ln, pos) for rf, run, ln, pos in drawn_all if id(run) not in exact_ids and not (others_only and rf == ref)]
+        exact = [(run, ln, pos) for rf, run, ln, pos in drawn_all if id(run) in exact_ids and rf != ref]
+        own = [(run, ln, pos) for rf, run, ln, pos in drawn_all if run is exact_runs.get(ref)]
+        mine = {frozenset(p) for run in road_runs[ref] for p in zip(run, run[1:])}
+        i0, i1 = exact_spans.get(ref, (j1, j1))
+        out = []
+        for a, b, inside in ((j0, min(j1, i0), False), (max(j0, i0), min(j1, i1), True), (max(j0, i1), j1, False)):
+            if b <= a:
+                continue
+            if inside:
+                out += [] if others_only else drawn_along(path[a:b + 1], own)
+                continue
+            out += drawn_along(path[a:b + 1], plain)
+            if exact:
+                out += [ln for part in undrawn_by(path[a:b + 1], mine) for ln in drawn_along(part, exact)]
+        return out
+
     def lit_overrun(key, lit: list[LineString], path: list[int], rt):
-        """A click lights only the drawn lines along the route, so they can't be longer than the route's own path."""
-        path_len = LineString([rt.xy(c) for c in path]).length if len(path) > 1 else 0.0
+        """A click lights only the drawn lines along the route, so they can't be longer than the route's own path,
+        its exact stretch measured along its line."""
+        cells_len = lambda p: LineString([rt.xy(c) for c in p]).length if len(p) > 1 else 0.0  # noqa: E731
+        if rt is router and key in exact_spans:
+            i0, i1 = exact_spans[key]
+            path_len = cells_len(path[:i0 + 1]) + exact_lines[key].length + cells_len(path[i1:])
+        else:
+            path_len = cells_len(path)
         lit_len = sum(ln.length for ln in lit)
         if lit_len > 1.03 * path_len + 2 * rt.res:
             overruns[key] = round(lit_len / max(path_len, rt.res), 2)
@@ -935,7 +1041,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                                         "construction_usd": 0, "upkeep_usd_per_year": 0, "max_grade_permille": 0.0}})
             continue
         # stretches drawn under other routes' ids, so the route highlights end to end
-        if shared := drawn_along(path, [(run, ln, pos) for ref, run, ln, pos in drawn_all if ref != r["ref"]]):
+        if shared := lit_along(r["ref"], path, 0, len(path) - 1, True):
             shared_features.append(feature(to_lonlat(MultiLineString(shared), frame), {"id": r["id"]}))
         # a route wholly on other routes' corridors has no line or number of its own on the map
         lit_overrun(r["ref"], lines + shared, path, router)
@@ -961,12 +1067,15 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             ent["segments"] = route_segments(path, router, dist_r, 4, frame, [d["id"] for d in districts])
             for sg in ent["segments"]:
                 i0, i1 = sg["_span"]
-                sg["lines"] = drawn_lonlat(drawn_along(path[i0:i1 + 1], [(run, ln, pos) for _, run, ln, pos in drawn_all])) or [sg["line"]]
+                sg["lines"] = drawn_lonlat(lit_along(r["ref"], path, i0, i1, False)) or [sg["line"]]
                 del sg["line"]
             # travel length, including junction stretches drawn under another route's number
             ent["stats"]["length_km"] = round(sum(s["km"] for s in ent["segments"]), 1)
         if r["network"] in standards:
             engineer(ent, path, standards[r["network"]], router, r["ref"] if r["network"] != "municipal_road" else None)
+            for kind, names in r.get("structure_names", {}).items():
+                if kind in ent["structures"]:
+                    ent["structures"][kind]["names"] = names
         for sg in ent.get("segments", []):
             sg.pop("_span", None)
 

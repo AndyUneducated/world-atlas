@@ -259,6 +259,17 @@ class World:
             for v in r.get("legs", {}):
                 if v not in r.get("via", []):
                     errors.append(f"{rid}: legs entry {v} is not one of the via divisions")
+            if line := r.get("line"):
+                pts = line.get("points")
+                if not (isinstance(pts, list) and len(pts) >= 2 and all(isinstance(p, list) and len(p) == 2 for p in pts)):
+                    errors.append(f"{rid}: line.points is a polyline [[x, y], …] in design km")
+                via = r.get("via", [])
+                ends = [via.index(line[k]) if line.get(k) in via else None for k in ("from", "to") if k in line]
+                if None in ends or ends != sorted(set(ends)):
+                    errors.append(f"{rid}: line.from and line.to name via stops, from before to")
+            for kind, names in r.get("structure_names", {}).items():
+                if kind not in ("bridge", "tunnel") or not all(names.get(lang) for lang in REQUIRED_LANGS):
+                    errors.append(f"{rid}: structure_names gives the longest bridge or tunnel its names (zh, en)")
             if r.get("network") not in self.engineering.get("standards", {}):
                 errors.append(f"{rid}: no engineering standard for network {r.get('network')} (world/transport/engineering.yaml)")
             if str(r.get("network", "")).startswith("territorial_") and not r.get("shield"):
