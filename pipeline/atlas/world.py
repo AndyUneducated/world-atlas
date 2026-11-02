@@ -252,6 +252,8 @@ class World:
             if r["ref"] in refs:
                 errors.append(f"{rid}: route number {r['ref']} already used by {refs[r['ref']]}")
             refs[r["ref"]] = rid
+            if "build_order" in r and not (isinstance(r["build_order"], int) and r["build_order"] > 0):
+                errors.append(f"{rid}: build_order must be a positive whole number")
             if r.get("ring") and len(r.get("via", [])) < 3:
                 errors.append(f"{rid}: a ring needs at least three via divisions")
             for v in r.get("legs", {}):

@@ -468,7 +468,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
 
     road_out, road_via = [], {}
     road_stop = lambda v: v in city_index or v in district_index or v in place_at
-    routes = sorted((r for r in world.routes.values() if stops_here(r, territory["id"], road_stop)), key=lambda r: (ROAD_RANK[r["class"]], r["ref"]))
+    routes = sorted((r for r in world.routes.values() if stops_here(r, territory["id"], road_stop)),
+                    key=lambda r: (ROAD_RANK[r["class"]], r.get("build_order", 0), r["ref"]))
     for r in routes:
         via = stops_here(r, territory["id"], road_stop)
         via = via + via[:1] if r.get("ring") else via

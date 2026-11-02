@@ -32,6 +32,7 @@ CENTRAL_OFFICES = ("高级国务督办办公室", "巡视员办公室", "人权�
 # kana and hangul.
 LOCAL_GLYPHS = ((0x3040, 0x30FF), (0x3400, 0x4DBF), (0x4E00, 0x9FFF), (0xAC00, 0xD7AF), (0xF900, 0xFAFF))
 LABEL_KEY = re.compile(r"^(name_|ref$|short)")
+REAL_REF = r"(I|US|SR)-\d{1,3}|[A-Z]\d{1,2}"
 
 
 def load(name: str):
@@ -111,11 +112,14 @@ def farthest(lines: list[list], onto: list[list], lat0: float) -> float:
 
 
 def check_numbers(ents: dict) -> dict[str, list[str]]:
-    """Route numbers run 1, 2, 3… (territorial highways 101, 102…) with no gaps, and no code uses the old OT."""
+    """Route numbers run 1, 2, 3… (territorial highways 101, 102…) with no gaps, and no code uses the old OT.
+    California's real-world numbers (I-5, US-101, SR-1, county routes such as G4) are not a sequence."""
     series = defaultdict(list)
     old = []
     for eid, e in ents.items():
         ref = e.get("ref") or ""
+        if re.fullmatch(REAL_REF, ref):
+            continue
         if m := re.fullmatch(r"(.*?)(\d+)", ref):
             series[(m.group(1), e.get("network"))].append(int(m.group(2)))
         codes = [ref, eid, *map(str, (e.get("codes") or {}).values())]

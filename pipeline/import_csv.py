@@ -39,8 +39,8 @@ FEATURE_SUBTYPES = ("mountain_range", "ridge", "volcano", "river", "lake", *DETE
 NETWORKS = {  # the infix is the territory's ISO 3166-2 suffix (NV, VK, …)
     "national_expressway": ("motorway", r"G-[A-Z]{2,3}-\d{1,2}"),
     "territorial_expressway": ("motorway", r"S-[A-Z]{2,3}-\d{1,2}"),
-    "territorial_highway": ("primary", r"S-[A-Z]{2,3}-[1-9]\d{2}"),
-    "municipal_road": ("secondary", r"X-[A-Z]{2,3}-\d{3}"),
+    "territorial_highway": ("primary", r"S-[A-Z]{2,3}-[1-9]\d{2}|(I|US|SR)-\d{1,3}"),  # California: real numbers
+    "municipal_road": ("secondary", r"X-[A-Z]{2,3}-\d{3}|[A-Z]\d{1,2}"),  # California's county routes: G4
 }
 BUILDING_SUBTYPES = ("government", "building", "civic", "office", "museum", "theatre", "library", "townhall",
                      "tower", "hospital", "marketplace", "exhibition_centre", "bank", "dome", "data_centre", "vault",
@@ -467,7 +467,7 @@ ORDER = {
     "divisions": ["id", "subtype", "parent", "status", "names", "short_names", "codes", "population", "area_km2", "color",
                   "flag", "flag_notes", "notes"],
     "features": ["id", "subtype", "status", "detect", "names", "notes"],
-    "routes": ["id", "ref", "network", "class", "status", "names", "notes", "ring", "straight", "ends_at_network",
+    "routes": ["id", "ref", "build_order", "network", "class", "status", "names", "notes", "ring", "straight", "ends_at_network",
                "tunnel_cost", "legs", "shield", "via"],
     "places": ["id", "subtype", "status", "names", "short_names", "notes", "in", "offset_km", "emblem_of", "site"],
     "railways": ["id", "network", "status", "names", "notes", "color", "tech", "tunnel_cost", "via", "station_names"],

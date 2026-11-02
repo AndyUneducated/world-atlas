@@ -1,15 +1,18 @@
 # Road routes of the California Autonomous State.
 #
 # California has no expressways, national or territorial: its trunk roads are territorial
-# highways and city roads only, numbered with the state infix:
-#   S-CA-101..    领道 territorial highway        (class primary)
-#   X-CA-001..    市道 city road                  (class secondary, derived)
+# highways and city roads only. Territorial highways carry their real-world numbers: I-# (Interstate),
+# US-# (US route) and SR-# (state route), so they don't run 101, 102…; build_order keeps the order
+# they are routed in (earlier routes claim their corridors first).
+#   I-5, US-101, SR-1…  领道 territorial highway   (class primary)
+#   X-CA-001..          市道 city road             (class secondary, derived)
 # The corridors follow the state's namesake: the valley trunk, the coast road, the cliff road,
 # the farm road, the road over the Sierra, the desert roads and the basin's ring.
 # Fields as in world/transport/cn-nv-roads.yaml; every shield uses the state's spade design.
 routes:
   - id: rte_y7s1dh
-    ref: S-CA-101
+    ref: I-5
+    build_order: 1
     network: territorial_highway
     class: primary
     status: generated
@@ -26,7 +29,8 @@ routes:
     shield: cow
     via: [div_ad0sg9, div_61yver, div_7871nw, div_jqddbd, div_jtjexr, div_xf54np, div_zqpg46, div_ymeec8, div_qayjg1, div_chf8fg]  # visa – la jolly – masterplan – downturn – angel crest – thirsty valley – terminus – lobbyton – blackout – statehood-pending
   - id: rte_c95twc
-    ref: S-CA-102
+    ref: US-101
+    build_order: 2
     network: territorial_highway
     class: primary
     status: generated
@@ -43,7 +47,8 @@ routes:
     shield: billboard
     via: [div_16m2n3, div_7jac05, div_nsgeyn, div_jjgxvk, div_zmb3gb, div_hwfcnm, div_zjfaw0, div_jssc24, div_0vf1b0, div_n4pw55, div_2t7y15, div_taah7d]  # hollyweird – rideshare valley – mission – josh estate – lucy chip city – cannery – likelihood valley – gated heights – prior – sonomore – redwood curtain – humbled bay
   - id: rte_15s04b
-    ref: S-CA-103
+    ref: SR-1
+    build_order: 3
     network: territorial_highway
     class: primary
     status: generated
@@ -60,7 +65,8 @@ routes:
     shield: camera
     via: [div_zmb3gb, div_qx3brb, div_5fnf38, div_0vf1b0]  # lucy chip city – big surcharge – surf shack – prior
   - id: rte_62gec5
-    ref: S-CA-104
+    ref: SR-99
+    build_order: 4
     network: territorial_highway
     class: primary
     status: generated
@@ -77,7 +83,8 @@ routes:
     shield: almond
     via: [div_zs0myf, div_r0qhbd, div_tnbcec, div_zqpg46, div_0aep50]  # wellhead – kernel – modestly – terminus – sprawlville
   - id: rte_1xsdj8
-    ref: S-CA-105
+    ref: I-80
+    build_order: 5
     network: territorial_highway
     class: primary
     status: generated
@@ -94,7 +101,8 @@ routes:
     shield: snowflake
     via: [div_0vf1b0, div_9tazhz, div_jytczs, div_ymeec8, div_0aep50, div_w1h5d7]  # prior – posterior – cabernet hills – lobbyton – sprawlville – chalet
   - id: rte_vpkqzb
-    ref: S-CA-106
+    ref: I-10
+    build_order: 6
     network: territorial_highway
     class: primary
     status: generated
@@ -111,7 +119,8 @@ routes:
     shield: parcel
     via: [div_jqddbd, div_sc80nv, div_aca2hs, div_g96sq9]  # downturn – palletville – riverless – sprinkler
   - id: rte_e3hdf1
-    ref: S-CA-107
+    ref: I-15
+    build_order: 7
     network: territorial_highway
     class: primary
     status: generated
@@ -130,7 +139,8 @@ routes:
       div_s76w0x: { tunnel_cost: 2.5 }   # straight over Next-Day Pass, not round by the basin
     via: [div_j1wv5r, div_aca2hs, div_s76w0x, div_4c9mhq]  # backcountry – riverless – high desert fulfillment – imperial dust
   - id: rte_k7akef
-    ref: S-CA-108
+    ref: US-395
+    build_order: 8
     network: territorial_highway
     class: primary
     status: generated
@@ -147,7 +157,8 @@ routes:
     shield: peaks
     via: [div_s76w0x, div_9n9342, div_9fqezr, div_w1h5d7, div_j311rd]  # high desert fulfillment – bad debt valley – ski – chalet – lava plateau
   - id: rte_f9gvwk
-    ref: S-CA-109
+    ref: SR-58
+    build_order: 9
     network: territorial_highway
     class: primary
     status: generated
@@ -164,7 +175,8 @@ routes:
     shield: pumpjack
     via: [div_zs0myf, div_xfjrth, div_s76w0x]  # wellhead – fracklands – high desert fulfillment
   - id: rte_qah9bk
-    ref: S-CA-110
+    ref: I-8
+    build_order: 10
     network: territorial_highway
     class: primary
     status: generated
@@ -181,7 +193,8 @@ routes:
     shield: wall
     via: [div_jmthr1, div_j1wv5r, div_g96sq9]  # borderline – backcountry – sprinkler
   - id: rte_283773
-    ref: S-CA-111
+    ref: SR-299
+    build_order: 11
     network: territorial_highway
     class: primary
     status: generated
@@ -198,7 +211,8 @@ routes:
     shield: fir
     via: [div_taah7d, div_qayjg1, div_j311rd]  # humbled bay – blackout – lava plateau
   - id: rte_angvy2
-    ref: S-CA-112
+    ref: I-580
+    build_order: 12
     network: territorial_highway
     class: primary
     status: generated
@@ -215,7 +229,8 @@ routes:
     shield: robotaxi
     via: [div_9tazhz, div_5anpaj, div_zqpg46]  # posterior – marginal – terminus
   - id: rte_zm23m9
-    ref: S-CA-113
+    ref: I-280
+    build_order: 13
     network: territorial_highway
     class: primary
     status: generated
@@ -232,7 +247,8 @@ routes:
     shield: padlock
     via: [div_0vf1b0, div_b4v4f8, div_zjfaw0]  # prior – moat hills – likelihood valley
   - id: rte_6nk8sr
-    ref: S-CA-114
+    ref: I-405
+    build_order: 14
     network: territorial_highway
     class: primary
     status: generated
@@ -250,7 +266,8 @@ routes:
     operator: { zh: 加州收费道路特许经营公司, en: California Toll Road Concessions Inc. }
     via: [div_7jac05, div_5sjc4x, div_rwfcw9, div_3rwj4m, div_77vac6, div_2jmm39]  # rideshare valley – beverly bills – smogdale – long beached – newport breach – hoa hills
   - id: rte_q8mt00
-    ref: S-CA-115
+    ref: SR-120
+    build_order: 15
     network: territorial_highway
     class: primary
     status: generated

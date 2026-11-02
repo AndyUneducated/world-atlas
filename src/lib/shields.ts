@@ -28,9 +28,10 @@ export interface Shield {
   ratio: number;
 }
 
+/** "S-NV-101" (series, territory, number), or a real-world number such as California's "I-5" or "US-101". */
 function parseRef(ref: string) {
-  const m = /^([A-Z]+)-([A-Z]+)-(\d+)$/.exec(ref);
-  return m ? { series: m[1], region: m[2], number: m[3] } : null;
+  const m = /^([A-Z]+)-(?:([A-Z]+)-)?(\d+)$/.exec(ref);
+  return m ? { series: m[1], region: m[2] ?? "", number: m[3] } : null;
 }
 
 export const hasShield = (e: Entity) => e.kind === "route" && !!e.ref && !!parseRef(e.ref) && /^(national|territorial)_/.test(e.network ?? "");
