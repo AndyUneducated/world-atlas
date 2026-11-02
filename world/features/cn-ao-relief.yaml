@@ -39,24 +39,24 @@ features:
     detect: { kind: peak, at_km: [451.2, 142.2] }
     names: { zh: 陶武皮鲁克峰, en: Mount Tauvvupirruk, art-x-tavrunaq: Tauvvupirruk }
     notes:
-      zh: "苏瓦尔尤伊特山脉的最高峰，海拔 2022 米，是大陆第二高峰，在乌库拉克市西卢阿苏瓦特生态保护区，陶武西尔米冰川从峰顶向四周流下。西卢阿高速在约 50 公里外经过。峰名的意思是「天峰」，晴朗的夏天，乌库拉克的登山爱好者喜欢来爬它，站在峰顶能望见冰封的远山和不冻的港湾。"
-      en: "The highest summit of the Suvvarjuit Mountains, 2,022 m and the second highest peak on the mainland, in the Silluasuvvat Nature Reserve of Ukkulaaq City, with the Tauvvusirmi Glacier flowing down from it on all sides. The Sillua Expressway passes some 50 km away. Its name means \"sky peak\", and on clear summer days Ukkulaaq's climbers like to come here, seeing from the top frozen mountains in the distance and the ice-free harbour below."
+      zh: "苏瓦尔尤伊特山脉的最高峰，海拔 2022 米，是大陆上仅次于西尔米峰的第二高的命名山峰，在乌库拉克市西卢阿苏瓦特生态保护区，陶武西尔米冰川从峰顶向四周流下。西卢阿高速在约 50 公里外经过。峰名的意思是「天峰」，晴朗的夏天，乌库拉克的登山爱好者喜欢来爬它，站在峰顶能望见冰封的远山和不冻的港湾。"
+      en: "The highest summit of the Suvvarjuit Mountains, 2,022 m and the second highest named peak on the mainland after Mount Sirmi, in the Silluasuvvat Nature Reserve of Ukkulaaq City, with the Tauvvusirmi Glacier flowing down from it on all sides. The Sillua Expressway passes some 50 km away. Its name means \"sky peak\", and on clear summer days Ukkulaaq's climbers like to come here, seeing from the top frozen mountains in the distance and the ice-free harbour below."
   - id: nat_szhgrt
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [233.8, 137.2] }
     names: { zh: 尼尔萨皮鲁克峰, en: Mount Nirsapirruk, art-x-tavrunaq: Nirsapirruk }
     notes:
-      zh: "苏瓦西尔米冰原的最高点，海拔 1950 米，是大陆第三高峰，在塔夫鲁利特原住民自治区的尼尔萨图维特生态保护区。驯鹿群每年春秋沿山脚的谷地迁徙，山名由此而来。牧民的老话「Nirsa pirri, tavru pirri」说「驯鹿走的路，就是土地的路」，山脚的迁徙谷地正是这样一条路，迁徙季节谷地里不许修路，也不许飞机低飞。"
-      en: "The highest point of the Suvvasirmi Icefield, 1,950 m and the third highest peak on the mainland, in the Nirsatuvvit Nature Reserve of the Tavrulit Indigenous Autonomous Region. Reindeer herds migrate along the valleys at its foot every spring and autumn, hence the name. The herders' saying \"Nirsa pirri, tavru pirri\", the road the reindeer walk is the road of the land, describes exactly the migration valleys at its foot, where no roads may be built and aircraft may not fly low in the migration season."
+      zh: "苏瓦西尔米冰原的最高点，海拔 1950 米，是大陆上第三高的命名山峰，在塔夫鲁利特原住民自治区的尼尔萨图维特生态保护区。驯鹿群每年春秋沿山脚的谷地迁徙，山名由此而来。牧民的老话「Nirsa pirri, tavru pirri」说「驯鹿走的路，就是土地的路」，山脚的迁徙谷地正是这样一条路，迁徙季节谷地里不许修路，也不许飞机低飞。"
+      en: "The highest point of the Suvvasirmi Icefield, 1,950 m and the third highest named peak on the mainland, in the Nirsatuvvit Nature Reserve of the Tavrulit Indigenous Autonomous Region. Reindeer herds migrate along the valleys at its foot every spring and autumn, hence the name. The herders' saying \"Nirsa pirri, tavru pirri\", the road the reindeer walk is the road of the land, describes exactly the migration valleys at its foot, where no roads may be built and aircraft may not fly low in the migration season."
   - id: nat_bfyxfg
     subtype: peak
     status: generated
     detect: { kind: peak, at_km: [377.8, 140.8] }
     names: { zh: 温纳皮鲁克峰, en: Mount Unnapirruk, art-x-tavrunaq: Unnapirruk }
     notes:
-      zh: "伊卢克萨特区的山峰，海拔 1887 米，是大陆第四高峰，峰顶覆盖着温纳西尔米冰川。乌库利特高速在约 40 公里外经过。冰川融水在山脚汇成一串小湖，夏天湖水呈现深浅不一的蓝绿色，和不远处的提锂厂卤水池相映。"
-      en: "A peak in Illuqsaat District, 1,887 m and the fourth highest on the mainland, capped by the Unnasirmi Glacier. The Ukkuliit Expressway passes some 40 km away. Its meltwater gathers in a string of small lakes at its foot, blue and green in summer, echoing the brine pools of the lithium works not far away."
+      zh: "伊卢克萨特区的山峰，海拔 1887 米，是大陆上第四高的命名山峰，峰顶覆盖着温纳西尔米冰川。乌库利特高速在约 40 公里外经过。冰川融水在山脚汇成一串小湖，夏天湖水呈现深浅不一的蓝绿色，和不远处的提锂厂卤水池相映。"
+      en: "A peak in Illuqsaat District, 1,887 m and the fourth highest named peak on the mainland, capped by the Unnasirmi Glacier. The Ukkuliit Expressway passes some 40 km away. Its meltwater gathers in a string of small lakes at its foot, blue and green in summer, echoing the brine pools of the lithium works not far away."
   - id: nat_1jamq7
     subtype: peak
     status: generated

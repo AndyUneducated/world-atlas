@@ -251,7 +251,7 @@ features:
     names: { zh: 库拉克岛, en: Qurrak Isle, art-x-tavrunaq: Qurrak }
     notes:
       zh: "卡瓦卢维特群岛的小岛，面积约 470 平方公里，在卡瓦卢格尤阿克岛与温纳塔克岛之间。岛名来自极光常见的绿色光带。岛上没有灯，冬夜里只有极光照亮雪地，游船经过时会熄掉所有灯光，让乘客在黑暗里看极光倒映在水面上。"
-      en: "A small island in the Qavvaluviit Islands, about 470 km², between Lightcurtain and Longnight islands. It is named after the green bands that are the aurora's commonest colour. There are no lights on the isle, only the aurora on the snow on winter nights, and passing boats switch off every lamp so passengers can watch it mirrored on the water in the dark."
+      en: "A small island in the Qavvaluviit Islands, about 470 km², between Qavvalugjuaq and Unnataq islands. It is named after the green bands that are the aurora's commonest colour. There are no lights on the isle, only the aurora on the snow on winter nights, and passing boats switch off every lamp so passengers can watch it mirrored on the water in the dark."
 
   # ── 乌利库维特群岛 ────────────────────────────────────────────
   - id: nat_p61nkb
@@ -321,7 +321,7 @@ features:
     names: { zh: 图卡尔尤阿克岛, en: Tukkarjuaq Island, art-x-tavrunaq: Tukkarjuaq }
     notes:
       zh: "图卡鲁维特群岛的主岛，面积约 3900 平方公里，岛名来自岛上的图卡尔尤阿克数据中心：它用极地冷空气和海水冷却服务器，余热为岛上的住宅供暖。岛上的游泳馆和温室靠数据中心的余热取暖，本地人开玩笑说自己是「泡在服务器的洗澡水里游泳」。"
-      en: "The main island of the Tukkaruviit Islands, about 3,900 km², named after the Coldvault Data Centre on it, which cools its servers with polar air and seawater and heats the island's homes with the waste heat. The island's pool and greenhouses are heated by the data centre's waste heat, and locals joke that they \"swim in the servers' bathwater\"."
+      en: "The main island of the Tukkaruviit Islands, about 3,900 km², named after the Tukkarjuaq Data Centre on it, which cools its servers with polar air and seawater and heats the island's homes with the waste heat. The island's pool and greenhouses are heated by the data centre's waste heat, and locals joke that they \"swim in the servers' bathwater\"."
   - id: nat_x904y1
     subtype: island
     status: generated
@@ -395,7 +395,7 @@ features:
     names: { zh: 乌瓦卡鲁库维特群岛, en: Uvvaakkaruquviit Islands, art-x-tavrunaq: Uvvaakkaruquviit }
     notes:
       zh: "领地东北远海的群岛，由乌瓦克岛、卡鲁克岛、图拉利克岛和普塔西尔米岛组成，总面积约 2.11 万平方公里，名字合「海象」与「熊」两词，全境是保护海象和北极熊的生态保护区。保护区只允许巡护员和获得许可的科考人员进入，游客只能乘船在外海远远观看，望远镜里常能同时看到海象和北极熊。"
-      en: "An archipelago in the far north-east of the territory, made up of Uvvaak, Karuq, Ice Cliff and Floe islands, about 21,100 km² in all; its name joins the words for walrus and bear, and all of it is a reserve for walruses and polar bears. Only rangers and permitted researchers may enter the reserve; visitors watch from boats offshore, often seeing walruses and polar bears in the same binocular view."
+      en: "An archipelago in the far north-east of the territory, made up of Uvvaak, Karuq, Turralik and Puttasirmi islands, about 21,100 km² in all; its name joins the words for walrus and bear, and all of it is a reserve for walruses and polar bears. Only rangers and permitted researchers may enter the reserve; visitors watch from boats offshore, often seeing walruses and polar bears in the same binocular view."
   - id: nat_m6cr39
     subtype: archipelago
     status: generated
@@ -403,7 +403,7 @@ features:
     names: { zh: 乌库乌维特群岛, en: Ukkuuviit Islands, art-x-tavrunaq: Ukkuuviit }
     notes:
       zh: "领地最东端的群岛，由乌维克萨克岛、西卢奥库岛、基蒂利克岛和阿考库岛组成，总面积约 1.11 万平方公里，构成乌维克萨克市。群岛出产稀土，精矿由乌维克努卡港运出。群岛没有一条通往大陆的公路，本地人说「我们的高速公路是航线和海路」，补给船靠岸的日子在岛上像过节。"
-      en: "The easternmost archipelago of the territory, made up of Uviqsaaq, South Ore, Lodestone and North Ore islands, about 11,100 km² in all, which together form Uviqsaaq City. The islands produce rare earths, shipped out as concentrate from the harbour. There is no road to the mainland, and locals say \"our expressways are the air routes and the sea lanes\"; supply-ship days are like holidays on the islands."
+      en: "The easternmost archipelago of the territory, made up of Uviqsaaq, Silluaukku, Qittilik and Aqqaukku islands, about 11,100 km² in all, which together form Uviqsaaq City. The islands produce rare earths, shipped out as concentrate from the harbour. There is no road to the mainland, and locals say \"our expressways are the air routes and the sea lanes\"; supply-ship days are like holidays on the islands."
   - id: nat_vpay49
     subtype: archipelago
     status: generated
@@ -411,7 +411,7 @@ features:
     names: { zh: 卡瓦卢维特群岛, en: Qavvaluviit Islands, art-x-tavrunaq: Qavvaluviit }
     notes:
       zh: "乌库拉克市东南海上的群岛，由卡瓦卢格尤阿克岛、温纳塔克岛和库拉克岛组成，总面积约 1.47 万平方公里，属卡瓦卢维特区，以观赏极光的旅游业闻名。群岛的名字在塔夫鲁纳克语里就是「极光群岛」，冬夜里游船沿海峡夜航，乘客躺在甲板的毯子里看头顶的极光。"
-      en: "An archipelago in the sea south-east of Ukkulaaq City, made up of Lightcurtain, Longnight and Greenlight islands, about 14,700 km² in all, forming the Qavvaluviit District and known for aurora tourism. The name is Tavrunaq for \"the aurora islands\", and on winter nights boats cruise the straits while passengers lie wrapped in blankets on deck watching the lights overhead."
+      en: "An archipelago in the sea south-east of Ukkulaaq City, made up of Qavvalugjuaq and Unnataq islands and Qurrak Isle, about 14,700 km² in all, forming the Qavvaluviit District and known for aurora tourism. The name is Tavrunaq for \"the aurora islands\", and on winter nights boats cruise the straits while passengers lie wrapped in blankets on deck watching the lights overhead."
   - id: nat_mhtezd
     subtype: archipelago
     status: generated
@@ -419,7 +419,7 @@ features:
     names: { zh: 乌利库维特群岛, en: Ulikuviit Islands, art-x-tavrunaq: Ulikuviit }
     notes:
       zh: "首府西南海上的群岛，由乌利卡尔维克岛、库卡利克岛、萨里马岛和西卢阿库利岛组成，总面积约 7300 平方公里，属萨尔瓦克市乌利库维特区。暖流使这里的海水较暖，岛间海湾以深海网箱养殖为业。每批鱼苗出海放进网箱时，孵化场的老工人会在船头敲三下皮鼓，祝它们在冷水里长得又肥又结实。"
-      en: "An archipelago in the sea south-west of the capital, made up of Netpen, Seaweed, Warmtide and South Light islands, about 7,300 km² in all, forming the Ulikuviit District of Saarvaq City. The warm current keeps the water mild, and the bays between the islands are given over to deep-water fish farming. When each batch of fry goes out to the pens, the old hands from the hatchery beat a skin drum three times at the bow, wishing the fish a fat, strong life in the cold water."
+      en: "An archipelago in the sea south-west of the capital, made up of Ulikkarvik, Kuuqalik and Saarimma islands and Silluaqulli Isle, about 7,300 km² in all, forming the Ulikuviit District of Saarvaq City. The warm current keeps the water mild, and the bays between the islands are given over to deep-water fish farming. When each batch of fry goes out to the pens, the old hands from the hatchery beat a skin drum three times at the bow, wishing the fish a fat, strong life in the cold water."
   - id: nat_t8xydj
     subtype: archipelago
     status: generated
