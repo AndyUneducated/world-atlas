@@ -56,7 +56,7 @@ def ts_names(file: str, const: str) -> tuple[str, ...]:
 FLAG_LAYOUTS = ts_names("cityFlags.tsx", "FLAG_LAYOUTS")
 FLAG_CHARGES = ts_names("emblems.tsx", "MOTIFS") + ts_names("charges.tsx", "NEW") + ts_names("charges.tsx", "CALIFORNIA")
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
-POLITICS_SYSTEMS = ("mmp", "fptp", "pr_reserved", "pr_regional")
+POLITICS_SYSTEMS = ("mmp", "fptp", "pr_reserved", "pr_regional", "top_two")
 # a party's place on the scales of expert party surveys, 0 to 10: economic left to right, social
 # green-alternative-libertarian to traditional-authoritarian-nationalist, the territory's self-rule to
 # the centre's, and ecology to growth
@@ -421,11 +421,24 @@ class World:
             if leg.get("system") not in POLITICS_SYSTEMS:
                 errors.append(f"politics: {tid}: system must be one of {', '.join(POLITICS_SYSTEMS)}")
             court = leg.get("court", {})
-            for k, v in (("names", leg.get("names")), ("governor", leg.get("governor")), ("governor_name", leg.get("governor_name")), ("premier", leg.get("premier")),
-                         ("speaker", leg.get("speaker")), ("mayor", leg.get("mayor")), ("court names", court.get("names")),
-                         ("court title", court.get("title"))):
+            elected = leg.get("executive") == "elected"
+            upper = leg.get("upper")
+            offices = (("governor", leg.get("governor")), ("minority", leg.get("minority"))) if elected else \
+                (("governor", leg.get("governor")), ("governor_name", leg.get("governor_name")), ("premier", leg.get("premier")))
+            for k, v in (("names", leg.get("names")), *offices, ("speaker", leg.get("speaker")), ("mayor", leg.get("mayor")),
+                         ("court names", court.get("names")), ("court title", court.get("title")),
+                         *((("notes", leg["notes"]),) if "notes" in leg else ()),
+                         *((("upper names", upper.get("names")), ("upper speaker", upper.get("speaker"))) if upper else ())):
                 if not all((v or {}).get(lang) for lang in REQUIRED_LANGS):
                     errors.append(f"politics: {tid}: {k} needs zh and en")
+            if leg.get("executive", "appointed") not in ("appointed", "elected"):
+                errors.append(f"politics: {tid}: executive is appointed (a premier from the parliament) or elected (a governor by the voters)")
+            if upper and not (isinstance(upper.get("seats"), int) and upper["seats"] > 0 and elected):
+                errors.append(f"politics: {tid}: an upper chamber has a number of seats, under an elected executive")
+            known = {m.get("id") for m in pol.get("ministries", [])}
+            for mid, names in leg.get("ministries", {}).items():
+                if mid not in known or not all(names.get(lang) for lang in REQUIRED_LANGS):
+                    errors.append(f"politics: {tid}: ministry {mid} renames a known ministry, in zh and en")
             if not (isinstance(court.get("judges"), int) and 6 <= court["judges"] <= 12):
                 errors.append(f"politics: {tid}: the court has 6 to 12 judges, the chief justice among them")
             if sum(court.get("tongues", {}).values()) >= court.get("judges", 0):

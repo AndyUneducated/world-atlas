@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { useMemo } from "react";
 import { formatNumber, t } from "../lib/i18n";
 import { majority } from "../lib/politics";
-import type { AtlasData, Chamber, Lang } from "../lib/types";
+import type { AtlasData, Lang, Seating } from "../lib/types";
 
 const W = 320;
 const R = 150;
@@ -28,7 +28,7 @@ function seatPositions(n: number) {
 }
 
 /** A parliament as a half circle of seats, parties from left to right in spectrum order. */
-export function Hemicycle({ data, chamber, lang, highlight }: { data: AtlasData; chamber: Chamber; lang: Lang; highlight?: string | null }) {
+export function Hemicycle({ data, chamber, lang, highlight }: { data: AtlasData; chamber: Seating; lang: Lang; highlight?: string | null }) {
   const seats = useMemo(() => {
     const { pts, dot } = seatPositions(chamber.seats);
     const order = [...chamber.parties].filter((p) => p.seats).sort((a, b) => (data.entities[a.id]?.spectrum ?? 0) - (data.entities[b.id]?.spectrum ?? 0));

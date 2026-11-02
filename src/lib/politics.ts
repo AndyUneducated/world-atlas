@@ -1,10 +1,11 @@
-import type { AtlasData, Chamber, ElectoralSystem, Entity, Lang, Legislature, PartyAxis } from "./types";
+import type { AtlasData, ElectoralSystem, Entity, Lang, Legislature, PartyAxis, Seating } from "./types";
 
 export const SYSTEM_NAMES: Record<ElectoralSystem, Record<Lang, string>> = {
   mmp: { zh: "混合成员比例制", en: "Mixed-member proportional" },
   fptp: { zh: "单议席选区制", en: "First past the post" },
   pr_reserved: { zh: "比例代表制附保留议席", en: "Proportional, with reserved seats" },
   pr_regional: { zh: "分区比例代表制", en: "Regional proportional" },
+  top_two: { zh: "前两名初选制", en: "Top-two primary" },
 };
 
 /** How a parliament is elected, in a sentence or two. */
@@ -30,14 +31,18 @@ export function systemText(l: Legislature, lang: Lang): string {
       return zh
         ? "每座城市是一个选区，按人口分得议席（至少两席），在城市内按得票比例分配（最大余额法），不设门槛。"
         : "Each city is a constituency, with seats by population (at least two) shared out within it in proportion to the vote (largest remainder), with no threshold.";
+    case "top_two":
+      return zh
+        ? `众议院 ${l.seats} 席${l.upper ? `、参议院 ${l.upper.seats} 席` : ""}都是按人口划分的单议席选区。初选不分党派，所有候选人同场竞争，得票前两名进入大选，哪怕两人同属一党；大选得票过半者当选。州长和各市市长也这样选出。`
+        : `The ${l.seats} seats of the Assembly${l.upper ? ` and the ${l.upper.seats} of the Senate` : ""} are single-member districts drawn by population. Every candidate stands in one primary open to all parties, and the two with the most votes go on to the general election, even if both belong to one party; whoever wins a majority there is elected. The governor and every mayor are chosen the same way.`;
   }
 }
 
 export const PARTY_AXES = ["econ", "galtan", "autonomy", "green"] as const satisfies readonly PartyAxis[];
 
-export const majority = (c: Chamber) => Math.floor(c.seats / 2) + 1;
+export const majority = (c: Seating) => Math.floor(c.seats / 2) + 1;
 
-export const governmentSeats = (c: Chamber) => c.parties.filter((p) => c.government.includes(p.id)).reduce((a, p) => a + p.seats, 0);
+export const governmentSeats = (c: Seating) => c.parties.filter((p) => c.government.includes(p.id)).reduce((a, p) => a + p.seats, 0);
 
 /** Every party, most seats in the territorial parliaments first. */
 export function parties(data: AtlasData): Entity[] {

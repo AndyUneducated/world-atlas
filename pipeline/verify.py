@@ -197,32 +197,41 @@ def check_models(ents: dict) -> dict[str, list[str]]:
                 climate.append(f"{name}: months, mean or records out of order")
             if c.get("polar_night_days") and abs(e["center"][1]) < 66:
                 climate.append(f"{name}: polar night at {e['center'][1]:.1f}°")
-        for key in ("legislature", "council"):
-            if not (body := e.get(key)):
+        for key in ("legislature", "council", "upper"):
+            if not (body := e.get(key) if key != "upper" else e.get("legislature", {}).get("upper")):
                 continue
             won = {p["id"]: p["seats"] for p in body["parties"]}
             if sum(won.values()) != body["seats"]:
                 seats.append(f"{name} {key}: parties hold {sum(won.values())} of {body['seats']} seats")
             if sum(won.get(p, 0) for p in body["government"]) * 2 <= body["seats"]:
                 seats.append(f"{name} {key}: government without a majority")
-            for role in ("head", "speaker"):
+            # an elected governor or mayor need not come from the chamber's majority
+            for role in ("speaker",) if body.get("elected") or key == "upper" else ("head", "speaker"):
                 if body.get(role, {}).get("party") not in body["government"]:
                     seats.append(f"{name} {key}: the {role}'s party is not in government")
-                holders.append((body.get(role, {}).get("name", {}).get("en"), f"{name} {role}"))
+            for role in ("head", "speaker"):
+                if role in body:
+                    holders.append((body[role]["name"]["en"], f"{name} {key} {role}"))
             if key == "legislature":
-                if "party" in body["governor"]:
+                cabinet = [body["head"]["party"]] if body.get("elected") else body["government"]
+                if body.get("elected"):
+                    if not body["head"].get("party") or not 50 <= body["head"]["vote"] <= 100:
+                        seats.append(f"{name}: an elected governor has a party and won the general election")
+                elif "party" in body["governor"]:
                     seats.append(f"{name}: the governor belongs to no party")
                 if (op := body.get("opposition")) and op["party"] in body["government"]:
                     seats.append(f"{name}: the leader of the opposition's party is in government")
                 ms = body.get("ministers", [])
-                held = {p: sum(m.get("party") == p for m in ms) for p in body["government"]}
+                held = {p: sum(m.get("party") == p for m in ms) for p in cabinet}
                 experts = sum("party" not in m for m in ms)
-                if ({m["ministry"]["zh"] for m in ms} != set(MINISTRIES) or {m["party"] for m in ms if "party" in m} - set(body["government"])
+                if (len({m["id"] for m in ms}) != len(ms) or len(ms) != ministries or {m["party"] for m in ms if "party" in m} - set(cabinet)
                         or not all(held.values()) or experts > 4 or {c["id"]: c["seats"] for c in body["cabinet"]} != held):
                     seats.append(f"{name}: the cabinet is not the {ministries} ministries, each governing party holding one or more, at most 4 non-partisan")
                 if not 6 <= 1 + len(body["court"].get("judges", [])) <= 12:
                     seats.append(f"{name}: the court has {1 + len(body['court'].get('judges', []))} judges, not 6 to 12")
-                holders += [(body["governor"]["name"]["en"], f"{name} governor"), (body["court"]["name"]["en"], f"{name} chief justice")]
+                if "governor" in body:
+                    holders.append((body["governor"]["name"]["en"], f"{name} governor"))
+                holders.append((body["court"]["name"]["en"], f"{name} chief justice"))
                 holders += [(m["name"]["en"], f"{name} {m['ministry']['en']}") for m in ms]
                 holders += [(j["en"], f"{name} judge") for j in body["court"].get("judges", [])]
     seen: dict[str, str] = {}

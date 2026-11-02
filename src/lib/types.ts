@@ -160,13 +160,14 @@ export interface Entity {
   base?: { strong: Localized[]; weak: Localized[] };
   history?: Localized;
   /** Seats held in each territorial parliament and city council. */
-  seats?: { at: string; seats: number; of: number }[];
+  seats?: { at: string; seats: number; of: number; upper?: boolean }[];
 }
 
-export type ElectoralSystem = "mmp" | "fptp" | "pr_reserved" | "pr_regional";
+export type ElectoralSystem = "mmp" | "fptp" | "pr_reserved" | "pr_regional" | "top_two";
 
-/** A parliament or council from the politics model: seats by party, the government (largest party first). */
-export interface Chamber {
+/** The seats of a chamber by party, and the government (largest party first); under an elected
+ * executive, the chamber's majority. */
+export interface Seating {
   seats: number;
   parties: { id: string; seats: number; vote: number }[];
   government: string[];
@@ -176,11 +177,20 @@ export interface Chamber {
   /** pr_reserved: seats elected by the reserved-language roll, and who won them. */
   reserved?: number;
   reserved_won?: Record<string, number>;
-  turnout: number;
+  /** top_two: general elections between two candidates of one party. */
+  same_party?: number;
   names: Localized;
-  /** The head of the executive: a territory's premier or a city's mayor. */
-  head: Officeholder & { party: string };
   speaker: Officeholder & { party: string };
+}
+
+/** A parliament or council from the politics model. */
+export interface Chamber extends Seating {
+  turnout: number;
+  /** The head of the executive: a territory's premier or governor, or a city's mayor; when elected by
+   * the voters, their share of the general election and who came second. */
+  head: Officeholder & { party: string; vote?: number; runner_up?: { name?: Localized; party: string; vote: number } };
+  /** The head is elected by the voters, not by the chamber. */
+  elected?: boolean;
 }
 
 export interface Officeholder {
@@ -193,13 +203,17 @@ export type PartyAxis = "econ" | "galtan" | "autonomy" | "green";
 export interface Legislature extends Chamber {
   system: ElectoralSystem;
   threshold?: number;
-  /** Appointed by the central government; no party. */
-  governor: Officeholder;
-  opposition?: { name: Localized; party: string };
+  /** Appointed by the central government; no party. Absent where the governor is elected (the head). */
+  governor?: Officeholder;
+  opposition?: { name: Localized; party: string; title?: Localized };
   /** Ministries held by each party in government. */
   cabinet: { id: string; seats: number }[];
   /** Every ministry in order, with its minister; a minister without a party is a non-partisan expert. */
-  ministers: { ministry: Localized; name: Localized; party?: string }[];
+  ministers: { id?: string; ministry: Localized; name: Localized; party?: string }[];
+  /** How the state's politics work, beyond the electoral system. */
+  notes?: Localized;
+  /** The second chamber, elected the same way. */
+  upper?: Seating;
   /** The chief justice, and the court's other judges. */
   court: Officeholder & { names: Localized; judges: Localized[] };
 }

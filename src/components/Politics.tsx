@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import { ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
-import { useState, type ReactNode } from "react";
+import { Fragment, useState, type ReactNode } from "react";
 import { displayName, formatNumber, t, type StringKey } from "../lib/i18n";
 import { governmentSeats, majority, PARTY_AXES, SYSTEM_NAMES, systemText } from "../lib/politics";
-import type { AtlasData, Chamber, Entity, Lang, Legislature, Localized } from "../lib/types";
+import type { AtlasData, Chamber, Entity, Lang, Legislature, Localized, Seating } from "../lib/types";
 import { useAtlas } from "../store";
 import { Paragraphs, Rows, Section, Sub, useCardOpen } from "./CardParts";
 import { Emblem, hasEmblem } from "./Emblem";
@@ -85,7 +85,7 @@ const holderRow = (data: AtlasData, title: Localized, h: { name: Localized; part
 const NON_PARTISAN = "var(--ui-faint)";
 
 /** The hemicycle and, under it, every party in the chamber; hovering a party lights its seats. */
-function ChamberView({ data, chamber, lang, note }: { data: AtlasData; chamber: Chamber; lang: Lang; note?: (id: string) => string | null }) {
+function ChamberView({ data, chamber, lang, note, govLabel }: { data: AtlasData; chamber: Seating; lang: Lang; note?: (id: string) => string | null; govLabel?: string }) {
   const select = useAtlas((s) => s.select);
   const [hover, setHover] = useState<string | null>(null);
   const listed = chamber.parties.filter((p) => p.seats || p.vote >= MINOR_VOTE);
@@ -114,7 +114,7 @@ function ChamberView({ data, chamber, lang, note }: { data: AtlasData; chamber: 
                   <span className="mt-[5px] size-2.5 shrink-0 rounded-full" style={{ background: party.color }} />
                   <span className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-0.5 leading-snug">
                     <span className="text-ink">{displayName(party, lang)}</span>
-                    {chamber.government.includes(p.id) && <Tag tone="gov">{t("government", lang)}</Tag>}
+                    {chamber.government.includes(p.id) && <Tag tone="gov">{govLabel ?? t("government", lang)}</Tag>}
                     {extra && <span className="text-[11px] whitespace-nowrap text-faint">{extra}</span>}
                   </span>
                 </span>
@@ -146,9 +146,38 @@ function ChamberView({ data, chamber, lang, note }: { data: AtlasData; chamber: 
   );
 }
 
-function governmentRow(data: AtlasData, c: Chamber, lang: Lang): [string, ReactNode] {
+/** An elected head's general election: their share, then who came second and theirs. */
+function runoffRow(data: AtlasData, h: Chamber["head"], lang: Lang): [string, ReactNode][] {
+  const r = h.runner_up;
+  const p = r && data.entities[r.party];
+  if (h.vote === undefined || !r) return [];
   return [
-    t("government", lang),
+    [
+      t("generalElection", lang),
+      <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+        <span className="font-semibold text-ink tabular-nums">{pct(h.vote, lang)}</span>
+        <span className="text-faint">{t("versus", lang)}</span>
+        {r.name && <span className="text-ink">{r.name[lang]}</span>}
+        {p && <PartyChip party={p} lang={lang} />}
+        <span className="text-muted tabular-nums">{pct(r.vote, lang)}</span>
+      </span>,
+    ],
+  ];
+}
+
+/** The rows under a chamber: its speaker, who holds the majority and what that takes. */
+function seatingRows(data: AtlasData, c: Seating, lang: Lang, elected: boolean): [string, ReactNode][] {
+  return [
+    holderRow(data, c.speaker.title, c.speaker, lang),
+    governmentRow(data, c, lang, elected ? t("majorityParty", lang) : undefined),
+    [t("majority", lang), `${majority(c)} ${t("seatsUnit", lang)}`],
+    ...(c.same_party !== undefined ? [[t("sameParty", lang), `${c.same_party} / ${c.seats}`] as [string, string]] : []),
+  ];
+}
+
+function governmentRow(data: AtlasData, c: Seating, lang: Lang, label = t("government", lang)): [string, ReactNode] {
+  return [
+    label,
     <span className="flex flex-wrap items-center gap-1">
       {c.government.map((id) => data.entities[id]).filter(Boolean).map((p) => <PartyChip key={p.id} party={p} lang={lang} />)}
       <span className="ml-0.5 text-[12px] text-muted tabular-nums">
@@ -167,12 +196,12 @@ function Cabinet({ data, L, lang }: { data: AtlasData; L: Legislature; lang: Lan
     ...(experts ? [{ key: "", n: experts, color: NON_PARTISAN, label: t("nonPartisan", lang) }] : []),
   ];
   const total = L.ministers.length;
-  const ministry = (m: Localized) => (lang === "en" ? m.en.replace(/^Ministry of /, "") : m.zh);
+  const ministry = (m: Localized) => (lang === "en" ? m.en.replace(/^(Ministry|Department) of /, "") : m.zh);
   return (
     <div className="mt-3">
       <p className="mb-1.5 flex items-baseline justify-between text-[11px] text-faint">
         <span>{t("cabinet", lang)}</span>
-        <span className="tabular-nums">{lang === "zh" ? `${total} 个部` : `${total} ministries`}</span>
+        <span className="tabular-nums">{lang === "zh" ? `${total} 个${L.elected ? "厅" : "部"}` : `${total} ${L.elected ? "departments" : "ministries"}`}</span>
       </p>
       <div className="flex h-2 gap-[2px] overflow-hidden rounded-full">
         {parts.map((c, i) => (
@@ -223,28 +252,46 @@ export function LegislatureSection({ data, entity, lang }: { data: AtlasData; en
   if (!L) return null;
   const note = (id: string) =>
     L.constituency?.[id] ? `${t("constituencySeats", lang)} ${L.constituency[id]}` : L.reserved_won?.[id] ? `${t("reservedSeats", lang)} ${L.reserved_won[id]}` : null;
+  const elected = !!L.elected;
+  const govLabel = elected ? t("majorityParty", lang) : undefined;
+  const [speakerRow, ...majorityRows] = seatingRows(data, L, lang, elected);
   return (
     <Section title={t("politicsTitle", lang)}>
       <Branch label={t("executive", lang)}>
-        <Rows rows={[holderRow(data, L.governor.title, L.governor, lang, t("centralAppointee", lang)), holderRow(data, L.head.title, L.head, lang)]} />
+        <Rows
+          rows={[
+            ...(L.governor ? [holderRow(data, L.governor.title, L.governor, lang, t("centralAppointee", lang))] : []),
+            holderRow(data, L.head.title, L.head, lang),
+            ...runoffRow(data, L.head, lang),
+          ]}
+        />
         <Cabinet data={data} L={L} lang={lang} />
       </Branch>
       <Branch label={t("legislature", lang)}>
         <BodyName name={L.names[lang]} sub={`${SYSTEM_NAMES[L.system][lang]} · ${L.seats} ${t("seatsUnit", lang)}`} />
-        <ChamberView data={data} chamber={L} lang={lang} note={note} />
+        <ChamberView data={data} chamber={L} lang={lang} note={note} govLabel={govLabel} />
         <div className="mt-3">
           <Rows
             rows={[
-              holderRow(data, L.speaker.title, L.speaker, lang),
-              ...(L.opposition ? [holderRow(data, { zh: t("oppositionLeader", "zh"), en: t("oppositionLeader", "en") }, L.opposition, lang)] : []),
-              governmentRow(data, L, lang),
-              [t("majority", lang), `${majority(L)} ${t("seatsUnit", lang)}`],
+              speakerRow,
+              ...(L.opposition ? [holderRow(data, L.opposition.title ?? { zh: t("oppositionLeader", "zh"), en: t("oppositionLeader", "en") }, L.opposition, lang)] : []),
+              ...majorityRows,
               [t("turnout", lang), pct(L.turnout, lang)],
               ...(L.overhang ? [[t("overhangSeats", lang), String(L.overhang)] as [string, string]] : []),
             ]}
           />
         </div>
+        {L.upper && (
+          <div className="mt-5">
+            <BodyName name={L.upper.names[lang]} sub={`${SYSTEM_NAMES[L.system][lang]} · ${L.upper.seats} ${t("seatsUnit", lang)}`} />
+            <ChamberView data={data} chamber={L.upper} lang={lang} govLabel={govLabel} />
+            <div className="mt-3">
+              <Rows rows={seatingRows(data, L.upper, lang, elected)} />
+            </div>
+          </div>
+        )}
         <p className="mt-2.5 text-[12.5px] leading-relaxed text-muted">{systemText(L, lang)}</p>
+        {L.notes && <Paragraphs text={L.notes[lang]} className="mt-2 text-[12.5px] leading-relaxed text-muted" />}
       </Branch>
       <Branch label={t("judiciary", lang)}>
         <BodyName name={L.court.names[lang]} sub={lang === "zh" ? `法官 ${L.court.judges.length + 1} 人` : `${L.court.judges.length + 1} judges`} />
@@ -266,21 +313,14 @@ export function CouncilSection({ data, entity, lang }: { data: AtlasData; entity
   return (
     <Section title={t("politicsTitle", lang)}>
       <Branch label={t("executive", lang)}>
-        <Rows rows={[holderRow(data, c.head.title, c.head, lang)]} />
+        <Rows rows={[holderRow(data, c.head.title, c.head, lang), ...runoffRow(data, c.head, lang)]} />
       </Branch>
       <Branch label={t("legislature", lang)}>
         <BodyName name={c.names[lang]} sub={`${c.seats} ${t("seatsUnit", lang)}`} />
         {c.notes && <Paragraphs text={c.notes[lang]} className="mb-3 text-[13px] leading-relaxed text-ink" />}
-        <ChamberView data={data} chamber={c} lang={lang} />
+        <ChamberView data={data} chamber={c} lang={lang} govLabel={c.elected ? t("majorityParty", lang) : undefined} />
         <div className="mt-3">
-          <Rows
-            rows={[
-              holderRow(data, c.speaker.title, c.speaker, lang),
-              governmentRow(data, c, lang),
-              [t("majority", lang), `${majority(c)} ${t("seatsUnit", lang)}`],
-              [t("turnout", lang), pct(c.turnout, lang)],
-            ]}
-          />
+          <Rows rows={[...seatingRows(data, c, lang, !!c.elected), [t("turnout", lang), pct(c.turnout, lang)]]} />
         </div>
       </Branch>
     </Section>
@@ -359,20 +399,21 @@ const AXIS_KEYS: Record<(typeof PARTY_AXES)[number], [StringKey, StringKey, Stri
 };
 
 /** One line per chamber a party sits in: its flag, name, share of the seats and its role there. */
-function SeatRow({ party, at, seats, of, vote, lang }: { party: Entity; at: Entity; seats: number; of: number; vote?: number; lang: Lang }) {
+function SeatRow({ party, at, seats, of, vote, upper, lang }: { party: Entity; at: Entity; seats: number; of: number; vote?: number; upper?: boolean; lang: Lang }) {
   const select = useAtlas((s) => s.select);
   const chamber = at.legislature ?? at.council;
-  const gov = chamber?.government.includes(party.id);
-  const mayor = !at.legislature && chamber?.head.party === party.id;
+  const seating = upper ? at.legislature?.upper : chamber;
+  const gov = seating?.government.includes(party.id);
+  const head = !upper && (!at.legislature || chamber?.elected) && chamber?.head.party === party.id;
   return (
     <li>
       <button onClick={() => select(at.id)} className="group w-full rounded-lg px-2 py-1.5 text-left hover:bg-hover">
         <span className="flex items-center gap-2 text-[13px]">
           {hasEmblem(at) ? <Emblem entity={at} size={20} className="shrink-0" /> : <span className="size-2 shrink-0 rounded-full bg-faint" />}
           <span className="flex min-w-0 flex-1 flex-wrap items-center gap-x-2 gap-y-0.5 leading-snug">
-            <span className="text-ink">{at.short_names?.[lang] ?? displayName(at, lang)}</span>
-            {mayor && <Tag tone="mayor">{chamber.head.title[lang]}</Tag>}
-            {gov && !mayor && <Tag tone="gov">{t("inGovernment", lang)}</Tag>}
+            <span className="text-ink">{upper && seating ? seating.names[lang] : (at.short_names?.[lang] ?? displayName(at, lang))}</span>
+            {head && <Tag tone="mayor">{chamber.head.title[lang]}</Tag>}
+            {gov && !head && <Tag tone="gov">{t(chamber?.elected ? "inMajority" : "inGovernment", lang)}</Tag>}
           </span>
           {vote !== undefined && <span className="text-[11.5px] text-faint tabular-nums">{pct(vote, lang)}</span>}
           <span className="min-w-12 text-right font-semibold whitespace-nowrap text-ink tabular-nums">
@@ -409,7 +450,7 @@ function branchRole(at: Entity, party: string, lang: Lang): string | null {
   const L = at.legislature;
   if (!L) return null;
   if (L.head.party === party) return L.head.title[lang];
-  if (L.opposition?.party === party) return t("oppositionLeader", lang);
+  if (L.opposition?.party === party) return L.opposition.title?.[lang] ?? t("oppositionLeader", lang);
   return null;
 }
 
@@ -534,7 +575,13 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
               const L = at?.legislature;
               if (!at || !L) return null;
               const row = L.parties.find((p) => p.id === entity.id);
-              return <SeatRow key={tid} party={entity} at={at} seats={row?.seats ?? 0} of={L.seats} vote={row?.vote} lang={lang} />;
+              const up = L.upper?.parties.find((p) => p.id === entity.id);
+              return (
+                <Fragment key={tid}>
+                  <SeatRow party={entity} at={at} seats={row?.seats ?? 0} of={L.seats} vote={row?.vote} lang={lang} />
+                  {L.upper && <SeatRow party={entity} at={at} seats={up?.seats ?? 0} of={L.upper.seats} upper lang={lang} />}
+                </Fragment>
+              );
             })}
           </ul>
         </Sub>

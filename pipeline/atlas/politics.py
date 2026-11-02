@@ -17,6 +17,10 @@ from .world import World
 LANG_KEYS = ("zh", "art-x-viking", "art-x-buckham", "en", "art-x-tavrunaq", "art-x-ivuran", "es")
 
 
+SPLIT = 0.3  # a party with this share of a top-two race's vote stands two candidates
+RUNOFF_NOISE = 0.04  # the general election's own swing, at most, either way (log share)
+
+
 def _rng(key: str) -> np.random.Generator:
     return np.random.default_rng(int(hashlib.sha1(("politics:" + key).encode()).hexdigest()[:8], 16))
 
@@ -87,6 +91,7 @@ class _Territory:
         self.parties = {p["id"]: p for p in model["parties"] if tid in p["targets"]}
         self.lean = {pid: p.get("lean", {}) for pid, p in self.parties.items()}
         self.districts = [did for did, d in world.divisions.items() if d["subtype"] == "borough" and tid in world.ancestors(did)]
+        self.centers = {did: entities[did]["center"] for did in self.districts}
         pops = {did: world.divisions[did]["population"] for did in self.districts}
         gdp_mean = sum(entities[d].get("economy", {}).get("gdp_per_capita_usd", 0) * pops[d] for d in self.districts) / sum(pops.values())
         self.feats = {did: _features(world, did, entities[did], gdp_mean) for did in self.districts}
@@ -153,6 +158,54 @@ class _Territory:
                 won[max(s, key=s.get)] += 1
         return won
 
+    def runoff(self, share: dict[str, float], key: str) -> tuple[tuple[str, float], tuple[str, float]]:
+        """A top-two race: every party stands a candidate, a party with SPLIT of the vote or more stands two
+        who share it; the two leading candidates go on to the general election, where the other candidates'
+        voters go to whichever finalist is nearer them on the spectrum (half each between two of one party).
+        The winner and the runner-up, each with their party and share of the general election."""
+        cands = []
+        for p, v in share.items():
+            if v >= SPLIT:
+                f = float(_rng(f"{key}:split:{p}").uniform(0.5, 0.7))
+                cands += [(p, v * f), (p, v * (1 - f))]
+            elif v > 0:
+                cands.append((p, v))
+        cands.sort(key=lambda c: -c[1])
+        (a, va), (b, vb) = cands[0], cands[1] if len(cands) > 1 else (cands[0][0], 0.0)
+        spec = {p: self.parties[p]["spectrum"] for p in share}
+        for p, v in cands[2:]:
+            wa, wb = math.exp(-abs(spec[p] - spec[a])), math.exp(-abs(spec[p] - spec[b]))
+            va, vb = va + v * wa / (wa + wb), vb + v * wb / (wa + wb)
+        va *= math.exp(float(_rng(key + ":general").uniform(-1, 1)) * RUNOFF_NOISE)
+        top = sorted(((a, va), (b, vb)), key=lambda c: -c[1])
+        return (top[0][0], top[0][1] / (va + vb)), (top[1][0], top[1][1] / (va + vb))
+
+    def top_two(self, dids: list[str], seats: int, key: str) -> tuple[dict[str, int], int]:
+        """Single-member seats shared out among the districts by population, each elected by a top-two race on
+        its district's vote leaned a little either way. A district too small for a seat votes with the
+        nearest one that has seats (in its own city if it can); seats won by each party, and how many
+        general elections were between two candidates of one party."""
+        per = _hamilton({d: self.world.divisions[d]["population"] for d in dids}, seats, minimum=0)
+        hosts = [d for d in dids if per[d]]
+        voters = {d: [d] for d in hosts}
+        for d in dids:
+            if not per[d]:
+                near = [h for h in hosts if self.world.divisions[h]["parent"] == self.world.divisions[d]["parent"]] or hosts
+                voters[min(near, key=lambda h: math.dist(self.centers[h], self.centers[d]))].append(d)
+        won = {p: 0 for p in self.parties}
+        amp = self.model["perturbation"]["ward"]
+        same = 0
+        for did in hosts:
+            n = sum(self.voters[d] for d in voters[did])
+            vote = {p: sum(self.vote[d][p] * self.voters[d] for d in voters[did]) / n for p in self.parties}
+            for w in range(per[did]):
+                s = {p: v * math.exp(float(_rng(f"{key}:{did}:{w}:{p}").uniform(-1, 1)) * amp) for p, v in vote.items()}
+                z = sum(s.values())
+                (a, _), (b, _) = self.runoff({p: v / z for p, v in s.items()}, f"{key}:{did}:{w}")
+                won[a] += 1
+                same += a == b
+        return won, same
+
     def seat(self, dids: list[str], seats: int, system: str, key: str) -> tuple[dict[str, int], dict[str, float], dict]:
         """Seats won by each party in a legislature elected by these districts, the votes behind them, and
         notes on the count (constituency and list seats, reserved seats)."""
@@ -196,6 +249,9 @@ class _Territory:
                 extra = {"constituencies": len(cities)}
             else:
                 won = _hamilton(votes, seats)
+        elif system == "top_two":
+            won, same = self.top_two(dids, seats, key)
+            extra = {"same_party": same}
         else:
             raise ValueError(f"{self.tid}: unknown electoral system {system}")
         return won, share, extra
@@ -246,6 +302,7 @@ def _chamber(won: dict[str, int], share: dict[str, float], extra: dict, gov: lis
         **({"constituency": extra["constituency"]} if extra.get("constituency") else {}),
         **({"overhang": extra["overhang"]} if extra.get("overhang") else {}),
         **({"reserved": extra["reserved"], "reserved_won": extra["reserved_won"]} if extra.get("reserved") else {}),
+        **({"same_party": extra["same_party"]} if "same_party" in extra else {}),
     }
 
 
@@ -310,15 +367,18 @@ class _People:
     def __init__(self, model: dict, entities: dict):
         self.model, self.entities = model, entities
         self.pools = model["names"]
-        self.taken = {p["leader"]["en"] for p in model["parties"]} | {leg["governor_name"]["en"] for leg in model["legislatures"].values()}
+        self.local = model.get("local_names", {})
+        self.taken = {p["leader"]["en"] for p in model["parties"]} | {leg["governor_name"]["en"] for leg in model["legislatures"].values() if "governor_name" in leg}
         self.memo: dict[str, dict] = {}
 
-    def draw(self, key: str, langs: dict[str, float], avoid: set[str] | None = None) -> dict:
-        """With `avoid`, redraw (a few times at most) a name whose given name is in it, and add the one kept."""
+    def draw(self, key: str, langs: dict[str, float], avoid: set[str] | None = None, where: str = "") -> dict:
+        """With `avoid`, redraw (a few times at most) a name whose given name is in it, and add the one kept.
+        A territory's local_names (where) add to the pools there and nowhere else."""
         if key not in self.memo:
+            pools = self.pools | self.local.get(where, {})
             for i in range(AVOID_TRIES if avoid is not None else 1):
                 rng = _rng(key if i == 0 else f"{key}~{i}")
-                name = _person(rng, self.pools, _lang(rng, langs, self.pools), self.taken)
+                name = _person(rng, pools, _lang(rng, langs, pools), self.taken)
                 if avoid is None or _given(name) not in avoid or i == AVOID_TRIES - 1:
                     break
                 self.taken.discard(name["en"])
@@ -334,7 +394,7 @@ class _People:
             return p["leaders"][tid]
         if tid == max(p["targets"], key=p["targets"].get):
             return p["leader"]
-        return self.draw(f"leader:{p['id']}:{tid}", self.entities[tid].get("demographics", {}).get("languages", {"zh": 100}))
+        return self.draw(f"leader:{p['id']}:{tid}", self.entities[tid].get("demographics", {}).get("languages", {"zh": 100}), where=tid)
 
 
 MAX_EXPERTS = 4  # non-partisan ministers in one cabinet
@@ -385,7 +445,7 @@ def _cabinet(model: dict, tid: str, won: dict[str, int], gov: list[str], parties
 def _judges(people: "_People", tid: str, court: dict, langs: dict[str, float], avoid: set[str]) -> list[dict]:
     """The court's other judges besides the chief justice; `tongues` sets how many at least speak a language."""
     fixed = [lg for lg, n in court.get("tongues", {}).items() for _ in range(n)]
-    return [people.draw(f"judge:{tid}:{i}", {fixed[i]: 100} if i < len(fixed) else langs, avoid) for i in range(court["judges"] - 1)]
+    return [people.draw(f"judge:{tid}:{i}", {fixed[i]: 100} if i < len(fixed) else langs, avoid, tid) for i in range(court["judges"] - 1)]
 
 
 def _appoint(model: dict, entities: dict, people: "_People", holders: dict[str, dict], parties: dict) -> None:
@@ -397,11 +457,14 @@ def _appoint(model: dict, entities: dict, people: "_People", holders: dict[str, 
         langs = entities[tid].get("demographics", {}).get("languages", {"zh": 100})
         firsts: dict[str, dict] = {}
         for mid, p in holder.items():
-            if p and p != L["government"][0] and p not in firsts.values():
+            if p and p != L["head"]["party"] and p not in firsts.values():
                 firsts[mid] = p
         named = {mid: people.leader(parties[p], tid) for mid, p in firsts.items()}
-        avoid = {_given(o["name"]) for o in (L["head"], L["speaker"], L["court"], L.get("opposition")) if o} | {_given(n) for n in named.values()}
-        L["ministers"] = [{"ministry": m["names"], "name": named.get(m["id"]) or people.draw(f"minister:{tid}:{m['id']}", langs, avoid),
+        avoid = {_given(o["name"]) for o in (L["head"], L["speaker"], L["court"], L.get("opposition"), L.get("upper", {}).get("speaker")) if o} \
+            | {_given(n) for n in named.values()}
+        rename = model["legislatures"][tid].get("ministries", {})
+        L["ministers"] = [{"id": m["id"], "ministry": rename.get(m["id"], m["names"]),
+                           "name": named.get(m["id"]) or people.draw(f"minister:{tid}:{m['id']}", langs, avoid, tid),
                            **({"party": holder[m["id"]]} if holder[m["id"]] else {})} for m in model["ministries"]]
         L["court"]["judges"] = _judges(people, tid, model["legislatures"][tid]["court"], langs, avoid)
 
@@ -424,19 +487,41 @@ def annotate(world: World, entities: dict) -> None:
         langs = entities[tid].get("demographics", {}).get("languages", {"zh": 100})
         t_turnout = sum(terr.voters.values()) / sum(world.divisions[d]["population"] * model["electorate_share"] for d in terr.districts)
         opposition = next((p for p in sorted(won, key=lambda p: (-won[p], -share[p])) if won[p] and p not in gov), None)
-        holder = holders[tid] = _cabinet(model, tid, won, gov, parties)
+        elected = leg.get("executive") == "elected"
+        if elected:
+            (gp, gv), (rp, rv) = terr.runoff(share, tid + ":governor")
+            runner = people.leader(parties[rp], tid) if rp != gp else people.draw("candidate:" + tid, langs, where=tid)
+            head = {"title": leg["governor"], "name": people.leader(parties[gp], tid), "party": gp, "vote": round(100 * gv, 1),
+                    "runner_up": {"name": runner, "party": rp, "vote": round(100 * rv, 1)}}
+        else:
+            gp, head = gov[0], {"title": leg["premier"], "name": people.leader(parties[gov[0]], tid), "party": gov[0]}
+        holder = holders[tid] = _cabinet(model, tid, won, [gp] if elected else gov, parties)
         entities[tid]["legislature"] = {
             "names": leg["names"], "system": leg["system"], "turnout": round(100 * t_turnout, 1),
             **({"threshold": leg["threshold"]} if "threshold" in leg else {}),
-            "head": {"title": leg["premier"], "name": people.leader(parties[gov[0]], tid), "party": gov[0]},
-            "governor": {"title": leg["governor"], "name": leg["governor_name"]},
-            "speaker": {"title": leg["speaker"], "name": people.draw("speaker:" + tid, langs), "party": gov[0]},
-            **({"opposition": {"name": people.leader(parties[opposition], tid), "party": opposition}} if opposition else {}),
-            "cabinet": [{"id": p, "seats": n} for p in gov if (n := sum(h == p for h in holder.values()))],
+            **({"elected": True} if elected else {}),
+            **({"notes": leg["notes"]} if "notes" in leg else {}),
+            "head": head,
+            **({} if elected else {"governor": {"title": leg["governor"], "name": leg["governor_name"]}}),
+            "speaker": {"title": leg["speaker"], "name": people.draw("speaker:" + tid, langs, where=tid), "party": gov[0]},
+            **({"opposition": {"name": people.leader(parties[opposition], tid), "party": opposition,
+                               **({"title": leg["minority"]} if elected else {})}} if opposition else {}),
+            "cabinet": [{"id": p, "seats": n} for p in ([gp] if elected else gov) if (n := sum(h == p for h in holder.values()))],
             "ministers": [],
-            "court": {"names": leg["court"]["names"], "title": leg["court"]["title"], "name": people.draw("justice:" + tid, langs), "judges": []},
+            "court": {"names": leg["court"]["names"], "title": leg["court"]["title"], "name": people.draw("justice:" + tid, langs, where=tid), "judges": []},
             **_chamber(won, share, extra, gov),
         }
+        if up := leg.get("upper"):
+            uw, us, ux = terr.seat(terr.districts, up["seats"], leg["system"], tid + ":upper")
+            ugov = _coalition(uw, us, parties, model["coalition_cost"])
+            entities[tid]["legislature"]["upper"] = {
+                "names": up["names"],
+                "speaker": {"title": up["speaker"], "name": people.draw("upper-speaker:" + tid, langs, where=tid), "party": ugov[0]},
+                **_chamber(uw, us, ux, ugov),
+            }
+            for p, n in uw.items():
+                if n:
+                    seats_held[p].append({"at": tid, "seats": n, "of": up["seats"], "upper": True})
         for p, n in won.items():
             if n:
                 seats_held[p].append({"at": tid, "seats": n, "of": sum(won.values())})
@@ -471,12 +556,17 @@ def annotate(world: World, entities: dict) -> None:
                 cgov = [lead] + [p for p in cgov if p != lead]
             clangs = entities[cid].get("demographics", {}).get("languages", {"zh": 100})
             v = sum(terr.voters[d] for d in dids) / sum(world.divisions[d]["population"] * model["electorate_share"] for d in dids)
+            mayor = {"title": override.get("mayor", leg["mayor"]), "name": people.draw("mayor:" + cid, clangs, where=tid), "party": cgov[0]}
+            if elected:
+                (mp, mv), (rp, rv) = terr.runoff(cs, cid + ":mayor")
+                mayor |= {"party": mp, "vote": round(100 * mv, 1), "runner_up": {"party": rp, "vote": round(100 * rv, 1)}}
             entities[cid]["council"] = {
                 "names": override.get("names", kind["names"]),
                 **({"notes": override["notes"]} if "notes" in override else {}),
+                **({"elected": True} if elected else {}),
                 "turnout": round(100 * v, 1),
-                "head": {"title": override.get("mayor", leg["mayor"]), "name": people.draw("mayor:" + cid, clangs), "party": cgov[0]},
-                "speaker": {"title": override.get("speaker", kind["speaker"]), "name": people.draw("council-speaker:" + cid, clangs), "party": cgov[0]},
+                "head": mayor,
+                "speaker": {"title": override.get("speaker", kind["speaker"]), "name": people.draw("council-speaker:" + cid, clangs, where=tid), "party": cgov[0]},
                 **_chamber(cw, cs, cx, cgov),
             }
             for p, n in cw.items():
@@ -489,7 +579,7 @@ def annotate(world: World, entities: dict) -> None:
             **{k: p[k] for k in ("names", "short_names", "color", "flag", "flag_notes", "spectrum", "family", "ideology", "axes", "leader",
                                  "leader_title", "members", "youth_wing", "slogan", "policies", "allies", "factions", "organisation", "notes",
                                  "history") if k in p},
-            "secretary": p.get("secretary") or people.draw("secretary:" + pid, entities[home].get("demographics", {}).get("languages", {"zh": 100})),
+            "secretary": p.get("secretary") or people.draw("secretary:" + pid, entities[home].get("demographics", {}).get("languages", {"zh": 100}), where=home),
             "branches": [{"at": t, "name": people.leader(p, t)} for t in model["legislatures"] if t in p["targets"]],
             "base": _base(world, entities, {k: v / weight[pid] for k, v in effect[pid].items()} if weight[pid] else {}),
             "territories": [t for t in model["legislatures"] if t in p["targets"]],
