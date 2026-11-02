@@ -21,6 +21,7 @@
 # line (optional): { from?, to?, points: [[x, y], …] } a real road in design km, taken exactly between
 #   the via stops from and to (or from the start, to the end) and drawn as given.
 # structure_names (optional): { bridge: {zh, en}, tunnel: {zh, en} } names for the longest bridge or tunnel.
+# unlimited (optional): true for a road with no speed limit anywhere, through towns and mountains too.
 # via entries may be cities (the route stops at the city's core) or districts (at the district centre).
 # shield (territorial routes): symbol in the upper half of the route shield (see src/lib/shields.ts);
 #   every territorial route has its own, chosen from what the road is known for.

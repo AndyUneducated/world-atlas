@@ -5,7 +5,10 @@
 #   at its own centre. The generator lays the line over the terrain, keeping to gentler
 #   gradients than roads and tunnelling through mountains (tunnel_cost caps the per-km cost
 #   of steep ground, default 2.5); later lines run on the track of earlier ones where their
-#   corridors meet, and stations are shared.
+#   corridors meet, and stations are shared. A stop may also be a place with a site: its station,
+#   named after it, stands on the track nearest the place, in its district.
+# line (optional, maglev only): { points: [[x, y], …] } the guideway in design km, built and drawn
+#   exactly as given; the stops are served where it passes nearest.
 # station_names (optional): names for the station of a via entry. By default a city's
 #   station is named after the city (维京港站 / Viking Port Station) and a district's after
 #   the district (沙洲站 / Sandbar Station).

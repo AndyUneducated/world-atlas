@@ -6,6 +6,7 @@
 # they are routed in (earlier routes claim their corridors first).
 #   I-5, US-101, SR-1…  领道 territorial highway   (class primary)
 #   G2, G4…             市道 county expressway     (class secondary; Santa Clara County's real G numbers)
+#   P48                 市道 private road          (class secondary; Lucy's and Josh's, named for its 48 lanes)
 #   X-CA-001..          市道 city road             (class secondary, derived)
 # In the Bay the roads follow their real-world alignments: line.points is the real road in design km
 # (traced from OpenStreetMap), taken exactly between line.from and line.to (or from the start, to the end).
@@ -673,3 +674,19 @@ routes:
       en: "County route G21, following the real-world Capitol Expressway in an arc through south-eastern San Jose, linking the Billboard Road with South San Jose District. It is lined with one car dealership after another, their showrooms full of new cars without steering wheels; the salesmen say the hard part now is not selling a car but explaining to customers why, having bought one, they may not drive it themselves."
     line: { points: [[122.12, 234.4], [122.54, 234.39], [122.69, 234.4], [122.98, 234.62], [123.03, 234.68], [123.06, 234.74], [123.06, 235.06], [123.08, 235.12], [123.26, 235.27], [123.43, 235.37], [123.76, 235.63], [123.85, 235.72], [123.9, 235.85], [123.91, 236.33], [123.88, 236.42], [123.7, 236.77], [123.64, 236.88], [123.54, 237.03], [123.27, 237.55], [123.17, 237.57], [122.99, 237.58]] }
     via: [div_nwqa72, div_zjfaw0]  # 南圣何塞区 – 似然谷区
+  - id: rte_p48hwy
+    ref: P48
+    build_order: 6
+    network: municipal_road
+    class: secondary
+    unlimited: true
+    status: generated
+    names:
+      zh: 露西—乔什私人公路
+      en: Lucy–Josh Private Road
+      es: Carretera Privada Lucy–Josh
+    notes:
+      zh: "露西—乔什私人公路全长约 70 公里，从露西宅邸东门外笔直地通到乔什宅邸西门外，两头各有一小段宅邸公路接到家门口。全线双向四十八车道，每个方向二十四条，是全州车道最多的公路，比任何一条领道都宽得多；它在编号上只是一条市道，全线却不设任何限速，穿过小城和山里的路段也一样。线路一个弯也不拐，顺着地势翻过一道道山丘，旁边并肩跑着露西—乔什磁悬浮的导轨，列车从旁边掠过的时候，路上开得再快的车看起来也像停着。\n为什么是四十八条车道？两人算过：两家的车加上常来做客的朋友们的车，一共四十八辆，于是每辆车都有一条自己的车道，谁也不用跟在谁后面。露西说这样开车「一点也不闷」，乔什说这样超车「一点也不难」，虽然路上从来没有需要超的车。每条车道的起点都用油漆写着车主的名字，最靠边的那条写的是乔什每天开的那辆旧车：在这条不限速的路上，它永远按九十公里开，乔什说它「已经做得很好了」。\n路是两人出钱修的，却不设收费站，也不拦外人。头一次开上来的人常常不知道该走哪条车道，干脆骑着车道线开；州领道局派人来看过，回去写的报告只有一句：「车道太多，车太少，不必管。」"
+      en: "The Lucy–Josh Private Road runs about 70 km dead straight from outside the east gate of Lucy's House to outside the west gate of Josh's House, with a short estate road at each end to the front door. It has forty-eight lanes, twenty-four each way, the most of any road in the state and far wider than any territorial highway; by number it is only a city road, yet it has no speed limit anywhere, through the towns and over the hills alike. It never bends, riding up and over one hill after another, and beside it runs the guideway of the Lucy–Josh Maglev: when a train flashes past, even the fastest car on the road looks parked.\nWhy forty-eight lanes? The two of them counted: their households' cars and those of the friends who often visit come to forty-eight, so every car has a lane of its own and nobody ever follows anybody. Lucy says driving this way is 'not stuffy at all', and Josh says overtaking this way is 'not hard at all', though there has never been anything on the road to overtake. Each lane has its owner's name painted at its start, and the outermost belongs to the old car Josh drives every day: on this road without limits it always does ninety, and Josh says it is 'already doing a great job'.\nThe two of them paid for the road, yet it has no toll booths and keeps nobody out. First-time visitors often cannot decide which lane to take and simply drive along a lane line; the State Roads Department sent someone to look, and the report came back a single sentence: 'Too many lanes, too few cars; leave it alone.'"
+    line: { points: [[167.5542, 145.9457], [189.8573, 135.3143]] }
+    via: [div_zmb3gb, div_jjgxvk]  # 露西芯城区 – 乔什庄园区

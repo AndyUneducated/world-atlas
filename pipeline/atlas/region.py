@@ -678,13 +678,17 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
 
     log("routing railways")
     rail_router = Router(elev_r, land_r & ~water_r, gr.res, slope_weight=150)
-    stop_index = {**district_index, **{c["id"]: core[ci] for ci, c in enumerate(cities)}}
-    rail_out = route_railways(world, rail_router, poles, stop_index, territory["id"], land_r & ~water_r)
+    stop_index = {**district_index, **{c["id"]: core[ci] for ci, c in enumerate(cities)},
+                  **{pid: district_index[world.places[pid]["in"]] for pid in place_at}}
+    rail_out = route_railways(world, rail_router, poles, stop_index, territory["id"], land_r & ~water_r, place_at)
     rail_xy = lambda cells: np.array([rail_router.xy(c) for c in cells])
     rail_owned = {r["id"]: owned_runs(path, r["id"], rail_router.owner) for r, _, path in rail_out}
     fill_undrawn({r["id"]: path for r, _, path in rail_out}, rail_owned)
     rail_pins = {c for runs in rail_owned.values() for run in runs for c in (run[0], run[-1])}
     rail_drawn = {rid: [(run, smooth_pinned(run, rail_pins, rail_router.xy, 0.35, 4)) for run in runs] for rid, runs in rail_owned.items()}
+    for r, _, path in rail_out:
+        if line := r.get("line"):  # a maglev's own guideway, drawn as given
+            rail_drawn[r["id"]] = [(path, LineString(line["points"]))]
     rail_tracks = [line for runs in rail_drawn.values() for _, line in runs]
     track_union = shapely.union_all(rail_tracks) if rail_tracks else None
     stations: dict[str, dict] = {}
@@ -693,21 +697,23 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         ids = []
         freight = r["network"] == "freight_rail"
         for v, i in zip([v for v in r["via"] if v in stop_index], stops):
-            # freight yards are their own stations, apart from the passenger station of the same district
-            sid = derived_id("poi", f"{'freight' if freight else 'rail'}:{districts[i]['id']}")
+            # freight yards are their own stations, apart from the passenger station of the same district;
+            # a place's station is its own, named after it
+            sid = derived_id("poi", f"{'freight' if freight else 'rail'}:{v if v in place_at else districts[i]['id']}")
             if sid not in stations:
                 ci = district_city[i]
-                pt = nearest_points(track_union, Point(poles[i]))[0]
+                at = Point(place_at[v] if v in place_at else poles[i])
+                pt = nearest_points(track_union, at)[0]
                 if i in dist_polys and not dist_polys[i].contains(pt):  # keep the station in its own district
                     inside = track_union.intersection(dist_polys[i].buffer(-0.1))
                     if not inside.is_empty:
-                        pt = nearest_points(inside, Point(poles[i]))[0]
-                stations[sid] = {"names": rail_station_names(bare_name(cities[ci] if i == core[ci] else districts[i]), freight),
-                                 "xy": (pt.x, pt.y), "district": i, "lines": [], "freight": freight}
+                        pt = nearest_points(inside, at)[0]
+                stem = world.places[v]["names"] if v in place_at else bare_name(cities[ci] if i == core[ci] else districts[i])
+                stations[sid] = {"names": rail_station_names(stem, freight), "xy": (pt.x, pt.y), "district": i, "lines": [], "freight": freight}
             stations[sid]["names"].update(r.get("station_names", {}).get(v, {}))
             stations[sid]["lines"].append(r["id"])
             ids.append(sid)
-        rail_lines.append((r, smooth_line(rail_xy(path), 0.35, 4), ids))
+        rail_lines.append((r, LineString(r["line"]["points"]) if r.get("line") else smooth_line(rail_xy(path), 0.35, 4), ids))
     if rail_out:
         log(f"  {len(rail_out)} railways, {len(stations)} stations, "
             f"{frame.km(sum(t.length for t in rail_tracks)):.0f} km of track")
@@ -903,8 +909,9 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             return {"zh": f"{district['zh']}高架桥", "en": f"{district['en']} Viaduct"}
         return {"zh": f"{district['zh']}{grand}", "en": f"{district['en']} {'Sea Bridge' if wet else 'Viaduct'}"}
 
-    def engineer(ent, path, std, rt, ref=None, stations=0):
-        """Structure profile, cost estimate, longest structures and (for roads) speed limits of a routed line."""
+    def engineer(ent, path, std, rt, ref=None, stations=0, unlimited=False):
+        """Structure profile, cost estimate, longest structures and (for roads) speed limits of a routed line;
+        an unlimited road has none anywhere."""
         line_km = LineString([rt.xy(c) for c in path])
         prof = engineering.profile(path, rt, elev_r, wet_r, frame.km(rt.res), std, line_km, river_geom, ref, urban_depth_r,
                                    fine=(elev, g.res))
@@ -919,10 +926,11 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         limits = []
         for sg in ent.get("segments", []):
             i0, i1 = sg.pop("_span")
-            sg["speed_kmh"] = engineering.segment_speed(prof, std, i0, i1, density_of(sg["division"]), speed_rules)
+            sg["speed_kmh"] = None if unlimited else engineering.segment_speed(prof, std, i0, i1, density_of(sg["division"]), speed_rules)
             limits.append(sg["speed_kmh"])
         if not limits:
-            limits = [engineering.segment_speed(prof, std, 0, len(path) - 1, max(density_of(v) for v in ent.get("via", [None])), speed_rules)]
+            limits = [None if unlimited else
+                      engineering.segment_speed(prof, std, 0, len(path) - 1, max(density_of(v) for v in ent.get("via", [None])), speed_rules)]
         ent["speed"] = engineering.speed_summary(limits)
 
     # an exact stretch is one run drawn as its line, whoever owns its cells; the rest is drawn by owner
@@ -1072,7 +1080,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             # travel length, including junction stretches drawn under another route's number
             ent["stats"]["length_km"] = round(sum(s["km"] for s in ent["segments"]), 1)
         if r["network"] in standards:
-            engineer(ent, path, standards[r["network"]], router, r["ref"] if r["network"] != "municipal_road" else None)
+            engineer(ent, path, standards[r["network"]], router, r["ref"] if r["network"] != "municipal_road" else None,
+                     unlimited=r.get("unlimited", False))
             for kind, names in r.get("structure_names", {}).items():
                 if kind in ent["structures"]:
                     ent["structures"][kind]["names"] = names
