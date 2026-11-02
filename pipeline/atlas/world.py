@@ -25,10 +25,11 @@ MILITARY_VARIANTS = {  # military and space facility layouts and the kinds each 
     "test_stand": (), "silo": (), "bunker": (), "launch_track": (), "camp": ("barracks", "hq", "hospital", "training"), "heliport": (),
 }
 SITE_VARIANTS = {**MILITARY_VARIANTS, "estate": ("villa", "compound", "bunker"), "vineyard": ("red", "white"),
-                 "fab": ("logic", "memory", "packaging", "mask"), "works": ("plates", "winery"),
+                 "fab": ("logic", "memory", "packaging", "mask"), "works": ("plates", "winery", "recycling", "tissue"),
                  "zoo": ("primates", "felids", "ungulates", "marine_mammals", "polar", "birds", "reptiles", "amphibians",
                          "freshwater", "marine", "insects", "arachnids", "cephalopods", "coral"),
-                 "triangle": ("hollow", "mountain"), "retail": ("supermarket", "mall", "fuel"), "apartments": ()}
+                 "triangle": ("hollow", "mountain"), "retail": ("supermarket", "mall", "fuel"), "apartments": (),
+                 "lido": (), "breeze": (), "square": ("round", "square"), "fashion": ("studio", "fitting", "show"), "chip": ()}
 SITE_LAYOUTS = ("complex", "hall", "courtyard", "slab", "lshape", "block", "campus", "ring", "stadium", "tower", "dome", "park", "plaza", "market",
                 "airport", "port", "harbour", "offshore_port", "spaceport", "mine", *SITE_VARIANTS, "detention", "checkpoint", "racetrack", "clinic")
 FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport", "mine", *SITE_VARIANTS, "detention", "checkpoint", "racetrack", "clinic")

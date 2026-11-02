@@ -1,0 +1,226 @@
+# The new quarters of Lucy's (M72) and Josh's (M73) estates in Santa Serena. Offsets are real km from the
+# district centre. The file sorts after us-ca-places.yaml, and every site lies within 0.5 km of a road or of
+# the quarters' own streets (world/generator/us-ca.yaml, streets.real), so no access road is added.
+places:
+  # ── 露西芯城区：露西宅邸和区中心小城之间的新街区（露西大道、时尚街、清风路） ──
+  - id: bld_ffs7d0
+    subtype: fashion_house
+    status: generated
+    names:
+      zh: 露西时装设计工作室大楼
+      en: Lucy Fashion Design Studio
+      es: Estudio de Diseño de Moda Lucy
+    short_names: { zh: 时装设计工作室, en: Design Studio, es: Estudio de Diseño }
+    notes:
+      zh: "露西大道和时尚街路口西北角的一座细高方塔，旁边是一排低矮的手工坊和一座面料库。露西在芯片行业工作了很多年，每天进洁净室都要换上同一款白色连体洁净服，从头包到脚，被同事们叫作「兔子服」。退休那天她宣布：这辈子再也不穿千篇一律的衣服了。于是有了这座工作室。\n工作室里有几十位设计师、版师和裁缝，做衣服的流程照搬芯片：先是「架构」，在灵感墙上贴满面料和照片；然后是「前端设计」，画草图；「验证」是打样，一件样衣至少改三版；「物理设计」是裁剪排料，要在一块布上排下尽可能多的衣片；最后「流片」，也就是成衣。每一卷布都要算良率：裁出来多少片能用，边角料有多少，数字贴在车间门口，比晶圆厂的良率屏还显眼。面料库恒温恒湿，湿度控制的精度向晶圆厂看齐，丝绸和羊绒在里面过得比大多数人都舒服。\n工作室只有一条铁律：衣服不能闷。面料要透气，领口不能勒，里衬不能捂汗。每位新设计师入职的第一课，是在午后穿着自己的样衣沿时尚街走一个来回，回来背上湿了的，设计作废重来。顶层是露西的私人看样间，落地窗朝西，望得见宅邸的屋顶。每季的新系列只有一位客户，也是唯一的模特，偶尔也给乔什做一件开赛车时穿的夹克，乔什说那是他唯一一件「有良率」的衣服。"
+      en: "A slim square tower on the north-west corner of Lucy Avenue and Fashion Street, with a row of low workrooms and a fabric store beside it. Lucy spent many years in the chip industry, and every day she went into the cleanroom she put on the same white one-piece suit, covered head to toe, which her colleagues called the 'bunny suit'. On the day she retired she announced that she would never again wear clothes that all looked the same, and so this studio came about.\nSeveral dozen designers, pattern cutters and tailors work here, and they make clothes the way chips are made. First comes the 'architecture', a mood wall covered in fabrics and photographs; then 'front-end design', the sketches; 'verification' is the sampling, at least three versions of every sample garment; 'physical design' is cutting and lay planning, fitting as many pieces as possible onto one length of cloth; and finally 'tape-out', the finished garment. Every roll of cloth has its yield worked out: how many pieces came out usable and how much was left as offcuts, and the numbers are posted at the workroom door more prominently than any yield screen in a fab. The fabric store is kept at constant temperature and humidity, controlled as tightly as in a fab, so the silk and cashmere live more comfortably than most people do.\nThe studio has one iron rule: clothes must never feel stuffy. Fabrics must breathe, collars must not pinch and linings must not trap sweat. Every new designer's first lesson is to walk the length of Fashion Street and back in the afternoon wearing their own sample; anyone who comes back with a damp back starts the design again. The top floor is Lucy's private viewing room, its windows facing west towards the roof of her house. Each season's collection has a single client, who is also the only model, though now and then the studio makes Josh a jacket to wear on the racetrack, which he calls the only garment he owns 'with a yield'."
+    in: div_zmb3gb
+    offset_km: [-3.75, 1.15]
+    site: { layout: fashion, variant: studio, size_m: [170, 170], angle_deg: 0 }
+  - id: bld_ff7tng
+    subtype: fashion_house
+    status: generated
+    names:
+      zh: 露西试衣大楼
+      en: Lucy Fitting Tower
+      es: Torre de Pruebas Lucy
+    short_names: { zh: 试衣大楼, en: Fitting Tower, es: Torre de Pruebas }
+    notes:
+      zh: "设计工作室北边三百米的一座塔楼，三层楼板一层比一层多转十五度，从天上看像三张叠起来的方纸，又像一位模特在镜子前慢慢转身。工作室每天做出来的样衣，早上由一台小机器人推车沿露西大道送到这里，下午露西来试。\n整座楼的墙面都是镜子，里外各一层：外面那层把阳光和街景反射回去，里面那层让人从任何角度都能看见自己。一层试日常的衣服，二层试正式场合的衣服，三层叫「不出门也要好看」，专试在家穿的衣服。每个试衣间里有一面人工智能镜子，能把同一身衣服放进不同的天气和场合里给你看：下雨的时尚街、刮风的动物园、乔什家的长餐桌。镜子还会测衣服和皮肤之间那一层空气的温度和湿度，算出一个「闷热指数」，超过 2 就亮红灯，并且直接说：「这件闷。」露西对这个指数的信任超过任何一位设计师。\n试衣的结果会实时传回设计工作室和开箱退货中心：哪件改、哪件留、哪件退，一目了然。楼里最受欢迎的是三层的旋转平台，站上去慢慢转一圈，镜子就把背影、侧影和走路时下摆的样子都录下来，露西说这比她当年在显微镜下看芯片截面还清楚。大楼也是区里唯一一座进门必须先转一圈的建筑：门厅的地板会转，进门的人顺势就把自己从头到脚看了一遍。"
+      en: "A tower three hundred metres north of the design studio whose three floors each turn fifteen degrees further than the one below, so from the air it looks like three squares of paper laid on top of each other, or a model slowly turning in front of a mirror. Every morning the samples the studio made the day before are wheeled here up Lucy Avenue on a small robot trolley, and in the afternoon Lucy comes to try them on.\nThe walls are mirrors inside and out: the outer layer throws the sunlight and the street back, the inner layer lets you see yourself from any angle. The ground floor is for everyday clothes, the first floor for formal ones, and the second floor, called 'looking good even at home', for clothes to wear in the house. Each fitting room has an AI mirror that can show the same outfit in different weather and settings: Fashion Street in the rain, the zoo on a windy day, Josh's long dining table. The mirror also measures the temperature and humidity of the thin layer of air between the cloth and the skin and works out a 'stuffiness index'; above 2 a red light comes on and the mirror simply says: 'This one's stuffy.' Lucy trusts that number more than any designer.\nThe results go straight back to the design studio and the unboxing and returns centre, so it is clear at a glance what is altered, kept or sent back. The favourite spot is the turntable on the top floor: stand on it and turn slowly once, and the mirrors record your back, your profile and how the hem moves as you walk, which Lucy says is clearer than the chip cross-sections she used to study under the microscope. It is also the only building in the district where you must turn round before going in: the lobby floor rotates, so everyone who enters has a good look at themselves from head to toe."
+    in: div_zmb3gb
+    offset_km: [-3.75, 1.45]
+    site: { layout: fashion, variant: fitting, size_m: [170, 170], angle_deg: 0 }
+  - id: bld_ffsh0w
+    subtype: fashion_house
+    status: generated
+    names:
+      zh: 露西时装秀场
+      en: Lucy Fashion Show Hall
+      es: Pasarela Lucy
+    short_names: { zh: 时装秀场, en: Show Hall, es: Pasarela }
+    notes:
+      zh: "清风路南边一座又长又窄的大厅，一头是方方正正的后台楼，另一头伸出一条将近三百米的 T 台，两侧是观众席，东头是铺着红毯的前庭，南边是停车场。每季新系列做好以后，这里办一场发布会。\n发布会的模特只有一位，就是露西本人，另外还有几台走得比人还稳的服装机器人，负责展示那些露西试过但决定「留给别人穿」的款式。观众是芯城里的人：工程师、动物园的饲养员、牙科诊所的医生、卫生纸厂的工人，发布会当天下午全区放假，比流片成功的半天假还受欢迎。座位是按工号抽签的，抽中前排的人第二天在食堂里会被问一整天「近看是什么样的」。\n秀场的灯光是从晶圆厂光刻车间请来的工程师调的，他们对「光要均匀」这件事有职业病，T 台上每一平方米的亮度差不超过百分之二。掌声用晶圆厂监测噪声的仪器测，每场发布会结束都会公布一个分贝数，最高的那一场是露西穿着第一件不像「兔子服」的白色连衣裙出场。大厅里的空气由清风中心直接供应，几百人坐满也永远不闷热，这一点露西在每场发布会的开场致辞里都要说一遍。后台楼里还有一个小房间，挂着露西当年穿过的那件真正的兔子服，是秀场唯一一件不对外展示的藏品。"
+      en: "A long, narrow hall south of Breeze Road, with a square backstage block at one end and a runway of almost three hundred metres reaching from it, seating along both sides, a red-carpeted forecourt at the east end and the car park to the south. When each season's collection is finished, it is shown here.\nThe show has a single model, Lucy herself, plus a few fashion robots that walk more steadily than people, showing the pieces Lucy tried on and decided to 'leave for someone else to wear'. The audience is the people of Chip City: engineers, the zoo's keepers, the doctors from the dental clinic, the workers from the toilet-paper mill. The whole district gets the afternoon off on show days, which is even more popular than the half-day off after a successful tape-out. Seats are drawn by staff number, and whoever wins the front row spends the next day in the canteen being asked 'what did it look like close up?'\nThe lighting is set by engineers borrowed from the fabs' lithography floors, who have a professional obsession with even light: the brightness on any square metre of the runway varies by no more than two per cent. Applause is measured with the instruments the fabs use to monitor noise, and every show ends with a decibel figure; the loudest so far greeted Lucy's entrance in the first white dress she ever wore that did not look like a bunny suit. The hall's air comes straight from the Breeze Centre, so it never feels stuffy even with hundreds of people in the seats, a point Lucy makes in her opening words at every show. In a small room backstage hangs the real bunny suit Lucy once wore, the only piece in the collection that is never shown."
+    in: div_zmb3gb
+    offset_km: [-2.55, 2.25]
+    site: { layout: fashion, variant: show, size_m: [420, 220], angle_deg: 0 }
+  - id: poi_sh1pp7
+    subtype: swimming_pool
+    status: generated
+    names:
+      zh: 露西巨轮泳池
+      en: Lucy Ship Pool
+      es: Piscina del Barco Lucy
+    short_names: { zh: 巨轮泳池, en: Ship Pool, es: Piscina del Barco }
+    notes:
+      zh: "清风路北边的一座泳池，水面将近一公里长、两百多米宽，正中间停着一艘三百六十米长的游轮，船身雪白，名叫「露西号」。露西最早只是想要一个「大一点的泳池」，设计师问大多大，她说：「大到能停下一艘船。」设计师以为是比喻，交图那天才知道不是。\n泳池西头是一片缓缓入水的人工沙滩，适合不想游泳只想泡脚的人；两侧是宽阔的池边平台，每隔一百多米有一座救生塔，救生员是机器人，持有船长证，因为按规定，有船的水面上值班的人要懂航行。南边一排更衣楼，东头是过滤站和一座小小的灯塔，灯塔每天傍晚准时亮起，虽然方圆几十公里内没有任何需要它指路的船，除了露西号。\n露西号从北岸的栈桥上船，船上是餐厅、日光甲板、桑拿和一间可以边泡澡边看动物园方向日落的客舱。它每天下午起锚一次，以两节的速度绕泳池开一圈，全程不到三公里，船长每次都郑重其事地广播：「本船即将抵达出发港。」泳池的水由晶圆厂冷却塔的余热加热，冬天也保持在二十八度，夏天则用清风中心吹来的风降温，水面上从来不闷。露西说这是她见过的最好的「废热利用」，比她当年写过的任何一份节能报告都有说服力。"
+      en: "A pool north of Breeze Road whose water is nearly a kilometre long and over two hundred metres wide, with a 360-metre cruise ship, gleaming white and named the Lucy, moored in the middle. All Lucy first asked for was 'a bigger pool'; when the designer asked how big, she said: 'big enough to park a ship in.' The designer took it as a figure of speech and only found out otherwise on the day the drawings were due.\nAt the west end a man-made beach shelves gently into the water, for those who would rather paddle than swim; wide decks run along both sides, with a lifeguard tower every hundred metres or so. The lifeguards are robots holding master's certificates, because the rules say whoever is on watch over water with a ship on it must know how to navigate. Along the south side stands a row of changing pavilions, and at the east end the filter plant and a little lighthouse, which comes on punctually every evening although within dozens of kilometres there is no ship that needs it except the Lucy.\nPassengers board the Lucy from a pier on the north deck; aboard are a restaurant, a sun deck, a sauna and a cabin where you can soak in the bath watching the sun set towards the zoo. Every afternoon she weighs anchor once and makes a circuit of the pool at two knots, under three kilometres in all, and every time the captain solemnly announces: 'We shall shortly be arriving at our port of departure.' The water is warmed by waste heat from the fabs' cooling towers and kept at 28 °C even in winter, while in summer the breeze from the Breeze Centre cools it, so the water never feels stuffy. Lucy calls it the best use of waste heat she has ever seen, more convincing than any energy-saving report she wrote in her working years."
+    in: div_zmb3gb
+    offset_km: [-3.6, 3.0]
+    site: { layout: lido, size_m: [1200, 420], angle_deg: 0 }
+  - id: poi_tp7rcy
+    subtype: factory
+    status: generated
+    names:
+      zh: 露西卫生纸环保处理厂
+      en: Lucy Toilet Paper Recycling Works
+      es: Planta de Reciclaje de Papel Higiénico Lucy
+    short_names: { zh: 卫生纸处理厂, en: Recycling Works, es: Planta de Reciclaje }
+    notes:
+      zh: "领道南边、和新卫生纸厂并排的一座处理厂，专门处理露西庄园里用过的卫生纸，做到全程密封、无味、无污染。厂区西头是负压的接收楼，进来的东西从不见光，楼里的空气只进不出，出来之前要经过三道过滤，厂长最骄傲的一句话是「本厂离清风中心只有五公里，但从来没有麻烦过它」。\n接收楼后面是四排十六座密闭消化罐，用过的卫生纸在里面经过厌氧消化，变成沼气和干净的有机质。沼气送进发电机，发出来的电通过一条专线送到隔壁的卫生纸厂，所以这里流行一句话：「用过的纸变成电，电再变成新纸。」消化完的有机质经过东南角的高温灭菌塔，彻底杀菌以后制成花肥，供给露西广场的四块花圃和宅邸花园里的玫瑰。东边两个清水池收集处理后的水，水质达到可以养鱼的标准，池里真的养着几条锦鲤，是厂里员工最常去探望的同事。\n处理厂的设计能力远远超过庄园的实际需要，工程师们算过，就算全区六万人都把卫生纸送来，也只用得上一半的消化罐。所以厂里最怕的不是忙，而是闲：每逢露西出远门，厂里的产量曲线就会掉下一个大坑，大家便知道该去问候一下她什么时候回来。露西在厂门口立了一块牌子，写着她对这座厂的要求：「看不见、闻不到、想不起来。」到目前为止，三条都做到了。"
+      en: "A works south of the highway, side by side with the new toilet-paper mill, built to dispose of the estate's used toilet paper in a way that is fully sealed, odourless and pollution-free. At the west end is the receiving hall, kept under negative pressure: nothing that arrives ever sees daylight, air goes in but never out, and what leaves passes three filters first. The manager's proudest line is: 'We are only five kilometres from the Breeze Centre, and we have never once given it any trouble.'\nBehind the receiving hall stand sixteen sealed digesters in four rows, where the used paper is broken down anaerobically into biogas and clean organic matter. The biogas runs generators whose power goes by a dedicated line to the mill next door, hence the local saying: 'Used paper becomes electricity, and electricity becomes new paper.' The digested matter passes through the sterilising tower in the south-east corner and, once thoroughly sterilised, is made into flower fertiliser for the four beds of Lucy Square and the roses in her garden. Two clean-water ponds on the east side collect the treated water, clean enough to keep fish in, and a few koi really do live there, the colleagues the staff visit most often.\nThe works can handle far more than the estate needs: the engineers have worked out that even if all sixty thousand people in the district sent their used paper here, only half the digesters would be in use. So what the staff fear is not being busy but being idle: whenever Lucy goes away for a while, the works' output curve drops into a deep hole, and everyone knows it is time to ask when she will be back. At the gate Lucy put up a sign with her three requirements for the works: 'Unseen, unsmelled, unthought-of.' So far it has met all three."
+    in: div_zmb3gb
+    offset_km: [-4.4, -1.65]
+    site: { layout: works, variant: recycling, size_m: [720, 480], angle_deg: 0 }
+  - id: poi_tp7m1x
+    subtype: factory
+    status: generated
+    names:
+      zh: 露西卫生纸厂
+      en: Lucy Tissue Mill
+      es: Fábrica de Papel Higiénico Lucy
+    short_names: { zh: 卫生纸厂, en: Tissue Mill, es: Fábrica de Papel }
+    notes:
+      zh: "环保处理厂东边的一座纸厂，生产高质量的卫生纸，全部专供露西庄园，从不外销。厂区中间是一座一百多米长的纸机厂房，纸浆从一头进去，另一头卷出直径两米多的大纸卷；北边是大纸卷仓库和分切车间，大纸卷在这里被切成一卷一卷；东边是成品库和装车平台，南边是一片草坪，草坪上立着一卷三米高的卫生纸雕塑，是工人们自己做的。\n纸的原料是专门种植的竹子和桉树纤维，不用回收纸，因为露西说：「回收的东西去发电，新的东西给人用，各司其职。」纸厂沿用了晶圆厂的管理办法：每一卷纸都有序列号，可以追溯到哪一台纸机、哪一个班次、哪一批原料；每一批都要抽检，检查柔软度、吸水性、抗拉强度和打孔线的间距，打孔线的误差不超过零点一毫米，因为露西认为「撕不整齐」是一种不可接受的缺陷。抽检的最后一道工序由露西本人完成，她把它叫作「最终签字」，和她给芯片设计中心定的规矩一样，最后签字的必须是一个人。\n纸厂的电来自隔壁处理厂的沼气，热来自晶圆厂冷却塔的余热，所以芯城的碳排放报表上，它那一栏几乎是零。成品库里的存货够庄园用很多很多年，但厂长仍然坚持每天开机，理由是「纸机停久了会伤心」。每卷纸的包装上印着一行小字：「本产品已通过良率检验。」"
+      en: "A paper mill east of the recycling works that makes high-quality toilet paper, all of it reserved for Lucy's estate and never sold. In the middle of the site is a paper-machine hall over a hundred metres long: pulp goes in at one end and comes out at the other as jumbo rolls more than two metres across. To the north are the jumbo-roll store and the converting hall where the big rolls are cut into ordinary ones; to the east the finished-goods store and loading docks; to the south a lawn with a three-metre toilet-roll sculpture the workers made themselves.\nThe paper is made from bamboo and eucalyptus fibre grown for the purpose, never from recycled paper, because, as Lucy says: 'What's recycled makes electricity, what's new is for people; everyone to their own job.' The mill is run the way a fab is: every roll carries a serial number tracing it to a paper machine, a shift and a batch of fibre; every batch is sampled for softness, absorbency, tensile strength and the spacing of the perforations, which may be off by no more than a tenth of a millimetre, since Lucy considers 'not tearing cleanly' an unacceptable defect. The last step of every inspection is done by Lucy herself, which she calls the 'final sign-off': as with the rule she set for the Chip Design Centre, the last signature must be a person's.\nThe mill's power comes from the recycling works' biogas next door and its heat from the fabs' cooling towers, so its line in Chip City's carbon report is close to zero. The store holds enough to last the estate many, many years, but the manager still insists on running the machine every day, on the grounds that 'a paper machine left idle too long gets sad'. Every pack carries a line of small print: 'This product has passed yield inspection.'"
+    in: div_zmb3gb
+    offset_km: [-3.4, -1.7]
+    site: { layout: works, variant: tissue, size_m: [820, 560], angle_deg: 0 }
+  - id: poi_sq7ycy
+    subtype: plaza
+    status: generated
+    names:
+      zh: 露西广场
+      en: Lucy Square
+      es: Plaza Lucy
+    notes:
+      zh: "露西大道和时尚街路口东南角的一座圆形广场，是露西新街区的中心。广场正中是露西塑像，塑像四周是一圈环形喷泉，再往外是铺地，铺地被四块扇形花圃分成四个方向，北边是一道半圆形的柱廊，夏天给人遮阳，冬天给人挡风。\n广场的铺地很特别：一块块方砖按晶圆上芯片的排列方式铺成，每块砖代表一颗芯片，砖缝就是切割道。大部分砖是浅灰色的「好片」，零星有几块是红色的「坏片」，按露西当年一号晶圆厂刚投产时的良率图铺的，后来又悄悄换掉了几块红砖，因为良率提高了。区里的孩子最爱在这里玩一个游戏：只踩灰砖、不踩红砖，从柱廊跳到喷泉，踩错就算「报废」。\n四块花圃里种的是玫瑰，花肥来自卫生纸环保处理厂，园丁每周要向露西汇报一次开花率。柱廊的柱子是空心的，里面藏着清风中心送来的风道，站在柱廊下永远有一阵恰到好处的微风，这里因此成为全区最受欢迎的约会地点。每个周六上午，广场上有一个小市集，工程师卖自己做的小电路板，饲养员卖动物园的明信片，甜品工坊推着小车来卖奶茶。每当芯城有新芯片流片成功，晚上广场的喷泉会亮成绿色，全区的人都会过来看一眼。"
+      en: "A round square on the south-east corner of Lucy Avenue and Fashion Street, the heart of Lucy's new quarter. At its centre stands the statue of Lucy, ringed by a circular fountain; beyond that is the paving, divided into four quarters by four fan-shaped flower beds, and along the north side a half-ring colonnade gives shade in summer and shelter from the wind in winter.\nThe paving is unusual: square tiles are laid in the pattern of the chips on a wafer, each tile a chip and each joint a scribe line. Most tiles are pale grey 'good dies', with a scattering of red 'bad dies', laid after the yield map from the early days of Lucy's Fab 1; a few red tiles were quietly replaced later, as the yield improved. The district's children love a game here: step only on grey tiles, never on red ones, and hop from the colonnade to the fountain; one wrong step and you are 'scrapped'.\nThe four beds are planted with roses, fertilised from the toilet-paper recycling works, and the gardeners report the flowering rate to Lucy every week. The colonnade's columns are hollow and hide ducts from the Breeze Centre, so under the colonnade there is always a breeze of just the right strength, which has made it the district's favourite place for a date. Every Saturday morning there is a small market: engineers sell little circuit boards they made, keepers sell postcards from the zoo and the dessert workshop wheels over a cart of milk tea. Whenever a new chip from Chip City tapes out successfully, the fountain is lit green that evening and the whole district comes by to look."
+    in: div_zmb3gb
+    offset_km: [-3.05, 0.5]
+    site: { layout: square, variant: round, size_m: [400, 400], angle_deg: 0 }
+  - id: poi_st7tv3
+    subtype: statue
+    status: generated
+    names:
+      zh: 露西塑像
+      en: Statue of Lucy
+      es: Estatua de Lucy
+    notes:
+      zh: "露西广场正中、环形喷泉里的一座青铜塑像，塑的是露西站着、双手把一片晶圆举到眼前，对着光看。这是她在晶圆厂工作时最常做的动作：一片晶圆做完，先举起来看一眼表面，再交给检测机台。塑像连底座五米多高，露西最初只同意「比真人高一点就行」，雕塑家坚持要做到能从时尚街两头都看得见，最后两人各让一步，结果还是雕塑家赢了。\n关于塑像穿什么衣服，露西和雕塑家争论了很久。雕塑家想让她穿那件经典的兔子服，露西坚决不同意：「我穿了那么多年，退休了还要在广场上穿一辈子？」最后塑像穿的是时装设计工作室为她做的第一件大衣，衣摆被做成正在被风吹起的样子。这阵风是真的：底座里装着一台小风扇，风从衣摆下面吹出来，于是在整座广场上，塑像是唯一一个从来不觉得闷热的「人」，连站在柱廊下的人都比不上它。\n底座上刻着一行字：「每一片晶圆都值得被认真看一眼。」风扇还有一个意外的好处：鸽子站不住，所以塑像一直很干净。每年春秋两次，AI 洗护中心的机器人会来给塑像做一次全身清洁，十分钟完成。夜里，塑像手里的那片晶圆会从背面亮起来，像一面小小的月亮，是露西大道上最亮的一盏灯。"
+      en: "A bronze statue in the circular fountain at the centre of Lucy Square, showing Lucy standing and holding a wafer up to her eyes with both hands, looking at it against the light. It was the gesture she made most often in her fab years: when a wafer was finished she would first hold it up and look at its surface before handing it to the inspection tools. With its plinth the statue is more than five metres tall. Lucy at first agreed only to 'a little taller than life', the sculptor insisted it should be visible from both ends of Fashion Street, and in the end each gave a little, and the sculptor still won.\nWhat the statue should wear was argued over for a long time. The sculptor wanted the classic bunny suit; Lucy flatly refused: 'I wore it for all those years, and now I'm retired I have to wear it in the square for ever?' In the end the statue wears the first coat the design studio made for her, its hem sculpted as if lifted by the wind. The wind is real: a small fan inside the plinth blows out from under the hem, so in the whole square the statue is the one 'person' who never feels stuffy, not even the people standing under the colonnade can match it.\nThe plinth is inscribed: 'Every wafer deserves a careful look.' The fan has an unexpected benefit: pigeons cannot keep their footing, so the statue stays clean. Twice a year, in spring and autumn, robots from the AI Care Centre give it a full clean, done in ten minutes. At night the wafer in its hands lights up from behind like a small moon, the brightest light on Lucy Avenue."
+    in: div_zmb3gb
+    offset_km: [-3.05, 0.5]
+  - id: poi_bz7cnt
+    subtype: air_purification
+    status: generated
+    names:
+      zh: 露西清风中心
+      en: Lucy Breeze Centre
+      es: Centro de la Brisa Lucy
+    short_names: { zh: 清风中心, en: Breeze Centre, es: Centro de la Brisa }
+    notes:
+      zh: "清风路东段北边、巨轮泳池东边的一座公园，公园中间是一座圆形的控制大厅，四周一圈站着八座净化塔，塔和大厅之间用风道相连。这里负责整个露西新街区的室外空气：干净、清新，最重要的是，不闷热。\n芯城的气候其实很温和，夏天的最高气温一般只有二十五度上下，有记录以来最热的一天也不过三十一度多。可是露西对「闷」极其敏感：哪怕只有二十几度，只要没有风、空气不流动，她就会说「好闷」。于是清风中心用上了别处还没用过的技术：净化塔先用静电和光催化把空气里的灰尘、花粉和异味除掉，再按需要调节湿度，最后把空气变成一阵阵每秒一米半左右的微风，沿着街道、柱廊和路灯杆里藏着的几百个小出风口送出去，让整个街区的空气像在一座看不见的洁净室里一样缓缓流动。\n控制大厅里有一面大屏幕，把街区分成十米见方的小格，每一格实时显示一个「露西闷热指数」，从 0 到 10，规定任何时候都不能超过 2。指数是露西亲自定义的，算法综合了气温、湿度、风速和日照，还有一项权重很高的「她刚才有没有皱眉」。露西出门散步时，清风中心会切换到「微风跟随」模式，她走到哪里，哪里就有一阵刚刚好的风。中心的电来自屋顶的太阳能板和卫生纸环保处理厂的沼气，东北角的小池塘给设备散热。自从清风中心建成，露西宅邸里的空调全部退休，现在都住在空调博物馆里。"
+      en: "A park north of the eastern end of Breeze Road, east of the Ship Pool, with a round control hall in the middle and eight purifier towers standing in a ring round it, joined to the hall by air ducts. It looks after the outdoor air of all of Lucy's new quarter: clean, fresh and, above all, never stuffy.\nChip City's climate is in fact mild: summer highs are usually only around 25 °C, and the hottest day on record reached little more than 31 °C. But Lucy is extremely sensitive to stuffiness: even at twenty-odd degrees, if there is no wind and the air is not moving, she will say 'it's so stuffy'. So the Breeze Centre uses technology not yet used anywhere else. The towers first strip dust, pollen and smells from the air electrostatically and by photocatalysis, then adjust its humidity as needed, and finally turn it into a gentle breeze of about one and a half metres a second, sent out along the streets, the colonnade and hundreds of small vents hidden in the lamp posts, so that the air of the whole quarter flows slowly, as if in an invisible cleanroom.\nA big screen in the control hall divides the quarter into ten-metre squares and shows a live 'Lucy Stuffiness Index' for each, from 0 to 10, which must never exceed 2. Lucy defined the index herself; it combines temperature, humidity, wind speed and sunshine with one heavily weighted term, 'did she just frown?'. When Lucy goes out for a walk the centre switches to 'breeze follow' mode, and wherever she goes there is a breeze of just the right strength. Its power comes from solar panels on the roofs and biogas from the toilet-paper recycling works, and a small pond in the north-east corner cools the plant. Since the centre was finished, every air conditioner in Lucy's house has retired, and they now live in the Air Conditioner Museum."
+    in: div_zmb3gb
+    offset_km: [-2.25, 3.0]
+    site: { layout: breeze, size_m: [600, 600], angle_deg: 0 }
+  - id: bld_wsh7ae
+    subtype: beauty_centre
+    status: generated
+    names:
+      zh: 露西 AI 洗护中心
+      en: Lucy AI Care Centre
+      es: Centro de Cuidado IA Lucy
+    short_names: { zh: AI 洗护中心, en: AI Care Centre, es: Centro de Cuidado IA }
+    notes:
+      zh: "时尚街北边、离露西宅邸最近的一座环形建筑，专门用人工智能机器人帮露西卸妆、洗漱和护肤。以前这一套做下来要一个小时，现在只要十分钟。\n环形楼里沿着圆圈排着十个工位，露西坐在一张会慢慢移动的椅子上，每个工位停一分钟：卸妆、洁面、温水蒸汽、深层清洁、补水、精华、快速面膜、面部按摩、乳霜，最后是吹干头发。每个工位都有一台机器人，动作轻得像羽毛，它们按「配方」工作，配方和晶圆厂里机台的工艺配方一样，精确到每一步用多少、停多久、温度几度。露西第一次体验完就笑了：「一片晶圆要走一千多道工序、两三个月，我只要走十道、十分钟。」\n系统的软件是乔什的团队做的，这正是乔什最擅长的事：把别人的聪明模型变成每天真正好用的东西。机器人会记住露西皮肤每天的状态，干了就多补水，晒了就多修护，第二天早上的护肤方案前一天晚上就准备好了。椅子走完一圈正好回到入口，如果露西在椅子上睡着了，它会把她轻轻送上门口的一辆小车，直接送到睡眠研究中心。环形楼中间是一座小花园，花园里有一个圆形的小亭子，是给等候的人坐的，不过从来没有人在那里等过十分钟以上。露西算过，每天省下五十分钟，一年就多出三百多个小时，她把这些时间都花在了股票研究所。"
+      en: "A ring-shaped building north of Fashion Street, the nearest of the new buildings to Lucy's house, where AI robots help Lucy take off her make-up, wash and look after her skin. The routine used to take an hour; now it takes ten minutes.\nTen stations stand round the ring, and Lucy sits in a chair that moves slowly from one to the next, a minute at each: make-up removal, cleansing, warm steam, deep cleansing, hydration, serum, a quick mask, facial massage, cream and finally drying her hair. Each station has a robot with a touch as light as a feather, working to a 'recipe' just like the process recipes of a fab's tools, exact to how much is used at each step, for how long and at what temperature. After her first time Lucy laughed: 'A wafer goes through a thousand steps over two or three months; I go through ten in ten minutes.'\nThe software was written by Josh's team, which is exactly what Josh does best: turning other people's clever models into things that are genuinely useful every day. The robots remember the state of Lucy's skin each day, adding moisture when it is dry and repair when it has seen too much sun, so the next morning's routine is ready the night before. One round of the ring brings the chair back to the entrance; if Lucy has fallen asleep in it, it gently transfers her to a small car at the door that takes her straight to the Sleep Research Centre. In the middle of the ring is a small garden with a round pavilion for anyone waiting, though nobody has ever waited there for more than ten minutes. Lucy has worked out that saving fifty minutes a day gives her more than three hundred extra hours a year, and she spends them at the Stock Research Institute."
+    in: div_zmb3gb
+    offset_km: [-4.6, 1.3]
+    site: { layout: ring, size_m: [380, 380], angle_deg: 0, rural: true }
+  - id: poi_stk7rs
+    subtype: research_institute
+    status: generated
+    names:
+      zh: 露西股票研究所
+      en: Lucy Stock Research Institute
+      es: Instituto de Investigación Bursátil Lucy
+    short_names: { zh: 股票研究所, en: Stock Institute, es: Instituto Bursátil }
+    notes:
+      zh: "领道北边的一座回字形楼，四面是研究室，中间是一个安静的内院。研究所研究股票，尤其是露西最熟悉的半导体和存储行业。露西跟着这个行业经历过好几轮起落，见过芯片缺货时工厂连夜加班，也见过库存堆满仓库时整个行业一起叹气，所以研究所的第一条原则是：「只买自己看得懂良率的公司。」\n研究所的起因很简单。当年露西在英伟达上班，住在圣克拉拉区的公寓里，房租每年涨百分之十，同事们开玩笑说她是全公司唯一一个房租跑赢股价的人。她认真算了好几年，想弄明白房租和股价到底是怎么回事。研究所的第一份报告回答了这个问题，结论印在封面上：「房租每年涨百分之十的时候，就去找一家涨得比房租还快的公司。」这份报告现在镶在门厅的墙上，旁边是她当年那张房租表格的打印件。\n研究员们每天读财报、看产能、数订单，还要去芯城的晶圆厂和设计中心实地看看，因为露西坚信最好的行业研究是在洁净室里做的。研究所的空气由清风中心单独供应，温度比街区别处低一度，专门用来防止「头脑发热」；内院里有一间冷静室，任何人想下一笔大单之前，都要先在里面坐满十分钟。研究所还和睡眠研究中心有一个约定：收盘以后不讨论行情，晚上十点以后不看盘。露西说，这是她定过的最赚钱的两条规矩。"
+      en: "A building round a courtyard north of the highway, research rooms on all four sides and a quiet inner court in the middle. The institute studies stocks, above all in the semiconductor and memory industries Lucy knows best. She rode several of the industry's ups and downs, saw factories working through the night when chips were short and the whole industry sighing together when inventory filled the warehouses, so the institute's first principle is: 'Only buy companies whose yield you understand.'\nIt began simply. Back when Lucy worked at NVIDIA she lived in an apartment in Santa Clara District whose rent went up ten per cent every year, and her colleagues joked that she was the only person in the company whose rent was beating the share price. She spent several years working out what was really going on between rent and share prices, and the institute's first report answered the question, its conclusion printed on the cover: 'When your rent goes up ten per cent a year, find a company growing faster than your rent.' The report now hangs framed in the lobby, next to a printout of her old rent spreadsheet.\nThe researchers spend their days reading accounts, checking capacity and counting orders, and they visit Chip City's fabs and design centre in person, since Lucy firmly believes the best industry research is done in the cleanroom. The institute has its own air supply from the Breeze Centre, a degree cooler than the rest of the quarter, specifically to stop anyone getting carried away in the heat of the moment; the courtyard has a cooling-off room where anyone about to place a big order must first sit for a full ten minutes. The institute also has an agreement with the Sleep Research Centre: no talk of the market after the close, and no looking at prices after ten at night. Lucy says these are the two most profitable rules she ever made."
+    in: div_zmb3gb
+    offset_km: [-2.6, -0.65]
+    site: { layout: courtyard, size_m: [380, 260], angle_deg: 0, rural: true }
+  - id: poi_rtn7bx
+    subtype: logistics_park
+    status: generated
+    names:
+      zh: 露西开箱退货中心
+      en: Lucy Unboxing and Returns Centre
+      es: Centro de Desembalaje y Devoluciones Lucy
+    short_names: { zh: 开箱退货中心, en: Returns Centre, es: Centro de Devoluciones }
+    notes:
+      zh: "领道北边的一座物流中心，处理露西网购来的所有包裹：开箱、试用、决定留下还是退回。露西买东西和做芯片一样认真：买之前查参数，到货后做检验，不合格就退。包裹太多，宅邸的门厅放不下，于是有了这座中心。\n包裹从领道上的无人货车卸下来，先进东边的开箱大厅。大厅里有一个圆形的「开箱台」，机械臂用专门的刀片沿着胶带划开纸箱，力道精确到不会划伤里面任何东西，整个过程全程录像，万一要退货，这段视频就是证据。拆出来的东西按类别分开：衣服送试衣大楼，鞋和包送鞋包金库，吃的送甜品工坊，看不出是什么的放上一个叫「待研究」的货架。纸箱、填充物和塑料袋在北边的回收车间分好类，压平以后另行回收，从来不和卫生纸厂的原料混在一起。\n中心最核心的是一套人工智能退货顾问。它结合试衣大楼的试穿数据、露西的衣柜库存和她最近的心情，给每件东西打一个「后悔指数」：低于 3 的留下，高于 7 的直接退，中间的放进「冷静期货架」，七天以后再问一次。据统计，冷静期货架上的东西有一大半最后都退了，退货顾问把这叫作「时间是最好的质检」。南边的长楼是退货打包间，退回去的东西包得比买来时还整齐，商家们都说，收到露西的退货是一种享受。"
+      en: "A logistics centre north of the highway that handles every parcel Lucy orders online: unboxing, trying out and deciding whether to keep or return. Lucy shops the way she made chips: she checks the specifications before buying, inspects on arrival and sends back whatever fails. There were too many parcels for the hall of her house, so this centre was built.\nParcels are unloaded from driverless lorries on the highway and go first to the unboxing hall on the east side. In it stands a round 'unboxing table' where robot arms slit the tape with special blades, so precisely that nothing inside is ever scratched, and the whole process is filmed, so that if anything goes back the video is the evidence. What comes out is sorted: clothes to the Fitting Tower, shoes and bags to the Shoe and Bag Vault, food to the dessert workshop, and anything nobody can identify onto a shelf labelled 'for further study'. Cardboard, packing and plastic bags are sorted in the recycling shed on the north side and flattened for recycling separately, never mixed with the tissue mill's fibre.\nThe heart of the centre is an AI returns adviser. Combining the Fitting Tower's data, the contents of Lucy's wardrobe and her recent mood, it gives every item a 'regret index': below 3 it stays, above 7 it goes straight back, and anything in between goes on the 'cooling-off shelf' to be asked about again in seven days. By its own count more than half of what goes on the cooling-off shelf is eventually returned, which the adviser calls 'time is the best quality inspector'. The long building on the south side is the returns packing room, where things are packed more neatly than they arrived, and the shops all say that receiving one of Lucy's returns is a pleasure."
+    in: div_zmb3gb
+    offset_km: [-4.45, -0.6]
+    site: { layout: complex, size_m: [480, 320], angle_deg: 0, rural: true }
+  - id: poi_s1eep7
+    subtype: research_institute
+    status: generated
+    names:
+      zh: 露西睡眠研究中心
+      en: Lucy Sleep Research Centre
+      es: Centro de Investigación del Sueño Lucy
+    short_names: { zh: 睡眠研究中心, en: Sleep Centre, es: Centro del Sueño }
+    notes:
+      zh: "露西广场东边的一座圆顶建筑，研究的只有一件事：怎么睡得好，而且整夜都不闷热。圆顶里面是一片能模拟星空的天幕，天幕下面是几十间睡眠实验室，每间里有一张人工智能床。\n这张床是中心最得意的作品。床垫里有几千个小气孔，传感器每隔几秒测一次皮肤表面的温度和湿度，哪里热了，哪里的气孔就送出一点点凉风，哪里凉了就停下来；被子里填的是相变材料，热的时候吸热，凉的时候放热，所以整夜被窝里的温度变化不超过半度。床还会判断睡眠的阶段，浅睡的时候轻轻调整枕头的高度，深睡的时候一动不动。研究员们把露西的感受当作最高标准，她的第一条反馈是：「终于有一张床不闷了。」\n中心的研究对象有两类：一位是露西，另一类是芯城里刚流片完、连续熬了几个星期夜的工程师，他们来这里补觉，顺便当志愿者。中心发现了一个有趣的现象：工程师们最容易入睡的背景声音，是洁净室里风机那种均匀的嗡嗡声，所以床头的白噪声里专门有一档叫「洁净室」。如果床发现露西临睡前还在想股价，就会自动播放这一档，再把天幕调成慢慢旋转的星空。早上叫醒她的不是闹钟，而是渐渐变亮的天幕，和甜品工坊送来的一杯热奶茶的香味。"
+      en: "A domed building east of Lucy Square that studies one thing only: how to sleep well, and never feel stuffy all night. Inside the dome is a ceiling that can show the night sky, and under it are dozens of sleep laboratories, each with an AI bed.\nThe bed is the centre's proudest work. Its mattress has thousands of tiny vents, and every few seconds sensors measure the temperature and humidity of the skin: wherever it is warm, the vents there release a little cool air, and wherever it is cool they stop; the duvet is filled with a phase-change material that absorbs heat when warm and releases it when cool, so the temperature under the covers varies by less than half a degree all night. The bed also tracks the stages of sleep, gently adjusting the height of the pillow in light sleep and keeping perfectly still in deep sleep. The researchers take Lucy's impressions as the final standard, and her first comment was: 'At last, a bed that isn't stuffy.'\nThe centre studies two kinds of sleeper: Lucy, and Chip City's engineers who have just finished a tape-out after weeks of late nights, who come to catch up on sleep and volunteer while they are at it. The centre found something curious: the background sound the engineers fall asleep to most easily is the even hum of a cleanroom's fans, so the white noise by the bed has a setting called 'cleanroom'. If the bed notices Lucy still thinking about share prices at bedtime, it plays that setting and turns the ceiling into a slowly wheeling sky. What wakes her in the morning is not an alarm but the ceiling slowly growing light, and the smell of a hot milk tea sent over from the dessert workshop."
+    in: div_zmb3gb
+    offset_km: [-2.4, 0.55]
+    site: { layout: dome, size_m: [300, 300], angle_deg: 0, rural: true }
+  - id: bld_m1kt7a
+    subtype: dessert_shop
+    status: generated
+    names:
+      zh: 露西奶茶甜品工坊
+      en: Lucy Milk Tea and Dessert Workshop
+      es: Taller de Té con Leche y Postres Lucy
+    short_names: { zh: 奶茶甜品工坊, en: Dessert Workshop, es: Taller de Postres }
+    notes:
+      zh: "时尚街南边、露西大道西侧的一座小楼，从天上看是一颗芯片：方方正正的楼身，四边各伸出六根「引脚」，每根引脚其实是一间小小的操作间或者储藏室。工坊做奶茶和甜点，最出名的是一系列芯片形状的零食。\n招牌是「晶圆威化」：圆形的薄威化饼，表面用可可粉印着一格一格的芯片图案。英文里晶圆和威化本来就是同一个词，露西第一次吃的时候说，这是她这辈子第一片可以吃的晶圆。其他还有「处理器曲奇」，方形的黄油曲奇，四边用巧克力挤出一排排引脚；「内存条蛋糕」，细长的海绵蛋糕，一侧贴着一排金箔做的金手指；还有一款「良品糖」，每一袋里会混进一颗形状歪了的「坏片」，吃到的人可以免费换一杯奶茶。\n奶茶的甜度按芯片的工艺节点命名：「七纳米」是全糖，「五纳米」是半糖，「三纳米」是微糖，「两纳米」是无糖，节点越先进越健康，露西只喝三纳米。工坊每天早上给睡眠研究中心送一杯热奶茶叫露西起床，周六推着小车去露西广场的市集，平时给试衣大楼和时装秀场的人送下午茶。工坊也做榴莲口味的点心，专门给乔什留着，每次乔什来吃饭，工坊的门窗都要比平时多开一扇。"
+      en: "A small building south of Fashion Street on the west side of Lucy Avenue that looks from the air like a chip: a square body with six 'pins' sticking out of each side, each pin in fact a tiny workroom or store. The workshop makes milk tea and desserts, and is best known for a range of chip-shaped snacks.\nThe signature is the 'wafer wafer': a thin round wafer biscuit with a grid of chips printed on it in cocoa. In English a silicon wafer and a wafer biscuit share the same word anyway, and the first time Lucy ate one she said it was the first wafer in her life she could eat. There are also 'processor cookies', square butter biscuits with rows of chocolate pins piped along all four sides; the 'memory-stick cake', a long thin sponge with a row of gold-leaf contacts along one edge; and 'good-die sweets', each bag of which hides one misshapen 'bad die', which wins whoever finds it a free milk tea.\nMilk tea sweetness is named after chip process nodes: '7 nm' is full sugar, '5 nm' half, '3 nm' a little and '2 nm' none, so the more advanced the node, the healthier the tea; Lucy only drinks 3 nm. Every morning the workshop sends a hot milk tea to the Sleep Research Centre to wake Lucy; on Saturdays it wheels a cart to the market in Lucy Square, and on other days it takes afternoon tea to the Fitting Tower and the Show Hall. It also makes durian pastries, kept specially for Josh, and whenever Josh comes to dinner the workshop opens one more window than usual."
+    in: div_zmb3gb
+    offset_km: [-3.75, 0.65]
+    site: { layout: chip, size_m: [140, 140], angle_deg: 0 }
+  - id: bld_ac7mzm
+    subtype: museum
+    status: generated
+    names:
+      zh: 露西空调博物馆
+      en: Lucy Air Conditioner Museum
+      es: Museo del Aire Acondicionado Lucy
+    short_names: { zh: 空调博物馆, en: Air Conditioner Museum, es: Museo del Aire }
+    notes:
+      zh: "时尚街南边的一座长方形展厅，收藏的是露西宅邸和芯城早年用过的空调、电扇和各种降温工具。清风中心建成以后，露西家里的空调全部退休，她舍不得扔，就给它们盖了一座博物馆。\n展厅按「对付闷热的历史」分成四个部分：第一部分是扇子，从纸扇、蒲扇到露西小时候用过的一把塑料扇；第二部分是电风扇，台扇、落地扇、吊扇排成一排，其中一台据说是露西在湾区那间公寓里用了好几年的；第三部分是空调，窗机、挂机、柜机和中央空调的室外机，每台旁边有一块牌子，写着它在露西家服役了几个夏天和它的「主要战绩」，比如「连续工作四十天，从未罢工」，至于是哪一年，露西要求一律不写，她说空调不需要被记住年纪；第四部分是清风中心的模型，象征着这段历史的终点。\n博物馆最受欢迎的展品是一间「闷热体验室」：一间关着门窗的小屋，温度调到三十一点七度，也就是芯城有记录以来最热的那一天，湿度调得很高，没有一丝风。参观者可以进去待几分钟，体会一下露西为什么那么讨厌闷热。据馆员统计，大多数人坚持不到三分钟就推门出来，出来后的第一件事是去露西广场的柱廊下站一会儿。露西本人从来没有进过这间屋子，她说：「我不需要体验，我记得。」"
+      en: "A long rectangular exhibition hall south of Fashion Street holding the air conditioners, electric fans and other means of keeping cool once used in Lucy's house and in Chip City's early days. When the Breeze Centre was finished every air conditioner in her house retired, and rather than throw them away she built them a museum.\nThe hall tells 'the history of fighting stuffiness' in four parts. The first is fans, from paper fans and palm-leaf fans to a plastic fan Lucy used as a child; the second is electric fans, desk, pedestal and ceiling fans in a row, one of them said to have served Lucy for years in that apartment in the Bay; the third is air conditioners, window units, wall units, cabinet units and the outdoor unit of a central system, each with a label giving how many summers it served in Lucy's house and its 'chief exploits', such as 'forty days' continuous service without a single strike'. Which year it was, Lucy asked never to be written: air conditioners, she says, don't need their age remembered. The fourth part is a model of the Breeze Centre, marking the end of that history.\nThe most popular exhibit is the 'stuffy room', a small room with doors and windows shut, kept at 31.7 °C, the hottest day on record in Chip City, with the humidity turned high and not a breath of wind. Visitors may stay a few minutes to understand why Lucy hates stuffiness so much. By the attendants' count most people last less than three minutes before pushing the door open, and the first thing they do is go and stand for a while under the colonnade in Lucy Square. Lucy herself has never been inside. 'I don't need to try it,' she says. 'I remember.'"
+    in: div_zmb3gb
+    offset_km: [-4.45, 0.6]
+    site: { layout: hall, size_m: [320, 220], angle_deg: 0, rural: true }
+  - id: bld_sh0e7v
+    subtype: vault
+    status: generated
+    names:
+      zh: 露西鞋包金库
+      en: Lucy Shoe and Bag Vault
+      es: Bóveda de Zapatos y Bolsos Lucy
+    short_names: { zh: 鞋包金库, en: Shoe and Bag Vault, es: Bóveda de Zapatos }
+    notes:
+      zh: "时尚街北边、露西广场对面的一座方楼，外表看起来像一座银行金库：厚墙、小窗、一扇圆形的大门，里面存的是露西的鞋和包。\n金库的保存方法是从芯片厂学来的。芯片怕潮，工厂会把怕潮的元件放进充满氮气的柜子里；露西把这个办法用在了皮具上：最珍贵的鞋和包放在一排排氮气柜里，不怕潮、不发霉、不氧化，皮面永远像刚出厂时一样。其余的放在恒温恒湿的库房里，湿度控制在百分之四十五左右，和设计工作室的面料库一样严格。每一件都有一个条码，像晶圆的批号一样记着它的来历：从哪里买的、试衣大楼给它打了多少分、开箱退货中心给它的后悔指数是多少、一共出过几次门。\n取货由机器人负责。露西在宅邸里点一下，机器人就从库房深处把东西取出来，放进一个小小的恒温舱，沿着时尚街送过去，平均五分钟送到门口。金库的安保级别很高，有指纹门、虹膜识别，还有一位从晶圆厂退下来的保安队长坐镇，不过保安队长私下说，这里其实一点也不怕被偷，因为所有的鞋都是露西的尺码。金库每年盘点一次，盘点报告的最后一页永远是同一句话：「库存仍在增长，建议扩建。」"
+      en: "A square building north of Fashion Street, across from Lucy Square, that looks from outside like a bank vault, with thick walls, small windows and a great round door; inside are Lucy's shoes and bags.\nThe way they are kept was learned from the chip industry. Chips fear damp, so factories keep moisture-sensitive parts in cabinets full of nitrogen; Lucy applied the same idea to leather. The most precious shoes and bags are kept in rows of nitrogen cabinets, safe from damp, mould and oxidation, the leather looking for ever as if new. The rest are kept in stores at constant temperature and humidity, held at about forty-five per cent, as strictly as the design studio's fabric store. Every piece has a barcode recording its history like a wafer's lot number: where it was bought, how the Fitting Tower scored it, what regret index the Returns Centre gave it and how many times it has been out of the house.\nRobots do the fetching. Lucy taps a screen at home, and a robot brings the item out from deep in the store, puts it in a small climate-controlled pod and sends it along Fashion Street, reaching her door in five minutes on average. Security is tight, with fingerprint doors, iris scanners and a security chief who retired from the fabs, though he admits privately that nobody would ever steal from here, since all the shoes are Lucy's size. The vault takes stock once a year, and the last page of the report always says the same thing: 'Stock still growing; extension recommended.'"
+    in: div_zmb3gb
+    offset_km: [-3.05, 1.12]
+    site: { layout: block, size_m: [240, 170], angle_deg: 0, rural: true }

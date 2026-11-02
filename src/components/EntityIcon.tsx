@@ -1,7 +1,7 @@
 import {
-  Anchor, Banknote, Bird, BrickWall, Briefcase, Building, Building2, Car, CarFront, Castle, Clapperboard, Crosshair, Crown, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, Fuel, GraduationCap, Grape, Helicopter, Hospital, Hotel, House, HouseHeart,
-  Landmark, LandPlot, Lighthouse, Lock, Magnet, MapPin, Microchip, Mountain, MountainSnow, Navigation2, Orbit, PawPrint, Pickaxe, Plane, PlaneTakeoff, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship,
-  ShipWheel, Shell, ShoppingBag, ShoppingCart, Siren, Snowflake, Server, Sparkles, Sprout, Sun, Target, Telescope, ToothbrushSparkles, TrainFront, TramFront, Trees, Utensils, Vault, Vote, Warehouse, Waves, Zap,
+  Anchor, Banknote, Bath, Bird, BrickWall, Briefcase, Building, Building2, Car, CarFront, Castle, Clapperboard, Crosshair, Crown, CupSoda, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, Fuel, GraduationCap, Grape, Helicopter, Hospital, Hotel, House, HouseHeart,
+  Landmark, LandPlot, Lighthouse, Lock, Magnet, MapPin, Microchip, Mountain, MountainSnow, Navigation2, Orbit, PawPrint, PersonStanding, Pickaxe, Plane, PlaneTakeoff, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship,
+  ShipWheel, Shell, Shirt, ShoppingBag, ShoppingCart, Siren, Snowflake, Server, Sparkles, Sprout, Sun, Target, Telescope, ToothbrushSparkles, TrainFront, TramFront, Trees, Utensils, Vault, Vote, Warehouse, Waves, WavesLadder, Wind, Zap,
 } from "lucide-react";
 import type { Entity } from "../lib/types";
 
@@ -146,6 +146,18 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
         return <HouseHeart {...props} />;
       case "office":
         return <Building {...props} />;
+      case "fashion_house":
+        return <Shirt {...props} />;
+      case "swimming_pool":
+        return <WavesLadder {...props} />;
+      case "statue":
+        return <PersonStanding {...props} />;
+      case "air_purification":
+        return <Wind {...props} />;
+      case "beauty_centre":
+        return <Bath {...props} />;
+      case "dessert_shop":
+        return <CupSoda {...props} />;
       default:
         return <Landmark {...props} />;
     }

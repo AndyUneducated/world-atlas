@@ -439,6 +439,12 @@ const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
   supermarket: { zh: "超市", en: "Supermarket" },
   fuel_station: { zh: "加油站", en: "Filling station" },
   apartment: { zh: "公寓", en: "Apartment complex" },
+  fashion_house: { zh: "时装楼", en: "Fashion house" },
+  swimming_pool: { zh: "泳池", en: "Swimming pool" },
+  statue: { zh: "塑像", en: "Statue" },
+  air_purification: { zh: "空气净化站", en: "Air purification plant" },
+  beauty_centre: { zh: "美容护理中心", en: "Beauty and care centre" },
+  dessert_shop: { zh: "甜品工坊", en: "Dessert workshop" },
 };
 
 const NETWORK_LABELS: Record<string, Record<Lang, string>> = {

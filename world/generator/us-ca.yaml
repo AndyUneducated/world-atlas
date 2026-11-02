@@ -235,8 +235,9 @@ streets:
     div_taah7d: { style: organic, mix: { houses: 2.2, industrial: 0.6 } }                               # 谦卑湾区
     div_qayjg1: { style: mixed, mix: { houses: 2.4, industrial: 0.6 } }                                 # 涂黑区
     div_g96sq9: { style: planned, mix: { houses: 2.6, park: 1.0 } }                                     # 喷灌区
-  # Real-world streets round Lucy's and Josh's old homes (design km, traced from OpenStreetMap), added to
-  # the generated streets of the district their middle lies in.
+  # Real-world streets round Lucy's and Josh's old homes (design km, traced from OpenStreetMap), and the
+  # streets of the two estates' new quarters (M72, M73), added to the generated streets of the district
+  # their middle lies in.
   real:
     - { names: { zh: 奥克塔维厄斯路, en: Octavius Drive, es: Octavius Drive }, class: collector, line: [[118.88, 238.52], [118.91, 238.55], [118.92, 238.61]] }
     - { names: { zh: 拉斐特街, en: Lafayette Street, es: Lafayette Street }, class: arterial, line: [[119.82, 237.12], [119.63, 237.56], [119.52, 237.98], [119.53, 238.37], [119.59, 238.45], [119.59, 238.48], [119.56, 238.54], [119.55, 238.6], [118.91, 239.86], [118.86, 240.01]] }
@@ -252,6 +253,10 @@ streets:
     - { names: { zh: 斯内尔大道, en: Snell Avenue, es: Snell Avenue }, class: arterial, line: [[122.62, 234.63], [122.69, 234.61], [122.74, 234.58], [122.86, 234.41], [122.92, 234.37], [123.03, 234.18], [123.07, 234.16], [123.13, 234.11], [123.12, 233.44], [123.15, 233.36], [123.12, 233.21], [123.11, 232.57], [123.13, 232.5]] }
     - { names: { zh: 圣特雷莎大道, en: Santa Teresa Boulevard, es: Santa Teresa Boulevard }, class: arterial, line: [[122.25, 233.69], [122.24, 233.38], [122.19, 233.2], [122.19, 233.15], [122.21, 233.09], [122.26, 233.05], [122.71, 232.92], [122.8, 232.91], [123.17, 232.91], [123.25, 232.93], [123.41, 232.94], [123.58, 232.91], [124.06, 232.92], [124.25, 232.91], [124.33, 232.87], [124.86, 232.47], [125.11, 232.4], [125.18, 232.37], [125.21, 232.33], [125.26, 232.22], [125.58, 232.0], [125.74, 231.85], [126.02, 231.52], [126.06, 231.43], [126.1, 231.19], [126.61, 230.54]] }
     - { names: { zh: 科特尔路, en: Cottle Road, es: Cottle Road }, class: arterial, line: [[123.81, 232.46], [123.88, 232.53], [123.94, 232.54], [123.96, 233.5], [123.98, 233.56], [124.03, 233.62]] }
+    # Lucy's quarter in Lucy Chip City District, between her house and the town
+    - { names: { zh: 露西大道, en: Lucy Avenue, es: Avenida Lucy }, class: arterial, line: [[168.155, 145.504], [168.155, 146.777]] }
+    - { names: { zh: 时尚街, en: Fashion Street, es: Calle de la Moda }, class: collector, line: [[167.519, 146.193], [168.756, 146.193]] }
+    - { names: { zh: 清风路, en: Breeze Road, es: Camino de la Brisa }, class: collector, line: [[167.819, 146.777], [168.703, 146.777]] }
 
 # A few metros only: the basin, the border port, the capital and the Bay, whose driverless trains run on timetable with nobody aboard.
 metro:

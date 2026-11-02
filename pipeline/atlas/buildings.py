@@ -19,7 +19,9 @@ bridge, see build.fit_site) and spaceports (launch and landing pads, assembly ha
 military and space facilities: airbases, radars, antenna arrays, air-defence sites, training ranges,
 plants, engine test stands, silo fields, bunkers, launch tracks, camps and heliports, and private
 estates, detention centres, border crossings, vineyards, racing circuits, chip fabs, works (number
-plates, wineries), zoo houses and clinics.
+plates, wineries, toilet-paper recycling and tissue mills), zoo houses, clinics, triangular offices,
+shops, garden apartments, a ship-sized pool, an outdoor air plant, statue squares, fashion buildings
+and a chip-shaped workshop.
 """
 from __future__ import annotations
 
@@ -831,7 +833,10 @@ def _works(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
     """Light industry, gate on -x. plates: a number-plate works, the aluminium coil yard, the blanking and
     embossing hall, the painting line and curing oven, a warehouse with truck docks and the visitor
     centre; winery: the crush pad, a fermentation hall and tank yard, the barrel cellar dug into the slope
-    under a grassed roof, the bottling hall and the tasting room on its terrace with a pond."""
+    under a grassed roof, the bottling hall and the tasting room on its terrace with a pond; recycling: the
+    sealed receiving hall, a grid of digesters, the sterilising tower, a press house and the clean-water
+    ponds; tissue: the long paper-machine hall, the jumbo-roll and converting halls, a warehouse with
+    truck docks and its yard."""
     rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
     parts = [_road((cx - 0.5 * W, cy), (cx - 0.3 * W, cy), 0.008), ("lot", rel(-0.48, -0.45, -0.32, -0.15))]
     if variant == "winery":
@@ -848,6 +853,25 @@ def _works(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
         parts.append(("building", rel(-0.2, 0.32, 0.05, 0.42)))
         parts.append(("paved", rel(0.05, 0.32, 0.18, 0.42)))
         parts.append(("basin", affinity.scale(Point(cx + 0.32 * W, cy + 0.39 * D).buffer(1, quad_segs=16), 0.1 * W, 0.06 * D)))
+        return parts
+    if variant == "recycling":
+        parts.append(("building", rel(-0.3, -0.2, -0.08, 0.2)))
+        gx, gy = np.meshgrid(np.linspace(0.0, 0.2, 4), np.linspace(-0.25, 0.25, 4))
+        r = 0.32 * min(0.067 * W, 0.17 * D)
+        parts += [("tank", Point(cx + x * W, cy + y * D).buffer(r, quad_segs=10)) for x, y in zip(gx.ravel(), gy.ravel())]
+        parts.append(("building", Point(cx + 0.3 * W, cy - 0.3 * D).buffer(0.06 * min(W, D), quad_segs=12)))
+        parts.append(("building", rel(0.26, 0.2, 0.44, 0.4)))
+        parts += [("basin", rel(0.28, y, 0.46, y + 0.12)) for y in (-0.12, 0.04)]
+        parts += [("green", rel(-0.48, 0.3, 0.2, 0.47)), ("green", rel(-0.3, -0.47, 0.2, -0.32))]
+        return parts
+    if variant == "tissue":
+        parts.append(("building", rel(-0.25, -0.08, 0.3, 0.08)))
+        parts.append(("building", rel(-0.25, 0.14, 0.05, 0.4)))
+        parts.append(("building", rel(0.1, 0.14, 0.4, 0.4)))
+        parts.append(("building", rel(0.34, -0.4, 0.46, 0.06)))
+        parts.append(("paved", rel(0.1, -0.44, 0.32, -0.16)))
+        parts += [("lot", rel(0.12, y, 0.3, y + 0.03)) for y in (-0.41, -0.33, -0.25)]
+        parts.append(("green", rel(-0.3, -0.45, 0.06, -0.14)))
         return parts
     parts.append(("stack", rel(-0.3, 0.2, -0.12, 0.45)))
     for x in np.arange(cx - 0.29 * W, cx - 0.13 * W, 0.02):
@@ -1018,10 +1042,118 @@ def _apartments(cx, cy, W, D) -> list[tuple[str, Polygon]]:
     return parts
 
 
+def _lido(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+    """A pool big enough for a ship, entrance on -x: a beach shelving into the water at the -x end, a
+    cruise ship moored mid-pool to a pier from the +y deck, lifeguard towers along both decks, the
+    changing pavilions on -y, the filter plant's tanks and a little lighthouse at the +x end."""
+    rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
+    m = min(W, D)
+    water = rel(-0.39, -0.29, 0.39, 0.29).buffer(0.02 * m)
+    beach = rel(-0.42, -0.32, -0.3, 0.32)
+    parts = [("green", rel(-0.49, -0.49, 0.49, 0.49).difference(rel(-0.45, -0.42, 0.45, 0.42)))]
+    parts.append(("paved", rel(-0.45, -0.42, 0.45, 0.42).difference(water)))
+    parts += [("basin", water.difference(beach)), ("bulk", water.intersection(beach))]
+    x0, x1, b, y = -0.08, 0.22, 0.055, 0.04
+    hull = Polygon([(cx + x0 * W, cy + (y - b) * D), (cx + (x1 - 0.035) * W, cy + (y - b) * D), (cx + x1 * W, cy + y * D),
+                    (cx + (x1 - 0.035) * W, cy + (y + b) * D), (cx + x0 * W, cy + (y + b) * D)])
+    parts.append(("building", hull))
+    parts.append(("paved", rel(0.05, y + b, 0.07, 0.31)))
+    parts += [("building", Point(cx + x * W, cy + s * 0.36 * D).buffer(0.006, quad_segs=4)) for x in np.linspace(-0.25, 0.35, 5) for s in (-1, 1)]
+    parts += [("building", rel(x, -0.48, x + 0.12, -0.43)) for x in (-0.3, -0.1, 0.1)]
+    parts += [("tank", Point(cx + 0.47 * W, cy + y * D).buffer(0.012, quad_segs=8)) for y in (-0.3, -0.18, 0.18, 0.3)]
+    parts.append(("building", Point(cx + 0.41 * W, cy).buffer(0.008, quad_segs=8)))
+    parts += [("lot", rel(-0.49, -0.3, -0.46, 0.3)), _road((cx - 0.5 * W, cy), (cx - 0.45 * W, cy), 0.008)]
+    return parts
+
+
+def _breeze(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+    """An outdoor air plant in a park, gate on -y: a round control hall in the middle, eight purifier
+    towers on a ring joined to it by duct galleries, a ring path, a cooling pond and the car park."""
+    m = min(W, D)
+    parts = [("green", box(cx - 0.49 * W, cy - 0.49 * D, cx + 0.49 * W, cy + 0.49 * D))]
+    ring = Point(cx, cy).buffer(0.36 * m, quad_segs=32)
+    parts.append(("paved", ring.exterior.buffer(0.006)))
+    for k in range(8):
+        a = k * math.pi / 4 + math.pi / 8
+        tx, ty = cx + 0.36 * m * math.cos(a), cy + 0.36 * m * math.sin(a)
+        parts.append(("paved", shapely.LineString([(cx, cy), (tx, ty)]).buffer(0.005)))
+        parts.append(("building", Point(tx, ty).buffer(0.05 * m, quad_segs=12)))
+    parts.append(("building", Point(cx, cy).buffer(0.13 * m, quad_segs=24)))
+    parts.append(("basin", affinity.scale(Point(cx + 0.4 * W, cy + 0.4 * D).buffer(1, quad_segs=16), 0.06 * W, 0.05 * D)))
+    parts += [("lot", box(cx - 0.2 * W, cy - 0.48 * D, cx + 0.2 * W, cy - 0.43 * D)), _road((cx, cy - 0.5 * D), (cx, cy - 0.43 * D), 0.006)]
+    return parts
+
+
+def _square(cx, cy, W, D, variant) -> list[tuple[str, Polygon]]:
+    """A town square with a statue on a pedestal in the middle. round: a paved circle round a ring
+    fountain, flower beds in the four quarters and a half-ring colonnade on +y; square: a paved square
+    with four lawns, a fountain at each corner of the pedestal and arcades along +y and -y."""
+    m = min(W, D)
+    rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
+    disc = lambda r: Point(cx, cy).buffer(r * m, quad_segs=32)
+    parts = [("green", rel(-0.49, -0.49, 0.49, 0.49))]
+    if variant == "square":
+        parts.append(("paved", rel(-0.42, -0.42, 0.42, 0.42).difference(shapely.union_all(
+            [rel(x, y, x + 0.22, y + 0.22) for x in (-0.36, 0.14) for y in (-0.36, 0.14)]))))
+        parts += [("basin", Point(cx + x * W, cy + y * D).buffer(0.035 * m, quad_segs=12)) for x in (-0.09, 0.09) for y in (-0.09, 0.09)]
+        parts.append(("building", rel(-0.035, -0.035, 0.035, 0.035)))
+        parts += [("building", rel(-0.4, y, 0.4, y + 0.04)) for y in (-0.48, 0.44)]
+        return parts
+    parts.append(("paved", disc(0.43).difference(shapely.union_all([disc(0.12)] + [
+        Polygon([(cx, cy)] + [(cx + 0.34 * m * math.cos(a), cy + 0.34 * m * math.sin(a)) for a in np.linspace(q + 0.25, q + math.pi / 2 - 0.25, 8)]).difference(disc(0.2))
+        for q in (0, math.pi / 2, math.pi, 1.5 * math.pi)]))))
+    parts += [("green", Polygon([(cx, cy)] + [(cx + 0.34 * m * math.cos(a), cy + 0.34 * m * math.sin(a)) for a in np.linspace(q + 0.25, q + math.pi / 2 - 0.25, 8)]).difference(disc(0.2)))
+              for q in (0, math.pi / 2, math.pi, 1.5 * math.pi)]
+    parts.append(("basin", disc(0.12).difference(disc(0.06))))
+    parts.append(("building", disc(0.04)))
+    arc = Polygon([(cx + r * m * math.cos(a), cy + r * m * math.sin(a)) for r, seq in ((0.47, np.linspace(0.2, math.pi - 0.2, 24)), (0.44, np.linspace(math.pi - 0.2, 0.2, 24))) for a in seq])
+    parts.append(("building", arc))
+    return parts
+
+
+def _fashion(cx, cy, W, D, variant) -> list[tuple[str, Polygon]]:
+    """Fashion buildings on a lawn, entrance on -x. studio: a slim square tower with a low atelier wing
+    and a fabric store; fitting: a tower of three stacked floors each turned a little further, like a
+    model turning in front of the mirror; show: a long runway hall with the backstage block at its head,
+    a red-carpet forecourt and the car park."""
+    rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
+    parts = [("green", rel(-0.49, -0.49, 0.49, 0.49))]
+    if variant == "fitting":
+        floor = rel(-0.24, -0.24, 0.24, 0.24)
+        parts.append(("building", shapely.union_all([affinity.rotate(floor, a, origin=(cx, cy)) for a in (0, 15, 30)])))
+        parts.append(("paved", rel(-0.48, -0.06, -0.36, 0.06)))
+        return parts
+    if variant == "show":
+        parts.append(("building", rel(-0.3, -0.06, 0.4, 0.06).union(rel(-0.44, -0.3, -0.26, 0.3))))
+        parts += [("building", rel(-0.2, y, 0.32, y + 0.12)) for y in (-0.3, 0.18)]
+        parts += [("paved", rel(0.4, -0.04, 0.48, 0.04)), ("lot", rel(-0.2, -0.47, 0.32, -0.36))]
+        return parts
+    parts.append(("building", rel(-0.2, -0.2, 0.2, 0.2)))
+    parts.append(("building", rel(0.2, -0.42, 0.44, -0.1)))
+    parts.append(("building", rel(-0.44, 0.24, -0.16, 0.44)))
+    parts.append(("paved", rel(-0.48, -0.06, -0.2, 0.06)))
+    return parts
+
+
+def _chip(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+    """A building drawn as a chip package: a square body with rows of pins on all four sides, in a
+    garden with a paved forecourt on -x."""
+    m = min(W, D)
+    rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
+    parts = [("green", rel(-0.49, -0.49, 0.49, 0.49)), ("building", box(cx - 0.25 * m, cy - 0.25 * m, cx + 0.25 * m, cy + 0.25 * m))]
+    pin = lambda a, b, c, d: box(min(a, c), min(b, d), max(a, c), max(b, d))
+    for t in np.linspace(-0.2, 0.2, 6):
+        for s in (-1, 1):
+            parts.append(("building", pin(cx + (t - 0.012) * m, cy + s * 0.25 * m, cx + (t + 0.012) * m, cy + s * 0.32 * m)))
+            parts.append(("building", pin(cx + s * 0.25 * m, cy + (t - 0.012) * m, cx + s * 0.32 * m, cy + (t + 0.012) * m)))
+    parts.append(("paved", rel(-0.48, -0.08, -0.36, 0.08)))
+    return parts
+
+
 def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=(), variant=None) -> tuple[Polygon, list[tuple[str, Polygon]]]:
     """Site outline and parts [(kind, polygon)] of a landmark; kind is building, or for transport
     and military facilities runway, pad, paved (aprons, taxiways, quays, piers), basin (dug harbour
-    water, pools), breakwater, stack (containers), bulk (stockpiles), tank, dish (antennas and
+    water, pools), breakwater, stack (containers), bulk (stockpiles, a pool's sand beach), tank, dish (antennas and
     radomes), lot (vehicle parking), rail or track (an electromagnetic launch guideway, a racing circuit),
     green (lawns, gardens, paddocks), wall (walls and fences) and vine_red / vine_white (rows of vines).
     Local x points along `angle`; the front of a city landmark is at -x, a port faces the sea on +y.
@@ -1089,6 +1221,16 @@ def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=
         parts = _retail(cx, cy, W, D, variant or "supermarket")
     elif layout == "apartments":
         parts = _apartments(cx, cy, W, D)
+    elif layout == "lido":
+        parts = _lido(cx, cy, W, D)
+    elif layout == "breeze":
+        parts = _breeze(cx, cy, W, D)
+    elif layout == "square":
+        parts = _square(cx, cy, W, D, variant or "round")
+    elif layout == "fashion":
+        parts = _fashion(cx, cy, W, D, variant or "studio")
+    elif layout == "chip":
+        parts = _chip(cx, cy, W, D)
     elif layout == "airport":
         parts = _airport(site, cx, cy, W, D, rng)
     elif layout == "spaceport":
