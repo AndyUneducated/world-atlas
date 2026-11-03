@@ -97,8 +97,8 @@ features:
       en: Kilasiru River
       art-x-ivuran: Kilasiru
     notes:
-      zh: "基拉努市的河流，全长约 250 公里，流域面积约 2.2 万平方公里，伊武兰语意为「明亮的河」。河流从哈努帕拉高原东南缘跌落，流过乌拉帕区的果园和山村，在基拉湾入海，是基拉努半导体产业园的水源之一。产业园的工程师和上游的果农每季开一次「水的会」，商量用水和护林，散会时果农总会送一筐刚摘的山竹，工程师们说这是全年最受欢迎的会议。"
-      en: "The river of Kilanu City, about 250 km long with a basin of about 22,000 km²; in Ivuran the name means 'bright river'. It drops from the south-eastern edge of the Hanupala Plateau, flows past the orchards and hill villages of Urapa District and enters Kila Bay, and is one of the sources of water for Kilanu's semiconductor park. The industrial park's engineers and the upstream fruit growers hold a \"water meeting\" every season to settle water use and forest care, the growers always bring a basket of fresh mangosteens, and the engineers call it the most popular meeting of the year."
+      zh: "基拉努的河流，全长约 250 公里，流域面积约 2.2 万平方公里，伊武兰语意为「明亮的河」。河流从哈努帕拉高原东南缘跌落，流过乌拉帕区的果园和山村，在基拉湾入海，是基拉努半导体产业园的水源之一。产业园的工程师和上游的果农每季开一次「水的会」，商量用水和护林，散会时果农总会送一筐刚摘的山竹，工程师们说这是全年最受欢迎的会议。"
+      en: "The river of Kilanu, about 250 km long with a basin of about 22,000 km²; in Ivuran the name means 'bright river'. It drops from the south-eastern edge of the Hanupala Plateau, flows past the orchards and hill villages of Urapa District and enters Kila Bay, and is one of the sources of water for Kilanu's semiconductor park. The industrial park's engineers and the upstream fruit growers hold a \"water meeting\" every season to settle water use and forest care, the growers always bring a basket of fresh mangosteens, and the engineers call it the most popular meeting of the year."
   - id: nat_s81c1h
     subtype: river
     status: generated
@@ -108,8 +108,8 @@ features:
       en: Tovusiru River
       art-x-ivuran: Tovusiru
     notes:
-      zh: "基拉努市乌拉帕区东部的河流，全长约 260 公里，流域面积约 3 万平方公里，伊武兰语意为「海龟之河」，河口两侧的沙滩是海龟产卵地。中上游的河谷里有小水电站和果园，村庄建在高出洪水线的台地上。海龟上岸产卵的夜里，河口的村庄会熄掉海边的灯，大人们说这是在「给海龟让路」，孩子们则趴在窗边，偷偷数沙滩上爬过的黑影。"
-      en: "A river in the east of Urapa District in Kilanu City, about 260 km long with a basin of about 30,000 km²; in Ivuran the name means 'river of turtles', after the nesting beaches on either side of its mouth. Small hydro stations and orchards fill its upper valleys, and the villages stand on terraces above the flood line. On nights when the turtles come ashore to lay, the villages at the river mouth switch off their seafront lights, \"making way for the turtles\" as the grown-ups put it, while the children lie at the windows secretly counting the dark shapes crawling up the sand."
+      zh: "基拉努乌拉帕区东部的河流，全长约 260 公里，流域面积约 3 万平方公里，伊武兰语意为「海龟之河」，河口两侧的沙滩是海龟产卵地。中上游的河谷里有小水电站和果园，村庄建在高出洪水线的台地上。海龟上岸产卵的夜里，河口的村庄会熄掉海边的灯，大人们说这是在「给海龟让路」，孩子们则趴在窗边，偷偷数沙滩上爬过的黑影。"
+      en: "A river in the east of Urapa District in Kilanu, about 260 km long with a basin of about 30,000 km²; in Ivuran the name means 'river of turtles', after the nesting beaches on either side of its mouth. Small hydro stations and orchards fill its upper valleys, and the villages stand on terraces above the flood line. On nights when the turtles come ashore to lay, the villages at the river mouth switch off their seafront lights, \"making way for the turtles\" as the grown-ups put it, while the children lie at the windows secretly counting the dark shapes crawling up the sand."
   - id: nat_h8fa19
     subtype: river
     status: generated
