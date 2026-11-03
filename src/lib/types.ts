@@ -331,7 +331,8 @@ export interface RailTech {
   design_speed_kmh?: number;
   gauge_mm?: number;
   electrification?: string;
-  /** Maglev lines: how the train floats and what drives it, instead of gauge and power supply. */
+  /** Lines in a vacuum tube: the tube; then how the train floats and what drives it, instead of gauge and power supply. */
+  tube?: Record<Lang, string>;
   levitation?: Record<Lang, string>;
   propulsion?: Record<Lang, string>;
   signalling?: string;
