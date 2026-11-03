@@ -365,14 +365,13 @@ export function buildStyle(opts: {
       id: "district-line",
       type: "line",
       source: "divisions",
-      minzoom: 7.4,
       filter: isSubtype("borough"),
-      layout: { visibility: visible(layers.boundaries), "line-join": "round" },
+      layout: { visibility: visible(layers.boundaries && layers.districtLines), "line-join": "round" },
       paint: {
         "line-color": m.districtLine.color,
-        "line-width": ["interpolate", ["linear"], ["zoom"], 7.4, 0.4, 12, m.districtLine.width * 1.6],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.3, 7.4, 0.5, 12, m.districtLine.width * 1.6],
         "line-dasharray": [3, 2],
-        "line-opacity": ["interpolate", ["linear"], ["zoom"], 7.4, 0, 8, 1],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 4, 0.45, 8, 1],
       },
     },
   );
