@@ -148,8 +148,8 @@ features:
     detect: { kind: island, at_km: [260.8, 400.8] }
     names: { zh: 帕卡尔尤阿克岛, en: Pakkarjuaq Island, art-x-tavrunaq: Pakkarjuaq }
     notes:
-      zh: "伊卢克帕卡群岛的主岛，面积约 3 万平方公里，是领地第三大岛。地表是冰川磨平的古老岩盘，被上千个湖泊和曲折的水道切得支离破碎，地图上看去像一块摔碎的镜子，岛名意为「破碎的大岛」。全岛最高处不到 500 米，属基卢克图阿尔市伊卢克帕卡区，居民散居在海岸和湖边的渔猎村落里。岛上没有公路，夏天坐船、冬天坐雪橇，湖和水道封冻以后反而最好走。本地人说岛上的路「冬天有一千条，夏天一条也没有」。"
-      en: "The main island of the Illuqpakka Islands, about 30,000 km², the third largest island in the territory. Its surface is ancient bedrock planed by the ice and broken up by more than a thousand lakes and winding channels, so that on the map it looks like a shattered mirror; its name means \"great broken island\". It rises to less than 500 m and belongs to Illuqpakka District of Kiluktuar City, its people scattered in fishing and hunting villages along the coast and lakeshores. There are no roads: people travel by boat in summer and by sled in winter, when the frozen lakes and channels make travel easiest. Locals say the island has \"a thousand roads in winter and not one in summer\"."
+      zh: "伊卢克帕卡群岛的主岛，面积约 3 万平方公里，是领地第三大岛。地表是冰川磨平的古老岩盘，被上千个湖泊和曲折的水道切得支离破碎，地图上看去像一块摔碎的镜子，岛名意为「破碎的大岛」。全岛最高处不到 500 米，属基卢克图阿尔原住民自治区伊卢克帕卡区，居民散居在海岸和湖边的渔猎村落里。岛上没有公路，夏天坐船、冬天坐雪橇，湖和水道封冻以后反而最好走。本地人说岛上的路「冬天有一千条，夏天一条也没有」。"
+      en: "The main island of the Illuqpakka Islands, about 30,000 km², the third largest island in the territory. Its surface is ancient bedrock planed by the ice and broken up by more than a thousand lakes and winding channels, so that on the map it looks like a shattered mirror; its name means \"great broken island\". It rises to less than 500 m and belongs to Illuqpakka District of the Kiluktuar Indigenous Autonomous Region, its people scattered in fishing and hunting villages along the coast and lakeshores. There are no roads: people travel by boat in summer and by sled in winter, when the frozen lakes and channels make travel easiest. Locals say the island has \"a thousand roads in winter and not one in summer\"."
   - id: nat_f63ac7
     subtype: island
     status: generated
@@ -362,32 +362,32 @@ features:
     islands: [nat_5hdtr2, nat_r5e7sa, nat_2vhfdf]
     names: { zh: 纳卢维特群岛, en: Naalluviit Islands, art-x-tavrunaq: Naalluviit }
     notes:
-      zh: "北岸外海的群岛，由纳卢尤阿克岛、普塔克岛和阿卡尼尔维克岛组成，总面积约 8500 平方公里，属基卢克图阿尔市纳卢维特区，是领地极地科研的基地。每年夏天科考船从这里出发去北方的海冰，岛上的研究员说，他们一年只有两个季节：「出海」和「等出海」。"
-      en: "An archipelago off the north coast, made up of Naallujuaq Island, Puttaq Isle and Aqqanirvik Isle, about 8,500 km² in all, forming the Naalluviit District of Kiluktuar City and the base of the territory's polar research. Every summer the research ship sets out from here for the northern sea ice, and the island's researchers say they have only two seasons: \"at sea\" and \"waiting to go to sea\"."
+      zh: "北岸外海的群岛，由纳卢尤阿克岛、普塔克岛和阿卡尼尔维克岛组成，总面积约 8500 平方公里，属基卢克图阿尔原住民自治区纳卢维特区，是领地极地科研的基地。每年夏天科考船从这里出发去北方的海冰，岛上的研究员说，他们一年只有两个季节：「出海」和「等出海」。"
+      en: "An archipelago off the north coast, made up of Naallujuaq Island, Puttaq Isle and Aqqanirvik Isle, about 8,500 km² in all, forming the Naalluviit District of the Kiluktuar Indigenous Autonomous Region and the base of the territory's polar research. Every summer the research ship sets out from here for the northern sea ice, and the island's researchers say they have only two seasons: \"at sea\" and \"waiting to go to sea\"."
   - id: nat_8f01h7
     subtype: archipelago
     status: generated
     islands: [nat_99nd2b, nat_sr3rmn, nat_b3kk8p, nat_ymb49v, nat_s25e8t, nat_tfkcz1]
     names: { zh: 西尔米乌维特群岛, en: Sirmiuviit Islands, art-x-tavrunaq: Sirmiuviit }
     notes:
-      zh: "领地东北海上的群岛，由基库维克岛、帕利乌维克岛、基库利克岛、图利乌维克岛、乌维库卢克岛和西尔米奥拉岛组成，总面积约 6.6 万平方公里，是领地第二大的群岛，仅次于更北面的皮鲁库维特群岛。群岛几乎无人居住，属西尔米瓦克市西尔米乌维特冰盖管理区。主岛基库维克岛的南北两头各有一座冰帽，冰川从山上一直流进海里。群岛上只有冰川、冰崖和冰山，偶尔有科考队乘飞机上岛，他们说这里安静得「连自己的心跳都听得见」。"
-      en: "An archipelago in the north-east of the territory, made up of Kiiquviq, Paaliuviq, Kiqqulik, Tulliuviq, Uviqkuluk and Sirmiaulla islands, about 66,000 km² in all, the second largest archipelago in the territory after the Pirrukuviit Islands further north. It is almost uninhabited and forms the Sirmiuviit Islands Ice Cap Administration Zone of Sirmivak City. The main island, Kiiquviq, has an ice cap at each end, and its glaciers flow from the mountains straight into the sea. The islands hold nothing but glaciers, ice cliffs and bergs; the occasional research team flies in, and they say it is so quiet \"you can hear your own heartbeat\"."
+      zh: "领地东北海上的群岛，由基库维克岛、帕利乌维克岛、基库利克岛、图利乌维克岛、乌维库卢克岛和西尔米奥拉岛组成，总面积约 6.6 万平方公里，是领地第二大的群岛，仅次于更北面的皮鲁库维特群岛。群岛几乎无人居住，属西尔米瓦克自由邦西尔米乌维特冰盖管理区。主岛基库维克岛的南北两头各有一座冰帽，冰川从山上一直流进海里。群岛上只有冰川、冰崖和冰山，偶尔有科考队乘飞机上岛，他们说这里安静得「连自己的心跳都听得见」。"
+      en: "An archipelago in the north-east of the territory, made up of Kiiquviq, Paaliuviq, Kiqqulik, Tulliuviq, Uviqkuluk and Sirmiaulla islands, about 66,000 km² in all, the second largest archipelago in the territory after the Pirrukuviit Islands further north. It is almost uninhabited and forms the Sirmiuviit Islands Ice Cap Administration Zone of the Free State of Sirmivak. The main island, Kiiquviq, has an ice cap at each end, and its glaciers flow from the mountains straight into the sea. The islands hold nothing but glaciers, ice cliffs and bergs; the occasional research team flies in, and they say it is so quiet \"you can hear your own heartbeat\"."
   - id: nat_yfsb4k
     subtype: archipelago
     status: generated
     islands: [nat_gny1z0, nat_pjr6a4, nat_mwt1e8]
     names: { zh: 皮鲁库维特群岛, en: Pirrukuviit Islands, art-x-tavrunaq: Pirrukuviit }
     notes:
-      zh: "领地最北的群岛，由皮鲁克尔尤阿克岛、普拉乌维克岛和贾利尤阿克岛组成，总面积约 13.9 万平方公里，是领地面积最大的群岛，群岛名意为「群峰之岛」。全境是西尔米瓦克市皮鲁库维特生态保护区，常住的只有巡护员、科研人员和登山营地的工作人员。主岛的皮鲁克尔尤伊特山脉有领地第二高的山峰和世界第二大的冰原，两座附属岛一东一西，一座是鸟岛，一座是风岛。群岛北面就是终年封冻的北冰洋，夏季的包机从西尔米卡尔维克起飞，要飞一个多小时才能看见山顶的冰原。"
-      en: "The northernmost archipelago of the territory, made up of Pirrukrjuaq, Pullauviq and Jaalijuaq islands, about 139,000 km² in all, the largest archipelago in the territory; its name means \"islands of peaks\". All of it is the Pirrukuviit Nature Reserve of Sirmivak City, whose only residents are rangers, researchers and the staff of the climbing camps. The Pirrukrjuit Mountains of the main island hold the territory's second highest peak and the second largest icefield in the world, and the two lesser islands lie one to the west and one to the east, one an island of birds and the other an island of wind. North of the islands lies the Arctic Ocean, frozen all year; the summer charters from Sirmiqarvik fly for more than an hour before the icefields on the summits come into view."
+      zh: "领地最北的群岛，由皮鲁克尔尤阿克岛、普拉乌维克岛和贾利尤阿克岛组成，总面积约 13.9 万平方公里，是领地面积最大的群岛，群岛名意为「群峰之岛」。全境是西尔米瓦克自由邦皮鲁库维特生态保护区，常住的只有巡护员、科研人员和登山营地的工作人员。主岛的皮鲁克尔尤伊特山脉有领地第二高的山峰和世界第二大的冰原，两座附属岛一东一西，一座是鸟岛，一座是风岛。群岛北面就是终年封冻的北冰洋，夏季的包机从西尔米卡尔维克起飞，要飞一个多小时才能看见山顶的冰原。"
+      en: "The northernmost archipelago of the territory, made up of Pirrukrjuaq, Pullauviq and Jaalijuaq islands, about 139,000 km² in all, the largest archipelago in the territory; its name means \"islands of peaks\". All of it is the Pirrukuviit Nature Reserve of the Free State of Sirmivak, whose only residents are rangers, researchers and the staff of the climbing camps. The Pirrukrjuit Mountains of the main island hold the territory's second highest peak and the second largest icefield in the world, and the two lesser islands lie one to the west and one to the east, one an island of birds and the other an island of wind. North of the islands lies the Arctic Ocean, frozen all year; the summer charters from Sirmiqarvik fly for more than an hour before the icefields on the summits come into view."
   - id: nat_bk19x1
     subtype: archipelago
     status: generated
     islands: [nat_ac00q9, nat_f63ac7]
     names: { zh: 伊卢克帕卡群岛, en: Illuqpakka Islands, art-x-tavrunaq: Illuqpakka }
     notes:
-      zh: "纳卢维特群岛以北海上的群岛，由帕卡尔尤阿克岛和伊卢克库卢克岛组成，总面积约 3.1 万平方公里，构成基卢克图阿尔市的伊卢克帕卡区，群岛名意为「碎湖」。岛上是冰川磨平的低矮岩盘，湖泊、水道和海湾交错，最高处不到 500 米。居民靠捕鱼、狩猎和采矿为生，夏天乘船、冬天乘雪橇在湖与湖之间往来。从飞机上往下看，整片群岛像撒在海上的一把碎玻璃，阳光一照满眼都是反光。"
-      en: "An archipelago in the sea north of the Naalluviit Islands, made up of Pakkarjuaq Island and Illuqkuluk Isle, about 31,000 km² in all, forming Illuqpakka District of Kiluktuar City; its name means \"broken lakes\". The islands are low bedrock planed by the ice, a maze of lakes, channels and inlets, rising to less than 500 m. People live by fishing, hunting and mining, travelling between the lakes by boat in summer and by sled in winter. From the air the whole archipelago looks like a handful of broken glass scattered on the sea, flashing everywhere in the sun."
+      zh: "纳卢维特群岛以北海上的群岛，由帕卡尔尤阿克岛和伊卢克库卢克岛组成，总面积约 3.1 万平方公里，构成基卢克图阿尔原住民自治区的伊卢克帕卡区，群岛名意为「碎湖」。岛上是冰川磨平的低矮岩盘，湖泊、水道和海湾交错，最高处不到 500 米。居民靠捕鱼、狩猎和采矿为生，夏天乘船、冬天乘雪橇在湖与湖之间往来。从飞机上往下看，整片群岛像撒在海上的一把碎玻璃，阳光一照满眼都是反光。"
+      en: "An archipelago in the sea north of the Naalluviit Islands, made up of Pakkarjuaq Island and Illuqkuluk Isle, about 31,000 km² in all, forming Illuqpakka District of the Kiluktuar Indigenous Autonomous Region; its name means \"broken lakes\". The islands are low bedrock planed by the ice, a maze of lakes, channels and inlets, rising to less than 500 m. People live by fishing, hunting and mining, travelling between the lakes by boat in summer and by sled in winter. From the air the whole archipelago looks like a handful of broken glass scattered on the sea, flashing everywhere in the sun."
   - id: nat_75d2jp
     subtype: archipelago
     status: generated

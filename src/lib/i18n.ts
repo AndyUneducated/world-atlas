@@ -338,6 +338,9 @@ const SPECIAL_LABELS: Record<string, Record<Lang, string>> = {
   ice_cap_zone: { zh: "冰盖管理区", en: "Ice cap zone" },
   mining_zone: { zh: "矿区管理区", en: "Mining zone" },
   commune: { zh: "公社", en: "Commune" },
+  free_state: { zh: "自由邦", en: "Free state" },
+  special_city: { zh: "特别自治市", en: "Special autonomous city" },
+  commonwealth: { zh: "联合邦", en: "Commonwealth" },
   national_park: { zh: "国家公园管理区", en: "National park" },
   military_zone: { zh: "军事管理区", en: "Military zone" },
 };

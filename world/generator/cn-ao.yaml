@@ -269,12 +269,12 @@ streets:
     div_k66r1n: { style: planned, skyways_km: 0.8, mix: { slabs: 1.2, industrial: 1.2 } }        # 考卢尤阿克区：钻石加工
     div_qaxzqj: { style: planned, detail_km2: 15, mix: { industrial: 1.8 } }                 # 伊卢克萨特区：提锂厂
     div_m541k8: { style: planned, detail_km2: full, mix: { industrial: 2.4, slabs: 1.0 } }       # 乌库利特矿区管理区：矿工镇
-    # 基卢克图阿尔市
+    # 基卢克图阿尔原住民自治区
     div_anjqnh: { style: mixed, skyways_km: 1.0, mix: { slabs: 1.2, perimeter: 1.0 } }           # 基卢基亚克区
     div_m0b417: { style: planned, detail_km2: 20, mix: { industrial: 1.4, slabs: 1.0 } }     # 西尔米努卡区：破冰船基地
     div_xvm6y0: { style: mixed }                                                                 # 帕基卢克区
     div_rcnhch: { style: planned, detail_km2: full, mix: { civic: 1.6, houses: 1.2 } }           # 纳卢维特区：研究所
-    # 西尔米瓦克市
+    # 西尔米瓦克自由邦
     div_73wt00: { style: organic, detail_km2: 25, skyways_km: 0.8, mix: { houses: 1.6, podium: 1.0 } }    # 西尔米卡尔维克区：冰川旅游
     div_3j7f20: { style: mixed, detail_km2: 12, mix: { civic: 1.2, houses: 1.6 } }           # 陶瓦尼克区：观测站
     # 乌维克萨克市
@@ -327,8 +327,8 @@ layout:
     div_dfmj5f: [455, 114]   # 乌库拉克市
     div_aggzhy: [95, 172]    # 图利瓦克市
     div_djze5f: [352, 172]   # 考尔尼克市
-    div_dk2gh7: [282, 248]   # 基卢克图阿尔市
-    div_d48kz7: [500, 250]   # 西尔米瓦克市
+    div_dk2gh7: [282, 248]   # 基卢克图阿尔原住民自治区
+    div_d48kz7: [500, 250]   # 西尔米瓦克自由邦
     div_eqzm0n: [640, 170]   # 乌维克萨克市
     div_8c2skk: [225, 192]   # 塔夫鲁利特原住民自治区
   districts:
