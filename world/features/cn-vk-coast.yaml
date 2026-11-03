@@ -10,7 +10,7 @@ features:
     detect: { kind: island, at_km: [148.2, 130.2] }
     names: { zh: 长船岛, en: Longship Island, art-x-viking: Langskipinsel, art-x-buckham: Isola Navelunga }
     notes:
-      zh: 维京群岛最大的岛，面积四万一千多平方公里，狭长如一艘长船，船首朝东北指向北维京岛，船尾朝西南伸向暖泉岛与阿夫琳岛之间的水道。谢尔海姆山像倒扣的船龙骨纵贯全岛，主峰斯塔文廷峰海拔一千二百九十多米，是岛上最高点。首府长船建在船首一带的长船湾畔，古城里有维京王厅遗址和长船博物馆，对岸的汇金区是群岛的金融中心，北岬有长船国际机场和群岛大学。维长高速和维长城际铁路以海底隧道直通北维京岛的维京港，长白、阿克斯岛、锚舵、群岛和西格利岛五条跨海高速从这里通往其他大岛，长船岛因此是整个群岛的交通中心。
+      zh: 维京群岛最大的岛，面积四万一千多平方公里，狭长如一艘长船，船首朝东北指向北维京岛，船尾朝西南伸向暖泉岛与阿夫琳岛之间的水道。谢尔海姆山像倒扣的船龙骨纵贯全岛，主峰斯塔文廷峰海拔一千二百九十多米，是岛上最高点。首府长船建在船首一带的长船湾畔，古城里有维京王厅遗址和长船博物馆，对岸的汇金区是群岛的金融中心，北岬有长船国际机场和群岛大学。维长高速和维长磁悬浮以海底隧道直通北维京岛的维京港，长白、阿克斯岛、锚舵、群岛和西格利岛五条跨海高速从这里通往其他大岛，长船岛因此是整个群岛的交通中心。
       en: "The largest of the Viking Islands, more than 41,000 km², long and narrow like a longship, its bow pointing north-east at North Viking Island and its stern reaching south-west towards the waters between Warmspring and Aveline islands. The Kjølheim Hills run its length like an upturned keel, and their main summit, Stavntind at a little under 1,300 m, is the island's highest point. The capital, Longship, stands on Longship Bay near the bow: the old town has the Viking Hall Ruins and the Longship Museum, Goldmark across the bay is the islands' financial centre, and North Cape has Longship International Airport and the University of the Islands. The Viking Port–Longship Expressway and Intercity Railway run under the sea to Viking Port on North Viking Island, and five sea-crossing expressways lead from here to the other large islands, making Longship Island the hub of the whole archipelago."
   - id: nat_2p2v9m
     subtype: island
@@ -264,8 +264,8 @@ features:
     detect: { kind: bay, at_km: [190.8, 177.2] }
     names: { zh: 斯塔文维克湾, en: Stavnvik Bay, art-x-viking: Stavnvik, art-x-buckham: Baia di Prua }
     notes:
-      zh: 长船岛船首尖端的海湾，面积一百一十多平方公里，属长船市北岬区，面向北维京岛。海湾就在斯塔文内斯岬旁，是长船岛离维京港最近的海岸，维长城际铁路的维京海底铁路隧道在斯塔文内斯岬出地面，以高架桥登陆，再经北岬区的地面线进入长船。湾内的海岸多是岩石和砾石滩，冬季北风从海峡上直灌入湾，浪大风急。斯塔文内斯岬上的观景台面朝开阔的海峡，可以俯瞰整个斯塔文维克湾，晴天时海天一色，海鸟在湾外的礁石上盘旋。
-      en: The bay at the very tip of Longship Island's bow, a little over 110 km², in North Cape District of Longship, facing North Viking Island. It lies beside Stavnnes, the stretch of Longship's coast nearest Viking Port, where the Viking Undersea Rail Tunnel of the Viking Port–Longship Intercity Railway surfaces and comes ashore on a viaduct before running across North Cape on the surface into Longship. Its shores are mostly rock and shingle, and in winter the north wind drives straight in off the strait, raising heavy seas. The viewpoint on Stavnnes faces the open strait and looks down over the whole bay; on a clear day sea and sky merge, and seabirds wheel over the skerries outside it.
+      zh: 长船岛船首尖端的海湾，面积一百一十多平方公里，属长船市北岬区，面向北维京岛。海湾就在斯塔文内斯岬旁，是长船岛离维京港最近的海岸，维长磁悬浮的维京海底铁路隧道在斯塔文内斯岬出地面，以高架桥登陆，再经北岬区的地面线进入长船。湾内的海岸多是岩石和砾石滩，冬季北风从海峡上直灌入湾，浪大风急。斯塔文内斯岬上的观景台面朝开阔的海峡，可以俯瞰整个斯塔文维克湾，晴天时海天一色，海鸟在湾外的礁石上盘旋。
+      en: The bay at the very tip of Longship Island's bow, a little over 110 km², in North Cape District of Longship, facing North Viking Island. It lies beside Stavnnes, the stretch of Longship's coast nearest Viking Port, where the Viking Undersea Rail Tunnel of the Viking Port–Longship Maglev surfaces and comes ashore on a viaduct before running across North Cape on the surface into Longship. Its shores are mostly rock and shingle, and in winter the north wind drives straight in off the strait, raising heavy seas. The viewpoint on Stavnnes faces the open strait and looks down over the whole bay; on a clear day sea and sky merge, and seabirds wheel over the skerries outside it.
   - id: nat_r2hpck
     subtype: bay
     status: generated
@@ -362,8 +362,8 @@ features:
     detect: { kind: cape, at_km: [188.2, 181.2] }
     names: { zh: 斯塔文内斯岬, en: Stavnnes, art-x-viking: Stavnnes, art-x-buckham: Capo di Prua }
     notes:
-      zh: 长船岛的东北端，即「船首」，属长船市北岬区，是长船岛离北维京岛维京港最近的地方。维长城际铁路的维京海底铁路隧道长一百四十公里，从维京港出发穿越海峡，在斯塔文内斯岬出地面，以高架桥登陆，再经北岬区的地面线到长船站；铁路选择在这里登陆，是为了尽量缩短海底段。岬上的观景台面朝斯塔文维克湾和北面开阔的海峡，晴天时海天一色，列车从隧道口驶出的瞬间是铁路迷喜爱的拍摄画面。岬角是北岬区海岸风景的一部分，周围的山坡上有牧羊草场和零星的渔屋。
-      en: The north-eastern tip of Longship Island, its "prow", in North Cape District of Longship, and the point of the island nearest Viking Port on North Viking Island. The Viking Undersea Rail Tunnel of the Viking Port–Longship Intercity Railway runs 140 km from Viking Port beneath the strait and surfaces at Stavnnes, coming ashore on a viaduct before crossing North Cape on the surface to Longship station; the railway lands here to keep the undersea section as short as possible. The viewpoint on the point faces Stavnvik Bay and the open strait to the north, sea and sky merging on clear days, and a train bursting out of the tunnel portal is a favourite shot for railway photographers. The cape is part of North Cape's coastline, with sheep pastures and a few fishermen's huts on the slopes around it.
+      zh: 长船岛的东北端，即「船首」，属长船市北岬区，是长船岛离北维京岛维京港最近的地方。维长磁悬浮的维京海底铁路隧道长一百四十公里，从维京港出发穿越海峡，在斯塔文内斯岬出地面，以高架桥登陆，再经北岬区的地面线到长船站；磁悬浮选择在这里登陆，是为了尽量缩短海底段。岬上的观景台面朝斯塔文维克湾和北面开阔的海峡，晴天时海天一色，列车在管道里看不见，但每当一班车驶出隧道口，管道上的灯带就沿着高架桥一路亮向长船，这一瞬间是铁路迷喜爱的拍摄画面。岬角是北岬区海岸风景的一部分，周围的山坡上有牧羊草场和零星的渔屋。
+      en: The north-eastern tip of Longship Island, its "prow", in North Cape District of Longship, and the point of the island nearest Viking Port on North Viking Island. The Viking Undersea Rail Tunnel of the Viking Port–Longship Maglev runs 140 km from Viking Port beneath the strait and surfaces at Stavnnes, coming ashore on a viaduct before crossing North Cape on the surface to Longship station; the maglev lands here to keep the undersea section as short as possible. The viewpoint on the point faces Stavnvik Bay and the open strait to the north, sea and sky merging on clear days; the trains cannot be seen inside the tube, but each time one leaves the tunnel portal the light strip along the tube runs on along the viaduct towards Longship, a favourite shot for railway photographers. The cape is part of North Cape's coastline, with sheep pastures and a few fishermen's huts on the slopes around it.
   - id: nat_1da50f
     subtype: cape
     status: generated

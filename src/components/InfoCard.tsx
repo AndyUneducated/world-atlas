@@ -271,6 +271,7 @@ function TechSection({ entity, lang }: { entity: Entity; lang: Lang }) {
   if (tech.gauge_mm) rows.push([t("gauge", lang), `${formatNumber(tech.gauge_mm, lang)} mm${tech.gauge_mm === 1435 ? ` · ${t("standardGauge", lang)}` : ""}`]);
   if (tech.electrification) rows.push([t("power", lang), `${tech.electrification} · ${t("overhead", lang)}`]);
   if (tech.power) rows.push([t("power", lang), `${tech.power.voltage} · ${t(tech.power.supply === "overhead" ? "overhead" : "thirdRail", lang)}`]);
+  if (tech.tube) rows.push([t("tube", lang), tech.tube[lang]]);
   if (tech.levitation) rows.push([t("levitation", lang), tech.levitation[lang]]);
   if (tech.propulsion) rows.push([t("propulsion", lang), tech.propulsion[lang]]);
   if (tech.formation) {
@@ -291,8 +292,8 @@ function TechSection({ entity, lang }: { entity: Entity; lang: Lang }) {
     rows.push([
       t("trainModel", lang),
       lang === "zh"
-        ? `${names.zh} · ${wagons} 节车皮，每列净载 ${formatNumber(net_t, lang)} 吨`
-        : `${names.en} · ${wagons} wagons, ${formatNumber(net_t, lang)} t net a train`,
+        ? `${names.zh} · ${wagons} 节${tech.tube ? "货运舱" : "车皮"}，每列净载 ${formatNumber(net_t, lang)} 吨`
+        : `${names.en} · ${wagons} ${tech.tube ? "capsules" : "wagons"}, ${formatNumber(net_t, lang)} t net a train`,
     ]);
   }
   if (tech.train?.seats && tech.formation) {

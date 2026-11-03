@@ -498,8 +498,8 @@ places:
       en: Ukkuliit Nickel Mine
       art-x-tavrunaq: Qissar Ukkuvik
     notes:
-      zh: "露天镍矿，矿石由无人驾驶的重载列车运往不冻港。列车由调度中心远程监控，沿线的驯鹿通道装有感应器，驯鹿群过轨时列车会自动停下来等，驯鹿过完再继续开，这是修路时和牧民长老定下的规矩。"
-      en: "An open-pit nickel mine whose ore travels to Immasaarvik on driverless heavy-haul trains. The trains are watched remotely from a control centre, and sensors at the reindeer crossings along the line stop a train automatically while a herd crosses, letting it go on once the deer are over: a rule agreed with the herders' elders when the line was built."
+      zh: "露天镍矿，矿石由无人驾驶的重载列车装在货运舱里，经低真空管道运往不冻港。列车由调度中心远程监控；管道在沿线的每一条驯鹿迁徙通道上都架高到离地五米，驯鹿群从下面走过，列车不用停下来等，这是修线时和牧民长老商定的做法。"
+      en: "An open-pit nickel mine whose ore travels to Immasaarvik in the capsules of driverless heavy-haul trains, along a low-vacuum tube. The trains are watched remotely from a control centre, and over every reindeer migration path along the line the tube is raised five metres off the ground, so the herds walk underneath and no train has to stop for them: an arrangement agreed with the herders' elders when the line was built."
     in: div_m541k8
     offset_km: [7, -3]
     site: { layout: mine, size_m: [2600, 1800] }

@@ -122,9 +122,9 @@ standards:
       tracks: 2
       min_curve_radius_m: 7000
       train: { names: { zh: 北辰 400 型, en: Polaris 400 }, seats: 576 }
-  # Intercity railway with maglev: true. Double guideway with the long-stator linear motor built
-  # into it, so no overhead line and no rails; steeper grades than wheeled lines; driverless;
-  # stations costed per stop.
+  # Intercity railway with maglev: true. Double guideway inside a sealed low-vacuum tube, with the
+  # long-stator linear motor built into it, so no overhead line and no rails; steeper grades than
+  # wheeled lines; driverless; stations (with airlocks) costed per stop.
   maglev:
     smooth_km: 10
     max_grade: 0.08
@@ -138,14 +138,16 @@ standards:
     station_musd: 260
     station_upkeep_musd: 5
     tech:
-      levitation: { zh: 常导电磁悬浮，悬浮间隙 10 毫米, en: "electromagnetic suspension, 10 mm gap" }
+      tube: { zh: 低真空管道，管内气压约为大气压的十分之一, en: "low-vacuum tube, about a tenth of atmospheric pressure" }
+      levitation: { zh: 高温超导电动悬浮，悬浮间隙 100 毫米, en: "high-temperature superconducting electrodynamic suspension, 100 mm gap" }
       propulsion: { zh: 长定子直线同步电机, en: long-stator linear synchronous motor }
       signalling: GoA4
       formation: { cars: 10 }
       tracks: 2
-      min_curve_radius_m: 8000
-      train: { names: { zh: 流星 600 型, en: Meteor 600 }, seats: 620 }
-  # Double-track heavy-haul freight line, 25 kV, ballasted; driverless trains; yards are costed per stop.
+      min_curve_radius_m: 12000
+      train: { names: { zh: 流星 800 型, en: Meteor 800 }, seats: 620 }
+  # Double-track heavy-haul freight line: capsule trains levitating in a sealed low-vacuum tube, no
+  # wheels and no overhead line; driverless; yards (with airlocks) are costed per stop.
   freight_rail:
     smooth_km: 6
     max_grade: 0.012
@@ -159,12 +161,12 @@ standards:
     station_musd: 60
     station_upkeep_musd: 2
     tech:
-      gauge_mm: 1435
-      electrification: 25 kV 50 Hz AC
-      signalling: ETCS Level 3 + ATO GoA4
+      tube: { zh: 低真空管道，管内气压约为大气压的十分之一, en: "low-vacuum tube, about a tenth of atmospheric pressure" }
+      levitation: { zh: 常导电磁悬浮，悬浮间隙 15 毫米, en: "electromagnetic suspension, 15 mm gap" }
+      propulsion: { zh: 长定子直线同步电机, en: long-stator linear synchronous motor }
+      signalling: GoA4
       tracks: 2
-      min_curve_radius_m: 1200
-      axle_load_t: 32.5
+      min_curve_radius_m: 2500
 
 # City streets (主干道 / 次干道 / 支路), km/h; arterials outside the dense core have no limit.
 street_speed:
