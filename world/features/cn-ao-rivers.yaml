@@ -9,8 +9,8 @@ features:
       en: Kiluktuar River
       art-x-tavrunaq: Kiluktuar
     notes:
-      zh: "北岸的大河，长约 376 公里，流域面积约 8.5 万平方公里，居领地第二，基卢克图阿尔市因它得名。河流发源于苏瓦尔尤伊特山脉北麓，流经尼尔萨瓦克区和帕基卢克区，向北流向北岸，河谷是内陆与南北两岸之间的交通走廊。春末大河开冰的那几天，河岸上站满了人，老人们会念一句：「Sirmi pakka, kiluk sigga」，意思是「冰破了，河就是新的」，开冰日也被当作新一年的开始。"
-      en: "The great river of the north coast, about 376 km long with a basin of some 85,000 km², the second largest in the territory, which gives Kiluktuar City its name. It rises on the northern side of the Suvvarjuit Mountains and flows north through the Nirsavaq District and Paakiluk District towards the north coast, and its valley carries goods between the inland and both coasts. In the late-spring days when the river breaks up, the banks are crowded and the elders say \"Sirmi pakka, kiluk sigga\": when the ice breaks the river is new again; break-up day is taken as the start of a new year."
+      zh: "北岸的大河，长约 376 公里，流域面积约 8.5 万平方公里，居领地第二，基卢克图阿尔因它得名。河流发源于苏瓦尔尤伊特山脉北麓，流经尼尔萨瓦克区和帕基卢克区，向北流向北岸，河谷是内陆与南北两岸之间的交通走廊。春末大河开冰的那几天，河岸上站满了人，老人们会念一句：「Sirmi pakka, kiluk sigga」，意思是「冰破了，河就是新的」，开冰日也被当作新一年的开始。"
+      en: "The great river of the north coast, about 376 km long with a basin of some 85,000 km², the second largest in the territory, which gives Kiluktuar its name. It rises on the northern side of the Suvvarjuit Mountains and flows north through the Nirsavaq District and Paakiluk District towards the north coast, and its valley carries goods between the inland and both coasts. In the late-spring days when the river breaks up, the banks are crowded and the elders say \"Sirmi pakka, kiluk sigga\": when the ice breaks the river is new again; break-up day is taken as the start of a new year."
   - id: nat_xdztvm
     subtype: lake
     status: generated
@@ -98,8 +98,8 @@ features:
     detect: { kind: river, at_km: [295.2, 250.8] }
     names: { zh: 瓦克基卢克河, en: Vaqkiluk River, art-x-tavrunaq: Vaqkiluk }
     notes:
-      zh: "基卢克图阿尔市的河流，长约 201 公里，流经帕基卢克区的苔原，在西尔米努卡区附近入海。帕基卢克的渔村会把整条河鱼埋进雪里冷藏，吃的时候再挖出来，冻得硬邦邦的河鲑薄片是这一带冬天最爱吃的东西。"
-      en: "A river of Kiluktuar City, about 201 km long, flowing across the tundra of Paakiluk District to the sea near Sirminuqa. The fishing villages of Paakiluk bury whole river fish in the snow to keep and dig them out to eat, and slices of char frozen hard are the winter favourite along this river."
+      zh: "基卢克图阿尔原住民自治区的河流，长约 201 公里，流经帕基卢克区的苔原，在西尔米努卡区附近入海。帕基卢克的渔村会把整条河鱼埋进雪里冷藏，吃的时候再挖出来，冻得硬邦邦的河鲑薄片是这一带冬天最爱吃的东西。"
+      en: "A river of the Kiluktuar Indigenous Autonomous Region, about 201 km long, flowing across the tundra of Paakiluk District to the sea near Sirminuqa. The fishing villages of Paakiluk bury whole river fish in the snow to keep and dig them out to eat, and slices of char frozen hard are the winter favourite along this river."
   - id: nat_f9a92v
     subtype: river
     status: generated

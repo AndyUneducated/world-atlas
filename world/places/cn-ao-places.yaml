@@ -530,7 +530,7 @@ places:
     offset_km: [0.4, -0.3]
     site: { layout: hall, size_m: [200, 140] }
 
-  # ── 基卢克图阿尔市 ──
+  # ── 基卢克图阿尔原住民自治区 ──
   - id: poi_4rk407
     subtype: port
     status: generated
@@ -569,7 +569,7 @@ places:
     in: div_rcnhch
     site: { layout: campus, size_m: [400, 300] }
 
-  # ── 西尔米瓦克市 ──
+  # ── 西尔米瓦克自由邦 ──
   - id: poi_crzexy
     subtype: airport
     status: generated
