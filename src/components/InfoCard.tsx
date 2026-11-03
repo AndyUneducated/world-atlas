@@ -940,14 +940,16 @@ export function InfoCard() {
 
 function Card({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
   const scroll = useCardScroll<HTMLElement>(entity.id);
+  const aside = useAtlas((s) => s.searchOpen);
   return (
     <motion.article
       ref={scroll}
       initial={{ opacity: 0, y: 12, scale: 0.98 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
+      animate={aside ? { opacity: 0, y: 8, scale: 0.98 } : { opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: 8, scale: 0.98 }}
       transition={{ type: "spring", stiffness: 380, damping: 32 }}
-      className="glass scrollbar-thin pointer-events-auto min-h-0 overflow-y-auto rounded-3xl"
+      aria-hidden={aside || undefined}
+      className={clsx("glass scrollbar-thin min-h-0 overflow-y-auto rounded-3xl", aside ? "pointer-events-none" : "pointer-events-auto")}
     >
       <CardBody data={data} entity={entity} lang={lang} />
     </motion.article>
@@ -960,6 +962,7 @@ function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; 
   const full = useAtlas((s) => s.sheetFull);
   const setFull = useAtlas((s) => s.setSheetFull);
   const scroll = useCardScroll<HTMLDivElement>(entity.id);
+  const aside = useAtlas((s) => s.searchOpen);
   const drag = useDragControls();
   const onDragEnd = (_: unknown, info: PanInfo) => {
     if (info.offset.y < -40 || info.velocity.y < -500) setFull(true);
@@ -971,9 +974,10 @@ function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; 
   return (
     <motion.article
       initial={{ y: "100%" }}
-      animate={{ y: 0 }}
+      animate={{ y: aside ? "100%" : 0 }}
       exit={{ y: "100%" }}
       transition={{ type: "spring", stiffness: 340, damping: 34 }}
+      aria-hidden={aside || undefined}
       drag="y"
       dragControls={drag}
       dragListener={false}

@@ -35,16 +35,18 @@ export function RoutePanel() {
   const select = useAtlas((s) => s.select);
   const result = useRoute();
   const open = !!(from || to);
+  const aside = useAtlas((s) => s.searchOpen);
 
   return (
     <AnimatePresence>
       {data && open && (
         <motion.section
           initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={aside ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.18 }}
-          className="glass pointer-events-auto shrink-0 rounded-2xl p-2"
+          aria-hidden={aside || undefined}
+          className={`glass shrink-0 rounded-2xl p-2 ${aside ? "pointer-events-none" : "pointer-events-auto"}`}
         >
           <div className="flex items-center gap-2 px-2 pt-1 pb-1.5">
             <Navigation className="size-3.5 text-accent" />

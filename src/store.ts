@@ -9,6 +9,8 @@ export interface LayerToggles {
   landcover: boolean;
   choropleth: boolean;
   boundaries: boolean;
+  /** With boundaries on: district boundaries as well as city ones, at every zoom. */
+  districtLines: boolean;
   nationalExpressway: boolean;
   territorialExpressway: boolean;
   territorialHighway: boolean;
@@ -98,6 +100,9 @@ interface AtlasState {
   /** A list to reopen after going back, picked up by the search box. */
   restoreList: ListView | null;
   setRestoreList: (list: ListView | null) => void;
+  /** Whether the search results or explore list are showing; the card steps aside while they are. */
+  searchOpen: boolean;
+  setSearchOpen: (open: boolean) => void;
   cardView: CardView;
   setCardOpen: (key: string, open: boolean) => void;
   /** Phones: whether the card sheet is pulled up to full height; every card opens as the last one was left. */
@@ -130,6 +135,7 @@ const DEFAULT_LAYERS: LayerToggles = {
   landcover: true,
   choropleth: false,
   boundaries: true,
+  districtLines: true,
   nationalExpressway: true,
   territorialExpressway: true,
   territorialHighway: true,
@@ -184,6 +190,8 @@ export const useAtlas = create<AtlasState>((set) => ({
   goBack: () => window.history.back(),
   restoreList: null,
   setRestoreList: (restoreList) => set({ restoreList }),
+  searchOpen: false,
+  setSearchOpen: (searchOpen) => set({ searchOpen }),
   cardView: FRESH_CARD,
   setCardOpen: (key, open) => set((s) => ({ cardView: { ...s.cardView, open: { ...s.cardView.open, [key]: open } } })),
   sheetFull: true,

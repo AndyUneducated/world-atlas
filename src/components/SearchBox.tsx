@@ -154,6 +154,9 @@ export function SearchBox() {
 
   const showResults = open && query.trim() !== "" && (!selected || query !== displayName(selected, lang));
   const showExplore = open && !showResults;
+  const setSearchOpen = useAtlas((s) => s.setSearchOpen);
+  const panelShown = (showResults || showExplore) && !!data;
+  useEffect(() => setSearchOpen(panelShown), [panelShown, setSearchOpen]);
 
   const panel = useRef<HTMLDivElement>(null);
   const choose = (id: string) => {
