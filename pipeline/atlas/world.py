@@ -502,6 +502,10 @@ class World:
                 for k in ("names", "mayor", "speaker", "notes"):
                     if k in c and not all(c[k].get(lang) for lang in REQUIRED_LANGS):
                         errors.append(f"politics: {cid}: {k} needs zh and en")
+                if "constituencies" in c:
+                    inside = sorted(d for ds in c["constituencies"].values() for d in ds)
+                    if leg.get("system") != "pr_regional" or inside != sorted(d for d, v in self.divisions.items() if v.get("parent") == cid):
+                        errors.append(f"politics: {cid}: constituencies are for pr_regional and take in each of the city's districts once")
         mins = pol.get("ministries", [])
         if not mins or len({m.get("id") for m in mins}) != len(mins):
             errors.append("politics: ministries lists each ministry once, with an id")

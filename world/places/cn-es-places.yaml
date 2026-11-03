@@ -899,7 +899,7 @@ places:
     offset_km: [0.5, 0.8]
     site: { layout: complex, size_m: [2000, 1200] }
 
-  # ── 基鲁迈市：群岛的机场、渡轮码头、潜水和珊瑚礁 ──
+  # ── 基鲁迈联合邦：群岛的机场、渡轮码头、潜水和珊瑚礁 ──
   - id: poi_16y65n
     subtype: airport
     status: generated

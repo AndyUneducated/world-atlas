@@ -238,17 +238,17 @@ class _Territory:
                 extra = {"reserved": reserved, "reserved_won": {p: n for p, n in _divisor(roll, reserved, 1, 2).items() if n}}
         elif system == "pr_regional":
             if key == self.tid:
-                cities = {}
+                groups: dict[str, list[str]] = {}
                 for d in dids:
-                    cities.setdefault(self.world.divisions[d]["parent"], []).append(d)
-                per = _hamilton({c: sum(self.world.divisions[d]["population"] for d in ds) for c, ds in cities.items()}, seats, minimum=2)
-                won = {p: 0 for p in votes}
-                for c, ds in cities.items():
-                    for p, n in _hamilton(self.votes(ds), per[c]).items():
-                        won[p] += n
-                extra = {"constituencies": len(cities)}
+                    groups.setdefault(self.world.divisions[d]["parent"], []).append(d)
             else:
-                won = _hamilton(votes, seats)
+                groups = leg.get("councils", {}).get(key, {}).get("constituencies") or {key: dids}
+            per = _hamilton({g: sum(self.world.divisions[d]["population"] for d in ds) for g, ds in groups.items()}, seats, minimum=2)
+            won = {p: 0 for p in votes}
+            for g, ds in groups.items():
+                for p, n in _hamilton(self.votes(ds), per[g]).items():
+                    won[p] += n
+            extra = {"constituencies": len(groups)}
         elif system == "top_two":
             won, same = self.top_two(dids, seats, key)
             extra = {"same_party": same}

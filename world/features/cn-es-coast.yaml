@@ -10,8 +10,8 @@ features:
     detect: { kind: island, at_km: [55.2, 130.8] }
     names: { zh: 基鲁迈岛, en: Kirumai Island, art-x-ivuran: Kirumai }
     notes:
-      zh: "基鲁迈群岛的主岛，面积约 2.04 万平方公里，是主岛之外领地最大的岛屿，伊武兰语意为「一串珍珠」。基鲁迈市的城区迈萨里区在岛北的港湾边，岛南的卡朗加区是乡村和传统村落；岛上地势低缓，最高处海拔五百米左右，中部的丘陵上是椰林和小块的稻田。岛民把环岛公路叫作「珍珠线」，骑车绕岛一圈要两三天，沿途每个村口都有卖嫩椰子的小摊，砍开就喝，椰壳顺手还给摊主当柴烧。"
-      en: "The main island of the Kirumai Islands, about 20,400 km² and the largest island in the territory after the main island; in Ivuran the name means 'a string of pearls'. Maisari, the town district of Kirumai City, stands by the harbour in the north, and Karanga District in the south is country of farms and traditional villages; the island is low and gentle, rising to about 500 m, with coconut groves and small rice fields on the hills in the middle. Islanders call the round-the-island road the \"Pearl Line\"; cycling the loop takes two or three days, every village entrance has a stall selling green coconuts cut open on the spot, and the empty shells go back to the stallholder as firewood."
+      zh: "基鲁迈群岛的主岛，面积约 2.04 万平方公里，是主岛之外领地最大的岛屿，伊武兰语意为「一串珍珠」。联合邦议会所在的迈萨里区在岛北的港湾边，岛南的卡朗加区是乡村和传统村落；岛上地势低缓，最高处海拔五百米左右，中部的丘陵上是椰林和小块的稻田。岛民把环岛公路叫作「珍珠线」，骑车绕岛一圈要两三天，沿途每个村口都有卖嫩椰子的小摊，砍开就喝，椰壳顺手还给摊主当柴烧。"
+      en: "The main island of the Kirumai Islands, about 20,400 km² and the largest island in the territory after the main island; in Ivuran the name means 'a string of pearls'. Maisari, seat of the Commonwealth Assembly, stands by the harbour in the north, and Karanga District in the south is country of farms and traditional villages; the island is low and gentle, rising to about 500 m, with coconut groves and small rice fields on the hills in the middle. Islanders call the round-the-island road the \"Pearl Line\"; cycling the loop takes two or three days, every village entrance has a stall selling green coconuts cut open on the spot, and the empty shells go back to the stallholder as firewood."
   - id: nat_y42v6p
     subtype: island
     status: generated
@@ -99,16 +99,16 @@ features:
     islands: [nat_8rtv1q, nat_y42v6p, nat_n46nzp, nat_6b65mm, nat_kbsy7t, nat_5waqej]
     names: { zh: 基鲁迈群岛, en: Kirumai Islands, art-x-ivuran: Kirumaivaru }
     notes:
-      zh: "主岛西南端外的群岛，由基鲁迈岛、蒂卢迈岛、奥罗武岛、马拉坎岛、皮卢岛和皮卢尼岛六座岛屿组成，总面积约 5.5 万平方公里，从主岛西南端向南延伸、再向东弯成一道弧形，构成基鲁迈市。群岛名意为「一串珍珠」，岛上是白沙海滩、珊瑚礁和伊武兰人的传统村落。岛民之间有个说法：每座岛是一颗珍珠，串起它们的线是渡轮，所以渡轮停航的日子被叫作「断线天」，那天大家都留在自己岛上过节。"
-      en: "The islands off the south-western end of the main island: Kirumai, Tilumai, Orovu, Malakan, Pilu and Piluni, about 55,000 km² in all, running south from the tip of the main island and curving round to the east, and making up Kirumai City. The name means 'a string of pearls'; the islands are a place of white beaches, coral reefs and traditional Ivuran villages. Islanders say each island is a pearl and the ferries are the string, so a day the ferries stop is a \"broken-string day\", and everyone stays home on their own island and makes a holiday of it."
+      zh: "主岛西南端外的群岛，由基鲁迈岛、蒂卢迈岛、奥罗武岛、马拉坎岛、皮卢岛和皮卢尼岛六座岛屿组成，总面积约 5.5 万平方公里，从主岛西南端向南延伸、再向东弯成一道弧形，结成基鲁迈联合邦。群岛名意为「一串珍珠」，岛上是白沙海滩、珊瑚礁和伊武兰人的传统村落。岛民之间有个说法：每座岛是一颗珍珠，串起它们的线是渡轮，所以渡轮停航的日子被叫作「断线天」，那天大家都留在自己岛上过节。"
+      en: "The islands off the south-western end of the main island: Kirumai, Tilumai, Orovu, Malakan, Pilu and Piluni, about 55,000 km² in all, running south from the tip of the main island and curving round to the east, and joined as the Commonwealth of Kirumai. The name means 'a string of pearls'; the islands are a place of white beaches, coral reefs and traditional Ivuran villages. Islanders say each island is a pearl and the ferries are the string, so a day the ferries stop is a \"broken-string day\", and everyone stays home on their own island and makes a holiday of it."
   - id: nat_4z65yt
     subtype: archipelago
     status: generated
     islands: [nat_e7syqw, nat_zhnfs6, nat_z1x5j4]
     names: { zh: 瓦希拉群岛, en: Vahira Islands, art-x-ivuran: Vahiravaru }
     notes:
-      zh: "基鲁迈群岛以东外海的三座小岛，由瓦希拉岛、塔鲁卡岛和赫维拉岛组成，总面积约 520 平方公里，离最近的有人岛皮卢尼岛有 200 多公里，名字意为「远方的岩石」。群岛整片是海军基地，属基鲁迈市瓦希拉群岛管理区，未经许可的船只和飞机不得靠近。基鲁迈的渔民远远看见瓦希拉的灯光，会说一句「邻居还醒着」，补给船船员则把来回一趟叫作「去远方的岩石串门」。"
-      en: "Three small islands far out to sea east of the Kirumai Islands, Vahira, Taruka and Hevila, about 520 km² in all and more than 200 km from Piluni Island, the nearest inhabited island; the name means 'distant rocks'. The islands are all a naval base, the Vahira Islands Administration Zone of Kirumai City, and no ship or aircraft may come near without permission. When Kirumai fishers see the Vahira lights far off they say \"the neighbours are still awake\", and the supply-ship crews call each round trip \"visiting the faraway rocks\"."
+      zh: "基鲁迈群岛以东外海的三座小岛，由瓦希拉岛、塔鲁卡岛和赫维拉岛组成，总面积约 520 平方公里，离最近的有人岛皮卢尼岛有 200 多公里，名字意为「远方的岩石」。群岛整片是海军基地，属基鲁迈联合邦的瓦希拉群岛管理区，未经许可的船只和飞机不得靠近。基鲁迈的渔民远远看见瓦希拉的灯光，会说一句「邻居还醒着」，补给船船员则把来回一趟叫作「去远方的岩石串门」。"
+      en: "Three small islands far out to sea east of the Kirumai Islands, Vahira, Taruka and Hevila, about 520 km² in all and more than 200 km from Piluni Island, the nearest inhabited island; the name means 'distant rocks'. The islands are all a naval base, the Vahira Islands Administration Zone of the Commonwealth of Kirumai, and no ship or aircraft may come near without permission. When Kirumai fishers see the Vahira lights far off they say \"the neighbours are still awake\", and the supply-ship crews call each round trip \"visiting the faraway rocks\"."
   # ── Bays, straits and river mouths ──────────────────────────────
   - id: nat_5p14yz
     subtype: bay
@@ -140,8 +140,8 @@ features:
     detect: { kind: bay, at_km: [380.2, 228.2] }
     names: { zh: 基拉湾, en: Kila Bay, art-x-ivuran: Kilalavu }
     notes:
-      zh: "基拉努市西部的海湾，面积约 150 平方公里，伊武兰语意为「明亮的海湾」，湾边是洁白的石英砂滩。基拉西鲁河在湾顶入海，湾岸的海滨公园和沙滩是基拉努市民周末常去的地方。石英砂在脚下踩着会发出轻微的「吱吱」声，基拉努的孩子们都知道这片沙滩会「唱歌」，傍晚光着脚跑一圈，整片沙滩都在叫。"
-      en: "A bay west of Kilanu City, about 150 km²; in Ivuran the name means 'bright bay', and white quartz beaches line it. The Kilasiru River enters at its head, and the seaside parks and beaches on its shore are where Kilanu's people go at weekends. The quartz sand squeaks faintly underfoot, every Kilanu child knows this beach \"sings\", and a barefoot run at dusk sets the whole strand chirping."
+      zh: "基拉努西部的海湾，面积约 150 平方公里，伊武兰语意为「明亮的海湾」，湾边是洁白的石英砂滩。基拉西鲁河在湾顶入海，湾岸的海滨公园和沙滩是基拉努市民周末常去的地方。石英砂在脚下踩着会发出轻微的「吱吱」声，基拉努的孩子们都知道这片沙滩会「唱歌」，傍晚光着脚跑一圈，整片沙滩都在叫。"
+      en: "A bay west of Kilanu, about 150 km²; in Ivuran the name means 'bright bay', and white quartz beaches line it. The Kilasiru River enters at its head, and the seaside parks and beaches on its shore are where Kilanu's people go at weekends. The quartz sand squeaks faintly underfoot, every Kilanu child knows this beach \"sings\", and a barefoot run at dusk sets the whole strand chirping."
   - id: nat_k1a82j
     subtype: bay
     status: generated
@@ -245,5 +245,5 @@ features:
     detect: { kind: cape, at_km: [415.2, 220.8] }
     names: { zh: 蒂克瓦岬, en: Cape Tikeva, art-x-ivuran: Tikevaruvai }
     notes:
-      zh: "基拉努市东南的岬角，伸出约 12 公里，伊武兰语意为「星」。岬上的灯塔夜里一闪一闪，从海上看去像一颗星，岬角由此得名；岬下的海水清澈，是基拉努人浮潜的地方。基拉努的情侣喜欢在岬顶等灯塔亮起，灯光第一次扫过海面时许愿，本地人笑称这是全城唯一一颗「准时出现的星」。"
-      en: "A headland south-east of Kilanu City, reaching about 12 km out to sea; in Ivuran the name means 'star', after its lighthouse, which twinkles like a star seen from the sea at night. The water below it is clear, and Kilanu's people come here to snorkel. Kilanu couples like to wait on the headland for the lighthouse to come on and make a wish as the first beam sweeps the sea; locals joke it is the only star in town that always turns up on time."
+      zh: "基拉努东南的岬角，伸出约 12 公里，伊武兰语意为「星」。岬上的灯塔夜里一闪一闪，从海上看去像一颗星，岬角由此得名；岬下的海水清澈，是基拉努人浮潜的地方。基拉努的情侣喜欢在岬顶等灯塔亮起，灯光第一次扫过海面时许愿，本地人笑称这是全城唯一一颗「准时出现的星」。"
+      en: "A headland south-east of Kilanu, reaching about 12 km out to sea; in Ivuran the name means 'star', after its lighthouse, which twinkles like a star seen from the sea at night. The water below it is clear, and Kilanu's people come here to snorkel. Kilanu couples like to wait on the headland for the lighthouse to come on and make a wish as the first beam sweeps the sea; locals joke it is the only star in town that always turns up on time."

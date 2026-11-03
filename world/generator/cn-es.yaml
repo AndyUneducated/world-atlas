@@ -170,7 +170,7 @@ streets:
     div_3e94sq: { style: planned, detail_km2: 120, mix: { industrial: 2.2, slabs: 0.8 } }   # 伊拉坦区
     div_py6kpa: { style: mixed, mix: { slabs: 2.0, perimeter: 0.8, park: 0.6 } }   # 米纳萨区
     div_n11kpv: { style: organic, mix: { houses: 2.4 } }                                         # 帕达兰区
-    # 基拉努市
+    # 基拉努特别自治市
     div_rmy0kf: { style: planned, mix: { towers: 2.4, podium: 1.6 } }   # 萨基拉区
     div_qr8ay4: { style: planned, detail_km2: 120, mix: { industrial: 2.2, civic: 0.6 } }   # 努维拉区
     div_07wzvt: { style: mixed, detail_km2: full, mix: { civic: 1.4, slabs: 1.4, park: 0.6 } }   # 埃莱努区
@@ -209,7 +209,7 @@ streets:
     div_pfrpr2: { style: organic, detail_km2: 20, mix: { houses: 2.4 } }   # 迈卢阿区
     div_a349sd: { style: mixed, detail_km2: 40, mix: { houses: 1.6, park: 1.6 } }   # 维兰塔区
     div_pr78k0: { style: organic, mix: { houses: 2.4 } }                                         # 托武卢区
-    # 基鲁迈市
+    # 基鲁迈联合邦
     div_a0nff8: { style: organic, detail_km2: 40, mix: { houses: 1.8, podium: 1.0, perimeter: 0.6 } }   # 迈萨里区
     div_3skbd8: { style: organic, detail_km2: 15, mix: { houses: 2.6 } }   # 卡朗加区
     div_3x32j4: { style: organic, detail_km2: 15, mix: { houses: 2.0, podium: 0.8 } }   # 蒂卢迈区
@@ -238,7 +238,7 @@ metro:
         - { district: div_py6kpa, axis: 0 }   # 米纳萨区
         - { district: div_3e94sq, axis: 0 }   # 伊拉坦区
         - { district: div_yakrhd, axis: 0 }   # 伦博区
-    - city: div_24d8z4   # 基拉努市
+    - city: div_24d8z4   # 基拉努特别自治市
       names: { zh: 基拉努地铁, en: Kilanu Metro, art-x-ivuran: Kilanu Pitlorai }
       lines:
         - { district: div_rmy0kf, axis: 0 }   # 萨基拉区
@@ -286,14 +286,14 @@ layout:
     div_kv6b3e: [101.9, 186.6]   # 萨伦纳姆市
     div_6kjc7x: [621.7, 374.4]   # 埃武托拉公社
     div_5tgnmz: [495.9, 272.8]   # 塔卢马兰市
-    div_24d8z4: [395.1, 233.2]   # 基拉努市
+    div_24d8z4: [395.1, 233.2]   # 基拉努特别自治市
     div_11j4xw: [219.2, 192.9]   # 瓦利凯市
     div_8hy4nc: [156.6, 253.7]   # 彭纳拉姆市
     div_mzhe0m: [234.1, 246.5]   # 温达坎市
     div_k4tk68: [280.4, 300.3]   # 洛米兰市
     div_7z142e: [541.8, 327.9]   # 乌诺卡里市
     div_bca7d9: [430.3, 343.5]   # 纳卢迈市
-    div_xp7ha2: [56.0, 136.0]   # 基鲁迈市
+    div_xp7ha2: [56.0, 136.0]   # 基鲁迈联合邦
   districts:
     div_z0z4vz: [0.0, 0.0]   # 帕萨卢区
     div_f0wwdt: [-0.29, -0.02]   # 翁贝尔区
