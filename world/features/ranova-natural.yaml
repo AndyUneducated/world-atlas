@@ -1,0 +1,64 @@
+# Named natural features of Ranova. Geometry is produced by the generator (see world/generator/ranova.yaml);
+# this file only holds identity and semantics. Names are Chinese, English and Ranovan (art-x-ranova)
+# or Kasiri (art-x-kasiri).
+features:
+  - id: nat_0qx3pm
+    subtype: mountain_range
+    status: generated
+    names: {zh: 马洛卡山, en: Maroka Massif, art-x-ranova: Tendrombohitra Maroka}
+    notes: {zh: 拉诺瓦岛北部的花岗岩山地，是全岛地势最高的地方，阿瓦拉齐人民民主共和国的屏障。迎着东北信风的东坡终年云雾缭绕，覆盖着茂密的山地雨林；背风的西坡干燥得多，是灌木和草地。山中的河流向东注入大海，向西流进稻作河谷。阿瓦拉齐人说「马洛卡山挡住了风暴，也挡住了敌人」，高原战争中人民军的指挥部就设在山中的隧道里。, en: 'The granite massif of northern Ranova, the highest ground on the island and the shield of the People''s Democratic Republic of Avaratsy. Its eastern side, facing the north-east trades, is wrapped in cloud all year under dense montane rainforest; the sheltered western side is far drier, with scrub and grass. Its rivers run east to the sea and west into the rice valleys. Avaratsy people say that ''the Maroka keeps out the storms, and the enemy too'', and in the Highland War the People''s Army had its headquarters in tunnels inside the mountain.'}
+  - id: nat_k2kne7
+    subtype: plateau
+    status: generated
+    names: {zh: 安德里纳高原, en: Andrina Highlands, art-x-ranova: Lembalemba Andrina}
+    notes: {zh: 纵贯拉诺瓦岛中部的高原，海拔八百到一千多米，是安博哈拉基督教联邦的心脏。高原上是起伏的草地、红土丘陵和层层梯田，气候凉爽，首都安博哈拉就坐落在高原中部的台地上。高原东缘以法拉纳断崖陡落到东海岸，西缘缓缓降向西部的稀树草原。联合共和国时期这里是全岛的政治和宗教中心，大分裂后成了高原战争的主战场。, en: 'The highlands running down the middle of Ranova, 800 to over 1,000 m high and the heart of the Christian Federation of Ambohara. Rolling grassland, red-earth hills and stepped rice terraces cover the plateau, the climate is cool, and the capital Ambohara stands on a terrace in the middle of it. The eastern edge falls away over the Farana Escarpment to the east coast; the western edge slopes gently down to the savanna of the west. Under the United Republic this was the island''s political and religious centre; after the Sundering it became the main battlefield of the Highland War.'}
+  - id: nat_42cbxt
+    subtype: volcano
+    status: generated
+    names: {zh: 安卡瓦火山, en: Ankava Volcano, art-x-ranova: Ankava}
+    notes: {zh: 安德里纳高原西部的一座休眠火山，火山锥高高耸立在高原上，山顶有一个积水的火山口湖。火山灰土十分肥沃，山脚的安卡瓦城周围种满咖啡、玉米和果树，地热电站为首都供电。拉诺瓦语里「安卡瓦」意为「冒烟的山」，老人说火山最后一次喷发时天空黑了三天。, en: 'A dormant volcano in the western Andrina Highlands, its cone standing high above the plateau with a crater lake at the top. Its ash soils are very fertile, coffee, maize and orchards cover the land around the town of Ankava at its foot, and a geothermal plant powers the capital. In Ranovan ''Ankava'' means ''the smoking mountain'', and the old people say that the sky went dark for three days the last time it erupted.'}
+  - id: nat_jcks74
+    subtype: ridge
+    status: generated
+    names: {zh: 法拉纳断崖, en: Farana Escarpment, art-x-ranova: Hantsana Farana}
+    notes: {zh: 安德里纳高原东缘的大断崖，绵延数百公里，从高原上陡落数百米到东部的丘陵和海岸平原。断崖迎着东北信风，雨水极多，覆盖着全岛最茂密的热带雨林，雨季时一道道瀑布带着红土倾泻而下。断崖上有水电站，断崖下是马索沃利、法尼里、洛哈瓦托和黎明千年国。, en: 'The great escarpment along the eastern edge of the Andrina Highlands, running for hundreds of kilometres and dropping several hundred metres from the plateau to the hills and coastal plains of the east. It faces the north-east trades and gets a great deal of rain, and is covered in the densest rainforest on the island; in the rains waterfall after waterfall pours red earth down its face. There are hydroelectric plants along the top, and Masovoly, Faniry, Lohavato and the Dawn Realm lie below.'}
+  - id: nat_d5npq4
+    subtype: mountain_range
+    status: generated
+    names: {zh: 伊瓦卡山, en: Ivaka Mountains, art-x-ranova: Ivaka}
+    notes: {zh: 拉诺瓦岛南部的山地，位于齐马罗沃境内，伊拉希河发源于此，向东流向海岸。山上是干燥的松林和草坡，山谷里有齐马罗沃的军事基地和国营农场。南方战争期间，这里是齐马罗沃进攻阿拉齐纳牧区的出发地。, en: 'Mountains in southern Ranova, inside Tsimarovo, where the Ilahy River rises and flows east to the coast. Dry pine woods and grassy slopes cover them, and the valleys hold Tsimarovo''s military bases and state farms. In the Southern War they were the starting point of Tsimarovo''s attacks on the Alatsina pastures.'}
+  - id: nat_xe4fc1
+    subtype: mountain_range
+    status: generated
+    names: {zh: 伊索卡山, en: Isoka Massif, art-x-ranova: Isoka}
+    notes: {zh: 拉诺瓦岛西南部的崎岖山地，峡谷深切，森林茂密，是伊索卡人民战争解放区的根据地。游击队的营地和兵工厂藏在山中的岩洞和密林里，三十多年来周边各国的军队多次进山清剿都无功而返。山区贫困，道路稀少，居民靠梯田和放牧为生。, en: 'Rugged mountains in south-western Ranova, deeply cut by gorges and thickly forested, the base of the Isoka People''s War Liberated Zone. The guerrillas'' camps and workshops are hidden in caves and dense forest, and in more than thirty years the armies of the neighbouring states have gone into the mountains again and again without success. The mountains are poor, with few roads; people live by terraced fields and herding.'}
+  - id: nat_bjmj3q
+    subtype: volcano
+    status: generated
+    names: {zh: 坦德罗圣山, en: Holy Mount Tendro, art-x-ranova: Tendro Masina}
+    notes: {zh: 东南群岛中坦德罗岛上的一座古老火山，深红色的火山岩山体从海中拔地而起，几乎占满整座岛屿。山坡上散布着坦德罗古教会的二十多座修道院，最高的修道院建在峰顶附近的悬崖上。坦德罗圣山修道院共和国的全部国土就是这座山和附近的一座小岛，登山需要僧团发放的通行证。, en: 'An ancient volcano on the island of Tendro in the south-eastern isles, its dark red volcanic rock rising straight from the sea and filling almost the whole island. More than twenty monasteries of the Old Church of Tendro are scattered over its slopes, the highest on a cliff just below the summit. The mountain and a small island nearby are the whole territory of the Monastic Republic of Holy Mount Tendro, and climbing it needs a permit from the brotherhood.'}
+  - id: nat_f4w8r2
+    subtype: mountain_range
+    status: generated
+    names: {zh: 贾巴勒丘陵, en: Jabal Hills, art-x-kasiri: Jabal}
+    notes: {zh: 拉诺瓦岛西北部干燥的石灰岩丘陵，海拔一千多米，山谷狭窄，泉水稀少，山谷里有小块农田和枣椰林。丘陵现为自封的贾巴利亚伊斯兰酋长国控制，被各国列为恐怖组织控制区，外人很少进入。卡西里语里「贾巴勒」就是「山」的意思。, en: 'Dry limestone hills in north-western Ranova, over 1,000 m high, with narrow valleys, few springs and small fields and date groves in the valleys. They are held by the self-proclaimed Islamic Emirate of Jabaliya, which the states of the region list as a terrorist-held zone, and outsiders rarely go there. In Kasiri ''jabal'' simply means ''mountain''.'}
+  - id: nat_jn52f2
+    subtype: mountain_range
+    status: generated
+    names: {zh: 安多希山, en: Andohy Range, art-x-ranova: Andohy}
+    notes: {zh: 拉诺瓦岛最南部的山脉，从南海岸向北延伸，是阿拉齐纳原住民邦联九个氏族的圣地。山脚的草原上遍布猴面包树，氏族的祖先墓地建在山坡的岩石间，每年旱季末各氏族都会到山上举行祭祖仪式。, en: 'The range at the far south of Ranova, running north from the south coast, sacred to the nine clans of the Alatsina Indigenous Confederacy. Baobabs dot the grassland at its foot, the clans'' ancestral tombs stand among the rocks of its slopes, and at the end of each dry season the clans climb it to honour their ancestors.'}
+  - id: nat_1ndyaz
+    subtype: volcano
+    status: generated
+    names: {zh: 萨马伊火山, en: Mount Samay, art-x-ranova: Samay}
+    notes: {zh: 东南群岛萨马伊主岛中部的火山，山顶常年云雾缭绕，山坡上是茶园和雨林。萨马伊自由邦的国旗上就有这座火山的剪影。火山脚下的温泉是岛上的度假胜地，各派宗教的朝圣者也常来山顶的观景台祈祷。, en: 'The volcano in the middle of Samay, the main island of the Free State in the south-eastern isles, its summit usually in cloud and its slopes covered in tea gardens and rainforest. Its silhouette is on the Free State''s flag. The hot springs at its foot are the island''s favourite resort, and pilgrims of every faith come to pray at the lookout on its summit.'}
+  - id: nat_6bzxtr
+    subtype: mountain_range
+    status: generated
+    names: {zh: 努西拉丘陵, en: Nusira Hills, art-x-kasiri: Milima ya Nusira}
+    notes: {zh: 西北群岛努西拉主岛上的丘陵，岩石裸露，干燥多风，山谷里有苏丹国的油气管道和海水淡化厂。丘陵最高处的古城堡是苏丹家族的发祥地，如今是王室的避暑行宫。, en: 'The hills of Nusira, the main island of the north-western isles, bare-rocked, dry and windy, with the Sultanate''s oil and gas pipelines and desalination plants in the valleys. The old castle on the highest hill is where the Sultan''s family began, now a royal summer palace.'}
+  - id: nat_5bqna9
+    subtype: plateau
+    status: generated
+    names: {zh: 贝马希石林台地, en: Bemahy Stone Forest Plateau, art-x-ranova: Bemahy}
+    notes: {zh: 拉诺瓦岛西部的石灰岩台地，雨水溶蚀出成片尖利的石林和深深的裂谷，人和牛都难以通行。石林中藏着溶洞、地下河和许多只有这里才有的动植物。台地横亘在萨希利亚和贝洛瓦之间，是两国天然的边界。, en: 'A limestone plateau in western Ranova, where rain has dissolved the rock into fields of sharp stone pinnacles and deep clefts that neither people nor cattle can easily cross. Caves, underground rivers and many plants and animals found nowhere else hide among the stone forest. The plateau lies between Sahiliya and Belova and makes a natural border between them.'}

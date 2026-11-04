@@ -14,6 +14,34 @@ base_gdp_per_capita:
   div_hpmerr: 70000  # Arctic Ocean Territory
   div_nwm019: 58000  # Everlong Summer Islands Territory
   div_x2z14w: 79000  # California Autonomous State: AI and oligarch money, spread very unevenly
+  # Ranova: each nation its own base, from the war-torn interior to the island banking states
+  # (bases are set so that, after the industry mix, the income per head comes out as the nation cards quote it)
+  div_mj41d0: 9760   # 安博哈拉基督教联邦
+  div_r9whm0: 4280   # 阿瓦拉齐人民民主共和国
+  div_s07wh5: 2510   # 马索沃利社会主义人民共和国
+  div_rbcxzz: 4980   # 齐马罗沃民族社会主义国
+  div_hm0zqz: 3000   # 卡波拉新秩序自由领
+  div_dmf47n: 2480   # 梅纳瓦利国家拯救共和国
+  div_t5zph6: 6150   # 萨希利亚伊斯兰共和国
+  div_5b4193: 1200   # 贾巴利亚伊斯兰酋长国（自封）
+  div_ht80hm: 1800   # 阿拉齐纳原住民邦联
+  div_0cazhp: 4020   # 法尼里自由公社联合会
+  div_1tan4g: 1220   # 齐阿拉野化邦
+  div_nyhhhg: 3490   # 黎明千年国
+  div_sh6pkn: 7870   # 安博维共和国
+  div_9w60j4: 900    # 伊索卡人民战争解放区
+  div_gd73a5: 4380   # 洛哈瓦托王国
+  div_4f0pgt: 11330  # 贝洛瓦共和国
+  div_38z2mg: 32740  # 努西拉苏丹国
+  div_78xf6t: 22830  # 米拉卡王国
+  div_gempde: 65400  # 萨拉卡公国
+  div_3zzzry: 44440  # 卡托拉特许领
+  div_hxyyfe: 32110  # 瓦罗纳商业共和国
+  div_gebca7: 18160  # 萨马伊自由邦
+  div_3w5wwh: 36930  # 马哈维洛自由港
+  div_4nnakk: 13580  # 伊纳拉群岛邦
+  div_7t7xz6: 6050   # 安巴罗国际托管地
+  div_c28art: 4640   # 坦德罗圣山修道院共和国
 # Median income per earner (USD a year), for territories that set it: base x (district GDP per head /
 # territory base) ^ elasticity x perturbation, so that it rises far more slowly than the GDP per head of
 # rich districts; a city or territory averages its districts' medians by population on a log scale.
@@ -88,6 +116,15 @@ industries:
   luxury:        { zh: 富豪私人服务, en: Services for the very rich, sectors: { tertiary: 44 }, productivity: 1.20, age: [0, 2, 1] }
   cannabis:      { zh: 大麻种植, en: Cannabis, sectors: { primary: 24, secondary: 8 }, productivity: 0.90, age: [0, 1, 0] }
   solar:         { zh: 光伏与陆上风电, en: Solar and onshore wind, sectors: { secondary: 36, tertiary: 6 }, productivity: 1.20, age: [0, 1, 0] }
+  # Ranova
+  zebu:          { zh: 瘤牛放牧, en: Zebu herding, sectors: { primary: 38 }, productivity: 0.65, age: [3, -3, 0] }
+  gems:          { zh: 宝石开采, en: Gem mining, sectors: { primary: 14, secondary: 24 }, productivity: 1.05, age: [0, 3, -2] }
+  gambling:      { zh: 赌场与博彩, en: Casinos and gaming, sectors: { tertiary: 46 }, productivity: 1.50, age: [-1, 5, -1] }
+  contraband:    { zh: 走私与违禁品, en: Smuggling and contraband, sectors: { tertiary: 30, primary: 10 }, productivity: 1.10, age: [0, 4, -2] }
+  aid:           { zh: 国际援助与人道机构, en: International aid and relief, sectors: { tertiary: 40 }, productivity: 0.90, age: [2, 1, -1] }
+  pilgrimage:    { zh: 朝圣与宗教服务, en: Pilgrimage, sectors: { tertiary: 36 }, productivity: 0.85, age: [0, -1, 3] }
+  pmc:           { zh: 私营军事公司, en: Private military companies, sectors: { tertiary: 42 }, productivity: 1.60, age: [-3, 10, -5] }
+  arms:          { zh: 军火制造与贸易, en: Arms making and trade, sectors: { secondary: 40, tertiary: 8 }, productivity: 1.30, age: [0, 3, -1] }
 
 # First-language shares (%), by heritage: the Chinese-planned new towns, the old Viking and Buckham
 # settlements and ports, and the international cities in between; in the Arctic Ocean Territory, the
@@ -95,7 +132,7 @@ industries:
 # the Ivuran towns and villages, the mixed towns and the big international cities; in the California
 # Autonomous State, English-speaking, Spanish-speaking and mixed places (about 65% English, 30% Spanish
 # and 5% other first languages overall, here given as Chinese). A language a heritage leaves out has no speakers there.
-languages: [zh, art-x-viking, art-x-buckham, en, art-x-tavrunaq, art-x-ivuran, es]
+languages: [zh, art-x-viking, art-x-buckham, en, art-x-tavrunaq, art-x-ivuran, es, art-x-ranova, art-x-kasiri]
 heritage:
   chinese: { zh: 74, art-x-viking: 12, art-x-buckham: 6, en: 6 }
   viking:  { zh: 36, art-x-viking: 52, art-x-buckham: 5, en: 6 }
@@ -112,6 +149,13 @@ heritage:
   ca_mixed:      { en: 75, es: 20, zh: 5 }
   ca_latino:     { en: 45, es: 52, zh: 3 }
   ca_global:     { en: 66, es: 20, zh: 14 }
+  # Ranova: Ranovan in the highlands and the interior, Kasiri on the west coast and in Nusira, English
+  # and Chinese in the island banking states and the big ports
+  ranova:         { art-x-ranova: 92, en: 5, zh: 3 }
+  ranova_mixed:   { art-x-ranova: 70, art-x-kasiri: 22, en: 6, zh: 2 }
+  ranova_global:  { art-x-ranova: 48, art-x-kasiri: 14, en: 28, zh: 10 }
+  kasiri:         { art-x-kasiri: 82, art-x-ranova: 14, en: 4 }
+  kasiri_global:  { art-x-kasiri: 55, art-x-ranova: 15, en: 22, zh: 8 }
 
 # Ethnic origin (%), for territories that record it: a district takes the profile named by its
 # `ethnicity` trait, or else the one named after its heritage, perturbed like the languages. In the
@@ -130,3 +174,6 @@ age:
   young:    [20, 68, 12]
   balanced: [15, 66, 19]
   old:      [12, 60, 28]
+  ranova_young: [38, 58, 4]   # Ranova's poor and war-torn interior
+  ranova_mid:   [30, 64, 6]
+  ranova_old:   [10, 60, 30]  # the rich island states

@@ -6,7 +6,7 @@ export type Appearance = "auto" | ThemeId;
 export type BBox = [number, number, number, number];
 export type LngLat = [number, number];
 
-export const NAME_LANGS = ["zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran", "es"] as const;
+export const NAME_LANGS = ["zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran", "es", "art-x-ranova", "art-x-kasiri"] as const;
 export type NameLang = (typeof NAME_LANGS)[number];
 export type Names = Partial<Record<NameLang, string>> & { zh: string; en: string };
 export type Localized = { zh: string; en: string };
@@ -35,7 +35,7 @@ export interface CityFlagSpec {
   extra?: { charge: string; color: string; x: number; y: number; size: number }[];
 }
 
-export type EntityKind = "division" | "natural" | "route" | "place" | "party";
+export type EntityKind = "division" | "natural" | "route" | "place" | "party" | "bloc";
 export type StructureKind = "bridge" | "tunnel" | "snow_shed";
 export type EntityStatus = "canon" | "draft" | "generated";
 
@@ -161,6 +161,44 @@ export interface Entity {
   history?: Localized;
   /** Seats held in each territorial parliament and city council. */
   seats?: { at: string; seats: number; of: number; upper?: boolean }[];
+  /** Regions outside the territories: the region itself, its nations and their cities. */
+  role?: "region" | "nation" | "city";
+  /** Nations: the card's facts. */
+  nation?: NationFacts;
+  /** Blocs: their member nations; countries: the nations they back. */
+  member_nations?: string[];
+  /** Blocs: the leading nation. */
+  leader_nation?: string;
+  doctrine?: Localized;
+}
+
+export type WarStatus = "active" | "ceasefire" | "frozen" | "ended";
+
+/** A nation's card block (nation: in world/divisions). */
+export interface NationFacts {
+  ideology: Localized[];
+  government: Localized;
+  head: Officeholder;
+  /** Who really holds power. */
+  power: Localized;
+  bloc?: string | null;
+  bloc_role?: Localized;
+  /** How many of the region's other states recognise it. */
+  recognition: number;
+  /** A legislature with fixed seats, where there is no election to model. */
+  legislature?: { names: Localized; seats: number; groups: { names: Localized; seats: number; color: string }[]; notes?: Localized };
+  military: { active: number; reserve: number; strength: 1 | 2 | 3 | 4 | 5; branches: Localized[]; equipment: Localized; budget_gdp?: number };
+  wars?: { names: Localized; role: Localized; status: WarStatus }[];
+  allies?: string[];
+  rivals?: string[];
+  /** Outside powers behind it, openly or not. */
+  backers?: string[];
+  religion: { names: Localized; share: number; color?: string }[];
+  /** 0 (none) to 100 (full). */
+  freedom: { political: number; civil: number; press: number; economic: number };
+  refugees: { hosted: number; abroad: number };
+  symbols: { anthem: Localized; flower: Localized; animal: Localized };
+  facts: { currency: Localized; currency_code: string; time_zone: string; calling_code: string; tld: string; driving: "left" | "right" };
 }
 
 export type ElectoralSystem = "mmp" | "fptp" | "pr_reserved" | "pr_regional" | "top_two";

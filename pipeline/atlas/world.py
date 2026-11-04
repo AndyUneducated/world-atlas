@@ -10,9 +10,9 @@ import yaml
 ROOT = Path(__file__).resolve().parents[2]
 WORLD_DIR = ROOT / "world"
 
-ID_PATTERN = re.compile(r"^(div|nat|rte|poi|bld|pty)_[0-9a-hjkmnp-tv-z]{6}$|^country:[A-Z]{2}$")
+ID_PATTERN = re.compile(r"^(div|nat|rte|poi|bld|pty)_[0-9a-hjkmnp-tv-z]{6}$|^country:[A-Z]{2}$|^bloc:[a-z]+$")
 # Name languages, as NAME_LANGS in src/lib/types.ts: Chinese and English are required, the conlangs optional.
-NAME_LANGS = ("zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran", "es")
+NAME_LANGS = ("zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran", "es", "art-x-ranova", "art-x-kasiri")
 REQUIRED_LANGS, CONLANGS = NAME_LANGS[:2], NAME_LANGS[2:]
 DIVISION_SUBTYPES = ("country", "dependency", "region", "locality", "borough")
 # Division codes (GB/T 2260): six digits, of which a territory uses the first two, a city four
@@ -44,7 +44,7 @@ BACKGROUND_NETWORKS = ("national_expressway", "territorial_expressway", "territo
 OPERATOR_KINDS = ("expressway", "highway", "rail")
 # Card text, traits and flags: no region build reads them, so they stay out of a region's cache key and
 # build.py takes them from the sources after the regions are merged.
-TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder", "flag", "flag_notes", "climate_notes")
+TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder", "flag", "flag_notes", "climate_notes", "nation", "bloc")
 # A wonder on a line is one of its built structures (named in the build); elsewhere it is the entity itself.
 WONDER_STRUCTURES = ("bridge", "tunnel", "snow_shed")
 TRAIT_KEYS = ("industries", "heritage", "age", "income", "ethnicity")
@@ -61,6 +61,11 @@ def ts_names(file: str, const: str) -> tuple[str, ...]:
 
 # City flags: the layouts in src/lib/cityFlags.tsx and the charges in src/lib/charges.tsx and emblems.tsx.
 FLAG_LAYOUTS = ts_names("cityFlags.tsx", "FLAG_LAYOUTS")
+# Flags of the nations of a region (role: nation), each its own drawing in src/lib/nationFlags.tsx.
+NATION_FLAGS = ts_names("nationFlags.tsx", "NATION_FLAGS")
+# A nation's card block (nation: in its division): kinds of state and the facts it lists.
+NATION_KEYS = ("ideology", "government", "head", "power", "bloc", "bloc_role", "recognition", "legislature", "military", "wars",
+               "allies", "rivals", "backers", "religion", "freedom", "refugees", "symbols", "facts")
 FLAG_CHARGES = ts_names("emblems.tsx", "MOTIFS") + ts_names("charges.tsx", "NEW") + ts_names("charges.tsx", "CALIFORNIA")
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
 POLITICS_SYSTEMS = ("mmp", "fptp", "pr_reserved", "pr_regional", "top_two")
@@ -97,6 +102,7 @@ class World:
         self.planet = _load(root / "planet.yaml")["planet"]
         self.entities: dict[str, dict] = {}
         self.countries = self._collect(root / "registry", "countries")
+        self.blocs = self._collect(root / "registry", "blocs")
         self.divisions = self._collect(root / "divisions", "divisions")
         self.features = self._collect(root / "features", "features")
         self.routes = self._collect(root / "transport", "routes")
@@ -177,8 +183,78 @@ class World:
             out.append(f"legend language {f['legend']} has no name to write")
         return out
 
+    def _nation_errors(self, d: dict) -> list[str]:
+        """A nation's card block: what kind of state it is, who holds power, its bloc, armed forces, wars,
+        faiths, freedoms, refugees, symbols and facts, each text in zh and en; and a card's worth of notes."""
+        n = d.get("nation")
+        if not isinstance(n, dict):
+            return ["a nation needs its card block (nation:)"]
+        out = []
+        both = lambda v: isinstance(v, dict) and all(v.get(lang) for lang in REQUIRED_LANGS)
+        if extra := set(n) - set(NATION_KEYS):
+            out.append(f"nation: unknown keys {', '.join(sorted(extra))}")
+        if len(d.get("notes", {}).get("zh", "")) < 500:
+            out.append("a nation's card (notes.zh) needs at least 500 characters")
+        if not (n.get("ideology") and all(both(x) for x in n["ideology"])) or not both(n.get("government")) or not both(n.get("power")):
+            out.append("nation: ideology (tags), government and power need zh and en")
+        head = n.get("head", {})
+        if not (both(head.get("title")) and both(head.get("name"))):
+            out.append("nation: head gives the head of state's title and name (zh, en)")
+        if n.get("bloc") is not None and n["bloc"] not in self.blocs:
+            out.append(f"nation: bloc {n['bloc']} is not in world/registry/blocs.yaml")
+        if not isinstance(n.get("recognition"), int):
+            out.append("nation: recognition is how many of the region's states recognise it (a whole number)")
+        mil = n.get("military", {})
+        if not (isinstance(mil.get("active"), int) and isinstance(mil.get("reserve"), int) and mil.get("strength") in (1, 2, 3, 4, 5)
+                and all(both(x) for x in mil.get("branches", [None])) and both(mil.get("equipment"))):
+            out.append("nation: military gives active and reserve personnel, strength 1–5, branches and equipment (zh, en)")
+        for w in n.get("wars", []):
+            if not (both(w.get("names")) and both(w.get("role")) and w.get("status") in ("active", "ceasefire", "frozen", "ended")):
+                out.append("nation: each war has names, the nation's role (zh, en) and a status: active, ceasefire, frozen or ended")
+        for rel in ("allies", "rivals", "backers"):
+            if bad := [x for x in n.get(rel, []) if x not in self.entities]:
+                out.append(f"nation: unknown {rel} {', '.join(bad)}")
+        if (leg := n.get("legislature")) is not None:
+            groups = leg.get("groups", [])
+            if not (both(leg.get("names")) and isinstance(leg.get("seats"), int) and groups
+                    and all(both(g.get("names")) and isinstance(g.get("seats"), int) and HEX.match(str(g.get("color", ""))) for g in groups)
+                    and sum(g["seats"] for g in groups) == leg["seats"]):
+                out.append("nation: a fixed legislature has names, seats and groups (names, seats, color) filling them")
+            if d["id"] in self.politics.get("legislatures", {}):
+                out.append("nation: a nation with an elected legislature in world/politics.yaml gives no fixed one")
+        rel = n.get("religion", [])
+        if not rel or not all(both(r.get("names")) and isinstance(r.get("share"), (int, float)) for r in rel) or abs(sum(r["share"] for r in rel) - 100) > 0.5:
+            out.append("nation: religion lists faiths (names zh, en) with shares adding up to 100")
+        fr = n.get("freedom", {})
+        if set(fr) != {"political", "civil", "press", "economic"} or not all(isinstance(v, int) and 0 <= v <= 100 for v in fr.values()):
+            out.append("nation: freedom scores political, civil, press and economic, each 0–100")
+        ref = n.get("refugees", {})
+        if not (isinstance(ref.get("hosted"), int) and isinstance(ref.get("abroad"), int)):
+            out.append("nation: refugees gives hosted and abroad (whole numbers)")
+        if not all(both(n.get("symbols", {}).get(k)) for k in ("anthem", "flower", "animal")):
+            out.append("nation: symbols name the anthem, flower and animal (zh, en)")
+        f = n.get("facts", {})
+        if not (both(f.get("currency")) and f.get("driving") in ("left", "right")
+                and all(isinstance(f.get(k), str) for k in ("currency_code", "time_zone", "calling_code", "tld"))):
+            out.append("nation: facts give currency (zh, en), currency_code, time_zone, calling_code, tld and driving (left, right)")
+        return out
+
+    def _bloc_errors(self) -> list[str]:
+        out = []
+        for bid, b in self.blocs.items():
+            if len(b.get("notes", {}).get("zh", "")) < 500 or not b.get("notes", {}).get("en"):
+                out.append(f"{bid}: a bloc's card (notes) needs zh of at least 500 characters, and en")
+            if not HEX.match(str(b.get("color", ""))):
+                out.append(f"{bid}: color must be #RRGGBB")
+            members = [did for did, d in self.divisions.items() if d.get("nation", {}).get("bloc") == bid]
+            if b.get("leader") not in members:
+                out.append(f"{bid}: leader must be one of its member nations")
+            if not all(isinstance(b.get(k), dict) and all(b[k].get(lang) for lang in REQUIRED_LANGS) for k in ("short_names", "motto", "doctrine")):
+                out.append(f"{bid}: short_names, motto and doctrine need zh and en")
+        return out
+
     def validate(self) -> list[str]:
-        errors: list[str] = []
+        errors: list[str] = self._bloc_errors()
         for eid, e in self.entities.items():
             if not ID_PATTERN.match(eid):
                 errors.append(f"{eid}: malformed id")
@@ -196,7 +272,15 @@ class World:
         for did, d in self.divisions.items():
             if d["subtype"] not in DIVISION_SUBTYPES:
                 errors.append(f"{did}: unknown subtype {d['subtype']}")
-            parent = self.entities.get(d.get("parent"))
+            role = d.get("role")
+            if role not in (None, "region", "nation", "city") or (role == "region") != (d["subtype"] == "dependency" and "parent" not in d) \
+                    or (role == "nation" and d["subtype"] != "locality") \
+                    or (role == "city") != (self.divisions.get(d.get("parent", ""), {}).get("role") == "nation"):
+                errors.append(f"{did}: role region is a territory with no country above it, role nation one of its localities, "
+                              "role city a borough of a nation")
+            if role == "nation":
+                errors += [f"{did}: {e}" for e in self._nation_errors(d)]
+            parent = self.entities.get(d.get("parent"), {"codes": {}, "subtype": "country"} if role == "region" else None)
             if parent is None:
                 errors.append(f"{did}: parent {d.get('parent')} not found")
                 continue
@@ -216,13 +300,17 @@ class World:
                     errors.append(f"{did}: admin code {admin} does not extend parent code {parent_admin}")
             if d.get("route_shield", "crest") not in ROUTE_SHIELDS:
                 errors.append(f"{did}: route_shield must be one of {', '.join(ROUTE_SHIELDS)}")
-            if d["subtype"] == "dependency" and d.get("flag") not in FLAGS:
+            if d["subtype"] == "dependency" and role != "region" and d.get("flag") not in FLAGS:
                 errors.append(f"{did}: a territory needs a flag, one of {', '.join(FLAGS)}")
             if d["subtype"] == "locality":
                 if not HEX.match(str(d.get("color", ""))):
                     errors.append(f"{did}: a city needs a colour (#RRGGBB) for its map tint and card accents")
-                errors += [f"{did}: flag {e}" for e in self._flag_errors(d)]
-            if d["subtype"] in ("dependency", "locality") and not all(d.get("flag_notes", {}).get(lang) for lang in REQUIRED_LANGS):
+                if role == "nation":
+                    if d.get("flag") not in NATION_FLAGS:
+                        errors.append(f"{did}: a nation's flag is one of the drawings in src/lib/nationFlags.tsx")
+                else:
+                    errors += [f"{did}: flag {e}" for e in self._flag_errors(d)]
+            if d["subtype"] in ("dependency", "locality") and role != "region" and not all(d.get("flag_notes", {}).get(lang) for lang in REQUIRED_LANGS):
                 errors.append(f"{did}: a flag needs flag_notes (zh, en): what its colours and charges stand for")
             kids = self.children(did)
             if kids and d.get("area_km2"):
@@ -465,8 +553,10 @@ class World:
         errors: list[str] = []
         legs = pol.get("legislatures", {})
         for tid, leg in legs.items():
-            if self.divisions.get(tid, {}).get("subtype") != "dependency":
-                errors.append(f"politics: legislature {tid} is not a territory")
+            if self.divisions.get(tid, {}).get("subtype") != "dependency" and self.divisions.get(tid, {}).get("role") != "nation":
+                errors.append(f"politics: legislature {tid} is not a territory or a nation")
+            if self.divisions.get(tid, {}).get("role") == "nation" and leg.get("councils"):
+                errors.append(f"politics: {tid}: a nation's cities have no councils of their own")
             if leg.get("system") not in POLITICS_SYSTEMS:
                 errors.append(f"politics: {tid}: system must be one of {', '.join(POLITICS_SYSTEMS)}")
             court = leg.get("court", {})

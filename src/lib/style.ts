@@ -397,6 +397,34 @@ export function buildStyle(opts: {
       "line-width": ["interpolate", ["linear"], ["zoom"], 5, m.cityLine.width * 0.6, 10, m.cityLine.width * 1.8],
     },
   });
+  // A nation's border: a broad tint of its colour inside a firm line, as on a political map.
+  style.push(
+    {
+      id: "nation-border-tint",
+      type: "line",
+      source: "divisions",
+      filter: ["==", ["get", "role"], "nation"],
+      layout: { visibility: visible(layers.boundaries), "line-join": "round" },
+      paint: {
+        "line-color": ["get", "color"],
+        "line-opacity": 0.35,
+        "line-offset": ["interpolate", ["linear"], ["zoom"], 4, 1, 10, 3],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 2, 10, 6],
+      },
+    },
+    {
+      id: "nation-border",
+      type: "line",
+      source: "divisions",
+      filter: ["==", ["get", "role"], "nation"],
+      layout: { visibility: visible(layers.boundaries), "line-join": "round" },
+      paint: {
+        "line-color": m.label.territory,
+        "line-opacity": 0.8,
+        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.9, 10, 2.4],
+      },
+    },
+  );
   if (m.coast.glow) {
     style.push({
       id: "coast-glow",
@@ -938,6 +966,28 @@ export function buildStyle(opts: {
     },
     cityLabel("city-label-major", ["all", isKind("locality"), ["<=", ["get", "rank"], 2]], 5),
     cityLabel("city-label-minor", ["all", isKind("locality"), [">", ["get", "rank"], 2]], 6.2),
+    {
+      id: "nation-label",
+      type: "symbol",
+      source: "labels",
+      minzoom: 3.6,
+      maxzoom: 9,
+      filter: isKind("nation"),
+      layout: {
+        "text-field": ["get", `short_${lang}`],
+        "text-font": FONT.medium,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 4, ["case", ["==", ["get", "rank"], 0], 11, 9.5], 7, ["case", ["==", ["get", "rank"], 0], 17, 13.5]],
+        "text-letter-spacing": lang === "en" ? 0.16 : 0.3,
+        "text-transform": "uppercase",
+        "text-max-width": 8,
+        "symbol-sort-key": ["get", "rank"],
+      },
+      paint: {
+        "text-color": m.label.territory,
+        ...halo,
+        "text-opacity": ["interpolate", ["linear"], ["zoom"], 3.6, 0, 4.2, 0.95, 8.2, 0.85, 9, 0],
+      },
+    },
     {
       id: "territory-label",
       type: "symbol",

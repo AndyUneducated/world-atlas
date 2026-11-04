@@ -8,16 +8,16 @@ import type { ReactNode } from "react";
 const W = 60;
 const H = 40;
 
-/** A wavy band edge from x=0 to x=60 at height y, `n` waves of amplitude `a`. */
-function waves(y: number, n: number, a: number) {
-  const half = W / n / 2;
+/** A wavy band edge from x=0 to x=w at height y, `n` waves of amplitude `a`. */
+export function waves(y: number, n: number, a: number, w = W) {
+  const half = w / n / 2;
   let d = `M0 ${y}`;
   for (let i = 0; i < n * 2; i++) d += `q${half / 2} ${i % 2 ? a : -a} ${half} 0`;
   return d;
 }
 
 /** An n-pointed star centred on (cx, cy). */
-function star(cx: number, cy: number, n: number, outer: number, inner: number, turn = -Math.PI / 2) {
+export function star(cx: number, cy: number, n: number, outer: number, inner: number, turn = -Math.PI / 2) {
   const pts: string[] = [];
   for (let i = 0; i < n * 2; i++) {
     const r = i % 2 ? inner : outer;

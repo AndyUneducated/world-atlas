@@ -14,7 +14,7 @@ import numpy as np
 
 from .world import World
 
-LANG_KEYS = ("zh", "art-x-viking", "art-x-buckham", "en", "art-x-tavrunaq", "art-x-ivuran", "es")
+LANG_KEYS = ("zh", "art-x-viking", "art-x-buckham", "en", "art-x-tavrunaq", "art-x-ivuran", "es", "art-x-ranova", "art-x-kasiri")
 
 
 SPLIT = 0.3  # a party with this share of a top-two race's vote stands two candidates
@@ -316,7 +316,7 @@ def _lang(rng: np.random.Generator, langs: dict[str, float], pools: dict) -> str
 LANG_NAMES = {
     "zh": ("中文", "Chinese"), "art-x-viking": ("维京语", "Viking"), "art-x-buckham": ("巴克汉姆语", "Buckham"),
     "en": ("英语", "English"), "art-x-tavrunaq": ("塔夫鲁纳克语", "Tavrunaq"), "art-x-ivuran": ("伊武兰语", "Ivuran"),
-    "es": ("西班牙语", "Spanish"),
+    "es": ("西班牙语", "Spanish"), "art-x-ranova": ("拉诺瓦语", "Ranovan"), "art-x-kasiri": ("卡西里语", "Kasiri"),
 }
 # features read the same both ways: a negative lean is a lean towards the other pole
 BIPOLAR = {
@@ -544,6 +544,8 @@ def annotate(world: World, entities: dict) -> None:
         for d in terr.districts:
             cities.setdefault(world.divisions[d]["parent"], []).append(d)
         for cid, dids in cities.items():
+            if cid == tid:  # a nation's cities sit in its parliament and elect no councils
+                continue
             c = world.divisions[cid]
             override = leg.get("councils", {}).get(cid, {})
             kind = model["council_types"][override.get("type", "council")]

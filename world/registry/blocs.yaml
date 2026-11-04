@@ -1,0 +1,51 @@
+# Blocs of Ranova: the alliances its nations belong to (nation.bloc). A bloc's leader is one of its
+# members; its card is notes (zh of at least 500 characters, and en).
+blocs:
+  - id: bloc:secular
+    subtype: bloc
+    status: generated
+    names: {zh: 世俗协约, en: Secular Accord}
+    short_names: {zh: 协约, en: Accord}
+    leader: div_r9whm0
+    color: '#C8102E'
+    motto: {zh: 理性、进步、人民, en: 'Reason, Progress, the People'}
+    doctrine: {zh: 以世俗国家为共同底线，反对宗教和血统政治；经济制度各行其是, en: A shared floor of the secular state against the politics of faith and lineage; each member keeps its own economic system}
+    notes: {zh: '世俗协约是拉诺瓦岛三大阵营之一，由阿瓦拉齐人民民主共和国牵头，成员包括马索沃利、贝洛瓦、瓦罗纳、萨马伊和马哈维洛，法尼里自由公社联合会以观察员身份参加。协约成员的制度差别极大：既有一党制的共产主义国家和世袭政权，也有自由市场的资本主义共和国、商业城邦和多信仰的议会民主国，把它们联系在一起的是对「信仰政治」和「血统政治」的共同反对。
+  
+        协约诞生于高原战争最艰难的时期。当时安博哈拉的军队逼近北方的港口，齐马罗沃又在南方扩张，阿瓦拉齐的领导人与贝洛瓦、瓦罗纳的商人和萨马伊的议员秘密会面，签订了互不侵犯、互相援助和对等贸易的协约，约定「不干涉彼此的制度，只捍卫世俗国家的底线」。此后协约逐渐发展出联合军事委员会、贸易清算所和学术交流项目，阿瓦拉齐提供兵力和重工业，马哈维洛和瓦罗纳提供港口和资金，萨马伊和贝洛瓦提供大学和技术。
+  
+        协约内部的矛盾从未停止：马索沃利的报纸批评阿瓦拉齐「修正主义」，萨马伊的议员抗议阿瓦拉齐和马索沃利的人权状况，马哈维洛的商人则只关心港口和关税。外界常用「一张桌子上坐着红旗和美元」来形容这个阵营。尽管如此，协约在三十多年里从未解体，成员国之间没有发生过战争。
+  
+        据各方情报和媒体报道，中国在幕后向协约提供贷款、港口建设和军事装备，但两国政府都否认存在正式的同盟关系。协约的总部设在马哈维洛港，每年轮流在成员国首都举行首脑会议。', en: "The Secular Accord is one of Ranova's three blocs, led by the People's Democratic Republic of Avaratsy, with Masovoly, Belova, Varona, Samay and Mahavelo as members and the Free Communes of Faniry as an observer. Its members could hardly be more different, one-party communist states and a hereditary regime alongside free-market capitalist republics, a merchant city-state and a multi-faith parliamentary democracy; what binds them is shared opposition to the politics of faith and of lineage. \nThe Accord was born in the hardest days of the Highland War, when Ambohara's armies were closing on the northern ports and Tsimarovo was expanding in the south. Avaratsy's leaders met in secret with merchants from Belova and Varona and members of Samay's parliament and signed a pact of non-aggression, mutual aid and reciprocal trade, agreeing 'not to interfere in one another's systems, only to defend the floor of the secular state'. Over time the Accord grew a joint military committee, a trade clearing house and academic exchanges: Avaratsy supplies troops and heavy industry, Mahavelo and Varona ports and money, Samay and Belova universities and technology. \nQuarrels within the Accord never stop: Masovoly's papers attack Avaratsy for 'revisionism', Samay's parliamentarians protest at human rights in Avaratsy and Masovoly, and Mahavelo's merchants care only about the port and the tariffs. Outsiders like to describe the bloc as 'red flags and dollars at the same table'. Even so, the Accord has never broken up in more than thirty years, and its members have never gone to war with one another. \nAccording to intelligence from several sides and press reports, China provides the Accord with loans, port construction and military equipment behind the scenes, though both governments deny any formal alliance. The Accord's headquarters are in the port of Mahavelo, and a summit is held each year in a different member's capital."}
+  - id: bloc:covenant
+    subtype: bloc
+    status: generated
+    names: {zh: 圣约同盟, en: Covenant League}
+    short_names: {zh: 同盟, en: League}
+    leader: div_mj41d0
+    color: '#0B3A75'
+    motto: {zh: 信仰守护家园, en: Faith guards the homeland}
+    doctrine: {zh: 以宗教信仰和传统家庭为立国之本，共同反对共产主义和极端主义, en: 'Religious faith and the traditional family as the foundation of the state, with common opposition to communism and extremism'}
+    notes: {zh: '圣约同盟是拉诺瓦岛三大阵营之一，由安博哈拉基督教联邦牵头，成员包括萨希利亚伊斯兰共和国、努西拉苏丹国、米拉卡王国、洛哈瓦托王国和坦德罗圣山修道院共和国。同盟的成员信仰不同——新教、天主教、伊斯兰教、佛教和坦德罗古教会——却都把宗教信仰和传统家庭视为国家的根基，共同反对无神论的共产主义和宗教极端主义。
+  
+        同盟形成于大分裂后的第一个十年。高原战争中，安博哈拉急需盟友，萨希利亚则面对贾巴利亚武装的叛乱，两国在萨马伊的一次和谈失败后转而结盟，随后努西拉、米拉卡、洛哈瓦托和坦德罗相继加入，签订了「圣约」，承诺共同防御、保护彼此的宗教自由和圣地。同盟设有联合防务理事会和宗教领袖会议，安博哈拉提供主要兵力，努西拉提供石油资金，米拉卡提供外交斡旋，萨希利亚和洛哈瓦托提供港口和后勤。
+  
+        同盟内部同样存在分歧：萨希利亚的宗教学者和安博哈拉的福音派在家庭法和宗教教育上看法不一，米拉卡的议会常常批评努西拉的人权状况，坦德罗则拒绝参与任何军事行动。外界称同盟为「十字架、新月和法轮的联盟」，认为它更多是出于对共同敌人的恐惧，而不是共同的信仰。
+  
+        据各方情报和媒体报道，美国在幕后向同盟提供武器、军事训练和经济援助，安博哈拉的空军和防空系统大多来自美国的盟友，但两国政府都否认存在正式的同盟条约。同盟的秘书处设在安博哈拉，每年复活节和开斋节之间举行一次首脑会议。', en: "The Covenant League is one of Ranova's three blocs, led by the Christian Federation of Ambohara, with the Islamic Republic of Sahiliya, the Sultanate of Nusira, the Kingdom of Miraka, the Kingdom of Lohavato and the Monastic Republic of Holy Mount Tendro as members. Its members hold different faiths, Protestant, Catholic, Muslim, Buddhist and the Old Church of Tendro, but all see religious faith and the traditional family as the foundation of the state and stand together against atheist communism and religious extremism. \nThe League took shape in the first decade after the Sundering. In the Highland War Ambohara badly needed allies, and Sahiliya faced the Jabaliya revolt; after peace talks in Samay failed the two allied instead, and Nusira, Miraka, Lohavato and Tendro joined in turn, signing the 'Covenant', which pledges common defence and the protection of each other's religious freedom and holy places. The League has a joint defence council and a council of religious leaders: Ambohara provides most of the troops, Nusira oil money, Miraka diplomacy, and Sahiliya and Lohavato ports and logistics. \nThere are divisions here too: Sahiliya's religious scholars and Ambohara's evangelicals disagree on family law and religious schooling, Miraka's parliament often criticises human rights in Nusira, and Tendro refuses any part in military action. Outsiders call it 'the alliance of the cross, the crescent and the wheel' and think it owes more to fear of common enemies than to shared belief. \nAccording to intelligence from several sides and press reports, the United States provides the League with arms, military training and economic aid behind the scenes, and most of Ambohara's air force and air defences come from America's allies, though both governments deny any formal treaty. The League's secretariat is in Ambohara, and a summit is held each year between Easter and Eid."}
+  - id: bloc:origin
+    subtype: bloc
+    status: generated
+    names: {zh: 祖源轴心, en: Origin Axis}
+    short_names: {zh: 轴心, en: Axis}
+    leader: div_rbcxzz
+    color: '#5A1A14'
+    motto: {zh: （阵营口号，多国禁止传播）, en: '(the bloc''s slogan, banned from circulation in many states)'}
+    doctrine: {zh: 以「血统」和「祖先土地」划分国民，主张驱逐「外人」；国际社会普遍视之为排外和侵略的阵营, en: Divides people by 'lineage' and 'ancestral land' and calls for the expulsion of 'outsiders'; widely regarded abroad as a bloc of exclusion and aggression}
+    notes: {zh: '祖源轴心是拉诺瓦岛三大阵营中最小、也最受孤立的一个，由齐马罗沃民族社会主义国牵头，成员包括梅纳瓦利国家拯救共和国和卡波拉新秩序自由领。三个成员都以「血统」和「祖先土地」来定义国民，主张把原住民氏族、沿海的卡西里人和外来移民视为「外人」，在本国和邻国推行强迫迁徙和歧视政策。国际组织和周边国家普遍把轴心视为排外和侵略的阵营，对其成员实施武器禁运和制裁。
+  
+        轴心形成于南方战争初期。齐马罗沃入侵阿拉齐纳的牧区后遭到周边国家的谴责和禁运，梅纳瓦利的军政府为了获得武器和对付伊索卡游击队，与齐马罗沃签订了军事同盟，允许齐马罗沃的军队过境和使用梅纳瓦利的港口；卡波拉的新秩序运动随后也加入了轴心。轴心没有常设机构，只有齐马罗沃和梅纳瓦利之间的联合指挥部。
+  
+        轴心内部的矛盾十分尖锐：齐马罗沃视卡波拉为危险的冒险者，两国边境多次交火；梅纳瓦利的将军们更关心金矿和权力，对意识形态并不热心，常被齐马罗沃讥讽为「只想发财的军人」。没有任何大国公开支持轴心，它的武器和燃料主要来自走私、安博维的卡特尔和卡托拉的雇佣兵。
+  
+        三十多年来，轴心的政策造成了全岛最严重的人道主义灾难之一，数十万人被迫离开家园。本条目仅作客观记录，不代表对其主张的任何认可。', en: "The Origin Axis is the smallest and most isolated of Ranova's three blocs, led by the National Socialist State of Tsimarovo, with the Salvation Republic of Menavaly and the New Order Free Territory of Kabola as members. All three define their people by 'lineage' and 'ancestral land', treat the indigenous clans, the coastal Kasiri and immigrants as 'outsiders', and pursue forced removals and discrimination at home and in neighbouring lands. International bodies and the neighbouring states broadly regard the Axis as a bloc of exclusion and aggression and keep arms embargoes and sanctions on its members. \nThe Axis took shape early in the Southern War. When Tsimarovo invaded the Alatsina pastures it met condemnation and an embargo from its neighbours; Menavaly's junta, wanting arms and help against the Isoka guerrillas, signed a military alliance with Tsimarovo that let its troops cross Menavaly and use its ports, and Kabola's New Order movement later joined too. The Axis has no permanent institutions, only a joint command of Tsimarovo and Menavaly. \nIts internal quarrels are bitter: Tsimarovo sees Kabola as dangerous adventurers, and the two have exchanged fire on their border many times; Menavaly's generals care more about gold mines and power than ideology, and Tsimarovo mocks them as 'soldiers who only want to get rich'. No great power openly backs the Axis; its arms and fuel come mainly from smuggling, the Ambovy cartels and Katora's mercenaries. \nOver thirty years the Axis's policies have caused one of the worst humanitarian disasters on the island, driving hundreds of thousands from their homes. This entry is a factual record and implies no endorsement of the bloc's claims."}
