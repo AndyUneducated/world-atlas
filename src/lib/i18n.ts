@@ -472,6 +472,15 @@ const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
   armoury: { zh: "武器库", en: "Armoury" },
   shooting_range: { zh: "靶场", en: "Shooting range" },
   car_workshop: { zh: "改装车间", en: "Tuning workshop" },
+  church: { zh: "教堂", en: "Church" },
+  mosque: { zh: "清真寺", en: "Mosque" },
+  monastery: { zh: "修道院", en: "Monastery" },
+  sacred_site: { zh: "圣地", en: "Sacred site" },
+  refugee_camp: { zh: "难民营", en: "Refugee camp" },
+  casino: { zh: "赌场", en: "Casino" },
+  court: { zh: "法院", en: "Court" },
+  militant_camp: { zh: "武装营地", en: "Militant camp" },
+  marina: { zh: "游艇会", en: "Marina" },
 };
 
 const NETWORK_LABELS: Record<string, Record<Lang, string>> = {

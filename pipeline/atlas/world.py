@@ -31,7 +31,7 @@ SITE_VARIANTS = {**MILITARY_VARIANTS, "estate": ("villa", "compound", "bunker"),
                  "triangle": ("hollow", "mountain"), "retail": ("supermarket", "mall", "fuel"), "apartments": (),
                  "lido": (), "breeze": (), "square": ("round", "square"), "fashion": ("studio", "fitting", "show"), "chip": (),
                  "brewhouse": ("pilsner", "wheat", "ipa", "stout", "abbey", "sour"), "orchard": ("durian",), "spine": (), "camera": (),
-                 "armoury": (), "shooting": (), "chair": (), "dronetower": ()}
+                 "armoury": (), "shooting": (), "chair": (), "dronetower": (), "refugee": ()}
 SITE_LAYOUTS = ("complex", "hall", "courtyard", "slab", "lshape", "block", "campus", "ring", "stadium", "tower", "dome", "park", "plaza", "market",
                 "airport", "port", "harbour", "offshore_port", "spaceport", "mine", *SITE_VARIANTS, "detention", "checkpoint", "racetrack", "clinic")
 FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport", "mine", *SITE_VARIANTS, "detention", "checkpoint", "racetrack", "clinic")

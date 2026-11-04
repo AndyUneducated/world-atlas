@@ -706,6 +706,30 @@ def _detention(cx, cy, W, D, rng) -> list[tuple[str, Polygon]]:
     return parts
 
 
+def _refugee(cx, cy, W, D, rng) -> list[tuple[str, Polygon]]:
+    """Refugee camp, gate on -x: a fence, the reception centre, warehouse and lorry yard at the gate,
+    a main lane along x crossed by gravel lanes into sectors of shelter rows, and on the first lanes
+    a clinic, a school, a market lot and water tanks."""
+    rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
+    parts = [_wall(rel(-0.49, -0.49, 0.49, 0.49), 0.003)]
+    parts += [("paved", rel(-0.47, -0.22, -0.31, 0.22)), ("lot", rel(-0.47, 0.25, -0.33, 0.44))]
+    parts += [("building", rel(-0.45, -0.18, -0.37, -0.04)), ("building", rel(-0.45, 0.04, -0.37, 0.18))]
+    parts.append(("paved", box(cx - 0.31 * W, cy - 0.006, cx + 0.48 * W, cy + 0.006)))
+    xs = np.linspace(cx - 0.28 * W, cx + 0.47 * W, 6)
+    parts += [("paved", box(x - 0.004, cy - 0.47 * D, x + 0.004, cy + 0.47 * D)) for x in xs]
+    services = [("building", rel(-0.26, 0.06, -0.17, 0.16)), ("building", rel(-0.26, -0.16, -0.16, -0.06)),
+                ("lot", rel(-0.15, 0.03, -0.1, 0.12))]
+    services += [("tank", Point(cx - 0.12 * W + 0.03 * k, cy - 0.09 * D).buffer(0.012, quad_segs=8)) for k in range(3)]
+    parts += services
+    keep_out = shapely.union_all([p for _, p in services]).buffer(0.01)
+    for i in range(len(xs) - 1):
+        x0, x1 = xs[i] + 0.012, xs[i + 1] - 0.012
+        for y0, y1 in ((cy + 0.018, cy + 0.46 * D), (cy - 0.46 * D, cy - 0.018)):
+            parts += [("building", p) for p in _grid((x0, y0, x1, y1), (0.036, 0.026), ((0.014, 0.02), (0.007, 0.01)), rng, centred=True)
+                      if not p.intersects(keep_out)]
+    return parts
+
+
 def _checkpoint(cx, cy, W, D) -> list[tuple[str, Polygon]]:
     """Border crossing, traffic along local x with the border on +x: a plaza of lanes split by
     islands and crossed by the inspection booths, gates in the wall at the +x edge, the
@@ -1365,6 +1389,8 @@ def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=
         parts = _detention(cx, cy, W, D, rng)
     elif layout == "checkpoint":
         parts = _checkpoint(cx, cy, W, D)
+    elif layout == "refugee":
+        parts = _refugee(cx, cy, W, D, rng)
     elif layout == "vineyard":
         parts = _vineyard(cx, cy, W, D, variant or "red")
     elif layout == "racetrack":
