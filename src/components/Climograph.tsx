@@ -71,7 +71,8 @@ export function Climograph({ climate, lang }: { climate: Climate; lang: Lang }) 
 
   return (
     <div>
-      <div className="mb-1.5 flex min-h-[20px] flex-wrap items-center gap-x-3 gap-y-0.5 text-[11.5px] text-muted tabular-nums">
+      {/* two lines tall whatever it shows, so the chart under the pointer never moves when a month is read out */}
+      <div className="mb-1.5 flex h-9 flex-wrap content-start items-center gap-x-3 gap-y-0.5 overflow-hidden text-[11.5px] leading-4 text-muted tabular-nums">
         {month === null ? (
           <>
             <Key color={HI} label={LABEL.hi[lang]} />

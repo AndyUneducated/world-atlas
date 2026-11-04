@@ -139,6 +139,17 @@ cache, about 11. Options of `pipeline/build.py`:
 | `--check` | Validate the YAML without generating anything (`npm run data:check`) |
 | `--only <region> …` | Rebuild only the named regions (`cn-nv`, `cn-vk`); the others come from their last cached result, even if out of date |
 | `--fresh` | Ignore the cache |
+| `--text` | Refresh only card text, the economy and the elections in the last build's `entities.json` (about 10 s); enough after editing notes, traits, party cards or party targets, not after anything that changes the map |
+
+Small tools in `pipeline/tools/` read the sources or the last build, so checks need no build or browser:
+
+| Tool | Use |
+|:--|:--|
+| `plot.py <id or lon,lat> [--km 3] [--refs]` | PNG of the built map around a place, in km: districts, streets, roads, rail, buildings, landmark sites and parts |
+| `cards.py <ids or world/… files> [--min N] [--flags]` | Card text lengths, years, superlatives to verify and missing English, straight from the sources |
+| `elections.py [territory] [--districts]` | Rerun the elections with the current sources: seats, cabinet, mayors, councils |
+| `names.py save <file>` / `names.py diff <a> <b>` | Snapshot and compare the generated station and route names around a naming change |
+| `replace.py <edits.yaml> [--dry]` | A batch of exact text replacements, applied all or nothing |
 
 The build fails if two territories' land overlaps. `python pipeline/verify.py` then checks the
 output against invariants that earlier bugs broke (highlights on the drawn line, unbroken routes,

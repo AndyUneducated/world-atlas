@@ -22,8 +22,8 @@ import {
   X,
   type LucideIcon,
 } from "lucide-react";
-import { AnimatePresence, motion, useDragControls, useSpring, type PanInfo } from "motion/react";
-import { useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
+import { animate, AnimatePresence, motion, useMotionValue, useSpring } from "motion/react";
+import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent, type ReactNode, type RefObject } from "react";
 import { createPortal } from "react-dom";
 import { Paragraphs, Rows, Section, Sub, useCardScroll } from "./CardParts";
 import { Emblem, Flag, hasEmblem } from "./Emblem";
@@ -734,6 +734,7 @@ function StickyBar({ entity, lang, head }: { entity: Entity; lang: Lang; head: R
     scroller.addEventListener("scroll", update, { passive: true });
     return () => scroller.removeEventListener("scroll", update);
   }, [head]);
+  const mobile = useMobile();
   const button = "grid size-8 shrink-0 place-items-center rounded-full text-muted hover:bg-hover hover:text-ink";
   return (
     <div ref={bar} className="sticky top-0 z-20 h-0">
@@ -741,6 +742,7 @@ function StickyBar({ entity, lang, head }: { entity: Entity; lang: Lang; head: R
         aria-hidden={!shown}
         className={clsx(
           "absolute inset-x-0 top-0 flex items-center gap-1 border-b border-line bg-panel-solid px-2 py-1.5 transition-[opacity,translate] duration-200",
+          !mobile && "rounded-t-3xl",
           shown ? "opacity-100" : "pointer-events-none -translate-y-1 opacity-0",
         )}
       >
@@ -957,21 +959,107 @@ function Card({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: L
   );
 }
 
-/** Phone layout: the card is a sheet from the bottom, full height or half (map showing above). */
+const SHEET_FULL = 0.88;
+const SHEET_HALF = 0.46;
+const SHEET_SPRING = { type: "spring", stiffness: 420, damping: 40 } as const;
+const viewHeight = () => window.visualViewport?.height ?? window.innerHeight;
+
+/** Phone layout: the card is a sheet from the bottom, full height or half (map showing above). The sheet's
+ * height follows the finger: half height, a swipe anywhere on it resizes it; full height, the card scrolls,
+ * and pulling down once it is scrolled to the top resizes it. Let go and it settles at full, half or closed,
+ * by how fast it was moving and where it is. */
 function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
   const select = useAtlas((s) => s.select);
   const full = useAtlas((s) => s.sheetFull);
   const setFull = useAtlas((s) => s.setSheetFull);
   const scroll = useCardScroll<HTMLDivElement>(entity.id);
   const aside = useAtlas((s) => s.searchOpen);
-  const drag = useDragControls();
-  const onDragEnd = (_: unknown, info: PanInfo) => {
-    if (info.offset.y < -40 || info.velocity.y < -500) setFull(true);
-    else if (info.offset.y > 60 || info.velocity.y > 500) {
-      if (full) setFull(false);
-      else select(null);
-    }
+  const height = useMotionValue(viewHeight() * (full ? SHEET_FULL : SHEET_HALF));
+  const gesture = useRef<{ y0: number; h0: number; y: number; t: number; v: number; moved: boolean } | null>(null);
+  const dragged = useRef(false);
+
+  useEffect(() => {
+    const settle = () => animate(height, viewHeight() * (full ? SHEET_FULL : SHEET_HALF), SHEET_SPRING);
+    const run = settle();
+    window.visualViewport?.addEventListener("resize", settle);
+    return () => {
+      run.stop();
+      window.visualViewport?.removeEventListener("resize", settle);
+    };
+  }, [full, height]);
+
+  const begin = (y: number) => {
+    gesture.current = { y0: y, h0: height.get(), y, t: performance.now(), v: 0, moved: false };
   };
+  const move = (y: number) => {
+    const g = gesture.current;
+    if (!g || (!g.moved && Math.abs(y - g.y0) < 6)) return false;
+    const now = performance.now();
+    g.v = (y - g.y) / Math.max(now - g.t, 1);
+    g.y = y;
+    g.t = now;
+    g.moved = true;
+    const vh = viewHeight();
+    height.set(Math.min(Math.max(g.h0 - (y - g.y0), vh * 0.18), vh * 0.94));
+    return true;
+  };
+  const end = () => {
+    const g = gesture.current;
+    gesture.current = null;
+    if (!g?.moved) return;
+    dragged.current = true;
+    const vh = viewHeight();
+    const h = height.get();
+    let next: "full" | "half" | "close";
+    if (g.v < -0.4) next = "full";
+    else if (g.v > 0.4) next = full && h > vh * SHEET_HALF * 0.8 ? "half" : "close";
+    else if (h < vh * SHEET_HALF * 0.7) next = "close";
+    else next = h > vh * (SHEET_HALF + SHEET_FULL) / 2 ? "full" : "half";
+    if (next === "close") return select(null);
+    animate(height, vh * (next === "full" ? SHEET_FULL : SHEET_HALF), SHEET_SPRING);
+    setFull(next === "full");
+  };
+
+  // at full height the card scrolls; a pull down from its top resizes the sheet instead
+  useEffect(() => {
+    const el = scroll.current;
+    if (!el || !full) return;
+    const start = (e: TouchEvent) => {
+      if (el.scrollTop <= 0) begin(e.touches[0].clientY);
+    };
+    const pull = (e: TouchEvent) => {
+      const g = gesture.current;
+      if (!g) return;
+      if (!g.moved && e.touches[0].clientY < g.y0) {
+        gesture.current = null;
+        return;
+      }
+      if (move(e.touches[0].clientY)) e.preventDefault();
+    };
+    el.addEventListener("touchstart", start, { passive: true });
+    el.addEventListener("touchmove", pull, { passive: false });
+    el.addEventListener("touchend", end);
+    el.addEventListener("touchcancel", end);
+    return () => {
+      el.removeEventListener("touchstart", start);
+      el.removeEventListener("touchmove", pull);
+      el.removeEventListener("touchend", end);
+      el.removeEventListener("touchcancel", end);
+    };
+  });
+
+  // the pointer is captured only once it has moved, so a tap still reaches the link or button under it
+  const pointer = (whole: boolean) => ({
+    onPointerDown: (e: ReactPointerEvent) => {
+      if (whole || !full) begin(e.clientY);
+    },
+    onPointerMove: (e: ReactPointerEvent) => {
+      if (move(e.clientY) && !e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.setPointerCapture(e.pointerId);
+    },
+    onPointerUp: end,
+    onPointerCancel: end,
+  });
+
   return (
     <motion.article
       initial={{ y: "100%" }}
@@ -979,27 +1067,29 @@ function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; 
       exit={{ y: "100%" }}
       transition={{ type: "spring", stiffness: 340, damping: 34 }}
       aria-hidden={aside || undefined}
-      drag="y"
-      dragControls={drag}
-      dragListener={false}
-      dragConstraints={{ top: 0, bottom: 0 }}
-      dragElastic={{ top: 0.08, bottom: 0.6 }}
-      onDragEnd={onDragEnd}
-      className={clsx(
-        "glass pointer-events-auto fixed inset-x-0 bottom-0 z-30 flex flex-col rounded-t-[28px] border-b-0 pb-[env(safe-area-inset-bottom)] transition-[height] duration-300 ease-out",
-        full ? "h-[88dvh]" : "h-[46dvh]",
-      )}
+      style={{ height }}
+      onClickCapture={(e) => {
+        if (!dragged.current) return;
+        dragged.current = false;
+        e.stopPropagation();
+        e.preventDefault();
+      }}
+      className="glass pointer-events-auto fixed inset-x-0 bottom-0 z-30 flex flex-col rounded-t-[28px] border-b-0 pb-[env(safe-area-inset-bottom)]"
     >
       <div
-        onPointerDown={(e) => drag.start(e)}
+        {...pointer(true)}
         onClick={() => setFull(!full)}
-        className="flex shrink-0 cursor-grab touch-none justify-center pt-2.5 pb-1 active:cursor-grabbing"
+        className="flex shrink-0 cursor-grab touch-none justify-center pt-3 pb-2 active:cursor-grabbing"
         role="button"
         aria-label={t(full ? "collapse" : "expand", lang)}
       >
         <span className="h-1.5 w-11 rounded-full bg-faint/50" />
       </div>
-      <div ref={scroll} className="scrollbar-thin min-h-0 flex-1 overflow-y-auto overscroll-contain">
+      <div
+        ref={scroll}
+        {...pointer(false)}
+        className={clsx("scrollbar-thin min-h-0 flex-1 overscroll-contain", full ? "overflow-y-auto" : "touch-none overflow-hidden")}
+      >
         <CardBody data={data} entity={entity} lang={lang} />
       </div>
     </motion.article>

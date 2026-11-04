@@ -10,6 +10,9 @@ places:
       en: Government of the Territory of the Viking Islands
       art-x-viking: Regierung von Veiling Ysear
       art-x-buckham: Governo di Etei Viking
+    short_names:
+      zh: 领地政府
+      en: Territorial Government
     notes:
       zh: 维京群岛领地政务院的主楼，在长船古城中心，是一座石砌的回字形庭院建筑，领地议会也在楼内。政务院是领地的最高行政机关，由领地首席部长组织，下设十一个部和若干直属机构，各部的大楼分散在古城四周城墙外的街区里，步行十几分钟可达。主楼北翼是首席部长办公室，东翼和南翼是办公厅，西翼是领地议会的议事厅。办公厅下设综合行政局、媒体和出版局、财务局、安全局、档案局、采购局和公务员事务局，负责政务院的日常运转、新闻发布、机关财务和安保、公文档案、政府采购，以及公务员的招录和考核。
       en: The main building of the Viking Islands Executive Council stands in the middle of Longship's old town, a stone hollow square round a courtyard that also houses the territorial parliament. The Executive Council is the territory's highest executive body, formed by the chief minister, with eleven ministries and several directly attached bodies whose buildings are spread around the old town in the streets outside the walls, a short walk away. The north wing holds the Chief Minister's Office, the east and south wings the General Office and the west wing the parliament's chamber. The General Office's bureaus (General Administration, Media and Publications, Finance, Security, Archives, Procurement and Civil Service) keep the Council running, brief the press, manage its accounts and security, keep its records, buy its supplies and recruit and assess civil servants.
@@ -74,8 +77,8 @@ places:
       zh: 群岛银行总部，首府长船天际线的最高点
       en: Head office of the Islands Bank and the highest point on the Longship skyline
     notes:
-      zh: "汇金区天际线上最高的塔楼，群岛银行总部。选举之夜，塔顶的灯会按红帆、蓝桨两党中胜选一方的颜色亮起，长船人看一眼汇金区的天际线就知道结果。观景层的咖啡馆能望见整个长船湾，夏天划船比赛时这里一座难求。"
-      en: "The tallest tower on the Goldmark skyline, headquarters of the Islands Bank. On election night the top of the tower is lit in the colour of the winner, Red Sail or Blue Oar, so Longship knows the result from one look at the Goldmark skyline. The café on its observation level overlooks the whole of Longship Bay, and during the summer rowing race there is not a seat to be had."
+      zh: "汇金区天际线上最高的塔楼，群岛银行总部。选举之夜，塔顶的灯会按第一群岛、蓝桨两党中胜选一方的颜色亮起，长船人看一眼汇金区的天际线就知道结果。观景层的咖啡馆能望见整个长船湾，夏天划船比赛时这里一座难求。"
+      en: "The tallest tower on the Goldmark skyline, headquarters of the Islands Bank. On election night the top of the tower is lit in the colour of the winner, First Islands or Blue Oar, so Longship knows the result from one look at the Goldmark skyline. The café on its observation level overlooks the whole of Longship Bay, and during the summer rowing race there is not a seat to be had."
     in: div_jzqknb
     offset_km: [0.5, -0.3]
     site: { layout: tower, size_m: [110, 110] }

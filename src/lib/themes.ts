@@ -63,7 +63,9 @@ export interface MapTheme {
   rail: { casing: string; fill: string; station: string; stationStroke: string; label: string; metroCasing: string };
   label: { text: string; halo: string; minor: string; water: string; terrain: string; territory: string };
   cityDot: { fill: string; stroke: string };
-  focus: { line: string; glow: string };
+  /** Selected and highlighted lines: a soft glow, an edge in the map's own light or dark so the line
+   * stands clear of what it crosses, the coloured core and a thin lighter sheen down its middle. */
+  focus: { line: string; glow: string; casing: string; sheen: string };
   hover: string;
   choropleth: [string, string, string, string, string, string];
   sky: { sky: string; horizon: string; fog: string };
@@ -115,7 +117,7 @@ export const THEMES: Record<ThemeId, Theme> = {
       peak: "#6b5a48",
       coast: { color: "#9bb7c9", width: 1 },
       cityLine: { color: "#8c9aab", width: 1.2 },
-      districtLine: { color: "#b7c2ce", width: 0.8 },
+      districtLine: { color: "#8494a7", width: 1 },
       nationalExpressway: { fill: "#ffb84d", casing: "#dc8f2a" },
       territorialExpressway: { fill: "#ffe08a", casing: "#d9b04a" },
       cityRoad: { fill: "#ffffff", casing: "#d3d8de" },
@@ -141,7 +143,7 @@ export const THEMES: Record<ThemeId, Theme> = {
       rail: { casing: "#5b6472", fill: "#ffffff", station: "#ffffff", stationStroke: "#3b4452", label: "#2f3a48", metroCasing: "#ffffff" },
       label: { text: "#1c2533", halo: "rgba(255,255,255,0.92)", minor: "#5d6b7c", water: "#4a83a8", terrain: "#7a6a58", territory: "#45566b" },
       cityDot: { fill: "#ffffff", stroke: "#1c2533" },
-      focus: { line: "#2563eb", glow: "rgba(37,99,235,0.35)" },
+      focus: { line: "#2563eb", glow: "rgba(37,99,235,0.3)", casing: "#ffffff", sheen: "#bfdbfe" },
       hover: "#2563eb",
       choropleth: ["#f1f5f9", "#dbeafe", "#93c5fd", "#3b82f6", "#1d4ed8", "#172554"],
       sky: { sky: "#9fc6e0", horizon: "#e8f2f8", fog: "#ffffff" },
@@ -185,7 +187,7 @@ export const THEMES: Record<ThemeId, Theme> = {
       peak: "#a8b6c9",
       coast: { color: "#22d3ee", width: 1, glow: "rgba(34,211,238,0.35)" },
       cityLine: { color: "#2dd4bf", width: 1, glow: "rgba(45,212,191,0.28)" },
-      districtLine: { color: "#25384d", width: 0.8 },
+      districtLine: { color: "#4a6a8c", width: 0.9 },
       nationalExpressway: { fill: "#fbbf24", casing: "#0f1624", glow: "rgba(251,191,36,0.35)" },
       territorialExpressway: { fill: "#fde68a", casing: "#0f1624", glow: "rgba(253,230,138,0.2)" },
       cityRoad: { fill: "#475569", casing: "#0f1624" },
@@ -211,7 +213,7 @@ export const THEMES: Record<ThemeId, Theme> = {
       rail: { casing: "#8b97ab", fill: "#0f1624", station: "#0f1624", stationStroke: "#cbd5e1", label: "#cbd5e1", metroCasing: "#05080f" },
       label: { text: "#e6edf7", halo: "rgba(5,8,15,0.9)", minor: "#8394ab", water: "#4fa6d6", terrain: "#8b9bb3", territory: "#6b7d96" },
       cityDot: { fill: "#0f1624", stroke: "#e6edf7" },
-      focus: { line: "#5eead4", glow: "rgba(94,234,212,0.45)" },
+      focus: { line: "#5eead4", glow: "rgba(94,234,212,0.42)", casing: "#05080f", sheen: "#f0fdfa" },
       hover: "#5eead4",
       choropleth: ["#0f1624", "#123046", "#155e75", "#0e7490", "#14b8a6", "#99f6e4"],
       sky: { sky: "#020409", horizon: "#0b1a2e", fog: "#05080f" },

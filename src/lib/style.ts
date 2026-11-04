@@ -369,9 +369,9 @@ export function buildStyle(opts: {
       layout: { visibility: visible(layers.boundaries && layers.districtLines), "line-join": "round" },
       paint: {
         "line-color": m.districtLine.color,
-        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.3, 7.4, 0.5, 12, m.districtLine.width * 1.6],
-        "line-dasharray": [3, 2],
-        "line-opacity": ["interpolate", ["linear"], ["zoom"], 4, 0.45, 8, 1],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.5, 7.4, 0.85, 12, m.districtLine.width * 2],
+        "line-dasharray": [4, 2],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 4, 0.65, 7, 1],
       },
     },
   );
@@ -500,6 +500,19 @@ export function buildStyle(opts: {
     { id: "rail-ticks", type: "line", source: "rail", minzoom: 8, filter: railTrack, layout: { ...roadLayout(layers.railways), "line-cap": "butt" }, paint: { "line-color": rs.fill, "line-width": railWidth(1.6), "line-dasharray": [3, 3], "line-opacity": tunnelFade } },
   );
 
+  /** A selected or highlighted line, core width z6 at zoom 6 to z12 at zoom 12: a soft glow, an edge in the
+   * map's own colour that sets it apart from whatever it crosses, the core and, on wide lines, a sheen. */
+  const litLine = (id: string, source: string, z6: number, z12: number, sheen: boolean): LayerSpecification[] => {
+    const width = (k: number, add = 0): ExpressionSpecification => ["interpolate", ["linear"], ["zoom"], 6, z6 * k + add, 12, z12 * k + add];
+    const layout = { "line-join": "round", "line-cap": "round" } as const;
+    return [
+      { id: `${id}-glow`, type: "line", source, layout, paint: { "line-color": m.focus.glow, "line-width": width(3.4, 4), "line-blur": width(1.4, 2) } },
+      { id: `${id}-casing`, type: "line", source, layout, paint: { "line-color": m.focus.casing, "line-width": width(1, 3.2), "line-opacity": 0.95 } },
+      { id: `${id}-line`, type: "line", source, layout, paint: { "line-color": m.focus.line, "line-width": width(1) } },
+      ...(sheen ? [{ id: `${id}-sheen`, type: "line" as const, source, layout, paint: { "line-color": m.focus.sheen, "line-width": width(0.26), "line-opacity": 0.9 } }] : []),
+    ];
+  };
+
   const shownNetworks = [
     ...(layers.nationalExpressway ? ROAD_NETWORKS.nationalExpressway : []),
     ...(layers.territorialExpressway ? ROAD_NETWORKS.territorialExpressway : []),
@@ -519,48 +532,9 @@ export function buildStyle(opts: {
         "line-opacity": ["case", ["boolean", ["feature-state", "hover"], false], 0.9, 0],
       },
     },
-    {
-      id: "focus-glow",
-      type: "line",
-      source: "focus-outline",
-      layout: { "line-join": "round", "line-cap": "round" },
-      paint: { "line-color": m.focus.glow, "line-width": 9, "line-blur": 6 },
-    },
-    {
-      id: "focus-line",
-      type: "line",
-      source: "focus-outline",
-      layout: { "line-join": "round", "line-cap": "round" },
-      paint: { "line-color": m.focus.line, "line-width": 2.2 },
-    },
-    {
-      id: "route-casing",
-      type: "line",
-      source: "route",
-      layout: { "line-join": "round", "line-cap": "round" },
-      paint: { "line-color": m.focus.glow, "line-width": ["interpolate", ["linear"], ["zoom"], 6, 9, 12, 16], "line-blur": 2 },
-    },
-    {
-      id: "route-line",
-      type: "line",
-      source: "route",
-      layout: { "line-join": "round", "line-cap": "round" },
-      paint: { "line-color": m.focus.line, "line-width": ["interpolate", ["linear"], ["zoom"], 6, 4, 12, 8] },
-    },
-    {
-      id: "highlight-glow",
-      type: "line",
-      source: "highlight",
-      layout: { "line-join": "round", "line-cap": "round" },
-      paint: { "line-color": m.focus.glow, "line-width": ["interpolate", ["linear"], ["zoom"], 6, 12, 12, 22], "line-blur": 5 },
-    },
-    {
-      id: "highlight-line",
-      type: "line",
-      source: "highlight",
-      layout: { "line-join": "round", "line-cap": "round" },
-      paint: { "line-color": m.focus.line, "line-width": ["interpolate", ["linear"], ["zoom"], 6, 3.5, 12, 7] },
-    },
+    ...litLine("focus", "focus-outline", 2.6, 2.6, false),
+    ...litLine("route", "route", 4.5, 9, true),
+    ...litLine("highlight", "highlight", 4.5, 9, true),
   );
 
   // Invisible hit targets.

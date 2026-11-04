@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import copy
 import math
-import re
 from pathlib import Path
 
 import numpy as np
@@ -26,7 +25,7 @@ from .transport import Router
 from .vectorize import point_lonlat, polygonize_labels, to_lonlat
 from .world import FACILITY_LAYOUTS, MILITARY_VARIANTS, RUNWAY_LAYOUTS, World
 from .common import (BUILDING_MINZOOM, STREET_MINZOOM, bbox_lonlat, derived_id, drawn_along, feature, fill_undrawn, log, owned_runs, place_offset, run_positions,
-                     short_name, undrawn_steps, smooth_line, smooth_pinned, tile_minzoom)
+                     place_name, undrawn_steps, smooth_line, smooth_pinned, tile_minzoom)
 from .sites import SEA_BRIDGE_HALF_WIDTH_KM, landmark_sites
 from .city import UNSETTLED, bare_name, build_buildings, build_metro, build_streets, rail_station_names
 from .routes import PORTAL, cross_part, land_cell, route_railways, route_segments, stops_here
@@ -569,7 +568,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         if len(path) < 3:
             return
         feeder_seq += 1
-        a, b = short_name(districts[core[ci]]["names"]), short_name(d["names"])
+        a, b = place_name(districts[core[ci]]["names"]), place_name(d["names"])
         rid = derived_id("rte", f"feeder:{d['id']}")
         r = {
             "id": rid, "ref": f"X-{infix}-{feeder_seq:03d}", "network": "municipal_road", "class": "secondary",
@@ -890,11 +889,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
 
         wet, urban = prof.wet[i0:i1 + 1].mean() > 0.5, prof.urban[i0:i1 + 1].mean() > 0.5
         mid = piece.interpolate(0.5, normalized=True) if piece.geom_type == "LineString" else piece
-        district = short_name(districts[min(dist_polys, key=lambda i: dist_polys[i].distance(mid))]["names"])
-        # the place name alone, without a special district's kind
-        district = {"zh": re.sub(r"(训练管理|改良|牧|猎|管理|生态保护)$", "", district["zh"]),
-                    "en": re.sub(r" (Training Area|Improvement|Pastoral|Herding|Hunting|Ice Administration Zone|Administration Zone|Nature Reserve)$",
-                                 "", district["en"])}
+        district = place_name(districts[min(dist_polys, key=lambda i: dist_polys[i].distance(mid))]["names"])
         if kind == "tunnel":
             n = (None if urban else near(relief_marks, 6 / frame.scale)) or district
             return {"zh": f"{n['zh']}隧道", "en": f"{n['en']} Tunnel"}
