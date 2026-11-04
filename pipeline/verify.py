@@ -229,7 +229,7 @@ def check_models(ents: dict) -> dict[str, list[str]]:
                 if body.get("elected"):
                     if not body["head"].get("party") or not 50 <= body["head"]["vote"] <= 100:
                         seats.append(f"{name}: an elected governor has a party and won the general election")
-                elif "party" in body["governor"]:
+                elif "party" in body.get("governor", {}):  # a premier who is also head of state has no governor
                     seats.append(f"{name}: the governor belongs to no party")
                 if (op := body.get("opposition")) and op["party"] in body["government"]:
                     seats.append(f"{name}: the leader of the opposition's party is in government")
