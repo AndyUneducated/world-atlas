@@ -61,7 +61,7 @@ def build_streets(world, sp, features, frame, seed, cities, districts, district_
                               territory_langs(cities), sp.get("name_styles"))
         city_streets, styles, named, ctx, city_sites = [], {}, {}, {}, []
         for i, d in enumerate(districts):
-            if district_city[i] != ci:
+            if district_city[i] != ci or ("only" in sp and d["id"] not in sp["only"]):
                 continue
             built = real(dist_polys[i].intersection(urban))
             if lakes_r is not None:

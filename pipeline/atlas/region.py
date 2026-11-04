@@ -268,8 +268,9 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         anchored = layout.get("anchored", False)
         claims = layout.get("islands", {})
         claims_first = layout.get("claims_first", False)
+        # a city claims its districts' islands, and islands it shares among its districts (city_islands)
         city_claims = [[p for i, d in enumerate(districts) if district_city[i] == ci for p in claims.get(d["id"], [])]
-                       for ci in range(len(cities))]
+                       + layout.get("city_islands", {}).get(c["id"], []) for ci, c in enumerate(cities)]
         # zones are drawn after real places; their edges wander a tenth as far as diagram edges, which
         # is about a kilometre and keeps narrow necks of a zone (the bay flats) whole; an exact zone's
         # edges follow its polygon pixel for pixel, and a whole zone is its division, no more, no less
@@ -758,7 +759,15 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     label_features.append(feature(point_lonlat(frame, *pole_of_inaccessibility(land, g.xs, g.ys)), {
         "id": terr["id"], "kind": "dependency", "name_zh": terr["names"]["zh"], "name_en": terr["names"]["en"], "rank": 0}))
     for ci, c in enumerate(cities):
-        add_division(c, city_polys[ci], poles[core[ci]], city_r == ci, {"color": c["color"], "city": c["id"], "rank": 1})
+        nation = c.get("role") == "nation"
+        add_division(c, city_polys[ci], poles[core[ci]], city_r == ci, {"color": c["color"], "city": c["id"], "rank": 1,
+                                                                        **({"role": "nation"} if nation else {})})
+        if nation:  # a nation is named across its land; its cities carry the dots
+            label_features.append(feature(point_lonlat(frame, *pole_of_inaccessibility(city_r == ci, g.xs, g.ys)), {
+                "id": c["id"], "kind": "nation", "name_zh": c["names"]["zh"], "name_en": c["names"]["en"],
+                "short_zh": c.get("short_names", c["names"])["zh"], "short_en": c.get("short_names", c["names"])["en"],
+                "population": c["population"], "color": c["color"], "rank": 0 if c["area_km2"] >= 20000 else 1}))
+            continue
         is_capital = terr.get("capital") == c["id"]
         label_features.append(feature(point_lonlat(frame, *poles[core[ci]]), {
             "id": c["id"], "kind": "locality", "name_zh": c["names"]["zh"], "name_en": c["names"]["en"],
@@ -767,6 +776,13 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     for i, d in enumerate(districts):
         ci = district_city[i]
         add_division(d, dist_polys[i], poles[i], dist_r == i, {"color": cities[ci]["color"], "city": cities[ci]["id"], "rank": 2})
+        if cities[ci].get("role") == "nation":  # a nation's city is labelled as a city, its capital with a larger dot
+            is_capital = cities[ci].get("capital") == d["id"]
+            label_features.append(feature(point_lonlat(frame, *poles[i]), {
+                "id": d["id"], "kind": "locality", "name_zh": d["names"]["zh"], "name_en": d["names"]["en"],
+                "capital": is_capital, "population": d["population"], "color": cities[ci]["color"],
+                "rank": 1 if is_capital else (2 if d["population"] >= 300_000 else 3)}))
+            continue
         label_features.append(feature(point_lonlat(frame, *poles[i]), {
             "id": d["id"], "kind": "borough", "name_zh": d["names"]["zh"], "name_en": d["names"]["en"],
             "population": d["population"], "color": cities[ci]["color"], "rank": 4}))

@@ -57,6 +57,17 @@ territories:
       - [-161.53, 33.2, 130, 0.3]    # 帝国尘谷 and the south-eastern desert
       - [-161.93, 35.1, 150, 0.35]   # the high desert
       - [-163.03, 36.5, 110, 0.3]    # 坏账谷, behind the Sierra Valuation
+  div_p735rv:  # Ranova: the north-east trades off a warm sea, a wet windward east and a dry lee in the south-west
+    ocean_offset_c: 0.3
+    wind_from_deg: 70
+    precip_mm: 2400
+    shadow: 0.9
+    profile: tropical
+    sun_share: 0.55
+    day_range_c: 8.0
+    arid:                      # [lon, lat, radius_km, rain factor at the centre]
+      - [-153.1, 9.7, 350, 0.3]     # Tsiala and the spiny south-west
+      - [-152.6, 20.2, 250, 0.45]   # the Jabal hills and the north-west coast
 
 # precipitation by month (relative; normalised), for the maritime and arctic profiles and for land far
 # from the sea, which the profile turns into as continentality grows; the tropical profile follows the

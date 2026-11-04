@@ -1,0 +1,19 @@
+# Named natural features of Ranova. Geometry is produced by the generator (see world/generator/ranova.yaml);
+# this file only holds identity and semantics. Names are Chinese, English and Ranovan (art-x-ranova)
+# or Kasiri (art-x-kasiri).
+features:
+  - id: nat_pveqx6
+    subtype: river
+    status: generated
+    names: {zh: 安博河, en: Ambo River, art-x-ranova: Ony Ambo}
+    notes: {zh: 安博哈拉基督教联邦的母亲河，发源于首都附近的安德里纳高原，向西北流经菲安特拉的梯田，在瓦凡博注入西北湾。河谷是联邦的粮仓，河口是联邦唯一的深水港。联合共和国时期修建的水坝和灌溉渠至今仍在使用。, en: 'The mother river of the Christian Federation of Ambohara, rising on the Andrina Highlands near the capital and flowing north-west past the terraces of Fiantra to the north-western bay at Vavambo. Its valley is the federation''s granary, and its mouth the federation''s only deep-water harbour. The dams and irrigation canals built under the United Republic are still in use.'}
+  - id: nat_wby64d
+    subtype: river
+    status: generated
+    names: {zh: 马纳纳河, en: Manana River, art-x-kasiri: Mto Manana}
+    notes: {zh: 萨希利亚伊斯兰共和国境内的河流，发源于安德里纳高原西坡，向西穿过稀树草原和丘陵，在首都萨希勒附近入海。河口一带是红树林和稻田，沿岸的清真寺和古老的商栈见证了卡西里人的航海贸易。, en: 'The river of the Islamic Republic of Sahiliya, rising on the western slopes of the Andrina Highlands and flowing west through savanna and hills to the sea near the capital, Sahil. Mangroves and paddies line its mouth, and the mosques and old trading houses along its banks bear witness to the seafaring trade of the Kasiri.'}
+  - id: nat_51fkqp
+    subtype: river
+    status: generated
+    names: {zh: 伊拉希河, en: Ilahy River, art-x-ranova: Ony Ilahy}
+    notes: {zh: 齐马罗沃民族社会主义国的主要河流，发源于伊瓦卡山，向东穿过首都齐马罗沃所在的盆地，在伊拉希港注入东海。河上的水坝和灌溉工程是齐马罗沃政权引以为傲的「民族工程」，修建时动用了大量强迫劳动。, en: 'The main river of the National Socialist State of Tsimarovo, rising in the Ivaka Mountains and flowing east through the basin of the capital, Tsimarovo, to the sea at the port of Ilahy. The dams and irrigation works on the river are the regime''s proud ''national works'', built with a great deal of forced labour.'}

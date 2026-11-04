@@ -8,7 +8,7 @@ from .noise import grid_noise
 from .relief import slope_aspect
 
 # Order is the class index written to the map data; earlier classes win where rules overlap.
-CLASSES = ("urban", "wetland", "farmland", "rock", "tundra", "forest", "desert", "scrub")
+CLASSES = ("urban", "wetland", "farmland", "rock", "tundra", "forest", "desert", "scrub", "rainforest", "savanna")
 
 
 def classify(elev, land, g, real_km_per_cell, km_per_design, seed, settlements, acc, p):
@@ -57,10 +57,14 @@ def classify(elev, land, g, real_km_per_cell, km_per_design, seed, settlements, 
     tundra = land & (elev > treeline)
 
     out = np.full(g.shape, -1, dtype=np.int16)
-    out[land] = CLASSES.index("forest")
-    # Dry zones: {kind: desert or scrub, ellipse: [cx, cy, rx, ry] in design km, max_elev_m}; ground
-    # there below that height is desert or scrub instead of forest, with ragged edges, except along
-    # streams and on north-facing slopes, which stay wooded
+    # the wild cover where no rule below applies: forest, or (in the tropics) rainforest, which gives way
+    # to montane forest above montane_m
+    out[land] = CLASSES.index(p.get("base", "forest"))
+    if "montane_m" in p:
+        out[land & (elev > p["montane_m"] + 150 * n1)] = CLASSES.index("forest")
+    # Dry zones: {kind: desert, scrub or savanna, ellipse: [cx, cy, rx, ry] in design km, max_elev_m};
+    # ground there below that height takes that cover instead, with ragged edges, except along streams
+    # and on north-facing slopes, which stay wooded
     for k, z in enumerate(p.get("dry_zones", [])):
         cx, cy, rx, ry = z["ellipse"]
         edge = ((g.X - cx) / rx) ** 2 + ((g.Y - cy) / ry) ** 2 + 0.5 * grid_noise(seed + 410 + k, 12, 4, 0.5, g)
