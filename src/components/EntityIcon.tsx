@@ -1,7 +1,7 @@
 import {
-  Anchor, Banknote, Bath, Beer, Bird, BrickWall, Briefcase, Building, Building2, Camera, Car, CarFront, Castle, Citrus, Clapperboard, Crosshair, Crown, CupSoda, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, Fuel, GraduationCap, Grape, Helicopter, Hospital, Hotel, House, HouseHeart,
-  Landmark, LandPlot, Lighthouse, Lock, Magnet, MapPin, Microchip, Mountain, MountainSnow, Navigation2, Orbit, PawPrint, PersonStanding, Pickaxe, Plane, PlaneTakeoff, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship,
-  ShipWheel, Shell, Shirt, ShoppingBag, ShoppingCart, Siren, Snowflake, Server, Sparkles, Sprout, Sun, Swords, Target, Telescope, ToothbrushSparkles, TrainFront, TramFront, Trees, Utensils, Vault, Vote, Warehouse, Waves, WavesLadder, Wind, Wrench, Zap,
+  Anchor, Banknote, Bath, Beer, Bird, BrickWall, Briefcase, Building, Building2, Camera, Car, CarFront, Castle, Church, Citrus, Clapperboard, Crosshair, Crown, CupSoda, Dices, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, Fuel, GraduationCap, Grape, Helicopter, Hospital, Hotel, House, HouseHeart,
+  Landmark, LandPlot, Lighthouse, Lock, Magnet, MapPin, Microchip, MoonStar, Mountain, MountainSnow, Navigation2, Orbit, PawPrint, PersonStanding, Pickaxe, Plane, PlaneTakeoff, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship,
+  Scale, ShipWheel, Shell, Shirt, ShoppingBag, ShoppingCart, Siren, Snowflake, Server, Sparkle, Sparkles, Sprout, Sun, Swords, Target, Telescope, Tent, ToothbrushSparkles, TrainFront, TramFront, Trees, Utensils, Vault, Vote, Warehouse, Waves, WavesLadder, Wind, Wrench, Zap,
 } from "lucide-react";
 import type { Entity } from "../lib/types";
 
@@ -116,6 +116,23 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
         return <Briefcase {...props} />;
       case "detention_centre":
         return <Lock {...props} />;
+      case "church":
+      case "monastery":
+        return <Church {...props} />;
+      case "mosque":
+        return <MoonStar {...props} />;
+      case "sacred_site":
+        return <Sparkle {...props} />;
+      case "refugee_camp":
+        return <Tent {...props} />;
+      case "casino":
+        return <Dices {...props} />;
+      case "court":
+        return <Scale {...props} />;
+      case "militant_camp":
+        return <Swords {...props} />;
+      case "marina":
+        return <ShipWheel {...props} />;
       case "border_crossing":
         return <BrickWall {...props} />;
       case "police_station":
