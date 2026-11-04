@@ -2,6 +2,7 @@
 
     python pipeline/build.py                # full build; regions whose sources and code are unchanged come from .cache
     python pipeline/build.py --only cn-vk   # rebuild just this region; the others come from .cache, even if out of date
+    python pipeline/build.py --text         # only card text, party cards or party targets changed: refresh them in seconds
     python pipeline/build.py --check        # validate sources only
 
 The regions build in parallel, one process each (--jobs); their log lines carry the region name.
@@ -50,6 +51,43 @@ def base_entities(world: World) -> dict:
     return out
 
 
+def copy_text(base: dict, entities: dict) -> None:
+    """Card text from the sources onto built entities (a cached region may carry text older than the sources)."""
+    for eid, e in base.items():
+        for k in TEXT_KEYS:
+            if k in e:
+                entities[eid][k] = e[k]
+            else:
+                entities[eid].pop(k, None)
+
+
+def refresh_text(world: World) -> None:
+    """--text: card text, the economy and the elections straight into the last build's entities.json, without
+    rebuilding regions or tiles. Enough for edits to notes and other card text (traits included), party cards and
+    party targets; anything that moves or renames something on the map (names, sites, places, lines, terrain) still
+    needs a build."""
+    path = OUT / "entities.json"
+    if not path.exists():
+        sys.exit("--text needs a finished build in public/data; run a full build first")
+    entities = json.loads(path.read_text(encoding="utf-8"))
+    base = base_entities(world)
+    if missing := sorted(base.keys() - entities.keys()):
+        sys.exit(f"--text: {len(missing)} entities are not in the last build ({', '.join(missing[:3])}); run a full build")
+    copy_text(base, entities)
+    for eid in [k for k, v in entities.items() if v.get("kind") == "party"]:
+        del entities[eid]
+    economy.annotate(world, entities)
+    politics.annotate(world, entities)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(entities, f, ensure_ascii=False, separators=(",", ":"))
+    manifest = json.loads((OUT / "manifest.json").read_text(encoding="utf-8"))
+    manifest["generated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    with open(OUT / "manifest.json", "w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+    log("card text, economy and elections refreshed in entities.json")
+    log("done")
+
+
 def region_worker(name: str, fresh: bool, stale_ok: bool):
     """Build one region (or find it in .cache) in its own process; returns its cache folder and how it was got."""
     common.LOG_TAG = f"{name} "
@@ -74,6 +112,7 @@ def overlapping_territories(results: list[dict]) -> list[str]:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true", help="validate the world sources and stop")
+    ap.add_argument("--text", action="store_true", help="refresh only card text and elections in the last build (seconds)")
     ap.add_argument("--fresh", action="store_true", help="ignore cached stages and regions and recompute everything")
     ap.add_argument("--only", nargs="+", metavar="REGION", help="rebuild only these regions (generator name, e.g. cn-vk)")
     ap.add_argument("--jobs", type=int, default=4, help="regions built at once, one process each (default 4)")
@@ -91,6 +130,8 @@ def main():
         f"{len(world.railways)} railways, {len(world.places)} places")
     if args.check:
         return
+    if args.text:
+        return refresh_text(world)
     base = base_entities(world)
     order = [s["_region"] for s in world.generators]
     with ProcessPoolExecutor(max_workers=max(1, min(args.jobs, len(order)))) as pool:
@@ -135,12 +176,7 @@ def main():
         with open(cache.CACHE_DIR / f"candidates-{result['region']['id']}.json", "w", encoding="utf-8") as f:
             json.dump(result["candidates"], f, ensure_ascii=False, indent=1)
     regions = [result["region"] for result, _ in results]
-    for eid, e in base.items():  # a cached region may carry card text older than the sources
-        for k in TEXT_KEYS:
-            if k in e:
-                entities[eid][k] = e[k]
-            else:
-                entities[eid].pop(k, None)
+    copy_text(base, entities)
     merge_crossings(world, entities, layers, graph)
     traffic.annotate(world, entities)
     economy.annotate(world, entities)

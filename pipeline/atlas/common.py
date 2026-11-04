@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import time
 
 import numpy as np
@@ -40,6 +41,17 @@ def short_name(names: dict) -> dict:
             en = en[: -len(suf)]
             break
     return {"zh": zh, "en": en}
+
+
+KIND_ZH = r"(训练管理|改良|牧|猎|管理|生态保护)$"
+KIND_EN = r" (Training Area|Improvement|Pastoral|Herding|Hunting|Ice Administration Zone|Administration Zone|Nature Reserve)$"
+
+
+def place_name(names: dict) -> dict:
+    """A district's place name alone, without its suffix or a special district's kind
+    (乌库利特矿区管理区 -> 乌库利特矿区, Ukkuliit Mining Administration Zone -> Ukkuliit Mining)."""
+    n = short_name(names)
+    return {"zh": re.sub(KIND_ZH, "", n["zh"]) or n["zh"], "en": re.sub(KIND_EN, "", n["en"]) or n["en"]}
 
 
 def feature(geom, props):

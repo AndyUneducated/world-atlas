@@ -11,7 +11,7 @@ from shapely.geometry import LineString, Point
 
 from . import buildings, streets
 from .world import CONLANGS, ROOT, World
-from .common import derived_id, log, place_offset, short_name
+from .common import derived_id, log, place_name, place_offset
 from .sites import core_zone, landmark_sites, main_axis
 
 
@@ -153,9 +153,10 @@ METRO_COLORS = ("#E4453A", "#2F80ED", "#F2A33A", "#27AE60", "#9B51E0", "#00A3A3"
 
 
 def bare_name(d: dict) -> dict:
-    """A city's or district's name without its administrative suffix (维京港市 -> 维京港, 沙洲区 -> 沙洲)."""
+    """A city's or district's name without its administrative suffix or special kind (维京港市 -> 维京港,
+    沙洲区 -> 沙洲, 乌库利特矿区管理区 -> 乌库利特矿区)."""
     if d["subtype"] == "borough":
-        return {**short_name(d["names"]), **{k: d["names"][k] for k in CONLANGS if d["names"].get(k)}}
+        return {**place_name(d["names"]), **{k: d["names"][k] for k in CONLANGS if d["names"].get(k)}}
     out = {}
     for lang, sufs in CITY_SUFFIXES.items():
         v = d["names"].get(lang)
@@ -347,24 +348,28 @@ def build_metro(mp: dict, world: World, seed, s, cities, districts, district_cit
                 stations[key]["lines"] += [line_ids[a] for a in users[key]]
                 sid_of[key] = key
                 continue
-            cands = [(-1.0, world.places[key[1]]["names"])] if isinstance(key, tuple) and key[0] == "p" else []
-            cands += [(poly.distance(p), world.places[pid]["names"]) for pid, poly in site_pool if poly.distance(p) < 0.3]
+            # a place's station takes its short name (建设部站, not the ministry's full title), and keeps the id
+            # derived from its full name
+            place = lambda pid: (world.places[pid].get("short_names", world.places[pid]["names"]), world.places[pid]["names"])
+            cands = [(-1.0, *place(key[1]))] if isinstance(key, tuple) and key[0] == "p" else []
+            cands += [(poly.distance(p), *place(pid)) for pid, poly in site_pool if poly.distance(p) < 0.3]
             for names, sg in named_streets.get(cid, []):
                 for a in users[key]:
                     if sg.buffer(0.05).intersection(geoms[a]).length > 0.4:
                         continue
-                    cands += [(q.distance(p) + 0.05, names) for q in points_of(sg.intersection(geoms[a])) if q.distance(p) < 0.3]
+                    cands += [(q.distance(p) + 0.05, names, names) for q in points_of(sg.intersection(geoms[a])) if q.distance(p) < 0.3]
             cands.sort(key=lambda c: c[0])
-            names = next((metro_station_names(n, langs) for _, n in cands if metro_station_names(n, langs)["zh"] not in used), None)
+            names, full = next(((metro_station_names(n, langs), metro_station_names(f, langs)["zh"]) for _, n, f in cands
+                                if metro_station_names(n, langs)["zh"] not in used), (None, None))
             for _ in range(80):
                 if names is not None:
                     break
                 theme = namer.theme("mixed", rng)
                 if theme not in ("numbered", "places"):
                     cand = metro_station_names(namer.stem(theme, rng), langs)
-                    names = cand if cand["zh"] not in used else None
+                    names, full = (cand, cand["zh"]) if cand["zh"] not in used else (None, None)
             used.add(names["zh"])
-            sid = derived_id("poi", f"metro:{cid}:{names['zh']}")
+            sid = derived_id("poi", f"metro:{cid}:{full}")
             dpt = Point(p.x / s, p.y / s)
             home = next((i for i, dc in enumerate(district_city) if dc == ci and dist_polys[i].contains(dpt)), specs[users[key][0]][2])
             stations[sid] = {"names": names, "xy": (dpt.x, dpt.y), "district": home, "lines": [line_ids[a] for a in users[key]]}
