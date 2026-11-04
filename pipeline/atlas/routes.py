@@ -128,7 +128,7 @@ def merge_crossings(world: World, entities: dict, layers: dict, graph: dict):
                                feature(tunnel, {"id": r["id"], "role": "line", "network": r["network"], "color": r.get("color"), "tunnel": True, **names})]
         else:
             layers["roads"].append(feature(tunnel, {"id": r["id"], "ref": r["ref"], "class": r["class"], "network": r["network"], "tunnel": True, **names}))
-        std = standards.get(r["network"], {})
+        std = standards.get("maglev" if r.get("maglev") else r["network"], {})
         a_km = a["stats"]["length_km"]
         ent.update({k: a[k] for k in ("kind", "class", "tech") if k in a})
         ent.update({
