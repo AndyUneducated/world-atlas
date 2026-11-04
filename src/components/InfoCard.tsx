@@ -140,6 +140,15 @@ function stats(e: Entity, lang: Lang, data: AtlasData): StatItem[] {
       const rows = held.filter((s) => data.entities[s.at]?.subtype === sub);
       return [rows.reduce((a, s) => a + s.seats, 0), rows.length];
     };
+    const nation = held.map((s) => data.entities[s.at]).find((at) => at?.role === "nation");
+    if (nation?.legislature) {
+      const row = nation.legislature.parties.find((p) => p.id === e.id);
+      return [
+        { label: t("members", lang), value: formatNumber(e.members ?? 0, lang), unit: t("membersUnit", lang), icon: Users },
+        { label: t("statNational", lang), value: String(row?.seats ?? 0), unit: lang === "zh" ? `席 · 共 ${nation.legislature.seats} 席` : `of ${nation.legislature.seats} seats`, icon: Landmark },
+        { label: t("statVote", lang), value: `${formatNumber(row?.vote ?? 0, lang, 1)}%`, unit: nation.short_names?.[lang] ?? displayName(nation, lang), icon: ChartNoAxesColumn },
+      ];
+    }
     const [terr, nTerr] = sum("dependency");
     const [city, nCity] = sum("locality");
     const across = (n: number, zh: string) => (lang === "zh" ? `席 · ${n} 个${zh}` : `seats in ${n}`);

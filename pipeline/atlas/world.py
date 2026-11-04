@@ -563,7 +563,8 @@ class World:
             elected = leg.get("executive") == "elected"
             upper = leg.get("upper")
             offices = (("governor", leg.get("governor")), ("minority", leg.get("minority"))) if elected else \
-                (("governor", leg.get("governor")), ("governor_name", leg.get("governor_name")), ("premier", leg.get("premier")))
+                (*((("governor", leg.get("governor")), ("governor_name", leg.get("governor_name"))) if "governor" in leg or "governor_name" in leg else ()),
+                 ("premier", leg.get("premier")))
             for k, v in (("names", leg.get("names")), *offices, ("speaker", leg.get("speaker")), ("mayor", leg.get("mayor")),
                          ("court names", court.get("names")), ("court title", court.get("title")),
                          *((("notes", leg["notes"]),) if "notes" in leg else ()),
