@@ -14,6 +14,9 @@ export interface SearchHit {
 
 const KIND_WEIGHT: Record<string, number> = {
   dependency: 30,
+  country: 29,
+  nation: 28,
+  bloc: 27,
   locality: 26,
   borough: 16,
   party: 15,
@@ -78,6 +81,8 @@ export class SearchIndex {
           e.names["art-x-tavrunaq"],
           e.names["art-x-ivuran"],
           e.names.es,
+          e.names["art-x-ranova"],
+          e.names["art-x-kasiri"],
           e.short_names?.en,
           syllables.join(""),
           syllables.map((p) => p[0]).join(""),
@@ -89,7 +94,8 @@ export class SearchIndex {
           .filter((x): x is string => !!x)
           .map(norm);
         const weight =
-          (KIND_WEIGHT[e.kind === "route" ? (e.class ?? "") : e.subtype] ?? 5) + (e.population ? Math.log10(e.population) : 0);
+          (KIND_WEIGHT[e.kind === "route" ? (e.class ?? "") : e.role === "nation" ? "nation" : e.subtype] ?? 5) +
+          (e.population ? Math.log10(e.population) : 0);
         return { entity: e, keys: [...keys, ...latin], latin, weight };
       });
   }

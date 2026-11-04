@@ -116,6 +116,8 @@ const STRINGS = {
   lc_wetland: { zh: "湿地", en: "Wetland" },
   lc_desert: { zh: "荒漠", en: "Desert" },
   lc_scrub: { zh: "灌丛草地", en: "Scrub and grassland" },
+  lc_rainforest: { zh: "热带雨林", en: "Tropical rainforest" },
+  lc_savanna: { zh: "稀树草原", en: "Savanna" },
   lc_urban: { zh: "城镇", en: "Built-up area" },
   lc_glacier: { zh: "冰川", en: "Glacier" },
   peak: { zh: "山峰", en: "Peak" },
@@ -327,6 +329,8 @@ export const NAME_LANG_LABELS: Record<NameLang, Record<Lang, string>> = {
   "art-x-tavrunaq": { zh: "塔夫鲁纳克语", en: "Tavrunaq" },
   "art-x-ivuran": { zh: "伊武兰语", en: "Ivuran" },
   es: { zh: "西班牙语", en: "Spanish" },
+  "art-x-ranova": { zh: "拉诺瓦语", en: "Ranovan" },
+  "art-x-kasiri": { zh: "卡西里语", en: "Kasiri" },
 };
 
 /** Cities and districts under special rules (special_status in world/divisions). */
@@ -345,8 +349,15 @@ const SPECIAL_LABELS: Record<string, Record<Lang, string>> = {
   military_zone: { zh: "军事管理区", en: "Military zone" },
 };
 
+const ROLE_LABELS: Record<NonNullable<Entity["role"]>, Record<Lang, string>> = {
+  region: { zh: "地区", en: "Region" },
+  nation: { zh: "国家", en: "Nation" },
+  city: { zh: "城市", en: "City" },
+};
+
 const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
   country: { zh: "国家", en: "Country" },
+  bloc: { zh: "阵营", en: "Bloc" },
   dependency: { zh: "领地", en: "Territory" },
   region: { zh: "省", en: "Province" },
   locality: { zh: "市", en: "City" },
@@ -478,6 +489,7 @@ export function kindLabel(e: Entity, lang: Lang): string {
   if (e.subtype === "station" && e.source === "generated:metro") return STRINGS.metroStation[lang];
   if (e.subtype === "station") return STRINGS.railStation[lang];
   if (e.special_status && SPECIAL_LABELS[e.special_status]) return SPECIAL_LABELS[e.special_status][lang];
+  if (e.role) return ROLE_LABELS[e.role][lang];
   return SUBTYPE_LABELS[e.subtype]?.[lang] ?? e.subtype;
 }
 

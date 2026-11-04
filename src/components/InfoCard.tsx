@@ -28,6 +28,7 @@ import { createPortal } from "react-dom";
 import { Paragraphs, Rows, Section, Sub, useCardScroll } from "./CardParts";
 import { Emblem, Flag, hasEmblem } from "./Emblem";
 import { CouncilSection, ElectionSection, LegislatureSection, PartySections } from "./Politics";
+import { BackedSection, isGroupedCard, NationGroups } from "./Nation";
 import { RouteTimeline } from "./RouteTimeline";
 import { Climograph } from "./Climograph";
 import { climateName } from "../lib/climate";
@@ -47,6 +48,8 @@ const NAME_TAGS: Record<NameLang, Record<Lang, string>> = {
   "art-x-tavrunaq": { zh: "塔", en: "TAV" },
   "art-x-ivuran": { zh: "伊", en: "IVR" },
   es: { zh: "西", en: "ES" },
+  "art-x-ranova": { zh: "拉", en: "RNV" },
+  "art-x-kasiri": { zh: "卡", en: "KSR" },
 };
 import { useAtlas } from "../store";
 import { EntityIcon } from "./EntityIcon";
@@ -778,6 +781,30 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
   const goBack = useAtlas((s) => s.goBack);
   const backTo = back?.list ? t(back.list.query ? "backToResults" : "backToExplore", lang) : back?.id && data.entities[back.id] ? displayName(data.entities[back.id], lang) : null;
 
+  const about = (entity.notes || entity.background) && (
+    <Section title={t("about", lang)}>
+      {entity.notes && <Paragraphs text={entity.notes[lang]} className="text-[13.5px] leading-relaxed text-ink" />}
+      {entity.background && (
+        <>
+          <h4 className="mt-3 mb-1 text-[11px] font-semibold text-faint">{t("background", lang)}</h4>
+          <Paragraphs text={entity.background[lang]} className="text-[13px] leading-relaxed text-muted" />
+        </>
+      )}
+    </Section>
+  );
+  const codeSection = codeRows.length > 0 && (
+    <Section title={t("codes", lang)}>
+      <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[13px]">
+        {codeRows.map(([k, v]) => (
+          <div key={k} className="contents">
+            <dt className="text-muted">{k}</dt>
+            <dd className="font-mono text-[12.5px] text-ink">{v}</dd>
+          </div>
+        ))}
+      </dl>
+    </Section>
+  );
+
   return (
     <>
       <StickyBar entity={entity} lang={lang} head={head} />
@@ -862,49 +889,50 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
         </div>
       )}
 
-      {(entity.notes || entity.background) && (
-        <Section title={t("about", lang)}>
-          {entity.notes && <Paragraphs text={entity.notes[lang]} className="text-[13.5px] leading-relaxed text-ink" />}
-          {entity.background && (
-            <>
-              <h4 className="mt-3 mb-1 text-[11px] font-semibold text-faint">{t("background", lang)}</h4>
-              <Paragraphs text={entity.background[lang]} className="text-[13px] leading-relaxed text-muted" />
-            </>
-          )}
-        </Section>
-      )}
+      {isGroupedCard(entity) ? (
+        <NationGroups
+          data={data}
+          entity={entity}
+          lang={lang}
+          accent={accent}
+          shared={{
+            about,
+            legislature: <LegislatureSection data={data} entity={entity} lang={lang} />,
+            people: <PeopleSection entity={entity} lang={lang} accent={accent} />,
+            economy: <EconomySection entity={entity} lang={lang} accent={accent} />,
+            climate: <ClimateSection data={data} entity={entity} lang={lang} />,
+            children: <ChildList data={data} entity={entity} lang={lang} />,
+            flag: <FlagSection entity={entity} lang={lang} />,
+            lineage: <Lineage data={data} entity={entity} lang={lang} />,
+            codes: codeSection,
+          }}
+        />
+      ) : (
+        <>
+          {about}
 
-      <PartySections data={data} entity={entity} lang={lang} />
-      {party && <FlagSection entity={entity} lang={lang} />}
-      <LegislatureSection data={data} entity={entity} lang={lang} />
-      <CouncilSection data={data} entity={entity} lang={lang} />
-      <ElectionSection data={data} entity={entity} lang={lang} />
-      <PeopleSection entity={entity} lang={lang} accent={accent} />
-      <EconomySection entity={entity} lang={lang} accent={accent} />
-      <ClimateSection data={data} entity={entity} lang={lang} />
+          <PartySections data={data} entity={entity} lang={lang} />
+          {party && <FlagSection entity={entity} lang={lang} />}
+          <LegislatureSection data={data} entity={entity} lang={lang} />
+          <CouncilSection data={data} entity={entity} lang={lang} />
+          <ElectionSection data={data} entity={entity} lang={lang} />
+          <PeopleSection entity={entity} lang={lang} accent={accent} />
+          <EconomySection entity={entity} lang={lang} accent={accent} />
+          <ClimateSection data={data} entity={entity} lang={lang} />
 
-      {entity.segments?.length ? <RouteTimeline data={data} entity={entity} lang={lang} /> : <ChildList data={data} entity={entity} lang={lang} />}
+          {entity.segments?.length ? <RouteTimeline data={data} entity={entity} lang={lang} /> : <ChildList data={data} entity={entity} lang={lang} />}
+          <BackedSection data={data} entity={entity} lang={lang} />
 
-      <MilitarySection entity={entity} lang={lang} />
-      <RoadSection entity={entity} lang={lang} />
-      <ServiceSection entity={entity} lang={lang} />
-      <TechSection entity={entity} lang={lang} />
-      <EngineeringSection entity={entity} lang={lang} />
-      {!party && <FlagSection entity={entity} lang={lang} />}
+          <MilitarySection entity={entity} lang={lang} />
+          <RoadSection entity={entity} lang={lang} />
+          <ServiceSection entity={entity} lang={lang} />
+          <TechSection entity={entity} lang={lang} />
+          <EngineeringSection entity={entity} lang={lang} />
+          {!party && <FlagSection entity={entity} lang={lang} />}
 
-      <Lineage data={data} entity={entity} lang={lang} />
-
-      {codeRows.length > 0 && (
-        <Section title={t("codes", lang)}>
-          <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[13px]">
-            {codeRows.map(([k, v]) => (
-              <div key={k} className="contents">
-                <dt className="text-muted">{k}</dt>
-                <dd className="font-mono text-[12.5px] text-ink">{v}</dd>
-              </div>
-            ))}
-          </dl>
-        </Section>
+          <Lineage data={data} entity={entity} lang={lang} />
+          {codeSection}
+        </>
       )}
 
       {routable && (
