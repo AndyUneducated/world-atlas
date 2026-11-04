@@ -260,7 +260,7 @@ export function LegislatureSection({ data, entity, lang }: { data: AtlasData; en
       <Branch label={t("executive", lang)}>
         <Rows
           rows={[
-            ...(L.governor ? [holderRow(data, L.governor.title, L.governor, lang, t("centralAppointee", lang))] : []),
+            ...(L.governor ? [holderRow(data, L.governor.title, L.governor, lang, L.governor.note?.[lang] ?? t("centralAppointee", lang))] : []),
             holderRow(data, L.head.title, L.head, lang),
             ...runoffRow(data, L.head, lang),
           ]}
@@ -290,7 +290,7 @@ export function LegislatureSection({ data, entity, lang }: { data: AtlasData; en
             </div>
           </div>
         )}
-        <p className="mt-2.5 text-[12.5px] leading-relaxed text-muted">{systemText(L, lang)}</p>
+        <p className="mt-2.5 text-[12.5px] leading-relaxed text-muted">{L.system_notes?.[lang] ?? systemText(L, lang)}</p>
         {L.notes && <Paragraphs text={L.notes[lang]} className="mt-2 text-[12.5px] leading-relaxed text-muted" />}
       </Branch>
       <Branch label={t("judiciary", lang)}>
@@ -461,8 +461,9 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
   if (entity.kind !== "party") return null;
   const color = entity.color ?? "var(--ui-accent)";
   const held = entity.seats ?? [];
+  const national = (entity.territories ?? []).some((id) => data.entities[id]?.role === "nation");
   const councils = held
-    .filter((s) => data.entities[s.at]?.subtype === "locality")
+    .filter((s) => data.entities[s.at]?.subtype === "locality" && !data.entities[s.at]?.role)
     .sort((a, b) => b.seats / b.of - a.seats / a.of);
   const allies = (entity.allies ?? []).map((id) => data.entities[id]).filter(Boolean);
   const org = entity.organisation ?? {};
@@ -568,7 +569,7 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
         </Section>
       )}
       <Section title={t("partySeats", lang)}>
-        <Sub label={t("territorialSeats", lang)}>
+        <Sub label={t(national ? "nationalSeats" : "territorialSeats", lang)}>
           <ul className="-mx-2">
             {(entity.territories ?? []).map((tid) => {
               const at = data.entities[tid];
@@ -585,7 +586,7 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
             })}
           </ul>
         </Sub>
-        <Sub label={`${t("councilSeats", lang)} · ${councils.length}`}>
+        {!national && <Sub label={`${t("councilSeats", lang)} · ${councils.length}`}>
           {councils.length ? (
             <>
               <ul className="-mx-2">
@@ -603,7 +604,7 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
           ) : (
             <p className="text-[12.5px] text-muted">{t("noSeats", lang)}</p>
           )}
-        </Sub>
+        </Sub>}
       </Section>
       {allies.length > 0 && (
         <Section title={t("allies", lang)}>

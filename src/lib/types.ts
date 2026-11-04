@@ -241,8 +241,11 @@ export type PartyAxis = "econ" | "galtan" | "autonomy" | "green";
 export interface Legislature extends Chamber {
   system: ElectoralSystem;
   threshold?: number;
-  /** Appointed by the central government; no party. Absent where the governor is elected (the head). */
-  governor?: Officeholder;
+  /** Appointed by the central government; no party. Absent where the governor is elected (the head). A
+   * nation's head of state stands here, with a note on how they came to office. */
+  governor?: Officeholder & { note?: Localized };
+  /** How the chamber is elected, where the system's usual sentence does not fit. */
+  system_notes?: Localized;
   opposition?: { name: Localized; party: string; title?: Localized };
   /** Ministries held by each party in government. */
   cabinet: { id: string; seats: number }[];

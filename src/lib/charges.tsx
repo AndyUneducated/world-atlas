@@ -343,6 +343,34 @@ const NEW: Record<string, (cut: string) => ReactNode> = {
     </g>
   ),
   star5: () => <path d={starPath(5, 20, 8, 24, 25.5)} fill={W} />,
+  /** A plain Latin cross. */
+  cross: () => <path d="M21 5h6v11h10v6H27v21h-6V22H11v-6h10z" fill={W} />,
+  /** A crescent opening to the fly. */
+  crescent: () => <path d="M29 7.5a17 17 0 1 0 0 33a13.4 13.4 0 1 1 0-33z" fill={W} />,
+  /** A dove in flight with an olive sprig. */
+  dove: () => (
+    <g>
+      <path d="M6 29c7 0 11-3 15-8 3-4 7-7 12-7 2.2 0 4 .8 5.2 2l4.8-.6-3 3.6c.2 7.4-5.4 13.6-13.8 14.8-6 .9-10.8-.4-14.6-2.6L7 33z" fill={W} />
+      <path d="M22 21c-2-6-7-10-13-11 1 6 5 10 11 12" fill={W} />
+      <path d="M41 17.5l4 2.5M44 20c-1 1.6-2.6 2.4-4 2.2M43 18.4c1.6-.8 3.2-.6 4.2.4" {...stroke(1.4)} />
+    </g>
+  ),
+  /** The scales of justice. */
+  scales: () => (
+    <g>
+      <path d="M24 8v32M15 42h18M9 14h30" {...stroke(2.8)} />
+      <circle cx="24" cy="8" r="2.6" fill={W} />
+      <path d="M9 14L4 27M9 14l5 13M39 14l-5 13M39 14l5 13" {...stroke(1.6)} />
+      <path d="M3 27h12a6 6 0 0 1-12 0zM33 27h12a6 6 0 0 1-12 0z" fill={W} />
+    </g>
+  ),
+  /** An open book. */
+  book: (cut) => (
+    <g>
+      <path d="M24 13c-5-3-12-4-19-3v25c7-1 14 0 19 3 5-3 12-4 19-3V10c-7-1-14 0-19 3z" fill={W} />
+      <path d="M24 14v23" stroke={cut} strokeWidth="1.6" />
+    </g>
+  ),
   /** A sickle and a hammer crossed under a star, the old sign of workers and peasants together. */
   hammer_sickle: () => (
     <g>
