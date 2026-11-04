@@ -10,9 +10,10 @@
 ![NumPy · SciPy · Shapely](https://img.shields.io/badge/NumPy_·_SciPy_·_Shapely-2-013243?logo=numpy&logoColor=white)
 ![PMTiles](https://img.shields.io/badge/tiles-PMTiles_·_tippecanoe-f97316)
 
-An interactive atlas of **Homeworld**, a fictional planet. The mapped regions are the
-Territory of North Viking Island (北维京岛领地) and the Territory of the Viking Islands
-(维京群岛领地), China.
+An interactive atlas of **Homeworld**, a fictional planet. The mapped regions are China's
+territories, among them North Viking Island (北维京岛领地) and the Viking Islands
+(维京群岛领地); the US state of California; and Ranova (拉诺瓦岛), a tropical island
+about 1,500 km south-east of California shared by 26 nations in three blocs.
 
 Live site: https://andyuneducated.github.io/world-atlas/
 
@@ -73,17 +74,20 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   are reused.
 - **Status.** `canon` comes from the world setting. `generated` was filled in by the
   generator or an assistant and is pending review.
-- **Names.** BCP 47 keys: `zh`, `en`, `art-x-viking`, `art-x-buckham`.
+- **Names.** BCP 47 keys: `zh`, `en`, `art-x-viking`, `art-x-buckham`, and on Ranova the
+  fictional languages Ranovan (`art-x-ranova`) and Kasiri (`art-x-kasiri`).
 - **Hierarchy.** Country → territory (`dependency`) → city (`locality`) → district
   (`borough`), following the Overture Maps division subtypes. Division codes follow the
-  six-digit GB/T 2260 pattern (`900000` → `900100` → `900101`).
+  six-digit GB/T 2260 pattern (`900000` → `900100` → `900101`). Ranova belongs to no
+  country: it is a `dependency` with `role: region` (`950000`), its nations are localities
+  (`role: nation`) and their cities boroughs.
 - **Regions.** Each territory has one generator file, `world/generator/<region>.yaml`
   (`cn-nv`, `cn-vk`); its natural features live in `world/features/<region>-*.yaml` and are
   only matched and used for street names inside that region.
 - **Routes.** Four grades, the same in every territory: national expressways `G-NV-1…`,
   territorial expressways `S-NV-1…`, territorial highways `S-NV-101…` and city roads
   `X-NV-001…` (with the territory infix: `NV`, `VK`, `AO`, `ES`, `CA`; California has
-  territorial highways and city roads only). A route's
+  territorial highways and city roads only, Ranova territorial highways `S-RA-101…` only). A route's
   `via` lists cities or districts; `ring`, `straight` (straight legs, crossing hills and
   water on structures) and per-leg `legs` overrides shape the path. Territorial routes name
   a `shield` glyph for the upper half of their sign.

@@ -146,8 +146,8 @@ landcover:
     - { kind: scrub, ellipse: [240, 55, 50, 20], max_elev_m: 600 }   # the south coast
     - { kind: scrub, ellipse: [200, 495, 45, 45], max_elev_m: 1600 }   # the Jabal hills
     - { kind: scrub, ellipse: [372, 652, 18, 50], max_elev_m: 1200 }   # the dry lee of the Maroka
-    - { kind: desert, ellipse: [205, 42, 25, 12], max_elev_m: 300 }   # the Kabola coast
-    - { kind: desert, ellipse: [165, 505, 25, 25], max_elev_m: 500 }   # the Jabaliya coast
+    - { kind: desert, ellipse: [215, 55, 45, 24], max_elev_m: 700, wet_max: 9 }   # the Kabola coast and the far south-west
+    - { kind: desert, ellipse: [178, 500, 38, 42], max_elev_m: 900, wet_max: 9 }   # the Jabaliya coast and the lee of the Jabal
 
 streets:
   core_people_per_km2: 10000
