@@ -124,7 +124,9 @@ standards:
       train: { names: { zh: 北辰 400 型, en: Polaris 400 }, seats: 576 }
   # Intercity railway with maglev: true. Double guideway inside a sealed low-vacuum tube, with the
   # long-stator linear motor built into it, so no overhead line and no rails; steeper grades than
-  # wheeled lines; driverless; stations (with airlocks) costed per stop.
+  # wheeled lines; driverless; stations (with airlocks) costed per stop. Untried technology, priced far
+  # above any line yet built: a tube sealed over its whole length, superconducting magnets cooled
+  # along the guideway, and vacuum pumps that run day and night.
   maglev:
     smooth_km: 10
     max_grade: 0.08
@@ -133,10 +135,10 @@ standards:
     river_bridge_km: 0.5
     urban: { tunnel_depth_km: 5 }
     hill_factor: 1.3
-    cost_musd_per_km: { grade: 42, bridge: 58, tunnel: 95, snow_shed: 50 }
-    upkeep_kusd_per_km: { grade: 320, bridge: 420, tunnel: 820, snow_shed: 380 }
-    station_musd: 260
-    station_upkeep_musd: 5
+    cost_musd_per_km: { grade: 150, bridge: 210, tunnel: 340, snow_shed: 170 }
+    upkeep_kusd_per_km: { grade: 1400, bridge: 1800, tunnel: 2900, snow_shed: 1500 }
+    station_musd: 1000
+    station_upkeep_musd: 20
     tech:
       tube: { zh: 低真空管道，管内气压约为大气压的十分之一, en: "low-vacuum tube, about a tenth of atmospheric pressure" }
       levitation: { zh: 高温超导电动悬浮，悬浮间隙 100 毫米, en: "high-temperature superconducting electrodynamic suspension, 100 mm gap" }
@@ -147,7 +149,8 @@ standards:
       min_curve_radius_m: 12000
       train: { names: { zh: 流星 800 型, en: Meteor 800 }, seats: 620 }
   # Double-track heavy-haul freight line: capsule trains levitating in a sealed low-vacuum tube, no
-  # wheels and no overhead line; driverless; yards (with airlocks) are costed per stop.
+  # wheels and no overhead line; driverless; yards (with airlocks) are costed per stop. Slower than the
+  # maglev, with looser tolerances and no superconductors, so cheaper per km, but still untried technology.
   freight_rail:
     smooth_km: 6
     max_grade: 0.012
@@ -156,10 +159,10 @@ standards:
     river_bridge_km: 0.5
     urban: { tunnel_depth_km: 2 }
     hill_factor: 1.8
-    cost_musd_per_km: { grade: 9, bridge: 24, tunnel: 45, snow_shed: 22 }
-    upkeep_kusd_per_km: { grade: 150, bridge: 260, tunnel: 520, snow_shed: 200 }
-    station_musd: 60
-    station_upkeep_musd: 2
+    cost_musd_per_km: { grade: 60, bridge: 110, tunnel: 190, snow_shed: 80 }
+    upkeep_kusd_per_km: { grade: 800, bridge: 1100, tunnel: 1700, snow_shed: 900 }
+    station_musd: 300
+    station_upkeep_musd: 8
     tech:
       tube: { zh: 低真空管道，管内气压约为大气压的十分之一, en: "low-vacuum tube, about a tenth of atmospheric pressure" }
       levitation: { zh: 常导电磁悬浮，悬浮间隙 15 毫米, en: "electromagnetic suspension, 15 mm gap" }
