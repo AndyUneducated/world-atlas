@@ -7,7 +7,7 @@ import { Emblem, hasEmblem } from "./Emblem";
 import { Hemicycle } from "./Hemicycle";
 import { BodyName, Branch, OfficeRows, type PartyPart } from "./Politics";
 import { displayName, formatNumber, formatPopulation, t } from "../lib/i18n";
-import type { AtlasData, Entity, FixedChamber, Lang, Localized, NationFacts, Seating, WarStatus } from "../lib/types";
+import type { AtlasData, Entity, Faith, FixedChamber, Lang, Localized, NationFacts, Seating, WarStatus } from "../lib/types";
 import { useAtlas } from "../store";
 
 const L = {
@@ -80,6 +80,7 @@ const L = {
   seat: { zh: "驻地", en: "Seat" },
   claims: { zh: "主张领土", en: "Claims" },
   predecessors: { zh: "历任", en: "Predecessors" },
+  emblems: { zh: "标志物", en: "Emblems" },
   groupOrganisation: { zh: "组织", en: "Organisation" },
   groupSeats: { zh: "议席", en: "Seats" },
   groupHistory: { zh: "沿革与友党", en: "History & allies" },
@@ -523,8 +524,8 @@ function RefugeeSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
   );
 }
 
-function ReligionSection({ facts, lang, accent }: { facts: NationFacts; lang: Lang; accent: string }) {
-  const parts = [...facts.religion].sort((a, b) => b.share - a.share);
+function ReligionSection({ religion, lang, accent }: { religion: Faith[]; lang: Lang; accent: string }) {
+  const parts = [...religion].sort((a, b) => b.share - a.share);
   const color = (p: (typeof parts)[number], i: number) => p.color ?? `color-mix(in srgb, ${accent} ${[100, 62, 36, 20][i % 4]}%, var(--ui-hover))`;
   return (
     <Section title={tl("religion", lang)}>
@@ -618,6 +619,45 @@ function FactsSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
   );
 }
 
+const SYMBOL_KEYS = ["anthem", "flower", "tree", "animal", "bird"] as const;
+const SYMBOL_NAMES: Record<(typeof SYMBOL_KEYS)[number], Localized> = {
+  anthem: { zh: "歌", en: "anthem" },
+  flower: { zh: "花", en: "flower" },
+  tree: { zh: "树", en: "tree" },
+  animal: { zh: "动物", en: "animal" },
+  bird: { zh: "鸟", en: "bird" },
+};
+
+/** A territory's or city's emblems, named as such places name them: 区花 in a Chinese territory, 州花 in a
+ * state, 市花 in a city. */
+export function LocalSymbolsSection({ entity, lang }: { entity: Entity; lang: Lang }) {
+  const s = entity.symbols;
+  if (!s) return null;
+  const level: Localized =
+    entity.subtype !== "dependency" ? { zh: "市", en: "City" } : entity.parent === "country:US" ? { zh: "州", en: "State" } : { zh: "区", en: "Territorial" };
+  return (
+    <Section title={tl("emblems", lang)}>
+      <Rows rows={SYMBOL_KEYS.filter((k) => s[k]).map((k) => [lang === "zh" ? level.zh + SYMBOL_NAMES[k].zh : `${level.en} ${SYMBOL_NAMES[k].en}`, s[k]![lang]] as [string, ReactNode])} />
+    </Section>
+  );
+}
+
+function LocalFactsSection({ entity, lang }: { entity: Entity; lang: Lang }) {
+  const f = entity.facts;
+  if (!f) return null;
+  return (
+    <Section title={tl("facts", lang)}>
+      <Rows
+        rows={[
+          ...(f.time_zone ? [[tl("timeZone", lang), f.time_zone] as [string, ReactNode]] : []),
+          ...(f.calling_code ? [[tl("callingCode", lang), f.calling_code] as [string, ReactNode]] : []),
+          ...(f.driving ? [[tl("driving", lang), tl(f.driving, lang)] as [string, ReactNode]] : []),
+        ]}
+      />
+    </Section>
+  );
+}
+
 /** Parts of the default card a grouped card reuses, placed in its groups. */
 export type SharedParts = {
   about: ReactNode;
@@ -639,12 +679,17 @@ export function isGroupedCard(e: Entity) {
 }
 
 /** A territory's or country's groups, in the order a nation's card uses, without the groups it has nothing for. */
-function divisionGroups(entity: Entity, lang: Lang, shared: SharedParts): GroupDef[] {
+function divisionGroups(entity: Entity, lang: Lang, accent: string, shared: SharedParts): GroupDef[] {
   return [
     { key: "overview", title: tl("groupOverview", lang), body: shared.about, show: !!(entity.notes || entity.background) },
     { key: "politics", title: tl("groupPolitics", lang), body: shared.legislature, show: !!entity.legislature },
     { key: "relations", title: tl("groupRelations", lang), body: shared.backed, show: !!entity.member_nations?.length },
-    { key: "society", title: tl("groupSociety", lang), body: shared.people, show: !!entity.demographics },
+    {
+      key: "society",
+      title: tl("groupSociety", lang),
+      body: <>{entity.religion && <ReligionSection religion={entity.religion} lang={lang} accent={accent} />}{shared.people}</>,
+      show: !!(entity.demographics || entity.religion),
+    },
     { key: "economy", title: tl("groupEconomy", lang), body: shared.economy, show: !!entity.economy },
     {
       key: "geography",
@@ -652,8 +697,13 @@ function divisionGroups(entity: Entity, lang: Lang, shared: SharedParts): GroupD
       body: <>{shared.climate}{shared.children}</>,
       show: !!(entity.climate || entity.climate_notes || entity.children?.length),
     },
-    { key: "symbols", title: tl("groupSymbols", lang), body: shared.flag, show: !!entity.flag },
-    { key: "facts", title: tl("groupFacts", lang), body: <>{shared.lineage}{shared.codes}</>, show: !!(shared.codes || entity.parent) },
+    { key: "symbols", title: tl("groupSymbols", lang), body: <>{shared.flag}<LocalSymbolsSection entity={entity} lang={lang} /></>, show: !!(entity.flag || entity.symbols) },
+    {
+      key: "facts",
+      title: tl("groupFacts", lang),
+      body: <><LocalFactsSection entity={entity} lang={lang} />{shared.lineage}{shared.codes}</>,
+      show: !!(shared.codes || entity.parent || entity.facts),
+    },
   ];
 }
 
@@ -674,7 +724,7 @@ export function CardGroups({ data, entity, lang, accent, shared }: { data: Atlas
     if (!f) {
       if (entity.kind === "bloc") return blocGroups(data, entity, lang, accent, shared);
       if (entity.kind === "party") return partyGroups(entity, lang, shared);
-      return divisionGroups(entity, lang, shared);
+      return divisionGroups(entity, lang, accent, shared);
     }
     return [
       { key: "overview", title: tl("groupOverview", lang), body: <><IdentitySection data={data} entity={entity} facts={f} lang={lang} />{shared.about}</> },
@@ -704,7 +754,7 @@ export function CardGroups({ data, entity, lang, accent, shared }: { data: Atlas
         title: tl("groupSociety", lang),
         body: (
           <>
-            <ReligionSection facts={f} lang={lang} accent={accent} />
+            <ReligionSection religion={f.religion} lang={lang} accent={accent} />
             <FreedomSection facts={f} lang={lang} />
             {shared.people}
           </>

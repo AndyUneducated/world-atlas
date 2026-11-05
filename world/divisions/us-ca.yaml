@@ -44,6 +44,15 @@ divisions:
     zh: "加利福尼亚自治州是地中海气候：冬天多雨，夏天几乎滴雨不下，雨水集中在十一月到三月。离岸的寒流让海边终年凉爽，夏天的下午海雾涌进海湾，贝叶斯七月白天约 24 度，一月 16 度；翻过海岸山脉，中央渴谷的夏天又干又热，首府萨克拉钱托七月白天 34 度，往南的阿尔蒙多 37 度。南海岸的失落天使和圣遣返冬暖夏不炎，一月白天 19 到 20 度，七月 29 到 30 度，一年雨水只有 330 毫米左右。估值山脉的东边和东南是荒漠：帕姆斯普林克勒七月白天 43 度，一年降水不到 150 毫米，帝国尘区不到 100 毫米，是全州最干的地方。北部海岸迎着西风，雨水最多，欧福利亚一年 1250 毫米，夏天白天也只有 22 度，红木林常年泡在雾里。山上冬天积雪，塔克斯霍湖边的木屋区一月夜里约零下 2 度。"
     en: "The California Autonomous State has a Mediterranean climate: rainy winters and summers with almost no rain at all, the rain falling mostly from November to March. The cold current offshore keeps the coast cool all year, and on summer afternoons sea fog pours into the bay: Bayesian averages 24 °C by day in July and 16 °C in January. Over the coast ranges the summer in the Central Thirsty Valley is hot and dry, 34 °C by day in July in the capital Sacramoney and 37 °C in Almondo farther south. On the south coast, Lost Angeles and San Deportes have mild winters and warm rather than hot summers, 19 to 20 °C by day in January and 29 to 30 °C in July, with only about 330 mm of rain a year. East and south-east of the Sierra Valuation lies desert: Palm Sprinklers reaches 43 °C by day in July with under 150 mm of rain a year, and Imperial Dust District, the driest place in the state, under 100 mm. The north coast faces the westerlies and gets the most rain, Euphoria 1,250 mm a year and only 22 °C by day even in summer, its redwoods soaking in fog all year. The mountains are snowy in winter, and Chalet District by Lake Taxhoe drops to about −2 °C on January nights."
   traits: { industries: [ai, entertainment, agriculture, logistics] }
+  symbols: {"anthem": {"zh": "《我爱你，加利福尼亚》", "en": "I Love You", "California": null}, "flower": {"zh": "花菱草（加州罂粟）", "en": "California poppy"}, "tree": {"zh": "北美红杉", "en": "Coast redwood"}, "animal": {"zh": "加州灰熊", "en": "California grizzly bear"}, "bird": {"zh": "加州鹌鹑", "en": "California quail"}}
+  facts: {"calling_code": "+1", "time_zone": "UTC−11:00", "driving": "right"}
+  religion:
+  - {"names": {"zh": "基督教", "en": "Christianity"}, "share": 52}
+  - {"names": {"zh": "无宗教", "en": "No religion"}, "share": 30}
+  - {"names": {"zh": "佛教", "en": "Buddhism"}, "share": 4}
+  - {"names": {"zh": "伊斯兰教", "en": "Islam"}, "share": 2}
+  - {"names": {"zh": "犹太教", "en": "Judaism"}, "share": 2}
+  - {"names": {"zh": "其他", "en": "Other"}, "share": 10}
 
 # ── 萨克拉钱托市（首府）──
 - id: div_91r9b3
@@ -68,6 +77,7 @@ divisions:
     zh: "深蓝底正中一枚金色圆印，印环上用西班牙语和英语写着城名，象牙色印心里是一座深蓝色的穹顶塔楼。塔楼是州议会大厦，金色是穹顶的颜色；市议会曾提议在印环上加一行赞助商名单，因为字太小印不下才作罢。"
     en: "A gold round seal on dark blue, its ring bearing the city's name in Spanish and English and its ivory centre a dark blue domed tower. The tower is the State Capitol and the gold is its dome; the city council once proposed adding a line of sponsors to the ring, and dropped it only because the letters would have been too small to print."
   traits: { industries: [government, commerce, agriculture], heritage: ca_mixed, age: balanced, income: 0.95 }
+  symbols: {"flower": {"zh": "山茶", "en": "Camellia"}, "tree": {"zh": "河谷栎", "en": "Valley oak"}}
 - id: div_ymeec8
   subtype: borough
   parent: div_91r9b3
@@ -156,6 +166,7 @@ divisions:
     zh: "紫色旗面上一道橙色的尖角从底边升起，像日落时的山峰，正中一块白色的电影场记板。紫色和橙色是盆地里烟雾中的晚霞；场记板代表好莱怪区，如今场记板上写的「第几镜」由人工智能自动填写，城旗是全城少数还由真人设计的东西。"
     en: "An orange point rising from the foot of a purple field like a peak at sunset, with a white film clapperboard in the middle. The purple and orange are the sunsets through the basin's smog, and the clapperboard stands for Hollyweird; the scene numbers on clapperboards are now filled in by artificial intelligence, and the city flag is one of the few things in the city still designed by a human."
   traits: { industries: [entertainment, logistics, port, gig], heritage: ca_mixed, age: balanced, income: 0.8 }
+  symbols: {"flower": {"zh": "鹤望兰", "en": "Bird of paradise"}, "tree": {"zh": "刺桐", "en": "Coral tree"}}
 - id: div_jqddbd
   subtype: borough
   parent: div_w1vh1a
@@ -308,6 +319,7 @@ divisions:
     zh: "深蓝、天蓝、深蓝三道横条，正中一个白色的机器人头。天蓝条是海湾，深蓝是夜里关了灯的城市；城旗由市政府的人工智能在几万个方案里挑出，理由是这一面「在所有测试人群中引起的反感最少」，测试人群也是人工智能。"
     en: "Dark blue, sky blue and dark blue in horizontal bands, with a white robot's head in the middle. The sky blue is the bay and the dark blue the city at night with its lights out; the city government's artificial intelligence chose this flag from tens of thousands of proposals because it 'caused the least dislike among all test audiences', the test audiences being artificial intelligences too."
   traits: { industries: [ai, datacenter, robotics, tech], heritage: ca_global, age: old, income: 6.0 }
+  symbols: {"flower": {"zh": "大丽花", "en": "Dahlia"}, "tree": {"zh": "大果柏木", "en": "Monterey cypress"}}
 - id: div_0vf1b0
   subtype: borough
   parent: div_35n7cb
@@ -427,6 +439,7 @@ divisions:
     zh: "墨绿旗面围着一道金边，正中一把金钥匙。绿色是钞票，金边是围墙，钥匙是每座庄园大门的钥匙；城旗的原件锁在市政厅的保险库里，挂在外面的都是复制品，复制品也编了号。"
     en: "A dark green field within a gold border, with a gold key in the middle. The green is banknotes, the border the walls and the key the key to every estate's gate; the original flag is locked in the city hall vault, and the ones flying outside are numbered copies."
   traits: { industries: [luxury, security, finance], heritage: ca_global, age: old, income: 5.0 }
+  symbols: {"flower": {"zh": "美洲茶", "en": "California lilac"}, "tree": {"zh": "海岸栎", "en": "Coast live oak"}}
 - id: div_jssc24
   subtype: borough
   parent: div_dwdr6m
@@ -483,6 +496,7 @@ divisions:
     zh: "深蓝旗面，左上角是自治州旗，右边的白色圆章里是一枚深蓝色的七角执法徽章。旗面的蓝色与执法局制服同色，执法局把这面旗挂在每一座拘押中心门口，市政府后来发现城旗的版权登记在执法局名下。"
     en: "A dark blue field with the state flag in the canton and, in a white roundel in the fly, a dark blue seven-pointed enforcement badge. The blue is that of the Enforcement Agency's uniforms; the agency flies the flag at the gate of every detention centre, and the city government later discovered that the flag's copyright is registered to the agency."
   traits: { industries: [enforcement, defence, port, tourism], heritage: ca_mixed, age: young, income: 0.85 }
+  symbols: {"flower": {"zh": "香石竹", "en": "Carnation"}, "tree": {"zh": "托里松", "en": "Torrey pine"}}
 - id: div_ad0sg9
   subtype: borough
   parent: div_3mdaee
@@ -570,6 +584,7 @@ divisions:
     zh: "棕、米、棕三道横条，正中一串深棕色的链环。棕色是纸箱，米色是仓库屋顶，链环是供应链；市民给它起的外号是「快递单」，因为它挂在每座仓库门口，看起来就像一张贴在箱子上的面单。"
     en: "Brown, cream and brown bands with a chain of dark brown links in the middle. The brown is cardboard, the cream the warehouse roofs and the links the supply chain; people call it 'the shipping label', since hanging at every warehouse door it looks like one stuck to a box."
   traits: { industries: [logistics, robotics, gig], heritage: ca_latino, age: young, income: 0.6 }
+  symbols: {"flower": {"zh": "橙花", "en": "Orange blossom"}, "tree": {"zh": "桉树", "en": "Eucalyptus"}}
 - id: div_sc80nv
   subtype: borough
   parent: div_jysn35
@@ -641,6 +656,7 @@ divisions:
     zh: "米色旗面上一个浅褐色的十字，十字中间嵌着深褐色的细十字，左上角是一圈围成环的房子。三种颜色都在《社区守则》允许的十二种米色之内；环形的房子代表门禁村落，房子之间没有门，因为门要另外申请。"
     en: "A pale brown cross with a dark brown inner cross on a beige field, and a ring of houses in the canton. All three colours are among the twelve beiges the Community Code allows; the ring of houses stands for the gated villages, with no gaps between them, since a gap would need a separate application."
   traits: { industries: [tech, residential, education, security], heritage: ca_anglo, age: balanced, income: 1.5 }
+  symbols: {"flower": {"zh": "猴面花", "en": "Monkeyflower"}, "tree": {"zh": "蓝花楹", "en": "Jacaranda"}}
 - id: div_7871nw
   subtype: borough
   parent: div_7zxffd
@@ -712,6 +728,7 @@ divisions:
     zh: "上蓝下褐，地平线上长出一株深褐色的幼苗。蓝色是谷地上空难得的晴天，褐色是龟裂的土地；幼苗原本画的是一棵杏树，后来按基金股东的意见改成幼苗，理由是「幼苗代表增长空间」。"
     en: "Blue over brown, with a dark brown seedling rising from the horizon. The blue is the valley's rare clear sky and the brown its cracked earth; the seedling was first drawn as an almond tree and changed at the request of the fund shareholders, on the grounds that 'a seedling represents room for growth'."
   traits: { industries: [agriculture, food, logistics], heritage: ca_latino, age: young, income: 0.55 }
+  symbols: {"flower": {"zh": "扁桃花", "en": "Almond blossom"}, "tree": {"zh": "加州黑胡桃", "en": "California black walnut"}}
 - id: div_r0qhbd
   subtype: borough
   parent: div_03k9fc
@@ -783,6 +800,7 @@ divisions:
     zh: "黑红两色斜分，中间一道金色斜带，上方一座金色的油井架。黑色是石油，红色是炼油厂的火炬，金色是石油换来的钱；城旗是市里唯一没有被人工智能改过的公共设计，市议会为此专门立了一条法令。"
     en: "Black and red divided diagonally by a gold band, with a gold oil derrick above. The black is oil, the red the refinery flares and the gold the money oil brings; it is the only public design in the city that has never been touched by artificial intelligence, and the city council passed an ordinance to keep it that way."
   traits: { industries: [oil, agriculture, solar], heritage: ca_mixed, age: balanced, income: 0.85 }
+  symbols: {"flower": {"zh": "沙漠金盏花", "en": "Desert marigold"}, "tree": {"zh": "加州悬铃木", "en": "California sycamore"}}
 - id: div_zs0myf
   subtype: borough
   parent: div_jmxc1m
@@ -838,6 +856,7 @@ divisions:
     zh: "浅灰和银灰两道横条，一道深灰尖楔从旗杆一侧伸进旗面，尖端前是一对橙色的方括号。尖楔是一条修到一半的铁路，方括号是工程图纸上「待定」的记号；市议会说等高铁通车那天就把括号去掉，城旗的设计费已经为此预留了。"
     en: "Pale grey and silver grey bands with a dark grey wedge reaching in from the hoist towards a pair of orange square brackets. The wedge is a half-built railway, and the brackets the 'to be decided' mark on an engineering drawing; the city council says it will remove the brackets on the day the railway opens, and the design fee has been set aside for it."
   traits: { industries: [logistics, agriculture, gig], heritage: ca_mixed, age: young, income: 0.5 }
+  symbols: {"flower": {"zh": "道格拉斯鸢尾", "en": "Douglas iris"}, "tree": {"zh": "弗里蒙特杨", "en": "Fremont cottonwood"}}
 - id: div_zqpg46
   subtype: borough
   parent: div_r7wm1v
@@ -893,6 +912,7 @@ divisions:
     zh: "橙色的天空和青绿的大海在水平线上相对，一座小岛和它的倒影隔着水线互换颜色，岛上是一棵白色的棕榈。橙色是海边的日落，青绿是海峡，棕榈是传教区的那条大道；城旗由乔什和露西各出一半设计费，所以上下两半一样大。"
     en: "Orange sky and blue-green sea meet at the horizon, an island and its reflection counterchanged across the waterline, with a white palm on the island. The orange is the sunset over the sea, the blue-green the channel and the palm the avenue of Mission District; Josh and Lucy each paid half the design fee, which is why the two halves are the same size."
   traits: { industries: [semiconductor, wine, tourism, automotive], heritage: ca_anglo, age: balanced, income: 1.6 }
+  symbols: {"flower": {"zh": "九重葛", "en": "Bougainvillea"}, "tree": {"zh": "莫顿湾无花果", "en": "Moreton Bay fig"}}
 - id: div_nsgeyn
   subtype: borough
   parent: div_xrad3x
@@ -964,6 +984,7 @@ divisions:
     zh: "淡蓝的天空下是深蓝的大海，海平线上一条白色的鱼跃出水面。鱼是罐头厂街当年装进罐头的沙丁鱼，如今沙丁鱼只在水族馆里游；城旗是全市唯一不收费就能看的风景。"
     en: "A dark blue sea under a pale blue sky, with a white fish leaping from the horizon. The fish is the sardine that Cannery Row once tinned, which now swims only in the aquarium; the flag is the only view in the city you can look at for free."
   traits: { industries: [tourism, agriculture, research], heritage: ca_latino, age: balanced, income: 0.85 }
+  symbols: {"flower": {"zh": "海滨飞蓬", "en": "Seaside daisy"}, "tree": {"zh": "辐射松", "en": "Monterey pine"}}
 - id: div_hwfcnm
   subtype: borough
   parent: div_9tem3t
@@ -1035,6 +1056,7 @@ divisions:
     zh: "上方酒红、下方麦黄，两色以波浪线相分，正中一串麦黄色的葡萄。酒红是红酒，麦黄是夏天干枯的山坡；葡萄是旗上最贵的部分，城旗的周边商品里，带葡萄的比不带的贵三倍。"
     en: "Wine red over straw, parted by a wavy line, with a straw-coloured bunch of grapes in the middle. The red is red wine and the straw the hillsides dried in summer; the grapes are the most expensive part, and flag merchandise with grapes costs three times as much as without."
   traits: { industries: [wine, tourism, luxury], heritage: ca_anglo, age: old, income: 1.6 }
+  symbols: {"flower": {"zh": "芥菜花", "en": "Mustard flower"}, "tree": {"zh": "加州黑栎", "en": "California black oak"}}
 - id: div_jytczs
   subtype: borough
   parent: div_6shwy9
@@ -1090,6 +1112,7 @@ divisions:
     zh: "深绿、浅绿、深绿三道竖条，中间的浅绿条上是一棵深绿色的红杉。深绿是红杉林，浅绿是林间的雾；城旗上本来还有一片叶子，合法化以后被市议会悄悄删掉了，旧旗如今在林子里的小镇上卖得很好。"
     en: "Dark green, pale green and dark green in vertical bands, with a dark green redwood on the pale green band. The dark green is the redwood forest and the pale green the mist among the trees; there used to be a leaf on the flag too, quietly removed by the city council after legalisation, and the old flags now sell well in the forest towns."
   traits: { industries: [forestry, cannabis, fishing, tourism], heritage: ca_anglo, age: balanced, income: 0.6 }
+  symbols: {"flower": {"zh": "太平洋杜鹃", "en": "Pacific rhododendron"}, "tree": {"zh": "花旗松", "en": "Douglas fir"}}
 - id: div_taah7d
   subtype: borough
   parent: div_v78vjn
@@ -1145,6 +1168,7 @@ divisions:
     zh: "黑、白、黑三道横条，中间的白条上一颗黑色的五角星。市政府的说法是：城旗的原设计已经涂黑，现在看到的是公开版本，五角星代表「待建州」；原设计据说藏在市政厅地下室里，没有人申请到查阅权限。"
     en: "Black, white and black bands with a black five-pointed star on the white band. According to the city government, the original design has been redacted and this is the public version, the star standing for the 'State of Pending'; the original is said to be kept in the City Hall basement, and nobody has ever been granted permission to see it."
   traits: { industries: [forestry, hydropower, mining, tourism], heritage: ca_anglo, age: old, income: 0.6 }
+  symbols: {"flower": {"zh": "羽扇豆", "en": "Lupine"}, "tree": {"zh": "糖松", "en": "Sugar pine"}}
 - id: div_qayjg1
   subtype: borough
   parent: div_57c6nv
@@ -1216,6 +1240,7 @@ divisions:
     zh: "橙色的天空下是沙黄色的荒漠，地平线上一棵青绿色的棕榈。青绿是喷灌出来的草坪，也是城旗上唯一需要浇水的颜色；市政府每年为城旗拨一笔「颜色维护费」，用来重新印刷褪色的旗子。"
     en: "Sand-yellow desert under an orange sky, with a blue-green palm on the horizon. The blue-green is the sprinkled lawns, the only colour on the flag that needs watering; every year the city sets aside a 'colour maintenance fund' to reprint faded flags."
   traits: { industries: [tourism, agriculture, luxury, healthcare], heritage: ca_latino, age: old, income: 0.85 }
+  symbols: {"flower": {"zh": "沙漠月见草", "en": "Desert evening primrose"}, "tree": {"zh": "加州蒲葵", "en": "California fan palm"}}
 - id: div_g96sq9
   subtype: borough
   parent: div_aq1ydw
@@ -1271,6 +1296,7 @@ divisions:
     zh: "深蓝旗面上一道白色尖角从底边升起，像积雪的山峰，正中是一组金色的山峰。白色是雪，金色是滑雪季票的价格；城旗的版权属于买下整座山的基金，市政府每年为挂旗支付许可费。"
     en: "A white point rising from the foot of a dark blue field like a snow-capped peak, with a group of gold peaks in the middle. The white is snow and the gold the price of a season pass; the copyright belongs to the fund that bought the mountain, and the city government pays it a licence fee every year to fly its own flag."
   traits: { industries: [ski, tourism, mining], heritage: ca_anglo, age: young, income: 1.3 }
+  symbols: {"flower": {"zh": "耧斗菜", "en": "Columbine"}, "tree": {"zh": "巨杉", "en": "Giant sequoia"}}
 - id: div_9fqezr
   subtype: borough
   parent: div_dyj07f
@@ -1326,6 +1352,7 @@ divisions:
     zh: "天蓝的海和沙黄的岛隔着水线互换颜色，正中一把深蓝的钥匙。钥匙是保险箱的钥匙，也是地堡的钥匙；城旗在岛上登记为一家公司的商标，这家公司的地址是一只邮箱。"
     en: "Sky-blue sea and sand-yellow island counterchanged across the waterline, with a dark blue key in the middle. The key is the key to a safe deposit box and to the bunker; the flag is registered on the islands as the trademark of a company whose address is a mailbox."
   traits: { industries: [finance, luxury, security, tourism], heritage: ca_global, age: old, income: 9.0 }
+  symbols: {"flower": {"zh": "岛屿树罂粟", "en": "Island tree poppy"}, "tree": {"zh": "铁木", "en": "Catalina ironwood"}}
 - id: div_x972yz
   subtype: borough
   parent: div_943qb5

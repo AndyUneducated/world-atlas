@@ -45,6 +45,14 @@ divisions:
     zh: "几乎全境都是苔原气候，只有内陆少数河谷夏天够暖，长得出稀疏的针叶林。南岸受暖流照拂，首府努卡塔克一月平均约零下 13 度，七月约 7 度，海港终年不冻；越往内陆冬天越冷、夏天越暖，考尔尼克一月平均零下 21 度，最低纪录零下 44 度，七月午后却能到 15 度。东北的西尔米冰盖年平均零下 13 度。降水很少，一年 260 到 580 毫米，大多以雪的形式落下，八九月最多。南岸城市每年有约 70 天极夜、83 天极昼，北方的西尔米瓦克极夜长达 99 天、极昼 109 天。"
     en: "Nearly all the land has a tundra climate; only a few inland valleys are warm enough in summer for sparse conifers. The warm current softens the south coast: the capital Nuqattaaq averages about −13 °C in January and 7 °C in July, and its harbour never freezes. Inland the winters grow colder and the summers warmer: Qaurniq averages −21 °C in January with a record low of −44 °C, yet July afternoons reach 15 °C. The Sirmi Ice Cap in the north-east averages −13 °C over the year. Precipitation is scant, 260 to 580 mm a year and mostly snow, heaviest in August and September. The south-coast cities have about 70 days of polar night and 83 of midnight sun; in Sirmivak in the north the polar night lasts 99 days and the midnight sun 109."
   traits: { industries: [finance, datacenter, mining, tourism] }
+  symbols: {"anthem": {"zh": "《回光之歌》", "en": "Song of the Returning Light"}, "flower": {"zh": "紫花虎耳草", "en": "Purple saxifrage"}, "animal": {"zh": "驯鹿", "en": "Reindeer"}, "bird": {"zh": "雪鸮", "en": "Snowy owl"}}
+  facts: {"calling_code": "+851", "time_zone": "UTC+01:00", "driving": "right"}
+  religion:
+  - {"names": {"zh": "无宗教", "en": "No religion"}, "share": 46}
+  - {"names": {"zh": "塔夫鲁纳克传统信仰", "en": "Tavrunaq traditional faith"}, "share": 24}
+  - {"names": {"zh": "基督教", "en": "Christianity"}, "share": 14}
+  - {"names": {"zh": "佛教", "en": "Buddhism"}, "share": 10}
+  - {"names": {"zh": "其他", "en": "Other"}, "share": 6}
 
 # ── 努卡塔克市（首府）──
 - id: div_8besy9
@@ -69,6 +77,7 @@ divisions:
     zh: "深蓝夜空下是白色的冰原，两道岬角在中间分开，留出峡湾口，上方一颗金色四芒星。努卡塔克坐落在峡湾湾口两岸，两道岬角就是隔湾相望的城区，金星是极夜里的北极星，也代表领地首府。北冰洋各市的旗多画天空与地平线，努卡塔克的这面是它们的范本。"
     en: "White ice under a deep blue night sky, two headlands parting in the middle to leave the mouth of a fjord, with a gold four-pointed star above. Nuqattaaq stands on both shores of its fjord mouth: the headlands are the two halves of the city and the star is the pole star of the polar night and the territorial capital. Most cities of the Arctic Ocean draw sky and horizon on their flags, and this one is their model."
   traits: { industries: [government, finance, tech, port], heritage: polar_global, age: balanced, income: 1.1 }
+  symbols: {"flower": {"zh": "仙女木", "en": "Mountain avens"}, "tree": {"zh": "北极柳", "en": "Arctic willow"}}
 - id: div_q7cydv
   subtype: borough
   parent: div_8besy9
@@ -206,6 +215,7 @@ divisions:
     zh: "竖分两色，旗杆一侧三分之一为金色，其余为黑色，黑色部分正中一个白色六边形框着一颗四芒星。金色是冻土黄金金库，黑色是极夜，六边形既是特区里穹顶的网格，也是交易所的标志。这面旗没有天空也没有地平线，特区的人说「我们的风景都在屏幕上」。"
     en: "Two vertical stripes, gold at the hoist a third of the width and black beyond, with a white hexagon framing a four-pointed star on the black. The gold is the permafrost gold vault, the black the polar night, and the hexagon both the grid of the zone's domes and the mark of its exchange. The flag has no sky and no horizon; people in the zone say all their scenery is on screens."
   traits: { industries: [finance, trade, tech], heritage: polar_global, age: young, income: 6.4 }
+  symbols: {"flower": {"zh": "北极罂粟", "en": "Arctic poppy"}, "tree": {"zh": "矮桦", "en": "Dwarf birch"}}
 - id: div_ga9pxy
   subtype: borough
   parent: div_p808br
@@ -245,6 +255,7 @@ divisions:
     zh: "青色天空下是深蓝的大海，一道白浪之上划着一只白色皮划艇。萨尔瓦克靠港口航运、渔业和海水养殖为生，皮划艇是塔夫鲁纳克人最古老的出海方式，也代表今天驶出萨尔苏瓦峡湾的渔船；青色是峡湾上空的天色。每年夏天的皮划艇节，划手们都以这面旗为终点线。"
     en: "A white kayak riding a white crest on the deep blue sea under a teal sky. Saarvaq lives by shipping, fishing and fish farming: the kayak is the oldest Tavrunaq way to the sea and the fishing boats that leave the fjord today, the teal the sky over the fjord. At the summer kayak festival the flag marks the finish line."
   traits: { industries: [port, fishing, aquaculture, food], heritage: polar_mixed, age: balanced }
+  symbols: {"flower": {"zh": "拉布拉多茶", "en": "Labrador tea"}, "tree": {"zh": "网脉柳", "en": "Net-leaved willow"}}
 - id: div_3rb2ha
   subtype: borough
   parent: div_nbf1bw
@@ -350,6 +361,7 @@ divisions:
     zh: "铜红色的天空下是黑色的山脊，山脊上升起一团金色火焰。铜红是基萨尔维克冶炼厂炉口映红的天色，火焰是冶炼内陆镍矿的炉火，黑色山脊是峡湾两岸的岩山和码头上堆存的矿石。乌库拉克人说，极夜里远远望见冶炼厂的光，就知道离家不远了。"
     en: "A gold flame rising from a black ridge under a copper-red sky. The copper is the sky lit by the furnaces of the smelter, the flame the fires that smelt nickel from the inland mines, the black ridge the rock hills of the fjord and the ore heaped on the quays. People say that in the polar night the glow of the smelter seen from afar means home is near."
   traits: { industries: [mining, port, manufacturing], heritage: polar_mixed, age: balanced }
+  symbols: {"flower": {"zh": "羊胡子草", "en": "Cotton grass"}, "tree": {"zh": "绿桤木", "en": "Green alder"}}
 - id: div_yh6ysj
   subtype: borough
   parent: div_dfmj5f
@@ -455,6 +467,7 @@ divisions:
     zh: "上深蓝、下浅蓝两道横条，旗杆一侧一个白色三角，三角里一枚深蓝雪花。雪花是让数据中心不必另外制冷的冷空气，深蓝是图拉卡特区水电站的库水，浅蓝是海底光缆通往世界各地的那片海。市内每一座机房里都挂着这面旗。"
     en: "Deep blue over light blue, with a white triangle at the hoist bearing a deep blue snowflake. The snowflake is the cold air that cools the data centres for nothing, the deep blue the reservoirs of the hydro plants, the light blue the sea under which the cables run to the rest of the world. The flag hangs in every server hall in the city."
   traits: { industries: [datacenter, tech, hydropower], heritage: polar_global, age: young, income: 1.1 }
+  symbols: {"flower": {"zh": "柳兰", "en": "Fireweed"}, "tree": {"zh": "欧洲刺柏", "en": "Common juniper"}}
 - id: div_79wfwy
   subtype: borough
   parent: div_aggzhy
@@ -560,6 +573,7 @@ divisions:
     zh: "左上紫色、右下白色斜分，紫色部分一颗白色钻石。紫色取自考卢尤阿克加工的钻石在灯下的光，白色是伊卢克萨特盐湖的盐壳，人们从卤水里提锂；斜分线是露天矿坑的台阶。考尔尼克的第二产业占经济一半以上，市民把这面旗叫作「矿工的旗」。"
     en: "Divided diagonally, purple in the upper hoist and white in the lower fly, with a white diamond on the purple. The purple is the gleam of cut diamonds under the lamp, the white the salt crust of the lithium lake, and the diagonal the benches of the open pit. Industry is more than half the city's economy, and people call it 'the miners' flag'."
   traits: { industries: [mining, manufacturing, logistics], heritage: polar_mixed, age: young }
+  symbols: {"flower": {"zh": "北极羽扇豆", "en": "Arctic lupine"}, "tree": {"zh": "白云杉", "en": "White spruce"}}
 - id: div_k66r1n
   subtype: borough
   parent: div_djze5f
@@ -651,6 +665,7 @@ divisions:
     zh: "上绿下白，一条蓝色大河从旗底蜿蜒流向地平线。基卢克图阿尔河在这里入海，绿色是大河两岸的苔原和帕基卢克区沿河的牧场，白色是雪原；冬季北岸封冻，蓝色河道也是破冰船为航线开出的水道。河口的人管这面旗叫「一条河的旗」。"
     en: "Green over white, with a blue river winding from the foot of the flag to the horizon. The river meets the sea here: the green is the tundra and the riverside pastures, the white the snow of the plain, and the blue the channel the icebreakers keep open when the north coast freezes. People at the river mouth call it 'the flag of one river'."
   traits: { industries: [port, fishing, commerce], heritage: polar_mixed, age: young }
+  symbols: {"flower": {"zh": "无茎蝇子草", "en": "Moss campion"}, "tree": {"zh": "灰柳", "en": "Grey willow"}}
 - id: div_anjqnh
   subtype: borough
   parent: div_dk2gh7
@@ -773,6 +788,7 @@ divisions:
     zh: "蓝灰色天空下是白色的冰盖，冰盖上耸起锯齿状的群峰，冰原上立着一座深蓝色的天文台圆顶。冰盖是西尔米冰盖，锯齿状的群峰是从冰面上拔起的西尔米峰和它周围的山尖，西尔米峰海拔 4014 米，是领地最高峰，这个全领地面积最大、人口最稀的市级区划几乎被冰雪覆盖；圆顶是陶瓦尼克高地上的天文台，漫长的极夜正是那里观星的季节。"
     en: "A white ice sheet under a grey-blue sky, jagged peaks rising from it and a deep blue observatory dome standing on the ice. The ice is the Sirmi Ice Cap and the jagged peaks are Mount Sirmi and the summits around it breaking through the ice; Mount Sirmi, at 4,014 m, is the territory's highest; the Free State, the largest and most thinly peopled division of the territory, is almost all ice and snow, and the dome is the observatory on the eastern uplands, where the long polar night is the season for watching the stars."
   traits: { industries: [research, tourism, ski], heritage: polar_mixed, age: balanced }
+  symbols: {"flower": {"zh": "苔原毛茛", "en": "Snow buttercup"}}
 - id: div_73wt00
   subtype: borough
   parent: div_d48kz7
@@ -897,6 +913,7 @@ divisions:
     zh: "暗红底上三座白色海岛浮在两道海浪之上。全市都在乌库乌维特群岛上，没有通往大陆的公路，对外只靠船只和航班，海岛与海浪就是这座远海群岛城市的样子；暗红是露天矿里稀土精矿的颜色。"
     en: "Three white islands above two lines of waves on dark red. The whole city lies on its archipelago, with no road to the mainland and only ships and flights to the outside world; the red is the colour of the rare-earth concentrate from the open-pit mines."
   traits: { industries: [mining, port, manufacturing], heritage: polar_mixed, age: young }
+  symbols: {"flower": {"zh": "高山勿忘我", "en": "Alpine forget-me-not"}, "tree": {"zh": "偃松", "en": "Siberian dwarf pine"}}
 - id: div_qj033v
   subtype: borough
   parent: div_eqzm0n
@@ -955,6 +972,7 @@ divisions:
     zh: "旗杆一侧是黑底米白纹的塔夫鲁纳克滚边，其余赭红色旗面上一面金色手鼓，鼓面画着阶梯菱形，鼓槌立在一旁。赭红是苔原岩雕的颜料，手鼓代表代代相传的鼓舞与口述史诗，也是长老议事会召集族人时敲响的鼓。各领地塔夫鲁纳克城镇的滚边旗都以这面旗为本，它也被当作塔夫鲁利特人的民族旗。"
     en: "A Tavrunaq border in black and cream at the hoist and, on the ochre field, a gold hand drum painted with a stepped diamond, its beater beside it. The ochre is the pigment of the tundra's rock carvings; the drum is the drum dances and spoken epics handed down the generations, and the drum that calls the people when the Council of Elders meets. The bordered flags of Tavrunaq towns in other territories all follow it, and it is flown as the Tavrulit people's own flag."
   traits: { industries: [hunting, herding, heritage, government], heritage: tavrulit, age: young }
+  symbols: {"flower": {"zh": "岩须", "en": "Arctic bell-heather"}, "tree": {"zh": "毛枝柳", "en": "Woolly willow"}}
 - id: div_ek897t
   subtype: borough
   parent: div_8c2skk

@@ -28,7 +28,7 @@ import { createPortal } from "react-dom";
 import { Paragraphs, Rows, Section, Sub, useCardScroll } from "./CardParts";
 import { Emblem, Flag, hasEmblem } from "./Emblem";
 import { CouncilSection, ElectionSection, LegislatureSection, PartySections } from "./Politics";
-import { BackedSection, CardGroups, isGroupedCard } from "./Nation";
+import { BackedSection, CardGroups, isGroupedCard, LocalSymbolsSection } from "./Nation";
 import { RouteTimeline } from "./RouteTimeline";
 import { Climograph } from "./Climograph";
 import { climateName } from "../lib/climate";
@@ -953,6 +953,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
           <TechSection entity={entity} lang={lang} />
           <EngineeringSection entity={entity} lang={lang} />
           {!party && <FlagSection entity={entity} lang={lang} />}
+          <LocalSymbolsSection entity={entity} lang={lang} />
 
           <Lineage data={data} entity={entity} lang={lang} />
           {codeSection}

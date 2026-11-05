@@ -179,6 +179,12 @@ export interface Entity {
   nation?: NationFacts;
   /** Nations without an elected parliament: their executive and judiciary, named by the politics model. */
   government?: NationGovernment;
+  /** Territories and cities: their emblems (a territory's anthem, flower, tree, animal or bird; a city's flower and tree). */
+  symbols?: Partial<Record<"anthem" | "flower" | "tree" | "animal" | "bird", Localized>>;
+  /** Territories: the calling code, time zone and side of the road. */
+  facts?: { calling_code?: string; time_zone?: string; driving?: "left" | "right" };
+  /** Territories: % of residents by faith. */
+  religion?: Faith[];
   /** A nation's key offices outside the cabinet (armed forces, central bank, prosecutors), each with its holder. */
   offices?: (Officeholder & { names: Localized })[];
   /** Blocs: their member nations; countries: the nations they back. */
@@ -200,6 +206,8 @@ export interface NationGovernment {
   /** The presiding judge, the bench's other judges and the law it applies. */
   judiciary: NoBranch | (Officeholder & { names: Localized; law: Localized; notes?: Localized; judges: Localized[] });
 }
+
+export type Faith = { names: Localized; share: number; color?: string };
 
 /** A nation's card block (nation: in world/divisions). */
 export interface NationFacts {
@@ -227,7 +235,7 @@ export interface NationFacts {
   rivals?: string[];
   /** Outside powers behind it, openly or not. */
   backers?: string[];
-  religion: { names: Localized; share: number; color?: string }[];
+  religion: Faith[];
   /** 0 (none) to 100 (full). */
   freedom?: { political: number; civil: number; press: number; economic: number };
   refugees: { hosted: number; abroad: number };
