@@ -343,6 +343,10 @@ export interface Economy {
   sectors: { primary: number; secondary: number; tertiary: number };
   /** Leading industries, most important first. */
   industries: Localized[];
+  /** A nation's own figures: the Gini index, and unemployment and inflation in %. */
+  gini?: number;
+  unemployment?: number;
+  inflation?: number;
 }
 
 export interface Demographics {
@@ -352,6 +356,10 @@ export interface Demographics {
   languages: Partial<Record<NameLang, number>>;
   /** % of residents by ethnic origin, in territories that record it. */
   ethnicity?: Partial<Record<EthnicGroup, number>>;
+  /** Years at birth, adult literacy (%) and the human development index (0–1), from the model. */
+  life_expectancy?: number;
+  literacy?: number;
+  hdi?: number;
 }
 
 export const ETHNIC_GROUPS = ["european", "latino", "african", "asian", "other"] as const;

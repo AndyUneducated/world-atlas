@@ -269,6 +269,8 @@ class World:
         if not (both(f.get("currency")) and f.get("driving") in ("left", "right")
                 and all(isinstance(f.get(k), str) for k in ("currency_code", "time_zone", "calling_code", "tld"))):
             out.append("nation: facts give currency (zh, en), currency_code, time_zone, calling_code, tld and driving (left, right)")
+        if not all(isinstance(f[k], (int, float)) and 0 <= f[k] <= 100 for k in ("gini", "unemployment", "inflation", "literacy") if k in f):
+            out.append("nation: facts may give gini, unemployment, inflation (%) and literacy (%), each a number from 0 to 100")
         return out
 
     def _bloc_errors(self) -> list[str]:
