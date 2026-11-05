@@ -189,6 +189,9 @@ export interface NationGovernment {
 
 /** A nation's card block (nation: in world/divisions). */
 export interface NationFacts {
+  /** A region's card as the government in exile of the state it once was: that state's names, and the
+   * division it sits in. The map keeps the region's own name. */
+  exile?: { names: Names; seat: string };
   ideology: Localized[];
   government: Localized;
   head: Officeholder;
@@ -208,7 +211,7 @@ export interface NationFacts {
   backers?: string[];
   religion: { names: Localized; share: number; color?: string }[];
   /** 0 (none) to 100 (full). */
-  freedom: { political: number; civil: number; press: number; economic: number };
+  freedom?: { political: number; civil: number; press: number; economic: number };
   refugees: { hosted: number; abroad: number };
   symbols: { anthem: Localized; flower: Localized; animal: Localized };
   facts: { currency: Localized; currency_code: string; time_zone: string; calling_code: string; tld: string; driving: "left" | "right" };

@@ -195,7 +195,7 @@ def check_models(ents: dict) -> dict[str, list[str]]:
     holders: list[tuple[str, str]] = []
     ministries = len(MINISTRIES)
     for eid, e in ents.items():
-        if e.get("role") == "nation" and "legislature" not in e:
+        if e.get("nation") and "legislature" not in e:
             g, name = e.get("government", {}), e["names"]["zh"]
             if not (e.get("nation", {}).get("legislature") and g.get("executive") and g.get("judiciary")):
                 seats.append(f"{name}: a nation has an executive, a legislature and a judiciary, or says it does without one")
