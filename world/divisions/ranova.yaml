@@ -220,6 +220,9 @@ divisions:
       flower: {zh: 白色兰花, en: White orchid}
       animal: {zh: 马达加斯加狐猴, en: Indri}
     facts:
+      gini: 39
+      unemployment: 7.5
+      inflation: 4.2
       currency: {zh: 联邦拉罗, en: Federal laro}
       currency_code: AFL
       time_zone: UTC−09:00
@@ -483,6 +486,10 @@ divisions:
       flower: {zh: 红色凤凰木, en: Flame tree}
       animal: {zh: 大红鹳, en: Greater flamingo}
     facts:
+      gini: 29
+      unemployment: 2.0
+      inflation: 9.5
+      literacy: 97.5
       currency: {zh: 人民拉罗, en: People's laro}
       currency_code: PDL
       time_zone: UTC−09:00
@@ -670,6 +677,7 @@ divisions:
       flower: {zh: 红色木槿, en: Red hibiscus}
       animal: {zh: 马岛长尾狸猫, en: Fossa}
     facts:
+      literacy: 99.0
       currency: {zh: 马索沃利沃拉, en: Masovoly vola}
       currency_code: MSV
       time_zone: UTC−09:30
@@ -825,6 +833,9 @@ divisions:
       flower: {zh: 凤凰木, en: Royal poinciana}
       animal: {zh: 马岛鹰, en: Madagascar fish eagle}
     facts:
+      gini: 41
+      unemployment: 6.0
+      inflation: 18.0
       currency: {zh: 国家拉罗, en: National laro}
       currency_code: TNL
       time_zone: UTC−09:00
@@ -1126,6 +1137,9 @@ divisions:
       flower: {zh: 火焰百合, en: Flame lily}
       animal: {zh: 瘤牛, en: Zebu}
     facts:
+      gini: 46
+      unemployment: 14.5
+      inflation: 27.0
       currency: {zh: 梅纳瓦利拉罗, en: Menavaly laro}
       currency_code: MNL
       time_zone: UTC−09:00
@@ -1241,6 +1255,9 @@ divisions:
       flower: {zh: 茉莉花, en: Jasmine}
       animal: {zh: 单桅帆船上的军舰鸟, en: Frigatebird}
     facts:
+      gini: 42
+      unemployment: 16.0
+      inflation: 12.5
       currency: {zh: 萨希利亚第纳尔, en: Sahiliya dinar}
       currency_code: SHD
       time_zone: UTC−10:00
@@ -1711,6 +1728,8 @@ divisions:
       flower: {zh: 野生木槿, en: Wild hibiscus}
       animal: {zh: 马达加斯加长尾猫, en: Fossa}
     facts:
+      gini: 24
+      literacy: 96.0
       currency: {zh: 劳动券, en: Labour voucher}
       currency_code: FLV
       time_zone: UTC−09:00
@@ -2076,6 +2095,9 @@ divisions:
       flower: {zh: 香草兰, en: Vanilla orchid}
       animal: {zh: 马岛长耳蝠, en: Long-eared bat}
     facts:
+      gini: 55
+      unemployment: 11.0
+      inflation: 8.5
       currency: {zh: 安博维元（美元通用）, en: Ambovy dollar (US dollars widely used)}
       currency_code: AMV
       time_zone: UTC−09:00
@@ -2361,6 +2383,9 @@ divisions:
       flower: {zh: 蓝色莲花, en: Blue lotus}
       animal: {zh: 冕狐猴, en: Crowned lemur}
     facts:
+      gini: 33
+      unemployment: 4.5
+      inflation: 3.8
       currency: {zh: 洛哈瓦托法拉, en: Lohavato fara}
       currency_code: LHF
       time_zone: UTC−09:00
@@ -2482,6 +2507,9 @@ divisions:
       flower: {zh: 鸡蛋花, en: Frangipani}
       animal: {zh: 海豚, en: Dolphin}
     facts:
+      gini: 44
+      unemployment: 5.2
+      inflation: 2.9
       currency: {zh: 贝洛瓦元, en: Belova dollar}
       currency_code: BVD
       time_zone: UTC−10:00
@@ -2640,6 +2668,9 @@ divisions:
       flower: {zh: 沙漠玫瑰, en: Desert rose}
       animal: {zh: 绿海龟, en: Green turtle}
     facts:
+      gini: 43
+      unemployment: 1.5
+      inflation: 1.8
       currency: {zh: 努西拉里亚尔, en: Nusira riyal}
       currency_code: NSR
       time_zone: UTC−10:00
@@ -2771,6 +2802,9 @@ divisions:
       flower: {zh: 红色木槿, en: Red hibiscus}
       animal: {zh: 座头鲸, en: Humpback whale}
     facts:
+      gini: 31
+      unemployment: 4.8
+      inflation: 2.1
       currency: {zh: 米拉卡镑, en: Miraka pound}
       currency_code: MKP
       time_zone: UTC−10:00
@@ -2908,6 +2942,9 @@ divisions:
       flower: {zh: 九重葛, en: Bougainvillea}
       animal: {zh: 海鸥, en: Gull}
     facts:
+      gini: 52
+      unemployment: 2.0
+      inflation: 1.5
       currency: {zh: 萨拉卡法郎, en: Saraka franc}
       currency_code: SKF
       time_zone: UTC−10:00
@@ -3044,6 +3081,9 @@ divisions:
       flower: {zh: 无, en: None}
       animal: {zh: 游隼, en: Peregrine falcon}
     facts:
+      gini: 61
+      unemployment: 3.0
+      inflation: 4.0
       currency: {zh: 卡托拉公司代币, en: Katora scrip}
       currency_code: KTS
       time_zone: UTC−10:00
@@ -3145,6 +3185,9 @@ divisions:
       flower: {zh: 白色鸡蛋花, en: White frangipani}
       animal: {zh: 军舰鸟, en: Frigatebird}
     facts:
+      gini: 37
+      unemployment: 4.0
+      inflation: 2.4
       currency: {zh: 瓦罗纳达克特, en: Varona ducat}
       currency_code: VRD
       time_zone: UTC−10:00
@@ -3255,6 +3298,9 @@ divisions:
       flower: {zh: 鸡蛋花, en: Frangipani}
       animal: {zh: 海龟, en: Hawksbill turtle}
     facts:
+      gini: 30
+      unemployment: 6.8
+      inflation: 3.1
       currency: {zh: 萨马伊拉罗, en: Samay laro}
       currency_code: SML
       time_zone: UTC−09:00
@@ -3422,6 +3468,9 @@ divisions:
       flower: {zh: 洋紫荆, en: Orchid tree}
       animal: {zh: 海鸥, en: Gull}
     facts:
+      gini: 50
+      unemployment: 3.4
+      inflation: 2.6
       currency: {zh: 马哈维洛元, en: Mahavelo dollar}
       currency_code: MHD
       time_zone: UTC−09:00
@@ -3518,6 +3567,9 @@ divisions:
       flower: {zh: 海芋, en: Sea lily}
       animal: {zh: 儒艮, en: Dugong}
     facts:
+      gini: 27
+      unemployment: 5.5
+      inflation: 3.0
       currency: {zh: 伊纳拉贝, en: Inara shell}
       currency_code: INS
       time_zone: UTC−09:00
@@ -3668,6 +3720,9 @@ divisions:
       flower: {zh: 橄榄花, en: Olive blossom}
       animal: {zh: 白燕鸥, en: White tern}
     facts:
+      gini: 40
+      unemployment: 22.0
+      inflation: 5.0
       currency: {zh: 美元与人民币通用, en: US dollar and renminbi}
       currency_code: USD/CNY
       time_zone: UTC−09:00
@@ -3783,6 +3838,7 @@ divisions:
       flower: {zh: 白色百合, en: White lily}
       animal: {zh: 马岛鸫, en: Madagascar magpie-robin}
     facts:
+      literacy: 98.0
       currency: {zh: 萨马伊拉罗（通用）, en: Samay laro (in use)}
       currency_code: SML
       time_zone: UTC−09:00

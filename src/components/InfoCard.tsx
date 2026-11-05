@@ -467,6 +467,9 @@ function EconomySection({ entity, lang, accent }: { entity: Entity; lang: Lang; 
           [t("gdp", lang), formatUsd(ec.gdp_usd, lang)],
           [t("gdpPerCapita", lang), formatUsd(ec.gdp_per_capita_usd, lang)],
           ...(ec.median_income_usd ? [[t("medianIncome", lang), formatUsd(ec.median_income_usd, lang)] as [string, string]] : []),
+          ...(ec.gini !== undefined ? [[t("gini", lang), formatNumber(ec.gini, lang)] as [string, string]] : []),
+          ...(ec.unemployment !== undefined ? [[t("unemployment", lang), `${formatNumber(ec.unemployment, lang, 1)}%`] as [string, string]] : []),
+          ...(ec.inflation !== undefined ? [[t("inflation", lang), `${formatNumber(ec.inflation, lang, 1)}%`] as [string, string]] : []),
         ]}
       />
       <Sub label={t("sectorMix", lang)}>
@@ -509,8 +512,14 @@ function PeopleSection({ entity, lang, accent }: { entity: Entity; lang: Lang; a
   const origins = eth
     ? ETHNIC_GROUPS.filter((g) => eth[g] !== undefined).map((g) => ({ label: t(`eth_${g}` as StringKey, lang), value: eth[g]! }))
     : [];
+  const rows: [string, string][] = [
+    ...(dm.life_expectancy !== undefined ? [[t("lifeExpectancy", lang), `${formatNumber(dm.life_expectancy, lang, 1)} ${lang === "zh" ? "岁" : "years"}`] as [string, string]] : []),
+    ...(dm.literacy !== undefined ? [[t("literacy", lang), `${formatNumber(dm.literacy, lang, 1)}%`] as [string, string]] : []),
+    ...(dm.hdi !== undefined ? [[t("hdi", lang), formatNumber(dm.hdi, lang, 3)] as [string, string]] : []),
+  ];
   return (
     <Section title={t("peopleTitle", lang)}>
+      {rows.length > 0 && <Rows rows={rows} />}
       <Sub label={t("ageStructure", lang)}>
         <ShareBar
           accent={accent}

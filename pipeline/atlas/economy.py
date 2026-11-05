@@ -1,6 +1,7 @@
 """Economy and population on the city and district cards, from the traits in world/divisions and the
 model in world/economy.yaml: GDP, GDP per head, the three-sector mix and leading industries; the age
-structure and first languages; and, where the territory sets them, median income and ethnic origin.
+structure and first languages; and, where the territory sets them, median income and ethnic origin; then
+life expectancy, literacy and the development index from GDP per head, and a nation's own figures.
 Districts are computed, cities and territories add up their districts.
 Runs after merge_crossings, on the whole world's entities."""
 from __future__ import annotations
@@ -111,6 +112,31 @@ def _leading(parts: list[dict], model: dict, n: int = 4) -> list[str]:
     return sorted(score, key=score.get, reverse=True)[:n]
 
 
+def _indicators(world: World, entities: dict, model: dict) -> None:
+    """Life expectancy, literacy and the development index on every card with an economy, and a nation's own
+    figures (Gini, unemployment, inflation, literacy) where its facts give them."""
+    m = model.get("indicators")
+    if not m:
+        return
+    for did, e in entities.items():
+        ec, dm = e.get("economy"), e.get("demographics")
+        if not ec or not dm or did not in world.divisions:
+            continue
+        g = ec["gdp_per_capita_usd"]
+        nations = [world.divisions[a]["nation"] for a in (did, *world.ancestors(did)) if world.divisions.get(a, {}).get("role") == "nation"]
+        toll = max((m["war_toll"][w["status"]] for n in nations for w in n.get("wars", [])), default=0)
+        own = world.divisions[did].get("nation", {}).get("facts", {})
+        rng = _rng("indicators:" + did)
+        curve = lambda c: c["max"] - c["gap"] * float(np.exp(-g / c["scale"])) + rng.normal(0, c["noise"])
+        life = float(np.clip(curve(m["life"]) - toll, 45, 86))
+        lit = float(np.clip(own.get("literacy", curve(m["literacy"]) - 2 * toll), 15, 99.5))
+        health = (life - 20) / 65
+        schooling = lit / 100 * (0.5 + 0.42 * min(1.0, max(0.0, float(np.log(g / 500) / np.log(80000 / 500)))))
+        income = min(1.0, max(0.05, float(np.log(g / 100) / np.log(75000 / 100))))
+        dm |= {"life_expectancy": round(life, 1), "literacy": round(lit, 1), "hdi": round((health * schooling * income) ** (1 / 3), 3)}
+        ec |= {k: own[k] for k in ("gini", "unemployment", "inflation") if k in own}
+
+
 def annotate(world: World, entities: dict) -> None:
     """Add economy and demographics to every district, city and territory that has traits."""
     model = world.economy
@@ -137,3 +163,4 @@ def annotate(world: World, entities: dict) -> None:
         total = _sum(below)
         entities[did]["economy"], entities[did]["demographics"] = _card(total, lead, model)
         entities[did].setdefault("population", total["population"])  # territories give none of their own
+    _indicators(world, entities, model)

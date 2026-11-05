@@ -177,3 +177,12 @@ age:
   ranova_young: [38, 58, 4]   # Ranova's poor and war-torn interior
   ranova_mid:   [30, 64, 6]
   ranova_old:   [10, 60, 30]  # the rich island states
+
+# Life expectancy and adult literacy on every card with an economy: each nears its ceiling as GDP per head
+# grows (max − gap × e^(−GDP per head / scale)), less a toll for the worst war the nation is in (literacy
+# twice it). The development index is the geometric mean of health, education and income as the UN
+# reckons them, literacy standing in for schooling; a nation's facts may give its own literacy.
+indicators:
+  life: { max: 84, gap: 22, scale: 12000, noise: 0.8 }
+  literacy: { max: 99.5, gap: 70, scale: 3000, noise: 1.5 }
+  war_toll: { active: 5, ceasefire: 2, frozen: 1, ended: 0 }
