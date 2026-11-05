@@ -281,16 +281,26 @@ def _coalition(won: dict[str, int], share: dict[str, float], parties: dict[str, 
     return sorted(group, key=lambda p: (-won[p], -share[p]))
 
 
+def _full(lang: str, given: list, family: list) -> dict:
+    return ({"zh": family[0] + given[0], "en": f"{family[1]} {given[1]}"} if lang == "zh"
+            else {"zh": f"{given[1]}·{family[1]}", "en": f"{given[0]} {family[0]}"})
+
+
 def _person(rng: np.random.Generator, pools: dict, lang: str, taken: set[str]) -> dict:
-    """A name from the language's pools that no one else has yet."""
+    """A name from the language's pools that no one else has yet. A pool's later names (more:) join only
+    once every name of its first lists is taken, so that adding them renames no one."""
     pool = pools[lang]
+    given, family = pool["given"], pool["family"]
     while True:
-        given, family = pool["given"][int(rng.integers(len(pool["given"])))], pool["family"][int(rng.integers(len(pool["family"])))]
-        name = ({"zh": family[0] + given[0], "en": f"{family[1]} {given[1]}"} if lang == "zh"
-                else {"zh": f"{given[1]}·{family[1]}", "en": f"{given[0]} {family[0]}"})
+        name = _full(lang, given[int(rng.integers(len(given)))], family[int(rng.integers(len(family)))])
         if name["en"] not in taken:
             taken.add(name["en"])
             return name
+        if all(_full(lang, g, f)["en"] in taken for g in given for f in family):
+            more = pool.get("more", {})
+            if given is not pool["given"] or not more:
+                raise ValueError(f"politics: the {lang} names are used up; give the pool more (more: given, family)")
+            given, family = given + more.get("given", []), family + more.get("family", [])
 
 
 def _chamber(won: dict[str, int], share: dict[str, float], extra: dict, gov: list[str]) -> dict:
@@ -496,6 +506,24 @@ def _appoint(model: dict, entities: dict, people: "_People", holders: dict[str, 
         L["court"]["judges"] = _judges(people, tid, model["legislatures"][tid]["court"], langs, avoid)
 
 
+def _deputy_title(speaker: dict) -> dict:
+    """The deputy speaker's title from the speaker's: 议长 to 副议长, Speaker to Deputy Speaker."""
+    zh, en = speaker["zh"], speaker["en"]
+    for a, b in (("议长", "副议长"), ("主席", "副主席")):
+        if zh.endswith(a):
+            zh = zh[: -len(a)] + b
+            break
+    else:
+        zh = "副" + zh
+    for a, b in (("Speaker", "Deputy Speaker"), ("President", "Vice-President")):
+        if a in en:
+            en = en.replace(a, b, 1)
+            break
+    else:
+        en = "Deputy " + en
+    return {"zh": zh, "en": en}
+
+
 def _offices(world: World, model: dict, entities: dict, people: "_People") -> None:
     """Deputies, independent bodies and the governments of nations without an elected parliament, named
     last of all so that adding them renames no one. A coalition's junior partner holds the deputy's post."""
@@ -535,6 +563,23 @@ def _offices(world: World, model: dict, entities: dict, people: "_People") -> No
                 "judges": [people.draw(f"judge:{nid}:{i}", langs, avoid, nid) for i in range(ju["judges"] - 1)],
             },
         }
+    # deputy speakers and the nations' key offices, drawn after everyone else
+    for tid, leg in model["legislatures"].items():
+        L = entities[tid]["legislature"]
+        langs = entities[tid].get("demographics", {}).get("languages", {"zh": 100})
+        avoid = {_given(o["name"]) for o in (L["head"], L["speaker"], L["court"], *L["ministers"])}
+        sides = [L["government"][1] if len(L["government"]) > 1 else L["government"][0]]
+        if (opp := L.get("opposition")) and L["seats"] >= 60:
+            sides.append(opp["party"])
+        titles = leg.get("deputy_speakers", [])
+        L["deputy_speakers"] = [{"title": titles[i] if i < len(titles) else _deputy_title(leg["speaker"]),
+                                 "name": people.draw(f"deputy-speaker:{tid}:{i}", langs, avoid, tid), "party": p} for i, p in enumerate(sides)]
+    for nid, d in world.divisions.items():
+        if offices := d.get("nation", {}).get("offices"):
+            langs = entities[nid].get("demographics", {}).get("languages", {"zh": 100})
+            avoid = {_given(d["nation"]["head"]["name"])}
+            entities[nid]["offices"] = [{"names": o["names"], "title": o["title"],
+                                         "name": o.get("name") or people.draw(f"office:{nid}:{i}", langs, avoid, nid)} for i, o in enumerate(offices)]
 
 
 def annotate(world: World, entities: dict) -> None:

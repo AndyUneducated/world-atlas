@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { Fragment, useState, type ReactNode } from "react";
 import { displayName, formatNumber, t, type StringKey } from "../lib/i18n";
 import { governmentSeats, majority, PARTY_AXES, SYSTEM_NAMES, systemText } from "../lib/politics";
-import type { AtlasData, Chamber, Entity, Lang, Legislature, Localized, Seating } from "../lib/types";
+import type { AtlasData, Chamber, Entity, Lang, Legislature, Localized, Officeholder, Seating } from "../lib/types";
 import { useAtlas } from "../store";
 import { Paragraphs, Rows, Section, Sub, useCardOpen } from "./CardParts";
 import { Emblem, hasEmblem } from "./Emblem";
@@ -247,6 +247,20 @@ function Cabinet({ data, L, lang }: { data: AtlasData; L: Legislature; lang: Lan
   );
 }
 
+/** Bodies or offices, each with its head: the body's name, then the title and holder. */
+export function OfficeRows({ list, lang }: { list: (Officeholder & { names: Localized })[]; lang: Lang }) {
+  return (
+    <Rows
+      rows={list.map((a) => [
+        a.names[lang],
+        <span className="text-ink">
+          <span className="text-muted">{a.title[lang]}</span> {a.name[lang]}
+        </span>,
+      ] as [string, ReactNode])}
+    />
+  );
+}
+
 /** A territory's politics: who governs and how, the parliament that elects them, and the highest court. */
 export function LegislatureSection({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
   const L = entity.legislature;
@@ -276,6 +290,7 @@ export function LegislatureSection({ data, entity, lang }: { data: AtlasData; en
           <Rows
             rows={[
               speakerRow,
+              ...(L.deputy_speakers ?? []).map((d) => holderRow(data, d.title, d, lang)),
               ...(L.opposition ? [holderRow(data, L.opposition.title ?? { zh: t("oppositionLeader", "zh"), en: t("oppositionLeader", "en") }, L.opposition, lang)] : []),
               ...majorityRows,
               [t("turnout", lang), pct(L.turnout, lang)],
@@ -307,14 +322,12 @@ export function LegislatureSection({ data, entity, lang }: { data: AtlasData; en
       </Branch>
       {L.agencies?.length ? (
         <Branch label={t("agencies", lang)}>
-          <Rows
-            rows={L.agencies.map((a) => [
-              a.names[lang],
-              <span className="text-ink">
-                <span className="text-muted">{a.title[lang]}</span> {a.name[lang]}
-              </span>,
-            ] as [string, ReactNode])}
-          />
+          <OfficeRows list={L.agencies} lang={lang} />
+        </Branch>
+      ) : null}
+      {entity.offices?.length ? (
+        <Branch label={t("keyOffices", lang)}>
+          <OfficeRows list={entity.offices} lang={lang} />
         </Branch>
       ) : null}
     </Section>

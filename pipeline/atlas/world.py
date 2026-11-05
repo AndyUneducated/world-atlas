@@ -72,7 +72,7 @@ FLAG_LAYOUTS = ts_names("cityFlags.tsx", "FLAG_LAYOUTS")
 NATION_FLAGS = ts_names("nationFlags.tsx", "NATION_FLAGS")
 # A nation's card block (nation: in its division): kinds of state and the facts it lists.
 NATION_KEYS = ("exile", "ideology", "government", "head", "power", "bloc", "bloc_role", "recognition", "executive", "legislature", "judiciary", "military", "wars",
-               "allies", "rivals", "backers", "religion", "freedom", "refugees", "symbols", "facts")
+               "allies", "rivals", "backers", "religion", "freedom", "refugees", "symbols", "facts", "heir", "predecessors", "offices")
 FLAG_CHARGES = ts_names("emblems.tsx", "MOTIFS") + ts_names("charges.tsx", "NEW") + ts_names("charges.tsx", "CALIFORNIA")
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
 POLITICS_SYSTEMS = ("mmp", "fptp", "pr_reserved", "pr_regional", "top_two")
@@ -248,6 +248,12 @@ class World:
             if not none(ju) and not (all(both(ju.get(k)) for k in ("names", "title", "law")) and isinstance(ju.get("judges"), int)
                                      and 1 <= ju["judges"] <= 15 and both(ju.get("notes", ju.get("law"))) and set(ju) <= {"names", "title", "law", "judges", "notes"}):
                 out.append("nation: judiciary gives names, title, law (zh, en) and 1 to 15 judges, and may give notes; or none")
+        if not all(isinstance(o, dict) and set(o) <= {"names", "title", "name"} and both(o.get("names")) and both(o.get("title"))
+                   and both(o.get("name", o.get("title"))) for o in n.get("offices", [])):
+            out.append("nation: each office gives names and its holder's title (zh, en), and may name the holder; otherwise one is drawn")
+        people = ([n["heir"]] if "heir" in n else []) + n.get("predecessors", [])
+        if not all(isinstance(p, dict) and both(p.get("title")) and both(p.get("name")) and both(p.get("note", p.get("name"))) for p in people):
+            out.append("nation: the heir and each predecessor give a title and name, and a predecessor may give a note (zh, en)")
         rel = n.get("religion", [])
         if not rel or not all(both(r.get("names")) and isinstance(r.get("share"), (int, float)) for r in rel) or abs(sum(r["share"] for r in rel) - 100) > 0.5:
             out.append("nation: religion lists faiths (names zh, en) with shares adding up to 100")
@@ -605,7 +611,7 @@ class World:
             for mid, names in leg.get("ministries", {}).items():
                 if mid not in known or not all(names.get(lang) for lang in REQUIRED_LANGS):
                     errors.append(f"politics: {tid}: ministry {mid} renames a known ministry, in zh and en")
-            for k, v in ((k, leg[k]) for k in ("deputy", "deputy_mayor") if k in leg):
+            for k, v in [*((k, leg[k]) for k in ("deputy", "deputy_mayor") if k in leg), *(("deputy_speakers", v) for v in leg.get("deputy_speakers", []))]:
                 if not all(v.get(lang) for lang in REQUIRED_LANGS):
                     errors.append(f"politics: {tid}: {k} needs zh and en")
             if not all((a.get(k) or {}).get(lang) for a in leg.get("agencies", []) for k in ("names", "title") for lang in REQUIRED_LANGS):

@@ -251,6 +251,7 @@ const STRINGS = {
   legislature: { zh: "立法", en: "Legislature" },
   judiciary: { zh: "司法", en: "Judiciary" },
   agencies: { zh: "独立机构", en: "Independent bodies" },
+  keyOffices: { zh: "要职", en: "Key offices" },
   legalSystem: { zh: "法律体系", en: "Legal system" },
   centralAppointee: { zh: "中央任命", en: "Appointed by the centre" },
   nonPartisan: { zh: "无党籍", en: "Non-partisan" },
