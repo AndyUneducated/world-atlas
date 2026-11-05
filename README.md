@@ -13,7 +13,8 @@
 An interactive atlas of **Homeworld**, a fictional planet. The mapped regions are China's
 territories, among them North Viking Island (北维京岛领地) and the Viking Islands
 (维京群岛领地); the US state of California; and Ranova (拉诺瓦岛), a tropical island
-about 1,500 km south-east of California shared by 26 nations in three blocs.
+about 1,500 km south-east of California shared by 26 nations in three blocs, whose
+card is that of the United Republic it once was, now a government in exile.
 
 Live site: https://andyuneducated.github.io/world-atlas/
 
