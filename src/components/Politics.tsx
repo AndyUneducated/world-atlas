@@ -454,11 +454,15 @@ function branchRole(at: Entity, party: string, lang: Lang): string | null {
   return null;
 }
 
-/** A party's card: who it is and where it stands, who votes for it, what it wants, how it is run and where it sits. */
-export function PartySections({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
+export type PartyPart = "profile" | "positions" | "organisation" | "seats" | "history";
+
+/** A party's card: who it is and where it stands, who votes for it, what it wants, how it is run and where it sits;
+ * one `part` of it, or all. */
+export function PartySections({ data, entity, lang, part }: { data: AtlasData; entity: Entity; lang: Lang; part?: PartyPart }) {
   const select = useAtlas((s) => s.select);
   const [allCouncils, setAllCouncils] = useCardOpen("councils");
   if (entity.kind !== "party") return null;
+  const show = (p: PartyPart) => !part || part === p;
   const color = entity.color ?? "var(--ui-accent)";
   const held = entity.seats ?? [];
   const national = (entity.territories ?? []).some((id) => data.entities[id]?.role === "nation");
@@ -473,7 +477,7 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
   ];
   return (
     <>
-      <Section title={t("partyProfile", lang)}>
+      {show("profile") && <Section title={t("partyProfile", lang)}>
         <Rows
           rows={[
             ...(entity.family ? [[t("partyFamily", lang), <span className="font-medium">{entity.family[lang]}</span>] as [string, ReactNode]] : []),
@@ -489,8 +493,8 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
             <Chips items={entity.ideology} color={color} lang={lang} />
           </Sub>
         ) : null}
-      </Section>
-      {(entity.axes || entity.spectrum !== undefined) && (
+      </Section>}
+      {show("positions") && (entity.axes || entity.spectrum !== undefined) && (
         <Section title={t("positions", lang)}>
           <div className="space-y-2.5">
             {entity.spectrum !== undefined && (
@@ -504,7 +508,7 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
           </div>
         </Section>
       )}
-      {entity.base && (entity.base.strong.length > 0 || entity.base.weak.length > 0) && (
+      {show("positions") && entity.base && (entity.base.strong.length > 0 || entity.base.weak.length > 0) && (
         <Section title={t("voters", lang)}>
           {entity.base.strong.length > 0 && (
             <Sub label={t("strongAmong", lang)}>
@@ -518,7 +522,7 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
           )}
         </Section>
       )}
-      {entity.policies?.length ? (
+      {show("positions") && entity.policies?.length ? (
         <Section title={t("policies", lang)}>
           <ul className="space-y-2">
             {entity.policies.map((p) => (
@@ -530,7 +534,7 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
           </ul>
         </Section>
       ) : null}
-      {entity.factions?.length ? (
+      {show("positions") && entity.factions?.length ? (
         <Section title={t("factions", lang)}>
           <ul className="space-y-3">
             {entity.factions.map((f) => (
@@ -542,7 +546,7 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
           </ul>
         </Section>
       ) : null}
-      {(orgRows.length > 0 || (entity.branches?.length ?? 0) > 1) && (
+      {show("organisation") && (orgRows.length > 0 || (entity.branches?.length ?? 0) > 1) && (
         <Section title={t("organisation", lang)}>
           {orgRows.length > 0 && <Rows rows={orgRows} />}
           {(entity.branches?.length ?? 0) > 1 && (
@@ -568,7 +572,7 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
           )}
         </Section>
       )}
-      <Section title={t("partySeats", lang)}>
+      {show("seats") && <Section title={t("partySeats", lang)}>
         <Sub label={t(national ? "nationalSeats" : "territorialSeats", lang)}>
           <ul className="-mx-2">
             {(entity.territories ?? []).map((tid) => {
@@ -605,8 +609,8 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
             <p className="text-[12.5px] text-muted">{t("noSeats", lang)}</p>
           )}
         </Sub>}
-      </Section>
-      {allies.length > 0 && (
+      </Section>}
+      {show("history") && allies.length > 0 && (
         <Section title={t("allies", lang)}>
           <ul className="-mx-2 grid grid-cols-2 gap-0.5">
             {allies.map((a) => (
@@ -620,7 +624,7 @@ export function PartySections({ data, entity, lang }: { data: AtlasData; entity:
           </ul>
         </Section>
       )}
-      {entity.history && (
+      {show("history") && entity.history && (
         <Section title={t("history", lang)}>
           <Paragraphs text={entity.history[lang]} className="text-[13px] leading-relaxed text-ink" />
         </Section>

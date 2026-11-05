@@ -28,7 +28,7 @@ import { createPortal } from "react-dom";
 import { Paragraphs, Rows, Section, Sub, useCardScroll } from "./CardParts";
 import { Emblem, Flag, hasEmblem } from "./Emblem";
 import { CouncilSection, ElectionSection, LegislatureSection, PartySections } from "./Politics";
-import { BackedSection, isGroupedCard, NationGroups } from "./Nation";
+import { BackedSection, CardGroups, isGroupedCard } from "./Nation";
 import { RouteTimeline } from "./RouteTimeline";
 import { Climograph } from "./Climograph";
 import { climateName } from "../lib/climate";
@@ -899,7 +899,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
       )}
 
       {isGroupedCard(entity) ? (
-        <NationGroups
+        <CardGroups
           data={data}
           entity={entity}
           lang={lang}
@@ -911,9 +911,11 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
             economy: <EconomySection entity={entity} lang={lang} accent={accent} />,
             climate: <ClimateSection data={data} entity={entity} lang={lang} />,
             children: <ChildList data={data} entity={entity} lang={lang} />,
+            backed: <BackedSection data={data} entity={entity} lang={lang} />,
             flag: <FlagSection entity={entity} lang={lang} />,
             lineage: <Lineage data={data} entity={entity} lang={lang} />,
             codes: codeSection,
+            party: (part) => <PartySections data={data} entity={entity} lang={lang} part={part} />,
           }}
         />
       ) : (
