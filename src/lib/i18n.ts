@@ -35,6 +35,8 @@ const STRINGS = {
   route_water: { zh: "跨水段", en: "Water crossing" },
   capitalOf: { zh: "领地首府", en: "Territorial capital" },
   nationCapital: { zh: "首都", en: "National capital" },
+  exileTag: { zh: "流亡政府", en: "Government in exile" },
+  claimedTerritory: { zh: "主张的领土", en: "Claimed territory" },
   expand: { zh: "展开", en: "Expand" },
   collapse: { zh: "收起", en: "Collapse" },
   close: { zh: "关闭", en: "Close" },
@@ -511,6 +513,11 @@ export function kindLabel(e: Entity, lang: Lang): string {
 
 export function displayName(e: Entity, lang: Lang): string {
   return e.names[lang] ?? e.names.zh;
+}
+
+/** The name a card goes by: for a government in exile, its state's rather than the island's on the map. */
+export function cardName(e: Entity, lang: Lang): string {
+  return e.nation?.exile?.names[lang] ?? displayName(e, lang);
 }
 
 export function otherName(e: Entity, lang: Lang): string {

@@ -84,13 +84,14 @@ export class SearchIndex {
           e.names["art-x-ranova"],
           e.names["art-x-kasiri"],
           e.short_names?.en,
+          e.nation?.exile?.names.en,
           syllables.join(""),
           syllables.map((p) => p[0]).join(""),
           e.ref,
         ]
           .filter((x): x is string => !!x)
           .map(norm);
-        const keys = [e.names.zh, e.short_names?.zh, e.codes?.admin, e.codes?.unlocode, e.codes?.iso3166_2]
+        const keys = [e.names.zh, e.short_names?.zh, e.nation?.exile?.names.zh, e.codes?.admin, e.codes?.unlocode, e.codes?.iso3166_2]
           .filter((x): x is string => !!x)
           .map(norm);
         const weight =

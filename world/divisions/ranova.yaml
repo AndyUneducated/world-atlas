@@ -10,16 +10,10 @@ divisions:
   role: region
   status: generated
   names: {zh: 拉诺瓦岛, en: Ranova, art-x-ranova: Nosy Ranova}
-  notes: {zh: '拉诺瓦岛是太平洋东北部的一座大岛，位于加利福尼亚东南约一千五百公里的海上，主岛面积约一百万平方公里，形状狭长，西北和东南外海各有十多座大小不一的岛屿。岛上地形多样：中部是纵贯南北的安德里纳高原，北端有全岛最高的马洛卡山，东部是陡峭的法拉纳断崖和茂密的热带雨林，西部是稀树草原和干燥的丘陵，西南是多刺灌木林和半荒漠。全岛人口约三千万。
-
-      岛上原本只有一个国家——拉诺瓦联合共和国，它统一了本岛和两侧的群岛，通行拉诺瓦语和沿海的卡西里语。三十多年前，联合共和国在经济危机、地方分离运动和意识形态对立中崩溃，这场崩溃被称为「大分裂」。东南群岛和萨拉卡依据条约和平分离，沿用了联合共和国的船旗样式；本岛则陷入了长期的战乱，先后形成了二十多个国家和武装控制区。
-
-      如今岛上有二十六个政治实体：一个横跨岛屿中部的大国安博哈拉基督教联邦，几个中等国家，以及众多城邦和小国，意识形态从共产主义、资本主义、民族社会主义到伊斯兰共和制、佛教君主制、无政府公社、母系社会和修道院神权，几乎无所不包。它们大致分成三个阵营：以阿瓦拉齐为首的世俗协约、以安博哈拉为首的圣约同盟和以齐马罗沃为首的祖源轴心，其余国家保持中立。中国和美国在岛上都有外交机构和大量投资，并在暗中支持不同的阵营。
-
-      三十多年来，高原战争、南方战争、西岸战争和伊索卡人民战争断断续续，数以十万计的人流离失所，难民营散布在萨马伊、阿拉齐纳、安巴罗、米拉卡、萨希利亚和贝洛瓦。与此同时，马哈维洛、瓦罗纳和萨拉卡的港口与银行从未停止营业，安巴罗国际托管地成为各方谈判的场所。拉诺瓦人常说：「我们曾经是一个国家，如今是一座岛。」', en: "Ranova is a large island in the north-eastern Pacific, some 1,500 km south-east of California. The main island covers about a million square kilometres in a long, narrow shape, with a dozen or more islands of every size offshore to the north-west and south-east. Its landscapes are varied: the Andrina Highlands run down the middle, the Maroka Massif at the northern end is the highest ground, the east is the steep Farana Escarpment and dense rainforest, the west savanna and dry hills, and the south-west spiny thicket and semi-desert. About 30 million people live on the island. \nThere was once a single state, the United Republic of Ranova, which united the main island and the islands on either side and spoke Ranovan and, on the coasts, Kasiri. More than thirty years ago the United Republic collapsed amid economic crisis, regional separatism and ideological conflict, a collapse known as the Sundering. The south-eastern islands and Saraka left peacefully by treaty and kept the pattern of the Republic's ensigns; the main island fell into long years of war, out of which came more than twenty states and armed zones. \nToday the island has twenty-six political entities: one large state, the Christian Federation of Ambohara across the middle of the island, several middle-sized states and many city-states and small countries, whose ideologies run from communism, capitalism and national socialism to Islamic republicanism, Buddhist monarchy, anarchist communes, matrilineal society and monastic theocracy. They fall roughly into three blocs, the Secular Accord led by Avaratsy, the Covenant League led by Ambohara and the Origin Axis led by Tsimarovo, with the rest neutral. China and the United States both keep diplomatic missions and large investments on the island and quietly back different blocs. \nFor more than thirty years the Highland, Southern, West Coast and Isoka wars have flared and died down by turns, hundreds of thousands have been driven from their homes, and refugee camps are scattered across Samay, Alatsina, Ambaro, Miraka, Sahiliya and Belova. Meanwhile the ports and banks of Mahavelo, Varona and Saraka have never closed, and the Ambaro International Trust Territory has become the place where the sides negotiate. Ranovans often say: 'We were once a country; now we are an island.'"}
+  notes: {zh: "拉诺瓦联合共和国是拉诺瓦岛上曾经唯一的国家，如今是一个流亡政府，驻在东南海岸外的安巴罗国际托管地。它在法律上仍然主张对全岛和两侧群岛的主权，但三十多年来没有实际控制任何领土，只在安巴罗旧海军要塞旁的一座行政楼里设有总统府、临时国民议会和几个部门，在萨马伊、马哈维洛和海外设有代表处。\n\n拉诺瓦岛是太平洋东北部的一座大岛，位于加利福尼亚东南约一千五百公里的海上，主岛面积约一百万平方公里，形状狭长，西北和东南外海各有十多座大小不一的岛屿。中部是纵贯南北的安德里纳高原，北端有全岛最高的马洛卡山，东部是陡峭的法拉纳断崖和热带雨林，西部是稀树草原和干燥的丘陵，西南是多刺灌木林和半荒漠。全岛人口约三千万，通行拉诺瓦语和沿海的卡西里语。\n\n联合共和国统一了本岛和两侧的群岛，首都设在高原中部的安博哈拉。三十多年前，它在经济危机、地方分离运动和意识形态对立中崩溃，这场崩溃被称为「大分裂」。东南群岛和萨拉卡依据条约和平分离，沿用了联合共和国的船旗样式；本岛则陷入长期战乱，先后形成了二十六个国家和武装控制区。安博哈拉被基督教联邦接管后，最后一届内阁和部分议员撤到萨马伊；安巴罗之围结束、托管地成立后，流亡政府迁入安巴罗，成为国际委员会认可的谈判一方。\n\n流亡政府由流亡总统领导，临时国民议会由大分裂前的国民议会议员、侨民代表和难民营代表组成，每五年在难民营和海外侨民中改选一次。它的主要工作是为难民和海外侨民签发身份与旅行证件，保存联合共和国的档案、法律和国旗，参加在安巴罗举行的和平谈判，并主张以联邦方式和平统一全岛。只有少数国家承认它是拉诺瓦的合法政府，多数国家把它视为一个有象征意义的对话者。岛上各国的人常说：「我们曾经是一个国家，如今是一座岛。」", en: "The United Republic of Ranova was once the only state on the island of Ranova and is now a government in exile, seated in the Ambaro International Trust Territory off the south-east coast. In law it still claims sovereignty over the whole island and the islands on either side, but for more than thirty years it has held no territory at all: it keeps a presidency, a Provisional National Assembly and a few ministries in an office building beside Ambaro's old naval fortress, and missions in Samay, Mahavelo and abroad.\n\nRanova is a large island in the north-eastern Pacific, some 1,500 km south-east of California. The main island covers about a million square kilometres in a long, narrow shape, with a dozen or more islands of every size offshore to the north-west and south-east. The Andrina Highlands run down the middle, the Maroka Massif at the northern end is the highest ground, the east is the steep Farana Escarpment and rainforest, the west savanna and dry hills, and the south-west spiny thicket and semi-desert. About 30 million people live on the island, speaking Ranovan and, on the coasts, Kasiri.\n\nThe United Republic united the main island and the islands on either side, with its capital at Ambohara in the middle of the highlands. More than thirty years ago it collapsed amid economic crisis, regional separatism and ideological division, a collapse known as the Great Sundering. The south-eastern islands and Saraka left peacefully by treaty and kept the pattern of the Republic's ensigns, while the main island fell into a long war out of which twenty-six states and armed zones emerged. When the Christian Federation took over Ambohara, the last cabinet and some members of parliament withdrew to Samay; after the Siege of Ambaro ended and the trust territory was set up, the government in exile moved to Ambaro and became a party to talks recognised by the International Commission.\n\nThe government in exile is led by a president in exile. Its Provisional National Assembly is made up of members of the pre-Sundering parliament and representatives of the diaspora and the refugee camps, re-elected every five years in the camps and among Ranovans abroad. Its work is to issue identity and travel papers to refugees and the diaspora, to keep the United Republic's archives, laws and flag, to take part in the peace talks at Ambaro and to argue for a peaceful reunion of the island as a federation. Only a few states recognise it as Ranova's lawful government; most treat it as a symbolic interlocutor. People across the island say, 'We were once a country; now we are an island.'"}
   short_names: {zh: 拉诺瓦, en: Ranova}
   codes: {iso3166_2: RN-RA, admin: '950000'}
-  motto: {zh: 一座岛，许多国, en: 'One island, many nations'}
+  motto: {zh: "一座岛，一个家", en: "One island, one home"}
   population: 30300000
   area_km2: 1088900.0
   operators:
@@ -29,6 +23,100 @@ divisions:
   flag: united_republic
   flag_notes: {zh: 拉诺瓦联合共和国的国旗：绿底白色斜十字，中央红色圆盘和金色五角星，金色镶边。联合共和国解体后这面旗不再是任何国家的国旗，但它的联合标志仍出现在萨马伊、马哈维洛、伊纳拉、安巴罗和萨拉卡的船旗样式中。, en: 'The flag of the United Republic of Ranova: a white saltire on green with a red disc and gold star where the arms cross, in a gold border. Since the Republic dissolved it has been no state''s flag, but its union mark lives on in the ensigns of Samay, Mahavelo, Inara, Ambaro and Saraka.'}
   climate_notes: {zh: 拉诺瓦岛位于北纬八度到二十六度之间，终年受东北信风控制，是典型的热带海洋性气候。迎风的东海岸和东坡雨量充沛，一年两千到三千毫米，生长着茂密的热带雨林；中部的安德里纳高原海拔八百到一千多米，气候凉爽，首都安博哈拉年平均约二十度；背风的西海岸和西南部干燥得多，西南端一年只有三四百毫米雨水，是多刺灌木林和半荒漠。雨季从六月到十月，十一月到次年五月是干季；夏末秋初常有热带气旋从东面海上袭来。, en: 'Ranova lies between 8° and 26° N under the north-east trades all year, a typical tropical maritime climate. The windward east coast and eastern slopes are very wet, 2,000 to 3,000 mm a year, and covered in rainforest; the Andrina Highlands in the middle stand 800 to over 1,000 m high and are cool, the capital Ambohara averaging about 20 °C over the year; the sheltered west coast and the south-west are much drier, and the far south-west gets only 300 to 400 mm, a land of spiny thicket and semi-desert. The rains last from June to October and the dry season from November to May, and tropical cyclones often come in from the sea to the east in late summer and early autumn.'}
+  nation:
+    exile:
+      names: {zh: 拉诺瓦联合共和国, en: United Republic of Ranova, art-x-ranova: Repoblika Mitambatra an'i Ranova}
+      seat: div_pr4aer
+    ideology:
+    - {zh: "宪政共和主义", en: "Constitutional republicanism"}
+    - {zh: "和平统一", en: "Peaceful reunification"}
+    - {zh: "民族和解", en: "National reconciliation"}
+    government: {zh: "流亡政府（总统制共和国）", en: "Government in exile (presidential republic)"}
+    head:
+      title: {zh: "流亡总统", en: "President in exile"}
+      name: {zh: "诺罗·安德里亚马西", en: "Noro Andriamasy"}
+    power: {zh: "流亡总统与临时国民议会；实际管辖仅限于安巴罗的驻地和海外侨民的证件事务", en: "The president in exile and the Provisional National Assembly; in practice its writ runs only to its seat in Ambaro and the papers of Ranovans abroad"}
+    bloc: null
+    recognition: 3
+    executive:
+      names: {zh: "流亡内阁", en: "Cabinet in Exile"}
+      head:
+        title: {zh: "总理", en: "Prime Minister"}
+      ministries:
+      - {zh: "外交部", en: "Ministry of Foreign Affairs"}
+      - {zh: "难民与侨民事务部", en: "Ministry of Refugees and the Diaspora"}
+      - {zh: "国家统一与和解部", en: "Ministry of National Unity and Reconciliation"}
+      - {zh: "财政部", en: "Ministry of Finance"}
+      - {zh: "档案与文化遗产部", en: "Ministry of Archives and Cultural Heritage"}
+      notes: {zh: "流亡内阁由总理和五个部组成，工作人员不到两百人，经费来自侨民捐款和几个承认国的资助。难民与侨民事务部签发的联合共和国护照只被少数国家接受，但它的身份证明是许多难民申请庇护时唯一的文件。", en: "The cabinet in exile is a prime minister and five ministries with fewer than two hundred staff, funded by diaspora donations and grants from the few states that recognise it. The United Republic passports issued by the Ministry of Refugees and the Diaspora are accepted by only a handful of states, but its identity papers are the only documents many refugees have when they seek asylum."}
+    legislature:
+      names: {zh: "临时国民议会", en: "Provisional National Assembly"}
+      seats: 60
+      groups:
+      - names: {zh: "大分裂前的议员", en: "Members of the pre-Sundering parliament"}
+        seats: 24
+        color: '#2E7D32'
+      - names: {zh: "侨民代表", en: "Diaspora representatives"}
+        seats: 20
+        color: '#1565C0'
+      - names: {zh: "难民营代表", en: "Refugee camp representatives"}
+        seats: 16
+        color: '#C9A227'
+      notes: {zh: "席位按选区类别分配：大分裂前当选、仍然在世的议员保留议席，侨民和难民营代表每五年改选一次。", en: "Seats are set by kind: members elected before the Sundering who are still living keep their seats, and the diaspora and camp representatives are re-elected every five years."}
+    judiciary:
+      names: {zh: "宪法委员会", en: "Constitutional Council"}
+      title: {zh: "主席", en: "President of the Council"}
+      judges: 5
+      law: {zh: "联合共和国宪法", en: "The Constitution of the United Republic"}
+      notes: {zh: "流亡政府在安巴罗没有司法管辖权。宪法委员会由联合共和国最高法院的最后几名法官和他们推选的法学家组成，只就宪法解释和流亡政府的内部争议发表意见，没有强制力。", en: "The government in exile has no jurisdiction in Ambaro. The Constitutional Council, made up of the last judges of the United Republic's Supreme Court and jurists they co-opted, gives opinions only on the constitution and the government's own disputes, with no power to enforce them."}
+    military:
+      active: 40
+      reserve: 0
+      strength: 1
+      branches:
+      - {zh: "礼宾卫队", en: "Honour Guard"}
+      equipment: {zh: "安巴罗是非军事区，流亡政府没有武装力量，只有一支四十人的礼宾卫队，在升旗和国家纪念日上执勤，不携带实弹。", en: "Ambaro is demilitarised and the government in exile has no armed forces, only a forty-strong honour guard that stands at flag-raisings and national days and carries no live rounds."}
+    wars:
+    - names: {zh: "大分裂", en: "The Great Sundering"}
+      role: {zh: "被推翻的中央政府", en: "The overthrown central government"}
+      status: frozen
+    allies: [div_7t7xz6, div_gebca7]
+    rivals: []
+    backers: []
+    religion:
+    - names: {zh: "新教", en: "Protestant"}
+      share: 25.6
+      color: '#4A6FA5'
+    - names: {zh: "天主教", en: "Catholic"}
+      share: 19.1
+      color: '#7A5BA8'
+    - names: {zh: "无宗教", en: "No religion"}
+      share: 18.7
+      color: '#9E9E9E'
+    - names: {zh: "祖灵信仰", en: "Ancestral religion"}
+      share: 15.3
+      color: '#8D6E63'
+    - names: {zh: "逊尼派伊斯兰教", en: "Sunni Islam"}
+      share: 14.9
+      color: '#2E7D32'
+    - names: {zh: "佛教", en: "Buddhism"}
+      share: 2.4
+      color: '#E0A100'
+    - names: {zh: "其他", en: "Other"}
+      share: 4.0
+      color: '#BDBDBD'
+    refugees: {hosted: 0, abroad: 947500}
+    symbols:
+      anthem: {zh: "《一座岛，一个家》", en: "One Island, One Home"}
+      flower: {zh: "凤凰木", en: "Flamboyant"}
+      animal: {zh: "环尾狐猴", en: "Ring-tailed lemur"}
+    facts:
+      currency: {zh: "联合共和国法郎（已停止流通）", en: "United Republic franc (withdrawn)"}
+      currency_code: '—'
+      time_zone: UTC−09:00
+      calling_code: '—'
+      tld: '—'
+      driving: right
 
 # ── 安博哈拉基督教联邦 ──
 - id: div_mj41d0

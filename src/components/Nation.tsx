@@ -77,6 +77,8 @@ const L = {
   },
   people: { zh: "人", en: "" },
   groupPositions: { zh: "立场", en: "Positions" },
+  seat: { zh: "驻地", en: "Seat" },
+  claims: { zh: "主张领土", en: "Claims" },
   groupOrganisation: { zh: "组织", en: "Organisation" },
   groupSeats: { zh: "议席", en: "Seats" },
   groupHistory: { zh: "沿革与友党", en: "History & allies" },
@@ -210,14 +212,17 @@ function BlocBadge({ data, facts, lang }: { data: AtlasData; facts: NationFacts;
   );
 }
 
-function regionStates(data: AtlasData, entity: Entity) {
-  return (data.entities[entity.parent ?? ""]?.children ?? []).filter((id) => data.entities[id]?.role === "nation").length;
+/** The other states of the nation's region; for a government in exile, every state on its island. */
+function otherStates(data: AtlasData, entity: Entity) {
+  const region = entity.role === "region" ? entity : data.entities[entity.parent ?? ""];
+  return (region?.children ?? []).filter((id) => id !== entity.id && data.entities[id]?.role === "nation").length;
 }
 
 function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entity: Entity; facts: NationFacts; lang: Lang }) {
   const select = useAtlas((s) => s.select);
   const capital = entity.capital ? data.entities[entity.capital] : undefined;
-  const others = regionStates(data, entity) - 1;
+  const others = otherStates(data, entity);
+  const seat = facts.exile ? data.entities[facts.exile.seat] : undefined;
   const recognised = facts.recognition
     ? tl("recognisedBy", lang).replace("{n}", String(facts.recognition)).replace("{of}", String(others))
     : tl("unrecognised", lang);
@@ -238,6 +243,12 @@ function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entit
           [tl("powerHolder", lang), facts.power[lang]],
           ...(capital
             ? ([[tl("capital", lang), <button key="c" onClick={() => select(capital.id)} className="text-left underline decoration-line underline-offset-2 hover:decoration-current">{displayName(capital, lang)}</button>]] as [string, ReactNode][])
+            : []),
+          ...(seat
+            ? ([
+                [tl("seat", lang), <button key="s" onClick={() => select(seat.id)} className="text-left underline decoration-line underline-offset-2 hover:decoration-current">{displayName(seat, lang)}</button>],
+                [tl("claims", lang), lang === "zh" ? `${displayName(entity, "zh")}全岛及两侧群岛` : `All of ${displayName(entity, "en")} and its offshore islands`],
+              ] as [string, ReactNode][])
             : []),
           [
             tl("recognition", lang),
@@ -508,11 +519,13 @@ const freedomTone = (v: number) => (v < 30 ? "#f43f5e" : v < 60 ? "#f59e0b" : "#
 
 function FreedomSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
   const keys = ["political", "civil", "press", "economic"] as const;
+  const fr = facts.freedom;
+  if (!fr) return null;
   return (
     <Section title={tl("freedom", lang)}>
       <div className="space-y-1.5">
         {keys.map((k, i) => {
-          const v = facts.freedom[k];
+          const v = fr[k];
           return (
             <div key={k} className="grid grid-cols-[5.5rem_1fr_2rem] items-center gap-2.5 text-[12px]">
               <span className="truncate text-muted">{tl(k, lang)}</span>

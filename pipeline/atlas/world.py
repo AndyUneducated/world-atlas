@@ -64,7 +64,7 @@ FLAG_LAYOUTS = ts_names("cityFlags.tsx", "FLAG_LAYOUTS")
 # Flags of the nations of a region (role: nation), each its own drawing in src/lib/nationFlags.tsx.
 NATION_FLAGS = ts_names("nationFlags.tsx", "NATION_FLAGS")
 # A nation's card block (nation: in its division): kinds of state and the facts it lists.
-NATION_KEYS = ("ideology", "government", "head", "power", "bloc", "bloc_role", "recognition", "executive", "legislature", "judiciary", "military", "wars",
+NATION_KEYS = ("exile", "ideology", "government", "head", "power", "bloc", "bloc_role", "recognition", "executive", "legislature", "judiciary", "military", "wars",
                "allies", "rivals", "backers", "religion", "freedom", "refugees", "symbols", "facts")
 FLAG_CHARGES = ts_names("emblems.tsx", "MOTIFS") + ts_names("charges.tsx", "NEW") + ts_names("charges.tsx", "CALIFORNIA")
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
@@ -197,6 +197,10 @@ class World:
             out.append("a nation's card (notes.zh) needs at least 500 characters")
         if not (n.get("ideology") and all(both(x) for x in n["ideology"])) or not both(n.get("government")) or not both(n.get("power")):
             out.append("nation: ideology (tags), government and power need zh and en")
+        if (exile := n.get("exile")) is not None and not (both(exile.get("names")) and exile.get("seat") in self.divisions):
+            out.append("nation: a government in exile gives its state's names (zh, en) and its seat (a division id)")
+        if (exile is not None) != (d.get("role") == "region"):
+            out.append("nation: only a region's card block is a government in exile (exile:)")
         head = n.get("head", {})
         if not (both(head.get("title")) and both(head.get("name"))):
             out.append("nation: head gives the head of state's title and name (zh, en)")
@@ -237,7 +241,7 @@ class World:
         rel = n.get("religion", [])
         if not rel or not all(both(r.get("names")) and isinstance(r.get("share"), (int, float)) for r in rel) or abs(sum(r["share"] for r in rel) - 100) > 0.5:
             out.append("nation: religion lists faiths (names zh, en) with shares adding up to 100")
-        fr = n.get("freedom", {})
+        fr = n.get("freedom", {"political": 0, "civil": 0, "press": 0, "economic": 0} if exile is not None else {})  # an exile government rules no one
         if set(fr) != {"political", "civil", "press", "economic"} or not all(isinstance(v, int) and 0 <= v <= 100 for v in fr.values()):
             out.append("nation: freedom scores political, civil, press and economic, each 0–100")
         ref = n.get("refugees", {})
@@ -290,7 +294,7 @@ class World:
                     or (role == "city") != (self.divisions.get(d.get("parent", ""), {}).get("role") == "nation"):
                 errors.append(f"{did}: role region is a territory with no country above it, role nation one of its localities, "
                               "role city a borough of a nation")
-            if role == "nation":
+            if role == "nation" or (role == "region" and "nation" in d):
                 errors += [f"{did}: {e}" for e in self._nation_errors(d)]
             parent = self.entities.get(d.get("parent"), {"codes": {}, "subtype": "country"} if role == "region" else None)
             if parent is None:

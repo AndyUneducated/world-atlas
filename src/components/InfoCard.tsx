@@ -34,7 +34,7 @@ import { Climograph } from "./Climograph";
 import { climateName } from "../lib/climate";
 import { useMobile } from "../lib/viewport";
 import { accentColor, lineage, wonderName } from "../lib/entity";
-import { displayName, formatNumber, formatPopulation, formatUsd, kindLabel, NAME_LANG_LABELS, t, type StringKey } from "../lib/i18n";
+import { cardName, displayName, formatNumber, formatPopulation, formatUsd, kindLabel, NAME_LANG_LABELS, t, type StringKey } from "../lib/i18n";
 import { hasShield } from "../lib/shields";
 import { RouteShield } from "./RouteShield";
 import { formatDuration } from "./RoutePanel";
@@ -617,7 +617,7 @@ function ChildList({ data, entity, lang }: { data: AtlasData; entity: Entity; la
       ? t("servedBy", lang)
       : entity.kind === "route"
         ? t("passesThrough", lang)
-        : `${t("subdivisions", lang)} · ${kids.length}`;
+        : `${t(entity.nation?.exile ? "claimedTerritory" : "subdivisions", lang)} · ${kids.length}`;
   return (
     <Section title={title}>
       <ul className={clsx("-mx-2", isLine ? "relative" : "space-y-0.5")}>
@@ -763,7 +763,7 @@ function StickyBar({ entity, lang, head }: { entity: Entity; lang: Lang; head: R
             <ChevronLeft className="size-4" />
           </button>
         )}
-        <span className={clsx("min-w-0 flex-1 truncate text-[14px] font-semibold text-ink", !back && "pl-3")}>{displayName(entity, lang)}</span>
+        <span className={clsx("min-w-0 flex-1 truncate text-[14px] font-semibold text-ink", !back && "pl-3")}>{cardName(entity, lang)}</span>
         <button onClick={() => select(null)} className={button} aria-label={t("close", lang)} tabIndex={shown ? 0 : -1}>
           <X className="size-4" />
         </button>
@@ -780,7 +780,8 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
   const accent = accentColor(data, entity) ?? "var(--ui-accent)";
   const items = stats(entity, lang, data);
   const codeRows = codes(entity, lang);
-  const names = NAME_LANGS.filter((l) => entity.names[l]);
+  const nameSet = entity.nation?.exile?.names ?? entity.names;
+  const names = NAME_LANGS.filter((l) => nameSet[l]);
   const party = entity.kind === "party";
 
   const badgeOwner = entity.kind === "place" && entity.emblem_of ? data.entities[entity.emblem_of] : entity;
@@ -859,6 +860,9 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
                   {t(data.entities[entity.parent ?? ""]?.role === "nation" ? "nationCapital" : "capitalOf", lang)}
                 </span>
               )}
+              {entity.nation?.exile && (
+                <span className="rounded-full bg-rose-500/15 px-1.5 py-px text-[10.5px] font-semibold text-rose-500">{t("exileTag", lang)}</span>
+              )}
               {entity.wonder && (
                 <span className="flex items-center gap-1 rounded-full bg-violet-500/15 px-1.5 py-px text-[10.5px] font-semibold text-violet-500">
                   <Sparkles className="size-2.5" />
@@ -866,14 +870,14 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
                 </span>
               )}
             </div>
-            <h2 className="mt-0.5 text-[22px] leading-tight font-semibold tracking-tight text-ink">{displayName(entity, lang)}</h2>
+            <h2 className="mt-0.5 text-[22px] leading-tight font-semibold tracking-tight text-ink">{cardName(entity, lang)}</h2>
             <ul className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1" aria-label={t("names", lang)}>
               {names
                 .filter((l) => l !== lang)
                 .map((l) => (
                   <li key={l} className="flex min-w-0 items-baseline gap-1.5 text-[12.5px]" title={NAME_LANG_LABELS[l][lang]}>
                     <span className="shrink-0 text-[10px] font-semibold tracking-wide text-faint">{NAME_TAGS[l][lang]}</span>
-                    <span className="truncate text-muted">{entity.names[l]}</span>
+                    <span className="truncate text-muted">{nameSet[l]}</span>
                   </li>
                 ))}
             </ul>

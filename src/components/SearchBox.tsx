@@ -3,7 +3,7 @@ import { Check, ChevronDown, Search, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { accentColor, pathLabel, wonderName } from "../lib/entity";
-import { displayName, formatNumber, kindLabel, otherName, t, type StringKey } from "../lib/i18n";
+import { cardName, displayName, formatNumber, kindLabel, otherName, t, type StringKey } from "../lib/i18n";
 import { parties } from "../lib/politics";
 import { SearchIndex } from "../lib/search";
 import { ROAD_NETWORKS } from "../lib/style";
@@ -78,7 +78,8 @@ export function SearchBox() {
     if (!data) return [];
     const countries = Object.values(data.entities).filter((e) => e.subtype === "country" && e.bbox);
     const ofRegion = territories.filter((r) => r.role === "region").flatMap((r) => (r.children ?? []).map((id) => data.entities[id]).filter((e) => e?.role === "nation"));
-    return [...countries, ...ofRegion];
+    const exiles = territories.filter((r) => r.role === "region" && r.nation);
+    return [...countries, ...exiles, ...ofRegion];
   }, [data, territories]);
   const scopes = useMemo(() => {
     const out: { e: Entity; depth: number }[] = [];
@@ -371,7 +372,7 @@ export function SearchBox() {
                           )}
                           <span className="min-w-0 flex-1">
                             <span className="flex items-baseline gap-2">
-                              <span className="truncate text-[14px] font-medium text-ink">{displayName(e, lang)}</span>
+                              <span className="truncate text-[14px] font-medium text-ink">{cardName(e, lang)}</span>
                               <span className="truncate text-[12px] text-faint">{otherName(e, lang)}</span>
                             </span>
                             <span className="block truncate text-[12px] text-muted">{pathLabel(data, e, lang) || kindLabel(e, lang)}</span>
@@ -431,7 +432,7 @@ export function SearchBox() {
                                   <span className="block truncate text-[11.5px] text-faint">{e.wonder![lang]}</span>
                                 </span>
                               ) : (
-                                <span className="truncate">{displayName(e, lang)}</span>
+                                <span className="truncate">{cardName(e, lang)}</span>
                               )}
                               {g === "parties" ? (
                                 <span className="ml-auto shrink-0 text-[11.5px] text-faint tabular-nums">
