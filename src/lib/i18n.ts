@@ -34,6 +34,7 @@ const STRINGS = {
   route_spur: { zh: "支线", en: "Spur" },
   route_water: { zh: "跨水段", en: "Water crossing" },
   capitalOf: { zh: "领地首府", en: "Territorial capital" },
+  nationCapital: { zh: "首都", en: "National capital" },
   expand: { zh: "展开", en: "Expand" },
   collapse: { zh: "收起", en: "Collapse" },
   close: { zh: "关闭", en: "Close" },
