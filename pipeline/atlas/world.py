@@ -51,7 +51,11 @@ BACKGROUND_NETWORKS = ("national_expressway", "territorial_expressway", "territo
 OPERATOR_KINDS = ("expressway", "highway", "rail")
 # Card text, traits and flags: no region build reads them, so they stay out of a region's cache key and
 # build.py takes them from the sources after the regions are merged.
-TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder", "flag", "flag_notes", "climate_notes", "nation", "bloc")
+TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder", "flag", "flag_notes", "climate_notes", "nation", "bloc",
+             "symbols", "facts", "religion")
+# A territory's or city's emblems (symbols:), and a territory's basic facts (facts:).
+LOCAL_SYMBOLS = ("anthem", "flower", "tree", "animal", "bird")
+LOCAL_FACTS = ("calling_code", "time_zone", "driving")
 # A wonder on a line is one of its built structures (named in the build); elsewhere it is the entity itself.
 WONDER_STRUCTURES = ("bridge", "tunnel", "snow_shed")
 TRAIT_KEYS = ("industries", "heritage", "age", "income", "ethnicity")
@@ -193,6 +197,23 @@ class World:
             out.append(f"legend language {f['legend']} has no name to write")
         return out
 
+    def _local_errors(self, d: dict) -> list[str]:
+        """A territory's or city's emblems, and a territory's calling code, time zone, driving side and faiths."""
+        both = lambda v: isinstance(v, dict) and all(v.get(lang) for lang in REQUIRED_LANGS)
+        out = []
+        s = d.get("symbols", {})
+        if not isinstance(s, dict) or set(s) - set(LOCAL_SYMBOLS) or not all(both(v) for v in s.values()):
+            out.append(f"symbols name any of {', '.join(LOCAL_SYMBOLS)} (zh, en)")
+        f = d.get("facts", {})
+        if not isinstance(f, dict) or set(f) - set(LOCAL_FACTS) or d["subtype"] != "dependency" and f \
+                or not all(isinstance(f[k], str) for k in ("calling_code", "time_zone") if k in f) or f.get("driving", "right") not in ("left", "right"):
+            out.append("a territory's facts may give calling_code, time_zone and driving (left, right)")
+        rel = d.get("religion")
+        if rel is not None and (d["subtype"] != "dependency" or not all(both(r.get("names")) and isinstance(r.get("share"), (int, float)) for r in rel)
+                                or abs(sum(r["share"] for r in rel) - 100) > 0.5):
+            out.append("a territory's religion lists faiths (names zh, en) with shares adding up to 100")
+        return out
+
     def _nation_errors(self, d: dict) -> list[str]:
         """A nation's card block: what kind of state it is, who holds power, its bloc, armed forces, wars,
         faiths, freedoms, refugees, symbols and facts, each text in zh and en; and a card's worth of notes."""
@@ -314,6 +335,8 @@ class World:
                               "role city a borough of a nation")
             if role == "nation" or (role == "region" and "nation" in d):
                 errors += [f"{did}: {e}" for e in self._nation_errors(d)]
+            elif {"symbols", "facts", "religion"} & set(d):
+                errors += [f"{did}: {e}" for e in self._local_errors(d)]
             parent = self.entities.get(d.get("parent"), {"codes": {}, "subtype": "country"} if role == "region" else None)
             if parent is None:
                 errors.append(f"{did}: parent {d.get('parent')} not found")
