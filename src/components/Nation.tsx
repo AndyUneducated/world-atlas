@@ -269,6 +269,7 @@ function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entit
 
 /** A chamber whose seats the system hands out: the half circle and its groups. */
 function FixedChamberView({ leg, lang }: { leg: FixedChamber; lang: Lang }) {
+  const select = useAtlas((s) => s.select);
   const view = useMemo(() => {
     const ids = leg.groups.map((_, i) => `g${i}`);
     const data = { entities: Object.fromEntries(leg.groups.map((g, i) => [ids[i], { color: g.color, spectrum: i }])) } as unknown as AtlasData;
@@ -286,15 +287,29 @@ function FixedChamberView({ leg, lang }: { leg: FixedChamber; lang: Lang }) {
       <div className="mx-auto max-w-[300px]">
         <Hemicycle data={view.data} chamber={view.chamber} lang={lang} />
       </div>
-      <ul className="mt-3 space-y-1">
-        {leg.groups.map((g) => (
-          <li key={g.names.en} className="grid grid-cols-[auto_1fr_auto_2.75rem] items-center gap-2 text-[12.5px]">
-            <span className="size-2.5 rounded-sm" style={{ background: g.color }} />
-            <span className="truncate text-ink">{g.names[lang]}</span>
-            <span className="text-ink tabular-nums">{g.seats}</span>
-            <span className="text-right text-faint tabular-nums">{Math.round((100 * g.seats) / leg.seats)}%</span>
-          </li>
-        ))}
+      <ul className="mt-3 -mx-2">
+        {leg.groups.map((g) => {
+          const cells = (
+            <>
+              <span className="size-2.5 rounded-sm" style={{ background: g.color }} />
+              <span className="truncate text-ink">{g.names[lang]}</span>
+              <span className="text-ink tabular-nums">{g.seats}</span>
+              <span className="text-right text-faint tabular-nums">{Math.round((100 * g.seats) / leg.seats)}%</span>
+            </>
+          );
+          const row = "grid w-full grid-cols-[auto_1fr_auto_2.75rem] items-center gap-2 rounded-lg px-2 py-1 text-left text-[12.5px]";
+          return (
+            <li key={g.names.en}>
+              {g.party ? (
+                <button onClick={() => select(g.party!)} className={clsx(row, "hover:bg-hover")}>
+                  {cells}
+                </button>
+              ) : (
+                <div className={row}>{cells}</div>
+              )}
+            </li>
+          );
+        })}
       </ul>
       <p className="mt-2.5 text-[12px] text-faint">{leg.notes?.[lang] ?? tl("fixedSeats", lang)}</p>
     </>
@@ -622,11 +637,11 @@ function divisionGroups(entity: Entity, lang: Lang, shared: SharedParts): GroupD
 function partyGroups(entity: Entity, lang: Lang, shared: SharedParts): GroupDef[] {
   return [
     { key: "overview", title: tl("groupOverview", lang), body: <>{shared.about}{shared.party("profile")}</> },
-    { key: "positions", title: tl("groupPositions", lang), body: shared.party("positions"), show: !!(entity.axes || entity.policies?.length || entity.base) },
+    { key: "positions", title: tl("groupPositions", lang), body: shared.party("positions"), show: !!(entity.axes || entity.policies?.length || entity.base || entity.reunification) },
     { key: "organisation", title: tl("groupOrganisation", lang), body: shared.party("organisation"), show: !!(entity.youth_wing || entity.organisation) },
     { key: "seats", title: tl("groupSeats", lang), body: shared.party("seats") },
     { key: "symbols", title: tl("groupSymbols", lang), body: shared.flag, show: !!entity.flag },
-    { key: "history", title: tl("groupHistory", lang), body: shared.party("history"), show: !!(entity.history || entity.allies?.length) },
+    { key: "history", title: tl("groupHistory", lang), body: shared.party("history"), show: !!(entity.history || entity.allies?.length || entity.backers?.length) },
   ];
 }
 

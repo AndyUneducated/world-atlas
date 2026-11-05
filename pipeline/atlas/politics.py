@@ -88,7 +88,7 @@ class _Territory:
         self.tid, self.world, self.model = tid, world, model
         leg = model["legislatures"][tid]
         self.leg = leg
-        self.parties = {p["id"]: p for p in model["parties"] if tid in p["targets"]}
+        self.parties = {p["id"]: p for p in model["parties"] if tid in p.get("targets", {})}
         self.lean = {pid: p.get("lean", {}) for pid, p in self.parties.items()}
         self.districts = [did for did, d in world.divisions.items() if d["subtype"] == "borough" and tid in world.ancestors(did)]
         self.centers = {did: entities[did]["center"] for did in self.districts}
@@ -399,6 +399,33 @@ class _People:
 
 MAX_EXPERTS = 4  # non-partisan ministers in one cabinet
 AVOID_TRIES = 20
+TREND_ELECTIONS = 2  # earlier elections on a party's card
+TREND_SWING = 0.12  # at most about this, as a log share, between one election and the one before
+
+
+def _trend(tid: str, share: dict[str, float]) -> dict[str, list[float]]:
+    """Each party's vote at the earlier elections and this one, oldest first: each election before swings
+    every party's share by a draw, the shares scaled back to the same total."""
+    rng, past, total = _rng("trend:" + tid), [share], sum(share.values())
+    for _ in range(TREND_ELECTIONS):
+        prev = {p: v * math.exp(float(np.clip(rng.normal(0, TREND_SWING / 2), -TREND_SWING, TREND_SWING))) for p, v in past[-1].items()}
+        scale = total / sum(prev.values())
+        past.append({p: v * scale for p, v in prev.items()})
+    return {p: [round(100 * x[p], 1) for x in reversed(past)] for p in share}
+
+
+def _standing(world: World, entities: dict, pid: str, p: dict, home: str) -> str:
+    """Where the party stands at home: it leads the government, sits in it, opposes it, or has no seats.
+    A party of a fixed chamber leads if it is the largest group, unless it says otherwise."""
+    if seated := p.get("seated"):
+        groups = world.divisions[seated]["nation"]["legislature"]["groups"]
+        return p.get("standing") or ("lead" if max(groups, key=lambda g: g["seats"]).get("party") == pid else "opposition")
+    L = entities[home]["legislature"]
+    if L["head"].get("party") == pid:
+        return "lead"
+    if pid in L["government"]:
+        return "coalition"
+    return "opposition" if any(x["id"] == pid and x["seats"] for x in L["parties"]) else "extra"
 
 
 def _given(name: dict) -> str:
@@ -521,9 +548,11 @@ def annotate(world: World, entities: dict) -> None:
     holders: dict[str, dict] = {}
     effect: dict[str, dict[str, float]] = {pid: {} for pid in parties}
     weight: dict[str, float] = {pid: 0.0 for pid in parties}
+    trends: dict[str, dict[str, list[float]]] = {}
     for tid, leg in model["legislatures"].items():
         terr = _Territory(world, entities, tid, model)
         won, share, extra = terr.seat(terr.districts, leg["seats"], leg["system"], tid)
+        trends[tid] = _trend(tid, share)
         gov = _coalition(won, share, parties, model["coalition_cost"])
         langs = entities[tid].get("demographics", {}).get("languages", {"zh": 100})
         t_turnout = sum(terr.voters.values()) / sum(world.divisions[d]["population"] * model["electorate_share"] for d in terr.districts)
@@ -619,16 +648,24 @@ def annotate(world: World, entities: dict) -> None:
                 if n:
                     seats_held[p].append({"at": cid, "seats": n, "of": sum(cw.values())})
     for pid, p in parties.items():
-        home = max(p["targets"], key=p["targets"].get)
+        if seated := p.get("seated"):
+            leg = world.divisions[seated]["nation"]["legislature"]
+            seats_held[pid] += [{"at": seated, "seats": g["seats"], "of": leg["seats"]} for g in leg["groups"] if g.get("party") == pid]
+        home = seated or max(p["targets"], key=p["targets"].get)
+        hq = p.get("hq") or world.divisions[home].get("capital")
         entities[pid] = {
             "id": pid, "kind": "party", "subtype": "party", "status": "generated",
             **{k: p[k] for k in ("names", "short_names", "color", "flag", "flag_notes", "spectrum", "family", "ideology", "axes", "leader",
                                  "leader_title", "members", "youth_wing", "slogan", "policies", "allies", "factions", "organisation", "notes",
-                                 "history") if k in p},
+                                 "history", "seated", "legal_status", "reunification", "backers") if k in p},
+            "home": home,
+            "standing": _standing(world, entities, pid, p, home),
+            **({"hq": hq} if hq else {}),
+            **({"trend": trends[home][pid]} if pid in trends.get(home, {}) else {}),
             "secretary": p.get("secretary") or people.draw("secretary:" + pid, entities[home].get("demographics", {}).get("languages", {"zh": 100}), where=home),
-            "branches": [{"at": t, "name": people.leader(p, t)} for t in model["legislatures"] if t in p["targets"]],
+            "branches": [] if seated else [{"at": t, "name": people.leader(p, t)} for t in model["legislatures"] if t in p["targets"]],
             "base": _base(world, entities, {k: v / weight[pid] for k, v in effect[pid].items()} if weight[pid] else {}),
-            "territories": [t for t in model["legislatures"] if t in p["targets"]],
+            "territories": [seated] if seated else [t for t in model["legislatures"] if t in p["targets"]],
             "seats": seats_held[pid],
         }
     _appoint(model, entities, people, holders, parties)

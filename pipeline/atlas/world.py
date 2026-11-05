@@ -81,6 +81,9 @@ POLITICS_SYSTEMS = ("mmp", "fptp", "pr_reserved", "pr_regional", "top_two")
 # the centre's, and ecology to growth
 PARTY_AXES = ("econ", "galtan", "autonomy", "green")
 PARTY_ORGANISATION = ("newspaper", "think_tank", "unions", "women")
+# where a party stands at home: leads the government, sits in it, is a licensed partner of the ruling party,
+# holds the majority in a parliament that forms no government, opposes it, or holds no seats
+PARTY_STANDINGS = ("lead", "coalition", "allied", "majority", "opposition", "extra")
 STREET_STYLES = ("planned", "mixed", "organic")
 BUILDING_MIX_KEYS = ("slabs", "towers", "perimeter", "houses", "podium", "industrial", "civic", "park")
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
@@ -654,8 +657,21 @@ class World:
                 errors.append(f"politics: {pid}: spectrum is a number from -3 (left) to 3 (right)")
             if not (isinstance(p.get("members"), int) and p["members"] > 0):
                 errors.append(f"politics: {pid}: members must be a whole number")
-            if not p.get("targets") or set(p["targets"]) - set(legs):
-                errors.append(f"politics: {pid}: targets name only territories with a legislature")
+            if seated := p.get("seated"):
+                groups = self.divisions.get(seated, {}).get("nation", {}).get("legislature", {}).get("groups", [])
+                if "targets" in p or self.divisions.get(seated, {}).get("role") != "nation" or sum(g.get("party") == pid for g in groups) != 1:
+                    errors.append(f"politics: {pid}: a seated party is one group of a nation's fixed legislature and stands in no election")
+                if p.get("standing", "lead") not in PARTY_STANDINGS:
+                    errors.append(f"politics: {pid}: standing is one of {', '.join(PARTY_STANDINGS)}")
+            elif "standing" in p or not p.get("targets") or set(p["targets"]) - set(legs):
+                errors.append(f"politics: {pid}: targets name only territories with a legislature; its standing follows from the result")
+            for k in ("legal_status", "reunification"):
+                if k in p and not all(p[k].get(lang) for lang in REQUIRED_LANGS):
+                    errors.append(f"politics: {pid}: {k} needs zh and en")
+            if bad := [x for x in p.get("backers", []) if x not in self.entities]:
+                errors.append(f"politics: {pid}: unknown backers {', '.join(bad)}")
+            if "hq" in p and self.divisions.get(p["hq"], {}).get("subtype") not in ("locality", "borough"):
+                errors.append(f"politics: {pid}: hq is a city or district")
             if len(p.get("policies", [])) < 3 or not all(all(x.get(lang) for lang in REQUIRED_LANGS) for x in p.get("policies", [])):
                 errors.append(f"politics: {pid}: at least three policies, each in zh and en")
             if len(p.get("notes", {}).get("zh", "")) < 800:
@@ -677,4 +693,9 @@ class World:
         for p in pol.get("parties", []):
             if bad := [a for a in p.get("allies", []) if a not in ids]:
                 errors.append(f"politics: {p.get('id')}: unknown allies {', '.join(bad)}")
+        seated = {p.get("id"): p.get("seated") for p in pol.get("parties", [])}
+        for did, d in self.divisions.items():
+            for g in d.get("nation", {}).get("legislature", {}).get("groups", []):
+                if "party" in g and seated.get(g["party"]) != did:
+                    errors.append(f"politics: {did}: legislature group {g['names'].get('en')} names {g['party']}, which is not a party seated there")
         return errors
