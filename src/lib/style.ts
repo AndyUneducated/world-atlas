@@ -49,7 +49,7 @@ const fadeOut = (z: number): ExpressionSpecification => ["interpolate", ["linear
 /** Road sign layers, which double as hit targets for their road. */
 export const SHIELD_LAYERS = ["road-shield", "road-shield-primary"];
 /** Name labels of the territory, cities and districts: the only way to pick a division on the map. */
-export const DIVISION_LABEL_LAYERS = ["district-label", "city-label-major", "city-label-minor", "territory-label"];
+export const DIVISION_LABEL_LAYERS = ["district-label", "city-label-major", "city-label-minor", "nation-label", "territory-label"];
 
 /** Coastal landform kinds (label `kind`), split by whether they are water or land. */
 const LANDFORM_KINDS = { water: ["bay", "fjord", "strait", "estuary"], land: ["island", "cape"] } as const;

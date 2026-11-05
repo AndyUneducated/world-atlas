@@ -480,6 +480,47 @@ function unitedRepublic() {
   );
 }
 
+/** China: the five-star red flag, on its 30 × 20 construction grid (one unit = 2). */
+function china() {
+  const small = [
+    [20, 4],
+    [24, 8],
+    [24, 14],
+    [20, 18],
+  ];
+  return (
+    <>
+      <rect width="60" height="40" fill="#EE1C25" />
+      <path d={star(10, 10, 5, 6, 6 * 0.382)} fill="#FFDE00" />
+      {small.map(([x, y]) => (
+        <path key={`${x}-${y}`} d={star(x, y, 5, 2, 2 * 0.382, Math.atan2(10 - y, 10 - x))} fill="#FFDE00" />
+      ))}
+    </>
+  );
+}
+
+/** The United States: thirteen stripes and fifty stars, at 19:10. */
+function usa() {
+  const stripe = 40 / 13;
+  const cantonW = 30.4;
+  const cantonH = stripe * 7;
+  const stars: string[] = [];
+  for (let row = 0; row < 9; row++) {
+    const y = (cantonH / 10) * (row + 1);
+    for (let col = row % 2; col < 11; col += 2) stars.push(star((cantonW / 12) * (col + 1), y, 5, 1.23, 1.23 * 0.382));
+  }
+  return (
+    <>
+      <rect width="76" height="40" fill="#fff" />
+      {Array.from({ length: 7 }, (_, i) => (
+        <rect key={i} y={i * 2 * stripe} width="76" height={stripe} fill="#B22234" />
+      ))}
+      <rect width={cantonW} height={cantonH} fill="#3C3B6E" />
+      <path d={stars.join("")} fill="#fff" />
+    </>
+  );
+}
+
 const SWALLOWTAIL = "M0 0H60L46 20L60 40H0Z";
 const PENNANT = "M0 0L60 20L0 40Z";
 const TONGUES = "M0 0H44L60 6.7L48 13.3L60 20L48 26.7L60 33.3L44 40H0Z";
@@ -513,4 +554,6 @@ export const NATION_FLAGS: Record<string, NationFlag> = {
   ambaro: { w: 60, h: 40, draw: ambaro },
   tendro: { w: 40, h: 60, shape: GONFALON, draw: tendro },
   united_republic: { w: 60, h: 40, draw: unitedRepublic },
+  china: { w: 60, h: 40, draw: china },
+  usa: { w: 76, h: 40, draw: usa },
 };

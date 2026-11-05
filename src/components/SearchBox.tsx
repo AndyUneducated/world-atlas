@@ -16,9 +16,10 @@ import { EntityIcon } from "./EntityIcon";
 
 const ROAD_GROUPS = ["nationalExpressway", "territorialExpressway", "territorialHighway"] as const;
 type RoadGroup = (typeof ROAD_GROUPS)[number];
-type ExploreGroup = "cities" | "wonders" | "parties" | RoadGroup | "railways";
-const EXPLORE_GROUPS: ExploreGroup[] = ["cities", "wonders", "parties", ...ROAD_GROUPS, "railways"];
+type ExploreGroup = "nations" | "cities" | "wonders" | "parties" | RoadGroup | "railways";
+const EXPLORE_GROUPS: ExploreGroup[] = ["nations", "cities", "wonders", "parties", ...ROAD_GROUPS, "railways"];
 const EXPLORE_TITLES: Record<ExploreGroup, StringKey> = {
+  nations: "exploreNations",
   cities: "exploreCities",
   wonders: "wonders",
   parties: "parties",
@@ -72,14 +73,40 @@ export function SearchBox() {
   const [scope, setScope] = useState<string | null>(null);
   const [scopeOpen, setScopeOpen] = useState(false);
   const territories = useMemo(() => (data ? data.manifest.regions.map((r) => data.entities[r.id]).filter(Boolean) : []), [data]);
+  /** Countries and the nations of a region, each followed by its territories; the scope choices. */
+  const nations = useMemo(() => {
+    if (!data) return [];
+    const countries = Object.values(data.entities).filter((e) => e.subtype === "country" && e.bbox);
+    const ofRegion = territories.filter((r) => r.role === "region").flatMap((r) => (r.children ?? []).map((id) => data.entities[id]).filter((e) => e?.role === "nation"));
+    return [...countries, ...ofRegion];
+  }, [data, territories]);
+  const scopes = useMemo(() => {
+    const out: { e: Entity; depth: number }[] = [];
+    for (const c of nations.filter((e) => e.subtype === "country")) {
+      out.push({ e: c, depth: 0 });
+      for (const r of territories.filter((r) => r.ancestors?.includes(c.id))) out.push({ e: r, depth: 1 });
+    }
+    for (const r of territories.filter((r) => r.role === "region")) {
+      out.push({ e: r, depth: 0 });
+      for (const n of nations.filter((n) => n.parent === r.id)) out.push({ e: n, depth: 1 });
+    }
+    return out;
+  }, [nations, territories]);
   const inScope = useMemo(() => {
-    return (e: Entity) => !scope || e.id === scope || !!e.ancestors?.includes(scope) || !!e.territories?.includes(scope);
-  }, [scope]);
+    const within = (id: string) => !!scope && (id === scope || !!data?.entities[id]?.ancestors?.includes(scope));
+    return (e: Entity) =>
+      !scope || e.id === scope || !!e.ancestors?.includes(scope) || !!e.territories?.some(within) || !!e.via?.some(within);
+  }, [scope, data]);
   const hits = useMemo(() => (index ? index.search(query, 8, inScope) : []), [index, query, inScope]);
+  /** Cities: a territory's children, or for a region the cities of its nations. */
   const cities = useMemo(() => {
     if (!data) return [];
-    return territories.filter(inScope).flatMap((r) => r.children ?? []).map((id) => data.entities[id]).filter(Boolean);
+    return territories
+      .flatMap((r) => (r.role === "region" ? (r.children ?? []).flatMap((id) => data.entities[id]?.children ?? []) : (r.children ?? [])))
+      .map((id) => data.entities[id])
+      .filter((e) => e && inScope(e));
   }, [data, territories, inScope]);
+  const nationList = useMemo(() => nations.filter(inScope), [nations, inScope]);
   const routes = useMemo(() => {
     const out: Record<RoadGroup | "railways", Entity[]> = { nationalExpressway: [], territorialExpressway: [], territorialHighway: [], railways: [] };
     if (!data) return out;
@@ -108,13 +135,21 @@ export function SearchBox() {
   /** Parties standing in the scope, most seats in its parliaments first. */
   const partyList = useMemo(() => {
     if (!data) return [];
-    const seats = (e: Entity) => (e.seats ?? []).filter((s) => (scope ? s.at === scope : data.entities[s.at]?.subtype === "dependency")).reduce((a, s) => a + s.seats, 0);
+    const parliament = (id: string) => {
+      const at = data.entities[id];
+      return at?.subtype === "dependency" || at?.role === "nation";
+    };
+    const seats = (e: Entity) =>
+      (e.seats ?? [])
+        .filter((s) => parliament(s.at) && (!scope || s.at === scope || !!data.entities[s.at]?.ancestors?.includes(scope)))
+        .reduce((a, s) => a + s.seats, 0);
     return parties(data)
       .filter(inScope)
       .map((e) => ({ e, seats: seats(e) }))
       .sort((a, b) => b.seats - a.seats || (b.e.members ?? 0) - (a.e.members ?? 0));
   }, [data, scope, inScope]);
   const [expanded, setExpanded] = useState<Record<ExploreGroup, boolean>>({
+    nations: false,
     cities: false,
     wonders: false,
     parties: false,
@@ -231,9 +266,9 @@ export function SearchBox() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -4, scale: 0.97 }}
                 transition={{ duration: 0.14, ease: "easeOut" }}
-                className="glass absolute top-11 left-0 z-30 min-w-48 origin-top-left rounded-xl p-1"
+                className="glass scrollbar-thin absolute top-11 left-0 z-30 max-h-[min(60dvh,480px)] min-w-52 origin-top-left overflow-y-auto rounded-xl p-1"
               >
-                {[null, ...territories].map((e) => {
+                {[{ e: null, depth: 0 }, ...scopes].map(({ e, depth }) => {
                   const id = e?.id ?? null;
                   return (
                     <li key={id ?? "all"} role="option" aria-selected={scope === id}>
@@ -246,7 +281,11 @@ export function SearchBox() {
                           setOpen(true);
                           input.current?.focus();
                         }}
-                        className={clsx("flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-[13px] text-ink hover:bg-hover", scope === id && "font-medium")}
+                        className={clsx(
+                          "flex w-full items-center gap-2.5 rounded-lg py-2 pr-2.5 text-left text-[13px] text-ink hover:bg-hover",
+                          depth ? "pl-7" : "pl-2.5",
+                          scope === id && "font-medium",
+                        )}
                       >
                         <span className="grid size-5 shrink-0 place-items-center">
                           {e && hasEmblem(e) ? <Emblem entity={e} size={20} /> : <Search className="size-4 text-muted" strokeWidth={2} />}
@@ -354,13 +393,16 @@ export function SearchBox() {
             {showExplore && (
               <div className="p-1">
                 {EXPLORE_GROUPS.map((g) => {
-                  const items = g === "cities" ? cities : g === "wonders" ? wonders : g === "parties" ? partyList.map((p) => p.e) : routes[g];
+                  const items =
+                    g === "nations" ? nationList : g === "cities" ? cities : g === "wonders" ? wonders : g === "parties" ? partyList.map((p) => p.e) : routes[g];
                   if (!items.length) return null;
                   return (
                     <ExploreSection key={g} title={t(EXPLORE_TITLES[g], lang)} count={items.length} open={expanded[g]} onToggle={() => setExpanded((x) => ({ ...x, [g]: !x[g] }))}>
-                      <div className={clsx("grid gap-1", g === "cities" ? "grid-cols-2" : "grid-cols-1")}>
+                      <div className={clsx("grid gap-1", g === "cities" || g === "nations" ? "grid-cols-2" : "grid-cols-1")}>
                         {items.map((e, i) => {
                           const accent = accentColor(data, e);
+                          // a nation's cities fly the nation's flag
+                          const flagOf = hasEmblem(e) ? e : (data.entities[e.parent ?? ""] ?? e);
                           return (
                             <button
                               key={e.id}
@@ -368,8 +410,8 @@ export function SearchBox() {
                               onClick={() => choose(e.id)}
                               className="flex min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] text-ink hover:bg-hover"
                             >
-                              {g === "cities" || g === "parties" ? (
-                                <Emblem entity={e} size={20} className="shrink-0" />
+                              {g === "nations" || g === "cities" || g === "parties" ? (
+                                <Emblem entity={flagOf} size={20} className="shrink-0" />
                               ) : g === "wonders" ? (
                                 <span className="grid size-7 shrink-0 place-items-center rounded-lg bg-violet-500/15 text-violet-500">
                                   <EntityIcon entity={e} className="size-3.5" />
