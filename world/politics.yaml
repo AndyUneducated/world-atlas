@@ -259,6 +259,7 @@ legislatures:
     governor: { zh: 州长, en: Governor }
     minority: { zh: 少数党领袖, en: Minority Leader }
     speaker: { zh: 众议院议长, en: Speaker of the Assembly }
+    deputy_speakers: [{ zh: 众议院临时议长, en: Speaker pro Tempore of the Assembly }, { zh: 众议院助理临时议长, en: Assistant Speaker pro Tempore }]
     deputy: {zh: "副州长", en: "Lieutenant Governor"}
     agencies:
     - {names: {zh: "州务卿办公室", en: "Office of the Secretary of State"}, title: {zh: "州务卿", en: "Secretary of State"}}
@@ -459,6 +460,9 @@ names:
   art-x-ranova:
     given: [[Tahiry, 塔希里], [Hery, 埃里], [Fara, 法拉], [Mialy, 米亚利], [Andry, 安德里], [Voahangy, 沃阿汉吉], [Rivo, 里沃], [Lalao, 拉劳], [Nirina, 尼里娜], [Faly, 法利], [Haingo, 海因戈], [Toky, 托基], [Soa, 索阿], [Mamy, 马米], [Ony, 奥尼], [Zo, 佐], [Fanja, 凡嘉], [Hasina, 哈西娜], [Lova, 洛瓦], [Tiana, 蒂安娜], [Njaka, 恩贾卡], [Fetra, 费特拉], [Miora, 米奥拉], [Tsiry, 齐里]]
     family: [[Rakoto, 拉科托], [Rasoa, 拉索阿], [Randria, 兰德里亚], [Ravelo, 拉韦洛], [Rabe, 拉贝], [Razafy, 拉扎菲], [Rajaona, 拉乔纳], [Ramanana, 拉马纳纳], [Rasolo, 拉索洛], [Ratsimba, 拉钦巴], [Rahary, 拉哈里], [Andrian, 安德里安], [Rakotomalala, 拉科托马拉拉], [Razanakoto, 拉扎纳科托], [Ravoson, 拉沃松], [Rasoanaivo, 拉索阿奈沃]]
+    more:
+      given: [[Haja, 哈贾], [Lanto, 兰托], [Mahery, 马埃里], [Sitraka, 西特拉卡], [Volana, 沃拉娜], [Rindra, 林德拉], [Tojo, 托乔], [Hanta, 汉塔], [Feno, 费诺], [Aina, 艾娜], [Ando, 安多], [Riana, 里亚娜], [Mbola, 姆博拉], [Naina, 奈娜], [Tsiky, 齐基], [Fy, 菲]]
+      family: [[Rakotonirina, 拉科托尼里纳], [Randriamanana, 兰德里亚马纳纳], [Rasoamanana, 拉索阿马纳纳], [Ravelojaona, 拉韦洛乔纳], [Rajaonarison, 拉乔纳里松], [Ranaivo, 拉奈沃], [Ratovo, 拉托沃], [Razafindrabe, 拉扎芬德拉贝], [Rafidison, 拉菲迪松]]
   art-x-kasiri:
     given: [[Yusufu, 优素福], [Amina, 阿米娜], [Halima, 哈利玛], [Bakari, 巴卡里], [Zuberi, 祖贝里], [Rehema, 雷赫玛], [Salim, 萨利姆], [Mwanaisha, 姆瓦奈莎], [Hamisi, 哈米西], [Zawadi, 扎瓦迪], [Nuru, 努鲁], [Rashidi, 拉希迪], [Saida, 赛达]]
     family: [[Kasimu, 卡西姆], [Omari, 奥马里], [Juma, 朱马], [Mwinyi, 姆维尼], [Shabani, 沙巴尼], [Hamadi, 哈马迪], [Mbarak, 姆巴拉克], [Faraji, 法拉吉], [Said, 赛义德], [Athumani, 阿图马尼]]

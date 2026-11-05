@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Paragraphs, Rows, Section, Sub, useCardOpen } from "./CardParts";
 import { Emblem, hasEmblem } from "./Emblem";
 import { Hemicycle } from "./Hemicycle";
-import { BodyName, Branch, type PartyPart } from "./Politics";
+import { BodyName, Branch, OfficeRows, type PartyPart } from "./Politics";
 import { displayName, formatNumber, formatPopulation, t } from "../lib/i18n";
 import type { AtlasData, Entity, FixedChamber, Lang, Localized, NationFacts, Seating, WarStatus } from "../lib/types";
 import { useAtlas } from "../store";
@@ -79,6 +79,7 @@ const L = {
   groupPositions: { zh: "立场", en: "Positions" },
   seat: { zh: "驻地", en: "Seat" },
   claims: { zh: "主张领土", en: "Claims" },
+  predecessors: { zh: "历任", en: "Predecessors" },
   groupOrganisation: { zh: "组织", en: "Organisation" },
   groupSeats: { zh: "议席", en: "Seats" },
   groupHistory: { zh: "沿革与友党", en: "History & allies" },
@@ -240,6 +241,23 @@ function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entit
         rows={[
           [tl("government", lang), facts.government[lang]],
           [facts.head.title[lang], facts.head.name[lang]],
+          ...(facts.heir ? ([[facts.heir.title[lang], facts.heir.name[lang]]] as [string, ReactNode][]) : []),
+          ...(facts.predecessors?.length
+            ? ([
+                [
+                  tl("predecessors", lang),
+                  <ul key="p" className="space-y-1">
+                    {facts.predecessors.map((p) => (
+                      <li key={p.name.en} className="leading-snug">
+                        <span className="text-ink">{p.name[lang]}</span>
+                        <span className="text-muted"> · {p.title[lang]}</span>
+                        {p.note && <span className="block text-[12px] text-muted">{p.note[lang]}</span>}
+                      </li>
+                    ))}
+                  </ul>,
+                ],
+              ] as [string, ReactNode][])
+            : []),
           [tl("powerHolder", lang), facts.power[lang]],
           ...(capital
             ? ([[tl("capital", lang), <button key="c" onClick={() => select(capital.id)} className="text-left underline decoration-line underline-offset-2 hover:decoration-current">{displayName(capital, lang)}</button>]] as [string, ReactNode][])
@@ -386,6 +404,11 @@ function GovernmentSection({ entity, facts, lang }: { entity: Entity; facts: Nat
           )}
         </Branch>
       )}
+      {entity.offices?.length ? (
+        <Branch label={t("keyOffices", lang)}>
+          <OfficeRows list={entity.offices} lang={lang} />
+        </Branch>
+      ) : null}
     </Section>
   );
 }

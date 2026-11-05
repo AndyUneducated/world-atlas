@@ -84,6 +84,15 @@ divisions:
     allies: [div_7t7xz6, div_gebca7]
     rivals: []
     backers: []
+    predecessors:
+    - {"title": {"zh": "联合共和国总统", "en": "President of the United Republic"}, "name": {"zh": "拉库图·拉贝里沃", "en": "Rakoto Rabearivo"}, "note": {"zh": "大分裂时的最后一任总统，率最后一届内阁撤到萨马伊", "en": "The last president at the Sundering", "who led the last cabinet to Samay": null}}
+    - {"title": {"zh": "流亡总统", "en": "President in exile"}, "name": {"zh": "哈尼塔·拉索阿", "en": "Hanita Rasoa"}, "note": {"zh": "安巴罗托管地成立后，主持流亡政府迁入安巴罗", "en": "Moved the government in exile to Ambaro once the trust territory was set up"}}
+    - {"title": {"zh": "流亡总统", "en": "President in exile"}, "name": {"zh": "若埃尔·拉齐法", "en": "Joël Ratsifa"}, "note": {"zh": "在难民营中设立选区，难民从此参加临时国民议会的选举", "en": "Gave the refugee camps constituencies", "so that refugees began to vote for the Provisional National Assembly": null}}
+    offices:
+    - {"names": {"zh": "礼宾卫队", "en": "Honour Guard"}, "title": {"zh": "队长", "en": "Commander"}}
+    - {"names": {"zh": "国家储备托管委员会", "en": "Board of Trustees of the National Reserves"}, "title": {"zh": "主席", "en": "Chair"}}
+    - {"names": {"zh": "驻外代表处", "en": "Missions Abroad"}, "title": {"zh": "首席代表", "en": "Chief Representative"}}
+    - {"names": {"zh": "侨民与证件署", "en": "Office of Expatriates and Documents"}, "title": {"zh": "署长", "en": "Director"}}
     religion:
     - names: {zh: "新教", en: "Protestant"}
       share: 25.6
@@ -183,6 +192,11 @@ divisions:
     allies: [div_t5zph6, div_38z2mg, div_78xf6t, div_gd73a5, div_c28art]
     rivals: [div_r9whm0, div_s07wh5, div_rbcxzz, div_9w60j4]
     backers: ['country:US']
+    offices:
+    - {"names": {"zh": "联邦武装部队", "en": "Federal Armed Forces"}, "title": {"zh": "总参谋长", "en": "Chief of the General Staff"}}
+    - {"names": {"zh": "联邦总检察署", "en": "Office of the Federal Prosecutor General"}, "title": {"zh": "联邦总检察长", "en": "Federal Prosecutor General"}}
+    - {"names": {"zh": "联邦情报局", "en": "Federal Intelligence Service"}, "title": {"zh": "局长", "en": "Director"}}
+    - {"names": {"zh": "教会联合会", "en": "Council of Churches"}, "title": {"zh": "主席", "en": "President"}}
     religion:
     - names: {zh: 新教, en: Protestant}
       share: 58
@@ -437,6 +451,15 @@ divisions:
     allies: [div_s07wh5, div_0cazhp, div_4f0pgt, div_hxyyfe, div_gebca7, div_3w5wwh]
     rivals: [div_mj41d0, div_rbcxzz, div_t5zph6]
     backers: ['country:CN']
+    predecessors:
+    - {"title": {"zh": "劳动党总书记、国家主席", "en": "General Secretary of the Labour Party and President"}, "name": {"zh": "拉库图·贝马纳", "en": "Rakoto Bemana"}, "note": {"zh": "大分裂时领导工人赤卫队接管港口和矿山，宣布成立人民民主共和国", "en": "Led the workers' Red Guards to take the ports and mines in the Sundering and proclaimed the People's Democratic Republic"}}
+    - {"title": {"zh": "劳动党总书记、国家主席", "en": "General Secretary of the Labour Party and President"}, "name": {"zh": "哈里·安德里亚", "en": "Hary Andria"}, "note": {"zh": "高原战争停火后主持重建，与马索沃利结成兄弟同盟", "en": "Led the rebuilding after the Highland War ceasefire and made the fraternal alliance with Masovoly"}}
+    offices:
+    - {"names": {"zh": "中央军事委员会", "en": "Central Military Commission"}, "title": {"zh": "第一副主席", "en": "First Vice-Chairman"}}
+    - {"names": {"zh": "人民军总参谋部", "en": "General Staff of the People's Army"}, "title": {"zh": "总参谋长", "en": "Chief of the General Staff"}}
+    - {"names": {"zh": "国家银行", "en": "State Bank"}, "title": {"zh": "行长", "en": "Governor"}}
+    - {"names": {"zh": "最高人民检察院", "en": "Supreme People's Procuratorate"}, "title": {"zh": "检察长", "en": "Procurator-General"}}
+    - {"names": {"zh": "劳动党中央组织部", "en": "Organisation Department of the Labour Party"}, "title": {"zh": "部长", "en": "Head"}}
     religion:
     - names: {zh: 无宗教, en: No religion}
       share: 62
@@ -619,6 +642,17 @@ divisions:
     allies: [div_r9whm0]
     rivals: [div_mj41d0, div_gd73a5]
     backers: []
+    heir: {"title": {"zh": "继承人", "en": "Heir"}, "name": {"zh": "未公开指定", "en": "Not publicly named"}}
+    predecessors:
+    - {"title": {"zh": "创始领袖", "en": "Founding Leader"}, "name": {"zh": "拉齐马·沃利", "en": "Ratsima Voly"}, "note": {"zh": "建立国家，提出一心团结思想，去世后被尊为永恒领袖", "en": "Founded the state and the One-Heart Unity doctrine; proclaimed Eternal Leader after his death"}}
+    - {"title": {"zh": "最高领导人", "en": "Supreme Leader"}, "name": {"zh": "拉齐马·沃利二世", "en": "Ratsima Voly II"}, "note": {"zh": "创始领袖之子，确立了父子相继的继承制度", "en": "The founding leader's son", "who settled the succession from father to son": null}}
+    offices:
+    - {"names": {"zh": "人民军", "en": "People's Army"}, "title": {"zh": "总司令", "en": "Commander-in-Chief"}}
+    - {"names": {"zh": "领袖警卫局", "en": "Leader's Guard Bureau"}, "title": {"zh": "局长", "en": "Director"}}
+    - {"names": {"zh": "国家保卫局", "en": "State Protection Bureau"}, "title": {"zh": "局长", "en": "Director"}}
+    - {"names": {"zh": "马索沃利中央银行", "en": "Central Bank of Masovoly"}, "title": {"zh": "总裁", "en": "Governor"}}
+    - {"names": {"zh": "中央检察所", "en": "Central Public Prosecutors' Office"}, "title": {"zh": "所长", "en": "Director"}}
+    - {"names": {"zh": "一心团结思想研究院", "en": "Institute of the One-Heart Unity Doctrine"}, "title": {"zh": "院长", "en": "President"}}
     religion:
     - names: {zh: 无宗教, en: No religion}
       share: 80
@@ -762,6 +796,12 @@ divisions:
     allies: [div_dmf47n]
     rivals: [div_mj41d0, div_ht80hm, div_hm0zqz, div_9w60j4, div_1tan4g]
     backers: []
+    offices:
+    - {"names": {"zh": "国防军", "en": "Defence Army"}, "title": {"zh": "总司令", "en": "Commander-in-Chief"}}
+    - {"names": {"zh": "民族卫队", "en": "National Guard"}, "title": {"zh": "总指挥", "en": "Commander"}}
+    - {"names": {"zh": "国家银行", "en": "National Bank"}, "title": {"zh": "行长", "en": "Governor"}}
+    - {"names": {"zh": "民族检察署", "en": "National Prosecution Office"}, "title": {"zh": "总检察长", "en": "Chief Prosecutor"}}
+    - {"names": {"zh": "国家安全总局", "en": "General Directorate of State Security"}, "title": {"zh": "总局长", "en": "Director-General"}}
     religion:
     - names: {zh: 祖灵信仰, en: Ancestral religion}
       share: 48
@@ -922,6 +962,10 @@ divisions:
     allies: [div_dmf47n]
     rivals: [div_rbcxzz, div_ht80hm, div_1tan4g, div_mj41d0]
     backers: []
+    offices:
+    - {"names": {"zh": "先锋支队", "en": "Vanguard Detachments"}, "title": {"zh": "指挥官", "en": "Commander"}}
+    - {"names": {"zh": "海岸快艇队", "en": "Coastal Boat Squadron"}, "title": {"zh": "队长", "en": "Commander"}}
+    - {"names": {"zh": "运动财务处", "en": "Movement Treasury"}, "title": {"zh": "司库", "en": "Treasurer"}}
     religion:
     - names: {zh: 无宗教, en: No religion}
       share: 55
@@ -1053,6 +1097,12 @@ divisions:
     allies: [div_rbcxzz, div_hm0zqz]
     rivals: [div_4f0pgt, div_9w60j4, div_1tan4g, div_ht80hm]
     backers: []
+    offices:
+    - {"names": {"zh": "陆军", "en": "Army"}, "title": {"zh": "参谋长", "en": "Chief of Staff"}}
+    - {"names": {"zh": "国家宪兵", "en": "National Gendarmerie"}, "title": {"zh": "司令", "en": "Commander"}}
+    - {"names": {"zh": "梅纳瓦利中央银行", "en": "Central Bank of Menavaly"}, "title": {"zh": "行长", "en": "Governor"}}
+    - {"names": {"zh": "军事检察院", "en": "Military Prosecution Office"}, "title": {"zh": "总检察长", "en": "Prosecutor General"}}
+    - {"names": {"zh": "国家情报局", "en": "National Intelligence Agency"}, "title": {"zh": "局长", "en": "Director"}}
     religion:
     - names: {zh: 天主教, en: Catholic}
       share: 34
@@ -1164,6 +1214,10 @@ divisions:
     allies: [div_mj41d0, div_38z2mg, div_4f0pgt, div_78xf6t]
     rivals: [div_5b4193, div_r9whm0]
     backers: ['country:US']
+    offices:
+    - {"names": {"zh": "武装部队", "en": "Armed Forces"}, "title": {"zh": "总参谋长", "en": "Chief of the General Staff"}}
+    - {"names": {"zh": "总检察署", "en": "Office of the Attorney General"}, "title": {"zh": "总检察长", "en": "Attorney General"}}
+    - {"names": {"zh": "大穆夫提办公室", "en": "Office of the Grand Mufti"}, "title": {"zh": "大穆夫提", "en": "Grand Mufti"}}
     religion:
     - names: {zh: 逊尼派伊斯兰教, en: Sunni Islam}
       share: 86
@@ -1336,6 +1390,10 @@ divisions:
     allies: []
     rivals: [div_t5zph6, div_mj41d0, div_38z2mg, div_4f0pgt]
     backers: []
+    offices:
+    - {"names": {"zh": "武装人员", "en": "Fighters"}, "title": {"zh": "「军事首领」", "en": "\"Military chief\""}, "name": {"zh": "身份不详", "en": "Identity unknown"}}
+    - {"names": {"zh": "「财政处」", "en": "\"Treasury\""}, "title": {"zh": "负责人", "en": "Head"}, "name": {"zh": "身份不详", "en": "Identity unknown"}}
+    - {"names": {"zh": "「宗教警察」", "en": "\"Religious police\""}, "title": {"zh": "负责人", "en": "Head"}, "name": {"zh": "身份不详", "en": "Identity unknown"}}
     religion:
     - names: {zh: 逊尼派伊斯兰教, en: Sunni Islam}
       share: 97
@@ -1467,6 +1525,10 @@ divisions:
     allies: [div_1tan4g, div_7t7xz6]
     rivals: [div_rbcxzz, div_hm0zqz, div_dmf47n]
     backers: []
+    offices:
+    - {"names": {"zh": "氏族自卫队", "en": "Clan Defence Force"}, "title": {"zh": "统领", "en": "Commander"}}
+    - {"names": {"zh": "圣林守护会", "en": "Keepers of the Sacred Groves"}, "title": {"zh": "首领", "en": "Head"}}
+    - {"names": {"zh": "邦联共同基金", "en": "Confederation Common Fund"}, "title": {"zh": "管理人", "en": "Steward"}}
     religion:
     - names: {zh: 祖灵信仰, en: Ancestral religion}
       share: 72
@@ -1623,6 +1685,9 @@ divisions:
     allies: [div_r9whm0]
     rivals: [div_s07wh5, div_nyhhhg, div_gd73a5]
     backers: []
+    offices:
+    - {"names": {"zh": "人民民兵", "en": "People's Militia"}, "title": {"zh": "轮值协调员", "en": "Rotating Coordinator"}}
+    - {"names": {"zh": "互助信用社联合会", "en": "Federation of Mutual Credit Unions"}, "title": {"zh": "协调员", "en": "Coordinator"}}
     religion:
     - names: {zh: 无宗教, en: No religion}
       share: 58
@@ -1735,6 +1800,9 @@ divisions:
     allies: [div_ht80hm]
     rivals: [div_rbcxzz, div_hm0zqz, div_dmf47n]
     backers: []
+    offices:
+    - {"names": {"zh": "森林守护者", "en": "Forest Keepers"}, "title": {"zh": "召集人", "en": "Convener"}}
+    - {"names": {"zh": "物种登记处", "en": "Species Register"}, "title": {"zh": "负责人", "en": "Keeper"}}
     religion:
     - names: {zh: 祖灵信仰, en: Ancestral religion}
       share: 70
@@ -1846,6 +1914,11 @@ divisions:
     allies: []
     rivals: [div_0cazhp, div_gd73a5, div_mj41d0]
     backers: []
+    heir: {"title": {"zh": "继承人", "en": "Successor"}, "name": {"zh": "未指定，继承问题悬而未决", "en": "None named; the succession is unresolved"}}
+    offices:
+    - {"names": {"zh": "圣殿护卫队", "en": "Temple Guard"}, "title": {"zh": "卫队长", "en": "Captain"}}
+    - {"names": {"zh": "圣库", "en": "Sacred Treasury"}, "title": {"zh": "司库使徒", "en": "Apostle-Treasurer"}}
+    - {"names": {"zh": "海外布道团", "en": "Mission Abroad"}, "title": {"zh": "团长", "en": "Head of Mission"}}
     religion:
     - names: {zh: 黎明教, en: Faith of the Dawn}
       share: 94
@@ -1974,6 +2047,12 @@ divisions:
     allies: [div_gempde, div_3zzzry]
     rivals: [div_4f0pgt, div_9w60j4]
     backers: []
+    offices:
+    - {"names": {"zh": "国民军", "en": "National Army"}, "title": {"zh": "总司令", "en": "Commander-in-Chief"}}
+    - {"names": {"zh": "总统卫队", "en": "Presidential Guard"}, "title": {"zh": "司令", "en": "Commander"}}
+    - {"names": {"zh": "安博维中央银行", "en": "Central Bank of Ambovy"}, "title": {"zh": "行长", "en": "Governor"}}
+    - {"names": {"zh": "总检察署", "en": "Office of the Attorney General"}, "title": {"zh": "总检察长", "en": "Attorney General"}}
+    - {"names": {"zh": "国家缉毒局", "en": "National Narcotics Directorate"}, "title": {"zh": "局长", "en": "Director"}}
     religion:
     - names: {zh: 天主教, en: Catholic}
       share: 52
@@ -2106,6 +2185,9 @@ divisions:
     allies: []
     rivals: [div_mj41d0, div_dmf47n, div_sh6pkn, div_rbcxzz]
     backers: []
+    offices:
+    - {"names": {"zh": "人民解放军（游击队）", "en": "People's Liberation Army (guerrillas)"}, "title": {"zh": "总指挥", "en": "Commander"}, "name": {"zh": "「火山」同志（化名）", "en": "Comrade Volcano (nom de guerre)"}}
+    - {"names": {"zh": "革命委员会后勤部", "en": "Logistics Department of the Revolutionary Committee"}, "title": {"zh": "部长", "en": "Head"}}
     religion:
     - names: {zh: 无宗教, en: No religion}
       share: 50
@@ -2246,6 +2328,16 @@ divisions:
     allies: [div_mj41d0, div_78xf6t, div_c28art]
     rivals: [div_nyhhhg, div_s07wh5]
     backers: []
+    heir: {"title": {"zh": "王储", "en": "Crown Prince"}, "name": {"zh": "拉多王子", "en": "Prince Rado"}}
+    predecessors:
+    - {"title": {"zh": "国王", "en": "King"}, "name": {"zh": "安德里亚纳·塔纳六世", "en": "Andriana Tana VI"}, "note": {"zh": "大分裂时拒绝加入任何一方，宣布恢复王国，后来颁布宪法、设立王国议会", "en": "Refused to join either side in the Sundering and restored the kingdom", "later granting a constitution and a Royal Assembly": null}}
+    offices:
+    - {"names": {"zh": "皇家陆军", "en": "Royal Army"}, "title": {"zh": "总参谋长", "en": "Chief of Staff"}}
+    - {"names": {"zh": "王室卫队", "en": "Royal Guard"}, "title": {"zh": "卫队长", "en": "Commandant"}}
+    - {"names": {"zh": "王家货币局", "en": "Royal Monetary Authority"}, "title": {"zh": "总裁", "en": "Governor"}}
+    - {"names": {"zh": "总检察长办公室", "en": "Office of the Attorney General"}, "title": {"zh": "总检察长", "en": "Attorney General"}}
+    - {"names": {"zh": "僧团", "en": "Monastic Order"}, "title": {"zh": "僧王", "en": "Supreme Patriarch"}}
+    - {"names": {"zh": "王室咨议会", "en": "Royal Privy Council"}, "title": {"zh": "议长", "en": "President"}}
     religion:
     - names: {zh: 佛教, en: Buddhism}
       share: 82
@@ -2360,6 +2452,10 @@ divisions:
     allies: [div_r9whm0, div_gebca7, div_3w5wwh, div_hxyyfe, div_t5zph6]
     rivals: [div_sh6pkn, div_dmf47n, div_5b4193]
     backers: ['country:CN']
+    offices:
+    - {"names": {"zh": "国防军", "en": "Defence Force"}, "title": {"zh": "司令", "en": "Commander"}}
+    - {"names": {"zh": "海岸警卫队", "en": "Coast Guard"}, "title": {"zh": "司令", "en": "Commandant"}}
+    - {"names": {"zh": "检察总署", "en": "Public Prosecution Service"}, "title": {"zh": "检察总长", "en": "Prosecutor General"}}
     religion:
     - names: {zh: 天主教, en: Catholic}
       share: 30
@@ -2515,6 +2611,15 @@ divisions:
     allies: [div_t5zph6, div_mj41d0, div_78xf6t]
     rivals: [div_5b4193, div_3zzzry]
     backers: ['country:US']
+    heir: {"title": {"zh": "王储", "en": "Crown Prince"}, "name": {"zh": "哈立德·本·哈米迪", "en": "Khalid bin Hamidi"}}
+    predecessors:
+    - {"title": {"zh": "苏丹", "en": "Sultan"}, "name": {"zh": "努西尔·本·哈米迪", "en": "Nusir bin Hamidi"}, "note": {"zh": "大分裂时趁本岛战乱宣布恢复主权，接受六个世家的效忠", "en": "Proclaimed the sultanate's sovereignty restored amid the war on the main island and took the oath of the six houses"}}
+    offices:
+    - {"names": {"zh": "王家武装部队", "en": "Royal Armed Forces"}, "title": {"zh": "总参谋长", "en": "Chief of the General Staff"}}
+    - {"names": {"zh": "努西拉货币局", "en": "Nusila Monetary Authority"}, "title": {"zh": "总裁", "en": "Governor"}}
+    - {"names": {"zh": "公诉署", "en": "Public Prosecution"}, "title": {"zh": "总检察长", "en": "Attorney General"}}
+    - {"names": {"zh": "大穆夫提办公室", "en": "Office of the Grand Mufti"}, "title": {"zh": "大穆夫提", "en": "Grand Mufti"}}
+    - {"names": {"zh": "努西拉投资局", "en": "Nusila Investment Authority"}, "title": {"zh": "主席", "en": "Chairman"}}
     religion:
     - names: {zh: 逊尼派伊斯兰教, en: Sunni Islam}
       share: 88
@@ -2638,6 +2743,14 @@ divisions:
     allies: [div_mj41d0, div_38z2mg, div_gd73a5, div_t5zph6]
     rivals: [div_3zzzry]
     backers: ['country:US']
+    heir: {"title": {"zh": "王储", "en": "Crown Princess"}, "name": {"zh": "埃莉斯公主", "en": "Princess Elise"}}
+    predecessors:
+    - {"title": {"zh": "国王", "en": "King"}, "name": {"zh": "托阿维纳一世", "en": "Toavina I"}, "note": {"zh": "西北群岛世袭总督家族的长子，大分裂时应议员和教会领袖之请登基", "en": "Eldest son of the hereditary governors of the northwestern islands", "crowned in the Sundering at the request of their members of parliament and church leaders": null}}
+    offices:
+    - {"names": {"zh": "皇家武装部队", "en": "Royal Armed Forces"}, "title": {"zh": "国防参谋长", "en": "Chief of the Defence Staff"}}
+    - {"names": {"zh": "刑事检控署", "en": "Crown Prosecution Service"}, "title": {"zh": "检控总监", "en": "Director of Public Prosecutions"}}
+    - {"names": {"zh": "难民接待中心", "en": "Refugee Reception Centre"}, "title": {"zh": "主任", "en": "Director"}}
+    - {"names": {"zh": "王室总管府", "en": "Royal Household"}, "title": {"zh": "宫务大臣", "en": "Lord Chamberlain"}}
     religion:
     - names: {zh: 新教, en: Protestant}
       share: 62
@@ -2767,6 +2880,14 @@ divisions:
     allies: [div_sh6pkn, div_hxyyfe]
     rivals: []
     backers: []
+    heir: {"title": {"zh": "世子", "en": "Hereditary Prince"}, "name": {"zh": "卢卡亲王", "en": "Prince Luca"}}
+    predecessors:
+    - {"title": {"zh": "大公", "en": "Sovereign Prince"}, "name": {"zh": "雷米二世", "en": "Remy II"}, "note": {"zh": "联合共和国解体前夕与中央政府签订和平分离条约，公国由此独立", "en": "Signed the treaty of peaceful separation with the central government on the eve of the United Republic's collapse", "making the principality independent": null}}
+    offices:
+    - {"names": {"zh": "大公宪兵队", "en": "Prince's Carabiniers"}, "title": {"zh": "指挥官", "en": "Commandant"}}
+    - {"names": {"zh": "金融监管局", "en": "Financial Supervisory Authority"}, "title": {"zh": "局长", "en": "Director"}}
+    - {"names": {"zh": "总检察署", "en": "Office of the Prosecutor General"}, "title": {"zh": "总检察长", "en": "Prosecutor General"}}
+    - {"names": {"zh": "博彩监管委员会", "en": "Gaming Control Commission"}, "title": {"zh": "主席", "en": "Chair"}}
     religion:
     - names: {zh: 天主教, en: Catholic}
       share: 60
@@ -2899,6 +3020,10 @@ divisions:
     allies: [div_sh6pkn, div_gempde]
     rivals: [div_38z2mg, div_78xf6t]
     backers: []
+    offices:
+    - {"names": {"zh": "作战承包商", "en": "Combat contractors"}, "title": {"zh": "作战总监", "en": "Director of Operations"}}
+    - {"names": {"zh": "公司财务部", "en": "Company Treasury"}, "title": {"zh": "首席财务官", "en": "Chief Financial Officer"}}
+    - {"names": {"zh": "合规与法务部", "en": "Compliance and Legal Department"}, "title": {"zh": "总法律顾问", "en": "General Counsel"}}
     religion:
     - names: {zh: 无宗教, en: No religion}
       share: 45
@@ -2993,6 +3118,10 @@ divisions:
     allies: [div_r9whm0, div_4f0pgt, div_3w5wwh, div_gempde]
     rivals: [div_38z2mg]
     backers: ['country:CN']
+    offices:
+    - {"names": {"zh": "共和国海军", "en": "Republic Navy"}, "title": {"zh": "总司令", "en": "Commander-in-Chief"}}
+    - {"names": {"zh": "城市卫队", "en": "City Guard"}, "title": {"zh": "队长", "en": "Captain"}}
+    - {"names": {"zh": "共和国检察署", "en": "Prosecutor's Office of the Republic"}, "title": {"zh": "总检察长", "en": "Prosecutor General"}}
     religion:
     - names: {zh: 天主教, en: Catholic}
       share: 38
@@ -3093,6 +3222,10 @@ divisions:
     allies: [div_3w5wwh, div_4f0pgt, div_r9whm0, div_7t7xz6, div_4nnakk]
     rivals: [div_nyhhhg, div_5b4193]
     backers: ['country:CN']
+    offices:
+    - {"names": {"zh": "国防军", "en": "Defence Force"}, "title": {"zh": "司令", "en": "Chief of Defence"}}
+    - {"names": {"zh": "检察总署", "en": "Public Prosecutor's Office"}, "title": {"zh": "检察总长", "en": "Prosecutor General"}}
+    - {"names": {"zh": "难民事务专员公署", "en": "Office of the Refugee Commissioner"}, "title": {"zh": "专员", "en": "Commissioner"}}
     religion:
     - names: {zh: 天主教, en: Catholic}
       share: 24
@@ -3257,6 +3390,12 @@ divisions:
     allies: [div_gebca7, div_4f0pgt, div_hxyyfe, div_r9whm0]
     rivals: []
     backers: ['country:CN']
+    offices:
+    - {"names": {"zh": "港口防卫队", "en": "Port Defence Force"}, "title": {"zh": "司令", "en": "Commander"}}
+    - {"names": {"zh": "海关缉私队", "en": "Customs Marine Unit"}, "title": {"zh": "关长", "en": "Commissioner"}}
+    - {"names": {"zh": "金融管理局", "en": "Monetary Authority"}, "title": {"zh": "总裁", "en": "Chief Executive"}}
+    - {"names": {"zh": "刑事检控科", "en": "Prosecutions Division"}, "title": {"zh": "刑事检控专员", "en": "Director of Public Prosecutions"}}
+    - {"names": {"zh": "廉政公署", "en": "Independent Commission Against Corruption"}, "title": {"zh": "廉政专员", "en": "Commissioner"}}
     religion:
     - names: {zh: 无宗教, en: No religion}
       share: 36
@@ -3353,6 +3492,9 @@ divisions:
     allies: [div_gebca7, div_7t7xz6]
     rivals: []
     backers: []
+    offices:
+    - {"names": {"zh": "海岸巡逻队", "en": "Coastal Patrol"}, "title": {"zh": "队长", "en": "Commander"}}
+    - {"names": {"zh": "检察官办公室", "en": "Office of the Public Prosecutor"}, "title": {"zh": "检察官", "en": "Public Prosecutor"}}
     religion:
     - names: {zh: 祖灵信仰, en: Ancestral religion}
       share: 46
@@ -3494,6 +3636,12 @@ divisions:
     allies: [div_gebca7, div_4nnakk, div_ht80hm]
     rivals: []
     backers: ['country:CN', 'country:US']
+    offices:
+    - {"names": {"zh": "多国维和部队", "en": "Multinational peacekeeping force"}, "title": {"zh": "司令", "en": "Force Commander"}}
+    - {"names": {"zh": "托管地警察", "en": "Trust Territory Police"}, "title": {"zh": "警务专员", "en": "Police Commissioner"}}
+    - {"names": {"zh": "托管地货币委员会", "en": "Currency Board"}, "title": {"zh": "主席", "en": "Chair"}}
+    - {"names": {"zh": "托管地检察官办公室", "en": "Office of the Prosecutor"}, "title": {"zh": "检察官", "en": "Prosecutor"}}
+    - {"names": {"zh": "联合难民事务处", "en": "Joint Refugee Office"}, "title": {"zh": "主任", "en": "Director"}}
     religion:
     - names: {zh: 天主教, en: Catholic}
       share: 28
@@ -3614,6 +3762,10 @@ divisions:
     allies: [div_mj41d0, div_gd73a5]
     rivals: [div_nyhhhg]
     backers: []
+    offices:
+    - {"names": {"zh": "修道院财务室", "en": "Bursary"}, "title": {"zh": "司库修士", "en": "Bursar"}, "name": {"zh": "以法莲修士", "en": "Brother Ephrem"}}
+    - {"names": {"zh": "朝圣者接待所", "en": "Pilgrims' Hospice"}, "title": {"zh": "接待修士", "en": "Guestmaster"}, "name": {"zh": "西门修士", "en": "Brother Simon"}}
+    - {"names": {"zh": "圣山图书馆", "en": "Library of the Holy Mountain"}, "title": {"zh": "馆长修士", "en": "Librarian"}, "name": {"zh": "以撒修士", "en": "Brother Isaac"}}
     religion:
     - names: {zh: 坦德罗古教会, en: Old Church of Tendro}
       share: 96

@@ -179,6 +179,8 @@ export interface Entity {
   nation?: NationFacts;
   /** Nations without an elected parliament: their executive and judiciary, named by the politics model. */
   government?: NationGovernment;
+  /** A nation's key offices outside the cabinet (armed forces, central bank, prosecutors), each with its holder. */
+  offices?: (Officeholder & { names: Localized })[];
   /** Blocs: their member nations; countries: the nations they back. */
   member_nations?: string[];
   /** Blocs: the leading nation. */
@@ -207,6 +209,10 @@ export interface NationFacts {
   ideology: Localized[];
   government: Localized;
   head: Officeholder;
+  /** The heir to a hereditary head of state, or the open question of the succession. */
+  heir?: Officeholder;
+  /** Earlier holders of the head's office, oldest first. */
+  predecessors?: (Officeholder & { note?: Localized })[];
   /** Who really holds power. */
   power: Localized;
   bloc?: string | null;
@@ -289,6 +295,8 @@ export interface Legislature extends Chamber {
   deputy?: Officeholder & { party: string };
   /** Bodies outside the ministries (audit, anti-corruption, the central bank), each with its head. */
   agencies?: (Officeholder & { names: Localized })[];
+  /** The speaker's deputies: one from the government side, and in larger chambers one from the opposition. */
+  deputy_speakers?: (Officeholder & { party: string })[];
 }
 
 export interface Council extends Chamber {
