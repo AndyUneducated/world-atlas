@@ -486,6 +486,9 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
     .sort((a, b) => b.seats / b.of - a.seats / a.of);
   const allies = (entity.allies ?? []).map((id) => data.entities[id]).filter(Boolean);
   const org = entity.organisation ?? {};
+  const backers = (entity.backers ?? []).map((id) => data.entities[id]).filter(Boolean);
+  const home = entity.home ? data.entities[entity.home] : undefined;
+  const hq = entity.hq ? data.entities[entity.hq] : undefined;
   const orgRows: [string, ReactNode][] = [
     ...(entity.youth_wing ? [[t("youthWing", lang), entity.youth_wing[lang]] as [string, ReactNode]] : []),
     ...(["newspaper", "think_tank", "unions", "women"] as const).filter((k) => org[k]).map((k) => [t(ORG_KEYS[k], lang), org[k]![lang]] as [string, ReactNode]),
@@ -496,8 +499,15 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
         <Rows
           rows={[
             ...(entity.family ? [[t("partyFamily", lang), <span className="font-medium">{entity.family[lang]}</span>] as [string, ReactNode]] : []),
+            ...(entity.standing
+              ? [[t("partyStanding", lang), <span className="font-medium">{t(STANDING_KEYS[entity.standing], lang)}{home && <span className="font-normal text-muted"> · {home.short_names?.[lang] ?? displayName(home, lang)}</span>}</span>] as [string, ReactNode]]
+              : []),
+            ...(entity.legal_status ? [[t("legalStatus", lang), entity.legal_status[lang]] as [string, ReactNode]] : []),
             ...(entity.leader ? [[entity.leader_title?.[lang] ?? t("partyLeader", lang), entity.leader[lang]] as [string, ReactNode]] : []),
             ...(entity.secretary ? [[t("secretary", lang), entity.secretary[lang]] as [string, ReactNode]] : []),
+            ...(hq
+              ? [[t("partyHq", lang), <button onClick={() => select(hq.id)} className="text-ink underline decoration-line underline-offset-2 hover:decoration-current">{displayName(hq, lang)}</button>] as [string, ReactNode]]
+              : []),
             ...(entity.slogan
               ? [[t("slogan", lang), <span className="font-medium italic">{lang === "zh" ? `「${entity.slogan.zh}」` : `“${entity.slogan.en}”`}</span>] as [string, ReactNode]]
               : []),
@@ -549,6 +559,11 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
           </ul>
         </Section>
       ) : null}
+      {show("positions") && entity.reunification && (
+        <Section title={t("reunification", lang)}>
+          <p className="text-[13px] leading-relaxed text-ink">{entity.reunification[lang]}</p>
+        </Section>
+      )}
       {show("positions") && entity.factions?.length ? (
         <Section title={t("factions", lang)}>
           <ul className="space-y-3">
@@ -593,7 +608,11 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
             {(entity.territories ?? []).map((tid) => {
               const at = data.entities[tid];
               const L = at?.legislature;
-              if (!at || !L) return null;
+              if (!at) return null;
+              if (!L) {
+                const s = held.find((s) => s.at === tid);
+                return s ? <SeatRow key={tid} party={entity} at={at} seats={s.seats} of={s.of} lang={lang} /> : null;
+              }
               const row = L.parties.find((p) => p.id === entity.id);
               const up = L.upper?.parties.find((p) => p.id === entity.id);
               return (
@@ -605,6 +624,11 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
             })}
           </ul>
         </Sub>
+        {entity.trend && entity.trend.length > 1 && (
+          <Sub label={t("voteTrend", lang)}>
+            <VoteTrend values={entity.trend} color={color} lang={lang} />
+          </Sub>
+        )}
         {!national && <Sub label={`${t("councilSeats", lang)} · ${councils.length}`}>
           {councils.length ? (
             <>
@@ -639,12 +663,55 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
           </ul>
         </Section>
       )}
+      {show("history") && backers.length > 0 && (
+        <Section title={t("partyBackers", lang)}>
+          <ul className="-mx-2 grid grid-cols-2 gap-0.5">
+            {backers.map((a) => (
+              <li key={a.id}>
+                <button onClick={() => select(a.id)} className="flex w-full min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] text-ink hover:bg-hover">
+                  {hasEmblem(a) ? <Emblem entity={a} size={22} className="shrink-0" /> : <span className="size-2 shrink-0 rounded-full bg-faint" />}
+                  <span className="truncate">{a.short_names?.[lang] ?? displayName(a, lang)}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
       {show("history") && entity.history && (
         <Section title={t("history", lang)}>
           <Paragraphs text={entity.history[lang]} className="text-[13px] leading-relaxed text-ink" />
         </Section>
       )}
     </>
+  );
+}
+
+const STANDING_KEYS: Record<NonNullable<Entity["standing"]>, StringKey> = {
+  lead: "standingLead",
+  coalition: "standingCoalition",
+  allied: "standingAllied",
+  majority: "standingMajority",
+  opposition: "standingOpposition",
+  extra: "standingExtra",
+};
+const TREND_KEYS: StringKey[] = ["trendEarlier", "trendLast", "trendNow"];
+
+/** The party's vote at home over the last elections, oldest first, the latest in full colour. */
+function VoteTrend({ values, color, lang }: { values: number[]; color: string; lang: Lang }) {
+  const top = Math.max(...values);
+  const labels = TREND_KEYS.slice(-values.length);
+  return (
+    <ul className="space-y-1.5">
+      {values.map((v, i) => (
+        <li key={labels[i]} className="grid grid-cols-[5.5rem_1fr_3rem] items-center gap-2 text-[12.5px]">
+          <span className="text-muted">{t(labels[i], lang)}</span>
+          <span className="h-1.5 overflow-hidden rounded-full bg-hover">
+            <span className="block h-full rounded-full" style={{ width: `${(100 * v) / top}%`, background: color, opacity: i === values.length - 1 ? 1 : 0.5 }} />
+          </span>
+          <span className="text-right text-ink tabular-nums">{pct(v, lang)}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 

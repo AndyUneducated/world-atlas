@@ -325,6 +325,21 @@ const STRINGS = {
   showAll: { zh: "展开全部", en: "Show all" },
   otherParties: { zh: "其他政党", en: "Other parties" },
   showFewer: { zh: "收起", en: "Show fewer" },
+  partyStanding: { zh: "地位", en: "Standing" },
+  standingLead: { zh: "执政党", en: "Governing party" },
+  standingCoalition: { zh: "联合执政", en: "In coalition" },
+  standingAllied: { zh: "参政党", en: "Allied party" },
+  standingMajority: { zh: "议会多数", en: "Majority in parliament" },
+  standingOpposition: { zh: "反对党", en: "Opposition" },
+  standingExtra: { zh: "议会外政党", en: "Outside parliament" },
+  legalStatus: { zh: "合法地位", en: "Legal status" },
+  partyHq: { zh: "总部", en: "Headquarters" },
+  reunification: { zh: "统一立场", en: "On reunification" },
+  voteTrend: { zh: "得票走势", en: "Vote over time" },
+  trendEarlier: { zh: "前两届", en: "Two elections ago" },
+  trendLast: { zh: "上届", en: "Last election" },
+  trendNow: { zh: "本届", en: "This election" },
+  partyBackers: { zh: "外部支持", en: "Outside backers" },
 } satisfies Record<string, Record<Lang, string>>;
 
 export type StringKey = keyof typeof STRINGS;

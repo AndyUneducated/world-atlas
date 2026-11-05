@@ -402,9 +402,11 @@ divisions:
       - names: {zh: 劳动党, en: Labour Party}
         seats: 240
         color: '#C8102E'
+        party: pty_7dctfd
       - names: {zh: 农民联盟, en: Peasants' Union}
         seats: 40
         color: '#6A9F3A'
+        party: pty_haqm7z
       - names: {zh: 无党派人士, en: Non-party members}
         seats: 20
         color: '#9E9E9E'
@@ -589,9 +591,11 @@ divisions:
       - names: {zh: 马索沃利劳动党, en: Masovoly Workers' Party}
         seats: 480
         color: '#B3171F'
+        party: pty_v6k8hy
       - names: {zh: 社会主义青年同盟, en: Socialist Youth League}
         seats: 20
         color: '#F2C230'
+        party: pty_y2ta7b
     judiciary:
       names: {zh: "中央裁判所", en: "Central Court"}
       title: {zh: "所长", en: "President of the Court"}
@@ -724,6 +728,7 @@ divisions:
       - names: {zh: 民族社会主义运动, en: National Socialist Movement}
         seats: 180
         color: '#A3141B'
+        party: pty_c0mwhz
       - names: {zh: 民族卫队代表, en: National Guard delegates}
         seats: 20
         color: '#333333'
@@ -1887,11 +1892,11 @@ divisions:
   short_names: {zh: 安博维, en: Ambovy}
   notes: {zh: '安博维共和国位于拉诺瓦岛中部偏西，夹在贝洛瓦、萨希利亚、安博哈拉和伊索卡解放区之间，面积约三万四千平方公里，人口约五十万，有首都安博维和东部的拉诺马两座城市。国土是湿润的丘陵和河谷，香草、可可和胡椒种植园遍布山坡，雨林边缘散落着许多简易机场。
 
-      共和国在大分裂后由当地的香草种植园主建立，宪法规定实行总统制和多党选举，表面上与其他共和国无异。然而三十多年来，控制香草出口的三个大家族逐渐把生意扩展到走私和违禁品，形成了被称为「三家族」的卡特尔。卡特尔出资支持国民团结党和自由党，两党轮流执政，总统、法官和将领多由卡特尔提名，选举前夕常有候选人退选或失踪。安博维因此被国际观察者称为「毒品国家」。
+      共和国在大分裂后由当地的香草种植园主建立，宪法规定实行总统制和多党选举，表面上与其他共和国无异。然而三十多年来，控制香草出口的三个大家族逐渐把生意扩展到走私和违禁品，形成了被称为「三家族」的卡特尔。卡特尔出资支持国民团结党和共和自由党，两党轮流执政，总统、法官和将领多由卡特尔提名，选举前夕常有候选人退选或失踪。安博维因此被国际观察者称为「毒品国家」。
 
       违禁品经由香草园之间的简易机场和东海岸的快艇运往岛外，收入通过萨拉卡公国的赌场和银行洗白，再投入首都山上的别墅、赌场和私人诊所。共和国的人均收入约七千美元，在中部国家中名列前茅，但财富集中在少数家族手中，山下的棚户区缺水缺电，暴力犯罪率是全岛最高的之一。
 
-      安博维不加入任何阵营，同时与几方做生意：向祖源轴心出售燃料和武器，向圣约同盟和世俗协约的商人出售香草，与萨拉卡和卡托拉保持密切的金融和安保合作。邻国贝洛瓦对其发动过多次缉毒行动，双方的冲突在一次停火后冻结；伊索卡游击队也常越境袭击卡特尔的种植园。每年香草收获季，首都举行盛大的香草节，三家族的家长坐在主席台上，与总统并排观看游行。', en: "The Republic of Ambovy lies west of the middle of Ranova, between Belova, Sahiliya, Ambohara and the Isoka Liberated Zone, some 34,000 km² with about 500,000 people in two cities, the capital, Ambovy, and Ranoma in the east. It is a country of humid hills and valleys, vanilla, cocoa and pepper plantations cover the slopes, and many airstrips are scattered along the edge of the rainforest. \nThe Republic was founded after the Sundering by the local vanilla planters, and its constitution provides for a presidential system and multi-party elections, so that on the surface it looks like any other republic. Over thirty years, however, the three great families that control vanilla exports extended their business into smuggling and contraband and became the cartel known as the 'Three Families'. The cartel funds the National Unity Party and the Liberal Party, which take turns in office; presidents, judges and generals are mostly its nominees, and candidates often withdraw or vanish on the eve of an election. International observers call Ambovy a narco-state. \nContraband leaves the island by the airstrips among the vanilla gardens and by speedboat from the east coast, the money is laundered through the casinos and banks of the Principality of Saraka and then spent on the villas, casinos and private clinics on the capital's hill. Income is about 7,000 dollars a head, high for the central states, but wealth is concentrated in a few families, the shanty towns below the hill lack water and power, and violent crime is among the highest on the island. \nAmbovy joins no bloc and does business with several: it sells fuel and arms to the Origin Axis and vanilla to merchants from the Covenant League and the Secular Accord, and works closely with Saraka and Katora on finance and security. Neighbouring Belova has mounted several anti-narcotics operations against it, a conflict frozen after a ceasefire, and the Isoka guerrillas often cross the border to raid the cartel's plantations. At the vanilla festival each harvest the heads of the Three Families sit on the reviewing stand beside the president to watch the parade."}
+      安博维不加入任何阵营，同时与几方做生意：向祖源轴心出售燃料和武器，向圣约同盟和世俗协约的商人出售香草，与萨拉卡和卡托拉保持密切的金融和安保合作。邻国贝洛瓦对其发动过多次缉毒行动，双方的冲突在一次停火后冻结；伊索卡游击队也常越境袭击卡特尔的种植园。每年香草收获季，首都举行盛大的香草节，三家族的家长坐在主席台上，与总统并排观看游行。', en: "The Republic of Ambovy lies west of the middle of Ranova, between Belova, Sahiliya, Ambohara and the Isoka Liberated Zone, some 34,000 km² with about 500,000 people in two cities, the capital, Ambovy, and Ranoma in the east. It is a country of humid hills and valleys, vanilla, cocoa and pepper plantations cover the slopes, and many airstrips are scattered along the edge of the rainforest. \nThe Republic was founded after the Sundering by the local vanilla planters, and its constitution provides for a presidential system and multi-party elections, so that on the surface it looks like any other republic. Over thirty years, however, the three great families that control vanilla exports extended their business into smuggling and contraband and became the cartel known as the 'Three Families'. The cartel funds the National Unity Party and the Republican Liberal Party, which take turns in office; presidents, judges and generals are mostly its nominees, and candidates often withdraw or vanish on the eve of an election. International observers call Ambovy a narco-state. \nContraband leaves the island by the airstrips among the vanilla gardens and by speedboat from the east coast, the money is laundered through the casinos and banks of the Principality of Saraka and then spent on the villas, casinos and private clinics on the capital's hill. Income is about 7,000 dollars a head, high for the central states, but wealth is concentrated in a few families, the shanty towns below the hill lack water and power, and violent crime is among the highest on the island. \nAmbovy joins no bloc and does business with several: it sells fuel and arms to the Origin Axis and vanilla to merchants from the Covenant League and the Secular Accord, and works closely with Saraka and Katora on finance and security. Neighbouring Belova has mounted several anti-narcotics operations against it, a conflict frozen after a ceasefire, and the Isoka guerrillas often cross the border to raid the cartel's plantations. At the vanilla festival each harvest the heads of the Three Families sit on the reviewing stand beside the president to watch the parade."}
   codes: {admin: '720000'}
   population: 500000
   area_km2: 34000
@@ -1937,9 +1942,11 @@ divisions:
       - names: {zh: 国民团结党, en: National Unity Party}
         seats: 62
         color: '#1B4F9C'
-      - names: {zh: 自由党, en: Liberal Party}
+        party: pty_hg5zv0
+      - names: {zh: 共和自由党, en: Republican Liberal Party}
         seats: 30
-        color: '#F2C230'
+        color: '#D98E04'
+        party: pty_pv9t56
       - names: {zh: 无党派, en: Independents}
         seats: 8
         color: '#9E9E9E'
@@ -2739,6 +2746,7 @@ divisions:
       - names: {zh: 国民联盟, en: National Union}
         seats: 14
         color: '#B22234'
+        party: pty_8nm98k
       - names: {zh: 独立议员, en: Independents}
         seats: 10
         color: '#9E9E9E'
@@ -3222,12 +3230,15 @@ divisions:
       - names: {zh: 商会联盟, en: Chambers Alliance}
         seats: 22
         color: '#1A2A5A'
+        party: pty_zwfjy3
       - names: {zh: 民主派, en: Democrats}
         seats: 12
         color: '#E8735A'
+        party: pty_y65zt8
       - names: {zh: 劳工联合会, en: Federation of Labour}
         seats: 6
         color: '#C8102E'
+        party: pty_f6r3v9
     judiciary:
       names: {zh: "终审法院", en: "Court of Final Appeal"}
       title: {zh: "首席法官", en: "Chief Justice"}

@@ -159,6 +159,18 @@ export interface Entity {
   /** Where its vote is strongest and weakest, from the model's leanings. */
   base?: { strong: Localized[]; weak: Localized[] };
   history?: Localized;
+  /** Parties of a nation's fixed chamber: that nation; they stand in no election. */
+  seated?: string;
+  /** Where the party is strongest (or sits), its standing there and its headquarters city. */
+  home?: string;
+  standing?: "lead" | "coalition" | "allied" | "majority" | "opposition" | "extra";
+  hq?: string;
+  legal_status?: Localized;
+  reunification?: Localized;
+  /** States that back the party from outside. */
+  backers?: string[];
+  /** Its vote at home over the last elections, oldest first, percent. */
+  trend?: number[];
   /** Seats held in each territorial parliament and city council. */
   seats?: { at: string; seats: number; of: number; upper?: boolean }[];
   /** Regions outside the territories: the region itself, its nations and their cities. */
@@ -179,7 +191,7 @@ export type WarStatus = "active" | "ceasefire" | "frozen" | "ended";
 /** A branch of government a state does without, and what stands in its place. */
 export type NoBranch = { none: Localized };
 
-export type FixedChamber = { names: Localized; seats: number; groups: { names: Localized; seats: number; color: string }[]; notes?: Localized };
+export type FixedChamber = { names: Localized; seats: number; groups: { names: Localized; seats: number; color: string; party?: string }[]; notes?: Localized };
 
 export interface NationGovernment {
   executive: NoBranch | { names: Localized; notes?: Localized; head?: Officeholder; deputy?: Officeholder; ministers: { ministry: Localized; name: Localized }[] };
