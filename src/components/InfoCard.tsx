@@ -856,7 +856,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
               {isCapital && (
                 <span className="flex items-center gap-1 rounded-full bg-amber-400/15 px-1.5 py-px text-[10.5px] font-semibold text-amber-500">
                   <Star className="size-2.5 fill-current" />
-                  {t("capitalOf", lang)}
+                  {t(data.entities[entity.parent ?? ""]?.role === "nation" ? "nationCapital" : "capitalOf", lang)}
                 </span>
               )}
               {entity.wonder && (
