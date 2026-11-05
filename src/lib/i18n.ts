@@ -248,6 +248,8 @@ const STRINGS = {
   executive: { zh: "行政", en: "Executive" },
   legislature: { zh: "立法", en: "Legislature" },
   judiciary: { zh: "司法", en: "Judiciary" },
+  agencies: { zh: "独立机构", en: "Independent bodies" },
+  legalSystem: { zh: "法律体系", en: "Legal system" },
   centralAppointee: { zh: "中央任命", en: "Appointed by the centre" },
   nonPartisan: { zh: "无党籍", en: "Non-partisan" },
   showMinisters: { zh: "各部部长", en: "All ministers" },

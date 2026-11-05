@@ -64,7 +64,7 @@ FLAG_LAYOUTS = ts_names("cityFlags.tsx", "FLAG_LAYOUTS")
 # Flags of the nations of a region (role: nation), each its own drawing in src/lib/nationFlags.tsx.
 NATION_FLAGS = ts_names("nationFlags.tsx", "NATION_FLAGS")
 # A nation's card block (nation: in its division): kinds of state and the facts it lists.
-NATION_KEYS = ("ideology", "government", "head", "power", "bloc", "bloc_role", "recognition", "legislature", "military", "wars",
+NATION_KEYS = ("ideology", "government", "head", "power", "bloc", "bloc_role", "recognition", "executive", "legislature", "judiciary", "military", "wars",
                "allies", "rivals", "backers", "religion", "freedom", "refugees", "symbols", "facts")
 FLAG_CHARGES = ts_names("emblems.tsx", "MOTIFS") + ts_names("charges.tsx", "NEW") + ts_names("charges.tsx", "CALIFORNIA")
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
@@ -214,14 +214,26 @@ class World:
         for rel in ("allies", "rivals", "backers"):
             if bad := [x for x in n.get(rel, []) if x not in self.entities]:
                 out.append(f"nation: unknown {rel} {', '.join(bad)}")
-        if (leg := n.get("legislature")) is not None:
+        none = lambda b: both(b.get("none")) and len(b) == 1
+        elected = d["id"] in self.politics.get("legislatures", {})
+        if elected and {"executive", "legislature", "judiciary"} & set(n):
+            out.append("nation: a nation with an elected legislature in world/politics.yaml gives its government there")
+        if not elected:
+            leg = n.get("legislature", {})
             groups = leg.get("groups", [])
-            if not (both(leg.get("names")) and isinstance(leg.get("seats"), int) and groups
+            if not none(leg) and not (both(leg.get("names")) and isinstance(leg.get("seats"), int) and groups
                     and all(both(g.get("names")) and isinstance(g.get("seats"), int) and HEX.match(str(g.get("color", ""))) for g in groups)
                     and sum(g["seats"] for g in groups) == leg["seats"]):
-                out.append("nation: a fixed legislature has names, seats and groups (names, seats, color) filling them")
-            if d["id"] in self.politics.get("legislatures", {}):
-                out.append("nation: a nation with an elected legislature in world/politics.yaml gives no fixed one")
+                out.append("nation: a fixed legislature has names, seats and groups (names, seats, color) filling them, or none (zh, en)")
+            ex = n.get("executive", {})
+            if not none(ex) and not (both(ex.get("names")) and all(both(m) for m in ex.get("ministries", []))
+                                     and all(both(ex[k].get("title")) and both(ex[k].get("name", ex[k].get("title"))) for k in ("head", "deputy") if k in ex)
+                                     and both(ex.get("notes", ex.get("names"))) and set(ex) <= {"names", "head", "deputy", "ministries", "notes"}):
+                out.append("nation: executive gives names and ministries (zh, en), and may give head and deputy (title, name) and notes; or none")
+            ju = n.get("judiciary", {})
+            if not none(ju) and not (all(both(ju.get(k)) for k in ("names", "title", "law")) and isinstance(ju.get("judges"), int)
+                                     and 1 <= ju["judges"] <= 15 and both(ju.get("notes", ju.get("law"))) and set(ju) <= {"names", "title", "law", "judges", "notes"}):
+                out.append("nation: judiciary gives names, title, law (zh, en) and 1 to 15 judges, and may give notes; or none")
         rel = n.get("religion", [])
         if not rel or not all(both(r.get("names")) and isinstance(r.get("share"), (int, float)) for r in rel) or abs(sum(r["share"] for r in rel) - 100) > 0.5:
             out.append("nation: religion lists faiths (names zh, en) with shares adding up to 100")
@@ -579,6 +591,13 @@ class World:
             for mid, names in leg.get("ministries", {}).items():
                 if mid not in known or not all(names.get(lang) for lang in REQUIRED_LANGS):
                     errors.append(f"politics: {tid}: ministry {mid} renames a known ministry, in zh and en")
+            for k, v in ((k, leg[k]) for k in ("deputy", "deputy_mayor") if k in leg):
+                if not all(v.get(lang) for lang in REQUIRED_LANGS):
+                    errors.append(f"politics: {tid}: {k} needs zh and en")
+            if not all((a.get(k) or {}).get(lang) for a in leg.get("agencies", []) for k in ("names", "title") for lang in REQUIRED_LANGS):
+                errors.append(f"politics: {tid}: each agency has names and its head's title, in zh and en")
+            if "law" in court and not all(court["law"].get(lang) for lang in REQUIRED_LANGS):
+                errors.append(f"politics: {tid}: court law needs zh and en")
             if not (isinstance(court.get("judges"), int) and 6 <= court["judges"] <= 12):
                 errors.append(f"politics: {tid}: the court has 6 to 12 judges, the chief justice among them")
             if sum(court.get("tongues", {}).values()) >= court.get("judges", 0):
@@ -590,7 +609,7 @@ class World:
                     errors.append(f"politics: {cid}: lead {c['lead']} is not a party")
                 if c.get("type", "council") not in pol.get("council_types", {}):
                     errors.append(f"politics: {cid}: council type {c.get('type')} is not in council_types")
-                for k in ("names", "mayor", "speaker", "notes"):
+                for k in ("names", "mayor", "deputy_mayor", "speaker", "notes"):
                     if k in c and not all(c[k].get(lang) for lang in REQUIRED_LANGS):
                         errors.append(f"politics: {cid}: {k} needs zh and en")
                 if "constituencies" in c:

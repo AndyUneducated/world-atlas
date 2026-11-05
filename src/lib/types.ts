@@ -165,6 +165,8 @@ export interface Entity {
   role?: "region" | "nation" | "city";
   /** Nations: the card's facts. */
   nation?: NationFacts;
+  /** Nations without an elected parliament: their executive and judiciary, named by the politics model. */
+  government?: NationGovernment;
   /** Blocs: their member nations; countries: the nations they back. */
   member_nations?: string[];
   /** Blocs: the leading nation. */
@@ -173,6 +175,17 @@ export interface Entity {
 }
 
 export type WarStatus = "active" | "ceasefire" | "frozen" | "ended";
+
+/** A branch of government a state does without, and what stands in its place. */
+export type NoBranch = { none: Localized };
+
+export type FixedChamber = { names: Localized; seats: number; groups: { names: Localized; seats: number; color: string }[]; notes?: Localized };
+
+export interface NationGovernment {
+  executive: NoBranch | { names: Localized; notes?: Localized; head?: Officeholder; deputy?: Officeholder; ministers: { ministry: Localized; name: Localized }[] };
+  /** The presiding judge, the bench's other judges and the law it applies. */
+  judiciary: NoBranch | (Officeholder & { names: Localized; law: Localized; notes?: Localized; judges: Localized[] });
+}
 
 /** A nation's card block (nation: in world/divisions). */
 export interface NationFacts {
@@ -186,7 +199,7 @@ export interface NationFacts {
   /** How many of the region's other states recognise it. */
   recognition: number;
   /** A legislature with fixed seats, where there is no election to model. */
-  legislature?: { names: Localized; seats: number; groups: { names: Localized; seats: number; color: string }[]; notes?: Localized };
+  legislature?: FixedChamber | NoBranch;
   military: { active: number; reserve: number; strength: 1 | 2 | 3 | 4 | 5; branches: Localized[]; equipment: Localized; budget_gdp?: number };
   wars?: { names: Localized; role: Localized; status: WarStatus }[];
   allies?: string[];
@@ -255,13 +268,19 @@ export interface Legislature extends Chamber {
   notes?: Localized;
   /** The second chamber, elected the same way. */
   upper?: Seating;
-  /** The chief justice, and the court's other judges. */
-  court: Officeholder & { names: Localized; judges: Localized[] };
+  /** The chief justice, the court's other judges and the law it applies. */
+  court: Officeholder & { names: Localized; judges: Localized[]; law?: Localized };
+  /** The head's deputy, of a governing party. */
+  deputy?: Officeholder & { party: string };
+  /** Bodies outside the ministries (audit, anti-corruption, the central bank), each with its head. */
+  agencies?: (Officeholder & { names: Localized })[];
 }
 
 export interface Council extends Chamber {
   /** What the body is and how it works, where it is not an ordinary council. */
   notes?: Localized;
+  /** The deputy mayor, of the mayor's party. */
+  deputy?: Officeholder & { party: string };
 }
 
 /** Districts and cities, from the climate model (world/climate.yaml): monthly normals, January first. */
