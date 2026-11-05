@@ -76,7 +76,8 @@ FLAG_LAYOUTS = ts_names("cityFlags.tsx", "FLAG_LAYOUTS")
 NATION_FLAGS = ts_names("nationFlags.tsx", "NATION_FLAGS")
 # A nation's card block (nation: in its division): kinds of state and the facts it lists.
 NATION_KEYS = ("exile", "ideology", "government", "head", "power", "bloc", "bloc_role", "recognition", "executive", "legislature", "judiciary", "military", "wars",
-               "allies", "rivals", "backers", "religion", "freedom", "refugees", "symbols", "facts", "heir", "predecessors", "offices")
+               "allies", "rivals", "backers", "religion", "freedom", "refugees", "symbols", "facts", "heir", "predecessors", "offices",
+               "culture", "travel")
 FLAG_CHARGES = ts_names("emblems.tsx", "MOTIFS") + ts_names("charges.tsx", "NEW") + ts_names("charges.tsx", "CALIFORNIA")
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
 POLITICS_SYSTEMS = ("mmp", "fptp", "pr_reserved", "pr_regional", "top_two")
@@ -272,6 +273,11 @@ class World:
         if not all(isinstance(o, dict) and set(o) <= {"names", "title", "name"} and both(o.get("names")) and both(o.get("title"))
                    and both(o.get("name", o.get("title"))) for o in n.get("offices", [])):
             out.append("nation: each office gives names and its holder's title (zh, en), and may name the holder; otherwise one is drawn")
+        c = n.get("culture", {})
+        if not isinstance(c, dict) or set(c) - {"holiday", "dish", "sport"} or not all(both(v) for v in c.values()):
+            out.append("nation: culture may name the holiday, dish and sport (zh, en)")
+        if (tr := n.get("travel")) is not None and not (isinstance(tr, dict) and tr.get("level") in (1, 2, 3, 4) and both(tr.get("note")) and len(tr) == 2):
+            out.append("nation: travel gives the advice level (1 normal precautions to 4 do not travel) and a note (zh, en)")
         people = ([n["heir"]] if "heir" in n else []) + n.get("predecessors", [])
         if not all(isinstance(p, dict) and both(p.get("title")) and both(p.get("name")) and both(p.get("note", p.get("name"))) for p in people):
             out.append("nation: the heir and each predecessor give a title and name, and a predecessor may give a note (zh, en)")

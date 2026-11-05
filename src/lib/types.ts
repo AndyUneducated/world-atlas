@@ -240,6 +240,9 @@ export interface NationFacts {
   freedom?: { political: number; civil: number; press: number; economic: number };
   refugees: { hosted: number; abroad: number };
   symbols: { anthem: Localized; flower: Localized; animal: Localized };
+  culture?: { holiday?: Localized; dish?: Localized; sport?: Localized };
+  /** Travel advice: 1 normal precautions, 2 increased caution, 3 reconsider travel, 4 do not travel. */
+  travel?: { level: 1 | 2 | 3 | 4; note: Localized };
   facts: { currency: Localized; currency_code: string; time_zone: string; calling_code: string; tld: string; driving: "left" | "right" };
 }
 
