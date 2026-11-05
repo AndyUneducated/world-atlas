@@ -30,7 +30,7 @@ from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas.world import CODE_DIGITS, DETECT_KINDS, HARBOUR_TERMINALS, RAIL_NETWORKS, ROOT, SITE_LAYOUTS, WORLD_DIR, World, ts_names  # noqa: E402
+from atlas.world import CODE_DIGITS, DETECT_KINDS, code_digits, HARBOUR_TERMINALS, RAIL_NETWORKS, ROOT, SITE_LAYOUTS, WORLD_DIR, World, ts_names  # noqa: E402
 from new_id import mint  # noqa: E402
 
 DELETE = object()
@@ -383,7 +383,7 @@ class Importer:
         if is_new and "codes.admin" not in changes and parent:
             base = self.new_codes.get(parent) or self.world.divisions.get(parent, {}).get("codes", {}).get("admin")
             if base and want in CODE_DIGITS:
-                base = base[:CODE_DIGITS[want]]
+                base = base[:code_digits(self.world.divisions.get(parent) or {"subtype": want})]
                 n = 1
                 while f"{base}{n:02d}".ljust(6, "0") in used:
                     n += 1

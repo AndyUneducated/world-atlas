@@ -18,6 +18,13 @@ DIVISION_SUBTYPES = ("country", "dependency", "region", "locality", "borough")
 # Division codes (GB/T 2260): six digits, of which a territory uses the first two, a city four
 # and a district all six; the rest are zeros (900000 → 900100 → 900101).
 CODE_DIGITS = {"dependency": 2, "locality": 4, "borough": 6}
+ROLE_DIGITS = {"nation": 2, "city": 4}  # a region's nations are numbered like territories, their cities like cities
+
+
+def code_digits(d: dict) -> int | None:
+    """How many leading digits of a division's admin code are its own; the rest are zero."""
+    return ROLE_DIGITS.get(d.get("role"), CODE_DIGITS.get(d.get("subtype")))
+
 # Landmark footprint templates (see pipeline/atlas/buildings.py); the last five are transport facilities.
 MILITARY_VARIANTS = {  # military and space facility layouts and the kinds each draws (first is the default)
     "airbase": ("fighter", "heavy", "uav", "school"), "radar": ("dome", "array", "domes"), "antenna": ("small", "large"),
@@ -307,11 +314,11 @@ class World:
                 if admin in codes:
                     errors.append(f"{did}: admin code {admin} already used by {codes[admin]}")
                 codes[admin] = did
-                level = CODE_DIGITS.get(d["subtype"])
+                level = code_digits(d)
                 if not re.fullmatch(r"\d{6}", admin) or (level and admin[level:].strip("0")):
                     errors.append(f"{did}: admin code {admin} must have 6 digits, zero past the first {level}")
                 parent_admin = parent.get("codes", {}).get("admin")
-                parent_level = CODE_DIGITS.get(parent["subtype"])
+                parent_level = None if parent.get("role") == "region" else code_digits(parent)  # a nation's code stands alone
                 if parent_admin and parent_level and not admin.startswith(parent_admin[:parent_level]):
                     errors.append(f"{did}: admin code {admin} does not extend parent code {parent_admin}")
             if d.get("route_shield", "crest") not in ROUTE_SHIELDS:
