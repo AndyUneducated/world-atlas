@@ -989,7 +989,7 @@ function Card({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: L
       exit={{ opacity: 0, y: 8, scale: 0.98 }}
       transition={{ type: "spring", stiffness: 380, damping: 32 }}
       aria-hidden={aside || undefined}
-      className={clsx("glass scrollbar-thin min-h-0 overflow-y-auto rounded-3xl", aside ? "pointer-events-none" : "pointer-events-auto")}
+      className={clsx("glass scrollbar-thin min-h-0 overflow-y-auto rounded-3xl select-text", aside ? "pointer-events-none" : "pointer-events-auto")}
     >
       <CardBody data={data} entity={entity} lang={lang} />
     </motion.article>
@@ -1125,7 +1125,7 @@ function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; 
       <div
         ref={scroll}
         {...pointer(false)}
-        className={clsx("scrollbar-thin min-h-0 flex-1 overscroll-contain", full ? "overflow-y-auto" : "touch-none overflow-hidden")}
+        className={clsx("scrollbar-thin min-h-0 flex-1 overscroll-contain", full ? "overflow-y-auto select-text" : "touch-none overflow-hidden")}
       >
         <CardBody data={data} entity={entity} lang={lang} />
       </div>

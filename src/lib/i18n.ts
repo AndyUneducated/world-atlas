@@ -4,6 +4,7 @@ const STRINGS = {
   searchPlaceholder: { zh: "搜索地点、道路、车站、山川", en: "Search places, roads, stations, landforms" },
   noResults: { zh: "没有找到匹配的结果", en: "No matching results" },
   exploreCities: { zh: "城市", en: "Cities" },
+  exploreNations: { zh: "国家", en: "Countries" },
   wonders: { zh: "奇观", en: "Wonders" },
   wonder: { zh: "奇观", en: "Wonder" },
   allTerritories: { zh: "全部", en: "All" },

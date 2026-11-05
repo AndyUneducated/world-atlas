@@ -13,6 +13,10 @@ countries:
     short_names:
       zh: 中国
       en: China
+    flag: china
+    flag_notes:
+      zh: 五星红旗，长宽比 3:2。旗面的红色象征革命，旗上的五颗五角星及其相互关系象征中国共产党领导下的革命人民大团结：左上角的大星代表中国共产党，四颗小星呈弧形环拱于大星右侧，每颗小星都有一个尖角正对大星的中心。
+      en: "The five-star red flag, at 3:2. Its red stands for revolution, and its five stars and the way they are set for the great unity of the revolutionary people under the leadership of the Communist Party of China: the large star in the upper hoist is the Party, and the four small stars arc around it to the fly, each with one point aimed at the large star's centre."
     codes:
       iso3166_1:
         alpha2: CN
@@ -31,6 +35,10 @@ countries:
     short_names:
       zh: 美国
       en: United States
+    flag: usa
+    flag_notes:
+      zh: 星条旗，长宽比 19:10。十三道红白相间的横条代表建国时的十三个州，左上角蓝底上的五十颗白星代表今天的五十个州，每有新州加入就添一颗星。按常见的解释，白色象征纯洁，红色象征勇敢，蓝色象征警惕、坚韧和正义。
+      en: "The Stars and Stripes, at 19:10. Its thirteen red and white stripes stand for the thirteen founding states, and the fifty white stars on the blue canton for the fifty states of today; a star is added whenever a state joins. By the usual reading, white stands for purity, red for valour, and blue for vigilance, perseverance and justice."
     codes:
       iso3166_1:
         alpha2: US
