@@ -74,10 +74,17 @@ legislatures:
     governor_name: { zh: 顾明哲, en: Gu Mingzhe }  # appointed by the central government
     premier: { zh: 总理, en: Premier }
     speaker: { zh: 议长, en: Speaker }
+    deputy: {zh: "副总理", en: "Deputy Premier"}
+    agencies:
+    - {names: {zh: "廉政公署", en: "Independent Commission Against Corruption"}, title: {zh: "廉政专员", en: "Commissioner"}}
+    - {names: {zh: "审计署", en: "Audit Commission"}, title: {zh: "审计长", en: "Director of Audit"}}
+    - {names: {zh: "渔业管理局", en: "Fisheries Authority"}, title: {zh: "局长", en: "Director"}}
+    deputy_mayor: {zh: "副市长", en: "Deputy Mayor"}
     court:
       names: { zh: 北维京岛领地终审法院, en: North Viking Island Court of Final Appeal }
       title: { zh: 首席法官, en: Chief Justice }
       judges: 9
+      law: {zh: "普通法", en: "Common law"}
     mayor: { zh: 市长, en: Mayor }
     council_seats: [31, 6]
     council_range: [21, 71]
@@ -88,6 +95,7 @@ legislatures:
       div_k4hg7b:
         names: { zh: 自贸区立法会, en: Legislative Council }
         mayor: { zh: 行政长官, en: Chief Executive }
+        deputy_mayor: {zh: "政务司司长", en: "Chief Secretary for Administration"}
         speaker: { zh: 主席, en: President }
   div_raat4g:
     names: { zh: 维京群岛领地议会, en: Viking Islands Parliament }
@@ -98,10 +106,17 @@ legislatures:
     governor_name: { zh: 沈安澜, en: Shen Anlan }  # appointed by the central government
     premier: { zh: 首席部长, en: Chief Minister }
     speaker: { zh: 议长, en: Speaker }
+    deputy: {zh: "副首席部长", en: "Deputy Chief Minister"}
+    agencies:
+    - {names: {zh: "廉政公署", en: "Independent Commission Against Corruption"}, title: {zh: "廉政专员", en: "Commissioner"}}
+    - {names: {zh: "审计署", en: "Audit Commission"}, title: {zh: "审计长", en: "Director of Audit"}}
+    - {names: {zh: "金融服务委员会", en: "Financial Services Commission"}, title: {zh: "主席", en: "Chair"}}
+    deputy_mayor: {zh: "副市长", en: "Deputy Mayor"}
     court:
       names: { zh: 维京群岛领地终审法院, en: Viking Islands Court of Final Appeal }
       title: { zh: 首席法官, en: Chief Justice }
       judges: 7
+      law: {zh: "普通法", en: "Common law"}
     mayor: { zh: 市长, en: Mayor }
     council_seats: [25, 5]
     council_range: [15, 51]
@@ -125,10 +140,17 @@ legislatures:
     governor_name: { zh: 叶静宜, en: Ye Jingyi }  # appointed by the central government
     premier: { zh: 总理, en: Premier }
     speaker: { zh: 议会主席, en: President of the Assembly }
+    deputy: {zh: "副总理", en: "Deputy Premier"}
+    agencies:
+    - {names: {zh: "廉政公署", en: "Independent Commission Against Corruption"}, title: {zh: "廉政专员", en: "Commissioner"}}
+    - {names: {zh: "审计署", en: "Audit Commission"}, title: {zh: "审计长", en: "Director of Audit"}}
+    - {names: {zh: "原住民事务委员会", en: "Indigenous Affairs Commission"}, title: {zh: "主席", en: "Chair"}}
+    deputy_mayor: {zh: "副市长", en: "Deputy Mayor"}
     court:
       names: { zh: 北冰洋领地终审法院, en: Arctic Ocean Court of Final Appeal }
       title: { zh: 首席法官, en: Chief Justice }
       judges: 7
+      law: {zh: "普通法与原住民习惯法", en: "Common law and Indigenous customary law"}
       tongues: { art-x-tavrunaq: 3 }
     mayor: { zh: 市长, en: Mayor }
     council_seats: [27, 5]
@@ -137,21 +159,25 @@ legislatures:
       div_8c2skk:
         names: { zh: 自治区议事会, en: Regional Assembly }
         mayor: { zh: 自治区主席, en: Regional Chair }
+        deputy_mayor: {zh: "自治区副主席", en: "Regional Vice-Chair"}
         speaker: { zh: 议事会主席, en: Chair of the Assembly }
       div_p808br:
         names: { zh: 特区立法会, en: Legislative Council }
         mayor: { zh: 行政长官, en: Chief Executive }
+        deputy_mayor: {zh: "政务司司长", en: "Chief Secretary for Administration"}
         speaker: { zh: 主席, en: President }
       div_nbf1bw: { type: moot }  # Saarvaq
       div_eqzm0n: { type: moot }  # Uviqsaaq
       div_dk2gh7:  # Kiluktuar
         names: { zh: 自治区议事会, en: Regional Assembly }
         mayor: { zh: 自治区主席, en: Regional Chair }
+        deputy_mayor: {zh: "自治区副主席", en: "Regional Vice-Chair"}
         speaker: { zh: 议事会主席, en: Chair of the Assembly }
         lead: pty_4ahf45
       div_d48kz7:  # Sirmivak
         names: { zh: 自由邦议会, en: Free State Assembly }
         mayor: { zh: 自由邦主席, en: President of the Free State }
+        deputy_mayor: {zh: "自由邦副主席", en: "Vice-President of the Free State"}
         speaker: { zh: 议长, en: Speaker }
         lead: pty_xbk4h7
   div_nwm019:
@@ -164,10 +190,17 @@ legislatures:
     governor_name: { zh: 方远航, en: Fang Yuanhang }  # appointed by the central government
     premier: { zh: 总理, en: Premier }
     speaker: { zh: 议长, en: Speaker }
+    deputy: {zh: "副总理", en: "Deputy Premier"}
+    agencies:
+    - {names: {zh: "廉政公署", en: "Independent Commission Against Corruption"}, title: {zh: "廉政专员", en: "Commissioner"}}
+    - {names: {zh: "审计署", en: "Audit Commission"}, title: {zh: "审计长", en: "Director of Audit"}}
+    - {names: {zh: "旅游与海洋保护局", en: "Tourism and Marine Conservation Authority"}, title: {zh: "局长", en: "Director"}}
+    deputy_mayor: {zh: "副市长", en: "Deputy Mayor"}
     court:
       names: { zh: 长夏群岛领地终审法院, en: Everlong Summer Islands Court of Final Appeal }
       title: { zh: 首席法官, en: Chief Justice }
       judges: 11
+      law: {zh: "普通法", en: "Common law"}
     mayor: { zh: 市长, en: Mayor }
     council_seats: [35, 6]
     council_range: [21, 75]
@@ -179,6 +212,7 @@ legislatures:
         type: legco
         names: { zh: 立法会, en: Legislative Council }
         mayor: { zh: 行政长官, en: Chief Executive }
+        deputy_mayor: {zh: "政务司司长", en: "Chief Secretary for Administration"}
         speaker: { zh: 立法会主席, en: President of the Legislative Council }
         lead: pty_09zrw1
         notes:
@@ -187,6 +221,7 @@ legislatures:
       div_xp7ha2:  # Kirumai, a commonwealth of six islands
         names: { zh: 联合邦议会, en: Commonwealth Assembly }
         mayor: { zh: 首席部长, en: Chief Minister }
+        deputy_mayor: {zh: "副首席部长", en: "Deputy Chief Minister"}
         speaker: { zh: 议长, en: Speaker }
         lead: pty_e7tyeb
         notes:
@@ -202,6 +237,7 @@ legislatures:
         lead: pty_6c94cq  # the committee's chair by the coalition's agreement, at even seats with the Commons
         names: { zh: 公社人民代表大会, en: Commune People's Congress }
         mayor: { zh: 管理委员会主任, en: Chair of the Management Committee }
+        deputy_mayor: {zh: "管理委员会副主任", en: "Deputy Chair of the Management Committee"}
         speaker: { zh: 大会主席, en: President of the Congress }
         notes:
           zh: "埃武托拉公社不设市议会和市长，最高权力机关是公社人民代表大会。代表先在各街区和生产合作社的选民会议上提名，再由全体居民直选；选民随时可以联署罢免自己的代表，公社里管这叫「随叫随走」。代表大会选出公社管理委员会，主任和委员定期向大会述职，大会可以随时改选；委员会下设生产、住房、教育、卫生和财务五个组，委员轮流到各组和各街区蹲点。全体会议每月在公社广场的大棚下开一次，雨季移到粮仓改成的会堂，向全体居民开放，年满十六岁的居民都可以在旁听席上举牌要求发言。预算、税率和住房分配都要经代表大会表决，重大事项还要先交各街区的小组会讨论一轮。"
@@ -223,6 +259,13 @@ legislatures:
     governor: { zh: 州长, en: Governor }
     minority: { zh: 少数党领袖, en: Minority Leader }
     speaker: { zh: 众议院议长, en: Speaker of the Assembly }
+    deputy: {zh: "副州长", en: "Lieutenant Governor"}
+    agencies:
+    - {names: {zh: "州务卿办公室", en: "Office of the Secretary of State"}, title: {zh: "州务卿", en: "Secretary of State"}}
+    - {names: {zh: "州审计长办公室", en: "Office of the State Controller"}, title: {zh: "州审计长", en: "State Controller"}}
+    - {names: {zh: "公用事业委员会", en: "Public Utilities Commission"}, title: {zh: "主席", en: "President"}}
+    - {names: {zh: "空气资源委员会", en: "Air Resources Board"}, title: {zh: "主席", en: "Chair"}}
+    deputy_mayor: {zh: "副市长", en: "Deputy Mayor"}
     notes:
       zh: "加利福尼亚自治州属于美国，和其他领地不同，它实行总统制：州长由全州选民直选，不设总理，州长任命各厅厅长组成内阁，厅长大多出自州长所在的党。州议会分为众议院和参议院，法案须经两院通过、州长签署；州长否决的法案，两院各以三分之二多数可以推翻，加税同样需要三分之二多数。\n人口太少、分不到议席的区，和最近的有议席的区一起投票。湾区的贝叶斯市在众议院并入比尔斯伯勒的门禁高地选区，这一席由加速党赢得。\n加州还保留着直接民主：选民可以联署发起公投提案，也可以联署罢免任何一位民选官员，签名够数就要举行罢免投票。征集签名早已是一门生意，签名公司按每个签名计价，州务卿每次都要先剔除模型生成的签名，才能开始核验。每次大选的选票都附带几十项公投提案，提案说明书由游说公司用模型写成，越写越长，选民再用模型把它们总结成一句话。"
       en: "The California Autonomous State belongs to the United States and, unlike the other territories, has a presidential system: the governor is elected directly by the voters of the whole state, there is no premier, and the governor appoints the heads of the departments to form a cabinet, mostly from the governor’s own party. The State Legislature has two chambers, the Assembly and the Senate; a bill must pass both and be signed by the governor, a veto can be overridden by two-thirds of each chamber, and raising a tax takes two-thirds as well.\nA district too small for a seat of its own votes with the nearest one that has seats. In the Assembly, Bayesian in the Bay votes in the Gated Heights district of Billsborough, which the Accelerate Party won.\nCalifornia also keeps its direct democracy. Voters can petition to put a proposition on the ballot, or to recall any elected official, and once there are enough signatures the recall goes to a vote. Gathering signatures has long been a business, with firms paid by the signature, and every time the Secretary of State has to strike out the signatures generated by models before checking can begin. Every general election ballot comes with dozens of propositions whose explanatory leaflets are written by lobbying firms with models and grow longer each time, and voters use models to boil them down to a sentence."
@@ -230,6 +273,7 @@ legislatures:
       names: { zh: 加利福尼亚州最高法院, en: Supreme Court of California }
       title: { zh: 首席大法官, en: Chief Justice }
       judges: 7
+      law: {zh: "普通法（加利福尼亚州法典）", en: "Common law (the California Codes)"}
     mayor: { zh: 市长, en: Mayor }
     council_seats: [9, 2]
     council_range: [7, 17]
@@ -249,6 +293,7 @@ legislatures:
       div_35n7cb:
         names: { zh: 市政董事会, en: City Board }
         mayor: { zh: 市长兼首席执行官, en: Mayor and Chief Executive Officer }
+        deputy_mayor: {zh: "副市长兼首席运营官", en: "Deputy Mayor and Chief Operating Officer"}
         speaker: { zh: 董事会主席, en: Chair of the Board }
         notes:
           zh: "贝叶斯市没有市议会，只有市政董事会。7名董事由各选区居民直选，市长兼首席执行官由全市直选，每个季度要向董事会提交一份报告，格式和上市公司的财报一样。董事会在一座数据中心的会议室里开会，会议记录由模型实时生成，董事们会后只需点击「同意」。全市常住居民不多，大多是公司高管和他们的安保人员，投票率62.5%，在全州各市中仅次于离岸群岛。机器人出租车和送货机器人不是选民，但董事会每年都要讨论一次是否给它们投票权。"
@@ -273,9 +318,14 @@ legislatures:
     governor: {"zh": "联邦总统", "en": "Federal President"}
     minority: {"zh": "反对党领袖", "en": "Leader of the Opposition"}
     speaker: {"zh": "联邦议会议长", "en": "Speaker of the Federal Assembly"}
-    court: {"names": {"zh": "联邦最高法院", "en": "Federal Supreme Court"}, "title": {"zh": "首席大法官", "en": "Chief Justice"}, "judges": 9}
+    deputy: {zh: "联邦副总统", en: "Federal Vice-President"}
+    agencies:
+    - {names: {zh: "联邦银行", en: "Federal Bank"}, title: {zh: "行长", en: "Governor"}}
+    - {names: {zh: "联邦审计院", en: "Federal Court of Audit"}, title: {zh: "院长", en: "President"}}
+    - {names: {zh: "联邦选举委员会", en: "Federal Electoral Commission"}, title: {zh: "主席", en: "Chair"}}
+    court: {"names": {"zh": "联邦最高法院", "en": "Federal Supreme Court"}, "title": {"zh": "首席大法官", "en": "Chief Justice"}, "judges": 9, "law": {"zh": "大陆法，宪法序言援引基督教伦理", "en": "Civil law, under a constitution whose preamble invokes Christian ethics"}}
     mayor: {"zh": "市长", "en": "Mayor"}
-    ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}}
+    ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "联邦财政部", "en": "Federal Ministry of Finance"}, "justice": {"zh": "司法部", "en": "Ministry of Justice"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "education": {"zh": "教育与家庭部", "en": "Ministry of Education and the Family"}, "transport": {"zh": "交通部", "en": "Ministry of Transport"}, "construction": {"zh": "住房与建设部", "en": "Ministry of Housing and Construction"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}, "labour": {"zh": "劳动部", "en": "Ministry of Labour"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "农业与环境部", "en": "Ministry of Agriculture and the Environment"}}
   div_t5zph6:  # M7
     names: {"zh": "国民议会", "en": "National Assembly"}
     system: "pr_regional"
@@ -286,10 +336,15 @@ legislatures:
     governor_note: {"zh": "由国民议会选出的国家元首", "en": "Head of state, elected by the National Assembly"}
     premier: {"zh": "总理", "en": "Prime Minister"}
     speaker: {"zh": "议长", "en": "Speaker"}
+    deputy: {zh: "副总理", en: "Deputy Prime Minister"}
+    agencies:
+    - {names: {zh: "宗教学者委员会", en: "Council of Religious Scholars"}, title: {zh: "主席", en: "Chair"}}
+    - {names: {zh: "萨希利亚中央银行", en: "Central Bank of Sahiliya"}, title: {zh: "行长", en: "Governor"}}
+    - {names: {zh: "宗教基金管理局", en: "Endowments Authority"}, title: {zh: "局长", en: "Director"}}
     system_notes: {"zh": "国民议会 101 席，全国为一个选区，按各党得票比例分配（最大余额法），不设门槛。总统由国民议会选出，任命能够获得议会多数支持的总理；宗教学者委员会审查法律是否符合宪法规定的教法原则，但不审查预算。", "en": "The National Assembly has 101 seats, elected across the whole country as one constituency in proportion to each party's vote (largest remainder), with no threshold. The President, elected by the Assembly, appoints a prime minister who can command a majority; the Council of Religious Scholars reviews laws against the constitution's principles of religious law, but not the budget."}
-    court: {"names": {"zh": "最高法院", "en": "Supreme Court"}, "title": {"zh": "首席法官", "en": "Chief Justice"}, "judges": 9}
+    court: {"names": {"zh": "最高法院", "en": "Supreme Court"}, "title": {"zh": "首席法官", "en": "Chief Justice"}, "judges": 9, "law": {"zh": "成文法，家庭事务适用伊斯兰教法", "en": "Codified law, with sharia in family matters"}}
     mayor: {"zh": "市长", "en": "Mayor"}
-    ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}}
+    ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "财政与经济部", "en": "Ministry of Finance and the Economy"}, "justice": {"zh": "司法与宗教事务部", "en": "Ministry of Justice and Religious Affairs"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "education": {"zh": "教育部", "en": "Ministry of Education"}, "transport": {"zh": "港口与交通部", "en": "Ministry of Ports and Transport"}, "construction": {"zh": "公共工程部", "en": "Ministry of Public Works"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}, "labour": {"zh": "劳动与社会事务部", "en": "Ministry of Labour and Social Affairs"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "渔业与环境部", "en": "Ministry of Fisheries and the Environment"}}
   div_4f0pgt:  # M16
     names: {"zh": "国会", "en": "Congress"}
     system: "mmp"
@@ -300,9 +355,14 @@ legislatures:
     governor: {"zh": "总统", "en": "President"}
     minority: {"zh": "少数党领袖", "en": "Minority Leader"}
     speaker: {"zh": "国会议长", "en": "Speaker of Congress"}
-    court: {"names": {"zh": "最高法院", "en": "Supreme Court"}, "title": {"zh": "首席大法官", "en": "Chief Justice"}, "judges": 7}
+    deputy: {zh: "副总统", en: "Vice-President"}
+    agencies:
+    - {names: {zh: "贝洛瓦货币管理局", en: "Belova Monetary Authority"}, title: {zh: "总裁", en: "Governor"}}
+    - {names: {zh: "证券与交易委员会", en: "Securities and Exchange Commission"}, title: {zh: "主席", en: "Chair"}}
+    - {names: {zh: "反腐败委员会", en: "Anti-Corruption Commission"}, title: {zh: "主席", en: "Chair"}}
+    court: {"names": {"zh": "最高法院", "en": "Supreme Court"}, "title": {"zh": "首席大法官", "en": "Chief Justice"}, "judges": 7, "law": {"zh": "大陆法", "en": "Civil law"}}
     mayor: {"zh": "市长", "en": "Mayor"}
-    ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}}
+    ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "财政部", "en": "Ministry of Finance"}, "justice": {"zh": "司法部", "en": "Ministry of Justice"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "education": {"zh": "教育部", "en": "Ministry of Education"}, "transport": {"zh": "交通与港口部", "en": "Ministry of Transport and Ports"}, "construction": {"zh": "投资与开发部", "en": "Ministry of Investment and Development"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}, "labour": {"zh": "劳动部", "en": "Ministry of Labour"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "环境部", "en": "Ministry of the Environment"}}
   div_78xf6t:  # N2
     names: {"zh": "王国议会", "en": "Parliament of the Kingdom"}
     system: "pr_regional"
@@ -313,10 +373,15 @@ legislatures:
     governor_note: {"zh": "世袭的虚位元首", "en": "Hereditary, ceremonial head of state"}
     premier: {"zh": "首相", "en": "Prime Minister"}
     speaker: {"zh": "议长", "en": "Speaker"}
+    deputy: {zh: "副首相", en: "Deputy Prime Minister"}
+    agencies:
+    - {names: {zh: "王国银行", en: "Bank of the Kingdom"}, title: {zh: "行长", en: "Governor"}}
+    - {names: {zh: "审计长公署", en: "Office of the Auditor-General"}, title: {zh: "审计长", en: "Auditor-General"}}
+    - {names: {zh: "申诉专员公署", en: "Office of the Ombudsman"}, title: {zh: "申诉专员", en: "Ombudsman"}}
     system_notes: {"zh": "议会 51 席，全国为一个选区，按各党得票比例分配（最大余额法），不设门槛。国王依惯例任命能够获得议会多数支持的政党领袖为首相，并接受首相提出的内阁名单。", "en": "The parliament has 51 seats, elected across the whole country as one constituency in proportion to each party's vote (largest remainder), with no threshold. By convention the King appoints as prime minister the party leader who can command a majority, and accepts the cabinet the prime minister proposes."}
-    court: {"names": {"zh": "王国最高法院", "en": "Supreme Court of the Kingdom"}, "title": {"zh": "首席法官", "en": "Chief Justice"}, "judges": 7}
+    court: {"names": {"zh": "王国最高法院", "en": "Supreme Court of the Kingdom"}, "title": {"zh": "首席法官", "en": "Chief Justice"}, "judges": 7, "law": {"zh": "普通法", "en": "Common law"}}
     mayor: {"zh": "市长", "en": "Mayor"}
-    ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}}
+    ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "财政部", "en": "Ministry of Finance"}, "justice": {"zh": "司法部", "en": "Ministry of Justice"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "education": {"zh": "教育与文化部", "en": "Ministry of Education and Culture"}, "transport": {"zh": "交通与海事部", "en": "Ministry of Transport and Maritime Affairs"}, "construction": {"zh": "住房部", "en": "Ministry of Housing"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}, "labour": {"zh": "就业与社会保障部", "en": "Ministry of Employment and Social Security"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "农业、渔业与环境部", "en": "Ministry of Agriculture, Fisheries and the Environment"}}
   div_hxyyfe:  # N5
     names: {"zh": "大议会", "en": "Great Council"}
     system: "pr_regional"
@@ -324,10 +389,15 @@ legislatures:
     turnout: 0.66
     premier: {"zh": "执政官", "en": "Doge"}
     speaker: {"zh": "大议会议长", "en": "Speaker of the Great Council"}
+    deputy: {zh: "副执政官", en: "Deputy Doge"}
+    agencies:
+    - {names: {zh: "港务局", en: "Port Authority"}, title: {zh: "局长", en: "Director"}}
+    - {names: {zh: "商会仲裁院", en: "Chamber of Commerce Court of Arbitration"}, title: {zh: "院长", en: "President"}}
+    - {names: {zh: "共和国银行", en: "Bank of the Republic"}, title: {zh: "行长", en: "Governor"}}
     system_notes: {"zh": "大议会 75 席，全国为一个选区，按各党得票比例分配（最大余额法），不设门槛。共和国不另设国家元首：大议会从议员中选出执政官，任期六年，不得连任，执政官既代表共和国，也领导政务委员会，向大议会负责。", "en": "The Great Council has 75 seats, elected across the whole country as one constituency in proportion to each party's vote (largest remainder), with no threshold. The republic has no separate head of state: the Great Council chooses the Doge from among its members for six years without a second term, and the Doge both represents the republic and leads the Council of Government, answering to the Great Council."}
-    court: {"names": {"zh": "共和国高等法院", "en": "High Court of the Republic"}, "title": {"zh": "首席法官", "en": "Chief Justice"}, "judges": 7}
+    court: {"names": {"zh": "共和国高等法院", "en": "High Court of the Republic"}, "title": {"zh": "首席法官", "en": "Chief Justice"}, "judges": 7, "law": {"zh": "大陆法，商法传统深厚", "en": "Civil law, with a deep commercial-law tradition"}}
     mayor: {"zh": "市长", "en": "Mayor"}
-    ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}}
+    ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "财政与贸易部", "en": "Ministry of Finance and Trade"}, "justice": {"zh": "司法部", "en": "Ministry of Justice"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "education": {"zh": "教育部", "en": "Ministry of Education"}, "transport": {"zh": "航运与港口部", "en": "Ministry of Shipping and Ports"}, "construction": {"zh": "城市规划部", "en": "Ministry of Urban Planning"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}, "labour": {"zh": "劳动部", "en": "Ministry of Labour"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "海洋与环境部", "en": "Ministry of the Sea and the Environment"}}
   div_gebca7:  # S1
     names: {"zh": "自由邦议会", "en": "Parliament of the Free State"}
     system: "pr_regional"
@@ -338,10 +408,15 @@ legislatures:
     governor_note: {"zh": "由议会选出的虚位元首", "en": "Ceremonial head of state, elected by parliament"}
     premier: {"zh": "总理", "en": "Prime Minister"}
     speaker: {"zh": "议长", "en": "Speaker"}
+    deputy: {zh: "副总理", en: "Deputy Prime Minister"}
+    agencies:
+    - {names: {zh: "宗教平等委员会", en: "Commission for Religious Equality"}, title: {zh: "主席", en: "Chair"}}
+    - {names: {zh: "萨马伊中央银行", en: "Central Bank of Samay"}, title: {zh: "行长", en: "Governor"}}
+    - {names: {zh: "选举委员会", en: "Electoral Commission"}, title: {zh: "主席", en: "Chair"}}
     system_notes: {"zh": "议会 81 席，全国为一个选区，按各党得票比例分配（最大余额法），不设门槛。不设门槛，各宗教社区的政党和小党因此容易进入议会。总理须获得议会多数的信任，宪法法院可以审查任何涉及宗教自由的法律。", "en": "The parliament has 81 seats, elected across the whole country as one constituency in proportion to each party's vote (largest remainder), with no threshold. With no threshold the parties of the faith communities and small parties find their way in easily. The prime minister needs the confidence of a majority, and the constitutional court may review any law that touches religious freedom."}
-    court: {"names": {"zh": "宪法法院", "en": "Constitutional Court"}, "title": {"zh": "院长", "en": "President of the Court"}, "judges": 9}
+    court: {"names": {"zh": "宪法法院", "en": "Constitutional Court"}, "title": {"zh": "院长", "en": "President of the Court"}, "judges": 9, "law": {"zh": "大陆法", "en": "Civil law"}}
     mayor: {"zh": "市长", "en": "Mayor"}
-    ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}}
+    ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "财政部", "en": "Ministry of Finance"}, "justice": {"zh": "司法部", "en": "Ministry of Justice"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "education": {"zh": "教育部", "en": "Ministry of Education"}, "transport": {"zh": "交通部", "en": "Ministry of Transport"}, "construction": {"zh": "公共工程部", "en": "Ministry of Public Works"}, "civil": {"zh": "内政与宗教社区部", "en": "Ministry of the Interior and Faith Communities"}, "labour": {"zh": "劳动与社会事务部", "en": "Ministry of Labour and Social Affairs"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "环境与防灾部", "en": "Ministry of the Environment and Disaster Preparedness"}}
   div_4nnakk:  # S3
     names: {"zh": "岛民议会", "en": "Islanders' Assembly"}
     system: "pr_regional"
@@ -352,10 +427,15 @@ legislatures:
     governor_note: {"zh": "由母亲议会推选，终身任职", "en": "Chosen by the Mothers' Council, for life"}
     premier: {"zh": "首席部长", "en": "Chief Minister"}
     speaker: {"zh": "议长", "en": "Speaker"}
+    deputy: {zh: "副首席部长", en: "Deputy Chief Minister"}
+    agencies:
+    - {names: {zh: "母亲议会秘书处", en: "Secretariat of the Mothers' Council"}, title: {zh: "秘书长", en: "Secretary-General"}}
+    - {names: {zh: "潟湖与渔业管理局", en: "Lagoon and Fisheries Authority"}, title: {zh: "局长", en: "Director"}}
+    - {names: {zh: "审计署", en: "Audit Office"}, title: {zh: "审计长", en: "Auditor-General"}}
     system_notes: {"zh": "岛民议会 41 席，全国为一个选区，按各党得票比例分配（最大余额法），不设门槛。首席部长须获得岛民议会多数的支持；涉及氏族土地和习惯法的法案，须经母亲议会同意才能生效。", "en": "The Islanders' Assembly has 41 seats, elected across the whole country as one constituency in proportion to each party's vote (largest remainder), with no threshold. The Chief Minister needs the support of a majority of the Assembly, and bills touching clan land or customary law take effect only with the consent of the Mothers' Council."}
-    court: {"names": {"zh": "群岛邦高等法院", "en": "High Court of the Commonwealth"}, "title": {"zh": "首席法官", "en": "Chief Justice"}, "judges": 6}
+    court: {"names": {"zh": "群岛邦高等法院", "en": "High Court of the Commonwealth"}, "title": {"zh": "首席法官", "en": "Chief Justice"}, "judges": 6, "law": {"zh": "普通法与母系习惯法", "en": "Common law and matrilineal customary law"}}
     mayor: {"zh": "市长", "en": "Mayor"}
-    ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "security": {"zh": "海岸巡逻部", "en": "Ministry of the Coastal Patrol"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}}
+    ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "财政部", "en": "Ministry of Finance"}, "justice": {"zh": "司法部", "en": "Ministry of Justice"}, "security": {"zh": "海岸巡逻部", "en": "Ministry of Coastal Patrol"}, "education": {"zh": "教育部", "en": "Ministry of Education"}, "transport": {"zh": "航运与岛际交通部", "en": "Ministry of Shipping and Inter-Island Transport"}, "construction": {"zh": "公共工程部", "en": "Ministry of Public Works"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}, "labour": {"zh": "劳动部", "en": "Ministry of Labour"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "潟湖与环境部", "en": "Ministry of the Lagoon and the Environment"}}
   # <<< ranova
 # Officeholders' names: each takes a name in one of the place's first languages, drawn by its share
 # (the governor's in Chinese).

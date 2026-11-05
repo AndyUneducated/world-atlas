@@ -195,6 +195,15 @@ def check_models(ents: dict) -> dict[str, list[str]]:
     holders: list[tuple[str, str]] = []
     ministries = len(MINISTRIES)
     for eid, e in ents.items():
+        if e.get("role") == "nation" and "legislature" not in e:
+            g, name = e.get("government", {}), e["names"]["zh"]
+            if not (e.get("nation", {}).get("legislature") and g.get("executive") and g.get("judiciary")):
+                seats.append(f"{name}: a nation has an executive, a legislature and a judiciary, or says it does without one")
+            ex, ju = g.get("executive", {}), g.get("judiciary", {})
+            holders += [(ex[k]["name"]["en"], f"{name} {k}") for k in ("head", "deputy") if k in ex]
+            holders += [(m["name"]["en"], f"{name} {m['ministry']['en']}") for m in ex.get("ministers", [])]
+            if "name" in ju:
+                holders += [(ju["name"]["en"], f"{name} presiding judge"), *((j["en"], f"{name} judge") for j in ju["judges"])]
         if e.get("kind") != "division" or e.get("subtype") not in ("dependency", "locality", "borough"):
             continue
         c = e.get("climate")
@@ -221,9 +230,12 @@ def check_models(ents: dict) -> dict[str, list[str]]:
             for role in ("speaker",) if body.get("elected") or key == "upper" else ("head", "speaker"):
                 if body.get(role, {}).get("party") not in body["government"]:
                     seats.append(f"{name} {key}: the {role}'s party is not in government")
-            for role in ("head", "speaker"):
+            for role in ("head", "speaker", "deputy"):
                 if role in body:
                     holders.append((body[role]["name"]["en"], f"{name} {key} {role}"))
+            if "deputy" in body and body["deputy"]["party"] not in body["government"] and not body.get("elected"):
+                seats.append(f"{name} {key}: the deputy's party is not in government")
+            holders += [(a["name"]["en"], f"{name} {a['names']['en']}") for a in body.get("agencies", [])]
             if key == "legislature":
                 cabinet = [body["head"]["party"]] if body.get("elected") else body["government"]
                 if body.get("elected"):

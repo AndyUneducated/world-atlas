@@ -469,6 +469,47 @@ def _appoint(model: dict, entities: dict, people: "_People", holders: dict[str, 
         L["court"]["judges"] = _judges(people, tid, model["legislatures"][tid]["court"], langs, avoid)
 
 
+def _offices(world: World, model: dict, entities: dict, people: "_People") -> None:
+    """Deputies, independent bodies and the governments of nations without an elected parliament, named
+    last of all so that adding them renames no one. A coalition's junior partner holds the deputy's post."""
+    for tid, leg in model["legislatures"].items():
+        L = entities[tid]["legislature"]
+        langs = entities[tid].get("demographics", {}).get("languages", {"zh": 100})
+        avoid = {_given(o["name"]) for o in (L["head"], L["speaker"], L["court"], *L["ministers"])}
+        if "deputy" in leg:
+            party = L["head"]["party"] if L.get("elected") or len(L["government"]) < 2 else L["government"][1]
+            L["deputy"] = {"title": leg["deputy"], "name": people.draw("deputy:" + tid, langs, avoid, tid), "party": party}
+        if "agencies" in leg:
+            L["agencies"] = [{"names": a["names"], "title": a["title"], "name": people.draw(f"agency:{tid}:{i}", langs, avoid, tid)}
+                             for i, a in enumerate(leg["agencies"])]
+        if "deputy_mayor" in leg:
+            for cid, c in world.divisions.items():
+                if c.get("parent") == tid and (council := entities[cid].get("council")):
+                    clangs = entities[cid].get("demographics", {}).get("languages", {"zh": 100})
+                    title = leg.get("councils", {}).get(cid, {}).get("deputy_mayor", leg["deputy_mayor"])
+                    council["deputy"] = {"title": title, "name": people.draw("deputy-mayor:" + cid, clangs, where=tid),
+                                         "party": council["head"]["party"]}
+    for nid, d in world.divisions.items():
+        n = d.get("nation")
+        if not n or nid in model["legislatures"]:
+            continue
+        langs = entities[nid].get("demographics", {}).get("languages", {"zh": 100})
+        avoid = {_given(n["head"]["name"])}
+        ex, ju = n.get("executive", {}), n.get("judiciary", {})
+        entities[nid]["government"] = {
+            "executive": {"none": ex["none"]} if "none" in ex else {
+                "names": ex["names"], **({"notes": ex["notes"]} if "notes" in ex else {}),
+                **{k: {"title": ex[k]["title"], "name": ex[k].get("name") or people.draw(f"{k}:{nid}", langs, avoid, nid)} for k in ("head", "deputy") if k in ex},
+                "ministers": [{"ministry": m, "name": people.draw(f"minister:{nid}:{i}", langs, avoid, nid)} for i, m in enumerate(ex.get("ministries", []))],
+            },
+            "judiciary": {"none": ju["none"]} if "none" in ju else {
+                "names": ju["names"], "title": ju["title"], "law": ju["law"], **({"notes": ju["notes"]} if "notes" in ju else {}),
+                "name": people.draw("justice:" + nid, langs, avoid, nid),
+                "judges": [people.draw(f"judge:{nid}:{i}", langs, avoid, nid) for i in range(ju["judges"] - 1)],
+            },
+        }
+
+
 def annotate(world: World, entities: dict) -> None:
     """Add elections and officeholders to territories, cities and districts, and an entity for every party."""
     model = world.politics
@@ -510,7 +551,8 @@ def annotate(world: World, entities: dict) -> None:
                                **({"title": leg["minority"]} if elected else {})}} if opposition else {}),
             "cabinet": [{"id": p, "seats": n} for p in ([gp] if elected else gov) if (n := sum(h == p for h in holder.values()))],
             "ministers": [],
-            "court": {"names": leg["court"]["names"], "title": leg["court"]["title"], "name": people.draw("justice:" + tid, langs, where=tid), "judges": []},
+            "court": {"names": leg["court"]["names"], "title": leg["court"]["title"], "name": people.draw("justice:" + tid, langs, where=tid), "judges": [],
+                      **({"law": leg["court"]["law"]} if "law" in leg["court"] else {})},
             **_chamber(won, share, extra, gov),
         }
         if up := leg.get("upper"):
@@ -590,3 +632,4 @@ def annotate(world: World, entities: dict) -> None:
             "seats": seats_held[pid],
         }
     _appoint(model, entities, people, holders, parties)
+    _offices(world, model, entities, people)

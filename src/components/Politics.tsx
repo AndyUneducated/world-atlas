@@ -44,7 +44,7 @@ function Tag({ tone, children }: { tone: "gov" | "mayor" | "plain"; children: Re
 }
 
 /** One branch of government under its own small heading, ruled off to the right. */
-function Branch({ label, children }: { label: string; children: ReactNode }) {
+export function Branch({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="mt-5 first:mt-0">
       <h4 className="mb-2.5 flex items-center gap-2 text-[11.5px] font-semibold text-muted">
@@ -57,7 +57,7 @@ function Branch({ label, children }: { label: string; children: ReactNode }) {
 }
 
 /** The formal name of a body, given room of its own above what it does. */
-function BodyName({ name, sub }: { name: string; sub?: string }) {
+export function BodyName({ name, sub }: { name: string; sub?: string }) {
   return (
     <div className="mb-2.5">
       <p className="text-[14.5px] leading-snug font-semibold text-ink text-balance">{name}</p>
@@ -196,12 +196,13 @@ function Cabinet({ data, L, lang }: { data: AtlasData; L: Legislature; lang: Lan
     ...(experts ? [{ key: "", n: experts, color: NON_PARTISAN, label: t("nonPartisan", lang) }] : []),
   ];
   const total = L.ministers.length;
+  const departments = L.ministers.every((m) => m.ministry.zh.endsWith("厅"));
   const ministry = (m: Localized) => (lang === "en" ? m.en.replace(/^(Ministry|Department) of /, "") : m.zh);
   return (
     <div className="mt-3">
       <p className="mb-1.5 flex items-baseline justify-between text-[11px] text-faint">
         <span>{t("cabinet", lang)}</span>
-        <span className="tabular-nums">{lang === "zh" ? `${total} 个${L.elected ? "厅" : "部"}` : `${total} ${L.elected ? "departments" : "ministries"}`}</span>
+        <span className="tabular-nums">{lang === "zh" ? `${total} 个${departments ? "厅" : "部"}` : `${total} ${departments ? "departments" : "ministries"}`}</span>
       </p>
       <div className="flex h-2 gap-[2px] overflow-hidden rounded-full">
         {parts.map((c, i) => (
@@ -263,6 +264,7 @@ export function LegislatureSection({ data, entity, lang }: { data: AtlasData; en
             ...(L.governor ? [holderRow(data, L.governor.title, L.governor, lang, L.governor.note?.[lang] ?? t("centralAppointee", lang))] : []),
             holderRow(data, L.head.title, L.head, lang),
             ...runoffRow(data, L.head, lang),
+            ...(L.deputy ? [holderRow(data, L.deputy.title, L.deputy, lang)] : []),
           ]}
         />
         <Cabinet data={data} L={L} lang={lang} />
@@ -297,11 +299,24 @@ export function LegislatureSection({ data, entity, lang }: { data: AtlasData; en
         <BodyName name={L.court.names[lang]} sub={lang === "zh" ? `法官 ${L.court.judges.length + 1} 人` : `${L.court.judges.length + 1} judges`} />
         <Rows
           rows={[
+            ...(L.court.law ? [[t("legalSystem", lang), L.court.law[lang]] as [string, string]] : []),
             holderRow(data, L.court.title, L.court, lang),
             [t("judges", lang), <span className="leading-relaxed text-ink">{L.court.judges.map((j) => j[lang]).join(lang === "zh" ? "、" : ", ")}</span>],
           ]}
         />
       </Branch>
+      {L.agencies?.length ? (
+        <Branch label={t("agencies", lang)}>
+          <Rows
+            rows={L.agencies.map((a) => [
+              a.names[lang],
+              <span className="text-ink">
+                <span className="text-muted">{a.title[lang]}</span> {a.name[lang]}
+              </span>,
+            ] as [string, ReactNode])}
+          />
+        </Branch>
+      ) : null}
     </Section>
   );
 }
@@ -313,7 +328,7 @@ export function CouncilSection({ data, entity, lang }: { data: AtlasData; entity
   return (
     <Section title={t("politicsTitle", lang)}>
       <Branch label={t("executive", lang)}>
-        <Rows rows={[holderRow(data, c.head.title, c.head, lang), ...runoffRow(data, c.head, lang)]} />
+        <Rows rows={[holderRow(data, c.head.title, c.head, lang), ...runoffRow(data, c.head, lang), ...(c.deputy ? [holderRow(data, c.deputy.title, c.deputy, lang)] : [])]} />
       </Branch>
       <Branch label={t("legislature", lang)}>
         <BodyName name={c.names[lang]} sub={`${c.seats} ${t("seatsUnit", lang)}`} />

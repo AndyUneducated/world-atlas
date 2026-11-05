@@ -285,6 +285,27 @@ divisions:
     bloc: bloc:secular
     bloc_role: {zh: 盟主, en: Leader}
     recognition: 12
+    executive:
+      names: {zh: "部长会议", en: "Council of Ministers"}
+      head:
+        title: {zh: "部长会议主席", en: "Chairman of the Council of Ministers"}
+      deputy:
+        title: {zh: "部长会议第一副主席", en: "First Deputy Chairman of the Council of Ministers"}
+      ministries:
+      - {zh: "外交部", en: "Ministry of Foreign Affairs"}
+      - {zh: "国防部", en: "Ministry of Defence"}
+      - {zh: "国家安全部", en: "Ministry of State Security"}
+      - {zh: "内务部", en: "Ministry of Internal Affairs"}
+      - {zh: "国家计划委员会", en: "State Planning Commission"}
+      - {zh: "财政部", en: "Ministry of Finance"}
+      - {zh: "重工业部", en: "Ministry of Heavy Industry"}
+      - {zh: "矿业部", en: "Ministry of Mines"}
+      - {zh: "农业和集体农庄部", en: "Ministry of Agriculture and Collective Farms"}
+      - {zh: "港口和渔业部", en: "Ministry of Ports and Fisheries"}
+      - {zh: "教育部", en: "Ministry of Education"}
+      - {zh: "卫生部", en: "Ministry of Health"}
+      - {zh: "文化和宣传部", en: "Ministry of Culture and Propaganda"}
+      notes: {zh: "部长会议执行劳动党政治局的决定，主席由政治局委员担任，各部部长由人民代表大会根据党的提名任命。国家计划委员会制定五年计划，地位高于各部。", en: "The Council of Ministers carries out the decisions of the Labour Party Politburo; its chairman is a Politburo member and the ministers are appointed by the People's Congress on the party's nomination. The State Planning Commission, which draws up the five-year plans, ranks above the ministries."}
     legislature:
       names: {zh: 人民代表大会, en: People's Congress}
       seats: 300
@@ -298,6 +319,12 @@ divisions:
       - names: {zh: 无党派人士, en: Non-party members}
         seats: 20
         color: '#9E9E9E'
+    judiciary:
+      names: {zh: "最高人民法院", en: "Supreme People's Court"}
+      title: {zh: "院长", en: "President of the Court"}
+      judges: 9
+      law: {zh: "社会主义法制（成文法）", en: "Socialist legality (codified law)"}
+      notes: {zh: "最高人民法院向人民代表大会负责，法官由党组织提名。涉及国家安全的案件由国家安全部移送特别法庭审理，辩护律师须经批准才能执业。", en: "The Supreme People's Court answers to the People's Congress and its judges are nominated by the party. Cases touching state security go to a special tribunal on referral from the Ministry of State Security, and defence lawyers practise only with official approval."}
     military:
       active: 60000
       reserve: 150000
@@ -449,6 +476,23 @@ divisions:
     bloc: bloc:secular
     bloc_role: {zh: 成员, en: Member}
     recognition: 9
+    executive:
+      names: {zh: "政务院", en: "Cabinet"}
+      head:
+        title: {zh: "政务院总理", en: "Premier"}
+      deputy:
+        title: {zh: "政务院副总理", en: "Vice-Premier"}
+      ministries:
+      - {zh: "人民武力部", en: "Ministry of the People's Armed Forces"}
+      - {zh: "国家保卫部", en: "Ministry of State Protection"}
+      - {zh: "社会安全部", en: "Ministry of Social Security"}
+      - {zh: "对外经济部", en: "Ministry of External Economic Relations"}
+      - {zh: "国家计划委员会", en: "State Planning Commission"}
+      - {zh: "农业部", en: "Ministry of Agriculture"}
+      - {zh: "渔业部", en: "Ministry of Fisheries"}
+      - {zh: "教育部", en: "Ministry of Education"}
+      - {zh: "保健部", en: "Ministry of Public Health"}
+      notes: {zh: "政务院只负责经济和日常行政。军队、国家保卫部和对外事务由沃利家族和劳动党中央军事委员会直接掌握，人民武力部长和国家保卫部长同时是中央军事委员会委员。", en: "The Cabinet handles only the economy and day-to-day administration. The armed forces, state protection and foreign affairs are kept in the hands of the Voly family and the party's Central Military Commission, on which the ministers of the armed forces and of state protection both sit."}
     legislature:
       names: {zh: 最高人民会议, en: Supreme People's Assembly}
       seats: 500
@@ -459,6 +503,12 @@ divisions:
       - names: {zh: 社会主义青年同盟, en: Socialist Youth League}
         seats: 20
         color: '#F2C230'
+    judiciary:
+      names: {zh: "中央裁判所", en: "Central Court"}
+      title: {zh: "所长", en: "President of the Court"}
+      judges: 7
+      law: {zh: "社会主义法制与领袖教导", en: "Socialist legality and the Leader's teachings"}
+      notes: {zh: "审判以「一心团结」思想和历代领袖的教导为准绳。政治案件不经中央裁判所，而由国家保卫部的特别审判庭不公开审理，被判刑者的家属常被一并流放到内陆劳动营。", en: "Trials are guided by the One-Heart Unity doctrine and the teachings of the successive Leaders. Political cases bypass the Central Court and are heard in secret by the Ministry of State Protection's special tribunal; the families of those convicted are often banished with them to labour camps inland."}
     military:
       active: 30000
       reserve: 200000
@@ -564,6 +614,20 @@ divisions:
     bloc: bloc:origin
     bloc_role: {zh: 盟主, en: Leader}
     recognition: 4
+    executive:
+      names: {zh: "民族政府", en: "National Government"}
+      head:
+        title: {zh: "首席国务部长", en: "Chief Minister of State"}
+      ministries:
+      - {zh: "国防部", en: "Ministry of Defence"}
+      - {zh: "内政部", en: "Ministry of the Interior"}
+      - {zh: "民族宣传部", en: "Ministry of National Propaganda"}
+      - {zh: "血统登记局", en: "Lineage Registry Office"}
+      - {zh: "对外事务部", en: "Ministry of External Affairs"}
+      - {zh: "财政部", en: "Ministry of Finance"}
+      - {zh: "农业与土地部", en: "Ministry of Agriculture and Land"}
+      - {zh: "青年与劳动服务部", en: "Ministry of Youth and Labour Service"}
+      notes: {zh: "各部部长由民族领袖任免，只对领袖本人负责。首席国务部长协调各部的日常事务，没有独立的决策权。血统登记局负责划分居民的「血统等级」，决定其能否担任公职、拥有土地和服兵役，是原住民和卡西里人遭受系统性歧视的制度根源。", en: "Ministers are appointed and dismissed by the National Leader and answer to him alone. The Chief Minister of State coordinates the ministries' daily business without any power of decision. The Lineage Registry Office sorts residents into 'lineage grades' that decide whether they may hold office, own land or serve in the army, and is the institutional root of the systematic discrimination against indigenous and Kasiri people."}
     legislature:
       names: {zh: 国民议会, en: National Assembly}
       seats: 200
@@ -574,6 +638,12 @@ divisions:
       - names: {zh: 民族卫队代表, en: National Guard delegates}
         seats: 20
         color: '#333333'
+    judiciary:
+      names: {zh: "民族法院", en: "National Court"}
+      title: {zh: "院长", en: "President of the Court"}
+      judges: 7
+      law: {zh: "领袖法令与民族法典", en: "The Leader's decrees and the National Code"}
+      notes: {zh: "法官须是民族社会主义运动成员，法院按「民族利益」原则审判，可以不经正当程序判处「危害民族罪」。原住民和卡西里人在法庭上的证词效力低于「定居者后裔」，人权组织把这一制度列为种族隔离。", en: "Judges must belong to the National Socialist Movement; the court judges by the 'national interest' and may convict of 'crimes against the nation' without due process. The testimony of indigenous and Kasiri people counts for less than that of the 'settlers' descendants', a system human rights organisations describe as apartheid."}
     military:
       active: 55000
       reserve: 90000
@@ -728,6 +798,18 @@ divisions:
     bloc: bloc:origin
     bloc_role: {zh: 成员（与盟主不和）, en: Member (at odds with the leader)}
     recognition: 1
+    executive:
+      names: {zh: "先锋议会", en: "Vanguard Council"}
+      ministries:
+      - {zh: "武装支队指挥部", en: "Armed Detachments Command"}
+      - {zh: "治安处", en: "Order Section"}
+      - {zh: "物资分配处", en: "Supply Section"}
+      - {zh: "网络宣传处", en: "Online Propaganda Section"}
+      notes: {zh: "先锋议会由运动首领和各武装支队队长组成，兼管军事、治安和物资分配，不公布成员名单。各「处」只是首领身边的小组，没有常设的公务员队伍。", en: "The Vanguard Council is made up of the movement's leader and the commanders of its armed detachments; it runs fighting, policing and supplies and publishes no list of members. Its 'sections' are small groups around the leader, with no standing civil service."}
+    legislature:
+      none: {zh: "不设立法机关：运动首领的命令即是法令，先锋议会只在首领召集时开会。", en: "No legislature: the leader's orders are law, and the Vanguard Council meets only when he calls it."}
+    judiciary:
+      none: {zh: "不设法院：纠纷和「违纪」由武装支队就地处置，没有成文法，也没有辩护和上诉。", en: "No courts: disputes and 'breaches of discipline' are dealt with on the spot by the armed detachments, with no written law, defence or appeal."}
     military:
       active: 3000
       reserve: 2000
@@ -824,6 +906,20 @@ divisions:
     bloc: bloc:origin
     bloc_role: {zh: 成员, en: Member}
     recognition: 6
+    executive:
+      names: {zh: "过渡政府", en: "Transitional Government"}
+      head:
+        title: {zh: "总理", en: "Prime Minister"}
+      ministries:
+      - {zh: "国防部", en: "Ministry of Defence"}
+      - {zh: "内政与国土安全部", en: "Ministry of the Interior and Homeland Security"}
+      - {zh: "外交部", en: "Ministry of Foreign Affairs"}
+      - {zh: "财政与经济部", en: "Ministry of Finance and the Economy"}
+      - {zh: "农牧业部", en: "Ministry of Agriculture and Livestock"}
+      - {zh: "矿业与能源部", en: "Ministry of Mines and Energy"}
+      - {zh: "公共工程部", en: "Ministry of Public Works"}
+      - {zh: "卫生与教育部", en: "Ministry of Health and Education"}
+      notes: {zh: "总理和各部部长由国家拯救委员会任命，总理是一名退役陆军中将。国防、内政和矿业等要害部门由现役将领掌管，其余部门交给技术官僚。政府自称「过渡」，但还政于民的时间表已多次推迟。", en: "The prime minister, a retired army lieutenant-general, and the ministers are appointed by the National Salvation Committee. Serving generals run the key ministries of defence, the interior and mines; technocrats run the rest. The government calls itself transitional, but its timetable for a return to civilian rule has been put back again and again."}
     legislature:
       names: {zh: 国家拯救委员会, en: National Salvation Committee}
       seats: 21
@@ -837,6 +933,12 @@ divisions:
       - names: {zh: 国家宪兵, en: National Gendarmerie}
         seats: 4
         color: '#8A6D3B'
+    judiciary:
+      names: {zh: "最高法院", en: "Supreme Court"}
+      title: {zh: "首席法官", en: "Chief Justice"}
+      judges: 7
+      law: {zh: "大陆法传统，紧急状态法令优先", en: "Civil-law tradition, with emergency decrees taking precedence"}
+      notes: {zh: "紧急状态下，涉及安全和「破坏国家团结」的案件一律移交特别军事法庭，最高法院无权审查国家拯救委员会的法令。普通民事案件仍按旧共和国的法典审理。", en: "Under the state of emergency, every case touching security or 'undermining national unity' goes to a special military tribunal, and the Supreme Court may not review the Committee's decrees. Ordinary civil cases are still tried under the old republic's codes."}
     military:
       active: 25000
       reserve: 10000
@@ -1097,6 +1199,15 @@ divisions:
       name: {zh: 阿布·萨利姆（化名）, en: Abu Salimu (nom de guerre)}
     power: {zh: 武装组织指挥层与舒拉会议, en: The armed group's command and its shura}
     recognition: 0
+    executive:
+      names: {zh: "「酋长国」行政机构", en: "The 'Emirate's' administration"}
+      ministries:
+      - {zh: "军事委员会", en: "Military Commission"}
+      - {zh: "劝善惩恶委员会", en: "Commission for the Promotion of Virtue"}
+      - {zh: "财务委员会（天课与通行费）", en: "Finance Commission (alms and tolls)"}
+      - {zh: "宣传委员会", en: "Propaganda Commission"}
+      - {zh: "「外事」委员会", en: "'External Affairs' Commission"}
+      notes: {zh: "这些「委员会」实为武装组织的各个部门，主要负责作战、征税和管控居民，没有获得承认的行政机构。财务委员会在山口设卡，向过往车辆和农户强征「天课」和通行费，是组织的主要收入来源。", en: "These 'commissions' are departments of the armed group, chiefly for fighting, taxing and controlling the population; there is no recognised administration. The Finance Commission's checkpoints on the mountain passes extort 'alms' and tolls from traffic and farmers, the group's main income."}
     legislature:
       names: {zh: 舒拉会议, en: Shura}
       seats: 40
@@ -1110,6 +1221,12 @@ divisions:
       - names: {zh: 武装指挥官, en: Militia commanders}
         seats: 5
         color: '#6D4C41'
+    judiciary:
+      names: {zh: "「教法法庭」", en: "'Sharia courts'"}
+      title: {zh: "首席法官", en: "Chief Judge"}
+      judges: 5
+      law: {zh: "武装组织对教法的极端解释", en: "The armed group's extremist reading of religious law"}
+      notes: {zh: "法庭由武装组织任命的宗教人士组成，判决不经上诉即执行。联合国和人权组织记录了大量即决处决、肉刑和对妇女的强迫婚姻，萨希利亚的宗教学者委员会宣布这些法庭的判决在教法上无效。", en: "The courts are made up of clerics appointed by the armed group, and their sentences are carried out without appeal. The United Nations and human rights organisations have documented many summary executions, corporal punishments and forced marriages of women; Sahiliya's Council of Religious Scholars has declared the courts' rulings void in religious law."}
     military:
       active: 6000
       reserve: 0
@@ -1213,6 +1330,16 @@ divisions:
       name: {zh: 法拉·曼加西, en: Fara Mangasy}
     power: {zh: 九氏族议事会，以协商一致作出决定, en: 'The Council of the Nine Clans, deciding by consensus'}
     recognition: 15
+    executive:
+      names: {zh: "邦联协调处", en: "Confederal Coordination Office"}
+      ministries:
+      - {zh: "土地与牧场组", en: "Land and Pasture Group"}
+      - {zh: "牛群与水源组", en: "Herds and Water Group"}
+      - {zh: "矿产收益组", en: "Mineral Revenue Group"}
+      - {zh: "对外联络组", en: "External Liaison Group"}
+      - {zh: "学校与语言组", en: "Schools and Languages Group"}
+      - {zh: "巡护队", en: "Ranger Patrol"}
+      notes: {zh: "邦联没有总理和内阁。协调处只执行九氏族议事会的决定，各组组长由九个氏族轮流推举，任期两年；矿产收益组把蓝宝石矿的收入按人口分给各氏族。", en: "The confederacy has no prime minister or cabinet. The Coordination Office only carries out the decisions of the Council of the Nine Clans; its group heads are put forward by the clans in turn for two years each, and the Mineral Revenue Group shares out the sapphire mines' income among the clans by population."}
     legislature:
       names: {zh: 九氏族议事会, en: Council of the Nine Clans}
       seats: 90
@@ -1226,6 +1353,12 @@ divisions:
       - names: {zh: 青年代表, en: Youth delegates}
         seats: 18
         color: '#2F6B2F'
+    judiciary:
+      names: {zh: "长老法庭", en: "Court of Elders"}
+      title: {zh: "首席长老法官", en: "Senior Elder Judge"}
+      judges: 9
+      law: {zh: "原住民习惯法", en: "Indigenous customary law"}
+      notes: {zh: "普通纠纷先在村中由长老调解，长老法庭只审理跨氏族的案件，九名法官每个氏族一名。判罚以赔偿牛只和恢复关系为主，邦联不设监狱，屡犯者可被逐出氏族。", en: "Ordinary disputes are first mediated by village elders; the Court of Elders, one judge from each of the nine clans, hears only cases between clans. Its penalties are mostly compensation in cattle and the mending of relations; the confederacy has no prisons, and repeat offenders may be cast out of their clan."}
     military:
       active: 4000
       reserve: 12000
@@ -1355,6 +1488,14 @@ divisions:
     bloc: bloc:secular
     bloc_role: {zh: 观察员, en: Observer}
     recognition: 7
+    executive:
+      names: {zh: "联络委员会", en: "Liaison Committee"}
+      ministries:
+      - {zh: "对外联络组", en: "External Liaison Group"}
+      - {zh: "物资交换组", en: "Exchange Group"}
+      - {zh: "港口与渔业协调组", en: "Ports and Fisheries Coordination Group"}
+      - {zh: "自卫民兵协调组", en: "Militia Coordination Group"}
+      notes: {zh: "联合会不设中央政府。联络委员会没有命令权，只负责公社之间的协调和对外联络，成员由代表大会选出，任期半年，可随时召回；对外联络协调员是委员会的成员之一，而不是元首。", en: "The federation has no central government. The Liaison Committee has no power to command and only coordinates the communes and speaks for them abroad; its members are chosen by the Congress for six months and may be recalled at any time. The external liaison coordinator is one of its members, not a head of state."}
     legislature:
       names: {zh: 联合会代表大会, en: Federal Congress of Delegates}
       seats: 120
@@ -1368,6 +1509,12 @@ divisions:
       - names: {zh: 渔民合作社代表, en: Fishers' co-operative delegates}
         seats: 15
         color: '#1E5AA8'
+    judiciary:
+      names: {zh: "公社调解庭", en: "Commune Mediation Panels"}
+      title: {zh: "召集人", en: "Convenor"}
+      judges: 5
+      law: {zh: "公社公约与协商调解", en: "The communes' compacts and mediation"}
+      notes: {zh: "联合会不设职业法官和监狱。纠纷由公社全体大会抽签产生的五人调解庭处理，以赔偿和和解为主，最严重的处罚是把当事人逐出公社；跨公社的纠纷由双方各出两人、再抽签一人组成调解庭。", en: "The federation has no professional judges and no prisons. Disputes go to five-member panels drawn by lot by the commune's general assembly, which seek compensation and reconciliation; the heaviest penalty is expulsion from the commune. For disputes between communes, each side names two members and a fifth is drawn by lot."}
     military:
       active: 2000
       reserve: 15000
@@ -1474,6 +1621,12 @@ divisions:
       name: {zh: 齐里·安塔, en: Tsiry Anta}
     power: {zh: 各营地的长老圈, en: The camps' circles of elders}
     recognition: 5
+    executive:
+      none: {zh: "不设行政机构：各营地自行处理公共事务，长老圈发言人只代表野化邦对外说话，没有部门和公务员。", en: "No executive: each camp manages its own common affairs; the spokesperson of the Elders' Circles only speaks for the polity abroad, with no departments or officials."}
+    legislature:
+      none: {zh: "不设立法机关：各营地的长老圈以协商决定共同规则，野化邦没有成文法律。", en: "No legislature: the Elders' Circles of the camps agree common rules by consensus, and the polity has no written law."}
+    judiciary:
+      none: {zh: "不设法院：纠纷由营地长老调解，最重的处罚是逐出营地。", en: "No courts: disputes are mediated by the camp's elders, and the heaviest penalty is expulsion from the camp."}
     military:
       active: 0
       reserve: 0
@@ -1563,6 +1716,18 @@ divisions:
       name: {zh: 拉马希, en: Ramahy}
     power: {zh: 先知与十二使徒长老会, en: The Prophet and the Council of Twelve Apostles}
     recognition: 3
+    executive:
+      names: {zh: "圣城管理会", en: "Holy City Administration"}
+      head:
+        title: {zh: "大执事", en: "Grand Deacon"}
+      ministries:
+      - {zh: "信仰与教义司", en: "Office of Faith and Doctrine"}
+      - {zh: "圣城供给司", en: "Office of Holy City Supply"}
+      - {zh: "梯田与劳作司", en: "Office of Terraces and Labour"}
+      - {zh: "学校司", en: "Office of Schools"}
+      - {zh: "朝圣与外事司", en: "Office of Pilgrims and External Affairs"}
+      - {zh: "守望队", en: "Watch"}
+      notes: {zh: "管理会执行先知和十二使徒长老会的旨意，大执事和各司司长都由使徒担任或指定。信徒入教时把财产交给圣城供给司，按家庭人口领取口粮和用品。", en: "The Administration carries out the will of the Prophet and the Council of the Twelve Apostles; the Grand Deacon and the heads of its offices are apostles or their appointees. Believers hand their property to the Office of Holy City Supply on joining and draw rations and goods by the size of their household."}
     legislature:
       names: {zh: 十二使徒长老会, en: Council of Twelve Apostles}
       seats: 12
@@ -1570,6 +1735,12 @@ divisions:
       - names: {zh: 使徒, en: Apostles}
         seats: 12
         color: '#E0662A'
+    judiciary:
+      names: {zh: "使徒审判庭", en: "Apostolic Tribunal"}
+      title: {zh: "审判长", en: "Presiding Apostle"}
+      judges: 3
+      law: {zh: "黎明教经典与先知启示", en: "The scriptures of the Dawn and the Prophet's revelations"}
+      notes: {zh: "审判庭兼管宗教和世俗案件，由三名使徒组成。「背教」和「质疑先知」被视为最重的罪行，判处没收财产并逐出圣城；离开千年国的前信徒讲述了强迫劳动和隔离家庭的做法。", en: "The tribunal of three apostles hears both religious and worldly cases. 'Apostasy' and 'doubting the Prophet' are the gravest offences, punished by forfeiture and expulsion from the Holy City; former believers who left the Realm have described forced labour and the separation of families."}
     military:
       active: 800
       reserve: 0
@@ -1655,6 +1826,21 @@ divisions:
       name: {zh: 卡洛·拉辛巴, en: Karlo Rasimba}
     power: {zh: 香草卡特尔「三家族」与依附于它们的政党和将领, en: The 'Three Families' vanilla cartel and the parties and generals who depend on them}
     recognition: 14
+    executive:
+      names: {zh: "共和国政府", en: "Government of the Republic"}
+      deputy:
+        title: {zh: "副总统", en: "Vice-President"}
+      ministries:
+      - {zh: "外交部", en: "Ministry of Foreign Affairs"}
+      - {zh: "国防部", en: "Ministry of Defence"}
+      - {zh: "内政部", en: "Ministry of the Interior"}
+      - {zh: "财政部", en: "Ministry of Finance"}
+      - {zh: "司法部", en: "Ministry of Justice"}
+      - {zh: "农业与香草出口部", en: "Ministry of Agriculture and Vanilla Exports"}
+      - {zh: "交通与机场部", en: "Ministry of Transport and Airfields"}
+      - {zh: "教育部", en: "Ministry of Education"}
+      - {zh: "卫生部", en: "Ministry of Health"}
+      notes: {zh: "各部部长名义上由总统任命、国会批准，实际上多由「三家族」推荐。农业与香草出口部发放出口许可，交通与机场部管理遍布丘陵的简易机场，被认为是卡特尔最看重的两个部门。", en: "Ministers are nominally appointed by the president and confirmed by Congress, but most are put forward by the 'Three Families'. The Ministry of Agriculture and Vanilla Exports issues export licences and the Ministry of Transport and Airfields oversees the bush airstrips across the hills, the two ministries the cartel is thought to value most."}
     legislature:
       names: {zh: 国会, en: Congress}
       seats: 100
@@ -1668,6 +1854,12 @@ divisions:
       - names: {zh: 无党派, en: Independents}
         seats: 8
         color: '#9E9E9E'
+    judiciary:
+      names: {zh: "最高法院", en: "Supreme Court"}
+      title: {zh: "首席大法官", en: "Chief Justice"}
+      judges: 7
+      law: {zh: "大陆法传统", en: "Civil-law tradition"}
+      notes: {zh: "法官由总统提名、国会批准。三十多年来涉及卡特尔的重大案件大多以撤诉或无罪告终，多名坚持审理的法官遇害或流亡，国际组织对安博维司法独立的评价很低。", en: "Judges are nominated by the president and confirmed by Congress. Over thirty-odd years most major cases against the cartel have ended in withdrawal or acquittal, several judges who pressed on have been killed or driven abroad, and international bodies rate Ambovy's judicial independence very poorly."}
     military:
       active: 5000
       reserve: 3000
@@ -1778,6 +1970,16 @@ divisions:
       name: {zh: 孔达同志（化名）, en: Comrade Konda (nom de guerre)}
     power: {zh: 拉诺瓦人民战争党的革命委员会与人民解放军, en: The Revolutionary Committee of the Ranovan People's War Party and its People's Liberation Army}
     recognition: 0
+    executive:
+      names: {zh: "解放区人民政府", en: "People's Government of the Liberated Zone"}
+      ministries:
+      - {zh: "土地改革部", en: "Land Reform Department"}
+      - {zh: "后勤部", en: "Logistics Department"}
+      - {zh: "群众工作部", en: "Mass Work Department"}
+      - {zh: "人民教育部", en: "People's Education Department"}
+      - {zh: "卫生部", en: "Health Department"}
+      - {zh: "公安部", en: "Public Security Department"}
+      notes: {zh: "人民政府在革命委员会领导下管理村庄，每个部只有几十名干部，许多干部同时在人民解放军中任职。土地改革部把没收的种植园土地分给贫农，群众工作部组织村民大会和民兵。", en: "The People's Government runs the villages under the Revolutionary Committee; each department has only a few dozen cadres, many of whom also serve in the People's Liberation Army. The Land Reform Department hands confiscated plantation land to poor peasants, and the Mass Work Department organises village meetings and militias."}
     legislature:
       names: {zh: 革命委员会, en: Revolutionary Committee}
       seats: 15
@@ -1788,6 +1990,12 @@ divisions:
       - names: {zh: 政治委员, en: Political commissars}
         seats: 6
         color: '#F6C343'
+    judiciary:
+      names: {zh: "人民法庭", en: "People's Tribunals"}
+      title: {zh: "首席审判员", en: "Chief Adjudicator"}
+      judges: 5
+      law: {zh: "革命纪律与《解放区土地法》", en: "Revolutionary discipline and the Land Law of the Liberated Zone"}
+      notes: {zh: "人民法庭在村庄里公开审判「地主」「叛徒」和刑事案件，判决常在群众大会上宣布。人权组织记录了大量未经正当程序的处决和强迫「改造」，被告没有辩护律师。", en: "The People's Tribunals try 'landlords', 'traitors' and criminal cases in public in the villages, often announcing sentences at mass meetings. Human rights organisations have documented many executions without due process and forced 're-education'; the accused have no defence counsel."}
     military:
       active: 5000
       reserve: 0
@@ -1896,6 +2104,21 @@ divisions:
     bloc: bloc:covenant
     bloc_role: {zh: 成员, en: Member}
     recognition: 17
+    executive:
+      names: {zh: "王国政府", en: "Royal Government"}
+      head:
+        title: {zh: "首相", en: "Prime Minister"}
+      ministries:
+      - {zh: "王室事务部", en: "Ministry of the Royal Household"}
+      - {zh: "外交部", en: "Ministry of Foreign Affairs"}
+      - {zh: "内政部", en: "Ministry of Home Affairs"}
+      - {zh: "财政部", en: "Ministry of Finance"}
+      - {zh: "农业与茶业部", en: "Ministry of Agriculture and Tea"}
+      - {zh: "教育与宗教事务部", en: "Ministry of Education and Religious Affairs"}
+      - {zh: "卫生部", en: "Ministry of Health"}
+      - {zh: "文化遗产部", en: "Ministry of Cultural Heritage"}
+      - {zh: "国民幸福委员会", en: "Gross National Happiness Commission"}
+      notes: {zh: "首相由国王从王国议会中任命，对国王和议会双重负责。国民幸福委员会审查每一项政策对健康、教育、文化和环境的影响，可以要求各部修改方案；王室事务和宗教事务由国王直接过问。", en: "The prime minister is appointed by the King from the Parliament and answers to both. The Gross National Happiness Commission reviews every policy for its effect on health, education, culture and the environment and can send ministries back to redraft; the King himself oversees the royal household and religious affairs."}
     legislature:
       names: {zh: 王国议会, en: Royal Assembly}
       seats: 60
@@ -1909,6 +2132,12 @@ divisions:
       - names: {zh: 僧团代表, en: Monastic delegates}
         seats: 10
         color: '#E9B949'
+    judiciary:
+      names: {zh: "王国最高法院", en: "Supreme Court of the Kingdom"}
+      title: {zh: "首席法官", en: "Chief Justice"}
+      judges: 6
+      law: {zh: "成文法与佛教戒律传统", en: "Codified law and the Buddhist precepts"}
+      notes: {zh: "国王是司法的最终来源，可以赦免和减刑，每年佛诞节都会大赦一批轻罪犯人。寺院内部的纠纷由僧团自行裁决，不进入世俗法院。", en: "The King is the ultimate source of justice and may pardon or commute; every year on the Buddha's birthday a batch of minor offenders is amnestied. Disputes within the monasteries are settled by the Sangha and never come before the secular courts."}
     military:
       active: 4000
       reserve: 3000
@@ -2133,6 +2362,24 @@ divisions:
     bloc: bloc:covenant
     bloc_role: {zh: 成员, en: Member}
     recognition: 20
+    executive:
+      names: {zh: "大臣会议", en: "Council of Ministers"}
+      head:
+        title: {zh: "首相", en: "Prime Minister"}
+      deputy:
+        title: {zh: "副首相", en: "Deputy Prime Minister"}
+      ministries:
+      - {zh: "王宫事务部", en: "Ministry of the Royal Court"}
+      - {zh: "国防部", en: "Ministry of Defence"}
+      - {zh: "内政部", en: "Ministry of the Interior"}
+      - {zh: "外交部", en: "Ministry of Foreign Affairs"}
+      - {zh: "财政部", en: "Ministry of Finance"}
+      - {zh: "石油与天然气部", en: "Ministry of Oil and Gas"}
+      - {zh: "宗教基金与伊斯兰事务部", en: "Ministry of Endowments and Islamic Affairs"}
+      - {zh: "劳工与移民部", en: "Ministry of Labour and Immigration"}
+      - {zh: "教育部", en: "Ministry of Education"}
+      - {zh: "卫生部", en: "Ministry of Health"}
+      notes: {zh: "首相和副首相都由王室亲王担任，石油、国防和财政三部历来由苏丹的近亲掌管。大臣会议由苏丹召集，只就苏丹交议的事项提出建议；劳工与移民部管理约三十万外籍劳工的担保制度。", en: "Both the prime minister and his deputy are princes of the royal house, and the ministries of oil, defence and finance have always been held by the Sultan's close kin. The Council meets at the Sultan's call and advises only on what he puts to it; the Ministry of Labour and Immigration runs the sponsorship system for some three hundred thousand foreign workers."}
     legislature:
       names: {zh: 协商会议, en: Consultative Council}
       seats: 40
@@ -2149,6 +2396,12 @@ divisions:
       - names: {zh: 宗教学者, en: Religious scholars}
         seats: 6
         color: '#2E7D32'
+    judiciary:
+      names: {zh: "苏丹国最高法院", en: "Supreme Court of the Sultanate"}
+      title: {zh: "大法官", en: "Chief Judge"}
+      judges: 7
+      law: {zh: "伊斯兰教法与苏丹谕令", en: "Sharia and the Sultan's decrees"}
+      notes: {zh: "民事和家庭案件按教法审理，商业和油气合同案件由单独的商事法庭按成文法审理，外国公司可以选择国际仲裁。苏丹拥有最终裁决和赦免权。", en: "Civil and family cases are tried under sharia; commercial and oil-and-gas contract cases go to a separate commercial court under codified law, and foreign companies may choose international arbitration. The Sultan has the final word and the power of pardon."}
     military:
       active: 9000
       reserve: 3000
@@ -2378,6 +2631,18 @@ divisions:
       name: {zh: 雷米三世, en: Remy III}
     power: {zh: 大公与国务大臣；赌场公司和私人银行影响很大, en: The Prince and his Minister of State; the casino company and private banks carry great weight}
     recognition: 23
+    executive:
+      names: {zh: "政府委员会", en: "Council of Government"}
+      head:
+        title: {zh: "国务大臣", en: "Minister of State"}
+      ministries:
+      - {zh: "财政与经济部", en: "Department of Finance and the Economy"}
+      - {zh: "内政部", en: "Department of the Interior"}
+      - {zh: "对外关系部", en: "Department of External Relations"}
+      - {zh: "公共工程与环境部", en: "Department of Public Works and the Environment"}
+      - {zh: "社会事务与卫生部", en: "Department of Social Affairs and Health"}
+      - {zh: "博彩业监管署", en: "Gaming Control Authority"}
+      notes: {zh: "国务大臣由大公任命，政府委员会对大公负责而不对国民议会负责，议会只能审议预算和法律。博彩业监管署发放赌场牌照，监管署长须由大公亲自任命。", en: "The Minister of State is appointed by the Prince, and the Council of Government answers to him rather than to the National Council, which may only debate the budget and the laws. The Gaming Control Authority licenses the casinos, and its head is appointed by the Prince in person."}
     legislature:
       names: {zh: 国民议会, en: National Council}
       seats: 24
@@ -2388,6 +2653,12 @@ divisions:
       - names: {zh: 独立议员, en: Independents}
         seats: 10
         color: '#9E9E9E'
+    judiciary:
+      names: {zh: "最高法院", en: "Supreme Court"}
+      title: {zh: "院长", en: "President of the Court"}
+      judges: 6
+      law: {zh: "大陆法（民法典传统）", en: "Civil law (in the code tradition)"}
+      notes: {zh: "司法权以大公的名义行使，法官多从邻近岛国聘任。公国的商事法庭审理迅速、程序保密，许多外国公司的合同选择萨拉卡法律；反洗钱组织则批评银行保密制度妨碍了跨境调查。", en: "Justice is done in the Prince's name, and many judges are engaged from neighbouring island states. The commercial court is quick and confidential, so many foreign companies choose Saraka law for their contracts, while anti-money-laundering bodies complain that bank secrecy obstructs cross-border investigations."}
     military:
       active: 250
       reserve: 0
@@ -2478,6 +2749,20 @@ divisions:
       name: {zh: 拉法·马蒂, en: Rafa Maty}
     power: {zh: 卡托拉安全集团董事会, en: The board of the Katora Security Group}
     recognition: 9
+    executive:
+      names: {zh: "执行管理层", en: "Executive Management"}
+      head:
+        title: {zh: "首席执行官", en: "Chief Executive Officer"}
+      deputy:
+        title: {zh: "首席运营官", en: "Chief Operating Officer"}
+      ministries:
+      - {zh: "安全运营部", en: "Security Operations Division"}
+      - {zh: "人力资源与居留部", en: "Human Resources and Residence Division"}
+      - {zh: "财务部", en: "Finance Division"}
+      - {zh: "设施与后勤部", en: "Facilities and Logistics Division"}
+      - {zh: "合同与客户关系部", en: "Contracts and Client Relations Division"}
+      - {zh: "法务合规部", en: "Legal and Compliance Division"}
+      notes: {zh: "特许领的行政就是公司的管理层，首席执行官由董事会任命，董事长兼任总督。居民的住房、医疗和子女入学由人力资源与居留部按雇佣合同分配，合同终止即失去居留权。", en: "The territory's administration is the company's management: the chief executive is appointed by the board, whose chairman is also the governor. Housing, medical care and school places are allotted by the Human Resources and Residence Division according to each employment contract, and the right to stay ends with the contract."}
     legislature:
       names: {zh: 董事会, en: Board of Directors}
       seats: 9
@@ -2491,6 +2776,12 @@ divisions:
       - names: {zh: 员工代表, en: Staff director}
         seats: 1
         color: '#141414'
+    judiciary:
+      names: {zh: "仲裁庭", en: "Arbitration Tribunal"}
+      title: {zh: "首席仲裁员", en: "Chief Arbitrator"}
+      judges: 3
+      law: {zh: "雇佣合同与公司章程", en: "Employment contracts and the company's articles"}
+      notes: {zh: "特许领不设公共法院，一切纠纷按雇佣合同提交公司仲裁庭，仲裁员由董事会聘任。严重违规者被解约并驱逐出岛，刑事案件按与客户国家签订的协议移交审理。", en: "There are no public courts: every dispute goes to the company's tribunal under the employment contract, with arbitrators engaged by the board. Serious offenders are dismissed and removed from the island, and criminal cases are handed over under agreements with client states."}
     military:
       active: 4500
       reserve: 3000
@@ -2820,6 +3111,21 @@ divisions:
     bloc: bloc:secular
     bloc_role: {zh: 成员, en: Member}
     recognition: 23
+    executive:
+      names: {zh: "行政会议", en: "Executive Council"}
+      deputy:
+        title: {zh: "政务司司长", en: "Chief Secretary for Administration"}
+      ministries:
+      - {zh: "财经事务及库务局", en: "Financial Services and the Treasury Bureau"}
+      - {zh: "保安局", en: "Security Bureau"}
+      - {zh: "运输及物流局", en: "Transport and Logistics Bureau"}
+      - {zh: "商务及经济发展局", en: "Commerce and Economic Development Bureau"}
+      - {zh: "发展局", en: "Development Bureau"}
+      - {zh: "教育局", en: "Education Bureau"}
+      - {zh: "医务卫生局", en: "Health Bureau"}
+      - {zh: "劳工及福利局", en: "Labour and Welfare Bureau"}
+      - {zh: "民政事务局", en: "Home Affairs Bureau"}
+      notes: {zh: "各局局长由行政长官任命，向行政长官负责，行政会议协助行政长官决策。政务司司长统筹各局，在行政长官缺位时代行职务；公务员队伍沿用联合共和国时期的常任制度。", en: "The bureau secretaries are appointed by and answer to the Chief Executive, whom the Executive Council advises. The Chief Secretary for Administration coordinates the bureaux and acts for the Chief Executive in their absence; the civil service keeps the permanent career system of the United Republic."}
     legislature:
       names: {zh: 立法会, en: Legislative Council}
       seats: 40
@@ -2833,6 +3139,12 @@ divisions:
       - names: {zh: 劳工联合会, en: Federation of Labour}
         seats: 6
         color: '#C8102E'
+    judiciary:
+      names: {zh: "终审法院", en: "Court of Final Appeal"}
+      title: {zh: "首席法官", en: "Chief Justice"}
+      judges: 5
+      law: {zh: "普通法", en: "Common law"}
+      notes: {zh: "自由港保留了联合共和国时期的普通法传统，法官终身任职。商事案件可以邀请外地知名法官参与审理，港口和航运纠纷由专门的海事法庭处理。", en: "The free port keeps the common-law tradition of the United Republic, and its judges sit for life. Distinguished judges from abroad may be invited to sit on commercial cases, and port and shipping disputes go to a dedicated admiralty court."}
     military:
       active: 1500
       reserve: 2000
@@ -3033,6 +3345,18 @@ divisions:
       name: {zh: 英格丽德·霍尔姆, en: Ingrid Holm}
     power: {zh: 国际委员会，咨询性的岛民理事会参与地方事务, en: 'The International Commission, with an advisory Islanders'' Board for local affairs'}
     recognition: 25
+    executive:
+      names: {zh: "托管行政署", en: "Trust Administration"}
+      head:
+        title: {zh: "首席行政官", en: "Chief Administrator"}
+      ministries:
+      - {zh: "难民事务处", en: "Refugee Affairs Office"}
+      - {zh: "港口与航道处", en: "Port and Channels Office"}
+      - {zh: "非军事化核查处", en: "Demilitarisation Verification Office"}
+      - {zh: "公共服务处", en: "Public Services Office"}
+      - {zh: "财务与援助协调处", en: "Finance and Aid Coordination Office"}
+      - {zh: "国际警察处", en: "International Police Office"}
+      notes: {zh: "行政署对国际委员会负责，首席行政官和各处处长多由联合国派出的国际职员担任，岛民理事会可以就地方事务提出建议。非军事化核查处定期检查旧要塞和军火库，确保岛上没有任何一方的武装力量。", en: "The Administration answers to the International Commission; the Chief Administrator and most office heads are international staff seconded by the United Nations, and the Islanders' Council may advise on local matters. The Demilitarisation Verification Office regularly inspects the old fortress and arsenals to make sure no party's forces are on the island."}
     legislature:
       names: {zh: 国际委员会, en: International Commission}
       seats: 7
@@ -3049,6 +3373,12 @@ divisions:
       - names: {zh: 地区国家代表, en: Regional states}
         seats: 2
         color: '#2E7D32'
+    judiciary:
+      names: {zh: "托管地法院", en: "Trust Territory Court"}
+      title: {zh: "院长", en: "President of the Court"}
+      judges: 5
+      law: {zh: "托管条例与联合共和国旧法", en: "The Trusteeship Regulations and the United Republic's old law"}
+      notes: {zh: "法院由三名国际法官和两名本地法官组成。难民的身份和庇护申请由单独的难民事务审裁处处理，涉及战争罪的案件可以移交国际法庭。", en: "The court sits with three international and two local judges. Refugee status and asylum claims go to a separate refugee tribunal, and war-crimes cases may be referred to an international court."}
     military:
       active: 3200
       reserve: 0
@@ -3149,6 +3479,17 @@ divisions:
     bloc: bloc:covenant
     bloc_role: {zh: 成员（不参与军事）, en: Member (no military role)}
     recognition: 13
+    executive:
+      names: {zh: "圣山执事会", en: "Holy Epistasia"}
+      head:
+        title: {zh: "首席执事", en: "First Epistates"}
+      ministries:
+      - {zh: "朝圣接待处", en: "Pilgrims' Office"}
+      - {zh: "圣山财产处", en: "Office of the Holy Mountain's Estates"}
+      - {zh: "港口与渔业处", en: "Port and Fisheries Office"}
+      - {zh: "图书与圣像处", en: "Office of Libraries and Icons"}
+      - {zh: "平信徒事务处", en: "Office of Lay Affairs"}
+      notes: {zh: "执事会由四座大修道院轮流派出的四名修士组成，任期一年，执行神圣议会的决定。朝圣接待处发放入山许可，每天只接待有限的朝圣者，女性只能在港口小镇和西北小岛活动。", en: "The Epistasia is made up of four monks sent in turn by four of the great monasteries for a year each, and carries out the decisions of the Holy Assembly. The Pilgrims' Office issues permits to enter the mountain to a limited number of pilgrims a day; women may visit only the harbour town and the northwestern islet."}
     legislature:
       names: {zh: 神圣议会, en: Holy Synod}
       seats: 20
@@ -3156,6 +3497,12 @@ divisions:
       - names: {zh: 修道院代表, en: Monastery delegates}
         seats: 20
         color: '#7A1020'
+    judiciary:
+      names: {zh: "神圣议会司法庭", en: "Judicial Chamber of the Holy Assembly"}
+      title: {zh: "庭长", en: "Presiding Abbot"}
+      judges: 5
+      law: {zh: "古教会教规与圣山宪章", en: "The Old Church's canons and the Charter of the Holy Mountain"}
+      notes: {zh: "修士之间的纠纷由各修道院院长裁决，司法庭只审理修道院之间和涉及平信徒的案件。重大刑事案件按协议移交萨马伊自由邦的法院审理。", en: "Disputes among monks are settled by each monastery's abbot; the Judicial Chamber hears only cases between monasteries or involving lay people. Serious criminal cases are handed to the courts of the Free State of Samay under an agreement."}
     military:
       active: 0
       reserve: 0

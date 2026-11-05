@@ -1,12 +1,13 @@
 import clsx from "clsx";
+import { ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { Rows, Section, Sub } from "./CardParts";
+import { Paragraphs, Rows, Section, Sub, useCardOpen } from "./CardParts";
 import { Emblem, hasEmblem } from "./Emblem";
 import { Hemicycle } from "./Hemicycle";
-import type { PartyPart } from "./Politics";
+import { BodyName, Branch, type PartyPart } from "./Politics";
 import { displayName, formatNumber, formatPopulation, t } from "../lib/i18n";
-import type { AtlasData, Entity, Lang, Localized, NationFacts, Seating, WarStatus } from "../lib/types";
+import type { AtlasData, Entity, FixedChamber, Lang, Localized, NationFacts, Seating, WarStatus } from "../lib/types";
 import { useAtlas } from "../store";
 
 const L = {
@@ -256,10 +257,8 @@ function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entit
 }
 
 /** A chamber whose seats the system hands out: the half circle and its groups. */
-function FixedLegislature({ facts, lang }: { facts: NationFacts; lang: Lang }) {
-  const leg = facts.legislature;
+function FixedChamberView({ leg, lang }: { leg: FixedChamber; lang: Lang }) {
   const view = useMemo(() => {
-    if (!leg) return null;
     const ids = leg.groups.map((_, i) => `g${i}`);
     const data = { entities: Object.fromEntries(leg.groups.map((g, i) => [ids[i], { color: g.color, spectrum: i }])) } as unknown as AtlasData;
     const chamber = {
@@ -270,10 +269,9 @@ function FixedLegislature({ facts, lang }: { facts: NationFacts; lang: Lang }) {
     } as unknown as Seating;
     return { data, chamber };
   }, [leg]);
-  if (!leg || !view) return null;
   return (
-    <Section title={tl("legislature", lang)}>
-      <p className="mb-2 text-[13px] font-medium text-ink">{leg.names[lang]}</p>
+    <>
+      <BodyName name={leg.names[lang]} sub={`${leg.seats} ${t("seatsUnit", lang)}`} />
       <div className="mx-auto max-w-[300px]">
         <Hemicycle data={view.data} chamber={view.chamber} lang={lang} />
       </div>
@@ -288,6 +286,80 @@ function FixedLegislature({ facts, lang }: { facts: NationFacts; lang: Lang }) {
         ))}
       </ul>
       <p className="mt-2.5 text-[12px] text-faint">{leg.notes?.[lang] ?? tl("fixedSeats", lang)}</p>
+    </>
+  );
+}
+
+const Without = ({ text, lang }: { text: Localized; lang: Lang }) => <p className="text-[12.5px] leading-relaxed text-muted">{text[lang]}</p>;
+
+/** A nation without an elected parliament: its government and ministers, the chamber the system fills (or
+ * none) and its courts (or none). */
+function GovernmentSection({ entity, facts, lang }: { entity: Entity; facts: NationFacts; lang: Lang }) {
+  const [open, setOpen] = useCardOpen("ministers");
+  const g = entity.government;
+  const leg = facts.legislature;
+  const ex = g?.executive;
+  const ju = g?.judiciary;
+  const ministry = (m: Localized) => (lang === "en" ? m.en.replace(/^(Ministry|Department) of (the )?/, "") : m.zh);
+  return (
+    <Section title={t("politicsTitle", lang)}>
+      {ex && (
+        <Branch label={t("executive", lang)}>
+          {"none" in ex ? (
+            <Without text={ex.none} lang={lang} />
+          ) : (
+            <>
+              <BodyName name={ex.names[lang]} sub={ex.ministers.length ? (lang === "zh" ? `${ex.ministers.length} 个部门` : `${ex.ministers.length} departments`) : undefined} />
+              {(ex.head || ex.deputy) && <Rows rows={[ex.head, ex.deputy].filter((o) => !!o).map((o) => [o.title[lang], o.name[lang]] as [string, ReactNode])} />}
+              {ex.ministers.length > 0 && (
+                <>
+                  <button
+                    onClick={() => setOpen(!open)}
+                    aria-expanded={open}
+                    className="mt-2 -ml-2 flex items-center gap-1 rounded-full px-2 py-1 text-[12px] font-medium text-muted transition-colors hover:bg-hover hover:text-ink"
+                  >
+                    <ChevronDown className={clsx("size-3.5 transition-transform", open && "rotate-180")} />
+                    {open ? t("hideMinisters", lang) : `${t("showMinisters", lang)} · ${ex.ministers.length}`}
+                  </button>
+                  {open && (
+                    <motion.ul initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} className="mt-1 divide-y divide-line/60">
+                      {ex.ministers.map((m) => (
+                        <li key={m.ministry.en} className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] items-center gap-3 py-1.5 text-[12.5px]">
+                          <span className="leading-snug text-muted">{ministry(m.ministry)}</span>
+                          <span className="text-ink">{m.name[lang]}</span>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </>
+              )}
+              {ex.notes && <Paragraphs text={ex.notes[lang]} className="mt-2 text-[12.5px] leading-relaxed text-muted" />}
+            </>
+          )}
+        </Branch>
+      )}
+      {leg && (
+        <Branch label={t("legislature", lang)}>{"none" in leg ? <Without text={leg.none} lang={lang} /> : <FixedChamberView leg={leg} lang={lang} />}</Branch>
+      )}
+      {ju && (
+        <Branch label={t("judiciary", lang)}>
+          {"none" in ju ? (
+            <Without text={ju.none} lang={lang} />
+          ) : (
+            <>
+              <BodyName name={ju.names[lang]} sub={lang === "zh" ? `法官 ${ju.judges.length + 1} 人` : `${ju.judges.length + 1} judges`} />
+              <Rows
+                rows={[
+                  [t("legalSystem", lang), ju.law[lang]],
+                  [ju.title[lang], ju.name[lang]],
+                  ...(ju.judges.length ? [[t("judges", lang), <span className="leading-relaxed text-ink">{ju.judges.map((j) => j[lang]).join(lang === "zh" ? "、" : ", ")}</span>] as [string, ReactNode]] : []),
+                ]}
+              />
+              {ju.notes && <Paragraphs text={ju.notes[lang]} className="mt-2 text-[12.5px] leading-relaxed text-muted" />}
+            </>
+          )}
+        </Branch>
+      )}
     </Section>
   );
 }
@@ -560,7 +632,7 @@ export function CardGroups({ data, entity, lang, accent, shared }: { data: Atlas
         title: tl("groupPolitics", lang),
         body: (
           <>
-            {entity.legislature ? shared.legislature : <FixedLegislature facts={f} lang={lang} />}
+            {entity.legislature ? shared.legislature : <GovernmentSection entity={entity} facts={f} lang={lang} />}
             <RelationsSection data={data} facts={f} lang={lang} />
           </>
         ),
