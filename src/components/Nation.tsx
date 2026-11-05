@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Rows, Section, Sub } from "./CardParts";
 import { Emblem, hasEmblem } from "./Emblem";
 import { Hemicycle } from "./Hemicycle";
+import type { PartyPart } from "./Politics";
 import { displayName, formatNumber, formatPopulation, t } from "../lib/i18n";
 import type { AtlasData, Entity, Lang, Localized, NationFacts, Seating, WarStatus } from "../lib/types";
 import { useAtlas } from "../store";
@@ -74,6 +75,11 @@ const L = {
     en: "Nations it gives aid, arms, loans or diplomatic cover, openly or not.",
   },
   people: { zh: "人", en: "" },
+  groupPositions: { zh: "立场", en: "Positions" },
+  groupOrganisation: { zh: "组织", en: "Organisation" },
+  groupSeats: { zh: "议席", en: "Seats" },
+  groupHistory: { zh: "沿革与友党", en: "History & allies" },
+  groupRelations: { zh: "对外关系", en: "Relations" },
 } satisfies Record<string, Localized>;
 
 const tl = (key: keyof typeof L, lang: Lang) => L[key][lang];
@@ -104,10 +110,12 @@ function scrollerOf(el: HTMLElement | null) {
 /** The height of the card's pinned bar, which group titles stick under. */
 const PINNED = 44;
 
-type GroupDef = { key: string; title: string; body: ReactNode };
+/** A group of a card; `show: false` leaves out a group whose sections would all be empty. */
+type GroupDef = { key: string; title: string; body: ReactNode; show?: boolean };
 
 /** The card's groups under titles that stay pinned while their group scrolls past, with a row of jumps to each. */
-function Groups({ groups, accent }: { groups: GroupDef[]; accent: string }) {
+function Groups({ groups: all, accent }: { groups: GroupDef[]; accent: string }) {
+  const groups = all.filter((g) => g.show !== false);
   const refs = useRef<Record<string, HTMLDivElement | null>>({});
   const [current, setCurrent] = useState(groups[0]?.key);
   const keys = groups.map((g) => g.key).join(" ");
@@ -487,7 +495,7 @@ function FactsSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
   );
 }
 
-/** Parts of the default card a nation's or bloc's card reuses, placed in its groups. */
+/** Parts of the default card a grouped card reuses, placed in its groups. */
 export type SharedParts = {
   about: ReactNode;
   legislature: ReactNode;
@@ -495,19 +503,56 @@ export type SharedParts = {
   economy: ReactNode;
   climate: ReactNode;
   children: ReactNode;
+  backed: ReactNode;
   flag: ReactNode;
   lineage: ReactNode;
   codes: ReactNode;
+  party: (part: PartyPart) => ReactNode;
 };
 
+/** Long cards (countries, territories, nations, blocs, parties) come in groups with jumps; short ones are one column. */
 export function isGroupedCard(e: Entity) {
-  return (e.role === "nation" && !!e.nation) || e.kind === "bloc";
+  return !!e.nation || e.kind === "bloc" || e.kind === "party" || (e.kind === "division" && (e.subtype === "dependency" || e.subtype === "country"));
 }
 
-export function NationGroups({ data, entity, lang, accent, shared }: { data: AtlasData; entity: Entity; lang: Lang; accent: string; shared: SharedParts }) {
+/** A territory's or country's groups, in the order a nation's card uses, without the groups it has nothing for. */
+function divisionGroups(entity: Entity, lang: Lang, shared: SharedParts): GroupDef[] {
+  return [
+    { key: "overview", title: tl("groupOverview", lang), body: shared.about, show: !!(entity.notes || entity.background) },
+    { key: "politics", title: tl("groupPolitics", lang), body: shared.legislature, show: !!entity.legislature },
+    { key: "relations", title: tl("groupRelations", lang), body: shared.backed, show: !!entity.member_nations?.length },
+    { key: "society", title: tl("groupSociety", lang), body: shared.people, show: !!entity.demographics },
+    { key: "economy", title: tl("groupEconomy", lang), body: shared.economy, show: !!entity.economy },
+    {
+      key: "geography",
+      title: tl("groupGeography", lang),
+      body: <>{shared.climate}{shared.children}</>,
+      show: !!(entity.climate || entity.climate_notes || entity.children?.length),
+    },
+    { key: "symbols", title: tl("groupSymbols", lang), body: shared.flag, show: !!entity.flag },
+    { key: "facts", title: tl("groupFacts", lang), body: <>{shared.lineage}{shared.codes}</>, show: !!(shared.codes || entity.parent) },
+  ];
+}
+
+function partyGroups(entity: Entity, lang: Lang, shared: SharedParts): GroupDef[] {
+  return [
+    { key: "overview", title: tl("groupOverview", lang), body: <>{shared.about}{shared.party("profile")}</> },
+    { key: "positions", title: tl("groupPositions", lang), body: shared.party("positions"), show: !!(entity.axes || entity.policies?.length || entity.base) },
+    { key: "organisation", title: tl("groupOrganisation", lang), body: shared.party("organisation"), show: !!(entity.youth_wing || entity.organisation) },
+    { key: "seats", title: tl("groupSeats", lang), body: shared.party("seats") },
+    { key: "symbols", title: tl("groupSymbols", lang), body: shared.flag, show: !!entity.flag },
+    { key: "history", title: tl("groupHistory", lang), body: shared.party("history"), show: !!(entity.history || entity.allies?.length) },
+  ];
+}
+
+export function CardGroups({ data, entity, lang, accent, shared }: { data: AtlasData; entity: Entity; lang: Lang; accent: string; shared: SharedParts }) {
   const groups = useMemo<GroupDef[]>(() => {
     const f = entity.nation;
-    if (!f) return entity.kind === "bloc" ? blocGroups(data, entity, lang, accent, shared) : [];
+    if (!f) {
+      if (entity.kind === "bloc") return blocGroups(data, entity, lang, accent, shared);
+      if (entity.kind === "party") return partyGroups(entity, lang, shared);
+      return divisionGroups(entity, lang, shared);
+    }
     return [
       { key: "overview", title: tl("groupOverview", lang), body: <><IdentitySection data={data} entity={entity} facts={f} lang={lang} />{shared.about}</> },
       {
