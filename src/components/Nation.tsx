@@ -81,6 +81,15 @@ const L = {
   claims: { zh: "主张领土", en: "Claims" },
   predecessors: { zh: "历任", en: "Predecessors" },
   emblems: { zh: "标志物", en: "Emblems" },
+  culture: { zh: "文化", en: "Culture" },
+  holiday: { zh: "主要节日", en: "Main holiday" },
+  dish: { zh: "代表菜肴", en: "Signature dish" },
+  sport: { zh: "热门运动", en: "Popular sport" },
+  travel: { zh: "旅行建议", en: "Travel advice" },
+  travel1: { zh: "1 级 · 注意常规安全", en: "Level 1 · Normal precautions" },
+  travel2: { zh: "2 级 · 提高警惕", en: "Level 2 · Increased caution" },
+  travel3: { zh: "3 级 · 重新考虑行程", en: "Level 3 · Reconsider travel" },
+  travel4: { zh: "4 级 · 请勿前往", en: "Level 4 · Do not travel" },
   groupOrganisation: { zh: "组织", en: "Organisation" },
   groupSeats: { zh: "议席", en: "Seats" },
   groupHistory: { zh: "沿革与友党", en: "History & allies" },
@@ -602,6 +611,37 @@ function SymbolsSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
   );
 }
 
+function CultureSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
+  const c = facts.culture;
+  const keys = (["holiday", "dish", "sport"] as const).filter((k) => c?.[k]);
+  if (!c || !keys.length) return null;
+  return (
+    <Section title={tl("culture", lang)}>
+      <Rows rows={keys.map((k) => [tl(k, lang), c[k]![lang]] as [string, ReactNode])} />
+    </Section>
+  );
+}
+
+const TRAVEL_TONES = ["#10b981", "#f59e0b", "#f97316", "#f43f5e"];
+
+function TravelSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
+  const tr = facts.travel;
+  if (!tr) return null;
+  const tone = TRAVEL_TONES[tr.level - 1];
+  return (
+    <Section title={tl("travel", lang)}>
+      <span
+        className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[12px] font-medium"
+        style={{ color: tone, background: `color-mix(in srgb, ${tone} 12%, transparent)` }}
+      >
+        <span className="size-2 rounded-full" style={{ background: tone }} />
+        {tl(`travel${tr.level}`, lang)}
+      </span>
+      <p className="mt-2 text-[12.5px] leading-relaxed text-muted">{tr.note[lang]}</p>
+    </Section>
+  );
+}
+
 function FactsSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
   const f = facts.facts;
   return (
@@ -756,6 +796,7 @@ export function CardGroups({ data, entity, lang, accent, shared }: { data: Atlas
           <>
             <ReligionSection religion={f.religion} lang={lang} accent={accent} />
             <FreedomSection facts={f} lang={lang} />
+            <CultureSection facts={f} lang={lang} />
             {shared.people}
           </>
         ),
@@ -763,7 +804,7 @@ export function CardGroups({ data, entity, lang, accent, shared }: { data: Atlas
       { key: "economy", title: tl("groupEconomy", lang), body: shared.economy },
       { key: "geography", title: tl("groupGeography", lang), body: <>{shared.climate}{shared.children}</> },
       { key: "symbols", title: tl("groupSymbols", lang), body: <>{shared.flag}<SymbolsSection facts={f} lang={lang} /></> },
-      { key: "facts", title: tl("groupFacts", lang), body: <><FactsSection facts={f} lang={lang} />{shared.lineage}{shared.codes}</> },
+      { key: "facts", title: tl("groupFacts", lang), body: <><TravelSection facts={f} lang={lang} /><FactsSection facts={f} lang={lang} />{shared.lineage}{shared.codes}</> },
     ];
   }, [data, entity, lang, accent, shared]);
   return <Groups groups={groups} accent={accent} />;

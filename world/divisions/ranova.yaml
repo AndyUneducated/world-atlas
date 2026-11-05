@@ -93,6 +93,7 @@ divisions:
     - {"names": {"zh": "国家储备托管委员会", "en": "Board of Trustees of the National Reserves"}, "title": {"zh": "主席", "en": "Chair"}}
     - {"names": {"zh": "驻外代表处", "en": "Missions Abroad"}, "title": {"zh": "首席代表", "en": "Chief Representative"}}
     - {"names": {"zh": "侨民与证件署", "en": "Office of Expatriates and Documents"}, "title": {"zh": "署长", "en": "Director"}}
+    culture: {"holiday": {"zh": "联合共和国日", "en": "Day of the United Republic"}}
     religion:
     - names: {zh: "新教", en: "Protestant"}
       share: 25.6
@@ -197,6 +198,8 @@ divisions:
     - {"names": {"zh": "联邦总检察署", "en": "Office of the Federal Prosecutor General"}, "title": {"zh": "联邦总检察长", "en": "Federal Prosecutor General"}}
     - {"names": {"zh": "联邦情报局", "en": "Federal Intelligence Service"}, "title": {"zh": "局长", "en": "Director"}}
     - {"names": {"zh": "教会联合会", "en": "Council of Churches"}, "title": {"zh": "主席", "en": "President"}}
+    culture: {"holiday": {"zh": "联邦日（十二山丘节）", "en": "Federation Day (Feast of the Twelve Hills)"}, "dish": {"zh": "罗马扎瓦（青菜炖牛肉）", "en": "Romazava (beef and greens stew)"}, "sport": {"zh": "橄榄球", "en": "Rugby union"}}
+    travel: {"level": 2, "note": {"zh": "高原停火线两侧仍有雷区，请勿靠近；其余地区注意常规安全", "en": "Minefields remain on both sides of the Highland ceasefire line"}}
     religion:
     - names: {zh: 新教, en: Protestant}
       share: 58
@@ -463,6 +466,8 @@ divisions:
     - {"names": {"zh": "国家银行", "en": "State Bank"}, "title": {"zh": "行长", "en": "Governor"}}
     - {"names": {"zh": "最高人民检察院", "en": "Supreme People's Procuratorate"}, "title": {"zh": "检察长", "en": "Procurator-General"}}
     - {"names": {"zh": "劳动党中央组织部", "en": "Organisation Department of the Labour Party"}, "title": {"zh": "部长", "en": "Head"}}
+    culture: {"holiday": {"zh": "解放日", "en": "Liberation Day"}, "dish": {"zh": "椰汁鱼配米饭", "en": "Fish in coconut milk with rice"}, "sport": {"zh": "足球", "en": "Football"}}
+    travel: {"level": 3, "note": {"zh": "外国游客须参加官方旅行团，沿海经济区以外的行程受到限制，停火线一带禁止进入", "en": "Foreign visitors must join official tours"}}
     religion:
     - names: {zh: 无宗教, en: No religion}
       share: 62
@@ -660,6 +665,8 @@ divisions:
     - {"names": {"zh": "马索沃利中央银行", "en": "Central Bank of Masovoly"}, "title": {"zh": "总裁", "en": "Governor"}}
     - {"names": {"zh": "中央检察所", "en": "Central Public Prosecutors' Office"}, "title": {"zh": "所长", "en": "Director"}}
     - {"names": {"zh": "一心团结思想研究院", "en": "Institute of the One-Heart Unity Doctrine"}, "title": {"zh": "院长", "en": "President"}}
+    culture: {"holiday": {"zh": "太阳节（创始领袖诞辰）", "en": "Day of the Sun (the founding leader's birthday)"}, "dish": {"zh": "冷米粉汤", "en": "Cold rice-noodle soup"}, "sport": {"zh": "举重", "en": "Weightlifting"}}
+    travel: {"level": 4, "note": {"zh": "外国人被任意拘押的风险很高，入境几乎都须经国家旅行社安排，没有领事保护", "en": "Foreigners run a high risk of arbitrary detention"}}
     religion:
     - names: {zh: 无宗教, en: No religion}
       share: 80
@@ -810,6 +817,8 @@ divisions:
     - {"names": {"zh": "国家银行", "en": "National Bank"}, "title": {"zh": "行长", "en": "Governor"}}
     - {"names": {"zh": "民族检察署", "en": "National Prosecution Office"}, "title": {"zh": "总检察长", "en": "Chief Prosecutor"}}
     - {"names": {"zh": "国家安全总局", "en": "General Directorate of State Security"}, "title": {"zh": "总局长", "en": "Director-General"}}
+    culture: {"holiday": {"zh": "民族觉醒日", "en": "National Awakening Day"}, "dish": {"zh": "烤瘤牛肉串", "en": "Grilled zebu skewers"}, "sport": {"zh": "莫兰吉搏击", "en": "Moraingy"}}
+    travel: {"level": 4, "note": {"zh": "任意拘押和针对少数族裔的暴力时有发生，边境地区实行军事管制", "en": "Arbitrary detention and violence against minorities are frequent"}}
     religion:
     - names: {zh: 祖灵信仰, en: Ancestral religion}
       share: 48
@@ -977,6 +986,7 @@ divisions:
     - {"names": {"zh": "先锋支队", "en": "Vanguard Detachments"}, "title": {"zh": "指挥官", "en": "Commander"}}
     - {"names": {"zh": "海岸快艇队", "en": "Coastal Boat Squadron"}, "title": {"zh": "队长", "en": "Commander"}}
     - {"names": {"zh": "运动财务处", "en": "Movement Treasury"}, "title": {"zh": "司库", "en": "Treasurer"}}
+    travel: {"level": 4, "note": {"zh": "由武装运动控制，绑架和处决的风险很高，没有任何领事保护", "en": "Ruled by an armed movement"}}
     religion:
     - names: {zh: 无宗教, en: No religion}
       share: 55
@@ -1114,6 +1124,8 @@ divisions:
     - {"names": {"zh": "梅纳瓦利中央银行", "en": "Central Bank of Menavaly"}, "title": {"zh": "行长", "en": "Governor"}}
     - {"names": {"zh": "军事检察院", "en": "Military Prosecution Office"}, "title": {"zh": "总检察长", "en": "Prosecutor General"}}
     - {"names": {"zh": "国家情报局", "en": "National Intelligence Agency"}, "title": {"zh": "局长", "en": "Director"}}
+    culture: {"holiday": {"zh": "国家拯救日", "en": "National Salvation Day"}, "dish": {"zh": "木薯叶炖猪肉", "en": "Ravitoto (cassava leaves with pork)"}, "sport": {"zh": "足球", "en": "Football"}}
+    travel: {"level": 3, "note": {"zh": "首都实行宵禁，主要道路设有军方检查站，政治集会可能突然演变为暴力", "en": "The capital is under curfew"}}
     religion:
     - names: {zh: 天主教, en: Catholic}
       share: 34
@@ -1232,6 +1244,8 @@ divisions:
     - {"names": {"zh": "武装部队", "en": "Armed Forces"}, "title": {"zh": "总参谋长", "en": "Chief of the General Staff"}}
     - {"names": {"zh": "总检察署", "en": "Office of the Attorney General"}, "title": {"zh": "总检察长", "en": "Attorney General"}}
     - {"names": {"zh": "大穆夫提办公室", "en": "Office of the Grand Mufti"}, "title": {"zh": "大穆夫提", "en": "Grand Mufti"}}
+    culture: {"holiday": {"zh": "开斋节", "en": "Eid al-Fitr"}, "dish": {"zh": "香料鱼饭", "en": "Spiced fish pilau"}, "sport": {"zh": "足球", "en": "Football"}}
+    travel: {"level": 3, "note": {"zh": "请勿前往西岸战区；其他地区须遵守宗教着装和饮食规定", "en": "Do not go to the west-coast war zone; elsewhere keep the rules on religious dress and food"}}
     religion:
     - names: {zh: 逊尼派伊斯兰教, en: Sunni Islam}
       share: 86
@@ -1411,6 +1425,7 @@ divisions:
     - {"names": {"zh": "武装人员", "en": "Fighters"}, "title": {"zh": "「军事首领」", "en": "\"Military chief\""}, "name": {"zh": "身份不详", "en": "Identity unknown"}}
     - {"names": {"zh": "「财政处」", "en": "\"Treasury\""}, "title": {"zh": "负责人", "en": "Head"}, "name": {"zh": "身份不详", "en": "Identity unknown"}}
     - {"names": {"zh": "「宗教警察」", "en": "\"Religious police\""}, "title": {"zh": "负责人", "en": "Head"}, "name": {"zh": "身份不详", "en": "Identity unknown"}}
+    travel: {"level": 4, "note": {"zh": "由武装组织控制，绑架外国人的风险极高，任何国家都无法提供协助", "en": "Held by an armed group"}}
     religion:
     - names: {zh: 逊尼派伊斯兰教, en: Sunni Islam}
       share: 97
@@ -1546,6 +1561,8 @@ divisions:
     - {"names": {"zh": "氏族自卫队", "en": "Clan Defence Force"}, "title": {"zh": "统领", "en": "Commander"}}
     - {"names": {"zh": "圣林守护会", "en": "Keepers of the Sacred Groves"}, "title": {"zh": "首领", "en": "Head"}}
     - {"names": {"zh": "邦联共同基金", "en": "Confederation Common Fund"}, "title": {"zh": "管理人", "en": "Steward"}}
+    culture: {"holiday": {"zh": "祖灵节", "en": "Festival of the Ancestors"}, "dish": {"zh": "炭烤山药", "en": "Charcoal-roasted yams"}, "sport": {"zh": "瘤牛摔跤", "en": "Zebu wrestling"}}
+    travel: {"level": 2, "note": {"zh": "进入圣林须得到长老许可，道路和医疗设施很少", "en": "Entering the sacred groves needs the elders' leave"}}
     religion:
     - names: {zh: 祖灵信仰, en: Ancestral religion}
       share: 72
@@ -1705,6 +1722,8 @@ divisions:
     offices:
     - {"names": {"zh": "人民民兵", "en": "People's Militia"}, "title": {"zh": "轮值协调员", "en": "Rotating Coordinator"}}
     - {"names": {"zh": "互助信用社联合会", "en": "Federation of Mutual Credit Unions"}, "title": {"zh": "协调员", "en": "Coordinator"}}
+    culture: {"holiday": {"zh": "公社大会日", "en": "Day of the Assembly of Communes"}, "dish": {"zh": "公共食堂的豆饭", "en": "Bean rice of the common kitchens"}, "sport": {"zh": "自行车", "en": "Cycling"}}
+    travel: {"level": 2, "note": {"zh": "没有统一的警察和领事机构，各公社的规定不同，入境前须联系接待公社", "en": "There are no common police or consular services and each commune keeps its own rules; arrange a host commune before arriving"}}
     religion:
     - names: {zh: 无宗教, en: No religion}
       share: 58
@@ -1822,6 +1841,7 @@ divisions:
     offices:
     - {"names": {"zh": "森林守护者", "en": "Forest Keepers"}, "title": {"zh": "召集人", "en": "Convener"}}
     - {"names": {"zh": "物种登记处", "en": "Species Register"}, "title": {"zh": "负责人", "en": "Keeper"}}
+    travel: {"level": 3, "note": {"zh": "没有公路和医疗设施，访客须由森林守护者陪同，雨季常有洪水", "en": "There are no roads or medical care"}}
     religion:
     - names: {zh: 祖灵信仰, en: Ancestral religion}
       share: 70
@@ -1938,6 +1958,8 @@ divisions:
     - {"names": {"zh": "圣殿护卫队", "en": "Temple Guard"}, "title": {"zh": "卫队长", "en": "Captain"}}
     - {"names": {"zh": "圣库", "en": "Sacred Treasury"}, "title": {"zh": "司库使徒", "en": "Apostle-Treasurer"}}
     - {"names": {"zh": "海外布道团", "en": "Mission Abroad"}, "title": {"zh": "团长", "en": "Head of Mission"}}
+    culture: {"holiday": {"zh": "最后黎明日", "en": "Day of the Last Dawn"}, "dish": {"zh": "无酵米饼", "en": "Unleavened rice cakes"}}
+    travel: {"level": 3, "note": {"zh": "外国人入境受到严格限制，前信徒报告强迫劳动和隔离家庭的做法", "en": "Entry for foreigners is tightly restricted"}}
     religion:
     - names: {zh: 黎明教, en: Faith of the Dawn}
       share: 94
@@ -2072,6 +2094,8 @@ divisions:
     - {"names": {"zh": "安博维中央银行", "en": "Central Bank of Ambovy"}, "title": {"zh": "行长", "en": "Governor"}}
     - {"names": {"zh": "总检察署", "en": "Office of the Attorney General"}, "title": {"zh": "总检察长", "en": "Attorney General"}}
     - {"names": {"zh": "国家缉毒局", "en": "National Narcotics Directorate"}, "title": {"zh": "局长", "en": "Director"}}
+    culture: {"holiday": {"zh": "香草节", "en": "Vanilla Festival"}, "dish": {"zh": "香草鸡", "en": "Vanilla chicken"}, "sport": {"zh": "足球", "en": "Football"}}
+    travel: {"level": 3, "note": {"zh": "卡特尔之间的暴力和绑架时有发生，夜间避免出行，不要前往庄园区", "en": "Violence between the cartels and kidnapping are frequent; avoid travelling at night and stay away from the estates"}}
     religion:
     - names: {zh: 天主教, en: Catholic}
       share: 52
@@ -2210,6 +2234,7 @@ divisions:
     offices:
     - {"names": {"zh": "人民解放军（游击队）", "en": "People's Liberation Army (guerrillas)"}, "title": {"zh": "总指挥", "en": "Commander"}, "name": {"zh": "「火山」同志（化名）", "en": "Comrade Volcano (nom de guerre)"}}
     - {"names": {"zh": "革命委员会后勤部", "en": "Logistics Department of the Revolutionary Committee"}, "title": {"zh": "部长", "en": "Head"}}
+    travel: {"level": 4, "note": {"zh": "游击战区，没有任何政府服务，地雷和交火随时可能发生", "en": "A guerrilla war zone with no state services"}}
     religion:
     - names: {zh: 无宗教, en: No religion}
       share: 50
@@ -2360,6 +2385,8 @@ divisions:
     - {"names": {"zh": "总检察长办公室", "en": "Office of the Attorney General"}, "title": {"zh": "总检察长", "en": "Attorney General"}}
     - {"names": {"zh": "僧团", "en": "Monastic Order"}, "title": {"zh": "僧王", "en": "Supreme Patriarch"}}
     - {"names": {"zh": "王室咨议会", "en": "Royal Privy Council"}, "title": {"zh": "议长", "en": "President"}}
+    culture: {"holiday": {"zh": "法轮节", "en": "Festival of the Wheel"}, "dish": {"zh": "茶叶米糕", "en": "Tea-leaf rice cakes"}, "sport": {"zh": "射箭", "en": "Archery"}}
+    travel: {"level": 1, "note": {"zh": "游客人数实行限额，须提前申请入境；进入寺院须衣着得体", "en": "Visitor numbers are capped"}}
     religion:
     - names: {zh: 佛教, en: Buddhism}
       share: 82
@@ -2481,6 +2508,8 @@ divisions:
     - {"names": {"zh": "国防军", "en": "Defence Force"}, "title": {"zh": "司令", "en": "Commander"}}
     - {"names": {"zh": "海岸警卫队", "en": "Coast Guard"}, "title": {"zh": "司令", "en": "Commandant"}}
     - {"names": {"zh": "检察总署", "en": "Public Prosecution Service"}, "title": {"zh": "检察总长", "en": "Prosecutor General"}}
+    culture: {"holiday": {"zh": "共和国日", "en": "Republic Day"}, "dish": {"zh": "海鲜烧烤", "en": "Seafood grill"}, "sport": {"zh": "篮球", "en": "Basketball"}}
+    travel: {"level": 1, "note": {"zh": "注意常规安全", "en": "Take normal precautions"}}
     religion:
     - names: {zh: 天主教, en: Catholic}
       share: 30
@@ -2648,6 +2677,8 @@ divisions:
     - {"names": {"zh": "公诉署", "en": "Public Prosecution"}, "title": {"zh": "总检察长", "en": "Attorney General"}}
     - {"names": {"zh": "大穆夫提办公室", "en": "Office of the Grand Mufti"}, "title": {"zh": "大穆夫提", "en": "Grand Mufti"}}
     - {"names": {"zh": "努西拉投资局", "en": "Nusila Investment Authority"}, "title": {"zh": "主席", "en": "Chairman"}}
+    culture: {"holiday": {"zh": "登基纪念日", "en": "Accession Day"}, "dish": {"zh": "椰枣羊肉饭", "en": "Lamb and date rice"}, "sport": {"zh": "传统帆船赛", "en": "Dhow racing"}}
+    travel: {"level": 2, "note": {"zh": "贾巴利亚武装曾在此发动袭击；公共道德法律严格，批评王室可被判处监禁", "en": "Jabaliya's armed men have struck here before; the public-morality laws are strict"}}
     religion:
     - names: {zh: 逊尼派伊斯兰教, en: Sunni Islam}
       share: 88
@@ -2782,6 +2813,8 @@ divisions:
     - {"names": {"zh": "刑事检控署", "en": "Crown Prosecution Service"}, "title": {"zh": "检控总监", "en": "Director of Public Prosecutions"}}
     - {"names": {"zh": "难民接待中心", "en": "Refugee Reception Centre"}, "title": {"zh": "主任", "en": "Director"}}
     - {"names": {"zh": "王室总管府", "en": "Royal Household"}, "title": {"zh": "宫务大臣", "en": "Lord Chamberlain"}}
+    culture: {"holiday": {"zh": "国王生日", "en": "The King's Birthday"}, "dish": {"zh": "菠萝烤鱼", "en": "Fish baked with pineapple"}, "sport": {"zh": "板球", "en": "Cricket"}}
+    travel: {"level": 1, "note": {"zh": "注意常规安全", "en": "Take normal precautions"}}
     religion:
     - names: {zh: 新教, en: Protestant}
       share: 62
@@ -2922,6 +2955,8 @@ divisions:
     - {"names": {"zh": "金融监管局", "en": "Financial Supervisory Authority"}, "title": {"zh": "局长", "en": "Director"}}
     - {"names": {"zh": "总检察署", "en": "Office of the Prosecutor General"}, "title": {"zh": "总检察长", "en": "Prosecutor General"}}
     - {"names": {"zh": "博彩监管委员会", "en": "Gaming Control Commission"}, "title": {"zh": "主席", "en": "Chair"}}
+    culture: {"holiday": {"zh": "大公节", "en": "Prince's Day"}, "dish": {"zh": "龙虾意面", "en": "Lobster linguine"}, "sport": {"zh": "赛车", "en": "Motor racing"}}
+    travel: {"level": 1, "note": {"zh": "注意常规安全", "en": "Take normal precautions"}}
     religion:
     - names: {zh: 天主教, en: Catholic}
       share: 60
@@ -3061,6 +3096,8 @@ divisions:
     - {"names": {"zh": "作战承包商", "en": "Combat contractors"}, "title": {"zh": "作战总监", "en": "Director of Operations"}}
     - {"names": {"zh": "公司财务部", "en": "Company Treasury"}, "title": {"zh": "首席财务官", "en": "Chief Financial Officer"}}
     - {"names": {"zh": "合规与法务部", "en": "Compliance and Legal Department"}, "title": {"zh": "总法律顾问", "en": "General Counsel"}}
+    culture: {"holiday": {"zh": "特许状日", "en": "Charter Day"}, "sport": {"zh": "高尔夫", "en": "Golf"}}
+    travel: {"level": 3, "note": {"zh": "由公司的武装承包商执法，入境须有公司担保，记者常被拒绝入境", "en": "Armed company contractors keep order"}}
     religion:
     - names: {zh: 无宗教, en: No religion}
       share: 45
@@ -3162,6 +3199,8 @@ divisions:
     - {"names": {"zh": "共和国海军", "en": "Republic Navy"}, "title": {"zh": "总司令", "en": "Commander-in-Chief"}}
     - {"names": {"zh": "城市卫队", "en": "City Guard"}, "title": {"zh": "队长", "en": "Captain"}}
     - {"names": {"zh": "共和国检察署", "en": "Prosecutor's Office of the Republic"}, "title": {"zh": "总检察长", "en": "Prosecutor General"}}
+    culture: {"holiday": {"zh": "共和国赛船节", "en": "Regatta of the Republic"}, "dish": {"zh": "墨鱼汁饭", "en": "Squid-ink rice"}, "sport": {"zh": "赛艇", "en": "Rowing"}}
+    travel: {"level": 1, "note": {"zh": "注意常规安全", "en": "Take normal precautions"}}
     religion:
     - names: {zh: 天主教, en: Catholic}
       share: 38
@@ -3269,6 +3308,8 @@ divisions:
     - {"names": {"zh": "国防军", "en": "Defence Force"}, "title": {"zh": "司令", "en": "Chief of Defence"}}
     - {"names": {"zh": "检察总署", "en": "Public Prosecutor's Office"}, "title": {"zh": "检察总长", "en": "Prosecutor General"}}
     - {"names": {"zh": "难民事务专员公署", "en": "Office of the Refugee Commissioner"}, "title": {"zh": "专员", "en": "Commissioner"}}
+    culture: {"holiday": {"zh": "宽容日", "en": "Day of Tolerance"}, "dish": {"zh": "萨马伊咖喱", "en": "Samay curry"}, "sport": {"zh": "足球", "en": "Football"}}
+    travel: {"level": 1, "note": {"zh": "注意常规安全", "en": "Take normal precautions"}}
     religion:
     - names: {zh: 天主教, en: Catholic}
       share: 24
@@ -3442,6 +3483,8 @@ divisions:
     - {"names": {"zh": "金融管理局", "en": "Monetary Authority"}, "title": {"zh": "总裁", "en": "Chief Executive"}}
     - {"names": {"zh": "刑事检控科", "en": "Prosecutions Division"}, "title": {"zh": "刑事检控专员", "en": "Director of Public Prosecutions"}}
     - {"names": {"zh": "廉政公署", "en": "Independent Commission Against Corruption"}, "title": {"zh": "廉政专员", "en": "Commissioner"}}
+    culture: {"holiday": {"zh": "自由港日", "en": "Freeport Day"}, "dish": {"zh": "鱼丸面", "en": "Fish-ball noodles"}, "sport": {"zh": "龙舟", "en": "Dragon-boat racing"}}
+    travel: {"level": 1, "note": {"zh": "注意常规安全", "en": "Take normal precautions"}}
     religion:
     - names: {zh: 无宗教, en: No religion}
       share: 36
@@ -3544,6 +3587,8 @@ divisions:
     offices:
     - {"names": {"zh": "海岸巡逻队", "en": "Coastal Patrol"}, "title": {"zh": "队长", "en": "Commander"}}
     - {"names": {"zh": "检察官办公室", "en": "Office of the Public Prosecutor"}, "title": {"zh": "检察官", "en": "Public Prosecutor"}}
+    culture: {"holiday": {"zh": "大母节", "en": "Great Mother's Day"}, "dish": {"zh": "潟湖鱼汤", "en": "Lagoon fish soup"}, "sport": {"zh": "舷外浮杆独木舟赛", "en": "Outrigger canoe racing"}}
+    travel: {"level": 1, "note": {"zh": "进入氏族土地须先征得许可", "en": "Ask leave before going onto clan land"}}
     religion:
     - names: {zh: 祖灵信仰, en: Ancestral religion}
       share: 46
@@ -3694,6 +3739,8 @@ divisions:
     - {"names": {"zh": "托管地货币委员会", "en": "Currency Board"}, "title": {"zh": "主席", "en": "Chair"}}
     - {"names": {"zh": "托管地检察官办公室", "en": "Office of the Prosecutor"}, "title": {"zh": "检察官", "en": "Prosecutor"}}
     - {"names": {"zh": "联合难民事务处", "en": "Joint Refugee Office"}, "title": {"zh": "主任", "en": "Director"}}
+    culture: {"holiday": {"zh": "托管地日", "en": "Trusteeship Day"}, "dish": {"zh": "木薯饼", "en": "Cassava cakes"}, "sport": {"zh": "足球", "en": "Football"}}
+    travel: {"level": 2, "note": {"zh": "非军事区的地雷尚未全部清除，难民营周边治安不稳", "en": "Not all the mines in the demilitarised zone have been cleared"}}
     religion:
     - names: {zh: 天主教, en: Catholic}
       share: 28
@@ -3821,6 +3868,8 @@ divisions:
     - {"names": {"zh": "修道院财务室", "en": "Bursary"}, "title": {"zh": "司库修士", "en": "Bursar"}, "name": {"zh": "以法莲修士", "en": "Brother Ephrem"}}
     - {"names": {"zh": "朝圣者接待所", "en": "Pilgrims' Hospice"}, "title": {"zh": "接待修士", "en": "Guestmaster"}, "name": {"zh": "西门修士", "en": "Brother Simon"}}
     - {"names": {"zh": "圣山图书馆", "en": "Library of the Holy Mountain"}, "title": {"zh": "馆长修士", "en": "Librarian"}, "name": {"zh": "以撒修士", "en": "Brother Isaac"}}
+    culture: {"holiday": {"zh": "圣山节", "en": "Feast of the Holy Mountain"}, "dish": {"zh": "修道院面包配蜂蜜", "en": "Monastery bread with honey"}}
+    travel: {"level": 2, "note": {"zh": "只接待持朝圣许可的访客，每日人数有限，须遵守修道院的作息", "en": "Only visitors with a pilgrim's permit"}}
     religion:
     - names: {zh: 坦德罗古教会, en: Old Church of Tendro}
       share: 96
