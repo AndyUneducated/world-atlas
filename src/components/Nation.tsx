@@ -223,10 +223,12 @@ function BlocBadge({ data, facts, lang }: { data: AtlasData; facts: NationFacts;
   );
 }
 
-/** The other states of the nation's region; for a government in exile, every state on its island. */
+/** The states that may recognise it: the other states of a nation's region; for a government in exile, every
+ * state on its island; for a country, every state of every region. */
 function otherStates(data: AtlasData, entity: Entity) {
-  const region = entity.role === "region" ? entity : data.entities[entity.parent ?? ""];
-  return (region?.children ?? []).filter((id) => id !== entity.id && data.entities[id]?.role === "nation").length;
+  const parent = data.entities[entity.parent ?? ""];
+  const regions = entity.role === "region" ? [entity] : parent?.role === "region" ? [parent] : Object.values(data.entities).filter((e) => e.role === "region");
+  return regions.flatMap((r) => r.children ?? []).filter((id) => id !== entity.id && data.entities[id]?.role === "nation").length;
 }
 
 function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entity: Entity; facts: NationFacts; lang: Lang }) {
@@ -240,7 +242,8 @@ function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entit
   return (
     <Section title={tl("identity", lang)}>
       <div className="mb-3 flex flex-wrap items-center gap-1.5">
-        <BlocBadge data={data} facts={facts} lang={lang} />
+        {/* a country stands outside the islands' blocs, not neutral among them */}
+        {(facts.bloc || entity.role) && <BlocBadge data={data} facts={facts} lang={lang} />}
         {facts.ideology.map((i) => (
           <span key={i.en} className="rounded-full bg-hover px-2 py-0.5 text-[12px] text-ink">
             {i[lang]}
@@ -715,15 +718,14 @@ export type SharedParts = {
 
 /** Long cards (countries, territories, nations, blocs, parties) come in groups with jumps; short ones are one column. */
 export function isGroupedCard(e: Entity) {
-  return !!e.nation || e.kind === "bloc" || e.kind === "party" || (e.kind === "division" && (e.subtype === "dependency" || e.subtype === "country"));
+  return !!e.nation || e.kind === "bloc" || e.kind === "party" || (e.kind === "division" && e.subtype === "dependency");
 }
 
-/** A territory's or country's groups, in the order a nation's card uses, without the groups it has nothing for. */
+/** A territory's groups, in the order a nation's card uses, without the groups it has nothing for. */
 function divisionGroups(entity: Entity, lang: Lang, accent: string, shared: SharedParts): GroupDef[] {
   return [
     { key: "overview", title: tl("groupOverview", lang), body: shared.about, show: !!(entity.notes || entity.background) },
     { key: "politics", title: tl("groupPolitics", lang), body: shared.legislature, show: !!entity.legislature },
-    { key: "relations", title: tl("groupRelations", lang), body: shared.backed, show: !!entity.member_nations?.length },
     {
       key: "society",
       title: tl("groupSociety", lang),
@@ -775,6 +777,7 @@ export function CardGroups({ data, entity, lang, accent, shared }: { data: Atlas
           <>
             {entity.legislature ? shared.legislature : <GovernmentSection entity={entity} facts={f} lang={lang} />}
             <RelationsSection data={data} facts={f} lang={lang} />
+            {shared.backed}
           </>
         ),
       },

@@ -74,10 +74,10 @@ def ts_names(file: str, const: str) -> tuple[str, ...]:
 FLAG_LAYOUTS = ts_names("cityFlags.tsx", "FLAG_LAYOUTS")
 # Flags of the nations of a region (role: nation), each its own drawing in src/lib/nationFlags.tsx.
 NATION_FLAGS = ts_names("nationFlags.tsx", "NATION_FLAGS")
-# A nation's card block (nation: in its division): kinds of state and the facts it lists.
+# A state's card block (nation: in a region's nation, a government in exile or a country): kinds of state and the facts it lists.
 NATION_KEYS = ("exile", "ideology", "government", "head", "power", "bloc", "bloc_role", "recognition", "executive", "legislature", "judiciary", "military", "wars",
                "allies", "rivals", "backers", "religion", "freedom", "refugees", "symbols", "facts", "heir", "predecessors", "offices",
-               "culture", "travel")
+               "culture", "travel", "name_langs")
 FLAG_CHARGES = ts_names("emblems.tsx", "MOTIFS") + ts_names("charges.tsx", "NEW") + ts_names("charges.tsx", "CALIFORNIA")
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
 POLITICS_SYSTEMS = ("mmp", "fptp", "pr_reserved", "pr_regional", "top_two")
@@ -216,8 +216,9 @@ class World:
         return out
 
     def _nation_errors(self, d: dict) -> list[str]:
-        """A nation's card block: what kind of state it is, who holds power, its bloc, armed forces, wars,
-        faiths, freedoms, refugees, symbols and facts, each text in zh and en; and a card's worth of notes."""
+        """A state's card block, the same for a region's nations, a government in exile and a country: what kind
+        of state it is, who holds power, its bloc, armed forces, wars, faiths, freedoms, refugees, symbols and
+        facts, each text in zh and en; and a card's worth of notes."""
         n = d.get("nation")
         if not isinstance(n, dict):
             return ["a nation needs its card block (nation:)"]
@@ -278,6 +279,10 @@ class World:
             out.append("nation: culture may name the holiday, dish and sport (zh, en)")
         if (tr := n.get("travel")) is not None and not (isinstance(tr, dict) and tr.get("level") in (1, 2, 3, 4) and both(tr.get("note")) and len(tr) == 2):
             out.append("nation: travel gives the advice level (1 normal precautions to 4 do not travel) and a note (zh, en)")
+        pools = self.politics.get("names", {}) | self.politics.get("local_names", {}).get(d["id"], {})
+        if (nl := n.get("name_langs")) is not None and not (isinstance(nl, dict) and nl and all(
+                lg in pools and isinstance(v, (int, float)) and v > 0 for lg, v in nl.items())):
+            out.append("nation: name_langs gives the languages its officeholders are named in (with shares), each with a name pool")
         people = ([n["heir"]] if "heir" in n else []) + n.get("predecessors", [])
         if not all(isinstance(p, dict) and both(p.get("title")) and both(p.get("name")) and both(p.get("note", p.get("name"))) for p in people):
             out.append("nation: the heir and each predecessor give a title and name, and a predecessor may give a note (zh, en)")
@@ -316,6 +321,8 @@ class World:
 
     def validate(self) -> list[str]:
         errors: list[str] = self._bloc_errors()
+        for cid, c in self.countries.items():
+            errors += [f"{cid}: {e}" for e in self._nation_errors(c)]
         for eid, e in self.entities.items():
             if not ID_PATTERN.match(eid):
                 errors.append(f"{eid}: malformed id")

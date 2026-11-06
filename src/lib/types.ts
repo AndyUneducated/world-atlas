@@ -225,7 +225,7 @@ export interface NationFacts {
   power: Localized;
   bloc?: string | null;
   bloc_role?: Localized;
-  /** How many of the region's other states recognise it. */
+  /** How many of the region's other states recognise it (for a country, of every region's states). */
   recognition: number;
   /** A legislature with fixed seats, where there is no election to model. */
   legislature?: FixedChamber | NoBranch;
