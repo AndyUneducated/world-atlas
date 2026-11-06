@@ -79,7 +79,12 @@ export interface Entity {
   parent?: string;
   ancestors?: string[];
   children?: string[];
-  capital?: string | null;
+  /** A city's id; for China and the United States, whose cities are not on the map, the capital's names. */
+  capital?: string | Localized | null;
+  /** Fields that do not apply to the entity (a government in exile's population, economy, elections), and why. */
+  na?: { fields: string[]; note: Localized };
+  /** States: what they claim but do not control (the government in exile's capital and land). */
+  uncontrolled?: ("capital" | "area")[];
   special_status?: string;
   bbox?: BBox;
   center?: LngLat;
@@ -133,8 +138,8 @@ export interface Entity {
   climate_notes?: { zh: string; en: string };
   /** Territories: the parliament, the government it formed and the territory's officeholders. */
   legislature?: Legislature;
-  /** Cities: the council, its speaker and the mayor. */
-  council?: Council;
+  /** Cities: the council, its speaker and the mayor; in a nation without elections, the body it appoints. */
+  council?: Council | AppointedCouncil;
   /** Districts: how the district voted in the territorial election. */
   election?: { turnout: number; vote: { id: string; vote: number }[] };
   /** Parties (world/politics.yaml). */
@@ -173,8 +178,6 @@ export interface Entity {
   trend?: number[];
   /** Seats held in each territorial parliament and city council. */
   seats?: { at: string; seats: number; of: number; upper?: boolean }[];
-  /** Regions outside the territories: the region itself, its nations and their cities. */
-  role?: "region" | "nation" | "city";
   /** Nations: the card's facts. */
   nation?: NationFacts;
   /** Nations without an elected parliament: their executive and judiciary, named by the politics model. */
@@ -211,9 +214,6 @@ export type Faith = { names: Localized; share: number; color?: string };
 
 /** A nation's card block (nation: in world/divisions). */
 export interface NationFacts {
-  /** A region's card as the government in exile of the state it once was: that state's names, and the
-   * division it sits in. The map keeps the region's own name. */
-  exile?: { names: Names; seat: string };
   ideology: Localized[];
   government: Localized;
   head: Officeholder;
@@ -315,6 +315,14 @@ export interface Council extends Chamber {
   notes?: Localized;
   /** The deputy mayor, of the mayor's party. */
   deputy?: Officeholder & { party: string };
+}
+
+/** A city whose nation holds no elections: the body the nation appoints to run it, and its head. */
+export interface AppointedCouncil {
+  appointed: true;
+  names: Localized;
+  notes?: Localized;
+  head: Officeholder;
 }
 
 /** Districts and cities, from the climate model (world/climate.yaml): monthly normals, January first. */

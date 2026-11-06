@@ -2,10 +2,11 @@ import clsx from "clsx";
 import { ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { Paragraphs, Rows, Section, Sub, useCardOpen } from "./CardParts";
+import { NotApplicable, Paragraphs, Rows, Section, Sub, useCardOpen } from "./CardParts";
 import { Emblem, hasEmblem } from "./Emblem";
 import { Hemicycle } from "./Hemicycle";
 import { BodyName, Branch, OfficeRows, type PartyPart } from "./Politics";
+import { islandStates, isRegistryCountry } from "../lib/entity";
 import { displayName, formatNumber, formatPopulation, t } from "../lib/i18n";
 import type { AtlasData, Entity, Faith, FixedChamber, Lang, Localized, NationFacts, Seating, WarStatus } from "../lib/types";
 import { useAtlas } from "../store";
@@ -31,6 +32,7 @@ const L = {
   bloc: { zh: "阵营", en: "Bloc" },
   neutral: { zh: "中立", en: "Neutral" },
   legislature: { zh: "立法机构", en: "Legislature" },
+  elections: { zh: "选举", en: "Elections" },
   fixedSeats: { zh: "议席由制度固定分配，不经竞争性选举", en: "Seats are allotted by the system, not won in contested elections" },
   relations: { zh: "对外关系", en: "Relations" },
   allies: { zh: "盟友", en: "Allies" },
@@ -77,8 +79,6 @@ const L = {
   },
   people: { zh: "人", en: "" },
   groupPositions: { zh: "立场", en: "Positions" },
-  seat: { zh: "驻地", en: "Seat" },
-  claims: { zh: "主张领土", en: "Claims" },
   predecessors: { zh: "历任", en: "Predecessors" },
   emblems: { zh: "标志物", en: "Emblems" },
   culture: { zh: "文化", en: "Culture" },
@@ -223,19 +223,17 @@ function BlocBadge({ data, facts, lang }: { data: AtlasData; facts: NationFacts;
   );
 }
 
-/** The states that may recognise it: the other states of a nation's region; for a government in exile, every
- * state on its island; for a country, every state of every region. */
+/** The states that may recognise it: every state on Ranova but itself. */
 function otherStates(data: AtlasData, entity: Entity) {
-  const parent = data.entities[entity.parent ?? ""];
-  const regions = entity.role === "region" ? [entity] : parent?.role === "region" ? [parent] : Object.values(data.entities).filter((e) => e.role === "region");
-  return regions.flatMap((r) => r.children ?? []).filter((id) => id !== entity.id && data.entities[id]?.role === "nation").length;
+  return islandStates(data).filter((e) => e.id !== entity.id).length;
 }
 
 function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entity: Entity; facts: NationFacts; lang: Lang }) {
   const select = useAtlas((s) => s.select);
-  const capital = entity.capital ? data.entities[entity.capital] : undefined;
+  const capital = typeof entity.capital === "string" ? data.entities[entity.capital] : undefined;
+  const capitalName = entity.capital && typeof entity.capital === "object" ? entity.capital[lang] : undefined;
   const others = otherStates(data, entity);
-  const seat = facts.exile ? data.entities[facts.exile.seat] : undefined;
+  const uncontrolled = entity.uncontrolled?.includes("capital") && <span className="text-muted">{t("uncontrolled", lang)}</span>;
   const recognised = facts.recognition
     ? tl("recognisedBy", lang).replace("{n}", String(facts.recognition)).replace("{of}", String(others))
     : tl("unrecognised", lang);
@@ -243,7 +241,7 @@ function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entit
     <Section title={tl("identity", lang)}>
       <div className="mb-3 flex flex-wrap items-center gap-1.5">
         {/* a country stands outside the islands' blocs, not neutral among them */}
-        {(facts.bloc || entity.role) && <BlocBadge data={data} facts={facts} lang={lang} />}
+        {(facts.bloc || !isRegistryCountry(entity)) && <BlocBadge data={data} facts={facts} lang={lang} />}
         {facts.ideology.map((i) => (
           <span key={i.en} className="rounded-full bg-hover px-2 py-0.5 text-[12px] text-ink">
             {i[lang]}
@@ -273,14 +271,18 @@ function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entit
             : []),
           [tl("powerHolder", lang), facts.power[lang]],
           ...(capital
-            ? ([[tl("capital", lang), <button key="c" onClick={() => select(capital.id)} className="text-left underline decoration-line underline-offset-2 hover:decoration-current">{displayName(capital, lang)}</button>]] as [string, ReactNode][])
-            : []),
-          ...(seat
             ? ([
-                [tl("seat", lang), <button key="s" onClick={() => select(seat.id)} className="text-left underline decoration-line underline-offset-2 hover:decoration-current">{displayName(seat, lang)}</button>],
-                [tl("claims", lang), lang === "zh" ? `${displayName(entity, "zh")}全岛及两侧群岛` : `All of ${displayName(entity, "en")} and its offshore islands`],
+                [
+                  tl("capital", lang),
+                  <span key="c">
+                    <button onClick={() => select(capital.id)} className="text-left underline decoration-line underline-offset-2 hover:decoration-current">{displayName(capital, lang)}</button>
+                    {uncontrolled}
+                  </span>,
+                ],
               ] as [string, ReactNode][])
-            : []),
+            : capitalName
+              ? ([[tl("capital", lang), <span key="c">{capitalName}{uncontrolled}</span>]] as [string, ReactNode][])
+              : []),
           [
             tl("recognition", lang),
             <span key="r" className="flex items-center gap-2">
@@ -776,6 +778,7 @@ export function CardGroups({ data, entity, lang, accent, shared }: { data: Atlas
         body: (
           <>
             {entity.legislature ? shared.legislature : <GovernmentSection entity={entity} facts={f} lang={lang} />}
+            <NotApplicable entity={entity} field="elections" title={tl("elections", lang)} lang={lang} />
             <RelationsSection data={data} facts={f} lang={lang} />
             {shared.backed}
           </>
@@ -892,7 +895,7 @@ function blocGroups(data: AtlasData, entity: Entity, lang: Lang, accent: string,
 
 /** Countries: the island nations they back, grouped by bloc. */
 export function BackedSection({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
-  const ids = entity.kind === "division" && !entity.role ? (entity.member_nations ?? []) : [];
+  const ids = isRegistryCountry(entity) ? (entity.member_nations ?? []) : [];
   if (!ids.length) return null;
   const byBloc = new Map<string, string[]>();
   for (const id of ids) {

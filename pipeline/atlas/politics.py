@@ -3,8 +3,10 @@ the territorial election, from the parties' target shares in the territory leane
 industries, languages, ages, income and density; the territorial legislature and every city council,
 seated by their territory's electoral system; the government each forms, its cabinet, and the
 officeholders (governor, premier, speaker, leader of the opposition, chief justice, mayors and council
-speakers). Parties become entities of their own, with who their voters are. Runs after
-economy.annotate, on the whole world's entities."""
+speakers). A state's legislature is elected by its cities, each of which (having no districts) is its own
+council's only ward; the cities of a state without one have appointed bodies (appointed_councils). Parties
+become entities of their own, with who their voters are. Runs after economy.annotate, on the whole world's
+entities."""
 from __future__ import annotations
 
 import hashlib
@@ -90,7 +92,7 @@ class _Territory:
         self.leg = leg
         self.parties = {p["id"]: p for p in model["parties"] if tid in p.get("targets", {})}
         self.lean = {pid: p.get("lean", {}) for pid, p in self.parties.items()}
-        self.districts = [did for did, d in world.divisions.items() if d["subtype"] == "borough" and tid in world.ancestors(did)]
+        self.districts = [did for did in world.divisions if world.is_leaf(did) and tid in world.ancestors(did)]
         self.centers = {did: entities[did]["center"] for did in self.districts}
         pops = {did: world.divisions[did]["population"] for did in self.districts}
         gdp_mean = sum(entities[d].get("economy", {}).get("gdp_per_capita_usd", 0) * pops[d] for d in self.districts) / sum(pops.values())
@@ -611,6 +613,7 @@ def annotate(world: World, entities: dict) -> None:
     effect: dict[str, dict[str, float]] = {pid: {} for pid in parties}
     weight: dict[str, float] = {pid: 0.0 for pid in parties}
     trends: dict[str, dict[str, list[float]]] = {}
+    late: list[tuple[str, str]] = []
     for tid, leg in model["legislatures"].items():
         terr = _Territory(world, entities, tid, model)
         won, share, extra = terr.seat(terr.districts, leg["seats"], leg["system"], tid)
@@ -677,10 +680,12 @@ def annotate(world: World, entities: dict) -> None:
             }
         cities: dict[str, list[str]] = {}
         for d in terr.districts:
-            cities.setdefault(world.divisions[d]["parent"], []).append(d)
+            parent = world.divisions[d]["parent"]
+            cities.setdefault(d if parent == tid else parent, []).append(d)
         for cid, dids in cities.items():
-            if cid == tid:  # a nation's cities sit in its parliament and elect no councils
-                continue
+            own = dids == [cid]  # a state's city, named last (below) so that its council renames no one
+            if own:
+                late.append((cid, tid))
             c = world.divisions[cid]
             override = leg.get("councils", {}).get(cid, {})
             kind = model["council_types"][override.get("type", "council")]
@@ -693,7 +698,7 @@ def annotate(world: World, entities: dict) -> None:
                 cgov = [lead] + [p for p in cgov if p != lead]
             clangs = entities[cid].get("demographics", {}).get("languages", {"zh": 100})
             v = sum(terr.voters[d] for d in dids) / sum(world.divisions[d]["population"] * model["electorate_share"] for d in dids)
-            mayor = {"title": override.get("mayor", leg["mayor"]), "name": people.draw("mayor:" + cid, clangs, where=tid), "party": cgov[0]}
+            mayor = {"title": override.get("mayor", leg["mayor"]), "name": None if own else people.draw("mayor:" + cid, clangs, where=tid), "party": cgov[0]}
             if elected:
                 (mp, mv), (rp, rv) = terr.runoff(cs, cid + ":mayor")
                 mayor |= {"party": mp, "vote": round(100 * mv, 1), "runner_up": {"party": rp, "vote": round(100 * rv, 1)}}
@@ -703,7 +708,8 @@ def annotate(world: World, entities: dict) -> None:
                 **({"elected": True} if elected else {}),
                 "turnout": round(100 * v, 1),
                 "head": mayor,
-                "speaker": {"title": override.get("speaker", kind["speaker"]), "name": people.draw("council-speaker:" + cid, clangs, where=tid), "party": cgov[0]},
+                "speaker": {"title": override.get("speaker", kind["speaker"]), "party": cgov[0],
+                            "name": None if own else people.draw("council-speaker:" + cid, clangs, where=tid)},
                 **_chamber(cw, cs, cx, cgov),
             }
             for p, n in cw.items():
@@ -732,3 +738,12 @@ def annotate(world: World, entities: dict) -> None:
         }
     _appoint(model, entities, people, holders, parties)
     _offices(world, model, entities, people)
+    for cid, tid in late:
+        council, clangs = entities[cid]["council"], entities[cid].get("demographics", {}).get("languages", {"zh": 100})
+        council["head"]["name"] = people.draw("mayor:" + cid, clangs, where=tid)
+        council["speaker"]["name"] = people.draw("council-speaker:" + cid, clangs, where=tid)
+    for nid, body in model.get("appointed_councils", {}).items():
+        for c in world.children(nid):
+            clangs = entities[c["id"]].get("demographics", {}).get("languages", {"zh": 100})
+            entities[c["id"]]["council"] = {"names": body["names"], **({"notes": body["notes"]} if "notes" in body else {}), "appointed": True,
+                                            "head": {"title": body["mayor"], "name": people.draw("mayor:" + c["id"], clangs, where=nid)}}

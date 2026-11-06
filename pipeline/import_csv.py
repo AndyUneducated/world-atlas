@@ -376,14 +376,17 @@ class Importer:
             psub = self.rows[self.ids.index(parent)].get("subtype")
         else:
             psub = None
-        want = {"locality": "dependency", "borough": "locality"}.get(subtype)
-        if psub and want and psub != want:
-            self.problems.add(self.where(i, "parent"), f"{'市' if subtype == 'locality' else '区'}的上级必须是{'领地' if want == 'dependency' else '市'}")
+        want = {"locality": ("dependency", "region", "country"), "borough": ("locality",)}.get(subtype)
+        if psub and want and psub not in want:
+            self.problems.add(self.where(i, "parent"), "市的上级必须是领地、省或国家" if subtype == "locality" else "区的上级必须是市")
+        elif subtype == "borough" and self.world.entities.get(self.world.divisions.get(parent, {}).get("parent", ""), {}).get("subtype") == "country":
+            self.problems.add(self.where(i, "parent"), "国家直辖的市不设区")
+        state_city = subtype == "locality" and psub == "country"
         used = {d.get("codes", {}).get("admin") for d in self.world.divisions.values()} | set(self.new_codes.values())
         if is_new and "codes.admin" not in changes and parent:
             base = self.new_codes.get(parent) or self.world.divisions.get(parent, {}).get("codes", {}).get("admin")
-            if base and want in CODE_DIGITS:
-                base = base[:code_digits(self.world.divisions.get(parent) or {"subtype": want})]
+            if base and psub in CODE_DIGITS:
+                base = base[:code_digits({"subtype": psub})]
                 n = 1
                 while f"{base}{n:02d}".ljust(6, "0") in used:
                     n += 1
@@ -404,15 +407,17 @@ class Importer:
         if subtype == "locality":
             if is_new and "color" not in changes:
                 self.problems.add(self.where(i, "color"), "新建的市必须指定主色（地图着色和徽标）")
-            if is_new and anchor is None:
+            if is_new and anchor is None and not state_city:
                 self.problems.add(self.where(i, "anchor_x_km"), "新建的市必须给出锚点（设计坐标 km，X 向东、Y 向北）")
+            if is_new and direction is None and state_city:
+                self.problems.add(self.where(i, "dir_x"), "新建的国家直辖市必须给出方向（相对所在国家锚点的单位方向）")
         if anchor is not None:
-            if subtype != "locality":
-                self.problems.add(self.where(i, "anchor_x_km"), "锚点只适用于市；区请填写 方向X、方向Y")
+            if subtype != "locality" or state_city:
+                self.problems.add(self.where(i, "anchor_x_km"), "锚点只适用于领地的市；区和国家直辖的市请填写 方向X、方向Y")
             extras["layout.cities"] = anchor
         if direction is not None:
-            if subtype != "borough":
-                self.problems.add(self.where(i, "dir_x"), "方向只适用于区（相对所在市锚点的单位方向）")
+            if subtype != "borough" and not state_city:
+                self.problems.add(self.where(i, "dir_x"), "方向只适用于区和国家直辖的市（相对上级锚点的单位方向）")
             extras["layout.districts"] = direction
 
     def check_features(self, i, row, eid, is_new, changes, extras):
@@ -562,13 +567,13 @@ def translate(msg: str) -> str:
         (r"(\S+): admin code (\S+) does not extend parent code (\S+)", r"\1：区划代码 \2 应以上级代码 \3 开头"),
         (r"(\S+): route number (\S+) already used by (\S+)", r"\1：道路编号 \2 已被 \3 使用"),
         (r"(\S+): a ring needs at least three via divisions", r"\1：环线至少需要三个途经城市"),
-        (r"generator: city (\S+) has no anchor in layout.cities", r"\1：生成器中没有该市的锚点（填写 锚点X、锚点Y）"),
+        (r"generator: (\S+) has no anchor in layout.cities", r"\1：生成器中没有该市的锚点（填写 锚点X、锚点Y）"),
         (r"(\S+): missing name in '(\w+)'", r"\1：缺少 \2 名称"),
         (r"(\S+): via (\S+) is not a division", r"\1：途经 \2 不是行政区"),
         (r"(\S+): 'in' must name a division", r"\1：所在区必须是行政区"),
         (r"(\S+): site size_m must be .*", r"\1：占地长米、占地宽米应为正数（米）"),
         (r"(\S+): site angle_deg must be .*", r"\1：占地朝向度应为数字（正东为 0，逆时针）"),
-        (r"(\S+): a place with a site must be 'in' a district", r"\1：有占地的地标必须位于区内"),
+        (r"(\S+): a place with a site must be 'in' a district.*", r"\1：有占地的地标必须位于区内（或不设区的市内）"),
         (r"(\S+): a railway needs at least two stops in via", r"\1：铁路至少需要两个停靠站"),
         (r"(\S+): via (\S+) is not a city or district", r"\1：停靠 \2 不是市或区"),
         (r"(\S+): station_names entry (\S+) is not one of the stops", r"\1：站名覆盖 \2 不在停靠站中"),
@@ -639,8 +644,10 @@ def main():
             return chain
 
         def generator_for(eid: str) -> Path:
+            chain = set(chain_of(eid))
             for p in sorted((WORLD_DIR / "generator").glob("*.yaml")):
-                if yaml_of(p)[1].get("territory") in chain_of(eid):
+                g = yaml_of(p)[1]
+                if g.get("territory") in chain or chain & set(g.get("states") or ()):
                     return p
             sys.exit(f"{eid}：找不到负责其所在领地的生成器文件（world/generator/）")
 

@@ -240,7 +240,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
 
     territory = world.divisions[spec["territory"]]
     in_territory = [territory["id"], *world.ancestors(territory["id"])]
-    cities = sorted(world.children(territory["id"]), key=lambda d: d["codes"]["admin"])
+    cities = world.region_units(spec)
     districts, district_city = [], []
     added = layout.get("added_districts", [])
     for ci, c in enumerate(cities):
@@ -554,7 +554,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             path = router.trim_to_network(path)
         router.commit(path, r["class"], ref=r["ref"])
         road_out.append((r, path))
-    feeder_seq, infix = 0, territory["codes"]["iso3166_2"].split("-")[1]
+    feeder_seq, infix = 0, spec.get("ref_infix") or territory["codes"]["iso3166_2"].split("-")[1]
     landmass = ndimage.label(land_r, np.ones((3, 3)))[0].ravel()
 
     def feeder(i, d):
@@ -755,16 +755,19 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         centres.append((e, pole_xy))
 
     terr = territory
-    add_division(terr, terr_poly, pole_of_inaccessibility(land, g.xs, g.ys), land, {"rank": 0})
+    add_division(terr, terr_poly, pole_of_inaccessibility(land, g.xs, g.ys), land, {"rank": 0, "land": True})
+    # a territory is named across its land; where the region's territory is a state's claim (a government
+    # in exile's), the land is named as geography (island_names) and the label opens no card
+    island = spec.get("island_names")
     label_features.append(feature(point_lonlat(frame, *pole_of_inaccessibility(land, g.xs, g.ys)), {
-        "id": terr["id"], "kind": "dependency", "name_zh": terr["names"]["zh"], "name_en": terr["names"]["en"], "rank": 0}))
+        "id": terr["id"], "kind": "landmass" if island else "dependency", "name_zh": (island or terr["names"])["zh"],
+        "name_en": (island or terr["names"])["en"], "rank": 0}))
     for ci, c in enumerate(cities):
-        nation = c.get("role") == "nation"
-        add_division(c, city_polys[ci], poles[core[ci]], city_r == ci, {"color": c["color"], "city": c["id"], "rank": 1,
-                                                                        **({"role": "nation"} if nation else {})})
-        if nation:  # a nation is named across its land; its cities carry the dots
+        state = c["subtype"] == "country"
+        add_division(c, city_polys[ci], poles[core[ci]], city_r == ci, {"color": c["color"], "city": c["id"], "rank": 1})
+        if state:  # a state is named across its land; its cities carry the dots
             label_features.append(feature(point_lonlat(frame, *pole_of_inaccessibility(city_r == ci, g.xs, g.ys)), {
-                "id": c["id"], "kind": "nation", "name_zh": c["names"]["zh"], "name_en": c["names"]["en"],
+                "id": c["id"], "kind": "state", "name_zh": c["names"]["zh"], "name_en": c["names"]["en"],
                 "short_zh": c.get("short_names", c["names"])["zh"], "short_en": c.get("short_names", c["names"])["en"],
                 "population": c["population"], "color": c["color"], "rank": 0 if c["area_km2"] >= 20000 else 1}))
             continue
@@ -775,14 +778,15 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             "rank": 1 if is_capital else (2 if c["population"] >= 500_000 else 3)}))
     for i, d in enumerate(districts):
         ci = district_city[i]
-        add_division(d, dist_polys[i], poles[i], dist_r == i, {"color": cities[ci]["color"], "city": cities[ci]["id"], "rank": 2})
-        if cities[ci].get("role") == "nation":  # a nation's city is labelled as a city, its capital with a larger dot
+        if cities[ci]["subtype"] == "country":  # a state's city is a city of its own colour, its capital with a larger dot
+            add_division(d, dist_polys[i], poles[i], dist_r == i, {"color": d["color"], "city": d["id"], "rank": 2})
             is_capital = cities[ci].get("capital") == d["id"]
             label_features.append(feature(point_lonlat(frame, *poles[i]), {
                 "id": d["id"], "kind": "locality", "name_zh": d["names"]["zh"], "name_en": d["names"]["en"],
-                "capital": is_capital, "population": d["population"], "color": cities[ci]["color"],
+                "capital": is_capital, "population": d["population"], "color": d["color"],
                 "rank": 1 if is_capital else (2 if d["population"] >= 300_000 else 3)}))
             continue
+        add_division(d, dist_polys[i], poles[i], dist_r == i, {"color": cities[ci]["color"], "city": cities[ci]["id"], "rank": 2})
         label_features.append(feature(point_lonlat(frame, *poles[i]), {
             "id": d["id"], "kind": "borough", "name_zh": d["names"]["zh"], "name_en": d["names"]["en"],
             "population": d["population"], "color": cities[ci]["color"], "rank": 4}))

@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import type { Entity, Lang } from "../lib/types";
 import { registerCardScroller, useAtlas } from "../store";
 
 /** An opened-or-not part of a card, kept with the card so going back shows it as it was left. */
@@ -39,6 +40,16 @@ export function Section({ title, children }: { title: string; children: ReactNod
       <h3 className="mb-2.5 text-[11px] font-semibold tracking-wider text-faint uppercase">{title}</h3>
       {children}
     </section>
+  );
+}
+
+/** A section whose figures do not apply to the entity (its na: fields), with the reason in their place. */
+export function NotApplicable({ entity, field, title, lang }: { entity: Entity; field: string; title: string; lang: Lang }) {
+  if (!entity.na?.fields.includes(field)) return null;
+  return (
+    <Section title={title}>
+      <p className="text-[13px] leading-relaxed text-muted">{entity.na.note[lang]}</p>
+    </Section>
   );
 }
 

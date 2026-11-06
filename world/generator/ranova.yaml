@@ -5,7 +5,39 @@
 # Positions and lengths are in design kilometres in a local equal-area (sinusoidal) frame whose centre
 # maps to frame.origin_lonlat; frame.scale converts design km to real km. Division areas come from
 # world/divisions/ranova.yaml. The outline, zones and islands were laid out by _drafts/m83/layout.py.
+# The region's territory is the government in exile's claim: the whole island, drawn as its land and named
+# as geography (island_names, a label that opens no card). Its states are laid out in this order, the
+# order their land, streets and buildings were first drawn in; their cities are the region's last level.
 territory: div_p735rv
+island_names: {zh: 拉诺瓦岛, en: Ranova, art-x-ranova: Nosy Ranova}
+ref_infix: RA  # feeder roads X-RA-1 …
+states:
+  - div_mj41d0  # 安博哈拉基督教联邦
+  - div_r9whm0  # 阿瓦拉齐人民民主共和国
+  - div_s07wh5  # 马索沃利社会主义人民共和国
+  - div_rbcxzz  # 齐马罗沃民族社会主义国
+  - div_hm0zqz  # 卡波拉新秩序自由领
+  - div_dmf47n  # 梅纳瓦利国家拯救共和国
+  - div_t5zph6  # 萨希利亚伊斯兰共和国
+  - div_5b4193  # 贾巴利亚伊斯兰酋长国（自封）
+  - div_ht80hm  # 阿拉齐纳原住民邦联
+  - div_0cazhp  # 法尼里自由公社联合会
+  - div_1tan4g  # 齐阿拉野化邦
+  - div_nyhhhg  # 黎明千年国
+  - div_sh6pkn  # 安博维共和国
+  - div_9w60j4  # 伊索卡人民战争解放区
+  - div_gd73a5  # 洛哈瓦托王国
+  - div_4f0pgt  # 贝洛瓦共和国
+  - div_38z2mg  # 努西拉苏丹国
+  - div_78xf6t  # 米拉卡王国
+  - div_gempde  # 萨拉卡公国
+  - div_3zzzry  # 卡托拉特许领
+  - div_hxyyfe  # 瓦罗纳商业共和国
+  - div_gebca7  # 萨马伊自由邦
+  - div_3w5wwh  # 马哈维洛自由港
+  - div_4nnakk  # 伊纳拉群岛邦
+  - div_7t7xz6  # 安巴罗国际托管地
+  - div_c28art  # 坦德罗圣山修道院共和国
 seed: 83
 frame:
   origin_lonlat: [-147.5, 18.0]

@@ -35,8 +35,11 @@ const STRINGS = {
   route_water: { zh: "跨水段", en: "Water crossing" },
   capitalOf: { zh: "领地首府", en: "Territorial capital" },
   nationCapital: { zh: "首都", en: "National capital" },
-  exileTag: { zh: "流亡政府", en: "Government in exile" },
-  claimedTerritory: { zh: "主张的领土", en: "Claimed territory" },
+  notApplicable: { zh: "不适用", en: "N/A" },
+  uncontrolled: { zh: "（未实际控制）", en: " (not actually controlled)" },
+  uncontrolledShort: { zh: "未实际控制", en: "not controlled" },
+  cityBody: { zh: "市政机构", en: "City body" },
+  appointedBody: { zh: "由中央任命，不经选举", en: "Appointed by the national government, not elected" },
   expand: { zh: "展开", en: "Expand" },
   collapse: { zh: "收起", en: "Collapse" },
   close: { zh: "关闭", en: "Close" },
@@ -107,6 +110,7 @@ const STRINGS = {
   scalePosition: { zh: "标尺与坐标", en: "Scale & position" },
   zoomButtons: { zh: "缩放按钮", en: "Zoom buttons" },
   places: { zh: "城市与边界", en: "Places & boundaries" },
+  boundaryNation: { zh: "国界", en: "National border" },
   boundaryCity: { zh: "市界", en: "City boundary" },
   boundaryDistrict: { zh: "区界", en: "District boundary" },
   city: { zh: "城市", en: "City" },
@@ -267,6 +271,7 @@ const STRINGS = {
   cabinet: { zh: "内阁部长", en: "Cabinet" },
   oppositionLeader: { zh: "反对党领袖", en: "Leader of the Opposition" },
   electionTitle: { zh: "领地选举", en: "Territorial election" },
+  nationalElectionTitle: { zh: "全国选举", en: "National election" },
   electoralSystem: { zh: "选举制度", en: "Electoral system" },
   government: { zh: "执政", en: "Government" },
   opposition: { zh: "在野", en: "Opposition" },
@@ -378,12 +383,6 @@ const SPECIAL_LABELS: Record<string, Record<Lang, string>> = {
   commonwealth: { zh: "联合邦", en: "Commonwealth" },
   national_park: { zh: "国家公园管理区", en: "National park" },
   military_zone: { zh: "军事管理区", en: "Military zone" },
-};
-
-const ROLE_LABELS: Record<NonNullable<Entity["role"]>, Record<Lang, string>> = {
-  region: { zh: "地区", en: "Region" },
-  nation: { zh: "国家", en: "Nation" },
-  city: { zh: "城市", en: "City" },
 };
 
 const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
@@ -529,17 +528,11 @@ export function kindLabel(e: Entity, lang: Lang): string {
   if (e.subtype === "station" && e.source === "generated:metro") return STRINGS.metroStation[lang];
   if (e.subtype === "station") return STRINGS.railStation[lang];
   if (e.special_status && SPECIAL_LABELS[e.special_status]) return SPECIAL_LABELS[e.special_status][lang];
-  if (e.role) return ROLE_LABELS[e.role][lang];
   return SUBTYPE_LABELS[e.subtype]?.[lang] ?? e.subtype;
 }
 
 export function displayName(e: Entity, lang: Lang): string {
   return e.names[lang] ?? e.names.zh;
-}
-
-/** The name a card goes by: for a government in exile, its state's rather than the island's on the map. */
-export function cardName(e: Entity, lang: Lang): string {
-  return e.nation?.exile?.names[lang] ?? displayName(e, lang);
 }
 
 export function otherName(e: Entity, lang: Lang): string {

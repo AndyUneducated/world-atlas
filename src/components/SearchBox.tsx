@@ -2,8 +2,8 @@ import clsx from "clsx";
 import { Check, ChevronDown, Search, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { accentColor, pathLabel, wonderName } from "../lib/entity";
-import { cardName, displayName, formatNumber, kindLabel, otherName, t, type StringKey } from "../lib/i18n";
+import { accentColor, holdsNoLand, islandStates, isRegistryCountry, pathLabel, wonderName } from "../lib/entity";
+import { displayName, formatNumber, kindLabel, otherName, t, type StringKey } from "../lib/i18n";
 import { parties } from "../lib/politics";
 import { SearchIndex } from "../lib/search";
 import { ROAD_NETWORKS } from "../lib/style";
@@ -73,40 +73,38 @@ export function SearchBox() {
   const [scope, setScope] = useState<string | null>(null);
   const [scopeOpen, setScopeOpen] = useState(false);
   const territories = useMemo(() => (data ? data.manifest.regions.map((r) => data.entities[r.id]).filter(Boolean) : []), [data]);
-  /** Countries and the nations of a region, each followed by its territories; the scope choices. */
+  /** The states holding land on Ranova, by ISO number. */
+  const island = useMemo(() => (data ? islandStates(data) : []), [data]);
+  /** China and the United States, then the states on Ranova (the government in exile first): the scope
+   * choices, each country followed by its territories. */
   const nations = useMemo(() => {
     if (!data) return [];
-    const countries = Object.values(data.entities).filter((e) => e.subtype === "country" && e.bbox);
-    const ofRegion = territories.filter((r) => r.role === "region").flatMap((r) => (r.children ?? []).map((id) => data.entities[id]).filter((e) => e?.role === "nation"));
-    const exiles = territories.filter((r) => r.role === "region" && r.nation);
-    return [...countries, ...exiles, ...ofRegion];
-  }, [data, territories]);
+    const countries = Object.values(data.entities).filter((e) => e.subtype === "country" && e.bbox && isRegistryCountry(e));
+    const landless = Object.values(data.entities).filter((e) => e.subtype === "country" && e.bbox && holdsNoLand(e));
+    return [...countries, ...landless, ...island];
+  }, [data, island]);
   const scopes = useMemo(() => {
     const out: { e: Entity; depth: number }[] = [];
-    for (const c of nations.filter((e) => e.subtype === "country")) {
-      out.push({ e: c, depth: 0 });
-      for (const r of territories.filter((r) => r.ancestors?.includes(c.id))) out.push({ e: r, depth: 1 });
-    }
-    for (const r of territories.filter((r) => r.role === "region")) {
-      out.push({ e: r, depth: 0 });
-      for (const n of nations.filter((n) => n.parent === r.id)) out.push({ e: n, depth: 1 });
+    for (const n of nations) {
+      out.push({ e: n, depth: 0 });
+      for (const r of territories.filter((r) => r.ancestors?.includes(n.id))) out.push({ e: r, depth: 1 });
     }
     return out;
   }, [nations, territories]);
   const inScope = useMemo(() => {
-    const within = (id: string) => !!scope && (id === scope || !!data?.entities[id]?.ancestors?.includes(scope));
+    const under = (e?: Entity) => !!e && !!scope && (e.id === scope || !!e.ancestors?.includes(scope));
     return (e: Entity) =>
-      !scope || e.id === scope || !!e.ancestors?.includes(scope) || !!e.territories?.some(within) || !!e.via?.some(within);
+      !scope || under(e) || !!e.territories?.some((id) => under(data?.entities[id])) || !!e.via?.some((id) => under(data?.entities[id]));
   }, [scope, data]);
   const hits = useMemo(() => (index ? index.search(query, 8, inScope) : []), [index, query, inScope]);
-  /** Cities: a territory's children, or for a region the cities of its nations. */
+  /** Cities: a territory's children, then those of the states on Ranova. */
   const cities = useMemo(() => {
     if (!data) return [];
-    return territories
-      .flatMap((r) => (r.role === "region" ? (r.children ?? []).flatMap((id) => data.entities[id]?.children ?? []) : (r.children ?? [])))
+    return [...territories.filter((r) => r.subtype === "dependency"), ...island]
+      .flatMap((r) => r.children ?? [])
       .map((id) => data.entities[id])
       .filter((e) => e && inScope(e));
-  }, [data, territories, inScope]);
+  }, [data, territories, island, inScope]);
   const nationList = useMemo(() => nations.filter(inScope), [nations, inScope]);
   const routes = useMemo(() => {
     const out: Record<RoadGroup | "railways", Entity[]> = { nationalExpressway: [], territorialExpressway: [], territorialHighway: [], railways: [] };
@@ -123,32 +121,36 @@ export function SearchBox() {
   /** Wonders by territory (those between two territories last), then landforms, places and lines. */
   const wonders = useMemo(() => {
     if (!data) return [];
-    const ids = territories.map((r) => r.id);
+    // a generated region is a territory, or Ranova with every state on it
+    const islandIds = new Set(island.map((s) => s.id));
+    const owns = (r: Entity, id: string) => id === r.id || (r.subtype !== "dependency" && islandIds.has(id));
     const home = (e: Entity) => {
-      const own = ids.filter((id) => e.ancestors?.includes(id) || e.territories?.includes(id) || e.via?.some((v) => data.entities[v]?.ancestors?.includes(id)));
-      return own.length === 1 ? ids.indexOf(own[0]) : ids.length;
+      const own = territories.filter(
+        (r) => e.ancestors?.some((a) => owns(r, a)) || e.territories?.some((a) => owns(r, a)) || e.via?.some((v) => data.entities[v]?.ancestors?.some((a) => owns(r, a))),
+      );
+      return own.length === 1 ? territories.indexOf(own[0]) : territories.length;
     };
     const rank = (e: Entity) => home(e) * 10 + KIND_ORDER.indexOf(e.kind);
     return Object.values(data.entities)
       .filter((e) => e.wonder && e.bbox && inScope(e))
       .sort((a, b) => rank(a) - rank(b));
-  }, [data, territories, inScope]);
+  }, [data, territories, island, inScope]);
   /** Parties standing in the scope, most seats in its parliaments first. */
   const partyList = useMemo(() => {
     if (!data) return [];
     const parliament = (id: string) => {
       const at = data.entities[id];
-      return at?.subtype === "dependency" || at?.role === "nation";
+      return at?.subtype === "dependency" || at?.subtype === "country";
     };
     const seats = (e: Entity) =>
       (e.seats ?? [])
-        .filter((s) => parliament(s.at) && (!scope || s.at === scope || !!data.entities[s.at]?.ancestors?.includes(scope)))
+        .filter((s) => parliament(s.at) && inScope(data.entities[s.at]))
         .reduce((a, s) => a + s.seats, 0);
     return parties(data)
       .filter(inScope)
       .map((e) => ({ e, seats: seats(e) }))
       .sort((a, b) => b.seats - a.seats || (b.e.members ?? 0) - (a.e.members ?? 0));
-  }, [data, scope, inScope]);
+  }, [data, inScope]);
   const [expanded, setExpanded] = useState<Record<ExploreGroup, boolean>>({
     nations: false,
     cities: false,
@@ -372,7 +374,7 @@ export function SearchBox() {
                           )}
                           <span className="min-w-0 flex-1">
                             <span className="flex items-baseline gap-2">
-                              <span className="truncate text-[14px] font-medium text-ink">{cardName(e, lang)}</span>
+                              <span className="truncate text-[14px] font-medium text-ink">{displayName(e, lang)}</span>
                               <span className="truncate text-[12px] text-faint">{otherName(e, lang)}</span>
                             </span>
                             <span className="block truncate text-[12px] text-muted">{pathLabel(data, e, lang) || kindLabel(e, lang)}</span>
@@ -432,7 +434,7 @@ export function SearchBox() {
                                   <span className="block truncate text-[11.5px] text-faint">{e.wonder![lang]}</span>
                                 </span>
                               ) : (
-                                <span className="truncate">{cardName(e, lang)}</span>
+                                <span className="truncate">{displayName(e, lang)}</span>
                               )}
                               {g === "parties" ? (
                                 <span className="ml-auto shrink-0 text-[11.5px] text-faint tabular-nums">

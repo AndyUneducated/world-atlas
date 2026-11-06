@@ -139,6 +139,10 @@ export function buildStyle(opts: {
 
   const isSubtype = (s: string): ExpressionSpecification => ["==", ["get", "subtype"], s];
   const isKind = (k: string): ExpressionSpecification => ["==", ["get", "kind"], k];
+  // division features rank 0 (a territory's land), 1 (its cities, or a state) and 2 (districts, or a state's cities)
+  const isLand: ExpressionSpecification = ["==", ["get", "land"], true];
+  const isLeaf: ExpressionSpecification = ["==", ["get", "rank"], 2];
+  const isState: ExpressionSpecification = ["all", isSubtype("country"), ["==", ["get", "rank"], 1]];
   const isClass = (c: string): ExpressionSpecification => ["==", ["get", "class"], c];
 
   const style: LayerSpecification[] = [
@@ -153,7 +157,7 @@ export function buildStyle(opts: {
       layout: { "fill-sort-key": ["-", 0, ["get", "band"]] },
       paint: { "fill-color": ["match", ["get", "band"], 0, m.bathymetry[0], 1, m.bathymetry[1], m.bathymetry[2]], "fill-antialias": false },
     },
-    { id: "land", type: "fill", source: "divisions", filter: isSubtype("dependency"), paint: { "fill-color": m.land } },
+    { id: "land", type: "fill", source: "divisions", filter: isLand, paint: { "fill-color": m.land } },
   ];
 
   style.push({
@@ -311,7 +315,7 @@ export function buildStyle(opts: {
       id: "choropleth",
       type: "fill",
       source: "divisions",
-      filter: isSubtype("borough"),
+      filter: isLeaf,
       layout: { visibility: visible(layers.choropleth) },
       paint: {
         "fill-color": ["step", ["coalesce", ["get", "density"], 0], c0, ...DENSITY_BREAKS.flatMap((b, i) => [b, [c1, c2, c3, c4, c5][i]])] as ExpressionSpecification,
@@ -403,7 +407,7 @@ export function buildStyle(opts: {
       id: "nation-border-tint",
       type: "line",
       source: "divisions",
-      filter: ["==", ["get", "role"], "nation"],
+      filter: isState,
       layout: { visibility: visible(layers.boundaries), "line-join": "round" },
       paint: {
         "line-color": ["get", "color"],
@@ -416,7 +420,7 @@ export function buildStyle(opts: {
       id: "nation-border",
       type: "line",
       source: "divisions",
-      filter: ["==", ["get", "role"], "nation"],
+      filter: isState,
       layout: { visibility: visible(layers.boundaries), "line-join": "round" },
       paint: {
         "line-color": m.label.territory,
@@ -430,7 +434,7 @@ export function buildStyle(opts: {
       id: "coast-glow",
       type: "line",
       source: "divisions",
-      filter: isSubtype("dependency"),
+      filter: isLand,
       paint: { "line-color": m.coast.glow, "line-width": 7, "line-blur": 6 },
     });
   }
@@ -438,7 +442,7 @@ export function buildStyle(opts: {
     id: "coast",
     type: "line",
     source: "divisions",
-    filter: isSubtype("dependency"),
+    filter: isLand,
     layout: { "line-join": "round" },
     paint: { "line-color": m.coast.color, "line-width": ["interpolate", ["linear"], ["zoom"], 4, m.coast.width * 0.6, 10, m.coast.width * 1.6] },
   });
@@ -972,7 +976,7 @@ export function buildStyle(opts: {
       source: "labels",
       minzoom: 3.6,
       maxzoom: 9,
-      filter: isKind("nation"),
+      filter: isKind("state"),
       layout: {
         "text-field": ["get", `short_${lang}`],
         "text-font": FONT.medium,
@@ -994,6 +998,22 @@ export function buildStyle(opts: {
       source: "labels",
       maxzoom: TERRITORY_LABEL_MAX,
       filter: isKind("dependency"),
+      layout: {
+        "text-field": name(lang),
+        "text-font": FONT.medium,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 2, 10, 6, 20],
+        "text-letter-spacing": 0.3,
+        "text-transform": "uppercase",
+      },
+      paint: { "text-color": m.label.territory, ...halo, "text-opacity": fadeOut(TERRITORY_LABEL_MAX) },
+    },
+    // an island named as geography: the same lettering, but no card behind it
+    {
+      id: "landmass-label",
+      type: "symbol",
+      source: "labels",
+      maxzoom: TERRITORY_LABEL_MAX,
+      filter: isKind("landmass"),
       layout: {
         "text-field": name(lang),
         "text-font": FONT.medium,

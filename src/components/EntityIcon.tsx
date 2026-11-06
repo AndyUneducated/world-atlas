@@ -192,6 +192,7 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
     }
   }
   switch (entity.subtype) {
+    case "country":
     case "dependency":
       return <Flag {...props} />;
     case "locality":

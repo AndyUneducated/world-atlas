@@ -20,7 +20,8 @@ function groupByCity(data: AtlasData, segments: RouteSegment[]): Group[] {
   const groups: Group[] = [];
   segments.forEach((seg, i) => {
     const district = seg.division ? data.entities[seg.division] : undefined;
-    const city = district?.parent ? data.entities[district.parent] : undefined;
+    // a state's cities have no districts: the segment's division is the city itself
+    const city = district?.subtype === "locality" ? district : district?.parent ? data.entities[district.parent] : undefined;
     const last = groups[groups.length - 1];
     const row = { seg, district, key: `s${i}`, end: segments[i + 1]?.from_km ?? seg.from_km + seg.km };
     if (last && last.city?.id === city?.id) {
@@ -51,7 +52,7 @@ export function RouteTimeline({ data, entity, lang }: { data: AtlasData; entity:
 
   const total = segments.reduce((s, x) => s + x.km, 0);
   const longest = Math.max(...segments.map((s) => s.km));
-  const districtCount = new Set(segments.flatMap((s) => (s.division ? [s.division] : []))).size;
+  const districtCount = new Set(segments.flatMap((s) => (s.division && data.entities[s.division]?.subtype === "borough" ? [s.division] : []))).size;
   const cityCount = new Set(groups.flatMap((g) => (g.city ? [g.city.id] : []))).size;
 
   const locate = (key: string, lines: LngLat[][], bbox: BBox) => {
@@ -77,7 +78,8 @@ export function RouteTimeline({ data, entity, lang }: { data: AtlasData; entity:
         <div>
           <h3 className="text-[11px] font-semibold tracking-wider text-faint uppercase">{t("route_segments", lang)}</h3>
           <p className="mt-1 text-[12px] text-muted">
-            {cityCount} {t("route_cities", lang)} · {districtCount} {t("route_districts", lang)}
+            {cityCount} {t("route_cities", lang)}
+            {districtCount > 0 && ` · ${districtCount} ${t("route_districts", lang)}`}
           </p>
         </div>
         <div className="flex items-center gap-1.5">
