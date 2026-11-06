@@ -49,7 +49,7 @@ def main():
                 print(f"   {c['names']['zh']} {c['id']}: mayor {name(c['council']['head']['party'])}  {chamber(c['council'])}")
         if args.districts:
             for d in ents.values():
-                if d.get("subtype") == "borough" and tid in (d.get("ancestors") or []) and "election" in d:
+                if tid in (d.get("ancestors") or []) and "election" in d:
                     print("     ", d["names"]["zh"], [(name(v["id"]), v["vote"]) for v in d["election"]["vote"][:4]])
 
 

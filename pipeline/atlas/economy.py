@@ -2,8 +2,9 @@
 model in world/economy.yaml: GDP, GDP per head, the three-sector mix and leading industries; the age
 structure and first languages; and, where the territory sets them, median income and ethnic origin; then
 life expectancy, literacy and the development index from GDP per head, and a nation's own figures.
-Districts are computed, cities and territories add up their districts; a country is computed from its
-own traits, population and area, as a district is, and not from its territories.
+The last level (districts, and the cities of a state with no districts) is computed, and the levels above
+add it up; China and the United States are computed from their own traits, population and area, as a district
+is, and not from their territories.
 Runs after merge_crossings, on the whole world's entities."""
 from __future__ import annotations
 
@@ -124,7 +125,7 @@ def _indicators(world: World, entities: dict, model: dict) -> None:
         if not ec or not dm or did not in world.divisions and did not in world.countries:
             continue
         g = ec["gdp_per_capita_usd"]
-        nations = [world.entities[a]["nation"] for a in (did, *world.ancestors(did)) if world.entities[a].get("role") == "nation" or a in world.countries]
+        nations = [world.states[a]["nation"] for a in (did, *world.ancestors(did)) if a in world.states]
         toll = max((m["war_toll"][w["status"]] for n in nations for w in n.get("wars", [])), default=0)
         own = world.entities[did].get("nation", {}).get("facts", {})
         rng = _rng("indicators:" + did)

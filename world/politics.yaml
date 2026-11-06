@@ -306,9 +306,9 @@ legislatures:
           zh: "离岸群岛市的市议会叫业主大会，名字来自岛上最早的业主委员会：群岛的土地几乎全属于少数几家控股公司，居民大多是这些公司的董事、管家和保镖。大会的7名代表由各选区居民直选，市长也由全市直选。投票站设在游艇俱乐部，投票率64.0%，是全州各市中最高的。大会的主要议题是码头费、直升机起降的时段和要不要让游客上岛，每一项都要先征求控股公司法律顾问的意见。"
           en: "The Offshore Islands call their council the Owners’ Assembly, after the islands’ first owners’ committee: almost all the land belongs to a few holding companies, and most residents are their directors, butlers and bodyguards. The assembly’s seven members are elected by the residents of their districts and the mayor by the whole city. The polling station is in the yacht club, and turnout, at 64.0%, is the highest of any city in the state. The assembly’s business is mostly harbour dues, helicopter landing hours and whether to let tourists ashore, and on each it first consults the holding companies’ lawyers."
 
-  # >>> ranova: the democracies of Ranova, nations (role nation) whose cities sit in one parliament and elect
-  # no councils; a nation's governor is its head of state (governor_note: how they come to office), and
-  # without one the premier is head of state too.
+  # >>> ranova: the democracies of Ranova, states whose cities (which have no districts) elect one parliament
+  # and each its own council, the city its only ward; a nation's governor is its head of state (governor_note:
+  # how they come to office), and without one the premier is head of state too.
   div_mj41d0:  # M1
     names: {"zh": "联邦议会", "en": "Federal Assembly"}
     system: "mmp"
@@ -326,6 +326,8 @@ legislatures:
     - {names: {zh: "联邦选举委员会", en: "Federal Electoral Commission"}, title: {zh: "主席", en: "Chair"}}
     court: {"names": {"zh": "联邦最高法院", "en": "Federal Supreme Court"}, "title": {"zh": "首席大法官", "en": "Chief Justice"}, "judges": 9, "law": {"zh": "大陆法，宪法序言援引基督教伦理", "en": "Civil law, under a constitution whose preamble invokes Christian ethics"}}
     mayor: {"zh": "市长", "en": "Mayor"}
+    council_seats: [21, 4]
+    council_range: [11, 45]
     ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "联邦财政部", "en": "Federal Ministry of Finance"}, "justice": {"zh": "司法部", "en": "Ministry of Justice"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "education": {"zh": "教育与家庭部", "en": "Ministry of Education and the Family"}, "transport": {"zh": "交通部", "en": "Ministry of Transport"}, "construction": {"zh": "住房与建设部", "en": "Ministry of Housing and Construction"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}, "labour": {"zh": "劳动部", "en": "Ministry of Labour"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "农业与环境部", "en": "Ministry of Agriculture and the Environment"}}
   div_t5zph6:  # M7
     names: {"zh": "国民议会", "en": "National Assembly"}
@@ -345,6 +347,8 @@ legislatures:
     system_notes: {"zh": "国民议会 101 席，全国为一个选区，按各党得票比例分配（最大余额法），不设门槛。总统由国民议会选出，任命能够获得议会多数支持的总理；宗教学者委员会审查法律是否符合宪法规定的教法原则，但不审查预算。", "en": "The National Assembly has 101 seats, elected across the whole country as one constituency in proportion to each party's vote (largest remainder), with no threshold. The President, elected by the Assembly, appoints a prime minister who can command a majority; the Council of Religious Scholars reviews laws against the constitution's principles of religious law, but not the budget."}
     court: {"names": {"zh": "最高法院", "en": "Supreme Court"}, "title": {"zh": "首席法官", "en": "Chief Justice"}, "judges": 9, "law": {"zh": "成文法，家庭事务适用伊斯兰教法", "en": "Codified law, with sharia in family matters"}}
     mayor: {"zh": "市长", "en": "Mayor"}
+    council_seats: [21, 4]
+    council_range: [11, 45]
     ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "财政与经济部", "en": "Ministry of Finance and the Economy"}, "justice": {"zh": "司法与宗教事务部", "en": "Ministry of Justice and Religious Affairs"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "education": {"zh": "教育部", "en": "Ministry of Education"}, "transport": {"zh": "港口与交通部", "en": "Ministry of Ports and Transport"}, "construction": {"zh": "公共工程部", "en": "Ministry of Public Works"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}, "labour": {"zh": "劳动与社会事务部", "en": "Ministry of Labour and Social Affairs"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "渔业与环境部", "en": "Ministry of Fisheries and the Environment"}}
   div_4f0pgt:  # M16
     names: {"zh": "国会", "en": "Congress"}
@@ -363,6 +367,8 @@ legislatures:
     - {names: {zh: "反腐败委员会", en: "Anti-Corruption Commission"}, title: {zh: "主席", en: "Chair"}}
     court: {"names": {"zh": "最高法院", "en": "Supreme Court"}, "title": {"zh": "首席大法官", "en": "Chief Justice"}, "judges": 7, "law": {"zh": "大陆法", "en": "Civil law"}}
     mayor: {"zh": "市长", "en": "Mayor"}
+    council_seats: [21, 4]
+    council_range: [11, 45]
     ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "财政部", "en": "Ministry of Finance"}, "justice": {"zh": "司法部", "en": "Ministry of Justice"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "education": {"zh": "教育部", "en": "Ministry of Education"}, "transport": {"zh": "交通与港口部", "en": "Ministry of Transport and Ports"}, "construction": {"zh": "投资与开发部", "en": "Ministry of Investment and Development"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}, "labour": {"zh": "劳动部", "en": "Ministry of Labour"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "环境部", "en": "Ministry of the Environment"}}
   div_78xf6t:  # N2
     names: {"zh": "王国议会", "en": "Parliament of the Kingdom"}
@@ -382,6 +388,8 @@ legislatures:
     system_notes: {"zh": "议会 51 席，全国为一个选区，按各党得票比例分配（最大余额法），不设门槛。国王依惯例任命能够获得议会多数支持的政党领袖为首相，并接受首相提出的内阁名单。", "en": "The parliament has 51 seats, elected across the whole country as one constituency in proportion to each party's vote (largest remainder), with no threshold. By convention the King appoints as prime minister the party leader who can command a majority, and accepts the cabinet the prime minister proposes."}
     court: {"names": {"zh": "王国最高法院", "en": "Supreme Court of the Kingdom"}, "title": {"zh": "首席法官", "en": "Chief Justice"}, "judges": 7, "law": {"zh": "普通法", "en": "Common law"}}
     mayor: {"zh": "市长", "en": "Mayor"}
+    council_seats: [21, 4]
+    council_range: [11, 45]
     ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "财政部", "en": "Ministry of Finance"}, "justice": {"zh": "司法部", "en": "Ministry of Justice"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "education": {"zh": "教育与文化部", "en": "Ministry of Education and Culture"}, "transport": {"zh": "交通与海事部", "en": "Ministry of Transport and Maritime Affairs"}, "construction": {"zh": "住房部", "en": "Ministry of Housing"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}, "labour": {"zh": "就业与社会保障部", "en": "Ministry of Employment and Social Security"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "农业、渔业与环境部", "en": "Ministry of Agriculture, Fisheries and the Environment"}}
   div_hxyyfe:  # N5
     names: {"zh": "大议会", "en": "Great Council"}
@@ -398,6 +406,8 @@ legislatures:
     system_notes: {"zh": "大议会 75 席，全国为一个选区，按各党得票比例分配（最大余额法），不设门槛。共和国不另设国家元首：大议会从议员中选出执政官，任期六年，不得连任，执政官既代表共和国，也领导政务委员会，向大议会负责。", "en": "The Great Council has 75 seats, elected across the whole country as one constituency in proportion to each party's vote (largest remainder), with no threshold. The republic has no separate head of state: the Great Council chooses the Doge from among its members for six years without a second term, and the Doge both represents the republic and leads the Council of Government, answering to the Great Council."}
     court: {"names": {"zh": "共和国高等法院", "en": "High Court of the Republic"}, "title": {"zh": "首席法官", "en": "Chief Justice"}, "judges": 7, "law": {"zh": "大陆法，商法传统深厚", "en": "Civil law, with a deep commercial-law tradition"}}
     mayor: {"zh": "市长", "en": "Mayor"}
+    council_seats: [21, 4]
+    council_range: [11, 45]
     ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "财政与贸易部", "en": "Ministry of Finance and Trade"}, "justice": {"zh": "司法部", "en": "Ministry of Justice"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "education": {"zh": "教育部", "en": "Ministry of Education"}, "transport": {"zh": "航运与港口部", "en": "Ministry of Shipping and Ports"}, "construction": {"zh": "城市规划部", "en": "Ministry of Urban Planning"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}, "labour": {"zh": "劳动部", "en": "Ministry of Labour"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "海洋与环境部", "en": "Ministry of the Sea and the Environment"}}
   div_gebca7:  # S1
     names: {"zh": "自由邦议会", "en": "Parliament of the Free State"}
@@ -417,6 +427,8 @@ legislatures:
     system_notes: {"zh": "议会 81 席，全国为一个选区，按各党得票比例分配（最大余额法），不设门槛。不设门槛，各宗教社区的政党和小党因此容易进入议会。总理须获得议会多数的信任，宪法法院可以审查任何涉及宗教自由的法律。", "en": "The parliament has 81 seats, elected across the whole country as one constituency in proportion to each party's vote (largest remainder), with no threshold. With no threshold the parties of the faith communities and small parties find their way in easily. The prime minister needs the confidence of a majority, and the constitutional court may review any law that touches religious freedom."}
     court: {"names": {"zh": "宪法法院", "en": "Constitutional Court"}, "title": {"zh": "院长", "en": "President of the Court"}, "judges": 9, "law": {"zh": "大陆法", "en": "Civil law"}}
     mayor: {"zh": "市长", "en": "Mayor"}
+    council_seats: [21, 4]
+    council_range: [11, 45]
     ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "财政部", "en": "Ministry of Finance"}, "justice": {"zh": "司法部", "en": "Ministry of Justice"}, "security": {"zh": "国防部", "en": "Ministry of Defence"}, "education": {"zh": "教育部", "en": "Ministry of Education"}, "transport": {"zh": "交通部", "en": "Ministry of Transport"}, "construction": {"zh": "公共工程部", "en": "Ministry of Public Works"}, "civil": {"zh": "内政与宗教社区部", "en": "Ministry of the Interior and Faith Communities"}, "labour": {"zh": "劳动与社会事务部", "en": "Ministry of Labour and Social Affairs"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "环境与防灾部", "en": "Ministry of the Environment and Disaster Preparedness"}}
   div_4nnakk:  # S3
     names: {"zh": "岛民议会", "en": "Islanders' Assembly"}
@@ -436,8 +448,90 @@ legislatures:
     system_notes: {"zh": "岛民议会 41 席，全国为一个选区，按各党得票比例分配（最大余额法），不设门槛。首席部长须获得岛民议会多数的支持；涉及氏族土地和习惯法的法案，须经母亲议会同意才能生效。", "en": "The Islanders' Assembly has 41 seats, elected across the whole country as one constituency in proportion to each party's vote (largest remainder), with no threshold. The Chief Minister needs the support of a majority of the Assembly, and bills touching clan land or customary law take effect only with the consent of the Mothers' Council."}
     court: {"names": {"zh": "群岛邦高等法院", "en": "High Court of the Commonwealth"}, "title": {"zh": "首席法官", "en": "Chief Justice"}, "judges": 6, "law": {"zh": "普通法与母系习惯法", "en": "Common law and matrilineal customary law"}}
     mayor: {"zh": "市长", "en": "Mayor"}
+    council_seats: [21, 4]
+    council_range: [11, 45]
     ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "财政部", "en": "Ministry of Finance"}, "justice": {"zh": "司法部", "en": "Ministry of Justice"}, "security": {"zh": "海岸巡逻部", "en": "Ministry of Coastal Patrol"}, "education": {"zh": "教育部", "en": "Ministry of Education"}, "transport": {"zh": "航运与岛际交通部", "en": "Ministry of Shipping and Inter-Island Transport"}, "construction": {"zh": "公共工程部", "en": "Ministry of Public Works"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}, "labour": {"zh": "劳动部", "en": "Ministry of Labour"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "潟湖与环境部", "en": "Ministry of the Lagoon and the Environment"}}
   # <<< ranova
+# The cities of the states of Ranova without an elected parliament have appointed bodies, not councils:
+# their names, the head's title (mayor) and how they come to office (notes). Their heads are named after
+# everyone else, as the councils of the democracies' cities are.
+appointed_councils:
+  div_r9whm0:  # 阿瓦拉齐
+    names: {zh: "市人民委员会", en: "City People's Committee"}
+    mayor: {zh: "主席", en: "Chairman"}
+    notes: {zh: "市人民委员会由国家人民议会任命，执行劳动党市委的决定；委员会主席通常也是市委第一书记。", en: "The City People's Committee is appointed by the National People's Assembly and carries out the decisions of the Workers' Party city committee, whose first secretary usually chairs it."}
+  div_s07wh5:  # 马索沃利
+    names: {zh: "市革命委员会", en: "City Revolutionary Committee"}
+    mayor: {zh: "主任", en: "Director"}
+    notes: {zh: "市革命委员会由永生宫任命，主任须宣誓效忠创始领袖和他的继承人。", en: "The City Revolutionary Committee is appointed by the Palace of Eternity, and its director swears loyalty to the founding leader and his heir."}
+  div_rbcxzz:  # 齐马罗沃
+    names: {zh: "市行政长官公署", en: "Office of the City Commissioner"}
+    mayor: {zh: "市行政长官", en: "City Commissioner"}
+    notes: {zh: "市行政长官由领袖府任命，兼任当地民族卫队的政治负责人。", en: "The City Commissioner is appointed by the Leader's Chancellery and is also political chief of the local National Guard."}
+  div_hm0zqz:  # 卡波拉
+    names: {zh: "城防指挥部", en: "City Command"}
+    mayor: {zh: "指挥官", en: "Commander"}
+    notes: {zh: "自由领没有市政机构，城市由运动的城防指挥部管理，指挥官由运动总部指派。", en: "The Free Domain has no municipal government: the city is run by the movement's City Command, whose commander the movement's headquarters names."}
+  div_dmf47n:  # 梅纳瓦利
+    names: {zh: "市军管会", en: "Municipal Military Administration"}
+    mayor: {zh: "军管会主任", en: "Military Administrator"}
+    notes: {zh: "政变后各市的民选市议会被解散，改由国家拯救委员会派出的军官组成军管会。", en: "After the coup the elected councils were dissolved, and each city is run by officers sent by the National Salvation Committee."}
+  div_5b4193:  # 贾巴利亚
+    names: {zh: "地方舒拉", en: "Local Shura"}
+    mayor: {zh: "城镇埃米尔", en: "Emir of the Town"}
+    notes: {zh: "城镇埃米尔由酋长国的舒拉议事会指派，地方舒拉由他挑选的宗教人士和部族长老组成。", en: "The emir of each town is named by the emirate's Shura Council, and the local shura is made up of clerics and tribal elders of his choosing."}
+  div_ht80hm:  # 阿拉齐纳
+    names: {zh: "氏族长老会", en: "Council of Clan Elders"}
+    mayor: {zh: "召集人", en: "Convener"}
+    notes: {zh: "每座城镇由当地各氏族推举的长老共同管理，不举行政党选举，召集人由长老们轮流担任。", en: "Each town is run together by elders chosen by its clans; there are no party elections, and the elders take turns as convener."}
+  div_0cazhp:  # 法尼里
+    names: {zh: "公社全体大会", en: "General Assembly of the Commune"}
+    mayor: {zh: "轮值召集人", en: "Rotating Convener"}
+    notes: {zh: "每座公社由全体居民参加的大会管理，没有政党和选举，召集人从居民中抽签产生，任期三个月。", en: "Each commune is run by an assembly open to all its residents, with no parties or elections; the convener is drawn by lot from the residents for three months."}
+  div_1tan4g:  # 齐阿拉
+    names: {zh: "营地议事会", en: "Camp Council"}
+    mayor: {zh: "守林人", en: "Forest Warden"}
+    notes: {zh: "营地议事会由各营地派出的长者组成，守林人由议事会推选，负责与外界交涉。", en: "The Camp Council is made up of elders sent by each camp; it chooses the Forest Warden, who deals with the outside world."}
+  div_nyhhhg:  # 黎明千年国
+    names: {zh: "圣城长老院", en: "Elders of the Holy City"}
+    mayor: {zh: "守夜长老", en: "Elder of the Watch"}
+    notes: {zh: "圣城长老院的长老由先知任命，守夜长老负责每天清晨的迎日仪式和城中事务。", en: "The Elders of the Holy City are appointed by the Prophet; the Elder of the Watch leads the morning rite of the sunrise and runs the city's affairs."}
+  div_sh6pkn:  # 安博维
+    names: {zh: "市政委员会", en: "Municipal Board"}
+    mayor: {zh: "市长", en: "Mayor"}
+    notes: {zh: "市长和市政委员会由总统任命，宪法规定的市议会选举从未举行。", en: "The mayor and the Municipal Board are appointed by the President; the council elections the constitution provides for have never been held."}
+  div_9w60j4:  # 伊索卡
+    names: {zh: "革命委员会", en: "Revolutionary Committee"}
+    mayor: {zh: "政委", en: "Political Commissar"}
+    notes: {zh: "解放区的村镇由革命委员会管理，政委由游击队总部派出。", en: "The zone's towns are run by revolutionary committees, their commissars sent by the guerrilla command."}
+  div_gd73a5:  # 洛哈瓦托
+    names: {zh: "王室城务府", en: "Royal Town Office"}
+    mayor: {zh: "城守", en: "Warden of the Town"}
+    notes: {zh: "城守由国王任命，城务府的重大事务须征询当地寺院住持的意见。", en: "The Warden is appointed by the King, and on weighty matters the Town Office must consult the abbot of the local monastery."}
+  div_38z2mg:  # 努西拉
+    names: {zh: "市政局", en: "Municipality"}
+    mayor: {zh: "市政局长", en: "Director of the Municipality"}
+    notes: {zh: "市政局长由苏丹任命，通常出自六个世家之一。", en: "The Director of the Municipality is appointed by the Sultan, usually from one of the six great families."}
+  div_gempde:  # 萨拉卡
+    names: {zh: "公国市政厅", en: "Princely Town Hall"}
+    mayor: {zh: "市长", en: "Mayor"}
+    notes: {zh: "公国全境就是一座城市，市长由大公任命，市政厅的预算大半来自赌场的特许费。", en: "The principality is a single city; the mayor is appointed by the Prince, and most of the town hall's budget comes from the casino licence fees."}
+  div_3zzzry:  # 卡托拉
+    names: {zh: "社区服务部", en: "Community Services"}
+    mayor: {zh: "社区经理", en: "Community Manager"}
+    notes: {zh: "城市由卡托拉安全集团的社区服务部管理，社区经理由集团董事会任命。", en: "The town is run by the Katora Security Group's Community Services department, whose manager the group's board appoints."}
+  div_3w5wwh:  # 马哈维洛
+    names: {zh: "港城管理局", en: "City and Port Authority"}
+    mayor: {zh: "总监", en: "Director-General"}
+    notes: {zh: "港城管理局同时管理港口和城市，总监由自由港董事会任命。", en: "The City and Port Authority runs both the port and the city, and its director-general is appointed by the Free Port's board."}
+  div_7t7xz6:  # 安巴罗
+    names: {zh: "托管市政署", en: "Trust Municipal Administration"}
+    mayor: {zh: "市政专员", en: "Municipal Commissioner"}
+    notes: {zh: "市政专员由国际委员会任命，市政署的工作人员来自各成员国和当地居民。", en: "The Municipal Commissioner is appointed by the International Commission, and the administration's staff come from the member states and the townspeople."}
+  div_c28art:  # 坦德罗
+    names: {zh: "院长会议", en: "Assembly of Abbots"}
+    mayor: {zh: "首席院长", en: "Protos"}
+    notes: {zh: "圣山上二十座修道院的院长组成院长会议管理港口小镇，首席院长由院长们推选。", en: "The abbots of the twenty monasteries on the holy mountain govern the harbour town as the Assembly of Abbots, and choose the Protos from among themselves."}
 # Officeholders' names: each takes a name in one of the place's first languages, drawn by its share
 # (the governor's in Chinese), or in the languages a state's card block gives (nation.name_langs).
 names:

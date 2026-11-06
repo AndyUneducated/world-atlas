@@ -44,9 +44,10 @@ export const majority = (c: Seating) => Math.floor(c.seats / 2) + 1;
 
 export const governmentSeats = (c: Seating) => c.parties.filter((p) => c.government.includes(p.id)).reduce((a, p) => a + p.seats, 0);
 
-/** Every party, most seats in the territorial parliaments first. */
+/** Every party, most seats in the territorial and national parliaments first. */
 export function parties(data: AtlasData): Entity[] {
-  const seats = (e: Entity) => (e.seats ?? []).filter((s) => data.entities[s.at]?.subtype === "dependency").reduce((a, s) => a + s.seats, 0);
+  const parliament = (id: string) => ["dependency", "country"].includes(data.entities[id]?.subtype ?? "");
+  const seats = (e: Entity) => (e.seats ?? []).filter((s) => parliament(s.at)).reduce((a, s) => a + s.seats, 0);
   return Object.values(data.entities)
     .filter((e) => e.kind === "party")
     .sort((a, b) => seats(b) - seats(a) || (b.members ?? 0) - (a.members ?? 0));

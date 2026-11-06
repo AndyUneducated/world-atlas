@@ -14,16 +14,24 @@ ID_PATTERN = re.compile(r"^(div|nat|rte|poi|bld|pty)_[0-9a-hjkmnp-tv-z]{6}$|^cou
 # Name languages, as NAME_LANGS in src/lib/types.ts: Chinese and English are required, the conlangs optional.
 NAME_LANGS = ("zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran", "es", "art-x-ranova", "art-x-kasiri")
 REQUIRED_LANGS, CONLANGS = NAME_LANGS[:2], NAME_LANGS[2:]
+# The levels: a state (country: China, the United States, a nation of Ranova, the government in exile) has
+# no parent; a territory or province (dependency, region) is a country's; a city (locality) is a territory's
+# or a state's; a district (borough) is a territory's city's. A state's cities have no districts.
 DIVISION_SUBTYPES = ("country", "dependency", "region", "locality", "borough")
+PARENT_SUBTYPES = {"country": (), "dependency": ("country",), "region": ("country",),
+                   "locality": ("dependency", "region", "country"), "borough": ("locality",)}
 # Division codes (GB/T 2260): six digits, of which a territory uses the first two, a city four
-# and a district all six; the rest are zeros (900000 → 900100 → 900101).
-CODE_DIGITS = {"dependency": 2, "locality": 4, "borough": 6}
-ROLE_DIGITS = {"nation": 2, "city": 4}  # a region's nations are numbered like territories, their cities like cities
+# and a district all six; the rest are zeros (900000 → 900100 → 900101). A state has its ISO 3166-1 code instead.
+CODE_DIGITS = {"dependency": 2, "region": 2, "locality": 4, "borough": 6}
+# What a state may mark not applicable (na:), giving the reason: a government in exile has no people of its own.
+NA_FIELDS = ("population", "traits", "climate", "density", "economy", "demographics", "elections")
+# What a state may claim without controlling it (uncontrolled:); its card marks them so.
+UNCONTROLLED_FIELDS = ("capital", "area")
 
 
 def code_digits(d: dict) -> int | None:
     """How many leading digits of a division's admin code are its own; the rest are zero."""
-    return ROLE_DIGITS.get(d.get("role"), CODE_DIGITS.get(d.get("subtype")))
+    return CODE_DIGITS.get(d.get("subtype"))
 
 # Landmark footprint templates (see pipeline/atlas/buildings.py); the last five are transport facilities.
 MILITARY_VARIANTS = {  # military and space facility layouts and the kinds each draws (first is the default)
@@ -72,10 +80,10 @@ def ts_names(file: str, const: str) -> tuple[str, ...]:
 
 # City flags: the layouts in src/lib/cityFlags.tsx and the charges in src/lib/charges.tsx and emblems.tsx.
 FLAG_LAYOUTS = ts_names("cityFlags.tsx", "FLAG_LAYOUTS")
-# Flags of the nations of a region (role: nation), each its own drawing in src/lib/nationFlags.tsx.
+# State flags, each its own drawing in src/lib/nationFlags.tsx.
 NATION_FLAGS = ts_names("nationFlags.tsx", "NATION_FLAGS")
 # A state's card block (nation: in a region's nation, a government in exile or a country): kinds of state and the facts it lists.
-NATION_KEYS = ("exile", "ideology", "government", "head", "power", "bloc", "bloc_role", "recognition", "executive", "legislature", "judiciary", "military", "wars",
+NATION_KEYS = ("ideology", "government", "head", "power", "bloc", "bloc_role", "recognition", "executive", "legislature", "judiciary", "military", "wars",
                "allies", "rivals", "backers", "religion", "freedom", "refugees", "symbols", "facts", "heir", "predecessors", "offices",
                "culture", "travel", "name_langs")
 FLAG_CHARGES = ts_names("emblems.tsx", "MOTIFS") + ts_names("charges.tsx", "NEW") + ts_names("charges.tsx", "CALIFORNIA")
@@ -136,6 +144,10 @@ class World:
         self.climate: dict = _load(clim) if clim.exists() else {}
         pol = root / "politics.yaml"
         self.politics: dict = _load(pol) if pol.exists() else {}
+        # every state: the countries of the registry and the states drawn on the map (subtype country)
+        self.states = {i: e for i, e in self.entities.items() if e.get("subtype") == "country"}
+        self._parents = {d.get("parent") for d in self.divisions.values()}
+        self._region_of = {did: gen for gen in self.generators for did in self.region_members(gen)}
 
     def _collect(self, folder: Path, key: str) -> dict[str, dict]:
         out: dict[str, dict] = {}
@@ -161,14 +173,35 @@ class World:
             cur = self.entities[cur].get("parent")
         return chain
 
+    def is_leaf(self, did: str) -> bool:
+        """A city or district with nothing under it: a territory's district, or a state's city."""
+        return self.divisions.get(did, {}).get("subtype") in ("locality", "borough") and did not in self._parents
+
+    def region_units(self, spec: dict) -> list[dict]:
+        """A region's top divisions as its generator lays them out: the states drawn in it (states:), in that
+        order, or else its territory's cities in code order."""
+        if "states" in spec:
+            return [self.divisions[s] for s in spec["states"] if s in self.divisions]
+        return sorted(self.children(spec["territory"]), key=lambda d: d["codes"]["admin"])
+
+    def region_members(self, spec: dict) -> set[str]:
+        """A region's territory, its top divisions and everything under them."""
+        inside, todo = set(), [spec["territory"], *(d["id"] for d in self.region_units(spec))]
+        while todo:
+            if (cur := todo.pop()) not in inside:
+                inside.add(cur)
+                todo += [d["id"] for d in self.children(cur)]
+        return inside
+
+    def region_of(self, did: str) -> dict | None:
+        """The generator of the region a division is drawn in."""
+        return self._region_of.get(did)
+
     def region_sources(self, spec: dict) -> dict:
         """Every source a region's build reads: its generator, the divisions, places, features and lines
         in or reaching its territory, engineering standards and name lists. Unchanged sources, unchanged region."""
         tid = spec["territory"]
-        inside, todo = set(), [tid]
-        while todo:
-            inside.add(cur := todo.pop())
-            todo += [d["id"] for d in self.children(cur)]
+        inside = self.region_members(spec)
         places = {pid for pid, p in self.places.items() if p["in"] in inside}
         lines = {r["id"] for r in [*self.routes.values(), *self.railways.values()]
                  if tid in r.get("crossing", {}) or any(v in inside or v in places for v in r["via"])}
@@ -230,10 +263,6 @@ class World:
             out.append("a nation's card (notes.zh) needs at least 500 characters")
         if not (n.get("ideology") and all(both(x) for x in n["ideology"])) or not both(n.get("government")) or not both(n.get("power")):
             out.append("nation: ideology (tags), government and power need zh and en")
-        if (exile := n.get("exile")) is not None and not (both(exile.get("names")) and exile.get("seat") in self.divisions):
-            out.append("nation: a government in exile gives its state's names (zh, en) and its seat (a division id)")
-        if (exile is not None) != (d.get("role") == "region"):
-            out.append("nation: only a region's card block is a government in exile (exile:)")
         head = n.get("head", {})
         if not (both(head.get("title")) and both(head.get("name"))):
             out.append("nation: head gives the head of state's title and name (zh, en)")
@@ -289,7 +318,7 @@ class World:
         rel = n.get("religion", [])
         if not rel or not all(both(r.get("names")) and isinstance(r.get("share"), (int, float)) for r in rel) or abs(sum(r["share"] for r in rel) - 100) > 0.5:
             out.append("nation: religion lists faiths (names zh, en) with shares adding up to 100")
-        fr = n.get("freedom", {"political": 0, "civil": 0, "press": 0, "economic": 0} if exile is not None else {})  # an exile government rules no one
+        fr = n.get("freedom", {})
         if set(fr) != {"political", "civil", "press", "economic"} or not all(isinstance(v, int) and 0 <= v <= 100 for v in fr.values()):
             out.append("nation: freedom scores political, civil, press and economic, each 0–100")
         ref = n.get("refugees", {})
@@ -303,6 +332,59 @@ class World:
             out.append("nation: facts give currency (zh, en), currency_code, time_zone, calling_code, tld and driving (left, right)")
         if not all(isinstance(f[k], (int, float)) and 0 <= f[k] <= 100 for k in ("gini", "unemployment", "inflation", "literacy") if k in f):
             out.append("nation: facts may give gini, unemployment, inflation (%) and literacy (%), each a number from 0 to 100")
+        return out
+
+    def _state_errors(self, d: dict) -> list[str]:
+        """What every state gives, the same for China, the United States, the nations of Ranova and the
+        government in exile: its card block, colour, flag, capital, ISO 3166-1 code, people, land and traits,
+        and its climate in words where the map draws none of its cities; what it marks not applicable (na:)
+        it leaves out."""
+        out = self._nation_errors(d)
+        both = lambda v: isinstance(v, dict) and all(v.get(lang) for lang in REQUIRED_LANGS)
+        na = d.get("na", {})
+        skip = set(na.get("fields", []))
+        if na and not (set(na) == {"fields", "note"} and both(na["note"]) and skip and skip <= set(NA_FIELDS)):
+            out.append(f"na lists what does not apply, of {', '.join(NA_FIELDS)}, and a note (zh, en) saying why")
+        if "parent" in d or "role" in d:
+            out.append("a state has no parent and no role")
+        if not HEX.match(str(d.get("color", ""))):
+            out.append("a state needs a colour (#RRGGBB) for its map tint and card accents")
+        if d.get("flag") not in NATION_FLAGS:
+            out.append("a state's flag is one of the drawings in src/lib/nationFlags.tsx")
+        if not both(d.get("flag_notes")):
+            out.append("a flag needs flag_notes (zh, en): what its colours and charges stand for")
+        cap = d.get("capital")
+        if not (self.divisions.get(cap, {}).get("subtype") == "locality" if isinstance(cap, str) else both(cap)):
+            out.append("capital is a city on the map, or the names (zh, en) of a capital off it")
+        codes = d.get("codes", {})
+        iso = codes.get("iso3166_1", {})
+        if set(codes) != {"iso3166_1"} or not (re.fullmatch(r"[A-Z]{2}", str(iso.get("alpha2", "")))
+                                               and re.fullmatch(r"[A-Z]{3}", str(iso.get("alpha3", "")))
+                                               and re.fullmatch(r"\d{3}", str(iso.get("numeric", "")))):
+            out.append("codes give only iso3166_1 (alpha2, alpha3, numeric): a state has no admin or iso3166_2 code")
+        if "population" in skip:
+            if "population" in d:
+                out.append("population is marked not applicable (na:), and given")
+        elif not (isinstance(d.get("population"), (int, float)) and d["population"] > 0):
+            out.append("a state gives its population")
+        if not (isinstance(d.get("area_km2"), (int, float)) and d["area_km2"] > 0):
+            out.append("a state gives its area_km2")
+        if (unc := d.get("uncontrolled")) is not None and not (isinstance(unc, list) and unc and set(unc) <= set(UNCONTROLLED_FIELDS)):
+            out.append(f"uncontrolled lists what the state claims but does not control, of {', '.join(UNCONTROLLED_FIELDS)}")
+        if "traits" in skip:
+            if "traits" in d:
+                out.append("traits are marked not applicable (na:), and given")
+        else:
+            out += self._trait_errors(d.get("traits", {}))
+            if self.economy and (missing := [k for k in ("industries", "heritage", "age") if k not in d.get("traits", {})]):
+                out.append(f"traits need {', '.join(missing)}")
+            if self.economy and d["id"] not in self.economy.get("base_gdp_per_capita", {}):
+                out.append("a state needs its base_gdp_per_capita in world/economy.yaml")
+        mapped = d["id"] in self.divisions and d["id"] in self._parents
+        if "climate" not in skip and not mapped and not both(d.get("climate_notes")):
+            out.append("a state with no cities on the map describes its climate (climate_notes, zh and en)")
+        if "elections" in skip and d["id"] in self.politics.get("legislatures", {}):
+            out.append("elections are marked not applicable (na:), and world/politics.yaml holds them")
         return out
 
     def _trait_errors(self, traits: dict) -> list[str]:
@@ -335,14 +417,13 @@ class World:
 
     def validate(self) -> list[str]:
         errors: list[str] = self._bloc_errors()
-        for cid, c in self.countries.items():
-            errors += [f"{cid}: {e}" for e in self._nation_errors(c) + self._trait_errors(c.get("traits", {}))]
-            if self.economy and (missing := [k for k in ("industries", "heritage", "age") if k not in c.get("traits", {})]):
-                errors.append(f"{cid}: traits need {', '.join(missing)}")
-            if not all(isinstance(c.get(k), (int, float)) and c[k] > 0 for k in ("population", "area_km2")):
-                errors.append(f"{cid}: a country gives its own population and area_km2, not its territories' sum")
-            if self.economy and cid not in self.economy.get("base_gdp_per_capita", {}):
-                errors.append(f"{cid}: a country needs its base_gdp_per_capita in world/economy.yaml")
+        iso: dict[str, str] = {}
+        for sid, s in self.states.items():
+            errors += [f"{sid}: {e}" for e in self._state_errors(s)]
+            for k, v in s.get("codes", {}).get("iso3166_1", {}).items():
+                if (k, v) in iso:
+                    errors.append(f"{sid}: ISO 3166-1 {k} {v} already used by {iso[(k, v)]}")
+                iso[(k, v)] = sid
         for eid, e in self.entities.items():
             if not ID_PATTERN.match(eid):
                 errors.append(f"{eid}: malformed id")
@@ -360,20 +441,20 @@ class World:
         for did, d in self.divisions.items():
             if d["subtype"] not in DIVISION_SUBTYPES:
                 errors.append(f"{did}: unknown subtype {d['subtype']}")
-            role = d.get("role")
-            if role not in (None, "region", "nation", "city") or (role == "region") != (d["subtype"] == "dependency" and "parent" not in d) \
-                    or (role == "nation" and d["subtype"] != "locality") \
-                    or (role == "city") != (self.divisions.get(d.get("parent", ""), {}).get("role") == "nation"):
-                errors.append(f"{did}: role region is a territory with no country above it, role nation one of its localities, "
-                              "role city a borough of a nation")
-            if role == "nation" or (role == "region" and "nation" in d):
-                errors += [f"{did}: {e}" for e in self._nation_errors(d)]
-            elif {"symbols", "facts", "religion"} & set(d):
-                errors += [f"{did}: {e}" for e in self._local_errors(d)]
-            parent = self.entities.get(d.get("parent"), {"codes": {}, "subtype": "country"} if role == "region" else None)
-            if parent is None:
-                errors.append(f"{did}: parent {d.get('parent')} not found")
                 continue
+            if "role" in d:
+                errors.append(f"{did}: role is not used: the subtype is the level (country, dependency, locality, borough)")
+            if d["subtype"] != "country" and {"symbols", "facts", "religion"} & set(d):
+                errors += [f"{did}: {e}" for e in self._local_errors(d)]
+            if d["subtype"] == "country":
+                parent = {"codes": {}}
+            else:
+                parent = self.entities.get(d.get("parent", ""))
+                want = PARENT_SUBTYPES[d["subtype"]]
+                if parent is None or parent.get("subtype") not in want or d["subtype"] == "borough" and parent.get("parent") in self.states:
+                    errors.append(f"{did}: parent {d.get('parent')} is not a {' or '.join(want)}"
+                                  + (" (a state's cities have no districts)" if d["subtype"] == "borough" else ""))
+                    continue
             admin = d.get("codes", {}).get("admin")
             if not admin and d["subtype"] in ("locality", "borough"):
                 errors.append(f"{did}: needs an admin code (codes.admin)")
@@ -385,22 +466,18 @@ class World:
                 if not re.fullmatch(r"\d{6}", admin) or (level and admin[level:].strip("0")):
                     errors.append(f"{did}: admin code {admin} must have 6 digits, zero past the first {level}")
                 parent_admin = parent.get("codes", {}).get("admin")
-                parent_level = None if parent.get("role") == "region" else code_digits(parent)  # a nation's code stands alone
+                parent_level = code_digits(parent)
                 if parent_admin and parent_level and not admin.startswith(parent_admin[:parent_level]):
                     errors.append(f"{did}: admin code {admin} does not extend parent code {parent_admin}")
             if d.get("route_shield", "crest") not in ROUTE_SHIELDS:
                 errors.append(f"{did}: route_shield must be one of {', '.join(ROUTE_SHIELDS)}")
-            if d["subtype"] == "dependency" and role != "region" and d.get("flag") not in FLAGS:
+            if d["subtype"] == "dependency" and d.get("flag") not in FLAGS:
                 errors.append(f"{did}: a territory needs a flag, one of {', '.join(FLAGS)}")
             if d["subtype"] == "locality":
                 if not HEX.match(str(d.get("color", ""))):
                     errors.append(f"{did}: a city needs a colour (#RRGGBB) for its map tint and card accents")
-                if role == "nation":
-                    if d.get("flag") not in NATION_FLAGS:
-                        errors.append(f"{did}: a nation's flag is one of the drawings in src/lib/nationFlags.tsx")
-                else:
-                    errors += [f"{did}: flag {e}" for e in self._flag_errors(d)]
-            if d["subtype"] in ("dependency", "locality") and role != "region" and not all(d.get("flag_notes", {}).get(lang) for lang in REQUIRED_LANGS):
+                errors += [f"{did}: flag {e}" for e in self._flag_errors(d)]
+            if d["subtype"] in ("dependency", "locality") and not all(d.get("flag_notes", {}).get(lang) for lang in REQUIRED_LANGS):
                 errors.append(f"{did}: a flag needs flag_notes (zh, en): what its colours and charges stand for")
             kids = self.children(did)
             if kids and d.get("area_km2"):
@@ -411,7 +488,8 @@ class World:
                 total = sum(k.get("population", 0) for k in kids)
                 if abs(total - d["population"]) > 100:
                     errors.append(f"{did}: children population {total} != {d['population']}")
-            errors += [f"{did}: {e}" for e in self._trait_errors(d.get("traits", {}))]
+            if d["subtype"] != "country":
+                errors += [f"{did}: {e}" for e in self._trait_errors(d.get("traits", {}))]
             if d["subtype"] in ("locality", "borough") and self.economy:
                 merged = {**parent.get("traits", {}), **d.get("traits", {})} if d["subtype"] == "borough" else d.get("traits", {})
                 if missing := [k for k in ("industries", "heritage", "age") if k not in merged]:
@@ -494,8 +572,8 @@ class World:
                     errors.append(f"{pid}: site angle_deg must be a number (degrees, east = 0, counter-clockwise)")
                 if site.get("rural", True) is not True:
                     errors.append(f"{pid}: site rural is either true (deliberately out of town) or left out")
-                if self.divisions.get(p.get("in"), {}).get("subtype") != "borough":
-                    errors.append(f"{pid}: a place with a site must be 'in' a district")
+                if not self.is_leaf(p.get("in", "")):
+                    errors.append(f"{pid}: a place with a site must be 'in' a district, or a city with no districts")
                 if site.get("layout") == "harbour":
                     terms = site.get("terminals")
                     if not (isinstance(terms, list) and len(terms) >= 2 and all(t in HARBOUR_TERMINALS for t in terms)):
@@ -548,15 +626,17 @@ class World:
                 if not all(ops.get(k, {}).get(lang) for lang in REQUIRED_LANGS):
                     errors.append(f"{gen.get('territory')}: operators.{k} needs a name (zh, en): who runs the territory's {k} lines")
             layout = gen.get("layout", {})
-            for c in self.children(gen.get("territory", "")):
-                if c["subtype"] == "locality" and c["id"] not in layout.get("cities", {}):
-                    errors.append(f"generator: city {c['id']} has no anchor in layout.cities")
+            if bad := [s for s in gen.get("states", []) if self.divisions.get(s, {}).get("subtype") != "country"]:
+                errors.append(f"generator: states {', '.join(bad)} are not states drawn on the map")
+            for c in self.region_units(gen):
+                if c["id"] not in layout.get("cities", {}):
+                    errors.append(f"generator: {c['id']} has no anchor in layout.cities")
             for key in list(layout.get("cities", {})) + list(layout.get("districts", {})):
                 if key not in self.divisions:
                     errors.append(f"generator: unknown division {key}")
             for did in layout.get("islands", {}):
-                if self.divisions.get(did, {}).get("subtype") != "borough":
-                    errors.append(f"generator: islands of {did}: not a district")
+                if not self.is_leaf(did):
+                    errors.append(f"generator: islands of {did}: not a district or a state's city")
             def ring(path):
                 return isinstance(path, list) and len(path) >= 3 and all(isinstance(p, list) and len(p) == 2 for p in path)
 
@@ -573,13 +653,13 @@ class World:
                 if self.divisions.get(did, {}).get("subtype") != "borough":
                     errors.append(f"generator: added district {did} is not a district")
             for did, at in layout.get("centres", {}).items():
-                if self.divisions.get(did, {}).get("subtype") != "borough":
-                    errors.append(f"generator: centre of {did}: not a district")
+                if not self.is_leaf(did):
+                    errors.append(f"generator: centre of {did}: not a district or a state's city")
                 elif not (isinstance(at, list) and len(at) == 2 and all(isinstance(v, (int, float)) for v in at)):
                     errors.append(f"generator: centre of {did} must be [x, y] (design km)")
             for did, toward in layout.get("coastal", {}).items():
-                if self.divisions.get(did, {}).get("subtype") != "borough":
-                    errors.append(f"generator: coastal {did} is not a district")
+                if not self.is_leaf(did):
+                    errors.append(f"generator: coastal {did} is not a district or a state's city")
                 rivers = {nr["feature"] for nr in gen.get("hydrology", {}).get("named_rivers", [])}
                 if toward is not None and toward not in rivers and not self.features.get(toward, {}).get("detect"):
                     errors.append(f"generator: coastal {did}: {toward} is neither a named river nor a detected landform")
@@ -608,8 +688,8 @@ class World:
                 errors.append("generator: streets needs core_people_per_km2: residents per km² of a district's "
                               "core zone with local streets and buildings")
             for did, cfg in sp.get("districts", {}).items():
-                if self.divisions.get(did, {}).get("subtype") != "borough":
-                    errors.append(f"generator: streets district {did} is not a district")
+                if not self.is_leaf(did):
+                    errors.append(f"generator: streets district {did} is not a district or a state's city")
                 want = cfg.get("detail_km2", 0)
                 if want != "full" and (not isinstance(want, (int, float)) or want < 0):
                     errors.append(f"generator: streets district {did}: detail_km2 must be km² >= 0 or full")
@@ -620,8 +700,8 @@ class World:
                         errors.append(f"generator: streets district {did}: mix {k} must be one of "
                                       f"{', '.join(BUILDING_MIX_KEYS)} with a factor >= 0")
             for nm in sp.get("named", []):
-                if self.divisions.get(nm.get("district"), {}).get("subtype") != "borough":
-                    errors.append(f"generator: named street {nm.get('names', {}).get('zh')}: {nm.get('district')} is not a district")
+                if not self.is_leaf(nm.get("district", "")):
+                    errors.append(f"generator: named street {nm.get('names', {}).get('zh')}: {nm.get('district')} is not a district or a state's city")
         return errors + self._politics_errors()
 
     def _politics_errors(self) -> list[str]:
@@ -633,10 +713,8 @@ class World:
         errors: list[str] = []
         legs = pol.get("legislatures", {})
         for tid, leg in legs.items():
-            if self.divisions.get(tid, {}).get("subtype") != "dependency" and self.divisions.get(tid, {}).get("role") != "nation":
-                errors.append(f"politics: legislature {tid} is not a territory or a nation")
-            if self.divisions.get(tid, {}).get("role") == "nation" and leg.get("councils"):
-                errors.append(f"politics: {tid}: a nation's cities have no councils of their own")
+            if self.divisions.get(tid, {}).get("subtype") not in ("dependency", "country") or tid not in self._parents:
+                errors.append(f"politics: legislature {tid} is not a territory or a state with cities on the map")
             if leg.get("system") not in POLITICS_SYSTEMS:
                 errors.append(f"politics: {tid}: system must be one of {', '.join(POLITICS_SYSTEMS)}")
             court = leg.get("court", {})
@@ -653,6 +731,9 @@ class World:
                     errors.append(f"politics: {tid}: {k} needs zh and en")
             if leg.get("executive", "appointed") not in ("appointed", "elected"):
                 errors.append(f"politics: {tid}: executive is appointed (a premier from the parliament) or elected (a governor by the voters)")
+            if not all(isinstance(leg.get(k), list) and len(leg[k]) == 2 and all(isinstance(x, (int, float)) for x in leg[k])
+                       for k in ("council_seats", "council_range")):
+                errors.append(f"politics: {tid}: its city councils need council_seats [a, b] and council_range [least, most]")
             if upper and not (isinstance(upper.get("seats"), int) and upper["seats"] > 0 and elected):
                 errors.append(f"politics: {tid}: an upper chamber has a number of seats, under an elected executive")
             known = {m.get("id") for m in pol.get("ministries", [])}
@@ -684,6 +765,14 @@ class World:
                     inside = sorted(d for ds in c["constituencies"].values() for d in ds)
                     if leg.get("system") != "pr_regional" or inside != sorted(d for d, v in self.divisions.items() if v.get("parent") == cid):
                         errors.append(f"politics: {cid}: constituencies are for pr_regional and take in each of the city's districts once")
+        for nid, ac in pol.get("appointed_councils", {}).items():
+            if nid not in self.states or nid in legs or nid not in self._parents:
+                errors.append(f"politics: appointed_councils {nid}: a state with cities on the map and no elected parliament")
+            for k in ("names", "mayor", *(("notes",) if "notes" in ac else ())):
+                if not all((ac.get(k) or {}).get(lang) for lang in REQUIRED_LANGS):
+                    errors.append(f"politics: appointed_councils {nid}: {k} needs zh and en")
+            if set(ac) - {"names", "mayor", "notes"}:
+                errors.append(f"politics: appointed_councils {nid}: names, mayor (the title) and notes only")
         mins = pol.get("ministries", [])
         if not mins or len({m.get("id") for m in mins}) != len(mins):
             errors.append("politics: ministries lists each ministry once, with an id")
@@ -713,8 +802,8 @@ class World:
                 errors.append(f"politics: {pid}: members must be a whole number")
             if seated := p.get("seated"):
                 groups = self.divisions.get(seated, {}).get("nation", {}).get("legislature", {}).get("groups", [])
-                if "targets" in p or self.divisions.get(seated, {}).get("role") != "nation" or sum(g.get("party") == pid for g in groups) != 1:
-                    errors.append(f"politics: {pid}: a seated party is one group of a nation's fixed legislature and stands in no election")
+                if "targets" in p or seated not in self.states or sum(g.get("party") == pid for g in groups) != 1:
+                    errors.append(f"politics: {pid}: a seated party is one group of a state's fixed legislature and stands in no election")
                 if p.get("standing", "lead") not in PARTY_STANDINGS:
                     errors.append(f"politics: {pid}: standing is one of {', '.join(PARTY_STANDINGS)}")
             elif "standing" in p or not p.get("targets") or set(p["targets"]) - set(legs):

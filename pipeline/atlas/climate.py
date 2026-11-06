@@ -87,11 +87,11 @@ class _Land:
     """The territories' land and the districts on it, for distances to the sea and the wind's path."""
 
     def __init__(self, features: list[dict], entities: dict):
-        terr = [shape(f["geometry"]) for f in features if f["properties"].get("subtype") == "dependency"]
+        terr = [shape(f["geometry"]) for f in features if f["properties"].get("land")]
         self.terr = terr
         self.prep = [prepared.prep(g) for g in terr]
         boroughs = [(f["id"] if "id" in f else f["properties"]["id"], shape(f["geometry"]))
-                    for f in features if f["properties"].get("subtype") == "borough"]
+                    for f in features if f["properties"].get("rank") == 2]
         self.ids = [i for i, _ in boroughs]
         self.tree = STRtree([g for _, g in boroughs])
         self.elev = {i: entities.get(i, {}).get("stats", {}).get("elev_mean_m", 0) for i in self.ids}
@@ -218,25 +218,26 @@ def district(eid: str, e: dict, terr: dict, model: dict, land: _Land, elev: floa
 
 
 def annotate(world: World, entities: dict, divisions: list[dict]) -> None:
-    """Add a climate to every district (at its centre, at the ground height there or the district's mean
-    height if lower: people live in the valleys), and to every city from its most populous district."""
+    """Add a climate to every district and every city of a state (at its centre, at the ground height there or
+    its mean height if lower: people live in the valleys), and to every other city and every state on the map
+    from its most populous part."""
     model = world.climate
     if not model:
         return
     land = _Land(divisions, entities)
     terrs = model["territories"]
-    for eid, d in world.divisions.items():
+    for eid in world.divisions:
         e = entities.get(eid)
-        if d["subtype"] != "borough" or not e or "center" not in e:
+        if not world.is_leaf(eid) or not e or "center" not in e:
             continue
-        tid = next((a for a in world.ancestors(eid) if a in terrs), None)
-        if tid:
+        tid = (world.region_of(eid) or {}).get("territory")
+        if tid in terrs:
             stats = e.get("stats", {})
             elev = min(float(stats.get("elev_center_m", 0)), float(stats.get("elev_mean_m", 0)))
             e["climate"] = district(eid, e, terrs[tid], model, land, max(elev, 0.0))
     for eid, d in world.divisions.items():
         e = entities.get(eid)
-        if d["subtype"] != "locality" or not e:
+        if d["subtype"] not in ("locality", "country") or not e:
             continue
         kids = [entities[c["id"]] for c in world.children(eid) if "climate" in entities.get(c["id"], {})]
         if not kids:

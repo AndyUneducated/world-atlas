@@ -24,6 +24,11 @@ countries:
         numeric: "156"
     population: 1410000000
     area_km2: 9600000
+    capital: {zh: 北京, en: Beijing}
+    color: '#DE2910'
+    climate_notes:
+      zh: "中国幅员辽阔，气候从南到北跨越热带、亚热带、温带和寒温带。东部受季风控制，夏季高温多雨，冬季寒冷干燥，雨量从东南沿海的一年两千毫米递减到华北的五六百毫米；西北深居内陆，是干旱的荒漠和草原；青藏高原海拔四千米以上，终年寒冷。首都北京属温带季风气候，一月平均气温零下三度左右，七月约二十六度，降水多集中在七八月。"
+      en: "China is vast, and its climates run from tropical and subtropical in the south through temperate to cold temperate in the north. The east is ruled by the monsoon, hot and wet in summer and cold and dry in winter, with rainfall falling from some 2,000 mm a year on the south-east coast to 500–600 mm in the north; the north-west, deep inland, is dry desert and steppe, and the Tibetan Plateau, over 4,000 m high, is cold all year. Beijing has a temperate monsoon climate, averaging about −3 °C in January and 26 °C in July, with most of its rain in July and August."
     traits: {industries: [manufacturing, digital, commerce, agriculture], heritage: mainland, age: china}
     nation:
       ideology:
@@ -150,6 +155,11 @@ countries:
         numeric: "840"
     population: 340000000
     area_km2: 9830000
+    capital: {zh: 华盛顿哥伦比亚特区, en: "Washington, D.C."}
+    color: '#3C3B6E'
+    climate_notes:
+      zh: "美国本土大部分是温带气候：东北和五大湖区冬季寒冷多雪，东南湿润温暖，夏季常有飓风；中部大平原冬冷夏热，春季多龙卷风；西部山地和高原干燥，西南是沙漠；太平洋沿岸北部湿润多雨，南部是地中海气候。阿拉斯加属寒带和亚寒带，夏威夷是热带。首都华盛顿属湿润亚热带气候，一月平均气温约两度，七月约二十七度，四季雨量均匀。"
+      en: "Most of the contiguous United States is temperate: the Northeast and the Great Lakes have cold, snowy winters, the Southeast is warm and humid with hurricanes in summer, the Great Plains are cold in winter, hot in summer and swept by tornadoes in spring, the western mountains and plateaus are dry and the Southwest is desert; the northern Pacific coast is wet and the southern a Mediterranean climate. Alaska is subarctic and arctic, Hawaii tropical. Washington has a humid subtropical climate, averaging about 2 °C in January and 27 °C in July, with rain spread through the year."
     traits: {industries: [finance, tech, manufacturing, pharma], heritage: usa, age: usa}
     nation:
       ideology:

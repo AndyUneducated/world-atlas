@@ -1,22 +1,30 @@
-# Administrative divisions of Ranova (拉诺瓦岛): the island is a region with no country above it
-# (role: region); its 26 nations are its localities (role: nation), their cities its boroughs (role: city).
-# id: stable internal key, referenced by other files. codes.admin: 6-digit code; the region is 950000,
-# its nations are numbered like territories (60 to 85: 600000) and their cities like cities (600100); may
-# change on reorganisation.
+# Administrative divisions of Ranova (拉诺瓦岛). The island has no country above it: its 26 nations are
+# states (subtype: country, no parent), their cities cities (locality) with no districts, and the United
+# Republic of Ranova, the government in exile that claims the whole island, a state like the others whose
+# capital and area it does not control (uncontrolled:); its seat and claims are in its notes. On the map it
+# is the region's territory in world/generator/ranova.yaml, the island's outline.
+# id: stable internal key, referenced by other files. codes: a state has only its ISO 3166-1 code, its letters
+# taken from its name as this world sees fit, real countries' codes notwithstanding (the nations numbered 910
+# to 935 in the order they were founded on the map; the government in exile RA, RAN, 950); a city has its
+# 6-digit admin code (600100), which may change on reorganisation.
 # Names are Chinese, English and the nation's own language: Ranovan (art-x-ranova) or, on the coasts
-# and in Nusira, Kasiri (art-x-kasiri). A nation's card block is `nation:` (see pipeline/atlas/world.py).
+# and in Nusira, Kasiri (art-x-kasiri). A state's card block is `nation:` (see pipeline/atlas/world.py).
 divisions:
 - id: div_p735rv
-  subtype: dependency
-  role: region
+  subtype: country
   status: generated
-  names: {zh: 拉诺瓦岛, en: Ranova, art-x-ranova: Nosy Ranova}
+  names: {zh: 拉诺瓦联合共和国, en: United Republic of Ranova, art-x-ranova: Repoblika Mitambatra an'i Ranova}
   notes: {zh: "拉诺瓦联合共和国是拉诺瓦岛上曾经唯一的国家，如今是一个流亡政府，驻在东南海岸外的安巴罗国际托管地。它在法律上仍然主张对全岛和两侧群岛的主权，但三十多年来没有实际控制任何领土，只在安巴罗旧海军要塞旁的一座行政楼里设有总统府、临时国民议会和几个部门，在萨马伊、马哈维洛和海外设有代表处。\n\n拉诺瓦岛是太平洋东北部的一座大岛，位于加利福尼亚东南约一千五百公里的海上，主岛面积约一百万平方公里，形状狭长，西北和东南外海各有十多座大小不一的岛屿。中部是纵贯南北的安德里纳高原，北端有全岛最高的马洛卡山，东部是陡峭的法拉纳断崖和热带雨林，西部是稀树草原和干燥的丘陵，西南是多刺灌木林和半荒漠。全岛人口约三千万，通行拉诺瓦语和沿海的卡西里语。\n\n联合共和国统一了本岛和两侧的群岛，首都设在高原中部的安博哈拉。三十多年前，它在经济危机、地方分离运动和意识形态对立中崩溃，这场崩溃被称为「大分裂」。东南群岛和萨拉卡依据条约和平分离，沿用了联合共和国的船旗样式；本岛则陷入长期战乱，先后形成了二十六个国家和武装控制区。安博哈拉被基督教联邦接管后，最后一届内阁和部分议员撤到萨马伊；安巴罗之围结束、托管地成立后，流亡政府迁入安巴罗，成为国际委员会认可的谈判一方。\n\n流亡政府由流亡总统领导，临时国民议会由大分裂前的国民议会议员、侨民代表和难民营代表组成，每五年在难民营和海外侨民中改选一次。它的主要工作是为难民和海外侨民签发身份与旅行证件，保存联合共和国的档案、法律和国旗，参加在安巴罗举行的和平谈判，并主张以联邦方式和平统一全岛。只有少数国家承认它是拉诺瓦的合法政府，多数国家把它视为一个有象征意义的对话者。岛上各国的人常说：「我们曾经是一个国家，如今是一座岛。」", en: "The United Republic of Ranova was once the only state on the island of Ranova and is now a government in exile, seated in the Ambaro International Trust Territory off the south-east coast. In law it still claims sovereignty over the whole island and the islands on either side, but for more than thirty years it has held no territory at all: it keeps a presidency, a Provisional National Assembly and a few ministries in an office building beside Ambaro's old naval fortress, and missions in Samay, Mahavelo and abroad.\n\nRanova is a large island in the north-eastern Pacific, some 1,500 km south-east of California. The main island covers about a million square kilometres in a long, narrow shape, with a dozen or more islands of every size offshore to the north-west and south-east. The Andrina Highlands run down the middle, the Maroka Massif at the northern end is the highest ground, the east is the steep Farana Escarpment and rainforest, the west savanna and dry hills, and the south-west spiny thicket and semi-desert. About 30 million people live on the island, speaking Ranovan and, on the coasts, Kasiri.\n\nThe United Republic united the main island and the islands on either side, with its capital at Ambohara in the middle of the highlands. More than thirty years ago it collapsed amid economic crisis, regional separatism and ideological division, a collapse known as the Great Sundering. The south-eastern islands and Saraka left peacefully by treaty and kept the pattern of the Republic's ensigns, while the main island fell into a long war out of which twenty-six states and armed zones emerged. When the Christian Federation took over Ambohara, the last cabinet and some members of parliament withdrew to Samay; after the Siege of Ambaro ended and the trust territory was set up, the government in exile moved to Ambaro and became a party to talks recognised by the International Commission.\n\nThe government in exile is led by a president in exile. Its Provisional National Assembly is made up of members of the pre-Sundering parliament and representatives of the diaspora and the refugee camps, re-elected every five years in the camps and among Ranovans abroad. Its work is to issue identity and travel papers to refugees and the diaspora, to keep the United Republic's archives, laws and flag, to take part in the peace talks at Ambaro and to argue for a peaceful reunion of the island as a federation. Only a few states recognise it as Ranova's lawful government; most treat it as a symbolic interlocutor. People across the island say, 'We were once a country; now we are an island.'"}
   short_names: {zh: 拉诺瓦, en: Ranova}
-  codes: {iso3166_2: RN-RA, admin: '950000'}
+  codes: {iso3166_1: {alpha2: RA, alpha3: RAN, numeric: '950'}}
   motto: {zh: "一座岛，一个家", en: "One island, one home"}
-  population: 30300000
-  area_km2: 1088900.0
+  area_km2: 1088900.0  # the whole island and the islands on either side, which it claims
+  capital: div_qnzksj  # Ambohara; it sits in Ambaro (see notes)
+  uncontrolled: [capital, area]
+  color: '#1E6B3A'
+  na:
+    fields: [population, traits, density, economy, demographics, elections]
+    note: {zh: 不适用（流亡政府不实际管辖领土）, en: Not applicable (a government in exile administers no territory)}
   operators:
     expressway: {zh: 各国公路部门, en: National road authorities}
     highway: {zh: 各国公路部门, en: National road authorities}
@@ -25,9 +33,6 @@ divisions:
   flag_notes: {zh: 拉诺瓦联合共和国的国旗：绿底白色斜十字，中央红色圆盘和金色五角星，金色镶边。联合共和国解体后这面旗不再是任何国家的国旗，但它的联合标志仍出现在萨马伊、马哈维洛、伊纳拉、安巴罗和萨拉卡的船旗样式中。, en: 'The flag of the United Republic of Ranova: a white saltire on green with a red disc and gold star where the arms cross, in a gold border. Since the Republic dissolved it has been no state''s flag, but its union mark lives on in the ensigns of Samay, Mahavelo, Inara, Ambaro and Saraka.'}
   climate_notes: {zh: 拉诺瓦岛位于北纬八度到二十六度之间，终年受东北信风控制，是典型的热带海洋性气候。迎风的东海岸和东坡雨量充沛，一年两千到三千毫米，生长着茂密的热带雨林；中部的安德里纳高原海拔八百到一千多米，气候凉爽，首都安博哈拉年平均约二十度；背风的西海岸和西南部干燥得多，西南端一年只有三四百毫米雨水，是多刺灌木林和半荒漠。雨季从六月到十月，十一月到次年五月是干季；夏末秋初常有热带气旋从东面海上袭来。, en: 'Ranova lies between 8° and 26° N under the north-east trades all year, a typical tropical maritime climate. The windward east coast and eastern slopes are very wet, 2,000 to 3,000 mm a year, and covered in rainforest; the Andrina Highlands in the middle stand 800 to over 1,000 m high and are cool, the capital Ambohara averaging about 20 °C over the year; the sheltered west coast and the south-west are much drier, and the far south-west gets only 300 to 400 mm, a land of spiny thicket and semi-desert. The rains last from June to October and the dry season from November to May, and tropical cyclones often come in from the sea to the east in late summer and early autumn.'}
   nation:
-    exile:
-      names: {zh: 拉诺瓦联合共和国, en: United Republic of Ranova, art-x-ranova: Repoblika Mitambatra an'i Ranova}
-      seat: div_pr4aer
     ideology:
     - {zh: "宪政共和主义", en: "Constitutional republicanism"}
     - {zh: "和平统一", en: "Peaceful reunification"}
@@ -93,6 +98,7 @@ divisions:
     - {"names": {"zh": "国家储备托管委员会", "en": "Board of Trustees of the National Reserves"}, "title": {"zh": "主席", "en": "Chair"}}
     - {"names": {"zh": "驻外代表处", "en": "Missions Abroad"}, "title": {"zh": "首席代表", "en": "Chief Representative"}}
     - {"names": {"zh": "侨民与证件署", "en": "Office of Expatriates and Documents"}, "title": {"zh": "署长", "en": "Director"}}
+    name_langs: {zh: 5, art-x-ranova: 69, art-x-kasiri: 15}
     culture: {"holiday": {"zh": "联合共和国日", "en": "Day of the United Republic"}}
     religion:
     - names: {zh: "新教", en: "Protestant"}
@@ -116,6 +122,7 @@ divisions:
     - names: {zh: "其他", en: "Other"}
       share: 4.0
       color: '#BDBDBD'
+    freedom: {political: 62, civil: 70, press: 74, economic: 45}
     refugees: {hosted: 0, abroad: 947500}
     symbols:
       anthem: {zh: "《一座岛，一个家》", en: "One Island, One Home"}
@@ -131,9 +138,7 @@ divisions:
 
 # ── 安博哈拉基督教联邦 ──
 - id: div_mj41d0
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 安博哈拉基督教联邦, en: Christian Federation of Ambohara, art-x-ranova: Fiombonana Kristiana an'i Ambohara}
   short_names: {zh: 安博哈拉, en: Ambohara}
@@ -144,7 +149,7 @@ divisions:
       联邦立国后随即与北方的阿瓦拉齐人民民主共和国爆发高原战争，前线在高原北缘拉锯多年，双方伤亡惨重，最终在停火线上对峙至今。南部边境则长期面对齐马罗沃的威胁和伊索卡游击队的袭扰，军费常年占国内生产总值近百分之五。联邦是圣约同盟的盟主，与萨希利亚、努西拉、米拉卡等国结盟，并从海外获得大量武器和援助。
 
       经济以高原农业为主，稻米、咖啡、瘤牛和林木是传统产业，石墨、蓝宝石和地热则是新的出口来源，瓦凡博是全国唯一的深水港和工业城市。战争和高额军费拖累了发展，人均收入只有约九千美元，但比北方的对手富裕。联邦人把信仰、家庭和土地看得很重，大家庭常常三代同堂，星期日的礼拜和午后的家宴是一周中最重要的时刻。', en: "The Christian Federation of Ambohara is the largest and most populous country on Ranova, some 300,000 km² with about 7.5 million people in ten federal cities. Its territory runs like a diagonal band from the mouth of the Ambo in the north-west, across the Andrina Highlands in the middle of the island, to the south-east coast, with an island offshore at each end, so the federation faces both the north-western bay and the sea lanes among the south-eastern isles. The capital, Ambohara, stands on a terrace some 800 m up in the middle of the highlands, cool and the religious and educational centre of the island. \nThe federation began as the highland provinces of the United Republic of Ranova. After the Sundering, the Protestant and Catholic churches of the highlands joined the local gentry in a constituent assembly that proclaimed a Christian federation, whose constitution declares that the state 'rests on the law of God and on the family'. The president is elected by direct vote for five years; the Federal Assembly is chosen by a mixed system, and the evangelical Homeland Party and the Catholic Christian Democrats take turns in government, while the Council of Churches carries great weight in schooling, marriage and welfare. Abortion and same-sex marriage are banned, the country closes on Sundays and state schools begin each day with prayer. \nAlmost at once the federation went to war with the People's Democratic Republic of Avaratsy in the north. The Highland War swung back and forth across the northern edge of the plateau for years at terrible cost, and the two armies still face each other across the ceasefire line. In the south it has long faced the threat of Tsimarovo and raids by the Isoka guerrillas, and defence takes close to 5% of output year after year. The federation leads the Covenant League, allied with Sahiliya, Nusira, Miraka and others, and receives large amounts of arms and aid from abroad. \nThe economy rests on highland farming: rice, coffee, zebu and timber are the old trades, graphite, sapphires and geothermal power the new exports, and Vavambo is the only deep-water port and industrial city. War and the defence bill have held development back, and income is only about 9,000 dollars a head, though richer than its northern rival. Federation people set great store by faith, family and land; three generations often share a house, and Sunday worship followed by the family meal is the high point of the week."}
-  codes: {admin: '600000'}
+  codes: {iso3166_1: {alpha2: AH, alpha3: AMB, numeric: '910'}}
   population: 7500000
   area_km2: 305000.0
   capital: div_qnzksj
@@ -233,132 +238,199 @@ divisions:
       tld: .xa
       driving: left
 - id: div_qnzksj
-  subtype: borough
+  subtype: locality
   parent: div_mj41d0
-  role: city
   status: generated
   names: {zh: 安博哈拉, en: Ambohara, art-x-ranova: Ambohara}
   notes: {zh: 联邦首都，坐落在安德里纳高原中部八百多米的台地上，十二座山丘环绕旧城，大教堂、联邦议会和总统府分踞三座山顶。全国近四成的政府雇员、半数大学生住在这里，郊外的高原兵营驻有联邦陆军总部。旧城红砖房依坡而建，星期日全城停业，教堂钟声从清晨响到中午。, en: 'The federal capital, on a terrace some 800 m up in the middle of the Andrina Highlands, its old town ringed by twelve hills with the cathedral, the Federal Assembly and the presidential palace on three of the summits. Nearly four in ten government employees and half the country''s students live here, and the Federal Army has its headquarters in the highland barracks outside town. Red-brick houses climb the slopes of the old town; on Sundays the whole city closes and the church bells ring from dawn to noon.'}
   codes: {admin: '600100'}
   population: 2900000
   area_km2: 45000
+  color: '#0B3A75'
+  flag: {"layout": "banner", "colors": ["#0B3A75", "#C9A227"], "division": "bordure", "charge": "cross", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "深蓝底金色镶边，正中一枚白色拉丁十字。十字是山顶的大教堂，金边是环绕旧城的十二座山丘；星期日全城停业，市政厅门前只挂这面旗。"
+    en: "A white Latin cross on dark blue within a gold border. The cross is the cathedral on its hilltop and the border the twelve hills ringing the old town; on Sundays, when the whole city closes, it is the only flag flown at the city hall."
   traits:
     industries: [government, commerce, education, defence]
     heritage: ranova_global
+    age: ranova_mid
+  symbols: {"flower": {"zh": "彗星兰", "en": "Comet orchid"}, "tree": {"zh": "蓝花楹", "en": "Jacaranda"}}
 - id: div_cwevsp
-  subtype: borough
+  subtype: locality
   parent: div_mj41d0
-  role: city
   status: generated
   names: {zh: 瓦凡博, en: Vavambo, art-x-ranova: Vavan'Ambo}
   notes: {zh: 安博河口的港城，联邦唯一的深水港和最大的工业城市，名字意为「安博河之口」。码头、炼油厂、水泥厂和纺织厂沿西北湾排开，联邦海军西北舰队以此为母港。西岸战争爆发后，港区外筑起了长长的防波堤和雷达站。, en: 'The port at the mouth of the Ambo, the federation''s only deep-water harbour and its largest industrial city; the name means ''mouth of the Ambo''. Quays, a refinery, cement works and textile mills line the north-western bay, and the Federal Navy''s North-West Fleet is based here. Since the West Coast War a long breakwater and radar stations guard the harbour.'}
   codes: {admin: '600200'}
   population: 1000000
   area_km2: 30400.0
+  color: '#0F4F9F'
+  flag: {"layout": "horizon", "colors": ["#0B3A75", "#1C6BA0", "#FFFFFF"], "edge": "waves", "charge": "anchor", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "深蓝的天空下是白线勾出的海浪，天空中一只白色铁锚。铁锚是联邦唯一的深水港，海浪是安博河口外的西北湾。"
+    en: "Waves picked out in white under a dark blue sky, with a white anchor in the sky. The anchor is the federation's only deep-water port and the waves the north-western bay off the mouth of the Ambo."
   traits:
     industries: [port, manufacturing, logistics]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "九重葛", "en": "Bougainvillea"}, "tree": {"zh": "椰子树", "en": "Coconut palm"}}
 - id: div_wzx2kn
-  subtype: borough
+  subtype: locality
   parent: div_mj41d0
-  role: city
   status: generated
   names: {zh: 菲安特拉, en: Fiantra, art-x-ranova: Fiantra}
   notes: {zh: 高原北部的稻作城镇，梯田从安博河谷一级级爬上山坡，是联邦的粮仓。镇上的路德派神学院培养了全国一半的牧师。高原战争期间这里是前线后方，至今保留着防空洞和旧战壕。, en: 'A rice-growing town in the northern highlands, its terraces climbing in steps from the Ambo valley; it is the federation''s granary. Its Lutheran seminary trains half the country''s pastors. In the Highland War it lay just behind the front, and air-raid shelters and old trenches remain.'}
   codes: {admin: '600300'}
   population: 600000
   area_km2: 40000
+  color: '#07254B'
+  flag: {"layout": "banner", "colors": ["#3C7A3A"], "charge": "terraces", "charge_color": "#F2D16B"}
+  flag_notes:
+    zh: "绿底上一片金色梯田。绿色是安博河谷的稻田，梯田一级级爬上山坡，是这座「联邦粮仓」的象征。"
+    en: "Gold terraces on green. The green is the rice fields of the Ambo valley and the terraces, climbing the slopes step by step, stand for the town known as the federation's granary."
   traits:
     industries: [rice, agriculture, forestry]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "长春花", "en": "Madagascar periwinkle"}, "tree": {"zh": "桉树", "en": "Eucalyptus"}}
 - id: div_6py47w
-  subtype: borough
+  subtype: locality
   parent: div_mj41d0
-  role: city
   status: generated
   names: {zh: 安卡瓦, en: Ankava, art-x-ranova: Ankava}
   notes: {zh: 安卡瓦火山脚下的城市，火山灰土上种满咖啡、玉米和果树，地热电站为首都供电。附近的花岗岩和石墨矿是联邦主要的出口来源，矿区由联邦安全部队守卫。, en: 'A city at the foot of Ankava Volcano, where coffee, maize and orchards grow on the ash soils and a geothermal plant powers the capital. Nearby granite and graphite mines are a leading source of the federation''s exports, guarded by federal security forces.'}
   codes: {admin: '600400'}
   population: 500000
   area_km2: 36000
+  color: '#1364C9'
+  flag: {"layout": "horizon", "colors": ["#F5E6C8", "#4E342E"], "edge": "ridge", "charge": "volcano", "charge_in": "horizon", "charge_color": "#4E342E"}
+  flag_notes:
+    zh: "米色天空下是褐色的火山灰土地，地平线上一座火山。火山是城外的安卡瓦火山，褐色是种满咖啡和果树的火山灰土。"
+    en: "Brown volcanic soil under a cream sky, with a volcano on the skyline. The volcano is Mount Ankava outside the city and the brown the ash soil planted with coffee and fruit trees."
   traits:
     industries: [agriculture, mining, geothermal]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "咖啡花", "en": "Coffee blossom"}, "tree": {"zh": "牛油果树", "en": "Avocado tree"}}
 - id: div_z0k237
-  subtype: borough
+  subtype: locality
   parent: div_mj41d0
-  role: city
   status: generated
   names: {zh: 拉诺梅纳, en: Ranomena, art-x-ranova: Ranomena}
   notes: {zh: 法拉纳断崖顶上的林业城市，名字意为「红水」，因为雨季时断崖瀑布带着红土倾泻而下。水电站沿断崖修建，桉树和松树林场延伸到东部雨林边缘。, en: 'A forestry town on top of the Farana Escarpment; its name means ''red water'', for the waterfalls that pour red earth over the cliffs in the rains. Hydroelectric plants line the escarpment, and eucalyptus and pine plantations run to the edge of the eastern rainforest.'}
   codes: {admin: '600500'}
   population: 380000
   area_km2: 35000
+  color: '#1364C9'
+  flag: {"layout": "horizon", "colors": ["#1B5E20", "#B23A2A", "#FFFFFF"], "river": true, "charge": "pine", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "深绿的林海下是红土地，一条白色河流从地平线流下，天空中一棵白松。城名意为「红水」，白色河流是雨季带着红土从断崖倾泻的瀑布。"
+    en: "Red earth under a forest-green sky, a white river running down from the skyline and a white pine above. The name means 'red water', and the river is the falls that pour off the escarpment laden with red soil in the rains."
   traits:
     industries: [forestry, hydropower, agriculture]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "凤仙花", "en": "Impatiens"}, "tree": {"zh": "加勒比松", "en": "Caribbean pine"}}
 - id: div_gjh4td
-  subtype: borough
+  subtype: locality
   parent: div_mj41d0
-  role: city
   status: generated
   names: {zh: 塔马塔, en: Tamata, art-x-ranova: Tamata}
   notes: {zh: 东海岸的港城，联邦面向太平洋的门户，丁香、香草和咖啡从这里装船出口。城里有联邦最大的天主教教区和一座海军基地，南面的海滩边是阵营盟国援建的集装箱码头。, en: 'The east-coast port and the federation''s gateway to the ocean, where cloves, vanilla and coffee are loaded for export. It has the federation''s largest Catholic diocese and a naval base, and south of town on the beach is a container terminal built with the help of the League''s partners.'}
   codes: {admin: '600600'}
   population: 950000
   area_km2: 30000
+  color: '#2079EA'
+  flag: {"layout": "diagonal", "colors": ["#0B3A75", "#F4F1E6", "#C9A227"], "charge": "sail", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "深蓝和米白沿斜线分开，中间一道金色斜带，左上角一面白帆。帆是从这里装船出海的丁香、香草和咖啡，金带是联邦面向太平洋的航道。"
+    en: "Dark blue and off-white divided diagonally by a gold band, with a white sail at the top left. The sail is the cloves, vanilla and coffee shipped from here, and the band the federation's sea lane to the Pacific."
   traits:
     industries: [port, food, fishing]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "依兰", "en": "Ylang-ylang"}, "tree": {"zh": "丁香树", "en": "Clove tree"}}
 - id: div_7kqjx0
-  subtype: borough
+  subtype: locality
   parent: div_mj41d0
-  role: city
   status: generated
   names: {zh: 安德里纳, en: Andrina, art-x-ranova: Andrina}
   notes: {zh: 高原南部的放牧城市，牛群在草原上随季节迁徙，周一的瘤牛市场是全岛最大的牲口集市。南部山谷出产蓝宝石，矿镇里挤满了淘宝人。这里与齐马罗沃接壤，边境上筑有一道碉堡线。, en: 'A herding city in the southern highlands, where cattle move across the grasslands with the seasons and the Monday zebu market is the largest livestock fair on the island. The valleys to the south yield sapphires, and the mining towns are full of prospectors. It borders Tsimarovo, and a line of bunkers runs along the frontier.'}
   codes: {admin: '600700'}
   population: 420000
   area_km2: 45000
+  color: '#2079EA'
+  flag: {"layout": "banner", "colors": ["#6D4C41", "#1565C0"], "division": "bordure", "charge": "crystal", "charge_color": "#90CAF9"}
+  flag_notes:
+    zh: "褐色旗面镶蓝边，正中一枚浅蓝色宝石。宝石是南部山谷出产的蓝宝石，褐色是瘤牛随季节迁徙的高原草场。"
+    en: "A pale blue gem on brown within a blue border. The gem is the sapphires of the southern valleys and the brown the highland pastures the zebu herds follow with the seasons."
   traits:
     industries: [zebu, agriculture, gems]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "马缨丹", "en": "Lantana"}, "tree": {"zh": "金合欢", "en": "Acacia"}}
 - id: div_0b42e0
-  subtype: borough
+  subtype: locality
   parent: div_mj41d0
-  role: city
   status: generated
   names: {zh: 安帕尼, en: Ampany, art-x-ranova: Ampany}
   notes: {zh: 联邦东南端的港口和军镇，联邦带状国土在这里抵达东南海岸。港内驻有东南舰队，城外是大片训练场和空军基地，是联邦防备齐马罗沃和伊索卡游击队的南方要塞。, en: 'The port and garrison town at the federation''s south-eastern end, where its band of territory reaches the south-east coast. The South-East Fleet is based in the harbour, and outside town lie wide training grounds and an air base; it is the federation''s southern fortress against Tsimarovo and the Isoka guerrillas.'}
   codes: {admin: '600800'}
   population: 560000
   area_km2: 40000
+  color: '#4A93EE'
+  flag: {"layout": "nordic", "colors": ["#0B3A75", "#FFFFFF", "#C8102E"], "charge": "tower", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "深蓝底上白边红色十字，左上角一座白色塔楼。十字的颜色取自联邦旗，塔楼是这座防备南方的要塞港。"
+    en: "A white-edged red cross on dark blue, with a white tower in the canton. The colours are the federation's, and the tower is this fortress port guarding the south."
   traits:
     industries: [port, defence, fishing]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "夹竹桃", "en": "Oleander"}, "tree": {"zh": "木麻黄", "en": "Casuarina"}}
 - id: div_6kfbjm
-  subtype: borough
+  subtype: locality
   parent: div_mj41d0
-  role: city
   status: generated
   names: {zh: 努西姆博, en: Nosimbo, art-x-ranova: Nosimbo}
   notes: {zh: 联邦在西北外海的岛屿，名字意为「安博之岛」。岛上有渔港、灯塔和海岸雷达，夏季也有首都来的度假者。联邦把它看作国土西北端的哨所。, en: 'The federation''s island off the north-west coast; the name means ''island of the Ambo''. It has a fishing harbour, a lighthouse and a coastal radar, and holidaymakers from the capital in summer. The federation treats it as the outpost at its north-western end.'}
   codes: {admin: '600900'}
   population: 120000
   area_km2: 1800.0
+  color: '#4A93EE'
+  flag: {"layout": "mirror", "colors": ["#0B3A75", "#FFFFFF"]}
+  flag_notes:
+    zh: "上蓝下白，中间是一座岛和它在水中的倒影，颜色上下互换。岛是城名所说的「安博之岛」，蓝白两色来自联邦旗。"
+    en: "Blue over white, with an island and its reflection in the water, the colours counterchanged. The island is the 'island of Ambo' the name speaks of, and the blue and white are the federation's."
   traits:
     industries: [fishing, tourism, defence]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "黄槿", "en": "Sea hibiscus"}, "tree": {"zh": "红树", "en": "Mangrove"}}
 - id: div_bhwdjs
-  subtype: borough
+  subtype: locality
   parent: div_mj41d0
-  role: city
   status: generated
   names: {zh: 努西亚特拉, en: Nosiatra, art-x-ranova: Nosiatra}
   notes: {zh: 联邦在东南外海的岛屿，岛上的海军航空站和信号站监视着东南群岛之间的航道。居民多是渔民和军人家属。, en: 'The federation''s island off the south-east coast, whose naval air station and signals post watch the sea lanes between the south-eastern islands. Its people are mostly fishers and soldiers'' families.'}
   codes: {admin: '601000'}
   population: 70000
   area_km2: 1800.0
+  color: '#74ACF2'
+  flag: {"layout": "bands", "colors": ["#0B3A75", "#FFFFFF", "#0B3A75"], "ratio": [1, 2, 1], "charge": "lighthouse", "charge_band": 1, "charge_color": "#0B3A75"}
+  flag_notes:
+    zh: "蓝、白、蓝三条横带，白色宽带中一座深蓝色灯塔。灯塔是岛上监视东南群岛航道的信号站。"
+    en: "Blue, white and blue, with a dark blue lighthouse on the broad white band. The lighthouse is the island's signal station watching the channels among the south-eastern isles."
   traits:
     industries: [defence, fishing]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "鸡蛋花", "en": "Frangipani"}, "tree": {"zh": "露兜树", "en": "Screw pine"}}
 
 # ── 阿瓦拉齐人民民主共和国 ──
 - id: div_r9whm0
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 阿瓦拉齐人民民主共和国, en: People's Democratic Republic of Avaratsy, art-x-ranova: Repoblika Demokratika Entin'ny Vahoaka Avaratsy}
   short_names: {zh: 阿瓦拉齐, en: Avaratsy}
@@ -369,7 +441,7 @@ divisions:
       建国之初，共和国与南方的安博哈拉基督教联邦爆发高原战争，人民军一度攻上高原，后被联邦军击退，此后双方在停火线两侧修筑了绵延的碉堡和雷区。战争和封锁使国家长期处于半军事化状态，军费占国内生产总值六个百分点以上，每个成年人都要参加工农赤卫队。
 
       阿瓦拉齐是世俗协约的盟主，与马索沃利结成兄弟同盟，并与贝洛瓦、瓦罗纳、萨马伊等资本主义国家维持务实合作，共同对抗信仰和血统阵营。铬、镍和造船是主要的出口来源，但计划经济效率低下，商店里常年排队，人均收入只有约四千五百美元，许多年轻人设法出海谋生。近年政府开放了沿海经济区，允许外资和私人小商店经营，港口城市渐渐热闹起来。阿瓦拉齐人以北方的坚韧自豪，说「马洛卡山挡住了风暴，也挡住了敌人」。', en: "The People's Democratic Republic of Avaratsy is at the northern end of Ranova; its name means 'the north'. It covers about 110,000 km² with some 3.2 million people in five cities, and its capital, Vohimahy, is a port on the north-east coast. The north rises to the Maroka Massif, the island's highest mountains at over 3,200 m, with wet rainforest on the east side, a dry west side, and paddies and sugar cane in the valleys. \nUnder the United Republic the north was the stronghold of the unions and the left. In the Sundering the Labour Party led the workers' red guards in taking over the ports and mines and proclaimed a People's Democratic Republic: one party, a planned economy, land collectivised into farms and all large and middle-sized firms nationalised. The Politburo of the Labour Party holds supreme power, its General Secretary also serving as President; the People's Congress meets once a year, its deputies nominated by the party and divided by fixed quota among the Labour Party, the Peasants' Union and non-party members. \nIn its first years the Republic fought the Highland War with the Christian Federation of Ambohara to the south. The People's Army got onto the plateau before being driven back, and since then both sides have built long lines of bunkers and minefields along the ceasefire line. War and blockade have kept the country half on a war footing, with defence taking more than 6% of output and every adult serving in the Workers' and Peasants' Red Guards. \nAvaratsy leads the Secular Accord. It is bound in a fraternal alliance with Masovoly and keeps up practical co-operation with capitalist states such as Belova, Varona and Samay against the blocs of faith and blood. Chromium, nickel and shipbuilding are the main exports, but the planned economy is inefficient, queues outside the shops are a fact of life, income is only about 4,500 dollars a head, and many young people find ways to work abroad. In recent years the government has opened coastal economic zones and allowed foreign investment and small private shops, and the port cities have grown livelier. Avaratsy people are proud of northern toughness, and say that 'the Maroka keeps out the storms, and the enemy too'."}
-  codes: {admin: '610000'}
+  codes: {iso3166_1: {alpha2: AV, alpha3: AVA, numeric: '911'}}
   population: 3200000
   area_km2: 110000
   capital: div_89czvj
@@ -502,71 +574,104 @@ divisions:
       tld: .xb
       driving: right
 - id: div_89czvj
-  subtype: borough
+  subtype: locality
   parent: div_r9whm0
-  role: city
   status: generated
   names: {zh: 沃希马希, en: Vohimahy, art-x-ranova: Vohimahy}
   notes: {zh: 人民民主共和国的首都，东北海岸的港城。宽阔的革命大街从港口笔直通向人民宫，两侧是成排的苏式住宅楼。造船厂、拖拉机厂和纺织联合企业是国营工业的骨干，港区由人民海军驻守。, en: 'Capital of the People''s Democratic Republic, a port on the north-east coast. The broad Avenue of the Revolution runs straight from the harbour to the People''s Palace between rows of slab housing. A shipyard, a tractor works and a textile combine are the backbone of state industry, and the People''s Navy guards the port.'}
   codes: {admin: '610100'}
   population: 1200000
   area_km2: 22000
+  color: '#C8102E'
+  flag: {"layout": "banner", "colors": ["#C8102E"], "charge": "gear_hammer", "charge_color": "#F2C230"}
+  flag_notes:
+    zh: "红底正中一枚金色齿轮和锤子。红色是革命，齿轮和锤子是造船厂、拖拉机厂和纺织联合企业的工人。"
+    en: "A gold gear and hammer on red. The red is the revolution, and the gear and hammer the workers of the shipyards, the tractor works and the textile combine."
   traits:
     industries: [government, manufacturing, port]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "美人蕉", "en": "Canna"}, "tree": {"zh": "芒果树", "en": "Mango tree"}}
 - id: div_xvdp2k
-  subtype: borough
+  subtype: locality
   parent: div_r9whm0
-  role: city
   status: generated
   names: {zh: 察拉沃卡, en: Tsaravoka, art-x-ranova: Tsaravoka}
   notes: {zh: 岛屿最北端的渔业城市，国营捕捞船队和丁香合作社是主要的雇主。海岬上的灯塔是全岛最北的地标。, en: 'The fishing city at the island''s northern tip, where the state fishing fleet and the clove co-operatives are the main employers. The lighthouse on the cape is the northernmost landmark on the island.'}
   codes: {admin: '610200'}
   population: 380000
   area_km2: 20000
+  color: '#ED193C'
+  flag: {"layout": "horizon", "colors": ["#C8102E", "#0D47A1", "#FFFFFF"], "edge": "waves", "charge": "lighthouse", "charge_in": "horizon", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "红色天空下是白线勾出的蓝色海浪，海平线上一座白色灯塔。灯塔立在全岛最北的海岬上。"
+    en: "Blue waves picked out in white under a red sky, with a white lighthouse on the horizon: the light on the northernmost cape of the island."
   traits:
     industries: [fishing, spice]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "丁香花", "en": "Clove blossom"}, "tree": {"zh": "椰子树", "en": "Coconut palm"}}
 - id: div_jhtwr7
-  subtype: borough
+  subtype: locality
   parent: div_r9whm0
-  role: city
   status: generated
   names: {zh: 安巴拉努西, en: Ambalanosy, art-x-ranova: Ambalanosy}
   notes: {zh: 西北海岸的农业城市，集体农庄在河谷里种植水稻和甘蔗。马洛卡山挡住了东风，这里比首都干燥得多。, en: 'An agricultural city on the north-west coast, where collective farms grow rice and sugar cane in the valleys. The Maroka Massif blocks the east wind, so it is much drier than the capital.'}
   codes: {admin: '610300'}
   population: 420000
   area_km2: 22000
+  color: '#9D0D24'
+  flag: {"layout": "hoist", "colors": ["#C8102E", "#1B5E20", "#F2C230"], "charge": "wheat", "charge_color": "#F2C230"}
+  flag_notes:
+    zh: "旗杆一侧红色三角，旗面绿、金两条横带，三角中一束金色稻穗。绿色是河谷的稻田，金色是甘蔗，稻穗代表集体农庄。"
+    en: "A red triangle at the hoist over green and gold, with a gold sheaf of rice in the triangle. The green is the valley's rice fields, the gold its sugarcane, and the sheaf the collective farms."
   traits:
     industries: [rice, agriculture]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "姜花", "en": "Ginger lily"}, "tree": {"zh": "罗望子", "en": "Tamarind"}}
 - id: div_cq4dgt
-  subtype: borough
+  subtype: locality
   parent: div_r9whm0
-  role: city
   status: generated
   names: {zh: 马罗瓦托, en: Marovato, art-x-ranova: Marovato}
   notes: {zh: 南部内陆的工业城市，名字意为「多石之地」。铬矿、镍矿和冶炼厂支撑着国家的出口，城南是面向高原战争停火线的军区司令部和兵工厂。, en: 'The industrial city of the southern interior; the name means ''many stones''. Chromium and nickel mines and smelters carry the country''s exports, and south of the city stand the military district headquarters and an arsenal facing the Highland War ceasefire line.'}
   codes: {admin: '610400'}
   population: 700000
   area_km2: 26000
+  color: '#F04460'
+  flag: {"layout": "banner", "colors": ["#3E3E3E", "#C8102E"], "division": "pile", "charge": "mining", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "深灰底上一个红色山形，正中一对白色矿镐。城名意为「多石之地」，矿镐是铬矿和镍矿，红色是冶炼厂的炉火。"
+    en: "A red pile on dark grey with white crossed picks. The name means 'stony place'; the picks are the chrome and nickel mines and the red the smelters' fires."
   traits:
     industries: [mining, manufacturing, defence]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "芦荟花", "en": "Aloe flower"}, "tree": {"zh": "刺桐", "en": "Coral tree"}}
 - id: div_1zgqyc
-  subtype: borough
+  subtype: locality
   parent: div_r9whm0
-  role: city
   status: generated
   names: {zh: 安科里卡, en: Ankorika, art-x-ranova: Ankorika}
   notes: {zh: 东海岸的第二港口，罐头厂和制糖厂沿河口排开。港口与马索沃利之间有一条铁路，是两国物资往来的主要通道。, en: 'The second port on the east coast, with canneries and sugar mills along the estuary. A railway links it to Masovoly and is the main route for goods between the two countries.'}
   codes: {admin: '610500'}
   population: 500000
   area_km2: 20000
+  color: '#73091A'
+  flag: {"layout": "bands", "colors": ["#C8102E", "#FFFFFF", "#1B5E20"], "vertical": true, "charge": "boat", "charge_band": 1, "charge_color": "#C8102E"}
+  flag_notes:
+    zh: "红、白、绿三条竖带，白带中一艘红色小船。红绿两色来自国旗，小船是河口的渔船和罐头厂。"
+    en: "Red, white and green upright, with a red boat on the white. The red and green are the national colours, and the boat the fishing fleet and canneries of the river mouth."
   traits:
     industries: [port, food]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "黄蝉", "en": "Allamanda"}, "tree": {"zh": "面包树", "en": "Breadfruit tree"}}
 
 # ── 马索沃利社会主义人民共和国 ──
 - id: div_s07wh5
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 马索沃利社会主义人民共和国, en: Masovoly Socialist People's Republic, art-x-ranova: Repoblika Sosialista Entin'ny Vahoaka Masovoly}
   short_names: {zh: 马索沃利, en: Masovoly}
@@ -577,7 +682,7 @@ divisions:
       这里是全岛最封闭的国家。居民按家庭出身划分成分，迁徙、就业和婚姻都受到严格管理；广播和报纸全部国营，外国电台被屏蔽，私自出境者的家属会受到牵连。最高人民会议的代表由劳动党一手提名，选举时只有一名候选人，投票率年年接近百分之百。军队是国家的支柱，全国四分之一的成年人编入预备役，海岸和山区挖满了坑道，据称还拥有短程导弹。
 
       马索沃利是世俗协约的成员，与阿瓦拉齐是兄弟之邦，在高原战争中派兵支援，但两国关系时冷时热，阿瓦拉齐的开放政策常被马索沃利报纸批评为「修正主义」。经济自给自足，以稀土、石墨和集体农庄的稻米为主，粮食歉收时常常依赖阿瓦拉齐的援助。人均收入约两千二百美元，首都的宽阔大街上汽车稀少，行人和自行车却很多。每年创始领袖诞辰日，全国在中央广场举行集体舞和火炬游行。', en: "The Masovoly Socialist People's Republic lies on Ranova's north-east coast between Avaratsy and the Free Communes of Faniry, some 32,000 km² with about 900,000 people in only two cities, the capital, Andriamba, and inland Firana. The country has mountains at its back and the sea in front: a narrow plain round the eastern bay and rainforested hills to the west. \nIn the Sundering the Labour Party organisations of the north-eastern provinces, led by the guerrilla commander Ratsima Voly, broke with their northern comrades and founded a Socialist People's Republic with him at its core. After Voly's death power passed to his son and then his grandson, making it the only hereditary communist regime on the island. The present Supreme Leader, Ratsima Voly III, is called 'the Great Successor', the state is guided by the 'One Heart' doctrine, and the country's clocks run half an hour behind its neighbours' to mark the hour of the founder's birth. \nIt is the most closed country on the island. People are classed by family background, and movement, work and marriage are all tightly controlled; radio and newspapers are all state-run, foreign stations are jammed, and the families of those who leave without permission are punished. The Workers' Party nominates every deputy to the Supreme People's Assembly, each seat has a single candidate, and turnout is close to 100% every time. The army is the pillar of the state: a quarter of adults are in the reserve, the coast and hills are honeycombed with tunnels, and it is said to have short-range missiles. \nMasovoly belongs to the Secular Accord and calls Avaratsy its fraternal state; it sent troops in the Highland War, but relations blow hot and cold, and the Masovoly press often attacks Avaratsy's opening as 'revisionism'. The economy aims at self-sufficiency, with rare earths, graphite and rice from the collective farms, and it often depends on Avaratsy's aid after bad harvests. Income is about 2,200 dollars a head; the wide avenues of the capital see few cars but many walkers and bicycles. Every year on the founder's birthday the whole country holds mass dances and torchlight parades in the central square."}
-  codes: {admin: '620000'}
+  codes: {iso3166_1: {alpha2: MV, alpha3: MAS, numeric: '912'}}
   population: 900000
   area_km2: 32000
   capital: div_gt2h78
@@ -692,35 +797,47 @@ divisions:
       tld: .xc
       driving: right
 - id: div_gt2h78
-  subtype: borough
+  subtype: locality
   parent: div_s07wh5
-  role: city
   status: generated
   names: {zh: 安德里安巴, en: Andriamba, art-x-ranova: Andriamba}
   notes: {zh: 社会主义人民共和国的首都，建在东海岸海湾边，城市按创始领袖的规划重建：中央广场上立着历代领袖的巨型雕像，广场两侧是永生宫和人民议会大厦。非经许可，外国人不得进城。, en: 'Capital of the Socialist People''s Republic, on a bay of the east coast, rebuilt to the founding leader''s plan: giant statues of the leaders of the dynasty stand on the central square, between the Palace of Eternity and the People''s Assembly. Foreigners may not enter without a permit.'}
   codes: {admin: '620100'}
   population: 620000
   area_km2: 14000
+  color: '#B3171F'
+  flag: {"layout": "banner", "colors": ["#B3171F", "#F2C230"], "division": "bordure", "charge": "sun", "charge_color": "#F2C230"}
+  flag_notes:
+    zh: "红底金边，正中一轮金色太阳。太阳是创始领袖，金边是官方所说的「永恒的光辉」，与国旗同出一套象征。"
+    en: "A gold sun on red within a gold border. The sun is the founding leader and the border what officials call his 'eternal radiance', the same symbols as the national flag."
   traits:
     industries: [government, defence, mining]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "鸡冠花", "en": "Cockscomb"}, "tree": {"zh": "榕树", "en": "Banyan"}}
 - id: div_qe8t49
-  subtype: borough
+  subtype: locality
   parent: div_s07wh5
-  role: city
   status: generated
   names: {zh: 菲拉纳, en: Firana, art-x-ranova: Firana}
   notes: {zh: 内陆的农业城市，国营农场在山间种植水稻和玉米。城外的山谷中有一处劳动教养营，官方称之为「再教育农场」。, en: 'The inland farming city, where state farms grow rice and maize among the hills. In a valley outside town is a labour camp, which the authorities call a ''re-education farm''.'}
   codes: {admin: '620200'}
   population: 280000
   area_km2: 18000
+  color: '#DC1C26'
+  flag: {"layout": "horizon", "colors": ["#F2C230", "#2E7D32"], "edge": "ridge", "charge": "wheat", "charge_in": "ground", "charge_color": "#F2C230"}
+  flag_notes:
+    zh: "金色天空下是起伏的绿色山地，山中一束金色稻穗。绿色是国营农场所在的山间，稻穗是那里种的水稻和玉米。"
+    en: "Rolling green hills under a gold sky, with a gold sheaf in the hills. The green is the upland where the state farms lie and the sheaf their rice and maize."
   traits:
     industries: [rice, agriculture]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "野牡丹", "en": "Melastoma"}, "tree": {"zh": "柚木", "en": "Teak"}}
 
 # ── 齐马罗沃民族社会主义国 ──
 - id: div_rbcxzz
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 齐马罗沃民族社会主义国, en: National Socialist State of Tsimarovo, art-x-ranova: Fanjakana Sosialista Nasionaly Tsimarovo}
   short_names: {zh: 齐马罗沃, en: Tsimarovo}
@@ -731,7 +848,7 @@ divisions:
       国家建立后随即向西南扩张，发动南方战争，攻入阿拉齐纳原住民氏族的牧区，强迫数十万人离开家园，把土地分给「定居者村」。国际调查机构多次记录了强迫迁徙、集体惩罚和拘押营，周边国家和国际组织普遍对其实施武器禁运。南方战争断断续续持续了三十多年，至今仍未结束。
 
       齐马罗沃是祖源轴心的盟主，与梅纳瓦利军政府结盟，却与更激进的卡波拉新秩序自由领长期不和，两国边境多次交火。经济是国家主导的军工体制，福罗纳的钢铁厂和兵工厂、伊拉希港的造船厂和国营农场是支柱，禁运使许多物资依赖走私。人均收入约五千美元。国内宣传无处不在，学校教授「血统史」，青年必须加入运动的青年团。三十多年来，二十多万人逃离这个国家，在邻国和海外形成了庞大的流亡社区。', en: "The National Socialist State of Tsimarovo lies in the south of Ranova, crossed by the Ilahy River from the Ivaka Mountains to the east coast; it covers some 99,000 km² with about 2.8 million people in five cities, its capital, Tsimarovo, in a basin on the upper Ilahy. Most of the country is dry upland and savanna, and the mouth of the Ilahy in the east is its only outlet to the sea, the port of Ilahy. \nIn the last years of the United Republic, veterans and nationalist youth groups in the south founded the National Socialist Movement, which claimed that the 'first settlers' of the highlands were Ranova's true masters and branded the indigenous clans, the coastal Kasiri and immigrants as 'outsiders'. After the Sundering the movement took the southern provinces by force and set up a one-party state in which the Leader holds unlimited power and the National Assembly exists to applaud his decisions. Residents are graded by 'certificates of lineage', and only first-class citizens may own land, hold office or be commissioned in the army. \nThe new state soon pushed south-west and began the Southern War, overrunning the grazing lands of the Alatsina clans, driving hundreds of thousands from their homes and giving the land to 'settler villages'. International investigators have repeatedly documented forced removals, collective punishment and detention camps, and neighbours and international bodies broadly enforce an arms embargo. The Southern War has gone on and off for more than thirty years and is not over. \nTsimarovo leads the Origin Axis and is allied with the Menavaly junta, yet has long been at odds with the still more radical New Order Free Territory of Kabola, and the two have exchanged fire on their border many times. The economy is a state-run war economy built on the steelworks and arsenal of Forona, the shipyard at Ilahy and state farms, and the embargo means many goods come in by smuggling. Income is about 5,000 dollars a head. Propaganda is everywhere, schools teach 'lineage history' and young people must join the movement's youth corps. Over thirty years more than 200,000 people have fled the country, forming large exile communities in neighbouring states and overseas."}
-  codes: {admin: '630000'}
+  codes: {iso3166_1: {alpha2: TS, alpha3: TSI, numeric: '913'}}
   population: 2800000
   area_km2: 99000
   capital: div_j0txx6
@@ -852,71 +969,104 @@ divisions:
       tld: .xd
       driving: right
 - id: div_j0txx6
-  subtype: borough
+  subtype: locality
   parent: div_rbcxzz
-  role: city
   status: generated
   names: {zh: 齐马罗沃, en: Tsimarovo, art-x-ranova: Tsimarovo}
   notes: {zh: 民族社会主义国的首都，建在伊拉希河上游的盆地中。新古典风格的国民大厅和领袖府沿中轴大道对称排列，每年的建国阅兵在大道上举行。城郊是国营军工厂和民族卫队兵营。, en: 'Capital of the National Socialist State, in a basin on the upper Ilahy. The neoclassical National Hall and the Leader''s Residence stand symmetrically along the central avenue, where the foundation-day parade is held every year. State arms works and National Guard barracks ring the suburbs.'}
   codes: {admin: '630100'}
   population: 1000000
   area_km2: 22000
+  color: '#A3141B'
+  flag: {"layout": "banner", "colors": ["#A3141B", "#111111"], "division": "bordure", "charge": "tower", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "红底黑边，正中一座白色塔楼。塔楼是中轴大道上的国民大厅，红黑两色取自国旗。"
+    en: "A white tower on red within a black border. The tower is the National Hall on the ceremonial avenue, and the red and black are the national colours."
   traits:
     industries: [government, manufacturing, defence]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "鹤望兰", "en": "Bird of paradise"}, "tree": {"zh": "木棉", "en": "Kapok tree"}}
 - id: div_s0cxrv
-  subtype: borough
+  subtype: locality
   parent: div_rbcxzz
-  role: city
   status: generated
   names: {zh: 伊拉希, en: Ilahy, art-x-ranova: Ilahy}
   notes: {zh: 伊拉希河口的港城，国家唯一的出海口，海军和海岸炮台把守着港湾。港区工厂生产钢材、化肥和军用卡车。, en: 'The port at the mouth of the Ilahy and the state''s only outlet to the sea, its harbour guarded by the navy and coastal batteries. Its factories turn out steel, fertiliser and military lorries.'}
   codes: {admin: '630200'}
   population: 650000
   area_km2: 18000
+  color: '#CC1922'
+  flag: {"layout": "horizon", "colors": ["#A3141B", "#111111", "#FFFFFF"], "edge": "waves", "charge": "anchor", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "红色天空下是白线勾出的黑色海浪，天空中一只白色铁锚。铁锚是国家唯一的出海口，海岸炮台把守着这座港湾。"
+    en: "Black waves picked out in white under a red sky, with a white anchor above: the state's only outlet to the sea, its harbour guarded by coastal batteries."
   traits:
     industries: [port, manufacturing, fishing]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "金凤花", "en": "Pride of Barbados"}, "tree": {"zh": "海杧果", "en": "Sea mango"}}
 - id: div_vqr33a
-  subtype: borough
+  subtype: locality
   parent: div_rbcxzz
-  role: city
   status: generated
   names: {zh: 安塔诺, en: Antano, art-x-ranova: Antano}
   notes: {zh: 西部的农牧城市，国营农场与「定居者村」相间。南方战争中这里是前线，许多原住民村庄被迁走，空出的土地分给了国家认可的定居者。, en: 'The farming and herding city of the west, where state farms alternate with ''settler villages''. It was on the front line in the Southern War; many indigenous villages were removed and the land given to settlers approved by the state.'}
   codes: {admin: '630300'}
   population: 380000
   area_km2: 20000
+  color: '#7A0F14'
+  flag: {"layout": "bands", "colors": ["#111111", "#A3141B", "#111111"], "ratio": [1, 3, 1], "charge": "wheat", "charge_band": 1, "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "黑、红、黑三条横带，红色宽带中一束白色麦穗。麦穗是国营农场和定居者村；被迁走的原住民把这面旗看作夺地的标志。"
+    en: "Black, red and black, with a white sheaf on the broad red band. The sheaf is the state farms and settler villages; the indigenous families moved off the land see the flag as a mark of its taking."
   traits:
     industries: [agriculture, zebu]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "黄花夹竹桃", "en": "Yellow oleander"}, "tree": {"zh": "猴面包树", "en": "Baobab"}}
 - id: div_2xgnjq
-  subtype: borough
+  subtype: locality
   parent: div_rbcxzz
-  role: city
   status: generated
   names: {zh: 福罗纳, en: Forona, art-x-ranova: Forona}
   notes: {zh: 伊瓦卡山脚下的矿业城市，开采铁矿和铝土矿，炼钢厂和兵工厂相邻，是国家战争机器的心脏。, en: 'A mining city at the foot of the Ivaka Mountains, working iron ore and bauxite, with steelworks beside the arsenal; it is the heart of the state''s war machine.'}
   codes: {admin: '630400'}
   population: 450000
   area_km2: 20000
+  color: '#E52E37'
+  flag: {"layout": "banner", "colors": ["#111111", "#A3141B"], "division": "pile", "charge": "anvil", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "黑底上一个红色山形，正中一座白色铁砧。山形是伊瓦卡山，铁砧是炼钢厂和兵工厂，官方称这座城是「战争机器的心脏」。"
+    en: "A red pile on black with a white anvil. The pile is Mount Ivaka and the anvil the steelworks and arsenals of the city officials call 'the heart of the war machine'."
   traits:
     industries: [mining, arms]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "虎刺梅", "en": "Crown of thorns"}, "tree": {"zh": "铁木", "en": "Ironwood"}}
 - id: div_fv1vhe
-  subtype: borough
+  subtype: locality
   parent: div_rbcxzz
-  role: city
   status: generated
   names: {zh: 贝拉纳, en: Belana, art-x-ranova: Belana}
   notes: {zh: 南部海岸的城市，盐田和剑麻种植园沿着干燥的海岸展开，与卡波拉之间的边界是全岛戒备最森严的边界之一。, en: 'A city on the southern coast, where salt pans and sisal plantations line the dry shore; its border with Kabola is one of the most heavily guarded on the island.'}
   codes: {admin: '630500'}
   population: 320000
   area_km2: 19000
+  color: '#510A0D'
+  flag: {"layout": "horizon", "colors": ["#FFFFFF", "#A3141B"], "charge": "salt", "charge_in": "ground", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "白色天空下是红色的土地，土中一枚白色盐晶。白色是海岸的盐田，红色是干燥的红土。"
+    en: "Red earth under a white sky, with a white salt crystal in the earth. The white is the salt pans of the coast and the red its dry soil."
   traits:
     industries: [agriculture, salt]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "剑麻花", "en": "Sisal flower"}, "tree": {"zh": "章鱼树", "en": "Octopus tree"}}
 
 # ── 卡波拉新秩序自由领 ──
 - id: div_hm0zqz
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 卡波拉新秩序自由领, en: New Order Free Territory of Kabola, art-x-ranova: Faritra Malalaka Lamina Vaovao Kabola}
   short_names: {zh: 卡波拉, en: Kabola}
@@ -927,7 +1077,7 @@ divisions:
       自由领的意识形态与齐马罗沃同源，却在「正统」问题上势不两立：齐马罗沃视运动为危险的冒险者，运动则讥讽齐马罗沃是「穿制服的官僚」。两国边境多次交火，最终在一条非军事区两侧冻结对峙。尽管如此，卡波拉仍挂名留在祖源轴心之内，并通过梅纳瓦利获得武器和燃料。
 
       自由领只有一个国家承认它，被大多数国家列为恐怖组织控制区。经济依赖走私军火、燃料和渔业，以及海外支持者通过加密货币的捐款，旧联合共和国的拉罗纸币仍在流通。运动在海外招募志愿者，网络宣传在多个国家被封禁。城内人口年轻，许多家庭在战争中离开，留下的居民生活在宵禁、检查站和运动口号之下。', en: "The New Order Free Territory of Kabola lies at the southern tip of Ranova, a coastal enclave of some 6,500 km² and about 250,000 people with one city, Kabola, once the United Republic's southern naval base. The forests of the Rewilded Polity of Tsiala lie to the west, Tsimarovo surrounds it to the north and east, and the sea is to the south. The coast is dry and windy, and inland there is spiny thicket and limestone plateau. \nThe territory was founded by the New Order movement, which grew out of online forums after the Sundering among unemployed young men and veterans who thought Tsimarovo's national socialism 'too conservative' and called for violence to hasten the collapse of the old world and build a 'pure new order' on its ruins. Its armed detachments seized the naval port of Kabola while Tsimarovo was fighting the indigenous clans and proclaimed the Free Territory. There is no constitution and no election; the Head of the Movement and a dozen 'vanguard councillors' rule through the Vanguard Council, and dissenters are expelled or imprisoned. \nKabola's ideology shares its roots with Tsimarovo's, but the two are bitter rivals over 'orthodoxy': Tsimarovo sees the movement as dangerous adventurers, and the movement mocks Tsimarovo as 'bureaucrats in uniform'. They have exchanged fire on their border many times, and the stand-off is now frozen on either side of a demilitarised zone. Even so, Kabola remains nominally within the Origin Axis and gets arms and fuel through Menavaly. \nOnly one state recognises the Free Territory, and most treat it as an area held by a terrorist organisation. Its economy relies on smuggled arms and fuel, fishing and cryptocurrency donations from supporters abroad, and old United Republic laro notes still circulate. The movement recruits volunteers overseas, and its online propaganda is banned in several countries. The population is young; many families left during the war, and those who stayed live under curfew, checkpoints and the movement's slogans."}
-  codes: {admin: '640000'}
+  codes: {iso3166_1: {alpha2: KB, alpha3: KAB, numeric: '914'}}
   population: 250000
   area_km2: 6500.0
   capital: div_axvb2e
@@ -1014,23 +1164,28 @@ divisions:
       tld: .xe
       driving: right
 - id: div_axvb2e
-  subtype: borough
+  subtype: locality
   parent: div_hm0zqz
-  role: city
   status: generated
   names: {zh: 卡波拉, en: Kabola, art-x-ranova: Kabola}
   notes: {zh: 自由领唯一的城市，南海岸一座旧海军军港。运动总部占据了旧港务局大楼，街头随处可见运动的标语和武装巡逻队。城北的旧兵营是训练营地，外国志愿者在这里受训。, en: 'The Free Territory''s only city, an old naval port on the south coast. The movement''s headquarters occupy the old harbour authority building, and the movement''s slogans and armed patrols are everywhere. The old barracks north of town are a training camp where foreign volunteers are drilled.'}
   codes: {admin: '640100'}
   population: 250000
   area_km2: 6500.0
+  color: '#222222'
+  flag: {"layout": "diagonal", "colors": ["#222222", "#FFFFFF", "#C62828"], "charge": "anchor", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "黑白两色沿斜线分开，中间一道红色斜带，左上角一只白色铁锚。铁锚是旧海军军港，红色斜带与自由领旗上的红杠相同。"
+    en: "Black and white divided diagonally by a red band, with a white anchor at the top left. The anchor is the old naval port and the band the red slash of the movement's flag."
   traits:
     industries: [arms, manufacturing, fishing]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "仙人掌花", "en": "Prickly pear flower"}, "tree": {"zh": "海葡萄", "en": "Sea grape"}}
 
 # ── 梅纳瓦利国家拯救共和国 ──
 - id: div_dmf47n
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 梅纳瓦利国家拯救共和国, en: Salvation Republic of Menavaly, art-x-ranova: Repoblikan'ny Famonjena Nasionaly Menavaly}
   short_names: {zh: 梅纳瓦利, en: Menavaly}
@@ -1041,7 +1196,7 @@ divisions:
       军政府对外以反共为旗号，与齐马罗沃结盟加入祖源轴心，在南方战争中为齐马罗沃提供基地和过境通道，并向卡波拉转运燃料和武器，因此遭到多国制裁。国内实行宵禁、新闻审查和政党禁令，反对派领袖多被软禁或流亡贝洛瓦。
 
       经济以瘤牛放牧、金矿和渔业为主，军官集团控制着金矿和港口的收入，普通人的生活十分贫困，人均收入约二千五百美元。年轻人口比例很高，许多青年加入军队以求温饱。阿纳拉空军基地是军政府的王牌，每年独立日，攻击机编队从首都上空低空飞过，是全国最隆重的仪式。梅纳瓦利人常说「在这里，草原属于牛，海岸属于渔民，国家属于将军」。', en: "The Salvation Republic of Menavaly lies on Ranova's south-west coast; its name means 'red coast', for the red earth cliffs near the capital. It covers some 56,000 km² with about a million people in two cities, the capital, Menavaly, and Anala inland. The western coast is dry savanna and mangrove, the interior rolling grassy hills, and cattle are the traditional wealth. \nAfter the Sundering the south-western provinces first formed a civilian government, but local strongmen carved up the country, corruption ran wild and the Isoka guerrillas raided again and again. A few years after independence the army's generals staged a coup in the name of 'saving the nation', dissolved parliament, set up the National Salvation Committee and declared a state of emergency that has never been lifted. The committee has twelve army generals, five air force generals and four commanders of the gendarmerie; its chairman is chosen by the committee and is in practice the strongest general in the army. Two more coups within the army since then have changed the chairman each time but not military rule. \nAbroad the junta flies the banner of anti-communism; it joined the Origin Axis as Tsimarovo's ally, gives Tsimarovo bases and transit in the Southern War and passes fuel and arms on to Kabola, for which it is under sanctions from many states. At home there is a curfew, censorship and a ban on parties, and most opposition leaders are under house arrest or in exile in Belova. \nThe economy lives on zebu herding, gold mining and fishing; the officer corps controls the income from the gold mines and the ports, ordinary people are very poor, and income is about 2,500 dollars a head. The population is very young, and many young men join the army to eat. Anala air base is the junta's trump card, and on Independence Day a formation of attack aircraft flies low over the capital in the country's grandest ceremony. Menavaly people say that 'here the grassland belongs to the cattle, the coast to the fishers and the country to the generals'."}
-  codes: {admin: '650000'}
+  codes: {iso3166_1: {alpha2: MN, alpha3: MEN, numeric: '915'}}
   population: 1000000
   area_km2: 56000
   capital: div_8p600p
@@ -1159,35 +1314,47 @@ divisions:
       tld: .xf
       driving: right
 - id: div_8p600p
-  subtype: borough
+  subtype: locality
   parent: div_dmf47n
-  role: city
   status: generated
   names: {zh: 梅纳瓦利, en: Menavaly, art-x-ranova: Menavaly}
   notes: {zh: 军政府的首都，西海岸的港城，名字意为「红色海岸」，因海边的红土悬崖而得名。总统府和国家拯救委员会设在旧总督府，城里实行宵禁，主要路口设有军方检查站。, en: 'The junta''s capital, a port on the west coast, named ''red coast'' for the red earth cliffs by the sea. The presidency and the National Salvation Committee sit in the old governor''s residence; a curfew is in force and the army keeps checkpoints at the main crossroads.'}
   codes: {admin: '650100'}
   population: 650000
   area_km2: 26000
+  color: '#4B5320'
+  flag: {"layout": "horizon", "colors": ["#E9E2C8", "#B5462E"], "edge": "ridge", "charge": "star5", "charge_color": "#4B5320"}
+  flag_notes:
+    zh: "米色天空下是起伏的红色海岸，天空中一颗橄榄绿五角星。城名意为「红色海岸」，指海边的红土悬崖；五角星取自国旗。"
+    en: "A rolling red coast under a cream sky, with an olive green star above. The name means 'red coast', after the red cliffs by the sea; the star is the national flag's."
   traits:
     industries: [government, defence, port]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "朱缨花", "en": "Powder puff"}, "tree": {"zh": "火焰木", "en": "African tulip tree"}}
 - id: div_rxj1qr
-  subtype: borough
+  subtype: locality
   parent: div_dmf47n
-  role: city
   status: generated
   names: {zh: 阿纳拉, en: Anala, art-x-ranova: Anala}
   notes: {zh: 内陆的放牧城市，稀树草原上的瘤牛和金矿是军官们的财源。城外的空军基地是军政府的王牌。, en: The herding city of the interior; zebu on the savanna and gold mines are the officers' sources of wealth. The air base outside town is the junta's trump card.}
   codes: {admin: '650200'}
   population: 350000
   area_km2: 30000
+  color: '#69742D'
+  flag: {"layout": "horizon", "colors": ["#C9A227", "#4B5320"], "charge": "sun", "charge_in": "horizon", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "金色天空、橄榄绿大地，地平线上一轮白日。金色是城外的金矿，绿色是瘤牛放牧的稀树草原。"
+    en: "A gold sky over olive green land, with a white sun on the horizon. The gold is the gold mines outside town and the green the savanna where the zebu graze."
   traits:
     industries: [zebu, agriculture, mining]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "金合欢花", "en": "Acacia blossom"}, "tree": {"zh": "马鲁拉树", "en": "Marula tree"}}
 
 # ── 萨希利亚伊斯兰共和国 ──
 - id: div_t5zph6
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 萨希利亚伊斯兰共和国, en: Islamic Republic of Sahiliya, art-x-kasiri: Jamhuri ya Kiislamu ya Sahiliya}
   short_names: {zh: 萨希利亚, en: Sahiliya}
@@ -1198,7 +1365,7 @@ divisions:
       共和国的政治以温和与务实著称：伊斯兰公正党、海岸民族党等政党在议会中轮流组阁，女议员约占四分之一，首都的大学男女同校。然而北部山区的贾巴利亚武装斥之为「背教者的国家」，从山区发起叛乱，西岸战争由此爆发，三十多年来时断时续，北部的扎纳拉和姆吉尼多次遭到袭击。共和国收容了八万多名来自北部和邻国的难民，班达里港南的难民营是全岛最大的营地之一。
 
       萨希利亚是圣约同盟中唯一的伊斯兰国家，与安博哈拉在反共和反恐上结成同盟，与努西拉苏丹国有着共同的语言和宗教。经济以港口贸易、渔业、海盐、丁香和腰果为支柱，人均收入约六千美元。萨希勒老城的白墙窄巷、香料集市和清真寺是全岛最著名的风景之一，斋月的夜晚，海滨的长桌宴会一直持续到黎明。', en: "The Islamic Republic of Sahiliya lies in the middle of Ranova's west coast; in Kasiri its name means 'land of the coast'. It covers some 103,000 km² with about 3 million people in five cities, and its capital, Sahil, is the oldest trading port on the island. A flat coastal plain and mangroves line the west, and dry hills and savanna rise in the east against the Andrina Highlands. \nThe west coast has long been home to the Kasiri merchants, who sailed their dhows between the islands and brought Islam, the Kasiri language and a civic tradition built round the merchant guilds. After the Sundering the guilds, religious scholars and local councillors of the coastal towns met in a consultative assembly and proclaimed an Islamic Republic. The constitution makes Islam the state religion and sharia the main source of law, while guaranteeing freedom of worship to religious minorities and the vote to women. Parliament is elected by universal suffrage, a prime minister leads the government and a president is head of state; a council of religious scholars may review whether laws conflict with sharia but cannot nominate candidates. \nThe Republic's politics are known for moderation and pragmatism: the Islamic Justice Party, the Coastal National Party and others take turns forming governments, about a quarter of members of parliament are women, and the capital's universities teach men and women together. But the Jabaliya militants of the northern hills denounce it as 'a state of apostates' and rose in revolt from the hills, beginning the West Coast War, which has gone on and off for more than thirty years; Zanara and Mjini in the north have been attacked many times. The Republic shelters more than 80,000 refugees from the north and from neighbouring states, and the camp south of the port of Bandari is one of the largest on the island. \nSahiliya is the only Muslim state in the Covenant League, allied with Ambohara against communism and terrorism, and shares a language and faith with the Sultanate of Nusira. The economy rests on port trade, fishing, sea salt, cloves and cashews, and income is about 6,000 dollars a head. The white walls and narrow lanes of old Sahil, its spice market and mosques are among the best-known sights on the island, and on Ramadan nights the long tables along the seafront stay busy until dawn."}
-  codes: {admin: '660000'}
+  codes: {iso3166_1: {alpha2: SH, alpha3: SAH, numeric: '916'}}
   population: 3000000
   area_km2: 103000
   capital: div_f9gjbe
@@ -1279,72 +1446,104 @@ divisions:
       tld: .xg
       driving: left
 - id: div_f9gjbe
-  subtype: borough
+  subtype: locality
   parent: div_t5zph6
-  role: city
   status: generated
   names: {zh: 萨希勒, en: Sahil, art-x-kasiri: Sahil}
   notes: {zh: 伊斯兰共和国的首都和西海岸最大的港口，名字在卡西里语中意为「海岸」。白色的老城沿海湾展开，大清真寺的宣礼塔和议会大厦的圆顶隔着集市相望。港口的单桅帆船和集装箱船并排停泊，是全岛最古老的贸易港。, en: 'Capital of the Islamic Republic and the largest port on the west coast; in Kasiri the name means ''coast''. The white old town spreads round the bay, the minarets of the Great Mosque and the dome of the parliament facing each other across the market, and dhows moor beside container ships in the oldest trading port on the island.'}
   codes: {admin: '660100'}
   population: 1300000
   area_km2: 22000
+  color: '#00704A'
+  flag: {"layout": "horizon", "colors": ["#00704A", "#1565C0", "#FFFFFF"], "edge": "waves", "charge": "sail", "charge_in": "horizon", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "绿色天空下是白线勾出的蓝色海浪，海面上一面白帆。城名在卡西里语中意为「海岸」，白帆是港口千年的单桅帆船。"
+    en: "Blue waves picked out in white under a green sky, with a white sail on the sea. The name is Kasiri for 'coast', and the sail the dhows that have used the port for a thousand years."
   traits:
     industries: [government, port, commerce]
     heritage: kasiri_global
+    age: ranova_mid
+  symbols: {"flower": {"zh": "晚香玉", "en": "Tuberose"}, "tree": {"zh": "海枣", "en": "Date palm"}}
 - id: div_2btpwg
-  subtype: borough
+  subtype: locality
   parent: div_t5zph6
-  role: city
   status: generated
   names: {zh: 班达里, en: Bandari, art-x-kasiri: Bandari}
   notes: {zh: 南部的港口城市，渔业和水产加工是支柱。港口南面有一座大型难民营，收容了西岸战争中逃离内地的家庭。, en: 'The southern port city, living on fishing and seafood processing. South of the harbour is a large refugee camp for families who fled the interior in the West Coast War.'}
   codes: {admin: '660200'}
   population: 600000
   area_km2: 20000
+  color: '#009E68'
+  flag: {"layout": "banner", "colors": ["#00704A", "#1565C0"], "division": "wavy", "charge": "fish", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "绿底，下半是蓝色波浪，正中一条白鱼。鱼是城里的渔业和水产加工，波浪是南部的海港。"
+    en: "Green over blue waves, with a white fish. The fish is the city's fishing and fish processing and the waves its southern harbour."
   traits:
     industries: [port, fishing, food]
+    heritage: kasiri
+    age: ranova_mid
+  symbols: {"flower": {"zh": "栀子花", "en": "Gardenia"}, "tree": {"zh": "槟榔", "en": "Areca palm"}}
 - id: div_m9kp3y
-  subtype: borough
+  subtype: locality
   parent: div_t5zph6
-  role: city
   status: generated
   names: {zh: 姆吉尼, en: Mjini, art-x-kasiri: Mjini}
   notes: {zh: 内陆的农业城市，丁香和腰果种植园遍布丘陵。北面靠近贾巴利亚，军队在山口设有据点。, en: 'The inland farming city, with clove and cashew plantations across the hills. It is close to Jabaliya in the north, and the army holds posts in the passes.'}
   codes: {admin: '660300'}
   population: 420000
   area_km2: 22000
+  color: '#00422C'
+  flag: {"layout": "hoist", "colors": ["#00704A", "#FFFFFF", "#8D6E63"], "charge": "pepper", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "旗杆一侧绿色三角，旗面白、褐两条横带，三角中一枝白色香料。香料是丘陵上的丁香，褐色是腰果园的土地。"
+    en: "A green triangle at the hoist over white and brown, with a white spice sprig in the triangle. The sprig is the cloves of the hills and the brown the soil of the cashew groves."
   traits:
     industries: [agriculture, spice]
+    heritage: kasiri
+    age: ranova_mid
+  symbols: {"flower": {"zh": "腰果花", "en": "Cashew blossom"}, "tree": {"zh": "丁香树", "en": "Clove tree"}}
 - id: div_6jwhzg
-  subtype: borough
+  subtype: locality
   parent: div_t5zph6
-  role: city
   status: generated
   names: {zh: 卡西里, en: Kasiri, art-x-kasiri: Kasiri}
   notes: {zh: 东部内陆城市，卡西里语因这一带的古老部族得名。城里的经学院是温和派宗教学者的中心。, en: The city of the eastern interior; the Kasiri language takes its name from the old peoples of this area. Its religious college is the centre of the moderate scholars.}
   codes: {admin: '660400'}
   population: 380000
   area_km2: 22000
+  color: '#00CC87'
+  flag: {"layout": "seal", "colors": ["#00704A", "#FFFFFF", "#00704A", "#F4F1E6"], "charge": "book", "charge_color": "#00704A", "legend": "art-x-kasiri"}
+  flag_notes:
+    zh: "绿底上一枚白色圆印，印环上用卡西里语和英语写着城名，印心是一本深绿色的书。书是城里的经学院，这里是温和派宗教学者的中心。"
+    en: "A white round seal on green, its ring bearing the city's name in Kasiri and English and its centre a dark green book. The book is the city's school of religious learning, the centre of the moderate scholars."
   traits:
     industries: [agriculture, zebu]
+    heritage: kasiri
+    age: ranova_mid
+  symbols: {"flower": {"zh": "九里香", "en": "Orange jasmine"}, "tree": {"zh": "罗望子", "en": "Tamarind"}}
 - id: div_n49g57
-  subtype: borough
+  subtype: locality
   parent: div_t5zph6
-  role: city
   status: generated
   names: {zh: 扎纳拉, en: Zanara, art-x-kasiri: Zanara}
   notes: {zh: 北部海岸的盐业城镇，盐田一直延伸到贾巴利亚边境。西岸战争中城镇多次易手，如今由共和国军队驻守。, en: 'A salt town on the northern coast, its pans running to the Jabaliya border. It changed hands several times in the West Coast War and is now held by the Republic''s army.'}
   codes: {admin: '660500'}
   population: 300000
   area_km2: 17000
+  color: '#00CC87'
+  flag: {"layout": "bands", "colors": ["#00704A", "#FFFFFF", "#1565C0"], "charge": "salt", "charge_band": 1, "charge_color": "#00704A"}
+  flag_notes:
+    zh: "绿、白、蓝三条横带，白带中一枚绿色盐晶。白色是一直延伸到边境的盐田，蓝色是北部海岸。"
+    en: "Green, white and blue, with a green salt crystal on the white. The white is the salt pans running up to the border and the blue the northern coast."
   traits:
     industries: [salt, fishing]
+    heritage: kasiri
+    age: ranova_mid
+  symbols: {"flower": {"zh": "马鞍藤", "en": "Beach morning glory"}, "tree": {"zh": "木麻黄", "en": "Casuarina"}}
 
 # ── 贾巴利亚伊斯兰酋长国（自封） ──
 - id: div_5b4193
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 贾巴利亚伊斯兰酋长国（自封）, en: Islamic Emirate of Jabaliya (self-proclaimed), art-x-kasiri: Imarati ya Kiislamu ya Jabaliya}
   short_names: {zh: 贾巴利亚, en: Jabaliya}
@@ -1355,7 +1554,7 @@ divisions:
       控制区内实行极端严苛的统治：禁止音乐、电视和照相，女孩小学之后不得上学，女性出行必须由男性亲属陪同，公开处罚屡见不鲜。舒拉会议名义上由宗教人士、部落长老和武装指挥官组成，实际权力掌握在自称埃米尔的指挥官手中。三十多年来，十四万多名居民逃离山区，在萨希利亚和邻国的难民营中生活。
 
       控制区的经济依赖走私燃料、武器和违禁品，向过往车辆收取过路费，以及海外极端网络的资金。萨希利亚、安博哈拉和努西拉的军队多次清剿，但山区地形复杂，武装组织屡剿不灭。近年部分部落长老与萨希利亚政府秘密谈判，希望以特赦和发展援助换取武装人员放下武器，谈判时断时续。本条目仅作客观记录，不代表对其主张的任何认可。', en: "The Islamic Emirate of Jabaliya is a self-proclaimed regime set up by an extremist armed group in the Jabal Hills of north-western Ranova. No state recognises it, and every bloc and international body lists it as an area held by a terrorist organisation. It holds some 42,000 km² with about 700,000 people; the main towns are Jabal in a valley of the hills and the small north-western port of Marsa, whose offshore islet is a training camp. The country is dry and hilly, the hills reaching over 1,000 m, with small fields and pastures in the valleys. \nUnder the United Republic the north-western hills were the poorest and most isolated part of the island. In the chaos after the Sundering a group of fighters trained in extremist ideas abroad returned to the hills, exploited quarrels between tribes and resentment of the rich coastal towns to spread their power, proclaimed an 'emirate' and denounced the Islamic Republic of Sahiliya as apostate. So began the West Coast War: the militants have attacked towns, roads and ports in northern Sahiliya many times and have carried out bombings in Ambohara and Nusira. \nRule in the area is extremely harsh: music, television and photography are banned, girls may not attend school after primary level, women must travel with a male relative and public punishments are frequent. The shura nominally brings together clerics, tribal elders and militia commanders, but real power lies with the commander who calls himself emir. Over thirty years more than 140,000 people have fled the hills to live in camps in Sahiliya and neighbouring states. \nThe area lives on smuggled fuel, arms and contraband, tolls on passing vehicles and money from extremist networks abroad. The armies of Sahiliya, Ambohara and Nusira have mounted repeated offensives, but the hills are difficult and the group has never been rooted out. In recent years some tribal elders have negotiated in secret with Sahiliya's government in the hope of trading amnesty and development aid for disarmament, talks that start and stall by turns. This entry is a factual record and implies no endorsement of the group's claims."}
-  codes: {admin: '670000'}
+  codes: {iso3166_1: {alpha2: JB, alpha3: JAB, numeric: '917'}}
   population: 700000
   area_km2: 42600.0
   capital: div_2e6j0g
@@ -1450,37 +1649,47 @@ divisions:
       tld: 无
       driving: right
 - id: div_2e6j0g
-  subtype: borough
+  subtype: locality
   parent: div_5b4193
-  role: city
   status: generated
   names: {zh: 贾巴勒, en: Jabal, art-x-kasiri: Jabal}
   notes: {zh: 自封酋长国的中心，建在贾巴勒丘陵的山谷中。舒拉议事厅设在一座旧堡垒里，城里禁止音乐和影像，女性出行受到严格限制。山区的小块耕地之外，走私和过路费是主要收入。, en: 'Centre of the self-proclaimed emirate, in a valley of the Jabal Hills. The shura meets in an old fort; music and images are banned, and women''s movement is tightly restricted. Beyond the small hill farms, smuggling and road tolls are the main income.'}
   codes: {admin: '670100'}
   population: 420000
   area_km2: 26000
+  color: '#3B3B3B'
+  flag: {"layout": "horizon", "colors": ["#FFFFFF", "#3B3B3B"], "edge": "peaks"}
+  flag_notes:
+    zh: "白底，下方是一道黑色的山脊。武装组织规定城旗不得有任何图像，只许画出贾巴勒丘陵的轮廓。"
+    en: "White, with a black mountain ridge below. The armed group allows no images on a town's flag, only the outline of the Jabal hills."
   traits:
     industries: [agriculture, zebu, contraband]
     heritage: kasiri
+    age: ranova_young
+  symbols: {"flower": {"zh": "无", "en": "None"}, "tree": {"zh": "无", "en": "None"}}
 - id: div_ddag7p
-  subtype: borough
+  subtype: locality
   parent: div_5b4193
-  role: city
   status: generated
   names: {zh: 马尔萨, en: Marsa, art-x-kasiri: Marsa}
   notes: {zh: 西北海岸的小港，渔船和走私快艇共用一个码头。港外的小岛是武装分子的训练营地，周边国家的海军常在附近巡逻。, en: 'A small port on the north-west coast where fishing boats and smugglers'' speedboats share one quay. The islet offshore is a militants'' training camp, and neighbouring navies often patrol nearby.'}
   codes: {admin: '670200'}
   population: 280000
   area_km2: 16600.0
+  color: '#525252'
+  flag: {"layout": "horizon", "colors": ["#FFFFFF", "#3B3B3B", "#FFFFFF"], "edge": "waves"}
+  flag_notes:
+    zh: "白底，下方是黑色的海浪。和贾巴勒一样，城旗只有图形没有图像，海浪表示这座西北海岸的小港。"
+    en: "White, with black waves below. As at Jabal the flag has shapes but no images, the waves standing for this small port on the north-west coast."
   traits:
     industries: [fishing, contraband]
     heritage: kasiri
+    age: ranova_young
+  symbols: {"flower": {"zh": "无", "en": "None"}, "tree": {"zh": "无", "en": "None"}}
 
 # ── 阿拉齐纳原住民邦联 ──
 - id: div_ht80hm
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 阿拉齐纳原住民邦联, en: Alatsina Indigenous Confederacy, art-x-ranova: Fikambanan'ny Foko Alatsina}
   short_names: {zh: 阿拉齐纳, en: Alatsina}
@@ -1491,7 +1700,7 @@ divisions:
       邦联成立后不久，北方的齐马罗沃发动南方战争，以「收复祖先土地」为名攻入邦联的牧区，强迫数十万人离开家园。战争断断续续持续了三十多年，邦联失去了约三分之一的土地，牧民和他们的牛群被迫南迁。阿拉齐纳城外的难民营收容了约十六万名流离失所者，国际援助机构在这里设有仓库和诊所，援助是邦联经济的重要部分。
 
       邦联保持中立，不加入任何阵营，但得到安巴罗托管地和国际组织的支持，与齐阿拉野化邦关系密切。经济以瘤牛放牧、小规模农业、渔业和氏族共有的蓝宝石矿为主，人均收入约一千五百美元，是全岛最贫困的国家之一，但贫富差距很小。牛是财富、聘礼和祭祀的中心，每年雨季开始时，九个氏族的牧人赶着牛群汇聚到阿拉齐纳，举行盛大的祭祖仪式和赛牛会。', en: "The Alatsina Indigenous Confederacy lies at the far south of Ranova, a union of nine indigenous clans covering some 60,000 km² with about 1.2 million people in four towns; its council seat, Alatsina, stands on the grassland at the foot of the Andohy Range, and the name means 'southern grassland'. It is one of the driest parts of the island, with spiny thicket and limestone plateau in the south-west, rainforest and bays on the east coast and baobabs across the grassland. \nThe nine clans have lived on the island longer than any state. Under the United Republic their grazing lands were repeatedly expropriated and their customary law went unrecognised. After the Sundering the nine clans made a covenant beside the fire at Alatsina and proclaimed a confederacy to manage land, herds and minerals together by consensus. The Council of the Nine Clans is made up of elders, women elders and youth delegates chosen by each clan, and the office of Great Elder rotates among the clans every three years; its decisions must be reached by agreement by the fire, and if one clan objects, the talking goes on. \nSoon after the Confederacy was founded, Tsimarovo to the north began the Southern War, invading its pastures in the name of 'recovering the forefathers' land' and driving hundreds of thousands from their homes. The war has gone on and off for more than thirty years; the Confederacy has lost about a third of its land, and herders and their cattle have been forced south. Camps outside Alatsina shelter some 160,000 displaced people, international aid agencies keep warehouses and clinics there, and aid is a large part of the economy. \nThe Confederacy is neutral and belongs to no bloc, but it has the support of the Ambaro Trust Territory and international organisations and close ties with the Rewilded Polity of Tsiala. Its economy rests on zebu herding, small farms, fishing and the sapphire pits the clans hold in common; at about 1,500 dollars a head it is one of the poorest countries on the island, but also one of the most equal. Cattle are at the heart of wealth, bride price and ritual, and when the rains begin each year the herders of all nine clans drive their cattle to Alatsina for a great ancestral ceremony and cattle races."}
-  codes: {admin: '680000'}
+  codes: {iso3166_1: {alpha2: AL, alpha3: ALA, numeric: '918'}}
   population: 1200000
   area_km2: 60000
   capital: div_xa2b3m
@@ -1590,59 +1799,85 @@ divisions:
       tld: .xi
       driving: left
 - id: div_xa2b3m
-  subtype: borough
+  subtype: locality
   parent: div_ht80hm
-  role: city
   status: generated
   names: {zh: 阿拉齐纳, en: Alatsina, art-x-ranova: Alatsina}
   notes: {zh: 邦联的议事中心，九个氏族的长老在城中央的圆形议事场轮流主持会议。城外有大片难民营，收容南方战争中被逐出家园的原住民家庭。, en: 'The meeting place of the Confederacy, where the elders of the nine clans take turns presiding in the round council ground at the centre of town. Outside are large camps for indigenous families driven from their land in the Southern War.'}
   codes: {admin: '680100'}
   population: 420000
   area_km2: 16000
+  color: '#C98A2B'
+  flag: {"layout": "banner", "colors": ["#C98A2B", "#6D4C41"], "division": "bordure", "charge": "flame", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "赭黄底褐色镶边，正中一团白色火焰。火焰是城中央圆形议事场里长明的篝火，九个氏族的长老围着它轮流主持会议。"
+    en: "A white flame on ochre within a brown border. The flame is the fire that never goes out in the round council ground at the centre of town, where the elders of the nine clans take turns to preside."
   traits:
     industries: [zebu, agriculture, aid]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "马达加斯加茉莉", "en": "Madagascar jasmine"}, "tree": {"zh": "猴面包树", "en": "Baobab"}}
 - id: div_xa2n57
-  subtype: borough
+  subtype: locality
   parent: div_ht80hm
-  role: city
   status: generated
   names: {zh: 法里, en: Fary, art-x-ranova: Fary}
   notes: {zh: 南部海岸的渔村联合体，独木舟渔民在珊瑚礁外捕鱼，盐田和海藻养殖是新的收入。, en: 'A union of fishing villages on the southern coast, where outrigger fishers work beyond the reef and salt pans and seaweed farms bring new income.'}
   codes: {admin: '680200'}
   population: 280000
   area_km2: 14000
+  color: '#D89F4A'
+  flag: {"layout": "horizon", "colors": ["#C98A2B", "#00838F", "#FFFFFF"], "edge": "waves", "charge": "boat", "charge_in": "horizon", "charge_color": "#6D4C41"}
+  flag_notes:
+    zh: "赭黄色天空下是白线勾出的青绿色海浪，海面上一只褐色独木舟。独木舟是在珊瑚礁外捕鱼的渔民。"
+    en: "Teal waves picked out in white under an ochre sky, with a brown outrigger canoe on the sea: the fishermen who work beyond the reef."
   traits:
     industries: [fishing, salt]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "草海桐", "en": "Beach naupaka"}, "tree": {"zh": "椰子树", "en": "Coconut palm"}}
 - id: div_h9a46w
-  subtype: borough
+  subtype: locality
   parent: div_ht80hm
-  role: city
   status: generated
   names: {zh: 曼加, en: Manga, art-x-ranova: Manga}
   notes: {zh: 东海岸的城镇，名字意为「蓝色」，指海湾的颜色。雨林边缘的香草和胡椒园由氏族合作社经营。, en: 'A town on the east coast; the name means ''blue'', for the colour of the bay. Vanilla and pepper gardens on the edge of the rainforest are run by clan co-operatives.'}
   codes: {admin: '680300'}
   population: 300000
   area_km2: 15000
+  color: '#A37023'
+  flag: {"layout": "bands", "colors": ["#1E5AA8", "#C98A2B", "#1E5AA8"], "charge": "pepper", "charge_band": 1, "charge_color": "#1D6B3A"}
+  flag_notes:
+    zh: "蓝、赭黄、蓝三条横带，中间一枝绿色胡椒。城名意为「蓝色」，指海湾的颜色；胡椒是氏族合作社经营的香料园。"
+    en: "Blue, ochre and blue, with a green pepper sprig in the middle. The name means 'blue', after the colour of the bay, and the pepper is the spice gardens the clan co-operatives run."
   traits:
     industries: [fishing, spice]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "赫蕉", "en": "Heliconia"}, "tree": {"zh": "旅人蕉", "en": "Traveller's palm"}}
 - id: div_3jg5nn
-  subtype: borough
+  subtype: locality
   parent: div_ht80hm
-  role: city
   status: generated
   names: {zh: 伊特拉, en: Itra, art-x-ranova: Itra}
   notes: {zh: 安多希山脚下的牧区，牛群是财富和聘礼的计量单位。山谷里的蓝宝石矿由氏族共同管理，南方战争期间多次遭到齐马罗沃军队袭击。, en: 'Herding country at the foot of the Andohy Range, where cattle are the measure of wealth and bride price. The sapphire pits in the valleys are held in common by the clans, and were raided several times by Tsimarovo''s army in the Southern War.'}
   codes: {admin: '680400'}
   population: 200000
   area_km2: 15000
+  color: '#E0B36F'
+  flag: {"layout": "border", "colors": ["#C98A2B", "#6D4C41", "#FFFFFF"], "charge": "crystal", "charge_color": "#1E5AA8"}
+  flag_notes:
+    zh: "赭黄旗面，旗杆一侧是褐底白色的菱形花纹带，右侧一枚蓝色宝石。花纹是牧民织毯的图样，宝石是氏族共同管理的蓝宝石矿。"
+    en: "Ochre, with a band of white diamonds on brown at the hoist and a blue gem in the fly. The pattern is the herders' blanket weave and the gem the sapphire mines the clans hold in common."
   traits:
     industries: [zebu, gems]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "苦楝花", "en": "Chinaberry blossom"}, "tree": {"zh": "金合欢", "en": "Acacia"}}
 
 # ── 法尼里自由公社联合会 ──
 - id: div_0cazhp
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 法尼里自由公社联合会, en: Free Communes of Faniry, art-x-ranova: Kaominina Malalaka Faniry}
   short_names: {zh: 法尼里, en: Faniry}
@@ -1653,7 +1888,7 @@ divisions:
       公社的生活由劳动券和集体分配组织：工厂、渔船和土地归公社共有，成员按劳动时间领取劳动券，住房、医疗和教育免费。法尼里是全岛新闻自由度最高的地方之一，几十份公社报纸和电台各说各话。公社的弱点也很明显：决策缓慢，工业设备老旧，技术人员流失，人均收入约三千美元。
 
       联合会在世俗协约中只是观察员，与阿瓦拉齐保持贸易和互助关系，却对马索沃利的世袭政权和南邻黎明千年国的神权统治十分警惕。高原战争期间，公社收容了大量两边的逃兵和难民，宣布任何人只要放下武器都可以在公社劳动生活。每周日，法尼里大会堂召开全体大会，渔民、工人和学生轮流上台发言，会议常常持续到深夜。', en: "The Free Communes of Faniry lie on Ranova's east coast between Masovoly to the north and the Kingdom of Lohavato to the south, some 18,000 km² with about 600,000 people. 'Faniry' means 'wish'. The federation is made up of dozens of town and village communes; the largest town, Faniry, is a fishing port on the east coast, and the farming communes cluster round Ivalo inland. The coast is wet rainforest and estuaries, and the west is hill country below the Farana Escarpment. \nIn the Sundering the dockers, fishers and textile workers of the east coast refused to accept any government. They occupied the factories and the port and set up workers' councils, while in the countryside farmers formed village communes of their own. The communes then joined in a federation and declared that there would be no central government, no standing army and no police: all public business is decided by each commune's general assembly, and the Federal Congress of Delegates only co-ordinates matters between communes, its delegates sent by the communes and recallable at any time. External contacts are handled by a rotating coordinator who serves one year and may not serve again. \nLife in the communes runs on labour vouchers and shared distribution: factories, fishing boats and land are held in common, members receive vouchers for hours worked, and housing, health care and schooling are free. Faniry has some of the freest press on the island, with dozens of commune newspapers and radio stations each saying its piece. The communes' weaknesses are plain too: decisions are slow, the factories' machinery is old, skilled people drift away, and income is about 3,000 dollars a head. \nThe federation is only an observer in the Secular Accord. It trades with Avaratsy and the two help each other, but it is wary of Masovoly's hereditary regime and of the theocracy of the Millennial Realm of the Dawn to the south. During the Highland War the communes took in many deserters and refugees from both sides and declared that anyone who laid down their arms could live and work among them. Every Sunday the general assembly meets in the Faniry assembly hall, fishers, workers and students taking turns to speak, and the meeting often runs late into the night."}
-  codes: {admin: '690000'}
+  codes: {iso3166_1: {alpha2: FN, alpha3: FAN, numeric: '919'}}
   population: 600000
   area_km2: 18000
   capital: div_tjwyxx
@@ -1756,35 +1991,47 @@ divisions:
       tld: .xj
       driving: right
 - id: div_tjwyxx
-  subtype: borough
+  subtype: locality
   parent: div_0cazhp
-  role: city
   status: generated
   names: {zh: 法尼里, en: Faniry, art-x-ranova: Faniry}
   notes: {zh: 自由公社的最大城镇，名字意为「愿望」。工厂和渔船由工人议会自主管理，市中心的大会堂每周召开全体大会，任何居民都可以发言。, en: 'The largest town of the Free Communes; the name means ''wish''. Factories and fishing boats are run by workers'' councils, and the assembly hall in the centre holds a general meeting every week where any resident may speak.'}
   codes: {admin: '690100'}
   population: 380000
   area_km2: 8000
+  color: '#B03A2E'
+  flag: {"layout": "diagonal", "colors": ["#B03A2E", "#111111"], "charge": "links", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "红黑两色沿斜线分开，左上角一组白色相扣的链环。红黑取自联合会旗，链环是由工人议会彼此联结的工厂和渔船。"
+    en: "Red and black divided diagonally, with white interlocking links at the top left. The colours are the federation's, and the links the factories and fishing boats joined by their workers' councils."
   traits:
     industries: [fishing, manufacturing, agriculture]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "五星花", "en": "Pentas"}, "tree": {"zh": "芒果树", "en": "Mango tree"}}
 - id: div_fka4hr
-  subtype: borough
+  subtype: locality
   parent: div_0cazhp
-  role: city
   status: generated
   names: {zh: 伊瓦洛, en: Ivalo, art-x-ranova: Ivalo}
   notes: {zh: 内陆的农业公社群，几十个村社轮流派代表参加联合会，土地归公社共有，收成按需分配。, en: 'A cluster of farming communes inland; dozens of villages take turns sending delegates to the federation, land is held in common and the harvest is shared by need.'}
   codes: {admin: '690200'}
   population: 220000
   area_km2: 10000
+  color: '#CD4C3F'
+  flag: {"layout": "banner", "colors": ["#111111", "#B03A2E"], "division": "pile", "charge": "sprout", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "黑底上一个红色山形，正中一株白色幼苗。幼苗是村社共有的土地和按需分配的收成。"
+    en: "A red pile on black with a white seedling. The seedling is the land the village communes hold in common and the harvest they share out by need."
   traits:
     industries: [agriculture, forestry]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "向日葵", "en": "Sunflower"}, "tree": {"zh": "面包树", "en": "Breadfruit tree"}}
 
 # ── 齐阿拉野化邦 ──
 - id: div_1tan4g
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 齐阿拉野化邦, en: Rewilded Polity of Tsiala, art-x-ranova: Tany Maitso Tsiala}
   short_names: {zh: 齐阿拉, en: Tsiala}
@@ -1795,7 +2042,7 @@ divisions:
       野化邦的规则十分严格：境内禁止使用发动机、电子设备和化学品，外人只能步行进入，必须在边界交出手机和相机。孩子们在营地里学习辨认植物、追踪动物和讲述祖先的故事，而不是读书写字，这一点在邻国和国际组织中引起了很大争议。生病的人常常只能依靠草药，一些人最终离开森林去邻国就医，再也没有回来。
 
       野化邦保持中立，与阿拉齐纳邦联关系密切，两者都受到齐马罗沃和卡波拉的威胁，南方战争中多次有武装人员和偷猎者越境。由于没有货币和统计，人均收入只能按估计，约八百美元。国际环保组织把这里看作「地球上最大胆的实验」，也有人批评它是对现代医疗和教育的拒绝。每年雨季开始时，各营地的人聚集在猴面包树下，用歌声和鼓声迎接第一场雨。', en: "The Rewilded Polity of Tsiala lies in south-western Ranova, some 54,000 km² with only about 150,000 people, the most thinly settled country on the island; the name means 'forest'. It is a land of dry deciduous forest, spiny thicket and limestone pinnacle forest, and its valleys hold the most intact primary forest on the island, alive with lemurs, fossas and chameleons. \nAfter the Sundering the south-western forests were carved up by logging companies and gold-mine owners, and great stretches of forest disappeared. A movement of environmentalists, intellectuals who had left the cities and local forest people, the 'Return', drove out the loggers, blew up the mine roads and declared that on this land 'the state, industry and money are abolished' so that the forest could grow back. The Polity has no government, no roads and no power grid; its people live scattered in dozens of camps in the forest by gathering, hunting, fishing and small shifting gardens, business between the camps is settled by their circles of elders, and the circles choose a speaker to deal with outsiders. \nThe rules are strict: engines, electronic devices and chemicals are banned, outsiders may enter only on foot and must hand over phones and cameras at the border. Children in the camps learn to know plants, track animals and tell the stories of their ancestors rather than to read and write, which has caused much controversy in neighbouring states and international bodies. The sick often have only herbal remedies, and some eventually leave the forest for treatment abroad and never return. \nThe Polity is neutral and close to the Alatsina Confederacy; both are threatened by Tsimarovo and Kabola, and armed men and poachers have crossed its borders many times in the Southern War. With no money and no statistics, income can only be estimated, at about 800 dollars a head. International conservation groups call it 'the boldest experiment on earth'; others criticise it as a rejection of modern medicine and education. When the rains begin each year, people from all the camps gather under the baobabs to welcome the first rain with song and drums."}
-  codes: {admin: '700000'}
+  codes: {iso3166_1: {alpha2: TL, alpha3: TSL, numeric: '920'}}
   population: 150000
   area_km2: 54000
   capital: div_qfht7f
@@ -1866,24 +2113,28 @@ divisions:
       tld: 无
       driving: left
 - id: div_qfht7f
-  subtype: borough
+  subtype: locality
   parent: div_1tan4g
-  role: city
   status: generated
   names: {zh: 齐阿拉, en: Tsiala, art-x-ranova: Tsiala}
   notes: {zh: 野化邦唯一的定居点，其实是散布在森林里的几十个营地，没有电网、公路和货币。居民以采集、狩猎和小块轮作为生，外人只能步行进入，并须在边界交出电子设备。, en: 'The only settlement of the Rewilded Polity, in truth dozens of camps scattered through the forest, without power lines, roads or money. People live by gathering, hunting and small shifting gardens; outsiders may enter only on foot and must hand over electronic devices at the border.'}
   codes: {admin: '700100'}
   population: 150000
   area_km2: 54000
+  color: '#1D4E2A'
+  flag: {"layout": "banner", "colors": ["#1D4E2A", "#8D6E63"], "division": "bordure", "charge": "hornbill", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "深绿底褐色镶边，正中一只白色犀鸟。犀鸟是森林里的信使；城旗和国旗一样用树皮纤维手工织成，只在营地之间传递。"
+    en: "A white hornbill on deep green within a brown border. The hornbill is the forest's messenger; like the national flag it is hand-woven from bark fibre and only carried from camp to camp."
   traits:
     industries: [conservation, hunting, forestry]
     age: ranova_young
+    heritage: ranova
+  symbols: {"flower": {"zh": "猪笼草", "en": "Pitcher plant"}, "tree": {"zh": "乌木", "en": "Ebony"}}
 
 # ── 黎明千年国 ──
 - id: div_nyhhhg
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 黎明千年国, en: Millennial Realm of the Dawn, art-x-ranova: Fanjakana Arivo Taona ny Maraina}
   short_names: {zh: 黎明国, en: Dawn Realm}
@@ -1894,7 +2145,7 @@ divisions:
       千年国的生活围绕着宗教仪式展开：每天清晨，全体信徒面向东方的大海迎接日出；城市按照预言规划成十二个同心圆街区，财产归集体所有，婚姻由长老会安排，信徒不得与外人通婚，离开教团的人会被视为「堕入黑夜」。千年国把时钟比邻国拨快半小时，「好让信徒最先看见黎明」。邻国和人权组织多次批评其限制信徒离开、强迫劳动和对儿童的控制。
 
       先知的预言已经多次落空，每次都被长老会重新解释为「考验」，但近年来年轻一代离开圣城的人越来越多。千年国拒绝加入任何阵营，与法尼里公社和洛哈瓦托王国关系紧张，对外贸易主要是梯田出产的茶、香草和朝圣者的捐献。人均收入约二千五百美元。年迈的先知已多年未公开露面，继承问题成为千年国最大的悬念。', en: "The Millennial Realm of the Dawn lies on Ranova's east coast between the Kingdom of Lohavato and Ambohara, some 16,000 km² with about 300,000 people; its only city is the holy city of Mazava. The country runs from the eastern face of the Farana Escarpment down to the sea, and terraces have been cut into its rainforested slopes. \nThe Realm was founded by a new religion, the Faith of the Dawn. In the last years of the United Republic a village teacher named Ramahy said he had seen 'the last dawn' on a beach of the east coast and prophesied that the old world was about to end and only those who followed him would be saved into a new heaven and a new earth. The wars and famines of the Sundering swelled his following fast; tens of thousands sold their property and moved to the east coast to build the holy city of Mazava. The faithful then proclaimed the Millennial Realm, Ramahy was hailed as Prophet and 'Father of the Dawn', and the state is ruled by the Prophet and the Council of Twelve Apostles he appoints. \nLife in the Realm revolves around ritual: every morning all the faithful face the eastern sea to greet the sunrise; the city is laid out in twelve concentric rings according to the prophecy; property is held in common, marriages are arranged by the council, the faithful may not marry outsiders, and those who leave are said to have 'fallen into the night'. The Realm sets its clocks half an hour ahead of its neighbours 'so that the faithful see the dawn first'. Neighbours and human rights groups have repeatedly criticised it for keeping members from leaving, forced labour and its control over children. \nThe Prophet's predictions have failed several times, each time reinterpreted by the council as 'a test', but in recent years more and more of the young have left the holy city. The Realm refuses to join any bloc and is on poor terms with the Faniry communes and the Kingdom of Lohavato; its trade is mainly tea and vanilla from the terraces and the gifts of pilgrims. Income is about 2,500 dollars a head. The aged Prophet has not appeared in public for years, and the succession is the Realm's great unanswered question."}
-  codes: {admin: '710000'}
+  codes: {iso3166_1: {alpha2: DR, alpha3: DAW, numeric: '921'}}
   population: 300000
   area_km2: 16000
   capital: div_0a6gt7
@@ -1984,23 +2235,28 @@ divisions:
       tld: .xl
       driving: left
 - id: div_0a6gt7
-  subtype: borough
+  subtype: locality
   parent: div_nyhhhg
-  role: city
   status: generated
   names: {zh: 马扎瓦, en: Mazava, art-x-ranova: Mazava}
   notes: {zh: 千年国的圣城，名字意为「光明」。全体信徒每天清晨面向东方的大海迎接日出，先知居住的黎明塔是城中最高的建筑。城市按照「新天新地」的预言规划成十二个同心圆街区。, en: 'The holy city of the Realm; the name means ''light''. Every morning the faithful face the eastern sea to greet the sunrise, and the Tower of the Dawn where the Prophet lives is the tallest building in town. The city is laid out in twelve concentric rings according to the prophecy of a new heaven and a new earth.'}
   codes: {admin: '710100'}
   population: 300000
   area_km2: 16000
+  color: '#E0662A'
+  flag: {"layout": "banner", "colors": ["#E0662A", "#F2C230"], "division": "bordure", "charge": "dawn", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "橙底金边，正中一轮白色的初升太阳。城名意为「光明」，信徒每天清晨在城中面向东方的大海迎接日出。"
+    en: "A white rising sun on orange within a gold border. The name means 'light', and every morning the faithful face the eastern sea to greet the sunrise."
   traits:
     industries: [agriculture, pilgrimage]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "金盏花", "en": "Marigold"}, "tree": {"zh": "黄花风铃木", "en": "Golden trumpet tree"}}
 
 # ── 安博维共和国 ──
 - id: div_sh6pkn
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 安博维共和国, en: Republic of Ambovy, art-x-ranova: Repoblikan'i Ambovy}
   short_names: {zh: 安博维, en: Ambovy}
@@ -2011,7 +2267,7 @@ divisions:
       违禁品经由香草园之间的简易机场和东海岸的快艇运往岛外，收入通过萨拉卡公国的赌场和银行洗白，再投入首都山上的别墅、赌场和私人诊所。共和国的人均收入约七千美元，在中部国家中名列前茅，但财富集中在少数家族手中，山下的棚户区缺水缺电，暴力犯罪率是全岛最高的之一。
 
       安博维不加入任何阵营，同时与几方做生意：向祖源轴心出售燃料和武器，向圣约同盟和世俗协约的商人出售香草，与萨拉卡和卡托拉保持密切的金融和安保合作。邻国贝洛瓦对其发动过多次缉毒行动，双方的冲突在一次停火后冻结；伊索卡游击队也常越境袭击卡特尔的种植园。每年香草收获季，首都举行盛大的香草节，三家族的家长坐在主席台上，与总统并排观看游行。', en: "The Republic of Ambovy lies west of the middle of Ranova, between Belova, Sahiliya, Ambohara and the Isoka Liberated Zone, some 34,000 km² with about 500,000 people in two cities, the capital, Ambovy, and Ranoma in the east. It is a country of humid hills and valleys, vanilla, cocoa and pepper plantations cover the slopes, and many airstrips are scattered along the edge of the rainforest. \nThe Republic was founded after the Sundering by the local vanilla planters, and its constitution provides for a presidential system and multi-party elections, so that on the surface it looks like any other republic. Over thirty years, however, the three great families that control vanilla exports extended their business into smuggling and contraband and became the cartel known as the 'Three Families'. The cartel funds the National Unity Party and the Republican Liberal Party, which take turns in office; presidents, judges and generals are mostly its nominees, and candidates often withdraw or vanish on the eve of an election. International observers call Ambovy a narco-state. \nContraband leaves the island by the airstrips among the vanilla gardens and by speedboat from the east coast, the money is laundered through the casinos and banks of the Principality of Saraka and then spent on the villas, casinos and private clinics on the capital's hill. Income is about 7,000 dollars a head, high for the central states, but wealth is concentrated in a few families, the shanty towns below the hill lack water and power, and violent crime is among the highest on the island. \nAmbovy joins no bloc and does business with several: it sells fuel and arms to the Origin Axis and vanilla to merchants from the Covenant League and the Secular Accord, and works closely with Saraka and Katora on finance and security. Neighbouring Belova has mounted several anti-narcotics operations against it, a conflict frozen after a ceasefire, and the Isoka guerrillas often cross the border to raid the cartel's plantations. At the vanilla festival each harvest the heads of the Three Families sit on the reviewing stand beside the president to watch the parade."}
-  codes: {admin: '720000'}
+  codes: {iso3166_1: {alpha2: AB, alpha3: ABV, numeric: '922'}}
   population: 500000
   area_km2: 34000
   capital: div_3j9c24
@@ -2129,35 +2385,47 @@ divisions:
       tld: .xm
       driving: right
 - id: div_3j9c24
-  subtype: borough
+  subtype: locality
   parent: div_sh6pkn
-  role: city
   status: generated
   names: {zh: 安博维, en: Ambovy, art-x-ranova: Ambovy}
   notes: {zh: 共和国的首都，豪华别墅、赌场和私人诊所集中在山上的富人区，山下是拥挤的棚户区。总统府、议会和最高法院都在旧城，但真正的决定往往在城外的庄园里做出。, en: 'The Republic''s capital, with luxury villas, casinos and private clinics on the hill above crowded shanty towns. The presidency, parliament and supreme court are in the old town, but the real decisions are often taken on the estates outside the city.'}
   codes: {admin: '720100'}
   population: 330000
   area_km2: 18000
+  color: '#1B4F9C'
+  flag: {"layout": "seal", "colors": ["#1B4F9C", "#FFFFFF", "#1B4F9C", "#F4F1E6"], "charge": "tower", "charge_color": "#1B4F9C", "legend": "art-x-ranova"}
+  flag_notes:
+    zh: "蓝底上一枚白色圆印，印环上用拉诺瓦语和英语写着城名，印心是一座深蓝色塔楼。塔楼是旧城里的总统府；民间说真正的印章盖在城外的庄园里。"
+    en: "A white round seal on blue, its ring bearing the city's name in Ranovan and English and its centre a dark blue tower. The tower is the presidential palace in the old town; people say the real seals are set in the estates outside it."
   traits:
     industries: [commerce, spice, contraband]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "蝴蝶兰", "en": "Moth orchid"}, "tree": {"zh": "凤凰木", "en": "Flamboyant"}}
 - id: div_zjhw8d
-  subtype: borough
+  subtype: locality
   parent: div_sh6pkn
-  role: city
   status: generated
   names: {zh: 拉诺马, en: Ranoma, art-x-ranova: Ranoma}
   notes: {zh: 东部的香草种植区，香草园之间夹杂着简易机场，夜里常有不明飞机起降。, en: 'The vanilla-growing east, where airstrips lie between the vanilla gardens and unmarked planes land and take off at night.'}
   codes: {admin: '720200'}
   population: 170000
   area_km2: 16000
+  color: '#2263C3'
+  flag: {"layout": "bands", "colors": ["#1B4F9C", "#2E7D32", "#1B4F9C"], "ratio": [1, 2, 1], "charge": "sprout", "charge_band": 1, "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "蓝、绿、蓝三条横带，绿色宽带中一株白色的香草幼苗。绿色是东部的香草园，蓝色取自国旗。"
+    en: "Blue, green and blue, with a white vanilla seedling on the broad green band. The green is the vanilla gardens of the east and the blue the national colour."
   traits:
     industries: [spice, forestry]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "香草兰", "en": "Vanilla orchid"}, "tree": {"zh": "肉桂树", "en": "Cinnamon tree"}}
 
 # ── 伊索卡人民战争解放区 ──
 - id: div_9w60j4
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 伊索卡人民战争解放区, en: Isoka People's War Liberated Zone, art-x-ranova: Faritra Afaka amin'ny Ady Entin'ny Vahoaka Isoka}
   short_names: {zh: 伊索卡解放区, en: Isoka Zone}
@@ -2168,7 +2436,7 @@ divisions:
       伊索卡人民战争断断续续进行了三十多年，游击队袭击周边国家的警察局、矿区和种植园，绑架人质换取赎金，也在多次清剿中遭受重创。控制区内由革命委员会统治，实行配给制和集体劳动，青少年常被征入游击队，许多家庭因此逃往邻国。
 
       解放区没有货币和正式经济，依靠小块农业、一处小金矿、向过往商人「征税」和缴获物资维持。人均收入估计不足一千美元。世俗协约的阿瓦拉齐公开谴责人民战争党为「冒险主义」，与之划清界限。近年来，游击队内部出现了分裂，一部分指挥员通过安巴罗托管地的调解与安博哈拉接触，探讨放下武器的可能。本条目仅作客观记录，不代表对其主张的任何认可。', en: "The Isoka People's War Liberated Zone is the area held by the guerrillas of the Ranovan People's War Party in the Isoka Massif of south-central Ranova, some 34,000 km² with about 400,000 people. No state recognises it, and Ambohara, Menavaly, Ambovy and Tsimarovo list it as held by a terrorist organisation. It centres on the Isoka Massif, high and densely forested, whose caves and gorges are the guerrillas' bases; Isoka and Kary in the east are its two main strongholds. \nThe People's War Party grew out of university study circles in the last years of the United Republic. Its founders held that Avaratsy's Labour Party had 'degenerated into bureaucracy' and called for seizing the whole island by a protracted people's war, surrounding the cities from the countryside. After the Sundering the party's cadres went into the Isoka hills and launched a land revolution in the poor villages, seizing the land of landlords and plantations for the peasants and executing 'class enemies' and 'informers' with a brutality still feared locally. \nThe Isoka People's War has gone on and off for more than thirty years: the guerrillas attack police posts, mines and plantations in the neighbouring states and kidnap hostages for ransom, and have taken heavy losses in repeated offensives against them. Inside the zone the Revolutionary Committee rules through rationing and collective labour, teenagers are often conscripted into the guerrillas, and many families have fled abroad. \nThe zone has no money and no formal economy; it lives on small farms, a small gold mine, 'taxes' on passing traders and captured supplies, and income is estimated at under 1,000 dollars a head. Avaratsy of the Secular Accord openly condemns the People's War Party as 'adventurism' and keeps its distance. In recent years the guerrillas have begun to split, and some commanders have made contact with Ambohara through the mediation of the Ambaro Trust Territory to explore laying down their arms. This entry is a factual record and implies no endorsement of the group's claims."}
-  codes: {admin: '730000'}
+  codes: {iso3166_1: {alpha2: IK, alpha3: ISO, numeric: '923'}}
   population: 400000
   area_km2: 34000
   capital: div_1rjhwr
@@ -2265,35 +2533,47 @@ divisions:
       tld: 无
       driving: right
 - id: div_1rjhwr
-  subtype: borough
+  subtype: locality
   parent: div_9w60j4
-  role: city
   status: generated
   names: {zh: 伊索卡, en: Isoka, art-x-ranova: Isoka}
   notes: {zh: 解放区的指挥中心，藏在伊索卡山的森林里。革命委员会的营地经常转移，山洞里设有电台、医院和弹药库。, en: 'The command centre of the Liberated Zone, hidden in the forests of the Isoka Massif. The revolutionary committee''s camps move often, and caves hold its radio station, hospital and ammunition stores.'}
   codes: {admin: '730100'}
   population: 230000
   area_km2: 18000
+  color: '#B71C1C'
+  flag: {"layout": "banner", "colors": ["#B71C1C"], "charge": "star5", "charge_color": "#F2C230"}
+  flag_notes:
+    zh: "红底正中一颗金色五角星。解放区的城旗就是革命委员会的营旗，只在其控制区内使用。"
+    en: "A gold star on red. The zone's town flag is the revolutionary committee's camp flag, used only where it holds sway."
   traits:
     industries: [agriculture, forestry]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "无", "en": "None"}, "tree": {"zh": "无", "en": "None"}}
 - id: div_ctv1dd
-  subtype: borough
+  subtype: locality
   parent: div_9w60j4
-  role: city
   status: generated
   names: {zh: 卡里, en: Kary, art-x-ranova: Kary}
   notes: {zh: 东部的村镇，游击队控制着一处小金矿，以矿石换取武器和药品。周边国家的军队多次进剿，镇子几度被毁又重建。, en: 'A village town in the east, where the guerrillas hold a small gold mine and trade ore for weapons and medicine. Neighbouring armies have swept the area many times, and the town has been destroyed and rebuilt more than once.'}
   codes: {admin: '730200'}
   population: 170000
   area_km2: 16000
+  color: '#DD2323'
+  flag: {"layout": "horizon", "colors": ["#B71C1C", "#1B5E20"], "edge": "peaks", "charge": "star5", "charge_color": "#F2C230"}
+  flag_notes:
+    zh: "红色天空下是绿色的山峦，左上一颗金色五角星。山峦是游击队控制的东部山地。"
+    en: "Green mountains under a red sky, with a gold star at the top left. The mountains are the eastern uplands the guerrillas hold."
   traits:
     industries: [mining, agriculture]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "无", "en": "None"}, "tree": {"zh": "无", "en": "None"}}
 
 # ── 洛哈瓦托王国 ──
 - id: div_gd73a5
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 洛哈瓦托王国, en: Kingdom of Lohavato, art-x-ranova: Fanjakan'i Lohavato}
   short_names: {zh: 洛哈瓦托, en: Lohavato}
@@ -2304,7 +2584,7 @@ divisions:
       王国以「国民幸福」为施政目标，限制大规模开发和旅游人数，保护森林和寺院传统，男孩常在寺院中度过一段少年时光。王国在宗教问题上宽容，基督教和祖灵信仰的社区可以自由礼拜，但对黎明千年国的扩张和马索沃利的无神论宣传十分警惕。
 
       洛哈瓦托是圣约同盟的成员，名义上是信仰阵营中唯一的佛教国家，依靠同盟的保护维持中立和平。经济以茶叶、稻米、手工艺品和高端文化旅游为主，人均收入约四千美元。每年雨季结束时，王国举行法轮节，国王和僧团沿着转经道绕都城一周，全国的人都会来到洛哈瓦托，在寺院前点燃成千上万盏酥油灯。', en: "The Kingdom of Lohavato lies in the middle of Ranova's east coast between the Faniry communes and the Millennial Realm of the Dawn, some 20,000 km² with about 450,000 people in two cities, the royal capital, Lohavato, and the port of Sambo on the east coast. The name means 'head of stone', for the great rock jutting from the Farana Escarpment behind the capital. The country runs from the hills below the escarpment to the coast, with tea gardens and terraces in the valleys and rainforest on the eastern face of the cliffs. \nThe kingdom's Buddhist tradition goes back to monks who came by sea long ago and built the first monastery below the escarpment; the chiefs around it converted, and in time became the royal house of Lohavato. Under the United Republic the crown kept only a ceremonial role; in the Sundering the king refused to join any side and, backed by the monastic order and the hill peoples, proclaimed the kingdom restored. He then carried out reforms of his own accord, granting a constitution and a Royal Assembly in which half the members are elected, some appointed by the King and some chosen by the monastic order; the prime minister is put forward by the assembly majority and appointed by the King, who keeps the power to dissolve the assembly, appoint judges and command the army. \nThe kingdom governs for 'national happiness', limiting large developments and visitor numbers and protecting the forests and monastic tradition, and boys often spend part of their youth in a monastery. It is tolerant in matters of religion, Christian and ancestral communities worship freely, but it is wary of the Millennial Realm's expansion and Masovoly's atheist propaganda. \nLohavato is a member of the Covenant League, nominally the only Buddhist state in the bloc of faith, and relies on the League's protection to keep a neutral peace. Its economy rests on tea, rice, handicrafts and high-end cultural tourism, and income is about 4,000 dollars a head. At the end of the rains every year the kingdom holds the Festival of the Wheel: the King and the monks walk the circuit round the capital, and people from all over the country come to Lohavato to light thousands of butter lamps before the monasteries."}
-  codes: {admin: '740000'}
+  codes: {iso3166_1: {alpha2: LH, alpha3: LOH, numeric: '924'}}
   population: 450000
   area_km2: 20000
   capital: div_mt8f0c
@@ -2420,35 +2700,47 @@ divisions:
       tld: .xo
       driving: left
 - id: div_mt8f0c
-  subtype: borough
+  subtype: locality
   parent: div_gd73a5
-  role: city
   status: generated
   names: {zh: 洛哈瓦托, en: Lohavato, art-x-ranova: Lohavato}
   notes: {zh: 王国的都城，建在断崖下的山丘上，名字意为「石头之首」。金顶的王宫寺院俯瞰全城，僧侣和朝圣者沿着转经道绕城而行。, en: 'The royal capital, on hills below the escarpment; the name means ''head of stone''. The gold-roofed palace monastery looks down on the town, and monks and pilgrims walk the circuit around it.'}
   codes: {admin: '740100'}
   population: 300000
   area_km2: 12000
+  color: '#F4A300'
+  flag: {"layout": "banner", "colors": ["#F4A300", "#8B1A1A"], "division": "bordure", "charge": "stupa", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "藏红花色旗面镶深红边，正中一座白色佛塔。佛塔是山丘上金顶的王宫寺院，颜色取自国旗。"
+    en: "A white stupa on saffron within a deep red border. The stupa is the gold-roofed palace temple on its hill, and the colours are the national flag's."
   traits:
     industries: [government, heritage, tourism]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "黄兰", "en": "Champak"}, "tree": {"zh": "菩提树", "en": "Bodhi tree"}}
 - id: div_v9zhk4
-  subtype: borough
+  subtype: locality
   parent: div_gd73a5
-  role: city
   status: generated
   names: {zh: 桑博, en: Sambo, art-x-ranova: Sambo}
   notes: {zh: 东海岸的渔港，王国唯一的港口，茶园和稻田沿河谷延伸。, en: 'The fishing port of the east coast and the kingdom''s only harbour, with tea gardens and rice fields up the valley.'}
   codes: {admin: '740200'}
   population: 150000
   area_km2: 8000
+  color: '#FFB623'
+  flag: {"layout": "horizon", "colors": ["#F4A300", "#8B1A1A", "#FFFFFF"], "edge": "waves", "charge": "fish", "charge_in": "ground", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "藏红花色天空下是白线勾出的深红色海浪，浪中一条白鱼。桑博是王国唯一的港口。"
+    en: "Deep red waves picked out in white under a saffron sky, with a white fish in the waves: Sambo is the kingdom's only port."
   traits:
     industries: [fishing, agriculture]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "茶花", "en": "Tea blossom"}, "tree": {"zh": "椰子树", "en": "Coconut palm"}}
 
 # ── 贝洛瓦共和国 ──
 - id: div_4f0pgt
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 贝洛瓦共和国, en: Republic of Belova, art-x-ranova: Repoblikan'i Belova}
   short_names: {zh: 贝洛瓦, en: Belova}
@@ -2459,7 +2751,7 @@ divisions:
       贝洛瓦是世俗协约中最富裕的资本主义成员，与阿瓦拉齐的结盟出于务实：两国都反对信仰和血统阵营对世俗社会的威胁。共和国是全岛的金融、软件和航运服务中心，人均收入约一万四千美元，但贫富差距也很大，港口外的难民营收容了约六万名来自邻国战争的难民，他们为码头和工厂提供廉价劳动力。
 
       共和国的周边并不太平：南面的梅纳瓦利军政府视其为反对派的庇护所，东面的安博维卡特尔把它当作走私的通道，贝洛瓦曾多次发动缉毒行动，双方冲突在停火后冻结；北面萨希利亚的西岸战争也牵动着它的安全，贝洛瓦为萨希利亚提供情报和无人机支援。每年十二月的贝洛瓦海湾节，海湾上的帆船赛和夜晚的烟花吸引着全岛的游客。', en: "The Republic of Belova stands on a large bay in the south of Ranova's west coast, with Sahiliya to the north, Ambovy to the east and the Menavaly junta to the south. It covers some 27,000 km² with about 1.4 million people in two cities, the capital, Belova, and Ambota inland. Belova is the largest financial centre on the island, its glass towers lining the bay and its port busy all year; inland there are sugar cane and cotton plantations and an export processing zone. \nUnder the United Republic Belova was the commercial port and free trade zone of the west coast. After the Sundering its merchants, bankers and technocrats formed a provisional government and proclaimed a presidential republic devoted to free markets, low taxes and openness to the world. The president is elected by direct vote for four years and may serve two terms; Congress is chosen by a mix of single-member seats and proportional lists, and parties such as the Liberal Party and the Civic Alliance take turns in office. The Republic guarantees freedom of speech, religion and the press and is one of the most open societies on the island. \nBelova is the richest capitalist member of the Secular Accord, and its alliance with Avaratsy is a practical one: both oppose the threat the blocs of faith and blood pose to secular society. It is the island's centre for finance, software and shipping services, with income of about 14,000 dollars a head, but inequality is wide, and the camp outside the port shelters some 60,000 refugees from the neighbouring wars, who supply cheap labour to the docks and factories. \nIts neighbourhood is not at peace. The Menavaly junta to the south sees Belova as a refuge for its opponents; the Ambovy cartels to the east use it as a smuggling route, and Belova has mounted several anti-narcotics operations against them, a conflict frozen after a ceasefire; and the West Coast War in Sahiliya to the north affects its security too, so Belova supplies Sahiliya with intelligence and drone support. Every December the Belova Bay Festival, with its sailing regatta and night-time fireworks over the water, draws visitors from all over the island."}
-  codes: {admin: '750000'}
+  codes: {iso3166_1: {alpha2: BL, alpha3: BEL, numeric: '925'}}
   population: 1400000
   area_km2: 27000
   capital: div_xfvevz
@@ -2546,36 +2838,47 @@ divisions:
       tld: .xp
       driving: right
 - id: div_xfvevz
-  subtype: borough
+  subtype: locality
   parent: div_4f0pgt
-  role: city
   status: generated
   names: {zh: 贝洛瓦, en: Belova, art-x-ranova: Belova}
   notes: {zh: 共和国的首都和全岛最大的金融中心，玻璃高楼沿海湾排开，证券交易所、离岸银行和软件园集中于此。港口外有一座难民营，收容来自邻国的战争难民，也为港区提供廉价劳动力。, en: 'Capital of the Republic and the largest financial centre on the island, its glass towers lining the bay around the stock exchange, offshore banks and a software park. Outside the port is a refugee camp for people from the neighbouring wars, which also supplies the docks with cheap labour.'}
   codes: {admin: '750100'}
   population: 1050000
   area_km2: 13000
+  color: '#00897B'
+  flag: {"layout": "diagonal", "colors": ["#00897B", "#1A2A5A", "#F28C28"], "charge": "star5", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "青绿与深蓝沿斜线分开，中间一道橙色斜带，左上角一颗白星。白星是国旗上「岛上最亮的一颗」，即首都本身。"
+    en: "Teal and dark blue divided diagonally by an orange band, with a white star at the top left: the national flag's 'brightest star on the island', the capital itself."
   traits:
     industries: [finance, port, tech]
     heritage: ranova_global
+    age: ranova_mid
+  symbols: {"flower": {"zh": "九重葛", "en": "Bougainvillea"}, "tree": {"zh": "大王椰", "en": "Royal palm"}}
 - id: div_ah0qbp
-  subtype: borough
+  subtype: locality
   parent: div_4f0pgt
-  role: city
   status: generated
   names: {zh: 安博塔, en: Ambota, art-x-ranova: Ambota}
   notes: {zh: 内陆的出口加工区，服装厂和电子装配厂沿高速公路排开，周边是甘蔗和棉花种植园。, en: 'The inland export processing zone, with garment and electronics assembly plants along the highway amid sugar cane and cotton plantations.'}
   codes: {admin: '750200'}
   population: 350000
   area_km2: 14000
+  color: '#00B7A4'
+  flag: {"layout": "bands", "colors": ["#00897B", "#FFFFFF", "#F28C28"], "vertical": true, "charge": "chip", "charge_band": 1, "charge_color": "#00897B"}
+  flag_notes:
+    zh: "青绿、白、橙三条竖带，白带中一枚青绿色芯片。芯片是沿高速公路排开的电子装配厂。"
+    en: "Teal, white and orange upright, with a teal microchip on the white: the electronics assembly plants along the expressway."
   traits:
     industries: [manufacturing, agriculture]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "棉花", "en": "Cotton flower"}, "tree": {"zh": "桃花心木", "en": "Mahogany"}}
 
 # ── 努西拉苏丹国 ──
 - id: div_38z2mg
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 努西拉苏丹国, en: Sultanate of Nusira, art-x-kasiri: Usultani wa Nusira}
   short_names: {zh: 努西拉, en: Nusira}
@@ -2586,7 +2889,7 @@ divisions:
       近海油气田被发现后，苏丹国迅速致富，人均收入约三万八千美元，公民享有免费医疗、教育和住房补贴，不缴所得税。繁重的劳动则由来自本岛和海外的外籍劳工承担，他们住在城郊的劳工城，没有公民权，人权组织多次批评他们的工作条件。政府近年推出「后石油愿景」，发展金融、航运和旅游，达兰的海滨酒店吸引着阵营盟国的游客。
 
       努西拉是圣约同盟的成员，与萨希利亚同属卡西里语和伊斯兰世界，为萨希利亚的西岸战争提供资金和军事援助，也因此多次成为贾巴利亚武装的袭击目标。苏丹国与卡托拉特许领隔海相望，两国在渔场和油气区划界上存在争议。斋月结束时的开斋节，苏丹在王宫前向民众分发礼物，海湾上的传统帆船赛是全年最热闹的盛事。', en: "The Sultanate of Nusira lies off the north-west of Ranova, three main islands covering some 16,000 km² with about 900,000 people, about a third of them foreign workers. The capital, Nusira, is on the largest, central island; Makara on the western island is a fishing port and offshore supply base, and Daran on the eastern island is a seaside resort. Coral reefs and shallow seas surround the islands, and the offshore oil and gas fields are the source of the sultanate's wealth. \nThe royal house descends from Kasiri merchant families who traded in the islands long ago, and under the United Republic the Sultan kept only a religious and ceremonial role. In the Sundering the Sultan used the turmoil on the main island to proclaim the restoration of sovereignty, the six great houses swore allegiance, and the sultanate became independent. The Sultan holds legislative, executive and judicial power and appoints the prime minister and ministers; the Consultative Council of royals, representatives of the great houses and tribes, business and religious scholars only advises. Parties are banned, and public criticism of the royal family is punished with prison. \nOnce the offshore fields were found the sultanate grew rich fast; income is about 38,000 dollars a head, and citizens enjoy free health care and schooling, housing subsidies and no income tax. The heavy work is done by foreign workers from the main island and overseas, who live in labour towns on the outskirts without citizenship, and human rights groups have often criticised their conditions. The government's recent 'after oil' plan promotes finance, shipping and tourism, and Daran's seaside hotels draw visitors from the League's partner countries. \nNusira belongs to the Covenant League and shares the Kasiri language and Islam with Sahiliya; it funds and arms Sahiliya in the West Coast War and has been a target of attacks by the Jabaliya militants several times as a result. It faces the Katora Chartered Territory across the water, and the two dispute the boundary between their fishing grounds and oil and gas blocks. At the Eid that ends Ramadan the Sultan hands out gifts to the people outside the palace, and the traditional dhow race on the bay is the liveliest event of the year."}
-  codes: {admin: '760000'}
+  codes: {iso3166_1: {alpha2: NS, alpha3: NUS, numeric: '926'}}
   population: 900000
   area_km2: 16000.0
   capital: div_vtqsys
@@ -2709,50 +3012,66 @@ divisions:
       tld: .xq
       driving: left
 - id: div_vtqsys
-  subtype: borough
+  subtype: locality
   parent: div_38z2mg
-  role: city
   status: generated
   names: {zh: 努西拉, en: Nusira, art-x-kasiri: Nusira}
   notes: {zh: 苏丹国的首都，苏丹宫、金顶大清真寺和海上石油公司总部沿海湾排开。外籍劳工占人口的三分之一，住在城郊的劳工城。, en: 'The sultanate''s capital, where the Sultan''s palace, the gold-domed Grand Mosque and the head office of the offshore oil company line the bay. Foreign workers make up a third of the population and live in labour towns on the outskirts.'}
   codes: {admin: '760100'}
   population: 600000
   area_km2: 10400.0
+  color: '#7A1F3D'
+  flag: {"layout": "banner", "colors": ["#7A1F3D", "#C9A227"], "division": "bordure", "charge": "crescent", "charge_color": "#C9A227"}
+  flag_notes:
+    zh: "紫红底金边，正中一弯金色新月。紫红色是苏丹的王袍，新月是伊斯兰信仰，颜色和图案都来自国旗。"
+    en: "A gold crescent on maroon within a gold border. The maroon is the sultan's robe and the crescent the faith, both from the national flag."
   traits:
     industries: [government, oil, finance]
     heritage: kasiri_global
+    age: ranova_mid
+  symbols: {"flower": {"zh": "茉莉花", "en": "Jasmine"}, "tree": {"zh": "海枣", "en": "Date palm"}}
 - id: div_s55y1p
-  subtype: borough
+  subtype: locality
   parent: div_38z2mg
-  role: city
   status: generated
   names: {zh: 马卡拉, en: Makara, art-x-kasiri: Makara}
   notes: {zh: 西岛上的渔港和油气补给基地，海上钻井平台的工人从这里换班。, en: 'The fishing port and offshore supply base on the western island, where the oil platform crews change shifts.'}
   codes: {admin: '760200'}
   population: 150000
   area_km2: 2800.0
+  color: '#9F284F'
+  flag: {"layout": "horizon", "colors": ["#7A1F3D", "#1565C0", "#FFFFFF"], "edge": "waves", "charge": "derrick", "charge_in": "horizon", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "紫红色天空下是白线勾出的蓝色海浪，海面上一座白色钻井架。钻井架是海上平台，工人从这里换班。"
+    en: "Blue waves picked out in white under a maroon sky, with a white derrick on the sea: the offshore rigs whose crews change shifts here."
   traits:
     industries: [fishing, port]
     heritage: kasiri
+    age: ranova_mid
+  symbols: {"flower": {"zh": "马鞍藤", "en": "Beach morning glory"}, "tree": {"zh": "椰子树", "en": "Coconut palm"}}
 - id: div_xby4t2
-  subtype: borough
+  subtype: locality
   parent: div_38z2mg
-  role: city
   status: generated
   names: {zh: 达兰, en: Daran, art-x-kasiri: Daran}
   notes: {zh: 东岛上的度假城镇，海滩酒店接待来自阵营盟国的游客，外国人可在指定区域饮酒。, en: 'The resort town on the eastern island, whose beach hotels receive visitors from the League''s partner countries; foreigners may drink alcohol in designated areas.'}
   codes: {admin: '760300'}
   population: 150000
   area_km2: 2800.0
+  color: '#55162B'
+  flag: {"layout": "diagonal", "colors": ["#1E88E5", "#F5DEB3", "#7A1F3D"], "edge": "curve", "charge": "sun", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "蓝天和沙滩之间是一道紫红色的弧线，左上角一轮白日。弧线是度假海滩，紫红色取自国旗。"
+    en: "A maroon curve between blue sky and sand, with a white sun at the top left. The curve is the resort beach and the maroon the national colour."
   traits:
     industries: [tourism, fishing]
     heritage: kasiri
+    age: ranova_mid
+  symbols: {"flower": {"zh": "九重葛", "en": "Bougainvillea"}, "tree": {"zh": "木麻黄", "en": "Casuarina"}}
 
 # ── 米拉卡王国 ──
 - id: div_78xf6t
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 米拉卡王国, en: Kingdom of Miraka, art-x-ranova: Fanjakan'i Miraka}
   short_names: {zh: 米拉卡, en: Miraka}
@@ -2763,7 +3082,7 @@ divisions:
       米拉卡是全岛政治自由度最高的国家之一，新闻自由，司法独立，王室的开支由议会审核。经济以旅游、渔业、热带农业和离岸服务为主，人均收入约二万二千美元。英式的乡村小镇、圣公会教堂和王室卫队换岗仪式吸引着世界各地的游客，米拉卡人以「岛上最安静的地方」自居。
 
       王国是圣约同盟的成员，在外交上偏向安博哈拉和努西拉，但始终保持温和立场，常为各方提供谈判场所。高原战争和西岸战争期间，大批难民乘船逃到米拉卡，王国在首都西郊建立了难民接待中心，收容约三万五千人，海军巡逻舰也常在海上搜救遇险的难民船。米拉卡与西面的卡托拉特许领关系紧张，曾因卡托拉的雇佣兵越界训练而提出抗议。每年国王生日，首都举行游行和海上阅舰，全国放假一天。', en: "The Kingdom of Miraka lies off the north-west of Ranova, a main island and a smaller one to its north-west covering some 11,600 km² with about 800,000 people in two cities, the capital, Miraka, and the farming town of Belano in the west. The main island is gently rolling, planted with pineapples, coconuts and sugar cane, and its winding coast has harbours full of fishing boats and yachts. \nThe royal family were the hereditary governors of the north-western islands under the United Republic. In the Sundering the islands' councillors and church leaders asked the governor's eldest son to take the throne, and the islands declared independence as a constitutional monarchy, sparing themselves the fighting on the main island. Under the constitution the King is head of state without real power; parliament is elected by proportional representation and the leader of the majority becomes prime minister. The Christian Democratic Union and the Social Liberal Party are the two big parties and usually need smaller partners to govern. \nMiraka is one of the freest countries on the island: the press is free, the courts independent and royal spending is approved by parliament. Its economy rests on tourism, fishing, tropical farming and offshore services, with income of about 22,000 dollars a head. English-style villages, Anglican churches and the changing of the royal guard draw visitors from all over the world, and Mirakans like to call their country 'the quietest place on the island'. \nThe kingdom belongs to the Covenant League and leans towards Ambohara and Nusira, but keeps a moderate line and often hosts talks between the sides. During the Highland and West Coast Wars great numbers of refugees fled to Miraka by boat; the kingdom set up a reception centre west of the capital that houses some 35,000 people, and its patrol ships often rescue refugee boats in distress. Relations with the Katora Chartered Territory to the west are tense, and Miraka has protested when Katora's mercenaries trained across the boundary. On the King's birthday every year the capital holds a parade and a naval review, and the whole country has a day off."}
-  codes: {admin: '770000'}
+  codes: {iso3166_1: {alpha2: MK, alpha3: MIR, numeric: '927'}}
   population: 800000
   area_km2: 11600.0
   capital: div_b3521p
@@ -2845,35 +3164,47 @@ divisions:
       tld: .xr
       driving: left
 - id: div_b3521p
-  subtype: borough
+  subtype: locality
   parent: div_78xf6t
-  role: city
   status: generated
   names: {zh: 米拉卡, en: Miraka, art-x-ranova: Miraka}
   notes: {zh: 王国的首都，王宫、议会和圣公会大教堂围绕港口广场。王室卫队换岗是游客必看的仪式。城西有一座难民接待中心，收容海上漂来的难民。, en: 'The kingdom''s capital, its royal palace, parliament and Anglican cathedral around the harbour square; the changing of the royal guard is a must for visitors. A refugee reception centre west of town takes in people who arrive by sea.'}
   codes: {admin: '770100'}
   population: 520000
   area_km2: 6000
+  color: '#1F4E99'
+  flag: {"layout": "banner", "colors": ["#1F4E99", "#FFFFFF"], "division": "wavy", "charge": "tower", "charge_color": "#C9A227"}
+  flag_notes:
+    zh: "宝蓝底，下半是白色波浪，正中一座金色塔楼。塔楼是港口广场上的王宫，宝蓝和白浪取自国旗。"
+    en: "Royal blue over white waves, with a gold tower. The tower is the palace on the harbour square, and the blue and the wave are the national flag's."
   traits:
     industries: [government, tourism, port]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "朱顶红", "en": "Amaryllis"}, "tree": {"zh": "凤凰木", "en": "Flamboyant"}}
 - id: div_v3fqk0
-  subtype: borough
+  subtype: locality
   parent: div_78xf6t
-  role: city
   status: generated
   names: {zh: 贝拉诺, en: Belano, art-x-ranova: Belano}
   notes: {zh: 王国西部的农业城镇，菠萝和椰子种植园之间是英式乡村风格的小镇。, en: 'The farming town in the west of the kingdom, small towns of a country-village style among pineapple and coconut plantations.'}
   codes: {admin: '770200'}
   population: 280000
   area_km2: 5600.0
+  color: '#2761BF'
+  flag: {"layout": "nordic", "colors": ["#2E7D32", "#FFFFFF", "#1F4E99"], "charge": "palm", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "绿底上白边蓝色十字，左上角一棵白色椰树。十字是英式乡村教堂的样式，椰树是城外的菠萝和椰子种植园。"
+    en: "A white-edged blue cross on green, with a white palm in the canton. The cross recalls the English-style village churches and the palm the pineapple and coconut plantations outside town."
   traits:
     industries: [agriculture, fishing]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "菠萝花", "en": "Pineapple flower"}, "tree": {"zh": "椰子树", "en": "Coconut palm"}}
 
 # ── 萨拉卡公国 ──
 - id: div_gempde
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 萨拉卡公国, en: Principality of Saraka, art-x-ranova: Andriamanjakan'i Saraka}
   short_names: {zh: 萨拉卡, en: Saraka}
@@ -2884,7 +3215,7 @@ divisions:
       公国的财政几乎全部来自赌场公司的特许费和私人银行业，居民不缴纳个人所得税，吸引了全岛和海外的富人在此定居。各国的军阀、商人和政客也把钱存在萨拉卡的银行，国际组织多次指责公国为安博维卡特尔和各国腐败官员洗钱，公国近年在压力下签署了部分信息交换协议。
 
       萨拉卡在三十多年的战争中始终保持中立，交战各方的代表常在公国的酒店里秘密会面，许多停火协议都在这里谈成，萨拉卡人自豪地称自己的岛是「全岛的客厅」。每年夏季的萨拉卡大奖赛，赛车在港口边的街道上飞驰，是公国一年中最隆重的节日。', en: "The Principality of Saraka is a small island state off the north-west of Ranova, some 1,200 km² with about 350,000 people, the richest country on the island at about 95,000 dollars a head. Saraka is its only city: casinos, grand hotels, private banks and marinas fill the whole island, and the Prince's palace stands on a rocky headland above the harbour. \nSaraka was a special administrative island of the United Republic, holding the concession to run casinos. On the eve of the Republic's dissolution its hereditary princely family signed a treaty of peaceful separation with the central government, so Saraka became one of the first states to be independent and kept the pattern of the United Republic's red ensign. It is a constitutional principality: the Prince is head of state and appoints a Minister of State to lead the government, and the National Council is elected by citizens to examine the budget and the laws, though citizens are only about a fifth of the residents, the rest being foreigners with residence permits. \nPublic finances come almost entirely from the casino company's concession fees and private banking; residents pay no personal income tax, which draws the rich of the island and overseas to settle. Strongmen, merchants and politicians of every country keep money in Saraka's banks, international bodies have repeatedly accused the principality of laundering money for the Ambovy cartels and corrupt officials, and under pressure it has recently signed some information-exchange agreements. \nSaraka has stayed neutral through more than thirty years of war; envoys of the warring sides often meet in secret in its hotels, many ceasefires have been negotiated here, and Sarakans proudly call their island 'the island's drawing room'. The Saraka Grand Prix each summer, with racing cars tearing through the streets beside the harbour, is the principality's grandest festival."}
-  codes: {admin: '780000'}
+  codes: {iso3166_1: {alpha2: SK, alpha3: SAR, numeric: '928'}}
   population: 350000
   area_km2: 1200.0
   capital: div_nxg2c2
@@ -2987,25 +3318,28 @@ divisions:
       tld: .xs
       driving: left
 - id: div_nxg2c2
-  subtype: borough
+  subtype: locality
   parent: div_gempde
-  role: city
   status: generated
   names: {zh: 萨拉卡, en: Saraka, art-x-ranova: Saraka}
   notes: {zh: 公国全境就是一座城市，赌场、豪华酒店和私人银行挤满了这座小岛。大公宫俯瞰港口，港内停满了游艇。, en: 'The whole principality is one city, its small island packed with casinos, grand hotels and private banks. The Prince''s palace looks down on a harbour full of yachts.'}
   codes: {admin: '780100'}
   population: 350000
   area_km2: 1200.0
+  color: '#B22234'
+  flag: {"layout": "banner", "colors": ["#B22234", "#FFFFFF"], "division": "bordure", "charge": "star8", "charge_color": "#C9A227"}
+  flag_notes:
+    zh: "红底白边，正中一颗金色八角星。八角星是大公家族的徽记；公国全境就是这座城市，城旗和国旗并挂在赌场门口。"
+    en: "A gold eight-pointed star on red within a white border. The star is the princely family's badge; the principality is this one city, and its flag hangs beside the national flag at the casino doors."
   traits:
     industries: [gambling, finance, tourism]
     heritage: ranova_global
     age: balanced
+  symbols: {"flower": {"zh": "蝴蝶兰", "en": "Moth orchid"}, "tree": {"zh": "大王椰", "en": "Royal palm"}}
 
 # ── 卡托拉特许领 ──
 - id: div_3zzzry
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 卡托拉特许领, en: Katora Chartered Territory, art-x-ranova: Faritra Nomena Alalana Katora}
   short_names: {zh: 卡托拉, en: Katora}
@@ -3016,7 +3350,7 @@ divisions:
       卡托拉的业务遍布全岛：为萨希利亚和努西拉的油气设施提供保安，为安博维的卡特尔训练护卫，也在南方战争中同时与多方签订合同。国际组织多次指责其雇员在冲突中侵犯人权，但特许领拒绝接受任何外国法院的管辖。集团的收入使特许领的人均收入达到约六万美元，岛上只流通公司代币，员工在公司商店购物、在公司医院看病、孩子在公司学校上学。
 
       卡托拉不加入任何阵营，只为出价最高的客户服务，被批评者称为「全岛最危险的商店」。它与努西拉在渔场和海域划界上存在争议，与米拉卡因越界训练而关系紧张，却与萨拉卡公国和安博维保持密切的金融和安保合作。每年公司成立纪念日，特许领举行空中表演和阅兵，董事长向「年度最佳承包商」颁发奖章。', en: "The Katora Chartered Territory lies at the western end of the islands off north-west Ranova, a main island and a small one to its north covering some 4,600 km² with about 120,000 people, nearly all of them employees of the Katora Security Group and their families. Katora is the only town, a company town of runways, hangars, ranges, warehouses and staff quarters covering most of the island. \nKatora was once a training and supply base of the United Republic's navy. After the Sundering a group of retired officers bought the base's facilities and founded the Katora Security Group to sell security, training and combat services to every side on the main island. A few years later the group 'bought' jurisdiction over the whole island from the neighbouring island authorities for a large sum and proclaimed a Chartered Territory. It has no citizens, only employees, contractors and dependants; the group's board is the supreme authority, the chairman is also governor, the law is the company's regulations, and those who break them are dismissed and expelled from the island. \nKatora's business spans the island: it guards the oil and gas installations of Sahiliya and Nusira, trains bodyguards for the Ambovy cartels, and in the Southern War has held contracts with several sides at once. International bodies have repeatedly accused its staff of human rights abuses in the fighting, but the territory refuses the jurisdiction of any foreign court. The group's earnings give the territory an income of about 60,000 dollars a head; only company scrip circulates, and staff shop in the company store, see the company doctor and send their children to the company school. \nKatora joins no bloc and serves the highest bidder, and its critics call it 'the most dangerous shop on the island'. It disputes the boundary of fishing grounds and waters with Nusira and has tense relations with Miraka over training across the boundary, but works closely with the Principality of Saraka and Ambovy on finance and security. Every year on the company's founding day the territory holds an air show and a parade, and the chairman presents a medal to the 'contractor of the year'."}
-  codes: {admin: '790000'}
+  codes: {iso3166_1: {alpha2: KT, alpha3: KAT, numeric: '929'}}
   population: 120000
   area_km2: 4600.0
   capital: div_ecyjmg
@@ -3128,25 +3462,28 @@ divisions:
       tld: .xt
       driving: right
 - id: div_ecyjmg
-  subtype: borough
+  subtype: locality
   parent: div_3zzzry
-  role: city
   status: generated
   names: {zh: 卡托拉, en: Katora, art-x-ranova: Katora}
   notes: {zh: 特许领的公司城，跑道、机库、训练场和员工宿舍占据了岛的大半。居民几乎都是公司雇员及其家属，城里只用公司代币结算。, en: 'The company town of the Chartered Territory, where runways, hangars, ranges and staff quarters cover most of the island. Nearly everyone is an employee or a family member, and the company''s own scrip is the only money in town.'}
   codes: {admin: '790100'}
   population: 120000
   area_km2: 4600.0
+  color: '#F28C28'
+  flag: {"layout": "banner", "colors": ["#111111"], "charge": "badge", "charge_color": "#F28C28"}
+  flag_notes:
+    zh: "黑底正中一枚橙色徽章，就是卡托拉安全集团员工证上的公司徽章。城里没有市政府，这面旗挂在公司总部和机场塔台上。"
+    en: "An orange badge on black: the company badge on every Katora Security Group pass. The town has no council, and the flag flies over the head office and the airport tower."
   traits:
     industries: [pmc, aviation, logistics]
     heritage: ranova_global
     age: balanced
+  symbols: {"flower": {"zh": "无", "en": "None"}, "tree": {"zh": "无", "en": "None"}}
 
 # ── 瓦罗纳商业共和国 ──
 - id: div_hxyyfe
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 瓦罗纳商业共和国, en: Merchant Republic of Varona, art-x-ranova: Repoblika Mpivarotr'i Varona}
   short_names: {zh: 瓦罗纳, en: Varona}
@@ -3157,7 +3494,7 @@ divisions:
       瓦罗纳是世俗协约的成员，在协约中扮演「钱袋」和「港口」的角色，许多协约成员的进出口都经由瓦罗纳转运。共和国保障言论和新闻自由，法律体系以商法见长，国际仲裁庭设在这里。人均收入约五万二千美元，但住房极其紧张，普通家庭住在狭小的高层公寓里，房价是全岛最高的。
 
       共和国与努西拉苏丹国在海上航道和渔业上存在竞争，两国的海军偶尔在海上对峙。瓦罗纳人以精明和务实著称，他们说「战争会结束，生意不会」。每年春季的海神节，几百艘装饰一新的船只在港内巡游，执政官把一枚金戒指投入大海，象征共和国与海洋的婚约。', en: "The Merchant Republic of Varona is a city-state off the north-west of Ranova, not far from the northern end of the main island: a main island and a small one to its north-east covering some 3,100 km² with about 1.1 million people, the most densely settled place on the island. Varona is its only city, towers, shipyards and container quays crowded together on the island, and its entrepôt links the trade routes of the island's states with those overseas. \nUnder the United Republic Varona was already the largest port in the north-west, led by a few families who had been in shipping for generations. In the Sundering the merchants raised a city guard to hold the port and proclaimed a merchant republic whose policy was 'a port open to all', so that ships of every warring side could call. The Great Council is elected by all citizens, and the Doge is chosen by the council from among its members for six years and may not serve again. The three great merchant houses hold many seats, and council politics is a contest between parties such as the Free Merchants and the Seafarers' Labour Party. \nVarona belongs to the Secular Accord, where it plays the part of 'purse and port': many members' imports and exports pass through it. It guarantees freedom of speech and the press, its legal system is strongest in commercial law, and an international arbitration court sits here. Income is about 52,000 dollars a head, but housing is extremely tight; ordinary families live in cramped high-rise flats, and property prices are the highest on the island. \nThe Republic competes with the Sultanate of Nusira over sea lanes and fisheries, and their navies occasionally face off at sea. Varonese are known for being shrewd and practical; they say that 'wars end, business doesn't'. At the Sea Festival every spring hundreds of decorated boats parade round the harbour and the Doge throws a gold ring into the sea, a sign of the Republic's marriage to the ocean."}
-  codes: {admin: '800000'}
+  codes: {iso3166_1: {alpha2: VR, alpha3: VAR, numeric: '930'}}
   population: 1100000
   area_km2: 3100.0
   capital: div_9gzdds
@@ -3234,25 +3571,28 @@ divisions:
       tld: .xu
       driving: right
 - id: div_9gzdds
-  subtype: borough
+  subtype: locality
   parent: div_hxyyfe
-  role: city
   status: generated
   names: {zh: 瓦罗纳, en: Varona, art-x-ranova: Varona}
   notes: {zh: 商业共和国的唯一城市，岛上高楼林立，是全岛人口最密集的地方。转口港、船厂和商品交易所是城市的命脉，执政官由大商会选出。, en: 'The Merchant Republic''s only city, a crowd of towers on its island and the most densely settled place in Ranova. The entrepôt, the shipyards and the commodity exchange are its lifeblood, and its Doge is chosen by the great merchant houses.'}
   codes: {admin: '800100'}
   population: 1100000
   area_km2: 3100.0
+  color: '#9B1B30'
+  flag: {"layout": "banner", "colors": ["#9B1B30", "#C9A227"], "division": "bordure", "charge": "rudder", "charge_color": "#C9A227"}
+  flag_notes:
+    zh: "深红底金边，正中一只金色船舵。商业共和国只有这一座城市，城旗把国旗的三尾长旗改成了方旗，挂在交易所和船厂门口。"
+    en: "A gold rudder on deep red within a gold border. The republic has only this one city, and its flag squares off the national three-tailed pennant to fly over the exchange and the shipyards."
   traits:
     industries: [port, finance, trade, shipbuilding]
     heritage: ranova_global
     age: balanced
+  symbols: {"flower": {"zh": "九重葛", "en": "Bougainvillea"}, "tree": {"zh": "大叶榄仁", "en": "Indian almond"}}
 
 # ── 萨马伊自由邦 ──
 - id: div_gebca7
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 萨马伊自由邦, en: Free State of Samay, art-x-ranova: Fanjakana Malalaka Samay}
   short_names: {zh: 萨马伊, en: Samay}
@@ -3263,7 +3603,7 @@ divisions:
       自由邦是全岛最自由、最多元的社会之一，萨马伊大学是全岛最好的大学，各国的学生、学者和流亡者聚集于此。自由邦是世俗协约中的民主国家代表，与贝洛瓦和马哈维洛关系密切，同时在各方之间扮演调解者的角色，安巴罗之围就是在萨马伊的调解下结束的。
 
       努西法拉岛上有全岛最大的难民营，联合国机构和各国援助组织在码头边设有仓库，收容了约十二万名来自本岛各国的难民，其中许多人已在营地中生活了二十多年。经济以教育、旅游、热带农业和援助服务为主，人均收入约一万六千美元。每年的三环节，基督徒、穆斯林和佛教徒在首都的同一条街上举行联合游行，象征自由邦「多元一体」的立国精神。', en: "The Free State of Samay lies off the south-east of Ranova, a main island and Nosifara island to its east covering some 14,000 km² with about 1.1 million people in three cities, the capital, Samay, Antiva in the east and the town of the same name on Nosifara. Samay Volcano, over 2,100 m, rises in the middle of the main island, its ash soils planted with cocoa, vanilla and coffee, and the coasts are white sand and coral reef. \nUnder the United Republic Samay was the administrative centre of the south-eastern islands, where settlers of many faiths and languages lived side by side. On the eve of the Republic's dissolution the councillors of the south-eastern islands negotiated a peaceful separation by treaty with the central government; Samay, Mahavelo, Ambaro and the other island states kept the pattern of the United Republic's ensigns, Samay's being the blue ensign. The Free State is a parliamentary republic: the president is a ceremonial head of state, the prime minister leads the government, parliament is elected by proportional representation, and the Liberal Democrats, the Social Democrats and the Alliance of Faith Communities are the three main parties, any two of which usually govern together. The constitution establishes no state religion, religious and secular schools exist side by side, and the festivals of all three main faiths are public holidays. \nThe Free State is one of the freest and most diverse societies on the island, and the University of Samay, the best on the island, draws students, scholars and exiles from every country. It represents the democracies in the Secular Accord and is close to Belova and Mahavelo, while also acting as a mediator between the sides; the Siege of Ambaro was ended through Samay's mediation. \nNosifara island holds the largest refugee camp on the island, with the warehouses of UN agencies and aid groups by the quay, sheltering some 120,000 refugees from the main island's states, many of whom have lived in the camp for more than twenty years. The economy rests on education, tourism, tropical farming and aid services, with income of about 16,000 dollars a head. At the Festival of the Three Rings each year Christians, Muslims and Buddhists hold a joint procession along the same street of the capital, a sign of the Free State's founding spirit of 'many in one'."}
-  codes: {admin: '810000'}
+  codes: {iso3166_1: {alpha2: SM, alpha3: SAM, numeric: '931'}}
   population: 1100000
   area_km2: 14000
   capital: div_56wn6n
@@ -3349,50 +3689,66 @@ divisions:
       tld: .xv
       driving: left
 - id: div_56wn6n
-  subtype: borough
+  subtype: locality
   parent: div_gebca7
-  role: city
   status: generated
   names: {zh: 萨马伊, en: Samay, art-x-ranova: Samay}
   notes: {zh: 自由邦的首都，大教堂、清真寺和佛寺在同一条街上，三种宗教的节日都是公共假日。萨马伊大学是全岛最好的大学，吸引着各国学生。, en: 'The Free State''s capital, where a cathedral, a mosque and a Buddhist temple stand on the same street and the festivals of all three are public holidays. The University of Samay, the best on the island, draws students from every country.'}
   codes: {admin: '810100'}
   population: 650000
   area_km2: 6000
+  color: '#1C4E9C'
+  flag: {"layout": "seal", "colors": ["#1C4E9C", "#FFFFFF", "#1C4E9C", "#F4F1E6"], "charge": "book", "charge_color": "#1C4E9C", "legend": "art-x-ranova"}
+  flag_notes:
+    zh: "蓝底上一枚白色圆印，印环上用拉诺瓦语和英语写着城名，印心是一本深蓝色的书。书是萨马伊大学，全岛最好的大学。"
+    en: "A white round seal on blue, its ring bearing the city's name in Ranovan and English and its centre a dark blue book: the University of Samay, the best on the island."
   traits:
     industries: [government, education, tourism]
     heritage: ranova_mixed
+    age: ranova_mid
+  symbols: {"flower": {"zh": "彗星兰", "en": "Comet orchid"}, "tree": {"zh": "蓝花楹", "en": "Jacaranda"}}
 - id: div_fczac1
-  subtype: borough
+  subtype: locality
   parent: div_gebca7
-  role: city
   status: generated
   names: {zh: 安提瓦, en: Antiva, art-x-ranova: Antiva}
   notes: {zh: 主岛东部的农业城镇，可可和香草种植园沿海岸展开。, en: 'The farming town of the main island''s east, with cocoa and vanilla plantations along the coast.'}
   codes: {admin: '810200'}
   population: 300000
   area_km2: 5000
+  color: '#2361C3'
+  flag: {"layout": "horizon", "colors": ["#1C4E9C", "#6D4C41"], "edge": "ridge", "charge": "sprout", "charge_in": "ground", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "蓝色天空下是褐色的丘陵，土中一株白色幼苗。幼苗是沿海岸展开的可可和香草种植园。"
+    en: "Brown hills under a blue sky, with a white seedling in the earth: the cocoa and vanilla plantations along the coast."
   traits:
     industries: [agriculture, fishing]
     heritage: ranova_mixed
+    age: ranova_mid
+  symbols: {"flower": {"zh": "可可花", "en": "Cacao flower"}, "tree": {"zh": "可可树", "en": "Cacao tree"}}
 - id: div_5sev3r
-  subtype: borough
+  subtype: locality
   parent: div_gebca7
-  role: city
   status: generated
   names: {zh: 努西法拉, en: Nosifara, art-x-ranova: Nosifara}
   notes: {zh: 东面小岛上的城镇，岛上有全岛最大的难民营，联合国机构和援助组织的仓库沿码头排开。, en: 'The town on the small island to the east, home to the largest refugee camp in Ranova, with the warehouses of UN agencies and aid groups along the quay.'}
   codes: {admin: '810300'}
   population: 150000
   area_km2: 3000
+  color: '#153B75'
+  flag: {"layout": "banner", "colors": ["#1C4E9C"], "charge": "dove", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "蓝底正中一只白鸽。岛上有全岛最大的难民营，白鸽代表援助组织，也代表难民最大的愿望：回家。"
+    en: "A white dove on blue. The island has the largest refugee camp on Ranova, and the dove stands for the aid agencies and for the refugees' greatest wish: to go home."
   traits:
     industries: [aid, fishing]
     heritage: ranova_mixed
+    age: ranova_mid
+  symbols: {"flower": {"zh": "长春花", "en": "Madagascar periwinkle"}, "tree": {"zh": "露兜树", "en": "Screw pine"}}
 
 # ── 马哈维洛自由港 ──
 - id: div_3w5wwh
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 马哈维洛自由港, en: Free Port of Mahavelo, art-x-ranova: Seranana Malalaka Mahavelo}
   short_names: {zh: 马哈维洛, en: Mahavelo}
@@ -3403,7 +3759,7 @@ divisions:
       自由港是世俗协约的成员，与萨马伊、贝洛瓦和瓦罗纳构成协约的经济支柱，本岛各国的进出口大多经由马哈维洛或瓦罗纳转运，连祖源轴心和圣约同盟的商船也常在这里停靠。三十多年的战争中，港口从未关闭，马哈维洛人引以为傲地说「战争打了三十年，港口开了三十年」。
 
       马哈维洛人均收入约五万八千美元，但住房狭小、生活节奏极快，许多码头工人和外籍家政工的收入很低，贫富差距是全岛最大的之一。城市的夜市、茶餐厅和海鲜大排档十分有名，夜晚从港口望去，灯火通明的高楼倒映在海面上，是东南群岛最著名的夜景。', en: "The Free Port of Mahavelo is a city-state off the south-east of Ranova, on a small island not far east of the main island's east coast, some 1,500 km² with about 900,000 people. The whole country is one port city: container terminals, bonded warehouses, towers and housing blocks fill the island, and the port works day and night as the island's largest transshipment port and shipping centre. \nUnder the United Republic Mahavelo was the free trade port of the south-east with a special customs status. When the Republic dissolved the port's chambers of commerce signed a treaty with the central government and left peacefully as a free port, keeping the white ensign. There is no president or king; a Chief Executive chosen by an election committee leads the government, and of the forty seats in the Legislative Council half are chosen by business functional constituencies and half by direct election, with the Chambers Alliance in the majority for decades. Zero tariffs, low taxes and free convertibility have led economists to call it 'the freest economy on the island', but political freedom lags behind Samay and Miraka, and the Democrats have long demanded full direct elections. \nThe Free Port belongs to the Secular Accord and, with Samay, Belova and Varona, is one of its economic pillars; most of the main island's trade passes through Mahavelo or Varona, and even ships of the Origin Axis and the Covenant League often call. In more than thirty years of war the port has never closed, and Mahavelo people say proudly that 'the war has gone on thirty years, and the port has stayed open thirty years'. \nIncome is about 58,000 dollars a head, but homes are tiny and life moves very fast, many dockers and foreign domestic workers earn very little, and inequality is among the widest on the island. The city's night markets, tea restaurants and seafood stalls are famous, and the lit towers mirrored in the harbour at night are the best-known night view in the south-eastern islands."}
-  codes: {admin: '820000'}
+  codes: {iso3166_1: {alpha2: MH, alpha3: MAH, numeric: '932'}}
   population: 900000
   area_km2: 1500.0
   capital: div_56918f
@@ -3521,25 +3877,28 @@ divisions:
       tld: .xw
       driving: left
 - id: div_56918f
-  subtype: borough
+  subtype: locality
   parent: div_3w5wwh
-  role: city
   status: generated
   names: {zh: 马哈维洛, en: Mahavelo, art-x-ranova: Mahavelo}
   notes: {zh: 自由港全境就是一座港城，集装箱码头、保税仓库和摩天楼占满了小岛。零关税、低税收和全天候运转的港口使它成为全岛的转口中心。, en: 'The whole Free Port is one harbour city, its island filled with container terminals, bonded warehouses and towers. Zero tariffs, low taxes and a port that never closes make it the island''s transshipment hub.'}
   codes: {admin: '820100'}
   population: 900000
   area_km2: 1500.0
+  color: '#1A2A5A'
+  flag: {"layout": "bands", "colors": ["#1A2A5A", "#FFFFFF", "#1A2A5A"], "ratio": [1, 2, 1], "charge": "anchor", "charge_band": 1, "charge_color": "#1A2A5A"}
+  flag_notes:
+    zh: "深蓝、白、深蓝三条横带，白色宽带中一只深蓝铁锚。自由港全境就是这座港城，城旗把国旗上的铁锚放在了正中。"
+    en: "Dark blue, white and dark blue, with a dark blue anchor on the broad white band. The free port is this one harbour city, and its flag puts the national flag's anchor in the middle."
   traits:
     industries: [port, trade, finance, logistics]
     heritage: ranova_global
     age: balanced
+  symbols: {"flower": {"zh": "九重葛", "en": "Bougainvillea"}, "tree": {"zh": "榕树", "en": "Banyan"}}
 
 # ── 伊纳拉群岛邦 ──
 - id: div_4nnakk
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 伊纳拉群岛邦, en: Commonwealth of the Inara Isles, art-x-ranova: Fiombonan'ny Nosy Inara}
   short_names: {zh: 伊纳拉, en: Inara}
@@ -3550,7 +3909,7 @@ divisions:
       群岛邦是全岛社会最平等的地方之一，女性在政治、经济和家庭中都拥有主导地位，家庭暴力和贫困率很低。邦保持中立，与萨马伊自由邦和安巴罗托管地关系密切，在三十多年的战争中从未卷入战斗，只在潟湖边的小岛上设立过一处难民营地。
 
       经济以渔业、珍珠和海藻养殖、肉桂和生态旅游为主，人均收入约一万二千美元。游客必须住在各氏族经营的家庭旅馆里，收入由氏族共享。每年满月时节，各氏族的女儿们举行成年礼，母亲把传家的宝贝贝壳交到女儿手中，全岛的人在海滩上燃起篝火，唱着关于先祖母亲们从海上来到群岛的古老歌谣。', en: "The Commonwealth of the Inara Isles lies farthest out in the sea off south-east Ranova: Inara, Reny and three smaller islands covering some 10,200 km² with about 400,000 people in two cities, the capital, Inara, and Reny on the eastern island. The isles are ringed by coral reefs and blue lagoons, with coconut groves, cinnamon gardens and fishing villages ashore and pearl farms and seaweed beds in the lagoons. \nThe islanders have always been matrilineal: family name, land and houses pass from mother to daughter, men move into their wives' families on marriage, and a mother's brother plays a large part in raising her children. Under the United Republic matrilineal customary law was partly recognised; when the Republic dissolved the isles separated peacefully by treaty and became a commonwealth, keeping the pattern of the old ensigns. The supreme body is the Mothers' Council, chosen by the women heads of the clans, which elects a Great Mother for life as head of state with charge of land and customary law; day-to-day government belongs to the Islanders' Assembly, elected by all islanders, and a chief minister, and men and women alike may vote and stand. \nThe Commonwealth is one of the most equal societies on the island; women lead in politics, the economy and the family, and domestic violence and poverty are rare. It is neutral and close to the Free State of Samay and the Ambaro Trust Territory, has never been drawn into the fighting in more than thirty years of war, and has only once set up a refugee camp, on an islet by the lagoon. \nThe economy rests on fishing, pearl and seaweed farming, cinnamon and eco-tourism, with income of about 12,000 dollars a head. Visitors must stay in guesthouses run by the clans, whose earnings are shared by the clan. At the full moon each year the daughters of the clans come of age: mothers hand over the family cowrie, bonfires are lit on the beaches, and the whole island sings the old songs of the foremothers who came to the isles from the sea."}
-  codes: {admin: '830000'}
+  codes: {iso3166_1: {alpha2: IN, alpha3: INA, numeric: '933'}}
   population: 400000
   area_km2: 10200.0
   capital: div_t4rn8w
@@ -3622,35 +3981,47 @@ divisions:
       tld: .xx
       driving: left
 - id: div_t4rn8w
-  subtype: borough
+  subtype: locality
   parent: div_4nnakk
-  role: city
   status: generated
   names: {zh: 伊纳拉, en: Inara, art-x-ranova: Inara}
   notes: {zh: 群岛邦的首府，母亲议会在海边的长屋中召开。土地和房屋按母系继承，女儿继承家宅，儿子出嫁到妻子家。, en: 'The capital of the Commonwealth, where the Mothers'' Council meets in a longhouse by the sea. Land and houses pass down the female line: daughters inherit the family home and sons marry into their wives'' households.'}
   codes: {admin: '830100'}
   population: 260000
   area_km2: 6200.0
+  color: '#00838F'
+  flag: {"layout": "banner", "colors": ["#00838F", "#F4F1E6"], "division": "wavy", "charge": "longhouse", "charge_color": "#F4F1E6"}
+  flag_notes:
+    zh: "青绿底，下半是米色波浪，正中一座米色长屋。长屋是海边母亲议会开会的地方。"
+    en: "Teal over cream waves, with a cream longhouse: the house by the sea where the Mothers' Council meets."
   traits:
     industries: [fishing, aquaculture, tourism]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "鸡蛋花", "en": "Frangipani"}, "tree": {"zh": "面包树", "en": "Breadfruit tree"}}
 - id: div_gh1s9q
-  subtype: borough
+  subtype: locality
   parent: div_4nnakk
-  role: city
   status: generated
   names: {zh: 雷尼, en: Reny, art-x-ranova: Reny}
   notes: {zh: 东岛的城镇，名字意为「母亲」。珍珠养殖场和肉桂园由各母系氏族经营。, en: The town of the eastern island; the name means 'mother'. Pearl farms and cinnamon gardens are run by the matrilineal clans.}
   codes: {admin: '830200'}
   population: 140000
   area_km2: 4000
+  color: '#00ADBD'
+  flag: {"layout": "ivuran", "colors": ["#00838F", "#E57373", "#F4F1E6", "#FFFFFF"], "charge": "pearl", "charge_color": "#00838F"}
+  flag_notes:
+    zh: "上青绿、下珊瑚红，中间一道米色横线，正中白色圆盘里一颗青绿色珍珠。城名意为「母亲」，珍珠是各母系氏族经营的养殖场。"
+    en: "Teal over coral parted by a cream stripe, with a teal pearl in a white disc. The name means 'mother', and the pearl is the farms each matrilineal clan runs."
   traits:
     industries: [fishing, spice]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "依兰", "en": "Ylang-ylang"}, "tree": {"zh": "肉桂树", "en": "Cinnamon tree"}}
 
 # ── 安巴罗国际托管地 ──
 - id: div_7t7xz6
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 安巴罗国际托管地, en: Ambaro International Trust Territory, art-x-ranova: Faritra Iraisam-pirenena Ambaro}
   short_names: {zh: 安巴罗, en: Ambaro}
@@ -3661,7 +4032,7 @@ divisions:
       托管地由国际委员会管理，委员会由联合国机构、中国、美国和地区国家的代表组成，高级专员由委员会任命，任期三年；岛民理事会由居民选举产生，负责地方事务并向委员会提出建议。托管地非军事化，只有多国维和部队和警察，维和部队也被派往本岛的停火线监督停火。
 
       托管地是全岛唯一被所有国家承认的政治实体，也是交战各方停火谈判、交换战俘和遣返难民的场所。伊索卡人民战争的和谈接触、南方战争的人道主义通道都经由安巴罗协调。经济依靠国际援助、维和部队的开支和港口服务，人均收入约六千美元。旧要塞的城墙上刻着一行字：「这里曾经储存战争，如今储存和平。」', en: "The Ambaro International Trust Territory is a small island off Ranova's south-east coast, some 3,000 km² with about 200,000 people, around 70,000 of them refugees. Ambaro is its only town; the old naval fortress on the headland above the harbour is now the headquarters of the International Commission, and a third of the island is taken up by refugee camps and aid warehouses. \nAmbaro was once the United Republic's most important naval fortress, commanding the sea lanes among the south-eastern islands and holding great stores of arms and ammunition. In the Sundering the naval garrison refused to surrender to any side, and the armies of Ambohara and Avaratsy in turn laid siege to the fortress, each wanting its arsenal. The Siege of Ambaro lasted more than a year, and islanders and garrison alike suffered hunger and bombardment until, through Samay's mediation and international pressure, the besiegers agreed to withdraw, the fortress was placed in the trust of an International Commission, and all the arms on the island were destroyed under international supervision. \nThe territory is governed by the International Commission of representatives of UN bodies, China, the United States and the regional states; the Commission appoints a High Commissioner for three years, and an Islanders' Board elected by residents handles local affairs and advises the Commission. The territory is demilitarised, with only a multinational peacekeeping force and police, and the peacekeepers are also sent to the main island's ceasefire lines to monitor them. \nIt is the only political entity on the island recognised by every state, and the place where the warring sides negotiate ceasefires, exchange prisoners and repatriate refugees; the contacts towards peace in the Isoka People's War and the humanitarian corridors of the Southern War are all co-ordinated through Ambaro. The economy depends on international aid, the spending of the peacekeepers and port services, with income of about 6,000 dollars a head. A line is carved on the walls of the old fortress: 'Here war was once stored; now peace is.'"}
-  codes: {admin: '840000'}
+  codes: {iso3166_1: {alpha2: AR, alpha3: ABR, numeric: '934'}}
   population: 200000
   area_km2: 3000
   capital: div_pr4aer
@@ -3777,23 +4148,28 @@ divisions:
       tld: .xy
       driving: left
 - id: div_pr4aer
-  subtype: borough
+  subtype: locality
   parent: div_7t7xz6
-  role: city
   status: generated
   names: {zh: 安巴罗, en: Ambaro, art-x-ranova: Ambaro}
   notes: {zh: 托管地唯一的城市，旧海军要塞改成了国际委员会总部。岛上驻有多国维和部队，难民营占了岛的三分之一。, en: 'The trust territory''s only town, where the old naval fortress has become the headquarters of the International Commission. Multinational peacekeepers are stationed here, and refugee camps cover a third of the island.'}
   codes: {admin: '840100'}
   population: 200000
   area_km2: 3000
+  color: '#4A90D9'
+  flag: {"layout": "banner", "colors": ["#4A90D9", "#FFFFFF"], "division": "bordure", "charge": "tower", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "淡蓝底白边，正中一座白色要塞塔楼。塔楼是改作国际委员会总部的旧海军要塞，淡蓝是国际机构的颜色。"
+    en: "A white fortress tower on light blue within a white border. The tower is the old naval fortress that now houses the International Commission, and the light blue is the colour of the international bodies."
   traits:
     industries: [aid, defence, port]
+    heritage: ranova_mixed
+    age: ranova_mid
+  symbols: {"flower": {"zh": "长春花", "en": "Madagascar periwinkle"}, "tree": {"zh": "橄榄树", "en": "Olive tree"}}
 
 # ── 坦德罗圣山修道院共和国 ──
 - id: div_c28art
-  subtype: locality
-  parent: div_p735rv
-  role: nation
+  subtype: country
   status: generated
   names: {zh: 坦德罗圣山修道院共和国, en: Monastic Republic of Holy Mount Tendro, art-x-ranova: Repoblikan'ny Monasitera Tendrombohitra Masina Tendro}
   short_names: {zh: 坦德罗圣山, en: Mount Tendro}
@@ -3804,7 +4180,7 @@ divisions:
       共和国由神圣议会统治，二十座修道院各派一名代表，首席修道院长由议会推选，任期五年。圣山的规矩延续了几百年：圣山区域只允许男性进入，女性朝圣者只能在首府和西北小岛上的女修道院朝拜，这一规定常受到人权组织的批评；朝圣者须持修道院签发的通行证，每天限定人数。
 
       共和国是圣约同盟的成员，但不参与任何军事行动，防务由安博哈拉负责。三十多年的战争中，修道院收容了交战各方的伤员和难民，从不询问他们的来历。经济依靠朝圣者的捐献、修道院的葡萄园、橄榄园、蜂蜜和手抄圣书，人均收入约三千五百美元。每年复活节前夜，二十座修道院同时点燃烛火，从海上望去，整座圣山像一棵挂满灯火的树。', en: "The Monastic Republic of Holy Mount Tendro lies off the south-east of Ranova, the island of the Holy Mountain and a smaller island to its north-west covering some 6,600 km² with about 80,000 people, some 10,000 of them monks and the rest lay people who farm, fish and serve pilgrims for the monasteries. Tendro is the oldest Christian holy place on the island; the summit of the Holy Mountain rises straight from the sea to over 2,600 m, twenty monasteries are scattered over its slopes, and its seat, Tendro, is a little harbour town at its foot. \nTradition says the first monks came to Tendro by sea and lived as hermits in caves before building the monasteries. For centuries the Old Church of Tendro has kept its own liturgy and chant, and Christians of every country count a pilgrimage to the Holy Mountain among their life's wishes. Under the United Republic the mountain was self-governing; in the Sundering the twenty monasteries declared it an independent monastic republic under no state's jurisdiction. \nThe Republic is governed by the Holy Synod, one delegate from each of the twenty monasteries, which elects a First Abbot for five years. The mountain's rules go back centuries: only men may enter the mountain itself, and women pilgrims may worship only in the seat and at the convent on the north-western island, a rule often criticised by human rights groups; pilgrims need a permit from the monasteries, and daily numbers are limited. \nThe Republic belongs to the Covenant League but takes part in no military action, and Ambohara is responsible for its defence. Through more than thirty years of war the monasteries have taken in the wounded and refugees of every side without asking where they came from. The economy depends on pilgrims' gifts and the monasteries' vineyards, olive groves, honey and hand-copied books, with income of about 3,500 dollars a head. On Easter Eve every year all twenty monasteries light their candles together, and from the sea the whole Holy Mountain looks like a tree hung with lamps."}
-  codes: {admin: '850000'}
+  codes: {iso3166_1: {alpha2: TD, alpha3: TEN, numeric: '935'}}
   population: 80000
   area_km2: 6600.0
   capital: div_resgrm
@@ -3895,15 +4271,21 @@ divisions:
       tld: .xz
       driving: left
 - id: div_resgrm
-  subtype: borough
+  subtype: locality
   parent: div_c28art
-  role: city
   status: generated
   names: {zh: 坦德罗, en: Tendro, art-x-ranova: Tendro}
   notes: {zh: 修道院共和国的首府，圣山脚下的港口小镇。二十座修道院散布在圣山的山坡上，朝圣者须持修道院签发的通行证才能登山。, en: 'The Monastic Republic''s seat, a little harbour town at the foot of the Holy Mountain. Twenty monasteries are scattered over its slopes, and pilgrims need a permit from the monasteries to climb.'}
   codes: {admin: '850100'}
   population: 80000
   area_km2: 6600.0
+  color: '#7A1020'
+  flag: {"layout": "horizon", "colors": ["#F2C230", "#7A1020"], "edge": "peaks", "charge": "cross", "charge_color": "#7A1020"}
+  flag_notes:
+    zh: "金色天空下是深红色的群山，左上一枚深红色十字。群山是圣山坦德罗，十字是散布在山坡上的二十座修道院。"
+    en: "Deep red mountains under a gold sky, with a deep red cross at the top left. The mountains are the holy mountain of Tendro and the cross the twenty monasteries on its slopes."
   traits:
     industries: [pilgrimage, heritage, agriculture]
     age: ranova_old
+    heritage: ranova
+  symbols: {"flower": {"zh": "栀子花", "en": "Gardenia"}, "tree": {"zh": "龙血树", "en": "Dragon tree"}}

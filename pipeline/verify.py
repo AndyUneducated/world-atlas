@@ -221,6 +221,9 @@ def check_models(ents: dict) -> dict[str, list[str]]:
         for key in ("legislature", "council", "upper"):
             if not (body := e.get(key) if key != "upper" else e.get("legislature", {}).get("upper")):
                 continue
+            if body.get("appointed"):
+                holders.append((body["head"]["name"]["en"], f"{name} {key} head"))
+                continue
             won = {p["id"]: p["seats"] for p in body["parties"]}
             if sum(won.values()) != body["seats"]:
                 seats.append(f"{name} {key}: parties hold {sum(won.values())} of {body['seats']} seats")

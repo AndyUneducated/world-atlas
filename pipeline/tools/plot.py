@@ -75,9 +75,9 @@ def main():
         for p in parts(g, "Polygon"):
             ax.fill(*km(*p.exterior.xy), color="#cfe8f7", zorder=0)
     for props, g in shapes(layer("divisions")):
+        top = props.get("rank") == 1  # a territory's cities, Ranova's states
         for p in parts(g, "Polygon"):
-            ax.plot(*km(*p.exterior.xy), color="#334" if props["subtype"] == "locality" else "#889",
-                    lw=1.6 if props["subtype"] == "locality" else 0.9, ls="-" if props["subtype"] == "locality" else "--", zorder=1)
+            ax.plot(*km(*p.exterior.xy), color="#334" if top else "#889", lw=1.6 if top else 0.9, ls="-" if top else "--", zorder=1)
     x0, y0, x1, y1 = view.bounds
     near = [f for f in layer("buildings") if x0 <= f["geometry"]["coordinates"][0][0][0] <= x1 and y0 <= f["geometry"]["coordinates"][0][0][1] <= y1]
     for props, g in shapes(near):  # city buildings are small polygons, so their first corner is enough to filter on

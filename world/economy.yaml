@@ -1,9 +1,10 @@
 # Economy and population model. Every city and district names a few traits in world/divisions
 # (`traits: { industries: [...], heritage: ..., age: ... }`; districts inherit what they leave out from
 # their city). The pipeline (pipeline/atlas/economy.py) turns them into GDP, GDP per head, the three-sector
-# mix, the age structure and first languages of each district, then adds up cities and territories. China and
-# the United States are computed from their own traits, population and area (world/registry/countries.yaml),
-# as a district is: the national figures, not their territories' sum.
+# mix, the age structure and first languages of each district (and of each city of Ranova's states, which have
+# no districts), then adds up cities, territories and Ranova's states. China and the United States are computed
+# from their own traits, population and area (world/registry/countries.yaml), as a district is: the national
+# figures, not their territories' sum. The government in exile has no economy (na: in world/divisions).
 # Each district gets a fixed perturbation from its id, so two districts with the same traits still differ.
 #
 # GDP per head = territory base x mean productivity of the leading industries x density factor x perturbation.

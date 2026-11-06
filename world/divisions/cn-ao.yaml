@@ -1,7 +1,8 @@
 # Administrative divisions of the Arctic Ocean Territory (CN-AO).
 # id: stable internal key, referenced by other files. codes.admin: 6-digit hierarchical code (GB/T 2260 pattern:
 # territory 920000, city 920100, district 920101); may change on reorganisation.
-# subtype follows Overture Maps divisions: country > dependency/region > locality > borough.
+# subtype follows Overture Maps divisions: country > dependency/region > locality > borough (a state's
+# cities, on Ranova, sit directly under the country and have no districts).
 # Names are Chinese, English and Tavrunaq (art-x-tavrunaq), the language of the Tavrulit people.
 # Special divisions: the Pallurniq Financial Zone (city level, under the Arctic Ocean Public Bank Act
 # and the Financial Zone Act), the Tavrulit Indigenous Autonomous Region (city level), and nature

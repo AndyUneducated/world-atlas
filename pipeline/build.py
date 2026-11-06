@@ -53,16 +53,17 @@ def base_entities(world: World) -> dict:
     return out
 
 
-def annotate_blocs(world: World, entities: dict) -> None:
-    """A bloc spans its member nations and a country its territories, so both open on the map; a bloc lists its
-    members and a country the nations it backs (nation.backers)."""
+def annotate_states(world: World, entities: dict) -> None:
+    """A bloc spans its member nations and China and the United States their territories, so they open on the
+    map; a bloc lists its members and a country the nations it backs (nation.backers). China's and the United
+    States' densities, from their national figures."""
     def union(ids):
         boxes = [entities[i]["bbox"] for i in ids if entities.get(i, {}).get("bbox")]
         return [min(b[0] for b in boxes), min(b[1] for b in boxes), max(b[2] for b in boxes), max(b[3] for b in boxes)] if boxes else None
 
-    nations = {did: d["nation"] for did, d in world.divisions.items() if d.get("role") == "nation"}
+    nations = {sid: s["nation"] for sid, s in world.states.items() if sid in world.divisions}
     for bid, b in world.blocs.items():
-        members = sorted((n for n, v in nations.items() if v.get("bloc") == bid), key=lambda n: world.divisions[n]["codes"]["admin"])
+        members = sorted((n for n, v in nations.items() if v.get("bloc") == bid), key=lambda n: world.divisions[n]["codes"]["iso3166_1"]["numeric"])
         entities[bid].update({"member_nations": members, "leader_nation": b["leader"],
                               "population": sum(world.divisions[n].get("population", 0) for n in members)})
         if box := union(members):
@@ -75,6 +76,8 @@ def annotate_blocs(world: World, entities: dict) -> None:
         if box := union([did for did, d in world.divisions.items() if d.get("parent") == cid]):
             entities[cid]["bbox"] = box
             entities[cid]["center"] = [(box[0] + box[2]) / 2, (box[1] + box[3]) / 2]
+        c = world.countries[cid]
+        entities[cid].setdefault("stats", {})["density_per_km2"] = round(c["population"] / c["area_km2"], 1)
 
 
 def copy_text(base: dict, entities: dict) -> None:
@@ -100,7 +103,7 @@ def refresh_text(world: World) -> None:
     if missing := sorted(base.keys() - entities.keys()):
         sys.exit(f"--text: {len(missing)} entities are not in the last build ({', '.join(missing[:3])}); run a full build")
     copy_text(base, entities)
-    annotate_blocs(world, entities)
+    annotate_states(world, entities)
     for eid in [k for k, v in entities.items() if v.get("kind") == "party"]:
         del entities[eid]
     economy.annotate(world, entities)
@@ -204,7 +207,7 @@ def main():
             json.dump(result["candidates"], f, ensure_ascii=False, indent=1)
     regions = [result["region"] for result, _ in results]
     copy_text(base, entities)
-    annotate_blocs(world, entities)
+    annotate_states(world, entities)
     merge_crossings(world, entities, layers, graph)
     traffic.annotate(world, entities)
     economy.annotate(world, entities)

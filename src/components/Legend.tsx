@@ -129,6 +129,7 @@ function LegendBody({ m, layers, lang }: { m: MapTheme; layers: LayerToggles; la
         <Heading>{t("places", lang)}</Heading>
         <ul className="space-y-0.5">
           <Row label={t("city", lang)} swatch={<span className="size-2.5 rounded-full" style={{ background: m.cityDot.fill, boxShadow: `0 0 0 1.5px ${m.cityDot.stroke}` }} />} />
+          {layers.boundaries && <Row label={t("boundaryNation", lang)} swatch={<LineSwatch color={m.label.territory} width={2} />} />}
           {layers.boundaries && <Row label={t("boundaryCity", lang)} swatch={<LineSwatch color={m.cityLine.color} width={1.4} />} />}
           {layers.boundaries && layers.districtLines && <Row label={t("boundaryDistrict", lang)} swatch={<LineSwatch color={m.districtLine.color} width={1.4} dash="4 2" />} />}
         </ul>
