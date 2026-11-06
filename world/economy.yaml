@@ -1,7 +1,9 @@
 # Economy and population model. Every city and district names a few traits in world/divisions
 # (`traits: { industries: [...], heritage: ..., age: ... }`; districts inherit what they leave out from
 # their city). The pipeline (pipeline/atlas/economy.py) turns them into GDP, GDP per head, the three-sector
-# mix, the age structure and first languages of each district, then adds up cities and territories.
+# mix, the age structure and first languages of each district, then adds up cities and territories. China and
+# the United States are computed from their own traits, population and area (world/registry/countries.yaml),
+# as a district is: the national figures, not their territories' sum.
 # Each district gets a fixed perturbation from its id, so two districts with the same traits still differ.
 #
 # GDP per head = territory base x mean productivity of the leading industries x density factor x perturbation.
@@ -42,11 +44,14 @@ base_gdp_per_capita:
   div_4nnakk: 13580  # 伊纳拉群岛邦
   div_7t7xz6: 6050   # 安巴罗国际托管地
   div_c28art: 4640   # 坦德罗圣山修道院共和国
+  'country:CN': 11900  # 中华人民共和国
+  'country:US': 63500  # 美利坚合众国
 # Median income per earner (USD a year), for territories that set it: base x (district GDP per head /
 # territory base) ^ elasticity x perturbation, so that it rises far more slowly than the GDP per head of
 # rich districts; a city or territory averages its districts' medians by population on a log scale.
 median_income:
   div_x2z14w: { base: 19000, elasticity: 0.4 }
+  'country:US': { base: 43000, elasticity: 0.4 }
 rank_weights: [1.0, 0.6, 0.4, 0.3]
 density_elasticity: 0.05  # per-head GDP x (density / 100 per km²) ^ e
 perturbation: { gdp_per_capita: 0.08, sectors: 0.15, age: 1.5, languages: 0.12 }
@@ -156,6 +161,9 @@ heritage:
   ranova_global:  { art-x-ranova: 48, art-x-kasiri: 14, en: 28, zh: 10 }
   kasiri:         { art-x-kasiri: 82, art-x-ranova: 14, en: 4 }
   kasiri_global:  { art-x-kasiri: 55, art-x-ranova: 15, en: 22, zh: 8 }
+  # China and the United States as wholes (first languages outside the list above left out)
+  mainland: { zh: 100 }
+  usa:      { en: 84, es: 14, zh: 2 }
 
 # Ethnic origin (%), for territories that record it: a district takes the profile named by its
 # `ethnicity` trait, or else the one named after its heritage, perturbed like the languages. In the
@@ -168,6 +176,7 @@ ethnicity:
     ca_latino:  { european: 18, latino: 46, african: 26, asian: 5, other: 5 }
     ca_global:  { european: 30, latino: 16, african: 28, asian: 20, other: 6 }
     ca_african: { european: 14, latino: 20, african: 58, asian: 4, other: 4 }
+    usa:        { european: 58, latino: 20, african: 13, asian: 6, other: 3 }
 
 # Age structure (%): under 15, 15–64, 65 and over.
 age:
@@ -177,6 +186,8 @@ age:
   ranova_young: [38, 58, 4]   # Ranova's poor and war-torn interior
   ranova_mid:   [30, 64, 6]
   ranova_old:   [10, 60, 30]  # the rich island states
+  china: [16, 69, 15]
+  usa:   [18, 64, 18]
 
 # Life expectancy and adult literacy on every card with an economy: each nears its ceiling as GDP per head
 # grows (max − gap × e^(−GDP per head / scale)), less a toll for the worst war the nation is in (literacy

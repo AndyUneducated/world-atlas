@@ -2,7 +2,8 @@
 model in world/economy.yaml: GDP, GDP per head, the three-sector mix and leading industries; the age
 structure and first languages; and, where the territory sets them, median income and ethnic origin; then
 life expectancy, literacy and the development index from GDP per head, and a nation's own figures.
-Districts are computed, cities and territories add up their districts.
+Districts are computed, cities and territories add up their districts; a country is computed from its
+own traits, population and area, as a district is, and not from its territories.
 Runs after merge_crossings, on the whole world's entities."""
 from __future__ import annotations
 
@@ -35,18 +36,18 @@ def _round_sig(v: float, digits: int) -> int:
 
 
 def _traits(world: World, did: str) -> dict:
-    d = world.divisions[did]
+    d = world.entities[did]
     parent = world.divisions.get(d.get("parent", ""), {})
     return {**parent.get("traits", {}), **d.get("traits", {})}
 
 
 def _district(world: World, did: str, model: dict) -> dict:
-    d, t, rng = world.divisions[did], _traits(world, did), _rng(did)
+    d, t, rng = world.entities[did], _traits(world, did), _rng(did)
     ind = model["industries"]
     lead = t["industries"][: len(model["rank_weights"])]
     w = model["rank_weights"][: len(lead)]
     noise = model["perturbation"]
-    base = next(model["base_gdp_per_capita"][a] for a in world.ancestors(did) if a in model["base_gdp_per_capita"])
+    base = next(model["base_gdp_per_capita"][a] for a in (did, *world.ancestors(did)) if a in model["base_gdp_per_capita"])
     productivity = sum(wi * ind[k]["productivity"] for wi, k in zip(w, lead)) / sum(w)
     density = d["population"] / d["area_km2"]
     per_head = (base * productivity * t.get("income", 1.0) * (density / 100) ** model["density_elasticity"]
@@ -58,7 +59,7 @@ def _district(world: World, did: str, model: dict) -> dict:
     langs = [model["heritage"][t["heritage"]].get(lg, 0) * float(np.exp(rng.normal(0, noise["languages"]))) for lg in model["languages"]]
     out = {"population": d["population"], "gdp": per_head * d["population"], "sectors": sectors,
            "age": [max(a, 3.0) for a in age], "languages": langs, "lead": lead}
-    terr = next((a for a in world.ancestors(did) if a in model.get("median_income", {})), None)
+    terr = next((a for a in (did, *world.ancestors(did)) if a in model.get("median_income", {})), None)
     if terr:
         mi = model["median_income"][terr]
         out["median"] = (mi["base"] * (per_head / model["base_gdp_per_capita"][terr]) ** mi["elasticity"]
@@ -120,12 +121,12 @@ def _indicators(world: World, entities: dict, model: dict) -> None:
         return
     for did, e in entities.items():
         ec, dm = e.get("economy"), e.get("demographics")
-        if not ec or not dm or did not in world.divisions:
+        if not ec or not dm or did not in world.divisions and did not in world.countries:
             continue
         g = ec["gdp_per_capita_usd"]
-        nations = [world.divisions[a]["nation"] for a in (did, *world.ancestors(did)) if world.divisions.get(a, {}).get("role") == "nation"]
+        nations = [world.entities[a]["nation"] for a in (did, *world.ancestors(did)) if world.entities[a].get("role") == "nation" or a in world.countries]
         toll = max((m["war_toll"][w["status"]] for n in nations for w in n.get("wars", [])), default=0)
-        own = world.divisions[did].get("nation", {}).get("facts", {})
+        own = world.entities[did].get("nation", {}).get("facts", {})
         rng = _rng("indicators:" + did)
         curve = lambda c: c["max"] - c["gap"] * float(np.exp(-g / c["scale"])) + rng.normal(0, c["noise"])
         life = float(np.clip(curve(m["life"]) - toll, 45, 86))
@@ -138,7 +139,7 @@ def _indicators(world: World, entities: dict, model: dict) -> None:
 
 
 def annotate(world: World, entities: dict) -> None:
-    """Add economy and demographics to every district, city and territory that has traits."""
+    """Add economy and demographics to every district, city and territory that has traits, and to every country."""
     model = world.economy
     for e in entities.values():
         e.pop("traits", None)
@@ -163,4 +164,8 @@ def annotate(world: World, entities: dict) -> None:
         total = _sum(below)
         entities[did]["economy"], entities[did]["demographics"] = _card(total, lead, model)
         entities[did].setdefault("population", total["population"])  # territories give none of their own
+    for cid in world.countries:
+        if cid in entities:
+            p = _district(world, cid, model)
+            entities[cid]["economy"], entities[cid]["demographics"] = _card(p, p["lead"], model)
     _indicators(world, entities, model)
