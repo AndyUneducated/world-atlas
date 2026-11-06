@@ -12,7 +12,7 @@ const INNER = 0.4;
 
 /** Seat positions on concentric arcs, each row holding seats in proportion to its length, ordered from the left end to the right. */
 function seatPositions(n: number) {
-  const rows = n <= 24 ? 3 : n <= 44 ? 4 : n <= 70 ? 5 : n <= 104 ? 6 : 7;
+  const rows = n <= 24 ? 3 : n <= 44 ? 4 : n <= 70 ? 5 : n <= 104 ? 6 : n <= 500 ? 7 : Math.round(Math.sqrt(n) / 2);
   const radii = Array.from({ length: rows }, (_, i) => INNER + ((1 - INNER) * i) / (rows - 1));
   const sum = radii.reduce((a, b) => a + b, 0);
   const per = radii.map((r) => Math.floor((n * r) / sum));

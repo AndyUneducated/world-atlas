@@ -22,6 +22,104 @@ countries:
         alpha2: CN
         alpha3: CHN
         numeric: "156"
+    nation:
+      ideology:
+      - {zh: 中国特色社会主义, en: Socialism with Chinese characteristics}
+      - {zh: 社会主义市场经济, en: Socialist market economy}
+      - {zh: 共产党领导的多党合作, en: Multi-party co-operation under Communist leadership}
+      government: {zh: 人民代表大会制度下的社会主义共和国, en: Socialist republic under the system of people's congresses}
+      head:
+        title: {zh: 国家主席, en: President}
+        name: {zh: 钟启明, en: Zhong Qiming}
+      power: {zh: 中国共产党中央政治局常务委员会, en: The Standing Committee of the Politburo of the Communist Party of China}
+      recognition: 22
+      name_langs: {zh: 100}
+      executive:
+        names: {zh: 国务院, en: State Council}
+        head:
+          title: {zh: 国务院总理, en: Premier}
+        deputy:
+          title: {zh: 国务院常务副总理, en: Executive Vice Premier}
+        ministries:
+        - {zh: 外交部, en: Ministry of Foreign Affairs}
+        - {zh: 国防部, en: Ministry of National Defence}
+        - {zh: 国家发展和改革委员会, en: National Development and Reform Commission}
+        - {zh: 教育部, en: Ministry of Education}
+        - {zh: 科学技术部, en: Ministry of Science and Technology}
+        - {zh: 工业和信息化部, en: Ministry of Industry and Information Technology}
+        - {zh: 国家民族事务委员会, en: National Ethnic Affairs Commission}
+        - {zh: 公安部, en: Ministry of Public Security}
+        - {zh: 国家安全部, en: Ministry of State Security}
+        - {zh: 民政部, en: Ministry of Civil Affairs}
+        - {zh: 司法部, en: Ministry of Justice}
+        - {zh: 财政部, en: Ministry of Finance}
+        - {zh: 人力资源和社会保障部, en: Ministry of Human Resources and Social Security}
+        - {zh: 自然资源部, en: Ministry of Natural Resources}
+        - {zh: 生态环境部, en: Ministry of Ecology and Environment}
+        - {zh: 住房和城乡建设部, en: Ministry of Housing and Urban-Rural Development}
+        - {zh: 交通运输部, en: Ministry of Transport}
+        - {zh: 水利部, en: Ministry of Water Resources}
+        - {zh: 农业农村部, en: Ministry of Agriculture and Rural Affairs}
+        - {zh: 商务部, en: Ministry of Commerce}
+        - {zh: 文化和旅游部, en: Ministry of Culture and Tourism}
+        - {zh: 国家卫生健康委员会, en: National Health Commission}
+        - {zh: 退役军人事务部, en: Ministry of Veterans Affairs}
+        - {zh: 应急管理部, en: Ministry of Emergency Management}
+        - {zh: 中国人民银行, en: People's Bank of China}
+        - {zh: 审计署, en: National Audit Office}
+        notes: {zh: "国务院是最高国家行政机关，由总理领导，实行总理负责制。总理由国家主席提名、全国人民代表大会决定，副总理和各部部长由总理提名。名片列出国务院的组成部门。", en: "The State Council is the highest organ of state administration, led by the Premier, who answers for its work. The Premier is nominated by the President and chosen by the National People's Congress, and the vice premiers and ministers are nominated by the Premier. The card lists its constituent departments."}
+      legislature:
+        names: {zh: 全国人民代表大会, en: National People's Congress}
+        seats: 2977
+        groups:
+        - {names: {zh: 中国共产党, en: Communist Party of China}, seats: 2090, color: '#DE2910'}
+        - {names: {zh: 各民主党派, en: The eight democratic parties}, seats: 340, color: '#F2A900'}
+        - {names: {zh: 无党派人士, en: Non-party deputies}, seats: 547, color: '#9E9E9E'}
+        notes: {zh: "全国人大代表由各省、自治区、直辖市的人民代表大会和人民解放军选举产生，每届五年，每年春天举行一次全体会议，闭会期间由常务委员会行使职权。各民主党派接受共产党的领导，参政议政。", en: "Deputies to the National People's Congress are elected by the people's congresses of the provinces, autonomous regions and municipalities and by the People's Liberation Army, for five years. The Congress meets in full once a year in spring, and its Standing Committee acts for it in between. The democratic parties accept the leadership of the Communist Party and take part in government."}
+      judiciary:
+        names: {zh: 最高人民法院, en: Supreme People's Court}
+        title: {zh: 院长, en: President of the Court}
+        judges: 15
+        law: {zh: 中国特色社会主义法律体系（成文法）, en: Socialist legal system with Chinese characteristics (codified law)}
+        notes: {zh: "最高人民法院是最高审判机关，对全国人民代表大会及其常务委员会负责，监督地方各级法院和专门法院的审判工作。名片列出院长和审判委员会委员。", en: "The Supreme People's Court is the highest organ of justice. It answers to the National People's Congress and its Standing Committee and oversees the work of the local and special courts. The card lists its President and the members of its Judicial Committee."}
+      offices:
+      - {names: {zh: 全国人民代表大会常务委员会, en: Standing Committee of the National People's Congress}, title: {zh: 委员长, en: Chairman}}
+      - {names: {zh: 中国人民政治协商会议全国委员会, en: National Committee of the Chinese People's Political Consultative Conference}, title: {zh: 主席, en: Chairman}}
+      - {names: {zh: 中央军事委员会, en: Central Military Commission}, title: {zh: 副主席, en: Vice-Chairman}}
+      - {names: {zh: 最高人民检察院, en: Supreme People's Procuratorate}, title: {zh: 检察长, en: Procurator-General}}
+      military:
+        active: 2000000
+        reserve: 510000
+        strength: 5
+        branches:
+        - {zh: 陆军, en: Army}
+        - {zh: 海军, en: Navy}
+        - {zh: 空军, en: Air Force}
+        - {zh: 火箭军, en: Rocket Force}
+        - {zh: 武装警察部队, en: People's Armed Police}
+        equipment: {zh: "核武器、航空母舰、隐身战斗机和远程导弹，舰艇数量居世界前列；在拉诺瓦岛不驻军，只在使馆派驻武官。", en: "Nuclear weapons, aircraft carriers, stealth fighters and long-range missiles, with one of the largest fleets in the world; it keeps no troops on Ranova, only defence attachés at its embassy."}
+        budget_gdp: 1.6
+      rivals: ['country:US']
+      religion:
+      - {names: {zh: 无宗教, en: No religion}, share: 73, color: '#9E9E9E'}
+      - {names: {zh: 佛教, en: Buddhism}, share: 16, color: '#E0A526'}
+      - {names: {zh: 民间信仰和道教, en: Folk religion and Taoism}, share: 7, color: '#8D6E63'}
+      - {names: {zh: 基督教, en: Christianity}, share: 2.5, color: '#4A6FA5'}
+      - {names: {zh: 伊斯兰教, en: Islam}, share: 1.5, color: '#2E7D32'}
+      freedom: {political: 12, civil: 26, press: 10, economic: 48}
+      refugees: {hosted: 300000, abroad: 170000}
+      culture: {holiday: {zh: 春节, en: Spring Festival}, dish: {zh: 饺子, en: Jiaozi dumplings}, sport: {zh: 乒乓球, en: Table tennis}}
+      symbols:
+        anthem: {zh: 《义勇军进行曲》, en: March of the Volunteers}
+        flower: {zh: 牡丹, en: Tree peony}
+        animal: {zh: 大熊猫, en: Giant panda}
+      facts:
+        currency: {zh: 人民币, en: Renminbi}
+        currency_code: CNY
+        time_zone: UTC+08:00
+        calling_code: '+86'
+        tld: .cn
+        driving: right
   - id: country:US
     subtype: country
     status: canon
@@ -44,3 +142,91 @@ countries:
         alpha2: US
         alpha3: USA
         numeric: "840"
+    nation:
+      ideology:
+      - {zh: 自由民主, en: Liberal democracy}
+      - {zh: 联邦制, en: Federalism}
+      - {zh: 市场经济, en: Market economy}
+      government: {zh: 联邦总统制共和国, en: Federal presidential republic}
+      head:
+        title: {zh: 总统, en: President}
+        name: {zh: 雷蒙德·阿什科姆, en: Raymond Ashcombe}
+      power: {zh: 总统、国会和联邦法院三权分立、相互制衡, en: "The President, Congress and the federal courts, each checking the others"}
+      recognition: 21
+      name_langs: {en: 100}
+      executive:
+        names: {zh: 联邦政府内阁, en: Cabinet of the United States}
+        deputy:
+          title: {zh: 副总统, en: Vice President}
+        ministries:
+        - {zh: 国务院, en: Department of State}
+        - {zh: 财政部, en: Department of the Treasury}
+        - {zh: 国防部, en: Department of Defense}
+        - {zh: 司法部, en: Department of Justice}
+        - {zh: 内政部, en: Department of the Interior}
+        - {zh: 农业部, en: Department of Agriculture}
+        - {zh: 商务部, en: Department of Commerce}
+        - {zh: 劳工部, en: Department of Labor}
+        - {zh: 卫生与公众服务部, en: Department of Health and Human Services}
+        - {zh: 住房和城市发展部, en: Department of Housing and Urban Development}
+        - {zh: 交通部, en: Department of Transportation}
+        - {zh: 能源部, en: Department of Energy}
+        - {zh: 教育部, en: Department of Education}
+        - {zh: 退伍军人事务部, en: Department of Veterans Affairs}
+        - {zh: 国土安全部, en: Department of Homeland Security}
+        notes: {zh: "总统既是国家元首也是政府首脑，内阁由副总统和十五个行政部门的首长组成，部长由总统提名、参议院确认，对总统负责。", en: "The President is both head of state and head of government. The Cabinet is made up of the Vice President and the heads of the fifteen executive departments, who are nominated by the President, confirmed by the Senate and answer to the President."}
+      legislature:
+        names: {zh: 国会, en: Congress}
+        seats: 535
+        groups:
+        - {names: {zh: 共和党, en: Republican Party}, seats: 271, color: '#E81B23'}
+        - {names: {zh: 民主党, en: Democratic Party}, seats: 262, color: '#1A6FD1'}
+        - {names: {zh: 无党派, en: Independents}, seats: 2, color: '#9E9E9E'}
+        notes: {zh: "国会由参议院（100 席，每州 2 席，任期六年）和众议院（435 席，按人口分配，任期两年）组成，议员都由选民直接选举。图中是两院合计的议席。", en: "Congress is made up of the Senate (100 seats, two per state, for six years) and the House of Representatives (435 seats shared out by population, for two years), all elected directly by the voters. The chart shows the seats of both houses together."}
+      judiciary:
+        names: {zh: 美国最高法院, en: Supreme Court of the United States}
+        title: {zh: 首席大法官, en: Chief Justice}
+        judges: 9
+        law: {zh: 普通法, en: Common law}
+        notes: {zh: "大法官由总统提名、参议院确认，终身任职。最高法院可以宣布联邦和各州的法律违宪。", en: "The justices are nominated by the President, confirmed by the Senate and serve for life. The Court can strike down federal and state laws as unconstitutional."}
+      offices:
+      - {names: {zh: 众议院, en: House of Representatives}, title: {zh: 议长, en: Speaker}}
+      - {names: {zh: 联邦储备委员会, en: Federal Reserve Board}, title: {zh: 主席, en: Chair}}
+      - {names: {zh: 参谋长联席会议, en: Joint Chiefs of Staff}, title: {zh: 主席, en: Chairman}}
+      - {names: {zh: 中央情报局, en: Central Intelligence Agency}, title: {zh: 局长, en: Director}}
+      military:
+        active: 1320000
+        reserve: 790000
+        strength: 5
+        branches:
+        - {zh: 陆军, en: Army}
+        - {zh: 海军, en: Navy}
+        - {zh: 空军, en: Air Force}
+        - {zh: 海军陆战队, en: Marine Corps}
+        - {zh: 太空军, en: Space Force}
+        - {zh: 海岸警卫队, en: Coast Guard}
+        equipment: {zh: "核武器、十一艘航空母舰和遍布全球的海外基地；在拉诺瓦岛没有基地，只在使馆派驻武官。", en: "Nuclear weapons, eleven aircraft carriers and bases around the world; it has no base on Ranova, only defence attachés at its embassy."}
+        budget_gdp: 3.4
+      rivals: ['country:CN']
+      religion:
+      - {names: {zh: 新教, en: Protestant}, share: 40, color: '#4A6FA5'}
+      - {names: {zh: 天主教, en: Catholic}, share: 20, color: '#7A5BA8'}
+      - {names: {zh: 其他基督教派, en: Other Christian}, share: 4, color: '#6B8FC7'}
+      - {names: {zh: 无宗教, en: No religion}, share: 29, color: '#9E9E9E'}
+      - {names: {zh: 犹太教, en: Judaism}, share: 2, color: '#3F51B5'}
+      - {names: {zh: 伊斯兰教, en: Islam}, share: 1, color: '#2E7D32'}
+      - {names: {zh: 其他, en: Other}, share: 4, color: '#BDBDBD'}
+      freedom: {political: 86, civil: 84, press: 79, economic: 81}
+      refugees: {hosted: 1000000, abroad: 400}
+      culture: {holiday: {zh: 独立日, en: Independence Day}, dish: {zh: 感恩节火鸡, en: Thanksgiving turkey}, sport: {zh: 美式橄榄球, en: American football}}
+      symbols:
+        anthem: {zh: 《星条旗》, en: The Star-Spangled Banner}
+        flower: {zh: 玫瑰, en: Rose}
+        animal: {zh: 白头海雕, en: Bald eagle}
+      facts:
+        currency: {zh: 美元, en: US dollar}
+        currency_code: USD
+        time_zone: UTC−05:00 – UTC−10:00
+        calling_code: '+1'
+        tld: .us
+        driving: right

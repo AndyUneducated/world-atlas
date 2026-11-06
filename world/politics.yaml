@@ -439,7 +439,7 @@ legislatures:
     ministries: {"external": {"zh": "外交部", "en": "Ministry of Foreign Affairs"}, "finance": {"zh": "财政部", "en": "Ministry of Finance"}, "justice": {"zh": "司法部", "en": "Ministry of Justice"}, "security": {"zh": "海岸巡逻部", "en": "Ministry of Coastal Patrol"}, "education": {"zh": "教育部", "en": "Ministry of Education"}, "transport": {"zh": "航运与岛际交通部", "en": "Ministry of Shipping and Inter-Island Transport"}, "construction": {"zh": "公共工程部", "en": "Ministry of Public Works"}, "civil": {"zh": "内政部", "en": "Ministry of the Interior"}, "labour": {"zh": "劳动部", "en": "Ministry of Labour"}, "health": {"zh": "卫生部", "en": "Ministry of Health"}, "environment": {"zh": "潟湖与环境部", "en": "Ministry of the Lagoon and the Environment"}}
   # <<< ranova
 # Officeholders' names: each takes a name in one of the place's first languages, drawn by its share
-# (the governor's in Chinese).
+# (the governor's in Chinese), or in the languages a state's card block gives (nation.name_langs).
 names:
   zh:
     family: [[林, Lin], [陈, Chen], [王, Wang], [周, Zhou], [许, Xu], [沈, Shen], [顾, Gu], [叶, Ye], [何, He], [苏, Su], [方, Fang], [江, Jiang], [白, Bai], [唐, Tang], [韩, Han], [秦, Qin]]
@@ -467,8 +467,8 @@ names:
     given: [[Yusufu, 优素福], [Amina, 阿米娜], [Halima, 哈利玛], [Bakari, 巴卡里], [Zuberi, 祖贝里], [Rehema, 雷赫玛], [Salim, 萨利姆], [Mwanaisha, 姆瓦奈莎], [Hamisi, 哈米西], [Zawadi, 扎瓦迪], [Nuru, 努鲁], [Rashidi, 拉希迪], [Saida, 赛达]]
     family: [[Kasimu, 卡西姆], [Omari, 奥马里], [Juma, 朱马], [Mwinyi, 姆维尼], [Shabani, 沙巴尼], [Hamadi, 哈马迪], [Mbarak, 姆巴拉克], [Faraji, 法拉吉], [Said, 赛义德], [Athumani, 阿图马尼]]
   # <<< ranova
-# Pools used in one territory only, in place of those above for the same language. California's Chinese
-# names are Cantonese, spelt as the families spell them, and so never take a name from the pool above.
+# Pools used in one territory or country only, in place of those above for the same language. California's
+# Chinese names are Cantonese, spelt as the families spell them, and so never take a name from the pool above.
 local_names:
   div_x2z14w:
     zh:
@@ -480,6 +480,14 @@ local_names:
     es:
       given: [[Marisol, 玛丽索尔], [Joaquín, 华金], [Itzel, 伊采尔], [Rogelio, 罗赫略], [Ximena, 希梅娜], [Esteban, 埃斯特万], [Yesenia, 耶塞尼娅], [Arturo, 阿图罗], [Guadalupe, 瓜达卢佩], [Ramiro, 拉米罗], [Paloma, 帕洛玛], [Efraín, 埃夫拉因]]
       family: [[Valdespino, 巴尔德斯皮诺], [Ocampo, 奥坎波], [Arredondo, 阿雷东多], [Quintanilla, 金塔尼利亚], [Barragán, 巴拉甘], [Olivares, 奥利瓦雷斯], [Zamudio, 萨穆迪奥], [Villaseñor, 比利亚塞尼奥尔], [Montoya, 蒙托亚], [Saldaña, 萨尔达尼亚], [Treviño, 特雷维尼奥], [Arreola, 阿雷奥拉]]
+  'country:CN':
+    zh:
+      family: [[郑, Zheng], [冯, Feng], [孙, Sun], [曹, Cao], [袁, Yuan], [邓, Deng], [罗, Luo], [梁, Liang], [宋, Song], [谢, Xie], [杜, Du], [魏, Wei], [蔡, Cai], [贾, Jia], [丁, Ding], [薛, Xue], [潘, Pan], [戴, Dai], [夏, Xia], [钱, Qian], [田, Tian], [任, Ren], [范, Fan], [彭, Peng], [程, Cheng], [卢, Lu], [余, Yu], [胡, Hu], [朱, Zhu], [高, Gao]]
+      given: [[启航, Qihang], [立新, Lixin], [文博, Wenbo], [雅琴, Yaqin], [国栋, Guodong], [慧敏, Huimin], [建平, Jianping], [秀兰, Xiulan], [志远, Zhiyuan], [晓红, Xiaohong], [宏伟, Hongwei], [丽华, Lihua], [振东, Zhendong], [海燕, Haiyan], [卫国, Weiguo], [春梅, Chunmei], [永康, Yongkang], [淑芬, Shufen], [德明, Deming], [玉珍, Yuzhen], [光辉, Guanghui], [桂英, Guiying], [学军, Xuejun], [红霞, Hongxia], [新民, Xinmin], [凤兰, Fenglan], [长青, Changqing], [美华, Meihua], [建国, Jianguo], [素云, Suyun], [庆丰, Qingfeng], [翠英, Cuiying], [树森, Shusen], [敏华, Minhua], [家骏, Jiajun], [婉清, Wanqing], [立群, Liqun], [爱民, Aimin], [锦程, Jincheng], [佩玲, Peiling], [维平, Weiping], [雪梅, Xuemei], [国庆, Guoqing], [惠芳, Huifang], [胜利, Shengli], [金凤, Jinfeng], [子谦, Ziqian], [若兰, Ruolan]]
+  'country:US':
+    en:
+      given: [[Harold, 哈罗德], [Margaret, 玛格丽特], [Walter, 沃尔特], [Evelyn, 伊夫琳], [Douglas, 道格拉斯], [Catherine, 凯瑟琳], [Russell, 拉塞尔], [Diane, 黛安], [Gordon, 戈登], [Janet, 珍妮特], [Curtis, 柯蒂斯], [Laura, 劳拉], [Theodore, 西奥多], [Patricia, 帕特里夏], [Leonard, 伦纳德], [Barbara, 芭芭拉], [Vincent, 文森特], [Sandra, 桑德拉], [Gerald, 杰拉尔德], [Carol, 卡罗尔], [Howard, 霍华德], [Nancy, 南希], [Stanley, 斯坦利], [Joyce, 乔伊斯], [Clifford, 克利福德], [Beverly, 贝弗莉], [Warren, 沃伦], [Judith, 朱迪丝], [Lowell, 洛厄尔], [Marilyn, 玛丽莲], [Everett, 埃弗里特], [Gloria, 格洛丽亚], [Spencer, 斯潘塞], [Lorraine, 洛兰], [Wesley, 韦斯利], [Rosalind, 罗莎琳德], [Calvin, 卡尔文], [Dolores, 多洛雷丝], [Malcolm, 马尔科姆], [Bernadette, 伯纳黛特]]
+      family: [[Whitaker, 惠特克], [Caldwell, 考德威尔], [Hargrove, 哈格罗夫], [Mercer, 默瑟], [Dunmore, 邓莫尔], [Thornton, 桑顿], [Ellery, 埃勒里], [Radcliffe, 拉德克利夫], [Garrison, 加里森], [Beckett, 贝克特], [Sutherland, 萨瑟兰], [Pruitt, 普鲁伊特], [Langford, 兰福德], [Pemberton, 彭伯顿], [Holcomb, 霍尔库姆], [Merriweather, 梅里韦瑟], [Castellano, 卡斯特拉诺], [Okafor, 奥卡福], [Delgado, 德尔加多], [Nakamura, 中村], [Kowalski, 科瓦尔斯基], [Brandt, 布兰特], [Fitzgerald, 菲茨杰拉德], [Lockhart, 洛克哈特], [Winslow, 温斯洛], [Abernathy, 阿伯内西], [Haddad, 哈达德], [Ostrander, 奥斯特兰德], [Petrakis, 佩特拉基斯], [Quinlan, 昆兰], [Rutherford, 拉瑟福德], [Stanton, 斯坦顿], [Vasquez, 巴斯克斯], [Whitfield, 惠特菲尔德], [Yarbrough, 亚伯勒], [Bramwell, 布拉姆韦尔], [Garza, 加尔萨], [Holbrook, 霍尔布鲁克], [Sorensen, 索伦森], [Lindgren, 林德格伦]]
 
 # Parties: cross-territory first, then each territory's own. family is the party's tradition in a few
 # words; notes the card's introduction; history how it came to be (no dates).

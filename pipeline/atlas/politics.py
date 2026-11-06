@@ -525,7 +525,7 @@ def _deputy_title(speaker: dict) -> dict:
 
 
 def _offices(world: World, model: dict, entities: dict, people: "_People") -> None:
-    """Deputies, independent bodies and the governments of nations without an elected parliament, named
+    """Deputies, independent bodies and the governments of nations and countries without an elected parliament, named
     last of all so that adding them renames no one. A coalition's junior partner holds the deputy's post."""
     for tid, leg in model["legislatures"].items():
         L = entities[tid]["legislature"]
@@ -545,24 +545,8 @@ def _offices(world: World, model: dict, entities: dict, people: "_People") -> No
                     council["deputy"] = {"title": title, "name": people.draw("deputy-mayor:" + cid, clangs, where=tid),
                                          "party": council["head"]["party"]}
     for nid, d in world.divisions.items():
-        n = d.get("nation")
-        if not n or nid in model["legislatures"]:
-            continue
-        langs = entities[nid].get("demographics", {}).get("languages", {"zh": 100})
-        avoid = {_given(n["head"]["name"])}
-        ex, ju = n.get("executive", {}), n.get("judiciary", {})
-        entities[nid]["government"] = {
-            "executive": {"none": ex["none"]} if "none" in ex else {
-                "names": ex["names"], **({"notes": ex["notes"]} if "notes" in ex else {}),
-                **{k: {"title": ex[k]["title"], "name": ex[k].get("name") or people.draw(f"{k}:{nid}", langs, avoid, nid)} for k in ("head", "deputy") if k in ex},
-                "ministers": [{"ministry": m, "name": people.draw(f"minister:{nid}:{i}", langs, avoid, nid)} for i, m in enumerate(ex.get("ministries", []))],
-            },
-            "judiciary": {"none": ju["none"]} if "none" in ju else {
-                "names": ju["names"], "title": ju["title"], "law": ju["law"], **({"notes": ju["notes"]} if "notes" in ju else {}),
-                "name": people.draw("justice:" + nid, langs, avoid, nid),
-                "judges": [people.draw(f"judge:{nid}:{i}", langs, avoid, nid) for i in range(ju["judges"] - 1)],
-            },
-        }
+        if (n := d.get("nation")) and nid not in model["legislatures"]:
+            _government(entities, people, nid, n)
     # deputy speakers and the nations' key offices, drawn after everyone else
     for tid, leg in model["legislatures"].items():
         L = entities[tid]["legislature"]
@@ -575,11 +559,44 @@ def _offices(world: World, model: dict, entities: dict, people: "_People") -> No
         L["deputy_speakers"] = [{"title": titles[i] if i < len(titles) else _deputy_title(leg["speaker"]),
                                  "name": people.draw(f"deputy-speaker:{tid}:{i}", langs, avoid, tid), "party": p} for i, p in enumerate(sides)]
     for nid, d in world.divisions.items():
-        if offices := d.get("nation", {}).get("offices"):
-            langs = entities[nid].get("demographics", {}).get("languages", {"zh": 100})
-            avoid = {_given(d["nation"]["head"]["name"])}
-            entities[nid]["offices"] = [{"names": o["names"], "title": o["title"],
-                                         "name": o.get("name") or people.draw(f"office:{nid}:{i}", langs, avoid, nid)} for i, o in enumerate(offices)]
+        if d.get("nation", {}).get("offices"):
+            _key_offices(entities, people, nid, d["nation"])
+    # the countries last of all, so that naming them takes no one else's name
+    for cid, c in world.countries.items():
+        if n := c.get("nation"):
+            _government(entities, people, cid, n)
+            if n.get("offices"):
+                _key_offices(entities, people, cid, n)
+
+
+def _name_langs(entities: dict, nid: str, n: dict) -> dict[str, float]:
+    """The languages a state's officeholders are named in: its name_langs, else its people's first languages."""
+    return n.get("name_langs") or entities[nid].get("demographics", {}).get("languages", {"zh": 100})
+
+
+def _government(entities: dict, people: "_People", nid: str, n: dict) -> None:
+    """The executive and the court of a state without an elected parliament, as its card block gives them, named."""
+    langs, avoid = _name_langs(entities, nid, n), {_given(n["head"]["name"])}
+    ex, ju = n.get("executive", {}), n.get("judiciary", {})
+    entities[nid]["government"] = {
+        "executive": {"none": ex["none"]} if "none" in ex else {
+            "names": ex["names"], **({"notes": ex["notes"]} if "notes" in ex else {}),
+            **{k: {"title": ex[k]["title"], "name": ex[k].get("name") or people.draw(f"{k}:{nid}", langs, avoid, nid)} for k in ("head", "deputy") if k in ex},
+            "ministers": [{"ministry": m, "name": people.draw(f"minister:{nid}:{i}", langs, avoid, nid)} for i, m in enumerate(ex.get("ministries", []))],
+        },
+        "judiciary": {"none": ju["none"]} if "none" in ju else {
+            "names": ju["names"], "title": ju["title"], "law": ju["law"], **({"notes": ju["notes"]} if "notes" in ju else {}),
+            "name": people.draw("justice:" + nid, langs, avoid, nid),
+            "judges": [people.draw(f"judge:{nid}:{i}", langs, avoid, nid) for i in range(ju["judges"] - 1)],
+        },
+    }
+
+
+def _key_offices(entities: dict, people: "_People", nid: str, n: dict) -> None:
+    """A state's key offices, each holder drawn unless the card block names them."""
+    langs, avoid = _name_langs(entities, nid, n), {_given(n["head"]["name"])}
+    entities[nid]["offices"] = [{"names": o["names"], "title": o["title"],
+                                 "name": o.get("name") or people.draw(f"office:{nid}:{i}", langs, avoid, nid)} for i, o in enumerate(n["offices"])]
 
 
 def annotate(world: World, entities: dict) -> None:
