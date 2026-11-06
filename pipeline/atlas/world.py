@@ -305,6 +305,20 @@ class World:
             out.append("nation: facts may give gini, unemployment, inflation (%) and literacy (%), each a number from 0 to 100")
         return out
 
+    def _trait_errors(self, traits: dict) -> list[str]:
+        """A division's or country's traits name known industries, heritage, age and ethnicity."""
+        econ, out = self.economy, []
+        if extra := set(traits) - set(TRAIT_KEYS):
+            out.append(f"unknown traits {', '.join(sorted(extra))} (use {', '.join(TRAIT_KEYS)})")
+        if bad := [i for i in traits.get("industries", []) if i not in econ.get("industries", {})]:
+            out.append(f"industries {', '.join(bad)} not in world/economy.yaml")
+        for key, table in (("heritage", "heritage"), ("age", "age")):
+            if key in traits and traits[key] not in econ.get(table, {}):
+                out.append(f"{key} {traits[key]} not in world/economy.yaml")
+        if "ethnicity" in traits and traits["ethnicity"] not in econ.get("ethnicity", {}).get("profiles", {}):
+            out.append(f"ethnicity {traits['ethnicity']} not in world/economy.yaml")
+        return out
+
     def _bloc_errors(self) -> list[str]:
         out = []
         for bid, b in self.blocs.items():
@@ -322,7 +336,13 @@ class World:
     def validate(self) -> list[str]:
         errors: list[str] = self._bloc_errors()
         for cid, c in self.countries.items():
-            errors += [f"{cid}: {e}" for e in self._nation_errors(c)]
+            errors += [f"{cid}: {e}" for e in self._nation_errors(c) + self._trait_errors(c.get("traits", {}))]
+            if self.economy and (missing := [k for k in ("industries", "heritage", "age") if k not in c.get("traits", {})]):
+                errors.append(f"{cid}: traits need {', '.join(missing)}")
+            if not all(isinstance(c.get(k), (int, float)) and c[k] > 0 for k in ("population", "area_km2")):
+                errors.append(f"{cid}: a country gives its own population and area_km2, not its territories' sum")
+            if self.economy and cid not in self.economy.get("base_gdp_per_capita", {}):
+                errors.append(f"{cid}: a country needs its base_gdp_per_capita in world/economy.yaml")
         for eid, e in self.entities.items():
             if not ID_PATTERN.match(eid):
                 errors.append(f"{eid}: malformed id")
@@ -391,17 +411,7 @@ class World:
                 total = sum(k.get("population", 0) for k in kids)
                 if abs(total - d["population"]) > 100:
                     errors.append(f"{did}: children population {total} != {d['population']}")
-            if traits := d.get("traits"):
-                econ = self.economy
-                if extra := set(traits) - set(TRAIT_KEYS):
-                    errors.append(f"{did}: unknown traits {', '.join(sorted(extra))} (use {', '.join(TRAIT_KEYS)})")
-                if bad := [i for i in traits.get("industries", []) if i not in econ.get("industries", {})]:
-                    errors.append(f"{did}: industries {', '.join(bad)} not in world/economy.yaml")
-                for key, table in (("heritage", "heritage"), ("age", "age")):
-                    if key in traits and traits[key] not in econ.get(table, {}):
-                        errors.append(f"{did}: {key} {traits[key]} not in world/economy.yaml")
-                if "ethnicity" in traits and traits["ethnicity"] not in econ.get("ethnicity", {}).get("profiles", {}):
-                    errors.append(f"{did}: ethnicity {traits['ethnicity']} not in world/economy.yaml")
+            errors += [f"{did}: {e}" for e in self._trait_errors(d.get("traits", {}))]
             if d["subtype"] in ("locality", "borough") and self.economy:
                 merged = {**parent.get("traits", {}), **d.get("traits", {})} if d["subtype"] == "borough" else d.get("traits", {})
                 if missing := [k for k in ("industries", "heritage", "age") if k not in merged]:

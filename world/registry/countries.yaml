@@ -22,6 +22,9 @@ countries:
         alpha2: CN
         alpha3: CHN
         numeric: "156"
+    population: 1410000000
+    area_km2: 9600000
+    traits: {industries: [manufacturing, digital, commerce, agriculture], heritage: mainland, age: china}
     nation:
       ideology:
       - {zh: 中国特色社会主义, en: Socialism with Chinese characteristics}
@@ -114,6 +117,9 @@ countries:
         flower: {zh: 牡丹, en: Tree peony}
         animal: {zh: 大熊猫, en: Giant panda}
       facts:
+        gini: 46.5
+        unemployment: 5.1
+        inflation: 0.4
         currency: {zh: 人民币, en: Renminbi}
         currency_code: CNY
         time_zone: UTC+08:00
@@ -142,6 +148,9 @@ countries:
         alpha2: US
         alpha3: USA
         numeric: "840"
+    population: 340000000
+    area_km2: 9830000
+    traits: {industries: [finance, tech, manufacturing, pharma], heritage: usa, age: usa}
     nation:
       ideology:
       - {zh: 自由民主, en: Liberal democracy}
@@ -224,6 +233,9 @@ countries:
         flower: {zh: 玫瑰, en: Rose}
         animal: {zh: 白头海雕, en: Bald eagle}
       facts:
+        gini: 41.5
+        unemployment: 4.2
+        inflation: 2.8
         currency: {zh: 美元, en: US dollar}
         currency_code: USD
         time_zone: UTC−05:00 – UTC−10:00
