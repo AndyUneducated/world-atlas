@@ -1024,7 +1024,8 @@ function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; 
   const scroll = useCardScroll<HTMLDivElement>(entity.id);
   const aside = useAtlas((s) => s.searchOpen);
   const height = useMotionValue(viewHeight() * (full ? SHEET_FULL : SHEET_HALF));
-  const gesture = useRef<{ y0: number; h0: number; y: number; t: number; v: number; moved: boolean } | null>(null);
+  // `pull`: begun on the scrolled-to-top card at full height, where only a pull downwards resizes the sheet
+  const gesture = useRef<{ y0: number; h0: number; y: number; t: number; v: number; moved: boolean; pull: boolean } | null>(null);
   const dragged = useRef(false);
 
   useEffect(() => {
@@ -1037,12 +1038,17 @@ function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; 
     };
   }, [full, height]);
 
-  const begin = (y: number) => {
-    gesture.current = { y0: y, h0: height.get(), y, t: performance.now(), v: 0, moved: false };
+  const begin = (y: number, pull = false) => {
+    gesture.current = { y0: y, h0: height.get(), y, t: performance.now(), v: 0, moved: false, pull };
   };
   const move = (y: number) => {
     const g = gesture.current;
     if (!g || (!g.moved && Math.abs(y - g.y0) < 6)) return false;
+    // a pull that starts upwards is the card scrolling, whichever event (pointer or touch) sees it first
+    if (g.pull && !g.moved && y < g.y0) {
+      gesture.current = null;
+      return false;
+    }
     const now = performance.now();
     g.v = (y - g.y) / Math.max(now - g.t, 1);
     g.y = y;
@@ -1074,15 +1080,9 @@ function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; 
     const el = scroll.current;
     if (!el || !full) return;
     const start = (e: TouchEvent) => {
-      if (el.scrollTop <= 0) begin(e.touches[0].clientY);
+      if (el.scrollTop <= 0) begin(e.touches[0].clientY, true);
     };
     const pull = (e: TouchEvent) => {
-      const g = gesture.current;
-      if (!g) return;
-      if (!g.moved && e.touches[0].clientY < g.y0) {
-        gesture.current = null;
-        return;
-      }
       if (move(e.touches[0].clientY)) e.preventDefault();
     };
     el.addEventListener("touchstart", start, { passive: true });
@@ -1097,17 +1097,19 @@ function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; 
     };
   });
 
-  // the pointer is captured only once it has moved, so a tap still reaches the link or button under it
-  const pointer = (whole: boolean) => ({
-    onPointerDown: (e: ReactPointerEvent) => {
-      if (whole || !full) begin(e.clientY);
-    },
-    onPointerMove: (e: ReactPointerEvent) => {
-      if (move(e.clientY) && !e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.setPointerCapture(e.pointerId);
-    },
-    onPointerUp: end,
-    onPointerCancel: end,
-  });
+  // the pointer is captured only once it has moved, so a tap still reaches the link or button under it; at
+  // full height the card's content scrolls and leaves resizing to the touch listeners above
+  const pointer = (whole: boolean) =>
+    whole || !full
+      ? {
+          onPointerDown: (e: ReactPointerEvent) => begin(e.clientY),
+          onPointerMove: (e: ReactPointerEvent) => {
+            if (move(e.clientY) && !e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.setPointerCapture(e.pointerId);
+          },
+          onPointerUp: end,
+          onPointerCancel: end,
+        }
+      : {}
 
   return (
     <motion.article
