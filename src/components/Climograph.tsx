@@ -96,7 +96,7 @@ export function Climograph({ climate, lang }: { climate: Climate; lang: Lang }) 
           </>
         )}
       </div>
-      <svg viewBox={`0 0 ${W} 166`} className="w-full touch-none select-none" onPointerLeave={() => setMonth(null)}>
+      <svg viewBox={`0 0 ${W} 166`} className="w-full touch-pan-y select-none" onPointerLeave={() => setMonth(null)}>
         <defs>
           <linearGradient id="clim-band" x1="0" x2="0" y1="0" y2="1">
             <stop offset="0" stopColor={HI} stopOpacity="0.22" />
