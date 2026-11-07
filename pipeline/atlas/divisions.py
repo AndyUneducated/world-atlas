@@ -12,6 +12,8 @@ import math
 import numpy as np
 from scipy import ndimage
 
+from .noise import value_noise
+
 
 def _nearest(D, w, best, lab, v):
     """argmin over seeds of D - w (first seed on ties), one seed row at a time into preallocated buffers."""
@@ -256,6 +258,11 @@ def _fit_islands(grid, mask, sea, targets, cell, seed=0):
 
 # Under `anchored`, divisions smaller than this share of the whole are grown from their seed first.
 _CARVE_SHARE = 0.05
+# No real border is a circle, but a carved division is the pixels nearest its seed: a disc. Smooth noise at
+# the division's own size (standard deviation this share of its radius) bends the outline so it wanders
+# like a real border while staying compact. (Bending the weighted diagram the same way, M110, threw whole
+# islands and districts off their areas, so the diagram's borders keep only the territory-wide warp.)
+_CARVE_WARP = 0.4
 
 
 def _claimed(comp, main, pts, res):
@@ -288,6 +295,11 @@ def _carve(free, mask, wx, wy, seed, n_px, res):
     # half the warp: the full warp is as large as a small division's radius and grows it arms
     yy, xx = np.mgrid[win]
     hx, hy = 0.5 * (wx[win] + (xx + 0.5) * res), 0.5 * (wy[win] + (yy + 0.5) * res)
+    rk = math.sqrt(n_px / math.pi) * res
+    ext = (f.shape[1] * res, f.shape[0] * res)
+    key = (int(seed[0] * 977) * 31 + int(seed[1] * 613)) % 1000003
+    hx = hx + _CARVE_WARP * rk * value_noise(key, 0.9 * rk, 2, 0.5, ext, f.shape)
+    hy = hy + _CARVE_WARP * rk * value_noise(key + 1, 0.9 * rk, 2, 0.5, ext, f.shape)
     d2 = (hx - hx[cy, cx]) ** 2 + (hy - hy[cy, cx]) ** 2
     d2[cy, cx] = -1.0
     # only the seed's own landmass and islets that lie wholly in the window and are wholly free

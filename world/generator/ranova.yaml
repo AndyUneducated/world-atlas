@@ -137,6 +137,10 @@ hydrology:
   river_min_drainage_km2: 60
   river_candidate_km2: 300
   estuary_km2: 1500
+  # Lakes: a lobed disc of radius_km (design km) at offset_km (real km) from the city's centre; stretch draws it
+  # out along angle_deg into a long lake
+  lakes:
+    - { feature: nat_qn0gnd, in: div_taqb88, radius_km: 1.4, offset_km: [5, -2], stretch: 4.0, angle_deg: 35 }   # 安德拉诺拉瓦湖，城边的狭长湖
   named_rivers:
     - { feature: nat_pveqx6, through: div_mj41d0 }   # 安博河
     - { feature: nat_wby64d, through: div_t5zph6 }   # 马纳纳河

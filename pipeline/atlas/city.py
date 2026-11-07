@@ -66,6 +66,9 @@ def build_streets(world, sp, features, frame, seed, cities, districts, district_
             built = real(dist_polys[i].intersection(urban))
             if lakes_r is not None:
                 built = built.difference(lakes_r)
+            # an intersection can leave stray lines and points along shared edges; streets want the area only
+            built = shapely.union_all([gm for gm in shapely.get_parts(built) if gm.geom_type in ("Polygon", "MultiPolygon")]) \
+                if built.geom_type == "GeometryCollection" else built
             if built.area < 1.0:
                 continue
             cfg = sp.get("districts", {}).get(d["id"], {})

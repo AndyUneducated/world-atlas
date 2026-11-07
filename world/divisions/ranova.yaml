@@ -4783,6 +4783,7 @@ divisions:
     bloc: bloc:covenant
     bloc_role: {zh: 成员（与安博哈拉不和）, en: Member (at odds with Ambohara)}
     recognition: 13
+    name_langs: {zh: 100}
     executive:
       names: {zh: "法政院", en: "Hall of Dharma Governance"}
       head:

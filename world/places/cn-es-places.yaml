@@ -31,7 +31,7 @@ places:
       zh: 长夏群岛领地的立法机关，在湖光大道南端，与北端的政务院主楼隔着整条轴线相对。议员由各市居民选举产生，审议领地法规、预算和发展规划，质询政务院各部；议事厅里的辩论用中文、英文和伊武兰语进行，同声传译通到每个座位。议会大楼由圆形的议事厅和两翼的办公楼组成，屋顶是一圈宽大的挑檐，檐下的回廊在雨季也能让人不淋雨走到每一扇门。会期内旁听席向公众开放，各地的学生常组团来这里参观。
       en: The territory's legislature stands at the south end of Lakelight Avenue, facing the Government building at the north end along the whole axis. Its members are elected by the residents of each city and debate the territory's laws, budgets and development plans and question the Council's ministries. Debates in the chamber are held in Chinese, English and Ivuran, with simultaneous interpretation at every seat. The building is a round chamber between two office wings under a broad ring of eaves, whose colonnade lets people reach every door dry even in the rainy season. The public gallery is open while the assembly sits, and school groups from all over the territory come to visit.
     in: div_z0z4vz
-    offset_km: [0.51, -1.78]
+    offset_km: [0.62, -1.18]
     site: { layout: complex, size_m: [300, 220] }
   - id: poi_42vw33
     subtype: plaza

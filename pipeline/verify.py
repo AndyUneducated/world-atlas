@@ -14,6 +14,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 import numpy as np
+import shapely
 from shapely import STRtree, points
 from shapely.geometry import Point, shape
 
@@ -284,13 +285,52 @@ def check_terrain(manifest: dict) -> dict[str, list[str]]:
     return {"terrain archive matches the manifest": bad}
 
 
+ROUND_FIT = 0.075  # a border within this share of its radius of a circle, on average, is drawn as one
+ROUND_FIT_LARGE = 0.045  # the same for circles wider than ROUND_LARGE_KM, where long straight edges fit loosely
+ROUND_LARGE_KM = 60
+ROUND_SPAN = math.radians(160)  # over this much of the circle
+ROUND_MIN_KM = 5
+
+
+def check_round_borders(ents: dict) -> dict[str, list[str]]:
+    """No border between divisions is a circle or a long arc of one (M110): growing a small division from
+    its seed draws a disc, and two weighted-diagram cells meet along a circle, and no real border looks
+    like either. The coast is left out; each inland stretch of a division's outline is fitted to a circle."""
+    feats = [(f["properties"]["id"], shape(f["geometry"])) for f in load("divisions.geojson")["features"]
+             if f["properties"].get("id") in ents]
+    ids = {i for i, _ in feats}
+    coast = shapely.union_all([g for i, g in feats if ents[i].get("parent") not in ids]).boundary
+    bad = []
+    for i, g in feats:
+        lat0 = g.centroid.y
+        kx, ky = math.cos(math.radians(lat0)) * 111.32, 110.57
+        km = lambda geom: shapely.transform(geom, lambda a: np.column_stack([a[:, 0] * kx, a[:, 1] * ky]))
+        x0, y0, x1, y1 = g.bounds
+        near = coast.intersection(shapely.box(x0 - 0.05, y0 - 0.05, x1 + 0.05, y1 + 0.05))
+        inland = km(g.boundary).difference(km(near).buffer(0.6)) if not near.is_empty else km(g.boundary)
+        for ln in shapely.get_parts(shapely.line_merge(inland) if inland.geom_type == "MultiLineString" else inland):
+            if ln.geom_type != "LineString" or ln.length < ROUND_MIN_KM:
+                continue
+            xy = np.array([ln.interpolate(t).coords[0] for t in np.linspace(0, ln.length, max(24, int(ln.length / 0.4)))])
+            x, y = xy[:, 0], xy[:, 1]
+            c, *_ = np.linalg.lstsq(np.column_stack([x, y, np.ones_like(x)]), x * x + y * y, rcond=None)
+            cx, cy = c[0] / 2, c[1] / 2
+            r = math.sqrt(max(c[2] + cx * cx + cy * cy, 1e-9))
+            fit = float(np.sqrt(np.mean((np.hypot(x - cx, y - cy) - r) ** 2))) / r
+            span = abs(float(np.unwrap(np.arctan2(y - cy, x - cx))[-1] - np.arctan2(y[0] - cy, x[0] - cx)))
+            if span > ROUND_SPAN and fit < (ROUND_FIT if r < ROUND_LARGE_KM else ROUND_FIT_LARGE):
+                bad.append(f"{ents[i]['names']['zh']} ({i}): {math.degrees(span):.0f}° of a {r:.1f} km circle, off by {fit:.1%}")
+                break
+    return {"no round borders": bad}
+
+
 def main():
     world = World()
     ents, manifest = load("entities.json"), load("manifest.json")
     results = {}
     for check in (lambda: check_routes(ents), lambda: check_numbers(ents), lambda: check_government(ents), lambda: check_stations(ents),
                   lambda: check_expected(world, ents), check_glyphs, lambda: check_models(ents),
-                  lambda: check_terrain(manifest)):
+                  lambda: check_terrain(manifest), lambda: check_round_borders(ents)):
         results.update(check())
     for what, bad in results.items():
         print(f"{'ok  ' if not bad else 'FAIL'} {what}" + (f": {len(bad)}\n  " + "\n  ".join(bad[:20]) if bad else ""))

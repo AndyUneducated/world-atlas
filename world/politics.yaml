@@ -580,6 +580,11 @@ names:
 # Pools used in one territory or country only, in place of those above for the same language. California's
 # Chinese names are Cantonese, spelt as the families spell them, and so never take a name from the pool above.
 local_names:
+  div_zw79v9:
+    # monks and nuns go by one dharma name; every officeholder is ordained, so all are 尊者 (Venerable)
+    zh:
+      family: [[尊者, Venerable]]
+      given: [[哈西纳, Hasina], [菲蒂亚, Fitia], [法尼洛, Fanilo], [马赫里, Mahery], [法利, Faly], [洛瓦, Lova], [尼里娜, Nirina], [西特拉卡, Sitraka], [费尼特拉, Fenitra], [蒂亚娜, Tiana], [马米, Mamy], [赫里, Hery], [艾娜, Aina], [哈贾, Haja], [汉塔, Hanta], [拉劳, Lalao], [米奥拉, Miora], [翁贾, Onja], [里贾, Rija], [索阿, Soa], [塔希纳, Tahina], [德拉, Dera], [伊亚里, Iary], [科洛伊纳, Koloina], [连佐阿, Liantsoa], [诺梅纳, Nomena], [奥尼, Ony], [桑塔特拉, Santatra], [沃拉娜, Volana], [法纳伊, Fanay], [齐霍拉, Tsihoara], [安德里, Andry], [马希纳, Mahina], [萨洛蒂, Saloty]]
   div_st5cb2:
     zh:
       family: [[陆, Lu], [谢, Xie], [裴, Pei], [崔, Cui], [韦, Wei], [杜, Du], [柳, Liu], [萧, Xiao], [温, Wen], [晏, Yan], [范, Fan], [欧阳, Ouyang], [司马, Sima], [上官, Shangguan], [苏, Su], [顾, Gu], [程, Cheng], [吕, Lü]]

@@ -6352,7 +6352,7 @@ places:
     names: {"zh": "安德拉诺拉瓦野战训练场", "en": "Andranolava Field Training Area"}
     notes: {"zh": "安德拉诺拉瓦野战训练场在城东的丘陵林地里，是军团步兵和预备役的野战训练场。每年旱季，宣过誓的军团员轮流到这里参加两周的预备役集训，志愿军团出征前也在这里进行最后的演练。训练场不对外开放。", "en": "Andranolava Field Training Area lies in the wooded hills east of town and is where the Legion Infantry and the reserve train in the field. Every dry season sworn legionaries take turns to come here for two weeks of reserve training, and the volunteer legion holds its last exercises here before setting out. It is closed to the public."}
     in: div_taqb88
-    offset_km: [2.77, -1.15]
+    offset_km: [-3.50, 1.00]
     site: {"layout": "range", "size_m": [3000, 2000], "variant": "armor", "angle_deg": 112, "rural": true}
     military: {"unit": {"zh": "军团步兵安德拉诺拉瓦训练场", "en": "Andranolava Training Area, Legion Infantry"}, "branch": {"zh": "军团步兵", "en": "Legion Infantry"}, "equipment": {"zh": "步兵训练区、迫击炮射击阵地", "en": "Infantry training grounds and mortar firing points"}, "personnel": 160, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
   - id: poi_xpdnec

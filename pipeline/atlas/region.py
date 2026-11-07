@@ -170,11 +170,16 @@ def detect_landforms(world: World, spec: dict, drain: Drainage, land_c: np.ndarr
     return {"matched": matched, "rivers": rivers}, report
 
 
-def lake_raster(g: Grid, center, radius, land):
+def lake_raster(g: Grid, center, radius, land, stretch=1.0, angle_deg=0.0):
+    """A lobed disc; with `stretch` > 1 drawn out along angle_deg (degrees from east) into a long lake of the
+    same area, so a valley lake is a ribbon rather than a round pond."""
     cx, cy = center
-    ang = np.arctan2(g.Y - cy, g.X - cx)
+    t = math.radians(angle_deg)
+    u = ((g.X - cx) * math.cos(t) + (g.Y - cy) * math.sin(t)) / math.sqrt(stretch)
+    v = (-(g.X - cx) * math.sin(t) + (g.Y - cy) * math.cos(t)) * math.sqrt(stretch)
+    ang = np.arctan2(v, u)
     rr = radius * (1 + 0.28 * np.sin(3 * ang + 1) + 0.14 * np.sin(5 * ang + 2))
-    return (np.hypot(g.X - cx, g.Y - cy) < rr) & land
+    return (np.hypot(u, v) < rr) & land
 
 
 def lake_field(field: dict | list | None, g: Grid, land, elev, dcoast, dist_r, districts, seed) -> np.ndarray:
@@ -328,7 +333,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         dx, dy = lk.get("offset_km", (0, 0))
         # at: a fixed spot in design km, for a lake drawn after a real outline
         at = lk.get("at") or (poles[di][0] + dx / frame.scale, poles[di][1] + dy / frame.scale)
-        m = lake_raster(g, at, lk["radius_km"], land)
+        m = lake_raster(g, at, lk["radius_km"], land, lk.get("stretch", 1.0), lk.get("angle_deg", 0.0))
         lakes.append((lk["feature"], m))
     water = np.zeros(g.shape, bool)
     for _, m in lakes:

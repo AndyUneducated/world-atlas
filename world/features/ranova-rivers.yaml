@@ -12,6 +12,11 @@ features:
     status: generated
     names: {zh: 马纳纳河, en: Manana River, art-x-kasiri: Mto Manana}
     notes: {zh: 萨希利亚伊斯兰共和国境内的河流，发源于安德里纳高原西坡，向西穿过稀树草原和丘陵，在首都萨希勒附近入海。河口一带是红树林和稻田，沿岸的清真寺和古老的商栈见证了卡西里人的航海贸易。, en: 'The river of the Islamic Republic of Sahiliya, rising on the western slopes of the Andrina Highlands and flowing west through savanna and hills to the sea near the capital, Sahil. Mangroves and paddies line its mouth, and the mosques and old trading houses along its banks bear witness to the seafaring trade of the Kasiri.'}
+  - id: nat_qn0gnd
+    subtype: lake
+    status: generated
+    names: {zh: 安德拉诺拉瓦湖, en: Lake Andranolava, art-x-ranova: Farihin'Andranolava}
+    notes: {zh: 大天使军团国北部内陆的一条狭长湖泊，在安德拉诺拉瓦城东南，顺着低丘之间的谷地伸展，城名「长水」即由此而来。湖岸是全国最大的稻作区，湖水经堤坝和水渠灌溉两岸的水田；阵亡军团员的家属优先分得湖边最好的水田，每年殉道者纪念日，城里的人在湖上放下纸灯。, en: 'A long, narrow lake in the northern interior of the Legionary State of the Archangel, south-east of the town of Andranolava, stretching along a valley between low hills; the town''s name, "long water", comes from it. Its shores are the country''s largest rice-growing area, watered through dikes and channels, and the families of fallen legionaries get first pick of the best paddies by the lake; each Martyrs'' Day the townspeople set paper lanterns on the water.'}
   - id: nat_mm8423
     subtype: river
     status: generated
