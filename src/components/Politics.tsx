@@ -1,12 +1,12 @@
 import clsx from "clsx";
 import { ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
-import { Fragment, useState, type ReactNode } from "react";
+import { Fragment, useContext, useState, type ReactNode } from "react";
 import { displayName, formatNumber, t, type StringKey } from "../lib/i18n";
 import { governmentSeats, majority, PARTY_AXES, SYSTEM_NAMES, systemText } from "../lib/politics";
 import type { AtlasData, Chamber, Entity, Lang, Legislature, Localized, Officeholder, Seating } from "../lib/types";
 import { useAtlas } from "../store";
-import { Paragraphs, Rows, Section, Sub, useCardOpen } from "./CardParts";
+import { GroupTitle, Paragraphs, Rows, Section, Sub, useCardOpen } from "./CardParts";
 import { Emblem, hasEmblem } from "./Emblem";
 import { Hemicycle } from "./Hemicycle";
 
@@ -43,14 +43,13 @@ function Tag({ tone, children }: { tone: "gov" | "mayor" | "plain"; children: Re
   );
 }
 
-/** One branch of government under its own small heading, ruled off to the right. */
+/** One branch of government under its own heading, ruled off across the card from the branch above. In a
+ * card group the branch is a second-level heading, the same as a section's. */
 export function Branch({ label, children }: { label: string; children: ReactNode }) {
+  const group = useContext(GroupTitle);
   return (
-    <div className="mt-5 first:mt-0">
-      <h4 className="mb-2.5 flex items-center gap-2 text-[11.5px] font-semibold text-muted">
-        {label}
-        <span className="h-px flex-1 bg-line" />
-      </h4>
+    <div className="-mx-5 mt-4 border-t border-line px-5 pt-4 first:mt-0 first:border-t-0 first:pt-0">
+      <h4 className={clsx("mb-2.5", group !== null ? "text-[13px] font-medium text-muted" : "text-[11.5px] font-semibold text-muted")}>{label}</h4>
       {children}
     </div>
   );
@@ -271,7 +270,7 @@ export function LegislatureSection({ data, entity, lang }: { data: AtlasData; en
   const govLabel = elected ? t("majorityParty", lang) : undefined;
   const [speakerRow, ...majorityRows] = seatingRows(data, L, lang, elected);
   return (
-    <Section title={t("politicsTitle", lang)}>
+    <Section title={t("politicsTitle", lang)} flat>
       <Branch label={t("executive", lang)}>
         <Rows
           rows={[
@@ -340,7 +339,7 @@ export function CouncilSection({ data, entity, lang }: { data: AtlasData; entity
   if (!c) return null;
   if ("appointed" in c)
     return (
-      <Section title={t("politicsTitle", lang)}>
+      <Section title={t("politicsTitle", lang)} flat>
         <Branch label={t("executive", lang)}>
           <Rows rows={[[c.head.title[lang], c.head.name[lang]]]} />
         </Branch>
@@ -351,7 +350,7 @@ export function CouncilSection({ data, entity, lang }: { data: AtlasData; entity
       </Section>
     );
   return (
-    <Section title={t("politicsTitle", lang)}>
+    <Section title={t("politicsTitle", lang)} flat>
       <Branch label={t("executive", lang)}>
         <Rows rows={[holderRow(data, c.head.title, c.head, lang), ...runoffRow(data, c.head, lang), ...(c.deputy ? [holderRow(data, c.deputy.title, c.deputy, lang)] : [])]} />
       </Branch>
@@ -521,7 +520,7 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
   ];
   return (
     <>
-      {show("profile") && <Section title={t("partyProfile", lang)}>
+      {show("profile") && <Section>
         <Rows
           rows={[
             ...(entity.family ? [[t("partyFamily", lang), <span className="font-medium">{entity.family[lang]}</span>] as [string, ReactNode]] : []),
@@ -590,18 +589,6 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
           <p className="text-[13px] leading-relaxed text-ink">{entity.reunification[lang]}</p>
         </Section>
       )}
-      {show("positions") && entity.factions?.length ? (
-        <Section title={t("factions", lang)}>
-          <ul className="space-y-3">
-            {entity.factions.map((f) => (
-              <li key={f.names.en} className="border-l-2 pl-3" style={{ borderColor: `color-mix(in srgb, ${color} 55%, transparent)` }}>
-                <p className="text-[13px] font-semibold text-ink">{f.names[lang]}</p>
-                <p className="mt-0.5 text-[12.5px] leading-relaxed text-muted">{f.notes[lang]}</p>
-              </li>
-            ))}
-          </ul>
-        </Section>
-      ) : null}
       {show("organisation") && (orgRows.length > 0 || (entity.branches?.length ?? 0) > 1) && (
         <Section title={t("organisation", lang)}>
           {orgRows.length > 0 && <Rows rows={orgRows} />}
@@ -628,7 +615,19 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
           )}
         </Section>
       )}
-      {show("seats") && <Section title={t("partySeats", lang)}>
+      {show("organisation") && entity.factions?.length ? (
+        <Section title={t("factions", lang)}>
+          <ul className="space-y-3">
+            {entity.factions.map((f) => (
+              <li key={f.names.en} className="border-l-2 pl-3" style={{ borderColor: `color-mix(in srgb, ${color} 55%, transparent)` }}>
+                <p className="text-[13px] font-semibold text-ink">{f.names[lang]}</p>
+                <p className="mt-0.5 text-[12.5px] leading-relaxed text-muted">{f.notes[lang]}</p>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      ) : null}
+      {show("seats") && <Section>
         <Sub label={t(national ? "nationalSeats" : "territorialSeats", lang)}>
           <ul className="-mx-2">
             {(entity.territories ?? []).map((tid) => {
@@ -675,6 +674,11 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
           )}
         </Sub>}
       </Section>}
+      {show("history") && entity.history && (
+        <Section title={t("history", lang)}>
+          <Paragraphs text={entity.history[lang]} className="text-[13px] leading-relaxed text-ink" />
+        </Section>
+      )}
       {show("history") && allies.length > 0 && (
         <Section title={t("allies", lang)}>
           <ul className="-mx-2 grid grid-cols-2 gap-0.5">
@@ -701,11 +705,6 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
               </li>
             ))}
           </ul>
-        </Section>
-      )}
-      {show("history") && entity.history && (
-        <Section title={t("history", lang)}>
-          <Paragraphs text={entity.history[lang]} className="text-[13px] leading-relaxed text-ink" />
         </Section>
       )}
     </>

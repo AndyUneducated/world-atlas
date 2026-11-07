@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { createContext, useContext, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import type { Entity, Lang } from "../lib/types";
 import { registerCardScroller, useAtlas } from "../store";
 
@@ -34,10 +34,24 @@ export function useCardScroll<T extends HTMLElement>(id: string) {
   return ref;
 }
 
-export function Section({ title, children }: { title: string; children: ReactNode }) {
+/** The title of the card group a part sits in (null on a one-column card). A grouped card has two levels of
+ * heading: the group, then each section or branch within it, ruled off from the next across the card. */
+export const GroupTitle = createContext<string | null>(null);
+
+/** A section of a card. In a group, its title is a second-level heading, left out when it would only repeat
+ * the group's title or when the section is `flat`: made of branches that are second-level headings of their
+ * own. */
+export function Section({ title, flat, children }: { title?: string; flat?: boolean; children: ReactNode }) {
+  const group = useContext(GroupTitle);
+  const heading = title && !(group !== null && (flat || title === group)) ? title : null;
   return (
     <section className="border-t border-line px-5 py-4">
-      <h3 className="mb-2.5 text-[11px] font-semibold tracking-wider text-faint uppercase">{title}</h3>
+      {heading &&
+        (group !== null ? (
+          <h3 className="mb-2.5 text-[13px] font-medium text-muted">{heading}</h3>
+        ) : (
+          <h3 className="mb-2.5 text-[11px] font-semibold tracking-wider text-faint uppercase">{heading}</h3>
+        ))}
       {children}
     </section>
   );
@@ -66,10 +80,11 @@ export function Rows({ rows }: { rows: [string, ReactNode][] }) {
   );
 }
 
+/** A labelled figure inside a section: a field, not a heading level of its own. */
 export function Sub({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="mt-3.5 first:mt-0">
-      <h4 className="mb-1.5 text-[11px] font-semibold text-faint">{label}</h4>
+      <h4 className="mb-1.5 text-[12px] text-muted">{label}</h4>
       {children}
     </div>
   );

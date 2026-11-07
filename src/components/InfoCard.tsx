@@ -928,6 +928,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
             flag: <FlagSection entity={entity} lang={lang} />,
             lineage: <Lineage data={data} entity={entity} lang={lang} />,
             codes: codeSection,
+            parties: null,
             party: (part) => <PartySections data={data} entity={entity} lang={lang} part={part} />,
           }}
         />
@@ -940,11 +941,12 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
           <LegislatureSection data={data} entity={entity} lang={lang} />
           <CouncilSection data={data} entity={entity} lang={lang} />
           <ElectionSection data={data} entity={entity} lang={lang} />
+          {!entity.segments?.length && <ChildList data={data} entity={entity} lang={lang} />}
           <PeopleSection entity={entity} lang={lang} accent={accent} />
           <EconomySection entity={entity} lang={lang} accent={accent} />
           <ClimateSection data={data} entity={entity} lang={lang} />
 
-          {entity.segments?.length ? <RouteTimeline data={data} entity={entity} lang={lang} /> : <ChildList data={data} entity={entity} lang={lang} />}
+          {entity.segments?.length ? <RouteTimeline data={data} entity={entity} lang={lang} /> : null}
           <BackedSection data={data} entity={entity} lang={lang} />
 
           <MilitarySection entity={entity} lang={lang} />
