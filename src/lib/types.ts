@@ -170,7 +170,7 @@ export interface Entity {
   based?: string;
   /** Where the party is strongest (or sits), its standing there and its headquarters city. */
   home?: string;
-  standing?: "lead" | "coalition" | "allied" | "majority" | "opposition" | "extra" | "banned" | "underground" | "exile" | "armed";
+  standing?: "lead" | "coalition" | "allied" | "majority" | "opposition" | "extra" | "illegal";
   hq?: string;
   legal_status?: Localized;
   reunification?: Localized;

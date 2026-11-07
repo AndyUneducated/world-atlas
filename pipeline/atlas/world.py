@@ -99,7 +99,9 @@ PARTY_ORGANISATION = ("newspaper", "think_tank", "unions", "women")
 # fixed-chamber state with no seat there is lawful but unseated (extra), outlawed, clandestine, in exile or
 # an armed organisation
 PARTY_STANDINGS = ("lead", "coalition", "allied", "majority", "opposition", "extra")
-UNSEATED_STANDINGS = ("extra", "banned", "underground", "exile", "armed")
+# a party with no seat is lawful outside the chamber, or illegal at home and seated abroad (the atlas lists no
+# underground or armed groups: an outlawed party works from exile and backs them from there)
+UNSEATED_STANDINGS = ("extra", "illegal")
 STREET_STYLES = ("planned", "mixed", "organic")
 BUILDING_MIX_KEYS = ("slabs", "towers", "perimeter", "houses", "podium", "industrial", "civic", "park")
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
@@ -814,6 +816,8 @@ class World:
                     errors.append(f"politics: {pid}: based names the state of a party that holds no seat and stands in no election")
                 if p.get("standing") not in UNSEATED_STANDINGS:
                     errors.append(f"politics: {pid}: a party with no seat has a standing of {', '.join(UNSEATED_STANDINGS)}")
+                if p.get("standing") == "illegal" and ("hq" not in p or based in [p["hq"], *self.ancestors(p["hq"])]):
+                    errors.append(f"politics: {pid}: an illegal party works from exile, so its hq is a city outside {based}")
             elif "standing" in p or not p.get("targets") or set(p["targets"]) - set(legs):
                 errors.append(f"politics: {pid}: targets name only territories with a legislature; its standing follows from the result")
             for k in ("legal_status", "reunification"):

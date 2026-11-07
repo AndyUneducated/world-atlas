@@ -44,7 +44,7 @@ function Tag({ tone, children }: { tone: "gov" | "mayor" | "plain"; children: Re
 }
 
 /** Standings in the order the parties of a place are listed, those in power first. */
-const STANDING_ORDER: NonNullable<Entity["standing"]>[] = ["lead", "coalition", "allied", "majority", "opposition", "extra", "underground", "exile", "banned", "armed"];
+const STANDING_ORDER: NonNullable<Entity["standing"]>[] = ["lead", "coalition", "majority", "allied", "opposition", "extra", "illegal"];
 const STANDING_TONES: Partial<Record<NonNullable<Entity["standing"]>, "gov" | "mayor" | "plain">> = { lead: "gov", coalition: "gov", allied: "gov", majority: "gov" };
 
 /** Every party of a country, territory or state, with where it stands there, folded until opened: the
@@ -787,15 +787,12 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
 
 export const STANDING_KEYS: Record<NonNullable<Entity["standing"]>, StringKey> = {
   lead: "standingLead",
-  coalition: "standingCoalition",
+  coalition: "standingLead",
+  majority: "standingLead",
   allied: "standingAllied",
-  majority: "standingMajority",
   opposition: "standingOpposition",
   extra: "standingExtra",
-  banned: "standingBanned",
-  underground: "standingUnderground",
-  exile: "standingExile",
-  armed: "standingArmed",
+  illegal: "standingIllegal",
 };
 const TREND_KEYS: StringKey[] = ["trendEarlier", "trendLast", "trendNow"];
 

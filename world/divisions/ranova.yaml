@@ -1603,7 +1603,6 @@ divisions:
       - names: {zh: 部落长老, en: Tribal elders}
         seats: 10
         color: '#8D6E63'
-        party: pty_k3c6wm
       - names: {zh: 武装指挥官, en: Militia commanders}
         seats: 5
         color: '#3B3B3B'
