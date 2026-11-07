@@ -166,9 +166,11 @@ export interface Entity {
   history?: Localized;
   /** Parties of a nation's fixed chamber: that nation; they stand in no election. */
   seated?: string;
+  /** Parties of a fixed-chamber state that hold no seat there: the state. */
+  based?: string;
   /** Where the party is strongest (or sits), its standing there and its headquarters city. */
   home?: string;
-  standing?: "lead" | "coalition" | "allied" | "majority" | "opposition" | "extra";
+  standing?: "lead" | "coalition" | "allied" | "majority" | "opposition" | "extra" | "banned" | "underground" | "exile" | "armed";
   hq?: string;
   legal_status?: Localized;
   reunification?: Localized;

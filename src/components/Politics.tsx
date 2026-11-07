@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
 import { Fragment, useContext, useState, type ReactNode } from "react";
 import { displayName, formatNumber, t, type StringKey } from "../lib/i18n";
@@ -40,6 +40,77 @@ function Tag({ tone, children }: { tone: "gov" | "mayor" | "plain"; children: Re
     >
       {children}
     </span>
+  );
+}
+
+/** Standings in the order the parties of a place are listed, those in power first. */
+const STANDING_ORDER: NonNullable<Entity["standing"]>[] = ["lead", "coalition", "allied", "majority", "opposition", "extra", "underground", "exile", "banned", "armed"];
+const STANDING_TONES: Partial<Record<NonNullable<Entity["standing"]>, "gov" | "mayor" | "plain">> = { lead: "gov", coalition: "gov", allied: "gov", majority: "gov" };
+
+/** Every party of a country, territory or state, with where it stands there, folded until opened: the
+ * parties standing in a territory's election, or a fixed-chamber state's parties with and without seats.
+ * A country with no party cards of its own (China, the United States) lists its chamber's groups. */
+export function PartiesSection({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
+  const select = useAtlas((s) => s.select);
+  const [open, setOpen] = useCardOpen("parties");
+  const L = entity.legislature;
+  const parties = Object.values(data.entities).filter((p) => p.kind === "party" && p.territories?.includes(entity.id));
+  const groups = entity.nation?.legislature && "groups" in entity.nation.legislature ? entity.nation.legislature.groups : [];
+  type Row = { key: string; party?: Entity; name: string; color: string; family?: string; standing?: NonNullable<Entity["standing"]>; seats: number };
+  let rows: Row[];
+  if (parties.length) {
+    rows = parties.map((p) => {
+      const won = L?.parties.find((x) => x.id === p.id)?.seats ?? p.seats?.filter((x) => x.at === entity.id).reduce((a, x) => a + x.seats, 0) ?? 0;
+      const standing: Row["standing"] = L
+        ? L.head.party === p.id ? "lead" : L.government.includes(p.id) ? "coalition" : won ? "opposition" : "extra"
+        : p.standing;
+      return { key: p.id, party: p, name: displayName(p, lang), color: p.color ?? NON_PARTISAN, family: p.family?.[lang], standing, seats: won };
+    });
+  } else {
+    rows = groups.map((g) => ({ key: g.names.en, name: g.names[lang], color: g.color, seats: g.seats }));
+  }
+  if (!rows.length) return null;
+  rows.sort((a, b) => STANDING_ORDER.indexOf(a.standing ?? "extra") - STANDING_ORDER.indexOf(b.standing ?? "extra") || b.seats - a.seats);
+  return (
+    <Section title={t("partiesTitle", lang)}>
+      <button
+        onClick={() => setOpen(!open)}
+        className="-mx-2 flex w-[calc(100%+1rem)] items-center gap-1.5 rounded-lg px-2 py-1 text-left text-[12.5px] text-muted hover:bg-hover hover:text-ink"
+        aria-expanded={open}
+      >
+        <ChevronRight className={clsx("size-3.5 transition-transform", open && "rotate-90")} />
+        {open ? t("hideParties", lang) : `${t("showParties", lang)} · ${rows.length}`}
+      </button>
+      {open && (
+        <ul className="-mx-2 mt-1.5">
+          {rows.map((r) => {
+            const cells = (
+              <>
+                <span className="mt-[5px] size-2.5 shrink-0 rounded-full" style={{ background: r.color }} />
+                <span className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-0.5 leading-snug">
+                  <span className="text-ink">{r.name}</span>
+                  {r.standing && <Tag tone={STANDING_TONES[r.standing] ?? "plain"}>{t(STANDING_KEYS[r.standing], lang)}</Tag>}
+                  {r.family && <span className="text-[11px] text-faint">{r.family}</span>}
+                </span>
+                <span className="text-right text-faint tabular-nums">{r.seats ? `${r.seats} ${t("seatsUnit", lang)}` : "—"}</span>
+              </>
+            );
+            const row = "grid w-full grid-cols-[auto_1fr_auto] items-start gap-2 rounded-lg px-2 py-[5px] text-left text-[12.5px]";
+            return (
+              <li key={r.key}>
+                {r.party ? (
+                  <button onClick={() => select(r.party!.id)} className={clsx(row, "hover:bg-hover")}>
+                    {cells}
+                  </button>
+                ) : (
+                  <div className={row}>{cells}</div>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </Section>
   );
 }
 
@@ -525,7 +596,10 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
           rows={[
             ...(entity.family ? [[t("partyFamily", lang), <span className="font-medium">{entity.family[lang]}</span>] as [string, ReactNode]] : []),
             ...(entity.standing
-              ? [[t("partyStanding", lang), <span className="font-medium">{t(STANDING_KEYS[entity.standing], lang)}{home && <span className="font-normal text-muted"> · {home.short_names?.[lang] ?? displayName(home, lang)}</span>}</span>] as [string, ReactNode]]
+              ? [[t("partyStanding", lang), <span className="font-medium">{t(STANDING_KEYS[entity.standing], lang)}{home && <span className="font-normal text-muted"> · <button onClick={() => select(home.id)} className="underline decoration-line underline-offset-2 hover:text-ink hover:decoration-current">{home.short_names?.[lang] ?? displayName(home, lang)}</button></span>}</span>] as [string, ReactNode]]
+              : []),
+            ...((entity.territories?.length ?? 0) > 1
+              ? [[t("partyActiveIn", lang), <span className="flex flex-wrap gap-x-2.5 gap-y-1">{entity.territories!.map((id) => data.entities[id]).filter(Boolean).map((e) => <button key={e.id} onClick={() => select(e.id)} className="text-ink underline decoration-line underline-offset-2 hover:decoration-current">{e.short_names?.[lang] ?? displayName(e, lang)}</button>)}</span>] as [string, ReactNode]]
               : []),
             ...(entity.legal_status ? [[t("legalStatus", lang), entity.legal_status[lang]] as [string, ReactNode]] : []),
             ...(entity.leader ? [[entity.leader_title?.[lang] ?? t("partyLeader", lang), entity.leader[lang]] as [string, ReactNode]] : []),
@@ -718,6 +792,10 @@ const STANDING_KEYS: Record<NonNullable<Entity["standing"]>, StringKey> = {
   majority: "standingMajority",
   opposition: "standingOpposition",
   extra: "standingExtra",
+  banned: "standingBanned",
+  underground: "standingUnderground",
+  exile: "standingExile",
+  armed: "standingArmed",
 };
 const TREND_KEYS: StringKey[] = ["trendEarlier", "trendLast", "trendNow"];
 
