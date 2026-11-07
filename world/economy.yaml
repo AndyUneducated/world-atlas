@@ -45,6 +45,10 @@ base_gdp_per_capita:
   div_4nnakk: 13580  # 伊纳拉群岛邦
   div_7t7xz6: 6050   # 安巴罗国际托管地
   div_c28art: 4640   # 坦德罗圣山修道院共和国
+  div_st5cb2: 4760   # 大衡王朝
+  div_q7nhd9: 2130   # 大天使军团国
+  div_zw79v9: 2800   # 无上法王国
+  div_zybzvt: 2030   # 金日王国
   'country:CN': 11900  # 中华人民共和国
   'country:US': 63500  # 美利坚合众国
 # Median income per earner (USD a year), for territories that set it: base x (district GDP per head /
@@ -158,6 +162,7 @@ heritage:
   # Ranova: Ranovan in the highlands and the interior, Kasiri on the west coast and in Nusira, English
   # and Chinese in the island banking states and the big ports
   ranova:         { art-x-ranova: 92, en: 5, zh: 3 }
+  heng:           { zh: 70, art-x-ranova: 27, en: 3 }   # 大衡: the court tongue on the Heng plain, Ranovan in the hills
   ranova_mixed:   { art-x-ranova: 70, art-x-kasiri: 22, en: 6, zh: 2 }
   ranova_global:  { art-x-ranova: 48, art-x-kasiri: 14, en: 28, zh: 10 }
   kasiri:         { art-x-kasiri: 82, art-x-ranova: 14, en: 4 }

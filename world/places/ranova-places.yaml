@@ -5870,3 +5870,984 @@ places:
     offset_km: [-0.00, -3.00]
     site: {"layout": "camp", "size_m": [400, 300], "variant": "barracks", "angle_deg": 0, "rural": true}
     military: {"unit": {"zh": "安博哈拉国民警卫队坦德罗分队", "en": "Tendro Detachment, Ambohara National Guard"}, "branch": {"zh": "安博哈拉国民警卫队", "en": "Ambohara National Guard"}, "equipment": {"zh": "轻武器和巡逻艇一艘", "en": "Small arms and one patrol boat"}, "personnel": 40, "access": {"zh": "不对外开放", "en": "Closed to the public"}}
+
+  # ── 大衡 / Great Heng ──
+  - id: bld_h2b2dn
+    subtype: government
+    status: generated
+    names: {"zh": "承天宫", "en": "Chengtian Palace"}
+    notes: {"zh": "承天宫是大衡天子的宫城，坐落在承天城中轴线的北端，背靠衡河，南面正对承天门和城外的圜丘。宫城四面朱墙，屋顶覆盖青色琉璃瓦，正殿承天殿是天子朝会百官的地方：每月初一的大朝会上，百官按品级身着紫、绯、绿、青四色朝服，手持笏板列队行礼，由鸿胪寺的赞礼官唱名。殿后是天子批阅奏章的勤政殿和后宫，西侧的文华阁收藏着太祖从书院带来的经籍抄本。殿试也在承天殿举行，景衡帝庄允恭亲自出题，排定进士的名次。宫城只在亲耕节和殿试放榜那天向百姓开放外朝。", "en": "Chengtian Palace is the palace city of the Emperor of Heng, at the northern end of Chengtian's axis with the Heng behind it and the Gate of Receiving Heaven and the Round Altar beyond the walls before it. It is walled in vermilion and roofed in azure glazed tiles; its main hall, the Hall of Receiving Heaven, is where the Emperor holds court. At the great audience on the first day of each month the officials line up by rank in court robes of purple, scarlet, green and blue, holding their tablets, and bow as the ushers of the Court of State Ceremonial call their names. Behind the hall are the Hall of Diligent Government, where the Emperor reads memorials, and the inner palace, and on the west side the Pavilion of Literary Splendour keeps the manuscripts of the classics the founder brought from his academy. The palace examination is also held in the Hall of Receiving Heaven, where the Jingheng Emperor, Zhuang Yungong, sets the questions himself and ranks the graduates. The outer court is open to the public only on the Day of the Imperial Ploughing and the day the palace examination results are posted."}
+    emblem_of: div_st5cb2
+    in: div_7ct07a
+    offset_km: [0.00, 0.00]
+    site: {"layout": "courtyard", "size_m": [320, 280]}
+  - id: bld_1evg5z
+    subtype: government
+    status: generated
+    names: {"zh": "三省政事堂", "en": "Hall of Government of the Three Departments"}
+    notes: {"zh": "政事堂位于承天宫西侧的掖门外，是中书、门下、尚书三省长官议事的地方，三省长官合称宰相。中书省在堂北起草诏令，门下省在堂南审核，给事中认为诏书不妥，可以批注退回，称为「封驳」；诏令经两省同意、天子用玺之后，交尚书省下发六部执行。政事堂是一座三进的院落，正堂悬挂着太祖亲笔题写的匾额「持平如衡」。宰相每天清晨在这里会商政务，再入宫面奏天子。重大的国策交由廷议讨论，廷议的六十名成员不经选举，由天子任命或依旧制推举，也在政事堂的东厅集会。", "en": "The Hall of Government stands outside the west side gate of Chengtian Palace and is where the heads of the Secretariat, the Chancellery and the Department of State Affairs, together the chief ministers, deliberate. The Secretariat drafts edicts in the north range, and the Chancellery reviews them in the south; if its supervising secretaries find an edict unsound they may annotate it and send it back, which is called 'sealing and returning'. Once both departments agree and the Emperor has sealed it, the edict passes to the Department of State Affairs to be sent down to the six ministries. The hall is a courtyard house of three courts, and over the main hall hangs a board in the founder's own hand, 'Even as the balance'. Every morning the chief ministers confer here before going into the palace to report to the Emperor. Great questions of state go to the Court Council, whose sixty members are not elected but appointed by the Emperor or put forward under the old rules, and which also meets in the east hall."}
+    in: div_7ct07a
+    offset_km: [-0.40, -0.10]
+    site: {"layout": "courtyard", "size_m": [220, 180]}
+  - id: bld_5cz8x3
+    subtype: government
+    status: generated
+    names: {"zh": "六部衙署", "en": "Offices of the Six Ministries"}
+    notes: {"zh": "六部衙署沿承天宫南面的千步廊两侧排开，东侧是吏部、户部、礼部，西侧是兵部、刑部、工部，统称「六部街」。尚书令总领六部，各部长官称尚书。吏部负责官员的铨选和考核，户部掌管户籍、田赋和常平仓，礼部主持科举、祭祀和外交礼仪，兵部、刑部、工部分管军政、刑狱和水利工程。衙署都是青砖灰瓦的院落，门前立着下马碑，官员们清晨在门外的朝房里等候点卯。户部大院里存放着全国的户籍黄册，每十年重造一次；礼部院中有一面榜墙，科举放榜时人山人海。", "en": "The Offices of the Six Ministries line both sides of the Thousand-Pace Gallery south of Chengtian Palace, Personnel, Revenue and Rites on the east and War, Justice and Works on the west, together known as Six Ministries Street. The Director of the Department of State Affairs heads all six, and each ministry is led by a minister. Personnel appoints and assesses officials, Revenue keeps the household registers, the land tax and the ever-normal granaries, Rites runs the examinations, the sacrifices and the rites of diplomacy, and War, Justice and Works oversee the army, the courts and prisons, and the waterworks. The offices are courtyards of grey brick and tile with stones before their gates where riders must dismount, and in the early morning officials wait in the anterooms outside to answer the roll. The Ministry of Revenue keeps the country's yellow household registers, remade every ten years; in the courtyard of the Ministry of Rites is the wall where examination results are posted, mobbed whenever a list goes up."}
+    in: div_7ct07a
+    offset_km: [0.00, -0.45]
+    site: {"layout": "complex", "size_m": [300, 200]}
+  - id: bld_g2gs3c
+    subtype: court
+    status: generated
+    names: {"zh": "大理寺", "en": "Court of Judicial Review"}
+    notes: {"zh": "大理寺是王朝的最高审判机关，位于六部街南端，与刑部、御史台合称「三法司」。各府审结的死刑案件都要报到这里复核，再由三法司会审，最后呈天子勾决；死刑须经三次复奏才能执行。大理寺的正堂悬挂「明刑弼教」的匾额，九名寺官依据《大衡律》审案。寺门外设有登闻鼓，百姓认为冤屈未得昭雪，可以击鼓直诉，鼓声传到宫中，天子须派官员受理。人权组织批评王朝保留杖刑和「诽谤朝廷罪」，被判此罪的士人多被流放到衡源的边地。", "en": "The Court of Judicial Review is the dynasty's highest court, at the south end of Six Ministries Street; with the Ministry of Justice and the Censorate it makes up the Three Judicial Offices. Every death sentence passed in the prefectures comes here for review, is then heard by all three offices together and finally goes to the Emperor for confirmation, and none may be carried out until it has been memorialised three times. Over the main hall hangs a board reading 'Clear punishments aid instruction', and the court's nine judges try cases under the Great Heng Code. Outside the gate hangs the petition drum: anyone who feels a wrong has not been righted may beat it to appeal directly, and when its sound reaches the palace the Emperor must send an official to hear the case. Human rights groups criticise the dynasty for keeping beating with the rod and the crime of 'slandering the court', for which scholars are mostly banished to the frontier at Hengyuan."}
+    in: div_7ct07a
+    offset_km: [0.40, -0.20]
+    site: {"layout": "courtyard", "size_m": [180, 150]}
+  - id: bld_cz82p7
+    subtype: government
+    status: generated
+    names: {"zh": "承天贡院", "en": "Chengtian Examination Hall"}
+    notes: {"zh": "承天贡院是王朝举行乡试和会试的考场，位于城东，由礼部管理。院内一排排低矮的号舍密如蜂房，共有六千多间，每间只容一人一桌，考生在里面连考三场、每场三天，吃住都不能离开。考场中央是衡鉴楼，监考官在楼上俯瞰全场。考试科目除经义和策论之外，还有太祖时增设的算学、律学和农学，世宗设立的女科也在这里开考。每逢会试，全国的举人带着考篮涌进承天，客栈和书坊家家爆满；放榜之日，礼部门前的榜墙挤满了人，新科进士的名字由快马传往各府。", "en": "The Chengtian Examination Hall is where the dynasty holds the prefectural and metropolitan examinations, on the east side of the city under the Ministry of Rites. Row upon row of low cells, packed like a honeycomb, more than six thousand of them, each hold one candidate and one desk; candidates sit three sessions of three days each without leaving, eating and sleeping in their cells. In the middle stands the Tower of the Balanced Mirror, from which the invigilators watch the whole hall. Besides the classics and policy essays, the papers include the mathematics, law and agronomy the founder added, and the examination for women created by Shizong is held here too. At every metropolitan examination graduates from the whole country pour into Chengtian with their examination baskets, filling every inn and bookshop; on the day the results come out the wall before the Ministry of Rites is mobbed, and fast riders carry the names of the new jinshi to every prefecture."}
+    in: div_7ct07a
+    offset_km: [0.90, 0.40]
+    site: {"layout": "complex", "size_m": [400, 300]}
+  - id: bld_0x5nxh
+    subtype: government
+    status: generated
+    names: {"zh": "御史台", "en": "Censorate"}
+    notes: {"zh": "御史台是王朝的监察机关，位于承天宫东侧，长官为御史大夫。御史们分巡各府，监察官员的贪墨、失职和违礼，可以直接上疏弹劾宰相和宗室，即使所言不实也不受处罚，这是太祖定下的规矩。院中有一座獬豸亭，亭中立着传说中能辨是非的独角神兽石像。近年御史台查出稷丰常平仓的贪污案，一名户部侍郎因此被革职。但王朝禁止民间议论朝政，御史台同时负责查禁「妖书」和未经礼部许可的报刊，维新会的刊物就在查禁之列。", "en": "The Censorate is the dynasty's watchdog, east of Chengtian Palace under the Censor-in-Chief. Its censors tour the prefectures looking into graft, negligence and breaches of the rites, and may impeach chief ministers and princes of the blood directly, without punishment even if the charge proves false, by a rule the founder laid down. In its courtyard is the Pavilion of the Xiezhi, with a stone figure of the one-horned beast of legend that can tell right from wrong. Recently the Censorate uncovered embezzlement at the ever-normal granary in Jifeng, and a vice-minister of revenue was dismissed for it. Yet the dynasty forbids private discussion of government, and the Censorate also hunts down 'seditious books' and papers not licensed by the Ministry of Rites, the Reform Society's publications among them."}
+    in: div_7ct07a
+    offset_km: [-0.35, 0.30]
+    site: {"layout": "courtyard", "size_m": [160, 140]}
+  - id: poi_79g5w1
+    subtype: sacred_site
+    status: generated
+    names: {"zh": "承天圜丘", "en": "Round Altar of Chengtian"}
+    notes: {"zh": "承天圜丘是天子祭天的圆形石坛，位于城南中轴线的尽头，三层白石台基层层收小，象征天圆。每年冬至，天子在黎明前登坛祭天，向上天禀告一年的政事和收成，百官和各府的代表在坛下陪祭。遇到大旱或洪水，天子也到这里祈祷，并颁布罪己诏。平日圜丘四周的柏林向百姓开放。", "en": "The Round Altar of Chengtian is the round stone altar where the Emperor sacrifices to Heaven, at the end of the axis south of the city; its three white stone tiers narrow as they rise, for the roundness of Heaven. Every winter solstice the Emperor mounts it before dawn to report the year's government and harvest to Heaven, with the officials and envoys of the prefectures below. In drought or flood he comes here to pray and issues an edict taking the blame on himself. On other days the cypress woods round the altar are open to all."}
+    in: div_7ct07a
+    offset_km: [0.00, -2.40]
+    site: {"layout": "park", "size_m": [480, 480], "rural": true}
+  - id: bld_e277rn
+    subtype: temple
+    status: generated
+    names: {"zh": "太庙", "en": "Ancestral Temple of the Dynasty"}
+    notes: {"zh": "太庙供奉大衡的历代先帝和复礼学派的先师，位于承天宫东南。正殿里并列着太祖和世宗的神主，两侧配享辅佐太祖开国的学者。每季的第一个月，天子率宗室到这里祭祖，乐工演奏按古谱复原的雅乐。太庙平日不对外开放，只在清明前后允许百姓到外院焚香。", "en": "The Ancestral Temple holds the tablets of the emperors of Heng and the first masters of the Restoration of Rites school, south-east of Chengtian Palace. The tablets of Taizu and Shizong stand side by side in the main hall, with the scholars who helped the founder establish the dynasty honoured on either side. In the first month of each season the Emperor leads the imperial clan here to sacrifice, while musicians play court music reconstructed from old scores. The temple is closed on other days, except around the festival of tomb-sweeping, when people may burn incense in the outer court."}
+    in: div_7ct07a
+    offset_km: [0.45, 0.25]
+    site: {"layout": "courtyard", "size_m": [220, 180]}
+  - id: bld_xvv920
+    subtype: university
+    status: generated
+    names: {"zh": "国子监", "en": "Imperial Academy"}
+    notes: {"zh": "国子监是王朝的最高学府，位于承天城东北，招收通过乡试的举人和各府保送的生员，在校学生约四千人，研读经籍、律令、算学和医学，准备会试。监内的辟雍是一座四面环水的圆形讲堂，天子每年来这里讲学一次。藏书楼里保存着全国最完整的经籍刻版，各地书院的教材大多从这里印出。", "en": "The Imperial Academy is the dynasty's highest seat of learning, north-east of Chengtian, taking graduates of the prefectural examination and students sent up by the prefectures, about four thousand in all, who study the classics, law, mathematics and medicine for the metropolitan examination. Its Biyong is a round lecture hall ringed by water, where the Emperor comes to lecture once a year. Its library keeps the most complete set of printing blocks for the classics in the country, and most of the academies' textbooks are printed here."}
+    in: div_7ct07a
+    offset_km: [-0.90, 0.50]
+    site: {"layout": "campus", "size_m": [600, 400]}
+  - id: bld_k3kypm
+    subtype: office
+    status: generated
+    names: {"zh": "承天市舶司", "en": "Chengtian Maritime Trade Office"}
+    notes: {"zh": "承天市舶司是管理海外贸易的衙门，设在城西的码头边，是一座面朝大海的两层院落。进出承天港的商船都要在这里登记货物、缴纳关税，外国商人须领取市舶司的「公凭」才能上岸贸易。码头上每天停满了运送瓷器、茶叶和稻米的货船。相传当年带来经籍的海商，就是在这片码头上岸的。", "en": "The Chengtian Maritime Trade Office oversees trade abroad from a two-storey courtyard house facing the sea on the western wharves. Every ship entering or leaving Chengtian must register its cargo and pay duty here, and foreign merchants need the office's licence to come ashore and trade. Its quays are crowded every day with ships loading porcelain, tea and rice. Tradition has it that the merchants who brought the classics came ashore on these very wharves."}
+    in: div_7ct07a
+    offset_km: [-1.60, 0.20]
+    site: {"layout": "courtyard", "size_m": [180, 140]}
+  - id: bld_cvey9m
+    subtype: marketplace
+    status: generated
+    names: {"zh": "承天东市", "en": "Chengtian East Market"}
+    notes: {"zh": "承天东市是城里最大的集市，几百间铺面沿十字街排开，出售稻米、鱼干、丝绸、瓷器、笔墨纸砚和各国的货物。东市每天清晨击鼓开市、黄昏击钲闭市，市令在市楼上查验秤和斗是否公平。会试前后，书坊和文具铺生意最好，考生们挤在摊前挑选考篮和墨锭。", "en": "Chengtian East Market is the city's largest market, several hundred shops along a crossroads selling rice, dried fish, silk, porcelain, brushes, ink and paper and goods from abroad. A drum opens it at dawn and a gong closes it at dusk, and the market superintendent checks the scales and measures from the market tower. Around the metropolitan examination the bookshops and stationers do their best trade, with candidates crowding the stalls for baskets and ink sticks."}
+    in: div_7ct07a
+    offset_km: [0.70, -0.50]
+    site: {"layout": "market", "size_m": [260, 180]}
+  - id: bld_1g9h96
+    subtype: hospital
+    status: generated
+    names: {"zh": "承天惠民医局", "en": "Chengtian Huimin Medical Bureau"}
+    notes: {"zh": "承天惠民医局是王朝最大的官办医院，由太医署管理，设有一千多张病床，内科、外科、产科和针灸科都很齐全。医局对穷人免费施药，雨季疫病流行时还在城门外设立药棚。附设的医学馆为各府培养医官，学生既读经典医书，也学现代的解剖和药理。", "en": "The Chengtian Huimin Medical Bureau is the dynasty's largest state hospital, run by the Imperial Medical Office, with over a thousand beds and departments of medicine, surgery, obstetrics and acupuncture. It gives medicine free to the poor and sets up dispensaries outside the city gates when epidemics come with the rains. Its medical school trains physicians for the prefectures, who read the classic medical texts as well as modern anatomy and pharmacology."}
+    in: div_7ct07a
+    offset_km: [-0.80, -0.40]
+    site: {"layout": "complex", "size_m": [320, 240]}
+  - id: poi_rt6ymj
+    subtype: park
+    status: generated
+    names: {"zh": "先农坛籍田", "en": "Altar of Agriculture and the Sacred Field"}
+    notes: {"zh": "先农坛位于承天城东的衡河南岸，坛前是一小块籍田。每年春天的亲耕节，天子在这里祭祀先农，然后扶着系黄绸的犁亲手犁下第一道田垄，宰相和六部尚书依次跟着犁地，收获的稻米用于太庙的祭祀。亲耕礼结束后，附近的农民可以登上观耕台参观。", "en": "The Altar of Agriculture stands on the south bank of the Heng east of Chengtian, with a small sacred field before it. On the Day of the Imperial Ploughing each spring the Emperor sacrifices here to the first farmer and then takes a plough tied with yellow silk to turn the first furrow himself, followed in turn by the chief ministers and the six ministers; the rice harvested goes to the sacrifices of the Ancestral Temple. After the rite the farmers round about may climb the viewing terrace."}
+    in: div_7ct07a
+    offset_km: [1.60, -0.80]
+    site: {"layout": "park", "size_m": [600, 400]}
+  - id: poi_sap5nd
+    subtype: military_base
+    status: generated
+    names: {"zh": "禁军大营", "en": "Imperial Guards Headquarters"}
+    notes: {"zh": "禁军大营是守卫京城和天子的禁军的驻地，位于承天城东南的高地上，殿前都指挥使在这里坐镇。营区中央是阅兵的校场，四周是营房、马厩和车场。禁军士兵身穿绛红色的礼服在宫门值守，平时换上迷彩服训练；每年殿试放榜，禁军的骑兵队护送新科状元游街。", "en": "The Imperial Guards Headquarters, on high ground south-east of Chengtian, is the base of the guards who defend the capital and the Emperor, and the seat of the Commander of the Palace Guards. A parade ground lies in the middle, ringed by barracks, stables and vehicle yards. Guardsmen stand at the palace gates in crimson dress uniform and train in camouflage; each year when the palace examination results are posted, the Guards' mounted troop escorts the top graduate through the streets."}
+    in: div_7ct07a
+    offset_km: [1.34, -3.23]
+    site: {"layout": "camp", "size_m": [800, 600], "variant": "hq", "angle_deg": 22, "rural": true}
+    military: {"unit": {"zh": "禁军殿前司", "en": "Palace Command, Imperial Guards"}, "branch": {"zh": "禁军", "en": "Imperial Guards"}, "equipment": {"zh": "轮式装甲车、轻武器和一个骑兵礼仪队", "en": "Wheeled armoured vehicles, small arms and a mounted ceremonial troop"}, "personnel": 1500, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_nqxyay
+    subtype: naval_base
+    status: generated
+    names: {"zh": "承天水师营", "en": "Chengtian Naval Station"}
+    notes: {"zh": "承天水师营是王朝水师的基地，位于衡河口南岸，两道石砌的防波堤围成港池，停泊着水师的导弹快艇和巡逻艇。水师负责沿海巡逻、缉私和保护商船，也在衡河上巡航。每年夏天，水师在港内举行龙舟竞渡，全城的人涌到岸边观看。", "en": "Chengtian Naval Station is the navy's base, on the south shore of the mouth of the Heng, its basin enclosed by two stone breakwaters and berthing the navy's missile boats and patrol craft. The navy patrols the coast, chases smugglers and protects merchant ships, and also cruises the Heng. Every summer it holds dragon boat races in the basin, and the whole city crowds the shore to watch."}
+    in: div_7ct07a
+    offset_km: [-2.40, -0.80]
+    site: {"layout": "harbour", "size_m": [1200, 600], "terminals": ["roro", "oil"]}
+    military: {"unit": {"zh": "水师承天营", "en": "Chengtian Squadron, Navy"}, "branch": {"zh": "水师", "en": "Navy"}, "equipment": {"zh": "导弹快艇六艘、巡逻艇十余艘和登陆艇两艘", "en": "Six missile boats, a dozen or so patrol boats and two landing craft"}, "personnel": 1200, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_xn1rba
+    subtype: armoury
+    status: generated
+    names: {"zh": "承天军器监", "en": "Chengtian Directorate of Armaments"}
+    notes: {"zh": "承天军器监是王朝的兵工作坊和军械库，制造步枪弹药、迫击炮弹和军服，也储存禁军和边军的备用武器。厂区建在城外的山坳里，几十座库房四周筑着土堤，彼此隔开以防爆炸。军器监的工匠大多出自世代相传的匠户。", "en": "The Chengtian Directorate of Armaments is the dynasty's arms workshop and arsenal, making rifle ammunition, mortar bombs and uniforms and storing reserve weapons for the Guards and the Frontier Army. It lies in a fold of the hills outside town, dozens of magazines each banked with earth and set apart against explosions. Most of its craftsmen come from families who have been armourers for generations."}
+    in: div_7ct07a
+    offset_km: [-2.12, -2.12]
+    site: {"layout": "armoury", "size_m": [500, 350], "angle_deg": 135, "rural": true}
+    military: {"unit": {"zh": "兵部军器监", "en": "Directorate of Armaments, Ministry of War"}, "branch": {"zh": "禁军", "en": "Imperial Guards"}, "equipment": {"zh": "弹药生产线、轻武器和火炮弹药库", "en": "Ammunition lines and stores of small arms and artillery rounds"}, "personnel": 600, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: bld_gsvaxv
+    subtype: radar_station
+    status: generated
+    names: {"zh": "承天烽台雷达站", "en": "Chengtian Beacon Hill Radar Station"}
+    notes: {"zh": "承天烽台雷达站建在城北海边的山头上，旧时这里是传递警报的烽火台，如今立着两座白色的雷达罩，监视海上和空中的动静。雷达站由水师和禁军共同值守，发现可疑的船只或飞机，消息几分钟内就能送到兵部。", "en": "Chengtian Beacon Hill Radar Station stands on a seaside hilltop north of the city where a beacon tower once passed on alarms; today two white radomes watch the sea and the sky. The Navy and the Guards man it together, and word of a suspicious ship or aircraft reaches the Ministry of War within minutes."}
+    in: div_7ct07a
+    offset_km: [1.15, 2.77]
+    site: {"layout": "radar", "size_m": [500, 400], "variant": "dome", "angle_deg": 158, "rural": true}
+    military: {"unit": {"zh": "水师烽台雷达站", "en": "Beacon Hill Radar Station, Navy"}, "branch": {"zh": "水师", "en": "Navy"}, "equipment": {"zh": "对海警戒雷达一部、对空警戒雷达一部", "en": "One sea-surveillance and one air-surveillance radar"}, "personnel": 90, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_y6qeyt
+    subtype: heliport
+    status: generated
+    names: {"zh": "禁军直升机场", "en": "Imperial Guards Heliport"}
+    notes: {"zh": "禁军直升机场位于承天城西南的平地上，停放着禁军的通用直升机，平时运送官员巡视各府，洪水和风暴来临时用于救灾。每年衡河汛期，直升机沿河巡飞，查看堤坝的险情，把消息报给工部的河道官。", "en": "The Imperial Guards Heliport, on flat ground south-west of Chengtian, keeps the Guards' utility helicopters, which carry officials on tours of the prefectures and fly relief in floods and storms. Every flood season they patrol the Heng, checking the dikes for danger and reporting to the river officials of the Ministry of Works."}
+    in: div_7ct07a
+    offset_km: [-1.15, -2.77]
+    site: {"layout": "heliport", "size_m": [600, 450], "angle_deg": 158, "rural": true}
+    military: {"unit": {"zh": "禁军航空营", "en": "Aviation Battalion, Imperial Guards"}, "branch": {"zh": "禁军", "en": "Imperial Guards"}, "equipment": {"zh": "通用直升机约十架", "en": "About ten utility helicopters"}, "personnel": 320, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_fjfhw8
+    subtype: logistics_park
+    status: generated
+    names: {"zh": "稷丰常平仓", "en": "Jifeng Ever-Normal Granary"}
+    notes: {"zh": "稷丰常平仓是王朝最大的官仓，几十座高大的砖砌粮仓沿衡河码头排开，储存着全国一年所需的储备粮。丰年粮价低时，户部按平价收购稻米入仓，荒年粮价高时再平价出售，以免谷贱伤农、谷贵伤民。仓官归户部管辖，每年秋天都有御史前来盘查，前些年查出的贪污案就发生在这里。", "en": "The Jifeng Ever-Normal Granary is the dynasty's largest state store, dozens of tall brick granaries along the Heng wharves holding a year's reserve of grain for the whole country. When rice is cheap in a good year the Ministry of Revenue buys it in at a fair price, and when it is dear in a bad year sells it at a fair price, so that cheap grain does not ruin the farmers nor dear grain the townspeople. Its keepers answer to the Ministry of Revenue, and censors come to audit it every autumn; the embezzlement uncovered a few years ago happened here."}
+    in: div_g843pd
+    offset_km: [0.90, -0.40]
+    site: {"layout": "plant", "size_m": [600, 400], "variant": "depot", "angle_deg": 90}
+  - id: poi_ajafwv
+    subtype: orchard
+    status: generated
+    names: {"zh": "稷丰万顷田", "en": "Jifeng Paddies"}
+    notes: {"zh": "稷丰平原的水田一直延伸到天边，纵横的水渠把衡河水引进每一块田，田埂上种着桑树和木瓜。这里一年收两季稻米，是王朝的粮仓。插秧时节，各村按次序轮流用水，水闸由乡里推举的渠长看管。秋收之后，田里随处是晾晒稻谷的竹席和啄食谷粒的白鹭。", "en": "The paddies of the Jifeng plain stretch to the horizon, a web of canals carrying the Heng's water into every field, with mulberries and papayas along the bunds. Two rice crops a year make this the dynasty's granary. At transplanting time the villages take the water in turn, and the sluices are kept by canal wardens the villages choose. After the harvest the fields are dotted with bamboo mats of drying grain and egrets picking at the spilt rice."}
+    in: div_g843pd
+    offset_km: [-2.77, 1.15]
+    site: {"layout": "orchard", "size_m": [1000, 700], "angle_deg": 68, "rural": true}
+  - id: bld_m0q8fj
+    subtype: marketplace
+    status: generated
+    names: {"zh": "稷丰米市", "en": "Jifeng Rice Market"}
+    notes: {"zh": "稷丰米市是全国最大的稻米交易市场，每天清晨，满载稻谷的船只沿衡河驶来，在码头卸货过斗。米市的价格每天由驿马传到承天，户部据此决定常平仓的买卖，各地米价也随之涨落。市场边的茶楼是米商谈生意的地方，一壶茶的工夫就能定下几百石米的买卖。", "en": "The Jifeng Rice Market is the country's largest rice exchange: every morning boats laden with paddy come down the Heng to unload and be measured at its quay. Its prices go to Chengtian by post horse each day, the Ministry of Revenue buys and sells for the granaries by them, and prices everywhere rise and fall with them. The teahouses beside the market are where the dealers do business, settling a deal for hundreds of piculs of rice over a single pot of tea."}
+    in: div_g843pd
+    offset_km: [0.30, 0.40]
+    site: {"layout": "market", "size_m": [300, 200]}
+  - id: bld_8zjda4
+    subtype: factory
+    status: generated
+    names: {"zh": "稷丰官酿坊", "en": "Jifeng Official Brewery"}
+    notes: {"zh": "稷丰官酿坊用当地的糯米酿造黄酒，是王朝最大的酿酒作坊。院子里排满了泥封的陶瓮，陈酿三年以上的才送进宫中，供祭祀和宴会使用。每年冬至前后是酿酒的旺季，空气中满是蒸米和酒曲的香味。", "en": "The Jifeng Official Brewery makes yellow rice wine from the local glutinous rice and is the largest brewery in the dynasty. Its yards are crowded with clay-sealed jars, and only wine aged three years or more goes to the palace for sacrifices and banquets. The brewing season peaks around the winter solstice, when the air is full of the smell of steamed rice and yeast."}
+    in: div_g843pd
+    offset_km: [-0.50, -0.30]
+    site: {"layout": "courtyard", "size_m": [220, 180]}
+  - id: poi_9cmkzd
+    subtype: training_range
+    status: generated
+    names: {"zh": "稷丰校场", "en": "Jifeng Drill Ground"}
+    notes: {"zh": "稷丰校场是府兵每年集训的地方，位于稷丰城南的荒原上，有步兵操场、装甲车训练区和火炮射击阵地。秋收之后，各村的府兵来到这里训练一个月，再回家准备下一季的耕种。校场边的点将台是太祖当年检阅乡兵的地方。", "en": "The Jifeng Drill Ground, on open land south of Jifeng, is where the prefectural militia train each year, with infantry grounds, an armoured vehicle area and artillery firing points. After the harvest the militiamen of the villages come here for a month's training before going home to prepare the next crop. The reviewing platform beside it is where the founder inspected the village militias."}
+    in: div_g843pd
+    offset_km: [-1.15, -2.77]
+    site: {"layout": "range", "size_m": [3000, 2000], "variant": "armor", "angle_deg": 158, "rural": true}
+    military: {"unit": {"zh": "兵部稷丰校场", "en": "Jifeng Drill Ground, Ministry of War"}, "branch": {"zh": "府兵", "en": "Prefectural militia"}, "equipment": {"zh": "步兵与装甲车辆训练区、火炮射击阵地", "en": "Infantry and armoured vehicle areas, artillery firing points"}, "personnel": 240, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_hhjkx5
+    subtype: patrol_base
+    status: generated
+    names: {"zh": "稷丰北境巡检司", "en": "Jifeng Northern Border Patrol Post"}
+    notes: {"zh": "稷丰北境巡检司驻守在通往梅纳瓦利的边界上，几座营房和一座瞭望塔围着一个小院。巡检兵沿边界巡逻，查缉走私的牛群、燃料和武器，调解越界放牧引起的纠纷。梅纳瓦利的牧人和士兵时常越过界碑，巡检司与对面的哨所之间有过多次对峙。", "en": "The Jifeng Northern Border Patrol Post guards the border with Menavaly, a few barracks and a watchtower round a small yard. Its men patrol the line, seizing smuggled cattle, fuel and arms and settling quarrels over herds grazing across it. Menavaly's herders and soldiers often cross the boundary stones, and the post has faced off with the outpost opposite many times."}
+    in: div_g843pd
+    offset_km: [1.15, 2.77]
+    site: {"layout": "camp", "size_m": [400, 300], "variant": "barracks", "angle_deg": 45, "rural": true}
+    military: {"unit": {"zh": "边军稷丰巡检队", "en": "Jifeng Patrol Company, Frontier Army"}, "branch": {"zh": "边军", "en": "Frontier Army"}, "equipment": {"zh": "轻武器、巡逻车和夜视器材", "en": "Small arms, patrol vehicles and night-vision gear"}, "personnel": 180, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: bld_wfma34
+    subtype: mine
+    status: generated
+    names: {"zh": "衡源铜矿", "en": "Hengyuan Copper Mine"}
+    notes: {"zh": "衡源铜矿位于衡河源头的山谷里，是王朝最重要的矿山，开采出的矿石在山下的冶炼厂炼成铜锭，用于铸造钱币、器物和弹壳。矿山由工部的矿监管理，矿工大多是附近村庄的农民和难民营里的难民。矿区离齐马罗沃边境不远，四周驻有边军的哨所。", "en": "The Hengyuan Copper Mine, in a valley at the source of the Heng, is the dynasty's most important mine; its ore is smelted into ingots at the works below for coins, wares and cartridge cases. It is run by the mine inspectorate of the Ministry of Works, and most of the miners are farmers from nearby villages and people from the refugee camp. The Tsimarovo border is not far off, and Frontier Army posts ring the workings."}
+    in: div_rrx5v5
+    offset_km: [-2.77, 1.15]
+    site: {"layout": "mine", "size_m": [1400, 1000], "angle_deg": 68, "rural": true}
+  - id: poi_jvxsgx
+    subtype: border_crossing
+    status: generated
+    names: {"zh": "衡源东关", "en": "Hengyuan East Pass"}
+    notes: {"zh": "衡源东关是大衡与齐马罗沃之间唯一开放的关口，一座石砌的关城横跨在通往齐马罗沃的旧国道上。关口只在白天开放，过往的商人须出示礼部签发的勘合，货物要缴纳关税。两国关系紧张时，关门常常一连几个月紧闭，只放逃难的人进来。", "en": "The Hengyuan East Pass is the only open crossing between Heng and Tsimarovo, a stone gate fort astride the old national road to Tsimarovo. It opens by day only; traders must show a tally pass from the Ministry of Rites and pay duty on their goods. When relations are tense the gates often stay shut for months on end, opened only to let refugees in."}
+    in: div_rrx5v5
+    offset_km: [3.00, 0.00]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 90, "rural": true}
+  - id: poi_86netn
+    subtype: refugee_camp
+    status: generated
+    names: {"zh": "衡源东难民营", "en": "Hengyuan East Refugee Camp"}
+    notes: {"zh": "衡源东难民营位于衡源城外的河谷里，收容了约三万名逃离齐马罗沃的人，他们大多被「血统证书」划为下等居民，失去了土地和工作。营地由户部的赈济司和国际援助机构共同管理，竹棚和铁皮板房沿河谷排开，中间是粥厂、诊所和学堂。王朝允许难民在附近的铜矿和林场做工，却不给他们户籍，许多人已在这里住了十多年。", "en": "Hengyuan East Refugee Camp lies in the valley outside Hengyuan and shelters about 30,000 people who fled Tsimarovo, most of them graded as lower-class residents by its 'certificates of lineage' and stripped of land and work. It is run jointly by the Relief Office of the Ministry of Revenue and international aid agencies; bamboo huts and tin-sheet shelters line the valley round soup kitchens, a clinic and a school. The dynasty lets the refugees work in the nearby copper mine and forest stations but gives them no household registration, and many have lived here for more than ten years."}
+    in: div_rrx5v5
+    offset_km: [2.12, -2.12]
+    site: {"layout": "refugee", "size_m": [1600, 1200], "angle_deg": 45, "rural": true}
+  - id: poi_er5myd
+    subtype: military_base
+    status: generated
+    names: {"zh": "衡源边军大营", "en": "Hengyuan Frontier Army Camp"}
+    notes: {"zh": "衡源边军大营是边军最大的驻地，扼守衡河源头通往齐马罗沃的谷道。营区里有几十座营房、炮场和车场，外围挖着壕沟、筑着土墙。边军士兵大多来自衡河平原的农家，三年一轮换。两国关系紧张时，大营的火炮会推进到东关附近的山头上。", "en": "The Hengyuan Frontier Army Camp is the Frontier Army's largest base, holding the valley road from the source of the Heng into Tsimarovo. Dozens of barrack blocks, gun parks and vehicle yards lie within a ditch and earth wall. Most of its soldiers are farmers' sons from the Heng plain, serving three-year turns. When relations are tense its guns move up to the hilltops near the East Pass."}
+    in: div_rrx5v5
+    offset_km: [2.12, 2.12]
+    site: {"layout": "camp", "size_m": [900, 700], "variant": "barracks", "angle_deg": 45, "rural": true}
+    military: {"unit": {"zh": "边军第一镇", "en": "1st Garrison, Frontier Army"}, "branch": {"zh": "边军", "en": "Frontier Army"}, "equipment": {"zh": "轮式装甲车约四十辆、自行火炮和反坦克导弹", "en": "About 40 wheeled armoured vehicles, self-propelled guns and anti-tank missiles"}, "personnel": 2400, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_k299ad
+    subtype: college
+    status: generated
+    names: {"zh": "鹿鸣书院", "en": "Luming Academy"}
+    notes: {"zh": "鹿鸣书院建在鹿鸣城南的山坡上，是全国最古老的书院之一，早在王朝建立以前就有海商的后代在这里讲学。讲堂、藏书楼和学舍依山而建，几百名学生跟随山长研读经籍，准备乡试。每年秋天乡试放榜后，鹿鸣府在书院里设宴款待新科举人，席间演唱《鹿鸣》之诗，城名也由此而来。", "en": "Luming Academy stands on the hillside south of Luming and is one of the oldest academies in the country, where descendants of the sea merchants were teaching long before the dynasty was founded. Its lecture hall, library and dormitories climb the slope, and several hundred students study the classics under its master for the prefectural examination. Each autumn when the results are out, the prefecture gives a banquet here for the new graduates, at which they sing the ode 'The Deer Cry', from which the town takes its name."}
+    in: div_k1g6r6
+    offset_km: [0.30, -0.50]
+    site: {"layout": "campus", "size_m": [500, 380]}
+  - id: bld_xh71m8
+    subtype: factory
+    status: generated
+    names: {"zh": "鹿鸣官窑", "en": "Luming Imperial Kilns"}
+    notes: {"zh": "鹿鸣官窑是王朝的御用瓷窑，十几座龙窑依山势排开，窑工们用当地的瓷土烧制青瓷和白瓷。上等的瓷器专供宫中和祭祀，其余的经承天市舶司出口到岛上各国和海外。官窑青瓷的釉色像雨后的天空，是大衡最有名的特产。", "en": "The Luming Imperial Kilns are the dynasty's own porcelain works, a dozen or so dragon kilns climbing the hillside where potters fire celadon and white wares from the local clay. The finest pieces go to the palace and the sacrifices, and the rest are shipped through the Chengtian Maritime Trade Office to the island's states and overseas. Their celadon, the colour of the sky after rain, is Heng's most famous product."}
+    in: div_k1g6r6
+    offset_km: [2.77, -1.15]
+    site: {"layout": "complex", "size_m": [400, 260], "angle_deg": 112, "rural": true}
+  - id: poi_57sdgc
+    subtype: orchard
+    status: generated
+    names: {"zh": "鹿鸣茶山", "en": "Luming Tea Hills"}
+    notes: {"zh": "鹿鸣茶山在城东的丘陵上，茶园沿山势层层排开，茶农每天清晨背着竹篓采摘嫩芽。这里的绿茶清香微苦，炒制后装进瓷罐，与官窑的瓷器一起由商船运往海外。每年春天的第一批新茶要先进贡给天子。", "en": "The Luming Tea Hills rise east of town, their gardens terraced along the slopes, where pickers gather the young shoots with bamboo baskets every morning. The green tea here is fragrant and faintly bitter; once roasted it is packed in porcelain jars and shipped abroad with the kilns' wares. The first picking of every spring goes to the Emperor as tribute."}
+    in: div_k1g6r6
+    offset_km: [2.77, 1.15]
+    site: {"layout": "orchard", "size_m": [800, 600], "angle_deg": 22, "rural": true}
+  - id: poi_hv6cxn
+    subtype: military_base
+    status: generated
+    names: {"zh": "鹿鸣兵营", "en": "Luming Barracks"}
+    notes: {"zh": "鹿鸣兵营驻扎着边军第二镇，负责南部丘陵的防务，守卫通往大天使军团国的关隘。营区建在城南的山谷里，营房、车场和弹药库沿溪流排开。南面的关隘关闭以后，兵营的巡逻队每天沿边界山脊巡逻，阻止武装人员和布道者越境。", "en": "Luming Barracks is the base of the Frontier Army's 2nd Garrison, which defends the southern hills and the pass to the Legionary State of the Archangel. It lies in a valley south of town, its barracks, vehicle yards and magazine strung along a stream. Since the pass to the south was shut, its patrols walk the border ridges every day to keep out armed men and preachers."}
+    in: div_k1g6r6
+    offset_km: [-1.15, -2.77]
+    site: {"layout": "camp", "size_m": [900, 700], "variant": "barracks", "angle_deg": 158, "rural": true}
+    military: {"unit": {"zh": "边军第二镇", "en": "2nd Garrison, Frontier Army"}, "branch": {"zh": "边军", "en": "Frontier Army"}, "equipment": {"zh": "轮式装甲车约二十辆、迫击炮和反坦克导弹", "en": "About 20 wheeled armoured vehicles, mortars and anti-tank missiles"}, "personnel": 1600, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+
+  # ── 军团国 / Legion State ──
+  - id: bld_2h676g
+    subtype: government
+    status: generated
+    names: {"zh": "殉道者大殿与地宫", "en": "Hall and Crypt of the Martyrs"}
+    notes: {"zh": "殉道者大殿建在安博希马西山脊的最高处，是一座灰白石灰岩砌成的圆顶建筑，守夜议会在大殿里开会，队长在这里宣誓就职。大殿下面凿入山体的地宫是军团国最重要的场所：创团队长坦特利·兰杰瓦的遗体安放在正中的石龛里，四周的壁龛中是数千名殉道者的遗骨，每个壁龛前点着一盏油灯，由信仰与殡仪部的守墓人昼夜看守。年满十六岁的青年在地宫中手持蜡烛宣誓，领取自己的「亡名」；每年殉道者大殡日，游行队伍沿殡仪大道走到这里，把蜡烛放在大殿的台阶上。人权组织指出，许多被行刑小队杀害的人的遗体至今下落不明，而他们的家属不得在这里点灯。", "en": "The Hall of the Martyrs stands on the highest point of the Ambohimasy ridge, a domed building of pale grey limestone where the Vigil Council meets and each Captain swears his oath of office. The crypt cut into the hill beneath it is the most important place in the Legionary State: the body of the Founding Captain, Tantely Ranjeva, lies in a stone niche at its centre, the bones of thousands of martyrs fill the niches around him, and an oil lamp burns before each niche, watched day and night by the keepers of the Ministry of Faith and Funerals. Young people of sixteen take the oath here by candlelight and receive their 'death names', and on the Great Funeral of the Martyrs each year the procession climbs the Avenue of Funerals to lay its candles on the hall's steps. Human rights groups point out that the bodies of many people killed by the execution squads have never been found, and that their families may not light lamps here."}
+    emblem_of: div_q7nhd9
+    in: div_a1sa6r
+    offset_km: [0.00, 0.00]
+    site: {"layout": "dome", "size_m": [240, 240]}
+  - id: bld_sgzv73
+    subtype: government
+    status: generated
+    names: {"zh": "队长府", "en": "Captain's House"}
+    notes: {"zh": "队长府在殉道者大殿西面的山坡上，原是旧共和国时期的一所神学院，大天使兄弟会就是在这里的地下墓室里成立的。院落是一座两层的回廊式建筑，中庭种着紫色的马岛长春花，回廊的墙上挂满殉道者的照片。现任队长埃里佐·拉钦曼德雷西住在旧院长的寓所里，每天清晨在院里的小礼拜堂主持守夜祈祷，再接见首席执事和紫衫卫队的指挥官。前任队长菲迪·拉巴里松被刺杀后，队长府外加了一道围墙和两座岗楼，周围的街道入夜后禁止通行。府里的旧墓室保留着兄弟会第一次宣誓时用过的烛台，只对新晋的军团元老开放。", "en": "The Captain's House stands on the slope west of the Hall of the Martyrs in what was a seminary under the old republic; the Brotherhood of the Archangel was founded in its underground burial vault. It is a two-storey cloistered building, its inner court planted with violet Madagascar periwinkle and its cloister walls hung with photographs of martyrs. The present Captain, Herizo Ratsimandresy, lives in the old rector's lodging; every morning he leads the vigil prayer in the small chapel before receiving the Chief Steward and the commanders of the Violet Guard. After his predecessor, Fidy Rabarison, was assassinated, a wall and two watchtowers were added round the house, and the streets around it are closed after dark. The old vault keeps the candlesticks used at the Brotherhood's first oath and is opened only to newly made Legion elders."}
+    in: div_a1sa6r
+    offset_km: [-0.40, 0.20]
+    site: {"layout": "courtyard", "size_m": [220, 180]}
+  - id: bld_yqa000
+    subtype: government
+    status: generated
+    names: {"zh": "军团总部（紫衫楼）", "en": "Legion Headquarters (Violet House)"}
+    notes: {"zh": "军团总部是一座六层的长条形大楼，外墙刷成紫灰色，当地人叫它「紫衫楼」。大天使军团的书记处、组织部和宣誓登记处都设在这里，全国每一名军团员的誓词、亡名和「忠诚记录」都存放在地下的档案室里。公务员和教师的任免、合作社的执照和荣誉劳动的名额都要经过这里审批，因此楼前每天都有排队递交申请的人。大楼的正门上方挂着一幅巨大的创团队长画像，画像下方写着军团的誓词。人权组织认为，楼里的档案是军团监控和清洗「无誓者」的主要工具；流亡者说，凡是在这里被注明「誓言动摇」的人，都会失去工作和住房。", "en": "The Legion Headquarters is a six-storey slab painted a violet grey, known locally as the Violet House. The secretariat, organisation department and oath registry of the Legion of the Archangel are here, and the oath, death name and 'record of loyalty' of every legionary in the country are kept in the archive below ground. Appointments of civil servants and teachers, cooperative licences and honour labour quotas all pass through the building, so people queue outside every day to hand in applications. A huge portrait of the Founding Captain hangs above the main door, with the Legion's oath written beneath it. Human rights groups see its archive as the Legion's chief tool for watching and purging the 'unsworn'; exiles say anyone marked here as 'wavering in the oath' loses work and home."}
+    in: div_a1sa6r
+    offset_km: [0.30, 0.30]
+    site: {"layout": "slab", "size_m": [200, 110]}
+  - id: bld_0ez0fv
+    subtype: government
+    status: generated
+    names: {"zh": "军团政府大楼", "en": "Legion Government Building"}
+    notes: {"zh": "军团政府大楼原是旧共和国的西海岸省政府，一座方形的四层石楼，围着一个铺石的内院。首席执事和八个部的办公室都在这里，其中信仰与殡仪部占了整整一层，负责全国的葬礼安排、殉道者名册和每一位阵亡军团员的国葬。内院的墙上刻着阵亡者的名字，每有新的殉道者，石匠就在墙上添刻一行。各部部长都是军团元老，由队长任命，每周在三楼的会议室开一次会，会议以一分钟的默哀开始。外国使团很少来这里，仅有的几个承认军团国的国家通过对外事务部的一间小办公室与它往来。", "en": "The Legion Government Building was the old republic's West Coast provincial government, a square four-storey stone block round a paved inner court. The Chief Steward and the eight ministries have their offices here, the Ministry of Faith and Funerals taking up a whole floor for the country's funerals, the roll of martyrs and the state funeral of every fallen legionary. The names of the fallen are carved on the walls of the court, and a stonemason adds a line for each new martyr. The ministers, all Legion elders appointed by the Captain, meet once a week in a room on the third floor, each meeting opening with a minute's silence. Foreign missions seldom come here; the few states that recognise the Legionary State deal with it through a small office of the Ministry of External Affairs."}
+    in: div_a1sa6r
+    offset_km: [0.30, -0.20]
+    site: {"layout": "block", "size_m": [160, 160]}
+  - id: bld_x74h1k
+    subtype: court
+    status: generated
+    names: {"zh": "军团荣誉法庭", "en": "Legion Court of Honour"}
+    notes: {"zh": "军团荣誉法庭是军团国的最高审判机关，五名法官都是队长任命的军团元老。法庭设在一座灰石院落里，审判不对外公开，被告不能自行选择辩护人。「背誓罪」最重可判处死刑，人权组织记录的死刑判决大多出自这里，判决书只在国家电台上宣读。", "en": "The Legion Court of Honour is the Legionary State's highest court; its five judges are Legion elders appointed by the Captain. It sits in a grey stone courtyard building; its trials are closed and the accused cannot choose their own counsel. 'Oath-breaking' can carry the death penalty, most of the death sentences human rights groups have recorded were passed here, and its judgments are read out only on state radio."}
+    in: div_a1sa6r
+    offset_km: [-0.30, -0.30]
+    site: {"layout": "courtyard", "size_m": [180, 150]}
+  - id: bld_q1n929
+    subtype: church
+    status: generated
+    names: {"zh": "守夜主教座堂", "en": "Cathedral of the Vigil"}
+    notes: {"zh": "守夜主教座堂是守夜教会的主教座堂，一座紫灰色的长方形教堂，原是旧共和国时期的天主教堂，守夜教会脱离原教会后接管了它。祭坛上方画着展开双翼的大天使，四壁挂着殉道者的画像。每一位殉道者的安魂弥撒都在这里举行，由国家电台直播。被驱逐的原堂区神父至今在安博哈拉要求归还教堂。", "en": "The Cathedral of the Vigil is the cathedral of the Church of the Vigil, an oblong violet-grey church that was a Catholic church under the old republic until the Church of the Vigil took it over after breaking away. The Archangel with outspread wings is painted above the altar, and portraits of martyrs hang on every wall. The requiem of every martyr is held here and broadcast live on state radio. The parish priests who were expelled still call from Ambohara for the church to be returned."}
+    in: div_a1sa6r
+    offset_km: [0.00, 0.50]
+    site: {"layout": "hall", "size_m": [190, 90]}
+  - id: poi_61xkg2
+    subtype: plaza
+    status: generated
+    names: {"zh": "殡仪大道", "en": "Avenue of Funerals"}
+    notes: {"zh": "殡仪大道从安博希马西的下城笔直通向山顶的殉道者大殿，两旁立着殉道者的石碑。每位殉道者的灵柩都由军团员抬着沿大道上山；每年殉道者大殡日，全城居民手持蜡烛在这里列队，游行要持续一整夜。", "en": "The Avenue of Funerals runs straight from Ambohimasy's lower town up to the Hall of the Martyrs on the summit, lined with martyrs' gravestones. Every martyr's coffin is carried up it on legionaries' shoulders, and on the Great Funeral of the Martyrs each year the whole city lines up here with candles in a procession that lasts all night."}
+    in: div_a1sa6r
+    offset_km: [0.00, -0.60]
+    site: {"layout": "plaza", "size_m": [600, 140], "angle_deg": 90}
+  - id: bld_aenpt1
+    subtype: hospital
+    status: generated
+    names: {"zh": "安博希马西总医院", "en": "Ambohimasy General Hospital"}
+    notes: {"zh": "安博希马西总医院是军团国最大的医院，有病床约四百张，建于旧共和国时期。武器禁运使药品和设备长期短缺，许多病人要自己购买药品。医院优先收治军团员和殉道者家属，「无誓者」常被排在最后，人权组织多次批评这一做法。", "en": "Ambohimasy General Hospital is the largest hospital in the Legionary State, with about 400 beds, built under the old republic. The arms embargo and isolation leave it short of medicines and equipment, and many patients must buy their own drugs. It treats legionaries and martyrs' families first and often puts the 'unsworn' last, a practice human rights groups have repeatedly criticised."}
+    in: div_a1sa6r
+    offset_km: [0.50, -1.30]
+    site: {"layout": "complex", "size_m": [320, 240]}
+  - id: bld_mmdh6r
+    subtype: college
+    status: generated
+    names: {"zh": "军团学院", "en": "Legion Academy"}
+    notes: {"zh": "军团学院是培养军团干部、教师和守夜教会司祭的学校，学员住在回廊宿舍里，每天以守夜祈祷开始。课程包括军团史、教义、步兵训练和一门叫作「善终之道」的必修课，教学员如何准备自己的死亡和葬礼。毕业生被分配到各部、学校和合作社。", "en": "The Legion Academy trains the Legion's cadres, its teachers and the priests of the Church of the Vigil; students live in cloistered dormitories and begin each day with the vigil prayer. Its courses include Legion history, doctrine, infantry drill and a compulsory class called 'the art of dying well', which teaches students to prepare for their own death and funeral. Graduates are posted to the ministries, schools and cooperatives."}
+    in: div_a1sa6r
+    offset_km: [-0.80, 0.40]
+    site: {"layout": "courtyard", "size_m": [220, 200]}
+  - id: bld_cmkwgs
+    subtype: bank
+    status: generated
+    names: {"zh": "军团国家银行", "en": "Legion State Bank"}
+    notes: {"zh": "军团国家银行负责发行军团拉罗、管理外汇和为军团合作社放贷。银行大楼是一座十层的方形塔楼，地下金库里存放着大分裂后从联合共和国中央银行分得的一部分黄金。由于制裁，外汇几乎只能通过梅纳瓦利的银行周转，黑市汇率常常是官方汇率的数倍。", "en": "The Legion State Bank issues the Legion laro, manages foreign exchange and lends to the Legion's cooperatives. Its building is a square ten-storey tower whose vaults hold part of the gold the state received from the United Republic's central bank after the Sundering. Because of sanctions, foreign currency can move almost only through Menavaly's banks, and the black-market rate is often several times the official one."}
+    in: div_a1sa6r
+    offset_km: [-0.60, -0.10]
+    site: {"layout": "tower", "size_m": [140, 140]}
+  - id: bld_a6r9jm
+    subtype: office
+    status: generated
+    names: {"zh": "守夜之声广播电台", "en": "Voice of the Vigil Radio"}
+    notes: {"zh": "守夜之声是军团国唯一的广播电台，大楼顶上竖着一座发射塔。电台每天播出守夜祈祷、军团新闻和殉道者的安魂弥撒，每晚八点宣读当天新增的殉道者名单和荣誉法庭的判决。收听外国电台被视为「动摇誓言」，但边境地区的居民仍偷偷收听邻国的节目。", "en": "The Voice of the Vigil is the Legionary State's only radio station, with a transmitter mast on its roof. Every day it broadcasts the vigil prayer, Legion news and the requiems of martyrs, and at eight each evening it reads out the day's new martyrs and the judgments of the Court of Honour. Listening to foreign stations counts as 'wavering in the oath', but people in the border districts still tune in to the neighbours' programmes in secret."}
+    in: div_a1sa6r
+    offset_km: [0.70, 0.10]
+    site: {"layout": "slab", "size_m": [180, 90]}
+  - id: bld_ahppp1
+    subtype: marketplace
+    status: generated
+    names: {"zh": "合作社中央市场", "en": "Cooperative Central Market"}
+    notes: {"zh": "合作社中央市场是安博希马西最大的市场，一排排摊位出售稻米、木薯、瘤牛肉、干鱼和日用品。摊位的执照由军团合作社发放，只租给宣过誓的军团员，「无誓者」只能在城外的路边摆摊。市场入口立着一块木板，贴着当天的讣告。", "en": "The Cooperative Central Market is the largest market in Ambohimasy, rows of stalls selling rice, cassava, zebu meat, dried fish and household goods. Stall licences are issued by the Legion's cooperatives and let only to sworn legionaries, so the 'unsworn' can only sell by the roadside outside town. A wooden board at the entrance carries the day's death notices."}
+    in: div_a1sa6r
+    offset_km: [0.60, 0.60]
+    site: {"layout": "market", "size_m": [260, 180]}
+  - id: poi_jyn60d
+    subtype: detention_centre
+    status: generated
+    names: {"zh": "安博希马西荣誉劳动营", "en": "Ambohimasy Honour Labour Camp"}
+    notes: {"zh": "安博希马西荣誉劳动营位于城东的石灰岩谷地，高墙和铁丝网围着几排营房和一片采石场。被荣誉法庭判处「劳动赎誓」的人和拒绝宣誓的「无誓者」在这里开采石料，供修建教堂和墓园之用。获释者讲述了超长的劳动时间、强迫参加守夜祈祷和与家人断绝联系的经历，国际组织的探视要求从未获准。", "en": "Ambohimasy Honour Labour Camp lies in a limestone valley east of town, rows of huts and a quarry behind high walls and wire. People sentenced by the Court of Honour to 'labour to redeem the oath' and 'unsworn' who refuse the oath cut stone here for churches and cemeteries. Former inmates describe very long working hours, compulsory vigil prayers and being cut off from their families, and international bodies have never been allowed to visit."}
+    in: div_a1sa6r
+    offset_km: [3.00, 0.00]
+    site: {"layout": "detention", "size_m": [700, 500], "angle_deg": 90, "rural": true}
+  - id: poi_dxt3h9
+    subtype: command_centre
+    status: generated
+    names: {"zh": "紫衫卫队总部", "en": "Violet Guard Headquarters"}
+    notes: {"zh": "紫衫卫队总部位于安博希马西城西的山坡上，是负责保卫队长、殉道者地宫和镇压「背誓者」的卫队的指挥部。营区里有指挥楼、营房、车场和一座小礼拜堂，卫队员每天清晨在礼拜堂前列队祈祷。营区不对外开放。", "en": "The Violet Guard Headquarters, on the hillside west of Ambohimasy, commands the guard that protects the Captain and the Crypt of the Martyrs and puts down 'oath-breakers'. The compound holds a command building, barracks, a vehicle yard and a small chapel, in front of which the guardsmen parade for prayer every morning. It is closed to the public."}
+    in: div_a1sa6r
+    offset_km: [-2.77, 1.15]
+    site: {"layout": "camp", "size_m": [600, 450], "variant": "hq", "angle_deg": 68, "rural": true}
+    military: {"unit": {"zh": "紫衫卫队总部", "en": "Violet Guard Headquarters"}, "branch": {"zh": "紫衫卫队", "en": "Violet Guard"}, "equipment": {"zh": "改装皮卡、轻型装甲车和防暴装备", "en": "Technicals, light armoured vehicles and riot equipment"}, "personnel": 700, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_1f33rz
+    subtype: military_base
+    status: generated
+    names: {"zh": "安博希马西兵营", "en": "Ambohimasy Barracks"}
+    notes: {"zh": "安博希马西兵营是军团步兵第一大队的驻地，位于城郊，几十座营房围着一个大操场排开，旁边是车场和弹药库。前往南方战场的志愿军团员先在这里集训，出发前在营地的礼拜堂领取亡名。营区不对外开放。", "en": "Ambohimasy Barracks, on the edge of town, is the base of the 1st Battalion Group of the Legion Infantry: dozens of barrack blocks round a large parade ground, with a vehicle yard and magazines beside them. Volunteer legionaries bound for the Southern War train here first and receive their death names in the camp chapel before they leave. It is closed to the public."}
+    in: div_a1sa6r
+    offset_km: [2.12, -2.12]
+    site: {"layout": "camp", "size_m": [900, 700], "variant": "barracks", "angle_deg": 45, "rural": true}
+    military: {"unit": {"zh": "军团步兵第一大队", "en": "1st Battalion Group, Legion Infantry"}, "branch": {"zh": "军团步兵", "en": "Legion Infantry"}, "equipment": {"zh": "改装皮卡约二十辆、迫击炮和轻武器", "en": "About 20 technicals, mortars and small arms"}, "personnel": 1100, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_wy9gnq
+    subtype: armoury
+    status: generated
+    names: {"zh": "安博希马西军械库", "en": "Ambohimasy Arsenal"}
+    notes: {"zh": "安博希马西军械库位于城外一处石灰岩洞穴旁，存放军团的轻武器和弹药，其中大部分是从梅纳瓦利经海路走私来的。弹药从港区的码头直接用卡车运来，军械库四周设有岗哨和雷区。", "en": "Ambohimasy Arsenal lies beside a limestone cave outside town and stores the Legion's small arms and ammunition, most of it smuggled in by sea from Menavaly. The munitions come up by lorry straight from the harbour quay, and the arsenal is ringed with sentry posts and a minefield."}
+    in: div_a1sa6r
+    offset_km: [-2.12, -2.12]
+    site: {"layout": "armoury", "size_m": [500, 350], "angle_deg": 135, "rural": true}
+    military: {"unit": {"zh": "军团第一军械库", "en": "1st Legion Arsenal"}, "branch": {"zh": "军团步兵", "en": "Legion Infantry"}, "equipment": {"zh": "轻武器、迫击炮弹和地雷", "en": "Small arms, mortar rounds and mines"}, "personnel": 120, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_pdbjx6
+    subtype: shooting_range
+    status: generated
+    names: {"zh": "安博希马西射击场", "en": "Ambohimasy Firing Range"}
+    notes: {"zh": "安博希马西射击场是军团步兵和预备役的射击训练场，有靶道二十条。每个宣过誓的军团员每年都要在这里参加一次预备役射击训练，训练结束后在靶场边的十字架前集体祈祷。不参加训练的人会被记入「忠诚记录」。", "en": "Ambohimasy Firing Range is where the Legion Infantry and the reserve practise shooting, with twenty lanes. Every sworn legionary must attend a reserve shooting course here once a year, ending with a prayer together before the cross at the edge of the range. Anyone who stays away is noted in their 'record of loyalty'."}
+    in: div_a1sa6r
+    offset_km: [0.00, -3.00]
+    site: {"layout": "shooting", "size_m": [700, 300], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "军团步兵安博希马西射击场", "en": "Ambohimasy Firing Range, Legion Infantry"}, "branch": {"zh": "军团步兵", "en": "Legion Infantry"}, "equipment": {"zh": "步枪靶道二十条、迫击炮射击阵地", "en": "20 rifle lanes and a mortar firing point"}, "personnel": 80, "access": {"zh": "军事管理区，不对外开放", "en": "Military area, closed to the public"}}
+  - id: bld_0mh5es
+    subtype: marketplace
+    status: generated
+    names: {"zh": "安博希马西鱼市", "en": "Ambohimasy Fish Market"}
+    notes: {"zh": "安博希马西鱼市位于港区的码头旁，每天凌晨渔船靠岸后开市，金枪鱼、石斑鱼、虾和章鱼按重量拍卖。渔获的一部分要按定额交给军团合作社，其余才能在市场上出售。鱼市旁的小饭馆从清晨起供应鱼汤和米饭。", "en": "Ambohimasy Fish Market stands on the harbour quay and opens before dawn when the boats come in; tuna, grouper, prawns and octopus are auctioned by weight. Part of each catch must be handed to the Legion's cooperatives by quota, and only the rest may be sold in the market. The little eating houses beside it serve fish soup and rice from early morning."}
+    in: div_a1sa6r
+    offset_km: [-0.90, 0.00]
+    site: {"layout": "market", "size_m": [220, 140]}
+  - id: bld_ekzmqd
+    subtype: church
+    status: generated
+    names: {"zh": "海星圣母堂", "en": "Church of Our Lady Star of the Sea"}
+    notes: {"zh": "海星圣母堂是安博希马西港区的天主教堂，一座白色石砌的小教堂，是军团国境内少数仍属于主流教会的教堂。原来的神父被驱逐后，弥撒由一位年迈的本地神父主持，军团员常在门外登记前来做礼拜的人。渔民出海前仍会到这里点一支蜡烛。", "en": "The Church of Our Lady Star of the Sea is the Catholic church of Ambohimasy's harbour quarter, a small white stone building and one of the few churches in the Legionary State still belonging to a mainline church. Since its priest was expelled an elderly local priest has said Mass, and legionaries often stand at the door taking down the names of worshippers. Fishers still light a candle here before putting to sea."}
+    in: div_a1sa6r
+    offset_km: [-0.60, 0.50]
+    site: {"layout": "hall", "size_m": [150, 80]}
+  - id: bld_kzvvy3
+    subtype: hospital
+    status: generated
+    names: {"zh": "安德拉诺拉瓦医院", "en": "Andranolava Hospital"}
+    notes: {"zh": "安德拉诺拉瓦医院是北部唯一的医院，有病床约二百张，病人多是稻农和渔民。药品和医生长期短缺，重病人要用卡车送到首都；疟疾和血吸虫病在湖区很常见，医院的防疫站每年雨季前在湖边的村庄喷洒药物。", "en": "Andranolava Hospital is the only hospital in the north, with about 200 beds, its patients mostly rice farmers and fishers. It is always short of medicines and doctors, and the seriously ill must be taken to the capital by lorry; malaria and bilharzia are common round the lake, and every year before the rains the hospital's disease-control station sprays the lakeside villages."}
+    in: div_taqb88
+    offset_km: [0.40, -0.30]
+    site: {"layout": "complex", "size_m": [260, 200]}
+  - id: bld_102a2r
+    subtype: factory
+    status: generated
+    names: {"zh": "安博希马西鱼类罐头厂", "en": "Ambohimasy Fish Cannery"}
+    notes: {"zh": "安博希马西鱼类罐头厂由军团合作社经营，把金枪鱼和沙丁鱼加工成罐头，大部分经梅纳瓦利转口出售，是军团国为数不多的外汇来源。厂里的工人有一部分是被分配来完成荣誉劳动的居民。", "en": "Ambohimasy Fish Cannery is run by the Legion's cooperatives and tins tuna and sardines, most of them sold on through Menavaly, one of the Legionary State's few sources of foreign currency. Some of its workers are residents assigned here to do their honour labour."}
+    in: div_a1sa6r
+    offset_km: [0.80, -2.60]
+    site: {"layout": "slab", "size_m": [360, 200], "rural": true}
+  - id: poi_f2hc5p
+    subtype: patrol_base
+    status: generated
+    names: {"zh": "安博希马西海岸巡逻基地", "en": "Ambohimasy Coastal Patrol Base"}
+    notes: {"zh": "安博希马西海岸巡逻基地是海岸巡逻队唯一的基地，几座栈桥停着旧巡逻艇和快艇。巡逻队检查进出港口的船只，护送来自梅纳瓦利的货船，也拦截企图乘渔船出逃的居民。码头区不对外开放。", "en": "Ambohimasy Coastal Patrol Base is the Coastal Patrol's only base, a few jetties where old patrol boats and fast craft lie. The patrol checks ships entering and leaving the port, escorts the freighters from Menavaly and stops residents trying to escape by fishing boat. The quay area is closed to the public."}
+    in: div_a1sa6r
+    offset_km: [-3.40, 3.10]
+    site: {"layout": "harbour", "size_m": [700, 400], "terminals": ["roro", "roro"]}
+    military: {"unit": {"zh": "海岸巡逻队安博希马西基地", "en": "Ambohimasy Base, Coastal Patrol"}, "branch": {"zh": "海岸巡逻队", "en": "Coastal Patrol"}, "equipment": {"zh": "旧巡逻艇三艘、快艇八艘", "en": "Three old patrol boats and eight fast craft"}, "personnel": 150, "access": {"zh": "码头区不对外开放", "en": "The quay area is closed to the public"}}
+  - id: poi_8cp5qz
+    subtype: orchard
+    status: generated
+    names: {"zh": "长湖稻田", "en": "Long Lake Paddies"}
+    notes: {"zh": "长湖稻田沿着安德拉诺拉瓦城边狭长的湖岸展开，是全国最大的产稻区，一年两熟。田地由军团合作社分配，阵亡军团员的家属优先分得最好的水田；插秧和收割季节，城里的居民被组织来完成荣誉劳动。", "en": "The Long Lake Paddies stretch along the shores of the narrow lake beside Andranolava, the largest rice-growing area in the country, with two crops a year. The fields are allotted by the Legion's cooperatives, and the families of fallen legionaries get first choice of the best paddies; at planting and harvest the townspeople are organised to do their honour labour here."}
+    in: div_taqb88
+    offset_km: [2.77, 1.15]
+    site: {"layout": "orchard", "size_m": [1000, 700], "angle_deg": 112, "rural": true}
+  - id: bld_jr9dgn
+    subtype: marketplace
+    status: generated
+    names: {"zh": "安德拉诺拉瓦合作社市场", "en": "Andranolava Cooperative Market"}
+    notes: {"zh": "安德拉诺拉瓦合作社市场是北部最大的集市，湖区的稻米、湖鱼、木薯和瘤牛在这里交易。收购价由军团合作社统一规定，农民须先交足定额才能把余粮拿到市场上卖；每逢集日，市场入口的木板上贴满讣告和荣誉劳动的派工名单。", "en": "Andranolava Cooperative Market is the largest market in the north, where the lake district's rice, lake fish, cassava and zebu are traded. Prices are fixed by the Legion's cooperatives, and farmers must deliver their quota before they may sell any surplus; on market days the board at the entrance is covered with death notices and honour labour rosters."}
+    in: div_taqb88
+    offset_km: [1.00, -0.20]
+    site: {"layout": "market", "size_m": [260, 180]}
+  - id: poi_3tvdfd
+    subtype: border_crossing
+    status: generated
+    names: {"zh": "安德拉诺拉瓦北门检查站", "en": "Andranolava North Gate Checkpoint"}
+    notes: {"zh": "安德拉诺拉瓦北门检查站设在通往大衡王朝的旧国道上，几道路障、一座岗亭和一片停车检查区。口岸大部分时间关闭，只在规定的日子放行运盐和运布的货车；紫衫卫队的哨兵检查每一个出境者的誓约证，企图越境出逃的人会被送交荣誉法庭。", "en": "Andranolava North Gate Checkpoint stands on the old national road to the Great Heng Dynasty: a few barriers, a guard post and a vehicle inspection area. The crossing is closed most of the time and opens only on set days for lorries carrying salt and cloth; Violet Guard sentries check the oath card of everyone who leaves, and anyone caught trying to escape across the border is handed to the Court of Honour."}
+    in: div_taqb88
+    offset_km: [0.00, 3.00]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+  - id: poi_e3bf99
+    subtype: training_range
+    status: generated
+    names: {"zh": "安德拉诺拉瓦野战训练场", "en": "Andranolava Field Training Area"}
+    notes: {"zh": "安德拉诺拉瓦野战训练场在城东的丘陵林地里，是军团步兵和预备役的野战训练场。每年旱季，宣过誓的军团员轮流到这里参加两周的预备役集训，志愿军团出征前也在这里进行最后的演练。训练场不对外开放。", "en": "Andranolava Field Training Area lies in the wooded hills east of town and is where the Legion Infantry and the reserve train in the field. Every dry season sworn legionaries take turns to come here for two weeks of reserve training, and the volunteer legion holds its last exercises here before setting out. It is closed to the public."}
+    in: div_taqb88
+    offset_km: [2.77, -1.15]
+    site: {"layout": "range", "size_m": [3000, 2000], "variant": "armor", "angle_deg": 112, "rural": true}
+    military: {"unit": {"zh": "军团步兵安德拉诺拉瓦训练场", "en": "Andranolava Training Area, Legion Infantry"}, "branch": {"zh": "军团步兵", "en": "Legion Infantry"}, "equipment": {"zh": "步兵训练区、迫击炮射击阵地", "en": "Infantry training grounds and mortar firing points"}, "personnel": 160, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_xpdnec
+    subtype: mine
+    status: generated
+    names: {"zh": "瓦托福齐石灰石采石场", "en": "Vatofotsy Limestone Quarry"}
+    notes: {"zh": "瓦托福齐石灰石采石场在城西的白色山丘上，开采的石灰石供应水泥厂，也被切成石块，用于修建殉道者大殿、教堂和墓园。采石的劳力大多来自荣誉劳动和劳动营，事故频繁，死于事故的人不算作殉道者。", "en": "Vatofotsy Limestone Quarry cuts into the white hills west of town; its limestone feeds the cement works and is cut into blocks for the Hall of the Martyrs, churches and cemeteries. Most of the labour comes from honour labour gangs and the labour camps; accidents are frequent, and those killed in them are not counted as martyrs."}
+    in: div_69p834
+    offset_km: [-2.77, 1.15]
+    site: {"layout": "mine", "size_m": [1400, 1000], "angle_deg": 68, "rural": true}
+  - id: bld_vrjxwq
+    subtype: factory
+    status: generated
+    names: {"zh": "瓦托福齐水泥厂", "en": "Vatofotsy Cement Works"}
+    notes: {"zh": "瓦托福齐水泥厂是军团国最大的工厂，两座回转窑日夜冒着白烟，城里的屋顶和树叶常年蒙着一层灰白的粉尘。水泥主要用于修路和建墓园，少量经港口出口。工厂由军团合作社经营，厂长须是军团元老。", "en": "Vatofotsy Cement Works is the largest factory in the Legionary State; its two rotary kilns smoke white day and night, and the town's roofs and trees are dusted grey-white all year. The cement goes mainly into roads and cemeteries, with a little exported through the port. The works is run by the Legion's cooperatives, and its manager must be a Legion elder."}
+    in: div_69p834
+    offset_km: [2.12, 2.12]
+    site: {"layout": "complex", "size_m": [700, 500], "angle_deg": 135, "rural": true}
+  - id: poi_m6p48e
+    subtype: sacred_site
+    status: generated
+    names: {"zh": "白石墓园", "en": "White Stone Cemetery"}
+    notes: {"zh": "白石墓园位于瓦托福齐城北的山坡上，一排排白色石灰岩墓碑下埋葬着在南方战争中死去的志愿军团员，每座墓前刻着死者的亡名。每有新的灵柩从港口运来，墓园就举行一次葬礼，由国家电台直播。流亡的家属说，许多年轻人是在学校和荣誉劳动的压力下才报名参加志愿军团的。", "en": "The White Stone Cemetery, on the hillside north of Vatofotsy, holds row upon row of white limestone headstones over the volunteer legionaries killed in the Southern War, each carved with the dead man's death name. Each time a new coffin arrives from the port a funeral is held here and broadcast on state radio. Families in exile say many young men volunteered only under pressure from their schools and from honour labour."}
+    in: div_69p834
+    offset_km: [-1.15, 2.77]
+    site: {"layout": "park", "size_m": [500, 400], "angle_deg": 22, "rural": true}
+  - id: poi_wjcfpk
+    subtype: border_crossing
+    status: generated
+    names: {"zh": "瓦托福齐南门检查站", "en": "Vatofotsy South Gate Checkpoint"}
+    notes: {"zh": "瓦托福齐南门检查站设在通往金日王国的旧国道上，几道路障、一座岗亭和一片停车检查区。口岸大部分时间关闭，只放行持特别通行证的货车；紫衫卫队的哨兵检查每一个出境者的誓约证。", "en": "Vatofotsy South Gate Checkpoint stands on the old national road to the Kingdom of the Golden Sun: a few barriers, a guard post and a vehicle inspection area. The crossing is closed most of the time and lets through only lorries with special passes, and Violet Guard sentries check the oath card of everyone who leaves."}
+    in: div_69p834
+    offset_km: [0.00, -3.00]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+  - id: poi_qd0wvr
+    subtype: military_base
+    status: generated
+    names: {"zh": "瓦托福齐兵营", "en": "Vatofotsy Barracks"}
+    notes: {"zh": "瓦托福齐兵营是军团步兵第二大队的驻地，负责南部边境的防务，几十座营房围着一个操场，旁边是车场和弹药库。士兵们常被派去看管采石场的劳力，也在金日王国边界一带巡逻。营区不对外开放。", "en": "Vatofotsy Barracks is the base of the 2nd Battalion Group of the Legion Infantry, which guards the southern border: dozens of barrack blocks round a parade ground, with a vehicle yard and magazines beside them. Its soldiers are often sent to guard the labour gangs in the quarry and patrol the border with the Kingdom of the Golden Sun. It is closed to the public."}
+    in: div_69p834
+    offset_km: [2.12, -2.12]
+    site: {"layout": "camp", "size_m": [800, 600], "variant": "barracks", "angle_deg": 45, "rural": true}
+    military: {"unit": {"zh": "军团步兵第二大队", "en": "2nd Battalion Group, Legion Infantry"}, "branch": {"zh": "军团步兵", "en": "Legion Infantry"}, "equipment": {"zh": "改装皮卡约十五辆、迫击炮和轻武器", "en": "About 15 technicals, mortars and small arms"}, "personnel": 900, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: bld_fx007w
+    subtype: school
+    status: generated
+    names: {"zh": "瓦托福齐第一中学", "en": "Vatofotsy First Secondary School"}
+    notes: {"zh": "瓦托福齐第一中学是南部最大的中学，有学生一千多人，只招收宣过誓的家庭的子女。学校是一座L形的两层教学楼，每天的课从守夜祈祷开始，高年级学生每年要到采石场完成荣誉劳动，墙上的光荣榜列着参加志愿军团的校友。", "en": "Vatofotsy First Secondary School is the largest secondary school in the south, with more than a thousand pupils, and takes only the children of sworn families. It is an L-shaped two-storey building; each day begins with the vigil prayer, senior pupils do their honour labour in the quarry each year, and a roll of honour on the wall lists the former pupils who joined the volunteer legion."}
+    in: div_69p834
+    offset_km: [0.40, -0.30]
+    site: {"layout": "lshape", "size_m": [200, 160]}
+
+  # ── 无上法国 / Dharma Kingdom ──
+  - id: bld_wj8fxc
+    subtype: government
+    status: generated
+    names: {"zh": "白伞宫", "en": "White Parasol Palace"}
+    notes: {"zh": "白伞宫建在安巴尼埃洛城北的山脊上，是法王法哈扎瓦纳九世的宫殿，也是白伞宗的祖寺。宫殿依山而建，白色的石墙一层层向上收拢，顶上是一座金色的伞形宝顶，从谷底的每个村庄都能望见。宫中有历代法王的灵塔殿、法王的经堂和寝宫，侧院是寻访司保存转世记录的密室。每天清晨，宫顶吹响海螺，全城的寺院随之开始早课。法王亲政后，在宫门外设了一座接待佃农请愿的小厅，每月开放一天，门前总是排起长队。宫殿的外院在节日向朝圣者开放，进入时须脱帽，按顺时针方向绕行。", "en": "The White Parasol Palace stands on the ridge north of Ambanielo; it is the palace of the Dharma King, Fahazavana IX, and the mother monastery of the Parasol school. Built into the hillside, its white stone walls step inward storey by storey to a golden parasol-shaped finial that can be seen from every village in the valley. Inside are the hall of the reliquary stupas of the past Dharma Kings and the Dharma King's own chapel and quarters, and in a side court the strongroom where the Office of the Search keeps the records of rebirths. Every morning a conch is sounded from the roof, and the monasteries of the town begin their dawn chanting. Since he came to rule in his own right, the Dharma King has opened a small hall outside the gate where tenants may bring petitions one day a month, and the queue before it is always long. The outer court is open to pilgrims on feast days; visitors uncover their heads and walk round it clockwise."}
+    emblem_of: div_zw79v9
+    in: div_zqxatj
+    offset_km: [0.00, 0.40]
+    site: {"layout": "courtyard", "size_m": [320, 260]}
+  - id: bld_gyjq2d
+    subtype: government
+    status: generated
+    names: {"zh": "大僧伽会议堂", "en": "Hall of the Great Sangha Council"}
+    notes: {"zh": "大僧伽会议堂位于白伞宫下方的广场西侧，是大僧伽会议四十八名成员开会的地方。会议堂是一座木柱支撑的长方形大殿，殿内不设座椅，大寺住持和转世上师坐在前排的高垫上，僧众和尼众代表坐在后排，法王的空座始终摆在最前面。会议每年春秋各开一次，审议寺产的分配、粮仓的收支和法政院的报告，表决时成员举起念珠示意。平信徒不能进入会议堂，只有殿外的台阶上允许佃农代表等候递交陈情书。第九世法王亲政后第一次出席会议时，提议让村长列席庄园会议，在殿内争论了整整三天才勉强通过。", "en": "The Hall of the Great Sangha Council stands on the west side of the square below the White Parasol Palace and is where the council's forty-eight members meet. It is a long timber-pillared hall without chairs: the abbots of the great monasteries and the reincarnate teachers sit on raised cushions at the front, the delegates of the monks and nuns behind them, and the Dharma King's empty seat always stands at the head. The council sits each spring and autumn to debate the sharing out of the monastery estates, the accounts of the granaries and the reports of the Hall of Dharma Governance, and members vote by raising their prayer beads. Lay people may not enter; tenants' representatives are allowed only to wait on the steps outside to hand in their petitions. When the Ninth Dharma King first attended in his own right, he proposed letting village heads sit in on estate councils, and the hall argued for three full days before narrowly agreeing."}
+    in: div_zqxatj
+    offset_km: [-0.45, 0.05]
+    site: {"layout": "hall", "size_m": [220, 150]}
+  - id: bld_ys7sht
+    subtype: government
+    status: generated
+    names: {"zh": "法政院", "en": "Hall of Dharma Governance"}
+    notes: {"zh": "法政院位于广场东侧的一座两进院落里，是司政首座尊者米拉扎卡和八个司的办公地。前院是寺产与田籍司和粮仓与劳役司，几十个书架上堆满了用拉诺瓦语写成的田册，记录着每一块寺田由哪一户佃农租种、每年交多少粮食；后院是外务与盟约司和法库。司政首座每天早课后在这里处理公文，重要事务呈白伞宫裁决。院里的书记员和差役都是平信徒，但他们只能站着办事，不能坐上僧官的座位。法政院门口每天都有拿着通行证申请的佃农排队，要离开庄园探亲、赶集或看病，都得先在这里盖章。", "en": "The Hall of Dharma Governance occupies a two-courtyard compound on the east side of the square and houses the Chief Steward, the Venerable Mirazaka, and the eight offices. The front court holds the Office of Monastic Estates and Land Rolls and the Office of Granaries and Labour Dues, where dozens of shelves are piled with field registers in Ranovan recording which tenant family farms each monastery field and how much grain it owes each year; the rear court holds the Office of External Affairs and the Covenant and the Dharma Treasury. The Chief Steward deals with papers here after the dawn chanting each day and sends weighty matters up to the White Parasol Palace. The clerks and runners are lay people, but they work standing and may not sit in a monk-official's seat. Every day tenants queue at the gate with their pass applications: to leave the estate to visit family, go to market or see a doctor, they must first have a stamp from here."}
+    in: div_zqxatj
+    offset_km: [0.40, -0.10]
+    site: {"layout": "courtyard", "size_m": [200, 170]}
+  - id: bld_60rey7
+    subtype: court
+    status: generated
+    names: {"zh": "最高戒律院", "en": "Supreme Vinaya Court"}
+    notes: {"zh": "最高戒律院位于广场南面，是王国的最高审判机关，由掌律首座和四名精通戒律的僧人组成。不服住持裁决的佃农可以向这里上诉，但上诉须由所在寺院转呈，许多案件因此从未到达。院门前立着一块石碑，刻着第八世法王的敕令：「王国不杀生」，王国至今没有死刑。人权组织批评戒律院以「亵渎法王」的罪名审判批评者，审理不公开，被告也不能请人辩护。", "en": "The Supreme Vinaya Court stands south of the square and is the kingdom's highest court, made up of the Chief Keeper of the Vinaya and four monks learned in the monastic code. Tenants who reject an abbot's ruling may appeal here, but the appeal must be passed on by their own monastery, and many cases never arrive. Before the gate stands a stone carved with the Eighth Dharma King's edict, 'The kingdom takes no life', and the kingdom still has no death penalty. Human rights groups criticise the court for trying critics for 'blasphemy against the Dharma King' behind closed doors, with no right to a defender."}
+    in: div_zqxatj
+    offset_km: [-0.30, -0.45]
+    site: {"layout": "courtyard", "size_m": [160, 130]}
+  - id: bld_vdxjfs
+    subtype: office
+    status: generated
+    names: {"zh": "寻访司", "en": "Office of the Search"}
+    notes: {"zh": "寻访司是负责寻找转世的机构，设在白伞宫东侧的一座小院里。院中保存着历代法王和转世上师的出生记录、圆寂时的征兆和寻访日记。第八世法王圆寂后，寻访僧在这里研究了两年雪伞山顶的云气和其他征兆，才在瓦瓦拉诺附近的佃农村里找到第九世法王。", "en": "The Office of the Search, which seeks out rebirths, is in a small courtyard east of the White Parasol Palace. It keeps the birth records of past Dharma Kings and reincarnate teachers, the omens at their deaths and the diaries of the searches. After the Eighth Dharma King died, its monks studied the clouds on the Snow Parasol summit and other omens here for two years before finding the Ninth in a tenant village near Vavarano."}
+    in: div_zqxatj
+    offset_km: [0.45, 0.45]
+    site: {"layout": "courtyard", "size_m": [160, 140]}
+  - id: bld_nzq42k
+    subtype: monastery
+    status: generated
+    names: {"zh": "雪伞大寺", "en": "Great Monastery of the Snow Parasol"}
+    notes: {"zh": "雪伞大寺建在雪伞山西坡上，是白伞宗最大的寺院，住着约四千名僧人，拥有都城周围大半的寺田。白色的僧舍沿山坡排开，大殿供奉着一尊十几米高的镀金佛像。每年秋收后，佃农们把三分之一的新米背上山交进寺院的粮仓。", "en": "The Great Monastery of the Snow Parasol, on the western slope of the mountains, is the largest monastery of the Parasol school, with some 4,000 monks and more than half the monastery land around the capital. Its white cells line the slope, and its great hall holds a gilded Buddha more than ten metres high. After every harvest the tenants carry a third of the new rice up the hill to its granaries."}
+    in: div_zqxatj
+    offset_km: [2.40, 1.60]
+    site: {"layout": "courtyard", "size_m": [260, 240], "angle_deg": 20, "rural": true}
+  - id: bld_rwy0n1
+    subtype: university
+    status: generated
+    names: {"zh": "大经学院", "en": "Great College of the Scriptures"}
+    notes: {"zh": "大经学院是王国的最高学府，只招收僧尼，学制十五年，课程包括佛经、因明、天文历算和传统医学。每天下午，年轻僧人在院中的辩经场上两两对辩，拍掌声响成一片。王国的官职几乎都由这里的毕业生担任。", "en": "The Great College of the Scriptures is the kingdom's highest seat of learning; it takes only monks and nuns, and its fifteen-year course covers the scriptures, logic, astronomy and the calendar, and traditional medicine. Every afternoon young monks debate in pairs in its courtyard, the air full of the clap of hands. Nearly every office in the kingdom is held by its graduates."}
+    in: div_zqxatj
+    offset_km: [-1.00, 0.80]
+    site: {"layout": "campus", "size_m": [900, 600]}
+  - id: bld_r7d0q8
+    subtype: hospital
+    status: generated
+    names: {"zh": "安巴尼埃洛寺院医院", "en": "Ambanielo Monastery Hospital"}
+    notes: {"zh": "安巴尼埃洛寺院医院是王国唯一的综合医院，由医药司和雪伞大寺共同经营，医生大多是在大经学院学过医的僧人。医院既用草药和传统疗法，也有一间萨马伊援建的手术室和X光室。重病人常常要被抬过山口，送到大衡王朝的医院去。", "en": "Ambanielo Monastery Hospital is the kingdom's only general hospital, run by the Office of Medicine and the Great Monastery; most of its doctors are monks who studied medicine at the Great College. It uses herbs and traditional remedies alongside an operating theatre and X-ray room built with help from Samay. The gravely ill are often carried over the passes to hospitals in the Great Heng Dynasty."}
+    in: div_zqxatj
+    offset_km: [-0.80, -0.30]
+    site: {"layout": "complex", "size_m": [320, 240]}
+  - id: bld_qstbx2
+    subtype: library
+    status: generated
+    names: {"zh": "经藏阁", "en": "Hall of the Scripture Treasury"}
+    notes: {"zh": "经藏阁是王国的图书馆，收藏着上万卷手抄和木刻的佛经、历代法王的敕令和寺院的田册副本。藏书用彩布包好，横放在顶到天花板的木架上。阅览只对僧尼开放，平信徒须由寺院出具证明才能入内。", "en": "The Hall of the Scripture Treasury is the kingdom's library, holding tens of thousands of handwritten and block-printed scriptures, the edicts of the Dharma Kings and copies of the monasteries' field registers. The volumes are wrapped in coloured cloth and laid flat on wooden shelves up to the ceiling. Reading is open to monks and nuns; lay people need a letter from their monastery to enter."}
+    in: div_zqxatj
+    offset_km: [0.30, 0.80]
+    site: {"layout": "block", "size_m": [180, 180]}
+  - id: bld_zv2jr9
+    subtype: factory
+    status: generated
+    names: {"zh": "安巴尼埃洛印经院", "en": "Ambanielo Scripture Printing House"}
+    notes: {"zh": "安巴尼埃洛印经院用上万块雕版印刷佛经和经幡，几十名印工在长桌前刷墨、铺纸、揭页，全凭手工。印出的经书供应全国寺院，也卖给来自洛哈瓦托和海外的佛教徒。院里的雕版据说有一部分是大分裂前从山中寺院抢救出来的。", "en": "Ambanielo Scripture Printing House prints scriptures and prayer flags from tens of thousands of carved woodblocks, dozens of printers inking, laying paper and lifting pages at long tables entirely by hand. Its books supply every monastery in the country and are sold to Buddhists from Lohavato and abroad. Some of its blocks are said to have been rescued from the mountain monasteries before the Sundering."}
+    in: div_zqxatj
+    offset_km: [0.60, -0.60]
+    site: {"layout": "courtyard", "size_m": [180, 160]}
+  - id: bld_d3gj2p
+    subtype: marketplace
+    status: generated
+    names: {"zh": "安巴尼埃洛大集", "en": "Ambanielo Market"}
+    notes: {"zh": "安巴尼埃洛大集是都城的露天集市，佃农们用自家留下的粮食换盐、布、茶叶和铁器，萨拉和洛哈瓦托法拉都能用。集市边上是香烛和念珠的摊位，朝圣季节挤满了外地人。寺院的管事每天来收摊位费。", "en": "Ambanielo Market is the capital's open-air market, where tenants trade the grain left to them for salt, cloth, tea and ironware, in sara or Lohavato fara. Stalls of incense and prayer beads line its edge, crowded with visitors in the pilgrim season. The monastery stewards come every day to collect the stall fees."}
+    in: div_zqxatj
+    offset_km: [0.70, 0.25]
+    site: {"layout": "market", "size_m": [260, 180]}
+  - id: bld_8bafb6
+    subtype: depot
+    status: generated
+    names: {"zh": "法王粮仓", "en": "Dharma King's Granary"}
+    notes: {"zh": "法王粮仓是王国最大的粮仓，一排排石砌的仓房储存着各寺上交的红米和芋干。粮仓与劳役司在这里登记每户佃农交来的粮食，荒年时开仓赈济。佃农们说，粮仓里的米比村里的多，可钥匙在僧人手里。", "en": "The Dharma King's Granary is the kingdom's largest, rows of stone storehouses holding the red rice and dried taro sent in by the monasteries. The Office of Granaries and Labour Dues records the grain each tenant family hands in here and opens the stores in lean years. The tenants say there is more rice in the granary than in the villages, but the monks hold the keys."}
+    in: div_zqxatj
+    offset_km: [1.60, -1.20]
+    site: {"layout": "plant", "size_m": [600, 400], "variant": "depot", "angle_deg": 15}
+  - id: poi_2ap108
+    subtype: plaza
+    status: generated
+    names: {"zh": "白伞广场", "en": "White Parasol Square"}
+    notes: {"zh": "白伞广场是白伞宫下方的石板广场，四周是大僧伽会议堂、法政院和最高戒律院。每年白伞节，法王的轿子从宫门下来，在广场上接受僧众和佃农的礼拜，然后沿转经道绕城一周。平日里，广场是僧人晒经和佃农歇脚的地方。", "en": "White Parasol Square is the flagstone square below the palace, ringed by the Hall of the Great Sangha Council, the Hall of Dharma Governance and the Supreme Vinaya Court. At the Festival of the White Parasol the Dharma King's palanquin comes down from the palace gate to receive the homage of monks and tenants here before going round the town. On ordinary days monks air the scriptures here and tenants rest."}
+    in: div_zqxatj
+    offset_km: [0.00, -0.65]
+    site: {"layout": "plaza", "size_m": [400, 300]}
+  - id: poi_b2fryj
+    subtype: sacred_site
+    status: generated
+    names: {"zh": "雪伞山转山道", "en": "Snow Parasol Pilgrims' Circuit"}
+    notes: {"zh": "雪伞山转山道绕雪伞山主峰一周，长约三十公里，沿途有经幡、刻经石堆和第一代法王禅定的山洞。朝圣者一天走完一圈，虔诚的人一步一叩首，要走上半个月。每年白伞节前，转山竞走是王国最热闹的赛事。", "en": "The Snow Parasol Pilgrims' Circuit runs some 30 km round the main peak, past prayer flags, cairns of carved stones and the cave where the first Dharma King meditated. Pilgrims walk it in a day; the most devout prostrate at every step and take half a month. Before each Festival of the White Parasol the circuit race is the liveliest event in the kingdom."}
+    in: div_zqxatj
+    offset_km: [5.00, 0.80]
+    site: {"layout": "park", "size_m": [900, 400], "angle_deg": 80, "rural": true}
+  - id: poi_kytq9f
+    subtype: orchard
+    status: generated
+    names: {"zh": "药师园", "en": "Garden of the Medicine Buddha"}
+    notes: {"zh": "药师园是医药司在山坡上经营的药草园，种植上百种草药，由学医的僧人照管，佃农轮流来除草和采收。晒干的药材一部分供应寺院医院，一部分经大衡王朝出口，是王国少数能换到外汇的商品。", "en": "The Garden of the Medicine Buddha is the Office of Medicine's herb garden on the hillside, growing more than a hundred medicinal plants under the care of monk-physicians, with tenants taking turns to weed and harvest. Some of the dried herbs supply the monastery hospital and the rest are exported through the Great Heng Dynasty, one of the few goods that earn the kingdom foreign money."}
+    in: div_zqxatj
+    offset_km: [-3.00, 1.80]
+    site: {"layout": "orchard", "size_m": [800, 600], "angle_deg": 30, "rural": true}
+  - id: poi_41d2ap
+    subtype: power_station
+    status: generated
+    names: {"zh": "雪伞溪水电站", "en": "Snow Parasol Brook Hydro Station"}
+    notes: {"zh": "雪伞溪水电站建在雪伞山流下的一条溪谷里，是王国唯一的电站，由萨马伊的援助项目修建。它的电只够白伞宫、寺院医院和都城中心的寺院用，大多数村庄夜里仍点油灯。雨季溪水暴涨时，电站常常停机好几天。", "en": "Snow Parasol Brook Hydro Station stands in a stream valley coming down from the mountains and is the kingdom's only power station, built by an aid project from Samay. Its power is enough only for the White Parasol Palace, the monastery hospital and the monasteries in the middle of the capital; most villages still light oil lamps at night. When the brook floods in the rains the station often stops for days."}
+    in: div_zqxatj
+    offset_km: [3.60, 2.80]
+    site: {"layout": "complex", "size_m": [400, 300], "angle_deg": 35, "rural": true}
+  - id: poi_1ak023
+    subtype: refugee_camp
+    status: generated
+    names: {"zh": "东谷难民营", "en": "East Valley Refugee Camp"}
+    notes: {"zh": "东谷难民营位于雪伞山西麓的一条山谷里，收容了约六千名翻越雪伞山口逃离齐马罗沃的人，大多是被血统登记局划为「外人」的原住民家庭。营地由雪伞大寺管理，难民住在寺院搭的竹棚里，靠寺院的粮食和国际援助机构的物资度日。齐马罗沃多次要求遣返，王国一直没有答应。", "en": "East Valley Refugee Camp lies in a valley at the western foot of the Snow Parasol Mountains and shelters some 6,000 people who fled Tsimarovo over the passes, most of them indigenous families classed as 'outsiders' by its Lineage Registry Office. It is run by the Great Monastery; the refugees live in bamboo shelters the monastery put up and get by on its grain and supplies from international aid agencies. Tsimarovo has demanded their return many times, and the kingdom has never agreed."}
+    in: div_zqxatj
+    offset_km: [6.50, -2.00]
+    site: {"layout": "refugee", "size_m": [1200, 900], "angle_deg": 70, "rural": true}
+  - id: poi_zk2ss8
+    subtype: military_base
+    status: generated
+    names: {"zh": "护法军总部", "en": "Dharma Protector Corps Headquarters"}
+    notes: {"zh": "护法军总部位于都城西南的山坡上，是护法军的指挥机关和主要驻地。营房、操场和骡马厩围着一座小佛堂排开，士兵是佃农子弟，军官都是受戒僧人，每天出操前先诵经。营区不对外开放。", "en": "The Dharma Protector Corps Headquarters, on a hillside south-west of the capital, is the corps' command and main base. Barracks, a parade ground and mule stables are laid out round a small shrine; the soldiers are tenants' sons and the officers ordained monks, and every day begins with chanting before drill. The base is closed to the public."}
+    in: div_zqxatj
+    offset_km: [-2.40, -2.00]
+    site: {"layout": "camp", "size_m": [600, 450], "variant": "hq", "angle_deg": 40, "rural": true}
+    military: {"unit": {"zh": "护法军总部与第一营", "en": "Headquarters and 1st Battalion, Dharma Protector Corps"}, "branch": {"zh": "护法军", "en": "Dharma Protector Corps"}, "equipment": {"zh": "轻武器、迫击炮、几辆旧式装甲车和骡队", "en": "Small arms, mortars, a few old armoured cars and mule trains"}, "personnel": 900, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_8eggc4
+    subtype: patrol_base
+    status: generated
+    names: {"zh": "雪伞山口哨所", "en": "Snow Parasol Pass Post"}
+    notes: {"zh": "雪伞山口哨所建在通往齐马罗沃的山口上，几座石头哨楼和一圈矮墙，关隘巡守队的士兵轮流驻守。齐马罗沃的民族卫队多次越过山口追捕逃亡者，哨所的士兵只能鸣枪示警，然后向都城报告。", "en": "Snow Parasol Pass Post stands on the pass into Tsimarovo, a few stone watchtowers inside a low wall, manned in turns by the Pass Wardens. Tsimarovo's National Guard has crossed the pass many times in pursuit of fugitives; the post's soldiers can only fire warning shots and report to the capital."}
+    in: div_zqxatj
+    offset_km: [11.00, 0.60]
+    site: {"layout": "park", "size_m": [200, 150], "rural": true}
+    military: {"unit": {"zh": "关隘巡守队东山口分队", "en": "East Pass Detachment, Pass Wardens"}, "branch": {"zh": "关隘巡守队", "en": "Pass Wardens"}, "equipment": {"zh": "步枪、机枪和望远镜", "en": "Rifles, machine guns and field glasses"}, "personnel": 120, "access": {"zh": "边境禁区，须持法政院通行证", "en": "Border zone; a pass from the Hall of Dharma Governance is required"}}
+  - id: bld_9c9en3
+    subtype: marketplace
+    status: generated
+    names: {"zh": "瓦瓦拉诺驿站集市", "en": "Vavarano Caravan Market"}
+    notes: {"zh": "瓦瓦拉诺驿站集市是南北商道上的老集市，从金日王国和大衡王朝来的商队在这里卸货、换骡、交过路费。集市上卖盐、铁器、羊毛和红米，也卖金日王国的土豆和织毯。关隘与朝圣司的僧官坐在集市门口收税。", "en": "Vavarano Caravan Market is the old market on the north-south road, where caravans from the Kingdom of the Golden Sun and the Great Heng Dynasty unload, change mules and pay their tolls. It sells salt, ironware, wool and red rice, and the potatoes and woven rugs of the Golden Sun. Monk-officials of the Office of Passes and Pilgrims sit at the gate collecting the dues."}
+    in: div_qhbbr0
+    offset_km: [0.00, 0.00]
+    site: {"layout": "market", "size_m": [260, 180]}
+  - id: bld_sasdhp
+    subtype: monastery
+    status: generated
+    names: {"zh": "瓦瓦拉诺尼院", "en": "Vavarano Convent"}
+    notes: {"zh": "瓦瓦拉诺尼院是王国最大的尼院，住着约八百名尼姑，她们推选大僧伽会议的四名尼众代表。尼院开办了一所女童识字班，是王国少数让佃农女儿读书的地方。尼姑们多年来要求增加尼众的席位，大寺住持们一直没有答应。", "en": "Vavarano Convent is the kingdom's largest, home to some 800 nuns, who help choose the four nuns' delegates to the Great Sangha Council. It runs a reading class for girls, one of the few places in the kingdom where tenants' daughters learn to read. For years the nuns have asked for more seats for their order, and the abbots of the great monasteries have never agreed."}
+    in: div_qhbbr0
+    offset_km: [-0.50, 0.40]
+    site: {"layout": "courtyard", "size_m": [220, 200]}
+  - id: bld_7p1zr9
+    subtype: hotel
+    status: generated
+    names: {"zh": "瓦瓦拉诺朝圣者客舍", "en": "Vavarano Pilgrims' Guesthouse"}
+    notes: {"zh": "瓦瓦拉诺朝圣者客舍是寺院经营的客栈，接待从南方山口进入王国的朝圣者和商人，几十间客房围着一个种着檀香树的院子。许多住客是越境来朝拜的金日王国村民，金日王国禁止他们来，这是两国争吵的由来之一。", "en": "Vavarano Pilgrims' Guesthouse is an inn run by the monasteries for pilgrims and traders entering the kingdom by the southern passes, dozens of rooms round a courtyard planted with sandalwood. Many guests are villagers from the Kingdom of the Golden Sun who cross to worship; the Golden Sun forbids them to come, one of the roots of the quarrel between the two kingdoms."}
+    in: div_qhbbr0
+    offset_km: [0.40, 0.30]
+    site: {"layout": "courtyard", "size_m": [180, 150]}
+  - id: bld_8h2h9e
+    subtype: school
+    status: generated
+    names: {"zh": "瓦瓦拉诺平信徒学堂", "en": "Vavarano Lay School"}
+    notes: {"zh": "瓦瓦拉诺平信徒学堂是第九世法王亲政后开办的第一所招收平信徒子弟的学校，有学生四百多人，教读写、算术和佛法。法王出生在附近的村子里，开学那天亲自来上了第一课。一些大寺住持担心佃农的孩子读了书就不肯种地。", "en": "Vavarano Lay School is the first school for the children of lay families, opened after the Ninth Dharma King came to rule in his own right; its 400-odd pupils learn reading, arithmetic and the Dharma. The Dharma King was born in a nearby village and taught the first lesson himself on its opening day. Some abbots of the great monasteries fear that tenants' children who learn to read will no longer want to farm."}
+    in: div_qhbbr0
+    offset_km: [0.30, -0.50]
+    site: {"layout": "lshape", "size_m": [200, 160]}
+  - id: poi_ppkr9x
+    subtype: border_crossing
+    status: generated
+    names: {"zh": "南关", "en": "South Gate Pass"}
+    notes: {"zh": "南关是通往金日王国的山口检查站，一道石门和一排关楼。商队在这里缴纳过路费，朝圣者须出示寺院签发的通行证。金日王国指责王国借过路费卡住它北上的商道，王国则指责对方关闭山口、不许村民越境朝圣，关门的事每隔几年就发生一次。", "en": "South Gate Pass is the checkpoint on the pass into the Kingdom of the Golden Sun, a stone gate and a row of gatehouses. Caravans pay their tolls here and pilgrims show passes issued by the monasteries. The Golden Sun accuses the kingdom of using the tolls to choke its road north; the kingdom accuses the Golden Sun of closing the pass to stop its villagers crossing to worship. Every few years one side or the other shuts the gate."}
+    in: div_qhbbr0
+    offset_km: [0.40, -6.50]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 10, "rural": true}
+  - id: poi_3eh8yg
+    subtype: orchard
+    status: generated
+    names: {"zh": "瓦瓦拉诺红米梯田", "en": "Vavarano Red Rice Terraces"}
+    notes: {"zh": "瓦瓦拉诺红米梯田沿着山坡层层叠叠，是王国最好的稻田，全部属于瓦瓦拉诺尼院和南部几座寺院。佃农们在雨季插秧、在干季收割，收成的三分之一交给寺院。这里出产的红米颗粒细长，在白伞节上被供在法王面前。", "en": "Vavarano Red Rice Terraces climb the hillsides tier on tier, the kingdom's best rice land, all of it belonging to the convent and a few monasteries of the south. Tenants plant in the rains and harvest in the dry season, giving a third to the monasteries. Its slender red grains are offered before the Dharma King at the Festival of the White Parasol."}
+    in: div_qhbbr0
+    offset_km: [2.60, 1.40]
+    site: {"layout": "orchard", "size_m": [900, 600], "angle_deg": 60, "rural": true}
+  - id: poi_xd8bm7
+    subtype: sacred_site
+    status: generated
+    names: {"zh": "第九世法王故居", "en": "Birthplace of the Ninth Dharma King"}
+    notes: {"zh": "第九世法王故居是瓦瓦拉诺城外一个佃农村庄里的土坯小屋，寻访僧在这里找到了四岁的法王。小屋如今围上了白墙，成为朝圣地，法王的父母仍住在村里，仍然租种寺田。村民们说，法王回乡时总是先去田里看看。", "en": "The Birthplace of the Ninth Dharma King is a small mud-brick house in a tenant village outside Vavarano, where the searchers found the Dharma King at four. It is now walled in white and a place of pilgrimage; his parents still live in the village and still farm monastery land. The villagers say that when he comes home he always goes to look at the fields first."}
+    in: div_qhbbr0
+    offset_km: [3.50, -2.00]
+    site: {"layout": "park", "size_m": [300, 250], "angle_deg": 15, "rural": true}
+  - id: poi_hfp388
+    subtype: military_base
+    status: generated
+    names: {"zh": "瓦瓦拉诺兵营", "en": "Vavarano Barracks"}
+    notes: {"zh": "瓦瓦拉诺兵营是护法军第二营的驻地，守卫南方山口和商道。营房是石头砌的长屋，围着操场和骡马厩，每逢南关关闭，士兵就被派上山口驻守。营门外的小饭馆做的都是士兵和赶骡人的生意。营区不对外开放。", "en": "Vavarano Barracks is the base of the 2nd Battalion of the Dharma Protector Corps, which guards the southern passes and the road. Its long stone barrack houses surround a parade ground and mule stables, and whenever South Gate Pass is shut the soldiers are sent up to hold it. The little eating houses outside the gate live off the soldiers and the muleteers. The base is closed to the public."}
+    in: div_qhbbr0
+    offset_km: [-2.20, -1.60]
+    site: {"layout": "camp", "size_m": [900, 700], "variant": "barracks", "angle_deg": 30, "rural": true}
+    military: {"unit": {"zh": "护法军第二营", "en": "2nd Battalion, Dharma Protector Corps"}, "branch": {"zh": "护法军", "en": "Dharma Protector Corps"}, "equipment": {"zh": "轻武器、迫击炮和骡队", "en": "Small arms, mortars and mule trains"}, "personnel": 600, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+
+  # ── 金日 / Golden Sun ──
+  - id: bld_5r53gn
+    subtype: government
+    status: generated
+    names: {"zh": "日宫", "en": "Palace of the Sun"}
+    notes: {"zh": "日宫建在沃沃南德罗日之广场西侧的台地上，是太阳之子拉韦洛南德罗二世的宫殿和王廷所在地。宫墙用不抹灰浆的巨大石块砌成，石块之间严丝合缝，墙基据说是联合共和国以前的古代王城留下的。宫内围着三重庭院：外院是王廷各署官员候见的地方，中院是太阳之子接见四方总督和外国使节的大殿，内院是王族的居所，外人不得进入。太阳之子在公开场合从不步行，由日裔王族的青年用轿子抬着出宫；他每天清晨在宫门的石台上面向东方迎接日出，王廷的一天由此开始。开国君主打开神庙粮仓的那把铜钥匙，至今挂在大殿的柱子上。外院每逢太阳节向村社的代表开放。", "en": "The Palace of the Sun stands on a terrace west of the Square of the Sun in Vovonandro, the palace of the Son of the Sun, Ravelonandro II, and the seat of his court. Its walls are of huge stones laid without mortar and fitted so closely that no blade will go between them; the footings are said to be those of an ancient royal city older than the United Republic. Inside are three courts: the outer, where the officials of the court's offices wait to be received; the middle, with the great hall where the Son of the Sun receives the four governors and foreign envoys; and the inner, home of the royal family, which no outsider may enter. The Son of the Sun never walks in public but leaves the palace in a litter borne by young men of the Sunborn lineage; every morning he greets the sunrise facing east from the stone dais at the palace gate, and the court's day begins. The bronze key with which the founder opened the temple granaries still hangs on a pillar of the great hall. The outer court is opened to village delegates at the Festival of the Sun."}
+    in: div_depam8
+    offset_km: [-0.45, 0.35]
+    site: {"layout": "courtyard", "size_m": [320, 260]}
+  - id: bld_6h7avw
+    subtype: government
+    status: generated
+    names: {"zh": "四方会议厅", "en": "Hall of the Four Quarters"}
+    notes: {"zh": "四方会议厅位于日之广场东侧，是四方总督会议开会的地方。会议由东方、西方、北山、南山四名总督和他们各自带来的四名河谷领主组成，共二十人，全部出自日裔王族，由太阳之子任命，不经任何选举。大厅呈正方形，四面各开一道门，分别朝向四方的王道，每位总督从自己一方的门进入，坐在面对本方的石凳上；太阳之子的金座设在大厅正中，比所有座位都高一级。会议每年秋收后召开，审定各方的劳役名册和粮仓分配，结绳官当场用绳结宣读各村的收成。会议只能向太阳之子进言，最终由他裁决。大厅门外的四根石柱上分别刻着四方的标记。", "en": "The Hall of the Four Quarters, on the east side of the Square of the Sun, is where the Council of the Four Governors meets. The council has twenty members, the governors of the Eastern Quarter, the Western Quarter, the Northern Slopes and the Southern Slopes and the four lords of the valleys each brings, all of the Sunborn lineage and appointed by the Son of the Sun without any election. The hall is square, with a door in each wall facing the royal road of one quarter; each governor enters by his own quarter's door and sits on the stone bench facing it, and the golden seat of the Son of the Sun stands in the middle, one step higher than all the rest. The council meets after each harvest to settle every quarter's labour rolls and granary shares, while the cord-keepers read out each village's crop from their knots. It may only advise the Son of the Sun, who decides. The four stone pillars outside the doors are carved with the marks of the four quarters."}
+    in: div_depam8
+    offset_km: [0.45, 0.30]
+    site: {"layout": "hall", "size_m": [200, 200]}
+  - id: bld_9p3vmf
+    subtype: government
+    status: generated
+    names: {"zh": "结绳院", "en": "House of Cords"}
+    notes: {"zh": "结绳院位于日之广场南面，是王国记账的机构，也是大总管主持王廷日常事务的地方。王国的收成、劳役、粮仓存量和人口都记在彩色的绳结上：主绳上挂着几十条副绳，绳的颜色代表物品，结的形状和位置代表数目。全国约两千名结绳官在这里受训，按村、按河谷、按一方逐级汇总账目，每年秋收后把四方的总绳送进院里核对。院内的长廊里挂满了历年的总绳，由首席结绳官看管。大分裂时纸质档案和银行系统都已失灵，守庙人的结绳技艺却保留了下来，开国君主因此用它重建了王国的账目。外国援助机构曾提出帮助王廷改用电脑，被王廷婉拒。", "en": "The House of Cords, south of the Square of the Sun, is the kingdom's accounting office and the place where the Grand Steward runs the daily business of the court. The kingdom's harvests, labour service, granary stocks and people are all recorded in coloured knotted cords: dozens of pendant cords hang from a main cord, their colours standing for goods and the shape and place of each knot for a number. Some two thousand cord-keepers are trained here and tally the accounts village by village, valley by valley and quarter by quarter, and after each harvest the master cords of the four quarters are brought in to be checked. The long gallery is hung with the master cords of past years in the care of the Chief Cord-Keeper. When paper archives and the banking system failed in the Sundering, the temple keepers' craft of the cords survived, and with it the founder rebuilt the kingdom's accounts. Foreign aid agencies once offered to help the court move to computers; the court politely declined."}
+    in: div_depam8
+    offset_km: [0.40, -0.35]
+    site: {"layout": "courtyard", "size_m": [220, 180]}
+  - id: bld_ga37q5
+    subtype: temple
+    status: generated
+    names: {"zh": "太阳神庙", "en": "Temple of the Sun"}
+    notes: {"zh": "太阳神庙是金日王国最神圣的地方，弧形的外墙贴着金箔，清晨的第一缕阳光照在墙上，全城都能望见，国名由此而来。庙内供奉太阳和历代守庙人，大祭司每天在这里主持迎日礼。太阳节时，太阳之子在庙前用金镜取火。", "en": "The Temple of the Sun is the holiest place in the Kingdom of the Golden Sun; its curved outer wall is clad in gold leaf, and the first light of each morning strikes it so the whole city can see, which gives the kingdom its name. Inside, the sun and the temple keepers of old are honoured, and the High Priest leads the rite of greeting the sun here every day. At the Festival of the Sun the Son of the Sun kindles fire before it with a golden mirror."}
+    emblem_of: div_zybzvt
+    in: div_depam8
+    offset_km: [0.00, 0.45]
+    site: {"layout": "courtyard", "size_m": [240, 220]}
+  - id: bld_xpadqa
+    subtype: court
+    status: generated
+    names: {"zh": "王廷法庭", "en": "Court of the Sun's Justice"}
+    notes: {"zh": "王廷法庭是金日王国的最高审判机关，五名法官由太阳之子任命，只审理亵渎和叛逆案件，并复核各方总督法庭的重刑。被告没有律师，判决当众宣读。人权组织批评法庭把批评太阳之子定为亵渎，被判重罪的人常被罚往东部的金矿服役。", "en": "The Court of the Sun's Justice is the kingdom's highest court; its five judges are appointed by the Son of the Sun, hear only cases of sacrilege and treason and review the heavier sentences of the governors' courts. The accused have no lawyers, and judgments are read out in public. Human rights groups criticise the court for treating criticism of the Son of the Sun as sacrilege; those convicted of serious crimes are often sent to work in the gold mines in the east."}
+    in: div_depam8
+    offset_km: [-0.40, -0.35]
+    site: {"layout": "courtyard", "size_m": [180, 150]}
+  - id: poi_sks89w
+    subtype: plaza
+    status: generated
+    names: {"zh": "日之广场", "en": "Square of the Sun"}
+    notes: {"zh": "日之广场是沃沃南德罗的中心，四方的王道在这里交汇，地面铺着四种颜色的石板，分别指向四方。太阳节的清晨，太阳之子在广场上用金镜取火，驿卒从这里出发，把新火送到每一个村庄。平时广场上宣读王廷的敕令，节日里是交换集市。", "en": "The Square of the Sun is the heart of Vovonandro, where the royal roads of the four quarters meet; it is paved with stones of four colours pointing to the four quarters. On the morning of the Festival of the Sun the Son of the Sun kindles fire here with a golden mirror, and relay runners set out from it to carry the new fire to every village. On ordinary days the court's decrees are read out here, and on feast days it holds the exchange fair."}
+    in: div_depam8
+    offset_km: [0.00, 0.00]
+    site: {"layout": "plaza", "size_m": [400, 300]}
+  - id: bld_mcc6ka
+    subtype: logistics_park
+    status: generated
+    names: {"zh": "王家大粮仓", "en": "Royal Granaries"}
+    notes: {"zh": "王家大粮仓建在城外向阳的山坡上，几百座圆形石砌仓房沿等高线排开，山风从墙上的通风孔穿过，让土豆干和金藜保存好几年。粮仓由服劳役的村民看守，结绳官每月清点一次，荒年时开仓分粮。", "en": "The Royal Granaries climb a sunny slope outside town, several hundred round stone storehouses set out along the contours; mountain wind passes through the vents in their walls and keeps dried potatoes and golden goosefoot for years. Villagers on labour service guard them, cord-keepers count them every month, and in lean years they are opened and the grain shared out."}
+    in: div_depam8
+    offset_km: [-1.15, 2.77]
+    site: {"layout": "plant", "variant": "depot", "size_m": [1000, 700], "angle_deg": 22, "rural": true}
+  - id: bld_t85pn6
+    subtype: college
+    status: generated
+    names: {"zh": "结绳官学堂", "en": "School of the Cord-Keepers"}
+    notes: {"zh": "结绳官学堂是培养结绳官的学校，学生从各村选来的少年中挑选，学制七年，学习打结、读绳、算术和王国的律令。毕业生被派回各村和各河谷记账，是村民最常打交道的官员。学堂也教读书写字，但只对学生开放。", "en": "The School of the Cord-Keepers trains the kingdom's cord-keepers from boys and girls picked out of the villages; over seven years they learn to tie and read the cords, arithmetic and the kingdom's laws. Graduates are sent back to keep the accounts of the villages and valleys, the officials villagers deal with most. The school also teaches reading and writing, but only to its own students."}
+    in: div_depam8
+    offset_km: [0.75, -0.55]
+    site: {"layout": "courtyard", "size_m": [200, 180]}
+  - id: bld_kkd7k3
+    subtype: hospital
+    status: generated
+    names: {"zh": "沃沃南德罗医馆", "en": "Vovonandro House of Healing"}
+    notes: {"zh": "沃沃南德罗医馆是王国最大的医疗机构，几位在国外受训的医生和上百名草药医者在这里共同行医，药品靠安西拉的交易所用黄金换来，常常短缺。高原上的产妇和重伤的劳役者由驿卒和驮兽送到这里。", "en": "The Vovonandro House of Healing is the kingdom's largest medical centre, where a few doctors trained abroad work alongside a hundred or more herbal healers; its medicines are bought with gold at the Ansira exchange house and are often short. Women in difficult labour and workers badly hurt on labour service are brought here from the highlands by runners and pack animals."}
+    in: div_depam8
+    offset_km: [-0.85, 0.00]
+    site: {"layout": "complex", "size_m": [300, 220]}
+  - id: bld_ej065b
+    subtype: library
+    status: generated
+    names: {"zh": "结绳档案库", "en": "Archive of the Cords"}
+    notes: {"zh": "结绳档案库保存着开国以来全部的总绳和联合共和国时期留下的少量纸质档案，库房保持干燥阴凉，绳子挂在一排排木架上。只有结绳官和学者经王廷准许才能入内，外国学者常为了研究绳结的编码方式申请来访。", "en": "The Archive of the Cords holds every master cord since the kingdom's founding and the few paper records left from the United Republic, the cords hanging on rows of wooden racks in cool, dry stores. Only cord-keepers and scholars with the court's leave may enter, and foreign scholars often apply to study how the knots are coded."}
+    in: div_depam8
+    offset_km: [0.70, -0.10]
+    site: {"layout": "block", "size_m": [180, 160]}
+  - id: bld_3gkrvg
+    subtype: office
+    status: generated
+    names: {"zh": "驿传总署", "en": "Office of the Relays"}
+    notes: {"zh": "驿传总署管理王国的石砌王道和沿途的驿站。驿卒是服劳役的青年，每人跑一段约十公里的路，把绳结和口信交给下一站，一条消息一天之内就能穿过全国。总署门前立着一块里程石，四方王道的里程都从这里算起。", "en": "The Office of the Relays runs the kingdom's stone royal roads and the relay posts along them. The runners are young men and women on labour service, each running a stage of about ten kilometres and handing cords and spoken messages to the next post, so that a message crosses the whole country within a day. Before its door stands the milestone from which every royal road of the four quarters is measured."}
+    in: div_depam8
+    offset_km: [0.00, -0.60]
+    site: {"layout": "courtyard", "size_m": [180, 140]}
+  - id: poi_5tjd9y
+    subtype: orchard
+    status: generated
+    names: {"zh": "金日山梯田", "en": "Golden Sun Terraces"}
+    notes: {"zh": "金日山梯田从城外的谷底一直修到山脊，几百级石砌梯田上种着土豆、金藜和豆子，石渠把山泉引到每一级田里。梯田分属各个村社，其中两块田由服劳役的村民为太阳神庙和王家粮仓耕种。播种和收获时，全村的人唱着歌一起下地。", "en": "The Golden Sun Terraces run from the valley floor outside town to the ridge, hundreds of stone-walled tiers of potatoes, golden goosefoot and beans, watered from mountain springs by stone channels. The terraces belong to the village communities, and two fields in each are farmed by villagers on labour service for the Temple of the Sun and the royal granaries. At sowing and harvest the whole village goes out to the fields together, singing."}
+    in: div_depam8
+    offset_km: [2.77, 1.15]
+    site: {"layout": "orchard", "size_m": [1000, 700], "angle_deg": 112, "rural": true}
+  - id: poi_rpr9rc
+    subtype: military_base
+    status: generated
+    names: {"zh": "太阳卫队营", "en": "Sun Guard Barracks"}
+    notes: {"zh": "太阳卫队营是太阳卫队的驻地，卫队负责守卫日宫、太阳神庙和王家大粮仓，太阳之子出行时随轿护卫。卫兵从日裔王族和各方挑选的青年中招募，穿金红两色的制服。营区不对外开放，每天清晨的迎日操练在城里都能听到号角声。", "en": "The Sun Guard Barracks house the Sun Guard, which guards the Palace of the Sun, the Temple of the Sun and the Royal Granaries and escorts the Son of the Sun's litter. Its guards are drawn from the Sunborn lineage and young men chosen by the quarters, in uniforms of gold and red. The barracks are closed to the public; the horns of its morning drill to greet the sun can be heard across town."}
+    in: div_depam8
+    offset_km: [-2.12, -2.12]
+    site: {"layout": "camp", "size_m": [800, 600], "variant": "hq", "angle_deg": 45, "rural": true}
+    military: {"unit": {"zh": "太阳卫队", "en": "Sun Guard"}, "branch": {"zh": "太阳卫队", "en": "Sun Guard"}, "equipment": {"zh": "轻武器、仪仗礼器和巡逻车辆", "en": "Small arms, ceremonial arms and patrol vehicles"}, "personnel": 1500, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_m7h7cj
+    subtype: command_centre
+    status: generated
+    names: {"zh": "山地军统帅部", "en": "Mountain Army Command"}
+    notes: {"zh": "山地军统帅部是王国陆上部队的指挥机关，设在城外的一处山岬上，石砌的主楼旁是通信所和驮兽场。各隘口的石堡和驿站的烽火都与这里相连，战时的命令同时由电话和驿卒传递。每年太阳节前，统帅在这里检阅服劳役的预备役民兵。", "en": "Mountain Army Command, the headquarters of the kingdom's land forces, stands on a spur outside town, its stone main building beside a signals post and a pack-animal yard. The stone forts on the passes and the beacons of the relay posts all report here, and in war orders go out by telephone and by runner at once. Before each Festival of the Sun the commander reviews the reserve militia of the labour service here."}
+    in: div_depam8
+    offset_km: [3.00, 0.00]
+    site: {"layout": "camp", "size_m": [700, 500], "variant": "hq", "angle_deg": 90, "rural": true}
+    military: {"unit": {"zh": "山地军统帅部", "en": "Mountain Army Command"}, "branch": {"zh": "山地军", "en": "Mountain Army"}, "equipment": {"zh": "指挥所、通信连、驮兽运输队和警卫连", "en": "A command post, a signals company, a pack-animal transport column and a guard company"}, "personnel": 600, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_gj4ep6
+    subtype: armoury
+    status: generated
+    names: {"zh": "沃沃南德罗军械库", "en": "Vovonandro Arsenal"}
+    notes: {"zh": "沃沃南德罗军械库是山地军储存武器和弹药的地方，弹药库掘在山体里，入口用石墙封住。库里的步枪和迫击炮多是从安西拉的交易所用黄金换来的，每一支都记在结绳院的账上。库区由两道石墙和岗楼守卫。", "en": "Vovonandro Arsenal is where the Mountain Army keeps its arms and ammunition, the magazines dug into the mountainside behind stone-walled entrances. Most of its rifles and mortars were bought with gold at the Ansira exchange house, and every one is on the House of Cords' accounts. Two stone walls and watchtowers guard it."}
+    in: div_depam8
+    offset_km: [0.00, -3.00]
+    site: {"layout": "armoury", "size_m": [500, 350], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "山地军第一军械库", "en": "1st Arsenal, Mountain Army"}, "branch": {"zh": "山地军", "en": "Mountain Army"}, "equipment": {"zh": "步枪、迫击炮弹和高射炮弹药", "en": "Rifles, mortar bombs and anti-aircraft ammunition"}, "personnel": 150, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_5y9c9j
+    subtype: shooting_range
+    status: generated
+    names: {"zh": "南坡射击场", "en": "Southern Slope Firing Range"}
+    notes: {"zh": "南坡射击场是山地军的轻武器训练场，靶道背靠一道石坡排开。服劳役的青年在这里接受几周的射击训练，然后编入各村的预备役民兵。射击场旁有一片仿照隘口石堡修建的训练场地。", "en": "Southern Slope Firing Range is the Mountain Army's small-arms range, its lanes backed by a stone slope. Young people on labour service learn to shoot here over a few weeks before joining their village's reserve militia. Beside it is a training ground built to look like a pass fort."}
+    in: div_depam8
+    offset_km: [1.15, -2.77]
+    site: {"layout": "shooting", "size_m": [700, 300], "angle_deg": 158, "rural": true}
+    military: {"unit": {"zh": "山地军南坡射击场", "en": "Southern Slope Firing Range, Mountain Army"}, "branch": {"zh": "山地军", "en": "Mountain Army"}, "equipment": {"zh": "步枪靶道十余条、模拟石堡", "en": "A dozen or so rifle lanes and a mock fort"}, "personnel": 40, "access": {"zh": "军事管理区，不对外开放", "en": "Military area, closed to the public"}}
+  - id: bld_24t5w9
+    subtype: marketplace
+    status: generated
+    names: {"zh": "安西拉交易所", "en": "Ansira Exchange House"}
+    notes: {"zh": "安西拉交易所是外国商人同金日王国做生意的唯一场所，由外事与交易署管理。商人在这里用药品、燃料、工具和枪支换取黄金、驼毛、土豆干和金藜，买卖用交易筹记账，交易筹不能带出城外。院子里每天都有结绳官和翻译在场。", "en": "The Ansira Exchange House is the only place where foreign merchants may do business with the Kingdom of the Golden Sun, under the Office of External Affairs and Exchange. Here they trade medicines, fuel, tools and rifles for gold, vilona wool, dried potatoes and golden goosefoot, reckoned in exchange tokens that may not leave town. Cord-keepers and interpreters are in the courtyard every day."}
+    in: div_0ehtbq
+    offset_km: [0.30, 0.20]
+    site: {"layout": "market", "size_m": [260, 180]}
+  - id: bld_qfzp1r
+    subtype: hotel
+    status: generated
+    names: {"zh": "外客馆", "en": "Foreigners' Lodge"}
+    notes: {"zh": "外客馆是王廷为外国商人、使节和获准入境的游客修建的客馆，一座围着庭院的两层石楼。外国人在入境前都要先在这里住几天，等候王廷派来的陪同人员。客馆的厨房供应金藜土豆汤和烤鱼，餐费只收交易筹。", "en": "The Foreigners' Lodge is the court's guesthouse for foreign merchants, envoys and permitted visitors, a two-storey stone building round a courtyard. Every foreigner must stay here a few days before going further, waiting for the escort the court sends. Its kitchen serves golden goosefoot and potato soup and grilled fish, paid for only in exchange tokens."}
+    in: div_0ehtbq
+    offset_km: [0.60, -0.10]
+    site: {"layout": "courtyard", "size_m": [180, 150]}
+  - id: poi_3wwk2v
+    subtype: factory
+    status: generated
+    names: {"zh": "安西拉盐田", "en": "Ansira Salt Pans"}
+    notes: {"zh": "安西拉盐田沿海岸铺开，服劳役的村民引海水进盐池，在旱季的烈日下晒出海盐，旁边的晒鱼场把渔获晒成鱼干。盐和鱼干由驮兽沿王道运进山里，分配到各村的粮仓。旱季是晒盐最忙的时候。", "en": "Ansira Salt Pans spread along the shore, where villagers on labour service let sea water into the pans and the dry-season sun turns it to salt, while the fish-drying yards beside them cure the catch. Salt and dried fish go up into the mountains on pack animals along the royal road and are shared out to the village granaries. The dry season is the busiest time on the pans."}
+    in: div_0ehtbq
+    offset_km: [0.00, -3.00]
+    site: {"layout": "complex", "size_m": [800, 500], "angle_deg": 90, "rural": true}
+  - id: poi_3hpsw2
+    subtype: patrol_base
+    status: generated
+    names: {"zh": "安西拉海岸守望站", "en": "Ansira Coast Watch Station"}
+    notes: {"zh": "安西拉海岸守望站是海岸守望队的小码头，停着几艘巡逻艇，负责巡查王国短短的海岸线、护送交易船进港和海上搜救。守望队也拦截偷偷乘渔船出海、想逃往贝洛瓦的年轻人，因此在港口很不受欢迎。", "en": "Ansira Coast Watch Station is the Coast Watch's small harbour, berthing a few patrol boats that patrol the kingdom's short coastline, escort trading ships into port and carry out rescues at sea. The Coast Watch also stops young people trying to slip away to Belova in fishing boats, which makes it unpopular in the harbour."}
+    in: div_0ehtbq
+    offset_km: [-0.80, -0.60]
+    site: {"layout": "harbour", "size_m": [600, 350], "terminals": ["roro", "roro"]}
+    military: {"unit": {"zh": "海岸守望队安西拉站", "en": "Ansira Station, Coast Watch"}, "branch": {"zh": "海岸守望队", "en": "Coast Watch"}, "equipment": {"zh": "巡逻艇四艘、搜救艇一艘", "en": "Four patrol boats and a rescue boat"}, "personnel": 250, "access": {"zh": "码头区不对外开放", "en": "The quay area is closed to the public"}}
+  - id: poi_mcp46n
+    subtype: lighthouse
+    status: generated
+    names: {"zh": "日落灯塔", "en": "Sunset Lighthouse"}
+    notes: {"zh": "日落灯塔立在安西拉北面的岬角上，是一座白色石塔。按照王国的说法，太阳每天在这里沉入大海，守塔人每晚在日落时点亮灯火，直到第二天太阳在东方的群山上重新升起。灯塔也为进港的交易船指路。", "en": "The Sunset Lighthouse is a white stone tower on the headland north of Ansira. As the kingdom tells it, this is where the sun sinks into the sea each day, and the keeper lights the lamp at sunset every evening and keeps it burning until the sun rises again over the mountains in the east. The light also guides trading ships into port."}
+    in: div_0ehtbq
+    offset_km: [0.00, 3.00]
+    site: {"layout": "tower", "size_m": [60, 60], "rural": true}
+  - id: poi_2jxdp1
+    subtype: military_base
+    status: generated
+    names: {"zh": "东隘石堡", "en": "East Pass Fortress"}
+    notes: {"zh": "东隘石堡建在瓦瓦哈迪东面的山口上，三道之字形的石墙层层叠起，守着通往齐马罗沃的道路。山地军第一旅驻在这里，石墙后面是营房、驮兽棚和储粮仓。齐马罗沃的巡逻队越境时，石堡上会点起烽火，消息由驿卒传往都城。", "en": "East Pass Fortress stands on the pass east of Vavahady, three zigzag stone walls rising one above another across the road into Tsimarovo. The Mountain Army's 1st Brigade is stationed here, with barracks, pack-animal sheds and granaries behind the walls. When Tsimarovo's patrols cross the border a beacon is lit on the walls and runners carry the news to the capital."}
+    in: div_tvpd91
+    offset_km: [3.00, 0.00]
+    site: {"layout": "camp", "size_m": [900, 700], "variant": "barracks", "angle_deg": 90, "rural": true}
+    military: {"unit": {"zh": "山地军第一旅", "en": "1st Brigade, Mountain Army"}, "branch": {"zh": "山地军", "en": "Mountain Army"}, "equipment": {"zh": "轻武器、迫击炮、老式高射炮和驮兽运输队", "en": "Small arms, mortars, old anti-aircraft guns and a pack-animal column"}, "personnel": 1800, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_5mscxc
+    subtype: border_crossing
+    status: generated
+    names: {"zh": "东隘检查站", "en": "East Pass Checkpoint"}
+    notes: {"zh": "东隘检查站设在通往齐马罗沃的山路上，一道石门和一座岗亭。边境大部分时间关闭，只在每月的几天里放行运盐和驼毛的驮队。从齐马罗沃逃来的难民大多翻山绕过这里，被山地军收容后送往城外的营地。", "en": "East Pass Checkpoint stands on the mountain road into Tsimarovo, a stone gate and a guard post. The border is closed most of the time and opens for a few days each month to pack trains carrying salt and vilona wool. Most of the refugees fleeing Tsimarovo cross the mountains round it and are taken in by the Mountain Army and sent to the camp outside town."}
+    in: div_tvpd91
+    offset_km: [4.41, -0.88]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 90, "rural": true}
+  - id: poi_q7zphz
+    subtype: mine
+    status: generated
+    names: {"zh": "瓦瓦哈迪金矿", "en": "Vavahady Gold Mine"}
+    notes: {"zh": "瓦瓦哈迪金矿开采山谷里的金矿脉，矿工是服劳役的村民和被罚来服役的犯人。黄金大部分送往太阳神庙装饰金墙，其余在安西拉的交易所换取药品和枪支。人权组织批评矿井条件恶劣，罚役的犯人每天工作十个小时以上。", "en": "Vavahady Gold Mine works the gold veins of the valley with villagers on labour service and convicts sentenced to work there. Most of the gold goes to the Temple of the Sun to clad its wall, and the rest is traded at the Ansira exchange house for medicines and rifles. Human rights groups criticise the harsh conditions underground, where convicts work more than ten hours a day."}
+    in: div_tvpd91
+    offset_km: [-2.12, -2.12]
+    site: {"layout": "mine", "size_m": [1200, 900], "angle_deg": 45, "rural": true}
+  - id: poi_d0jhqj
+    subtype: sacred_site
+    status: generated
+    names: {"zh": "日门山口", "en": "Sun Gate Pass"}
+    notes: {"zh": "日门山口在瓦瓦哈迪以北的边境上，冬至的太阳正好从两座山峰之间升起，金日王国的朝圣者每年来这里迎日。无上法王国的僧侣在山口另一侧建了一座白塔，称这里是通往雪伞山的南门。两国都主张山口归己，守卫和朝圣者对峙多年。", "en": "The Sun Gate Pass lies on the border north of Vavahady, where the winter solstice sun rises exactly between two peaks, and pilgrims of the Golden Sun come every year to greet it. Monks of the Kingdom of the Unsurpassed Dharma have built a white stupa on the far side and call it the southern gate to the Snow Parasol Mountains. Both countries claim the pass, and their guards and pilgrims have faced each other for years."}
+    in: div_tvpd91
+    offset_km: [1.15, 4.50]
+    site: {"layout": "park", "size_m": [600, 450], "angle_deg": 22, "rural": true}
+  - id: poi_3fyqb4
+    subtype: refugee_camp
+    status: generated
+    names: {"zh": "东谷难民营", "en": "East Valley Refugee Camp"}
+    notes: {"zh": "东谷难民营收容了约九千名从齐马罗沃逃来的人，多是被血统登记局列为「外人」、失去土地的原住民家庭。王国不给他们村社的土地，但让他们在营地周围开垦梯田，粮食由王家粮仓配给。孩子们在营地里的学堂上课，许多家庭已在这里住了十几年。", "en": "East Valley Refugee Camp shelters some 9,000 people who fled Tsimarovo, mostly indigenous families stripped of their land after its Lineage Registry Office branded them 'outsiders'. The kingdom gives them no village land but lets them terrace the slopes round the camp, and the royal granaries ration their grain. The children go to the camp school, and many families have lived here for more than ten years."}
+    in: div_tvpd91
+    offset_km: [2.77, -1.15]
+    site: {"layout": "refugee", "size_m": [1200, 900], "angle_deg": 68, "rural": true}
+  - id: bld_x28wh1
+    subtype: research_institute
+    status: generated
+    names: {"zh": "环形梯田种子场", "en": "Ring Terraces Seed Station"}
+    notes: {"zh": "环形梯田种子场是一组同心圆形的下沉梯田，从上到下每一级的温度都不相同，农官在这里试种土豆和金藜的新品种，挑选适合各个海拔的种子分发给村社。种子场保存着上百个土豆品种。", "en": "The Ring Terraces Seed Station is a set of sunken concentric terraces, each ring warmer or cooler than the next, where the court's farming officers try out new kinds of potato and golden goosefoot and choose seed for each altitude to send to the villages. It keeps more than a hundred kinds of potato."}
+    in: div_tvpd91
+    offset_km: [-2.77, 1.15]
+    site: {"layout": "ring", "size_m": [400, 400], "rural": true}

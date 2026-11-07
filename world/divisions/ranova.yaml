@@ -1,11 +1,11 @@
-# Administrative divisions of Ranova (拉诺瓦岛). The island has no country above it: its 26 nations are
+# Administrative divisions of Ranova (拉诺瓦岛). The island has no country above it: its 30 nations are
 # states (subtype: country, no parent), their cities cities (locality) with no districts, and the United
 # Republic of Ranova, the government in exile that claims the whole island, a state like the others whose
 # capital and area it does not control (uncontrolled:); its seat and claims are in its notes. On the map it
 # is the region's territory in world/generator/ranova.yaml, the island's outline.
 # id: stable internal key, referenced by other files. codes: a state has only its ISO 3166-1 code, its letters
 # taken from its name as this world sees fit, real countries' codes notwithstanding (the nations numbered 910
-# to 935 in the order they were founded on the map; the government in exile RA, RAN, 950); a city has its
+# to 935 in the order they were founded on the map, then 936 to 939; the government in exile RA, RAN, 950); a city has its
 # 6-digit admin code (600100), which may change on reorganisation.
 # Names are Chinese, English and the nation's own language: Ranovan (art-x-ranova) or, on the coasts
 # and in Nusira, Kasiri (art-x-kasiri). A state's card block is `nation:` (see pipeline/atlas/world.py).
@@ -14,7 +14,7 @@ divisions:
   subtype: country
   status: generated
   names: {zh: 拉诺瓦联合共和国, en: United Republic of Ranova, art-x-ranova: Repoblika Mitambatra an'i Ranova}
-  notes: {zh: "拉诺瓦联合共和国是拉诺瓦岛上曾经唯一的国家，如今是一个流亡政府，驻在东南海岸外的安巴罗国际托管地。它在法律上仍然主张对全岛和两侧群岛的主权，但三十多年来没有实际控制任何领土，只在安巴罗旧海军要塞旁的一座行政楼里设有总统府、临时国民议会和几个部门，在萨马伊、马哈维洛和海外设有代表处。\n\n拉诺瓦岛是太平洋东北部的一座大岛，位于加利福尼亚东南约一千五百公里的海上，主岛面积约一百万平方公里，形状狭长，西北和东南外海各有十多座大小不一的岛屿。中部是纵贯南北的安德里纳高原，北端有全岛最高的马洛卡山，东部是陡峭的法拉纳断崖和热带雨林，西部是稀树草原和干燥的丘陵，西南是多刺灌木林和半荒漠。全岛人口约三千万，通行拉诺瓦语和沿海的卡西里语。\n\n联合共和国统一了本岛和两侧的群岛，首都设在高原中部的安博哈拉。三十多年前，它在经济危机、地方分离运动和意识形态对立中崩溃，这场崩溃被称为「大分裂」。东南群岛和萨拉卡依据条约和平分离，沿用了联合共和国的船旗样式；本岛则陷入长期战乱，先后形成了二十六个国家和武装控制区。安博哈拉被基督教联邦接管后，最后一届内阁和部分议员撤到萨马伊；安巴罗之围结束、托管地成立后，流亡政府迁入安巴罗，成为国际委员会认可的谈判一方。\n\n流亡政府由流亡总统领导，临时国民议会由大分裂前的国民议会议员、侨民代表和难民营代表组成，每五年在难民营和海外侨民中改选一次。它的主要工作是为难民和海外侨民签发身份与旅行证件，保存联合共和国的档案、法律和国旗，参加在安巴罗举行的和平谈判，并主张以联邦方式和平统一全岛。只有少数国家承认它是拉诺瓦的合法政府，多数国家把它视为一个有象征意义的对话者。岛上各国的人常说：「我们曾经是一个国家，如今是一座岛。」", en: "The United Republic of Ranova was once the only state on the island of Ranova and is now a government in exile, seated in the Ambaro International Trust Territory off the south-east coast. In law it still claims sovereignty over the whole island and the islands on either side, but for more than thirty years it has held no territory at all: it keeps a presidency, a Provisional National Assembly and a few ministries in an office building beside Ambaro's old naval fortress, and missions in Samay, Mahavelo and abroad.\n\nRanova is a large island in the north-eastern Pacific, some 1,500 km south-east of California. The main island covers about a million square kilometres in a long, narrow shape, with a dozen or more islands of every size offshore to the north-west and south-east. The Andrina Highlands run down the middle, the Maroka Massif at the northern end is the highest ground, the east is the steep Farana Escarpment and rainforest, the west savanna and dry hills, and the south-west spiny thicket and semi-desert. About 30 million people live on the island, speaking Ranovan and, on the coasts, Kasiri.\n\nThe United Republic united the main island and the islands on either side, with its capital at Ambohara in the middle of the highlands. More than thirty years ago it collapsed amid economic crisis, regional separatism and ideological division, a collapse known as the Great Sundering. The south-eastern islands and Saraka left peacefully by treaty and kept the pattern of the Republic's ensigns, while the main island fell into a long war out of which twenty-six states and armed zones emerged. When the Christian Federation took over Ambohara, the last cabinet and some members of parliament withdrew to Samay; after the Siege of Ambaro ended and the trust territory was set up, the government in exile moved to Ambaro and became a party to talks recognised by the International Commission.\n\nThe government in exile is led by a president in exile. Its Provisional National Assembly is made up of members of the pre-Sundering parliament and representatives of the diaspora and the refugee camps, re-elected every five years in the camps and among Ranovans abroad. Its work is to issue identity and travel papers to refugees and the diaspora, to keep the United Republic's archives, laws and flag, to take part in the peace talks at Ambaro and to argue for a peaceful reunion of the island as a federation. Only a few states recognise it as Ranova's lawful government; most treat it as a symbolic interlocutor. People across the island say, 'We were once a country; now we are an island.'"}
+  notes: {zh: "拉诺瓦联合共和国是拉诺瓦岛上曾经唯一的国家，如今是一个流亡政府，驻在东南海岸外的安巴罗国际托管地。它在法律上仍然主张对全岛和两侧群岛的主权，但三十多年来没有实际控制任何领土，只在安巴罗旧海军要塞旁的一座行政楼里设有总统府、临时国民议会和几个部门，在萨马伊、马哈维洛和海外设有代表处。\n\n拉诺瓦岛是太平洋东北部的一座大岛，位于加利福尼亚东南约一千五百公里的海上，主岛面积约一百万平方公里，形状狭长，西北和东南外海各有十多座大小不一的岛屿。中部是纵贯南北的安德里纳高原，北端有全岛最高的马洛卡山，东部是陡峭的法拉纳断崖和热带雨林，西部是稀树草原和干燥的丘陵，西南是多刺灌木林和半荒漠。全岛人口约三千万，通行拉诺瓦语和沿海的卡西里语。\n\n联合共和国统一了本岛和两侧的群岛，首都设在高原中部的安博哈拉。三十多年前，它在经济危机、地方分离运动和意识形态对立中崩溃，这场崩溃被称为「大分裂」。东南群岛和萨拉卡依据条约和平分离，沿用了联合共和国的船旗样式；本岛则陷入长期战乱，先后形成了三十个国家和武装控制区。安博哈拉被基督教联邦接管后，最后一届内阁和部分议员撤到萨马伊；安巴罗之围结束、托管地成立后，流亡政府迁入安巴罗，成为国际委员会认可的谈判一方。\n\n流亡政府由流亡总统领导，临时国民议会由大分裂前的国民议会议员、侨民代表和难民营代表组成，每五年在难民营和海外侨民中改选一次。它的主要工作是为难民和海外侨民签发身份与旅行证件，保存联合共和国的档案、法律和国旗，参加在安巴罗举行的和平谈判，并主张以联邦方式和平统一全岛。只有少数国家承认它是拉诺瓦的合法政府，多数国家把它视为一个有象征意义的对话者。岛上各国的人常说：「我们曾经是一个国家，如今是一座岛。」", en: "The United Republic of Ranova was once the only state on the island of Ranova and is now a government in exile, seated in the Ambaro International Trust Territory off the south-east coast. In law it still claims sovereignty over the whole island and the islands on either side, but for more than thirty years it has held no territory at all: it keeps a presidency, a Provisional National Assembly and a few ministries in an office building beside Ambaro's old naval fortress, and missions in Samay, Mahavelo and abroad.\n\nRanova is a large island in the north-eastern Pacific, some 1,500 km south-east of California. The main island covers about a million square kilometres in a long, narrow shape, with a dozen or more islands of every size offshore to the north-west and south-east. The Andrina Highlands run down the middle, the Maroka Massif at the northern end is the highest ground, the east is the steep Farana Escarpment and rainforest, the west savanna and dry hills, and the south-west spiny thicket and semi-desert. About 30 million people live on the island, speaking Ranovan and, on the coasts, Kasiri.\n\nThe United Republic united the main island and the islands on either side, with its capital at Ambohara in the middle of the highlands. More than thirty years ago it collapsed amid economic crisis, regional separatism and ideological division, a collapse known as the Great Sundering. The south-eastern islands and Saraka left peacefully by treaty and kept the pattern of the Republic's ensigns, while the main island fell into a long war out of which thirty states and armed zones emerged. When the Christian Federation took over Ambohara, the last cabinet and some members of parliament withdrew to Samay; after the Siege of Ambaro ended and the trust territory was set up, the government in exile moved to Ambaro and became a party to talks recognised by the International Commission.\n\nThe government in exile is led by a president in exile. Its Provisional National Assembly is made up of members of the pre-Sundering parliament and representatives of the diaspora and the refugee camps, re-elected every five years in the camps and among Ranovans abroad. Its work is to issue identity and travel papers to refugees and the diaspora, to keep the United Republic's archives, laws and flag, to take part in the peace talks at Ambaro and to argue for a peaceful reunion of the island as a federation. Only a few states recognise it as Ranova's lawful government; most treat it as a symbolic interlocutor. People across the island say, 'We were once a country; now we are an island.'"}
   short_names: {zh: 拉诺瓦, en: Ranova}
   codes: {iso3166_1: {alpha2: RA, alpha3: RAN, numeric: '950'}}
   motto: {zh: "一座岛，一个家", en: "One island, one home"}
@@ -176,7 +176,7 @@ divisions:
     power: {zh: 民选总统与教会联合会；福音派政党长期执政, en: The elected president and the Council of Churches; evangelical parties have governed for decades}
     bloc: bloc:covenant
     bloc_role: {zh: 盟主, en: Leader}
-    recognition: 18
+    recognition: 22
     military:
       active: 85000
       reserve: 120000
@@ -199,7 +199,7 @@ divisions:
       role: {zh: 围城一方，后撤出, en: 'A besieger, later withdrew'}
       status: ended
     allies: [div_t5zph6, div_38z2mg, div_78xf6t, div_gd73a5, div_c28art]
-    rivals: [div_r9whm0, div_s07wh5, div_rbcxzz, div_9w60j4]
+    rivals: [div_r9whm0, div_s07wh5, div_rbcxzz, div_9w60j4, div_q7nhd9]
     backers: ['country:US']
     offices:
     - {"names": {"zh": "联邦武装部队", "en": "Federal Armed Forces"}, "title": {"zh": "总参谋长", "en": "Chief of the General Staff"}}
@@ -468,7 +468,7 @@ divisions:
     power: {zh: 阿瓦拉齐劳动党政治局, en: The Politburo of the Avaratsy Labour Party}
     bloc: bloc:secular
     bloc_role: {zh: 盟主, en: Leader}
-    recognition: 12
+    recognition: 15
     executive:
       names: {zh: "部长会议", en: "Council of Ministers"}
       head:
@@ -530,7 +530,7 @@ divisions:
       role: {zh: 围城一方，后撤出, en: 'A besieger, later withdrew'}
       status: ended
     allies: [div_s07wh5, div_0cazhp, div_4f0pgt, div_hxyyfe, div_gebca7, div_3w5wwh]
-    rivals: [div_mj41d0, div_rbcxzz, div_t5zph6]
+    rivals: [div_mj41d0, div_rbcxzz, div_t5zph6, div_q7nhd9]
     backers: ['country:CN']
     predecessors:
     - {"title": {"zh": "劳动党总书记、国家主席", "en": "General Secretary of the Labour Party and President"}, "name": {"zh": "拉库图·贝马纳", "en": "Rakoto Bemana"}, "note": {"zh": "大分裂时领导工人赤卫队接管港口和矿山，宣布成立人民民主共和国", "en": "Led the workers' Red Guards to take the ports and mines in the Sundering and proclaimed the People's Democratic Republic"}}
@@ -709,7 +709,7 @@ divisions:
     power: {zh: 沃利家族与劳动党中央军事委员会, en: The Voly family and the Central Military Commission of the Workers' Party}
     bloc: bloc:secular
     bloc_role: {zh: 成员, en: Member}
-    recognition: 9
+    recognition: 12
     executive:
       names: {zh: "政务院", en: "Cabinet"}
       head:
@@ -844,13 +844,13 @@ divisions:
   status: generated
   names: {zh: 齐马罗沃民族社会主义国, en: National Socialist State of Tsimarovo, art-x-ranova: Fanjakana Sosialista Nasionaly Tsimarovo}
   short_names: {zh: 齐马罗沃, en: Tsimarovo}
-  notes: {zh: '齐马罗沃民族社会主义国位于拉诺瓦岛南部，伊拉希河从伊瓦卡山流向东海岸，贯穿全境，面积约九万九千平方公里，人口约二百八十万，下设五个城市，首都齐马罗沃建在伊拉希河上游的盆地中。国土大部分是干燥的高原和稀树草原，东部河口一带是全国唯一的出海口伊拉希港。
+  notes: {zh: '齐马罗沃民族社会主义国位于拉诺瓦岛南部，伊拉希河从伊瓦卡山流向东海岸，贯穿全境，面积约九万九千平方公里，人口约二百八十万，下设五个城市，首都齐马罗沃建在伊拉希河上游的盆地中。国土大部分是干燥的高原和稀树草原，东部河口一带是全国唯一的出海口伊拉希港。西部边界的南段自北向南依次与大衡王朝、无上法王国、金日王国和齐阿拉野化邦接壤，东南角环抱着卡波拉。
 
       联合共和国末期，南方的退伍军人和民族主义青年组织成立了民族社会主义运动，宣称高原「最早的定居者」才是拉诺瓦的主人，把原住民氏族、沿海的卡西里人和外来移民视为「外人」。大分裂后，运动以武力控制南方各省，建立一党制国家，民族领袖拥有不受限制的权力，国民议会只负责鼓掌通过领袖的决定。国家按「血统证书」把居民分成等级，只有一等公民可以拥有土地、担任公职和参军当军官。
 
       国家建立后随即向西南扩张，发动南方战争，攻入阿拉齐纳原住民氏族的牧区，强迫数十万人离开家园，把土地分给「定居者村」。国际调查机构多次记录了强迫迁徙、集体惩罚和拘押营，周边国家和国际组织普遍对其实施武器禁运。南方战争断断续续持续了三十多年，至今仍未结束。
 
-      齐马罗沃是祖源轴心的盟主，与梅纳瓦利军政府结盟，却与更激进的卡波拉新秩序自由领长期不和，两国边境多次交火。经济是国家主导的军工体制，福罗纳的钢铁厂和兵工厂、伊拉希港的造船厂和国营农场是支柱，禁运使许多物资依赖走私。人均收入约五千美元。国内宣传无处不在，学校教授「血统史」，青年必须加入运动的青年团。三十多年来，二十多万人逃离这个国家，在邻国和海外形成了庞大的流亡社区。', en: "The National Socialist State of Tsimarovo lies in the south of Ranova, crossed by the Ilahy River from the Ivaka Mountains to the east coast; it covers some 99,000 km² with about 2.8 million people in five cities, its capital, Tsimarovo, in a basin on the upper Ilahy. Most of the country is dry upland and savanna, and the mouth of the Ilahy in the east is its only outlet to the sea, the port of Ilahy. \nIn the last years of the United Republic, veterans and nationalist youth groups in the south founded the National Socialist Movement, which claimed that the 'first settlers' of the highlands were Ranova's true masters and branded the indigenous clans, the coastal Kasiri and immigrants as 'outsiders'. After the Sundering the movement took the southern provinces by force and set up a one-party state in which the Leader holds unlimited power and the National Assembly exists to applaud his decisions. Residents are graded by 'certificates of lineage', and only first-class citizens may own land, hold office or be commissioned in the army. \nThe new state soon pushed south-west and began the Southern War, overrunning the grazing lands of the Alatsina clans, driving hundreds of thousands from their homes and giving the land to 'settler villages'. International investigators have repeatedly documented forced removals, collective punishment and detention camps, and neighbours and international bodies broadly enforce an arms embargo. The Southern War has gone on and off for more than thirty years and is not over. \nTsimarovo leads the Origin Axis and is allied with the Menavaly junta, yet has long been at odds with the still more radical New Order Free Territory of Kabola, and the two have exchanged fire on their border many times. The economy is a state-run war economy built on the steelworks and arsenal of Forona, the shipyard at Ilahy and state farms, and the embargo means many goods come in by smuggling. Income is about 5,000 dollars a head. Propaganda is everywhere, schools teach 'lineage history' and young people must join the movement's youth corps. Over thirty years more than 200,000 people have fled the country, forming large exile communities in neighbouring states and overseas."}
+      齐马罗沃是祖源轴心的盟主，与梅纳瓦利军政府和大天使军团国结盟，却与更激进的卡波拉新秩序自由领长期不和，两国边境多次交火。经济是国家主导的军工体制，福罗纳的钢铁厂和兵工厂、伊拉希港的造船厂和国营农场是支柱，禁运使许多物资依赖走私。人均收入约五千美元。国内宣传无处不在，学校教授「血统史」，青年必须加入运动的青年团。三十多年来，二十多万人逃离这个国家，在邻国和海外形成了庞大的流亡社区。', en: "The National Socialist State of Tsimarovo lies in the south of Ranova, crossed by the Ilahy River from the Ivaka Mountains to the east coast; it covers some 99,000 km² with about 2.8 million people in five cities, its capital, Tsimarovo, in a basin on the upper Ilahy. Most of the country is dry upland and savanna, and the mouth of the Ilahy in the east is its only outlet to the sea, the port of Ilahy. The southern stretch of its western border runs, from north to south, along the Great Heng Dynasty, the Kingdom of the Unsurpassed Dharma, the Kingdom of the Golden Sun and the Rewilded Polity of Tsiala, and in the south-east it wraps around Kabola. \nIn the last years of the United Republic, veterans and nationalist youth groups in the south founded the National Socialist Movement, which claimed that the 'first settlers' of the highlands were Ranova's true masters and branded the indigenous clans, the coastal Kasiri and immigrants as 'outsiders'. After the Sundering the movement took the southern provinces by force and set up a one-party state in which the Leader holds unlimited power and the National Assembly exists to applaud his decisions. Residents are graded by 'certificates of lineage', and only first-class citizens may own land, hold office or be commissioned in the army. \nThe new state soon pushed south-west and began the Southern War, overrunning the grazing lands of the Alatsina clans, driving hundreds of thousands from their homes and giving the land to 'settler villages'. International investigators have repeatedly documented forced removals, collective punishment and detention camps, and neighbours and international bodies broadly enforce an arms embargo. The Southern War has gone on and off for more than thirty years and is not over. \nTsimarovo leads the Origin Axis and is allied with the Menavaly junta and the Legionary State of the Archangel, yet has long been at odds with the still more radical New Order Free Territory of Kabola, and the two have exchanged fire on their border many times. The economy is a state-run war economy built on the steelworks and arsenal of Forona, the shipyard at Ilahy and state farms, and the embargo means many goods come in by smuggling. Income is about 5,000 dollars a head. Propaganda is everywhere, schools teach 'lineage history' and young people must join the movement's youth corps. Over thirty years more than 200,000 people have fled the country, forming large exile communities in neighbouring states and overseas."}
   codes: {iso3166_1: {alpha2: TS, alpha3: TSI, numeric: '913'}}
   population: 2800000
   area_km2: 99000
@@ -875,7 +875,7 @@ divisions:
     power: {zh: 民族社会主义运动与民族卫队, en: The National Socialist Movement and the National Guard}
     bloc: bloc:origin
     bloc_role: {zh: 盟主, en: Leader}
-    recognition: 4
+    recognition: 8
     executive:
       names: {zh: "民族政府", en: "National Government"}
       head:
@@ -928,8 +928,8 @@ divisions:
     - names: {zh: 伊索卡人民战争, en: Isoka People's War}
       role: {zh: 边境清剿, en: Border sweeps}
       status: active
-    allies: [div_dmf47n]
-    rivals: [div_mj41d0, div_ht80hm, div_hm0zqz, div_9w60j4, div_1tan4g]
+    allies: [div_dmf47n, div_q7nhd9]
+    rivals: [div_mj41d0, div_ht80hm, div_hm0zqz, div_9w60j4, div_1tan4g, div_st5cb2, div_zw79v9, div_zybzvt]
     backers: []
     offices:
     - {"names": {"zh": "国防军", "en": "Defence Army"}, "title": {"zh": "总司令", "en": "Commander-in-Chief"}}
@@ -1192,13 +1192,13 @@ divisions:
   status: generated
   names: {zh: 梅纳瓦利国家拯救共和国, en: Salvation Republic of Menavaly, art-x-ranova: Repoblikan'ny Famonjena Nasionaly Menavaly}
   short_names: {zh: 梅纳瓦利, en: Menavaly}
-  notes: {zh: '梅纳瓦利国家拯救共和国位于拉诺瓦岛西南海岸，国名意为「红色海岸」，得名于首都附近的红土悬崖。国土约五万六千平方公里，人口约一百万，只有首都梅纳瓦利和内陆的阿纳拉两座城市。西部沿海是干燥的稀树草原和红树林，内陆是起伏的草原丘陵，牛群是传统的财富。
+  notes: {zh: '梅纳瓦利国家拯救共和国位于拉诺瓦岛西南海岸，国名意为「红色海岸」，得名于首都附近的红土悬崖。国土约五万六千平方公里，人口约一百万，只有首都梅纳瓦利和内陆的阿纳拉两座城市，南面与大衡王朝接壤。西部沿海是干燥的稀树草原和红树林，内陆是起伏的草原丘陵，牛群是传统的财富。
 
       大分裂后，西南各省先成立了文官政府，但地方军阀割据、腐败横行，伊索卡游击队又不断袭扰。立国几年后，陆军将领以「拯救国家」为名发动政变，解散议会，成立国家拯救委员会，宣布全国进入紧急状态，此后紧急状态从未解除。委员会由十二名陆军将领、五名空军将领和四名宪兵司令组成，主席由委员会推举，实际上由陆军中最有实力的将领担任。此后军队内部又发生过两次政变，每次都换了主席，却没有改变军人执政的格局。
 
-      军政府对外以反共为旗号，与齐马罗沃结盟加入祖源轴心，在南方战争中为齐马罗沃提供基地和过境通道，并向卡波拉转运燃料和武器，因此遭到多国制裁。国内实行宵禁、新闻审查和政党禁令，反对派领袖多被软禁或流亡贝洛瓦。
+      军政府对外以反共为旗号，与齐马罗沃结盟加入祖源轴心，在南方战争中为齐马罗沃提供基地和过境通道，并向卡波拉转运燃料和武器，因此遭到多国制裁。与南邻大衡王朝关系冷淡，边境上常有走私和越界放牧的纠纷。国内实行宵禁、新闻审查和政党禁令，反对派领袖多被软禁或流亡贝洛瓦。
 
-      经济以瘤牛放牧、金矿和渔业为主，军官集团控制着金矿和港口的收入，普通人的生活十分贫困，人均收入约二千五百美元。年轻人口比例很高，许多青年加入军队以求温饱。阿纳拉空军基地是军政府的王牌，每年国家拯救日，攻击机编队从首都上空低空飞过，是全国最隆重的仪式。梅纳瓦利人常说「在这里，草原属于牛，海岸属于渔民，国家属于将军」。', en: "The Salvation Republic of Menavaly lies on Ranova's south-west coast; its name means 'red coast', for the red earth cliffs near the capital. It covers some 56,000 km² with about a million people in two cities, the capital, Menavaly, and Anala inland. The western coast is dry savanna and mangrove, the interior rolling grassy hills, and cattle are the traditional wealth. \nAfter the Sundering the south-western provinces first formed a civilian government, but local strongmen carved up the country, corruption ran wild and the Isoka guerrillas raided again and again. A few years after independence the army's generals staged a coup in the name of 'saving the nation', dissolved parliament, set up the National Salvation Committee and declared a state of emergency that has never been lifted. The committee has twelve army generals, five air force generals and four commanders of the gendarmerie; its chairman is chosen by the committee and is in practice the strongest general in the army. Two more coups within the army since then have changed the chairman each time but not military rule. \nAbroad the junta flies the banner of anti-communism; it joined the Origin Axis as Tsimarovo's ally, gives Tsimarovo bases and transit in the Southern War and passes fuel and arms on to Kabola, for which it is under sanctions from many states. At home there is a curfew, censorship and a ban on parties, and most opposition leaders are under house arrest or in exile in Belova. \nThe economy lives on zebu herding, gold mining and fishing; the officer corps controls the income from the gold mines and the ports, ordinary people are very poor, and income is about 2,500 dollars a head. The population is very young, and many young men join the army to eat. Anala air base is the junta's trump card, and on National Salvation Day a formation of attack aircraft flies low over the capital in the country's grandest ceremony. Menavaly people say that 'here the grassland belongs to the cattle, the coast to the fishers and the country to the generals'."}
+      经济以瘤牛放牧、金矿和渔业为主，军官集团控制着金矿和港口的收入，普通人的生活十分贫困，人均收入约二千五百美元。年轻人口比例很高，许多青年加入军队以求温饱。阿纳拉空军基地是军政府的王牌，每年国家拯救日，攻击机编队从首都上空低空飞过，是全国最隆重的仪式。梅纳瓦利人常说「在这里，草原属于牛，海岸属于渔民，国家属于将军」。', en: "The Salvation Republic of Menavaly lies on Ranova's south-west coast; its name means 'red coast', for the red earth cliffs near the capital. It covers some 56,000 km² with about a million people in two cities, the capital, Menavaly, and Anala inland, and borders the Great Heng Dynasty to the south. The western coast is dry savanna and mangrove, the interior rolling grassy hills, and cattle are the traditional wealth. \nAfter the Sundering the south-western provinces first formed a civilian government, but local strongmen carved up the country, corruption ran wild and the Isoka guerrillas raided again and again. A few years after independence the army's generals staged a coup in the name of 'saving the nation', dissolved parliament, set up the National Salvation Committee and declared a state of emergency that has never been lifted. The committee has twelve army generals, five air force generals and four commanders of the gendarmerie; its chairman is chosen by the committee and is in practice the strongest general in the army. Two more coups within the army since then have changed the chairman each time but not military rule. \nAbroad the junta flies the banner of anti-communism; it joined the Origin Axis as Tsimarovo's ally, gives Tsimarovo bases and transit in the Southern War and passes fuel and arms on to Kabola, for which it is under sanctions from many states. Relations with its southern neighbour, the Great Heng Dynasty, are cold, with frequent quarrels over smuggling and cattle grazed across the border. At home there is a curfew, censorship and a ban on parties, and most opposition leaders are under house arrest or in exile in Belova. \nThe economy lives on zebu herding, gold mining and fishing; the officer corps controls the income from the gold mines and the ports, ordinary people are very poor, and income is about 2,500 dollars a head. The population is very young, and many young men join the army to eat. Anala air base is the junta's trump card, and on National Salvation Day a formation of attack aircraft flies low over the capital in the country's grandest ceremony. Menavaly people say that 'here the grassland belongs to the cattle, the coast to the fishers and the country to the generals'."}
   codes: {iso3166_1: {alpha2: MN, alpha3: MEN, numeric: '915'}}
   population: 1000000
   area_km2: 56000
@@ -1222,7 +1222,7 @@ divisions:
     power: {zh: 国家拯救委员会（陆军将领为主）, en: 'The National Salvation Committee, dominated by army generals'}
     bloc: bloc:origin
     bloc_role: {zh: 成员, en: Member}
-    recognition: 6
+    recognition: 10
     executive:
       names: {zh: "过渡政府", en: "Transitional Government"}
       head:
@@ -1276,8 +1276,8 @@ divisions:
     - names: {zh: 伊索卡人民战争, en: Isoka People's War}
       role: {zh: 清剿伊索卡游击队, en: Counter-insurgency against the Isoka guerrillas}
       status: active
-    allies: [div_rbcxzz, div_hm0zqz]
-    rivals: [div_4f0pgt, div_9w60j4, div_1tan4g, div_ht80hm]
+    allies: [div_rbcxzz, div_hm0zqz, div_q7nhd9]
+    rivals: [div_4f0pgt, div_9w60j4, div_st5cb2, div_ht80hm]
     backers: []
     offices:
     - {"names": {"zh": "陆军", "en": "Army"}, "title": {"zh": "参谋长", "en": "Chief of Staff"}}
@@ -1395,7 +1395,7 @@ divisions:
     power: {zh: 民选议会与总理；宗教学者委员会审查立法是否符合教法, en: The elected parliament and prime minister; a council of religious scholars reviews laws for conformity with sharia}
     bloc: bloc:covenant
     bloc_role: {zh: 成员, en: Member}
-    recognition: 20
+    recognition: 24
     military:
       active: 30000
       reserve: 40000
@@ -1730,7 +1730,7 @@ divisions:
       title: {zh: 轮值大长老, en: Rotating Great Elder}
       name: {zh: 法拉·曼加西, en: Fara Mangasy}
     power: {zh: 九氏族议事会，以协商一致作出决定, en: 'The Council of the Nine Clans, deciding by consensus'}
-    recognition: 15
+    recognition: 19
     executive:
       names: {zh: "邦联协调处", en: "Confederal Coordination Office"}
       ministries:
@@ -1774,7 +1774,7 @@ divisions:
     - names: {zh: 南方战争, en: Southern War}
       role: {zh: 被侵略方，对齐马罗沃, en: 'Defender, against Tsimarovo'}
       status: active
-    allies: [div_1tan4g, div_7t7xz6]
+    allies: [div_1tan4g, div_7t7xz6, div_zybzvt]
     rivals: [div_rbcxzz, div_hm0zqz, div_dmf47n]
     backers: []
     offices:
@@ -1923,7 +1923,7 @@ divisions:
     power: {zh: 各公社全体大会与工人议会；联合会代表可随时召回, en: The communes' general assemblies and workers' councils; delegates to the federation can be recalled at any time}
     bloc: bloc:secular
     bloc_role: {zh: 观察员, en: Observer}
-    recognition: 7
+    recognition: 10
     executive:
       names: {zh: "联络委员会", en: "Liaison Committee"}
       ministries:
@@ -2048,16 +2048,16 @@ divisions:
   status: generated
   names: {zh: 齐阿拉野化邦, en: Rewilded Polity of Tsiala, art-x-ranova: Tany Maitso Tsiala}
   short_names: {zh: 齐阿拉, en: Tsiala}
-  notes: {zh: '齐阿拉野化邦位于拉诺瓦岛西南部，面积约五万四千平方公里，人口只有约十五万，是全岛人口密度最低的国家。国名意为「森林」。境内是连绵的干燥落叶林、多刺灌木林和石灰岩尖峰林，河谷中保留着全岛最完整的原始森林，狐猴、马岛长尾狸猫和变色龙随处可见。
+  notes: {zh: '齐阿拉野化邦位于拉诺瓦岛遥远的西南端，面积约一万三千七百平方公里，人口只有约四万，是全岛人口密度最低的国家。国名意为「森林」。西面和南面是大海，东面与卡波拉和齐马罗沃接壤，北面是金日王国：金日的梯田在哪里结束，齐阿拉的森林就从哪里开始。境内是石灰岩尖峰林和多刺灌木林，峡谷和河谷中夹着干燥落叶林，保留着全岛最完整的原始森林，狐猴、马岛长尾狸猫和变色龙随处可见。全境没有一条公路。
 
-      大分裂后，西南的森林地区一度被伐木公司和金矿主瓜分，森林大片消失。一群环保主义者、离开城市的知识分子和当地森林居民组成了「回归运动」，他们赶走了伐木公司，炸毁了矿区道路，宣布在这片土地上「废除国家、废除工业、废除货币」，让森林重新生长。野化邦没有政府、没有公路、没有电网，居民分散在森林中的几十个营地里，以采集、狩猎、捕鱼和小块轮作为生，营地之间的事务由各营地的长老圈协商，长老圈推选一名发言人对外交涉。
+      大分裂后，岛西南角的这片森林一度被伐木公司和金矿主瓜分，森林大片消失。一群环保主义者、离开城市的知识分子和当地森林居民组成了「回归运动」，他们把伐木公司和金矿主赶出了这个角落，炸毁了矿区道路，宣布在这片土地上「废除国家、废除工业、废除货币」，让森林重新生长。野化邦没有政府、没有公路、没有电网，居民分散在森林中的几十个营地里，以采集、狩猎、捕鱼和小块轮作为生，营地之间的事务由各营地的长老圈协商，长老圈推选一名发言人对外交涉。
 
       野化邦的规则十分严格：境内禁止使用发动机、电子设备和化学品，外人只能步行进入，必须在边界交出手机和相机。孩子们在营地里学习辨认植物、追踪动物和讲述祖先的故事，而不是读书写字，这一点在邻国和国际组织中引起了很大争议。生病的人常常只能依靠草药，一些人最终离开森林去邻国就医，再也没有回来。
 
-      野化邦保持中立，与阿拉齐纳邦联关系密切，两者都受到齐马罗沃和卡波拉的威胁，南方战争中多次有武装人员和偷猎者越境。由于没有货币和统计，人均收入只能按估计，约八百美元。国际环保组织把这里看作「地球上最大胆的实验」，也有人批评它是对现代医疗和教育的拒绝。每年雨季开始时，各营地的人聚集在猴面包树下，用歌声和鼓声迎接第一场雨。', en: "The Rewilded Polity of Tsiala lies in south-western Ranova, some 54,000 km² with only about 150,000 people, the most thinly settled country on the island; the name means 'forest'. It is a land of dry deciduous forest, spiny thicket and limestone pinnacle forest, and its valleys hold the most intact primary forest on the island, alive with lemurs, fossas and chameleons. \nAfter the Sundering the south-western forests were carved up by logging companies and gold-mine owners, and great stretches of forest disappeared. A movement of environmentalists, intellectuals who had left the cities and local forest people, the 'Return', drove out the loggers, blew up the mine roads and declared that on this land 'the state, industry and money are abolished' so that the forest could grow back. The Polity has no government, no roads and no power grid; its people live scattered in dozens of camps in the forest by gathering, hunting, fishing and small shifting gardens, business between the camps is settled by their circles of elders, and the circles choose a speaker to deal with outsiders. \nThe rules are strict: engines, electronic devices and chemicals are banned, outsiders may enter only on foot and must hand over phones and cameras at the border. Children in the camps learn to know plants, track animals and tell the stories of their ancestors rather than to read and write, which has caused much controversy in neighbouring states and international bodies. The sick often have only herbal remedies, and some eventually leave the forest for treatment abroad and never return. \nThe Polity is neutral and close to the Alatsina Confederacy; both are threatened by Tsimarovo and Kabola, and armed men and poachers have crossed its borders many times in the Southern War. With no money and no statistics, income can only be estimated, at about 800 dollars a head. International conservation groups call it 'the boldest experiment on earth'; others criticise it as a rejection of modern medicine and education. When the rains begin each year, people from all the camps gather under the baobabs to welcome the first rain with song and drums."}
+      野化邦保持中立，与阿拉齐纳邦联关系密切，两者都受到齐马罗沃和卡波拉的威胁，南方战争中多次有武装人员和偷猎者越境。北邻金日王国是一个由「太阳之子」统治的太阳王国，两国之间相安无事却彼此提防：金日的农民不进森林伐木，森林里的猎人也不越过梯田。再往北，无上法王国的僧侣曾来林中讲经，被长老们客气地送回；大衡王朝的史官把野化邦记作「化外之林」；大天使军团国的布道者则把森林居民斥为「没有灵魂的人」，长老圈把这个军团国看作与齐马罗沃、卡波拉同样的威胁。由于没有货币和统计，人均收入只能按估计，约八百美元。国际环保组织把这里看作「地球上最大胆的实验」，也有人批评它是对现代医疗和教育的拒绝。每年雨季开始时，各营地的人聚集在猴面包树下，用歌声和鼓声迎接第一场雨。', en: "The Rewilded Polity of Tsiala lies at the remote far south-western tip of Ranova, some 13,700 km² with only about 40,000 people, the most thinly settled country on the island; the name means 'forest'. The sea lies to the west and south, Kabola and Tsimarovo to the east, and the Kingdom of the Golden Sun to the north: where the Golden Sun's terraces end, Tsiala's forest begins. It is a land of limestone pinnacle forest and spiny thicket, with dry deciduous forest in its gorges and valleys, which hold the most intact primary forest on the island, alive with lemurs, fossas and chameleons. There is not a single road. \nAfter the Sundering the forests of this south-western corner were carved up by logging companies and gold-mine owners, and great stretches of forest disappeared. A movement of environmentalists, intellectuals who had left the cities and local forest people, the 'Return', drove the loggers and gold miners out of the corner, blew up the mine roads and declared that on this land 'the state, industry and money are abolished' so that the forest could grow back. The Polity has no government, no roads and no power grid; its people live scattered in dozens of camps in the forest by gathering, hunting, fishing and small shifting gardens, business between the camps is settled by their circles of elders, and the circles choose a speaker to deal with outsiders. \nThe rules are strict: engines, electronic devices and chemicals are banned, outsiders may enter only on foot and must hand over phones and cameras at the border. Children in the camps learn to know plants, track animals and tell the stories of their ancestors rather than to read and write, which has caused much controversy in neighbouring states and international bodies. The sick often have only herbal remedies, and some eventually leave the forest for treatment abroad and never return. \nThe Polity is neutral and close to the Alatsina Confederacy; both are threatened by Tsimarovo and Kabola, and armed men and poachers have crossed its borders many times in the Southern War. Its northern neighbour, the Kingdom of the Golden Sun, a sun kingdom ruled by the 'Son of the Sun', lives with it in peace but on its guard: the Golden Sun's farmers do not cut wood in the forest, and the forest's hunters do not cross the terraces. Further north, monks of the Kingdom of the Unsurpassed Dharma once came to preach in the forest and were politely sent home; the court historians of the Great Heng Dynasty record the Polity as 'the forest beyond civilisation'; and the preachers of the Legionary State of the Archangel denounce the forest people as 'men without souls', so that the elders' circles count the legion state a threat alongside Tsimarovo and Kabola. With no money and no statistics, income can only be estimated, at about 800 dollars a head. International conservation groups call it 'the boldest experiment on earth'; others criticise it as a rejection of modern medicine and education. When the rains begin each year, people from all the camps gather under the baobabs to welcome the first rain with song and drums."}
   codes: {iso3166_1: {alpha2: TL, alpha3: TSL, numeric: '920'}}
-  population: 150000
-  area_km2: 54000
+  population: 40000
+  area_km2: 13700
   capital: div_qfht7f
   motto: {zh: 让森林回来, en: Let the forest return}
   color: '#1D4E2A'
@@ -2077,7 +2077,7 @@ divisions:
       title: {zh: 长老圈发言人, en: Speaker of the Circle of Elders}
       name: {zh: 齐里·安塔, en: Tsiry Anta}
     power: {zh: 各营地的长老圈, en: The camps' circles of elders}
-    recognition: 5
+    recognition: 9
     executive:
       none: {zh: "不设行政机构：各营地自行处理公共事务，长老圈发言人只代表野化邦对外说话，没有部门和公务员。", en: "No executive: each camp manages its own common affairs; the spokesperson of the Elders' Circles only speaks for the polity abroad, with no departments or officials."}
     legislature:
@@ -2096,7 +2096,7 @@ divisions:
       role: {zh: 边界遭侵入, en: Borders violated}
       status: active
     allies: [div_ht80hm]
-    rivals: [div_rbcxzz, div_hm0zqz, div_dmf47n]
+    rivals: [div_rbcxzz, div_hm0zqz, div_q7nhd9]
     backers: []
     offices:
     - {"names": {"zh": "森林守护者", "en": "Forest Keepers"}, "title": {"zh": "召集人", "en": "Convener"}}
@@ -2113,7 +2113,7 @@ divisions:
       share: 5
       color: '#BDBDBD'
     freedom: {political: 45, civil: 40, press: 20, economic: 5}
-    refugees: {hosted: 3000, abroad: 2000}
+    refugees: {hosted: 800, abroad: 1500}
     symbols:
       anthem: {zh: 无（以鸟鸣代替国歌）, en: None (birdsong takes the place of an anthem)}
       flower: {zh: 猴面包树花, en: Baobab flower}
@@ -2130,10 +2130,10 @@ divisions:
   parent: div_1tan4g
   status: generated
   names: {zh: 齐阿拉, en: Tsiala, art-x-ranova: Tsiala}
-  notes: {zh: 野化邦唯一的定居点，其实是散布在森林里的几十个营地，没有电网、公路和货币。居民以采集、狩猎和小块轮作为生，外人只能步行进入，并须在边界交出电子设备。, en: 'The only settlement of the Rewilded Polity, in truth dozens of camps scattered through the forest, without power lines, roads or money. People live by gathering, hunting and small shifting gardens; outsiders may enter only on foot and must hand over electronic devices at the border.'}
+  notes: {zh: 野化邦唯一的定居点，其实是散布在岛西南端石灰岩尖峰林和多刺灌木林里的几十个营地，约四万人，没有电网、公路和货币。居民以采集、狩猎和小块轮作为生，外人只能步行进入，并须在边界交出电子设备。, en: 'The only settlement of the Rewilded Polity, in truth dozens of camps of some 40,000 people scattered through the pinnacle forest and spiny thicket of the island''s south-western tip, without power lines, roads or money. People live by gathering, hunting and small shifting gardens; outsiders may enter only on foot and must hand over electronic devices at the border.'}
   codes: {admin: '700100'}
-  population: 150000
-  area_km2: 54000
+  population: 40000
+  area_km2: 13700
   color: '#1D4E2A'
   flag: {"layout": "banner", "colors": ["#1D4E2A", "#8D6E63"], "division": "bordure", "charge": "hornbill", "charge_color": "#FFFFFF"}
   flag_notes:
@@ -2180,7 +2180,7 @@ divisions:
       title: {zh: 先知、黎明之父, en: 'Prophet, Father of the Dawn'}
       name: {zh: 拉马希, en: Ramahy}
     power: {zh: 先知与十二使徒长老会, en: The Prophet and the Council of Twelve Apostles}
-    recognition: 3
+    recognition: 5
     executive:
       names: {zh: "圣城管理会", en: "Holy City Administration"}
       head:
@@ -2303,7 +2303,7 @@ divisions:
       title: {zh: 总统, en: President}
       name: {zh: 卡洛·拉辛巴, en: Karlo Rasimba}
     power: {zh: 香草卡特尔「三家族」与依附于它们的政党和将领, en: The 'Three Families' vanilla cartel and the parties and generals who depend on them}
-    recognition: 14
+    recognition: 18
     executive:
       names: {zh: "共和国政府", en: "Government of the Republic"}
       deputy:
@@ -2599,7 +2599,7 @@ divisions:
 
       王国以「国民幸福」为施政目标，限制大规模开发和旅游人数，保护森林和寺院传统，男孩常在寺院中度过一段少年时光。王国在宗教问题上宽容，基督教和祖灵信仰的社区可以自由礼拜，但对黎明千年国的扩张和马索沃利的无神论宣传十分警惕。
 
-      洛哈瓦托是圣约同盟的成员，名义上是信仰阵营中唯一的佛教国家，依靠同盟的保护维持中立和平。经济以茶叶、稻米、手工艺品和高端文化旅游为主，人均收入约四千美元。每年雨季结束时，王国举行法轮节，国王和僧团沿着转经道绕都城一周，全国的人都会来到洛哈瓦托，在寺院前点燃成千上万盏酥油灯。', en: "The Kingdom of Lohavato lies in the middle of Ranova's east coast between the Faniry communes and the Millennial Realm of the Dawn, some 20,000 km² with about 450,000 people in two cities, the royal capital, Lohavato, and the port of Sambo on the east coast. The name means 'head of stone', for the great rock jutting from the Farana Escarpment behind the capital. The country runs from the hills below the escarpment to the coast, with tea gardens and terraces in the valleys and rainforest on the eastern face of the cliffs. \nThe kingdom's Buddhist tradition goes back to monks who came by sea long ago and built the first monastery below the escarpment; the chiefs around it converted, and in time became the royal house of Lohavato. Under the United Republic the crown kept only a ceremonial role; in the Sundering the king refused to join any side and, backed by the monastic order and the hill peoples, proclaimed the kingdom restored. He then carried out reforms of his own accord, granting a constitution and a Royal Assembly in which half the members are elected, some appointed by the King and some chosen by the monastic order; the prime minister is put forward by the assembly majority and appointed by the King, who keeps the power to dissolve the assembly, appoint judges and command the army. \nThe kingdom governs for 'national happiness', limiting large developments and visitor numbers and protecting the forests and monastic tradition, and boys often spend part of their youth in a monastery. It is tolerant in matters of religion, Christian and ancestral communities worship freely, but it is wary of the Millennial Realm's expansion and Masovoly's atheist propaganda. \nLohavato is a member of the Covenant League, nominally the only Buddhist state in the bloc of faith, and relies on the League's protection to keep a neutral peace. Its economy rests on tea, rice, handicrafts and high-end cultural tourism, and income is about 4,000 dollars a head. At the end of the rains every year the kingdom holds the Festival of the Wheel: the King and the monks walk the circuit round the capital, and people from all over the country come to Lohavato to light thousands of butter lamps before the monasteries."}
+      洛哈瓦托是圣约同盟的成员，是信仰阵营中两个佛教国家之一，与无上法王国互不相让，依靠同盟的保护维持中立和平。经济以茶叶、稻米、手工艺品和高端文化旅游为主，人均收入约四千美元。每年雨季结束时，王国举行法轮节，国王和僧团沿着转经道绕都城一周，全国的人都会来到洛哈瓦托，在寺院前点燃成千上万盏酥油灯。', en: "The Kingdom of Lohavato lies in the middle of Ranova's east coast between the Faniry communes and the Millennial Realm of the Dawn, some 20,000 km² with about 450,000 people in two cities, the royal capital, Lohavato, and the port of Sambo on the east coast. The name means 'head of stone', for the great rock jutting from the Farana Escarpment behind the capital. The country runs from the hills below the escarpment to the coast, with tea gardens and terraces in the valleys and rainforest on the eastern face of the cliffs. \nThe kingdom's Buddhist tradition goes back to monks who came by sea long ago and built the first monastery below the escarpment; the chiefs around it converted, and in time became the royal house of Lohavato. Under the United Republic the crown kept only a ceremonial role; in the Sundering the king refused to join any side and, backed by the monastic order and the hill peoples, proclaimed the kingdom restored. He then carried out reforms of his own accord, granting a constitution and a Royal Assembly in which half the members are elected, some appointed by the King and some chosen by the monastic order; the prime minister is put forward by the assembly majority and appointed by the King, who keeps the power to dissolve the assembly, appoint judges and command the army. \nThe kingdom governs for 'national happiness', limiting large developments and visitor numbers and protecting the forests and monastic tradition, and boys often spend part of their youth in a monastery. It is tolerant in matters of religion, Christian and ancestral communities worship freely, but it is wary of the Millennial Realm's expansion and Masovoly's atheist propaganda. \nLohavato is a member of the Covenant League, one of the two Buddhist states in the bloc of faith, at odds with the Kingdom of the Unsurpassed Dharma, and relies on the League's protection to keep a neutral peace. Its economy rests on tea, rice, handicrafts and high-end cultural tourism, and income is about 4,000 dollars a head. At the end of the rains every year the kingdom holds the Festival of the Wheel: the King and the monks walk the circuit round the capital, and people from all over the country come to Lohavato to light thousands of butter lamps before the monasteries."}
   codes: {iso3166_1: {alpha2: LH, alpha3: LOH, numeric: '924'}}
   population: 450000
   area_km2: 20000
@@ -2624,7 +2624,7 @@ divisions:
     power: {zh: 国王与王室咨议会；僧团在教育和文化上影响巨大, en: The King and the Royal Privy Council; the monastic order carries great weight in education and culture}
     bloc: bloc:covenant
     bloc_role: {zh: 成员, en: Member}
-    recognition: 17
+    recognition: 21
     executive:
       names: {zh: "王国政府", en: "Royal Government"}
       head:
@@ -2671,7 +2671,7 @@ divisions:
       equipment: {zh: 一支小型步兵部队和王室卫队，国防主要依靠圣约同盟的保护。, en: A small infantry force and the Royal Guard; defence relies mainly on the Covenant League's protection.}
     wars: []
     allies: [div_mj41d0, div_78xf6t, div_c28art]
-    rivals: [div_nyhhhg, div_s07wh5]
+    rivals: [div_nyhhhg, div_s07wh5, div_zw79v9]
     backers: []
     heir: {"title": {"zh": "王储", "en": "Crown Prince"}, "name": {"zh": "拉多王子", "en": "Prince Rado"}}
     predecessors:
@@ -2793,7 +2793,7 @@ divisions:
     power: {zh: 民选总统与国会；商会和银行影响很大, en: The elected president and Congress; business chambers and banks carry great weight}
     bloc: bloc:secular
     bloc_role: {zh: 成员, en: Member}
-    recognition: 19
+    recognition: 23
     military:
       active: 12000
       reserve: 8000
@@ -2931,7 +2931,7 @@ divisions:
     power: {zh: 苏丹与王室；协商会议只有咨询权, en: The Sultan and the royal family; the consultative council only advises}
     bloc: bloc:covenant
     bloc_role: {zh: 成员, en: Member}
-    recognition: 20
+    recognition: 24
     executive:
       names: {zh: "大臣会议", en: "Council of Ministers"}
       head:
@@ -3127,7 +3127,7 @@ divisions:
     power: {zh: 民选议会与首相；国王为虚位元首, en: The elected parliament and prime minister; the King is a ceremonial head of state}
     bloc: bloc:covenant
     bloc_role: {zh: 成员, en: Member}
-    recognition: 22
+    recognition: 26
     military:
       active: 5000
       reserve: 4000
@@ -3258,7 +3258,7 @@ divisions:
       title: {zh: 大公, en: Sovereign Prince}
       name: {zh: 雷米三世, en: Remy III}
     power: {zh: 大公与国务大臣；赌场公司和私人银行影响很大, en: The Prince and his Minister of State; the casino company and private banks carry great weight}
-    recognition: 23
+    recognition: 27
     executive:
       names: {zh: "政府委员会", en: "Council of Government"}
       head:
@@ -3393,7 +3393,7 @@ divisions:
       title: {zh: 董事长兼总督, en: Chairman and Governor}
       name: {zh: 拉法·马蒂, en: Rafa Maty}
     power: {zh: 卡托拉安全集团董事会, en: The board of the Katora Security Group}
-    recognition: 9
+    recognition: 13
     executive:
       names: {zh: "执行管理层", en: "Executive Management"}
       head:
@@ -3541,7 +3541,7 @@ divisions:
     power: {zh: 民选大议会与执政官；三大商会在议会中影响巨大, en: The elected Great Council and the Doge; the three great merchant houses carry great weight in the council}
     bloc: bloc:secular
     bloc_role: {zh: 成员, en: Member}
-    recognition: 21
+    recognition: 25
     military:
       active: 3500
       reserve: 6000
@@ -3650,7 +3650,7 @@ divisions:
     power: {zh: 民选议会与总理；宪法法院保护宗教自由, en: The elected parliament and prime minister; a constitutional court protects religious freedom}
     bloc: bloc:secular
     bloc_role: {zh: 成员, en: Member}
-    recognition: 22
+    recognition: 26
     military:
       active: 6000
       reserve: 10000
@@ -3806,7 +3806,7 @@ divisions:
     power: {zh: 行政长官与立法会；商界功能组别占立法会半数, en: 'The Chief Executive and the Legislative Council, half of whose seats belong to business functional constituencies'}
     bloc: bloc:secular
     bloc_role: {zh: 成员, en: Member}
-    recognition: 23
+    recognition: 27
     executive:
       names: {zh: "行政会议", en: "Executive Council"}
       deputy:
@@ -3954,7 +3954,7 @@ divisions:
       title: {zh: 大母, en: Great Mother}
       name: {zh: 伊娜·雷尼索阿, en: Ina Renisoa}
     power: {zh: 母亲议会（各氏族女性家长选出）与民选的岛民议会, en: 'The Mothers'' Council, chosen by the women heads of the clans, and the elected Islanders'' Assembly'}
-    recognition: 19
+    recognition: 23
     military:
       active: 800
       reserve: 2000
@@ -4077,7 +4077,7 @@ divisions:
       title: {zh: 国际委员会高级专员, en: High Commissioner of the International Commission}
       name: {zh: 英格丽德·霍尔姆, en: Ingrid Holm}
     power: {zh: 国际委员会，咨询性的岛民理事会参与地方事务, en: 'The International Commission, with an advisory Islanders'' Board for local affairs'}
-    recognition: 25
+    recognition: 29
     executive:
       names: {zh: "托管行政署", en: "Trust Administration"}
       head:
@@ -4227,7 +4227,7 @@ divisions:
     power: {zh: 由二十座修道院各派一名代表组成的神圣议会, en: The Holy Synod of one delegate from each of the twenty monasteries}
     bloc: bloc:covenant
     bloc_role: {zh: 成员（不参与军事）, en: Member (no military role)}
-    recognition: 13
+    recognition: 17
     executive:
       names: {zh: "圣山执事会", en: "Holy Epistasia"}
       head:
@@ -4261,8 +4261,8 @@ divisions:
       - {zh: 无（由安博哈拉负责防务）, en: None (defence provided by Ambohara)}
       equipment: {zh: 没有任何武装力量，只有守山的修士和看门人。, en: 'No armed forces at all, only the monks who keep the mountain and their gatekeepers.'}
     wars: []
-    allies: [div_mj41d0, div_gd73a5]
-    rivals: [div_nyhhhg]
+    allies: [div_mj41d0, div_gd73a5, div_zw79v9]
+    rivals: [div_nyhhhg, div_q7nhd9]
     backers: []
     offices:
     - {"names": {"zh": "修道院财务室", "en": "Bursary"}, "title": {"zh": "司库修士", "en": "Bursar"}, "name": {"zh": "以法莲修士", "en": "Brother Ephrem"}}
@@ -4313,3 +4313,795 @@ divisions:
     age: ranova_old
     heritage: ranova
   symbols: {"flower": {"zh": "栀子花", "en": "Gardenia"}, "tree": {"zh": "龙血树", "en": "Dragon tree"}}
+
+# ── 大衡王朝 ──
+- id: div_st5cb2
+  subtype: country
+  status: generated
+  names: {zh: 大衡王朝, en: Great Heng Dynasty, art-x-ranova: Fanjakan'i Heng Lehibe}
+  short_names: {zh: 大衡, en: Heng}
+  notes: {zh: '大衡王朝位于拉诺瓦岛西南部，北邻梅纳瓦利，东接齐马罗沃，南面与大天使军团国和无上法王国接壤，西临大海，面积约一万二千八百平方公里，人口约一百六十万，下设都城承天、衡河中游的稷丰、东部边境的衡源和南部丘陵的鹿鸣四府。衡河从齐马罗沃边境的丘陵发源，向西流过全境，冲积出岛上最大的水田平原之一，两岸堤坝和水渠纵横，村落掩映在竹林和榕树之间；南部丘陵种茶、烧瓷，东部山地出产铜和木材。
+
+      很久以前，往来西海岸的商船从海外带来了经籍和典章，船上的商人和学者在衡河口定居，与当地的稻农通婚，在村中开设学塾讲授经书。代代相传，衡河平原形成了兴办书院、敬天祭祖、按经书行礼的风俗，经学和拉诺瓦的祖灵信仰交织在一起。联合共和国时期，这里是一个以稻米和书院闻名的省份。大分裂时，省政府瓦解，盗匪和豪强四起，齐马罗沃的民族社会主义运动也向西扩张。承天书院的山长庄守礼率领复礼学派的学者，联合乡绅和各村的乡兵保全了衡河平原，宣称乱世源于「礼崩乐坏」，要「复古礼以安天下」。学者们奉他为天子，改元「复礼」，建立大衡王朝。
+
+      王朝自称承受天命，天子总揽大权，下设三省六部：中书省起草诏令，门下省审核，可以封还不妥的诏书，尚书省率吏、户、礼、兵、刑、工六部执行。官员一律由科举选拔，从县里的童试、府里的乡试到京城的会试，最后由天子在承天殿亲自主持殿试，排定进士名次；世宗在位的「绍文」年间增设女科，女子从此可以应试做官。朝廷禁止结党，只有太祖特许的复礼社可以讲学结社，它的书院山长在廷议中占有席位。每月初一，百官身着按品级分色的朝服，手持笏板在承天殿朝见天子。王朝不设议会和选举，上书批评朝廷的人可能被革职流放，主张立宪的维新会遭到取缔，领导人流亡贝洛瓦。太祖之后，世宗在位六年早逝，当今天子庄允恭即位，改元「景衡」。
+
+      王朝奉行中立，不加入任何阵营，以「守土安民」为国策。它与北邻梅纳瓦利军政府关系冷淡，边境上常有走私和越界放牧的纠纷；齐马罗沃的「血统」学说把衡河平原的居民视为海外商人的后代、「外人」，两国的东部边界长年对峙，衡源城外收容着约三万名逃离齐马罗沃的难民。南邻大天使军团国的布道者被朝廷斥为「邪说」，鹿鸣以南的关隘长年紧闭；与无上法王国的僧侣则礼尚往来。中国对王朝既不承认也不否认，两国之间只有民间的商船往来。经济以稻米为本，户部经营的常平仓在丰年收购、荒年平价出售粮食，承天的市舶司管理海外贸易，鹿鸣的青瓷和茶叶远销各国，人均收入约四千五百美元。
+
+      每年春天，天子在承天城东的衡河边举行亲耕礼，亲手犁下第一道田垄，各府的知府也在同一天下田；冬至黎明，天子登上城南的圜丘祭天，向上天禀告一年的政事和收成。殿试放榜那天，新科进士骑马游街，全城的人涌上街头争看。衡人常说「家有读书声，国有太平年」，但流亡海外的维新派说，这太平是用封住的嘴换来的。', en: "The Great Heng Dynasty lies in south-western Ranova, with Menavaly to the north, Tsimarovo to the east, the Legionary State of the Archangel and the Kingdom of the Unsurpassed Dharma to the south and the sea to the west. It covers some 12,800 km² with about 1.6 million people in four prefectures: the capital, Chengtian, Jifeng on the middle Heng, Hengyuan on the eastern border and Luming in the southern hills. The Heng River rises in the hills on the Tsimarovo border and flows west across the whole country, laying down one of the largest paddy plains on the island; dikes and canals criss-cross its banks and the villages hide among bamboo and banyans, while the southern hills grow tea and fire porcelain and the eastern uplands yield copper and timber. \nLong ago merchant ships plying the west coast brought classics and books of rites from overseas; merchants and scholars on board settled at the mouth of the Heng, married into the rice-farming villages and opened schools to teach the classics. Over the generations the Heng plain grew a way of life of academies, of reverence for Heaven and the ancestors and of rites performed by the book, with classical learning woven together with Ranova's ancestral faith. Under the United Republic it was a province known for its rice and its academies. In the Sundering the provincial government collapsed, bandits and strongmen rose on every side, and Tsimarovo's National Socialist Movement pushed west. Zhuang Shouli, master of the Chengtian Academy, led the scholars of the Restoration of Rites school, joined by the gentry and the village militias, and held the Heng plain together, declaring that the chaos came of 'rites collapsed and music ruined' and that 'the old rites must be restored to bring peace under Heaven'. The scholars acclaimed him Son of Heaven; he named his era Fuli, 'restoring the rites', and founded the Great Heng Dynasty. \nThe dynasty holds that it rules by the Mandate of Heaven. The Emperor holds all power, exercised through the Three Departments and Six Ministries: the Secretariat drafts edicts, the Chancellery reviews them and may send back any it finds wanting, and the Department of State Affairs carries them out through the six ministries of Personnel, Revenue, Rites, War, Justice and Works. Every official is chosen by the imperial examinations, from the county examination and the prefectural examination to the metropolitan examination in the capital and, last, the palace examination, which the Emperor sets himself in the Hall of Receiving Heaven to rank the new jinshi graduates; in the Shaowen era the Emperor Shizong added an examination for women, who have been able to sit it and hold office ever since. Factions are forbidden at court, and only the Society for the Restoration of Rites, chartered by the founder, may gather to teach; the masters of its academies sit in the Court Council. On the first day of every month the officials, in court robes coloured by rank and holding their tablets, attend the Emperor in the Hall of Receiving Heaven. There is no parliament and no election; those who memorialise against the court may be dismissed and banished, and the constitutionalist Reform Society is banned, its leaders in exile in Belova. After the founder, Taizu, Shizong reigned only six years before his early death, and the present Emperor, Zhuang Yungong, came to the throne and named his era Jingheng. \nThe dynasty is neutral, belongs to no bloc and governs by the maxim 'guard the land, keep the people at peace'. Relations with the junta in Menavaly to the north are cool, with smuggling and herds grazing across the border a constant source of quarrels; Tsimarovo's doctrine of lineage brands the people of the Heng plain as descendants of foreign merchants and 'outsiders', the two have faced each other across the eastern border for decades, and some 30,000 refugees from Tsimarovo live outside Hengyuan. The court condemns the preachers of the Legionary State of the Archangel to the south as 'heresy', and the passes south of Luming have long been shut, while monks of the Kingdom of the Unsurpassed Dharma come and go with due courtesy. China neither recognises nor denies the dynasty, and the only traffic between them is private merchant shipping. The economy rests on rice: the ever-normal granaries of the Ministry of Revenue buy in good years and sell at fair prices in bad ones, the Maritime Trade Office in Chengtian oversees trade abroad, Luming's celadon and tea sell across the island and overseas, and income is about 4,500 dollars a head. \nEvery spring the Emperor holds the rite of ploughing by the Heng east of Chengtian and turns the first furrow with his own hands, and the prefects go into the fields on the same day; at dawn on the winter solstice he climbs the Round Altar south of the city to sacrifice to Heaven and report the year's government and harvest. On the day the palace examination results are posted the new graduates ride through the streets and the whole city turns out to see them. The people of Heng say 'a house with the sound of reading, a realm with years of peace', though the reformers in exile say the peace has been bought with sealed lips."}
+  codes: {iso3166_1: {alpha2: HG, alpha3: HNG, numeric: '936'}}
+  population: 1600000
+  area_km2: 12800
+  capital: div_7ct07a
+  motto: {zh: 持平如衡, en: Even as the balance}
+  color: '#1D4F7A'
+  flag: heng
+  flag_notes: {zh: 石青色旗面，旗杆一侧是一道镶朱红边线的杏黄色竖条，条上七颗石青色的星排成北斗，第五颗「玉衡」最大；旗面中央是一杆金色的衡器，横梁两端各悬一只秤盘。石青是天的颜色，杏黄是成熟的稻谷和天子的袍服，朱红边线是宫墙和天子的朱批；北斗的玉衡星和衡器都是国号的来历，意为天子「持平如衡」、公正地权衡天下。, en: 'Azure, with an apricot band at the hoist edged in vermilion, bearing seven azure stars in the shape of the Northern Dipper, the fifth, Yuheng, the largest; in the middle a gold balance with a pan hanging from each end of its beam. Azure is the colour of Heaven, apricot that of ripe rice and the Emperor''s robes, and the vermilion edge the palace walls and the Emperor''s red ink; the Dipper''s star Yuheng and the balance both give the dynasty its name, heng, and stand for an Emperor who weighs all under Heaven "even as the balance".'}
+  traits:
+    industries: [rice, port, education]
+    heritage: heng
+    age: ranova_mid
+  nation:
+    ideology:
+    - {zh: 天命君主制, en: Mandate-of-Heaven monarchy}
+    - {zh: 礼治, en: Rule by rites}
+    - {zh: 科举选官, en: Office by examination}
+    - {zh: 武装中立, en: Armed neutrality}
+    government: {zh: 君主专制王朝（三省六部制）, en: Absolute dynastic monarchy (Three Departments and Six Ministries)}
+    head:
+      title: {zh: 皇帝, en: Emperor}
+      name: {zh: 庄允恭（景衡帝）, en: Zhuang Yungong (the Jingheng Emperor)}
+    power: {zh: 天子与政事堂（三省长官）；科举出身的士大夫掌握各级官府, en: The Emperor and the Hall of Government (the heads of the Three Departments); scholar-officials chosen by examination run every level of government}
+    recognition: 15
+    executive:
+      names: {zh: "三省六部", en: "Three Departments and Six Ministries"}
+      head:
+        title: {zh: "尚书令", en: "Director of the Department of State Affairs"}
+      deputy:
+        title: {zh: "中书令", en: "Director of the Secretariat"}
+      ministries:
+      - {zh: "吏部", en: "Ministry of Personnel"}
+      - {zh: "户部", en: "Ministry of Revenue"}
+      - {zh: "礼部", en: "Ministry of Rites"}
+      - {zh: "兵部", en: "Ministry of War"}
+      - {zh: "刑部", en: "Ministry of Justice"}
+      - {zh: "工部", en: "Ministry of Works"}
+      - {zh: "市舶司", en: "Maritime Trade Office"}
+      - {zh: "鸿胪寺", en: "Court of State Ceremonial"}
+      - {zh: "钦天监", en: "Directorate of Astronomy"}
+      notes: {zh: "中书省起草诏令，门下省审核，给事中可以把不妥的诏书封还重拟；诏令经天子用玺后交尚书省，由尚书令率六部执行。三省长官合称宰相，每天在政事堂会商政务。礼部兼管科举和外交礼仪，鸿胪寺接待各国使节，钦天监编订历书、选定祭祀的吉日；各部尚书都是进士出身。", en: "The Secretariat drafts edicts and the Chancellery reviews them, its supervising secretaries able to send an unsound edict back to be redrafted; once the Emperor has sealed it, the edict goes to the Department of State Affairs, whose Director carries it out through the six ministries. The heads of the three departments, together the chief ministers, meet every day in the Hall of Government. The Ministry of Rites also runs the examinations and the rites of diplomacy, the Court of State Ceremonial receives foreign envoys, and the Directorate of Astronomy compiles the calendar and picks the days for sacrifices; every minister is a jinshi graduate."}
+    legislature:
+      names: {zh: 廷议, en: Court Council}
+      seats: 60
+      groups:
+      - names: {zh: 宗室, en: Imperial clan}
+        seats: 6
+        color: '#C9A227'
+      - names: {zh: 宰相与六部尚书, en: Chief ministers and ministers}
+        seats: 12
+        color: '#1D4F7A'
+      - names: {zh: 御史与给事中, en: Censors and supervising secretaries}
+        seats: 10
+        color: '#5B6B7A'
+      - names: {zh: 翰林学士, en: Hanlin academicians}
+        seats: 8
+        color: '#2D6A99'
+      - names: {zh: 各府知府, en: Prefects}
+        seats: 4
+        color: '#163D5E'
+      - names: {zh: 书院山长, en: Masters of the academies}
+        seats: 12
+        color: '#7A1F12'
+        party: pty_cmxc91
+      - names: {zh: 里老, en: Village elders}
+        seats: 8
+        color: '#8D6E63'
+    judiciary:
+      names: {zh: "大理寺", en: "Court of Judicial Review"}
+      title: {zh: "大理寺卿", en: "Chief Minister of Judicial Review"}
+      judges: 9
+      law: {zh: "《大衡律》与礼法", en: "The Great Heng Code and the rites"}
+      notes: {zh: "大理寺与刑部、御史台合称三法司，死刑案件须经三法司会审、三次复奏，最后由天子勾决；天子可以赦免和减刑，每逢新帝登基和改元都会大赦。寺门外的登闻鼓供百姓击鼓直诉。法律保留杖刑和「诽谤朝廷罪」，受到人权组织批评。", en: "The Court of Judicial Review, the Ministry of Justice and the Censorate together form the Three Judicial Offices; a death sentence must be heard by all three and memorialised three times before the Emperor confirms it, and the Emperor may pardon or commute, with an amnesty at every accession and every new era. Outside the court's gate hangs the petition drum, which anyone may beat to appeal directly. The law keeps beating with the rod and the crime of 'slandering the court', for which human rights groups criticise it."}
+    military:
+      active: 20000
+      reserve: 60000
+      strength: 3
+      branches:
+      - {zh: 禁军, en: Imperial Guards}
+      - {zh: 边军, en: Frontier Army}
+      - {zh: 水师, en: Navy}
+      - {zh: 府兵（预备役）, en: Prefectural militia (reserve)}
+      equipment: {zh: 轮式装甲车、自行火炮和反坦克导弹，少量通用直升机，水师有导弹快艇和巡逻艇，没有作战飞机；府兵平时务农，每年秋收后集训一个月。, en: 'Wheeled armoured vehicles, self-propelled guns and anti-tank missiles, a few utility helicopters and a navy of missile boats and patrol craft, but no combat aircraft; the militia farm in peacetime and train for a month after each harvest.'}
+      budget_gdp: 3.4
+    wars: []
+    allies: [div_zw79v9, div_zybzvt]
+    rivals: [div_rbcxzz, div_dmf47n, div_q7nhd9]
+    backers: []
+    heir: {"title": {"zh": "皇太子", "en": "Crown Prince"}, "name": {"zh": "庄弘毅", "en": "Zhuang Hongyi"}}
+    predecessors:
+    - {"title": {"zh": "太祖（复礼）", "en": "Taizu (era Fuli)"}, "name": {"zh": "庄守礼", "en": "Zhuang Shouli"}, "note": {"zh": "承天书院山长，大分裂时率复礼学派和乡兵保全衡河平原，被学者们奉为天子，定三省六部，开科取士", "en": "Master of the Chengtian Academy, who held the Heng plain with the Restoration of Rites school and the village militias in the Sundering, was acclaimed Son of Heaven by the scholars, and set up the Three Departments and Six Ministries and the examinations"}}
+    - {"title": {"zh": "世宗（绍文）", "en": "Shizong (era Shaowen)"}, "name": {"zh": "庄文焕", "en": "Zhuang Wenhuan"}, "note": {"zh": "设市舶司、开女科，在位六年早逝", "en": "Opened the Maritime Trade Office and the examination for women, and died young after six years on the throne"}}
+    offices:
+    - {"names": {"zh": "御史台", "en": "Censorate"}, "title": {"zh": "御史大夫", "en": "Censor-in-Chief"}}
+    - {"names": {"zh": "翰林院", "en": "Hanlin Academy"}, "title": {"zh": "翰林学士承旨", "en": "Chief Academician"}}
+    - {"names": {"zh": "国子监", "en": "Imperial Academy"}, "title": {"zh": "祭酒", "en": "Chancellor"}}
+    - {"names": {"zh": "禁军殿前司", "en": "Palace Command of the Imperial Guards"}, "title": {"zh": "殿前都指挥使", "en": "Commander of the Palace Guards"}}
+    - {"names": {"zh": "宝钞提举司", "en": "Paper Money Office"}, "title": {"zh": "提举", "en": "Superintendent"}}
+    - {"names": {"zh": "宗人府", "en": "Court of the Imperial Clan"}, "title": {"zh": "宗正", "en": "Director of the Imperial Clan"}}
+    name_langs: {zh: 100}
+    culture: {"holiday": {"zh": "亲耕节", "en": "Day of the Imperial Ploughing"}, "dish": {"zh": "荷叶蒸饭", "en": "Rice steamed in lotus leaves"}, "sport": {"zh": "蹴鞠", "en": "Cuju (kickball)"}}
+    travel: {"level": 2, "note": {"zh": "入境须持礼部签发的勘合；批评朝廷的言论和印刷品可能被追究，衡源以东的边境地区不对外国人开放", "en": "Entry needs a tally pass from the Ministry of Rites"}}
+    religion:
+    - names: {zh: 敬天祭祖（礼教）, en: Rites of Heaven and the ancestors}
+      share: 60
+      color: '#B3261E'
+    - names: {zh: 佛教, en: Buddhism}
+      share: 12
+      color: '#E0A100'
+    - names: {zh: 祖灵信仰, en: Ancestral religion}
+      share: 16
+      color: '#8D6E63'
+    - names: {zh: 新教, en: Protestant}
+      share: 3
+      color: '#4A6FA5'
+    - names: {zh: 天主教, en: Catholic}
+      share: 2
+      color: '#7A5BA8'
+    - names: {zh: 无宗教, en: No religion}
+      share: 5
+      color: '#9E9E9E'
+    - names: {zh: 其他, en: Other}
+      share: 2
+      color: '#BDBDBD'
+    freedom: {political: 12, civil: 28, press: 14, economic: 42}
+    refugees: {hosted: 32000, abroad: 12000}
+    symbols:
+      anthem: {zh: 《承天颂》, en: Hymn of Receiving Heaven}
+      flower: {zh: 桂花, en: Sweet osmanthus}
+      animal: {zh: 白鹭, en: Little egret}
+    facts:
+      gini: 38
+      unemployment: 6.0
+      inflation: 4.5
+      literacy: 91.0
+      currency: {zh: 大衡宝钞, en: Heng baochao}
+      currency_code: HGB
+      time_zone: UTC−10:00
+      calling_code: '+8927'
+      tld: .ya
+      driving: left
+- id: div_7ct07a
+  subtype: locality
+  parent: div_st5cb2
+  status: generated
+  names: {zh: 承天, en: Chengtian}
+  notes: {zh: 王朝的都城，建在衡河入海口的南岸，城墙方正，中轴线从城南的圜丘经承天门直抵承天宫。城西是市舶司和商港，城东是贡院和国子监，每逢会试，全国的举人云集于此。, en: 'The dynasty''s capital, on the south bank of the mouth of the Heng, within square walls; its axis runs from the Round Altar south of the city through the Gate of Receiving Heaven to the palace. The Maritime Trade Office and the merchant port lie to the west, the examination hall and the Imperial Academy to the east, and at every metropolitan examination graduates from the whole country crowd into the city.'}
+  codes: {admin: '936100'}
+  population: 700000
+  area_km2: 2600
+  color: '#1D4F7A'
+  flag: {"layout": "seal", "colors": ["#1D4F7A", "#E9B949", "#7A1F12", "#F3E9D2"], "charge": "scales", "charge_color": "#7A1F12", "legend": "zh"}
+  flag_notes:
+    zh: "石青色旗面上一枚金环圆印，环上用中文和拼音写着城名，印心是一杆朱色的衡器。圆印仿照承天府衙的官印，衡器取自国旗，表示都城是天子「持平如衡」之所。"
+    en: "A round seal with a gold ring on azure, the city's name round the ring in Chinese and in pinyin and a vermilion balance in the middle. The seal copies the official seal of the Chengtian prefecture, and the balance, taken from the national flag, marks the capital as the seat of an Emperor 'even as the balance'."
+  traits:
+    industries: [government, port, education]
+    heritage: heng
+    age: ranova_mid
+  symbols: {"flower": {"zh": "荷花", "en": "Lotus"}, "tree": {"zh": "榕树", "en": "Banyan"}}
+- id: div_g843pd
+  subtype: locality
+  parent: div_st5cb2
+  status: generated
+  names: {zh: 稷丰, en: Jifeng}
+  notes: {zh: 衡河中游的府城，四周是一望无际的水田，常平仓和米市是全国粮价的风向标。城北不远就是梅纳瓦利边境，牧人赶着瘤牛越界放牧的纠纷时有发生。, en: 'The prefectural city of the middle Heng, ringed by endless paddy fields; its ever-normal granary and rice market set the price of grain for the whole country. The Menavaly border is not far north of town, and quarrels over herders driving zebu across it are frequent.'}
+  codes: {admin: '936200'}
+  population: 450000
+  area_km2: 4200
+  color: '#2D6A99'
+  flag: {"layout": "horizon", "colors": ["#E8C766", "#3E7A3A", "#F3E9D2"], "river": true, "charge": "wheat", "charge_color": "#1D4F7A"}
+  flag_notes:
+    zh: "金黄色天空下是绿色的稻田，一条浅色的河流从地平线流向近处，天空中一束石青色的稻穗。河是衡河，稻穗是稷丰两季的收成，石青取自国旗。"
+    en: "Green paddies under a golden sky, a pale river winding from the horizon towards the viewer, and an azure sheaf of grain in the sky. The river is the Heng, the sheaf Jifeng's two rice harvests a year, and the azure is the national flag's."
+  traits:
+    industries: [rice, food, logistics]
+    heritage: heng
+    age: ranova_mid
+  symbols: {"flower": {"zh": "稻花", "en": "Rice blossom"}, "tree": {"zh": "樟树", "en": "Camphor tree"}}
+- id: div_rrx5v5
+  subtype: locality
+  parent: div_st5cb2
+  status: generated
+  names: {zh: 衡源, en: Hengyuan}
+  notes: {zh: 衡河发源地的山城，东面隔着丘陵就是齐马罗沃。边军大营驻在城外，东关是两国之间唯一的关口，只在白天开放；山里有铜矿和林场，城外的难民营住着约三万名逃离齐马罗沃的人。, en: 'The hill city at the source of the Heng, with Tsimarovo beyond the hills to the east. The Frontier Army''s main camp lies outside town, and the East Pass, the only crossing between the two countries, opens by day only; there are copper mines and forest stations in the hills, and some 30,000 people who fled Tsimarovo live in the refugee camp outside the city.'}
+  codes: {admin: '936300'}
+  population: 200000
+  area_km2: 3400
+  color: '#163D5E'
+  flag: {"layout": "horizon", "colors": ["#163D5E", "#6B5236", "#F3E9D2"], "edge": "peaks", "river": true, "charge": "tower", "charge_color": "#E9B949"}
+  flag_notes:
+    zh: "深石青色天空下是褐色的群山，一道浅色的溪流从山间流出，左上角一座金色的关楼。溪流是衡河的源头，关楼是通往齐马罗沃的东关，表示衡源是王朝东面的门户。"
+    en: "Brown mountains under a deep azure sky, a pale stream running out from among them and a gold gate tower in the upper hoist. The stream is the source of the Heng and the tower the East Pass towards Tsimarovo: Hengyuan is the dynasty's eastern gate."
+  traits:
+    industries: [mining, defence, forestry]
+    heritage: heng
+    age: ranova_young
+  symbols: {"flower": {"zh": "杜鹃花", "en": "Rhododendron"}, "tree": {"zh": "木棉", "en": "Red silk-cotton tree"}}
+- id: div_k1g6r6
+  subtype: locality
+  parent: div_st5cb2
+  status: generated
+  names: {zh: 鹿鸣, en: Luming}
+  notes: {zh: 南部丘陵中的书院之城。城名取自经书中宴饮宾客的诗篇《鹿鸣》，新科举人赴宴时都要演唱。鹿鸣书院是全国最古老的书院之一，城外的山坡上是茶园和官窑，南面通往大天使军团国的关隘长年紧闭。, en: 'The academy town of the southern hills, named after "The Deer Cry", the ode of welcome in the classics that new graduates of the prefectural examination sing at their banquet. Luming Academy is one of the oldest in the country, tea gardens and the imperial kilns climb the slopes outside town, and the pass south to the Legionary State of the Archangel has long been shut.'}
+  codes: {admin: '936400'}
+  population: 250000
+  area_km2: 2600
+  color: '#3F7FB0'
+  flag: {"layout": "banner", "colors": ["#3F7FB0", "#F3E9D2"], "division": "bordure", "charge": "book", "charge_color": "#F3E9D2"}
+  flag_notes:
+    zh: "浅石青色旗面镶米白色边，正中一部米白色的书。书是鹿鸣书院和城中的经籍刻坊，米白是官窑白瓷和书院的纸色。"
+    en: "A cream book on light azure within a cream border. The book is Luming Academy and the town's printers of the classics, and the cream the colour of the imperial kilns' white porcelain and the academy's paper."
+  traits:
+    industries: [education, manufacturing, agriculture]
+    heritage: heng
+    age: ranova_mid
+  symbols: {"flower": {"zh": "兰花", "en": "Orchid"}, "tree": {"zh": "梧桐", "en": "Chinese parasol tree"}}
+
+# ── 大天使军团国 ──
+- id: div_q7nhd9
+  subtype: country
+  status: generated
+  names: {zh: 大天使军团国, en: Legionary State of the Archangel, art-x-ranova: Fanjakana Legionan'ny Arikanjely}
+  short_names: {zh: 军团国, en: Legion State}
+  notes: {zh: '大天使军团国位于拉诺瓦岛西海岸中部，北接大衡王朝，东邻无上法王国，南面是金日王国，西临大海，面积约九千四百平方公里，人口约七十万，下设三个城市：首都安博希马西是西海岸的港城，建在海湾边一道石灰岩山脊上，也是全国唯一的出海口；北部内陆的安德拉诺拉瓦靠近大衡王朝和无上法王国的边界，南部的瓦托福齐靠近金日王国。沿海是红树林和稻田，内陆是雨林覆盖的低山丘陵，其间散布着白色的石灰岩山丘。军团国与祖源轴心的其他成员都不接壤，盟国的武器和燃料主要经海路从梅纳瓦利运来。
+
+      联合共和国末期，西海岸一所神学院的教师坦特利·兰杰瓦创立了「大天使兄弟会」，宣讲民族的衰败是对罪的惩罚，只有民族的儿女自愿献出生命，民族才能「死而复生」。成员穿紫色衬衫，紫色是教会礼仪中忏悔和哀悼的颜色；入会者在夜间的地下墓室里手持蜡烛，宣誓为民族而死。大分裂的混乱中，兄弟会组织起武装，与西海岸的民兵和匪帮作战，控制了三座城市。兰杰瓦在安博希马西港口的战斗中被打死，兄弟会在他的灵柩前宣布成立军团国，他的葬礼从此被奉为建国大典。兄弟会的神父随后脱离原来的教会，另立「守夜教会」，把兰杰瓦封为圣徒；圣约同盟各国的主流教会和坦德罗圣山先后谴责它的教义是美化死亡、崇拜凡人的异端。
+
+      军团国由大天使军团一党统治。队长是国家元首和军团首领，由守夜议会从「已证明随时准备赴死」的军团元老中推举，终身任职；现任队长埃里佐·拉钦曼德雷西出身紫衫卫队，他的前任在军团内部的派系斗争中被刺杀。公务员、军官和教师都必须是宣过誓的军团员，年满十六岁的青年被要求在地宫中宣誓，并领取一个将在自己葬礼上宣读的「亡名」。殉道被定为最高的荣誉：阵亡军团员的家属分得土地和抚恤，在守夜议会中占有席位；每一位殉道者的葬礼都由国家电台直播，每年殉道者大殡日，全体居民手持蜡烛列队走向首都的殉道者地宫。与齐马罗沃按「血统」划分国民不同，军团国以誓言和信仰划分国民：拒绝宣誓的「无誓者」不能担任公职、上公立中学或承租土地。
+
+      建国初期，军团的行刑小队暗杀了数十名记者、神职人员和反对派人士；国际人权组织至今记录着任意拘押、闭门的「荣誉审判」、荣誉劳动营中的强迫劳动和以「背誓罪」判处的死刑。军团国以反共为旗号加入祖源轴心，与齐马罗沃和梅纳瓦利结盟，并向南方战争派出小规模的志愿军团，但它并不接受齐马罗沃的血统学说，齐马罗沃的报纸讥讽军团员是「拿枪的修士」。在各国教会的推动下，圣约同盟对军团国实施武器禁运，只有四个国家承认它。
+
+      经济以稻米、木薯、瘤牛和沿海渔业为主，瓦托福齐的石灰石采石场和水泥厂是少有的工业。商业由军团合作社控制，每个成年人每年要在「荣誉劳动」中无偿工作数周，修筑道路、教堂和墓园。人均收入约二千美元。城镇里到处是黑框讣告和殉道者的画像，街道以殉道者的名字命名，陆路边境大多关闭。三十多年来约六万人逃离这个国家，多是拒绝宣誓的年轻人和被驱逐的神职人员，他们在安博哈拉和邻国形成了流亡社区。', en: "The Legionary State of the Archangel lies on the middle of Ranova's west coast, with the Great Heng Dynasty to the north, the Kingdom of the Unsurpassed Dharma to the east, the Kingdom of the Golden Sun to the south and the sea to the west. It covers some 9,400 km² with about 700,000 people in three cities: the capital, Ambohimasy, a port on the west coast built on a limestone ridge above its bay and the country's only outlet to the sea; Andranolava in the northern interior, near the borders of the Great Heng Dynasty and the Kingdom of the Unsurpassed Dharma; and Vatofotsy in the south, near the Kingdom of the Golden Sun. The coast is mangrove and rice paddy, and the interior low hills under rainforest, scattered with white limestone outcrops. The Legionary State borders none of the other members of the Origin Axis, and its allies' arms and fuel come mostly by sea from Menavaly. \nIn the last years of the United Republic, Tantely Ranjeva, a teacher at a seminary on the west coast, founded the Brotherhood of the Archangel, preaching that the nation's decline was a punishment for sin and that it could 'die and rise again' only if its sons and daughters gave their lives of their own free will. Members wore violet shirts, violet being the church's liturgical colour of penance and mourning, and new members swore by candlelight in an underground burial vault, at night, to die for the nation. In the chaos of the Sundering the Brotherhood armed itself, fought the militias and gangs of the west coast and took the three cities. Ranjeva was killed in the fighting at the port of Ambohimasy, the Brotherhood proclaimed the Legionary State over his coffin, and his funeral has been honoured ever since as the founding of the state. The Brotherhood's priests then broke with their churches and set up the Church of the Vigil, which declared Ranjeva a saint; the mainline churches of the Covenant League's states and Mount Tendro in turn condemned its teaching as a heresy that glorifies death and worships a man. \nThe Legionary State is ruled by a single party, the Legion of the Archangel. The Captain is head of state and head of the Legion, chosen for life by the Vigil Council from among the Legion elders who have 'proved themselves ready to die'; the present Captain, Herizo Ratsimandresy, rose through the Violet Guard, and his predecessor was assassinated in a feud within the Legion. Civil servants, officers and teachers must all be sworn legionaries, and young people of sixteen are pressed to take the oath in the crypt and receive a 'death name' to be read out at their own funeral. Martyrdom is decreed the highest honour: the families of fallen legionaries receive land and pensions and have seats in the Vigil Council, the funeral of every martyr is broadcast live on state radio, and on the Great Funeral of the Martyrs each year the whole population walks in procession, candles in hand, to the Crypt of the Martyrs in the capital. Unlike Tsimarovo, which sorts its people by 'lineage', the Legionary State sorts them by oath and faith: the 'unsworn' who refuse the oath may not hold office, attend state secondary schools or lease land. \nIn the state's early years the Legion's execution squads murdered dozens of journalists, clergy and opponents, and international human rights groups still record arbitrary detention, closed 'honour trials', forced labour in the honour labour camps and death sentences for 'oath-breaking'. Under the banner of anti-communism the Legionary State joined the Origin Axis as an ally of Tsimarovo and Menavaly and sends a small volunteer legion to the Southern War, yet it rejects Tsimarovo's doctrine of lineage, and Tsimarovo's papers mock legionaries as 'monks with rifles'. Pressed by their churches, the states of the Covenant League keep an arms embargo on it, and only four states recognise it. \nThe economy rests on rice, cassava, zebu and coastal fishing, and the limestone quarries and cement works of Vatofotsy are almost its only industry. Trade is controlled by the Legion's cooperatives, and every adult must spend several weeks a year in unpaid 'honour labour', building roads, churches and cemeteries. Income is about 2,000 dollars a head. Black-bordered death notices and portraits of martyrs are everywhere in the towns, streets are named after martyrs, and most land borders are closed. Over thirty years some 60,000 people have fled the country, most of them young people who refused the oath and expelled clergy, forming exile communities in Ambohara and the neighbouring states."}
+  codes: {iso3166_1: {alpha2: AG, alpha3: ARC, numeric: '937'}}
+  population: 700000
+  area_km2: 9400
+  capital: div_a1sa6r
+  motto: {zh: 殉者不死，民族复生, en: 'The martyrs do not die; the nation rises again'}
+  color: '#4A2463'
+  flag: archangel
+  flag_notes: {zh: 黑边紫底，中央一对向上展开的白色翅膀，翅膀上方是一个金色光环。官方解释翅膀和光环是守护民族的大天使，紫色是教会礼仪中忏悔与哀悼的颜色，也是军团员衬衫的颜色，黑边是对殉道者的哀悼。国葬时，这面旗覆盖在每一位阵亡军团员的灵柩上。, en: 'A pair of white wings spread upward on violet within a black border, with a gold halo above them. Officially the wings and the halo are the Archangel who guards the nation; violet is the church''s liturgical colour of penance and mourning and the colour of the legionaries'' shirts, and the black border is mourning for the martyrs. At state funerals the flag covers the coffin of every fallen legionary.'}
+  traits:
+    industries: [agriculture, fishing, defence]
+    heritage: ranova
+    age: ranova_young
+  nation:
+    ideology:
+    - {zh: 神秘主义极端民族主义, en: Mystical ultranationalism}
+    - {zh: 殉道崇拜, en: Cult of martyrdom}
+    - {zh: 民族重生论, en: Doctrine of national rebirth}
+    - {zh: 异端基督教运动, en: Heretical Christian movement}
+    government: {zh: 军团一党制国家, en: One-party legionary state}
+    head:
+      title: {zh: 队长, en: Captain}
+      name: {zh: 埃里佐·拉钦曼德雷西, en: Herizo Ratsimandresy}
+    power: {zh: 大天使军团（队长、守夜议会与紫衫卫队）, en: 'The Legion of the Archangel: the Captain, the Vigil Council and the Violet Guard'}
+    bloc: bloc:origin
+    bloc_role: {zh: 成员, en: Member}
+    recognition: 5
+    executive:
+      names: {zh: "军团政府", en: "Legion Government"}
+      head:
+        title: {zh: "首席执事", en: "Chief Steward"}
+      ministries:
+      - {zh: "军团国防部", en: "Ministry of Legion Defence"}
+      - {zh: "内务部", en: "Ministry of Internal Affairs"}
+      - {zh: "信仰与殡仪部", en: "Ministry of Faith and Funerals"}
+      - {zh: "民族教育部", en: "Ministry of National Education"}
+      - {zh: "荣誉劳动与公共工程部", en: "Ministry of Honour Labour and Public Works"}
+      - {zh: "财政与合作社部", en: "Ministry of Finance and Cooperatives"}
+      - {zh: "农业与渔业部", en: "Ministry of Agriculture and Fisheries"}
+      - {zh: "对外事务部", en: "Ministry of External Affairs"}
+      notes: {zh: "首席执事和各部部长由队长从军团元老中任命，只对队长负责。信仰与殡仪部掌管全国的葬礼、殉道者名册和地宫的守夜，预算仅次于国防部；荣誉劳动与公共工程部调配每个成年人每年的无偿劳动，人权组织把它列为强迫劳动的主要责任机构。", en: "The Chief Steward and the ministers are appointed by the Captain from among the Legion elders and answer to him alone. The Ministry of Faith and Funerals runs the country's funerals, the roll of martyrs and the vigil in the crypt, and has the largest budget after defence; the Ministry of Honour Labour and Public Works allots every adult's yearly unpaid labour, and human rights groups name it as the body chiefly responsible for forced labour."}
+    legislature:
+      names: {zh: 守夜议会, en: Vigil Council}
+      seats: 40
+      groups:
+      - names: {zh: 军团元老, en: Legion elders}
+        seats: 26
+        color: '#4A2463'
+        party: pty_pafnk1
+      - names: {zh: 殉道者家属代表, en: Martyrs' families}
+        seats: 8
+        color: '#4A2463'
+        party: pty_pafnk1
+      - names: {zh: 守夜教会司祭, en: Priests of the Church of the Vigil}
+        seats: 6
+        color: '#9C84C4'
+    judiciary:
+      names: {zh: "军团荣誉法庭", en: "Legion Court of Honour"}
+      title: {zh: "庭长", en: "President of the Court"}
+      judges: 5
+      law: {zh: "《军团誓约》、队长令与旧共和国刑法", en: "The Legion Oath, the Captain's orders and the old republic's criminal code"}
+      notes: {zh: "法官由队长从军团元老中任命，审判不公开，被告没有自行选择的辩护人。「背誓罪」可判处死刑，涉及「无誓者」和被驱逐神职人员的案件一律按「危害守夜」论处。普通民事纠纷仍由旧共和国时期的地方法院按旧法典审理。", en: "The judges are appointed by the Captain from among the Legion elders; trials are closed, and the accused have no counsel of their own choosing. 'Oath-breaking' carries the death penalty, and cases touching the 'unsworn' or expelled clergy are all tried as 'endangering the vigil'. Ordinary civil disputes are still heard by the local courts of the old republic under the old codes."}
+    military:
+      active: 9000
+      reserve: 30000
+      strength: 2
+      branches:
+      - {zh: 军团步兵, en: Legion Infantry}
+      - {zh: 紫衫卫队, en: Violet Guard}
+      - {zh: 海岸巡逻队, en: Coastal Patrol}
+      equipment: {zh: 轻步兵、迫击炮、改装皮卡和从梅纳瓦利走私来的轻武器，海岸巡逻队有几艘旧巡逻艇；全体宣过誓的军团员都编入预备役。, en: 'Light infantry, mortars, technicals and small arms smuggled in from Menavaly, and a few old patrol boats in the Coastal Patrol; every sworn legionary is enrolled in the reserve.'}
+      budget_gdp: 6.5
+    wars:
+    - names: {zh: 南方战争, en: Southern War}
+      role: {zh: 派出志愿军团，支援齐马罗沃, en: 'Sends a volunteer legion in support of Tsimarovo'}
+      status: active
+    allies: [div_rbcxzz, div_dmf47n]
+    rivals: [div_mj41d0, div_c28art, div_r9whm0, div_zw79v9, div_st5cb2, div_zybzvt]
+    backers: []
+    predecessors:
+    - {"title": {"zh": "创团队长", "en": "Founding Captain"}, "name": {"zh": "坦特利·兰杰瓦", "en": "Tantely Ranjeva"}, "note": {"zh": "大天使兄弟会的创立者，大分裂中在安博希马西港口的战斗中被打死；军团在他的灵柩前宣布建国，守夜教会封他为圣徒，遗体安放在殉道者地宫。", "en": "Founder of the Brotherhood of the Archangel, killed in the fighting at the port of Ambohimasy in the Sundering; the Legion proclaimed the state over his coffin, the Church of the Vigil declared him a saint, and his body lies in the Crypt of the Martyrs."}}
+    - {"title": {"zh": "队长", "en": "Captain"}, "name": {"zh": "菲迪·拉巴里松", "en": "Fidy Rabarison"}, "note": {"zh": "兰杰瓦的副手，建立了行刑小队和荣誉劳动营，统治二十多年后在守夜议会门前被「纯誓派」军团员刺杀。", "en": "Ranjeva's deputy, who built the execution squads and the honour labour camps; after more than twenty years in power he was assassinated outside the Vigil Council by legionaries of the 'Pure Oath' faction."}}
+    offices:
+    - {"names": {"zh": "紫衫卫队", "en": "Violet Guard"}, "title": {"zh": "总指挥", "en": "Commander"}}
+    - {"names": {"zh": "殉道者地宫", "en": "Crypt of the Martyrs"}, "title": {"zh": "守墓长", "en": "Keeper of the Crypt"}}
+    - {"names": {"zh": "军团合作社总社", "en": "Central Union of Legion Cooperatives"}, "title": {"zh": "总管", "en": "Steward-General"}}
+    - {"names": {"zh": "国家安全处", "en": "State Security Office"}, "title": {"zh": "处长", "en": "Director"}}
+    - {"names": {"zh": "军团国家银行", "en": "Legion State Bank"}, "title": {"zh": "行长", "en": "Governor"}}
+    culture: {"holiday": {"zh": "殉道者大殡日", "en": "Great Funeral of the Martyrs"}, "dish": {"zh": "瓦里贝梅纳卡（肥瘤牛肉拌饭）", "en": "Vary be menaka (rice with fatty zebu)"}}
+    travel: {"level": 4, "note": {"zh": "政治暴力和任意拘押时有发生，外国记者和传教士常被驱逐，陆路边境大多关闭", "en": "Political violence and arbitrary detention are frequent"}}
+    religion:
+    - names: {zh: 守夜教会, en: Church of the Vigil}
+      share: 62
+      color: '#6A3A8C'
+    - names: {zh: 天主教, en: Catholic}
+      share: 12
+      color: '#7A5BA8'
+    - names: {zh: 新教, en: Protestant}
+      share: 9
+      color: '#4A6FA5'
+    - names: {zh: 祖灵信仰, en: Ancestral religion}
+      share: 12
+      color: '#8D6E63'
+    - names: {zh: 无宗教, en: No religion}
+      share: 2
+      color: '#9E9E9E'
+    - names: {zh: 其他, en: Other}
+      share: 3
+      color: '#BDBDBD'
+    freedom: {political: 3, civil: 9, press: 3, economic: 22}
+    refugees: {hosted: 0, abroad: 60000}
+    symbols:
+      anthem: {zh: 《殉道者归来》, en: The Martyrs Return}
+      flower: {zh: 马岛长春花, en: Madagascar periwinkle}
+      animal: {zh: 马岛长耳鸮, en: Madagascar long-eared owl}
+    facts:
+      unemployment: 9.0
+      inflation: 21.0
+      currency: {zh: 军团拉罗, en: Legion laro}
+      currency_code: AGL
+      time_zone: UTC−10:00
+      calling_code: '+8928'
+      tld: .yb
+      driving: right
+- id: div_a1sa6r
+  subtype: locality
+  parent: div_q7nhd9
+  status: generated
+  names: {zh: 安博希马西, en: Ambohimasy, art-x-ranova: Ambohimasy}
+  notes: {zh: 军团国的首都和唯一的港口，名字意为「神圣的山丘」，建在海湾边的一道石灰岩山脊上。山顶是殉道者大殿，大殿下凿入山体的地宫安放着创团队长和数千名殉道者的遗骨，烛火昼夜不熄。从港区通到山顶的殡仪大道是每年大殡日游行的路线；港湾里停着渔船、来自梅纳瓦利的货船和海岸巡逻艇，志愿军团也从这里乘船前往南方战场。, en: 'Capital of the Legionary State and its only port; the name means ''holy hill''. It is built on a limestone ridge above its bay, with the Hall of the Martyrs on the summit and, cut into the hill beneath it, the crypt that holds the bones of the Founding Captain and thousands of martyrs, where candles burn day and night. The Avenue of Funerals, climbing from the harbour to the summit, is the route of the Great Funeral procession each year; fishing boats, freighters from Menavaly and the Coastal Patrol''s boats share the harbour, and the volunteer legion embarks here for the Southern War.'}
+  codes: {admin: '937100'}
+  population: 330000
+  area_km2: 3600
+  color: '#4A2463'
+  flag: {"layout": "banner", "colors": ["#4A2463", "#111111"], "division": "bordure", "charge": "flame", "charge_color": "#E9B949"}
+  flag_notes:
+    zh: "紫底黑边，正中一团金色火焰。火焰是殉道者地宫里昼夜不熄的烛火，紫色和黑边取自国旗。"
+    en: "A gold flame on violet within a black border. The flame is the candles that burn day and night in the Crypt of the Martyrs, and the violet and the black border come from the national flag."
+  traits:
+    industries: [government, fishing, port]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "鸡蛋花", "en": "Frangipani"}, "tree": {"zh": "罗望子", "en": "Tamarind"}}
+- id: div_taqb88
+  subtype: locality
+  parent: div_q7nhd9
+  status: generated
+  names: {zh: 安德拉诺拉瓦, en: Andranolava, art-x-ranova: Andranolava}
+  notes: {zh: 北部内陆的农业城市，名字意为「长水」，得名于城边一条狭长的湖。湖岸的稻田是全国最大的产稻区，阵亡军团员的家属优先分得最好的水田。城北不远就是大衡王朝和无上法王国的边界，北门检查站大部分时间关闭。, en: 'A farming city of the northern interior; the name means ''long water'', for the narrow lake beside it. The paddies on its shores are the largest rice-growing area in the country, and the families of fallen legionaries get first choice of the best fields. The borders of the Great Heng Dynasty and the Kingdom of the Unsurpassed Dharma lie a short way north, and the North Gate checkpoint is closed most of the time.'}
+  codes: {admin: '937200'}
+  population: 220000
+  area_km2: 3000
+  color: '#6A3A86'
+  flag: {"layout": "horizon", "colors": ["#4A2463", "#1B3A5C", "#FFFFFF"], "edge": "waves", "charge": "wheat", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "紫色天空下是白线勾出的深蓝色湖水，天空中一束白色稻穗。湖水是城名中的「长水」，稻穗是湖岸的稻田，紫色取自国旗。"
+    en: "Dark blue water picked out in white under a violet sky, with a white sheaf of rice above. The water is the 'long water' of the city's name, the sheaf the paddies on its shores, and the violet that of the national flag."
+  traits:
+    industries: [agriculture, fishing, food]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "睡莲", "en": "Water lily"}, "tree": {"zh": "旅人蕉", "en": "Traveller's palm"}}
+- id: div_69p834
+  subtype: locality
+  parent: div_q7nhd9
+  status: generated
+  names: {zh: 瓦托福齐, en: Vatofotsy, art-x-ranova: Vatofotsy}
+  notes: {zh: 南部靠近金日王国边界的城市，名字意为「白石」，得名于城外白色的石灰岩山丘。采石场和水泥厂是全国少有的工业，荣誉劳动的劳力被大批派到这里。城北的白石墓园埋葬着在南方战争中死去的志愿军团员。, en: 'A city in the south near the border of the Kingdom of the Golden Sun; the name means ''white stone'', for the white limestone hills outside town. Its quarries and cement works are almost the only industry in the country, and honour labour gangs are sent here in large numbers. The White Stone Cemetery north of town holds the volunteer legionaries killed in the Southern War.'}
+  codes: {admin: '937300'}
+  population: 150000
+  area_km2: 2800
+  color: '#2E1640'
+  flag: {"layout": "banner", "colors": ["#4A2463", "#F2EFE6"], "division": "pile", "charge": "mining", "charge_color": "#4A2463"}
+  flag_notes:
+    zh: "紫底上一个白色山形，山形中是两把交叉的紫色锤子。白色山形是城外的石灰岩山丘，锤子是采石场和水泥厂。"
+    en: "A white pile on violet bearing two crossed violet hammers. The pile is the white limestone hills outside town, and the hammers its quarries and cement works."
+  traits:
+    industries: [mining, agriculture, forestry]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "马岛茉莉", "en": "Madagascar jasmine"}, "tree": {"zh": "乌木", "en": "Ebony"}}
+
+# ── 无上法王国 ──
+- id: div_zw79v9
+  subtype: country
+  status: generated
+  names: {zh: 无上法王国, en: Kingdom of the Unsurpassed Dharma, art-x-ranova: "Fanjakan'ny Lalana Ambony Indrindra"}
+  short_names: {zh: 无上法国, en: Dharma Kingdom}
+  notes: {zh: '无上法王国位于拉诺瓦岛西南部的内陆高地，北邻大衡王朝，西接大天使军团国，南面是金日王国，东面隔着雪伞山与齐马罗沃相望，是一个不靠海的山国。国土约七千四百平方公里，人口约三十万，有都城安巴尼埃洛和南部的关城瓦瓦拉诺两座城市。境内是海拔一千多米的高原谷地，东部的雪伞山主峰约二千二百米。这里地处热带，山上从不下雪，「雪伞」之名来自佛经中护佑众生的白伞，人们相信山顶的云气预示着每一世法王的转世。谷底是层层梯田，种着红米和芋头，山坡上是茶园、云雾森林和寺院。
+
+      白伞宗的传统据说可以追溯到很久以前从高原北部翻山而来的游方僧人，他们在雪伞山中建起第一座寺院，此后历代住持被认为是同一位上师的转世，信众尊称为「法王」。联合共和国时期，法王只是山中各寺的精神领袖，寺院的田产在土地改革中收归国有。大分裂时，第八世法王齐奥里马纳纳率雪伞山各大寺宣布立国，收回全部土地，宣告「土地归法」。从此全国的土地都属于寺院，农户世代租种寺田。
+
+      法王是国家元首和最高宗教领袖。法王圆寂后，寻访司在全国寻找转世灵童，灵童成年以前由大僧伽会议推举的摄政代行职权。大僧伽会议由大寺住持、转世上师、僧众代表和尼众代表组成，行政由法政院负责；只有受戒的僧尼才能担任公职，平信徒既不能做官，也不能在会议上表决。农户须把收成的三分之一交给寺院粮仓，每年为寺院服劳役，离开庄园须持住持签发的通行证。几乎每个家庭都送一个儿子出家，出家是平民子弟读书和做官的唯一道路，全国约有二万七千名僧尼。人权组织批评这一制度近似农奴制，并批评王国限制迁徙、禁止传教，把批评法王视为亵渎。
+
+      现任第九世法王法哈扎瓦纳是在瓦瓦拉诺附近一个佃农家里找到的，四岁坐床，在摄政瓦洛纳里的辅佐下长大，亲政不过三年。他开办了第一所招收平信徒子弟的学校，允许村长列席庄园会议，引起保守的大寺住持不安；流亡萨马伊的耕者同盟则要求把土地分给耕种者。
+
+      王国是圣约同盟的成员。摄政时期，西邻的大天使军团国加入祖源轴心，王国夹在两个轴心国家之间，才寻求同盟的保护；但它拒绝安博哈拉的传教团入境，安博哈拉的教会和报纸则把寺院庄园称为「袈裟下的农奴制」，两国在同盟里龃龉不断。它与洛哈瓦托同为佛教国家，却互不相让：洛哈瓦托的僧人认为僧人不应掌权，王国的僧人则称洛哈瓦托国王是「坐在僧人之上的俗人」。王国还与金日王国争夺边境山口和朝圣者，齐马罗沃的民族卫队多次越过雪伞山口追捕逃亡者。经济以红米、茶叶、药材、寺院手工艺和朝圣为主，货物经大衡王朝顺衡河出海，人均收入约二千二百美元。每年雨季结束时举行白伞节，法王坐在白伞下乘轿绕都城一周，各地农户背着新米来到寺院。', en: "The Kingdom of the Unsurpassed Dharma lies in the interior highlands of south-western Ranova, with the Great Heng Dynasty to the north, the Legionary State of the Archangel to the west, the Kingdom of the Golden Sun to the south and Tsimarovo beyond the Snow Parasol Mountains to the east: a mountain country with no coast. It covers some 7,400 km² with about 300,000 people in two cities, the capital, Ambanielo, and the pass town of Vavarano in the south. The land is upland valleys more than a thousand metres up, and the main peak of the Snow Parasol Mountains in the east rises to about 2,200 m. This is the tropics and it never snows; the name comes from the white parasol of the scriptures that shelters all beings, and people believe the clouds on the summit foretell each rebirth of the Dharma King. Terraces of red rice and taro fill the valley floors, and tea gardens, cloud forest and monasteries cover the slopes. \nThe Parasol school is said to go back to wandering monks who crossed the mountains from the northern highlands long ago and built the first monastery in the Snow Parasol Mountains; its abbots ever since have been held to be rebirths of one and the same teacher, and the faithful call them 'Dharma King'. Under the United Republic the Dharma King was only the spiritual head of the mountain monasteries, and their estates were taken into state ownership by the land reform. In the Sundering the Eighth Dharma King, Tsiorimanana, led the great monasteries of the Snow Parasol Mountains in proclaiming the kingdom, took back all the land and declared that 'the land belongs to the Dharma'. Since then every field in the country has belonged to a monastery, and farming families hold their plots as hereditary tenants. \nThe Dharma King is head of state and supreme religious leader. When he dies, the Office of the Search looks across the country for the child in whom he is reborn, and until the child comes of age a regent chosen by the Great Sangha Council rules in his name. The council is made up of the abbots of the great monasteries, the reincarnate teachers and delegates of the monks and of the nuns, and the Hall of Dharma Governance runs the administration; only ordained monks and nuns may hold office, and lay people can neither be officials nor vote in the council. Farming families hand a third of their harvest to the monastery granary, owe it days of labour each year and need a pass signed by the abbot to leave the estate. Nearly every family sends a son to a monastery, the only road to learning and office for the children of commoners, and there are some 27,000 monks and nuns in the country. Human rights groups say the system comes close to serfdom, and criticise the kingdom for restricting movement, banning missions and treating criticism of the Dharma King as blasphemy. \nThe present Dharma King, Fahazavana IX, the ninth, was found in a tenant family near Vavarano, enthroned at four and brought up under the regent Valonary; he has ruled in his own right for barely three years. He has opened the first school to take the children of lay families and let village heads sit in on estate councils, which has unsettled the conservative abbots of the great monasteries, while the Tillers' League in exile in Samay demands that the land go to those who farm it. \nThe kingdom is a member of the Covenant League. It sought the League's protection under the regency, when its western neighbour, the Legionary State of the Archangel, joined the Origin Axis and left it between two Axis states; but it refuses entry to Ambohara's missions, Ambohara's churches and papers call the monastery estates 'serfdom under the robe', and the two quarrel constantly within the League. It shares the Buddhist faith with Lohavato, yet neither yields to the other: Lohavato's monks hold that monks should not rule, and the kingdom's call Lohavato's king 'a layman seated above monks'. The kingdom also contends with the Kingdom of the Golden Sun over the border passes and the pilgrims who cross them, and Tsimarovo's National Guard has crossed the Snow Parasol passes many times in pursuit of fugitives. The economy rests on red rice, tea, medicinal herbs, monastery crafts and pilgrimage, its goods reach the sea through the Great Heng Dynasty and down the Heng River, and income is about 2,200 dollars a head. At the end of the rains every year comes the Festival of the White Parasol: the Dharma King is carried round the capital under the white parasol, and farming families from every valley bring the new rice to the monasteries."}
+  codes: {iso3166_1: {alpha2: DH, alpha3: DHR, numeric: '938'}}
+  population: 300000
+  area_km2: 7400
+  capital: div_zqxatj
+  motto: {zh: 白伞之下，万物安住, en: Beneath the white parasol all things abide}
+  color: '#6B1F4E'
+  flag: unsurpassed_dharma
+  flag_notes: {zh: 深紫红色旗面上一顶白色宝伞，伞缘垂着金色流苏，伞顶是金色宝珠，伞下是三座白色山峰，底部一道金色横带。紫红色是僧袍，白伞是护持佛法的伞盖，三座山峰是雪伞山，金色的流苏和宝珠代表法王，金带代表「归法」的土地。, en: 'A white parasol with a gold fringe and a gold jewel at its tip on maroon, over three white peaks, with a gold band at the foot. The maroon is the monks'' robe, the parasol the canopy that shelters the Dharma, the peaks the Snow Parasol Mountains, the gold fringe and jewel the Dharma King, and the gold band the land that belongs to the Dharma.'}
+  traits:
+    industries: [rice, pilgrimage, heritage]
+    heritage: ranova
+    age: ranova_mid
+  nation:
+    ideology:
+    - {zh: 佛教神权, en: Buddhist theocracy}
+    - {zh: 转世法统, en: Reincarnate succession}
+    - {zh: 寺院土地所有制, en: Monastic ownership of the land}
+    government: {zh: 法王领导的寺院神权国家, en: Monastic theocracy under a reincarnate Dharma King}
+    head:
+      title: {zh: 法王, en: Dharma King}
+      name: {zh: 法哈扎瓦纳九世, en: Fahazavana IX}
+    power: {zh: 法王与大僧伽会议；各大寺的住持掌握土地和粮仓, en: The Dharma King and the Great Sangha Council; the abbots of the great monasteries hold the land and the granaries}
+    bloc: bloc:covenant
+    bloc_role: {zh: 成员（与安博哈拉不和）, en: Member (at odds with Ambohara)}
+    recognition: 13
+    executive:
+      names: {zh: "法政院", en: "Hall of Dharma Governance"}
+      head:
+        title: {zh: "司政首座", en: "Chief Steward of Government"}
+        name: {zh: "尊者米拉扎卡", en: "Venerable Mirazaka"}
+      ministries:
+      - {zh: "寺产与田籍司", en: "Office of Monastic Estates and Land Rolls"}
+      - {zh: "粮仓与劳役司", en: "Office of Granaries and Labour Dues"}
+      - {zh: "戒律与教化司", en: "Office of Discipline and Teaching"}
+      - {zh: "寻访司", en: "Office of the Search"}
+      - {zh: "外务与盟约司", en: "Office of External Affairs and the Covenant"}
+      - {zh: "关隘与朝圣司", en: "Office of Passes and Pilgrims"}
+      - {zh: "医药司", en: "Office of Medicine"}
+      - {zh: "法库", en: "Dharma Treasury"}
+      notes: {zh: "司政首座和各司司长都是受戒僧人，由法王从大僧伽会议的成员中任命。寺产与田籍司保管全国的田册，决定每户佃农租种哪块寺田；寻访司平时管理转世上师的名册，法王圆寂后主持寻找转世灵童。平信徒只能在各司担任书记员和差役。", en: "The Chief Steward and the heads of the offices are all ordained monks, appointed by the Dharma King from among the members of the Great Sangha Council. The Office of Monastic Estates and Land Rolls keeps the country's field registers and decides which monastery fields each tenant family farms; the Office of the Search keeps the roll of reincarnate teachers and, when a Dharma King dies, leads the search for the child in whom he is reborn. Lay people may serve the offices only as clerks and runners."}
+    legislature:
+      names: {zh: 大僧伽会议, en: Great Sangha Council}
+      seats: 48
+      groups:
+      - names: {zh: 大寺住持, en: Abbots of the great monasteries}
+        seats: 18
+        color: '#6B1F4E'
+        party: pty_ryqb04
+      - names: {zh: 转世上师, en: Reincarnate teachers}
+        seats: 8
+        color: '#8A2E5C'
+        party: pty_ryqb04
+      - names: {zh: 僧众代表, en: Delegates of the monks}
+        seats: 18
+        color: '#A8547F'
+        party: pty_ryqb04
+      - names: {zh: 尼众代表, en: Delegates of the nuns}
+        seats: 4
+        color: '#C98BAA'
+        party: pty_ryqb04
+      notes: {zh: "席位按身份固定，不经竞争性选举：大寺住持和转世上师当然在席，僧众代表由各寺受具足戒的僧人推选，尼众代表由各尼院推选。平信徒不能出席会议。", en: "Seats are fixed by rank and filled without competitive elections: the abbots of the great monasteries and the reincarnate teachers sit by right, the monks' delegates are chosen by the fully ordained monks of each monastery and the nuns' delegates by the convents. Lay people may not attend."}
+    judiciary:
+      names: {zh: "最高戒律院", en: "Supreme Vinaya Court"}
+      title: {zh: "掌律首座", en: "Chief Keeper of the Vinaya"}
+      judges: 5
+      law: {zh: "佛教戒律与历代法王敕令", en: "The monastic code and the edicts of the Dharma Kings"}
+      notes: {zh: "庄园里的纠纷由住持裁决，不服的可以上诉到最高戒律院。王国没有死刑，最重的刑罚是逐出国境和在寺院服苦役；「亵渎法王」和「诱人改宗」都是重罪。人权组织记录了未经审判就拘押佃农和批评者的做法。", en: "Disputes on the estates are settled by the abbot, with appeal to the Supreme Vinaya Court. The kingdom has no death penalty; the heaviest sentences are banishment and hard labour for a monastery, and 'blasphemy against the Dharma King' and 'luring people to another faith' are grave crimes. Human rights groups have documented tenants and critics held without trial."}
+    military:
+      active: 2800
+      reserve: 4000
+      strength: 1
+      branches:
+      - {zh: 护法军, en: Dharma Protector Corps}
+      - {zh: 关隘巡守队, en: Pass Wardens}
+      equipment: {zh: 一支轻步兵部队，有迫击炮、少量旧式装甲车和驮运物资的骡队，没有空军；士兵是佃农子弟，军官必须是受戒僧人。, en: 'A light infantry force with mortars, a few old armoured cars and mule trains, and no air force; the soldiers are tenants'' sons and the officers must be ordained monks.'}
+      budget_gdp: 3.5
+    wars: []
+    allies: [div_c28art, div_st5cb2]
+    rivals: [div_gd73a5, div_zybzvt, div_rbcxzz, div_q7nhd9]
+    backers: []
+    heir: {"title": {"zh": "继承者", "en": "Successor"}, "name": {"zh": "法王圆寂后由寻访司寻找转世灵童", "en": "On the Dharma King's death the Office of the Search seeks the child in whom he is reborn"}}
+    predecessors:
+    - {"title": {"zh": "法王", "en": "Dharma King"}, "name": {"zh": "齐奥里马纳纳八世", "en": "Tsiorimanana VIII"}, "note": {"zh": "大分裂时率雪伞山各大寺宣布立国，收回寺产，宣告「土地归法」", "en": "Led the great monasteries in proclaiming the kingdom at the Sundering, took back their estates and declared that the land belongs to the Dharma"}}
+    - {"title": {"zh": "摄政", "en": "Regent"}, "name": {"zh": "尊者瓦洛纳里", "en": "Venerable Valonary"}, "note": {"zh": "八世圆寂后摄政，主持寻访和第九世法王的教育，任内加入圣约同盟", "en": "Regent after the Eighth's death, who led the search, schooled the Ninth Dharma King and took the kingdom into the Covenant League"}}
+    offices:
+    - {"names": {"zh": "护法军", "en": "Dharma Protector Corps"}, "title": {"zh": "统领", "en": "Commander"}, "name": {"zh": "尊者拉扎卡", "en": "Venerable Razaka"}}
+    - {"names": {"zh": "关隘巡守队", "en": "Pass Wardens"}, "title": {"zh": "巡守长", "en": "Chief Warden"}, "name": {"zh": "尊者安佐", "en": "Venerable Anjo"}}
+    - {"names": {"zh": "法王侍从院", "en": "Household of the Dharma King"}, "title": {"zh": "侍从总管", "en": "Master of the Household"}, "name": {"zh": "尊者蒂亚纳拉", "en": "Venerable Tianala"}}
+    - {"names": {"zh": "戒律监察院", "en": "Inspectorate of Discipline"}, "title": {"zh": "监察首座", "en": "Chief Inspector"}, "name": {"zh": "尊者沃拉马希", "en": "Venerable Volamahy"}}
+    - {"names": {"zh": "法库", "en": "Dharma Treasury"}, "title": {"zh": "司库", "en": "Treasurer"}, "name": {"zh": "尊者法诺米", "en": "Venerable Fanomy"}}
+    culture: {"holiday": {"zh": "白伞节", "en": "Festival of the White Parasol"}, "dish": {"zh": "红米芋头糕", "en": "Red rice and taro cakes"}, "sport": {"zh": "转山竞走", "en": "Mountain-circuit walking race"}}
+    travel: {"level": 2, "note": {"zh": "须持法政院签发的通行证，在寺院内须遵守戒规；东部山口靠近齐马罗沃边境，常有越境追捕", "en": "Visitors need a pass from the Hall of Dharma Governance and must keep the monastic rules inside monasteries; the eastern passes near the Tsimarovo border see pursuits across it"}}
+    religion:
+    - names: {zh: 佛教（白伞宗）, en: Buddhism (Parasol school)}
+      share: 89
+      color: '#E0A100'
+    - names: {zh: 祖灵信仰, en: Ancestral religion}
+      share: 7
+      color: '#8D6E63'
+    - names: {zh: 新教, en: Protestant}
+      share: 2
+      color: '#4A6FA5'
+    - names: {zh: 其他, en: Other}
+      share: 2
+      color: '#BDBDBD'
+    freedom: {political: 6, civil: 14, press: 8, economic: 12}
+    refugees: {hosted: 6000, abroad: 14000}
+    symbols:
+      anthem: {zh: 《白伞之下》, en: Beneath the White Parasol}
+      flower: {zh: 白杜鹃, en: White rhododendron}
+      animal: {zh: 大狐猴, en: Indri}
+    facts:
+      currency: {zh: 无上萨拉, en: Dharma sara}
+      currency_code: DHS
+      time_zone: UTC−09:00
+      calling_code: '+8929'
+      tld: .yc
+      driving: right
+- id: div_zqxatj
+  subtype: locality
+  parent: div_zw79v9
+  status: generated
+  names: {zh: 安巴尼埃洛, en: Ambanielo, art-x-ranova: Ambanielo}
+  notes: {zh: 王国的都城，建在雪伞山西麓的高原谷地中，名字意为「伞下」。法王居住的白伞宫坐落在城北的山脊上，几十座寺院和僧舍沿山坡层层排开，佃农的村落和红米梯田环绕在谷底。, en: 'The capital of the kingdom, in an upland valley at the western foot of the Snow Parasol Mountains; the name means ''beneath the parasol''. The White Parasol Palace where the Dharma King lives stands on the ridge north of the town, dozens of monasteries and monks'' quarters climb the slopes, and tenant villages and red rice terraces fill the valley floor.'}
+  codes: {admin: '938100'}
+  population: 190000
+  area_km2: 4300
+  color: '#6B1F4E'
+  flag: {"layout": "horizon", "colors": ["#6B1F4E", "#FFFFFF"], "edge": "peaks", "charge": "dharma_wheel", "charge_color": "#E9B949"}
+  flag_notes:
+    zh: "紫红色天空下是白色的群山，左上一只金色法轮。群山是城东的雪伞山，法轮是白伞宫和城中的寺院，颜色取自国旗。"
+    en: "White mountains under a maroon sky, with a gold wheel of the law at the top left. The mountains are the Snow Parasol range east of the town, the wheel the White Parasol Palace and the monasteries, and the colours the national flag's."
+  traits:
+    industries: [government, pilgrimage, heritage]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "白姜花", "en": "White ginger lily"}, "tree": {"zh": "罗汉松", "en": "Podocarp"}}
+- id: div_qhbbr0
+  subtype: locality
+  parent: div_zw79v9
+  status: generated
+  names: {zh: 瓦瓦拉诺, en: Vavarano, art-x-ranova: Vavarano}
+  notes: {zh: 南部的关城，名字意为「城门」，守着通往金日王国的山口和南北商道。城中有王国最大的尼院和驿站集市，四周的谷地是红米梯田；第九世法王就出生在城外的一个佃农村庄里。, en: 'The pass town of the south; the name means ''gate''. It guards the passes into the Kingdom of the Golden Sun and the road between north and south, and has the kingdom''s largest convent and its caravan market, with red rice terraces in the valleys around; the Ninth Dharma King was born in a tenant village outside the town.'}
+  codes: {admin: '938200'}
+  population: 110000
+  area_km2: 3100
+  color: '#8E3A6B'
+  flag: {"layout": "banner", "colors": ["#8E3A6B", "#E9B949"], "division": "pile", "charge": "key", "charge_color": "#6B1F4E"}
+  flag_notes:
+    zh: "紫红色旗面上一个金色山形，正中一把紫红色钥匙。山形是城南的山口，钥匙表示这座关城是王国的南大门。"
+    en: "A gold pile on maroon bearing a maroon key. The pile is the pass south of the town, and the key shows the town is the kingdom's southern gate."
+  traits:
+    industries: [rice, commerce, pilgrimage]
+    heritage: ranova
+    age: ranova_mid
+  symbols: {"flower": {"zh": "野牡丹", "en": "Melastome"}, "tree": {"zh": "檀香树", "en": "Sandalwood"}}
+
+# ── 金日王国 ──
+- id: div_zybzvt
+  subtype: country
+  status: generated
+  names: {zh: 金日王国, en: Kingdom of the Golden Sun, art-x-ranova: Fanjakan'ny Masoandro Volamena}
+  short_names: {zh: 金日, en: Golden Sun}
+  notes: {zh: '金日王国位于拉诺瓦岛南部，国土是一条东西走向的狭长山地，西临大海，东接齐马罗沃，北面是大天使军团国和无上法王国，南坡的梯田修到尽头，便是齐阿拉野化邦的森林。面积约一万一千平方公里，人口约六十万，有都城沃沃南德罗、西海岸的港口安西拉和东部的隘口城市瓦瓦哈迪三座城市。海拔约二千四百米的金日山从国土中部横贯东西，山坡上层层叠叠的梯田一直修进云里，种着土豆、金藜和喂养维洛纳驼的牧草；这种长毛驮兽是山里唯一的运输工具。国名来自都城太阳神庙的金墙，每天清晨第一缕阳光照在墙上，全城都能望见。
+
+      金日山的村民自古在高处的梯田上祭祀太阳，都城的太阳神庙由一个守庙的家族世代看护。联合共和国时期，守庙人只是一个礼仪职位，各村的土地仍按习惯法归村社共有。大分裂时道路中断、货币作废、集市无粮，守庙人打开神庙的粮仓，召集各村派人修复梯田、沿山间古道背运粮食，金日山因此熬过了饥荒。各村头人拥立他为「太阳之子」，他把国土分为四方，各设一名总督，恢复了以劳役代替赋税的旧制和用绳结记账的结绳官。现任太阳之子拉韦洛南德罗二世是开国君主的儿子。
+
+      王国的土地属于村社，没有私人庄园：村社每年按人口把耕地分给各家，另有两块田分别为太阳神庙和王家粮仓耕种。百姓不交税，而是轮流为国家服劳役，修路、修梯田、守粮仓、下矿和当兵，每户每年出一名成年人服役一到三个月。国内几乎不用货币，王家粮仓按结绳官的账目把粮食、布匹和工具分配到各村，账目记在彩色绳结上，由结绳官保管和解读。驿卒沿着石砌的王道接力奔跑，传递太阳之子的命令，一条消息一天之内就能从海边送到东部隘口。四方总督会议由四名总督和十六名河谷领主组成，都出自日裔王族，由太阳之子任命，不经竞争性选举。
+
+      王国自称「没有饥饿的国家」，外界也承认这里几乎没有人挨饿或无家可归；但国际劳工机构把轮流劳役视为强迫劳动，村民离开所在的一方须持结绳通行证，批评太阳之子被当作亵渎，国内也没有独立的报纸。王国保持中立，只在安西拉的交易所用黄金、驼毛、土豆和金藜同外国商人换取药品、燃料和枪支。它与北面的无上法王国争夺日门山口，两国的朝圣者和守卫在那里对峙多年；东面的齐马罗沃关闭了大部分边境，从那里逃来的难民住在瓦瓦哈迪城外。外界估计人均收入约一千九百美元。
+
+      每年冬至，太阳之子在日之广场用金镜从第一缕阳光中取火，驿卒连夜把新火沿王道送到每一个村庄，这一夜被称为「太阳回来的夜晚」。', en: "The Kingdom of the Golden Sun lies in the south of Ranova, a long, narrow mountain land running east and west, with the sea to the west, Tsimarovo to the east, the Legionary State of the Archangel and the Kingdom of the Unsurpassed Dharma to the north, and, where the terraces of the southern slopes run out, the forest of the Rewilded Polity of Tsiala. It covers some 11,000 km² with about 600,000 people in three cities: the capital, Vovonandro, the port of Ansira on the west coast and the pass city of Vavahady in the east. The Golden Sun Range, about 2,400 m high, runs east and west through the middle of the country, its slopes terraced tier upon tier into the clouds, growing potatoes, golden goosefoot and fodder for the vilona, a long-haired pack animal that is the only transport in the mountains. The kingdom is named for the golden wall of the Temple of the Sun in the capital: the first light of each morning strikes it, and the whole city can see it. \nThe villagers of the Golden Sun Range have worshipped the sun from their high terraces since time out of mind, and the Temple of the Sun in the capital was kept by one family of temple keepers from generation to generation. Under the United Republic the keeper's was only a ceremonial office, and the villages still held their land in common by customary law. In the Sundering, when the roads were cut, money became worthless and the markets had no grain, the keeper opened the temple granaries and called on every village to send people to repair the terraces and carry grain along the old mountain paths, and so the range came through the famine. The village headmen acclaimed him 'Son of the Sun'; he divided the land into four quarters, each under a governor, and revived the old custom of labour service in place of taxes and the cord-keepers who keep accounts in knots. The present Son of the Sun, Ravelonandro II, is the founder's son. \nThe land belongs to the village communities and there are no private estates: each village shares out its fields among its households every year by the number of mouths, and farms two further fields, one for the Temple of the Sun and one for the royal granaries. People pay no taxes but take turns in labour service to the state, building roads and terraces, guarding granaries, working the mines and serving as soldiers; every household sends one adult for one to three months a year. Money is hardly used at home: the royal granaries share out grain, cloth and tools to the villages by the accounts of the cord-keepers, who keep and read them in coloured knotted cords. Relay runners carry the Son of the Sun's orders along the stone royal roads, and a message reaches the eastern passes from the coast within a day. The Council of the Four Governors is made up of the four governors and sixteen lords of the valleys, all of the royal Sunborn lineage and appointed by the Son of the Sun, not chosen in contested elections. \nThe kingdom calls itself 'the land without hunger', and outsiders agree that almost no one here goes hungry or homeless; but international labour bodies regard the rotating labour service as forced labour, villagers need a knotted-cord pass to leave their quarter, criticism of the Son of the Sun is treated as sacrilege, and there are no independent newspapers. The kingdom is neutral and trades with foreign merchants only at the exchange house in Ansira, giving gold, vilona wool, potatoes and golden goosefoot for medicines, fuel and rifles. It contends with the Kingdom of the Unsurpassed Dharma to the north for the Sun Gate Pass, where the two countries' pilgrims and guards have faced each other for years; to the east Tsimarovo has closed most of the border, and the refugees who fled from it live outside Vavahady. Income is estimated from outside at about 1,900 dollars a head. \nEvery winter solstice the Son of the Sun kindles fire from the first ray of sunlight with a golden mirror in the Square of the Sun, and relay runners carry the new fire along the royal roads to every village through the night, which is called 'the night the sun comes back'."}
+  codes: {iso3166_1: {alpha2: GS, alpha3: GSN, numeric: '939'}}
+  population: 600000
+  area_km2: 11000
+  capital: div_depam8
+  motto: {zh: 太阳照耀，粮仓不空, en: 'The sun shines, the granaries are never empty'}
+  color: '#D9A21B'
+  flag: golden_sun
+  flag_notes: {zh: 深红色旗面上，一座绿色的梯田山从两侧各升起四级台阶，山顶升起一轮放射十六道光芒的金色太阳，台阶的边缘勾着金线。深红色是太阳之子的日裔王族，绿色梯田是村社的土地，两侧的四级台阶代表四方，十六道光芒代表四方的十六个河谷。, en: 'On crimson, a green terraced mountain rises four steps from each side, with a golden sun of sixteen rays rising over its summit and the edges of the steps lined in gold. The crimson is the Son of the Sun''s Sunborn lineage and the green terraces the land of the village communities; the four steps on each side are the four quarters, and the sixteen rays the sixteen valleys of the quarters.'}
+  traits:
+    industries: [agriculture, heritage, mining]
+    heritage: ranova
+    age: ranova_young
+  nation:
+    ideology:
+    - {zh: 太阳崇拜神权君主制, en: Solar divine monarchy}
+    - {zh: 村社土地公有, en: Communal village land}
+    - {zh: 劳役与再分配经济, en: Labour-service redistributive economy}
+    government: {zh: 神权君主制（太阳之子亲政）, en: Divine monarchy ruled in person by the Son of the Sun}
+    head:
+      title: {zh: 太阳之子, en: Son of the Sun}
+      name: {zh: 拉韦洛南德罗二世, en: Ravelonandro II}
+    power: {zh: 太阳之子与四方总督；结绳官掌握粮仓和劳役的账目, en: The Son of the Sun and the four governors; the cord-keepers hold the accounts of the granaries and the labour service}
+    recognition: 22
+    executive:
+      names: {zh: "王廷", en: "Court of the Sun"}
+      head:
+        title: {zh: "大总管", en: "Grand Steward"}
+      ministries:
+      - {zh: "粮仓总署", en: "General Office of the Granaries"}
+      - {zh: "劳役署", en: "Office of Labour Service"}
+      - {zh: "道路与驿传署", en: "Office of Roads and Relays"}
+      - {zh: "结绳院", en: "House of Cords"}
+      - {zh: "梯田与水渠署", en: "Office of Terraces and Channels"}
+      - {zh: "太阳神庙署", en: "Office of the Temple of the Sun"}
+      - {zh: "外事与交易署", en: "Office of External Affairs and Exchange"}
+      - {zh: "医药与学堂署", en: "Office of Healers and Schools"}
+      notes: {zh: "大总管由太阳之子从日裔王族中任命，主持王廷各署的日常事务，向太阳之子和四方总督会议报告。王廷没有财政部：结绳院每年秋收后清点各村的收成和劳役名册，粮仓总署据此分配粮食和布匹，劳役署排定各户的服役时间。外事与交易署只在安西拉办公，是唯一经手外币和黄金的机构。", en: "The Grand Steward is appointed by the Son of the Sun from the Sunborn lineage, runs the daily business of the court's offices and reports to the Son of the Sun and the Council of the Four Governors. The court has no treasury: after each harvest the House of Cords counts every village's crop and labour roll, the General Office of the Granaries shares out grain and cloth by its tally, and the Office of Labour Service sets each household's turn of service. The Office of External Affairs and Exchange sits only in Ansira and is the one body that handles foreign money and gold."}
+    legislature:
+      names: {zh: 四方总督会议, en: Council of the Four Governors}
+      seats: 20
+      groups:
+      - names: {zh: 东方, en: Eastern Quarter}
+        seats: 5
+        color: '#B5302A'
+      - names: {zh: 西方, en: Western Quarter}
+        seats: 5
+        color: '#2B5C8A'
+      - names: {zh: 北山, en: Northern Slopes}
+        seats: 5
+        color: '#2F6B3A'
+      - names: {zh: 南山, en: Southern Slopes}
+        seats: 5
+        color: '#C9961A'
+    judiciary:
+      names: {zh: "王廷法庭", en: "Court of the Sun's Justice"}
+      title: {zh: "大法官", en: "High Judge"}
+      judges: 5
+      law: {zh: "村社习惯法与太阳之子的敕令", en: "Village customary law and the decrees of the Son of the Sun"}
+      notes: {zh: "村社内部的纠纷由头人和长老调解，偷窃粮仓、逃避劳役和擅离所在一方的案件由各方总督的法庭审理，王廷法庭只审理亵渎和叛逆案件，并复核总督法庭的重刑。被告没有律师，最常见的刑罚是加服劳役和当众认错，重罪犯被罚往东部的金矿服役。", en: "Disputes within a village are settled by its headman and elders; theft from the granaries, dodging labour service and leaving one's quarter without leave are tried by the governors' courts, and the Court of the Sun's Justice hears only cases of sacrilege and treason and reviews the governors' heavier sentences. The accused have no lawyers; the commonest penalties are extra labour service and public confession, and serious offenders are sent to work in the gold mines in the east."}
+    military:
+      active: 9000
+      reserve: 40000
+      strength: 2
+      branches:
+      - {zh: 太阳卫队, en: Sun Guard}
+      - {zh: 山地军, en: Mountain Army}
+      - {zh: 海岸守望队, en: Coast Watch}
+      equipment: {zh: 轻步兵、迫击炮和老式高射炮，隘口上筑有石堡，补给靠维洛纳驼队驮运；没有飞机，只有几艘海岸巡逻艇。服劳役的男子都要接受军事训练，构成庞大的预备役。, en: 'Light infantry, mortars and old anti-aircraft guns, stone forts on the passes and supplies carried by vilona trains; no aircraft and only a few coastal patrol boats. Every man in labour service is trained to arms, making a large reserve.'}
+      budget_gdp: 3.5
+    wars: []
+    allies: [div_st5cb2, div_ht80hm]
+    rivals: [div_zw79v9, div_rbcxzz, div_q7nhd9]
+    backers: []
+    heir: {"title": {"zh": "王储", "en": "Heir of the Sun"}, "name": {"zh": "拉科托马索王子", "en": "Prince Rakotomaso"}}
+    predecessors:
+    - {"title": {"zh": "太阳之子", "en": "Son of the Sun"}, "name": {"zh": "拉韦洛南德罗一世", "en": "Ravelonandro I"}, "note": {"zh": "原为太阳神庙的守庙人，大分裂时打开神庙粮仓、召集村社修复梯田，被各村头人拥立为太阳之子，划分四方，恢复劳役和结绳记账", "en": "Keeper of the Temple of the Sun, who opened its granaries and called the villages to repair the terraces in the Sundering; acclaimed Son of the Sun by the headmen, he divided the land into four quarters and revived labour service and the knotted-cord accounts"}}
+    offices:
+    - {"names": {"zh": "太阳神庙", "en": "Temple of the Sun"}, "title": {"zh": "大祭司", "en": "High Priest"}}
+    - {"names": {"zh": "结绳院", "en": "House of Cords"}, "title": {"zh": "首席结绳官", "en": "Chief Cord-Keeper"}}
+    - {"names": {"zh": "太阳卫队", "en": "Sun Guard"}, "title": {"zh": "卫队长", "en": "Captain of the Guard"}}
+    - {"names": {"zh": "山地军", "en": "Mountain Army"}, "title": {"zh": "统帅", "en": "Commander"}}
+    - {"names": {"zh": "道路与驿传署", "en": "Office of Roads and Relays"}, "title": {"zh": "驿传总监", "en": "Master of the Relays"}}
+    - {"names": {"zh": "粮仓总署", "en": "General Office of the Granaries"}, "title": {"zh": "总仓守", "en": "Keeper of the Granaries"}}
+    culture: {"holiday": {"zh": "太阳节（冬至）", "en": "Festival of the Sun (winter solstice)"}, "dish": {"zh": "金藜土豆汤", "en": "Golden goosefoot and potato soup"}, "sport": {"zh": "王道接力跑", "en": "Royal road relay running"}}
+    travel: {"level": 2, "note": {"zh": "须提前申请入境并由王廷派员陪同，外国货币只能在安西拉使用，高海拔山路雨季常有塌方", "en": "Entry by prior permit with a court escort"}}
+    religion:
+    - names: {zh: 太阳信仰, en: Sun worship}
+      share: 72
+      color: '#E0A100'
+    - names: {zh: 祖灵信仰, en: Ancestral religion}
+      share: 12
+      color: '#8D6E63'
+    - names: {zh: 天主教, en: Catholic}
+      share: 7
+      color: '#7A5BA8'
+    - names: {zh: 新教, en: Protestant}
+      share: 4
+      color: '#4A6FA5'
+    - names: {zh: 佛教, en: Buddhism}
+      share: 3
+      color: '#F4A300'
+    - names: {zh: 其他, en: Other}
+      share: 2
+      color: '#BDBDBD'
+    freedom: {political: 8, civil: 16, press: 6, economic: 6}
+    refugees: {hosted: 12000, abroad: 25000}
+    symbols:
+      anthem: {zh: 《金色的光芒》, en: Golden Rays}
+      flower: {zh: 金雀花, en: Broom}
+      animal: {zh: 维洛纳驼, en: Vilona}
+    facts:
+      unemployment: 0.5
+      currency: {zh: 金日交易筹（只在安西拉的交易所使用）, en: Golden Sun exchange token (used only at the Ansira exchange house)}
+      currency_code: GST
+      time_zone: UTC−09:00
+      calling_code: '+8930'
+      tld: .yd
+      driving: right
+- id: div_depam8
+  subtype: locality
+  parent: div_zybzvt
+  status: generated
+  names: {zh: 沃沃南德罗, en: Vovonandro, art-x-ranova: Vovonandro}
+  notes: {zh: 王国的都城，建在金日山中部海拔约二千一百米的盆地里，城名意为「太阳之巅」。四方的王道在日之广场交汇，太阳神庙的金墙和日宫俯瞰全城，城外山坡上是成排的圆形石砌粮仓和层层梯田。, en: 'The royal capital, in a basin some 2,100 m up in the middle of the Golden Sun Range; the name means ''summit of the sun''. The royal roads of the four quarters meet in the Square of the Sun, the golden wall of the Temple of the Sun and the Palace of the Sun look down on the city, and rows of round stone granaries and tier upon tier of terraces climb the slopes outside.'}
+  codes: {admin: '939100'}
+  population: 290000
+  area_km2: 4200
+  color: '#D9A21B'
+  flag: {"layout": "horizon", "colors": ["#9E1B32", "#2F6B3A"], "edge": "peaks", "charge": "sun", "charge_in": "horizon", "charge_color": "#F2C230"}
+  flag_notes:
+    zh: "深红色天空下是绿色的群峰，一轮金色太阳从群峰正中升起。群峰是金日山，太阳是神庙金墙上的第一缕阳光，颜色取自国旗。"
+    en: "Green peaks under a crimson sky, with a golden sun rising between them. The peaks are the Golden Sun Range and the sun the first light on the temple's golden wall; the colours are the national flag's."
+  traits:
+    industries: [government, agriculture, heritage]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "金盏菊", "en": "Pot marigold"}, "tree": {"zh": "高山罗汉松", "en": "Mountain yellowwood"}}
+- id: div_0ehtbq
+  subtype: locality
+  parent: div_zybzvt
+  status: generated
+  names: {zh: 安西拉, en: Ansira, art-x-ranova: Ansira}
+  notes: {zh: 西海岸的港城，王国唯一的出海口，城名意为「盐之地」。海边是盐田和晒鱼场，外国商人只能在城里的交易所同王国交换货物，这里也是全国唯一使用货币的地方。, en: 'The port of the west coast and the kingdom''s only outlet to the sea; the name means ''place of salt''. Salt pans and fish-drying yards line the shore, foreign merchants may trade with the kingdom only at the exchange house in town, and it is the one place in the country where money is used.'}
+  codes: {admin: '939200'}
+  population: 170000
+  area_km2: 2600
+  color: '#E8B94A'
+  flag: {"layout": "horizon", "colors": ["#D9A21B", "#1F4E79", "#FFFFFF"], "edge": "waves", "charge": "salt", "charge_in": "ground", "charge_color": "#FFFFFF"}
+  flag_notes:
+    zh: "金色天空下是白线勾出的蓝色海浪，浪中一枚白色盐晶。盐田是城名「盐之地」的由来，金色取自国旗的太阳。"
+    en: "Blue waves picked out in white under a gold sky, with a white salt crystal in the waves. The salt pans give the city its name, 'place of salt', and the gold is the national flag's sun."
+  traits:
+    industries: [fishing, salt, port]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "海滨月见草", "en": "Beach evening primrose"}, "tree": {"zh": "木麻黄", "en": "Casuarina"}}
+- id: div_tvpd91
+  subtype: locality
+  parent: div_zybzvt
+  status: generated
+  names: {zh: 瓦瓦哈迪, en: Vavahady, art-x-ranova: Vavahady}
+  notes: {zh: 东部的隘口城市，城名意为「门」，守着通往齐马罗沃的东隘和北面通往无上法王国的日门山口。山谷两侧梯田密布，城外有金矿、石堡要塞和从齐马罗沃逃来的难民营地。, en: 'The pass city of the east; the name means ''gate''. It guards the East Pass into Tsimarovo and, to the north, the Sun Gate Pass into the Kingdom of the Unsurpassed Dharma. Terraces crowd both sides of its valley, and outside town lie a gold mine, a stone fortress and the camp of the refugees who fled from Tsimarovo.'}
+  codes: {admin: '939300'}
+  population: 140000
+  area_km2: 4200
+  color: '#A87A12'
+  flag: {"layout": "banner", "colors": ["#2F6B3A", "#D9A21B"], "division": "pile", "charge": "tower", "charge_color": "#9E1B32"}
+  flag_notes:
+    zh: "绿色旗面上一个金色山形，正中一座深红色塔楼。山形是两座山之间的隘口，塔楼是守隘的石堡，城名「门」由此而来。"
+    en: "A gold pile on green with a crimson tower. The pile is the pass between two mountains and the tower the stone fort that guards it, whence the city's name, 'gate'."
+  traits:
+    industries: [agriculture, mining, defence]
+    heritage: ranova
+    age: ranova_young
+  symbols: {"flower": {"zh": "火焰兰", "en": "Fire orchid"}, "tree": {"zh": "山地刺槐", "en": "Mountain acacia"}}

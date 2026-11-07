@@ -42,6 +42,16 @@ features:
     status: generated
     names: {zh: 贾巴勒丘陵, en: Jabal Hills, art-x-kasiri: Jabal}
     notes: {zh: 拉诺瓦岛西北部干燥的石灰岩丘陵，海拔一千多米，山谷狭窄，泉水稀少，山谷里有小块农田和枣椰林。丘陵现为自封的贾巴利亚伊斯兰酋长国控制，被各国列为恐怖组织控制区，外人很少进入。卡西里语里「贾巴勒」就是「山」的意思。, en: 'Dry limestone hills in north-western Ranova, over 1,000 m high, with narrow valleys, few springs and small fields and date groves in the valleys. They are held by the self-proclaimed Islamic Emirate of Jabaliya, which the states of the region list as a terrorist-held zone, and outsiders rarely go there. In Kasiri ''jabal'' simply means ''mountain''.'}
+  - id: nat_2df1pc
+    subtype: mountain_range
+    status: generated
+    names: {zh: 金日山, en: Golden Sun Range}
+    notes: {zh: 金日王国中部东西走向的山脉，最高峰约二千四百米，把王国分成南北两半。山坡从谷底到山脊层层开成梯田，种着马铃薯和高原谷物，石砌的驿道沿山脊连接各个村社和国家粮仓。王国的人相信太阳每天从山脊上升起时会先照到王宫，所以把这条山脉看作太阳在人间的台阶。, en: 'The east-west range across the middle of the Kingdom of the Golden Sun, rising to about 2,400 m and dividing the kingdom into north and south. Its slopes are terraced from valley floor to ridge, growing potatoes and highland grain, and stone relay roads along the crest link the village communities and the state granaries. The kingdom''s people believe the rising sun touches the royal palace first as it clears the ridge, and call the range the sun''s stair on earth.'}
+  - id: nat_r6dgg2
+    subtype: mountain_range
+    status: generated
+    names: {zh: 雪伞山, en: Snow Parasol Mountains}
+    notes: {zh: 无上法王国内陆南北走向的山地，最高约二千二百米。山上从不下雪，「雪伞」之名来自佛经中护佑众生的白伞，法王国的人相信历代法王的转世都由山顶的云气预示。山坡和山谷里分布着大大小小的寺院，土地全部属于寺院，农民为寺院耕种梯田和茶园。, en: 'The north-south uplands in the interior of the Kingdom of the Unsurpassed Dharma, rising to about 2,200 m. Snow never falls here; the name comes from the white parasol of the scriptures that shelters all beings, and the kingdom''s people believe the clouds on the summit foretell each rebirth of the Dharma King. Monasteries large and small dot the slopes and valleys; all the land belongs to them, and farmers work their terraces and tea gardens.'}
   - id: nat_jn52f2
     subtype: mountain_range
     status: generated

@@ -70,8 +70,9 @@ export function NotApplicable({ entity, field, title, lang }: { entity: Entity; 
 export function Rows({ rows }: { rows: [string, ReactNode][] }) {
   return (
     <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[13px]">
-      {rows.map(([k, v]) => (
-        <div key={k} className="contents">
+      {rows.map(([k, v], i) => (
+        // labels can repeat (two deputy speakers), so the key carries the position too
+        <div key={`${i}:${k}`} className="contents">
           <dt className="text-muted">{k}</dt>
           <dd className="text-ink tabular-nums">{v}</dd>
         </div>

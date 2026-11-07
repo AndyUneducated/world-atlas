@@ -12,6 +12,11 @@ features:
     status: generated
     names: {zh: 马纳纳河, en: Manana River, art-x-kasiri: Mto Manana}
     notes: {zh: 萨希利亚伊斯兰共和国境内的河流，发源于安德里纳高原西坡，向西穿过稀树草原和丘陵，在首都萨希勒附近入海。河口一带是红树林和稻田，沿岸的清真寺和古老的商栈见证了卡西里人的航海贸易。, en: 'The river of the Islamic Republic of Sahiliya, rising on the western slopes of the Andrina Highlands and flowing west through savanna and hills to the sea near the capital, Sahil. Mangroves and paddies line its mouth, and the mosques and old trading houses along its banks bear witness to the seafaring trade of the Kasiri.'}
+  - id: nat_mm8423
+    subtype: river
+    status: generated
+    names: {zh: 衡河, en: Heng River}
+    notes: {zh: 大衡王朝的母亲河，发源于齐马罗沃边境的丘陵，向西流过王朝的稻作平原，在都城附近注入西海。两岸是连片的水田和堤坝，沿河的官道和驿站把都城与东部的州府连在一起；王朝每年春天在河畔举行亲耕礼，由天子亲手犁下第一道田垄。, en: 'The mother river of the Great Heng Dynasty, rising in the hills on the Tsimarovo border and flowing west across the dynasty''s rice plain into the western sea near the capital. Its banks are lined with paddy fields and dikes, and the post road and relay stations along it link the capital with the prefectures of the east; each spring the dynasty holds the ploughing rite on its bank, where the Son of Heaven cuts the first furrow with his own hands.'}
   - id: nat_51fkqp
     subtype: river
     status: generated

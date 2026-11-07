@@ -526,6 +526,96 @@ const PENNANT = "M0 0L60 20L0 40Z";
 const TONGUES = "M0 0H44L60 6.7L48 13.3L60 20L48 26.7L60 33.3L44 40H0Z";
 const GONFALON = "M0 0H40V48L33.3 60L26.7 48L20 60L13.3 48L6.7 60L0 48Z";
 
+
+/** Great Heng: azure, with an apricot band at the hoist edged in vermilion bearing the seven azure stars of the Northern Dipper (the fifth, Yuheng, largest), and a gold balance in the fly. */
+function heng() {
+  // the bowl (Tianshu, Tianxuan, Tianji, Tianquan), then the handle (Yuheng, Kaiyang, Yaoguang) down the band
+  const dipper = [
+    [10, 4.6],
+    [4.6, 6.2],
+    [5, 12],
+    [10.4, 11.6],
+    [9.6, 18.8],
+    [8.4, 25.8],
+    [5.4, 33.6],
+  ];
+  return (
+    <>
+      <rect width="60" height="40" fill="#1D4F7A" />
+      <rect width="15" height="40" fill="#E3A82B" />
+      <rect x="15" width="1.6" height="40" fill="#B3261E" />
+      <path d={dipper.map(([x, y], i) => (i === 4 ? star(x, y, 5, 2.3, 0.95) : star(x, y, 5, 1.4, 0.58))).join("")} fill="#163D5E" />
+      <g fill="none" stroke={GOLD} strokeLinecap="round">
+        <path d="M37.5 9V32" strokeWidth="1.8" />
+        <path d="M33 32.4H42" strokeWidth="2" />
+        <path d="M24.5 11.6H50.5" strokeWidth="1.8" />
+        <path d="M26 11.6L22.4 21.4M26 11.6L29.6 21.4M49 11.6L45.4 21.4M49 11.6L52.6 21.4" strokeWidth="0.7" />
+      </g>
+      <circle cx="37.5" cy="8.2" r="1.6" fill={GOLD} />
+      <path d="M22 21.4H30A4 3 0 0 1 22 21.4Z" fill={GOLD} />
+      <path d="M45 21.4H53A4 3 0 0 1 45 21.4Z" fill={GOLD} />
+    </>
+  );
+}
+
+/** Legionary State of the Archangel: violet within a black border, a pair of white wings spread upward under a gold halo. */
+function archangel() {
+  const wing = "M29 26.5C25 22.5 18.5 16.5 11 11.5L14.5 17L12.8 17.6L17.2 21.2L15.6 22L20.6 24.6L19.2 25.6L24.4 27.6L23.4 28.8L29 29.6Z";
+  return (
+    <>
+      <rect width="60" height="40" fill="#111" />
+      <rect x="2.6" y="2.6" width="54.8" height="34.8" fill="#4A2463" />
+      <g fill="#fff">
+        <path d={wing} />
+        <path d={wing} transform="matrix(-1 0 0 1 60 0)" />
+        <rect x="29" y="25" width="2" height="5.4" rx="0.6" />
+      </g>
+      <circle cx="30" cy="14.5" r="4" fill="none" stroke={GOLD} strokeWidth="1.4" />
+    </>
+  );
+}
+
+/** The Kingdom of the Unsurpassed Dharma: a white parasol with a gold fringe and jewel over the three white peaks of the Snow Parasol Mountains, on maroon above a gold band. */
+function unsurpassedDharma() {
+  const fringe = Array.from({ length: 6 }, (_, i) => 17 + (i * 26) / 6);
+  return (
+    <>
+      <rect width="60" height="40" fill="#6B1F4E" />
+      <path d="M0 40V32L9 26.5L15 29.5L30 19L45 29.5L51 26.5L60 32V40Z" fill="#fff" />
+      <rect y="36.5" width="60" height="3.5" fill={GOLD} />
+      <path d="M30 14.6V19.8" stroke={GOLD} strokeWidth="1.4" />
+      <path d="M17 15C19 9.2 24 6.2 30 6.2C36 6.2 41 9.2 43 15Z" fill="#fff" />
+      {fringe.map((x) => (
+        <path key={x} d={`M${x} 15A${26 / 12} ${26 / 12} 0 0 0 ${x + 26 / 6} 15Z`} fill={GOLD} />
+      ))}
+      <circle cx="30" cy="4.6" r="1.5" fill={GOLD} />
+    </>
+  );
+}
+
+/** Golden Sun: on crimson, a green terraced mountain rising four steps from each side, gold-edged, and a golden sun of sixteen rays over its summit. */
+function goldenSun() {
+  const rays = Array.from({ length: 16 }, (_, i) => (i * Math.PI) / 8);
+  return (
+    <>
+      <rect width="60" height="40" fill="#9E1B32" />
+      <path d="M0 40V35.5H7.5V31H15V26.5H22.5V22H37.5V26.5H45V31H52.5V35.5H60V40Z" fill="#2F6B3A" />
+      <path d="M0 35.5H7.5V31H15V26.5H22.5V22H37.5V26.5H45V31H52.5V35.5H60" fill="none" stroke={GOLD} strokeWidth="0.8" />
+      <g stroke={GOLD} strokeLinecap="round">
+        {rays.map((a, i) => (
+          <path
+            key={a}
+            d={`M${30 + 6.2 * Math.cos(a)} ${12 + 6.2 * Math.sin(a)}L${30 + (i % 2 ? 7.6 : 9) * Math.cos(a)} ${12 + (i % 2 ? 7.6 : 9) * Math.sin(a)}`}
+            strokeWidth={i % 2 ? 0.8 : 1.2}
+          />
+        ))}
+      </g>
+      <circle cx="30" cy="12" r="5" fill={GOLD} />
+      <circle cx="30" cy="12" r="3.2" fill="none" stroke="#9E1B32" strokeWidth="0.6" />
+    </>
+  );
+}
+
 export const NATION_FLAGS: Record<string, NationFlag> = {
   ambohara: { w: 60, h: 40, draw: ambohara },
   avaratsy: { w: 60, h: 40, draw: avaratsy },
@@ -553,6 +643,10 @@ export const NATION_FLAGS: Record<string, NationFlag> = {
   inara: { w: 60, h: 40, draw: inara },
   ambaro: { w: 60, h: 40, draw: ambaro },
   tendro: { w: 40, h: 60, shape: GONFALON, draw: tendro },
+  heng: { w: 60, h: 40, draw: heng },
+  archangel: { w: 60, h: 40, draw: archangel },
+  unsurpassed_dharma: { w: 60, h: 40, draw: unsurpassedDharma },
+  golden_sun: { w: 60, h: 40, draw: goldenSun },
   united_republic: { w: 60, h: 40, draw: unitedRepublic },
   china: { w: 60, h: 40, draw: china },
   usa: { w: 76, h: 40, draw: usa },

@@ -1,6 +1,6 @@
 # Procedural generator parameters for Ranova (拉诺瓦岛): one large island drawn after the outline of
 # Madagascar, some 1,500 km south-east of the California Autonomous State between 8° and 27° N, with a
-# dozen and more islands off its north-western and south-eastern coasts. Twenty-six nations share it.
+# dozen and more islands off its north-western and south-eastern coasts. Thirty nations share it.
 #
 # Positions and lengths are in design kilometres in a local equal-area (sinusoidal) frame whose centre
 # maps to frame.origin_lonlat; frame.scale converts design km to real km. Division areas come from
@@ -38,6 +38,10 @@ states:
   - div_4nnakk  # 伊纳拉群岛邦
   - div_7t7xz6  # 安巴罗国际托管地
   - div_c28art  # 坦德罗圣山修道院共和国
+  - div_st5cb2  # 大衡王朝
+  - div_q7nhd9  # 大天使军团国
+  - div_zw79v9  # 无上法王国
+  - div_zybzvt  # 金日王国
 seed: 83
 frame:
   origin_lonlat: [-147.5, 18.0]
@@ -110,6 +114,8 @@ terrain:
     - { feature: nat_jn52f2, path: [[288, 78], [304, 104], [318, 128]], height_m: 1500, width_km: 10 }   # 安多希山
     - { feature: nat_1ndyaz, path: [[518, 298], [522, 302]], height_m: 1700, width_km: 5 }   # 萨马伊火山
     - { feature: nat_6bzxtr, path: [[138, 630], [160, 650]], height_m: 900, width_km: 6 }   # 努西拉丘陵
+    - { feature: nat_2df1pc, path: [[150, 103], [170, 105], [192, 102]], height_m: 2400, width_km: 9 }   # 金日山
+    - { feature: nat_r6dgg2, path: [[192, 128], [195, 150]], height_m: 2200, width_km: 7 }   # 雪伞山
     - { feature: nat_5bqna9, path: [[182, 330], [190, 375], [198, 420]], height_m: 400, width_km: 22 }   # 贝马希石林台地
   plains:
     - [175, 405, 22, 0.55]   # 萨希勒海岸平原
@@ -120,9 +126,11 @@ terrain:
     - [140, 236, 15, 0.5]   # 梅纳瓦利海岸
     - [192, 516, 10, 0.5]   # 马尔萨
     - [245, 165, 18, 0.3]   # 齐马罗沃盆地
+    - [160, 169, 12, 0.5]   # 衡河平原
   valleys:
     - { feature: nat_pveqx6, path: [[332, 432], [318, 465], [300, 495], [283, 522], [279, 540]], width_km: 6, source_m: 1100, strength: 0.9 }   # 安博河
     - { feature: nat_wby64d, path: [[262, 372], [232, 385], [202, 398], [168, 404]], width_km: 5, source_m: 700, strength: 0.9 }   # 马纳纳河
+    - { feature: nat_mm8423, path: [[199, 172], [185, 170], [168, 168], [150, 169], [139, 169]], width_km: 5, source_m: 600, strength: 0.9 }   # 衡河
     - { feature: nat_51fkqp, path: [[226, 165], [248, 168], [285, 176], [315, 184], [343, 190]], width_km: 5, source_m: 800, strength: 0.9 }   # 伊拉希河
 
 hydrology:
@@ -133,6 +141,7 @@ hydrology:
     - { feature: nat_pveqx6, through: div_mj41d0 }   # 安博河
     - { feature: nat_wby64d, through: div_t5zph6 }   # 马纳纳河
     - { feature: nat_51fkqp, through: div_rbcxzz }   # 伊拉希河
+    - { feature: nat_mm8423, through: div_st5cb2 }   # 衡河
 
 coast:
   mainland: true
@@ -174,7 +183,7 @@ landcover:
     - { kind: savanna, ellipse: [200, 375, 45, 95], max_elev_m: 1400 }   # Sahiliya's and Belova's hills
     - { kind: savanna, ellipse: [265, 150, 55, 45], max_elev_m: 1600 }   # the Tsimarovo plateau and the Alatsina pastures
     - { kind: savanna, ellipse: [148, 235, 22, 45], max_elev_m: 700 }   # the Menavaly coast
-    - { kind: scrub, ellipse: [175, 100, 40, 70], max_elev_m: 900 }   # Tsiala's dry forest and spiny thicket
+    - { kind: scrub, ellipse: [172, 70, 32, 28], max_elev_m: 900 }   # Tsiala's dry forest and spiny thicket
     - { kind: scrub, ellipse: [240, 55, 50, 20], max_elev_m: 600 }   # the south coast
     - { kind: scrub, ellipse: [200, 495, 45, 45], max_elev_m: 1600 }   # the Jabal hills
     - { kind: scrub, ellipse: [372, 652, 18, 50], max_elev_m: 1200 }   # the dry lee of the Maroka
@@ -184,8 +193,8 @@ landcover:
 streets:
   core_people_per_km2: 10000
   local_spacing_km: { planned: [0.16, 0.22], mixed: [0.14, 0.2], organic: [0.11, 0.17] }
-  # Streets only in the 26 capitals.
-  only: [div_qnzksj, div_89czvj, div_gt2h78, div_j0txx6, div_axvb2e, div_8p600p, div_f9gjbe, div_2e6j0g, div_xa2b3m, div_tjwyxx, div_qfht7f, div_0a6gt7, div_3j9c24, div_1rjhwr, div_mt8f0c, div_xfvevz, div_vtqsys, div_b3521p, div_nxg2c2, div_ecyjmg, div_9gzdds, div_56wn6n, div_56918f, div_t4rn8w, div_pr4aer, div_resgrm]
+  # Streets only in the 30 capitals.
+  only: [div_qnzksj, div_89czvj, div_gt2h78, div_j0txx6, div_axvb2e, div_8p600p, div_f9gjbe, div_2e6j0g, div_xa2b3m, div_tjwyxx, div_qfht7f, div_0a6gt7, div_3j9c24, div_1rjhwr, div_mt8f0c, div_xfvevz, div_vtqsys, div_b3521p, div_nxg2c2, div_ecyjmg, div_9gzdds, div_56wn6n, div_56918f, div_t4rn8w, div_pr4aer, div_resgrm, div_7ct07a, div_a1sa6r, div_zqxatj, div_depam8]
   name_styles:
     planned: { civic: 3, culture: 2, numbered: 2, trees: 1, places: 3, flora: 1 }
     mixed: { places: 3, flora: 2, fauna: 2, trees: 1, landscape: 2, culture: 1 }
@@ -217,6 +226,10 @@ streets:
     div_t4rn8w: { style: organic, detail_km2: 40, mix: { houses: 2.4, park: 0.6 } }   # 伊纳拉, 伊纳拉群岛邦
     div_pr4aer: { style: planned, detail_km2: 40, mix: { civic: 1.6, slabs: 1.2, industrial: 0.6 } }   # 安巴罗, 安巴罗国际托管地
     div_resgrm: { style: organic, detail_km2: 40, mix: { houses: 1.6, civic: 1.2 } }   # 坦德罗, 坦德罗圣山修道院共和国
+    div_7ct07a: { style: planned, detail_km2: 40, mix: { civic: 1.6, perimeter: 1.6, houses: 1.0 } }   # 大衡王朝 capital
+    div_a1sa6r: { style: mixed, detail_km2: 40, mix: { houses: 1.8, civic: 1.0, perimeter: 0.6 } }   # 大天使军团国 capital
+    div_zqxatj: { style: organic, detail_km2: 40, mix: { houses: 2.0, civic: 1.4 } }   # 无上法王国 capital
+    div_depam8: { style: organic, detail_km2: 40, mix: { houses: 2.2, civic: 0.8 } }   # 金日王国 capital
 
 layout:
   anchored: true
@@ -233,7 +246,7 @@ layout:
     div_5b4193: [210, 488]   # 贾巴利亚伊斯兰酋长国（自封）
     div_ht80hm: [275, 92]   # 阿拉齐纳原住民邦联
     div_0cazhp: [430, 492]   # 法尼里自由公社联合会
-    div_1tan4g: [170, 110]   # 齐阿拉野化邦
+    div_1tan4g: [168, 66]   # 齐阿拉野化邦
     div_nyhhhg: [405, 395]   # 黎明千年国
     div_sh6pkn: [255, 300]   # 安博维共和国
     div_9w60j4: [238, 238]   # 伊索卡人民战争解放区
@@ -249,6 +262,10 @@ layout:
     div_4nnakk: [600, 150]   # 伊纳拉群岛邦
     div_7t7xz6: [470, 198]   # 安巴罗国际托管地
     div_c28art: [634, 324]   # 坦德罗圣山修道院共和国
+    div_st5cb2: [150, 169]   # 大衡王朝
+    div_q7nhd9: [147, 140]   # 大天使军团国
+    div_zw79v9: [186, 142]   # 无上法王国
+    div_zybzvt: [172, 113]   # 金日王国
   # city seeds: the nation's anchor plus these times 0.42 √(nation area) / scale
   districts:
     div_qnzksj: [0.00, 0.00]   # 安博哈拉
@@ -315,6 +332,18 @@ layout:
     div_gh1s9q: [4.00, -2.80]   # 雷尼
     div_pr4aer: [0.00, 0.00]   # 安巴罗
     div_resgrm: [0.00, 0.00]   # 坦德罗
+    div_7ct07a: [0.00, 0.00]   # 大衡王朝 capital
+    div_g843pd: [1.50, 0.50]   # 大衡王朝
+    div_rrx5v5: [2.60, -0.50]   # 大衡王朝
+    div_k1g6r6: [0.60, -0.60]   # 大衡王朝
+    div_a1sa6r: [0.00, 0.00]   # 大天使军团国 capital
+    div_taqb88: [1.20, 0.80]   # 大天使军团国
+    div_69p834: [1.20, -1.00]   # 大天使军团国
+    div_zqxatj: [0.00, 0.00]   # 无上法王国 capital
+    div_qhbbr0: [0.30, -1.30]   # 无上法王国
+    div_depam8: [0.00, 0.00]   # 金日王国 capital
+    div_0ehtbq: [-1.90, -0.30]   # 金日王国, 安西拉
+    div_tvpd91: [1.30, 0.20]   # 金日王国, 瓦瓦哈迪
   # islands a city takes whole: a point on each
   islands:
     div_6kfbjm: [[268, 605]]   # 努西姆博
@@ -350,7 +379,11 @@ layout:
     div_sh6pkn: [[230, 262], [300, 260], [285, 330], [230, 330]]   # 安博维共和国
     div_dmf47n: [[110, 185], [200, 185], [205, 215], [215, 215], [215, 262], [205, 282], [110, 282]]   # 梅纳瓦利国家拯救共和国
     div_9w60j4: [[215, 215], [312, 215], [300, 260], [230, 262], [215, 262]]   # 伊索卡人民战争解放区
-    div_1tan4g: [[120, 40], [200, 40], [200, 185], [120, 185]]   # 齐阿拉野化邦
+    div_1tan4g: [[120, 40], [200, 40], [200, 92], [186, 96], [170, 93], [152, 97], [120, 95]]   # 齐阿拉野化邦
+    div_zybzvt: [[120, 95], [152, 97], [170, 93], [186, 96], [200, 92], [200, 121], [184, 118], [174, 120], [166, 122], [150, 119], [120, 120]]   # 金日王国
+    div_q7nhd9: [[120, 120], [150, 119], [166, 122], [174, 120], [178, 132], [172, 145], [174, 155], [150, 159], [120, 156]]   # 大天使军团国
+    div_zw79v9: [[174, 120], [184, 118], [200, 121], [200, 158], [174, 155], [172, 145], [178, 132]]   # 无上法王国
+    div_st5cb2: [[120, 156], [150, 159], [174, 155], [200, 158], [200, 185], [120, 185]]   # 大衡王朝
     div_hm0zqz: [[200, 25], [232, 25], [232, 62], [200, 62]]   # 卡波拉新秩序自由领
     div_ht80hm: [[240, 25], [345, 25], [352, 175], [290, 170], [250, 110], [240, 62]]   # 阿拉齐纳原住民邦联
     div_rbcxzz: [[200, 62], [232, 62], [232, 25], [240, 25], [240, 62], [250, 110], [290, 170], [352, 175], [325, 215], [215, 215], [205, 215], [200, 185]]   # 齐马罗沃民族社会主义国
@@ -396,3 +429,6 @@ layout:
     div_gh1s9q: null   # 雷尼
     div_pr4aer: null   # 安巴罗
     div_resgrm: null   # 坦德罗
+    div_7ct07a: null   # 大衡王朝 capital
+    div_a1sa6r: null   # 大天使军团国 capital
+    div_0ehtbq: null   # 金日王国, west coast
