@@ -1,0 +1,45 @@
+# Railways of the Viking Islands (M112): the territory's own lines. The fields are those of
+# world/transport/cn-nv-rail.yaml; the cross-strait Viking Port–Longship Vacuum Maglev is in cn-xtr.yaml.
+# Both lines are 高速铁路 (400 km/h, the intercity_rail standard) and cross the straits on rail bridges
+# beside the expressway bridges; they meet the maglev at Longship station.
+railways:
+  - id: rte_kpq3pa
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 群岛高速铁路
+      en: Island Chain High-Speed Railway
+      art-x-viking: Inselketten-Schnellbahn
+      art-x-buckham: Ferrovia ad Alta Velocità delle Isole
+    notes:
+      zh: "群岛高速铁路是维京群岛自己的第一条铁路，也是群岛的铁路主干，自阿夫琳岛的阿夫琳港站出发，跨海到长船岛，经首府长船站、谢尔海姆站和斯蒂尔维克站，再跨海到暖泉岛的暖泉站，把三座大岛上的五座城市连成一线，全长约六百二十公里。列车为海鹦 400 型，八节编组、576 座，高峰时段重联为十六节，运营时速 400 公里，长船到阿夫琳港二十多分钟，全程直达一小时四十分钟左右。两段跨海铁路桥紧挨着长阿跨海高速和群岛跨海高速的公路桥并排架设，其中最长的斯库特斯塔德特大桥长约 26 公里，全线桥梁合计近百公里，桥面两侧装有风障，风速超过限值时列车自动降速通过；长船岛上的线路沿谢尔海姆山东南麓穿过丘陵，桥隧相连，最长的福恩斯塔德隧道长约 3.4 公里。长船站与维长真空磁悬浮同站换乘，从阿夫琳港或暖泉换乘磁悬浮去北维京岛的维京港，半天就能来回。高峰时段每半小时一班，每年运送旅客约一千五百万人次，以首府与各岛之间的通勤和商务旅客为主，冬季周末去暖泉泡温泉的游客常常挤满开往暖泉的列车。\n过去群岛人去另一座岛要先查渡轮时刻表，如今改查列车时刻表，不过老人们在站台上仍习惯问一句「今天风向怎么样」，因为风大时列车过海要减速。列车上卖的热鱼饼和渡轮上的一样，跨海时满车的人都会抬头看一眼窗外的海峡；开往暖泉的末班车被称作「温泉车」，车上常有人提着浴巾和换洗衣服。"
+      en: "The Island Chain High-Speed Railway is the Viking Islands' first railway of their own and the backbone of their network. From Port Aveline station on Aveline Island it crosses the sea to Longship Island, runs through the capital's Longship station, Kjølheim and Styrvik, and crosses the sea again to Warmspring station on Warmspring Island, stringing five cities on three large islands along one line about 620 km long. Its Puffin 400 trains of eight cars and 576 seats, coupled in pairs of sixteen cars at peak times, run at 400 km/h; Longship to Port Aveline takes a little over twenty minutes and the whole line about an hour and forty minutes non-stop. Its two sea crossings stand right beside the road bridges of the Longship–Port Aveline Sea Crossing and the Island Chain Expressway, the longest of them the Skutstad Sea Bridge at about 26 km, with nearly 100 km of bridges along the line, and wind screens along both edges, and trains slow down automatically when the wind passes the limit; on Longship Island the line follows the south-east foot of the Kjølheim Hills through the uplands from bridge to tunnel, the longest being the Fornstad Tunnel at about 3.4 km. Longship station is shared with the Viking Port–Longship Vacuum Maglev, so from Port Aveline or Warmspring a return trip to Viking Port on North Viking Island takes half a day. With a train every half hour at peak times it carries about 15 million passengers a year, mostly commuters and business travellers between the capital and the other islands, and on winter weekends the trains to Warmspring are packed with people going for a hot-spring soak.\nIslanders once checked the ferry timetable before going to another island and now check the train timetable, though old people on the platform still ask \"which way is the wind today?\", since in a gale the trains slow down over the sea. The hot fishcakes sold on board are the same as on the ferries, and the whole carriage looks up at the strait as the train crosses; the last train to Warmspring is \"the hot-spring train\", with plenty of passengers carrying towels and a change of clothes."
+    background:
+      zh: 维京群岛由几座大岛组成，岛与岛之间过去全靠渡轮，跨海高速建成后才有了全天候的陆路，但长船与各岛之间的车程仍要几个小时，冬季大风时跨海桥还要限速甚至封闭。群岛原先唯一的铁路是通往北维京岛的维长磁悬浮，岛内一条铁路也没有。领地人均收入高，大城市沿着几座大岛一字排开，领地决定修建一条贯通各大岛的高速铁路：自阿夫琳港跨海到长船，沿谢尔海姆山东南麓经谢尔海姆到斯蒂尔维克，再跨海到暖泉，大致沿着长阿跨海高速和群岛跨海高速的走廊。两段跨海桥公铁分建、并排架设，深水区以大跨度斜拉桥跨过航道，桥面设风障，并装有风速监测和自动降速系统。线路由维京群岛铁路公司建设和运营，开通后各岛之间的旅客大多改乘火车，渡轮则主要服务远处的外岛。
+      en: The Viking Islands are a chain of large islands that once depended on ferries; the expressway crossings gave them all-weather land links, but driving between Longship and the other islands still took hours, and in winter gales the sea bridges had to slow traffic or close. The islands' only railway was the Viking Port–Longship Maglev to North Viking Island, with no line at all within the islands. The territory is rich and its big cities lie in a row along the large islands, so it decided on a high-speed line through all of them, from Port Aveline across the sea to Longship, along the south-east foot of the Kjølheim Hills through Kjølheim to Styrvik and across the sea again to Warmspring, broadly in the corridor of the Longship–Port Aveline Sea Crossing and the Island Chain Expressway. Its two sea crossings are rail bridges built separately beside the road bridges, with long cable-stayed spans over the deep-water channels, wind screens along the deck and wind monitoring that slows the trains automatically. The Viking Islands Railway Company built and runs the line; since it opened most travellers between the islands have gone by train, and the ferries mainly serve the outer isles.
+    color: '#0090FF'
+    tech:
+      operating_speed_kmh: 400
+      design_speed_kmh: 450
+      train: { names: { zh: 海鹦 400 型, en: Puffin 400 }, seats: 576 }
+    via: [div_x22naa, div_3cvg2q, div_33vctd, div_er5g6j, div_qjzmw5]  # Port Aveline – Longship – Kjølheim – Styrvik – Warmspring
+  - id: rte_qh8qz1
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 阿克斯高速铁路
+      en: Akkersey High-Speed Railway
+      art-x-viking: Akkersey-Schnellbahn
+      art-x-buckham: Ferrovia ad Alta Velocità dell'Isola dell'Ancora
+    notes:
+      zh: "阿克斯高速铁路自首府长船站出发，沿长船岛西北岸到弗洛德维克站，再跨过阿克斯海峡到阿克斯岛的阿克斯维克站，连接首府和群岛第二大城市、最大的集装箱港，全长约二百一十公里。列车为海鹦 400 型，运营时速 400 公里，长船到阿克斯维克直达三十五分钟左右，高峰时段每半小时一班，每年运送旅客约八百七十万人次。线路在长船站与群岛高速铁路和维长真空磁悬浮同站换乘；跨阿克斯海峡的弗洛德维克特大桥长约 24 公里，与阿克斯跨海高速的公路桥并排，以大跨度斜拉桥跨过主航道；长船岛西北岸的丘陵则以长约 8.5 公里的朗桑德隧道穿过。阿克斯维克站设在链城区，离航运交易所和阿克斯维克机场都不远。客流以长船与阿克斯维克之间的商务旅客为主，航运公司、船级社和船舶金融机构的职员是这趟车的常客，弗洛德维克的居民则多乘它去首府上班。\n弗洛德维克清晨的螃蟹拍卖一结束，头一班开往长船的列车上就挤满提着保温箱的鱼贩，去赶首府餐馆的午市，乘客们管这班车叫「螃蟹车」。瑙斯特海姆的船厂每下水一艘新船，当天傍晚回长船的列车上就会多出一群穿西装的船东和银行家，车厢里聊的全是运价和船期。"
+      en: "The Akkersey High-Speed Railway runs from Longship station in the capital along the north-west shore of Longship Island to Flodvik, then over the Akkersey Strait to Akkersvik on Akkersey, linking the capital with the second city of the islands and their busiest container port, about 210 km in all. Its Puffin 400 trains run at 400 km/h and take about thirty-five minutes from Longship to Akkersvik non-stop, with a train every half hour at peak times and about 8.7 million passengers a year. At Longship station it meets the Island Chain High-Speed Railway and the Viking Port–Longship Vacuum Maglev; its Flodvik Sea Bridge over the Akkersey Strait, about 24 km long, stands beside the road bridge of the Akkersey Strait Crossing and spans the main channel on long cable-stayed spans, and the 8.5 km Langsand Tunnel takes it through the hills of Longship's north-west shore. Akkersvik station is in Chain Town, close to the shipping exchange and Akkersvik Airport. Most of its passengers are business travellers between Longship and Akkersvik, with staff of the shipping lines, classification societies and ship financiers among its regulars, while Flodvik people mostly ride it to work in the capital.\nAs soon as Flodvik's dawn crab auction ends, the first train to Longship fills with fishmongers carrying cool boxes to catch the lunch trade in the capital's restaurants, and passengers call it \"the crab train\". Whenever the Naustheim yards launch a new ship, the evening trains back to Longship carry a crowd of shipowners and bankers in suits, and all the talk in the carriage is of freight rates and sailing dates."
+    background:
+      zh: 阿克斯维克是群岛第二大城市和最大的集装箱港，航运交易所、船级社和船舶金融机构集中在链城区，与首府长船之间的商务往来十分频繁，过去却只能沿长船西岸高速和阿克斯跨海高速开车，或者乘渡轮和飞机。修建群岛高速铁路时，领地决定同时修建这条线路，自长船沿西北岸到弗洛德维克，再跨阿克斯海峡到阿克斯维克。海峡中部水深流急，铁路桥与公路桥并排以大跨度斜拉桥跨过主航道，桥下留出大型集装箱船的通航净空。开通后，长船与阿克斯维克之间有了一小时以内的全天候联系，不少航运公司让员工在两城之间通勤。
+      en: Akkersvik is the second city of the islands and their busiest container port, with the shipping exchange, classification societies and ship financiers gathered in Chain Town, and its business with the capital, Longship, is constant; yet the only ways between them were to drive the Longship West Shore Expressway and the Akkersey Strait Crossing, or to take a ferry or a plane. When it built the Island Chain High-Speed Railway the territory decided to build this line at the same time, from Longship along the north-west shore to Flodvik and over the Akkersey Strait to Akkersvik. The middle of the strait is deep with strong currents, so the rail bridge crosses the main channel on long cable-stayed spans beside the road bridge, leaving clearance for large container ships beneath. Since it opened Longship and Akkersvik have been less than an hour apart in any weather, and many shipping firms have their staff commute between the two cities.
+    color: '#E54666'
+    tech:
+      operating_speed_kmh: 400
+      design_speed_kmh: 450
+      train: { names: { zh: 海鹦 400 型, en: Puffin 400 }, seats: 576 }
+    via: [div_3cvg2q, div_x20mfy, div_zg05xa]  # Longship – Flodvik – Akkersvik

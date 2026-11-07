@@ -142,8 +142,8 @@ places:
       zh: 交通与高铁厅
       en: Department of Transportation and High-Speed Rail
     notes:
-      zh: "管理全州的领道、市道和高速铁路，下设领道局和高速铁路局；唯一不归它管的领道是收费的停车场领道。高速铁路修了很多年，只建成中央渴谷里约 370 公里，每天两班。厅里大厅的墙上挂着高铁全线规划图，已建成的一段用红色标出，来参观的小学生常问那条红线为什么那么短，讲解员的标准回答是「这是第一期」。"
-      en: "Manages the state's highways, city roads and high-speed rail through its State Roads Department and High-Speed Rail Authority; the only state highway outside its hands is the tolled Parking Lot Road. The high-speed railway has been under construction for years and has only about 370 km open, in the Central Thirsty Valley, with two trains a day. A map of the whole planned line hangs in the lobby with the finished stretch in red; visiting schoolchildren often ask why the red line is so short, and the guides' standard answer is 'this is phase one'."
+      zh: "管理全州的领道、市道和高速铁路，下设领道局和高速铁路局；唯一不归它管的领道是收费的停车场领道。高速铁路修了很多年，只建成中央渴谷里约 460 公里，每天两班。厅里大厅的墙上挂着高铁全线规划图，已建成的一段用红色标出，来参观的小学生常问那条红线为什么那么短，讲解员的标准回答是「这是第一期」。"
+      en: "Manages the state's highways, city roads and high-speed rail through its State Roads Department and High-Speed Rail Authority; the only state highway outside its hands is the tolled Parking Lot Road. The high-speed railway has been under construction for years and has only about 460 km open, in the Central Thirsty Valley, with two trains a day. A map of the whole planned line hangs in the lobby with the finished stretch in red; visiting schoolchildren often ask why the red line is so short, and the guides' standard answer is 'this is phase one'."
     in: div_ymeec8
     offset_km: [1.0, -1.9]
     site: { layout: slab, size_m: [130, 70] }

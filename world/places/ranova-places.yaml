@@ -488,7 +488,7 @@ places:
     subtype: government
     status: generated
     names: {"zh": "人民代表大会堂", "en": "Hall of the People's Congress"}
-    notes: {"zh": "人民代表大会堂位于人民宫南侧，是人民代表大会三百名代表开会的地方。大会堂的正面是八根方柱，柱廊上方的浮雕表现工人、农民和渔民并肩前进的场景。代表由各级选举委员会提名，绝大多数属于劳动党，另有农民联盟代表和少数无党派人士。大会每年春季开会一次，会期一周左右，审议国家计划和预算，表决几乎总是一致通过。平时大会堂也用来举办全国劳动模范表彰大会和大型文艺演出，门票通过工会和单位分发。", "en": "The Hall of the People's Congress, south of the People's Palace, is where the 300 deputies of the People's Congress meet. Its front has eight square columns, and the relief above the colonnade shows workers, peasants and fishers marching side by side. Deputies are nominated by electoral committees at each level; the great majority belong to the Labour Party, with members of the Peasants' Union and a few non-party members. The Congress meets once a year in spring for about a week to approve the state plan and the budget, and its votes are almost always unanimous. The rest of the year the hall hosts the national awards for model workers and large stage performances, with tickets handed out through the unions and workplaces."}
+    notes: {"zh": "人民代表大会堂位于人民宫南侧，是人民代表大会三百名代表开会的地方。大会堂的正面是八根方柱，柱廊上方的浮雕表现工人、农民和渔民并肩前进的场景。代表由各级选举委员会提名，取消固定名额以后全部是劳动党党员。大会每年春季开会一次，会期一周左右，审议国家计划和预算，表决几乎总是一致通过。平时大会堂也用来举办全国劳动模范表彰大会和大型文艺演出，门票通过工会和单位分发。", "en": "The Hall of the People's Congress, south of the People's Palace, is where the 300 deputies of the People's Congress meet. Its front has eight square columns, and the relief above the colonnade shows workers, peasants and fishers marching side by side. Deputies are nominated by electoral committees at each level and, since the fixed quotas for other groups were abolished, all of them belong to the Labour Party. The Congress meets once a year in spring for about a week to approve the state plan and the budget, and its votes are almost always unanimous. The rest of the year the hall hosts the national awards for model workers and large stage performances, with tickets handed out through the unions and workplaces."}
     in: div_89czvj
     offset_km: [-0.40, 0.00]
     site: {"layout": "hall", "size_m": [240, 160]}
@@ -1772,7 +1772,7 @@ places:
     subtype: depot
     status: generated
     names: {"zh": "梅纳瓦利后勤基地", "en": "Menavaly Logistics Base"}
-    notes: {"zh": "梅纳瓦利后勤基地是陆军的物资储备和转运中心，几十座仓库里储存着粮食、被服、燃料和备件，铁路专用线和公路把基地与港口和前线连接起来。战时，全国的军需物资都从这里分发。", "en": "Menavaly Logistics Base is the Army's store and distribution centre for supplies, dozens of warehouses holding food, clothing, fuel and spare parts, linked to the ports and the front by a rail siding and highways. In war, military supplies for the whole country are issued from here."}
+    notes: {"zh": "梅纳瓦利后勤基地是陆军的物资储备和转运中心，几十座仓库里储存着粮食、被服、燃料和备件，公路把基地与港口和前线连接起来。战时，全国的军需物资都从这里分发。", "en": "Menavaly Logistics Base is the Army's store and distribution centre for supplies, dozens of warehouses holding food, clothing, fuel and spare parts, linked to the ports and the front by highways. In war, military supplies for the whole country are issued from here."}
     in: div_8p600p
     offset_km: [2.49, 1.67]
     site: {"layout": "plant", "size_m": [1200, 800], "variant": "depot", "angle_deg": 124, "rural": true}

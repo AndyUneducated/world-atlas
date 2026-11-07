@@ -6,6 +6,11 @@ import math
 
 import numpy as np
 
+# A stretch of road or track carries one name (M112): running on another route's cells costs this many times
+# open terrain, and running right beside them this many times, so routes keep apart and only cross.
+SHARED_FACTOR = 6.0
+BUFFER_FACTOR = 1.5
+
 NB8 = [(-1, -1, 1.4142), (-1, 0, 1.0), (-1, 1, 1.4142), (0, -1, 1.0), (0, 1, 1.0), (1, -1, 1.4142), (1, 0, 1.0), (1, 1, 1.4142)]
 
 
@@ -33,15 +38,21 @@ class Router:
         return ((cx + 0.5) * self.res, (cy + 0.5) * self.res)
 
     def route(self, start: int, goal: int, tunnel_cost: float | None = None, ref: str | None = None,
-              shared_factor=1.3, buffer_factor=1.15) -> list[int]:
+              shared_factor=SHARED_FACTOR, buffer_factor=BUFFER_FACTOR) -> list[int]:
         """Least-cost path. With tunnel_cost, steep terrain costs at most that much per km.
 
-        With ref, the corridors of other trunk routes cost slightly more than open terrain, so
-        each route builds its own line (every road segment carries one route) and only joins
-        another where the terrain leaves no cheaper way through.
+        With ref, the cells of other routes cost shared_factor times open terrain and the cells beside
+        them buffer_factor times, so each road and railway builds its own line, one name to each
+        stretch (M112, the owner's rule), crossing others but running along them only where the
+        terrain leaves no other way through.
         """
         nx, ny = self.nx, self.ny
         cost = self.cost
+        base = self.base
+        # the tunnel cap first, so that the penalty for running on another route is not capped away
+        if tunnel_cost is not None:
+            cost = [min(c, tunnel_cost) if b < 40 else c for c, b in zip(cost, self.base)]
+            base = np.where(self.base < 40, np.minimum(self.base, tunnel_cost), self.base)
         if ref is not None and self.owner:
             cost = list(cost)
             foreign = [c for c, o in self.owner.items() if o != ref]
@@ -51,11 +62,9 @@ class Router:
                     y, x = cy + dy, cx + dx
                     n = y * nx + x
                     if 0 <= y < ny and 0 <= x < nx and self.owner.get(n) != ref:
-                        cost[n] = max(cost[n], self.base[n] * buffer_factor)
+                        cost[n] = max(cost[n], base[n] * buffer_factor)
             for c in foreign:
-                cost[c] = self.base[c] * shared_factor
-        if tunnel_cost is not None:
-            cost = [min(c, tunnel_cost) if b < 40 else c for c, b in zip(cost, self.base)]
+                cost[c] = base[c] * shared_factor
         gy, gx = divmod(goal, nx)
         dist, prev = {start: 0.0}, {}
         heap = [(0.0, 0.0, start)]

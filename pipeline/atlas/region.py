@@ -28,7 +28,7 @@ from .common import (BUILDING_MINZOOM, STREET_MINZOOM, bbox_lonlat, derived_id, 
                      place_name, undrawn_steps, smooth_line, smooth_pinned, tile_minzoom)
 from .sites import SEA_BRIDGE_HALF_WIDTH_KM, landmark_sites
 from .city import UNSETTLED, bare_name, build_buildings, build_metro, build_streets, rail_station_names
-from .routes import PORTAL, cross_part, land_cell, route_railways, route_segments, stops_here
+from .routes import PORTAL, cross_part, land_cell, rail_standard, route_railways, route_segments, stops_here
 
 LAYERS = ("divisions", "labels", "places", "landcover", "water", "coast", "glaciers", "rivers", "rivers-named", "ridges", "roads",
           "route-shared", "streets", "streets-named", "buildings", "parks", "skyways", "landmarks", "rail", "stations", "bathymetry")
@@ -518,8 +518,11 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     # engineering, and the map draws the line itself. exact_spans: ref -> [first, last] index in the path.
     exact_spans, exact_lines = {}, {}
     road_stop = lambda v: v in city_index or v in district_index or v in place_at
+    # roads drawn straight (or along a given line) cannot step aside, so they go first and the others route
+    # round them: no stretch carries two names (M112)
+    fixed = lambda r: bool(r.get("straight") or r.get("line") or any(leg.get("straight") for leg in r.get("legs", {}).values()))
     routes = sorted((r for r in world.routes.values() if stops_here(r, territory["id"], road_stop)),
-                    key=lambda r: (ROAD_RANK[r["class"]], r.get("build_order", 0), r["ref"]))
+                    key=lambda r: (not fixed(r), ROAD_RANK[r["class"]], r.get("build_order", 0), r["ref"]))
     for r in routes:
         via = stops_here(r, territory["id"], road_stop)
         via = via + via[:1] if r.get("ring") else via
@@ -716,7 +719,10 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                     inside = track_union.intersection(dist_polys[i].buffer(-0.1))
                     if not inside.is_empty:
                         pt = nearest_points(inside, at)[0]
-                stem = world.places[v]["names"] if v in place_at else bare_name(cities[ci] if i == core[ci] else districts[i])
+                # a city's core district takes the city's name (维京港站); on Ranova the top unit is a state, so its
+                # capital's station takes the capital's own name, not the state's
+                by_city = i == core[ci] and cities[ci].get("subtype") != "country"
+                stem = world.places[v]["names"] if v in place_at else bare_name(cities[ci] if by_city else districts[i])
                 stations[sid] = {"names": rail_station_names(stem, freight), "xy": (pt.x, pt.y), "district": i, "lines": [], "freight": freight}
             stations[sid]["names"].update(r.get("station_names", {}).get(v, {}))
             stations[sid]["lines"].append(r["id"])
@@ -1204,8 +1210,10 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         ent.update({"class": "rail", "via": ids, "ancestors": in_territory, **add_line(r["id"], full, {"network": r["network"], "color": r.get("color"),
                                                                         "name_zh": r["names"]["zh"], "name_en": r["names"]["en"]}, drawn=own)})
         if r.get("maglev"):
-            ent["maglev"] = True
-        if rail_std := standards.get("maglev" if r.get("maglev") else r["network"]):
+            ent["maglev"] = r["maglev"]
+        if r.get("conventional"):
+            ent["conventional"] = True
+        if rail_std := standards.get(rail_standard(r)):
             built_here = sum(1 for sid in dict.fromkeys(ids) if stations[sid]["lines"][0] == r["id"])
             engineer(ent, rail_paths[r["id"]], rail_std, rail_router, r["id"], built_here)
             ent["tech"] = {**rail_std.get("tech", {}), **r.get("tech", {})}

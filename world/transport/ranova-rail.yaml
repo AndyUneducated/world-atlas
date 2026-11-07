@@ -1,0 +1,182 @@
+# Railways of Ranova (拉诺瓦岛, M112). The fields are those of world/transport/cn-nv-rail.yaml; each line
+# names its operator, since the island's 30 states run their own railways. via lists cities in order.
+#   铁路 (conventional: true): double-track electrified lines under 400 km/h on the conventional_rail
+#     standard, mostly old United Republic trunk lines kept by the state they run through.
+#   高速铁路: 400 km/h lines, only inside the better-off states with two cities on one landmass.
+#   重载铁路 (network: freight_rail, conventional: true): wheeled heavy-haul lines for bulk ore on the
+#     conventional_freight standard, on track of their own beside the passenger lines where corridors meet;
+#     tech names the train (wagons, net tonnes a train) and the loaded trains a day.
+# No line crosses a front line or a closed border; the one line between two states runs between allies.
+railways:
+  # ── 铁路 ──
+  - id: rte_xyz7vk
+    network: intercity_rail
+    conventional: true
+    status: generated
+    names:
+      zh: 瓦塔铁路
+      en: Vavambo–Tamata Railway
+      art-x-ranova: Lalamby Vavan'Ambo–Tamata
+    notes:
+      zh: "瓦塔铁路是安博哈拉基督教联邦唯一的干线铁路，自西北湾的深水港瓦凡博出发，经菲安特拉的稻田上到安德里纳高原，穿过首都安博哈拉，再经拉诺梅纳沿法拉纳断崖下到东海岸的港口塔马塔，把联邦两端的两座港口连在一起，全长约八百公里。线路为双线电气化铁路，列车为信风 160 型，运营时速 160 公里，全程五个小时左右。高原路段坡陡弯多，上下法拉纳断崖时线路以一连串隧道和高架桥贴着断崖盘旋，全线桥梁和隧道各有约 120 公里，最长的拉诺梅纳特大桥约 25 公里，安博哈拉隧道约 23 公里。客运十分繁忙，高峰时段每十二分钟一班，每年运送旅客约三千五百万人次，是全岛最繁忙的铁路；货运也是主业：塔马塔进口的燃料和瓦凡博炼油厂的成品油运上高原，高原的稻米、咖啡和安卡瓦的石墨运到港口出口；军列也沿这条铁路在西北和东南两支舰队之间调动兵员和物资。\n星期日全国停业，瓦塔铁路也只开一对客车，车上坐满去首都大教堂做礼拜的家庭，列车员在开车前领大家做一段祷告。雨季的法拉纳断崖瀑布最壮观，列车驶过拉诺梅纳时，乘客们都挤到车窗边，看红土色的瀑布从断崖上倾泻而下。"
+      en: "The Vavambo–Tamata Railway is the only trunk railway of the Christian Federation of Ambohara. From Vavambo, the deep-water port on the north-western bay, it climbs through the rice fields of Fiantra onto the Andrina Highlands, crosses the capital, Ambohara, and runs by way of Ranomena down the Farana Escarpment to Tamata, the port on the east coast, joining the two ports at either end of the federation; it is about 800 km long. It is a double-track electrified line on which Tradewind 160 trains run at 160 km/h, taking about five hours end to end. On the plateau the line is steep and winding, and it climbs and descends the Farana Escarpment in a chain of tunnels and viaducts clinging to the cliffs, with about 120 km each of bridges and tunnels; the longest are the Ranomena Viaduct, about 25 km, and the Ambohara Tunnel, about 23 km. Its passenger service is heavy, a train every twelve minutes at peak times and some 35 million passengers a year, the busiest railway on the island; freight is just as much its business, carrying fuel imported through Tamata and products from the Vavambo refinery up onto the plateau, and the highlands' rice and coffee and Ankava's graphite down to the ports for export. Military trains use it too, moving troops and supplies between the north-western and south-eastern fleets.\nOn Sundays the whole country stops, and the line runs a single pair of passenger trains, full of families going to the cathedral in the capital; before departure the guard leads the carriage in a short prayer. The waterfalls of the Farana Escarpment are at their finest in the rains, and as the train passes Ranomena everyone crowds to the windows to watch the red-brown water pour over the cliffs."
+    background:
+      zh: 联合共和国时期，国家铁路以首都安博哈拉为中心修建了一条纵贯高原的中央铁路，北段经菲安特拉和马罗瓦托通往北方的港口沃希马希，另有两条支线分别下到西北湾的瓦凡博和东海岸的塔马塔。大分裂后，高原战争在高原北缘反复拉锯，菲安特拉以北的路段被炸毁，停火后又被两道铁丝网和雷区截断，缓冲区里的铁轨至今锈在荒草中。联邦接收了高原上的路段和两条下海的支线，用海外援助把它们改建成一条贯通联邦两端的双线电气化铁路，从瓦凡博经首都直通塔马塔，取两港的首字命名为瓦塔铁路。法拉纳断崖路段重新开凿了隧道，取代了联合共和国时期靠之字形折返爬坡的老线。
+      en: Under the United Republic the national railways built a Central Railway across the highlands from the capital, Ambohara, its northern section running through Fiantra and Marovato to the northern port of Vohimahy, with two branches down to Vavambo on the north-western bay and to Tamata on the east coast. After the Sundering the Highland War surged back and forth along the northern edge of the plateau; the line north of Fiantra was blown up, and after the ceasefire it was cut by two belts of wire and minefields, its rails still rusting in the grass of the buffer zone. The federation took over the highland section and the two branches to the sea and, with foreign aid, rebuilt them as one double-track electrified line from one end of the federation to the other, from Vavambo through the capital to Tamata, named after the two ports. New tunnels were cut through the Farana Escarpment to replace the United Republic's old line, which climbed it by zigzag reversing spurs.
+    operator: { zh: 联邦铁路局, en: Federal Railways }
+    color: '#B5651D'
+    tech: { operating_speed_kmh: 160, design_speed_kmh: 200 }
+    via: [div_cwevsp, div_wzx2kn, div_qnzksj, div_z0k237, div_gjh4td]  # 瓦凡博—菲安特拉—安博哈拉—拉诺梅纳—塔马塔
+  - id: rte_t0yq4g
+    network: intercity_rail
+    conventional: true
+    status: generated
+    names:
+      zh: 兄弟铁路
+      en: Fraternity Railway
+      art-x-ranova: Lalamby Firahalahiana
+    notes:
+      zh: "兄弟铁路是阿瓦拉齐人民民主共和国与马索沃利社会主义人民共和国之间唯一的铁路，自阿瓦拉齐的首都沃希马希出发，沿东海岸南下，经第二港口安科里卡，过两国边境的友谊口岸，到马索沃利的首都安德里安巴，全长三百多公里，进入安德里安巴前穿过长约 12 公里的安德里安巴隧道。线路为双线电气化铁路，列车为信风 160 型，运营时速 160 公里，全程约两个小时。货运是它的主业：阿瓦拉齐的拖拉机、钢材和成品油运往马索沃利，马索沃利的大米和石墨运往北方的港口，安科里卡沿海经济区的服装和罐头也搭它运到沃希马希装船。客车也很密集，高峰时段每二十分钟一班，每年运送约一千六百万人次，多是往返两国的工人、干部和商贩；乘客须持有两国签发的通行证，外国人非经许可不得乘坐到安德里安巴。\n列车在友谊口岸站要停半个小时，两国的边防军人在站台上互相敬礼，车厢里的广播依次播放两国的国歌。车站和车厢里挂满两国领袖握手的画像和「兄弟情谊万古长青」的标语，常坐这趟车的铁路工程师说，每次画像换新，就知道两国又签了一份新的友好条约。"
+      en: "The Fraternity Railway is the only railway between the People's Democratic Republic of Avaratsy and the Masovoly Socialist People's Republic. From Vohimahy, the capital of Avaratsy, it runs south along the east coast through Ankorika, the second port, crosses the border at the Friendship Crossing and ends at Andriamba, the capital of Masovoly, a little over 300 km in all, entering Andriamba through the Andriamba Tunnel, about 12 km long. It is a double-track electrified line on which Tradewind 160 trains run at 160 km/h, taking about two hours. Freight is its main business: tractors, steel and fuel from Avaratsy go south, rice and graphite from Masovoly go north to the ports, and clothing and tinned goods from the Ankorika Coastal Economic Zone ride it to Vohimahy for shipping. Passenger trains are frequent too, every twenty minutes at peak times, carrying some 16 million passengers a year, mostly workers, cadres and traders travelling between the two countries; passengers need passes issued by both governments, and foreigners may not ride as far as Andriamba without permission.\nTrains stop for half an hour at Friendship Crossing station, where the border guards of the two countries salute each other on the platform while the carriage speakers play both national anthems in turn. Stations and carriages are hung with portraits of the two leaders shaking hands and banners reading \"Eternal fraternal friendship\"; railway engineers who ride it often say that whenever the portraits are renewed, they know another treaty of friendship has been signed."
+    background:
+      zh: 联合共和国时期，东海岸有一条连接北方港口和东部各港的窄轨铁路，大分裂后多处被战火和洪水冲毁，长期只能分段通车。阿瓦拉齐和马索沃利结成兄弟同盟后，按照两国的友好条约决定共同修复它，并改建为标准轨距的双线电气化铁路；工程由中国企业承建，两国的工程兵和工农赤卫队也投入了大量劳力。新线自沃希马希经安科里卡到安德里安巴，在两国边境上设立友谊口岸站，由两国合组的联合管理局统一调度和运营。开通后，它成为两国物资往来的主要通道，安科里卡沿海经济区也建在了铁路边。
+      en: Under the United Republic a narrow-gauge line linked the northern port with the harbours of the east coast; after the Sundering it was cut in many places by fighting and floods and for years ran only in pieces. Once Avaratsy and Masovoly had sealed their fraternal alliance, they agreed under their treaty of friendship to restore it together as a standard-gauge, double-track electrified railway; Chinese firms built it, with a great deal of labour from both countries' army engineers and Workers' and Peasants' Red Guards. The new line runs from Vohimahy through Ankorika to Andriamba, with Friendship Crossing station on the border, and a joint administration set up by the two states runs and dispatches it. It has become the main route for goods between the two countries, and the Ankorika Coastal Economic Zone was built beside it.
+    operator: { zh: 兄弟铁路联合管理局, en: Fraternity Railway Joint Administration }
+    color: '#C8102E'
+    tech: { operating_speed_kmh: 160, design_speed_kmh: 200 }
+    via: [div_89czvj, div_1zgqyc, div_gt2h78]  # 沃希马希—安科里卡—安德里安巴（马索沃利）
+  - id: rte_pwbv0h
+    network: intercity_rail
+    conventional: true
+    status: generated
+    names:
+      zh: 齐伊铁路
+      en: Tsimarovo–Ilahy Railway
+      art-x-ranova: Lalamby Tsimarovo–Ilahy
+    notes:
+      zh: "齐伊铁路是齐马罗沃民族社会主义国唯一的客货铁路，自首都齐马罗沃出发，经伊瓦卡山脚下的矿城福罗纳，沿伊拉希河谷东下到河口的伊拉希港，全长约三百五十公里。线路为双线电气化铁路，列车为信风 160 型，运营时速 160 公里，全程两个多小时。线路以长约 63 公里的伊拉希河特大桥顺着河谷而下，福罗纳隧道长约 12.5 公里。铁路按军用标准修建，站台加长到能停靠整列坦克平板车，沿线的桥梁和隧道口都有民族卫队的岗哨。货运是它的主业：福罗纳的钢材和兵工厂的产品运往伊拉希港，进口的燃料运回内地；福伊重载铁路在伊拉希河谷与它并行，矿石列车走自己的线路。客车高峰时段每半小时一班，每年运送约六百三十万人次，一等车厢的车票只卖给持一等「血统证书」的公民。\n每年建国阅兵前，装甲部队的军列沿这条铁路从伊拉希开进首都，沿线的学校会组织学生到铁路边挥旗。伊拉希河谷的居民说，听火车的声音就能分辨车上装的是什么：钢材车最响，军列最慢，客车最安静。"
+      en: "The Tsimarovo–Ilahy Railway is the only passenger railway of the National Socialist State of Tsimarovo. From the capital, Tsimarovo, it runs through Forona, the mining city at the foot of the Ivaka Mountains, and down the Ilahy valley to the port of Ilahy at the river's mouth, about 350 km. It is a double-track electrified line on which Tradewind 160 trains run at 160 km/h, taking a little over two hours. It follows the valley down on the Ilahy River Bridge, about 63 km long, and the Forona Tunnel is about 12.5 km. It was built to military standards, with platforms long enough for a whole train of tank flatcars, and National Guard posts at its bridges and tunnel mouths. Freight is its main business: steel and the products of the arms works go from Forona to the port of Ilahy and imported fuel comes back inland, while the Forona–Ilahy Heavy-Haul Railway runs beside it down the Ilahy valley on its own track. Passenger trains run every half hour at peak times, some 6.3 million passengers a year, and first-class tickets are sold only to citizens holding a first-class \"certificate of lineage\".\nBefore each year's founding-day parade the armoured units' trains come up this line from Ilahy into the capital, and the schools along it send their pupils to wave flags by the track. People in the Ilahy valley say they can tell a train's load by its sound: the steel trains are loudest, the military trains slowest and the passenger trains quietest."
+    background:
+      zh: 联合共和国时期，南方有一条从伊拉希港沿河谷通往内地的铁路，为福罗纳的铁矿和南方各省的农产品出海而修建。齐马罗沃立国后，把它收归国家铁路，按军用标准改建为双线电气化铁路，并延伸到首都齐马罗沃；南方战争期间，它和南方公路一起成为军队调兵和运送补给的主要通道。国际调查机构指出，改建工程大量使用了拘押营的强迫劳动。武器禁运使机车和信号设备的零件难以进口，国家铁路只能自己仿制或通过走私获得，线路由工程兵部队负责维护。
+      en: Under the United Republic a railway ran from the port of Ilahy up the valley inland, built to carry Forona's iron ore and the southern provinces' farm produce to the sea. After Tsimarovo was founded the state railways took it over, rebuilt it to military standards as a double-track electrified line and extended it to the capital, Tsimarovo; in the Southern War it was, with the Southern Road, the army's main route for moving troops and supplies. International investigators have reported that the rebuilding relied heavily on forced labour from the detention camps. The arms embargo makes spare parts for locomotives and signalling hard to import, so the state railways copy them or obtain them through smuggling, and army engineers maintain the line.
+    operator: { zh: 齐马罗沃国家铁路, en: Tsimarovo State Railways }
+    color: '#4A5568'
+    tech: { operating_speed_kmh: 160, design_speed_kmh: 200 }
+    via: [div_j0txx6, div_2xgnjq, div_s0cxrv]  # 齐马罗沃—福罗纳—伊拉希
+  - id: rte_46azyy
+    network: intercity_rail
+    conventional: true
+    status: generated
+    names:
+      zh: 萨卡铁路
+      en: Sahil–Kasiri Railway
+      art-x-kasiri: Reli ya Sahil–Kasiri
+    notes:
+      zh: "萨卡铁路是萨希利亚伊斯兰共和国唯一的铁路，自首都萨希勒出发，沿海岸平原南下到港口班达里，再折向东北，穿过丁香和腰果园覆盖的丘陵，以长约 59 公里的贝马希石林台地隧道穿过石林台地，到东部内陆的卡西里，全长约三百四十公里。线路为双线电气化铁路，列车为信风 160 型，运营时速 160 公里，全程两个多小时。高峰时段每半小时一班，每年运送约七百万人次，客流以首都与班达里之间的通勤和探亲旅客为主，去卡西里经学院求学的学生和学者也常坐这趟车；货运则把内地的丁香和腰果运到港口，把海盐和进口货物运往内地。列车设有女士车厢和家庭车厢，乘客也可以自由选择普通车厢，每节车厢的门口都标出礼拜的朝向。\n斋月里，傍晚开出的列车会在日落时停靠最近的车站，站台上摆好椰枣和清水，乘客们下车一起开斋，再上车继续赶路。班达里难民营的孩子们常跑到铁路边向列车挥手，列车员也常把糖果从车窗递给他们。"
+      en: "The Sahil–Kasiri Railway is the only railway of the Islamic Republic of Sahiliya. From the capital, Sahil, it runs south across the coastal plain to the port of Bandari, then turns north-east through hills covered in clove and cashew groves and under the Bemahy Stone Forest Plateau in a tunnel about 59 km long to Kasiri in the eastern interior, about 340 km in all. It is a double-track electrified line on which Tradewind 160 trains run at 160 km/h, taking a little over two hours. With a train every half hour at peak times it carries some 7 million passengers a year, mostly commuters and family visitors between the capital and Bandari, together with students and scholars bound for the seminary at Kasiri; its freight brings cloves and cashews from the interior to the port and takes sea salt and imports inland. Trains have a women's carriage and family carriages, though passengers are free to ride the ordinary coaches, and every carriage door is marked with the direction of prayer.\nIn Ramadan the evening trains stop at the nearest station at sunset, where dates and water are laid out on the platform; passengers get off to break the fast together and then board again. Children from the Bandari refugee camp often run to the line to wave at the trains, and the guards often hand sweets to them through the windows."
+    background:
+      zh: 联合共和国时期，西海岸的卡西里商会集资修建了一条从萨希勒港沿海岸通往班达里的铁路，运送丁香、腰果和海盐出海，另有一条支线向北通往扎纳拉的盐田。大分裂后，铁路年久失修，扎纳拉支线在西岸战争中屡遭袭击，最终被炸毁，至今没有修复。共和国用港口的收入和外国贷款把萨希勒到班达里的路段重修为双线电气化铁路，又从班达里修了一段新线到卡西里，让东部内陆第一次有了通往首都和港口的铁路。线路远离北部的贾巴利亚边境，沿线车站由铁路警察守卫。
+      en: Under the United Republic the Kasiri merchants' chambers of the west coast paid for a railway from the port of Sahil along the coast to Bandari to carry cloves, cashews and sea salt to the ships, with a branch north to the salt pans of Zanara. After the Sundering the line fell into disrepair, and the Zanara branch was attacked again and again in the West Coast War until it was blown up; it has never been restored. The republic used its port revenues and foreign loans to rebuild the Sahil–Bandari section as a double-track electrified line and laid a new line from Bandari to Kasiri, giving the eastern interior its first railway to the capital and the ports. The line keeps well away from the Jabaliya border in the north, and railway police guard its stations.
+    operator: { zh: 萨希利亚铁路公司, en: Sahiliya Railways }
+    color: '#2F855A'
+    tech: { operating_speed_kmh: 160, design_speed_kmh: 200 }
+    via: [div_f9gjbe, div_2btpwg, div_6jwhzg]  # 萨希勒—班达里—卡西里
+
+  # ── 高速铁路 ──
+  - id: rte_qbvh15
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 贝安高速铁路
+      en: Belova–Ambota High-Speed Railway
+      art-x-ranova: Lalamby Haingana Belova–Ambota
+    notes:
+      zh: "贝安高速铁路连接贝洛瓦共和国的首都贝洛瓦和内陆的出口加工区安博塔，全长约一百一十五公里，在首都一侧以长约 14 公里的贝洛瓦隧道穿过海湾边的丘陵。列车为北辰 400 型，运营时速 400 公里，两城之间直达约二十分钟，高峰时段每半小时一班，每年运送约一百九十万人次。贝洛瓦站设在海湾边的金融区，与港口和软件园相连；安博塔站紧挨着出口加工区的服装厂和电子装配厂。客流以每天往返两城的上班族为主：住在首都的经理和工程师早上去安博塔的工厂，住在安博塔的工人和职员则去首都的港口和写字楼上班。\n早高峰的列车上挤满拿着咖啡和笔记本电脑的人，贝洛瓦人说，在这趟车上二十分钟就能谈成一笔生意。每年十二月的海湾节，开往安博塔的末班车推迟到夜里的烟花放完以后，满车都是拖家带口赶回家的工人。"
+      en: "The Belova–Ambota High-Speed Railway links Belova, the capital of the Republic of Belova, with the inland export-processing zone of Ambota, about 115 km, passing through the hills by the bay on the capital's side in the Belova Tunnel, about 14 km long. Its Polaris 400 trains run at 400 km/h and take about twenty minutes non-stop, every half hour at peak times, carrying some 1.9 million passengers a year. Belova station stands in the financial district on the bay, connected with the port and the software park; Ambota station is right beside the zone's clothing and electronics plants. Most of its passengers commute between the two cities every day: managers and engineers living in the capital go out to the Ambota factories in the morning, while workers and clerks living in Ambota go in to the port and offices of the capital.\nThe morning trains are packed with people holding coffee and laptops, and Belovans say a deal can be closed in the twenty minutes on board. During the Belova Bay Festival every December the last train to Ambota waits until the night's fireworks are over, and fills with workers taking their families home."
+    background:
+      zh: 贝洛瓦是全岛最大的金融中心，安博塔是它内陆的出口加工区，两城之间的香草公路上下班时段经常堵成长龙，运送香草的武装车队和沿途的检查站更让路况雪上加霜。共和国政府以特许经营的方式公开招标，由本国银行和外国企业组成的财团出资修建了这条高速铁路，线路大部分铺设在甘蔗和棉花种植园间的路基上，两侧围着铁丝网，便于守卫；靠近首都时钻进贝洛瓦隧道。开通后，安博塔的工厂可以从首都招到工程师和管理人员，首都港外难民营的许多工人也乘它去安博塔上班。它是贝洛瓦向投资者展示开放与繁荣的招牌工程。
+      en: Belova is the island's largest financial centre and Ambota its inland export-processing zone, and the Vanilla Road between them jams solid at rush hour, made worse by the armed vanilla convoys and the checkpoints along the way. The republic's government put the line out to open tender as a concession, and a consortium of Belovan banks and foreign firms paid for it; most of it runs on fenced embankment between the sugar cane and cotton plantations, which makes it easier to guard, and it enters the capital through the Belova Tunnel. Since it opened the Ambota factories have been able to hire engineers and managers from the capital, and many workers from the refugee camp outside the capital's port ride it to jobs in Ambota. It is the showpiece with which Belova presents its openness and prosperity to investors.
+    operator: { zh: 贝洛瓦高速铁路公司, en: Belova High-Speed Rail Company }
+    color: '#0EA5E9'
+    tech: { operating_speed_kmh: 400, design_speed_kmh: 450 }
+    via: [div_xfvevz, div_ah0qbp]  # 贝洛瓦—安博塔
+  - id: rte_tvcg1d
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 米贝高速铁路
+      en: Miraka–Belano High-Speed Railway
+      art-x-ranova: Lalamby Haingana Miraka–Belano
+    notes:
+      zh: "米贝高速铁路是米拉卡王国唯一的铁路，自首都米拉卡出发，横穿主岛平缓的菠萝和椰子种植园，到西部的农业城镇贝拉诺，全长约一百三十公里。列车为北辰 400 型，运营时速 400 公里，两城之间直达二十多分钟，高峰时段每半小时一班，每年运送约五十八万人次。米拉卡站是一座红砖钟楼式的车站，离王宫和港口广场只有几步路；贝拉诺站则是一座英式乡村风格的小站，站前就是种植园。客流以首都与贝拉诺之间的通勤旅客和游客为主，周末有不少游客乘它去贝拉诺的乡村小镇和种植园。\n每年国王生日，开往首都的列车挂上王室旗帜，车上挤满去看游行和海上阅舰的家庭。餐车供应下午茶，司康饼配菠萝果酱是米拉卡人最得意的搭配，乘客们常开玩笑说，茶还没凉，车就到站了。"
+      en: "The Miraka–Belano High-Speed Railway is the only railway in the Kingdom of Miraka. From the capital, Miraka, it crosses the gentle pineapple and coconut plantations of the main island to Belano, the farming town in the west, about 130 km. Its Polaris 400 trains run at 400 km/h and take a little over twenty minutes non-stop, every half hour at peak times, carrying some 580,000 passengers a year. Miraka station, a red-brick building with a clock tower, is a few steps from the royal palace and the harbour square, while Belano station is a small halt in the English country style with the plantations right outside. Its passengers are mostly commuters between the capital and Belano and visitors, many of whom ride it at weekends to the country towns and plantations around Belano.\nOn the King's birthday every year the trains to the capital fly the royal standard and fill with families going to watch the parade and the naval review. The buffet car serves afternoon tea, and scones with pineapple jam are Miraka's proudest pairing; passengers like to joke that the train arrives before the tea has cooled."
+    background:
+      zh: 米拉卡主岛地势平缓，首都在主岛东部的港湾边，西部的贝拉诺是种植园和乡村小镇，过去两地之间只有一条乡间公路。王国靠旅游、渔业和离岸服务过上了富裕的日子，议会决定修建一条高速铁路，把首都和西部连成一个通勤圈，也让游客从首都的港口直达西部的乡村。工程由议会全额拨款，招标过程向全社会公开，王室则捐出一片王室农场作为贝拉诺站的站址。线路大部分铺设在种植园之间的低矮路基上，跨河处以简洁的桥梁通过，沿线的英式乡村景观得到了保留。
+      en: The main island of Miraka is gently rolling, with the capital on a harbour in its east and Belano, a district of plantations and country towns, in the west; the only link between them used to be a country road. The kingdom has grown prosperous on tourism, fishing and offshore services, and parliament decided to build a high-speed line to bring the capital and the west into one commuting belt and to take visitors straight from the capital's harbour to the western countryside. Parliament paid for it in full and the tendering was open to public view, while the Crown gave a royal farm as the site of Belano station. Most of the line lies on low embankment between the plantations, with plain bridges over the rivers, and the English-style countryside along it has been kept.
+    operator: { zh: 米拉卡王家铁路, en: Royal Miraka Railways }
+    color: '#6E3FA3'
+    tech: { operating_speed_kmh: 400, design_speed_kmh: 450 }
+    via: [div_b3521p, div_v3fqk0]  # 米拉卡—贝拉诺
+  - id: rte_3y5bpa
+    network: intercity_rail
+    status: generated
+    names:
+      zh: 萨安高速铁路
+      en: Samay–Antiva High-Speed Railway
+      art-x-ranova: Lalamby Haingana Samay–Antiva
+    notes:
+      zh: "萨安高速铁路连接萨马伊自由邦的首都萨马伊和主岛东部的安提瓦，绕过主岛中部萨马伊火山的山麓，全长约一百四十公里，是自由邦唯一的铁路。列车为北辰 400 型，运营时速 400 公里，两城之间直达不到半小时，高峰时段每半小时一班，每年运送约一百万人次。线路在火山山麓穿过可可、香草和咖啡种植园，以桥梁和隧道跨过火山上流下的沟谷，桥隧占了全线七成：安提瓦特大桥长约 44 公里，努西法拉隧道长约 35 公里。客流以通勤和求学的旅客为主，萨马伊大学的学生和各国学者常乘它去安提瓦的种植园和海滩，安提瓦的种植园主和农业合作社的职员也常乘它进城。\n三环节那天，列车广播依次用三种宗教的问候语祝福乘客，车厢里同时坐着去首都参加联合游行的基督徒、穆斯林和佛教徒。安提瓦站的站台上有一家香草冰淇淋店，乘客们常说，没吃过它就不算到过安提瓦。"
+      en: "The Samay–Antiva High-Speed Railway links Samay, the capital of the Free State of Samay, with Antiva in the east of the main island, skirting the foot of Samay Volcano in the middle of the island; it is about 140 km long and the Free State's only railway. Its Polaris 400 trains run at 400 km/h and take less than half an hour non-stop, every half hour at peak times, carrying about a million passengers a year. Round the foot of the volcano it crosses cocoa, vanilla and coffee plantations, bridging and tunnelling across the ravines that run down from the mountain, with bridges and tunnels making up seven tenths of the line: the Antiva Viaduct is about 44 km long and the Nosifara Tunnel about 35 km. Most of its passengers are commuters and students: students of the University of Samay and visiting scholars ride it out to the plantations and beaches around Antiva, and Antiva's planters and co-operative staff ride it into town.\nOn the day of the Festival of the Three Rings the train announcements greet passengers in the words of all three faiths in turn, and Christians, Muslims and Buddhists ride side by side to the joint procession in the capital. On the platform at Antiva station is a vanilla ice-cream shop, and passengers say you have not been to Antiva until you have tried it."
+    background:
+      zh: 萨马伊主岛中部是萨马伊火山，首都在主岛西部，东部的安提瓦是可可和香草的产区，两地之间的公路要绕着火山山麓走，雨季时常被泥石流冲断。自由邦以教育、旅游和热带农业为生，人均收入在本岛各国中名列前茅，政府决定修建一条高速铁路，让东部的农业区和首都连成一体。为避开火山的危险区，线路沿山麓地势较缓的一侧修建，跨越泥石流沟谷时采用大跨度桥梁，桥下留出泥石流的通道；沿线还设有火山监测站，一旦火山活动加剧，列车会自动停运。工程得到贝洛瓦和马哈维洛银行的贷款，由萨马伊铁路公司建设和运营。
+      en: Samay Volcano stands in the middle of the main island of Samay, with the capital in the west and Antiva, a cocoa and vanilla district, in the east; the road between them has to go round the foot of the volcano and is often cut by mudflows in the rains. The Free State lives on education, tourism and tropical farming and is among the better-off states of the island, and its government decided to build a high-speed line to bind the eastern farmland to the capital. To keep clear of the volcano's danger zone the line follows the gentler side of its lower slopes, crossing the mudflow ravines on long spans with room for the flows to pass beneath, and volcano monitoring stations along the way stop the trains automatically if the mountain stirs. Banks in Belova and Mahavelo lent money for the work, and Samay Railways built and runs the line.
+    operator: { zh: 萨马伊铁路公司, en: Samay Railways }
+    color: '#2563EB'
+    tech: { operating_speed_kmh: 400, design_speed_kmh: 450 }
+    via: [div_56wn6n, div_fczac1]  # 萨马伊—安提瓦
+
+  # ── 重载铁路 ──
+  - id: rte_3y9187
+    network: freight_rail
+    conventional: true
+    status: generated
+    names:
+      zh: 马沃重载铁路
+      en: Marovato–Vohimahy Heavy-Haul Railway
+      art-x-ranova: Lalamby Entana Mavesatra Marovato–Vohimahy
+    notes:
+      zh: "马沃重载铁路自马罗瓦托铬镍矿出发，向东北穿过内陆的丘陵和河谷，到首都沃希马希港区的矿石码头，全长约三百一十公里，是阿瓦拉齐的出口生命线。线路为双线电气化重载铁路，只跑货车，满载列车运营时速 100 公里，全程三个多小时。列车为红星重载列车，每列六十节货车、净载约四千二百吨，每天开出四列满载列车，把铬矿石、铬铁和镍锍运到港口装船，回程运回焦炭、燃料和矿山设备，一年运量约六百万吨。线路坡度平缓，最大坡度不到 11‰，最长的马罗瓦托隧道长约 8.5 公里，沿线的车站、桥梁和隧道口由人民军守卫。\n矿工们管满载的列车叫「红色长龙」，每列车的车头都挂着一面红旗。每逢季度计划提前完成，矿区的广播会播报当天开出的列车数，工人新村的孩子们站在路边数车皮，数对了的能领到一块糖。"
+      en: "The Marovato–Vohimahy Heavy-Haul Railway runs from the Marovato Chromium and Nickel Mine north-east through the hills and valleys of the interior to the ore quay in the port of Vohimahy, the capital, about 310 km; it is Avaratsy's export lifeline. It is a double-track electrified heavy-haul line carrying freight only, its loaded trains running at 100 km/h and taking a little over three hours. Its Red Star heavy-haul trains of sixty wagons carry some 4,200 tonnes each, and four loaded trains a day take chromite, ferrochrome and nickel matte to the ships, bringing back coke, fuel and mining equipment; it moves about six million tonnes a year. The grades are gentle, under 11‰, the longest tunnel is the Marovato Tunnel, about 8.5 km, and the People's Army guards its stations, bridges and tunnel mouths.\nThe miners call the loaded trains \"red dragons\", and every locomotive carries a red flag. Whenever the quarterly plan is fulfilled early, the mine's loudspeakers announce the number of trains sent out that day, and the children of the workers' estate stand by the track counting wagons; those who get it right are given a sweet."
+    background:
+      zh: 联合共和国时期，中央铁路的北段从首都安博哈拉经菲安特拉和马罗瓦托通往北方的港口沃希马希，马罗瓦托的矿石就沿着它运到港口出海。高原战争后，中央铁路在停火线上被截断，阿瓦拉齐境内只剩下马罗瓦托到沃希马希的一段，单线窄轨、年久失修，运力远远跟不上矿山。近年人民民主共和国借助中国企业的贷款和施工队，把这一段改建为双线电气化的标准轨重载铁路，从矿山专用线直通首都港区新建的矿石码头。改建后，矿石不再需要卡车转运，矿山的出口量翻了一番，沿线新建的变电站也让附近的集体农庄第一次用上了稳定的电。
+      en: Under the United Republic the northern section of the Central Railway ran from the capital, Ambohara, through Fiantra and Marovato to the northern port of Vohimahy, and Marovato's ore went down it to the ships. After the Highland War the Central Railway was cut at the ceasefire line, leaving Avaratsy only the stretch from Marovato to Vohimahy, single-track, narrow-gauge and run down, far too small for the mine. In recent years the People's Democratic Republic, with Chinese loans and construction crews, rebuilt it as a double-track, electrified, standard-gauge heavy-haul line running straight from the mine sidings to a new ore quay in the capital's port. Since then the ore no longer has to be trucked, the mine's exports have doubled, and the substations built along the line have given the nearby collective farms their first steady power supply.
+    operator: { zh: 阿瓦拉齐人民铁路, en: Avaratsy People's Railways }
+    color: '#9A6B3F'
+    tech:
+      operating_speed_kmh: 100
+      design_speed_kmh: 120
+      train: { names: { zh: 红星重载列车, en: Red Star heavy-haul train }, wagons: 60, net_t: 4200 }
+      loaded_trains_per_day: 4
+    via: [poi_bg3kg7, div_89czvj]  # 马罗瓦托铬镍矿—沃希马希
+  - id: rte_7xfjh2
+    network: freight_rail
+    conventional: true
+    status: generated
+    names:
+      zh: 福伊重载铁路
+      en: Forona–Ilahy Heavy-Haul Railway
+      art-x-ranova: Lalamby Entana Mavesatra Forona–Ilahy
+    notes:
+      zh: "福伊重载铁路自伊瓦卡山脚下的福罗纳铁矿出发，沿伊拉希河谷东下到伊拉希港的矿石码头，全长约二百四十公里，全程是自己的线路，在河谷里与齐伊铁路并行。线路有约 86 公里桥梁和 85 公里隧道：安德里纳高原隧道长约 74 公里，是世界最长的山岭隧道；伊拉希特大桥长约 68 公里，顺着河谷而下。满载列车运营时速 100 公里，全程两个多小时；列车为铁锤重载列车，每列八十节货车、净载约六千吨，每天开出四列满载列车，运出铝土矿、福罗纳钢铁联合企业用不完的铁矿石和钢坯，一年运量约九百万吨，回程运回进口的焦煤。线路沿河谷下行，重车下坡、空车上坡，最大坡度 12‰。\n矿区的工人说，听到专用线上三声长笛，就知道又一列满载的列车出发了。沿线道口的看守员大多是退伍军人，每过一列重车，就在本子上记一笔。"
+      en: "The Forona–Ilahy Heavy-Haul Railway runs from the Forona Iron Mine at the foot of the Ivaka Mountains down the Ilahy valley to the ore quay in the port of Ilahy, about 240 km, on its own line all the way, running beside the Tsimarovo–Ilahy Railway down the valley. It has about 86 km of bridges and 85 km of tunnels: the Andrina Highlands Tunnel, about 74 km long, is the longest mountain tunnel in the world, and the Ilahy Viaduct, about 68 km, carries it down the valley. Its loaded trains run at 100 km/h and take a little over two hours; its Hammer heavy-haul trains of eighty wagons carry some 6,000 tonnes each, and four loaded trains a day take out bauxite, the iron ore and steel billets the Forona Iron and Steel Combine cannot use, about nine million tonnes a year, bringing back imported coking coal. The line runs down the valley, so the loaded trains go downhill and the empties climb, at grades of no more than 12‰.\nMine workers say three long whistles on the sidings mean another loaded train has left. Most of the crossing keepers along the line are army veterans, who make a mark in their notebooks for every loaded train that passes."
+    background:
+      zh: 福罗纳的铁矿和铝土矿是齐马罗沃重工业的基础，除了供应旁边的炼钢厂，多余的矿石和钢材过去只能沿齐伊铁路的普通货车和南方公路的卡车运到伊拉希港，运力常年不足。国家铁路从福罗纳铁矿另修了一条全程独立的重载线路，以长隧道穿过安德里纳高原的边缘，以长桥顺伊拉希河谷而下，在齐伊铁路旁边一路通到伊拉希港的矿石码头，让八十节的长列车能从矿山直达码头，矿石在码头直接装船。工程由工程兵部队和国营建筑公司修建；武器禁运使进口机车难以到手，重载机车是用旧机车改装的，运力的提升主要靠加长列车。
+      en: The iron ore and bauxite of Forona are the base of Tsimarovo's heavy industry. Beyond what the steelworks next door take, the surplus ore and steel used to reach the port of Ilahy only in ordinary goods trains on the Tsimarovo–Ilahy Railway or in lorries on the Southern Road, never with enough capacity. The state railways built a heavy-haul line of its own the whole way from the Forona Iron Mine, through the edge of the Andrina Highlands in a long tunnel and down the Ilahy valley on long viaduct beside the Tsimarovo–Ilahy Railway to an ore quay at Ilahy, so that eighty-wagon trains can run straight from the mine to the quay and the ore goes directly onto ships. Army engineers and state builders did the work; with the arms embargo making imported locomotives hard to come by, the heavy-haul engines are rebuilt from old ones, and the extra capacity comes mostly from longer trains.
+    operator: { zh: 齐马罗沃国家铁路, en: Tsimarovo State Railways }
+    color: '#7A5C3E'
+    tech:
+      operating_speed_kmh: 100
+      design_speed_kmh: 120
+      train: { names: { zh: 铁锤重载列车, en: Hammer heavy-haul train }, wagons: 80, net_t: 6000 }
+      loaded_trains_per_day: 4
+    via: [poi_gjjw4m, div_s0cxrv]  # 福罗纳铁矿—伊拉希

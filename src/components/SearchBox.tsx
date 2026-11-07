@@ -16,8 +16,9 @@ import { EntityIcon } from "./EntityIcon";
 
 const ROAD_GROUPS = ["nationalExpressway", "territorialExpressway", "territorialHighway"] as const;
 type RoadGroup = (typeof ROAD_GROUPS)[number];
-type ExploreGroup = "nations" | "cities" | "wonders" | "parties" | RoadGroup | "railways";
-const EXPLORE_GROUPS: ExploreGroup[] = ["nations", "cities", "wonders", "parties", ...ROAD_GROUPS, "railways"];
+type RailGroup = "rail" | "maglevs";
+type ExploreGroup = "nations" | "cities" | "wonders" | "parties" | RoadGroup | RailGroup;
+const EXPLORE_GROUPS: ExploreGroup[] = ["nations", "cities", "wonders", "parties", ...ROAD_GROUPS, "rail", "maglevs"];
 const EXPLORE_TITLES: Record<ExploreGroup, StringKey> = {
   nations: "exploreNations",
   cities: "exploreCities",
@@ -26,7 +27,8 @@ const EXPLORE_TITLES: Record<ExploreGroup, StringKey> = {
   nationalExpressway: "nationalExpressway",
   territorialExpressway: "territorialExpressway",
   territorialHighway: "territorialHighway",
-  railways: "railways",
+  rail: "exploreRail",
+  maglevs: "exploreMaglev",
 };
 const byRef = (a: Entity, b: Entity) => (a.ref ?? "").localeCompare(b.ref ?? "", "en", { numeric: true });
 const KIND_ORDER = ["natural", "place", "route"];
@@ -105,17 +107,21 @@ export function SearchBox() {
       .map((id) => data.entities[id])
       .filter((e) => e && inScope(e));
   }, [data, territories, island, inScope]);
-  const nationList = useMemo(() => nations.filter(inScope), [nations, inScope]);
+  /** Countries, each followed by its territories (China's territories, California). */
+  const nationList = useMemo(() => scopes.map((x) => x.e).filter(inScope), [scopes, inScope]);
   const routes = useMemo(() => {
-    const out: Record<RoadGroup | "railways", Entity[]> = { nationalExpressway: [], territorialExpressway: [], territorialHighway: [], railways: [] };
+    const out: Record<RoadGroup | RailGroup, Entity[]> = { nationalExpressway: [], territorialExpressway: [], territorialHighway: [], rail: [], maglevs: [] };
     if (!data) return out;
     for (const e of Object.values(data.entities)) {
       if (e.kind !== "route" || !e.bbox || !inScope(e)) continue;
-      const g = e.network === "intercity_rail" ? "railways" : ROAD_GROUPS.find((k) => (ROAD_NETWORKS[k] as readonly string[]).includes(e.network ?? ""));
+      // railways split by technology: wheeled lines (conventional and high-speed), and maglevs (open-air and
+      // vacuum, the vacuum heavy-haul lines too; the wheeled heavy-haul lines are railways)
+      const rail = e.network === "intercity_rail" || e.network === "freight_rail";
+      const g = rail ? (e.maglev || (e.network === "freight_rail" && !e.conventional) ? "maglevs" : "rail") : ROAD_GROUPS.find((k) => (ROAD_NETWORKS[k] as readonly string[]).includes(e.network ?? ""));
       if (g) out[g].push(e);
     }
     for (const g of ROAD_GROUPS) out[g].sort(byRef);
-    out.railways.sort((a, b) => (b.stats?.length_km ?? 0) - (a.stats?.length_km ?? 0));
+    for (const g of ["rail", "maglevs"] as const) out[g].sort((a, b) => (b.stats?.length_km ?? 0) - (a.stats?.length_km ?? 0));
     return out;
   }, [data, inScope]);
   /** Wonders by territory (those between two territories last), then landforms, places and lines. */
@@ -159,7 +165,8 @@ export function SearchBox() {
     nationalExpressway: false,
     territorialExpressway: false,
     territorialHighway: false,
-    railways: false,
+    rail: false,
+    maglevs: false,
   });
   const selected = selectedId && data ? data.entities[selectedId] : undefined;
 
@@ -419,7 +426,7 @@ export function SearchBox() {
                                 <span className="grid size-7 shrink-0 place-items-center rounded-lg bg-violet-500/15 text-violet-500">
                                   <EntityIcon entity={e} className="size-3.5" />
                                 </span>
-                              ) : g === "railways" ? (
+                              ) : g === "rail" || g === "maglevs" ? (
                                 <span className="flex w-9 shrink-0 justify-center">
                                   <span className="h-1.5 w-6 rounded-full" style={{ background: accent }} />
                                 </span>

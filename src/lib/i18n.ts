@@ -4,7 +4,9 @@ const STRINGS = {
   searchPlaceholder: { zh: "搜索地点、道路、车站、山川", en: "Search places, roads, stations, landforms" },
   noResults: { zh: "没有找到匹配的结果", en: "No matching results" },
   exploreCities: { zh: "城市", en: "Cities" },
-  exploreNations: { zh: "国家", en: "Countries" },
+  exploreNations: { zh: "国家和领地", en: "Countries and territories" },
+  exploreRail: { zh: "铁路", en: "Railways" },
+  exploreMaglev: { zh: "磁悬浮", en: "Maglev" },
   wonders: { zh: "奇观", en: "Wonders" },
   wonder: { zh: "奇观", en: "Wonder" },
   allTerritories: { zh: "全部", en: "All" },
@@ -65,7 +67,7 @@ const STRINGS = {
   cityRoads: { zh: "市道", en: "City roads" },
   skyways: { zh: "暖廊", en: "Skyways" },
   transit: { zh: "轨道交通", en: "Rail transit" },
-  railways: { zh: "城际铁路", en: "Intercity rail" },
+  railways: { zh: "铁路", en: "Railways" },
   metro: { zh: "地铁", en: "Metro" },
   railStation: { zh: "铁路车站", en: "Railway station" },
   metroStation: { zh: "地铁站", en: "Metro station" },
@@ -178,7 +180,10 @@ const STRINGS = {
   thirdRail: { zh: "第三轨", en: "third rail" },
   tube: { zh: "管道", en: "Tube" },
   levitation: { zh: "悬浮方式", en: "Levitation" },
-  maglevLine: { zh: "真空管道磁悬浮", en: "Vacuum-tube maglev" },
+  maglevLine: { zh: "真空磁悬浮", en: "Vacuum maglev" },
+  maglevOpenLine: { zh: "磁悬浮", en: "Maglev" },
+  conventionalLine: { zh: "铁路", en: "Railway" },
+  conventionalFreight: { zh: "重载铁路", en: "Heavy-haul railway" },
   propulsion: { zh: "牵引方式", en: "Propulsion" },
   formation: { zh: "编组", en: "Train formation" },
   signalling: { zh: "信号", en: "Signalling" },
@@ -520,13 +525,14 @@ const NETWORK_LABELS: Record<string, Record<Lang, string>> = {
   municipal_road: { zh: "城市公路", en: "City road" },
   arterial_street: { zh: "城市主干道", en: "Arterial street" },
   collector_street: { zh: "城市次干道", en: "Collector street" },
-  intercity_rail: { zh: "城际铁路", en: "Intercity railway" },
-  freight_rail: { zh: "重载铁路", en: "Heavy-haul railway" },
+  intercity_rail: { zh: "高速铁路", en: "High-speed railway" },
+  freight_rail: { zh: "真空磁悬浮重载铁路", en: "Vacuum maglev heavy-haul railway" },
   metro: { zh: "地铁线路", en: "Metro line" },
 };
 
 export function kindLabel(e: Entity, lang: Lang): string {
-  if (e.kind === "route" && e.maglev) return STRINGS.maglevLine[lang];
+  if (e.kind === "route" && e.maglev) return STRINGS[e.maglev === "open" ? "maglevOpenLine" : "maglevLine"][lang];
+  if (e.kind === "route" && e.conventional) return STRINGS[e.network === "freight_rail" ? "conventionalFreight" : "conventionalLine"][lang];
   if (e.kind === "route") return NETWORK_LABELS[e.network ?? ""]?.[lang] ?? e.class ?? "";
   if (e.subtype === "station" && e.source === "generated:metro") return STRINGS.metroStation[lang];
   if (e.subtype === "station") return STRINGS.railStation[lang];

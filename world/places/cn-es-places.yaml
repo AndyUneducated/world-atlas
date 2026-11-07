@@ -215,8 +215,8 @@ places:
       zh: 交通部
       en: Ministry of Transport
     notes:
-      zh: 长夏群岛领地政务院交通部，位于湖光大道南段东侧，负责全领地的道路、铁路、水运和航空。部内设政策司、交通从业人员司、道路运输司、公路司、铁路司、水路司和空运司。公路司管理伊米穆、塞洛、纳卢三条国家高速和各条领地高速，伊米穆高速经约 101 公里长的哈努西鲁河口跨海大桥通往基鲁迈群岛，领地的高速公路大多不限速；铁路司监管时速 800 公里的长夏磁悬浮和四条时速 400 公里的高速铁路；水路司监管瓦利凯、塔卢马兰和萨伦纳姆的港口，空运司协调萨伦纳姆国际机场和各地机场的航线。交通从业人员司负责驾驶员、船员和机组的资格考核。
-      en: The Ministry of Transport, at the south end of Lakelight Avenue on the east side, runs the territory's roads, railways, shipping and air transport. Its departments are Policy, Transport Professions, Road Transport, Highways, Railways, Waterways and Air Transport. Highways manages the Imimu, Selo and Nalu national expressways and the territorial expressways; the Imimu Expressway reaches the Kirumai Islands over the Hanusiru Estuary Sea Bridge, about 101 km long, and most of the territory's expressways have no speed limit. Railways oversees the Everlong Summer Maglev at 800 km/h and four high-speed lines at 400 km/h, Waterways the ports of Vallikkai, Talumaran and Sarunnam, and Air Transport the routes of Sarunnam International and the other airports. Transport Professions examines and licenses drivers, seafarers and aircrew.
+      zh: 长夏群岛领地政务院交通部，位于湖光大道南段东侧，负责全领地的道路、铁路、水运和航空。部内设政策司、交通从业人员司、道路运输司、公路司、铁路司、水路司和空运司。公路司管理伊米穆、塞洛、纳卢三条国家高速和各条领地高速，伊米穆高速经约 101 公里长的哈努西鲁河口跨海大桥通往基鲁迈群岛，领地的高速公路大多不限速；铁路司监管时速 800 公里的长夏、萨洛两条真空磁悬浮，时速 400 公里的瓦洛、米纳、塔纳三条高速铁路和乌诺维拉真空磁悬浮重载铁路；水路司监管瓦利凯、塔卢马兰和萨伦纳姆的港口，空运司协调萨伦纳姆国际机场和各地机场的航线。交通从业人员司负责驾驶员、船员和机组的资格考核。
+      en: The Ministry of Transport, at the south end of Lakelight Avenue on the east side, runs the territory's roads, railways, shipping and air transport. Its departments are Policy, Transport Professions, Road Transport, Highways, Railways, Waterways and Air Transport. Highways manages the Imimu, Selo and Nalu national expressways and the territorial expressways; the Imimu Expressway reaches the Kirumai Islands over the Hanusiru Estuary Sea Bridge, about 101 km long, and most of the territory's expressways have no speed limit. Railways oversees the Everlong Summer and Sarunnam–Lomiran vacuum maglevs at 800 km/h, the three high-speed lines at 400 km/h and the Unovila Vacuum Maglev Heavy-Haul Railway, Waterways the ports of Vallikkai, Talumaran and Sarunnam, and Air Transport the routes of Sarunnam International and the other airports. Transport Professions examines and licenses drivers, seafarers and aircrew.
     in: div_z0z4vz
     offset_km: [0.44, -0.81]
     site: { size_m: [150, 80], layout: slab }
@@ -275,8 +275,8 @@ places:
       zh: 政策和计划委员会
       en: Policy and Planning Commission
     notes:
-      zh: 长夏群岛领地政策和计划委员会，是政务院直属的特设委员会，位于公民广场东侧，与领地图书馆隔广场相对。委员会由总理主持，各部部长和独立专家参加，负责编制领地的中长期发展规划，协调跨部门的重大政策，并评估各项政策的实施效果。在高原上新建首府、修建长夏磁悬浮和哈努西鲁河口跨海大桥、把乌诺维拉的镍矿和塔卢马兰的电池厂连成产业链，这些大项目都是先在这里形成方案，再提交议会的；委员会每年发布领地发展报告，公开各市的人口、产出、公共服务和居民幸福感调查的结果。大楼是一座方形独栋，四面装有遮阳的格栅。
-      en: The Everlong Summer Islands Policy and Planning Commission is a special commission directly under the Executive Council, on the east side of Civic Square facing the Territorial Library across it. Chaired by the premier, with the ministers and independent experts as members, it draws up the territory's medium- and long-term development plans, coordinates major policies that cross ministries and reviews how policies are working. Building a new capital on the plateau, the Everlong Summer Maglev and the Hanusiru Estuary Sea Bridge, and linking the Unovila nickel mines to the Talumaran battery plants all took shape here before going to the assembly. Every year the commission publishes a development report with each city's population, output, public services and the results of the residents' happiness survey. The square building is screened on all four sides by sun louvres.
+      zh: 长夏群岛领地政策和计划委员会，是政务院直属的特设委员会，位于公民广场东侧，与领地图书馆隔广场相对。委员会由总理主持，各部部长和独立专家参加，负责编制领地的中长期发展规划，协调跨部门的重大政策，并评估各项政策的实施效果。在高原上新建首府、修建长夏真空磁悬浮和哈努西鲁河口跨海大桥、把乌诺维拉的镍矿和塔卢马兰的电池厂连成产业链，这些大项目都是先在这里形成方案，再提交议会的；委员会每年发布领地发展报告，公开各市的人口、产出、公共服务和居民幸福感调查的结果。大楼是一座方形独栋，四面装有遮阳的格栅。
+      en: The Everlong Summer Islands Policy and Planning Commission is a special commission directly under the Executive Council, on the east side of Civic Square facing the Territorial Library across it. Chaired by the premier, with the ministers and independent experts as members, it draws up the territory's medium- and long-term development plans, coordinates major policies that cross ministries and reviews how policies are working. Building a new capital on the plateau, the Everlong Summer Vacuum Maglev and the Hanusiru Estuary Sea Bridge, and linking the Unovila nickel mines to the Talumaran battery plants all took shape here before going to the assembly. Every year the commission publishes a development report with each city's population, output, public services and the results of the residents' happiness survey. The square building is screened on all four sides by sun louvres.
     in: div_z0z4vz
     offset_km: [0.48, -0.38]
     site: { size_m: [90, 90], layout: block }
@@ -743,7 +743,7 @@ places:
       en: Ilatan Battery Works
       art-x-ivuran: Ilatan Vilakaru
     notes:
-      zh: "伊拉坦区的电池厂，正极材料、电芯和电池包在同一厂区生产，原料是乌诺维拉重载铁路运来的镍盐和钴盐；厂房屋顶铺满太阳能板，废旧电池在旁边的回收车间拆解再生。厂区门口立着一块电子牌，滚动显示当天下线的电池包数量，工人们换班时都习惯抬头看一眼，说这是「今天给多少辆车装上了心脏」。"
+      zh: "伊拉坦区的电池厂，正极材料、电芯和电池包在同一厂区生产，原料是乌诺维拉真空磁悬浮重载铁路运来的镍盐和钴盐；厂房屋顶铺满太阳能板，废旧电池在旁边的回收车间拆解再生。厂区门口立着一块电子牌，滚动显示当天下线的电池包数量，工人们换班时都习惯抬头看一眼，说这是「今天给多少辆车装上了心脏」。"
       en: "The battery works of Ilatan District, making cathode materials, cells and packs on one site from the nickel and cobalt salts brought by the Unovila heavy-haul railway; its roofs are covered in solar panels, and spent batteries are taken apart and recycled in the workshop next door. A screen at the gate scrolls the number of battery packs finished that day, and workers glance up at it at every shift change: \"how many cars got a heart today\"."
     in: div_3e94sq
     offset_km: [-1.0, 1.0]
@@ -784,7 +784,7 @@ places:
       en: Unovila Nickel and Cobalt Mine
       art-x-ivuran: Unovila Unotam
     notes:
-      zh: "乌诺凯苏山脉中的露天红土镍矿，开采镍和钴，矿石由乌诺维拉重载铁路运往佩鲁诺冶炼厂；采完的台阶随即复绿，尾矿全部回填。矿工们会在自己种下的复绿树苗上挂一块小木牌，写上名字和班组，矿区里因此有了一片片以班组命名的「矿工林」。"
+      zh: "乌诺凯苏山脉中的露天红土镍矿，开采镍和钴，矿石由乌诺维拉真空磁悬浮重载铁路运往佩鲁诺冶炼厂；采完的台阶随即复绿，尾矿全部回填。矿工们会在自己种下的复绿树苗上挂一块小木牌，写上名字和班组，矿区里因此有了一片片以班组命名的「矿工林」。"
       en: "An open-pit laterite mine in the Unokesu Mountains producing nickel and cobalt, whose ore goes by the Unovila heavy-haul railway to the Peruno smelter; worked-out benches are replanted at once and all tailings are backfilled. Miners hang a small wooden tag with their name and crew on each sapling they plant on the restored benches, so the mine is dotted with \"miners' woods\" named after their crews."
     in: div_6z737x
     offset_km: [-4.0, -5.0]

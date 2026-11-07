@@ -91,8 +91,10 @@ export interface Entity {
   stats?: EntityStats;
   ref?: string;
   network?: string;
-  /** An intercity railway built as a maglev line. */
-  maglev?: boolean;
+  /** An intercity railway built as a maglev line: true in a vacuum tube (真空磁悬浮), open in the open air (磁悬浮). */
+  maglev?: true | "open";
+  /** A wheeled railway under 400 km/h (铁路), below the high-speed lines. */
+  conventional?: boolean;
   class?: string;
   via?: string[];
   ring?: boolean;

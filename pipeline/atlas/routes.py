@@ -128,7 +128,7 @@ def merge_crossings(world: World, entities: dict, layers: dict, graph: dict):
                                feature(tunnel, {"id": r["id"], "role": "line", "network": r["network"], "color": r.get("color"), "tunnel": True, **names})]
         else:
             layers["roads"].append(feature(tunnel, {"id": r["id"], "ref": r["ref"], "class": r["class"], "network": r["network"], "tunnel": True, **names}))
-        std = standards.get("maglev" if r.get("maglev") else r["network"], {})
+        std = standards.get(rail_standard(r), {})
         a_km = a["stats"]["length_km"]
         ent.update({k: a[k] for k in ("kind", "class", "tech") if k in a})
         ent.update({
@@ -170,20 +170,32 @@ def merge_crossings(world: World, entities: dict, layers: dict, graph: dict):
             f"and {entities[b['territory']]['names']['zh']}, {ent['stats']['length_km']:.0f} km in all")
 
 
+def rail_standard(r: dict) -> str:
+    """The engineering standard a railway is built to: the vacuum maglev (maglev: true), the open-air
+    maglev (maglev: open, M111) or its network's own."""
+    if r.get("conventional"):
+        return "conventional_freight" if r["network"] == "freight_rail" else "conventional_rail"
+    return {True: "maglev", "open": "maglev_open"}.get(r.get("maglev"), r["network"])
+
+
 def route_railways(world: World, router: Router, poles, stop_index: dict, territory: str, land: np.ndarray, place_at=None) -> list:
-    """Route each railway between its stops, [(railway, stop district indices, path)]. Later lines run on
-    the track of earlier ones wherever that is cheaper than new track; a maglev guideway shares no track
-    with wheeled lines either way, only crossing them and meeting them at shared stations. A stop may be
+    """Route each railway between its stops, [(railway, stop district indices, path)]. Every line builds
+    its own track (M112: one name to each stretch), crossing the others and meeting them at shared
+    stations; a maglev or vacuum heavy-haul guideway is also never used by a wheeled line. A stop may be
     a sited place (place_at: id -> design km), standing for its district; a maglev with a line runs
     exactly along it."""
     place_at = place_at or {}
     out = []
-    for r in sorted(world.railways.values(), key=lambda r: bool(r.get("maglev"))):
+    def own_guideway(r):
+        return bool(r.get("maglev")) or r["network"] == "freight_rail" and not r.get("conventional")
+
+    # lines drawn as given come first, so the others are routed round them rather than onto them
+    for r in sorted(world.railways.values(), key=lambda r: (not r.get("line"), own_guideway(r))):
         via = stops_here(r, territory, lambda v: v in stop_index)
         if not via:
             continue
         stops = [stop_index[v] for v in via if v != PORTAL]
-        maglev = r.get("maglev", False)
+        maglev = own_guideway(r)
         if line := r.get("line"):
             path = router.cells_along(line["points"])
             router.commit(path, "rail", discount=float("inf"), ref=r["id"])
@@ -193,8 +205,8 @@ def route_railways(world: World, router: Router, poles, stop_index: dict, territ
                  else router.cell(*(place_at[v] if v in place_at else poles[stop_index[v]])) for v in via]
         path = []
         for a, b in zip(cells[:-1], cells[1:]):
-            leg = (router.route(a, b, r.get("tunnel_cost", 2.5), ref=r["id"], shared_factor=6.0, buffer_factor=1.5) if maglev
-                   else router.route(a, b, r.get("tunnel_cost", 2.5)))
+            # every line on its own track (M112): wheeled lines no longer run on one another's either
+            leg = router.route(a, b, r.get("tunnel_cost", 2.5), ref=r["id"])
             path += leg if not path else leg[1:]
         router.commit(path, "rail", discount=float("inf") if maglev else 0.45, ref=r["id"])
         out.append((r, stops, path))

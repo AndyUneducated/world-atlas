@@ -122,7 +122,49 @@ standards:
       tracks: 2
       min_curve_radius_m: 7000
       train: { names: { zh: 北辰 400 型, en: Polaris 400 }, seats: 576 }
-  # Intercity railway with maglev: true. Double guideway inside a sealed low-vacuum tube, with the
+  # Intercity railway with conventional: true (铁路, M112): double-track electrified line on ballast, under
+  # 400 km/h, for the island states and for routes too thin for a high-speed line; much cheaper per km.
+  conventional_rail:
+    smooth_km: 4
+    max_grade: 0.02
+    tunnel_above_m: 40
+    bridge_below_m: 15
+    river_bridge_km: 0.3
+    urban: { tunnel_depth_km: 2 }
+    hill_factor: 1.6
+    cost_musd_per_km: { grade: 7, bridge: 18, tunnel: 35, snow_shed: 14 }
+    upkeep_kusd_per_km: { grade: 70, bridge: 140, tunnel: 300, snow_shed: 110 }
+    station_musd: 30
+    station_upkeep_musd: 0.8
+    tech:
+      gauge_mm: 1435
+      electrification: 25 kV 50 Hz AC
+      signalling: ETCS level 2
+      formation: { cars: 6, coupled: 12 }
+      tracks: 2
+      min_curve_radius_m: 2000
+      train: { names: { zh: 信风 160 型, en: Tradewind 160 }, seats: 420 }
+  # Heavy-haul line with conventional: true (重载铁路, M112): wheeled double-track electrified freight line for
+  # bulk ore and coal, slow and heavy; the vacuum capsule line below is the top tier.
+  conventional_freight:
+    smooth_km: 4
+    max_grade: 0.012
+    tunnel_above_m: 35
+    bridge_below_m: 12
+    river_bridge_km: 0.3
+    urban: { tunnel_depth_km: 1 }
+    hill_factor: 1.8
+    cost_musd_per_km: { grade: 6, bridge: 16, tunnel: 30, snow_shed: 12 }
+    upkeep_kusd_per_km: { grade: 60, bridge: 120, tunnel: 260, snow_shed: 100 }
+    station_musd: 25
+    station_upkeep_musd: 0.6
+    tech:
+      gauge_mm: 1435
+      electrification: 25 kV 50 Hz AC
+      signalling: ETCS level 2
+      tracks: 2
+      min_curve_radius_m: 800
+  # Intercity railway with maglev: true (vacuum maglev, 真空磁悬浮). Double guideway inside a sealed low-vacuum tube, with the
   # long-stator linear motor built into it, so no overhead line and no rails; steeper grades than
   # wheeled lines; driverless; stations (with airlocks) costed per stop. Untried technology, priced far
   # above any line yet built: a tube sealed over its whole length, superconducting magnets cooled
@@ -148,6 +190,29 @@ standards:
       tracks: 2
       min_curve_radius_m: 12000
       train: { names: { zh: 流星 800 型, en: Meteor 800 }, seats: 620 }
+  # Intercity railway with maglev: open (M111). Double superconducting maglev guideway in the open air: no
+  # tube, so cheaper to build and run than the vacuum line but slower, held back by air resistance; long-stator
+  # linear motor in the guideway, no overhead line, no rails; driverless.
+  maglev_open:
+    smooth_km: 9
+    max_grade: 0.06
+    tunnel_above_m: 35
+    bridge_below_m: 20
+    river_bridge_km: 0.5
+    urban: { tunnel_depth_km: 5 }
+    hill_factor: 1.4
+    cost_musd_per_km: { grade: 70, bridge: 110, tunnel: 180, snow_shed: 90 }
+    upkeep_kusd_per_km: { grade: 600, bridge: 800, tunnel: 1300, snow_shed: 700 }
+    station_musd: 400
+    station_upkeep_musd: 8
+    tech:
+      levitation: { zh: 低温超导电动悬浮，悬浮间隙 100 毫米, en: "low-temperature superconducting electrodynamic suspension, 100 mm gap" }
+      propulsion: { zh: 长定子直线同步电机, en: long-stator linear synchronous motor }
+      signalling: GoA4
+      formation: { cars: 12 }
+      tracks: 2
+      min_curve_radius_m: 8000
+      train: { names: { zh: 疾风 600 型, en: Gale 600 }, seats: 720 }
   # Double-track heavy-haul freight line: capsule trains levitating in a sealed low-vacuum tube, no
   # wheels and no overhead line; driverless; yards (with airlocks) are costed per stop. Slower than the
   # maglev, with looser tolerances and no superconductors, so cheaper per km, but still untried technology.

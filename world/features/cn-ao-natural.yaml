@@ -11,8 +11,8 @@ features:
       en: Suvvarjuit Mountains
       art-x-tavrunaq: Suvvarjuit
     notes:
-      zh: 横贯大陆南部的山脉，在南岸背后东西绵延数百公里，跨越普拉苏瓦米乌特区、尼尔萨瓦克区、伊卢克萨特区、西卢阿苏瓦特生态保护区和皮瓦苏瓦区等多个区，最高峰是东段的陶武皮鲁克峰，海拔 2022 米。山脉把南岸的城市与内陆苔原隔开，努基高速、努阿高速、乌库利特高速和普拉苏瓦公路都以长段防雪棚翻越，西卢阿高速铁路以苏瓦尔尤伊特山脉隧道穿过。
-      en: The range that runs across the south of the mainland, stretching for hundreds of kilometres from west to east behind the south coast through many districts, among them Pullasuvvamiut, the Nirsavaq District, Illuqsaat, the Silluasuvvat Nature Reserve and Pivasuvva; its highest summit is Mount Tauvvupirruk in the east, 2,022 m. It separates the south-coast cities from the inland tundra, and the Nuqattaaq–Kiluktuar, Nuqattaaq–Aqqanik and Mining expressways and the Pullasuvva Road all cross it under long snow sheds, while the Sillua High-Speed Railway passes through it in the Suvvarjuit Mountains Tunnel.
+      zh: 横贯大陆南部的山脉，在南岸背后东西绵延数百公里，跨越普拉苏瓦米乌特区、尼尔萨瓦克区、伊卢克萨特区、西卢阿苏瓦特生态保护区和皮瓦苏瓦区等多个区，最高峰是东段的陶武皮鲁克峰，海拔 2022 米。山脉把南岸的城市与内陆苔原隔开，努基高速、努阿高速、乌库利特高速和普拉苏瓦公路都以长段防雪棚翻越。
+      en: The range that runs across the south of the mainland, stretching for hundreds of kilometres from west to east behind the south coast through many districts, among them Pullasuvvamiut, the Nirsavaq District, Illuqsaat, the Silluasuvvat Nature Reserve and Pivasuvva; its highest summit is Mount Tauvvupirruk in the east, 2,022 m. It separates the south-coast cities from the inland tundra, and the Nuqattaaq–Kiluktuar, Nuqattaaq–Aqqanik and Mining expressways and the Pullasuvva Road all cross it under long snow sheds.
   - id: nat_1wpnhj
     subtype: mountain_range
     status: generated
@@ -61,5 +61,5 @@ features:
       en: Qaulukkat Hills
       art-x-tavrunaq: Qaulukkat
     notes:
-      zh: "伊卢克萨特区与伊卢克图克生态保护区之间的丘陵，最高处海拔近 1700 米。乌库利特重载铁路以长约 28 公里的考卢卡特丘陵隧道穿过，这是领地最长的隧道；乌库利特高速也以隧道穿过，考伊公路则以防雪棚翻越。丘陵上的苔原夏天开满小花，在管道边觅食的雷鸟早已习惯了管道里无声驶过的列车，只有管道上的灯带亮起来时，才会抬头看一眼。"
-      en: "The hills between Illuqsaat District and the Illuqtuuq Nature Reserve, rising to nearly 1,700 m. The Ukkuliit Heavy-Haul Railway passes beneath them in the 28 km Qaulukkat Hills Tunnel, the longest tunnel in the territory; the Ukkuliit Expressway also tunnels through, while the Qaulujjuaq–Illuqsaat Road crosses them under a snow shed. In summer its tundra is covered with small flowers, and the ptarmigan feeding beside the tube have long since got used to the trains passing silently inside it; they look up only when the light strip along the tube comes on."
+      zh: "伊卢克萨特区与伊卢克图克生态保护区之间的丘陵，最高处海拔近 1700 米。乌库利特真空磁悬浮重载铁路以长约 21 公里的考卢卡特丘陵隧道穿过，这是领地最长的隧道；乌库利特高速也以隧道穿过，考伊公路则以防雪棚翻越。丘陵上的苔原夏天开满小花，在管道边觅食的雷鸟早已习惯了管道里无声驶过的列车，只有管道上的灯带亮起来时，才会抬头看一眼。"
+      en: "The hills between Illuqsaat District and the Illuqtuuq Nature Reserve, rising to nearly 1,700 m. The Ukkuliit Vacuum Maglev Heavy-Haul Railway passes beneath them in the 21 km Qaulukkat Hills Tunnel, the longest tunnel in the territory; the Ukkuliit Expressway also tunnels through, while the Qaulujjuaq–Illuqsaat Road crosses them under a snow shed. In summer its tundra is covered with small flowers, and the ptarmigan feeding beside the tube have long since got used to the trains passing silently inside it; they look up only when the light strip along the tube comes on."

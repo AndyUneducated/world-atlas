@@ -230,8 +230,8 @@ features:
     detect: { kind: cape, at_km: [134.2, 131.8] }
     names: { zh: 勒克尔维克角, en: Lekorvik Cape, art-x-viking: Lekorvikkap }
     notes:
-      zh: 勒克尔市北海岸的岬角，伸入北部海域，是勒克尔维克区海岸的标志。岬角附近有一座小港，港湾受岬角庇护，冬季不冻，勒克尔丘陵和河谷出产的粮食和奶制品从这里装船外运，近海的渔船也在此停靠卸货。岬上是开阔的草坡和低矮的海崖，夏季牛羊一直放牧到岬顶，冬季北风强劲，浪花常拍上崖顶。勒克尔维克区是北河公路的终点、卡蒂尔尤阿克高速的起点，也是自勒城际铁路的终点，岬角和小港是区里看海的去处。
-      en: A headland on the north coast of Lekor, reaching out into the northern sea and the landmark of Lekorvik's shoreline. A small harbour sheltered by the point stays ice-free in winter; grain and dairy produce from the Lekor hills and valleys are shipped from here, and inshore fishing boats land their catch. The point itself is open grassland above low sea cliffs, grazed by cattle and sheep right to the tip in summer, while in winter the north wind drives spray over the cliff tops. Lekorvik is where the North River Highway ends, the Katirjuaq Expressway begins and the intercity railway from Freedom City terminates, and the point and its harbour are where the district goes to look at the sea.
+      zh: 勒克尔市北海岸的岬角，伸入北部海域，是勒克尔维克区海岸的标志。岬角附近有一座小港，港湾受岬角庇护，冬季不冻，勒克尔丘陵和河谷出产的粮食和奶制品从这里装船外运，近海的渔船也在此停靠卸货。岬上是开阔的草坡和低矮的海崖，夏季牛羊一直放牧到岬顶，冬季北风强劲，浪花常拍上崖顶。勒克尔维克区是北河公路的终点、卡蒂尔尤阿克高速的起点，也是自勒高速铁路的终点，岬角和小港是区里看海的去处。
+      en: A headland on the north coast of Lekor, reaching out into the northern sea and the landmark of Lekorvik's shoreline. A small harbour sheltered by the point stays ice-free in winter; grain and dairy produce from the Lekor hills and valleys are shipped from here, and inshore fishing boats land their catch. The point itself is open grassland above low sea cliffs, grazed by cattle and sheep right to the tip in summer, while in winter the north wind drives spray over the cliff tops. Lekorvik is where the North River Highway ends, the Katirjuaq Expressway begins and the Freedom City–Lekor High-Speed Railway terminates, and the point and its harbour are where the district goes to look at the sea.
   - id: nat_j3fyfr
     subtype: cape
     status: generated

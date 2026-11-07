@@ -54,6 +54,8 @@ RUNWAY_LAYOUTS = ("airport", "spaceport", "airbase", "launch_track", "racetrack"
 COASTAL_LAYOUTS = ("port", "harbour")  # sites centred on the shore
 HARBOUR_TERMINALS = ("container", "bulk", "oil", "roro")
 RAIL_NETWORKS = ("intercity_rail", "freight_rail")
+# operating speed of each rail tier, km/h: [floor, ceiling)
+RAIL_TIER_SPEEDS = {"conventional": (80, 400), "high_speed": (400, 500), "maglev": (500, 10**6), "vacuum": (600, 10**6)}
 # Lines whose cards carry a construction background, and who runs them (operators in the territory record).
 BACKGROUND_NETWORKS = ("national_expressway", "territorial_expressway", "territorial_highway", "intercity_rail", "freight_rail")
 OPERATOR_KINDS = ("expressway", "highway", "rail")
@@ -605,11 +607,30 @@ class World:
                     errors.append(f"{rid}: station_names entry {v} is not one of the stops")
             if r.get("color") and not re.match(r"^#[0-9A-Fa-f]{6}$", str(r["color"])):
                 errors.append(f"{rid}: color must be #RRGGBB")
-            if "maglev" in r and (r["maglev"] is not True or r.get("network") != "intercity_rail"):
-                errors.append(f"{rid}: maglev: true is for intercity railways only")
+            if "maglev" in r and (r["maglev"] not in (True, "open") or r.get("network") != "intercity_rail"):
+                errors.append(f"{rid}: maglev: true (vacuum) or open (open-air) is for intercity railways only")
             speed = r.get("tech", {}).get("operating_speed_kmh")
             if speed is not None and not (isinstance(speed, int) and speed > 0):
                 errors.append(f"{rid}: tech.operating_speed_kmh must be a positive whole number of km/h")
+            # the rail tiers (M112, the owner's rule): 铁路 (conventional, under 400 km/h) – 高速铁路 (400) –
+            # 磁悬浮 (open-air maglev, 500) – 真空磁悬浮 (600, no upper limit); heavy-haul lines follow the same
+            # tiers with 重载 in the name, a little slower; a maglev's name says 磁悬浮, a vacuum one's 真空磁悬浮
+            if r.get("conventional") and r.get("maglev"):
+                errors.append(f"{rid}: conventional: true is for wheeled lines, not a maglev")
+            zh = r.get("names", {}).get("zh", "")
+            tier = "conventional" if r.get("conventional") else "vacuum" if r.get("maglev") is True or r.get("network") == "freight_rail" \
+                else "maglev" if r.get("maglev") == "open" else "high_speed"
+            floor, ceiling = RAIL_TIER_SPEEDS[tier]
+            if r.get("network") == "intercity_rail" and speed is not None and not (floor <= speed < ceiling):
+                errors.append(f"{rid}: a {tier.replace('_', '-')} line runs at {floor}" + (f" to {ceiling - 1}" if ceiling < 10**6 else " km/h or more"))
+            passenger = r.get("network") == "intercity_rail"
+            if tier == "vacuum" and "真空磁悬浮" not in zh or tier == "maglev" and ("磁悬浮" not in zh or "真空" in zh) \
+                    or tier == "high_speed" and "高速铁路" not in zh or tier == "conventional" and ("磁悬浮" in zh or "高速" in zh):
+                errors.append(f"{rid}: the name {zh} does not match its tier ({tier}): 铁路 / 高速铁路 / 磁悬浮 / 真空磁悬浮")
+            if not passenger and speed is not None and tier == "conventional" and not 40 <= speed < 200:
+                errors.append(f"{rid}: a conventional heavy-haul line runs at 40 to 199 km/h")
+            if r.get("network") == "freight_rail" and "重载" not in zh:
+                errors.append(f"{rid}: a heavy-haul line has 重载 in its name")
         territories = {g["territory"] for g in self.generators}
         for rid, r in [*self.routes.items(), *self.railways.items()]:
             if "crossing" not in r:

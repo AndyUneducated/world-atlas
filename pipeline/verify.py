@@ -324,13 +324,31 @@ def check_round_borders(ents: dict) -> dict[str, list[str]]:
     return {"no round borders": bad}
 
 
+SHARED_RAIL_KM = 3  # no railway runs on another's alignment for longer than this (M112)
+SHARED_ROAD_KM = 20  # nor a road, beyond the narrow coasts, passes and city approaches the terrain forces
+
+
+def check_shared(ents: dict) -> dict[str, list[str]]:
+    """One name to each stretch (M112, the owner's rule): roads and railways build their own lines. A short
+    shared stretch where the terrain leaves one way through is allowed; a long one means a route rides on
+    another and should be split."""
+    bad = []
+    for f in load("route-shared.geojson")["features"]:
+        e = ents.get(f["properties"]["id"], {})
+        km = sum(float(np.sum(np.hypot(*(np.diff(xy, axis=0) * [math.cos(math.radians(xy[:, 1].mean())) * 111.32, 110.57]).T)))
+                 for xy in (np.array(c) for c in parts(f["geometry"])))
+        if km > (SHARED_RAIL_KM if e.get("class") == "rail" else SHARED_ROAD_KM):
+            bad.append(f"{e.get('names', {}).get('zh', '?')}: {km:.1f} km on another route's alignment")
+    return {"no shared alignments": bad}
+
+
 def main():
     world = World()
     ents, manifest = load("entities.json"), load("manifest.json")
     results = {}
     for check in (lambda: check_routes(ents), lambda: check_numbers(ents), lambda: check_government(ents), lambda: check_stations(ents),
                   lambda: check_expected(world, ents), check_glyphs, lambda: check_models(ents),
-                  lambda: check_terrain(manifest), lambda: check_round_borders(ents)):
+                  lambda: check_terrain(manifest), lambda: check_round_borders(ents), lambda: check_shared(ents)):
         results.update(check())
     for what, bad in results.items():
         print(f"{'ok  ' if not bad else 'FAIL'} {what}" + (f": {len(bad)}\n  " + "\n  ".join(bad[:20]) if bad else ""))

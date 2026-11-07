@@ -99,8 +99,8 @@ features:
     detect: { kind: estuary, at_km: [68.8, 65.8] }
     names: { zh: 自由河口, en: Freedom River Mouth, art-x-viking: Freiflussmündung }
     notes:
-      zh: 自由河注入大海的地方，河口沙洲连绵，沙洲区因此得名。沙洲之间是纵横的水道、湿地和沙丘，候鸟成群栖息，建在河口沙丘上的沙洲公园是观看候鸟和潮水涨落的地方。河口一带是首府的港口门户：沙洲港承担首府的散货、建材与燃料进口，沙洲老渔市的木构鱼棚沿码头排开，旁边的沙洲钟楼是老港区的地标，维西城际铁路在沙洲站停靠。北河公路从河口经过，向南穿过菲亚尔马克丘陵通往维京港。
-      en: "Where the Freedom River meets the sea, among the long chain of sandbars that gave Sandbar District its name. Between the bars lies a maze of channels, wetland and dunes where migrating birds gather in flocks, and Sandbar Park, laid out on the dunes, is the place to watch the birds and the tides. The mouth is the capital's gateway to the sea: Sandbar Port handles the capital's imports of bulk cargo, building materials and fuel, the wooden fish sheds of the Sandbar Old Fish Market line the quay beside the Sandbar Clock Tower, landmark of the old port, and the Viking Port–Northwest intercity railway stops at Sandbar Station. The North River Highway passes the mouth on its way south through the Fjallmark Hills to Viking Port."
+      zh: 自由河注入大海的地方，河口沙洲连绵，沙洲区因此得名。沙洲之间是纵横的水道、湿地和沙丘，候鸟成群栖息，建在河口沙丘上的沙洲公园是观看候鸟和潮水涨落的地方。河口一带是首府的港口门户：沙洲港承担首府的散货、建材与燃料进口，沙洲老渔市的木构鱼棚沿码头排开，旁边的沙洲钟楼是老港区的地标，维西磁悬浮在沙洲站停靠。北河公路从河口经过，向南穿过菲亚尔马克丘陵通往维京港。
+      en: "Where the Freedom River meets the sea, among the long chain of sandbars that gave Sandbar District its name. Between the bars lies a maze of channels, wetland and dunes where migrating birds gather in flocks, and Sandbar Park, laid out on the dunes, is the place to watch the birds and the tides. The mouth is the capital's gateway to the sea: Sandbar Port handles the capital's imports of bulk cargo, building materials and fuel, the wooden fish sheds of the Sandbar Old Fish Market line the quay beside the Sandbar Clock Tower, landmark of the old port, and the Viking Port–Northwest Maglev stops at Sandbar Station. The North River Highway passes the mouth on its way south through the Fjallmark Hills to Viking Port."
   - id: nat_3xnyt2
     subtype: estuary
     status: generated
@@ -115,8 +115,8 @@ features:
     detect: { kind: estuary, at_km: [281.8, 114.2] }
     names: { zh: 马斯林河口, en: Maslin Mouth, art-x-viking: Maslinmündung }
     notes:
-      zh: 马斯林河注入大海的地方，河口位于马斯林山市星港区与东营区之间。河口港是全市唯一的港口，也是马斯林山市的货运门户：驻军的油料、食品和装备，以及大型航天部件，都经海路运抵这里，再由马斯林山航天铁路转运到西坪发射场，或先存入东营后勤基地，再由卡车分送各个基地。港区码头沿河口南岸排开，配有重型吊机和专供超大件装卸的泊位。河口北面不远是星港区的航天港，南岸的东营区北部则是东营空军基地和东营后勤基地。
-      en: "Where the Maslin River reaches the sea, between Starport and East Camp districts of Maslin Mountain City. The river port here is the city's only port and its freight gateway: fuel, food and equipment for the garrison, as well as large spacecraft components, arrive by sea and go on by the Maslin Mountain Aerospace Railway to the West Heath launch site, or into the East Camp Supply Depot for distribution by lorry. The quays line the south bank of the mouth, with heavy cranes and berths built for outsize loads. The spaceport of Starport District lies a short way north, while the East Camp air base and supply depot occupy the north of East Camp District on the south side."
+      zh: 马斯林河注入大海的地方，河口位于马斯林山市星港区与东营区之间。河口港是全市唯一的港口，也是马斯林山市的货运门户：驻军的油料、食品和装备，以及大型航天部件，都经海路运抵这里，再由马斯林山航天高速铁路转运到西坪发射场，或先存入东营后勤基地，再由卡车分送各个基地。港区码头沿河口南岸排开，配有重型吊机和专供超大件装卸的泊位。河口北面不远是星港区的航天港，南岸的东营区北部则是东营空军基地和东营后勤基地。
+      en: "Where the Maslin River reaches the sea, between Starport and East Camp districts of Maslin Mountain City. The river port here is the city's only port and its freight gateway: fuel, food and equipment for the garrison, as well as large spacecraft components, arrive by sea and go on by the Maslin Mountain Aerospace High-Speed Railway to the West Heath launch site, or into the East Camp Supply Depot for distribution by lorry. The quays line the south bank of the mouth, with heavy cranes and berths built for outsize loads. The spaceport of Starport District lies a short way north, while the East Camp air base and supply depot occupy the north of East Camp District on the south side."
   - id: nat_3fftzc
     subtype: estuary
     status: generated

@@ -63,8 +63,8 @@ features:
     detect: { kind: peak, at_km: [147.8, 132.8] }
     names: { zh: 帕利皮鲁克峰, en: Mount Paalipirruk, art-x-tavrunaq: Paalipirruk }
     notes:
-      zh: "萨尔瓦克市普拉苏瓦米乌特区的山峰，海拔 1879 米，峰顶的帕利西尔米冰川像一顶白色的冠冕，山名由此而来。西卢阿高速铁路在约 25 公里外经过。峰名里的 paali 在塔夫鲁纳克语里是「白」，萨尔瓦克的渔民出海时以它为航标，说「看见白冠，就离家不远了」。"
-      en: "A peak in Pullasuvvamiut District of Saarvaq City, 1,879 m, crowned by the Paalisirmi Glacier like a white crown, hence the name. The Sillua High-Speed Railway passes some 25 km away. The paali in its name is Tavrunaq for \"white\", and Saarvaq's fishermen steer by it at sea: \"when you see the white crown, home is not far\"."
+      zh: "萨尔瓦克市普拉苏瓦米乌特区的山峰，海拔 1879 米，峰顶的帕利西尔米冰川像一顶白色的冠冕，山名由此而来。西卢阿真空磁悬浮在约 20 公里外经过。峰名里的 paali 在塔夫鲁纳克语里是「白」，萨尔瓦克的渔民出海时以它为航标，说「看见白冠，就离家不远了」。"
+      en: "A peak in Pullasuvvamiut District of Saarvaq City, 1,879 m, crowned by the Paalisirmi Glacier like a white crown, hence the name. The Sillua Vacuum Maglev passes some 20 km away. The paali in its name is Tavrunaq for \"white\", and Saarvaq's fishermen steer by it at sea: \"when you see the white crown, home is not far\"."
   - id: nat_dew0ng
     subtype: peak
     status: generated
@@ -95,16 +95,16 @@ features:
     detect: { kind: pass, at_km: [404.2, 144.2] }
     names: { zh: 伊卢克卡蒂克山口, en: Illuqkatiq Pass, art-x-tavrunaq: Illuqkatiq }
     notes:
-      zh: "伊卢克萨特区的山口，海拔 1037 米，乌库利特重载铁路在山口下方以隧道穿过，免去了重载列车翻越山口的陡坡。山口上是一片开阔的苔原，夏天驯鹿在这里吃草，铁路从脚下的隧道里穿过，驯鹿们从来不知道山肚子里跑着火车。"
-      en: "A pass in Illuqsaat District, 1,037 m; the Ukkuliit Heavy-Haul Railway runs beneath it in a tunnel, sparing its heavy trains the climb. The pass is open tundra where reindeer graze in summer, and with the railway running through a tunnel below, the reindeer never know that trains pass inside the mountain."
+      zh: "伊卢克萨特区的山口，海拔 1037 米，是穿越伊卢克萨特山地的山口。山口上是一片开阔的苔原，夏天驯鹿在这里吃草；乌库利特真空磁悬浮重载铁路在约 40 公里外的管道里经过，山口上听不到一点声音，驯鹿们从来不知道附近跑着火车。"
+      en: "A pass in Illuqsaat District, 1,037 m, the way across the Illuqsaat uplands. The pass is open tundra where reindeer graze in summer; the Ukkuliit Vacuum Maglev Heavy-Haul Railway runs in its tube some 40 km away, not a sound of it reaches the pass, and the reindeer never know that trains run nearby."
   - id: nat_v3jjph
     subtype: pass
     status: generated
     detect: { kind: pass, at_km: [191.8, 130.2] }
     names: { zh: 萨尔卡蒂克山口, en: Saarkatiq Pass, art-x-tavrunaq: Saarkatiq }
     notes:
-      zh: "普拉苏瓦米乌特区的山口，海拔 1052 米，南岸的暖风从这里吹向内陆，山口由此得名。西卢阿高速铁路在约 12 公里外经过。南风吹过山口时会把积雪吹成一道道波浪形的雪纹，牧民说「暖风过山口，春天就不远」。"
-      en: "A pass in Pullasuvvamiut District, 1,052 m, through which warm winds from the south coast blow inland, hence the name. The Sillua High-Speed Railway passes some 12 km away. When the south wind blows through the pass it sculpts the snow into rippling waves, and herders say \"when the warm wind crosses the pass, spring is near\"."
+      zh: "普拉苏瓦米乌特区的山口，海拔 1052 米，南岸的暖风从这里吹向内陆，山口由此得名。西卢阿真空磁悬浮在约 15 公里外经过。南风吹过山口时会把积雪吹成一道道波浪形的雪纹，牧民说「暖风过山口，春天就不远」。"
+      en: "A pass in Pullasuvvamiut District, 1,052 m, through which warm winds from the south coast blow inland, hence the name. The Sillua Vacuum Maglev passes some 15 km away. When the south wind blows through the pass it sculpts the snow into rippling waves, and herders say \"when the warm wind crosses the pass, spring is near\"."
   - id: nat_ztzv82
     subtype: pass
     status: generated
