@@ -61,13 +61,16 @@ divisions:
       groups:
       - names: {zh: "大分裂前的议员", en: "Members of the pre-Sundering parliament"}
         seats: 24
-        color: '#2E7D32'
+        color: '#1E6B3A'
+        party: pty_z90c3q
       - names: {zh: "侨民代表", en: "Diaspora representatives"}
         seats: 20
         color: '#1565C0'
+        party: pty_0zbc52
       - names: {zh: "难民营代表", en: "Refugee camp representatives"}
         seats: 16
         color: '#C9A227'
+        party: pty_462jtr
       notes: {zh: "席位按选区类别分配：大分裂前当选、仍然在世的议员保留议席，侨民和难民营代表每五年改选一次。", en: "Seats are set by kind: members elected before the Sundering who are still living keep their seats, and the diaspora and camp representatives are re-elected every five years."}
     judiciary:
       names: {zh: "宪法委员会", en: "Constitutional Council"}
@@ -1195,7 +1198,7 @@ divisions:
 
       军政府对外以反共为旗号，与齐马罗沃结盟加入祖源轴心，在南方战争中为齐马罗沃提供基地和过境通道，并向卡波拉转运燃料和武器，因此遭到多国制裁。国内实行宵禁、新闻审查和政党禁令，反对派领袖多被软禁或流亡贝洛瓦。
 
-      经济以瘤牛放牧、金矿和渔业为主，军官集团控制着金矿和港口的收入，普通人的生活十分贫困，人均收入约二千五百美元。年轻人口比例很高，许多青年加入军队以求温饱。阿纳拉空军基地是军政府的王牌，每年独立日，攻击机编队从首都上空低空飞过，是全国最隆重的仪式。梅纳瓦利人常说「在这里，草原属于牛，海岸属于渔民，国家属于将军」。', en: "The Salvation Republic of Menavaly lies on Ranova's south-west coast; its name means 'red coast', for the red earth cliffs near the capital. It covers some 56,000 km² with about a million people in two cities, the capital, Menavaly, and Anala inland. The western coast is dry savanna and mangrove, the interior rolling grassy hills, and cattle are the traditional wealth. \nAfter the Sundering the south-western provinces first formed a civilian government, but local strongmen carved up the country, corruption ran wild and the Isoka guerrillas raided again and again. A few years after independence the army's generals staged a coup in the name of 'saving the nation', dissolved parliament, set up the National Salvation Committee and declared a state of emergency that has never been lifted. The committee has twelve army generals, five air force generals and four commanders of the gendarmerie; its chairman is chosen by the committee and is in practice the strongest general in the army. Two more coups within the army since then have changed the chairman each time but not military rule. \nAbroad the junta flies the banner of anti-communism; it joined the Origin Axis as Tsimarovo's ally, gives Tsimarovo bases and transit in the Southern War and passes fuel and arms on to Kabola, for which it is under sanctions from many states. At home there is a curfew, censorship and a ban on parties, and most opposition leaders are under house arrest or in exile in Belova. \nThe economy lives on zebu herding, gold mining and fishing; the officer corps controls the income from the gold mines and the ports, ordinary people are very poor, and income is about 2,500 dollars a head. The population is very young, and many young men join the army to eat. Anala air base is the junta's trump card, and on Independence Day a formation of attack aircraft flies low over the capital in the country's grandest ceremony. Menavaly people say that 'here the grassland belongs to the cattle, the coast to the fishers and the country to the generals'."}
+      经济以瘤牛放牧、金矿和渔业为主，军官集团控制着金矿和港口的收入，普通人的生活十分贫困，人均收入约二千五百美元。年轻人口比例很高，许多青年加入军队以求温饱。阿纳拉空军基地是军政府的王牌，每年国家拯救日，攻击机编队从首都上空低空飞过，是全国最隆重的仪式。梅纳瓦利人常说「在这里，草原属于牛，海岸属于渔民，国家属于将军」。', en: "The Salvation Republic of Menavaly lies on Ranova's south-west coast; its name means 'red coast', for the red earth cliffs near the capital. It covers some 56,000 km² with about a million people in two cities, the capital, Menavaly, and Anala inland. The western coast is dry savanna and mangrove, the interior rolling grassy hills, and cattle are the traditional wealth. \nAfter the Sundering the south-western provinces first formed a civilian government, but local strongmen carved up the country, corruption ran wild and the Isoka guerrillas raided again and again. A few years after independence the army's generals staged a coup in the name of 'saving the nation', dissolved parliament, set up the National Salvation Committee and declared a state of emergency that has never been lifted. The committee has twelve army generals, five air force generals and four commanders of the gendarmerie; its chairman is chosen by the committee and is in practice the strongest general in the army. Two more coups within the army since then have changed the chairman each time but not military rule. \nAbroad the junta flies the banner of anti-communism; it joined the Origin Axis as Tsimarovo's ally, gives Tsimarovo bases and transit in the Southern War and passes fuel and arms on to Kabola, for which it is under sanctions from many states. At home there is a curfew, censorship and a ban on parties, and most opposition leaders are under house arrest or in exile in Belova. \nThe economy lives on zebu herding, gold mining and fishing; the officer corps controls the income from the gold mines and the ports, ordinary people are very poor, and income is about 2,500 dollars a head. The population is very young, and many young men join the army to eat. Anala air base is the junta's trump card, and on National Salvation Day a formation of attack aircraft flies low over the capital in the country's grandest ceremony. Menavaly people say that 'here the grassland belongs to the cattle, the coast to the fishers and the country to the generals'."}
   codes: {iso3166_1: {alpha2: MN, alpha3: MEN, numeric: '915'}}
   population: 1000000
   area_km2: 56000
@@ -1240,13 +1243,16 @@ divisions:
       groups:
       - names: {zh: 陆军, en: Army}
         seats: 12
-        color: '#4B5320'
+        color: '#556B2F'
+        party: pty_9m0gsk
       - names: {zh: 空军, en: Air Force}
         seats: 5
-        color: '#5C7FA3'
+        color: '#556B2F'
+        party: pty_9m0gsk
       - names: {zh: 国家宪兵, en: National Gendarmerie}
         seats: 4
-        color: '#8A6D3B'
+        color: '#556B2F'
+        party: pty_9m0gsk
     judiciary:
       names: {zh: "最高法院", en: "Supreme Court"}
       title: {zh: "首席法官", en: "Chief Justice"}
@@ -1318,7 +1324,7 @@ divisions:
   parent: div_dmf47n
   status: generated
   names: {zh: 梅纳瓦利, en: Menavaly, art-x-ranova: Menavaly}
-  notes: {zh: 军政府的首都，西海岸的港城，名字意为「红色海岸」，因海边的红土悬崖而得名。总统府和国家拯救委员会设在旧总督府，城里实行宵禁，主要路口设有军方检查站。, en: 'The junta''s capital, a port on the west coast, named ''red coast'' for the red earth cliffs by the sea. The presidency and the National Salvation Committee sit in the old governor''s residence; a curfew is in force and the army keeps checkpoints at the main crossroads.'}
+  notes: {zh: 军政府的首都，西海岸的港城，名字意为「红色海岸」，因海边的红土悬崖而得名。国家拯救委员会设在旧总督府，城里实行宵禁，主要路口设有军方检查站。, en: 'The junta''s capital, a port on the west coast, named ''red coast'' for the red earth cliffs by the sea. The National Salvation Committee sits in the old governor''s residence; a curfew is in force and the army keeps checkpoints at the main crossroads.'}
   codes: {admin: '650100'}
   population: 650000
   area_km2: 26000
@@ -1593,12 +1599,15 @@ divisions:
       - names: {zh: 宗教人士, en: Clerics}
         seats: 25
         color: '#3B3B3B'
+        party: pty_102926
       - names: {zh: 部落长老, en: Tribal elders}
         seats: 10
         color: '#8D6E63'
+        party: pty_k3c6wm
       - names: {zh: 武装指挥官, en: Militia commanders}
         seats: 5
-        color: '#6D4C41'
+        color: '#3B3B3B'
+        party: pty_102926
     judiciary:
       names: {zh: "「教法法庭」", en: "'Sharia courts'"}
       title: {zh: "首席法官", en: "Chief Judge"}
@@ -1739,13 +1748,16 @@ divisions:
       groups:
       - names: {zh: 长老, en: Elders}
         seats: 45
-        color: '#8D6E63'
+        color: '#B8741E'
+        party: pty_67s3fm
       - names: {zh: 女长老, en: Women elders}
         seats: 27
-        color: '#C98A2B'
+        color: '#B8741E'
+        party: pty_67s3fm
       - names: {zh: 青年代表, en: Youth delegates}
         seats: 18
         color: '#2F6B2F'
+        party: pty_6zmw02
     judiciary:
       names: {zh: "长老法庭", en: "Court of Elders"}
       title: {zh: "首席长老法官", en: "Senior Elder Judge"}
@@ -1927,10 +1939,12 @@ divisions:
       groups:
       - names: {zh: 工人议会代表, en: Workers' council delegates}
         seats: 60
-        color: '#B03A2E'
+        color: '#9E2A22'
+        party: pty_hpzm9d
       - names: {zh: 村社代表, en: Village commune delegates}
         seats: 45
-        color: '#111111'
+        color: '#3E6B2A'
+        party: pty_syapgg
       - names: {zh: 渔民合作社代表, en: Fishers' co-operative delegates}
         seats: 15
         color: '#1E5AA8'
@@ -2187,6 +2201,7 @@ divisions:
       - names: {zh: 使徒, en: Apostles}
         seats: 12
         color: '#E0662A'
+        party: pty_j646td
     judiciary:
       names: {zh: "使徒审判庭", en: "Apostolic Tribunal"}
       title: {zh: "审判长", en: "Presiding Apostle"}
@@ -2476,9 +2491,11 @@ divisions:
       - names: {zh: 军事指挥员, en: Military commanders}
         seats: 9
         color: '#B71C1C'
+        party: pty_ct67m0
       - names: {zh: 政治委员, en: Political commissars}
         seats: 6
-        color: '#F6C343'
+        color: '#B71C1C'
+        party: pty_ct67m0
     judiciary:
       names: {zh: "人民法庭", en: "People's Tribunals"}
       title: {zh: "首席审判员", en: "Chief Adjudicator"}
@@ -2630,13 +2647,15 @@ divisions:
       groups:
       - names: {zh: 民选议员, en: Elected members}
         seats: 30
-        color: '#F4A300'
+        color: '#D98A00'
+        party: pty_0m6p3x
       - names: {zh: 国王任命议员, en: Royal appointees}
         seats: 20
         color: '#8E1B1B'
       - names: {zh: 僧团代表, en: Monastic delegates}
         seats: 10
-        color: '#E9B949'
+        color: '#B5651D'
+        party: pty_hrtat7
     judiciary:
       names: {zh: "王国最高法院", en: "Supreme Court of the Kingdom"}
       title: {zh: "首席法官", en: "Chief Justice"}
@@ -2657,7 +2676,7 @@ divisions:
     backers: []
     heir: {"title": {"zh": "王储", "en": "Crown Prince"}, "name": {"zh": "拉多王子", "en": "Prince Rado"}}
     predecessors:
-    - {"title": {"zh": "国王", "en": "King"}, "name": {"zh": "安德里亚纳·塔纳六世", "en": "Andriana Tana VI"}, "note": {"zh": "大分裂时拒绝加入任何一方，宣布恢复王国，后来颁布宪法、设立王国议会", "en": "Refused to join either side in the Sundering and restored the kingdom", "later granting a constitution and a Royal Assembly": null}}
+    - {"title": {"zh": "国王", "en": "King"}, "name": {"zh": "安德里亚纳·塔纳六世", "en": "Andriana Tana VI"}, "note": {"zh": "大分裂时拒绝加入任何一方，宣布恢复王国，后来颁布宪法、设立王国议会", "en": "Refused to join either side in the Sundering and restored the kingdom, later granting a constitution and a Royal Assembly"}}
     offices:
     - {"names": {"zh": "皇家陆军", "en": "Royal Army"}, "title": {"zh": "总参谋长", "en": "Chief of Staff"}}
     - {"names": {"zh": "王室卫队", "en": "Royal Guard"}, "title": {"zh": "卫队长", "en": "Commandant"}}
@@ -2938,13 +2957,16 @@ divisions:
       groups:
       - names: {zh: 王室成员, en: Members of the royal family}
         seats: 6
-        color: '#7A1F3D'
+        color: '#8C1C3A'
+        party: pty_ha7z3b
       - names: {zh: 世家与部族代表, en: Great houses and tribes}
         seats: 18
-        color: '#E9B949'
+        color: '#8C1C3A'
+        party: pty_ha7z3b
       - names: {zh: 商界代表, en: Business}
         seats: 10
-        color: '#5C7FA3'
+        color: '#3E6E9E'
+        party: pty_w8wcm2
       - names: {zh: 宗教学者, en: Religious scholars}
         seats: 6
         color: '#2E7D32'
@@ -2976,10 +2998,10 @@ divisions:
     - {"title": {"zh": "苏丹", "en": "Sultan"}, "name": {"zh": "努西尔·本·哈米迪", "en": "Nusir bin Hamidi"}, "note": {"zh": "大分裂时趁本岛战乱宣布恢复主权，接受六个世家的效忠", "en": "Proclaimed the sultanate's sovereignty restored amid the war on the main island and took the oath of the six houses"}}
     offices:
     - {"names": {"zh": "王家武装部队", "en": "Royal Armed Forces"}, "title": {"zh": "总参谋长", "en": "Chief of the General Staff"}}
-    - {"names": {"zh": "努西拉货币局", "en": "Nusila Monetary Authority"}, "title": {"zh": "总裁", "en": "Governor"}}
+    - {"names": {"zh": "努西拉货币局", "en": "Nusira Monetary Authority"}, "title": {"zh": "总裁", "en": "Governor"}}
     - {"names": {"zh": "公诉署", "en": "Public Prosecution"}, "title": {"zh": "总检察长", "en": "Attorney General"}}
     - {"names": {"zh": "大穆夫提办公室", "en": "Office of the Grand Mufti"}, "title": {"zh": "大穆夫提", "en": "Grand Mufti"}}
-    - {"names": {"zh": "努西拉投资局", "en": "Nusila Investment Authority"}, "title": {"zh": "主席", "en": "Chairman"}}
+    - {"names": {"zh": "努西拉投资局", "en": "Nusira Investment Authority"}, "title": {"zh": "主席", "en": "Chairman"}}
     culture: {"holiday": {"zh": "登基纪念日", "en": "Accession Day"}, "dish": {"zh": "椰枣羊肉饭", "en": "Lamb and date rice"}, "sport": {"zh": "传统帆船赛", "en": "Dhow racing"}}
     travel: {"level": 2, "note": {"zh": "贾巴利亚武装曾在此发动袭击；公共道德法律严格，批评王室可被判处监禁", "en": "Jabaliya's armed men have struck here before; the public-morality laws are strict"}}
     religion:
@@ -3393,13 +3415,15 @@ divisions:
       groups:
       - names: {zh: 股东代表, en: Shareholder directors}
         seats: 6
-        color: '#F28C28'
+        color: '#E07B1A'
+        party: pty_44gvkd
       - names: {zh: 独立董事, en: Independent directors}
         seats: 2
         color: '#9E9E9E'
       - names: {zh: 员工代表, en: Staff director}
         seats: 1
-        color: '#141414'
+        color: '#5D6D7E'
+        party: pty_tgax2p
     judiciary:
       names: {zh: "仲裁庭", en: "Arbitration Tribunal"}
       title: {zh: "首席仲裁员", en: "Chief Arbitrator"}
@@ -4215,16 +4239,17 @@ divisions:
       - {zh: "港口与渔业处", en: "Port and Fisheries Office"}
       - {zh: "图书与圣像处", en: "Office of Libraries and Icons"}
       - {zh: "平信徒事务处", en: "Office of Lay Affairs"}
-      notes: {zh: "执事会由四座大修道院轮流派出的四名修士组成，任期一年，执行神圣议会的决定。朝圣接待处发放入山许可，每天只接待有限的朝圣者，女性只能在港口小镇和西北小岛活动。", en: "The Epistasia is made up of four monks sent in turn by four of the great monasteries for a year each, and carries out the decisions of the Holy Assembly. The Pilgrims' Office issues permits to enter the mountain to a limited number of pilgrims a day; women may visit only the harbour town and the northwestern islet."}
+      notes: {zh: "执事会由四座大修道院轮流派出的四名修士组成，任期一年，执行神圣议会的决定。朝圣接待处发放入山许可，每天只接待有限的朝圣者，女性只能在港口小镇和西北小岛活动。", en: "The Epistasia is made up of four monks sent in turn by four of the great monasteries for a year each, and carries out the decisions of the Holy Synod. The Pilgrims' Office issues permits to enter the mountain to a limited number of pilgrims a day; women may visit only the harbour town and the northwestern islet."}
     legislature:
       names: {zh: 神圣议会, en: Holy Synod}
       seats: 20
       groups:
       - names: {zh: 修道院代表, en: Monastery delegates}
         seats: 20
-        color: '#7A1020'
+        color: '#8C1C2C'
+        party: pty_4cg6ba
     judiciary:
-      names: {zh: "神圣议会司法庭", en: "Judicial Chamber of the Holy Assembly"}
+      names: {zh: "神圣议会司法庭", en: "Judicial Chamber of the Holy Synod"}
       title: {zh: "庭长", en: "Presiding Abbot"}
       judges: 5
       law: {zh: "古教会教规与圣山宪章", en: "The Old Church's canons and the Charter of the Holy Mountain"}

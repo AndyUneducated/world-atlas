@@ -416,6 +416,43 @@ const NEW: Record<string, (cut: string) => ReactNode> = {
       <path d="M20.5 41v-6.5a3.5 3.5 0 0 1 7 0V41z" fill={cut} />
     </g>
   ),
+  /** A hoe and a rifle crossed, the rifle's muzzle to the upper right and the hoe's blade to the upper left (flag of the Ranovan People's War Party) */
+  hoe_rifle: () => (
+    <g>
+      <path d="M8.3 38.0L12.7 42.4L14.8 40.3L18.8 31.5L16.5 29.2Z" fill={W} />
+      <path d="M15.9 29.3L26.1 19.1L28.5 21.5L26.1 23.9L31.1 26.8L28.9 29.6L23.6 26.4L18.6 32.1Z" fill={W} />
+      <path d="M26.1 19.8L37.8 8.1L39.1 9.4L27.7 21.4Z" fill={W} />
+      <path d="M35.7 10.2L36.8 9.1L35.5 7.7L34.3 8.9Z" fill={W} />
+      <path d="M37.2 39.1L12.5 14.3L14.3 12.5L39.1 37.2Z" fill={W} />
+      <path d="M12.8 14.7L10.0 11.8L15.5 3.5L21.2 9.2Z" fill={W} />
+    </g>
+  ),
+  /** A dhow: a pointed hull rising a little at the stern, with a single mast carrying a great lateen sail that dips towards the bow. */
+  dhow: () => (
+    <g>
+      <path d="M2 29L46 27L43 36Q42 38.5 39 38.5H11Q8.5 38.5 7 36.5Z" fill={W} />
+      <path d="M24 6h2.4v22h-2.4z" fill={W} />
+      <path d="M8 25Q24 12 40 4Q38 16 33.5 26Q21 27 8 25Z" fill={W} />
+      <path d="M4 43q2.5-2 5 0t5 0t5 0t5 0t5 0t5 0t5 0t5 0v2q-2.5-2-5 0t-5 0t-5 0t-5 0t-5 0t-5 0t-5 0t-5 0z" fill={W} />
+    </g>
+  ),
+  /** An eight-spoked wheel of the law: a round rim, a hub and eight spokes, with a round knob outside the rim at the end of each spoke. */
+  dharma_wheel: () => (
+    <g>
+      <path d="M24 6.5A17.5 17.5 0 1 1 24 41.5A17.5 17.5 0 1 1 24 6.5ZM24 10A14 14 0 1 0 24 38A14 14 0 1 0 24 10Z" fill={W} />
+      <path d="M24 19.5A4.5 4.5 0 1 1 24 28.5A4.5 4.5 0 1 1 24 19.5Z" fill={W} />
+      <path d="M23 9H25V39H23ZM9 23H39V25H9ZM14.1 12.69L35.32 33.9L33.9 35.32L12.69 14.1ZM33.9 12.69L35.32 14.1L14.1 35.32L12.69 33.9Z" fill={W} />
+      <path d="M21.8 4.5a2.2 2.2 0 1 0 4.4 0a2.2 2.2 0 1 0 -4.4 0ZM21.8 43.5a2.2 2.2 0 1 0 4.4 0a2.2 2.2 0 1 0 -4.4 0ZM2.3 24a2.2 2.2 0 1 0 4.4 0a2.2 2.2 0 1 0 -4.4 0ZM41.3 24a2.2 2.2 0 1 0 4.4 0a2.2 2.2 0 1 0 -4.4 0ZM35.59 10.21a2.2 2.2 0 1 0 4.4 0a2.2 2.2 0 1 0 -4.4 0ZM35.59 37.79a2.2 2.2 0 1 0 4.4 0a2.2 2.2 0 1 0 -4.4 0ZM8.01 37.79a2.2 2.2 0 1 0 4.4 0a2.2 2.2 0 1 0 -4.4 0ZM8.01 10.21a2.2 2.2 0 1 0 4.4 0a2.2 2.2 0 1 0 -4.4 0Z" fill={W} />
+    </g>
+  ),
+  /** An upright spear with a pair of upswept zebu horns across its shaft and a collar below the head. */
+  zebu_spear: () => (
+    <g>
+      <path d="M5 6C6 18 13 27 24 27C35 27 42 18 43 6C40 15 33 21 24 21C15 21 8 15 5 6Z" fill={W} />
+      <path d="M24 2C27.4 7 28.4 11.4 26.8 15H21.2C19.6 11.4 20.6 7 24 2Z" fill={W} />
+      <path d="M22.6 15H25.4V45H22.6ZM20 16.4H28V18.6H20Z" fill={W} />
+    </g>
+  ),
 };
 
 /** Charges of the California Autonomous State's cities. */

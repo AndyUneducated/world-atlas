@@ -8,6 +8,7 @@ import {
   ChevronRight,
   Columns3,
   Droplets,
+  Flag as FlagIcon,
   Gauge,
   Landmark,
   LandPlot,
@@ -28,7 +29,7 @@ import { createPortal } from "react-dom";
 import { NotApplicable, Paragraphs, Rows, Section, Sub, useCardScroll } from "./CardParts";
 import { IndicatorRows, indicatorReference } from "./Indicators";
 import { Emblem, Flag, hasEmblem } from "./Emblem";
-import { CouncilSection, ElectionSection, LegislatureSection, PartiesSection, PartySections } from "./Politics";
+import { CouncilSection, ElectionSection, LegislatureSection, PartiesSection, PartySections, STANDING_KEYS } from "./Politics";
 import { BackedSection, CardGroups, isGroupedCard, LocalSymbolsSection } from "./Nation";
 import { RouteTimeline } from "./RouteTimeline";
 import { Climograph } from "./Climograph";
@@ -149,6 +150,17 @@ function stats(e: Entity, lang: Lang, data: AtlasData): StatItem[] {
         { label: t("members", lang), value: formatNumber(e.members ?? 0, lang), unit: t("membersUnit", lang), icon: Users },
         { label: t("statNational", lang), value: String(row?.seats ?? 0), unit: lang === "zh" ? `席 · 共 ${nation.legislature.seats} 席` : `of ${nation.legislature.seats} seats`, icon: Landmark },
         { label: t("statVote", lang), value: `${formatNumber(row?.vote ?? 0, lang, 1)}%`, unit: nation.short_names?.[lang] ?? displayName(nation, lang), icon: ChartNoAxesColumn },
+      ];
+    }
+    // a party of a fixed-chamber state: its seats in that chamber, if any, and where it stands
+    const state = e.seated ?? e.based;
+    const chamber = state ? data.entities[state]?.nation?.legislature : undefined;
+    if (state && chamber && "groups" in chamber) {
+      const seats = held.filter((s) => s.at === state).reduce((a, s) => a + s.seats, 0);
+      return [
+        { label: t("members", lang), value: formatNumber(e.members ?? 0, lang), unit: t("membersUnit", lang), icon: Users },
+        { label: t("statNational", lang), value: seats ? String(seats) : "—", unit: lang === "zh" ? `席 · 共 ${chamber.seats} 席` : `of ${chamber.seats} seats`, icon: Landmark },
+        ...(e.standing ? [{ label: t("partyStanding", lang), value: t(STANDING_KEYS[e.standing], lang), unit: data.entities[state].short_names?.[lang] ?? displayName(data.entities[state], lang), icon: FlagIcon }] : []),
       ];
     }
     const [terr, nTerr] = sum("dependency");
