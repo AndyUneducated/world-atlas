@@ -26,6 +26,7 @@ import { animate, AnimatePresence, motion, useMotionValue, useSpring } from "mot
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent, type ReactNode, type RefObject } from "react";
 import { createPortal } from "react-dom";
 import { NotApplicable, Paragraphs, Rows, Section, Sub, useCardScroll } from "./CardParts";
+import { IndicatorRows, indicatorReference } from "./Indicators";
 import { Emblem, Flag, hasEmblem } from "./Emblem";
 import { CouncilSection, ElectionSection, LegislatureSection, PartySections } from "./Politics";
 import { BackedSection, CardGroups, isGroupedCard, LocalSymbolsSection } from "./Nation";
@@ -460,7 +461,7 @@ function ShareRows({ rows, accent }: { rows: { label: string; value: number }[];
   );
 }
 
-function EconomySection({ entity, lang, accent }: { entity: Entity; lang: Lang; accent: string }) {
+function EconomySection({ data, entity, lang, accent }: { data: AtlasData; entity: Entity; lang: Lang; accent: string }) {
   const ec = entity.economy;
   if (!ec) return <NotApplicable entity={entity} field="economy" title={t("economyTitle", lang)} lang={lang} />;
   const s = ec.sectors;
@@ -471,11 +472,9 @@ function EconomySection({ entity, lang, accent }: { entity: Entity; lang: Lang; 
           [t("gdp", lang), formatUsd(ec.gdp_usd, lang)],
           [t("gdpPerCapita", lang), formatUsd(ec.gdp_per_capita_usd, lang)],
           ...(ec.median_income_usd ? [[t("medianIncome", lang), formatUsd(ec.median_income_usd, lang)] as [string, string]] : []),
-          ...(ec.gini !== undefined ? [[t("gini", lang), formatNumber(ec.gini, lang)] as [string, string]] : []),
-          ...(ec.unemployment !== undefined ? [[t("unemployment", lang), `${formatNumber(ec.unemployment, lang, 1)}%`] as [string, string]] : []),
-          ...(ec.inflation !== undefined ? [[t("inflation", lang), `${formatNumber(ec.inflation, lang, 1)}%`] as [string, string]] : []),
         ]}
       />
+      <IndicatorRows entity={entity} keys={["gini", "unemployment", "inflation"]} reference={indicatorReference(data, entity, lang)} accent={accent} lang={lang} className="mt-3.5" />
       <Sub label={t("sectorMix", lang)}>
         <ShareBar
           accent={accent}
@@ -505,7 +504,7 @@ function EconomySection({ entity, lang, accent }: { entity: Entity; lang: Lang; 
   );
 }
 
-function PeopleSection({ entity, lang, accent }: { entity: Entity; lang: Lang; accent: string }) {
+function PeopleSection({ data, entity, lang, accent }: { data: AtlasData; entity: Entity; lang: Lang; accent: string }) {
   const dm = entity.demographics;
   if (!dm) return <NotApplicable entity={entity} field="demographics" title={t("peopleTitle", lang)} lang={lang} />;
   const [young, working, old] = dm.age;
@@ -516,14 +515,9 @@ function PeopleSection({ entity, lang, accent }: { entity: Entity; lang: Lang; a
   const origins = eth
     ? ETHNIC_GROUPS.filter((g) => eth[g] !== undefined).map((g) => ({ label: t(`eth_${g}` as StringKey, lang), value: eth[g]! }))
     : [];
-  const rows: [string, string][] = [
-    ...(dm.life_expectancy !== undefined ? [[t("lifeExpectancy", lang), `${formatNumber(dm.life_expectancy, lang, 1)} ${lang === "zh" ? "岁" : "years"}`] as [string, string]] : []),
-    ...(dm.literacy !== undefined ? [[t("literacy", lang), `${formatNumber(dm.literacy, lang, 1)}%`] as [string, string]] : []),
-    ...(dm.hdi !== undefined ? [[t("hdi", lang), formatNumber(dm.hdi, lang, 3)] as [string, string]] : []),
-  ];
   return (
     <Section title={t("peopleTitle", lang)}>
-      {rows.length > 0 && <Rows rows={rows} />}
+      <IndicatorRows entity={entity} keys={["life_expectancy", "literacy", "hdi"]} reference={indicatorReference(data, entity, lang)} accent={accent} lang={lang} />
       <Sub label={t("ageStructure", lang)}>
         <ShareBar
           accent={accent}
@@ -920,8 +914,8 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
           shared={{
             about,
             legislature: <LegislatureSection data={data} entity={entity} lang={lang} />,
-            people: <PeopleSection entity={entity} lang={lang} accent={accent} />,
-            economy: <EconomySection entity={entity} lang={lang} accent={accent} />,
+            people: <PeopleSection data={data} entity={entity} lang={lang} accent={accent} />,
+            economy: <EconomySection data={data} entity={entity} lang={lang} accent={accent} />,
             climate: <ClimateSection data={data} entity={entity} lang={lang} />,
             children: <ChildList data={data} entity={entity} lang={lang} />,
             backed: <BackedSection data={data} entity={entity} lang={lang} />,
@@ -942,8 +936,8 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
           <CouncilSection data={data} entity={entity} lang={lang} />
           <ElectionSection data={data} entity={entity} lang={lang} />
           {!entity.segments?.length && <ChildList data={data} entity={entity} lang={lang} />}
-          <PeopleSection entity={entity} lang={lang} accent={accent} />
-          <EconomySection entity={entity} lang={lang} accent={accent} />
+          <PeopleSection data={data} entity={entity} lang={lang} accent={accent} />
+          <EconomySection data={data} entity={entity} lang={lang} accent={accent} />
           <ClimateSection data={data} entity={entity} lang={lang} />
 
           {entity.segments?.length ? <RouteTimeline data={data} entity={entity} lang={lang} /> : null}
