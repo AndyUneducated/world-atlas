@@ -95,8 +95,11 @@ POLITICS_SYSTEMS = ("mmp", "fptp", "pr_reserved", "pr_regional", "top_two")
 PARTY_AXES = ("econ", "galtan", "autonomy", "green")
 PARTY_ORGANISATION = ("newspaper", "think_tank", "unions", "women")
 # where a party stands at home: leads the government, sits in it, is a licensed partner of the ruling party,
-# holds the majority in a parliament that forms no government, opposes it, or holds no seats
+# holds the majority in a parliament that forms no government, opposes it, or holds no seats; a party of a
+# fixed-chamber state with no seat there is lawful but unseated (extra), outlawed, clandestine, in exile or
+# an armed organisation
 PARTY_STANDINGS = ("lead", "coalition", "allied", "majority", "opposition", "extra")
+UNSEATED_STANDINGS = ("extra", "banned", "underground", "exile", "armed")
 STREET_STYLES = ("planned", "mixed", "organic")
 BUILDING_MIX_KEYS = ("slabs", "towers", "perimeter", "houses", "podium", "industrial", "civic", "park")
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
@@ -802,10 +805,15 @@ class World:
                 errors.append(f"politics: {pid}: members must be a whole number")
             if seated := p.get("seated"):
                 groups = self.divisions.get(seated, {}).get("nation", {}).get("legislature", {}).get("groups", [])
-                if "targets" in p or seated not in self.states or sum(g.get("party") == pid for g in groups) != 1:
-                    errors.append(f"politics: {pid}: a seated party is one group of a state's fixed legislature and stands in no election")
+                if "targets" in p or "based" in p or seated not in self.states or not any(g.get("party") == pid for g in groups):
+                    errors.append(f"politics: {pid}: a seated party holds one or more groups of a state's fixed legislature and stands in no election")
                 if p.get("standing", "lead") not in PARTY_STANDINGS:
                     errors.append(f"politics: {pid}: standing is one of {', '.join(PARTY_STANDINGS)}")
+            elif based := p.get("based"):
+                if "targets" in p or based not in self.states:
+                    errors.append(f"politics: {pid}: based names the state of a party that holds no seat and stands in no election")
+                if p.get("standing") not in UNSEATED_STANDINGS:
+                    errors.append(f"politics: {pid}: a party with no seat has a standing of {', '.join(UNSEATED_STANDINGS)}")
             elif "standing" in p or not p.get("targets") or set(p["targets"]) - set(legs):
                 errors.append(f"politics: {pid}: targets name only territories with a legislature; its standing follows from the result")
             for k in ("legal_status", "reunification"):
@@ -817,8 +825,10 @@ class World:
                 errors.append(f"politics: {pid}: hq is a city or district")
             if len(p.get("policies", [])) < 3 or not all(all(x.get(lang) for lang in REQUIRED_LANGS) for x in p.get("policies", [])):
                 errors.append(f"politics: {pid}: at least three policies, each in zh and en")
-            if len(p.get("notes", {}).get("zh", "")) < 800:
-                errors.append(f"politics: {pid}: notes.zh needs at least 800 characters: its lines, record, symbols, voters and culture")
+            # the owner asked for shorter cards for the parties of the fixed-chamber states
+            least = 450 if (p.get("based") or p.get("seated")) else 800
+            if len(p.get("notes", {}).get("zh", "")) < least:
+                errors.append(f"politics: {pid}: notes.zh needs at least {least} characters: its lines, record, symbols, voters and culture")
             tags = p.get("ideology", [])
             if not (len(tags) >= 2 and all(all(x.get(lang) for lang in REQUIRED_LANGS) for x in tags)):
                 errors.append(f"politics: {pid}: ideology is two or more tags, each in zh and en")

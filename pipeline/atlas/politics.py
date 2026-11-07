@@ -429,6 +429,8 @@ def _trend(tid: str, share: dict[str, float]) -> dict[str, list[float]]:
 def _standing(world: World, entities: dict, pid: str, p: dict, home: str) -> str:
     """Where the party stands at home: it leads the government, sits in it, opposes it, or has no seats.
     A party of a fixed chamber leads if it is the largest group, unless it says otherwise."""
+    if p.get("based"):
+        return p["standing"]
     if seated := p.get("seated"):
         groups = world.divisions[seated]["nation"]["legislature"]["groups"]
         return p.get("standing") or ("lead" if max(groups, key=lambda g: g["seats"]).get("party") == pid else "opposition")
@@ -719,21 +721,22 @@ def annotate(world: World, entities: dict) -> None:
         if seated := p.get("seated"):
             leg = world.divisions[seated]["nation"]["legislature"]
             seats_held[pid] += [{"at": seated, "seats": g["seats"], "of": leg["seats"]} for g in leg["groups"] if g.get("party") == pid]
-        home = seated or max(p["targets"], key=p["targets"].get)
+        state = seated or p.get("based")
+        home = state or max(p["targets"], key=p["targets"].get)
         hq = p.get("hq") or world.divisions[home].get("capital")
         entities[pid] = {
             "id": pid, "kind": "party", "subtype": "party", "status": "generated",
             **{k: p[k] for k in ("names", "short_names", "color", "flag", "flag_notes", "spectrum", "family", "ideology", "axes", "leader",
                                  "leader_title", "members", "youth_wing", "slogan", "policies", "allies", "factions", "organisation", "notes",
-                                 "history", "seated", "legal_status", "reunification", "backers") if k in p},
+                                 "history", "seated", "based", "legal_status", "reunification", "backers") if k in p},
             "home": home,
             "standing": _standing(world, entities, pid, p, home),
             **({"hq": hq} if hq else {}),
             **({"trend": trends[home][pid]} if pid in trends.get(home, {}) else {}),
             "secretary": p.get("secretary") or people.draw("secretary:" + pid, entities[home].get("demographics", {}).get("languages", {"zh": 100}), where=home),
-            "branches": [] if seated else [{"at": t, "name": people.leader(p, t)} for t in model["legislatures"] if t in p["targets"]],
+            "branches": [] if state else [{"at": t, "name": people.leader(p, t)} for t in model["legislatures"] if t in p["targets"]],
             "base": _base(world, entities, {k: v / weight[pid] for k, v in effect[pid].items()} if weight[pid] else {}),
-            "territories": [seated] if seated else [t for t in model["legislatures"] if t in p["targets"]],
+            "territories": [state] if state else [t for t in model["legislatures"] if t in p["targets"]],
             "seats": seats_held[pid],
         }
     _appoint(model, entities, people, holders, parties)
