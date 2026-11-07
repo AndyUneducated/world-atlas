@@ -785,7 +785,7 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
   );
 }
 
-const STANDING_KEYS: Record<NonNullable<Entity["standing"]>, StringKey> = {
+export const STANDING_KEYS: Record<NonNullable<Entity["standing"]>, StringKey> = {
   lead: "standingLead",
   coalition: "standingCoalition",
   allied: "standingAllied",
