@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { NotApplicable, Paragraphs, Rows, Section, Sub, useCardOpen } from "./CardParts";
+import { GroupTitle, NotApplicable, Paragraphs, Rows, Section, Sub, useCardOpen } from "./CardParts";
 import { Emblem, hasEmblem } from "./Emblem";
 import { Hemicycle } from "./Hemicycle";
 import { BodyName, Branch, OfficeRows, type PartyPart } from "./Politics";
@@ -13,13 +13,13 @@ import { useAtlas } from "../store";
 
 const L = {
   groupOverview: { zh: "概况", en: "Overview" },
-  groupPolitics: { zh: "政治", en: "Politics" },
-  groupMilitary: { zh: "军事与冲突", en: "Military & conflict" },
-  groupSociety: { zh: "社会", en: "Society" },
+  groupPolitics: { zh: "政府", en: "Government" },
+  groupMilitary: { zh: "军事与安全", en: "Military and security" },
+  groupSociety: { zh: "人口与社会", en: "People and society" },
   groupEconomy: { zh: "经济", en: "Economy" },
   groupGeography: { zh: "地理", en: "Geography" },
   groupSymbols: { zh: "象征", en: "Symbols" },
-  groupFacts: { zh: "资料", en: "Facts" },
+  groupFacts: { zh: "基本资料", en: "Basic facts" },
   groupMembers: { zh: "成员", en: "Members" },
   identity: { zh: "国家", en: "State" },
   ideology: { zh: "意识形态", en: "Ideology" },
@@ -38,18 +38,18 @@ const L = {
   allies: { zh: "盟友", en: "Allies" },
   rivals: { zh: "敌对", en: "Rivals" },
   backers: { zh: "外部支持", en: "Outside backers" },
-  military: { zh: "武装力量", en: "Armed forces" },
+  military: { zh: "军事力量", en: "Military forces" },
   strength: { zh: "军力等级", en: "Strength" },
   active: { zh: "现役", en: "Active" },
   reserve: { zh: "预备役", en: "Reserve" },
-  budget: { zh: "军费占 GDP", en: "Spending, % of GDP" },
+  budget: { zh: "军费开支（占 GDP）", en: "Military expenditure, % of GDP" },
   branches: { zh: "军种", en: "Branches" },
   equipment: { zh: "装备", en: "Equipment" },
   wars: { zh: "战争与冲突", en: "Wars and conflicts" },
   refugees: { zh: "难民", en: "Refugees" },
   hosted: { zh: "境内收容", en: "Hosted" },
   abroad: { zh: "流亡境外", en: "Abroad" },
-  religion: { zh: "宗教信仰", en: "Religion" },
+  religion: { zh: "宗教", en: "Religion" },
   freedom: { zh: "自由指数", en: "Freedom" },
   political: { zh: "政治权利", en: "Political rights" },
   civil: { zh: "公民自由", en: "Civil liberties" },
@@ -64,7 +64,8 @@ const L = {
   currency: { zh: "货币", en: "Currency" },
   timeZone: { zh: "时区", en: "Time zone" },
   callingCode: { zh: "电话区号", en: "Calling code" },
-  tld: { zh: "顶级域名", en: "Internet domain" },
+  countryCallingCode: { zh: "国际电话区号", en: "Country calling code" },
+  tld: { zh: "互联网国家代码", en: "Internet country code" },
   driving: { zh: "行车方向", en: "Drives on the" },
   left: { zh: "靠左行驶", en: "left" },
   right: { zh: "靠右行驶", en: "right" },
@@ -78,7 +79,7 @@ const L = {
     en: "Nations it gives aid, arms, loans or diplomatic cover, openly or not.",
   },
   people: { zh: "人", en: "" },
-  groupPositions: { zh: "立场", en: "Positions" },
+  groupPositions: { zh: "立场与主张", en: "Positions and policies" },
   predecessors: { zh: "历任", en: "Predecessors" },
   emblems: { zh: "标志物", en: "Emblems" },
   culture: { zh: "文化", en: "Culture" },
@@ -91,8 +92,8 @@ const L = {
   travel3: { zh: "3 级 · 重新考虑行程", en: "Level 3 · Reconsider travel" },
   travel4: { zh: "4 级 · 请勿前往", en: "Level 4 · Do not travel" },
   groupOrganisation: { zh: "组织", en: "Organisation" },
-  groupSeats: { zh: "议席", en: "Seats" },
-  groupHistory: { zh: "沿革与友党", en: "History & allies" },
+  groupSeats: { zh: "选举与议席", en: "Elections and seats" },
+  groupHistory: { zh: "沿革与关系", en: "History and relations" },
   groupRelations: { zh: "对外关系", en: "Relations" },
 } satisfies Record<string, Localized>;
 
@@ -177,7 +178,7 @@ function Groups({ groups: all, accent }: { groups: GroupDef[]; accent: string })
             <span className="h-3.5 w-1 rounded-full" style={{ background: accent }} />
             {g.title}
           </h3>
-          {g.body}
+          <GroupTitle.Provider value={g.title}>{g.body}</GroupTitle.Provider>
         </div>
       ))}
     </>
@@ -238,7 +239,7 @@ function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entit
     ? tl("recognisedBy", lang).replace("{n}", String(facts.recognition)).replace("{of}", String(others))
     : tl("unrecognised", lang);
   return (
-    <Section title={tl("identity", lang)}>
+    <Section>
       <div className="mb-3 flex flex-wrap items-center gap-1.5">
         {/* a country stands outside the islands' blocs, not neutral among them */}
         {(facts.bloc || !isRegistryCountry(entity)) && <BlocBadge data={data} facts={facts} lang={lang} />}
@@ -361,7 +362,7 @@ function GovernmentSection({ entity, facts, lang }: { entity: Entity; facts: Nat
   const ju = g?.judiciary;
   const ministry = (m: Localized) => (lang === "en" ? m.en.replace(/^(Ministry|Department) of (the )?/, "") : m.zh);
   return (
-    <Section title={t("politicsTitle", lang)}>
+    <Section title={t("politicsTitle", lang)} flat>
       {ex && (
         <Branch label={t("executive", lang)}>
           {"none" in ex ? (
@@ -655,7 +656,7 @@ function FactsSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
         rows={[
           [tl("currency", lang), `${f.currency[lang]} (${f.currency_code})`],
           [tl("timeZone", lang), f.time_zone],
-          [tl("callingCode", lang), f.calling_code],
+          [tl("countryCallingCode", lang), f.calling_code],
           [tl("tld", lang), <span key="t" className="font-mono text-[12.5px]">{f.tld}</span>],
           [tl("driving", lang), tl(f.driving, lang)],
         ]}
@@ -715,6 +716,7 @@ export type SharedParts = {
   flag: ReactNode;
   lineage: ReactNode;
   codes: ReactNode;
+  parties: ReactNode;
   party: (part: PartyPart) => ReactNode;
 };
 
@@ -727,7 +729,12 @@ export function isGroupedCard(e: Entity) {
 function divisionGroups(entity: Entity, lang: Lang, accent: string, shared: SharedParts): GroupDef[] {
   return [
     { key: "overview", title: tl("groupOverview", lang), body: shared.about, show: !!(entity.notes || entity.background) },
-    { key: "politics", title: tl("groupPolitics", lang), body: shared.legislature, show: !!entity.legislature },
+    {
+      key: "politics",
+      title: tl("groupPolitics", lang),
+      body: <>{shared.legislature}{shared.parties}{shared.children}</>,
+      show: !!(entity.legislature || entity.children?.length),
+    },
     {
       key: "society",
       title: tl("groupSociety", lang),
@@ -735,12 +742,7 @@ function divisionGroups(entity: Entity, lang: Lang, accent: string, shared: Shar
       show: !!(entity.demographics || entity.religion),
     },
     { key: "economy", title: tl("groupEconomy", lang), body: shared.economy, show: !!entity.economy },
-    {
-      key: "geography",
-      title: tl("groupGeography", lang),
-      body: <>{shared.climate}{shared.children}</>,
-      show: !!(entity.climate || entity.climate_notes || entity.children?.length),
-    },
+    { key: "geography", title: tl("groupGeography", lang), body: shared.climate, show: !!(entity.climate || entity.climate_notes) },
     { key: "symbols", title: tl("groupSymbols", lang), body: <>{shared.flag}<LocalSymbolsSection entity={entity} lang={lang} /></>, show: !!(entity.flag || entity.symbols) },
     {
       key: "facts",
@@ -753,10 +755,10 @@ function divisionGroups(entity: Entity, lang: Lang, accent: string, shared: Shar
 
 function partyGroups(entity: Entity, lang: Lang, shared: SharedParts): GroupDef[] {
   return [
-    { key: "overview", title: tl("groupOverview", lang), body: <>{shared.about}{shared.party("profile")}</> },
+    { key: "overview", title: tl("groupOverview", lang), body: <>{shared.party("profile")}{shared.about}</> },
     { key: "positions", title: tl("groupPositions", lang), body: shared.party("positions"), show: !!(entity.axes || entity.policies?.length || entity.base || entity.reunification) },
-    { key: "organisation", title: tl("groupOrganisation", lang), body: shared.party("organisation"), show: !!(entity.youth_wing || entity.organisation) },
     { key: "seats", title: tl("groupSeats", lang), body: shared.party("seats") },
+    { key: "organisation", title: tl("groupOrganisation", lang), body: shared.party("organisation"), show: !!(entity.youth_wing || entity.organisation || entity.factions?.length || (entity.branches?.length ?? 0) > 1) },
     { key: "symbols", title: tl("groupSymbols", lang), body: shared.flag, show: !!entity.flag },
     { key: "history", title: tl("groupHistory", lang), body: shared.party("history"), show: !!(entity.history || entity.allies?.length || entity.backers?.length) },
   ];
@@ -779,19 +781,10 @@ export function CardGroups({ data, entity, lang, accent, shared }: { data: Atlas
           <>
             {entity.legislature ? shared.legislature : <GovernmentSection entity={entity} facts={f} lang={lang} />}
             <NotApplicable entity={entity} field="elections" title={tl("elections", lang)} lang={lang} />
+            {shared.parties}
             <RelationsSection data={data} facts={f} lang={lang} />
             {shared.backed}
-          </>
-        ),
-      },
-      {
-        key: "military",
-        title: tl("groupMilitary", lang),
-        body: (
-          <>
-            <ArmedForces facts={f} lang={lang} accent={accent} />
-            <WarsSection facts={f} lang={lang} />
-            <RefugeeSection facts={f} lang={lang} />
+            {shared.children}
           </>
         ),
       },
@@ -804,13 +797,24 @@ export function CardGroups({ data, entity, lang, accent, shared }: { data: Atlas
             <FreedomSection facts={f} lang={lang} />
             <CultureSection facts={f} lang={lang} />
             {shared.people}
+            <RefugeeSection facts={f} lang={lang} />
           </>
         ),
       },
       { key: "economy", title: tl("groupEconomy", lang), body: shared.economy },
-      { key: "geography", title: tl("groupGeography", lang), body: <>{shared.climate}{shared.children}</> },
+      {
+        key: "military",
+        title: tl("groupMilitary", lang),
+        body: (
+          <>
+            <ArmedForces facts={f} lang={lang} accent={accent} />
+            <WarsSection facts={f} lang={lang} />
+          </>
+        ),
+      },
+      { key: "geography", title: tl("groupGeography", lang), body: shared.climate },
       { key: "symbols", title: tl("groupSymbols", lang), body: <>{shared.flag}<SymbolsSection facts={f} lang={lang} /></> },
-      { key: "facts", title: tl("groupFacts", lang), body: <><TravelSection facts={f} lang={lang} /><FactsSection facts={f} lang={lang} />{shared.lineage}{shared.codes}</> },
+      { key: "facts", title: tl("groupFacts", lang), body: <><FactsSection facts={f} lang={lang} /><TravelSection facts={f} lang={lang} />{shared.lineage}{shared.codes}</> },
     ];
   }, [data, entity, lang, accent, shared]);
   return <Groups groups={groups} accent={accent} />;
@@ -885,7 +889,7 @@ function blocGroups(data: AtlasData, entity: Entity, lang: Lang, accent: string,
       key: "members",
       title: `${tl("groupMembers", lang)} · ${members.length}`,
       body: (
-        <Section title={tl("memberCount", lang)}>
+        <Section>
           <MemberList data={data} ids={ids} leader={entity.leader_nation} lang={lang} />
         </Section>
       ),
