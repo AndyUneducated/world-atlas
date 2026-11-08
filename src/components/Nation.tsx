@@ -8,7 +8,7 @@ import { Hemicycle } from "./Hemicycle";
 import { BodyName, Branch, OfficeRows, type PartyPart } from "./Politics";
 import { islandStates, isRegistryCountry } from "../lib/entity";
 import { displayName, formatNumber, formatPopulation, t } from "../lib/i18n";
-import type { AtlasData, Entity, Faith, FixedChamber, Lang, Localized, NationFacts, Seating, WarStatus } from "../lib/types";
+import type { AtlasData, Entity, Faith, FixedChamber, ForceBranch, Lang, Localized, NationFacts, Seating, WarStatus } from "../lib/types";
 import { useAtlas } from "../store";
 
 const L = {
@@ -43,7 +43,9 @@ const L = {
   active: { zh: "现役", en: "Active" },
   reserve: { zh: "预备役", en: "Reserve" },
   budget: { zh: "军费开支（占 GDP）", en: "Military expenditure, % of GDP" },
-  branches: { zh: "军种", en: "Branches" },
+  forces: { zh: "武装力量", en: "Military and security forces" },
+  noForces: { zh: "无武装力量", en: "No armed forces" },
+  service: { zh: "兵役制度", en: "Military service age and obligation" },
   equipment: { zh: "装备", en: "Equipment" },
   wars: { zh: "战争与冲突", en: "Wars and conflicts" },
   refugees: { zh: "难民", en: "Refugees" },
@@ -453,6 +455,28 @@ function RelationsSection({ data, facts, lang }: { data: AtlasData; facts: Natio
   );
 }
 
+/** Generic service branches (the forces' own names are proper nouns in the data). */
+const FORCE_BRANCH: Record<ForceBranch, { zh: string; en: string }> = {
+  army: { zh: "陆军", en: "Army" },
+  navy: { zh: "海军", en: "Navy" },
+  air_force: { zh: "空军", en: "Air Force" },
+  marines: { zh: "海军陆战队", en: "Marines" },
+  coast_guard: { zh: "海岸警卫队", en: "Coast Guard" },
+  air_defence: { zh: "防空部队", en: "Air Defence" },
+  special_forces: { zh: "特种部队", en: "Special Forces" },
+  gendarmerie: { zh: "宪兵", en: "Gendarmerie" },
+  border_guard: { zh: "边防部队", en: "Border Guard" },
+  paramilitary: { zh: "准军事部队", en: "Paramilitary" },
+  militia: { zh: "民兵", en: "Militia" },
+  guard: { zh: "警卫部队", en: "Guard" },
+  peacekeepers: { zh: "维和部队", en: "Peacekeepers" },
+  private_military: { zh: "私营军事部队", en: "Private Military" },
+  police: { zh: "警察", en: "Police" },
+  rocket_force: { zh: "火箭军", en: "Rocket Force" },
+  space_force: { zh: "太空军", en: "Space Force" },
+  cyber_force: { zh: "网络空间部队", en: "Cyberspace Force" },
+};
+
 function ArmedForces({ facts, lang, accent }: { facts: NationFacts; lang: Lang; accent: string }) {
   const m = facts.military;
   return (
@@ -480,15 +504,27 @@ function ArmedForces({ facts, lang, accent }: { facts: NationFacts; lang: Lang; 
           [tl("active", lang), people(m.active, lang)],
           [tl("reserve", lang), people(m.reserve, lang)],
           ...(m.budget_gdp ? ([[tl("budget", lang), `${formatNumber(m.budget_gdp, lang, 1)}%`]] as [string, ReactNode][]) : []),
+          ...(m.service ? ([[tl("service", lang), m.service[lang]]] as [string, ReactNode][]) : []),
           [
-            tl("branches", lang),
-            <span key="b" className="flex flex-wrap gap-1">
-              {m.branches.map((b) => (
-                <span key={b.en} className="rounded-md bg-hover px-1.5 py-px text-[12px]">
-                  {b[lang]}
-                </span>
-              ))}
-            </span>,
+            tl("forces", lang),
+            m.forces.length ? (
+              <span key="f" className="flex flex-col gap-1.5">
+                {m.forces.map((f) => (
+                  <span key={f.names.en} className="flex flex-col gap-1">
+                    <span className="font-medium text-ink">{f.names[lang]}</span>
+                    <span className="flex flex-wrap gap-1">
+                      {f.branches.map((b) => (
+                        <span key={b} className="rounded-md bg-hover px-1.5 py-px text-[12px]">
+                          {FORCE_BRANCH[b][lang]}
+                        </span>
+                      ))}
+                    </span>
+                  </span>
+                ))}
+              </span>
+            ) : (
+              tl("noForces", lang)
+            ),
           ],
           [tl("equipment", lang), m.equipment[lang]],
         ]}
@@ -708,6 +744,8 @@ function LocalFactsSection({ entity, lang }: { entity: Entity; lang: Lang }) {
 export type SharedParts = {
   about: ReactNode;
   legislature: ReactNode;
+  council: ReactNode;
+  election: ReactNode;
   people: ReactNode;
   economy: ReactNode;
   climate: ReactNode;
@@ -720,20 +758,22 @@ export type SharedParts = {
   party: (part: PartyPart) => ReactNode;
 };
 
-/** Long cards (countries, territories, nations, blocs, parties) come in groups with jumps; short ones are one column. */
+/** Every administrative division (country, territory, city, district), bloc and party comes in groups with jumps, in
+ * the same order and with the same two heading levels; places and routes are one column. */
 export function isGroupedCard(e: Entity) {
-  return !!e.nation || e.kind === "bloc" || e.kind === "party" || (e.kind === "division" && e.subtype === "dependency");
+  return !!e.nation || e.kind === "bloc" || e.kind === "party" || e.kind === "division";
 }
 
-/** A territory's groups, in the order a nation's card uses, without the groups it has nothing for. */
+/** A territory's, city's or district's groups, in the order a nation's card uses (CIA World Factbook), without the
+ * groups it has nothing for; cities and districts have no military and security group. */
 function divisionGroups(entity: Entity, lang: Lang, accent: string, shared: SharedParts): GroupDef[] {
   return [
     { key: "overview", title: tl("groupOverview", lang), body: shared.about, show: !!(entity.notes || entity.background) },
     {
       key: "politics",
       title: tl("groupPolitics", lang),
-      body: <>{shared.legislature}{shared.parties}{shared.children}</>,
-      show: !!(entity.legislature || entity.children?.length),
+      body: <>{shared.legislature}{shared.council}{shared.election}{shared.parties}{shared.children}</>,
+      show: !!(entity.legislature || entity.council || entity.election || entity.children?.length),
     },
     {
       key: "society",
@@ -759,8 +799,9 @@ function partyGroups(entity: Entity, lang: Lang, shared: SharedParts): GroupDef[
     { key: "positions", title: tl("groupPositions", lang), body: shared.party("positions"), show: !!(entity.axes || entity.policies?.length || entity.base || entity.reunification) },
     { key: "seats", title: tl("groupSeats", lang), body: shared.party("seats") },
     { key: "organisation", title: tl("groupOrganisation", lang), body: shared.party("organisation"), show: !!(entity.youth_wing || entity.organisation || entity.factions?.length || (entity.branches?.length ?? 0) > 1) },
-    { key: "symbols", title: tl("groupSymbols", lang), body: shared.flag, show: !!entity.flag },
     { key: "history", title: tl("groupHistory", lang), body: shared.party("history"), show: !!(entity.history || entity.allies?.length || entity.backers?.length) },
+    { key: "symbols", title: tl("groupSymbols", lang), body: shared.flag, show: !!entity.flag },
+    { key: "facts", title: tl("groupFacts", lang), body: shared.party("facts"), show: !!(entity.hq || entity.members) },
   ];
 }
 

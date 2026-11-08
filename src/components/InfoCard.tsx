@@ -926,6 +926,8 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
           shared={{
             about,
             legislature: <LegislatureSection data={data} entity={entity} lang={lang} />,
+            council: <CouncilSection data={data} entity={entity} lang={lang} />,
+            election: <ElectionSection data={data} entity={entity} lang={lang} />,
             people: <PeopleSection data={data} entity={entity} lang={lang} accent={accent} />,
             economy: <EconomySection data={data} entity={entity} lang={lang} accent={accent} />,
             climate: <ClimateSection data={data} entity={entity} lang={lang} />,

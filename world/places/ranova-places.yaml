@@ -479,7 +479,7 @@ places:
     subtype: government
     status: generated
     names: {"zh": "人民宫", "en": "People's Palace"}
-    notes: {"zh": "人民宫位于沃希马希革命大街的尽头，是国家主席府和国务院所在地，也是阿瓦拉齐最重要的政治建筑。这是一座十二层的长条形大楼，立面布满竖向的混凝土线条，屋顶上竖着一颗红色五角星，夜里亮灯，从港口就能望见。革命大街从码头笔直通到人民宫正门前的广场，每年劳动节和建国日的游行队伍都从港口出发，经过检阅台前。现任劳动党总书记、国家主席米拉·安德里安托在七楼办公。大楼不对外开放，但门前的广场全天开放，傍晚常有市民在这里散步、下棋。", "en": "The People's Palace stands at the end of Vohimahy's Revolution Avenue and houses the office of the President of the State and the State Council; it is the most important political building in Avaratsy. A twelve-storey slab with vertical concrete ribs across its front, it carries a red star on the roof, lit at night and visible from the harbour. Revolution Avenue runs dead straight from the docks to the square in front of its main door, and on Labour Day and National Day the parades set out from the port and pass the reviewing stand here. The General Secretary of the Labour Party and President, Mira Andrianto, has her office on the seventh floor. The building is closed to the public, but the square in front is open at all hours and in the evenings people stroll and play chess there."}
+    notes: {"zh": "人民宫位于沃希马希革命大街的尽头，是国家主席府和国务院所在地，也是阿瓦拉齐最重要的政治建筑。这是一座十二层的长条形大楼，立面布满竖向的混凝土线条，屋顶上竖着一颗红色五角星，夜里亮灯，从港口就能望见。革命大街从码头笔直通到人民宫正门前的广场，每年劳动节和建国日的游行队伍都从港口出发，经过检阅台前。现任共产党总书记、国家主席米拉·安德里安托在七楼办公。大楼不对外开放，但门前的广场全天开放，傍晚常有市民在这里散步、下棋。", "en": "The People's Palace stands at the end of Vohimahy's Revolution Avenue and houses the office of the President of the State and the State Council; it is the most important political building in Avaratsy. A twelve-storey slab with vertical concrete ribs across its front, it carries a red star on the roof, lit at night and visible from the harbour. Revolution Avenue runs dead straight from the docks to the square in front of its main door, and on Labour Day and National Day the parades set out from the port and pass the reviewing stand here. The General Secretary of the Communist Party and President, Mira Andrianto, has her office on the seventh floor. The building is closed to the public, but the square in front is open at all hours and in the evenings people stroll and play chess there."}
     emblem_of: div_r9whm0
     in: div_89czvj
     offset_km: [0.00, 0.00]
@@ -488,15 +488,15 @@ places:
     subtype: government
     status: generated
     names: {"zh": "人民代表大会堂", "en": "Hall of the People's Congress"}
-    notes: {"zh": "人民代表大会堂位于人民宫南侧，是人民代表大会三百名代表开会的地方。大会堂的正面是八根方柱，柱廊上方的浮雕表现工人、农民和渔民并肩前进的场景。代表由各级选举委员会提名，取消固定名额以后全部是劳动党党员。大会每年春季开会一次，会期一周左右，审议国家计划和预算，表决几乎总是一致通过。平时大会堂也用来举办全国劳动模范表彰大会和大型文艺演出，门票通过工会和单位分发。", "en": "The Hall of the People's Congress, south of the People's Palace, is where the 300 deputies of the People's Congress meet. Its front has eight square columns, and the relief above the colonnade shows workers, peasants and fishers marching side by side. Deputies are nominated by electoral committees at each level and, since the fixed quotas for other groups were abolished, all of them belong to the Labour Party. The Congress meets once a year in spring for about a week to approve the state plan and the budget, and its votes are almost always unanimous. The rest of the year the hall hosts the national awards for model workers and large stage performances, with tickets handed out through the unions and workplaces."}
+    notes: {"zh": "人民代表大会堂位于人民宫南侧，是人民代表大会三百名代表开会的地方。大会堂的正面是八根方柱，柱廊上方的浮雕表现工人、农民和渔民并肩前进的场景。代表由各级选举委员会提名，十分之九是共产党党员，其余是人民政治协商委员会和民主党派联合会的代表。大会每年春季开会一次，会期一周左右，审议国家计划和预算，表决几乎总是一致通过。平时大会堂也用来举办全国劳动模范表彰大会和大型文艺演出，门票通过工会和单位分发。", "en": "The Hall of the People's Congress, south of the People's Palace, is where the 300 deputies of the People's Congress meet. Its front has eight square columns, and the relief above the colonnade shows workers, peasants and fishers marching side by side. Deputies are nominated by electoral committees at each level; nine in ten belong to the Communist Party and the rest represent the People's Political Consultative Committee and the Federation of Democratic Parties. The Congress meets once a year in spring for about a week to approve the state plan and the budget, and its votes are almost always unanimous. The rest of the year the hall hosts the national awards for model workers and large stage performances, with tickets handed out through the unions and workplaces."}
     in: div_89czvj
     offset_km: [-0.40, 0.00]
     site: {"layout": "hall", "size_m": [240, 160]}
   - id: bld_jtn1s7
     subtype: government
     status: generated
-    names: {"zh": "劳动党中央委员会大楼", "en": "Labour Party Central Committee Building"}
-    notes: {"zh": "劳动党中央委员会大楼位于革命大街中段，是阿瓦拉齐劳动党中央委员会和政治局的办公地。按照宪法，劳动党是国家的领导力量，政治局在这里讨论的决定随后才交给人民代表大会和国务院执行，因此外交官们说，阿瓦拉齐真正的政府在这座楼里。大楼呈L形，转角处是一座钟楼，每天早上八点播放《国际歌》。近年来政治局在这里通过了开放沿海经济区、允许小型私人商店的决议，大楼也因此被一些党员私下称为「改革楼」。", "en": "The Labour Party Central Committee Building, halfway along Revolution Avenue, houses the Central Committee and Politburo of the Avaratsy Labour Party. Under the constitution the party is the leading force of the state, and the Politburo's decisions here only afterwards go to the People's Congress and the State Council to carry out, so diplomats say that Avaratsy's real government sits in this building. It is L-shaped with a clock tower at the corner that plays 'The Internationale' every morning at eight. In recent years the Politburo has passed here the decisions to open coastal economic zones and allow small private shops, and some party members privately call it the 'reform building'."}
+    names: {"zh": "共产党中央委员会大楼", "en": "Communist Party Central Committee Building"}
+    notes: {"zh": "共产党中央委员会大楼位于革命大街中段，是阿瓦拉齐共产党中央委员会和政治局的办公地。按照宪法，共产党是国家的领导力量，政治局在这里讨论的决定随后才交给人民代表大会和国务院执行，因此外交官们说，阿瓦拉齐真正的政府在这座楼里。大楼呈L形，转角处是一座钟楼，每天早上八点播放《国际歌》。近年来政治局在这里通过了开放沿海经济区、允许小型私人商店的决议，大楼也因此被一些党员私下称为「改革楼」。", "en": "The Communist Party Central Committee Building, halfway along Revolution Avenue, houses the Central Committee and Politburo of the Avaratsy Communist Party. Under the constitution the party is the leading force of the state, and the Politburo's decisions here only afterwards go to the People's Congress and the State Council to carry out, so diplomats say that Avaratsy's real government sits in this building. It is L-shaped with a clock tower at the corner that plays 'The Internationale' every morning at eight. In recent years the Politburo has passed here the decisions to open coastal economic zones and allow small private shops, and some party members privately call it the 'reform building'."}
     in: div_89czvj
     offset_km: [0.00, -0.40]
     site: {"layout": "lshape", "size_m": [220, 180]}
@@ -504,7 +504,7 @@ places:
     subtype: museum
     status: generated
     names: {"zh": "革命历史博物馆", "en": "Museum of the Revolution"}
-    notes: {"zh": "革命历史博物馆位于沃希马希革命大街，讲述劳动党领导的革命、建国和高原战争的官方历史。展品包括游击队用过的步枪、建国宣言的手稿和高原战争中缴获的坦克。学生和新入党的党员都要来这里参观。近年来，博物馆增加了一个介绍沿海经济区的展厅，展出国营工厂与外资合作生产的产品。", "en": "The Museum of the Revolution, on Revolution Avenue in Vohimahy, tells the official history of the revolution led by the Labour Party, the founding of the state and the Highland War. Its exhibits include guerrillas' rifles, the manuscript of the founding declaration and tanks captured in the Highland War. Schoolchildren and new party members are all brought here. In recent years a gallery on the coastal economic zones has been added, showing goods made by state factories in partnership with foreign firms."}
+    notes: {"zh": "革命历史博物馆位于沃希马希革命大街，讲述共产党领导的革命、建国和高原战争的官方历史。展品包括游击队用过的步枪、建国宣言的手稿和高原战争中缴获的坦克。学生和新入党的党员都要来这里参观。近年来，博物馆增加了一个介绍沿海经济区的展厅，展出国营工厂与外资合作生产的产品。", "en": "The Museum of the Revolution, on Revolution Avenue in Vohimahy, tells the official history of the revolution led by the Communist Party, the founding of the state and the Highland War. Its exhibits include guerrillas' rifles, the manuscript of the founding declaration and tanks captured in the Highland War. Schoolchildren and new party members are all brought here. In recent years a gallery on the coastal economic zones has been added, showing goods made by state factories in partnership with foreign firms."}
     in: div_89czvj
     offset_km: [0.00, 0.40]
     site: {"layout": "hall", "size_m": [220, 150]}
@@ -830,7 +830,7 @@ places:
     subtype: government
     status: generated
     names: {"zh": "人民议会大厦", "en": "People's Assembly Hall"}
-    notes: {"zh": "人民议会大厦位于中央广场西侧，是最高人民会议五百名代表开会的地方。每个选区只有一名由劳动党提名的候选人，投票率和赞成率每次都接近百分之百，选举日被宣传为「全民的节日」。大会每年开会一两天，代表们听取领导人的报告，鼓掌通过预先拟好的决议。大厦的门厅里挂着一幅长二十米的油画，描绘创始领袖在海边宣布建国的场景。会议期间，中央广场上会组织数万人的群众集会。", "en": "The People's Assembly Hall on the west side of the central square is where the 500 deputies of the Supreme People's Assembly meet. Each constituency has a single candidate nominated by the Workers' Party, turnout and approval are close to 100% every time, and election day is promoted as 'a festival of the whole people'. The Assembly sits for a day or two a year; the deputies hear the leader's report and applaud resolutions drafted beforehand. A 20 m oil painting in the lobby shows the founding leader proclaiming the state by the sea. During sessions, rallies of tens of thousands are organised in the central square."}
+    notes: {"zh": "人民议会大厦位于中央广场西侧，是最高国务会议五百名代表开会的地方。每个选区只有一名由劳动党提名的候选人，投票率和赞成率每次都接近百分之百，选举日被宣传为「全民的节日」。大会每年开会一两天，代表们听取领导人的报告，鼓掌通过预先拟好的决议。大厦的门厅里挂着一幅长二十米的油画，描绘创始领袖在海边宣布建国的场景。会议期间，中央广场上会组织数万人的群众集会。", "en": "The People's Assembly Hall on the west side of the central square is where the 500 deputies of the Supreme State Council meet. Each constituency has a single candidate nominated by the Workers' Party, turnout and approval are close to 100% every time, and election day is promoted as 'a festival of the whole people'. The Assembly sits for a day or two a year; the deputies hear the leader's report and applaud resolutions drafted beforehand. A 20 m oil painting in the lobby shows the founding leader proclaiming the state by the sea. During sessions, rallies of tens of thousands are organised in the central square."}
     in: div_gt2h78
     offset_km: [-0.40, -0.20]
     site: {"layout": "hall", "size_m": [260, 180]}
@@ -1052,7 +1052,7 @@ places:
     subtype: government
     status: generated
     names: {"zh": "领袖府", "en": "Leader's Residence"}
-    notes: {"zh": "领袖府位于齐马罗沃中轴大道的北端，是民族领袖拉哈特拉·拉孔多的官邸和办公地。这是一座新古典风格的回字形建筑，正面有十六根方柱，柱廊前是宽阔的阅兵台阶，每年的建国阅兵从这里开始。府内的接见厅长六十米，地面铺着本国出产的红色花岗岩，外国使节递交国书时须沿着长厅走到尽头。领袖府由民族卫队守卫，大道两侧的建筑在阅兵日要清空。国际人权组织多次指出，许多涉及原住民迁徙和政治犯的命令都从这里签发。", "en": "The Leader's Residence, at the northern end of Tsimarovo's central axis, is the residence and office of the Leader of the Nation, Lahatra Rakondo. It is a neoclassical quadrangle with sixteen square columns across its front, and broad parade steps before the colonnade where the annual National Day parade begins. The audience hall inside is 60 m long and floored with the country's own red granite, and foreign envoys presenting their credentials must walk its whole length. The National Guard holds the residence, and on parade days the buildings along the avenue are cleared. International human rights groups have often pointed out that many of the orders on the removal of indigenous people and on political prisoners were signed here."}
+    notes: {"zh": "领袖府位于齐马罗沃中轴大道的北端，是帝国元首拉哈特拉·拉孔多的官邸和办公地。这是一座新古典风格的回字形建筑，正面有十六根方柱，柱廊前是宽阔的阅兵台阶，每年的建国阅兵从这里开始。府内的接见厅长六十米，地面铺着本国出产的红色花岗岩，外国使节递交国书时须沿着长厅走到尽头。领袖府由民族卫队守卫，大道两侧的建筑在阅兵日要清空。国际人权组织多次指出，许多涉及原住民迁徙和政治犯的命令都从这里签发。", "en": "The Leader's Residence, at the northern end of Tsimarovo's central axis, is the residence and office of the Reich Leader, Lahatra Rakondo. It is a neoclassical quadrangle with sixteen square columns across its front, and broad parade steps before the colonnade where the annual National Day parade begins. The audience hall inside is 60 m long and floored with the country's own red granite, and foreign envoys presenting their credentials must walk its whole length. The National Guard holds the residence, and on parade days the buildings along the avenue are cleared. International human rights groups have often pointed out that many of the orders on the removal of indigenous people and on political prisoners were signed here."}
     emblem_of: div_rbcxzz
     in: div_j0txx6
     offset_km: [0.00, 0.00]
@@ -1077,7 +1077,7 @@ places:
     subtype: plaza
     status: generated
     names: {"zh": "中轴大道阅兵场", "en": "Central Axis Parade Ground"}
-    notes: {"zh": "中轴大道阅兵场是齐马罗沃城中心一条宽一百米的大道和两侧的检阅台，北接领袖府，南抵国民大厅。每年建国日，民族卫队和国防军的方阵、坦克和导弹车从这里经过，民族领袖在检阅台上观礼。平日里大道上车辆很少，宽阔的路面显得空旷，两侧的路灯柱上挂着运动的旗帜。", "en": "The Central Axis Parade Ground is a 100 m wide avenue through the centre of Tsimarovo with reviewing stands along its sides, running from the Leader's Residence in the north to the Hall of the Nation in the south. Every National Day the columns of the National Guard and the Defence Force, tanks and missile carriers pass along it while the Leader of the Nation watches from the stand. On ordinary days there is little traffic, the broad road looks empty, and the Movement's banners hang from the lamp posts on both sides."}
+    notes: {"zh": "中轴大道阅兵场是齐马罗沃城中心一条宽一百米的大道和两侧的检阅台，北接领袖府，南抵国民大厅。每年建国日，民族卫队和国防军的方阵、坦克和导弹车从这里经过，帝国元首在检阅台上观礼。平日里大道上车辆很少，宽阔的路面显得空旷，两侧的路灯柱上挂着运动的旗帜。", "en": "The Central Axis Parade Ground is a 100 m wide avenue through the centre of Tsimarovo with reviewing stands along its sides, running from the Leader's Residence in the north to the Hall of the Nation in the south. Every National Day the columns of the National Guard and the Defence Force, tanks and missile carriers pass along it while the Reich Leader watches from the stand. On ordinary days there is little traffic, the broad road looks empty, and the Movement's banners hang from the lamp posts on both sides."}
     in: div_j0txx6
     offset_km: [0.40, -0.40]
     site: {"layout": "plaza", "size_m": [500, 260]}
@@ -5876,7 +5876,8 @@ places:
     subtype: government
     status: generated
     names: {"zh": "承天宫", "en": "Chengtian Palace"}
-    notes: {"zh": "承天宫是大衡天子的宫城，坐落在承天城中轴线的北端，背靠衡河，南面正对承天门和城外的圜丘。宫城四面朱墙，屋顶覆盖青色琉璃瓦，正殿承天殿是天子朝会百官的地方：每月初一的大朝会上，百官按品级身着紫、绯、绿、青四色朝服，手持笏板列队行礼，由鸿胪寺的赞礼官唱名。殿后是天子批阅奏章的勤政殿和后宫，西侧的文华阁收藏着太祖从书院带来的经籍抄本。殿试也在承天殿举行，景衡帝庄允恭亲自出题，排定进士的名次。宫城只在亲耕节和殿试放榜那天向百姓开放外朝。", "en": "Chengtian Palace is the palace city of the Emperor of Heng, at the northern end of Chengtian's axis with the Heng behind it and the Gate of Receiving Heaven and the Round Altar beyond the walls before it. It is walled in vermilion and roofed in azure glazed tiles; its main hall, the Hall of Receiving Heaven, is where the Emperor holds court. At the great audience on the first day of each month the officials line up by rank in court robes of purple, scarlet, green and blue, holding their tablets, and bow as the ushers of the Court of State Ceremonial call their names. Behind the hall are the Hall of Diligent Government, where the Emperor reads memorials, and the inner palace, and on the west side the Pavilion of Literary Splendour keeps the manuscripts of the classics the founder brought from his academy. The palace examination is also held in the Hall of Receiving Heaven, where the Jingheng Emperor, Zhuang Yungong, sets the questions himself and ranks the graduates. The outer court is open to the public only on the Day of the Imperial Ploughing and the day the palace examination results are posted."}
+    wonder: {"zh": "世界最大的木结构建筑，大衡天子的皇宫", "en": "The largest wooden building in the world, the palace of the Emperor of Heng"}
+    notes: {"zh": "承天宫是大衡天子的宫城，坐落在承天城中轴线的北端，背靠衡河，南面正对承天门和城外的圜丘。宫城四面朱墙，屋顶覆盖青色琉璃瓦，殿宇全部以衡河上游运来的楠木建造，不用一根铁钉，是世界最大的木结构建筑。正殿承天殿面阔十三间，是天子朝会百官的地方：每月初一的大朝会上，百官按品级身着紫、绯、绿、青四色朝服，手持笏板列队行礼，由鸿胪寺的赞礼官唱名。殿后是天子批阅奏章的勤政殿和后宫，西侧的文华阁收藏着太祖从书院带来的经籍抄本。殿试也在承天殿举行，景衡帝庄允恭亲自出题，排定进士的名次。宫城只在亲耕节和殿试放榜那天向百姓开放外朝。", "en": "Chengtian Palace is the palace city of the Emperor of Heng, at the northern end of Chengtian's axis with the Heng behind it and the Gate of Receiving Heaven and the Round Altar beyond the walls before it. It is walled in vermilion and roofed in azure glazed tiles, and its halls are built entirely of nanmu timber floated down from the upper Heng, without a single iron nail, making it the largest wooden building in the world. Its main hall, the Hall of Receiving Heaven, thirteen bays wide, is where the Emperor holds court. At the great audience on the first day of each month the officials line up by rank in court robes of purple, scarlet, green and blue, holding their tablets, and bow as the ushers of the Court of State Ceremonial call their names. Behind the hall are the Hall of Diligent Government, where the Emperor reads memorials, and the inner palace, and on the west side the Pavilion of Literary Splendour keeps the manuscripts of the classics the founder brought from his academy. The palace examination is also held in the Hall of Receiving Heaven, where the Jingheng Emperor, Zhuang Yungong, sets the questions himself and ranks the graduates. The outer court is open to the public only on the Day of the Imperial Ploughing and the day the palace examination results are posted."}
     emblem_of: div_st5cb2
     in: div_7ct07a
     offset_km: [0.00, 0.00]
@@ -6383,7 +6384,7 @@ places:
     subtype: border_crossing
     status: generated
     names: {"zh": "瓦托福齐南门检查站", "en": "Vatofotsy South Gate Checkpoint"}
-    notes: {"zh": "瓦托福齐南门检查站设在通往金日王国的旧国道上，几道路障、一座岗亭和一片停车检查区。口岸大部分时间关闭，只放行持特别通行证的货车；紫衫卫队的哨兵检查每一个出境者的誓约证。", "en": "Vatofotsy South Gate Checkpoint stands on the old national road to the Kingdom of the Golden Sun: a few barriers, a guard post and a vehicle inspection area. The crossing is closed most of the time and lets through only lorries with special passes, and Violet Guard sentries check the oath card of everyone who leaves."}
+    notes: {"zh": "瓦托福齐南门检查站设在通往太阳神国度的旧国道上，几道路障、一座岗亭和一片停车检查区。口岸大部分时间关闭，只放行持特别通行证的货车；紫衫卫队的哨兵检查每一个出境者的誓约证。", "en": "Vatofotsy South Gate Checkpoint stands on the old national road to the Realm of the Sun God: a few barriers, a guard post and a vehicle inspection area. The crossing is closed most of the time and lets through only lorries with special passes, and Violet Guard sentries check the oath card of everyone who leaves."}
     in: div_69p834
     offset_km: [0.00, -3.00]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
@@ -6391,7 +6392,7 @@ places:
     subtype: military_base
     status: generated
     names: {"zh": "瓦托福齐兵营", "en": "Vatofotsy Barracks"}
-    notes: {"zh": "瓦托福齐兵营是军团步兵第二大队的驻地，负责南部边境的防务，几十座营房围着一个操场，旁边是车场和弹药库。士兵们常被派去看管采石场的劳力，也在金日王国边界一带巡逻。营区不对外开放。", "en": "Vatofotsy Barracks is the base of the 2nd Battalion Group of the Legion Infantry, which guards the southern border: dozens of barrack blocks round a parade ground, with a vehicle yard and magazines beside them. Its soldiers are often sent to guard the labour gangs in the quarry and patrol the border with the Kingdom of the Golden Sun. It is closed to the public."}
+    notes: {"zh": "瓦托福齐兵营是军团步兵第二大队的驻地，负责南部边境的防务，几十座营房围着一个操场，旁边是车场和弹药库。士兵们常被派去看管采石场的劳力，也在太阳神国度边界一带巡逻。营区不对外开放。", "en": "Vatofotsy Barracks is the base of the 2nd Battalion Group of the Legion Infantry, which guards the southern border: dozens of barrack blocks round a parade ground, with a vehicle yard and magazines beside them. Its soldiers are often sent to guard the labour gangs in the quarry and patrol the border with the Realm of the Sun God. It is closed to the public."}
     in: div_69p834
     offset_km: [2.12, -2.12]
     site: {"layout": "camp", "size_m": [800, 600], "variant": "barracks", "angle_deg": 45, "rural": true}
@@ -6405,7 +6406,7 @@ places:
     offset_km: [0.40, -0.30]
     site: {"layout": "lshape", "size_m": [200, 160]}
 
-  # ── 无上法国 / Dharma Kingdom ──
+  # ── 转轮国 / Dharma Wheel ──
   - id: bld_wj8fxc
     subtype: government
     status: generated
@@ -6565,7 +6566,7 @@ places:
     subtype: marketplace
     status: generated
     names: {"zh": "瓦瓦拉诺驿站集市", "en": "Vavarano Caravan Market"}
-    notes: {"zh": "瓦瓦拉诺驿站集市是南北商道上的老集市，从金日王国和大衡王朝来的商队在这里卸货、换骡、交过路费。集市上卖盐、铁器、羊毛和红米，也卖金日王国的土豆和织毯。关隘与朝圣司的僧官坐在集市门口收税。", "en": "Vavarano Caravan Market is the old market on the north-south road, where caravans from the Kingdom of the Golden Sun and the Great Heng Dynasty unload, change mules and pay their tolls. It sells salt, ironware, wool and red rice, and the potatoes and woven rugs of the Golden Sun. Monk-officials of the Office of Passes and Pilgrims sit at the gate collecting the dues."}
+    notes: {"zh": "瓦瓦拉诺驿站集市是南北商道上的老集市，从太阳神国度和大衡王朝来的商队在这里卸货、换骡、交过路费。集市上卖盐、铁器、羊毛和红米，也卖太阳神国度的土豆和织毯。关隘与朝圣司的僧官坐在集市门口收税。", "en": "Vavarano Caravan Market is the old market on the north-south road, where caravans from the Realm of the Sun God and the Great Heng Dynasty unload, change mules and pay their tolls. It sells salt, ironware, wool and red rice, and the potatoes and woven rugs of the Sun God Realm. Monk-officials of the Office of Passes and Pilgrims sit at the gate collecting the dues."}
     in: div_qhbbr0
     offset_km: [0.00, 0.00]
     site: {"layout": "market", "size_m": [260, 180]}
@@ -6581,7 +6582,7 @@ places:
     subtype: hotel
     status: generated
     names: {"zh": "瓦瓦拉诺朝圣者客舍", "en": "Vavarano Pilgrims' Guesthouse"}
-    notes: {"zh": "瓦瓦拉诺朝圣者客舍是寺院经营的客栈，接待从南方山口进入王国的朝圣者和商人，几十间客房围着一个种着檀香树的院子。许多住客是越境来朝拜的金日王国村民，金日王国禁止他们来，这是两国争吵的由来之一。", "en": "Vavarano Pilgrims' Guesthouse is an inn run by the monasteries for pilgrims and traders entering the kingdom by the southern passes, dozens of rooms round a courtyard planted with sandalwood. Many guests are villagers from the Kingdom of the Golden Sun who cross to worship; the Golden Sun forbids them to come, one of the roots of the quarrel between the two kingdoms."}
+    notes: {"zh": "瓦瓦拉诺朝圣者客舍是寺院经营的客栈，接待从南方山口进入王国的朝圣者和商人，几十间客房围着一个种着檀香树的院子。许多住客是越境来朝拜的太阳神国度村民，太阳神国度禁止他们来，这是两国争吵的由来之一。", "en": "Vavarano Pilgrims' Guesthouse is an inn run by the monasteries for pilgrims and traders entering the kingdom by the southern passes, dozens of rooms round a courtyard planted with sandalwood. Many guests are villagers from the Realm of the Sun God who cross to worship; the Sun God Realm forbids them to come, one of the roots of the quarrel between the two kingdoms."}
     in: div_qhbbr0
     offset_km: [0.40, 0.30]
     site: {"layout": "courtyard", "size_m": [180, 150]}
@@ -6597,7 +6598,7 @@ places:
     subtype: border_crossing
     status: generated
     names: {"zh": "南关", "en": "South Gate Pass"}
-    notes: {"zh": "南关是通往金日王国的山口检查站，一道石门和一排关楼。商队在这里缴纳过路费，朝圣者须出示寺院签发的通行证。金日王国指责王国借过路费卡住它北上的商道，王国则指责对方关闭山口、不许村民越境朝圣，关门的事每隔几年就发生一次。", "en": "South Gate Pass is the checkpoint on the pass into the Kingdom of the Golden Sun, a stone gate and a row of gatehouses. Caravans pay their tolls here and pilgrims show passes issued by the monasteries. The Golden Sun accuses the kingdom of using the tolls to choke its road north; the kingdom accuses the Golden Sun of closing the pass to stop its villagers crossing to worship. Every few years one side or the other shuts the gate."}
+    notes: {"zh": "南关是通往太阳神国度的山口检查站，一道石门和一排关楼。商队在这里缴纳过路费，朝圣者须出示寺院签发的通行证。太阳神国度指责王国借过路费卡住它北上的商道，王国则指责对方关闭山口、不许村民越境朝圣，关门的事每隔几年就发生一次。", "en": "South Gate Pass is the checkpoint on the pass into the Realm of the Sun God, a stone gate and a row of gatehouses. Caravans pay their tolls here and pilgrims show passes issued by the monasteries. The Sun God Realm accuses the kingdom of using the tolls to choke its road north; the kingdom accuses the Sun God Realm of closing the pass to stop its villagers crossing to worship. Every few years one side or the other shuts the gate."}
     in: div_qhbbr0
     offset_km: [0.40, -6.50]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 10, "rural": true}
@@ -6656,7 +6657,7 @@ places:
     subtype: temple
     status: generated
     names: {"zh": "太阳神庙", "en": "Temple of the Sun"}
-    notes: {"zh": "太阳神庙是金日王国最神圣的地方，弧形的外墙贴着金箔，清晨的第一缕阳光照在墙上，全城都能望见，国名由此而来。庙内供奉太阳和历代守庙人，大祭司每天在这里主持迎日礼。太阳节时，太阳之子在庙前用金镜取火。", "en": "The Temple of the Sun is the holiest place in the Kingdom of the Golden Sun; its curved outer wall is clad in gold leaf, and the first light of each morning strikes it so the whole city can see, which gives the kingdom its name. Inside, the sun and the temple keepers of old are honoured, and the High Priest leads the rite of greeting the sun here every day. At the Festival of the Sun the Son of the Sun kindles fire before it with a golden mirror."}
+    notes: {"zh": "太阳神庙是太阳神国度最神圣的地方，弧形的外墙贴着金箔，清晨的第一缕阳光照在墙上，全城都能望见，国名由此而来。庙内供奉太阳和历代守庙人，大祭司每天在这里主持迎日礼。太阳节时，太阳之子在庙前用金镜取火。", "en": "The Temple of the Sun is the holiest place in the Realm of the Sun God; its curved outer wall is clad in gold leaf, and the first light of each morning strikes it so the whole city can see, which gives the kingdom its name. Inside, the sun and the temple keepers of old are honoured, and the High Priest leads the rite of greeting the sun here every day. At the Festival of the Sun the Son of the Sun kindles fire before it with a golden mirror."}
     emblem_of: div_zybzvt
     in: div_depam8
     offset_km: [0.00, 0.45]
@@ -6665,7 +6666,7 @@ places:
     subtype: court
     status: generated
     names: {"zh": "王廷法庭", "en": "Court of the Sun's Justice"}
-    notes: {"zh": "王廷法庭是金日王国的最高审判机关，五名法官由太阳之子任命，只审理亵渎和叛逆案件，并复核各方总督法庭的重刑。被告没有律师，判决当众宣读。人权组织批评法庭把批评太阳之子定为亵渎，被判重罪的人常被罚往东部的金矿服役。", "en": "The Court of the Sun's Justice is the kingdom's highest court; its five judges are appointed by the Son of the Sun, hear only cases of sacrilege and treason and review the heavier sentences of the governors' courts. The accused have no lawyers, and judgments are read out in public. Human rights groups criticise the court for treating criticism of the Son of the Sun as sacrilege; those convicted of serious crimes are often sent to work in the gold mines in the east."}
+    notes: {"zh": "王廷法庭是太阳神国度的最高审判机关，五名法官由太阳之子任命，只审理亵渎和叛逆案件，并复核各方总督法庭的重刑。被告没有律师，判决当众宣读。人权组织批评法庭把批评太阳之子定为亵渎，被判重罪的人常被罚往东部的金矿服役。", "en": "The Court of the Sun's Justice is the kingdom's highest court; its five judges are appointed by the Son of the Sun, hear only cases of sacrilege and treason and review the heavier sentences of the governors' courts. The accused have no lawyers, and judgments are read out in public. Human rights groups criticise the court for treating criticism of the Son of the Sun as sacrilege; those convicted of serious crimes are often sent to work in the gold mines in the east."}
     in: div_depam8
     offset_km: [-0.40, -0.35]
     site: {"layout": "courtyard", "size_m": [180, 150]}
@@ -6765,7 +6766,7 @@ places:
     subtype: marketplace
     status: generated
     names: {"zh": "安西拉交易所", "en": "Ansira Exchange House"}
-    notes: {"zh": "安西拉交易所是外国商人同金日王国做生意的唯一场所，由外事与交易署管理。商人在这里用药品、燃料、工具和枪支换取黄金、驼毛、土豆干和金藜，买卖用交易筹记账，交易筹不能带出城外。院子里每天都有结绳官和翻译在场。", "en": "The Ansira Exchange House is the only place where foreign merchants may do business with the Kingdom of the Golden Sun, under the Office of External Affairs and Exchange. Here they trade medicines, fuel, tools and rifles for gold, vilona wool, dried potatoes and golden goosefoot, reckoned in exchange tokens that may not leave town. Cord-keepers and interpreters are in the courtyard every day."}
+    notes: {"zh": "安西拉交易所是外国商人同太阳神国度做生意的唯一场所，由外事与交易署管理。商人在这里用药品、燃料、工具和枪支换取黄金、驼毛、土豆干和金藜，买卖用交易筹记账，交易筹不能带出城外。院子里每天都有结绳官和翻译在场。", "en": "The Ansira Exchange House is the only place where foreign merchants may do business with the Realm of the Sun God, under the Office of External Affairs and Exchange. Here they trade medicines, fuel, tools and rifles for gold, vilona wool, dried potatoes and golden goosefoot, reckoned in exchange tokens that may not leave town. Cord-keepers and interpreters are in the courtyard every day."}
     in: div_0ehtbq
     offset_km: [0.30, 0.20]
     site: {"layout": "market", "size_m": [260, 180]}
@@ -6831,7 +6832,7 @@ places:
     subtype: sacred_site
     status: generated
     names: {"zh": "日门山口", "en": "Sun Gate Pass"}
-    notes: {"zh": "日门山口在瓦瓦哈迪以北的边境上，冬至的太阳正好从两座山峰之间升起，金日王国的朝圣者每年来这里迎日。无上法王国的僧侣在山口另一侧建了一座白塔，称这里是通往雪伞山的南门。两国都主张山口归己，守卫和朝圣者对峙多年。", "en": "The Sun Gate Pass lies on the border north of Vavahady, where the winter solstice sun rises exactly between two peaks, and pilgrims of the Golden Sun come every year to greet it. Monks of the Kingdom of the Unsurpassed Dharma have built a white stupa on the far side and call it the southern gate to the Snow Parasol Mountains. Both countries claim the pass, and their guards and pilgrims have faced each other for years."}
+    notes: {"zh": "日门山口在瓦瓦哈迪以北的边境上，冬至的太阳正好从两座山峰之间升起，太阳神国度的朝圣者每年来这里迎日。转轮无边法王国的僧侣在山口另一侧建了一座白塔，称这里是通往雪伞山的南门。两国都主张山口归己，守卫和朝圣者对峙多年。", "en": "The Sun Gate Pass lies on the border north of Vavahady, where the winter solstice sun rises exactly between two peaks, and pilgrims of the Sun God Realm come every year to greet it. Monks of the Kingdom of the Boundless Dharma Wheel have built a white stupa on the far side and call it the southern gate to the Snow Parasol Mountains. Both countries claim the pass, and their guards and pilgrims have faced each other for years."}
     in: div_tvpd91
     offset_km: [1.15, 4.50]
     site: {"layout": "park", "size_m": [600, 450], "angle_deg": 22, "rural": true}

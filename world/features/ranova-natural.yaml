@@ -21,7 +21,7 @@ features:
     subtype: ridge
     status: generated
     names: {zh: 法拉纳断崖, en: Farana Escarpment, art-x-ranova: Hantsana Farana}
-    notes: {zh: 安德里纳高原东缘的大断崖，绵延数百公里，从高原上陡落数百米到东部的丘陵和海岸平原。断崖迎着东北信风，雨水极多，覆盖着全岛最茂密的热带雨林，雨季时一道道瀑布带着红土倾泻而下。断崖上有水电站，断崖下是马索沃利、法尼里、洛哈瓦托和黎明千年国。, en: 'The great escarpment along the eastern edge of the Andrina Highlands, running for hundreds of kilometres and dropping several hundred metres from the plateau to the hills and coastal plains of the east. It faces the north-east trades and gets a great deal of rain, and is covered in the densest rainforest on the island; in the rains waterfall after waterfall pours red earth down its face. There are hydroelectric plants along the top, and Masovoly, Faniry, Lohavato and the Dawn Realm lie below.'}
+    notes: {zh: 安德里纳高原东缘的大断崖，绵延数百公里，从高原上陡落数百米到东部的丘陵和海岸平原。断崖迎着东北信风，雨水极多，覆盖着全岛最茂密的热带雨林，雨季时一道道瀑布带着红土倾泻而下。断崖上有水电站，断崖下是马索沃利、法尼里、洛哈瓦托和最神圣的黎明千年国。, en: 'The great escarpment along the eastern edge of the Andrina Highlands, running for hundreds of kilometres and dropping several hundred metres from the plateau to the hills and coastal plains of the east. It faces the north-east trades and gets a great deal of rain, and is covered in the densest rainforest on the island; in the rains waterfall after waterfall pours red earth down its face. There are hydroelectric plants along the top, and Masovoly, Faniry, Lohavato and the Dawn Realm lie below.'}
   - id: nat_d5npq4
     subtype: mountain_range
     status: generated
@@ -36,7 +36,7 @@ features:
     subtype: volcano
     status: generated
     names: {zh: 坦德罗圣山, en: Holy Mount Tendro, art-x-ranova: Tendro Masina}
-    notes: {zh: 东南群岛中坦德罗岛上的一座古老火山，深红色的火山岩山体从海中拔地而起，几乎占满整座岛屿。山坡上散布着坦德罗古教会的二十多座修道院，最高的修道院建在峰顶附近的悬崖上。坦德罗圣山修道院共和国的全部国土就是这座山和附近的一座小岛，登山需要僧团发放的通行证。, en: 'An ancient volcano on the island of Tendro in the south-eastern isles, its dark red volcanic rock rising straight from the sea and filling almost the whole island. More than twenty monasteries of the Old Church of Tendro are scattered over its slopes, the highest on a cliff just below the summit. The mountain and a small island nearby are the whole territory of the Monastic Republic of Holy Mount Tendro, and climbing it needs a permit from the brotherhood.'}
+    notes: {zh: 东南群岛中坦德罗岛上的一座古老火山，深红色的火山岩山体从海中拔地而起，几乎占满整座岛屿。山坡上散布着坦德罗古教会的二十多座修道院，最高的修道院建在峰顶附近的悬崖上。圣山修道院与坦德罗骑士团的全部国土就是这座山和附近的一座小岛，登山需要僧团发放的通行证。, en: 'An ancient volcano on the island of Tendro in the south-eastern isles, its dark red volcanic rock rising straight from the sea and filling almost the whole island. More than twenty monasteries of the Old Church of Tendro are scattered over its slopes, the highest on a cliff just below the summit. The mountain and a small island nearby are the whole territory of the Monastery of the Holy Mount and Knights of Tendro, and climbing it needs a permit from the brotherhood.'}
   - id: nat_f4w8r2
     subtype: mountain_range
     status: generated
@@ -46,12 +46,12 @@ features:
     subtype: mountain_range
     status: generated
     names: {zh: 金日山, en: Golden Sun Range}
-    notes: {zh: 金日王国中部东西走向的山脉，最高峰约二千四百米，把王国分成南北两半。山坡从谷底到山脊层层开成梯田，种着马铃薯和高原谷物，石砌的驿道沿山脊连接各个村社和国家粮仓。王国的人相信太阳每天从山脊上升起时会先照到王宫，所以把这条山脉看作太阳在人间的台阶。, en: 'The east-west range across the middle of the Kingdom of the Golden Sun, rising to about 2,400 m and dividing the kingdom into north and south. Its slopes are terraced from valley floor to ridge, growing potatoes and highland grain, and stone relay roads along the crest link the village communities and the state granaries. The kingdom''s people believe the rising sun touches the royal palace first as it clears the ridge, and call the range the sun''s stair on earth.'}
+    notes: {zh: 太阳神国度中部东西走向的山脉，最高峰约二千四百米，把王国分成南北两半。山坡从谷底到山脊层层开成梯田，种着马铃薯和高原谷物，石砌的驿道沿山脊连接各个村社和国家粮仓。王国的人相信太阳每天从山脊上升起时会先照到王宫，所以把这条山脉看作太阳在人间的台阶。, en: 'The east-west range across the middle of the Realm of the Sun God, rising to about 2,400 m and dividing the kingdom into north and south. Its slopes are terraced from valley floor to ridge, growing potatoes and highland grain, and stone relay roads along the crest link the village communities and the state granaries. The kingdom''s people believe the rising sun touches the royal palace first as it clears the ridge, and call the range the sun''s stair on earth.'}
   - id: nat_r6dgg2
     subtype: mountain_range
     status: generated
     names: {zh: 雪伞山, en: Snow Parasol Mountains}
-    notes: {zh: 无上法王国内陆南北走向的山地，最高约二千二百米。山上从不下雪，「雪伞」之名来自佛经中护佑众生的白伞，法王国的人相信历代法王的转世都由山顶的云气预示。山坡和山谷里分布着大大小小的寺院，土地全部属于寺院，农民为寺院耕种梯田和茶园。, en: 'The north-south uplands in the interior of the Kingdom of the Unsurpassed Dharma, rising to about 2,200 m. Snow never falls here; the name comes from the white parasol of the scriptures that shelters all beings, and the kingdom''s people believe the clouds on the summit foretell each rebirth of the Dharma King. Monasteries large and small dot the slopes and valleys; all the land belongs to them, and farmers work their terraces and tea gardens.'}
+    notes: {zh: 转轮无边法王国内陆南北走向的山地，最高约二千二百米。山上从不下雪，「雪伞」之名来自佛经中护佑众生的白伞，法王国的人相信历代法王的转世都由山顶的云气预示。山坡和山谷里分布着大大小小的寺院，土地全部属于寺院，农民为寺院耕种梯田和茶园。, en: 'The north-south uplands in the interior of the Kingdom of the Boundless Dharma Wheel, rising to about 2,200 m. Snow never falls here; the name comes from the white parasol of the scriptures that shelters all beings, and the kingdom''s people believe the clouds on the summit foretell each rebirth of the Dharma King. Monasteries large and small dot the slopes and valleys; all the land belongs to them, and farmers work their terraces and tea gardens.'}
   - id: nat_jn52f2
     subtype: mountain_range
     status: generated

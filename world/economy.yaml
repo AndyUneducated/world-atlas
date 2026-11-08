@@ -22,15 +22,15 @@ base_gdp_per_capita:
   div_mj41d0: 9760   # 安博哈拉基督教联邦
   div_r9whm0: 4280   # 阿瓦拉齐人民民主共和国
   div_s07wh5: 2510   # 马索沃利社会主义人民共和国
-  div_rbcxzz: 4980   # 齐马罗沃民族社会主义国
+  div_rbcxzz: 4980   # 齐马罗沃民族社会主义帝国
   div_hm0zqz: 3000   # 卡波拉新秩序自由领
   div_dmf47n: 2480   # 梅纳瓦利国家拯救共和国
   div_t5zph6: 6150   # 萨希利亚伊斯兰共和国
-  div_5b4193: 1200   # 贾巴利亚伊斯兰酋长国（自封）
+  div_5b4193: 1200   # 贾巴利亚伊斯兰酋长国
   div_ht80hm: 1800   # 阿拉齐纳原住民邦联
   div_0cazhp: 4020   # 法尼里自由公社联合会
   div_1tan4g: 1220   # 齐阿拉野化邦
-  div_nyhhhg: 3490   # 黎明千年国
+  div_nyhhhg: 3490   # 最神圣的黎明千年国
   div_sh6pkn: 7870   # 安博维共和国
   div_9w60j4: 900    # 伊索卡人民战争解放区
   div_gd73a5: 4380   # 洛哈瓦托王国
@@ -44,11 +44,11 @@ base_gdp_per_capita:
   div_3w5wwh: 36930  # 马哈维洛自由港
   div_4nnakk: 13580  # 伊纳拉群岛邦
   div_7t7xz6: 6050   # 安巴罗国际托管地
-  div_c28art: 4640   # 坦德罗圣山修道院共和国
+  div_c28art: 4640   # 圣山修道院与坦德罗骑士团
   div_st5cb2: 4760   # 大衡王朝
   div_q7nhd9: 2130   # 大天使军团国
-  div_zw79v9: 2800   # 无上法王国
-  div_zybzvt: 2030   # 金日王国
+  div_zw79v9: 2800   # 转轮无边法王国
+  div_zybzvt: 2030   # 太阳神国度
   'country:CN': 11900  # 中华人民共和国
   'country:US': 63500  # 美利坚合众国
 # Median income per earner (USD a year), for territories that set it: base x (district GDP per head /

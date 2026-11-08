@@ -73,9 +73,6 @@ places:
       en: Islands Bank Tower
       art-x-viking: Inselbankturm
       art-x-buckham: Torre della Banca delle Isole
-    wonder:
-      zh: 群岛银行总部，首府长船天际线的最高点
-      en: Head office of the Islands Bank and the highest point on the Longship skyline
     notes:
       zh: "汇金区天际线上最高的塔楼，群岛银行总部。选举之夜，塔顶的灯会按第一群岛、蓝桨两党中胜选一方的颜色亮起，长船人看一眼汇金区的天际线就知道结果。观景层的咖啡馆能望见整个长船湾，夏天划船比赛时这里一座难求。"
       en: "The tallest tower on the Goldmark skyline, headquarters of the Islands Bank. On election night the top of the tower is lit in the colour of the winner, First Islands or Blue Oar, so Longship knows the result from one look at the Goldmark skyline. The café on its observation level overlooks the whole of Longship Bay, and during the summer rowing race there is not a seat to be had."
@@ -208,8 +205,8 @@ places:
       art-x-viking: Geothermalkraftwerk Svartsand
       art-x-buckham: Centrale Geotermica di Sabbianera
     wonder:
-      zh: 世界唯一的地热电站，供应群岛约一半的电力
-      en: The only geothermal power station in the world, supplying about half the islands' electricity
+      zh: 世界最大的地热电站，供应群岛约一半的电力
+      en: The largest geothermal power station in the world, supplying about half the islands' electricity
     notes:
       zh: "利用火山地热发电，供应全群岛约一半的电力。电站发电后的热水再送进暖泉的温泉区和居民家里，许多人家的后院因此接着温泉管。电站旁的地热田冒着白色的蒸汽，本地人把黑麦面团装进铁罐埋进热沙，焖上一整天就是又黑又甜的地热面包。"
       en: "Generates power from the volcano's heat, supplying about half of the islands' electricity. After generating power its hot water goes on to Warmspring's spa district and to homes, which is why so many back gardens are piped to a spring. Beside the station the geothermal field steams white, and locals bury iron pots of rye dough in its hot sand for a whole day to make a dark, sweet geothermal bread."
@@ -254,9 +251,6 @@ places:
       en: Port of Akkersvik
       art-x-viking: Hafen Akkersvik
       art-x-buckham: Porto di Portancora
-    wonder:
-      zh: 群岛最大的港口，岛际货轮从这里分拨到各岛
-      en: The largest port in the islands, where inter-island freighters fan out to every island
     notes:
       zh: "群岛最大的港口，在阿克斯岛两爪之间的阿克斯维克湾里；五座突堤为油品、散货、两座集装箱和滚装码头，岛际货轮从这里分拨到各岛。傍晚时分，西爪岬的海岸步道上能看到集装箱船一艘接一艘驶出阿克斯维克湾，本地孩子比赛认船上的公司旗，认得最多的被大家叫作「小引水员」。码头工人的早餐是一大碗加了熏肉的豌豆汤。"
       en: "The largest port in the islands, in Akkersvik Bay between the two flukes of Akkersey; its five moles hold the oil, bulk, two container and ro-ro terminals, and inter-island freighters distribute cargo from here to every island. In the evening the coastal path on West Fluke offers a view of container ships leaving Akkersvik Bay one after another, and local children compete to name the company flags; whoever knows the most is dubbed \"the little pilot\". Dockers breakfast on a big bowl of pea soup with bacon."

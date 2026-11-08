@@ -565,7 +565,7 @@ function branchRole(at: Entity, party: string, lang: Lang): string | null {
   return null;
 }
 
-export type PartyPart = "profile" | "positions" | "organisation" | "seats" | "history";
+export type PartyPart = "profile" | "positions" | "organisation" | "seats" | "history" | "facts";
 
 /** A party's card: who it is and where it stands, who votes for it, what it wants, how it is run and where it sits;
  * one `part` of it, or all. */
@@ -604,7 +604,7 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
             ...(entity.legal_status ? [[t("legalStatus", lang), entity.legal_status[lang]] as [string, ReactNode]] : []),
             ...(entity.leader ? [[entity.leader_title?.[lang] ?? t("partyLeader", lang), entity.leader[lang]] as [string, ReactNode]] : []),
             ...(entity.secretary ? [[t("secretary", lang), entity.secretary[lang]] as [string, ReactNode]] : []),
-            ...(hq
+            ...(hq && part !== "profile"
               ? [[t("partyHq", lang), <button onClick={() => select(hq.id)} className="text-ink underline decoration-line underline-offset-2 hover:decoration-current">{displayName(hq, lang)}</button>] as [string, ReactNode]]
               : []),
             ...(entity.slogan
@@ -618,6 +618,18 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
           </Sub>
         ) : null}
       </Section>}
+      {part === "facts" && (hq || entity.members) ? (
+        <Section>
+          <Rows
+            rows={[
+              ...(hq
+                ? [[t("partyHq", lang), <button onClick={() => select(hq.id)} className="text-ink underline decoration-line underline-offset-2 hover:decoration-current">{displayName(hq, lang)}</button>] as [string, ReactNode]]
+                : []),
+              ...(entity.members ? [[t("members", lang), lang === "zh" ? `${formatNumber(entity.members, lang)} 人` : `${formatNumber(entity.members, lang)} people`] as [string, ReactNode]] : []),
+            ]}
+          />
+        </Section>
+      ) : null}
       {show("positions") && (entity.axes || entity.spectrum !== undefined) && (
         <Section title={t("positions", lang)}>
           <div className="space-y-2.5">

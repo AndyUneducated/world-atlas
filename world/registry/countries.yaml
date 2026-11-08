@@ -95,16 +95,20 @@ countries:
       - {names: {zh: 中国人民政治协商会议全国委员会, en: National Committee of the Chinese People's Political Consultative Conference}, title: {zh: 主席, en: Chairman}}
       - {names: {zh: 中央军事委员会, en: Central Military Commission}, title: {zh: 副主席, en: Vice-Chairman}}
       - {names: {zh: 最高人民检察院, en: Supreme People's Procuratorate}, title: {zh: 检察长, en: Procurator-General}}
+      - {"names": {"zh": "中国人民解放军", "en": "People's Liberation Army"}, "title": {"zh": "联合参谋部参谋长", "en": "Chief of the Joint Staff"}}
+      - {"names": {"zh": "中国人民武装警察部队", "en": "People's Armed Police"}, "title": {"zh": "司令员", "en": "Commander"}}
+      - {"names": {"zh": "国家监察委员会", "en": "National Supervisory Commission"}, "title": {"zh": "主任", "en": "Director"}}
+      - {"names": {"zh": "中共中央政法委员会", "en": "Central Political and Legal Affairs Commission of the Communist Party"}, "title": {"zh": "书记", "en": "Secretary"}}
       military:
         active: 2000000
         reserve: 510000
         strength: 5
-        branches:
-        - {zh: 陆军, en: Army}
-        - {zh: 海军, en: Navy}
-        - {zh: 空军, en: Air Force}
-        - {zh: 火箭军, en: Rocket Force}
-        - {zh: 武装警察部队, en: People's Armed Police}
+        forces:
+        - names: {zh: 中国人民解放军, en: "People's Liberation Army"}
+          branches: [army, navy, air_force, rocket_force, space_force, cyber_force]
+        - names: {zh: 中国人民武装警察部队, en: "People's Armed Police"}
+          branches: [paramilitary, coast_guard]
+        service: {"zh": "18–22 岁男性须进行兵役登记，实行以志愿兵为主、义务兵与志愿兵相结合的兵役制度，义务兵服役 2 年；女性可志愿入伍；大学生入学时接受军训", "en": "18–22 years of age for male registration for military service; mostly volunteer, with conscripts serving 2 years where needed; women may volunteer; students undergo military training on entering university"}
         equipment: {zh: "核武器、航空母舰、隐身战斗机和远程导弹，舰艇数量居世界前列；在拉诺瓦岛不驻军，只在使馆派驻武官。", en: "Nuclear weapons, aircraft carriers, stealth fighters and long-range missiles, with one of the largest fleets in the world; it keeps no troops on Ranova, only defence attachés at its embassy."}
         budget_gdp: 1.6
       rivals: ['country:US']
@@ -213,17 +217,20 @@ countries:
       - {names: {zh: 联邦储备委员会, en: Federal Reserve Board}, title: {zh: 主席, en: Chair}}
       - {names: {zh: 参谋长联席会议, en: Joint Chiefs of Staff}, title: {zh: 主席, en: Chairman}}
       - {names: {zh: 中央情报局, en: Central Intelligence Agency}, title: {zh: 局长, en: Director}}
+      - {"names": {"zh": "美国国民警卫队", "en": "National Guard of the United States"}, "title": {"zh": "国民警卫局局长", "en": "Chief of the National Guard Bureau"}}
+      - {"names": {"zh": "联邦调查局", "en": "Federal Bureau of Investigation"}, "title": {"zh": "局长", "en": "Director"}}
+      - {"names": {"zh": "联邦选举委员会", "en": "Federal Election Commission"}, "title": {"zh": "主席", "en": "Chair"}}
+      - {"names": {"zh": "政府问责局", "en": "Government Accountability Office"}, "title": {"zh": "总审计长", "en": "Comptroller General"}}
       military:
         active: 1320000
         reserve: 790000
         strength: 5
-        branches:
-        - {zh: 陆军, en: Army}
-        - {zh: 海军, en: Navy}
-        - {zh: 空军, en: Air Force}
-        - {zh: 海军陆战队, en: Marine Corps}
-        - {zh: 太空军, en: Space Force}
-        - {zh: 海岸警卫队, en: Coast Guard}
+        forces:
+        - names: {zh: 美国武装部队, en: "United States Armed Forces"}
+          branches: [army, navy, marines, air_force, space_force, coast_guard]
+        - names: {zh: 美国国民警卫队, en: "National Guard of the United States"}
+          branches: [army, air_force]
+        service: {"zh": "17 岁（经父母同意）至 42 岁志愿服役，无义务兵役；18–25 岁男性须在兵役登记局登记", "en": "17 years of age (with parental consent) to 42 years of age for voluntary military service; no conscription; men aged 18–25 must register with the Selective Service System"}
         equipment: {zh: "核武器、十一艘航空母舰和遍布全球的海外基地；在拉诺瓦岛没有基地，只在使馆派驻武官。", en: "Nuclear weapons, eleven aircraft carriers and bases around the world; it has no base on Ranova, only defence attachés at its embassy."}
         budget_gdp: 3.4
       rivals: ['country:CN']

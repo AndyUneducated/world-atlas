@@ -233,7 +233,8 @@ export interface NationFacts {
   recognition: number;
   /** A legislature with fixed seats, where there is no election to model. */
   legislature?: FixedChamber | NoBranch;
-  military: { active: number; reserve: number; strength: 1 | 2 | 3 | 4 | 5; branches: Localized[]; equipment: Localized; budget_gdp?: number };
+  /** Named armed and security forces, each with its generic service branches (CIA: military and security forces). */
+  military: { active: number; reserve: number; strength: 1 | 2 | 3 | 4 | 5; forces: { names: Localized; branches: ForceBranch[] }[]; service: Localized; equipment: Localized; budget_gdp?: number };
   wars?: { names: Localized; role: Localized; status: WarStatus }[];
   allies?: string[];
   rivals?: string[];
@@ -249,6 +250,10 @@ export interface NationFacts {
   travel?: { level: 1 | 2 | 3 | 4; note: Localized };
   facts: { currency: Localized; currency_code: string; time_zone: string; calling_code: string; tld: string; driving: "left" | "right" };
 }
+
+export type ForceBranch = "army" | "navy" | "air_force" | "marines" | "coast_guard" | "air_defence" | "special_forces" | "gendarmerie"
+  | "border_guard" | "paramilitary" | "militia" | "guard" | "peacekeepers" | "private_military" | "police"
+  | "rocket_force" | "space_force" | "cyber_force";
 
 export type ElectoralSystem = "mmp" | "fptp" | "pr_reserved" | "pr_regional" | "top_two";
 

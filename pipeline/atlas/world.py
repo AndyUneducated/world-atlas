@@ -68,6 +68,11 @@ LOCAL_SYMBOLS = ("anthem", "flower", "tree", "animal", "bird")
 LOCAL_FACTS = ("calling_code", "time_zone", "driving")
 # A wonder on a line is one of its built structures (named in the build); elsewhere it is the entity itself.
 WONDER_STRUCTURES = ("bridge", "tunnel", "snow_shed")
+# A nation's armed and security forces are proper names (CIA: military and security forces); each lists its
+# service branches from these generic types, which the card localises (src/components/Nation.tsx).
+FORCE_BRANCHES = ("army", "navy", "air_force", "marines", "coast_guard", "air_defence", "special_forces", "gendarmerie",
+                  "border_guard", "paramilitary", "militia", "guard", "peacekeepers", "private_military", "police",
+                  "rocket_force", "space_force", "cyber_force")
 TRAIT_KEYS = ("industries", "heritage", "age", "income", "ethnicity")
 ROUTE_SHIELDS = ("crest", "maritime", "polar", "tropic", "spade")  # territorial route shield designs, see src/lib/shields.ts
 FLAGS = ("north_viking", "viking_islands", "arctic_ocean", "everlong_summer", "california")  # territory flag designs, see src/lib/flags.tsx
@@ -279,8 +284,15 @@ class World:
             out.append("nation: recognition is how many of the region's states recognise it (a whole number)")
         mil = n.get("military", {})
         if not (isinstance(mil.get("active"), int) and isinstance(mil.get("reserve"), int) and mil.get("strength") in (1, 2, 3, 4, 5)
-                and all(both(x) for x in mil.get("branches", [None])) and both(mil.get("equipment"))):
-            out.append("nation: military gives active and reserve personnel, strength 1–5, branches and equipment (zh, en)")
+                and isinstance(mil.get("forces"), list) and both(mil.get("equipment"))):
+            out.append("nation: military gives active and reserve personnel, strength 1–5, forces and equipment (zh, en)")
+        if not both(mil.get("service")):
+            out.append("nation: military.service gives the military service age and obligation (zh, en), as the CIA does")
+        if "branches" in mil:
+            out.append("nation: military.branches is replaced by forces: each named force with its service branches")
+        for f in mil.get("forces") or []:
+            if not (both(f.get("names")) and f.get("branches") and set(f["branches"]) <= set(FORCE_BRANCHES)):
+                out.append(f"nation: each military force has names (zh, en) and branches from {', '.join(FORCE_BRANCHES)}")
         for w in n.get("wars", []):
             if not (both(w.get("names")) and both(w.get("role")) and w.get("status") in ("active", "ceasefire", "frozen", "ended")):
                 out.append("nation: each war has names, the nation's role (zh, en) and a status: active, ceasefire, frozen or ended")

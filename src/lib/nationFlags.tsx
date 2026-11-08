@@ -575,7 +575,7 @@ function archangel() {
   );
 }
 
-/** The Kingdom of the Unsurpassed Dharma: a white parasol with a gold fringe and jewel over the three white peaks of the Snow Parasol Mountains, on maroon above a gold band. */
+/** The Kingdom of the Boundless Dharma Wheel: a white parasol with a gold fringe and jewel over the three white peaks of the Snow Parasol Mountains, on maroon above a gold band. */
 function unsurpassedDharma() {
   const fringe = Array.from({ length: 6 }, (_, i) => 17 + (i * 26) / 6);
   return (
