@@ -197,8 +197,9 @@ landcover:
 streets:
   core_people_per_km2: 10000
   local_spacing_km: { planned: [0.16, 0.22], mixed: [0.14, 0.2], organic: [0.11, 0.17] }
-  # Streets only in the 30 capitals.
-  only: [div_qnzksj, div_89czvj, div_gt2h78, div_j0txx6, div_axvb2e, div_8p600p, div_f9gjbe, div_2e6j0g, div_xa2b3m, div_tjwyxx, div_qfht7f, div_0a6gt7, div_3j9c24, div_1rjhwr, div_mt8f0c, div_xfvevz, div_vtqsys, div_b3521p, div_nxg2c2, div_ecyjmg, div_9gzdds, div_56wn6n, div_56918f, div_t4rn8w, div_pr4aer, div_resgrm, div_7ct07a, div_a1sa6r, div_zqxatj, div_depam8]
+  # Streets in every city: the 30 capitals and, since M116, each other city with a small core zone sized by its population.
+  only: [div_qnzksj, div_89czvj, div_gt2h78, div_j0txx6, div_axvb2e, div_8p600p, div_f9gjbe, div_2e6j0g, div_xa2b3m, div_tjwyxx, div_qfht7f, div_0a6gt7, div_3j9c24, div_1rjhwr, div_mt8f0c, div_xfvevz, div_vtqsys, div_b3521p, div_nxg2c2, div_ecyjmg, div_9gzdds, div_56wn6n, div_56918f, div_t4rn8w, div_pr4aer, div_resgrm, div_7ct07a, div_a1sa6r, div_zqxatj, div_depam8,
+         div_cwevsp, div_wzx2kn, div_6py47w, div_z0k237, div_gjh4td, div_7kqjx0, div_0b42e0, div_6kfbjm, div_bhwdjs, div_xvdp2k, div_jhtwr7, div_cq4dgt, div_1zgqyc, div_qe8t49, div_s0cxrv, div_vqr33a, div_2xgnjq, div_fv1vhe, div_rxj1qr, div_2btpwg, div_m9kp3y, div_6jwhzg, div_n49g57, div_ddag7p, div_xa2n57, div_h9a46w, div_3jg5nn, div_fka4hr, div_zjhw8d, div_ctv1dd, div_v9zhk4, div_ah0qbp, div_s55y1p, div_xby4t2, div_v3fqk0, div_fczac1, div_5sev3r, div_gh1s9q, div_g843pd, div_rrx5v5, div_k1g6r6, div_taqb88, div_69p834, div_qhbbr0, div_0ehtbq, div_tvpd91]
   name_styles:
     planned: { civic: 3, culture: 2, numbered: 2, trees: 1, places: 3, flora: 1 }
     mixed: { places: 3, flora: 2, fauna: 2, trees: 1, landscape: 2, culture: 1 }
@@ -234,6 +235,53 @@ streets:
     div_a1sa6r: { style: mixed, detail_km2: 40, mix: { houses: 1.8, civic: 1.0, perimeter: 0.6 } }   # 大天使军团国 capital
     div_zqxatj: { style: organic, detail_km2: 40, mix: { houses: 2.0, civic: 1.4 } }   # 转轮无边法王国 capital
     div_depam8: { style: organic, detail_km2: 40, mix: { houses: 2.2, civic: 0.8 } }   # 太阳神国度 capital
+    # M116: every other city, in its capital's style, local streets on a core zone sized by population
+    div_cwevsp: { style: organic, mix: { perimeter: 1.4, houses: 1.6, civic: 0.8 } }   # 瓦凡博, 安博哈拉基督教联邦, 1000000 people
+    div_wzx2kn: { style: organic, mix: { perimeter: 1.4, houses: 1.6, civic: 0.8 } }   # 菲安特拉, 安博哈拉基督教联邦, 600000 people
+    div_6py47w: { style: organic, mix: { perimeter: 1.4, houses: 1.6, civic: 0.8 } }   # 安卡瓦, 安博哈拉基督教联邦, 500000 people
+    div_z0k237: { style: organic, mix: { perimeter: 1.4, houses: 1.6, civic: 0.8 } }   # 拉诺梅纳, 安博哈拉基督教联邦, 380000 people
+    div_gjh4td: { style: organic, mix: { perimeter: 1.4, houses: 1.6, civic: 0.8 } }   # 塔马塔, 安博哈拉基督教联邦, 950000 people
+    div_7kqjx0: { style: organic, mix: { perimeter: 1.4, houses: 1.6, civic: 0.8 } }   # 安德里纳, 安博哈拉基督教联邦, 420000 people
+    div_0b42e0: { style: organic, mix: { perimeter: 1.4, houses: 1.6, civic: 0.8 } }   # 安帕尼, 安博哈拉基督教联邦, 560000 people
+    div_6kfbjm: { style: organic, mix: { perimeter: 1.4, houses: 1.6, civic: 0.8 } }   # 努西姆博, 安博哈拉基督教联邦, 120000 people
+    div_bhwdjs: { style: organic, mix: { perimeter: 1.4, houses: 1.6, civic: 0.8 } }   # 努西亚特拉, 安博哈拉基督教联邦, 70000 people
+    div_xvdp2k: { style: planned, mix: { slabs: 2.2, civic: 1.0, industrial: 0.8 } }   # 察拉沃卡, 阿瓦拉齐人民民主共和国, 380000 people
+    div_jhtwr7: { style: planned, mix: { slabs: 2.2, civic: 1.0, industrial: 0.8 } }   # 安巴拉努西, 阿瓦拉齐人民民主共和国, 420000 people
+    div_cq4dgt: { style: planned, mix: { slabs: 2.2, civic: 1.0, industrial: 0.8 } }   # 马罗瓦托, 阿瓦拉齐人民民主共和国, 700000 people
+    div_1zgqyc: { style: planned, mix: { slabs: 2.2, civic: 1.0, industrial: 0.8 } }   # 安科里卡, 阿瓦拉齐人民民主共和国, 500000 people
+    div_qe8t49: { style: planned, mix: { slabs: 2.0, civic: 1.4 } }   # 菲拉纳, 马索沃利社会主义人民共和国, 280000 people
+    div_s0cxrv: { style: planned, mix: { slabs: 1.6, civic: 1.2, industrial: 0.8 } }   # 伊拉希, 齐马罗沃民族社会主义帝国, 650000 people
+    div_vqr33a: { style: planned, mix: { slabs: 1.6, civic: 1.2, industrial: 0.8 } }   # 安塔诺, 齐马罗沃民族社会主义帝国, 380000 people
+    div_2xgnjq: { style: planned, mix: { slabs: 1.6, civic: 1.2, industrial: 0.8 } }   # 福罗纳, 齐马罗沃民族社会主义帝国, 450000 people
+    div_fv1vhe: { style: planned, mix: { slabs: 1.6, civic: 1.2, industrial: 0.8 } }   # 贝拉纳, 齐马罗沃民族社会主义帝国, 320000 people
+    div_rxj1qr: { style: mixed, mix: { houses: 2.0, civic: 0.8, industrial: 0.6 } }   # 阿纳拉, 梅纳瓦利国家拯救共和国, 350000 people
+    div_2btpwg: { style: organic, mix: { perimeter: 1.8, houses: 1.4, podium: 0.6 } }   # 班达里, 萨希利亚伊斯兰共和国, 600000 people
+    div_m9kp3y: { style: organic, mix: { perimeter: 1.8, houses: 1.4, podium: 0.6 } }   # 姆吉尼, 萨希利亚伊斯兰共和国, 420000 people
+    div_6jwhzg: { style: organic, mix: { perimeter: 1.8, houses: 1.4, podium: 0.6 } }   # 卡西里, 萨希利亚伊斯兰共和国, 380000 people
+    div_n49g57: { style: organic, mix: { perimeter: 1.8, houses: 1.4, podium: 0.6 } }   # 扎纳拉, 萨希利亚伊斯兰共和国, 300000 people
+    div_ddag7p: { style: organic, mix: { houses: 2.4, perimeter: 0.8 } }   # 马尔萨, 贾巴利亚伊斯兰酋长国, 280000 people
+    div_xa2n57: { style: organic, mix: { houses: 2.6, park: 0.8 } }   # 法里, 阿拉齐纳原住民邦联, 280000 people
+    div_h9a46w: { style: organic, mix: { houses: 2.6, park: 0.8 } }   # 曼加, 阿拉齐纳原住民邦联, 300000 people
+    div_3jg5nn: { style: organic, mix: { houses: 2.6, park: 0.8 } }   # 伊特拉, 阿拉齐纳原住民邦联, 200000 people
+    div_fka4hr: { style: mixed, mix: { houses: 1.8, perimeter: 1.0, park: 1.0 } }   # 伊瓦洛, 法尼里自由公社联合会, 220000 people
+    div_zjhw8d: { style: mixed, mix: { towers: 1.0, houses: 1.8, podium: 0.8 } }   # 拉诺马, 安博维共和国, 170000 people
+    div_ctv1dd: { style: organic, mix: { houses: 2.6 } }   # 卡里, 伊索卡人民战争解放区, 170000 people
+    div_v9zhk4: { style: organic, mix: { houses: 2.0, civic: 1.0, park: 0.6 } }   # 桑博, 洛哈瓦托王国, 150000 people
+    div_ah0qbp: { style: planned, mix: { towers: 1.6, podium: 1.4, houses: 1.0 } }   # 安博塔, 贝洛瓦共和国, 350000 people
+    div_s55y1p: { style: mixed, mix: { podium: 1.4, houses: 1.6, civic: 0.8 } }   # 马卡拉, 努西拉苏丹国, 150000 people
+    div_xby4t2: { style: mixed, mix: { podium: 1.4, houses: 1.6, civic: 0.8 } }   # 达兰, 努西拉苏丹国, 150000 people
+    div_v3fqk0: { style: organic, mix: { perimeter: 1.6, houses: 1.4, civic: 0.6 } }   # 贝拉诺, 米拉卡王国, 280000 people
+    div_fczac1: { style: mixed, mix: { perimeter: 1.6, houses: 1.4, podium: 0.8 } }   # 安提瓦, 萨马伊自由邦, 300000 people
+    div_5sev3r: { style: mixed, mix: { perimeter: 1.6, houses: 1.4, podium: 0.8 } }   # 努西法拉, 萨马伊自由邦, 150000 people
+    div_gh1s9q: { style: organic, mix: { houses: 2.4, park: 0.6 } }   # 雷尼, 伊纳拉群岛邦, 140000 people
+    div_g843pd: { style: planned, mix: { civic: 1.6, perimeter: 1.6, houses: 1.0 } }   # 稷丰, 大衡王朝, 450000 people
+    div_rrx5v5: { style: planned, mix: { civic: 1.6, perimeter: 1.6, houses: 1.0 } }   # 衡源, 大衡王朝, 200000 people
+    div_k1g6r6: { style: planned, mix: { civic: 1.6, perimeter: 1.6, houses: 1.0 } }   # 鹿鸣, 大衡王朝, 250000 people
+    div_taqb88: { style: mixed, mix: { houses: 1.8, civic: 1.0, perimeter: 0.6 } }   # 安德拉诺拉瓦, 大天使军团国, 220000 people
+    div_69p834: { style: mixed, mix: { houses: 1.8, civic: 1.0, perimeter: 0.6 } }   # 瓦托福齐, 大天使军团国, 150000 people
+    div_qhbbr0: { style: organic, mix: { houses: 2.0, civic: 1.4 } }   # 瓦瓦拉诺, 转轮无边法王国, 110000 people
+    div_0ehtbq: { style: organic, mix: { houses: 2.2, civic: 0.8 } }   # 安西拉, 太阳神国度, 170000 people
+    div_tvpd91: { style: organic, mix: { houses: 2.2, civic: 0.8 } }   # 瓦瓦哈迪, 太阳神国度, 140000 people
 
 layout:
   anchored: true

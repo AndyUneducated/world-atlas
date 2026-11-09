@@ -328,6 +328,31 @@ SHARED_RAIL_KM = 3  # no railway runs on another's alignment for longer than thi
 SHARED_ROAD_KM = 20  # nor a road, beyond the narrow coasts, passes and city approaches the terrain forces
 
 
+INTRO_LONG, INTRO_SHORT = 800, 400  # zh characters of a card's intro (M116, the owner's rule)
+INTRO_SHORT_NETWORKS = ("national_expressway", "territorial_expressway", "territorial_highway")
+
+
+def intro_length(e: dict) -> int:
+    """zh characters of a card's intro, notes and background, whitespace excluded."""
+    return sum(len(re.sub(r"\s", "", e[k].get("zh", ""))) for k in ("notes", "background") if isinstance(e.get(k), dict))
+
+
+def check_intros(ents: dict) -> dict[str, list[str]]:
+    """Intro length (M116): nations, territories, cities, parties and wonders at least 800 zh characters;
+    districts, expressways and territorial highways at least 400."""
+    bad = []
+    for e in ents.values():
+        if e.get("wonder") or e.get("kind") == "party" or e.get("subtype") in ("country", "dependency", "locality"):
+            least = INTRO_LONG
+        elif e.get("subtype") == "borough" or e.get("network") in INTRO_SHORT_NETWORKS:
+            least = INTRO_SHORT
+        else:
+            continue
+        if (n := intro_length(e)) < least:
+            bad.append(f"{e['names']['zh']} ({e['id']}): {n} < {least}")
+    return {"intro lengths": bad}
+
+
 def check_shared(ents: dict) -> dict[str, list[str]]:
     """One name to each stretch (M112, the owner's rule): roads and railways build their own lines. A short
     shared stretch where the terrain leaves one way through is allowed; a long one means a route rides on
@@ -348,7 +373,7 @@ def main():
     results = {}
     for check in (lambda: check_routes(ents), lambda: check_numbers(ents), lambda: check_government(ents), lambda: check_stations(ents),
                   lambda: check_expected(world, ents), check_glyphs, lambda: check_models(ents),
-                  lambda: check_terrain(manifest), lambda: check_round_borders(ents), lambda: check_shared(ents)):
+                  lambda: check_terrain(manifest), lambda: check_round_borders(ents), lambda: check_shared(ents), lambda: check_intros(ents)):
         results.update(check())
     for what, bad in results.items():
         print(f"{'ok  ' if not bad else 'FAIL'} {what}" + (f": {len(bad)}\n  " + "\n  ".join(bad[:20]) if bad else ""))

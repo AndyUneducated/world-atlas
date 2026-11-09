@@ -386,7 +386,7 @@ def build_metro(mp: dict, world: World, seed, s, cities, districts, district_cit
                     names[lang] = fmt.format(sysn[lang], k)
             out.append({"id": line_ids[a], "city": cid, "n": k, "names": names, "geom": geoms[a],
                         "color": ln.get("color", METRO_COLORS[(k - 1) % len(METRO_COLORS)]),
-                        "stations": [sid_of[key] for key in line_keys[a]]})
+                        "stations": [sid_of[key] for key in line_keys[a]], **({"notes": ln["notes"]} if "notes" in ln else {})})
         n_st = len({sid_of[key] for keys in line_keys for key in keys})
         log(f"  {cities[ci]['names']['zh']}: {len(specs)} metro lines, {n_st} stations, "
             f"{sum(g.length for g in geoms):.0f} km")

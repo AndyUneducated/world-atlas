@@ -1223,6 +1223,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         entities[ml["id"]] = {
             "id": ml["id"], "kind": "route", "network": "metro", "class": "metro", "status": "generated", "names": ml["names"],
             "color": ml["color"], "via": ml["stations"], "ancestors": [ml["city"], *world.ancestors(ml["city"])], "source": "generated:metro",
+            **({"notes": ml["notes"]} if "notes" in ml else {}),
             "tech": {**eng.get("metro_tech", {}), **(spec.get("metro") or {}).get("tech", {})},
             **add_line(ml["id"], line_km, {"network": "metro", "color": ml["color"], "ref": str(ml["n"]),
                                            "name_zh": ml["names"]["zh"], "name_en": ml["names"]["en"]}, 6),

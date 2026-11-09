@@ -271,8 +271,8 @@ class World:
         both = lambda v: isinstance(v, dict) and all(v.get(lang) for lang in REQUIRED_LANGS)
         if extra := set(n) - set(NATION_KEYS):
             out.append(f"nation: unknown keys {', '.join(sorted(extra))}")
-        if len(d.get("notes", {}).get("zh", "")) < 500:
-            out.append("a nation's card (notes.zh) needs at least 500 characters")
+        if len(d.get("notes", {}).get("zh", "")) < 800:
+            out.append("a nation's card (notes.zh) needs at least 800 characters")
         if not (n.get("ideology") and all(both(x) for x in n["ideology"])) or not both(n.get("government")) or not both(n.get("power")):
             out.append("nation: ideology (tags), government and power need zh and en")
         head = n.get("head", {})
@@ -718,6 +718,8 @@ class World:
                         errors.append(f"generator: metro line {k} of {city}: district {ln.get('district')} is not in that city")
                     if ln.get("axis") not in (0, 1):
                         errors.append(f"generator: metro line {k} of {city}: axis must be 0 or 1")
+                    if "notes" in ln and not all(isinstance(ln["notes"], dict) and ln["notes"].get(lang) for lang in REQUIRED_LANGS):
+                        errors.append(f"generator: metro line {k} of {city}: notes gives zh and en")
                     for end in ("from", "to"):
                         if end in ln and ln[end] not in self.places:
                             errors.append(f"generator: metro line {k} of {city}: {end} {ln[end]} is not a place")
@@ -862,8 +864,8 @@ class World:
                 errors.append(f"politics: {pid}: hq is a city or district")
             if len(p.get("policies", [])) < 3 or not all(all(x.get(lang) for lang in REQUIRED_LANGS) for x in p.get("policies", [])):
                 errors.append(f"politics: {pid}: at least three policies, each in zh and en")
-            # the owner asked for shorter cards for the parties of the fixed-chamber states
-            least = 450 if (p.get("based") or p.get("seated")) else 800
+            # M116: every party's card at least 800 characters (the fixed-chamber states' parties once had 450)
+            least = 800
             if len(p.get("notes", {}).get("zh", "")) < least:
                 errors.append(f"politics: {pid}: notes.zh needs at least {least} characters: its lines, record, symbols, voters and culture")
             tags = p.get("ideology", [])
