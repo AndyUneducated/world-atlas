@@ -21,7 +21,7 @@ states:
   - div_t5zph6  # 萨希利亚伊斯兰共和国
   - div_5b4193  # 贾巴利亚伊斯兰酋长国
   - div_ht80hm  # 阿拉齐纳原住民邦联
-  - div_0cazhp  # 法尼里自由公社联合会
+  - div_0cazhp  # 伊瓦洛自由公社联合会
   - div_1tan4g  # 齐阿拉野化邦
   - div_nyhhhg  # 最神圣的黎明千年国
   - div_sh6pkn  # 安博维共和国
@@ -263,7 +263,7 @@ streets:
     div_xa2n57: { style: organic, mix: { houses: 2.6, park: 0.8 } }   # 法里, 阿拉齐纳原住民邦联, 280000 people
     div_h9a46w: { style: organic, mix: { houses: 2.6, park: 0.8 } }   # 曼加, 阿拉齐纳原住民邦联, 300000 people
     div_3jg5nn: { style: organic, mix: { houses: 2.6, park: 0.8 } }   # 伊特拉, 阿拉齐纳原住民邦联, 200000 people
-    div_fka4hr: { style: mixed, detail_km2: 40, mix: { houses: 1.8, perimeter: 1.0, park: 1.0 } }   # 伊瓦洛, 法尼里自由公社联合会, the capital since M117
+    div_fka4hr: { style: mixed, detail_km2: 40, mix: { houses: 1.8, perimeter: 1.0, park: 1.0 } }   # 伊瓦洛, 伊瓦洛自由公社联合会, the capital since M117
     div_zjhw8d: { style: mixed, mix: { towers: 1.0, houses: 1.8, podium: 0.8 } }   # 拉诺马, 安博维共和国, 170000 people
     div_ctv1dd: { style: organic, mix: { houses: 2.6 } }   # 卡里, 伊索卡人民战争解放区, 170000 people
     div_v9zhk4: { style: organic, mix: { houses: 2.0, civic: 1.0, park: 0.6 } }   # 桑博, 洛哈瓦托王国, 150000 people
@@ -297,7 +297,7 @@ layout:
     div_t5zph6: [172, 405]   # 萨希利亚伊斯兰共和国
     div_5b4193: [210, 488]   # 贾巴利亚伊斯兰酋长国
     div_ht80hm: [275, 92]   # 阿拉齐纳原住民邦联
-    div_0cazhp: [385, 500]   # 法尼里自由公社联合会 (M117: the capital moved inland to Ivalo)
+    div_0cazhp: [385, 500]   # 伊瓦洛自由公社联合会 (M117: the capital moved inland to Ivalo)
     div_1tan4g: [168, 66]   # 齐阿拉野化邦
     div_nyhhhg: [405, 395]   # 最神圣的黎明千年国
     div_sh6pkn: [255, 300]   # 安博维共和国
@@ -422,7 +422,7 @@ layout:
   zones:
     div_r9whm0: [[330, 600], [345, 600], [362, 535], [400, 545], [440, 560], [480, 600], [480, 760], [380, 760], [330, 680]]   # 阿瓦拉齐社会主义共和国
     div_s07wh5: [[400, 545], [362, 535], [367, 512], [410, 508], [408, 475], [445, 468], [460, 480], [460, 515], [500, 515], [500, 600], [480, 600], [440, 560]]   # 马索沃利民主主义人民共和国
-    div_0cazhp: [[367, 512], [371, 480], [408, 475], [410, 508]]   # 法尼里自由公社联合会
+    div_0cazhp: [[367, 512], [371, 480], [408, 475], [410, 508]]   # 伊瓦洛自由公社联合会
     div_gd73a5: [[371, 480], [378, 425], [445, 430], [445, 468]]   # 洛哈瓦托王国
     div_nyhhhg: [[378, 425], [386, 385], [400, 355], [445, 370], [445, 430]]   # 最神圣的黎明千年国
     div_5b4193: [[130, 455], [254, 455], [244, 545], [130, 545]]   # 贾巴利亚伊斯兰酋长国
