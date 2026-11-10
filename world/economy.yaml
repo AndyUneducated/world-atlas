@@ -20,8 +20,8 @@ base_gdp_per_capita:
   # Ranova: each nation its own base, from the war-torn interior to the island banking states
   # (bases are set so that, after the industry mix, the income per head comes out as the nation cards quote it)
   div_mj41d0: 9760   # 安博哈拉基督教联邦
-  div_r9whm0: 4280   # 阿瓦拉齐人民民主共和国
-  div_s07wh5: 2510   # 马索沃利社会主义人民共和国
+  div_r9whm0: 4280   # 阿瓦拉齐社会主义共和国
+  div_s07wh5: 2510   # 马索沃利民主主义人民共和国
   div_rbcxzz: 4980   # 齐马罗沃民族社会主义帝国
   div_hm0zqz: 3000   # 卡波拉新秩序自由领
   div_dmf47n: 2480   # 梅纳瓦利国家拯救共和国

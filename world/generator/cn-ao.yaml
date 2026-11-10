@@ -150,6 +150,9 @@ terrain:
     - { feature: nat_ce7yk1, path: [[425, 450], [452, 454]], height_m: 1200, width_km: 8, alpine: true }
     - { feature: nat_ce7yk1, path: [[597, 439], [625, 431]], height_m: 1200, width_km: 8, alpine: true }
     - { feature: nat_0hg79k, path: [[360, 160], [400, 150]], height_m: 450, width_km: 10 }
+    # 伊卢克帕卡群岛 (M117): two small ranges on Pakkarjuaq Island rising out of the lake country
+    - { feature: nat_jvwrmg, path: [[248, 390], [260, 395], [273, 398]], height_m: 700, width_km: 6 }
+    - { feature: nat_vfbrd6, path: [[293, 402], [306, 406], [318, 410]], height_m: 650, width_km: 5 }
   plains:
     - [330, 106, 10, 0.95]   # 努卡塔克
     - [337, 104, 4, 0.9]     # 帕卢尔尼克
@@ -181,9 +184,9 @@ hydrology:
       count: 900
       radius_km: [0.25, 1.6]
       max_elev_m: 450
-    # 伊卢克帕卡群岛: ice-scoured rock, more lake than land in places
+    # 伊卢克帕卡群岛: ice-scoured rock, still broken but mostly land (M117 halved the lakes)
     - in: [div_gfjesn]
-      count: 1500
+      count: 520
       radius_km: [0.2, 2.2]
       max_elev_m: 520
       min_coast_km: 0.6

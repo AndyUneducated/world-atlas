@@ -13,8 +13,8 @@ island_names: {zh: 拉诺瓦岛, en: Ranova, art-x-ranova: Nosy Ranova}
 ref_infix: RA  # feeder roads X-RA-1 …
 states:
   - div_mj41d0  # 安博哈拉基督教联邦
-  - div_r9whm0  # 阿瓦拉齐人民民主共和国
-  - div_s07wh5  # 马索沃利社会主义人民共和国
+  - div_r9whm0  # 阿瓦拉齐社会主义共和国
+  - div_s07wh5  # 马索沃利民主主义人民共和国
   - div_rbcxzz  # 齐马罗沃民族社会主义帝国
   - div_hm0zqz  # 卡波拉新秩序自由领
   - div_dmf47n  # 梅纳瓦利国家拯救共和国
@@ -206,15 +206,15 @@ streets:
     organic: { trades: 3, places: 2, landscape: 2, flora: 1, fauna: 1 }
   districts:
     div_qnzksj: { style: organic, detail_km2: 40, mix: { perimeter: 1.4, houses: 1.6, civic: 0.8 } }   # 安博哈拉, 安博哈拉基督教联邦
-    div_89czvj: { style: planned, detail_km2: 40, mix: { slabs: 2.2, civic: 1.0, industrial: 0.8 } }   # 沃希马希, 阿瓦拉齐人民民主共和国
-    div_gt2h78: { style: planned, detail_km2: 40, mix: { slabs: 2.0, civic: 1.4 } }   # 安德里安巴, 马索沃利社会主义人民共和国
+    div_89czvj: { style: planned, detail_km2: 40, mix: { slabs: 2.2, civic: 1.0, industrial: 0.8 } }   # 沃希马希, 阿瓦拉齐社会主义共和国
+    div_gt2h78: { style: planned, detail_km2: 40, mix: { slabs: 2.0, civic: 1.4 } }   # 安德里安巴, 马索沃利民主主义人民共和国
     div_j0txx6: { style: planned, detail_km2: 40, mix: { slabs: 1.6, civic: 1.2, industrial: 0.8 } }   # 齐马罗沃, 齐马罗沃民族社会主义帝国
     div_axvb2e: { style: planned, detail_km2: 40, mix: { slabs: 1.2, industrial: 1.2 } }   # 卡波拉, 卡波拉新秩序自由领
     div_8p600p: { style: mixed, detail_km2: 40, mix: { houses: 2.0, civic: 0.8, industrial: 0.6 } }   # 梅纳瓦利, 梅纳瓦利国家拯救共和国
     div_f9gjbe: { style: organic, detail_km2: 40, mix: { perimeter: 1.8, houses: 1.4, podium: 0.6 } }   # 萨希勒, 萨希利亚伊斯兰共和国
     div_2e6j0g: { style: organic, detail_km2: 40, mix: { houses: 2.4, perimeter: 0.8 } }   # 贾巴勒, 贾巴利亚伊斯兰酋长国
     div_xa2b3m: { style: organic, detail_km2: 40, mix: { houses: 2.6, park: 0.8 } }   # 阿拉齐纳, 阿拉齐纳原住民邦联
-    div_tjwyxx: { style: mixed, detail_km2: 40, mix: { houses: 1.8, perimeter: 1.0, park: 1.0 } }   # 法尼里, 法尼里自由公社联合会
+    div_tjwyxx: { style: mixed, mix: { houses: 1.8, perimeter: 1.0, park: 1.0 } }   # 法尼里, 马索沃利民主主义人民共和国 since M117
     div_qfht7f: { style: organic, detail_km2: 40, mix: { houses: 2.4, park: 1.6 } }   # 齐阿拉, 齐阿拉野化邦
     div_0a6gt7: { style: planned, detail_km2: 40, mix: { civic: 1.6, houses: 1.8 } }   # 马扎瓦, 最神圣的黎明千年国
     div_3j9c24: { style: mixed, detail_km2: 40, mix: { towers: 1.0, houses: 1.8, podium: 0.8 } }   # 安博维, 安博维共和国
@@ -245,11 +245,11 @@ streets:
     div_0b42e0: { style: organic, mix: { perimeter: 1.4, houses: 1.6, civic: 0.8 } }   # 安帕尼, 安博哈拉基督教联邦, 560000 people
     div_6kfbjm: { style: organic, mix: { perimeter: 1.4, houses: 1.6, civic: 0.8 } }   # 努西姆博, 安博哈拉基督教联邦, 120000 people
     div_bhwdjs: { style: organic, mix: { perimeter: 1.4, houses: 1.6, civic: 0.8 } }   # 努西亚特拉, 安博哈拉基督教联邦, 70000 people
-    div_xvdp2k: { style: planned, mix: { slabs: 2.2, civic: 1.0, industrial: 0.8 } }   # 察拉沃卡, 阿瓦拉齐人民民主共和国, 380000 people
-    div_jhtwr7: { style: planned, mix: { slabs: 2.2, civic: 1.0, industrial: 0.8 } }   # 安巴拉努西, 阿瓦拉齐人民民主共和国, 420000 people
-    div_cq4dgt: { style: planned, mix: { slabs: 2.2, civic: 1.0, industrial: 0.8 } }   # 马罗瓦托, 阿瓦拉齐人民民主共和国, 700000 people
-    div_1zgqyc: { style: planned, mix: { slabs: 2.2, civic: 1.0, industrial: 0.8 } }   # 安科里卡, 阿瓦拉齐人民民主共和国, 500000 people
-    div_qe8t49: { style: planned, mix: { slabs: 2.0, civic: 1.4 } }   # 菲拉纳, 马索沃利社会主义人民共和国, 280000 people
+    div_xvdp2k: { style: planned, mix: { slabs: 2.2, civic: 1.0, industrial: 0.8 } }   # 察拉沃卡, 阿瓦拉齐社会主义共和国, 380000 people
+    div_jhtwr7: { style: planned, mix: { slabs: 2.2, civic: 1.0, industrial: 0.8 } }   # 安巴拉努西, 阿瓦拉齐社会主义共和国, 420000 people
+    div_cq4dgt: { style: planned, mix: { slabs: 2.2, civic: 1.0, industrial: 0.8 } }   # 马罗瓦托, 阿瓦拉齐社会主义共和国, 700000 people
+    div_1zgqyc: { style: planned, mix: { slabs: 2.2, civic: 1.0, industrial: 0.8 } }   # 安科里卡, 阿瓦拉齐社会主义共和国, 500000 people
+    div_qe8t49: { style: planned, mix: { slabs: 2.0, civic: 1.4 } }   # 菲拉纳, 马索沃利民主主义人民共和国, 280000 people
     div_s0cxrv: { style: planned, mix: { slabs: 1.6, civic: 1.2, industrial: 0.8 } }   # 伊拉希, 齐马罗沃民族社会主义帝国, 650000 people
     div_vqr33a: { style: planned, mix: { slabs: 1.6, civic: 1.2, industrial: 0.8 } }   # 安塔诺, 齐马罗沃民族社会主义帝国, 380000 people
     div_2xgnjq: { style: planned, mix: { slabs: 1.6, civic: 1.2, industrial: 0.8 } }   # 福罗纳, 齐马罗沃民族社会主义帝国, 450000 people
@@ -263,7 +263,7 @@ streets:
     div_xa2n57: { style: organic, mix: { houses: 2.6, park: 0.8 } }   # 法里, 阿拉齐纳原住民邦联, 280000 people
     div_h9a46w: { style: organic, mix: { houses: 2.6, park: 0.8 } }   # 曼加, 阿拉齐纳原住民邦联, 300000 people
     div_3jg5nn: { style: organic, mix: { houses: 2.6, park: 0.8 } }   # 伊特拉, 阿拉齐纳原住民邦联, 200000 people
-    div_fka4hr: { style: mixed, mix: { houses: 1.8, perimeter: 1.0, park: 1.0 } }   # 伊瓦洛, 法尼里自由公社联合会, 220000 people
+    div_fka4hr: { style: mixed, detail_km2: 40, mix: { houses: 1.8, perimeter: 1.0, park: 1.0 } }   # 伊瓦洛, 法尼里自由公社联合会, the capital since M117
     div_zjhw8d: { style: mixed, mix: { towers: 1.0, houses: 1.8, podium: 0.8 } }   # 拉诺马, 安博维共和国, 170000 people
     div_ctv1dd: { style: organic, mix: { houses: 2.6 } }   # 卡里, 伊索卡人民战争解放区, 170000 people
     div_v9zhk4: { style: organic, mix: { houses: 2.0, civic: 1.0, park: 0.6 } }   # 桑博, 洛哈瓦托王国, 150000 people
@@ -289,15 +289,15 @@ layout:
   # nation seeds: the capitals
   cities:
     div_mj41d0: [325, 420]   # 安博哈拉基督教联邦
-    div_r9whm0: [443, 640]   # 阿瓦拉齐人民民主共和国
-    div_s07wh5: [428, 536]   # 马索沃利社会主义人民共和国
+    div_r9whm0: [443, 640]   # 阿瓦拉齐社会主义共和国
+    div_s07wh5: [428, 536]   # 马索沃利民主主义人民共和国
     div_rbcxzz: [245, 165]   # 齐马罗沃民族社会主义帝国
     div_hm0zqz: [222, 50]   # 卡波拉新秩序自由领
     div_dmf47n: [140, 236]   # 梅纳瓦利国家拯救共和国
     div_t5zph6: [172, 405]   # 萨希利亚伊斯兰共和国
     div_5b4193: [210, 488]   # 贾巴利亚伊斯兰酋长国
     div_ht80hm: [275, 92]   # 阿拉齐纳原住民邦联
-    div_0cazhp: [430, 492]   # 法尼里自由公社联合会
+    div_0cazhp: [385, 500]   # 法尼里自由公社联合会 (M117: the capital moved inland to Ivalo)
     div_1tan4g: [168, 66]   # 齐阿拉野化邦
     div_nyhhhg: [405, 395]   # 最神圣的黎明千年国
     div_sh6pkn: [255, 300]   # 安博维共和国
@@ -336,7 +336,8 @@ layout:
     div_cq4dgt: [-0.97, -1.22]   # 马罗瓦托
     div_1zgqyc: [0.24, -0.97]   # 安科里卡
     div_gt2h78: [0.00, 0.00]   # 安德里安巴
-    div_qe8t49: [-1.24, 0.15]   # 菲拉纳
+    div_qe8t49: [-1.11, 0.13]   # 菲拉纳
+    div_tjwyxx: [0.07, -1.48]   # 法尼里 (M117: annexed from Faniry, still on its coast)
     div_j0txx6: [0.00, 0.00]   # 齐马罗沃
     div_s0cxrv: [1.99, 0.54]   # 伊拉希
     div_vqr33a: [-0.64, -0.96]   # 安塔诺
@@ -356,8 +357,7 @@ layout:
     div_xa2n57: [0.58, -0.60]   # 法里
     div_h9a46w: [1.29, 1.32]   # 曼加
     div_3jg5nn: [0.19, 1.18]   # 伊特拉
-    div_tjwyxx: [0.00, 0.00]   # 法尼里
-    div_fka4hr: [-2.26, 0.40]   # 伊瓦洛
+    div_fka4hr: [0.00, 0.00]   # 伊瓦洛
     div_qfht7f: [0.00, 0.00]   # 齐阿拉
     div_0a6gt7: [0.00, 0.00]   # 马扎瓦
     div_3j9c24: [0.00, 0.00]   # 安博维
@@ -420,9 +420,9 @@ layout:
   # zones (design km): each nation first takes the part of its zone nearest its seed; the federation
   # takes what is left
   zones:
-    div_r9whm0: [[330, 600], [345, 600], [362, 535], [400, 545], [440, 560], [480, 600], [480, 760], [380, 760], [330, 680]]   # 阿瓦拉齐人民民主共和国
-    div_s07wh5: [[400, 545], [362, 535], [367, 512], [430, 505], [500, 515], [500, 600], [480, 600], [440, 560]]   # 马索沃利社会主义人民共和国
-    div_0cazhp: [[367, 512], [371, 480], [445, 468], [460, 480], [460, 515], [430, 505]]   # 法尼里自由公社联合会
+    div_r9whm0: [[330, 600], [345, 600], [362, 535], [400, 545], [440, 560], [480, 600], [480, 760], [380, 760], [330, 680]]   # 阿瓦拉齐社会主义共和国
+    div_s07wh5: [[400, 545], [362, 535], [367, 512], [410, 508], [408, 475], [445, 468], [460, 480], [460, 515], [500, 515], [500, 600], [480, 600], [440, 560]]   # 马索沃利民主主义人民共和国
+    div_0cazhp: [[367, 512], [371, 480], [408, 475], [410, 508]]   # 法尼里自由公社联合会
     div_gd73a5: [[371, 480], [378, 425], [445, 430], [445, 468]]   # 洛哈瓦托王国
     div_nyhhhg: [[378, 425], [386, 385], [400, 355], [445, 370], [445, 430]]   # 最神圣的黎明千年国
     div_5b4193: [[130, 455], [254, 455], [244, 545], [130, 545]]   # 贾巴利亚伊斯兰酋长国
