@@ -619,6 +619,8 @@ class World:
                     errors.append(f"{rid}: station_names entry {v} is not one of the stops")
             if r.get("color") and not re.match(r"^#[0-9A-Fa-f]{6}$", str(r["color"])):
                 errors.append(f"{rid}: color must be #RRGGBB")
+            if "closed" in r and r["closed"] is not True:
+                errors.append(f"{rid}: closed takes only true (a private line closed to the public)")
             if "maglev" in r and (r["maglev"] not in (True, "open") or r.get("network") != "intercity_rail"):
                 errors.append(f"{rid}: maglev: true (vacuum) or open (open-air) is for intercity railways only")
             speed = r.get("tech", {}).get("operating_speed_kmh")

@@ -37,3 +37,31 @@ features:
     notes:
       zh: "伊拉希河是齐马罗沃民族社会主义帝国的主要河流，全长 709.1 公里，流域面积约 15.9 万平方公里。河流发源于伊瓦卡山，向东穿过首都齐马罗沃所在的盆地，经福罗纳沿伊拉希河谷东下，在伊拉希港注入东海。上游是干燥的高原和稀树草原，河水在旱季变得细弱，雨季则裹着红土奔流；下游河谷开阔，河口一带是全国唯一的出海口。\n河上的水坝和灌溉工程是齐马罗沃政权引以为傲的「民族工程」，修建时动用了大量强迫劳动，劳工多是被剥夺公民等级的居民和战俘。灌溉渠把河水引到沿河的国营农场和「定居者村」，宣传画上常常画着金色的稻浪和水坝前挥手的青年团员，却从不提及修坝时死去的劳工。国际调查机构的报告里，记录了工地上的拘押营和集体惩罚。\n伊拉希河谷也是帝国的交通命脉：齐伊铁路自首都经福罗纳沿河谷东下到伊拉希港，福伊重载铁路在它旁边另有一条线，把福罗纳的铁矿石运往港口；伊拉希港的造船厂、海军基地和军用卡车厂都靠河口而建。沿河的渔民在浅滩上撒网，旱季的傍晚，孩子们在退水后的沙洲上踢球，河岸的高音喇叭里一遍遍播放着领袖的讲话。"
       en: "The Ilahy River is the main river of the National Socialist Empire of Tsimarovo, 709.1 km long with a drainage basin of about 159,000 km². It rises in the Ivaka Mountains and flows east through the basin of the capital, Tsimarovo, then past Forona down the Ilahy valley to the eastern sea at the port of Ilahy. Its upper reaches cross dry highland and savanna, where the river thins in the dry season and runs thick with red earth in the rains; the lower valley is broad, and its mouth is the country's only outlet to the sea.\nThe dams and irrigation works on the river are the regime's proud \"national works\", built with a great deal of forced labour, most of it by residents stripped of their citizen rank and by prisoners of war. Canals carry the water to the state farms and \"settler villages\" along the river, and propaganda posters show golden waves of rice and youth league members waving in front of the dams, but never mention the labourers who died building them. Reports by international investigators record the detention camps and collective punishments on the construction sites.\nThe Ilahy valley is also the empire's transport lifeline: the Tsimarovo–Ilahy railway runs from the capital past Forona down the valley to the port of Ilahy, and the Forona–Ilahy heavy-haul railway runs on a separate line beside it, carrying Forona's iron ore to the port; the shipyards, naval base and military lorry works of Ilahy all stand by the river mouth. Fishermen cast their nets in the shallows along the river, and on dry-season evenings children play football on the sandbanks left by the falling water while loudspeakers on the bank play the leader's speeches over and over."
+  - id: nat_jw37v6
+    subtype: lake
+    status: generated
+    names: {zh: 拉诺迈措湖, en: Lake Ranomaitso, art-x-ranova: Farihin'Ranomaitso}
+    notes:
+      zh: "拉诺迈措湖是安德里安巴海湾西岸沃希阿拉丘陵南麓的一座狭长湖泊，湖水清澈，倒映着岸边的雨林，拉诺瓦语里「拉诺迈措」意为「绿水」。湖的四周是领袖的拉诺迈措湖官邸区，一号、二号、三号官邸沿湖而建，湖上停着领袖保卫局的游艇。湖区是全国戒备最森严的地方，普通公民不知道它的确切位置，官方地图上这里只画着一片空白的雨林。"
+      en: "Lake Ranomaitso is a long, narrow lake below the southern slopes of the Vohiala Hills on the western shore of the bay of Andriamba, its clear water mirroring the rainforest on its banks; in Ranovan 'Ranomaitso' means 'green water'. Around it lie the leader's Lake Ranomaitso Residences: Residences No. 1, 2 and 3 stand on its shores, and Leader's Guard Bureau launches are moored on the water. The lake is the most closely guarded place in the country; ordinary citizens do not know exactly where it is, and official maps show only blank rainforest here."
+  - id: nat_az67ke
+    subtype: lake
+    status: generated
+    names: {zh: 拉诺沃拉湖, en: Lake Ranovola, art-x-ranova: Farihin'Ranovola}
+    notes:
+      zh: "拉诺沃拉湖是拉诺迈措湖官邸区西南角的一座小湖，拉诺瓦语里意为「银水」，清晨湖面常笼着一层薄雾。四号官邸建在湖边的缓坡上，湖的南岸是领袖保卫局582设施的射击训练场，枪声有时会惊起湖上的水鸟。"
+      en: "Lake Ranovola is a small lake in the south-western corner of the Lake Ranomaitso Residences; its name means 'silver water' in Ranovan, and in the early morning a thin mist often lies on it. Residence No. 4 stands on the gentle slope above its shore, and south of the lake is the firing range of Leader's Guard Bureau Facility 582, whose shots sometimes startle the water birds into flight."
+  - id: nat_f0y656
+    subtype: lake
+    status: generated
+    names: {zh: 金塔纳湖, en: Lake Kintana, art-x-ranova: Farihin'i Kintana}
+    notes:
+      zh: "金塔纳湖是拉诺迈措湖官邸区东北部的一座圆形小湖，拉诺瓦语里「金塔纳」意为「星星」，传说创始领袖第一次来到这里时，正是夜里湖面映满了星星。五号官邸建在湖的东岸，湖边的草坪上常举行只有领袖家人和少数客人参加的露天晚会。"
+      en: "Lake Kintana is a small round lake in the north-east of the Lake Ranomaitso Residences; 'Kintana' means 'star' in Ranovan, and the story goes that when the founding leader first came here, it was night and the lake was full of reflected stars. Residence No. 5 stands on its eastern shore, and open-air evening parties attended only by the leader's family and a few guests are often held on the lawns beside it."
+  - id: nat_xx9s6t
+    subtype: lake
+    status: generated
+    names: {zh: 法里希凯利湖, en: Lake Farihikely, art-x-ranova: Farihikely}
+    notes:
+      zh: "法里希凯利湖是沃希阿拉丘陵北麓的一座小湖，拉诺瓦语里意为「小湖」，高层领导人居住的法里希凯利湖干部区就以它命名。湖边是劳动党政治局委员们的别墅，按职务高低由湖岸向外排列，离湖越近，主人的地位越高；干部区里的人常说，搬到湖边的那一天，就是升进政治局的那一天。"
+      en: "Lake Farihikely is a small lake below the northern slopes of the Vohiala Hills; its name means 'little lake' in Ranovan, and the Lake Farihikely Cadre Quarter, where the senior leadership lives, is named after it. The villas of the Workers' Party's Politburo members line its shores, arranged outwards from the water by rank, so that the closer a villa stands to the lake, the higher its owner; people in the quarter say that the day you move to the lakeside is the day you enter the Politburo."

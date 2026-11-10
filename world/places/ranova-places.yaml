@@ -855,7 +855,7 @@ places:
     subtype: government
     status: generated
     names: {"zh": "永生宫", "en": "Palace of Eternity"}
-    notes: {"zh": "永生宫位于安德里安巴中央广场的北侧，原是创始领袖的官邸，他去世后改为陵寝，遗体安放在中央大厅的水晶棺中；现任劳动党第一书记、国务委员会委员长拉齐马·沃利三世的办公室设在宫殿的东翼，国务委员会也在东翼的会议厅开会。宫殿是一座巨大的回字形建筑，外墙贴着白色大理石，正门前是一条三百米长的甬道，两侧种着领袖亲手选定的棕榈树。普通公民只能在领袖诞辰日由单位组织进入瞻仰，外国人须经特别批准，入宫前要交出相机和手机。宫殿周围由领袖警卫局把守，四周数百米内禁止车辆通行。", "en": "The Palace of Eternity, on the north side of Andriamba's central square, was the residence of the founding leader and became his mausoleum after his death, his body lying in a crystal coffin in the central hall; the office of the current First Secretary of the Workers' Party and Chairman of the State Affairs Commission, Ratsima Voly III, is in the east wing, where the State Affairs Commission also meets. The palace is a huge quadrangle faced in white marble, approached by a 300 m avenue lined with palms chosen by the founder himself. Ordinary citizens may enter only on the leader's birthday, in groups organised by their workplaces; foreigners need special permission and must hand over cameras and phones at the gate. The Leader's Guard Bureau holds the palace, and no vehicles may pass within several hundred metres of it."}
+    notes: {"zh": "永生宫位于安德里安巴中央广场的北侧，原是创始领袖的官邸，他去世后改为陵寝，遗体安放在中央大厅的水晶棺中；现任劳动党第一书记、国务委员会委员长拉齐马·沃利三世的办公室设在宫殿的东翼，国务委员会也在东翼的会议厅开会。宫殿是一座巨大的回字形建筑，外墙贴着白色大理石，正门前是一条三百米长的甬道，两侧种着领袖亲手选定的棕榈树。普通公民只能在领袖诞辰日由单位组织进入瞻仰，外国人须经特别批准，入宫前要交出相机和手机。宫殿周围由领袖保卫局把守，四周数百米内禁止车辆通行。", "en": "The Palace of Eternity, on the north side of Andriamba's central square, was the residence of the founding leader and became his mausoleum after his death, his body lying in a crystal coffin in the central hall; the office of the current First Secretary of the Workers' Party and Chairman of the State Affairs Commission, Ratsima Voly III, is in the east wing, where the State Affairs Commission also meets. The palace is a huge quadrangle faced in white marble, approached by a 300 m avenue lined with palms chosen by the founder himself. Ordinary citizens may enter only on the leader's birthday, in groups organised by their workplaces; foreigners need special permission and must hand over cameras and phones at the gate. The Leader's Guard Bureau holds the palace, and no vehicles may pass within several hundred metres of it."}
     emblem_of: div_s07wh5
     in: div_gt2h78
     offset_km: [0.00, 0.00]
@@ -907,18 +907,18 @@ places:
   - id: poi_ta27z8
     subtype: mine
     status: generated
-    names: {"zh": "安德里安巴稀土矿", "en": "Andriamba Rare Earth Mine"}
-    notes: {"zh": "安德里安巴稀土矿位于首都西面的山区，是马索沃利最重要的外汇来源。矿石在矿区的选矿厂初步加工后，经海路秘密出口，以规避国际制裁。矿区由人民军守卫，工人中有相当一部分来自劳动教养营。外国研究机构根据卫星图像估计，矿区近年来扩大了一倍。", "en": "The Andriamba Rare Earth Mine, in the hills west of the capital, is Masovoly's most important earner of foreign currency. Its ore is concentrated on site and shipped out secretly by sea to evade international sanctions. The People's Army guards the mine, and many of its workers are said to come from labour camps. Foreign researchers estimate from satellite images that it has doubled in size in recent years."}
-    in: div_gt2h78
-    offset_km: [3.00, 0.00]
+    names: {"zh": "菲拉纳稀土矿", "en": "Firana Rare Earth Mine"}
+    notes: {"zh": "菲拉纳稀土矿位于菲拉纳城外的山区，是马索沃利最重要的外汇来源。矿石在矿区的选矿厂初步加工后，经海路秘密出口，以规避国际制裁。矿区由人民军守卫，工人中有相当一部分来自劳动教养营。外国研究机构根据卫星图像估计，矿区近年来扩大了一倍。", "en": "The Firana Rare Earth Mine, in the hills outside Firana, is Masovoly's most important earner of foreign currency. Its ore is concentrated on site and shipped out secretly by sea to evade international sanctions. The People's Army guards the mine, and many of its workers are said to come from labour camps. Foreign researchers estimate from satellite images that it has doubled in size in recent years."}
+    in: div_qe8t49
+    offset_km: [-3.60, -2.40]
     site: {"layout": "mine", "size_m": [1400, 1000], "angle_deg": 90, "rural": true}
   - id: poi_7x11w9
     subtype: mine
     status: generated
     names: {"zh": "马索沃利石墨矿", "en": "Masovoly Graphite Mine"}
     notes: {"zh": "马索沃利石墨矿是马索沃利最大的露天矿，开采的鳞片石墨经选矿厂提纯后出口海外，用于制造电池和耐火材料。随着全球电池需求增长，石墨已成为马索沃利最重要的出口商品之一。矿区由安全部队守卫，周围的村庄抱怨矿尘污染了稻田。", "en": "Masovoly Graphite Mine is Masovoly's largest open-pit mine; its flake graphite is purified at the concentrator and exported for batteries and refractories. With world demand for batteries growing, graphite has become one of Masovoly's most important exports. Security forces guard the mine, and nearby villages complain that its dust is fouling their paddies."}
-    in: div_gt2h78
-    offset_km: [-1.15, -2.77]
+    in: div_qe8t49
+    offset_km: [1.60, 3.60]
     site: {"layout": "mine", "size_m": [1500, 1000], "angle_deg": 158, "rural": true}
   - id: poi_qxmn6r
     subtype: orchard
@@ -1005,12 +1005,12 @@ places:
   - id: poi_mhcfgf
     subtype: command_centre
     status: generated
-    names: {"zh": "人民军司令部", "en": "People's Army Headquarters"}
-    notes: {"zh": "人民军司令部是马索沃利陆上部队的最高指挥机关，位于安德里安巴城郊的一处高地上，主楼前是阅兵场，四周是通信营和警卫营的营房。司令部的地下指挥所据说能抵御空袭，战时全国的部队调动都从这里下达。每年建军节，司令部在阅兵场举行授旗仪式。", "en": "People's Army Headquarters is the supreme command of Masovoly's land forces, on high ground outside Andriamba: a main building fronting a parade ground, surrounded by the barracks of the signals and guard battalions. Its underground command post is said to withstand air attack, and in war every movement of troops in the country is ordered from here. On Armed Forces Day each year colours are presented on its parade ground."}
+    names: {"zh": "人民军陆军司令部", "en": "People's Army Ground Forces Headquarters"}
+    notes: {"zh": "人民军陆军司令部是马索沃利陆军的指挥机关，隶属城里的人民军总司令部，位于安德里安巴城郊的一处高地上，主楼前是阅兵场，四周是通信营和警卫营的营房。司令部的地下指挥所据说能抵御空袭，战时陆军各旅的调动都从这里下达。每年建军节，司令部在阅兵场举行授旗仪式。", "en": "The People's Army Ground Forces Headquarters commands Masovoly's ground forces under the People's Army Supreme Command in the city, on high ground outside Andriamba: a main building fronting a parade ground, surrounded by the barracks of the signals and guard battalions. Its underground command post is said to withstand air attack, and in war the movements of the army's brigades are ordered from here. On Armed Forces Day each year colours are presented on its parade ground."}
     in: div_gt2h78
     offset_km: [2.12, 2.12]
     site: {"layout": "camp", "size_m": [800, 600], "variant": "hq", "angle_deg": 135, "rural": true}
-    military: {"unit": {"zh": "人民军司令部", "en": "People's Army Headquarters"}, "branch": {"zh": "人民军", "en": "People's Army"}, "equipment": {"zh": "指挥所、通信营和警卫营", "en": "Command post, a signals battalion and a guard battalion"}, "personnel": 980, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+    military: {"unit": {"zh": "人民军陆军司令部", "en": "People's Army Ground Forces Headquarters"}, "branch": {"zh": "人民军", "en": "People's Army"}, "equipment": {"zh": "指挥所、通信营和警卫营", "en": "Command post, a signals battalion and a guard battalion"}, "personnel": 980, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
   - id: poi_x2x7yj
     subtype: armoury
     status: generated
@@ -1093,6 +1093,1142 @@ places:
     site: {"layout": "bunker", "size_m": [700, 500], "angle_deg": 11, "rural": true}
     military: {"unit": {"zh": "人民军战略火箭部队第一旅", "en": "1st Brigade, People's Army Strategic Rocket Forces"}, "branch": {"zh": "人民军", "en": "People's Army"}, "equipment": {"zh": "短程弹道导弹发射车（数量不详）", "en": "Short-range ballistic missile launchers (number unknown)"}, "personnel": 900, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
 
+  # ·· 拉诺迈措湖官邸区 / Lake Ranomaitso Residences ··
+  - id: bld_ntt5zd
+    subtype: mansion
+    status: generated
+    names: {"zh": "一号官邸", "en": "Residence No. 1"}
+    notes: {"zh": "一号官邸是拉诺迈措湖官邸区的主楼，建在拉诺迈措湖南岸，是劳动党第一书记拉齐马·沃利三世和家人的主要住所。三层白色楼房面朝湖水，楼前是修剪整齐的草坪和码头。领袖不在首都的日子，国务委员会的文件由领袖保卫局的专人每天送来批阅，批过的文件当天傍晚再由专列送回永生宫。", "en": "Residence No. 1 is the main house of the Lake Ranomaitso Residences, on the south shore of Lake Ranomaitso, and the chief home of the Workers' Party's First Secretary, Ratsima Voly III, and his family. The three-storey white house faces the water across trimmed lawns and a landing stage. On days when the leader is away from the capital, Leader's Guard Bureau couriers bring the State Affairs Commission's papers here every day, and the signed papers go back to the Palace of Eternity by the special train the same evening."}
+    in: div_gt2h78
+    at: [430.80, 525.20]
+    site: {"layout": "estate", "size_m": [600, 400], "variant": "villa", "angle_deg": 15, "rural": true}
+  - id: bld_d3tf33
+    subtype: mansion
+    status: generated
+    names: {"zh": "二号官邸", "en": "Residence No. 2"}
+    notes: {"zh": "二号官邸在拉诺迈措湖西北岸，是创始领袖晚年居住的地方。他去世后，房间按原样保存，书桌上还摆着他最后批阅的文件，墙上的日历停在他去世的那一天。这里不对外开放，只有领袖的家人和少数元老在创始领袖的忌日进来献花。", "en": "Residence No. 2, on the north-west shore of Lake Ranomaitso, is where the founding leader lived in his last years. Since his death the rooms have been kept as they were, the papers he last signed still on the desk and the calendar on the wall stopped at the day he died. It is not open to anyone but the leader's family and a few elders, who come in to lay flowers on the anniversary of his death."}
+    in: div_gt2h78
+    at: [429.30, 527.20]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 40, "rural": true}
+  - id: bld_fx95ne
+    subtype: mansion
+    status: generated
+    names: {"zh": "三号官邸", "en": "Residence No. 3"}
+    notes: {"zh": "三号官邸在拉诺迈措湖东北岸，是领袖接见党和国家高层干部、款待外国贵宾的地方，有一间可坐两百人的宴会厅。按照规定，干部们由领袖保卫局的汽车经沃希阿拉隧道送进官邸区，日落前必须离开，所以三号官邸的宴会总在午后开始，傍晚前散席。", "en": "Residence No. 3, on the north-east shore of Lake Ranomaitso, is where the leader receives the party and state leadership and entertains foreign guests of honour; it has a banqueting hall seating two hundred. By rule the cadres are driven into the Residences through the Vohiala Tunnel in Leader's Guard Bureau cars and must leave before sunset, so banquets at Residence No. 3 always begin after midday and break up before evening."}
+    in: div_gt2h78
+    at: [432.30, 527.00]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_1kkmaf
+    subtype: mansion
+    status: generated
+    names: {"zh": "四号官邸", "en": "Residence No. 4"}
+    notes: {"zh": "四号官邸在拉诺沃拉湖南岸的缓坡上，是领袖母亲的住所，楼前有一片种满鸡冠花的花园。老人喜欢清静，官邸周围不许放映电影和燃放焰火，南面射击训练场的打靶时间也要避开她午睡的时候。", "en": "Residence No. 4, on the gentle slope above the south shore of Lake Ranovola, is the home of the leader's mother, with a garden full of cockscomb in front. She likes quiet, so no films may be shown or fireworks let off nearby, and the firing range to the south must keep its practice clear of her afternoon rest."}
+    in: div_gt2h78
+    at: [428.20, 522.60]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 90, "rural": true}
+  - id: bld_2fk0br
+    subtype: mansion
+    status: generated
+    names: {"zh": "五号官邸", "en": "Residence No. 5"}
+    notes: {"zh": "五号官邸在金塔纳湖东岸，是领袖子女的住所，楼里有家庭教师的教室、钢琴房和一座小型室内体育馆。领袖的子女从不进城上学，教师由组织指导部从领袖大学挑选，经政治审查后住进官邸区，任教期间不得回家探亲。", "en": "Residence No. 5, on the east shore of Lake Kintana, is the home of the leader's children, with schoolrooms for their tutors, a piano room and a small indoor gymnasium. The children never go to school in town; their teachers are chosen from the Leader University by the Organisation and Guidance Department and, after political vetting, move into the Residences, where they may not go home on leave while they teach."}
+    in: div_gt2h78
+    at: [434.45, 527.90]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_9rt2ra
+    subtype: mansion
+    status: generated
+    names: {"zh": "六号官邸", "en": "Residence No. 6"}
+    notes: {"zh": "六号官邸建在沃希阿拉丘陵南坡的山腰上，比湖边凉爽，旱季最热的几个月领袖常住在这里。从露台上可以俯瞰整个拉诺迈措湖，晴天还能望见东面的海湾。山路两旁每隔一段就有领袖保卫局的岗亭。", "en": "Residence No. 6 stands halfway up the southern slope of the Vohiala Hills, cooler than the lakeside, and the leader often stays here in the hottest months of the dry season. Its terrace looks down over the whole of Lake Ranomaitso, and on clear days out to the bay in the east. Leader's Guard Bureau sentry boxes stand at intervals along the mountain road."}
+    in: div_gt2h78
+    at: [428.60, 529.90]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 150, "rural": true}
+  - id: bld_z8mqj2
+    subtype: mansion
+    status: generated
+    names: {"zh": "七号官邸", "en": "Residence No. 7"}
+    notes: {"zh": "七号官邸在山腰的中段，是领袖的书房，藏有创始领袖和历代领袖的全部著作和手稿。党报上刊登的领袖讲话，据说大多在这里写成初稿，再由宣传鼓动部的写作班子修改润色。", "en": "Residence No. 7, midway along the slope, is the leader's study, holding the complete works and manuscripts of the founding leader and his successors. Most of the leader's speeches printed in the party paper are said to be drafted here before the Propaganda and Agitation Department's writers polish them."}
+    in: div_gt2h78
+    at: [431.00, 530.30]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 160, "rural": true}
+  - id: bld_x3t05j
+    subtype: mansion
+    status: generated
+    names: {"zh": "八号官邸", "en": "Residence No. 8"}
+    notes: {"zh": "八号官邸在山腰东段，是专门接待外国领导人的客馆。阿瓦拉齐的领导人来访时曾在这里下榻，两国的友好条约据说也是在这座官邸的会客厅里谈定的。客馆平时空着，仆役每天照常打扫，以备不时之需。", "en": "Residence No. 8, on the eastern part of the slope, is a guesthouse for foreign leaders. Avaratsy's leaders have stayed here on visits, and the two countries' friendship treaty is said to have been settled in its drawing room. It stands empty most of the time, though the staff clean it every day in case it is needed."}
+    in: div_gt2h78
+    at: [432.40, 529.90]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 170, "rural": true}
+  - id: bld_1rx2e5
+    subtype: mansion
+    status: generated
+    names: {"zh": "九号官邸", "en": "Residence No. 9"}
+    notes: {"zh": "九号官邸在官邸区西侧的山脚，紧挨第二赛车场，车库里停着领袖收藏的几十辆进口跑车和越野车。车辆经第三国秘密运进，以规避国际制裁；领袖保卫局专门设有一个车辆小组负责保养。", "en": "Residence No. 9, at the foot of the hills on the west side of the Residences, stands next to the No. 2 Circuit, and its garages hold the leader's collection of several dozen imported sports cars and off-road vehicles. They were brought in secretly through third countries to evade international sanctions, and the Leader's Guard Bureau keeps a special vehicle unit to maintain them."}
+    in: div_gt2h78
+    at: [427.60, 527.00]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 90, "rural": true}
+  - id: bld_dtkxs3
+    subtype: mansion
+    status: generated
+    names: {"zh": "十号官邸", "en": "Residence No. 10"}
+    notes: {"zh": "十号官邸在拉诺迈措湖南面的山脚，是一座木结构的狩猎小屋，四周是保留下来的原始雨林。领袖在这里打猎和钓鱼，猎物和鱼获的照片常以「领袖在基层视察」的名义刊登在党报上，背景却从不交代地点。", "en": "Residence No. 10, at the foot of the hills south of Lake Ranomaitso, is a timber hunting lodge surrounded by preserved primary rainforest. The leader hunts and fishes here, and photographs of the catch often appear in the party paper captioned as the leader 'inspecting the grass roots', without ever naming the place."}
+    in: div_gt2h78
+    at: [432.00, 524.50]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 30, "rural": true}
+  - id: bld_86760f
+    subtype: mansion
+    status: generated
+    names: {"zh": "十一号官邸", "en": "Residence No. 11"}
+    notes: {"zh": "十一号官邸在官邸区东缘的高地上，是离海湾最近的一座官邸，从楼顶可以远眺海湾对岸的首都。官邸区修建初期，创始领袖曾在这里住过几年，如今它是领袖保卫局局长在官邸区的办公和住宿处。", "en": "Residence No. 11, on high ground at the eastern edge of the Residences, is the closest to the bay, and from its roof one can see the capital across the water. The founding leader lived here for a few years when the Residences were first built; today it is the office and lodging of the Director of the Leader's Guard Bureau within the Residences."}
+    in: div_gt2h78
+    at: [435.20, 525.00]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_rbqa5n
+    subtype: mansion
+    status: generated
+    names: {"zh": "十二号官邸", "en": "Residence No. 12"}
+    notes: {"zh": "十二号官邸在官邸区西侧的山脚，是领袖雨季的住所，楼里有室内游泳池、保龄球馆和一间私人放映室，雨季连绵的几个月里不必出门。它也是官邸区最新的一座官邸，建筑材料和设备全部从国外秘密进口。", "en": "Residence No. 12, at the foot of the hills on the west side of the Residences, is the leader's rainy-season home, with an indoor pool, a bowling alley and a private screening room, so that he need not go out through the months of rain. It is also the newest of the residences, built entirely with materials and equipment imported in secret from abroad."}
+    in: div_gt2h78
+    at: [427.60, 524.70]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: poi_46mszs
+    subtype: airport
+    status: generated
+    names: {"zh": "领袖保卫局417机场", "en": "Leader's Guard Bureau Airfield 417"}
+    notes: {"zh": "领袖保卫局417机场在拉诺迈措湖官邸区东南部，是领袖专用的机场，跑道可以起降中型客机，机库里停着领袖的专机和几架直升机。机场不在任何航图上，也没有民航代码；领袖出访阿瓦拉齐时都从这里起飞，起飞前首都上空的航班一律停飞。", "en": "Leader's Guard Bureau Airfield 417, in the south-east of the Lake Ranomaitso Residences, is the leader's own airfield; its runway takes medium airliners, and its hangars hold the leader's aircraft and several helicopters. It appears on no chart and has no civil aviation code; the leader flies from here whenever he visits Avaratsy, and all flights over the capital are grounded before he takes off."}
+    in: div_gt2h78
+    at: [433.90, 521.60]
+    site: {"layout": "airport", "size_m": [2400, 700], "angle_deg": 75, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局航空队", "en": "Leader's Guard Bureau Flight"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "专机、运输机与直升机", "en": "VIP aircraft, transports and helicopters"}, "personnel": 300, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_epn1x9
+    subtype: airport
+    status: generated
+    names: {"zh": "劳动党政治保卫部263机场", "en": "Political Security Department Airfield 263"}
+    notes: {"zh": "劳动党政治保卫部263机场在拉诺迈措湖官邸区西南部，由党的政治保卫部经营，主要为官邸区运送特供物资、外国客人和奉召前来的地方干部。降落的每一架飞机都要经领袖保卫局检查，乘客在机场换乘保卫局的汽车，才能进入官邸区。", "en": "Political Security Department Airfield 263, in the south-west of the Lake Ranomaitso Residences, is run by the party's Political Security Department, chiefly to fly in special supplies, foreign guests and provincial cadres summoned to the Residences. Every aircraft that lands is searched by the Leader's Guard Bureau, and passengers change into Bureau cars at the airfield before entering the Residences."}
+    in: div_gt2h78
+    at: [429.80, 520.50]
+    site: {"layout": "airport", "size_m": [2200, 700], "angle_deg": 10, "rural": true}
+    military: {"unit": {"zh": "劳动党政治保卫部航空大队", "en": "Political Security Department Air Group"}, "branch": {"zh": "劳动党政治保卫部", "en": "Political Security Department of the Workers' Party"}, "equipment": {"zh": "运输机与直升机", "en": "Transport aircraft and helicopters"}, "personnel": 250, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_vabnvd
+    subtype: armoury
+    status: generated
+    names: {"zh": "领袖保卫局582设施", "en": "Leader's Guard Bureau Facility 582"}
+    notes: {"zh": "领袖保卫局582设施是拉诺迈措湖官邸区西南部的军械库，存放第一警卫旅的轻武器、弹药、装甲车和便携式防空导弹。库房半埋在山坡里，四周有两道铁丝网和雷区，旁边附设一座射击训练场。", "en": "Leader's Guard Bureau Facility 582 is an armoury in the south-west of the Lake Ranomaitso Residences, holding the 1st Guard Brigade's small arms, ammunition, armoured vehicles and shoulder-launched air defence missiles. Its stores are half dug into the hillside behind two wire fences and a minefield, with a firing range beside it."}
+    in: div_gt2h78
+    at: [428.80, 521.40]
+    site: {"layout": "armoury", "size_m": [500, 350], "angle_deg": 10, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第一警卫旅军械库", "en": "1st Guard Brigade Armoury, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器、装甲车与便携式防空导弹", "en": "Small arms, armoured vehicles and shoulder-launched air defence missiles"}, "personnel": 180, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_g7wptd
+    subtype: shooting_range
+    status: generated
+    names: {"zh": "领袖保卫局582设施射击训练场", "en": "Leader's Guard Bureau Facility 582 Firing Range"}
+    notes: {"zh": "领袖保卫局582设施射击训练场附设在582设施旁，是第一警卫旅的警卫员每天练习射击的地方，设有手枪、步枪和反狙击训练场地。警卫员每月考核一次，成绩不合格的人会被调离官邸区。", "en": "The Facility 582 Firing Range, beside Leader's Guard Bureau Facility 582, is where the 1st Guard Brigade's guards practise every day, with pistol, rifle and counter-sniper ranges. The guards are tested once a month, and those who fail are posted away from the Residences."}
+    in: div_gt2h78
+    at: [427.90, 521.90]
+    site: {"layout": "shooting", "size_m": [700, 300], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第一警卫旅射击训练场", "en": "1st Guard Brigade Firing Range, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "手枪、步枪与狙击步枪", "en": "Pistols, rifles and sniper rifles"}, "personnel": 60, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_40d8js
+    subtype: armoury
+    status: generated
+    names: {"zh": "领袖保卫局349设施", "en": "Leader's Guard Bureau Facility 349"}
+    notes: {"zh": "领袖保卫局349设施是拉诺迈措湖官邸区东南部的军械库，存放领袖贴身警卫的武器和领袖本人收藏的猎枪与手枪，旁边附设一座射击训练场。领袖有时亲自来打靶，他的成绩由党报以「百发百中」报道。", "en": "Leader's Guard Bureau Facility 349 is an armoury in the south-east of the Lake Ranomaitso Residences, holding the weapons of the leader's personal bodyguards and his own collection of hunting guns and pistols, with a firing range beside it. The leader sometimes comes to shoot himself, and the party paper reports his scores as 'a hundred hits from a hundred shots'."}
+    in: div_gt2h78
+    at: [435.00, 523.20]
+    site: {"layout": "armoury", "size_m": [500, 350], "angle_deg": 90, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局贴身警卫处军械库", "en": "Close Protection Armoury, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "手枪、冲锋枪与猎枪", "en": "Pistols, submachine guns and hunting guns"}, "personnel": 120, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_x6rvet
+    subtype: shooting_range
+    status: generated
+    names: {"zh": "领袖保卫局349设施射击训练场", "en": "Leader's Guard Bureau Facility 349 Firing Range"}
+    notes: {"zh": "领袖保卫局349设施射击训练场附设在349设施旁，是领袖贴身警卫练习近距离射击和护卫撤离的场地，场内搭着模仿永生宫走廊和车队的布景。领袖亲自射击时，整个训练场要清场。", "en": "The Facility 349 Firing Range, beside Leader's Guard Bureau Facility 349, is where the leader's bodyguards practise close-quarters shooting and evacuation drills, among sets built to look like the corridors of the Palace of Eternity and a motorcade. When the leader shoots here himself, the whole range is cleared."}
+    in: div_gt2h78
+    at: [435.40, 522.40]
+    site: {"layout": "shooting", "size_m": [700, 300], "angle_deg": 90, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局贴身警卫处射击训练场", "en": "Close Protection Firing Range, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "手枪与冲锋枪", "en": "Pistols and submachine guns"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_2ve429
+    subtype: command_centre
+    status: generated
+    names: {"zh": "拉诺迈措湖第一地下避难所", "en": "Lake Ranomaitso Underground Shelter No. 1"}
+    notes: {"zh": "拉诺迈措湖第一地下避难所挖在沃希阿拉丘陵南坡的山腹里，是领袖和家人的主避难所，据说能抵御核爆，储备的粮食、燃料和药品够全家和警卫用上几个月。指挥室里有直通永生宫和劳动党中央军事委员会大楼的专线。", "en": "Lake Ranomaitso Underground Shelter No. 1 is dug into the southern slope of the Vohiala Hills and is the main shelter of the leader and his family; it is said to withstand a nuclear blast, with enough food, fuel and medicine for the family and their guards for several months. Its command room has direct lines to the Palace of Eternity and the Central Military Commission Building."}
+    in: div_gt2h78
+    at: [429.10, 528.70]
+    site: {"layout": "bunker", "size_m": [400, 300], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第一地下避难所", "en": "Underground Shelter No. 1, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "地下指挥所、通信设备与储备物资", "en": "Underground command post, communications and stores"}, "personnel": 80, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_pgffvj
+    subtype: command_centre
+    status: generated
+    names: {"zh": "拉诺迈措湖第二地下避难所", "en": "Lake Ranomaitso Underground Shelter No. 2"}
+    notes: {"zh": "拉诺迈措湖第二地下避难所在金塔纳湖西面的山脚下，主要是官邸区的地下仓库，储存粮食、燃料、药品和发电机，平时由官邸管理处每季度轮换一次库存。", "en": "Lake Ranomaitso Underground Shelter No. 2, at the foot of the hills west of Lake Kintana, is mainly the Residences' underground store, holding food, fuel, medicine and generators; the Residences Administration rotates the stock every quarter."}
+    in: div_gt2h78
+    at: [432.90, 528.70]
+    site: {"layout": "bunker", "size_m": [400, 300], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第二地下避难所", "en": "Underground Shelter No. 2, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "地下指挥所、通信设备与储备物资", "en": "Underground command post, communications and stores"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_pcg0ys
+    subtype: command_centre
+    status: generated
+    names: {"zh": "拉诺迈措湖第三地下避难所", "en": "Lake Ranomaitso Underground Shelter No. 3"}
+    notes: {"zh": "拉诺迈措湖第三地下避难所在官邸区西侧的山坡下，是领袖保卫局的地下指挥和通信中心。战时官邸区的防空、警卫和对外通信都从这里指挥，入口伪装成一座水泵房。", "en": "Lake Ranomaitso Underground Shelter No. 3, under the hillside on the west side of the Residences, is the Leader's Guard Bureau's underground command and signals centre. In war the Residences' air defence, guards and outside communications would be directed from here; its entrance is disguised as a pump house."}
+    in: div_gt2h78
+    at: [427.80, 528.40]
+    site: {"layout": "bunker", "size_m": [400, 300], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第三地下避难所", "en": "Underground Shelter No. 3, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "地下指挥所、通信设备与储备物资", "en": "Underground command post, communications and stores"}, "personnel": 60, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_qd0ect
+    subtype: command_centre
+    status: generated
+    names: {"zh": "拉诺迈措湖第四地下避难所", "en": "Lake Ranomaitso Underground Shelter No. 4"}
+    notes: {"zh": "拉诺迈措湖第四地下避难所在沃希阿拉丘陵东段的山脚下。外国情报机构根据卫星图像推测，它与山腹里的坑道相连，可以通到山北的法里希凯利湖干部区，官方从未承认这条坑道的存在。", "en": "Lake Ranomaitso Underground Shelter No. 4 lies at the foot of the eastern Vohiala Hills. Foreign intelligence services believe from satellite images that it joins tunnels through the hills to the Lake Farihikely Cadre Quarter on the far side; the government has never admitted that such a tunnel exists."}
+    in: div_gt2h78
+    at: [433.90, 530.30]
+    site: {"layout": "bunker", "size_m": [400, 300], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第四地下避难所", "en": "Underground Shelter No. 4, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "地下指挥所、通信设备与储备物资", "en": "Underground command post, communications and stores"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_at2csa
+    subtype: racetrack
+    status: generated
+    names: {"zh": "领袖保卫局第一赛车场", "en": "Leader's Guard Bureau No. 1 Circuit"}
+    notes: {"zh": "领袖保卫局第一赛车场在拉诺迈措湖官邸区南部的平地上，是一条平坦的环形赛道，看台只有一排，能坐几十个人。领袖驾驶进口跑车在这里飙车，警卫员开着另一辆车在后面陪跑，赛道边常备着救护车和消防车。", "en": "Leader's Guard Bureau No. 1 Circuit, on the flat ground in the south of the Lake Ranomaitso Residences, is a level oval with a single row of stands seating a few dozen. The leader races imported sports cars here, with a guard driving behind him in a second car, and an ambulance and a fire engine always stand by at the trackside."}
+    in: div_gt2h78
+    at: [431.70, 521.90]
+    site: {"layout": "racetrack", "size_m": [1200, 600], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局车辆队", "en": "Vehicle Unit, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "跑车、越野车与救护车", "en": "Sports cars, off-road vehicles and ambulances"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_g0brpm
+    subtype: racetrack
+    status: generated
+    names: {"zh": "领袖保卫局第二赛车场", "en": "Leader's Guard Bureau No. 2 Circuit"}
+    notes: {"zh": "领袖保卫局第二赛车场在官邸区西侧的山脚下，赛道沿着山坡起伏，弯道很多，用来驾驶越野车和摩托车。赛道旁就是存放跑车的九号官邸，赛季里领袖保卫局的车辆小组每天都要在这里试车。", "en": "Leader's Guard Bureau No. 2 Circuit, at the foot of the hills on the west side of the Residences, rises and falls along the slope through many bends and is used for off-road vehicles and motorcycles. Residence No. 9, where the sports cars are kept, stands beside it, and in the season the Bureau's vehicle unit tests cars here every day."}
+    in: div_gt2h78
+    at: [427.00, 525.80]
+    site: {"layout": "racetrack", "size_m": [1200, 600], "angle_deg": 90, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局车辆队", "en": "Vehicle Unit, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "越野车与摩托车", "en": "Off-road vehicles and motorcycles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: bld_8hjja1
+    subtype: hospital
+    status: generated
+    names: {"zh": "领袖保卫局医院", "en": "Leader's Guard Bureau Hospital"}
+    notes: {"zh": "领袖保卫局医院是拉诺迈措湖官邸区唯一的综合医院，专门为领袖、家人和官邸区的警卫与工作人员服务，设有内科、外科、牙科和康复科。医疗设备和药品通过第三国秘密进口，比首都的总医院先进得多；医生都从领袖大学医学院挑选，家属须留在首都作保。", "en": "The Leader's Guard Bureau Hospital is the only general hospital in the Lake Ranomaitso Residences, serving the leader, his family and the guards and staff of the Residences, with medical, surgical, dental and rehabilitation departments. Its equipment and drugs are imported in secret through third countries and are far better than those of the capital's General Hospital; its doctors are chosen from the Leader University medical school, and their families must stay in the capital as surety."}
+    in: div_gt2h78
+    at: [432.40, 523.50]
+    site: {"layout": "complex", "size_m": [320, 240], "angle_deg": 0, "rural": true}
+  - id: poi_x0g6jj
+    subtype: vehicle_depot
+    status: generated
+    names: {"zh": "领袖保卫局721设施", "en": "Leader's Guard Bureau Facility 721"}
+    notes: {"zh": "领袖保卫局721设施是拉诺迈措湖官邸区东北部的专列站和车库，「领袖号」专列平时停在这里的库房里，旁边是检修车间和警卫员的宿舍。专列每次出发前，保卫局都要派一列空车先行开过全线，检查轨道和隧道。", "en": "Leader's Guard Bureau Facility 721, in the north-east of the Lake Ranomaitso Residences, is the station and shed of the special train: the Leader train is kept in its shed, beside a maintenance workshop and the guards' quarters. Before every departure the Bureau sends an empty train ahead over the whole line to check the track and tunnels."}
+    in: div_gt2h78
+    at: [434.30, 526.00]
+    site: {"layout": "complex", "size_m": [600, 250], "angle_deg": 80, "rural": true}
+  - id: poi_6edr70
+    subtype: vehicle_depot
+    status: generated
+    names: {"zh": "领袖保卫局106设施", "en": "Leader's Guard Bureau Facility 106"}
+    notes: {"zh": "领袖保卫局106设施是首都安德里安巴西北郊海湾边的专用火车站，是「领袖号」专列在首都一端的终点，不对外开放，也不在任何列车时刻表上。车站只有一座站台和一座候车厅，候车厅里挂着创始领袖乘坐专列视察的油画；领袖在这里下车，换乘领袖保卫局的车队进入永生宫。", "en": "Leader's Guard Bureau Facility 106 is a special railway station by the bay on the north-western edge of the capital, Andriamba, the capital end of the Leader special train; it is closed to the public and appears in no timetable. It has a single platform and a waiting hall hung with an oil painting of the founding leader touring the country by special train; the leader alights here and transfers to a Leader's Guard Bureau motorcade into the Palace of Eternity."}
+    in: div_gt2h78
+    at: [441.30, 552.30]
+    site: {"layout": "complex", "size_m": [500, 200], "angle_deg": 70, "rural": true}
+  - id: poi_1ap9p7
+    subtype: vehicle_depot
+    status: generated
+    names: {"zh": "领袖保卫局215设施", "en": "Leader's Guard Bureau Facility 215"}
+    notes: {"zh": "领袖保卫局215设施是领袖专用公路在首都一端的换乘站，位于首都西北郊的海湾边。领袖的车队从拉诺迈措湖官邸区开到这里，警卫和车辆在此交接给首都的警卫车队，再开进城里；车站旁有车库、加油站和警卫员的休息室。", "en": "Leader's Guard Bureau Facility 215 is the transfer station at the capital end of the Leader's Road, by the bay on the north-western edge of the capital. The leader's motorcade drives here from the Lake Ranomaitso Residences and is handed over to the capital's guard convoy before it enters the city; beside it are garages, a filling station and a rest room for the guards."}
+    in: div_gt2h78
+    at: [441.60, 550.40]
+    site: {"layout": "complex", "size_m": [400, 300], "angle_deg": 0, "rural": true}
+  - id: poi_n46a12
+    subtype: patrol_base
+    status: generated
+    names: {"zh": "领袖专用公路第一哨所", "en": "Leader's Road Post No. 1"}
+    notes: {"zh": "第一哨所是领袖专用公路驶出拉诺迈措湖官邸区后的第一道关卡，设在沃希阿拉丘陵东端和海湾之间的缺口处。过往车辆须出示领袖保卫局签发的通行证，官邸区的工作人员进出也要在这里搜身。", "en": "Post No. 1 is the first barrier on the Leader's Road after it leaves the Lake Ranomaitso Residences, in the gap between the eastern end of the Vohiala Hills and the bay. Vehicles must show a pass issued by the Leader's Guard Bureau, and the Residences' own staff are searched here on the way in and out."}
+    in: div_gt2h78
+    at: [435.45, 531.00]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局专用公路第一哨所", "en": "Leader's Road Post No. 1, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_kgwzgq
+    subtype: patrol_base
+    status: generated
+    names: {"zh": "领袖专用公路第二哨所", "en": "Leader's Road Post No. 2"}
+    notes: {"zh": "第二哨所在领袖专用公路西侧，正对着法里希凯利湖干部区的东缘。干部区的人不准使用这条公路，哨所的警卫日夜监视着两地之间的树林，防止有人抄近路靠近公路。", "en": "Post No. 2 stands on the west side of the Leader's Road, facing the eastern edge of the Lake Farihikely Cadre Quarter. The cadres may not use the road, and the post's guards watch the woods between the two day and night to keep anyone from cutting through towards it."}
+    in: div_gt2h78
+    at: [434.95, 535.80]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局专用公路第二哨所", "en": "Leader's Road Post No. 2, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_sky7fb
+    subtype: patrol_base
+    status: generated
+    names: {"zh": "领袖专用公路第三哨所", "en": "Leader's Road Post No. 3"}
+    notes: {"zh": "第三哨所在领袖专用公路东侧的海湾边，设有一座瞭望塔和一处小码头，警卫员乘巡逻艇在附近海面巡查，防止有船只靠近公路。", "en": "Post No. 3 stands by the bay on the east side of the Leader's Road, with a watchtower and a small jetty from which guards patrol the nearby water by launch to keep boats away from the road."}
+    in: div_gt2h78
+    at: [435.20, 540.20]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局专用公路第三哨所", "en": "Leader's Road Post No. 3, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_e45bxv
+    subtype: patrol_base
+    status: generated
+    names: {"zh": "领袖专用公路第四哨所", "en": "Leader's Road Post No. 4"}
+    notes: {"zh": "第四哨所在领袖专用公路西侧，靠近干部区北面的警卫团营区。领袖的车队经过前，哨所要提前一小时封锁附近所有的道路和小路，连警卫团的车辆也不例外。", "en": "Post No. 4 stands on the west side of the Leader's Road near the guard regiment's barracks north of the Cadre Quarter. An hour before the leader's motorcade passes, the post closes every road and track nearby, the regiment's own vehicles included."}
+    in: div_gt2h78
+    at: [433.60, 544.00]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局专用公路第四哨所", "en": "Leader's Road Post No. 4, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_w14t4p
+    subtype: patrol_base
+    status: generated
+    names: {"zh": "领袖专用公路第五哨所", "en": "Leader's Road Post No. 5"}
+    notes: {"zh": "第五哨所在海湾西北岸的狭长地带，这里公路贴着海边，西面就是菲拉纳的山林。哨所设有探照灯和警犬队，夜里每半小时沿公路巡查一次。", "en": "Post No. 5 stands on the narrow strip along the north-west shore of the bay, where the road runs close to the water with the forested hills of Firana to the west. It has searchlights and a dog team, and at night it patrols the road every half hour."}
+    in: div_gt2h78
+    at: [433.05, 547.60]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局专用公路第五哨所", "en": "Leader's Road Post No. 5, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_mxvxwm
+    subtype: patrol_base
+    status: generated
+    names: {"zh": "领袖专用公路第六哨所", "en": "Leader's Road Post No. 6"}
+    notes: {"zh": "第六哨所在海湾北端，领袖专用公路在这里绕过海湾的尽头。附近的村庄在修路时全部迁走，原来的稻田改种了一排排高大的棕榈树，挡住从远处望向公路的视线。", "en": "Post No. 6 stands at the head of the bay, where the Leader's Road rounds the end of the water. The villages nearby were all moved away when the road was built, and their paddies were planted with rows of tall palms to screen the road from distant eyes."}
+    in: div_gt2h78
+    at: [436.75, 554.35]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局专用公路第六哨所", "en": "Leader's Road Post No. 6, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_9txsxc
+    subtype: patrol_base
+    status: generated
+    names: {"zh": "领袖专用公路第七哨所", "en": "Leader's Road Post No. 7"}
+    notes: {"zh": "第七哨所在海湾北端东侧的公路边，是领袖专用公路上最大的一座哨所，驻有一个警卫连和两辆装甲车，负责封锁公路与东海岸公路之间的地带。", "en": "Post No. 7 stands beside the road on the east side of the head of the bay; it is the largest post on the Leader's Road, holding a guard company and two armoured cars, and seals off the ground between the road and the East Coast Road."}
+    in: div_gt2h78
+    at: [440.00, 556.00]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局专用公路第七哨所", "en": "Leader's Road Post No. 7, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 120, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_b3gs08
+    subtype: patrol_base
+    status: generated
+    names: {"zh": "领袖专用公路第八哨所", "en": "Leader's Road Post No. 8"}
+    notes: {"zh": "第八哨所是领袖专用公路上的最后一道关卡，离首都西北郊的215设施不远。车队到达前，哨所要通知首都卫戍部门清空进城的道路。", "en": "Post No. 8 is the last barrier on the Leader's Road, a short way from Facility 215 on the north-western edge of the capital. Before the motorcade arrives, the post tells the capital garrison to clear the roads into the city."}
+    in: div_gt2h78
+    at: [442.50, 553.00]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局专用公路第八哨所", "en": "Leader's Road Post No. 8, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: bld_r9mev5
+    subtype: office
+    status: generated
+    names: {"zh": "拉诺迈措湖官邸区管理处", "en": "Lake Ranomaitso Residences Administration"}
+    notes: {"zh": "拉诺迈措湖官邸区管理处是领袖保卫局下属的机构，负责官邸区的厨师、园丁、司机、仆役和维修工人。工作人员都经过严格的政治审查，大多来自出身好的农民家庭，进来以后不能随意离开，与外界的书信也要经管理处检查。", "en": "The Lake Ranomaitso Residences Administration, under the Leader's Guard Bureau, runs the Residences' cooks, gardeners, drivers, servants and maintenance workers. All the staff are strictly vetted, most of them from peasant families of good background; once inside they may not leave at will, and their letters to the outside pass through the Administration."}
+    in: div_gt2h78
+    at: [431.00, 523.50]
+    site: {"layout": "block", "size_m": [200, 160], "angle_deg": 0, "rural": true}
+  - id: poi_43hgzs
+    subtype: military_base
+    status: generated
+    names: {"zh": "领袖保卫局第一警卫旅营区", "en": "1st Guard Brigade Barracks, Leader's Guard Bureau"}
+    notes: {"zh": "领袖保卫局第一警卫旅营区在拉诺迈措湖官邸区东南角，驻着负责守卫官邸区和领袖专用公路的第一警卫旅。警卫员从全国出身最好的青年中挑选，身高、相貌和三代家庭背景都要审查，服役期间不得结婚。", "en": "The 1st Guard Brigade Barracks, in the south-east corner of the Lake Ranomaitso Residences, house the brigade that guards the Residences and the Leader's Road. Its guards are picked from the young people of the best backgrounds in the country, vetted for height, looks and three generations of family history, and may not marry while they serve."}
+    in: div_gt2h78
+    at: [436.00, 520.30]
+    site: {"layout": "camp", "size_m": [900, 700], "variant": "barracks", "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第一警卫旅", "en": "1st Guard Brigade, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器、装甲车与防空武器", "en": "Small arms, armoured vehicles and air defence weapons"}, "personnel": 2400, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_f69x9d
+    subtype: orchard
+    status: generated
+    names: {"zh": "拉诺迈措湖特供农场", "en": "Lake Ranomaitso Special Supply Farm"}
+    notes: {"zh": "拉诺迈措湖特供农场在官邸区南部，为领袖一家种植稻米、蔬菜和水果，饲养奶牛、猪和鸡。每一样食物都要经领袖保卫局医院化验后才能送进厨房，农场里的稻米是全国唯一不施化肥的稻米。", "en": "The Lake Ranomaitso Special Supply Farm, in the south of the Residences, grows rice, vegetables and fruit for the leader's family and keeps dairy cows, pigs and chickens. Every item of food is tested at the Leader's Guard Bureau Hospital before it reaches the kitchens, and its rice is the only rice in the country grown without chemical fertiliser."}
+    in: div_gt2h78
+    at: [432.60, 519.00]
+    site: {"layout": "orchard", "size_m": [1000, 700], "angle_deg": 0, "rural": true}
+  - id: bld_8gmg2g
+    subtype: theatre
+    status: generated
+    names: {"zh": "拉诺迈措湖放映厅", "en": "Lake Ranomaitso Screening Hall"}
+    notes: {"zh": "拉诺迈措湖放映厅在拉诺迈措湖南岸，是一座可坐一百人的小剧场，收藏着上万部外国电影的拷贝。这些电影在全国禁止放映，只有领袖和他邀请的客人能在这里观看，翻译由宣传鼓动部的专门小组现场配音。", "en": "The Lake Ranomaitso Screening Hall, on the south shore of Lake Ranomaitso, is a small theatre seating a hundred, with a collection of more than ten thousand foreign films. The films are banned everywhere else in the country; only the leader and his guests may watch them here, with live dubbing by a special team from the Propaganda and Agitation Department."}
+    in: div_gt2h78
+    at: [429.70, 524.70]
+    site: {"layout": "hall", "size_m": [160, 120], "angle_deg": 15, "rural": true}
+  - id: bld_ypgzjk
+    subtype: swimming_pool
+    status: generated
+    names: {"zh": "拉诺迈措湖水上乐园", "en": "Lake Ranomaitso Water Park"}
+    notes: {"zh": "拉诺迈措湖水上乐园在官邸区中部，有露天泳池、造浪池和几条长长的滑梯，是领袖子女和他们的伙伴玩耍的地方。滑梯是从国外订购的，据说比首都的任何一处娱乐设施都大。", "en": "The Lake Ranomaitso Water Park, in the middle of the Residences, has open-air pools, a wave pool and several long water slides, where the leader's children and their companions play. The slides were ordered from abroad and are said to be larger than anything of the kind in the capital."}
+    in: div_gt2h78
+    at: [433.00, 525.40]
+    site: {"layout": "lido", "size_m": [240, 160], "angle_deg": 0, "rural": true}
+  - id: poi_9ph59m
+    subtype: ground_station
+    status: generated
+    names: {"zh": "领袖保卫局通信枢纽", "en": "Leader's Guard Bureau Signals Centre"}
+    notes: {"zh": "领袖保卫局通信枢纽在沃希阿拉丘陵西段的山坡上，竖着几座大型天线，经专用线路和卫星连通永生宫、劳动党中央军事委员会大楼和各地驻军。领袖在官邸区发出的命令都从这里传出去。", "en": "The Leader's Guard Bureau Signals Centre stands on the western slopes of the Vohiala Hills, with several large antennas linked by dedicated lines and satellite to the Palace of Eternity, the Central Military Commission Building and garrisons around the country. Every order the leader issues from the Residences goes out from here."}
+    in: div_gt2h78
+    at: [426.90, 529.90]
+    site: {"layout": "antenna", "size_m": [500, 400], "variant": "large", "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局通信营", "en": "Signals Battalion, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "卫星天线与专用通信线路", "en": "Satellite antennas and dedicated communication lines"}, "personnel": 150, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_7ka1kw
+    subtype: missile_site
+    status: generated
+    names: {"zh": "领袖保卫局防空阵地", "en": "Leader's Guard Bureau Air Defence Site"}
+    notes: {"zh": "领袖保卫局防空阵地在官邸区西南的山坡上，部署着地对空导弹和高射炮，负责官邸区上空的防空。官邸区上空终年禁飞，误入的民航飞机会被立即拦截。", "en": "The Leader's Guard Bureau Air Defence Site, on the hillside in the south-west of the Residences, has surface-to-air missiles and anti-aircraft guns guarding the sky over the Residences. The airspace above them is closed all year, and any airliner that strays in is intercepted at once."}
+    in: div_gt2h78
+    at: [426.90, 523.40]
+    site: {"layout": "sam", "size_m": [600, 600], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局防空营", "en": "Air Defence Battalion, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "地对空导弹与高射炮", "en": "Surface-to-air missiles and anti-aircraft guns"}, "personnel": 200, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_wcvhqr
+    subtype: heliport
+    status: generated
+    names: {"zh": "领袖保卫局直升机场", "en": "Leader's Guard Bureau Heliport"}
+    notes: {"zh": "领袖保卫局直升机场在官邸区中部，紧挨领袖保卫局医院，停着领袖的专用直升机和一架医疗直升机。领袖去首都开会时有时乘直升机飞越海湾，十几分钟就能到达永生宫。", "en": "The Leader's Guard Bureau Heliport, in the middle of the Residences next to the Bureau's hospital, keeps the leader's own helicopters and an air ambulance. When the leader goes to meetings in the capital he sometimes flies across the bay by helicopter, reaching the Palace of Eternity in a quarter of an hour."}
+    in: div_gt2h78
+    at: [433.70, 524.00]
+    site: {"layout": "heliport", "size_m": [500, 400], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局航空队直升机分队", "en": "Helicopter Flight, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "专用直升机与医疗直升机", "en": "VIP helicopters and an air ambulance"}, "personnel": 60, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  # ·· 法里希凯利湖干部区 / Lake Farihikely Cadre Quarter ··
+  - id: bld_8cx8fd
+    subtype: mansion
+    status: generated
+    names: {"zh": "劳动党1号别墅", "en": "Workers' Party Villa No. 1"}
+    notes: {"zh": "劳动党1号别墅在法里希凯利湖南岸，是劳动党中央军事委员会副主席的住所，也是干部区里离湖最近的一座别墅。按干部区的规矩，别墅离湖越近，主人的地位越高。", "en": "Workers' Party Villa No. 1, on the south shore of Lake Farihikely, is the home of the Vice-Chairman of the party's Central Military Commission and the villa closest to the lake; by the custom of the Cadre Quarter, the closer a villa stands to the water, the higher its owner."}
+    in: div_gt2h78
+    at: [429.40, 537.25]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_3zvs0b
+    subtype: mansion
+    status: generated
+    names: {"zh": "劳动党2号别墅", "en": "Workers' Party Villa No. 2"}
+    notes: {"zh": "劳动党2号别墅在法里希凯利湖东岸，是政务院总理的住所。总理每天清晨乘专列进城，在政务院大楼办公，傍晚回到干部区；去拉诺迈措湖官邸区向领袖汇报时，则由领袖保卫局的汽车接送。", "en": "Workers' Party Villa No. 2, on the east shore of Lake Farihikely, is the home of the Premier. He takes the special train into town every morning to work at the Cabinet Building and returns in the evening; when he reports to the leader at the Lake Ranomaitso Residences, a Leader's Guard Bureau car takes him there and back."}
+    in: div_gt2h78
+    at: [430.35, 538.30]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_cxdg6p
+    subtype: mansion
+    status: generated
+    names: {"zh": "劳动党3号别墅", "en": "Workers' Party Villa No. 3"}
+    notes: {"zh": "劳动党3号别墅在法里希凯利湖北岸，是国务委员会秘书长的住所。秘书长负责安排领袖的日程和会见，是干部区里少数可以直接给拉诺迈措湖官邸区打电话的人。", "en": "Workers' Party Villa No. 3, on the north shore of Lake Farihikely, is the home of the Secretary-General of the State Affairs Commission. He arranges the leader's schedule and audiences and is one of the few people in the Cadre Quarter who may telephone the Lake Ranomaitso Residences directly."}
+    in: div_gt2h78
+    at: [429.40, 539.15]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_pnvfss
+    subtype: mansion
+    status: generated
+    names: {"zh": "劳动党4号别墅", "en": "Workers' Party Villa No. 4"}
+    notes: {"zh": "劳动党4号别墅在法里希凯利湖西岸，是劳动党组织指导部部长的住所。组织指导部掌管全国干部的任免，干部区里每一座别墅分给谁，最后都要由这座别墅的主人签字。", "en": "Workers' Party Villa No. 4, on the west shore of Lake Farihikely, is the home of the Director of the Organisation and Guidance Department. The department controls every cadre appointment in the country, and the allocation of every villa in the Cadre Quarter ends with this villa's owner's signature."}
+    in: div_gt2h78
+    at: [428.45, 538.10]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_cwwemx
+    subtype: mansion
+    status: generated
+    names: {"zh": "劳动党5号别墅", "en": "Workers' Party Villa No. 5"}
+    notes: {"zh": "劳动党5号别墅在湖东南的坡地上，是人民军总参谋长的住所，院子里有一座小型指挥所，与首都的总参谋部大楼和山下的空军2714机场都有专线相通。", "en": "Workers' Party Villa No. 5, on the slope south-east of the lake, is the home of the Chief of the General Staff of the People's Army; its grounds hold a small command post with direct lines to the General Staff Building in the capital and to Air Force Airfield 2714 below."}
+    in: div_gt2h78
+    at: [431.20, 537.00]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_tfxpq7
+    subtype: mansion
+    status: generated
+    names: {"zh": "劳动党6号别墅", "en": "Workers' Party Villa No. 6"}
+    notes: {"zh": "劳动党6号别墅在湖东北的高地上，是劳动党宣传鼓动部部长的住所。每天晚上，第二天党报的头版大样都要先送到这里审定，再连夜送回首都付印。", "en": "Workers' Party Villa No. 6, on high ground north-east of the lake, is the home of the Director of the Propaganda and Agitation Department. Every evening the proofs of the next day's front page of the party paper are brought here for approval before going back to the capital overnight for printing."}
+    in: div_gt2h78
+    at: [431.60, 539.30]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_1hbrjw
+    subtype: mansion
+    status: generated
+    names: {"zh": "劳动党7号别墅", "en": "Workers' Party Villa No. 7"}
+    notes: {"zh": "劳动党7号别墅在湖北面，紧挨太阳宫，是劳动党政治保卫部部长的住所。政治保卫部负责监视党员干部，干部区里的人说，这座别墅的灯是全区熄得最晚的。", "en": "Workers' Party Villa No. 7, north of the lake beside the Palace of the Sun, is the home of the Director of the party's Political Security Department. The department watches over party cadres, and people in the Cadre Quarter say this villa's lights are the last in the quarter to go out."}
+    in: div_gt2h78
+    at: [429.00, 540.20]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_jhkm29
+    subtype: mansion
+    status: generated
+    names: {"zh": "劳动党8号别墅", "en": "Workers' Party Villa No. 8"}
+    notes: {"zh": "劳动党8号别墅在湖西北的林子里，是国家保卫局局长的住所，四周的围墙比别的别墅高出一截，门口除了政治保卫部的警卫，还有国家保卫局自己的岗哨。", "en": "Workers' Party Villa No. 8, in the woods north-west of the lake, is the home of the Director of the State Protection Bureau; its walls stand a good deal higher than those of the other villas, and its gate is guarded by the Bureau's own sentries as well as the Political Security Department's."}
+    in: div_gt2h78
+    at: [427.70, 539.30]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_2a5931
+    subtype: mansion
+    status: generated
+    names: {"zh": "劳动党9号别墅", "en": "Workers' Party Villa No. 9"}
+    notes: {"zh": "劳动党9号别墅在湖西南的坡地上，是一心团结思想研究院院长的住所，书房里收藏着创始领袖著作的各种版本。研究院的新著作出版前，院长都要在这里逐字校订。", "en": "Workers' Party Villa No. 9, on the slope south-west of the lake, is the home of the President of the Institute of the One-Heart Unity Doctrine, whose study holds every edition of the founding leader's works. Before any new work of the institute is published, the president checks it here word by word."}
+    in: div_gt2h78
+    at: [427.80, 537.00]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_jah7ag
+    subtype: mansion
+    status: generated
+    names: {"zh": "劳动党10号别墅", "en": "Workers' Party Villa No. 10"}
+    notes: {"zh": "劳动党10号别墅在干部区南缘、沃希阿拉丘陵的山脚下，是中央人民银行总裁的住所。稀土出口换来的外汇怎样分配，据说常常是在这座别墅的客厅里商量出来的。", "en": "Workers' Party Villa No. 10, on the southern edge of the Cadre Quarter at the foot of the Vohiala Hills, is the home of the Governor of the Central People's Bank. How the foreign currency earned by rare-earth exports is shared out is said often to be worked out in its drawing room."}
+    in: div_gt2h78
+    at: [428.80, 535.80]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_8g84kk
+    subtype: mansion
+    status: generated
+    names: {"zh": "劳动党11号别墅", "en": "Workers' Party Villa No. 11"}
+    notes: {"zh": "劳动党11号别墅在湖东面的坡地上，是劳动党总务局局长的住所。总务局管理干部区的一切供应，从别墅的家具、汽车到每家每月的特供食品，都要经局长批准。", "en": "Workers' Party Villa No. 11, on the slope east of the lake, is the home of the Director of the Workers' Party General Affairs Bureau. The bureau supplies everything in the Cadre Quarter, and the villas' furniture and cars and every household's monthly special rations all need his approval."}
+    in: div_gt2h78
+    at: [432.40, 538.40]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_wwdbst
+    subtype: mansion
+    status: generated
+    names: {"zh": "劳动党12号别墅", "en": "Workers' Party Villa No. 12"}
+    notes: {"zh": "劳动党12号别墅在湖东北的林边，常年空着，仆役照常打扫。干部区里的人说，它是留给下一位升进政治局的人的；也有人说，上一位主人搬走的那天夜里，来接他的不是专列，而是政治保卫部的汽车。", "en": "Workers' Party Villa No. 12, at the edge of the woods north-east of the lake, stands empty all year, though its staff still clean it. People in the Cadre Quarter say it is kept for the next man to enter the Politburo; others say that on the night its last owner left, it was not the special train that came for him but a Political Security Department car."}
+    in: div_gt2h78
+    at: [431.90, 540.90]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_ksrymz
+    subtype: mansion
+    status: generated
+    names: {"zh": "劳动党13号别墅", "en": "Workers' Party Villa No. 13"}
+    notes: {"zh": "劳动党13号别墅在干部区西北角，是几位跟随创始领袖打过游击的元老的住所。老人们早已不担任实职，每年太阳节都被请到太阳宫的主席台上就座，向年轻干部讲述游击队的故事。", "en": "Workers' Party Villa No. 13, in the north-west corner of the Cadre Quarter, is the home of a few elders who fought as guerrillas with the founding leader. They have long held no real office, but every Day of the Sun they are seated on the platform at the Palace of the Sun to tell the younger cadres stories of the guerrilla war."}
+    in: div_gt2h78
+    at: [427.90, 541.30]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_frf4kd
+    subtype: mansion
+    status: generated
+    names: {"zh": "劳动党14号别墅", "en": "Workers' Party Villa No. 14"}
+    notes: {"zh": "劳动党14号别墅在太阳宫北面，是人民军总政治部主任的住所。总政治部主任在党内的排名高于总参谋长，所以他的别墅虽然离湖较远，却紧挨太阳宫。", "en": "Workers' Party Villa No. 14, north of the Palace of the Sun, is the home of the Director of the General Political Department of the People's Army. The director ranks above the Chief of the General Staff in the party, so his villa, though farther from the lake, stands right beside the Palace of the Sun."}
+    in: div_gt2h78
+    at: [430.20, 541.60]
+    site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
+  - id: bld_pf0q7p
+    subtype: office
+    status: generated
+    names: {"zh": "劳动党第一办公楼", "en": "Workers' Party Office Building No. 1"}
+    notes: {"zh": "劳动党第一办公楼是劳动党中央书记局在法里希凯利湖干部区的办公楼。书记局的书记们住在干部区，不进城的日子就在这里处理日常事务，重要文件由专列每天往返送达。", "en": "Workers' Party Office Building No. 1 is the Cadre Quarter office of the party's Central Secretariat. The secretaries live in the quarter and deal with daily business here on days when they do not go into town, with important papers carried to and fro each day by the special train."}
+    in: div_gt2h78
+    at: [431.50, 542.50]
+    site: {"layout": "slab", "size_m": [220, 110], "angle_deg": 0, "rural": true}
+  - id: bld_3px2zh
+    subtype: office
+    status: generated
+    names: {"zh": "劳动党第二办公楼", "en": "Workers' Party Office Building No. 2"}
+    notes: {"zh": "劳动党第二办公楼是组织指导部在干部区的办公楼，保存着政治局委员和候补委员的人事档案副本。档案室在地下，只有部长和两名副部长有钥匙。", "en": "Workers' Party Office Building No. 2 is the Organisation and Guidance Department's office in the Cadre Quarter, holding copies of the personnel files of the Politburo members and candidates. The file room is underground, and only the director and two deputies hold keys."}
+    in: div_gt2h78
+    at: [432.30, 542.50]
+    site: {"layout": "slab", "size_m": [220, 110], "angle_deg": 0, "rural": true}
+  - id: bld_a3w22w
+    subtype: office
+    status: generated
+    names: {"zh": "劳动党第三办公楼", "en": "Workers' Party Office Building No. 3"}
+    notes: {"zh": "劳动党第三办公楼是宣传鼓动部在干部区的办公楼，领袖讲话的定稿和党报的重要社论在这里最后审定，楼里有一间专门的打字室和印刷车间。", "en": "Workers' Party Office Building No. 3 is the Propaganda and Agitation Department's office in the Cadre Quarter, where final texts of the leader's speeches and the party paper's important editorials are approved; it has its own typing pool and print shop."}
+    in: div_gt2h78
+    at: [431.50, 543.20]
+    site: {"layout": "slab", "size_m": [220, 110], "angle_deg": 0, "rural": true}
+  - id: bld_w9hgc2
+    subtype: office
+    status: generated
+    names: {"zh": "劳动党第四办公楼", "en": "Workers' Party Office Building No. 4"}
+    notes: {"zh": "劳动党第四办公楼是总务局在干部区的办公楼，负责干部区和拉诺迈措湖官邸区的物资调配，仓库里存放着从国外进口的家具、电器和酒类。", "en": "Workers' Party Office Building No. 4 is the General Affairs Bureau's office in the Cadre Quarter, allocating supplies for the quarter and the Lake Ranomaitso Residences; its stores hold imported furniture, appliances and spirits."}
+    in: div_gt2h78
+    at: [432.30, 543.20]
+    site: {"layout": "slab", "size_m": [220, 110], "angle_deg": 0, "rural": true}
+  - id: bld_n8as7d
+    subtype: office
+    status: generated
+    names: {"zh": "劳动党第五办公楼", "en": "Workers' Party Office Building No. 5"}
+    notes: {"zh": "劳动党第五办公楼是党中央的机要局，负责收发和保管政治局的机密文件。所有文件都编号登记，阅后必须当天交回，楼内禁止携带任何纸笔离开。", "en": "Workers' Party Office Building No. 5 houses the Central Confidential Bureau, which sends, receives and keeps the Politburo's secret papers. Every document is numbered and logged and must be returned the same day it is read, and no one may leave the building with paper or pen."}
+    in: div_gt2h78
+    at: [433.10, 542.50]
+    site: {"layout": "slab", "size_m": [220, 110], "angle_deg": 0, "rural": true}
+  - id: bld_qc7gjd
+    subtype: office
+    status: generated
+    names: {"zh": "劳动党第六办公楼", "en": "Workers' Party Office Building No. 6"}
+    notes: {"zh": "劳动党第六办公楼是经济部在干部区的办公楼，稀土、石墨出口和国营企业的年度计划在这里汇总，再提交政治局讨论。", "en": "Workers' Party Office Building No. 6 is the Economic Department's office in the Cadre Quarter, where the yearly plans for rare-earth and graphite exports and the state enterprises are put together before going to the Politburo."}
+    in: div_gt2h78
+    at: [433.10, 543.20]
+    site: {"layout": "slab", "size_m": [220, 110], "angle_deg": 0, "rural": true}
+  - id: bld_yebvjy
+    subtype: office
+    status: generated
+    names: {"zh": "劳动党第七办公楼", "en": "Workers' Party Office Building No. 7"}
+    notes: {"zh": "劳动党第七办公楼是国际部在干部区的办公楼，接待来访的兄弟党代表团。阿瓦拉齐共产党的代表团来访时，会谈常在这里举行，会后再由领袖保卫局的汽车送往拉诺迈措湖官邸区会见领袖。", "en": "Workers' Party Office Building No. 7 is the International Department's office in the Cadre Quarter, where delegations from fraternal parties are received. When delegations of the Communist Party of Avaratsy visit, talks are often held here before Leader's Guard Bureau cars take them on to meet the leader at the Lake Ranomaitso Residences."}
+    in: div_gt2h78
+    at: [431.50, 543.90]
+    site: {"layout": "slab", "size_m": [220, 110], "angle_deg": 0, "rural": true}
+  - id: bld_w3wavv
+    subtype: office
+    status: generated
+    names: {"zh": "劳动党第八办公楼", "en": "Workers' Party Office Building No. 8"}
+    notes: {"zh": "劳动党第八办公楼是党中央档案馆的分馆，保存着建党以来的会议记录和领袖批示的原件。档案馆的复本存放在楼下的坑道里，据说能抵御空袭。", "en": "Workers' Party Office Building No. 8 is a branch of the party's Central Archives, holding the minutes of meetings since the party's founding and the originals of the leaders' instructions. Copies are kept in tunnels beneath the building, said to be proof against air raids."}
+    in: div_gt2h78
+    at: [432.30, 543.90]
+    site: {"layout": "slab", "size_m": [220, 110], "angle_deg": 0, "rural": true}
+  - id: poi_na86fp
+    subtype: air_base
+    status: generated
+    names: {"zh": "人民军空军2714机场", "en": "People's Army Air Force Airfield 2714"}
+    notes: {"zh": "人民军空军2714机场在法里希凯利湖干部区东南部，驻有空军的运输机队，负责政治局委员的专机和干部区的空运。机场与干部区之间只隔着一道围墙，干部们出访阿瓦拉齐时就在这里登机。", "en": "People's Army Air Force Airfield 2714, in the south-east of the Lake Farihikely Cadre Quarter, is home to the air force's transport flight, which flies the Politburo members and supplies the quarter by air. Only a wall separates it from the quarter, and the cadres board here when they travel to Avaratsy."}
+    in: div_gt2h78
+    at: [432.40, 536.40]
+    site: {"layout": "airbase", "size_m": [3000, 900], "variant": "heavy", "angle_deg": 90, "rural": true}
+    military: {"unit": {"zh": "人民军空军第一运输飞行团", "en": "1st Transport Regiment, People's Army Air Force"}, "branch": {"zh": "人民军空军", "en": "People's Army Air Force"}, "equipment": {"zh": "运输机与直升机", "en": "Transport aircraft and helicopters"}, "personnel": 600, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_6e26m3
+    subtype: air_base
+    status: generated
+    names: {"zh": "人民军空军6083机场", "en": "People's Army Air Force Airfield 6083"}
+    notes: {"zh": "人民军空军6083机场在东海岸公路西侧，驻有空军仅有的一个战斗机团，负责拉诺迈措湖官邸区和法里希凯利湖干部区的空中掩护。飞机多是联合共和国时期留下的老式战斗机，靠阿瓦拉齐提供的零件维持飞行。", "en": "People's Army Air Force Airfield 6083, west of the East Coast Road, is home to the air force's only fighter regiment, which covers the Lake Ranomaitso Residences and the Lake Farihikely Cadre Quarter from the air. Most of its aircraft are old fighters left from the United Republic, kept flying with spare parts from Avaratsy."}
+    in: div_gt2h78
+    at: [423.00, 537.50]
+    site: {"layout": "airbase", "size_m": [3000, 1200], "variant": "fighter", "angle_deg": 90, "rural": true}
+    military: {"unit": {"zh": "人民军空军第一战斗机团", "en": "1st Fighter Regiment, People's Army Air Force"}, "branch": {"zh": "人民军空军", "en": "People's Army Air Force"}, "equipment": {"zh": "老式战斗机与教练机", "en": "Old fighters and trainers"}, "personnel": 900, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_axwezf
+    subtype: armoury
+    status: generated
+    names: {"zh": "劳动党政治保卫部738设施", "en": "Political Security Department Facility 738"}
+    notes: {"zh": "劳动党政治保卫部738设施是法里希凯利湖干部区西北部的军械库，存放保卫干部区的警卫团的武器和弹药。干部本人不准持有武器，就连政治局委员家里的猎枪也要登记后存放在这里。", "en": "Political Security Department Facility 738 is an armoury in the north-west of the Lake Farihikely Cadre Quarter, holding the arms and ammunition of the guard regiment that protects the quarter. The cadres themselves may not keep weapons; even a Politburo member's hunting gun must be registered and stored here."}
+    in: div_gt2h78
+    at: [426.80, 541.60]
+    site: {"layout": "armoury", "size_m": [500, 350], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "劳动党政治保卫部警卫团军械库", "en": "Guard Regiment Armoury, Political Security Department"}, "branch": {"zh": "劳动党政治保卫部", "en": "Political Security Department of the Workers' Party"}, "equipment": {"zh": "轻武器、弹药与装甲车", "en": "Small arms, ammunition and armoured vehicles"}, "personnel": 120, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_56s0vy
+    subtype: command_centre
+    status: generated
+    names: {"zh": "劳动党中央地下避难所", "en": "Workers' Party Central Underground Shelter"}
+    notes: {"zh": "劳动党中央地下避难所挖在沃希阿拉丘陵北坡的山腹里，战时政治局和中央委员会的领导人在这里避难和办公，能容纳几百人。避难所与领袖的避难所分开修建，干部们说，这样即使在战时，他们也不会在夜里和领袖待在同一座山的同一侧。", "en": "The Workers' Party Central Underground Shelter is dug into the northern slope of the Vohiala Hills; in war the leaders of the Politburo and the Central Committee would shelter and work here, and it can hold several hundred people. It was built apart from the leader's shelters, and the cadres say that even in war they would not spend the night with the leader on the same side of the hill."}
+    in: div_gt2h78
+    at: [430.60, 534.40]
+    site: {"layout": "bunker", "size_m": [500, 400], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "劳动党政治保卫部地下避难所管理处", "en": "Underground Shelter Office, Political Security Department"}, "branch": {"zh": "劳动党政治保卫部", "en": "Political Security Department of the Workers' Party"}, "equipment": {"zh": "地下指挥所、通信设备与储备物资", "en": "Underground command post, communications and stores"}, "personnel": 80, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: bld_bjwqws
+    subtype: hospital
+    status: generated
+    names: {"zh": "人民军总政治部915医院", "en": "General Political Department Hospital 915"}
+    notes: {"zh": "人民军总政治部915医院在干部区南部的山脚下，是专门为政治局委员、中央委员和他们的家属服务的综合医院，设有心脏科、肿瘤科和疗养病房。医院名义上属于人民军总政治部，药品却由总务局从国外采购，普通军官很少能住进来。", "en": "General Political Department Hospital 915, at the foot of the hills in the south of the Cadre Quarter, is a general hospital for members of the Politburo and the Central Committee and their families, with cardiology, oncology and convalescent wards. It nominally belongs to the People's Army's General Political Department, but its drugs are bought abroad by the General Affairs Bureau, and ordinary officers seldom get a bed here."}
+    in: div_gt2h78
+    at: [432.00, 533.90]
+    site: {"layout": "complex", "size_m": [320, 240], "angle_deg": 0, "rural": true}
+  - id: bld_k49wj5
+    subtype: hospital
+    status: generated
+    names: {"zh": "人民军总政治部327医院", "en": "General Political Department Hospital 327"}
+    notes: {"zh": "人民军总政治部327医院在干部区北部，主要为干部区的工作人员、警卫团的官兵和干部子弟学校的学生看病，也接收从915医院转来的病人。医院的护士大多是从人民军中挑选的女兵。", "en": "General Political Department Hospital 327, in the north of the Cadre Quarter, mainly treats the quarter's staff, the soldiers of the guard regiment and the pupils of the cadres' children's school, and also takes patients transferred from Hospital 915. Most of its nurses are women soldiers chosen from the People's Army."}
+    in: div_gt2h78
+    at: [428.00, 544.40]
+    site: {"layout": "complex", "size_m": [280, 200], "angle_deg": 0, "rural": true}
+  - id: bld_1xp0z7
+    subtype: government
+    status: generated
+    names: {"zh": "劳动党中央委员会全会大礼堂", "en": "Workers' Party Central Committee Plenum Hall"}
+    notes: {"zh": "劳动党中央委员会全会大礼堂在法里希凯利湖干部区中部，是劳动党召开中央委员会全体会议的地方，可容纳一千人。主席台正中挂着创始领袖和历代领袖的画像，台下按职务排好座位，每个座位上都放着一本预先印好的决议草案。全会通常开两三天，最后一天领袖从拉诺迈措湖官邸区乘车经沃希阿拉隧道过来讲话，讲完即离开。全会期间，与会的中央委员们就住在干部区的招待所里，不准与外界联系。", "en": "The Workers' Party Central Committee Plenum Hall, in the middle of the Lake Farihikely Cadre Quarter, is where the party holds full meetings of its Central Committee, seating a thousand. Portraits of the founding leader and his successors hang over the centre of the platform, the seats below are set out by rank, and on each lies a pre-printed draft resolution. A plenum usually lasts two or three days; on the last day the leader drives over from the Lake Ranomaitso Residences through the Vohiala Tunnel to speak, and leaves as soon as he has finished. During plenums the members stay in the quarter's guesthouse and may have no contact with the outside."}
+    in: div_gt2h78
+    at: [430.00, 542.60]
+    site: {"layout": "hall", "size_m": [320, 240], "angle_deg": 0, "rural": true}
+  - id: bld_x9y7w4
+    subtype: government
+    status: generated
+    names: {"zh": "劳动党中央委员会小礼堂", "en": "Workers' Party Central Committee Small Hall"}
+    notes: {"zh": "劳动党中央委员会小礼堂在干部区中部，是政治局开会和观看内部影片的地方，可坐两百人。政治局会议每周在这里举行一次，会议记录当天由专人送往拉诺迈措湖官邸区呈领袖审阅；周末晚上，礼堂放映经宣传鼓动部审查过的外国电影，只有政治局委员和家属可以观看。", "en": "The Workers' Party Central Committee Small Hall, in the middle of the Cadre Quarter, is where the Politburo meets and watches restricted films, seating two hundred. The Politburo meets here once a week, and the minutes are taken by courier to the Lake Ranomaitso Residences for the leader's review the same day; on weekend evenings the hall shows foreign films vetted by the Propaganda and Agitation Department, open only to Politburo members and their families."}
+    in: div_gt2h78
+    at: [429.10, 541.80]
+    site: {"layout": "hall", "size_m": [220, 160], "angle_deg": 0, "rural": true}
+  - id: bld_8e49y1
+    subtype: research_institute
+    status: generated
+    names: {"zh": "万寿无疆健康研究所", "en": "Institute of Eternal Health"}
+    notes: {"zh": "万寿无疆健康研究所在法里希凯利湖干部区东南部，名义上属于劳动党总务局，是专门研究领袖和高层领导人健康长寿的机构，所名取自「祝领袖万寿无疆」的口号。研究所有几百名医生、营养师和研究人员，为领袖一家配制每天的食谱，化验每一样送进拉诺迈措湖官邸区的食物和药品，还研究草药、温泉疗法和延缓衰老的方法。\n研究所的新药和疗法据说要先在志愿者身上试用，志愿者多是从各地挑选来的与领袖年龄、血型相同的青年，试验的结果从不公开。外国情报机构认为，研究所还秘密收集领袖的健康数据，领袖的身体状况被列为国家最高机密，连政治局委员也不知道详情。", "en": "The Institute of Eternal Health, in the south-east of the Lake Farihikely Cadre Quarter, nominally under the Workers' Party General Affairs Bureau, studies the health and longevity of the leader and the senior leadership; its name comes from the slogan 'Long live the leader for ten thousand years'. Its several hundred doctors, dieticians and researchers draw up the leader's family's daily menus, test every item of food and medicine sent into the Lake Ranomaitso Residences, and study herbal remedies, spa treatments and ways to slow ageing.\nIts new drugs and treatments are said to be tried first on volunteers, mostly young people chosen from across the country for having the same age and blood type as the leader, and the results are never published. Foreign intelligence services believe the institute also keeps the leader's medical records in secret; his health is classed as the highest secret of state, and not even Politburo members know the details."}
+    in: div_gt2h78
+    at: [433.40, 534.60]
+    site: {"layout": "campus", "size_m": [400, 300], "angle_deg": 0, "rural": true}
+  - id: bld_kh7fd0
+    subtype: government
+    status: generated
+    names: {"zh": "太阳宫", "en": "Palace of the Sun"}
+    notes: {"zh": "太阳宫是法里希凯利湖干部区中心的一座白色大理石宫殿，是劳动党在干部区举行庆典和接见的地方，名字取自象征创始领袖的太阳。宫殿是回字形的，正殿里立着一座创始领袖的镀金坐像，四壁的壁画描绘游击队在山林里作战和建国的情景。\n每年太阳节即创始领袖诞辰日，政治局委员、中央委员和人民军的将领清晨在这里集合，向创始领袖坐像献花宣誓，然后列队乘车经沃希阿拉隧道前往拉诺迈措湖官邸区，向领袖祝寿，日落前回到干部区，在太阳宫举行晚宴。干部晋升、授勋和退休的仪式也在太阳宫举行。宫殿平时由政治保卫部看守，干部区的孩子们只在太阳节那天被允许进去，在坐像前齐唱颂歌。", "en": "The Palace of the Sun is a white marble palace at the heart of the Lake Farihikely Cadre Quarter, where the Workers' Party holds ceremonies and receptions in the quarter; it is named after the sun that stands for the founding leader. It is built round a courtyard, with a gilded seated statue of the founding leader in the main hall and murals of the guerrillas fighting in the forested hills and founding the state on the walls.\nEvery Day of the Sun, the founding leader's birthday, the Politburo, the Central Committee and the generals of the People's Army gather here at dawn to lay flowers and swear an oath before the statue, then drive in procession through the Vohiala Tunnel to the Lake Ranomaitso Residences to wish the leader long life, returning to the quarter before sunset for a banquet at the palace. Promotions, decorations and retirements of cadres are also marked here. The Political Security Department guards it at other times, and the children of the quarter are let in only on the Day of the Sun, to sing hymns of praise before the statue."}
+    in: div_gt2h78
+    at: [430.40, 540.40]
+    site: {"layout": "courtyard", "size_m": [400, 320], "angle_deg": 0, "rural": true}
+  - id: bld_400q62
+    subtype: office
+    status: generated
+    names: {"zh": "法里希凯利湖干部区管理局", "en": "Lake Farihikely Cadre Quarter Administration"}
+    notes: {"zh": "法里希凯利湖干部区管理局隶属劳动党总务局，管理干部区的住房、车辆、供电供水和工作人员。干部区的每一户人家都配有司机、厨师和保姆，他们由管理局统一派遣，定期轮换，以免与主人走得太近。", "en": "The Lake Farihikely Cadre Quarter Administration, under the Workers' Party General Affairs Bureau, runs the quarter's housing, cars, power, water and staff. Every household in the quarter has a driver, a cook and a nanny, sent and rotated by the Administration lest they grow too close to their employers."}
+    in: div_gt2h78
+    at: [431.00, 541.60]
+    site: {"layout": "block", "size_m": [200, 160], "angle_deg": 0, "rural": true}
+  - id: bld_712kr5
+    subtype: hotel
+    status: generated
+    names: {"zh": "劳动党中央委员会招待所", "en": "Workers' Party Central Committee Guesthouse"}
+    notes: {"zh": "劳动党中央委员会招待所在干部区东部，是中央全会期间中央委员们的住处，也接待奉召前来的地方干部和兄弟党代表团。房间里的电话只能打到总机，客人进出都要在服务台登记。", "en": "The Workers' Party Central Committee Guesthouse, in the east of the Cadre Quarter, lodges Central Committee members during plenums and also takes provincial cadres summoned to the quarter and delegations of fraternal parties. Its room telephones reach only the switchboard, and guests must sign in and out at the desk."}
+    in: div_gt2h78
+    at: [433.30, 540.60]
+    site: {"layout": "lshape", "size_m": [220, 160], "angle_deg": 0, "rural": true}
+  - id: bld_4hmdz8
+    subtype: supermarket
+    status: generated
+    names: {"zh": "劳动党特供商店", "en": "Workers' Party Special Supply Shop"}
+    notes: {"zh": "劳动党特供商店是干部区里唯一的商店，出售进口的烟酒、咖啡、巧克力、电器和衣物，只收外汇券，凭干部证按职务限量供应。这里的货架总是满的，与首都排着长队的国营商店形成鲜明对比。", "en": "The Workers' Party Special Supply Shop is the only shop in the Cadre Quarter, selling imported cigarettes, spirits, coffee, chocolate, appliances and clothes for foreign-exchange certificates only, rationed by rank on showing a cadre's card. Its shelves are always full, in stark contrast to the queues at the state shops in the capital."}
+    in: div_gt2h78
+    at: [432.20, 541.70]
+    site: {"layout": "retail", "size_m": [200, 140], "variant": "supermarket", "angle_deg": 0, "rural": true}
+  - id: bld_9nn48y
+    subtype: school
+    status: generated
+    names: {"zh": "劳动党干部子弟学校", "en": "Workers' Party Cadres' Children's School"}
+    notes: {"zh": "劳动党干部子弟学校在干部区北部，招收政治局委员和中央委员的子女，从小学一直读到高中，教师从全国最好的学校抽调。学生毕业后大多直接进入领袖大学或被派往阿瓦拉齐留学，许多人后来又回到干部区，住进父辈住过的别墅。", "en": "The Workers' Party Cadres' Children's School, in the north of the Cadre Quarter, takes the children of Politburo and Central Committee members from primary school through to the end of secondary school, with teachers drawn from the best schools in the country. Most of its pupils go straight on to the Leader University or are sent to study in Avaratsy, and many later return to the quarter to live in villas their parents once occupied."}
+    in: div_gt2h78
+    at: [428.30, 543.40]
+    site: {"layout": "campus", "size_m": [400, 300], "angle_deg": 0, "rural": true}
+  - id: poi_xztf2z
+    subtype: military_base
+    status: generated
+    names: {"zh": "劳动党政治保卫部警卫团营区", "en": "Political Security Department Guard Regiment Barracks"}
+    notes: {"zh": "劳动党政治保卫部警卫团营区在干部区北端，驻着守卫法里希凯利湖干部区的警卫团。警卫团既保护干部，也监视干部：每座别墅门口的警卫都要每天向政治保卫部报告来访的客人和主人的去向。", "en": "The Political Security Department Guard Regiment Barracks, at the northern end of the Cadre Quarter, house the regiment that guards the Lake Farihikely Cadre Quarter. The regiment both protects the cadres and watches them: the guards at every villa gate report each day to the Political Security Department on who has called and where the owner has gone."}
+    in: div_gt2h78
+    at: [432.40, 545.00]
+    site: {"layout": "camp", "size_m": [800, 600], "variant": "barracks", "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "劳动党政治保卫部警卫团", "en": "Guard Regiment, Political Security Department"}, "branch": {"zh": "劳动党政治保卫部", "en": "Political Security Department of the Workers' Party"}, "equipment": {"zh": "轻武器与装甲车", "en": "Small arms and armoured vehicles"}, "personnel": 1500, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_gd66w7
+    subtype: golf_course
+    status: generated
+    names: {"zh": "法里希凯利湖高尔夫球场", "en": "Lake Farihikely Golf Course"}
+    notes: {"zh": "法里希凯利湖高尔夫球场在干部区西南部的山脚下，是全国唯一的高尔夫球场，只对干部区的居民和外国贵宾开放。党报从不提起这座球场，干部们在这里打球时，球童都由警卫团的士兵兼任。", "en": "The Lake Farihikely Golf Course, at the foot of the hills in the south-west of the Cadre Quarter, is the only golf course in the country and is open only to the quarter's residents and foreign guests of honour. The party paper never mentions it, and when cadres play here, soldiers of the guard regiment serve as their caddies."}
+    in: div_gt2h78
+    at: [427.60, 536.00]
+    site: {"layout": "park", "size_m": [1200, 800], "angle_deg": 0, "rural": true}
+  - id: bld_cvad6n
+    subtype: hotel
+    status: generated
+    names: {"zh": "劳动党中央温泉疗养院", "en": "Workers' Party Central Hot Spring Sanatorium"}
+    notes: {"zh": "劳动党中央温泉疗养院在干部区西部，引山里的温泉水修了几座室内浴池和疗养楼，是政治局委员和老干部疗养的地方。万寿无疆健康研究所的医生在这里试验各种温泉疗法，再把有效的疗法用到领袖身上。", "en": "The Workers' Party Central Hot Spring Sanatorium, in the west of the Cadre Quarter, draws spring water from the hills into several indoor baths and convalescent buildings for Politburo members and veteran cadres. Doctors from the Institute of Eternal Health try out spa treatments here and pass on those that work for use on the leader."}
+    in: div_gt2h78
+    at: [426.60, 538.60]
+    site: {"layout": "complex", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+  - id: poi_2yek1s
+    subtype: vehicle_depot
+    status: generated
+    names: {"zh": "劳动党法里希凯利湖专用站", "en": "Workers' Party Lake Farihikely Station"}
+    notes: {"zh": "劳动党法里希凯利湖专用站在干部区东部，是「一心号」专列在干部区一端的车站和车库。每天清晨，进城上班的干部在这里上车，直达首都的劳动党中央委员会专用站；傍晚的末班车开出后，车站就关闭，迟到的人只能在城里的招待所过夜。", "en": "The Workers' Party Lake Farihikely Station, in the east of the Cadre Quarter, is the station and shed of the One Heart special train at the quarter's end of the line. Every morning cadres going in to work board here for the Central Committee Station in the capital; once the last train of the evening has left the station closes, and latecomers must spend the night in a guesthouse in town."}
+    in: div_gt2h78
+    at: [433.40, 538.70]
+    site: {"layout": "complex", "size_m": [500, 200], "angle_deg": 90, "rural": true}
+  # ·· 首都党政军机关和纪念建筑 / Party, army and state buildings of the capital ··
+  - id: bld_4g4xy8
+    subtype: government
+    status: generated
+    names: {"zh": "劳动党中央委员会大楼", "en": "Workers' Party Central Committee Building"}
+    notes: {"zh": "劳动党中央委员会大楼位于首都安德里安巴领袖广场西北，是马索沃利劳动党中央机关的所在地，也是首都党的机关建筑群的中心。大楼是一座回字形的灰色石楼，正门上方悬挂着巨大的党徽，门厅里立着创始领袖的大理石像，两侧是三代领袖的画像。中央书记局在这里处理日常工作，政治局的文件在这里起草和下发；党的最高领导人、第一书记拉齐马·沃利三世的办公室设在永生宫东翼，他很少亲自来这座楼。\n中央委员会的各个部门分散在大楼周围的十几座楼里，组织指导部、宣传鼓动部和政治保卫部的大楼离它最近。大楼北面是劳动党中央委员会专用站，干部们每天清晨乘「一心号」专列从海湾西岸的法里希凯利湖干部区进城，下车后步行几分钟就到办公室。大楼四周数百米内禁止普通车辆通行，门前的哨兵由劳动党政治保卫部派出。", "en": "The Workers' Party Central Committee Building stands north-west of Leaders' Square in the capital, Andriamba; it is the seat of the central apparatus of the Masovoly Workers' Party and the heart of the capital's cluster of party buildings. It is a grey stone quadrangle with a huge party emblem over the main entrance, a marble statue of the founding leader in the hall and portraits of the three leaders on either side. The Central Secretariat does its daily work here, and the Politburo's papers are drafted and issued from here; the party's supreme leader, First Secretary Ratsima Voly III, has his office in the east wing of the Palace of Eternity and seldom comes to the building in person.\nThe Central Committee's departments are spread over a dozen buildings around it, with those of the Organisation and Guidance, Propaganda and Agitation and Political Security departments closest. North of it is the Central Committee Station: every morning the cadres ride the One Heart special train in from the Lake Farihikely Cadre Quarter, and walk to their offices a few minutes from the platform. No ordinary vehicles may come within several hundred metres, and the sentries at the door are posted by the party's Political Security Department."}
+    in: div_gt2h78
+    offset_km: [-1.10, 2.10]
+    site: {"layout": "courtyard", "size_m": [340, 260], "angle_deg": 0}
+  - id: bld_jvzzcz
+    subtype: government
+    status: generated
+    names: {"zh": "劳动党组织指导部大楼", "en": "Organisation and Guidance Department Building"}
+    notes: {"zh": "劳动党组织指导部大楼在中央委员会大楼西南，是党内权力最大的部门所在地。组织指导部掌管全国所有干部的任免、调动和审查，保存着每一名党员的档案，档案库设在大楼地下。部门的一纸通知，可以让一位部长一夜之间被派到农场劳动，也可以让一个普通工人走上领导岗位。每年年底，各级干部都要到这里接受「思想总结」，审查结果直接决定他们第二年的去留。", "en": "The Organisation and Guidance Department Building, south-west of the Central Committee Building, houses the most powerful department in the party. It controls the appointment, transfer and vetting of every cadre in the country and keeps the file of every party member in archives beneath the building. A single notice from the department can send a minister to labour on a farm overnight or raise an ordinary worker to a leading post. At the end of each year cadres of every rank come here for their 'ideological review', whose verdict decides whether they keep their posts the following year."}
+    in: div_gt2h78
+    offset_km: [-1.65, 1.05]
+    site: {"layout": "slab", "size_m": [240, 140], "angle_deg": 0}
+  - id: bld_wr8wew
+    subtype: government
+    status: generated
+    names: {"zh": "劳动党宣传鼓动部大楼", "en": "Propaganda and Agitation Department Building"}
+    notes: {"zh": "劳动党宣传鼓动部大楼在中央委员会大楼南面，楼顶竖着一行巨大的红色标语「一心团结，自力更生」。宣传鼓动部管理全国的报纸、广播、电视、出版、电影和街头标语，审查一切公开发表的文字和图片。党报的社论、领袖画像的标准尺寸、集体舞的口号，都由这里统一规定；外国电台的屏蔽也由它与国家保卫部共同负责。", "en": "The Propaganda and Agitation Department Building, south of the Central Committee Building, carries on its roof a huge red slogan: 'One Heart, Self-Reliance'. The department runs the country's newspapers, radio, television, publishing, films and street slogans and vets every word and picture published. The party paper's editorials, the standard sizes of the leaders' portraits and the slogans of the mass dances are all laid down here, and it jams foreign radio together with the Ministry of State Protection."}
+    in: div_gt2h78
+    offset_km: [-1.10, 1.05]
+    site: {"layout": "slab", "size_m": [240, 140], "angle_deg": 0}
+  - id: bld_era4g1
+    subtype: government
+    status: generated
+    names: {"zh": "劳动党总务局大楼", "en": "Workers' Party General Affairs Bureau Building"}
+    notes: {"zh": "劳动党总务局大楼在中央委员会大楼东南，总务局负责党中央机关和领导人的全部后勤：拉诺迈措湖官邸区和法里希凯利湖干部区的供应、领导人的汽车和专列、特供商店和外汇商店，都归它管理。据说领导人吃的每一粒米都要经过总务局的手；它也经营着几家外贸公司，用稀土出口换来的外汇进口领导人需要的物品。", "en": "The Workers' Party General Affairs Bureau Building, south-east of the Central Committee Building, houses the bureau responsible for all the logistics of the party centre and its leaders: the supplies of the Lake Ranomaitso Residences and the Lake Farihikely Cadre Quarter, the leaders' cars and special trains, and the special supply and foreign-currency shops. It is said that every grain of rice the leaders eat passes through the bureau's hands; it also runs several trading companies that use foreign currency from rare-earth exports to import what the leaders need."}
+    in: div_gt2h78
+    offset_km: [-0.55, 1.05]
+    site: {"layout": "lshape", "size_m": [220, 160], "angle_deg": 0}
+  - id: bld_31wf2r
+    subtype: government
+    status: generated
+    names: {"zh": "劳动党国际部大楼", "en": "Workers' Party International Department Building"}
+    notes: {"zh": "劳动党国际部大楼在中央委员会大楼西面，负责劳动党与外国政党的联系，主要是与世俗协约中的阿瓦拉齐共产党往来，接待兄弟党的代表团，安排领袖出访。国际部也负责甄选少数被派往阿瓦拉齐留学和工作的人员，他们出国前要在这里接受几个月的政治培训。", "en": "The Workers' Party International Department Building, west of the Central Committee Building, handles the party's relations with foreign parties, chiefly the Communist Party of Avaratsy in the Secular Accord: it receives fraternal delegations and arranges the leader's visits abroad. It also selects the few people sent to study and work in Avaratsy, who undergo several months of political training here before they leave."}
+    in: div_gt2h78
+    offset_km: [-1.65, 1.55]
+    site: {"layout": "slab", "size_m": [220, 130], "angle_deg": 0}
+  - id: bld_e0bdnz
+    subtype: government
+    status: generated
+    names: {"zh": "劳动党政治保卫部大楼", "en": "Political Security Department Building"}
+    notes: {"zh": "劳动党政治保卫部大楼在中央委员会大楼正南，是党自己的保卫机关。国家保卫部监视普通居民，政治保卫部则监视党员和干部，负责高层领导人的警卫、法里希凯利湖干部区的警卫团和263机场，并审查干部的忠诚。大楼的地下据说有审讯室，被带进去的干部很少再出现在原来的岗位上。", "en": "The Political Security Department Building, directly south of the Central Committee Building, houses the party's own security organ. The Ministry of State Protection watches ordinary residents; the Political Security Department watches party members and cadres, guards the senior leadership, runs the guard regiment of the Lake Farihikely Cadre Quarter and Airfield 263, and vets the cadres' loyalty. Its basement is said to hold interrogation rooms, and cadres taken inside seldom reappear in their old posts."}
+    in: div_gt2h78
+    offset_km: [-1.10, 1.55]
+    site: {"layout": "block", "size_m": [200, 200], "angle_deg": 0}
+  - id: bld_9jazwf
+    subtype: government
+    status: generated
+    names: {"zh": "劳动党统一战线部大楼", "en": "Workers' Party United Front Department Building"}
+    notes: {"zh": "劳动党统一战线部大楼在中央委员会大楼东面，负责劳动党「在一心团结思想指导下统一全岛」的工作，领导名义上的群众组织祖国统一战线，向邻国广播宣传节目。吞并法尼里沿海后，统一战线部还负责甄别和拉拢留在当地的居民和流亡伊瓦洛的人员。", "en": "The Workers' Party United Front Department Building, east of the Central Committee Building, houses the department responsible for the party's aim of 'uniting the whole island under the One Heart doctrine'; it leads the nominal mass organisation, the Fatherland United Front, and broadcasts propaganda to neighbouring countries. Since the annexation of coastal Faniry it has also worked to screen and win over the residents who stayed and the exiles in Ivalo."}
+    in: div_gt2h78
+    offset_km: [-0.55, 1.55]
+    site: {"layout": "slab", "size_m": [220, 130], "angle_deg": 0}
+  - id: bld_4aj8zs
+    subtype: government
+    status: generated
+    names: {"zh": "劳动党经济部大楼", "en": "Workers' Party Economic Department Building"}
+    notes: {"zh": "劳动党经济部大楼在中央委员会大楼西面，是党指导经济工作的部门，审定国家计划委员会编制的计划，监督国营企业和集体农庄，并直接管理稀土和石墨的出口。政务院各经济部门的部长都要定期到这里汇报。", "en": "The Workers' Party Economic Department Building, west of the Central Committee Building, houses the party department that directs the economy: it approves the plans drawn up by the State Planning Commission, oversees the state enterprises and collective farms, and directly controls rare-earth and graphite exports. The Cabinet's economic ministers must report here regularly."}
+    in: div_gt2h78
+    offset_km: [-1.65, 2.05]
+    site: {"layout": "slab", "size_m": [220, 130], "angle_deg": 0}
+  - id: bld_9rv0fy
+    subtype: government
+    status: generated
+    names: {"zh": "劳动党科学教育部大楼", "en": "Workers' Party Science and Education Department Building"}
+    notes: {"zh": "劳动党科学教育部大楼在中央委员会大楼东面，负责领导全国的学校、大学和科研机构，审定教材，决定哪些学生可以升入大学。每一本教科书的第一课都必须是创始领袖的生平，这是科学教育部的规定。", "en": "The Workers' Party Science and Education Department Building, east of the Central Committee Building, directs the country's schools, universities and research institutes, approves textbooks and decides which pupils may go on to university. By its rule the first lesson of every textbook must be the life of the founding leader."}
+    in: div_gt2h78
+    offset_km: [-0.55, 2.05]
+    site: {"layout": "slab", "size_m": [220, 130], "angle_deg": 0}
+  - id: bld_acfj2w
+    subtype: government
+    status: generated
+    names: {"zh": "劳动党勤劳团体部大楼", "en": "Workers' Party Working People's Organisations Department Building"}
+    notes: {"zh": "劳动党勤劳团体部大楼在中央委员会大楼西北，负责领导工会、农民组织、妇女组织和社会主义青年同盟等群众团体。每一个成年人都必须属于其中一个团体，每周参加一次学习会和「生活总结」。", "en": "The Workers' Party Working People's Organisations Department Building, north-west of the Central Committee Building, directs the mass organisations: the trade unions, the peasants' and women's organisations and the Socialist Youth League. Every adult must belong to one of them and attend a weekly study meeting and 'life review'."}
+    in: div_gt2h78
+    offset_km: [-1.65, 2.55]
+    site: {"layout": "slab", "size_m": [220, 130], "angle_deg": 0}
+  - id: bld_zxzmj8
+    subtype: government
+    status: generated
+    names: {"zh": "劳动党检查委员会大楼", "en": "Workers' Party Inspection Commission Building"}
+    notes: {"zh": "劳动党检查委员会大楼在中央委员会大楼北面，负责查处党员的违纪行为，审查党的财务。检查委员会的报告直接送交政治局，被它立案的干部往往会被移交政治保卫部。", "en": "The Workers' Party Inspection Commission Building, north of the Central Committee Building, houses the commission that investigates breaches of discipline by party members and audits the party's finances. Its reports go straight to the Politburo, and cadres it opens a case on are often handed over to the Political Security Department."}
+    in: div_gt2h78
+    offset_km: [-1.10, 2.65]
+    site: {"layout": "block", "size_m": [200, 180], "angle_deg": 0}
+  - id: bld_d74534
+    subtype: government
+    status: generated
+    names: {"zh": "劳动党财政经理部大楼", "en": "Workers' Party Finance and Accounting Department Building"}
+    notes: {"zh": "劳动党财政经理部大楼在中央委员会大楼东北，管理党的财产、党费和党办企业的收入，也负责干部的工资和待遇。外国研究者认为，党掌握的外汇有相当一部分通过这个部门存放在海外。", "en": "The Workers' Party Finance and Accounting Department Building, north-east of the Central Committee Building, manages the party's property, members' dues and the income of party-run enterprises, as well as cadres' salaries and benefits. Foreign researchers believe a good share of the party's foreign currency is kept abroad through this department."}
+    in: div_gt2h78
+    offset_km: [-0.55, 2.55]
+    site: {"layout": "slab", "size_m": [220, 130], "angle_deg": 0}
+  - id: bld_r2gxkm
+    subtype: research_institute
+    status: generated
+    names: {"zh": "劳动党党史研究所", "en": "Workers' Party Institute of Party History"}
+    notes: {"zh": "劳动党党史研究所在中央委员会大楼西北，负责编写劳动党和游击队的历史，整理创始领袖的生平资料。外国研究者比较了不同年代出版的党史画册，发现照片里站在领袖身边的人常常被悄悄抹去。", "en": "The Workers' Party Institute of Party History, north-west of the Central Committee Building, writes the history of the party and the guerrillas and compiles the record of the founding leader's life. Foreign researchers comparing albums of party history published in different years have found that people standing beside the leader in the photographs are often quietly removed."}
+    in: div_gt2h78
+    offset_km: [-1.65, 3.05]
+    site: {"layout": "block", "size_m": [200, 180], "angle_deg": 0}
+  - id: bld_dcryty
+    subtype: research_institute
+    status: generated
+    names: {"zh": "一心团结思想研究院", "en": "Institute of the One-Heart Unity Doctrine"}
+    notes: {"zh": "一心团结思想研究院在中央委员会大楼北面，负责研究和阐释创始领袖提出的「一心团结」思想，编注历代领袖的著作，为全国的学习会编写教材。研究院的学者被称为「思想的守护者」，他们对领袖讲话的解释就是标准答案。", "en": "The Institute of the One-Heart Unity Doctrine, north of the Central Committee Building, studies and expounds the founding leader's One-Heart Unity doctrine, annotates the works of the successive leaders and writes the materials for study meetings across the country. Its scholars are called 'guardians of the doctrine', and their reading of the leader's speeches is the official answer."}
+    in: div_gt2h78
+    offset_km: [-1.10, 3.10]
+    site: {"layout": "block", "size_m": [220, 200], "angle_deg": 0}
+  - id: bld_c8ag0f
+    subtype: school
+    status: generated
+    names: {"zh": "劳动党中央党校", "en": "Workers' Party Central Party School"}
+    notes: {"zh": "劳动党中央党校在中央委员会大楼东北，培训全国的中高级干部，学员要在这里集中住宿学习几个月，课程以「一心团结」思想、领袖著作和党史为主。从党校结业是干部升迁的必经之路，学员的毕业评语会存进组织指导部的档案。", "en": "The Workers' Party Central Party School, north-east of the Central Committee Building, trains middle- and senior-ranking cadres from across the country, who board here for months of study centred on the One-Heart Unity doctrine, the leaders' works and party history. Graduating from it is a necessary step to promotion, and each trainee's final assessment goes into his Organisation and Guidance Department file."}
+    in: div_gt2h78
+    offset_km: [-0.65, 3.10]
+    site: {"layout": "campus", "size_m": [300, 220], "angle_deg": 0}
+  - id: poi_tebkgt
+    subtype: vehicle_depot
+    status: generated
+    names: {"zh": "劳动党中央委员会专用站", "en": "Workers' Party Central Committee Station"}
+    notes: {"zh": "劳动党中央委员会专用站在首都的劳动党机关建筑群北端，是「一心号」专列在首都一端的终点，不对外开放。站台和候车厅铺着白色大理石，墙上挂着创始领袖与游击队员的合影；每天清晨和傍晚，往返于海湾西岸法里希凯利湖干部区的干部们在这里上下车。", "en": "The Workers' Party Central Committee Station, at the northern end of the capital's cluster of party buildings, is the capital end of the One Heart special train and is closed to the public. Its platform and waiting hall are paved in white marble, with a photograph of the founding leader and his guerrillas on the wall; every morning and evening the cadres travelling to and from the Lake Farihikely Cadre Quarter board and alight here."}
+    in: div_gt2h78
+    offset_km: [-1.95, 3.35]
+    site: {"layout": "complex", "size_m": [400, 160], "angle_deg": 90, "rural": true}
+  - id: bld_yh4vq0
+    subtype: government
+    status: generated
+    names: {"zh": "人民军总司令部", "en": "People's Army Supreme Command"}
+    notes: {"zh": "人民军总司令部位于首都安德里安巴领袖广场以东，是马索沃利人民军的最高指挥机关，也是首都军队机关建筑群的中心。人民军总司令由劳动党第一书记拉齐马·沃利三世兼任，大楼顶层保留着总司令的办公室，但他很少来这里，重大的作战命令都经劳动党中央军事委员会下达。总司令部统辖总参谋部、总政治部、总装备部和总后勤部，指挥陆军、海军、空军和防空部队，全国三万名现役军人和二十万预备役人员的动员命令都从这里发出。大楼门前立着一组游击队员冲锋的群像，纪念创始领袖领导的游击战争。", "en": "The People's Army Supreme Command stands east of Leaders' Square in the capital, Andriamba; it is the highest command of the Masovoly People's Army and the centre of the capital's cluster of military buildings. The Commander-in-Chief is the Workers' Party's First Secretary, Ratsima Voly III, and the top floor keeps his office, but he seldom comes, and major operational orders go out through the party's Central Military Commission. The Supreme Command oversees the General Staff, the General Political Department and the General Equipment and General Logistics departments and commands the army, navy, air force and air defence forces; mobilisation orders for the country's 30,000 active troops and 200,000 reservists go out from here. A group statue of charging guerrillas before the entrance commemorates the guerrilla war led by the founding leader."}
+    in: div_gt2h78
+    offset_km: [1.90, -0.40]
+    site: {"layout": "courtyard", "size_m": [320, 240], "angle_deg": 0}
+  - id: bld_nwrxmk
+    subtype: government
+    status: generated
+    names: {"zh": "人民军总政治部大楼", "en": "General Political Department Building"}
+    notes: {"zh": "人民军总政治部大楼在总司令部西北，是劳动党在军队中的领导机关。总政治部向每一个连队派驻政治指导员，向每一个师派驻政治委员，负责军人的思想教育和党组织工作，政治委员的签字比指挥员的命令更有分量。总政治部主任在党内的排名高于总参谋长，两所专为高层领导人服务的医院也挂在总政治部的名下。", "en": "The General Political Department Building, north-west of the Supreme Command, houses the Workers' Party's leading organ within the army. The department posts a political instructor to every company and a political commissar to every division, and is in charge of the troops' ideological education and party work; a commissar's signature carries more weight than a commander's order. Its director outranks the Chief of the General Staff in the party, and two hospitals serving the senior leadership are carried on its books."}
+    in: div_gt2h78
+    offset_km: [1.20, 0.40]
+    site: {"layout": "slab", "size_m": [260, 140], "angle_deg": 0}
+  - id: bld_v3haqj
+    subtype: government
+    status: generated
+    names: {"zh": "人民军总参谋部大楼", "en": "General Staff Building"}
+    notes: {"zh": "人民军总参谋部大楼在总司令部西面，是军队的作战指挥和计划机关，总参谋长是西特拉卡·拉乔纳。总参谋部负责制定作战和动员计划，管理预备役和全国的坑道工程，地下有作战指挥中心，与海岸各炮台和导弹坑道都有专线相通。", "en": "The General Staff Building, west of the Supreme Command, houses the army's operational command and planning organ; the Chief of the General Staff is Sitraka Rajaona. The General Staff draws up operational and mobilisation plans and runs the reserve and the country's tunnel works; beneath it is an operations centre with direct lines to the coastal batteries and the missile tunnels."}
+    in: div_gt2h78
+    offset_km: [1.20, -0.40]
+    site: {"layout": "courtyard", "size_m": [280, 200], "angle_deg": 0}
+  - id: bld_zendee
+    subtype: government
+    status: generated
+    names: {"zh": "人民军总装备部大楼", "en": "General Equipment Department Building"}
+    notes: {"zh": "人民军总装备部大楼在总司令部北面，负责军队武器装备的采购、维修和储存。人民军的装备大多是联合共和国时期留下的，零件靠阿瓦拉齐供应，总装备部的工程师们以拆旧补新闻名，党报称之为「自力更生的典范」。", "en": "The General Equipment Department Building, north of the Supreme Command, is responsible for buying, repairing and storing the army's weapons and equipment. Most of the People's Army's equipment dates from the United Republic and depends on spare parts from Avaratsy, and the department's engineers are known for cannibalising old equipment to keep the rest going, which the party paper calls 'a model of self-reliance'."}
+    in: div_gt2h78
+    offset_km: [1.90, 0.40]
+    site: {"layout": "slab", "size_m": [240, 140], "angle_deg": 0}
+  - id: bld_2d5h8v
+    subtype: government
+    status: generated
+    names: {"zh": "人民军作战总局大楼", "en": "General Operations Bureau Building"}
+    notes: {"zh": "人民军作战总局大楼在总司令部东面，负责拟定具体的作战方案和兵力部署。据说沿海战争的作战计划就是在这座楼里拟定的，人民军沿东海岸公路南下和从海上登陆法尼里港区的方案都出自作战总局。", "en": "The General Operations Bureau Building, east of the Supreme Command, draws up detailed operational plans and deployments. The plan for the Coastal War is said to have been drawn up in this building, including the People's Army's advance south along the East Coast Road and its landing in the harbour of Faniry."}
+    in: div_gt2h78
+    offset_km: [2.60, -0.40]
+    site: {"layout": "block", "size_m": [200, 180], "angle_deg": 0}
+  - id: bld_c0m90y
+    subtype: government
+    status: generated
+    names: {"zh": "人民军总后勤部大楼", "en": "General Logistics Department Building"}
+    notes: {"zh": "人民军总后勤部大楼在总司令部西南，负责军队的粮食、被服、燃料和营房。人民军自己经营农场、渔船和工厂，每个营都要种地养猪；歉收的年份，阿瓦拉齐援助的粮食优先分给军队，分配方案就在这里制定。", "en": "The General Logistics Department Building, south-west of the Supreme Command, is responsible for the army's food, uniforms, fuel and barracks. The People's Army runs its own farms, fishing boats and factories, and every battalion must grow crops and raise pigs; in bad years the grain aid from Avaratsy goes to the army first, and the allocation is drawn up here."}
+    in: div_gt2h78
+    offset_km: [1.20, -1.20]
+    site: {"layout": "slab", "size_m": [240, 140], "angle_deg": 0}
+  - id: bld_45nj99
+    subtype: government
+    status: generated
+    names: {"zh": "人民军侦察总局大楼", "en": "General Reconnaissance Bureau Building"}
+    notes: {"zh": "人民军侦察总局大楼在总司令部南面，是军队的对外情报机关，负责搜集邻国的军事情报，向洛哈瓦托和伊瓦洛派遣侦察人员。大楼没有挂牌，窗户常年拉着窗帘，附近的居民只知道这是一座「军队的办公楼」。", "en": "The General Reconnaissance Bureau Building, south of the Supreme Command, houses the army's foreign intelligence organ, which gathers military intelligence on neighbouring countries and sends agents into Lohavato and Ivalo. The building bears no sign and its curtains are always drawn; people nearby know it only as 'an army office building'."}
+    in: div_gt2h78
+    offset_km: [1.90, -1.20]
+    site: {"layout": "block", "size_m": [200, 180], "angle_deg": 0}
+  - id: bld_tcgzpw
+    subtype: government
+    status: generated
+    names: {"zh": "人民军保卫局大楼", "en": "People's Army Security Bureau Building"}
+    notes: {"zh": "人民军保卫局大楼在总司令部东北，是军队内部的反间谍和保卫机关，监视军官的言行，防止叛逃和政变。每一位将军身边都有保卫局的人，军官们说，在部队里最不能得罪的不是司令员，而是保卫局的干事。", "en": "The People's Army Security Bureau Building, north-east of the Supreme Command, houses the army's counter-intelligence and security organ, which watches officers' words and deeds to prevent defections and coups. Every general has a Security Bureau man at his side, and officers say the person you must never offend in the army is not your commander but the Security Bureau officer."}
+    in: div_gt2h78
+    offset_km: [2.60, 0.40]
+    site: {"layout": "block", "size_m": [200, 180], "angle_deg": 0}
+  - id: bld_yfnxkp
+    subtype: government
+    status: generated
+    names: {"zh": "人民军海军司令部", "en": "People's Army Navy Command"}
+    notes: {"zh": "人民军海军司令部在总司令部西北，指挥人民军的巡逻艇、炮艇和海岸防卫部队。海军的舰艇大多是老式的小型艇，主要在东海岸巡逻，防止渔船和居民从海上出逃；沿海战争中，海军负责从海上登陆法尼里港区。", "en": "The People's Army Navy Command, north-west of the Supreme Command, commands the People's Army's patrol boats, gunboats and coastal defence forces. Most of the navy's vessels are small and old, patrolling the east coast mainly to stop fishing boats and residents escaping by sea; in the Coastal War the navy carried out the landing in the harbour of Faniry."}
+    in: div_gt2h78
+    offset_km: [1.20, 1.20]
+    site: {"layout": "slab", "size_m": [240, 140], "angle_deg": 0}
+  - id: bld_p8ecsr
+    subtype: government
+    status: generated
+    names: {"zh": "人民军空军司令部", "en": "People's Army Air Force Command"}
+    notes: {"zh": "人民军空军司令部在总司令部北面，指挥空军的一个战斗机团和一个运输飞行团，两个团分别驻在海湾西岸的6083机场和2714机场。空军的飞机大多是联合共和国时期留下的，飞行员每年的飞行时间很少，燃料要优先保证领导人的专机。", "en": "The People's Army Air Force Command, north of the Supreme Command, commands the air force's fighter regiment and transport regiment, based at Airfields 6083 and 2714 on the western shore of the bay. Most of its aircraft date from the United Republic, its pilots fly few hours a year, and fuel goes first to the leaders' aircraft."}
+    in: div_gt2h78
+    offset_km: [1.90, 1.20]
+    site: {"layout": "slab", "size_m": [240, 140], "angle_deg": 0}
+  - id: bld_pk2d4e
+    subtype: government
+    status: generated
+    names: {"zh": "人民军防空司令部", "en": "People's Army Air Defence Command"}
+    notes: {"zh": "人民军防空司令部在总司令部东北，指挥全国的雷达站、高射炮和地对空导弹部队，首都、海岸和海湾西岸的两个领导人住区是防空的重点。防空司令部的地下指挥中心与领袖保卫局的防空阵地有专线相连。", "en": "The People's Army Air Defence Command, north-east of the Supreme Command, commands the country's radar stations, anti-aircraft guns and surface-to-air missile units, with the capital, the coast and the two leadership compounds on the western shore of the bay as their chief charge. Its underground command centre has a direct line to the Leader's Guard Bureau's air defence site."}
+    in: div_gt2h78
+    offset_km: [2.60, 1.20]
+    site: {"layout": "slab", "size_m": [240, 140], "angle_deg": 0}
+  - id: bld_15pgrb
+    subtype: government
+    status: generated
+    names: {"zh": "人民军炮兵司令部", "en": "People's Army Artillery Command"}
+    notes: {"zh": "人民军炮兵司令部在总司令部东北，指挥陆军的火炮和沿海的炮台。马索沃利的海岸布满挖在山里的炮台，炮兵司令部每年组织一次大规模的实弹演习，党报会刊登领袖观看演习的照片。", "en": "The People's Army Artillery Command, north-east of the Supreme Command, commands the army's guns and the coastal batteries. Masovoly's coast is lined with batteries dug into the hills, and each year the command holds a large live-fire exercise; the party paper prints photographs of the leader watching it."}
+    in: div_gt2h78
+    offset_km: [3.30, 1.20]
+    site: {"layout": "block", "size_m": [200, 160], "angle_deg": 0}
+  - id: bld_trqq9x
+    subtype: government
+    status: generated
+    names: {"zh": "人民军工程兵司令部", "en": "People's Army Engineer Command"}
+    notes: {"zh": "人民军工程兵司令部在总司令部东南，负责全国的坑道工程、军用道路和桥梁。马索沃利几十年来在海岸和山区挖了大量坑道，拉诺迈措湖官邸区的地下避难所和领袖专用公路也是工程兵修建的；参加施工的士兵完工后往往被调往偏远的部队，不许谈论他们修过的工程。", "en": "The People's Army Engineer Command, south-east of the Supreme Command, is responsible for the country's tunnel works and military roads and bridges. Over the decades Masovoly has dug a great many tunnels in its coast and hills, and the engineers also built the underground shelters of the Lake Ranomaitso Residences and the Leader's Road; the soldiers who worked on them are usually posted to remote units afterwards and forbidden to speak of what they built."}
+    in: div_gt2h78
+    offset_km: [2.60, -1.20]
+    site: {"layout": "slab", "size_m": [240, 140], "angle_deg": 0}
+  - id: bld_3q08nm
+    subtype: court
+    status: generated
+    names: {"zh": "人民军军事检察所和军事裁判所", "en": "People's Army Military Prosecutors' Office and Military Court"}
+    notes: {"zh": "人民军军事检察所和军事裁判所在总司令部东面，共用一座楼，负责审理军人的刑事案件和违纪案件。涉及政治问题的案件不在这里审理，而是交给人民军保卫局或国家保卫部的特别审判庭。", "en": "The People's Army Military Prosecutors' Office and Military Court share a building east of the Supreme Command and try soldiers' criminal and disciplinary cases. Cases with any political element are not tried here but handed to the People's Army Security Bureau or the Ministry of State Protection's special tribunal."}
+    in: div_gt2h78
+    offset_km: [3.30, 0.40]
+    site: {"layout": "hall", "size_m": [220, 150], "angle_deg": 0}
+  - id: bld_9bz57a
+    subtype: university
+    status: generated
+    names: {"zh": "人民军军事大学", "en": "People's Army Military University"}
+    notes: {"zh": "人民军军事大学在总司令部东面，是人民军的最高军事学府，培养营级以上的指挥员和参谋人员，学员入学前要经过总政治部的政治审查。校园中央立着创始领袖身穿游击队服的铜像，学员们每天早晨在像前列队宣誓。", "en": "The People's Army Military University, east of the Supreme Command, is the army's highest military school, training commanders and staff officers of battalion rank and above; candidates must pass political vetting by the General Political Department before entry. A bronze statue of the founding leader in guerrilla uniform stands at the centre of the campus, and the cadets parade and take an oath before it every morning."}
+    in: div_gt2h78
+    offset_km: [3.30, -0.40]
+    site: {"layout": "campus", "size_m": [500, 350], "angle_deg": 0}
+  - id: bld_6pyp45
+    subtype: government
+    status: generated
+    names: {"zh": "政务院大楼", "en": "Cabinet Building"}
+    notes: {"zh": "政务院大楼位于首都安德里安巴领袖广场南面，是马索沃利民主主义人民共和国政务院的所在地，也是首都政府机关建筑群的中心，政务院总理米亚利·拉沃松在这里办公。按照宪法，政务院只负责经济和日常行政，军队、国家保卫和对外事务由领袖主持的国务委员会和劳动党中央军事委员会直接掌握，因此大楼虽然气派，却远不如广场北面的永生宫和西北的中央委员会大楼重要。政务院每周在这里开一次全体会议，听取国家计划委员会和各部的汇报，再把决定报送国务委员会批准。大楼是一座回字形的白色石楼，门前有一排高大的柱廊，柱廊上方写着「为人民服务」。", "en": "The Cabinet Building stands south of Leaders' Square in the capital, Andriamba; it is the seat of the Cabinet of the Democratic People's Republic of Masovoly and the centre of the capital's cluster of government buildings, where the Premier, Mialy Ravoson, has his office. Under the constitution the Cabinet handles only the economy and day-to-day administration, while the armed forces, state protection and foreign affairs are kept by the State Affairs Commission chaired by the leader and the party's Central Military Commission; so for all its grandeur the building matters far less than the Palace of Eternity north of the square or the Central Committee Building to the north-west. The Cabinet meets here weekly to hear reports from the State Planning Commission and the ministries before sending its decisions to the State Affairs Commission for approval. The building is a white stone quadrangle fronted by a tall colonnade inscribed 'Serve the People'."}
+    in: div_gt2h78
+    offset_km: [-0.10, -1.10]
+    site: {"layout": "courtyard", "size_m": [300, 220], "angle_deg": 0}
+  - id: bld_qtp40r
+    subtype: government
+    status: generated
+    names: {"zh": "国家计划委员会大楼", "en": "State Planning Commission Building"}
+    notes: {"zh": "国家计划委员会大楼在政务院大楼东面，负责编制全国的五年计划和年度计划，规定每一座工厂、每一个集体农庄的生产指标。吞并法尼里后，国家计划委员会接管了沿海的渔船和罐头厂，把它们纳入计划。计划的指标常常完不成，但报到这里的数字总是「超额完成」。", "en": "The State Planning Commission Building, east of the Cabinet Building, houses the commission that draws up the country's five-year and annual plans and sets production targets for every factory and collective farm. After the annexation of Faniry it took over the coast's fishing boats and cannery and brought them into the plan. The targets are often missed, but the figures reported here are always 'overfulfilled'."}
+    in: div_gt2h78
+    offset_km: [0.45, -1.10]
+    site: {"layout": "slab", "size_m": [240, 140], "angle_deg": 0}
+  - id: bld_b1w1wr
+    subtype: government
+    status: generated
+    names: {"zh": "人民武力部大楼", "en": "Ministry of the People's Armed Forces Building"}
+    notes: {"zh": "人民武力部大楼在政务院大楼南面，是政务院中唯一与军队有关的部门，负责征兵、预备役登记、军人家属的优待和军队的对外事务。人民武力部长同时是国务委员会和劳动党中央军事委员会的委员，实际上听命于后者，而不是政务院总理。", "en": "The Ministry of the People's Armed Forces Building, south of the Cabinet Building, houses the only Cabinet ministry concerned with the army, responsible for conscription, the reserve register, benefits for soldiers' families and the army's foreign relations. The minister also sits on the State Affairs Commission and the party's Central Military Commission and in practice answers to the latter rather than to the Premier."}
+    in: div_gt2h78
+    offset_km: [-0.10, -1.70]
+    site: {"layout": "slab", "size_m": [260, 160], "angle_deg": 0}
+  - id: bld_rss0yg
+    subtype: government
+    status: generated
+    names: {"zh": "对外经济部大楼", "en": "Ministry of External Economic Relations Building"}
+    notes: {"zh": "对外经济部大楼在政务院大楼东南，负责对外贸易和外国援助，签发稀土和石墨的出口许可，接收阿瓦拉齐的粮食和燃料援助。部里的干部是全国少数可以出国的人，他们出国时要把家属留在国内。", "en": "The Ministry of External Economic Relations Building, south-east of the Cabinet Building, handles foreign trade and aid, issuing export licences for rare earths and graphite and receiving grain and fuel aid from Avaratsy. Its officials are among the few people in the country allowed abroad, and they must leave their families at home when they go."}
+    in: div_gt2h78
+    offset_km: [0.45, -1.70]
+    site: {"layout": "slab", "size_m": [240, 140], "angle_deg": 0}
+  - id: bld_bmxqt5
+    subtype: government
+    status: generated
+    names: {"zh": "国家保卫部大楼", "en": "Ministry of State Protection Building"}
+    notes: {"zh": "国家保卫部大楼在政务院大楼南面，是马索沃利的秘密警察机关，负责监视居民、屏蔽外国电台、追捕私自出境者，管理内陆的劳动营。政治案件不经中央裁判所，而由国家保卫部的特别审判庭在这座楼里不公开审理，被判刑者的家属常被一并流放。大楼是一座没有窗户的方形灰楼，居民经过时都会加快脚步。", "en": "The Ministry of State Protection Building, south of the Cabinet Building, houses Masovoly's secret police, which watches the population, jams foreign radio, hunts down those who leave the country without permission and runs the labour camps inland. Political cases bypass the Central Court and are heard in secret by the ministry's special tribunal in this building, and the families of the convicted are often banished with them. It is a windowless square grey block, and people walk faster as they pass it."}
+    in: div_gt2h78
+    offset_km: [-0.10, -2.30]
+    site: {"layout": "block", "size_m": [220, 220], "angle_deg": 0}
+  - id: bld_ghjpeg
+    subtype: government
+    status: generated
+    names: {"zh": "社会安全部大楼", "en": "Ministry of Social Security Building"}
+    notes: {"zh": "社会安全部大楼在政务院大楼东南，是马索沃利的警察机关，管理户籍、通行证和身份证件，指挥社会安全军维持治安和守卫边境。居民出城探亲要向社会安全部的派出所申请通行证，外地人进首都更要层层审批。", "en": "The Ministry of Social Security Building, south-east of the Cabinet Building, houses Masovoly's police, which keeps the household registers, travel permits and identity papers and commands the Social Security Forces that keep order and guard the borders. Residents must apply to its local stations for a permit to visit relatives out of town, and people from elsewhere need permission at every level to enter the capital."}
+    in: div_gt2h78
+    offset_km: [0.45, -2.30]
+    site: {"layout": "lshape", "size_m": [240, 180], "angle_deg": 0}
+  - id: bld_yd0fte
+    subtype: government
+    status: generated
+    names: {"zh": "农业部大楼", "en": "Ministry of Agriculture Building"}
+    notes: {"zh": "农业部大楼在政务院大楼西面，负责全国的集体农庄和国营农场，组织城里的学生、工人和士兵在农忙季节下乡插秧和收割。歉收的年份，农业部的报告总把原因归于天灾。", "en": "The Ministry of Agriculture Building, west of the Cabinet Building, oversees the country's collective and state farms and organises the students, workers and soldiers sent from the towns to plant and harvest in the busy seasons. In bad years its reports always blame the weather."}
+    in: div_gt2h78
+    offset_km: [-0.75, -1.10]
+    site: {"layout": "slab", "size_m": [240, 140], "angle_deg": 0}
+  - id: bld_n91zgn
+    subtype: government
+    status: generated
+    names: {"zh": "渔业部大楼", "en": "Ministry of Fisheries Building"}
+    notes: {"zh": "渔业部大楼在政务院大楼西面，负责国营渔船、渔港和水产加工厂。吞并法尼里后，渔业部接管了沿海公社的渔船和罐头厂，出海的渔船都要搭载一名社会安全部的人员，防止船员驾船出逃。", "en": "The Ministry of Fisheries Building, west of the Cabinet Building, runs the state fishing boats, fishing ports and fish-processing plants. Since the annexation of Faniry it has taken over the coastal communes' boats and cannery, and every boat that goes out carries a Social Security officer to stop the crew sailing away."}
+    in: div_gt2h78
+    offset_km: [-1.35, -1.10]
+    site: {"layout": "slab", "size_m": [220, 130], "angle_deg": 0}
+  - id: bld_wz3t5c
+    subtype: government
+    status: generated
+    names: {"zh": "教育部大楼", "en": "Ministry of Education Building"}
+    notes: {"zh": "教育部大楼在政务院大楼西南，管理全国的中小学和大学的日常事务，按照劳动党科学教育部的方针安排课程和招生。学生能报考哪些专业由家庭出身决定，录取名单要经教育部和组织指导部共同审定。", "en": "The Ministry of Education Building, south-west of the Cabinet Building, runs the day-to-day affairs of the country's schools and universities, setting curricula and admissions on the lines laid down by the party's Science and Education Department. Which subjects a pupil may apply for depends on family background, and admission lists are approved jointly by the ministry and the Organisation and Guidance Department."}
+    in: div_gt2h78
+    offset_km: [-0.75, -1.70]
+    site: {"layout": "lshape", "size_m": [220, 160], "angle_deg": 0}
+  - id: bld_357029
+    subtype: government
+    status: generated
+    names: {"zh": "保健部大楼", "en": "Ministry of Public Health Building"}
+    notes: {"zh": "保健部大楼在政务院大楼西南，管理全国的医院和防疫工作。医疗名义上全部免费，但药品和设备常年短缺，保健部的大部分预算用于防治传染病，手术用的药品有时要靠阿瓦拉齐的援助。", "en": "The Ministry of Public Health Building, south-west of the Cabinet Building, runs the country's hospitals and disease control. Treatment is nominally free, but medicines and equipment are always short; most of the ministry's budget goes on infectious diseases, and surgical drugs sometimes depend on aid from Avaratsy."}
+    in: div_gt2h78
+    offset_km: [-1.35, -1.70]
+    site: {"layout": "slab", "size_m": [220, 130], "angle_deg": 0}
+  - id: bld_7v7x57
+    subtype: court
+    status: generated
+    names: {"zh": "中央裁判所", "en": "Central Court"}
+    notes: {"zh": "中央裁判所在政务院大楼西南，是马索沃利的最高审判机关，由所长和七名审判员组成，以「社会主义法制与领袖教导」为准绳审理案件。法庭大厅正中挂着创始领袖的画像，判决书的开头总要引用一段领袖语录。政治案件不经中央裁判所，而由国家保卫部的特别审判庭不公开审理，因此这里审理的多是普通的刑事和民事案件。", "en": "The Central Court, south-west of the Cabinet Building, is Masovoly's highest court, made up of its president and seven judges, and tries cases by 'socialist legality and the Leader's teachings'. A portrait of the founding leader hangs at the centre of the courtroom, and every judgement opens with a quotation from the leader. Political cases bypass it and are heard in secret by the Ministry of State Protection's special tribunal, so most of the cases tried here are ordinary criminal and civil ones."}
+    in: div_gt2h78
+    offset_km: [-0.75, -2.30]
+    site: {"layout": "hall", "size_m": [220, 150], "angle_deg": 0}
+  - id: bld_hfx6xg
+    subtype: government
+    status: generated
+    names: {"zh": "人民大会堂", "en": "Great Hall of the People"}
+    notes: {"zh": "人民大会堂在领袖广场以北，是劳动党代表大会和全国性群众大会的会场，主会场可坐五千人。大会堂外墙贴着白色花岗岩，正面十二根方柱托起宽大的檐口，檐口上方是一面巨大的国徽。代表大会开幕时，代表们起立鼓掌往往长达十几分钟，没有人敢第一个停下来。", "en": "The Great Hall of the People, north of Leaders' Square, hosts congresses of the Workers' Party and national mass meetings; its main auditorium seats five thousand. It is faced in white granite, with twelve square columns carrying a broad cornice topped by a huge state emblem. When a congress opens, the delegates' standing ovation often lasts more than ten minutes, and nobody dares to be the first to stop."}
+    in: div_gt2h78
+    offset_km: [0.40, 1.60]
+    site: {"layout": "hall", "size_m": [300, 220], "angle_deg": 0}
+  - id: bld_qza1r2
+    subtype: statue
+    status: generated
+    names: {"zh": "人民纪念碑", "en": "People's Monument"}
+    notes: {"zh": "人民纪念碑在人民大会堂北面，是一座六十多米高的花岗岩方尖碑，碑身上刻着创始领袖题写的「人民万岁」，基座四周的浮雕描绘游击战争、建国和战后重建的场景。外国代表团来访时，都要先到这里献花圈。", "en": "The People's Monument, north of the Great Hall of the People, is a granite obelisk more than sixty metres tall carved with the words 'Long live the people' in the founding leader's hand; reliefs round its base show the guerrilla war, the founding of the state and post-war reconstruction. Visiting foreign delegations always lay a wreath here first."}
+    in: div_gt2h78
+    offset_km: [0.40, 2.30]
+    site: {"layout": "tower", "size_m": [120, 120], "angle_deg": 0}
+  - id: bld_m31t2p
+    subtype: government
+    status: generated
+    names: {"zh": "人民宫", "en": "People's Palace"}
+    notes: {"zh": "人民宫在政务院大楼东南，是首都最大的公共建筑之一，屋顶铺着绿色琉璃瓦，大厅里挂着水晶吊灯，是国家举行国宴、授勋和接见劳动模范的地方。每年太阳节前夕，全国各地选出的劳动模范在这里受到表彰，与领导人合影，照片会挂进他们所在工厂的光荣榜。", "en": "The People's Palace, south-east of the Cabinet Building, is one of the largest public buildings in the capital, roofed in green glazed tiles with crystal chandeliers in its halls; state banquets, awards of decorations and receptions for model workers are held here. On the eve of each Day of the Sun, model workers chosen from across the country are honoured here and photographed with the leaders, and the photographs go up on the honour boards of their factories."}
+    in: div_gt2h78
+    offset_km: [0.95, -1.90]
+    site: {"layout": "courtyard", "size_m": [300, 240], "angle_deg": 0}
+  - id: bld_tgpgs7
+    subtype: theatre
+    status: generated
+    names: {"zh": "人民文化宫", "en": "People's Palace of Culture"}
+    notes: {"zh": "人民文化宫在首都东南部，是全国最大的群众文化活动场所，有剧场、展览厅和几十间活动室。工人和学生在这里排练集体舞和合唱，每逢节日，文化宫前的广场上举行群众游园会，扩音器里反复播放歌颂领袖的歌曲。", "en": "The People's Palace of Culture, in the south-east of the capital, is the country's largest venue for mass cultural activities, with a theatre, exhibition halls and dozens of activity rooms. Workers and students rehearse mass dances and choirs here, and on holidays the square in front holds a people's fête while loudspeakers play songs in praise of the leader over and over."}
+    in: div_gt2h78
+    offset_km: [3.10, -2.50]
+    site: {"layout": "hall", "size_m": [260, 180], "angle_deg": 0}
+  - id: bld_eb0evj
+    subtype: tower
+    status: generated
+    names: {"zh": "一心团结思想塔", "en": "Tower of the One-Heart Unity Doctrine"}
+    notes: {"zh": "一心团结思想塔矗立在首都东部一条大街的尽头，是一座一百五十米高的白色石塔，塔顶是一支高达二十米的红色火炬，夜里灯光通明，从海湾西岸也能望见。塔身由两万多块石块砌成，据说代表创始领袖一生的天数。游客可以乘电梯登上塔顶，俯瞰全城笔直的大街；塔基的大厅里陈列着外国「一心团结思想研究小组」寄来的贺信。", "en": "The Tower of the One-Heart Unity Doctrine rises at the end of an avenue in the east of the capital, a white stone tower 150 m tall crowned by a red torch twenty metres high that is lit at night and can be seen from the western shore of the bay. It is built of more than twenty thousand stones, said to stand for the days of the founding leader's life. Visitors can take a lift to the top to look out over the city's straight avenues, and the hall at its base displays letters of greeting from foreign 'One-Heart Unity study groups'."}
+    in: div_gt2h78
+    offset_km: [5.40, 0.00]
+    site: {"layout": "tower", "size_m": [100, 100], "angle_deg": 0}
+  - id: bld_c667rc
+    subtype: statue
+    status: generated
+    names: {"zh": "凯旋门", "en": "Arch of Triumph"}
+    notes: {"zh": "凯旋门在首都东部的大街上，是一座六十米高的花岗岩拱门，为纪念创始领袖率领游击队凯旋进入首都而建，拱门上刻着游击战争的年份和建国的日期。人民军的阅兵队伍每次都从这里出发，经过凯旋门时士兵们一齐向拱门敬礼。", "en": "The Arch of Triumph, on an avenue in the east of the capital, is a granite arch sixty metres high built to mark the founding leader's triumphant entry into the capital at the head of his guerrillas; it is inscribed with the years of the guerrilla war and the date of the founding of the state. The People's Army's parades always set out from here, the soldiers saluting the arch in unison as they pass."}
+    in: div_gt2h78
+    offset_km: [4.60, 0.50]
+    site: {"layout": "block", "size_m": [140, 60], "angle_deg": 0}
+  - id: bld_zk46k1
+    subtype: statue
+    status: generated
+    names: {"zh": "劳动党创建纪念碑", "en": "Monument to the Founding of the Workers' Party"}
+    notes: {"zh": "劳动党创建纪念碑在首都东北部，由三座高达五十米的花岗岩巨柱组成，分别托起铁锤、稻穗和枪，象征工人、农民和游击队员，三座巨柱围成一个三角形的广场。新党员的入党宣誓仪式都在这里举行。", "en": "The Monument to the Founding of the Workers' Party, in the north-east of the capital, is formed by three granite columns fifty metres high, holding up a hammer, an ear of rice and a rifle for the workers, peasants and guerrillas, which enclose a triangular square. New party members take their oath here."}
+    in: div_gt2h78
+    offset_km: [2.80, 3.00]
+    site: {"layout": "triangle", "size_m": [200, 200], "angle_deg": 0}
+  - id: bld_hvkfqd
+    subtype: cultural_site
+    status: generated
+    names: {"zh": "革命烈士陵园", "en": "Revolutionary Martyrs' Cemetery"}
+    notes: {"zh": "革命烈士陵园在首都东北部的小山坡上，安葬着跟随创始领袖打游击的战士和在高原战争、沿海战争中阵亡的军人，墓碑上镶着烈士的铜像。陵园的最高处是游击队老战士的墓区，每年太阳节，政治局委员们都要来这里献花。", "en": "The Revolutionary Martyrs' Cemetery, on a low slope in the north-east of the capital, holds the guerrillas who fought with the founding leader and the soldiers killed in the Highland and Coastal Wars, their headstones set with bronze portraits. The highest part holds the graves of the old guerrillas, where the members of the Politburo lay flowers every Day of the Sun."}
+    in: div_gt2h78
+    offset_km: [3.60, 3.80]
+    site: {"layout": "park", "size_m": [500, 350], "angle_deg": 0}
+  - id: bld_fpd5zv
+    subtype: museum
+    status: generated
+    names: {"zh": "沿海解放战争胜利纪念馆", "en": "Victorious Coastal Liberation War Museum"}
+    notes: {"zh": "沿海解放战争胜利纪念馆在首都东北部，是官方为纪念沿海战争而建的纪念馆，馆名沿用官方对这场战争的称呼「沿海解放战争」。馆内陈列着缴获的公社民兵武器、人民军南下的作战地图和「沿海劳动人民欢迎解放」的照片，从不提及战争中逃往伊瓦洛的八万居民。", "en": "The Victorious Coastal Liberation War Museum, in the north-east of the capital, was built by the government to commemorate the Coastal War under its official name, the 'Coastal Liberation War'. It displays weapons captured from the commune militia, the People's Army's maps of the advance south and photographs of 'the coastal working people welcoming liberation', and never mentions the eighty thousand residents who fled to Ivalo during the war."}
+    in: div_gt2h78
+    offset_km: [3.60, 3.00]
+    site: {"layout": "hall", "size_m": [280, 200], "angle_deg": 0}
+  - id: bld_pgyh4v
+    subtype: museum
+    status: generated
+    names: {"zh": "国际友谊展览馆", "en": "International Friendship Exhibition"}
+    notes: {"zh": "国际友谊展览馆在首都东北部，陈列着外国政党、政府和团体赠送给历代领袖的礼品，从阿瓦拉齐赠送的拖拉机到海外寄来的瓷器和刺绣，共有几万件。参观者进馆前要套上鞋套，讲解员会强调每一件礼品都证明了领袖在全世界受到的爱戴。", "en": "The International Friendship Exhibition, in the north-east of the capital, displays tens of thousands of gifts presented to the successive leaders by foreign parties, governments and organisations, from a tractor given by Avaratsy to porcelain and embroidery sent from overseas. Visitors must put on shoe covers before entering, and the guides stress that every gift proves the love the leaders enjoy throughout the world."}
+    in: div_gt2h78
+    offset_km: [2.80, 3.80]
+    site: {"layout": "hall", "size_m": [260, 180], "angle_deg": 0}
+  - id: bld_kztzyn
+    subtype: theatre
+    status: generated
+    names: {"zh": "人民大剧场", "en": "People's Grand Theatre"}
+    notes: {"zh": "人民大剧场在首都东北部，是一座圆顶的大剧院，可坐三千人，上演歌颂创始领袖和游击战争的歌剧和舞剧。剧场的保留剧目几十年没有变过，票由各单位统一分配，演出结束时观众要起立齐唱国歌。", "en": "The People's Grand Theatre, in the north-east of the capital, is a domed opera house seating three thousand, staging operas and dance dramas in praise of the founding leader and the guerrilla war. Its repertoire has not changed in decades, tickets are allocated through workplaces, and at the end of each performance the audience stands to sing the national anthem."}
+    in: div_gt2h78
+    offset_km: [4.40, 3.00]
+    site: {"layout": "dome", "size_m": [200, 200], "angle_deg": 0}
+  - id: bld_d13xja
+    subtype: hotel
+    status: generated
+    names: {"zh": "永恒光辉饭店", "en": "Eternal Radiance Hotel"}
+    notes: {"zh": "永恒光辉饭店在首都东部，是一座金字塔形的高楼，设计有一百多层、三千间客房，名字取自国旗金边所象征的「永恒的光辉」，原计划建成全岛最高的饭店。大楼主体完工多年，却因资金和材料短缺迟迟没有装修开业，外墙的玻璃至今只装了一半；官方照片里，它总是被拍成灯火辉煌的样子。", "en": "The Eternal Radiance Hotel, in the east of the capital, is a pyramid-shaped tower designed with more than a hundred floors and three thousand rooms, named after the 'eternal radiance' that the gold border of the national flag stands for; it was meant to be the tallest hotel on the island. Its shell was finished years ago, but for want of money and materials it has never been fitted out or opened, and only half its outer walls are glazed; in official photographs it is always shown ablaze with light."}
+    in: div_gt2h78
+    offset_km: [4.60, -0.60]
+    site: {"layout": "triangle", "size_m": [200, 200], "angle_deg": 0}
   # ── 齐马罗沃 / Tsimarovo ──
   - id: bld_xpzbw3
     subtype: government

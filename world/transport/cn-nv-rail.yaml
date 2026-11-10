@@ -16,6 +16,8 @@
 #   station is named after the city (维京港站 / Viking Port Station) and a district's after
 #   the district (沙洲站 / Sandbar Station).
 # color: the line's colour on cards and in station lists.
+# closed (optional): true for a private line closed to the public; its stations take no share of
+#   their city's people when the city's other lines are counted.
 # tech: operating and design speed (km/h; in service at least 400 on wheeled lines, 500 on an
 #   open-air maglev and 600 on a vacuum maglev); gauge, power, signalling and train formation
 #   default to the line's standard in engineering.yaml.

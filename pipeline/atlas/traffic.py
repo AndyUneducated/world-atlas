@@ -110,7 +110,8 @@ def _rail(world: World, ent: dict, r: dict, entities: dict, model: dict) -> None
     city_of = lambda sid: entities.get(entities[sid].get("in", ""), {}).get("parent")
     served: dict[str, int] = {}
     for e in entities.values():
-        if e.get("subtype") == "station" and any(entities.get(ln, {}).get("network") == "intercity_rail" for ln in e.get("lines", [])):
+        if e.get("subtype") == "station" and any(entities.get(ln, {}).get("network") == "intercity_rail"
+                                                 and not world.railways.get(ln, {}).get("closed") for ln in e.get("lines", [])):
             served[c] = served.get(c := city_of(e["id"]) or "", 0) + 1
     chain, points = 0.0, []
     for i, sid in enumerate(stops):

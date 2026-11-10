@@ -107,6 +107,8 @@ terrain:
     - { feature: nat_k2kne7, path: [[292, 548], [316, 485], [328, 420], [342, 350], [348, 300], [335, 232], [318, 172]], height_m: 1050, width_km: 40 }   # 安德里纳高原
     - { feature: nat_42cbxt, path: [[303, 361], [307, 365]], height_m: 1500, width_km: 7 }   # 安卡瓦火山
     - { feature: nat_jcks74, path: [[376, 528], [392, 475], [405, 425], [398, 372], [388, 332]], height_m: 500, width_km: 9 }   # 法拉纳断崖
+    - { feature: nat_w5rzfx, path: [[428.2, 531.4], [430.2, 532.0], [432.6, 531.4]], height_m: 180, width_km: 1.1 }   # 沃希阿拉丘陵，隔开两个官邸区
+    - { feature: nat_w5rzfx, path: [[430.3, 531.7], [432.7, 531.4]], height_m: 420, width_km: 0.75 }   # 东段陡脊，沃希阿拉隧道从下面穿过
     - { feature: nat_d5npq4, path: [[208, 138], [220, 158], [230, 180]], height_m: 1300, width_km: 11 }   # 伊瓦卡山
     - { feature: nat_xe4fc1, path: [[220, 212], [232, 228], [244, 242]], height_m: 1500, width_km: 12 }   # 伊索卡山
     - { feature: nat_bjmj3q, path: [[637, 327], [643, 333]], height_m: 3200, width_km: 6 }   # 坦德罗圣山
@@ -141,6 +143,10 @@ hydrology:
   # out along angle_deg into a long lake
   lakes:
     - { feature: nat_qn0gnd, in: div_taqb88, radius_km: 1.4, offset_km: [5, -2], stretch: 4.0, angle_deg: 35 }   # 安德拉诺拉瓦湖，城边的狭长湖
+    - { feature: nat_jw37v6, in: div_gt2h78, at: [430.8, 526.3], radius_km: 0.75, stretch: 2.0, angle_deg: 15 }   # 拉诺迈措湖
+    - { feature: nat_az67ke, in: div_gt2h78, at: [428.4, 523.6], radius_km: 0.5 }   # 拉诺沃拉湖
+    - { feature: nat_f0y656, in: div_gt2h78, at: [433.6, 527.9], radius_km: 0.45 }   # 金塔纳湖
+    - { feature: nat_xx9s6t, in: div_gt2h78, at: [429.4, 538.2], radius_km: 0.5 }   # 法里希凯利湖
   named_rivers:
     - { feature: nat_pveqx6, through: div_mj41d0 }   # 安博河
     - { feature: nat_wby64d, through: div_t5zph6 }   # 马纳纳河
