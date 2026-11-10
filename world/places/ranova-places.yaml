@@ -1326,82 +1326,82 @@ places:
     subtype: vehicle_depot
     status: generated
     names: {"zh": "领袖保卫局215设施", "en": "Leader's Guard Bureau Facility 215"}
-    notes: {"zh": "领袖保卫局215设施是领袖专用公路在首都一端的换乘站，位于首都西北郊的海湾边。领袖的车队从拉诺迈措湖官邸区开到这里，警卫和车辆在此交接给首都的警卫车队，再开进城里；车站旁有车库、加油站和警卫员的休息室。", "en": "Leader's Guard Bureau Facility 215 is the transfer station at the capital end of the Leader's Road, by the bay on the north-western edge of the capital. The leader's motorcade drives here from the Lake Ranomaitso Residences and is handed over to the capital's guard convoy before it enters the city; beside it are garages, a filling station and a rest room for the guards."}
+    notes: {"zh": "领袖保卫局215设施是人民军军用7351公路在首都一端的换乘站，位于首都西北郊的海湾边。领袖的车队从拉诺迈措湖官邸区开到这里，警卫和车辆在此交接给首都的警卫车队，再开进城里；车站旁有车库、加油站和警卫员的休息室。", "en": "Leader's Guard Bureau Facility 215 is the transfer station at the capital end of People's Army Military Road 7351, by the bay on the north-western edge of the capital. The leader's motorcade drives here from the Lake Ranomaitso Residences and is handed over to the capital's guard convoy before it enters the city; beside it are garages, a filling station and a rest room for the guards."}
     in: div_gt2h78
     at: [441.60, 550.40]
     site: {"layout": "complex", "size_m": [400, 300], "angle_deg": 0, "rural": true}
   - id: poi_n46a12
     subtype: patrol_base
     status: generated
-    names: {"zh": "领袖专用公路第一哨所", "en": "Leader's Road Post No. 1"}
-    notes: {"zh": "第一哨所是领袖专用公路驶出拉诺迈措湖官邸区后的第一道关卡，设在沃希阿拉丘陵东端和海湾之间的缺口处。过往车辆须出示领袖保卫局签发的通行证，官邸区的工作人员进出也要在这里搜身。", "en": "Post No. 1 is the first barrier on the Leader's Road after it leaves the Lake Ranomaitso Residences, in the gap between the eastern end of the Vohiala Hills and the bay. Vehicles must show a pass issued by the Leader's Guard Bureau, and the Residences' own staff are searched here on the way in and out."}
+    names: {"zh": "7351公路第一哨所", "en": "Road 7351 Post No. 1"}
+    notes: {"zh": "第一哨所在人民军军用7351公路驶出拉诺迈措湖官邸区北门以后不远，设在沃希阿拉丘陵东端和海湾之间的缺口处，守着北门外的停车场和转运站。过往车辆须出示领袖保卫局签发的通行证，领袖的车队通常不停车通过。", "en": "Post No. 1 stands a short way beyond the North Gate of the Lake Ranomaitso Residences on People's Army Military Road 7351, in the gap between the eastern end of the Vohiala Hills and the bay, watching over the car park and transfer station outside the gate. Vehicles must show a pass issued by the Leader's Guard Bureau; the leader's motorcade usually goes through without stopping."}
     in: div_gt2h78
     at: [435.45, 531.00]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局专用公路第一哨所", "en": "Leader's Road Post No. 1, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局7351公路第一哨所", "en": "Road 7351 Post No. 1, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_kgwzgq
     subtype: patrol_base
     status: generated
-    names: {"zh": "领袖专用公路第二哨所", "en": "Leader's Road Post No. 2"}
-    notes: {"zh": "第二哨所在领袖专用公路西侧，正对着法里希凯利湖干部区的东缘。干部区的人不准使用这条公路，哨所的警卫日夜监视着两地之间的树林，防止有人抄近路靠近公路。", "en": "Post No. 2 stands on the west side of the Leader's Road, facing the eastern edge of the Lake Farihikely Cadre Quarter. The cadres may not use the road, and the post's guards watch the woods between the two day and night to keep anyone from cutting through towards it."}
+    names: {"zh": "7351公路第二哨所", "en": "Road 7351 Post No. 2"}
+    notes: {"zh": "第二哨所在人民军军用7351公路西侧，正对着法里希凯利湖干部区的东缘。干部区的人不准使用这条公路，哨所的警卫日夜监视着两地之间的树林，防止有人抄近路靠近公路。", "en": "Post No. 2 stands on the west side of People's Army Military Road 7351, facing the eastern edge of the Lake Farihikely Cadre Quarter. The cadres may not use the road, and the post's guards watch the woods between the two day and night to keep anyone from cutting through towards it."}
     in: div_gt2h78
     at: [434.95, 535.80]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局专用公路第二哨所", "en": "Leader's Road Post No. 2, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局7351公路第二哨所", "en": "Road 7351 Post No. 2, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_sky7fb
     subtype: patrol_base
     status: generated
-    names: {"zh": "领袖专用公路第三哨所", "en": "Leader's Road Post No. 3"}
-    notes: {"zh": "第三哨所在领袖专用公路东侧的海湾边，设有一座瞭望塔和一处小码头，警卫员乘巡逻艇在附近海面巡查，防止有船只靠近公路。", "en": "Post No. 3 stands by the bay on the east side of the Leader's Road, with a watchtower and a small jetty from which guards patrol the nearby water by launch to keep boats away from the road."}
+    names: {"zh": "7351公路第三哨所", "en": "Road 7351 Post No. 3"}
+    notes: {"zh": "第三哨所在人民军军用7351公路东侧的海湾边，设有一座瞭望塔和一处小码头，警卫员乘巡逻艇在附近海面巡查，防止有船只靠近公路。", "en": "Post No. 3 stands by the bay on the east side of People's Army Military Road 7351, with a watchtower and a small jetty from which guards patrol the nearby water by launch to keep boats away from the road."}
     in: div_gt2h78
     at: [435.20, 540.20]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局专用公路第三哨所", "en": "Leader's Road Post No. 3, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局7351公路第三哨所", "en": "Road 7351 Post No. 3, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_e45bxv
     subtype: patrol_base
     status: generated
-    names: {"zh": "领袖专用公路第四哨所", "en": "Leader's Road Post No. 4"}
-    notes: {"zh": "第四哨所在领袖专用公路西侧，靠近干部区北面的警卫团营区。领袖的车队经过前，哨所要提前一小时封锁附近所有的道路和小路，连警卫团的车辆也不例外。", "en": "Post No. 4 stands on the west side of the Leader's Road near the guard regiment's barracks north of the Cadre Quarter. An hour before the leader's motorcade passes, the post closes every road and track nearby, the regiment's own vehicles included."}
+    names: {"zh": "7351公路第四哨所", "en": "Road 7351 Post No. 4"}
+    notes: {"zh": "第四哨所在人民军军用7351公路西侧，靠近干部区北面的警卫团营区。领袖的车队经过前，哨所要提前一小时封锁附近所有的道路和小路，连警卫团的车辆也不例外。", "en": "Post No. 4 stands on the west side of People's Army Military Road 7351 near the guard regiment's barracks north of the Cadre Quarter. An hour before the leader's motorcade passes, the post closes every road and track nearby, the regiment's own vehicles included."}
     in: div_gt2h78
     at: [433.60, 544.00]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局专用公路第四哨所", "en": "Leader's Road Post No. 4, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局7351公路第四哨所", "en": "Road 7351 Post No. 4, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_w14t4p
     subtype: patrol_base
     status: generated
-    names: {"zh": "领袖专用公路第五哨所", "en": "Leader's Road Post No. 5"}
+    names: {"zh": "7351公路第五哨所", "en": "Road 7351 Post No. 5"}
     notes: {"zh": "第五哨所在海湾西北岸的狭长地带，这里公路贴着海边，西面就是菲拉纳的山林。哨所设有探照灯和警犬队，夜里每半小时沿公路巡查一次。", "en": "Post No. 5 stands on the narrow strip along the north-west shore of the bay, where the road runs close to the water with the forested hills of Firana to the west. It has searchlights and a dog team, and at night it patrols the road every half hour."}
     in: div_gt2h78
     at: [433.05, 547.60]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局专用公路第五哨所", "en": "Leader's Road Post No. 5, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局7351公路第五哨所", "en": "Road 7351 Post No. 5, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_mxvxwm
     subtype: patrol_base
     status: generated
-    names: {"zh": "领袖专用公路第六哨所", "en": "Leader's Road Post No. 6"}
-    notes: {"zh": "第六哨所在海湾北端，领袖专用公路在这里绕过海湾的尽头。附近的村庄在修路时全部迁走，原来的稻田改种了一排排高大的棕榈树，挡住从远处望向公路的视线。", "en": "Post No. 6 stands at the head of the bay, where the Leader's Road rounds the end of the water. The villages nearby were all moved away when the road was built, and their paddies were planted with rows of tall palms to screen the road from distant eyes."}
+    names: {"zh": "7351公路第六哨所", "en": "Road 7351 Post No. 6"}
+    notes: {"zh": "第六哨所在海湾北端，人民军军用7351公路在这里绕过海湾的尽头。附近的村庄在修路时全部迁走，原来的稻田改种了一排排高大的棕榈树，挡住从远处望向公路的视线。", "en": "Post No. 6 stands at the head of the bay, where People's Army Military Road 7351 rounds the end of the water. The villages nearby were all moved away when the road was built, and their paddies were planted with rows of tall palms to screen the road from distant eyes."}
     in: div_gt2h78
     at: [436.75, 554.35]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局专用公路第六哨所", "en": "Leader's Road Post No. 6, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局7351公路第六哨所", "en": "Road 7351 Post No. 6, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_9txsxc
     subtype: patrol_base
     status: generated
-    names: {"zh": "领袖专用公路第七哨所", "en": "Leader's Road Post No. 7"}
-    notes: {"zh": "第七哨所在海湾北端东侧的公路边，是领袖专用公路上最大的一座哨所，驻有一个警卫连和两辆装甲车，负责封锁公路与东海岸公路之间的地带。", "en": "Post No. 7 stands beside the road on the east side of the head of the bay; it is the largest post on the Leader's Road, holding a guard company and two armoured cars, and seals off the ground between the road and the East Coast Road."}
+    names: {"zh": "7351公路第七哨所", "en": "Road 7351 Post No. 7"}
+    notes: {"zh": "第七哨所在海湾北端东侧的公路边，是人民军军用7351公路上最大的一座哨所，驻有一个警卫连和两辆装甲车，负责封锁公路与东海岸公路之间的地带。", "en": "Post No. 7 stands beside the road on the east side of the head of the bay; it is the largest post on People's Army Military Road 7351, holding a guard company and two armoured cars, and seals off the ground between the road and the East Coast Road."}
     in: div_gt2h78
     at: [440.00, 556.00]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局专用公路第七哨所", "en": "Leader's Road Post No. 7, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 120, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局7351公路第七哨所", "en": "Road 7351 Post No. 7, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 120, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_b3gs08
     subtype: patrol_base
     status: generated
-    names: {"zh": "领袖专用公路第八哨所", "en": "Leader's Road Post No. 8"}
-    notes: {"zh": "第八哨所是领袖专用公路上的最后一道关卡，离首都西北郊的215设施不远。车队到达前，哨所要通知首都卫戍部门清空进城的道路。", "en": "Post No. 8 is the last barrier on the Leader's Road, a short way from Facility 215 on the north-western edge of the capital. Before the motorcade arrives, the post tells the capital garrison to clear the roads into the city."}
+    names: {"zh": "7351公路第八哨所", "en": "Road 7351 Post No. 8"}
+    notes: {"zh": "第八哨所是人民军军用7351公路上的最后一道关卡，离首都西北郊的215设施不远。车队到达前，哨所要通知首都卫戍部门清空进城的道路。", "en": "Post No. 8 is the last barrier on People's Army Military Road 7351, a short way from Facility 215 on the north-western edge of the capital. Before the motorcade arrives, the post tells the capital garrison to clear the roads into the city."}
     in: div_gt2h78
     at: [442.50, 553.00]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局专用公路第八哨所", "en": "Leader's Road Post No. 8, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局7351公路第八哨所", "en": "Road 7351 Post No. 8, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: bld_r9mev5
     subtype: office
     status: generated
@@ -1414,11 +1414,11 @@ places:
     subtype: military_base
     status: generated
     names: {"zh": "领袖保卫局第一警卫旅营区", "en": "1st Guard Brigade Barracks, Leader's Guard Bureau"}
-    notes: {"zh": "领袖保卫局第一警卫旅营区在拉诺迈措湖官邸区东南角，驻着负责守卫官邸区和领袖专用公路的第一警卫旅。警卫员从全国出身最好的青年中挑选，身高、相貌和三代家庭背景都要审查，服役期间不得结婚。", "en": "The 1st Guard Brigade Barracks, in the south-east corner of the Lake Ranomaitso Residences, house the brigade that guards the Residences and the Leader's Road. Its guards are picked from the young people of the best backgrounds in the country, vetted for height, looks and three generations of family history, and may not marry while they serve."}
+    notes: {"zh": "领袖保卫局第一警卫旅营区在拉诺迈措湖官邸区东南角，驻着负责守卫官邸区、人民军军用7351公路和8203铁路的第一警卫旅。全旅四千多人，是领袖保卫局在海湾西岸最大的部队，人数比当地的政治保卫部警卫团和人民军部队都多，装备着全国最新的坦克、步兵战车、自行高射炮和夜视器材，比一般的人民军部队精良齐全。警卫员从全国出身最好的青年中挑选，身高、相貌和三代家庭背景都要审查，服役期间不得结婚。", "en": "The 1st Guard Brigade Barracks, in the south-east corner of the Lake Ranomaitso Residences, house the brigade that guards the Residences, People's Army Military Road 7351 and Military Railway 8203. With more than four thousand soldiers it is the Leader's Guard Bureau's largest unit on the western shore of the bay, outnumbering both the Political Security Department's guard regiment and the People's Army units there, and it has the newest tanks, infantry fighting vehicles, self-propelled anti-aircraft guns and night-vision equipment in the country, better and more complete than any ordinary army unit. Its guards are picked from the young people of the best backgrounds in the country, vetted for height, looks and three generations of family history, and may not marry while they serve."}
     in: div_gt2h78
     at: [436.00, 520.30]
     site: {"layout": "camp", "size_m": [900, 700], "variant": "barracks", "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局第一警卫旅", "en": "1st Guard Brigade, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器、装甲车与防空武器", "en": "Small arms, armoured vehicles and air defence weapons"}, "personnel": 2400, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局第一警卫旅", "en": "1st Guard Brigade, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "主战坦克、步兵战车、自行高射炮、便携式防空导弹与夜视器材", "en": "Main battle tanks, infantry fighting vehicles, self-propelled anti-aircraft guns, shoulder-launched air defence missiles and night-vision equipment"}, "personnel": 4200, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_f69x9d
     subtype: orchard
     status: generated
@@ -1531,7 +1531,7 @@ places:
     subtype: mansion
     status: generated
     names: {"zh": "劳动党8号别墅", "en": "Workers' Party Villa No. 8"}
-    notes: {"zh": "劳动党8号别墅在湖西北的林子里，是国家保卫局局长的住所，四周的围墙比别的别墅高出一截，门口除了政治保卫部的警卫，还有国家保卫局自己的岗哨。", "en": "Workers' Party Villa No. 8, in the woods north-west of the lake, is the home of the Director of the State Protection Bureau; its walls stand a good deal higher than those of the other villas, and its gate is guarded by the Bureau's own sentries as well as the Political Security Department's."}
+    notes: {"zh": "劳动党8号别墅在湖西北的林子里，是国家保卫局局长的住所，四周的围墙比别的别墅高出一截，门口除了领袖保卫局的警卫，还有国家保卫局自己的岗哨。", "en": "Workers' Party Villa No. 8, in the woods north-west of the lake, is the home of the Director of the State Protection Bureau; its walls stand a good deal higher than those of the other villas, and its gate is guarded by the State Protection Bureau's own sentries as well as the Leader's Guard Bureau's."}
     in: div_gt2h78
     at: [427.70, 539.30]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
@@ -1682,7 +1682,7 @@ places:
     in: div_gt2h78
     at: [430.60, 534.40]
     site: {"layout": "bunker", "size_m": [500, 400], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "劳动党政治保卫部地下避难所管理处", "en": "Underground Shelter Office, Political Security Department"}, "branch": {"zh": "劳动党政治保卫部", "en": "Political Security Department of the Workers' Party"}, "equipment": {"zh": "地下指挥所、通信设备与储备物资", "en": "Underground command post, communications and stores"}, "personnel": 80, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局第二警卫旅地下避难所管理处", "en": "Underground Shelter Office, 2nd Guard Brigade, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "地下指挥所、通信设备与储备物资", "en": "Underground command post, communications and stores"}, "personnel": 80, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
   - id: bld_bjwqws
     subtype: hospital
     status: generated
@@ -1727,7 +1727,7 @@ places:
     subtype: government
     status: generated
     names: {"zh": "太阳宫", "en": "Palace of the Sun"}
-    notes: {"zh": "太阳宫是法里希凯利湖干部区中心的一座白色大理石宫殿，是劳动党在干部区举行庆典和接见的地方，名字取自象征创始领袖的太阳。宫殿是回字形的，正殿里立着一座创始领袖的镀金坐像，四壁的壁画描绘游击队在山林里作战和建国的情景。\n每年太阳节即创始领袖诞辰日，政治局委员、中央委员和人民军的将领清晨在这里集合，向创始领袖坐像献花宣誓，然后列队乘车经沃希阿拉隧道前往拉诺迈措湖官邸区，向领袖祝寿，日落前回到干部区，在太阳宫举行晚宴。干部晋升、授勋和退休的仪式也在太阳宫举行。宫殿平时由政治保卫部看守，干部区的孩子们只在太阳节那天被允许进去，在坐像前齐唱颂歌。", "en": "The Palace of the Sun is a white marble palace at the heart of the Lake Farihikely Cadre Quarter, where the Workers' Party holds ceremonies and receptions in the quarter; it is named after the sun that stands for the founding leader. It is built round a courtyard, with a gilded seated statue of the founding leader in the main hall and murals of the guerrillas fighting in the forested hills and founding the state on the walls.\nEvery Day of the Sun, the founding leader's birthday, the Politburo, the Central Committee and the generals of the People's Army gather here at dawn to lay flowers and swear an oath before the statue, then drive in procession through the Vohiala Tunnel to the Lake Ranomaitso Residences to wish the leader long life, returning to the quarter before sunset for a banquet at the palace. Promotions, decorations and retirements of cadres are also marked here. The Political Security Department guards it at other times, and the children of the quarter are let in only on the Day of the Sun, to sing hymns of praise before the statue."}
+    notes: {"zh": "太阳宫是法里希凯利湖干部区中心的一座白色大理石宫殿，是劳动党在干部区举行庆典和接见的地方，名字取自象征创始领袖的太阳。宫殿是回字形的，正殿里立着一座创始领袖的镀金坐像，四壁的壁画描绘游击队在山林里作战和建国的情景。\n每年太阳节即创始领袖诞辰日，政治局委员、中央委员和人民军的将领清晨在这里集合，向创始领袖坐像献花宣誓，然后列队乘车经沃希阿拉隧道前往拉诺迈措湖官邸区，向领袖祝寿，日落前回到干部区，在太阳宫举行晚宴。干部晋升、授勋和退休的仪式也在太阳宫举行。宫殿平时由领袖保卫局第二警卫旅看守，干部区的孩子们只在太阳节那天被允许进去，在坐像前齐唱颂歌。", "en": "The Palace of the Sun is a white marble palace at the heart of the Lake Farihikely Cadre Quarter, where the Workers' Party holds ceremonies and receptions in the quarter; it is named after the sun that stands for the founding leader. It is built round a courtyard, with a gilded seated statue of the founding leader in the main hall and murals of the guerrillas fighting in the forested hills and founding the state on the walls.\nEvery Day of the Sun, the founding leader's birthday, the Politburo, the Central Committee and the generals of the People's Army gather here at dawn to lay flowers and swear an oath before the statue, then drive in procession through the Vohiala Tunnel to the Lake Ranomaitso Residences to wish the leader long life, returning to the quarter before sunset for a banquet at the palace. Promotions, decorations and retirements of cadres are also marked here. The Leader's Guard Bureau's 2nd Guard Brigade guards it at other times, and the children of the quarter are let in only on the Day of the Sun, to sing hymns of praise before the statue."}
     in: div_gt2h78
     at: [430.40, 540.40]
     site: {"layout": "courtyard", "size_m": [400, 320], "angle_deg": 0, "rural": true}
@@ -1767,7 +1767,7 @@ places:
     subtype: military_base
     status: generated
     names: {"zh": "劳动党政治保卫部警卫团营区", "en": "Political Security Department Guard Regiment Barracks"}
-    notes: {"zh": "劳动党政治保卫部警卫团营区在干部区北端，驻着守卫法里希凯利湖干部区的警卫团。警卫团既保护干部，也监视干部：每座别墅门口的警卫都要每天向政治保卫部报告来访的客人和主人的去向。", "en": "The Political Security Department Guard Regiment Barracks, at the northern end of the Cadre Quarter, house the regiment that guards the Lake Farihikely Cadre Quarter. The regiment both protects the cadres and watches them: the guards at every villa gate report each day to the Political Security Department on who has called and where the owner has gone."}
+    notes: {"zh": "劳动党政治保卫部警卫团营区在干部区北端，离干部区的住宅很远，驻着守卫法里希凯利湖干部区外围的警卫团。干部区的核心道路和设施由领袖保卫局第二警卫旅把守，警卫团只负责外围的围墙、哨线、农场、停车场和转运站；但它既保护干部，也监视干部：干部区的司机、厨师和保姆中有不少是政治保卫部的线人，每天向警卫团报告来访的客人和主人的去向。", "en": "The Political Security Department Guard Regiment Barracks, at the northern end of the Cadre Quarter and far from its houses, are home to the regiment that guards the outer belt of the Lake Farihikely Cadre Quarter. The quarter's core roads and buildings are held by the Leader's Guard Bureau's 2nd Guard Brigade, and the regiment keeps only the outer walls and picket lines, the farms, the car park and the transfer station. Yet it watches the cadres as well as protecting them: many of the quarter's drivers, cooks and nannies inform for the Political Security Department and report to the regiment each day on who has called and where their employers have gone."}
     in: div_gt2h78
     at: [432.40, 545.00]
     site: {"layout": "camp", "size_m": [800, 600], "variant": "barracks", "angle_deg": 0, "rural": true}
@@ -2025,7 +2025,7 @@ places:
     subtype: government
     status: generated
     names: {"zh": "人民军工程兵司令部", "en": "People's Army Engineer Command"}
-    notes: {"zh": "人民军工程兵司令部在总司令部东南，负责全国的坑道工程、军用道路和桥梁。马索沃利几十年来在海岸和山区挖了大量坑道，拉诺迈措湖官邸区的地下避难所和领袖专用公路也是工程兵修建的；参加施工的士兵完工后往往被调往偏远的部队，不许谈论他们修过的工程。", "en": "The People's Army Engineer Command, south-east of the Supreme Command, is responsible for the country's tunnel works and military roads and bridges. Over the decades Masovoly has dug a great many tunnels in its coast and hills, and the engineers also built the underground shelters of the Lake Ranomaitso Residences and the Leader's Road; the soldiers who worked on them are usually posted to remote units afterwards and forbidden to speak of what they built."}
+    notes: {"zh": "人民军工程兵司令部在总司令部东南，负责全国的坑道工程、军用道路和桥梁。马索沃利几十年来在海岸和山区挖了大量坑道，拉诺迈措湖官邸区的地下避难所和人民军军用7351公路也是工程兵修建的；参加施工的士兵完工后往往被调往偏远的部队，不许谈论他们修过的工程。", "en": "The People's Army Engineer Command, south-east of the Supreme Command, is responsible for the country's tunnel works and military roads and bridges. Over the decades Masovoly has dug a great many tunnels in its coast and hills, and the engineers also built the underground shelters of the Lake Ranomaitso Residences and People's Army Military Road 7351; the soldiers who worked on them are usually posted to remote units afterwards and forbidden to speak of what they built."}
     in: div_gt2h78
     offset_km: [2.60, -1.20]
     site: {"layout": "slab", "size_m": [240, 140], "angle_deg": 0}
@@ -2229,6 +2229,305 @@ places:
     in: div_gt2h78
     offset_km: [4.60, -0.60]
     site: {"layout": "triangle", "size_m": [200, 200], "angle_deg": 0}
+  # ·· 两片住区的门禁、服务与外围警卫 / Gates, services and outer guard of the two compounds ··
+  - id: poi_thhya5
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "拉诺迈措湖官邸区北门检查站", "en": "Lake Ranomaitso Residences North Gate Checkpoint"}
+    notes: {"zh": "拉诺迈措湖官邸区北门检查站是人民军军用7351公路和8203铁路进入官邸区的关口，设在沃希阿拉丘陵东端与海湾之间的缺口南侧，由领袖保卫局第一警卫旅的一个营把守；除了只通北面干部区的沃希阿拉隧道，这里是官邸区与外界之间唯一的陆路关口。公路上设有三道铁门、车辆检查坑和防撞墩，西侧的铁路上另有一道可以横过轨道关闭的铁闸门。\n外面的车辆一律不得开进官邸区：工作人员和来访者在门外的北门停车场下车，经过搜身和证件核对，再换乘领袖保卫局的专用汽车进门。领袖的车队和「领袖号」专列过门时不停车，警卫营事先清空门前的道路和停车场。", "en": "The Lake Ranomaitso Residences North Gate Checkpoint is where People's Army Military Road 7351 and Military Railway 8203 enter the Residences, on the south side of the gap between the eastern end of the Vohiala Hills and the bay. A battalion of the Leader's Guard Bureau's 1st Guard Brigade holds it; apart from the Vohiala Tunnel, which leads only to the Cadre Quarter to the north, it is the Residences' only way in or out by land. The road passes three iron gates, a vehicle inspection pit and crash barriers, and another iron gate can be swung shut across the railway just to the west.\nNo outside vehicle may drive into the Residences: staff and visitors leave their cars at the North Gate Car Park outside, are searched and have their papers checked, and go on in Leader's Guard Bureau cars. The leader's motorcade and the Leader special train pass through without stopping, and the battalion clears the road and the car park in front of the gate beforehand."}
+    in: div_gt2h78
+    at: [435.36, 530.30]
+    site: {"layout": "checkpoint", "size_m": [600, 400], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第一警卫旅北门警卫营", "en": "North Gate Battalion, 1st Guard Brigade, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器、装甲车、车辆检查设备与警犬", "en": "Small arms, armoured vehicles, vehicle inspection equipment and dogs"}, "personnel": 400, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_a2dcgj
+    subtype: car_park
+    status: generated
+    names: {"zh": "拉诺迈措湖官邸区北门停车场", "en": "Lake Ranomaitso Residences North Gate Car Park"}
+    notes: {"zh": "拉诺迈措湖官邸区北门停车场在北门检查站外的海湾边，能停几百辆汽车和几十辆大客车，是官邸区工作人员和来访者换车的地方。官邸区的厨师、园丁、司机、仆役和维修工人绝大多数不准住在官邸区里，每天清晨乘领袖保卫局的通勤大客车从首都北郊的职工住宅区来到这里，在旁边的转运站换乘官邸区的专用汽车上班，傍晚再原路返回；来访的干部也把自己的汽车和司机留在这里。停车场四周围着铁丝网，夜里只留几辆值班车。", "en": "The Lake Ranomaitso Residences North Gate Car Park, by the bay outside the North Gate Checkpoint, holds several hundred cars and a few dozen coaches; it is where the Residences' staff and visitors change vehicles. Almost none of the Residences' cooks, gardeners, drivers, servants and maintenance workers may live inside, so every morning they ride Leader's Guard Bureau commuter coaches here from the staff housing on the northern edge of the capital, change at the transfer station next door into the Residences' own vehicles, and go back the same way in the evening; visiting cadres leave their cars and drivers here too. The car park is ringed with barbed wire, and at night only a few duty vehicles stay."}
+    in: div_gt2h78
+    at: [435.95, 531.10]
+    site: {"layout": "plaza", "size_m": [600, 400], "angle_deg": 0, "rural": true}
+  - id: poi_7ekrwy
+    subtype: transfer_station
+    status: generated
+    names: {"zh": "拉诺迈措湖官邸区北门转运站", "en": "Lake Ranomaitso Residences North Gate Transfer Station"}
+    notes: {"zh": "拉诺迈措湖官邸区北门转运站紧挨北门停车场，是官邸区工作人员换车和物资转运的地方，由领袖保卫局经营。站里有一座候车大厅、一排安检室和一座货物检查仓库：工作人员在这里交出随身物品，换上官邸区的工作服，按班次登上领袖保卫局的专用大客车进门；送进官邸区的粮食、燃料和物资也在这里卸车检查，再装上专用卡车。早班和晚班交接时，转运站里排着长队，每个人进出的时间都要登记。", "en": "The Lake Ranomaitso Residences North Gate Transfer Station, beside the North Gate Car Park, is where the Residences' staff change vehicles and supplies are transferred; the Leader's Guard Bureau runs it. It has a waiting hall, a row of search rooms and a goods inspection warehouse: staff hand in their belongings here, change into the Residences' work clothes and board Leader's Guard Bureau coaches by shift, while the food, fuel and supplies bound for the Residences are unloaded, inspected and reloaded onto the Bureau's own lorries. At the morning and evening changes of shift the queues are long, and every arrival and departure is logged."}
+    in: div_gt2h78
+    at: [436.00, 530.45]
+    site: {"layout": "complex", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+  - id: poi_67j02p
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "沃希阿拉隧道南口检查站", "en": "Vohiala Tunnel South Checkpoint"}
+    notes: {"zh": "沃希阿拉隧道南口检查站在人民军军用2964公路穿出沃希阿拉丘陵的南口外，是官邸区一侧的隧道关口，由领袖保卫局第一警卫旅的一个连把守。奉召来见领袖的干部乘领袖保卫局的汽车穿过隧道，在这里再查验一次证件；日落前，警卫连清点当天进入官邸区的人数，确认全部离开后关闭隧道的铁门。", "en": "The Vohiala Tunnel South Checkpoint, outside the southern mouth of the tunnel that carries People's Army Military Road 2964 through the Vohiala Hills, is the tunnel gate on the Residences' side, held by a company of the Leader's Guard Bureau's 1st Guard Brigade. Cadres summoned to the leader come through the tunnel in Bureau cars and have their papers checked once more here; before sunset the company counts everyone who has entered the Residences that day and closes the tunnel's iron gates once all have left."}
+    in: div_gt2h78
+    at: [431.71, 530.20]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第一警卫旅隧道警卫连", "en": "Tunnel Guard Company, 1st Guard Brigade, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 120, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_7x3fkq
+    subtype: golf_course
+    status: generated
+    names: {"zh": "拉诺迈措湖高尔夫球场", "en": "Lake Ranomaitso Golf Course"}
+    notes: {"zh": "拉诺迈措湖高尔夫球场在官邸区东南部的缓坡上，是一座九洞球场，草种从国外进口，由官邸区管理处的园丁每天修剪。领袖在这里打球时，四周由领袖保卫局的警卫封锁，球童和计分员都由警卫员兼任。官方一直称干部区的法里希凯利湖高尔夫球场为全国唯一的高尔夫球场，这座球场不出现在任何公开的记录里。", "en": "The Lake Ranomaitso Golf Course, on the gentle slopes in the south-east of the Residences, is a nine-hole course laid with imported grass and mown every day by the Residences Administration's gardeners. When the leader plays, Leader's Guard Bureau guards seal it off and serve as his caddies and scorers. Officially the Lake Farihikely Golf Course in the Cadre Quarter is the only golf course in the country; this one appears in no public record."}
+    in: div_gt2h78
+    at: [434.40, 518.40]
+    site: {"layout": "park", "size_m": [1200, 800], "angle_deg": 0, "rural": true}
+  - id: bld_ycjv31
+    subtype: theatre
+    status: generated
+    names: {"zh": "拉诺迈措湖剧院", "en": "Lake Ranomaitso Theatre"}
+    notes: {"zh": "拉诺迈措湖剧院在拉诺迈措湖南岸，是一座可坐三百人的剧场，舞台和灯光设备从国外进口。国家歌剧团、人民军协奏团和少年宫排练的新节目，都要先在这里为领袖一家演出，领袖看过才能在首都公演。演员和乐师清晨从北门转运站乘车进来，演出总在午后开始、日落前散场，散场后当天离开，不在官邸区留宿。", "en": "The Lake Ranomaitso Theatre, on the south shore of Lake Ranomaitso, seats three hundred, with stage and lighting equipment imported from abroad. Every new production of the National Opera, the People's Army Ensemble and the Children's Palace is performed here for the leader's family first and may open in the capital only once the leader has seen it. The performers come in by car from the North Gate Transfer Station in the morning; shows always begin after midday and end before sunset, and the company leaves the same day without staying the night."}
+    in: div_gt2h78
+    at: [430.30, 523.90]
+    site: {"layout": "hall", "size_m": [220, 160], "angle_deg": 0, "rural": true}
+  - id: poi_ygqdd7
+    subtype: sports_ground
+    status: generated
+    names: {"zh": "拉诺迈措湖网球场", "en": "Lake Ranomaitso Tennis Courts"}
+    notes: {"zh": "拉诺迈措湖网球场在金塔纳湖南岸，有四片室外硬地球场和一座带看台的室内球场，是领袖子女和他们的伙伴打球的地方。教练从人民军体育团挑选，陪打的警卫员都受过专门训练；球场边的饮料和毛巾也要经领袖保卫局医院检验后才能送来。", "en": "The Lake Ranomaitso Tennis Courts, on the south shore of Lake Kintana, have four outdoor hard courts and an indoor court with a stand, where the leader's children and their companions play. Their coaches are chosen from the People's Army sports team, the guards who play with them are specially trained, and even the drinks and towels at the courtside are tested at the Leader's Guard Bureau Hospital first."}
+    in: div_gt2h78
+    at: [433.30, 526.60]
+    site: {"layout": "plaza", "size_m": [240, 160], "angle_deg": 0, "rural": true}
+  - id: bld_m9xtgc
+    subtype: stadium
+    status: generated
+    names: {"zh": "领袖保卫局体育馆", "en": "Leader's Guard Bureau Sports Hall"}
+    notes: {"zh": "领袖保卫局体育馆在官邸区西南部，是一座综合体育馆，有篮球场、排球场、健身房、保龄球道和室内射箭场，平时供第一警卫旅的官兵训练，领袖和家人来时全馆清场。每年人民军篮球联赛结束后，冠军队会被请到这里与警卫旅的球队打一场表演赛。", "en": "The Leader's Guard Bureau Sports Hall, in the south-west of the Residences, has basketball and volleyball courts, a gymnasium, bowling lanes and an indoor archery range; the soldiers of the 1st Guard Brigade train here, and the whole hall is cleared when the leader and his family come. Each year, when the People's Army basketball league is over, the champions are invited to play an exhibition game here against the brigade's team."}
+    in: div_gt2h78
+    at: [430.00, 522.50]
+    site: {"layout": "stadium", "size_m": [260, 200], "angle_deg": 0, "rural": true}
+  - id: poi_hpcqrs
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "沃希阿拉隧道北口检查站", "en": "Vohiala Tunnel North Checkpoint"}
+    notes: {"zh": "沃希阿拉隧道北口检查站在人民军军用2964公路进入沃希阿拉丘陵的北口外，是干部区一侧的隧道关口，由领袖保卫局第二警卫旅的一个连把守。奉召去见领袖的干部在干部区管理局门前换乘领袖保卫局的汽车，到这里接受搜身和证件检查，随身的文件包要打开查验，然后才能进入隧道。检查站旁有一小片停车场，供领袖保卫局的接送车辆等候。", "en": "The Vohiala Tunnel North Checkpoint, outside the northern mouth of the tunnel that carries People's Army Military Road 2964 into the Vohiala Hills, is the tunnel gate on the Cadre Quarter's side, held by a company of the Leader's Guard Bureau's 2nd Guard Brigade. Cadres summoned to the leader change into Bureau cars at the Cadre Quarter Administration and are searched and have their papers checked here, their briefcases opened, before they may enter the tunnel. A small car park beside the checkpoint holds the Bureau's cars while they wait."}
+    in: div_gt2h78
+    at: [431.41, 533.00]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第二警卫旅隧道警卫连", "en": "Tunnel Guard Company, 2nd Guard Brigade, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 120, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_1z91f7
+    subtype: military_base
+    status: generated
+    names: {"zh": "领袖保卫局第二警卫旅营区", "en": "2nd Guard Brigade Barracks, Leader's Guard Bureau"}
+    notes: {"zh": "领袖保卫局第二警卫旅营区在法里希凯利湖干部区南端、沃希阿拉丘陵北麓的海湾边，远离干部区的住宅，驻着负责干部区核心道路和设施的第二警卫旅。别墅、太阳宫、全会大礼堂、劳动党中央地下避难所、干部区北门和沃希阿拉隧道北口的警卫都由这个旅派出；劳动党政治保卫部的警卫团只负责干部区的外围。干部们心里明白，站在别墅门口的不是党的人，而是领袖的人。", "en": "The 2nd Guard Brigade Barracks, at the southern end of the Lake Farihikely Cadre Quarter by the bay below the northern slopes of the Vohiala Hills and well away from the quarter's houses, are home to the brigade that guards the quarter's core roads and buildings. The guards of the villas, the Palace of the Sun, the Plenum Hall, the Central Underground Shelter, the quarter's North Gate and the northern mouth of the Vohiala Tunnel all come from it; the Political Security Department's guard regiment keeps only the quarter's outer belt. The cadres know that the men at their gates belong not to the party but to the leader."}
+    in: div_gt2h78
+    at: [434.10, 532.90]
+    site: {"layout": "camp", "size_m": [900, 700], "variant": "barracks", "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第二警卫旅", "en": "2nd Guard Brigade, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器、步兵战车与防空武器", "en": "Small arms, infantry fighting vehicles and air defence weapons"}, "personnel": 1800, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_6ewtge
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "法里希凯利湖干部区北门检查站", "en": "Lake Farihikely Cadre Quarter North Gate Checkpoint"}
+    notes: {"zh": "法里希凯利湖干部区北门检查站是人民军军用5108公路进入法里希凯利湖干部区的关口，由领袖保卫局第二警卫旅的一个营把守，门外的停车场和转运站则由劳动党政治保卫部的警卫团看守。外面的汽车一律停在门外，干部区的居民进出要出示干部证，工作人员和访客要搜身、登记，换乘干部区管理局的专用汽车进门。政治局委员的车队过门时不停车，但每一辆车的车牌和进出时间都要记下，当天报给领袖保卫局和政治保卫部。", "en": "The Lake Farihikely Cadre Quarter North Gate Checkpoint is where People's Army Military Road 5108 enters the Lake Farihikely Cadre Quarter. A battalion of the Leader's Guard Bureau's 2nd Guard Brigade holds the gate, while the Political Security Department's guard regiment watches the car park and transfer station outside it. Outside cars must all stop at the gate; residents show their cadre's cards, and staff and visitors are searched, logged and taken in by the Cadre Quarter Administration's own vehicles. Politburo members' motorcades go through without stopping, but every car's number and time in or out is noted and reported the same day to the Leader's Guard Bureau and the Political Security Department."}
+    in: div_gt2h78
+    at: [432.20, 546.30]
+    site: {"layout": "checkpoint", "size_m": [600, 400], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第二警卫旅北门警卫营", "en": "North Gate Battalion, 2nd Guard Brigade, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器、装甲车、车辆检查设备与警犬", "en": "Small arms, armoured vehicles, vehicle inspection equipment and dogs"}, "personnel": 300, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_fa0n5k
+    subtype: car_park
+    status: generated
+    names: {"zh": "法里希凯利湖干部区北门停车场", "en": "Lake Farihikely Cadre Quarter North Gate Car Park"}
+    notes: {"zh": "法里希凯利湖干部区北门停车场在北门检查站外，由劳动党政治保卫部的警卫团看守，能停几百辆汽车和几十辆大客车。干部区的司机、厨师、保姆、园丁和维修工人大多住在首都北郊的劳动党总务局职工住宅区，每天乘总务局的通勤大客车来到这里，在旁边的转运站换车进门；外地奉召前来的干部和兄弟党代表团的车队也停在这里。", "en": "The Lake Farihikely Cadre Quarter North Gate Car Park, outside the North Gate Checkpoint and watched by the Political Security Department's guard regiment, holds several hundred cars and a few dozen coaches. Most of the quarter's drivers, cooks, nannies, gardeners and maintenance workers live in the General Affairs Bureau's staff housing on the northern edge of the capital and come here each day by the bureau's commuter coaches, changing vehicles at the transfer station next door; the cars of provincial cadres summoned to the quarter and of fraternal party delegations wait here too."}
+    in: div_gt2h78
+    at: [432.60, 547.00]
+    site: {"layout": "plaza", "size_m": [600, 400], "angle_deg": 0, "rural": true}
+  - id: poi_s8hmz0
+    subtype: transfer_station
+    status: generated
+    names: {"zh": "法里希凯利湖干部区北门转运站", "en": "Lake Farihikely Cadre Quarter North Gate Transfer Station"}
+    notes: {"zh": "法里希凯利湖干部区北门转运站紧挨北门停车场，是干部区的工作人员换车和物资转运的地方。工作人员在这里排队过安检，交出随身物品，按班次登上干部区管理局的专用大客车进门；运进干部区的特供物资在这里卸车，经政治保卫部检查后再装上管理局的卡车。工作人员每三个月轮换一次岗位，以免与服务的人家走得太近。", "en": "The Lake Farihikely Cadre Quarter North Gate Transfer Station, beside the North Gate Car Park, is where the quarter's staff change vehicles and supplies are transferred. Staff queue through security here, hand in their belongings and board the Cadre Quarter Administration's coaches by shift; special supplies for the quarter are unloaded, inspected by the Political Security Department and loaded onto the Administration's lorries. Staff are moved to new posts every three months, lest they grow too close to the households they serve."}
+    in: div_gt2h78
+    at: [432.60, 546.55]
+    site: {"layout": "complex", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+  - id: poi_7vftgd
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "4617铁路干部区北检查站", "en": "Railway 4617 Cadre Quarter North Checkpoint"}
+    notes: {"zh": "4617铁路干部区北检查站设在人民军军用4617铁路驶出法里希凯利湖干部区的地方，由领袖保卫局第二警卫旅派兵把守。「一心号」专列每次经过都要在这里停车，警卫上车清点乘客人数，与干部区管理局报来的名单核对无误后才放行；只有「领袖号」专列可以不停车通过。", "en": "The Railway 4617 Cadre Quarter North Checkpoint, where People's Army Military Railway 4617 leaves the Lake Farihikely Cadre Quarter, is manned by the Leader's Guard Bureau's 2nd Guard Brigade. The One Heart special train stops here every time while guards board to count the passengers against the list sent by the Cadre Quarter Administration, and it goes on only once the two agree; only the Leader special train may pass without stopping."}
+    in: div_gt2h78
+    at: [429.25, 544.90]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第二警卫旅铁路检查站", "en": "Railway Checkpoint, 2nd Guard Brigade, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_f1s9am
+    subtype: orchard
+    status: generated
+    names: {"zh": "法里希凯利湖特供农场", "en": "Lake Farihikely Special Supply Farm"}
+    notes: {"zh": "法里希凯利湖特供农场在干部区西部的山谷里，由劳动党总务局经营，为干部区的各家各户种植稻米、蔬菜、水果和茶叶，田边的围墙由劳动党政治保卫部的警卫团看守。农工从菲拉纳的国营农场挑选，住在农场外的宿舍里，不准进入干部区；收获的粮食和蔬菜先送到旁边的食品加工厂化验和包装，再按职务分配到各家。", "en": "The Lake Farihikely Special Supply Farm, in a valley in the west of the Cadre Quarter, is run by the Workers' Party General Affairs Bureau and grows rice, vegetables, fruit and tea for the quarter's households; the Political Security Department's guard regiment watches its walls. Its farmhands are picked from the state farms of Firana and live in quarters outside the farm, barred from the Cadre Quarter itself; the harvest goes first to the food processing plant next door to be tested and packed, then out to each household by rank."}
+    in: div_gt2h78
+    at: [425.90, 540.30]
+    site: {"layout": "orchard", "size_m": [1000, 700], "angle_deg": 0, "rural": true}
+  - id: poi_6bn341
+    subtype: livestock_farm
+    status: generated
+    names: {"zh": "法里希凯利湖养殖场", "en": "Lake Farihikely Livestock Farm"}
+    notes: {"zh": "法里希凯利湖养殖场在特供农场旁边，由劳动党总务局经营，饲养奶牛、猪和鸡，鱼塘里养着罗非鱼，供应干部区的肉、蛋、奶和鱼。饲料由总务局从国外进口，兽医每周给牲畜检查一次；干部区吃不完的部分送往首都劳动党机关的食堂，从不进入普通商店。", "en": "The Lake Farihikely Livestock Farm, next to the Special Supply Farm and run by the General Affairs Bureau, keeps dairy cows, pigs and chickens, with tilapia in its ponds, and supplies the Cadre Quarter's meat, eggs, milk and fish. Its feed is imported by the bureau, a vet examines the animals every week, and whatever the quarter cannot eat goes to the canteens of the party offices in the capital, never to an ordinary shop."}
+    in: div_gt2h78
+    at: [425.50, 541.30]
+    site: {"layout": "campus", "size_m": [600, 400], "angle_deg": 0, "rural": true}
+  - id: poi_h1r09g
+    subtype: factory
+    status: generated
+    names: {"zh": "法里希凯利湖食品加工厂", "en": "Lake Farihikely Food Processing Plant"}
+    notes: {"zh": "法里希凯利湖食品加工厂在特供农场和养殖场之间，由劳动党总务局经营，有碾米、屠宰、奶品、面包和罐头车间，把农场和养殖场的产品加工成干部区每月的特供食品。每一批产品都要留样送到万寿无疆健康研究所化验，合格后贴上编号封条，才能送进干部区。", "en": "The Lake Farihikely Food Processing Plant, between the Special Supply Farm and the Livestock Farm and run by the General Affairs Bureau, has rice-milling, slaughtering, dairy, bakery and canning shops that turn the farms' produce into the Cadre Quarter's monthly special rations. A sample of every batch goes to the Institute of Eternal Health for testing, and only once it passes is the batch sealed with a numbered strip and sent into the quarter."}
+    in: div_gt2h78
+    at: [426.30, 541.30]
+    site: {"layout": "complex", "size_m": [400, 250], "angle_deg": 0, "rural": true}
+  - id: bld_pvm0ca
+    subtype: theatre
+    status: generated
+    names: {"zh": "劳动党中央剧场", "en": "Workers' Party Central Theatre"}
+    notes: {"zh": "劳动党中央剧场在法里希凯利湖干部区东部，是一座可坐六百人的剧场，为干部区的居民演出歌剧、话剧和革命歌舞。新排的大型歌舞剧在首都公演之前，都要先在这里为政治局委员演出，由宣传鼓动部根据他们的意见修改。演员演出后当天乘车离开，不准在干部区过夜。", "en": "The Workers' Party Central Theatre, in the east of the Lake Farihikely Cadre Quarter, seats six hundred and stages opera, plays and revolutionary song and dance for the quarter's residents. Every new large-scale revue is performed here for the Politburo before it opens in the capital, and the Propaganda and Agitation Department revises it in the light of their comments. The performers leave by car the same day and may not stay the night in the quarter."}
+    in: div_gt2h78
+    at: [433.70, 541.60]
+    site: {"layout": "hall", "size_m": [240, 180], "angle_deg": 0, "rural": true}
+  - id: poi_s8p08s
+    subtype: sports_ground
+    status: generated
+    names: {"zh": "法里希凯利湖网球场", "en": "Lake Farihikely Tennis Courts"}
+    notes: {"zh": "法里希凯利湖网球场在法里希凯利湖南面，有六片红土球场和一座小看台。网球是干部区最时兴的运动，周末的球场上常能见到几位政治局委员同场，干部们说，在球场边听到的消息比在办公楼里还多。球场由领袖保卫局第二警卫旅看守，陪打的教练从人民军体育团借调。", "en": "The Lake Farihikely Tennis Courts, south of Lake Farihikely, have six clay courts and a small stand. Tennis is the most fashionable sport in the Cadre Quarter, and on weekends several Politburo members can often be seen on court together; the cadres say more news is heard at the courtside than in the office buildings. The 2nd Guard Brigade of the Leader's Guard Bureau guards the courts, and the coaches are on loan from the People's Army sports team."}
+    in: div_gt2h78
+    at: [429.30, 534.60]
+    site: {"layout": "plaza", "size_m": [240, 160], "angle_deg": 0, "rural": true}
+  - id: bld_81tpzg
+    subtype: stadium
+    status: generated
+    names: {"zh": "劳动党中央体育馆", "en": "Workers' Party Central Sports Hall"}
+    notes: {"zh": "劳动党中央体育馆在干部区南部的山脚下，有室内游泳池、篮球场、乒乓球室和健身房，是干部和家属锻炼身体的地方。万寿无疆健康研究所的医生为年老的政治局委员在这里安排每天的保健操和水疗，锻炼的时间和项目都记入他们的健康档案。", "en": "The Workers' Party Central Sports Hall, at the foot of the hills in the south of the Cadre Quarter, has an indoor pool, basketball courts, a table-tennis room and a gymnasium where cadres and their families exercise. Doctors from the Institute of Eternal Health set the older Politburo members their daily exercises and water therapy here, and the time and kind of every session go into their health records."}
+    in: div_gt2h78
+    at: [428.60, 534.30]
+    site: {"layout": "stadium", "size_m": [260, 200], "angle_deg": 0, "rural": true}
+  - id: poi_ptw67x
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "8203铁路第一检查站", "en": "Railway 8203 Checkpoint No. 1"}
+    notes: {"zh": "8203铁路第一检查站设在人民军军用8203铁路经过法里希凯利湖干部区东侧的地方，铁路两旁拉着双层铁丝网，把干部区与铁路隔开。检查站每天巡查一遍附近的线路；「领袖号」专列开来前一小时，站上的警卫沿铁路两侧排开，背对铁路站岗，专列不停车通过。", "en": "Railway 8203 Checkpoint No. 1 stands where People's Army Military Railway 8203 passes the east side of the Lake Farihikely Cadre Quarter, with a double wire fence on either side of the track to keep the two apart. Its guards walk the nearby line once a day; an hour before the Leader special train is due they line both sides of the track with their backs to it, and the train passes without stopping."}
+    in: div_gt2h78
+    at: [434.92, 538.00]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局8203铁路第一检查站", "en": "Railway 8203 Checkpoint No. 1, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_e5zjpq
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "8203铁路第二检查站", "en": "Railway 8203 Checkpoint No. 2"}
+    notes: {"zh": "8203铁路第二检查站在海湾西北岸，铁路在这里与人民军军用7351公路并行。领袖保卫局的养路车和每次先行开过全线的空车都在这里停车受检，司机的证件和车上的工具逐一核对；只有「领袖号」专列可以不停车通过。", "en": "Railway 8203 Checkpoint No. 2 is on the north-western shore of the bay, where the railway runs beside People's Army Military Road 7351. The Leader's Guard Bureau's track maintenance vehicles and the empty pilot train that runs ahead over the line each time all stop here to be checked, their drivers' papers and tools gone over one by one; only the Leader special train may pass without stopping."}
+    in: div_qe8t49
+    at: [433.50, 548.80]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局8203铁路第二检查站", "en": "Railway 8203 Checkpoint No. 2, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_6zapp7
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "8203铁路第三检查站", "en": "Railway 8203 Checkpoint No. 3"}
+    notes: {"zh": "8203铁路第三检查站在海湾北端，是人民军军用8203铁路进入首都郊外之前的最后一道关卡。附近与铁路相交的乡间道路都装着栏杆，专列开来前由检查站的警卫放下；偶尔有误入铁路附近的村民，会被带到检查站盘问。", "en": "Railway 8203 Checkpoint No. 3, at the head of the bay, is the last barrier on People's Army Military Railway 8203 before it reaches the outskirts of the capital. The country lanes that cross the line nearby all have barriers, lowered by the checkpoint's guards before the special train comes; villagers who stray near the track are now and then brought in for questioning."}
+    in: div_gt2h78
+    at: [439.33, 554.20]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局8203铁路第三检查站", "en": "Railway 8203 Checkpoint No. 3, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_s652nk
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "4617铁路第一检查站", "en": "Railway 4617 Checkpoint No. 1"}
+    notes: {"zh": "4617铁路第一检查站在人民军军用4617铁路驶出干部区后向北穿过的山谷里。「一心号」专列在这里减速通过，检查站把列车经过的时间报给前方的检查站，前后两站的时间对不上，就要拦车检查。", "en": "Railway 4617 Checkpoint No. 1 is in the valley that People's Army Military Railway 4617 follows north after leaving the Cadre Quarter. The One Heart special train slows down as it passes, and the checkpoint reports the time to the next one along; if the two times do not tally, the train is stopped and searched."}
+    in: div_qe8t49
+    at: [429.07, 549.52]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局4617铁路第一检查站", "en": "Railway 4617 Checkpoint No. 1, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_wdjtjr
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "4617铁路第二检查站", "en": "Railway 4617 Checkpoint No. 2"}
+    notes: {"zh": "4617铁路第二检查站在海湾北面的平原上，铁路在这里离人民军军用5108公路最远，北面不远就是与阿瓦拉齐的边界，四周是迁走了村庄的稻田。检查站有一座瞭望塔和一支巡道小队，沿线巡查有没有人靠近铁路。", "en": "Railway 4617 Checkpoint No. 2 stands on the plain north of the bay, where the railway runs farthest from People's Army Military Road 5108 and close to the border with Avaratsy, among paddies whose villages were moved away. It has a watchtower and a track patrol that walks the line looking for anyone coming near."}
+    in: div_qe8t49
+    at: [434.00, 555.55]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局4617铁路第二检查站", "en": "Railway 4617 Checkpoint No. 2, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_06qhm8
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "4617铁路第三检查站", "en": "Railway 4617 Checkpoint No. 3"}
+    notes: {"zh": "4617铁路第三检查站在首都北郊，是「一心号」专列驶进首都、到达劳动党中央委员会专用站之前的最后一道关卡。早晨进城的列车在这里停车，领袖保卫局的警卫再清点一次乘客，然后才放行进城。", "en": "Railway 4617 Checkpoint No. 3, on the northern edge of the capital, is the last barrier before the One Heart special train enters the city and reaches the Central Committee Station. Morning trains into town stop here while Leader's Guard Bureau guards count the passengers once more before letting them through."}
+    in: div_gt2h78
+    at: [444.67, 554.62]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局4617铁路第三检查站", "en": "Railway 4617 Checkpoint No. 3, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_etwzj7
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "5108公路第一检查站", "en": "Road 5108 Checkpoint No. 1"}
+    notes: {"zh": "5108公路第一检查站在人民军军用5108公路驶出干部区北门以后的第一个山口，过往车辆要出示领袖保卫局签发的通行证。干部区的车辆在北门已经检查过，到这里只核对车牌和人数。", "en": "Road 5108 Checkpoint No. 1 is at the first pass on People's Army Military Road 5108 beyond the Cadre Quarter's North Gate, where vehicles must show a pass issued by the Leader's Guard Bureau. Cars from the quarter, already searched at the gate, have only their numbers and passengers checked here."}
+    in: div_qe8t49
+    at: [432.00, 550.00]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局5108公路第一检查站", "en": "Road 5108 Checkpoint No. 1, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_n64djr
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "5108公路第二检查站", "en": "Road 5108 Checkpoint No. 2"}
+    notes: {"zh": "5108公路第二检查站在海湾北面，公路在这里绕过海湾的尽头。检查站驻着一个警卫排，负责封锁公路两侧的乡间小路；政治局委员的车队经过前，附近的村民不得走出家门。", "en": "Road 5108 Checkpoint No. 2, north of the bay where the road rounds its head, holds a guard platoon that seals the country lanes on either side; before a Politburo member's motorcade passes, the people of the villages nearby may not leave their houses."}
+    in: div_qe8t49
+    at: [438.00, 557.40]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局5108公路第二检查站", "en": "Road 5108 Checkpoint No. 2, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_0sdjbe
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "5108公路第三检查站", "en": "Road 5108 Checkpoint No. 3"}
+    notes: {"zh": "5108公路第三检查站在首都北郊，是人民军军用5108公路进城之前的最后一道关卡。车队到达前，检查站通知首都卫戍部门清空通往劳动党机关建筑群的街道。", "en": "Road 5108 Checkpoint No. 3, on the northern edge of the capital, is the last barrier on People's Army Military Road 5108 before it enters the city. Before a motorcade arrives, it tells the capital garrison to clear the streets to the Workers' Party buildings."}
+    in: div_gt2h78
+    at: [443.30, 551.50]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局5108公路第三检查站", "en": "Road 5108 Checkpoint No. 3, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_qm34sh
+    subtype: military_base
+    status: generated
+    names: {"zh": "人民军陆军第一特种作战旅营区", "en": "People's Army 1st Special Operations Brigade Barracks"}
+    notes: {"zh": "人民军陆军第一特种作战旅营区在拉诺迈措湖官邸区南面的丘陵里，驻着人民军总政治部派来守卫官邸区外围的陆军第一特种作战旅。旅里的官兵经过总政治部的政治审查，负责官邸区南面和西面山林的巡逻和警戒，但不准进入官邸区，与官邸区之间隔着一道雷区和铁丝网。按照规定，旅的弹药由领袖保卫局582设施分批调拨，营区里只存放几天的用量。", "en": "The People's Army 1st Special Operations Brigade Barracks, in the hills south of the Lake Ranomaitso Residences, house the army brigade that the People's Army General Political Department posts to guard the Residences' outer ring. Its soldiers, vetted by the General Political Department, patrol and watch the forested hills south and west of the Residences, but may not enter them and are kept apart by a minefield and wire. By regulation the brigade draws its ammunition in instalments from Leader's Guard Bureau Facility 582 and keeps only a few days' supply in barracks."}
+    in: div_gt2h78
+    at: [429.50, 517.80]
+    site: {"layout": "camp", "size_m": [900, 700], "variant": "barracks", "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "人民军陆军第一特种作战旅", "en": "1st Special Operations Brigade, People's Army"}, "branch": {"zh": "人民军", "en": "People's Army"}, "equipment": {"zh": "轻武器、狙击步枪与轻型装甲车", "en": "Small arms, sniper rifles and light armoured vehicles"}, "personnel": 1100, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_1ry2z2
+    subtype: military_base
+    status: generated
+    names: {"zh": "人民军陆军第二特种作战旅营区", "en": "People's Army 2nd Special Operations Brigade Barracks"}
+    notes: {"zh": "人民军陆军第二特种作战旅营区在法里希凯利湖干部区以西，驻着人民军总政治部派来守卫干部区外围的陆军第二特种作战旅，与人民军空军的6083机场一起守着干部区西面通往东海岸公路的山地。旅的巡逻范围止于政治保卫部警卫团的外围哨线，官兵不准与干部区里的任何人接触。", "en": "The People's Army 2nd Special Operations Brigade Barracks, west of the Lake Farihikely Cadre Quarter, house the army brigade that the General Political Department posts to guard the quarter's outer ring; with Air Force Airfield 6083 it holds the hills west of the quarter towards the East Coast Road. Its patrols stop at the Political Security Department guard regiment's outer picket line, and its soldiers may have no contact with anyone inside the quarter."}
+    in: div_qe8t49
+    at: [423.50, 543.50]
+    site: {"layout": "camp", "size_m": [900, 700], "variant": "barracks", "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "人民军陆军第二特种作战旅", "en": "2nd Special Operations Brigade, People's Army"}, "branch": {"zh": "人民军", "en": "People's Army"}, "equipment": {"zh": "轻武器、狙击步枪与轻型装甲车", "en": "Small arms, sniper rifles and light armoured vehicles"}, "personnel": 1100, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: bld_x1803n
+    subtype: command_centre
+    status: generated
+    names: {"zh": "领袖保卫局总部", "en": "Leader's Guard Bureau Headquarters"}
+    notes: {"zh": "领袖保卫局总部在首都安德里安巴永生宫西面，是领袖保卫局的指挥机关，局长姆博拉·拉钦巴上将在这里办公。领袖保卫局直属劳动党第一书记，负责领袖和家人的安全，守卫永生宫、拉诺迈措湖官邸区和法里希凯利湖干部区的核心道路和设施，并经营人民军军用7351、2964、5108公路和8203、4617铁路。局长名义上与人民军的上将同级，实际权力却在政治保卫部部长和人民军总参谋长之上：人民军和政治保卫部的部队调近首都和两片住区，都要事先报告领袖保卫局。\n领袖保卫局下辖第一、第二警卫旅和贴身警卫处、航空队、车辆队、通信营、防空营，在海湾西岸驻有九千多人，比当地的政治保卫部部队和人民军部队加起来还多，装备也比一般的人民军部队精良齐全，第一警卫旅装备着全国最新的坦克、步兵战车和防空导弹。总部大楼没有门牌，外墙不挂任何标志，门前的街道禁止停车，楼下据说有坑道直通永生宫。", "en": "The Leader's Guard Bureau Headquarters, west of the Palace of Eternity in the capital, Andriamba, is the Bureau's command, where its director, Colonel General Mbola Ratsimba, has his office. Answerable directly to the First Secretary of the Workers' Party, the Bureau protects the leader and his family, guards the Palace of Eternity and the core roads and buildings of the Lake Ranomaitso Residences and the Lake Farihikely Cadre Quarter, and runs People's Army Military Roads 7351, 2964 and 5108 and Military Railways 8203 and 4617. Its director ranks on paper with the People's Army's colonel generals but in fact outweighs the Director of the Political Security Department and the Chief of the General Staff: no unit of the army or the department may be moved near the capital or the two compounds without first informing the Bureau.\nThe Bureau commands the 1st and 2nd Guard Brigades, the Close Protection Department, a flight, a vehicle unit and signals and air defence battalions; it keeps more than nine thousand people on the western shore of the bay, more than the Political Security Department and the People's Army have there together, and they are better and more fully equipped than ordinary army units, the 1st Guard Brigade having the newest tanks, infantry fighting vehicles and air defence missiles in the country. The headquarters building has no number and no sign on its walls, parking is forbidden in the street outside, and tunnels are said to run beneath it to the Palace of Eternity."}
+    in: div_gt2h78
+    offset_km: [-2.43, 0.42]
+    site: {"layout": "complex", "size_m": [300, 220], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局机关", "en": "Leader's Guard Bureau command"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "指挥通信中心与首都警卫车队", "en": "Command and signals centre and the capital escort convoy"}, "personnel": 900, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: bld_6zkk6h
+    subtype: housing
+    status: generated
+    names: {"zh": "领袖保卫局职工住宅区", "en": "Leader's Guard Bureau Staff Housing"}
+    notes: {"zh": "领袖保卫局职工住宅区在首都北郊，是几排整齐的五层公寓楼，住着在拉诺迈措湖官邸区轮班的厨师、园丁、司机、仆役、维修工人和他们的家属。官邸区的工作人员绝大多数不准住在官邸区里，只能住在这里，按早晚两班乘领袖保卫局的通勤大客车去北门转运站上班。住宅区四周围着围墙，门口有领袖保卫局的岗哨，住户不得向外人谈论自己的工作，探亲访友要事先报告。", "en": "The Leader's Guard Bureau Staff Housing, on the northern edge of the capital, is rows of neat five-storey blocks housing the cooks, gardeners, drivers, servants and maintenance workers who work shifts at the Lake Ranomaitso Residences, and their families. Almost none of the Residences' staff may live inside, so they live here and ride the Bureau's commuter coaches to the North Gate Transfer Station for the morning and evening shifts. The estate is walled, with a Bureau sentry post at the gate; residents may not speak of their work to outsiders and must report visits to family and friends in advance."}
+    in: div_gt2h78
+    at: [446.00, 553.00]
+    site: {"layout": "apartments", "size_m": [500, 350], "angle_deg": 0, "rural": true}
+  - id: bld_50bpdw
+    subtype: housing
+    status: generated
+    names: {"zh": "劳动党总务局职工住宅区", "en": "Workers' Party General Affairs Bureau Staff Housing"}
+    notes: {"zh": "劳动党总务局职工住宅区在首都北郊，住着在法里希凯利湖干部区轮班的司机、厨师、保姆、园丁和维修工人。他们每天清晨乘总务局的通勤大客车走人民军军用5108公路去干部区的北门转运站，傍晚回来；住宅区的居委会主任由政治保卫部指派，每周向政治保卫部报告住户的言行。", "en": "The Workers' Party General Affairs Bureau Staff Housing, on the northern edge of the capital, houses the drivers, cooks, nannies, gardeners and maintenance workers who work shifts in the Lake Farihikely Cadre Quarter. Each morning they ride the bureau's commuter coaches along People's Army Military Road 5108 to the quarter's North Gate Transfer Station and come back in the evening; the head of the residents' committee is appointed by the Political Security Department and reports on the residents' words and deeds to it every week."}
+    in: div_gt2h78
+    at: [447.30, 554.40]
+    site: {"layout": "apartments", "size_m": [500, 350], "angle_deg": 0, "rural": true}
+  - id: poi_rqyvjq
+    subtype: vehicle_depot
+    status: generated
+    names: {"zh": "领袖保卫局通勤车场", "en": "Leader's Guard Bureau Commuter Coach Depot"}
+    notes: {"zh": "领袖保卫局通勤车场在首都北郊，紧挨两片职工住宅区，停着接送官邸区和干部区工作人员的几十辆大客车。司机都是领袖保卫局的军人，车辆每天出车前要检查一遍底盘；车上不准停靠任何中途站，工作人员从住宅区门口上车，一直坐到住区门外的转运站。", "en": "The Leader's Guard Bureau Commuter Coach Depot, on the northern edge of the capital beside the two staff estates, keeps the few dozen coaches that carry the staff of the Residences and the Cadre Quarter. The drivers are Bureau soldiers and the coaches' undersides are checked before every run; they make no stops on the way, taking the staff straight from the estate gates to the transfer stations outside the compounds."}
+    in: div_gt2h78
+    at: [445.60, 551.80]
+    site: {"layout": "complex", "size_m": [400, 250], "angle_deg": 0, "rural": true}
   # ── 齐马罗沃 / Tsimarovo ──
   - id: bld_xpzbw3
     subtype: government

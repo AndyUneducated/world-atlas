@@ -189,8 +189,9 @@ def route_railways(world: World, router: Router, poles, stop_index: dict, territ
     def own_guideway(r):
         return bool(r.get("maglev")) or r["network"] == "freight_rail" and not r.get("conventional")
 
-    # lines drawn as given come first, so the others are routed round them rather than onto them
-    for r in sorted(world.railways.values(), key=lambda r: (not r.get("line"), own_guideway(r))):
+    # maglevs drawn as given come first, so the others are routed round them rather than onto them;
+    # closed private lines come last, laid round the public lines rather than pushing them aside
+    for r in sorted(world.railways.values(), key=lambda r: (not (r.get("line") and not r.get("closed")), own_guideway(r), bool(r.get("closed")))):
         via = stops_here(r, territory, lambda v: v in stop_index)
         if not via:
             continue

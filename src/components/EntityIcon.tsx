@@ -1,7 +1,7 @@
 import {
-  Anchor, Banknote, Bath, Beer, Bird, BrickWall, Briefcase, Building, Building2, Camera, Car, CarFront, Castle, Church, Citrus, Clapperboard, Crosshair, Crown, CupSoda, Dices, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, Fuel, GraduationCap, Grape, Helicopter, Hospital, Hotel, House, HouseHeart,
+  Anchor, Banknote, Bath, Beef, Beer, Bird, BrickWall, Briefcase, Building, Building2, Bus, Camera, Car, CarFront, Castle, Church, Citrus, Clapperboard, Construction, Crosshair, Crown, CupSoda, Dices, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, Fuel, GraduationCap, Grape, Helicopter, Hospital, Hotel, House, HouseHeart,
   Landmark, LandPlot, Lighthouse, Lock, Magnet, MapPin, Microchip, MoonStar, Mountain, MountainSnow, Navigation2, Orbit, PawPrint, PersonStanding, Pickaxe, Plane, PlaneTakeoff, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship,
-  Scale, ShipWheel, Shell, Shirt, ShoppingBag, ShoppingCart, Siren, Snowflake, Server, Sparkle, Sparkles, Sprout, Sun, Swords, Target, Telescope, Tent, ToothbrushSparkles, TrainFront, TramFront, Trees, Utensils, Vault, Vote, Warehouse, Waves, WavesLadder, Wind, Wrench, Zap,
+  Scale, ShipWheel, Shell, Shirt, ShoppingBag, ShoppingCart, Siren, Snowflake, Server, Sparkle, Sparkles, Sprout, SquareParking, Sun, Swords, Target, Telescope, Tent, ToothbrushSparkles, TrainFront, TramFront, Trees, Trophy, Utensils, Vault, Vote, Warehouse, Waves, WavesLadder, Wind, Wrench, Zap,
 } from "lucide-react";
 import type { Entity } from "../lib/types";
 
@@ -187,6 +187,16 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
         return <Target {...props} />;
       case "car_workshop":
         return <Wrench {...props} />;
+      case "checkpoint":
+        return <Construction {...props} />;
+      case "car_park":
+        return <SquareParking {...props} />;
+      case "transfer_station":
+        return <Bus {...props} />;
+      case "sports_ground":
+        return <Trophy {...props} />;
+      case "livestock_farm":
+        return <Beef {...props} />;
       default:
         return <Landmark {...props} />;
     }

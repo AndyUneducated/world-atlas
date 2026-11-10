@@ -10,8 +10,8 @@
 # maglev (optional): true for a vacuum maglev (真空磁悬浮, the maglev standard in engineering.yaml),
 #   open for an open-air maglev (磁悬浮, maglev_open). Every maglev line has 磁悬浮 in its name, a
 #   vacuum one 真空磁悬浮; it runs on its own guideway and shares no track with wheeled lines.
-# line (optional, maglev only): { points: [[x, y], …] } the guideway in design km, built and drawn
-#   exactly as given; the stops are served where it passes nearest.
+# line (optional, a maglev or a closed line only): { points: [[x, y], …] } the guideway or track in
+#   design km, built and drawn exactly as given; the stops are served where it passes nearest.
 # station_names (optional): names for the station of a via entry. By default a city's
 #   station is named after the city (维京港站 / Viking Port Station) and a district's after
 #   the district (沙洲站 / Sandbar Station).

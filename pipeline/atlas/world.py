@@ -612,8 +612,8 @@ class World:
                     errors.append(f"{rid}: via {v} is not a city, district or a place with a site")
             if line := r.get("line"):
                 pts = line.get("points")
-                if not r.get("maglev") or not (isinstance(pts, list) and len(pts) >= 2 and all(isinstance(p, list) and len(p) == 2 for p in pts)):
-                    errors.append(f"{rid}: line.points ([[x, y], …] in design km) is for a maglev, on its own guideway")
+                if not (r.get("maglev") or r.get("closed")) or not (isinstance(pts, list) and len(pts) >= 2 and all(isinstance(p, list) and len(p) == 2 for p in pts)):
+                    errors.append(f"{rid}: line.points ([[x, y], …] in design km) is for a maglev on its own guideway or a closed private line")
             for v in r.get("station_names", {}):
                 if v not in via:
                     errors.append(f"{rid}: station_names entry {v} is not one of the stops")
