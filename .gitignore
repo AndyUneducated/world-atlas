@@ -11,6 +11,8 @@ __pycache__/
 .venv/
 # Stage cache written by pipeline/build.py (safe to delete)
 .cache/
+# Local helper scripts and logs
+scratch/
 
 .DS_Store
 Thumbs.db

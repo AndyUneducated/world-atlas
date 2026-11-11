@@ -601,3 +601,20 @@ def pole_of_inaccessibility(mask: np.ndarray, xs, ys):
     d = ndimage.distance_transform_edt(mask)
     iy, ix = np.unravel_index(np.argmax(d), d.shape)
     return float(xs[ix]), float(ys[iy])
+
+
+def label_pole(mask: np.ndarray, towns, g) -> tuple[float, float]:
+    """Where a state's name goes: its pole of inaccessibility, unless one of its towns (design km) stands
+    within half the state's inradius of it, as in a one-city state, whose town is centred on the same pole;
+    the name then goes where it keeps furthest from both the border and the towns, so the two labels part."""
+    ys_, xs_ = np.nonzero(mask)
+    y0, y1, x0, x1 = ys_.min(), ys_.max() + 1, xs_.min(), xs_.max() + 1
+    d = ndimage.distance_transform_edt(np.pad(mask[y0:y1, x0:x1], 1))[1:-1, 1:-1] * g.res
+    iy, ix = np.unravel_index(np.argmax(d), d.shape)
+    x, y, r = float(g.xs[x0 + ix]), float(g.ys[y0 + iy]), float(d[iy, ix])
+    if not towns or min(math.hypot(x - tx, y - ty) for tx, ty in towns) >= r / 2:
+        return x, y
+    X, Y = np.meshgrid(g.xs[x0:x1], g.ys[y0:y1])
+    clear = np.min([np.hypot(X - tx, Y - ty) for tx, ty in towns], axis=0)
+    iy, ix = np.unravel_index(np.argmax(np.minimum(d, clear)), d.shape)
+    return float(g.xs[x0 + ix]), float(g.ys[y0 + iy])

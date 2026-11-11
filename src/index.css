@@ -74,6 +74,13 @@ body,
   scrollbar-color: var(--ui-line) transparent;
 }
 
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .maplibregl-canvas:focus {
   outline: none;
 }

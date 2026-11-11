@@ -26,7 +26,7 @@ import {
 import { animate, AnimatePresence, motion, useMotionValue, useSpring } from "motion/react";
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent, type ReactNode, type RefObject } from "react";
 import { createPortal } from "react-dom";
-import { NotApplicable, Paragraphs, Rows, Section, Sub, useCardScroll } from "./CardParts";
+import { NotApplicable, Paragraphs, Rows, ScrollArea, Section, Sub, useCardScroll } from "./CardParts";
 import { IndicatorRows, indicatorReference } from "./Indicators";
 import { Emblem, Flag, hasEmblem } from "./Emblem";
 import { CouncilSection, ElectionSection, LegislatureSection, PartiesSection, PartySections, STANDING_KEYS } from "./Politics";
@@ -1005,19 +1005,20 @@ export function InfoCard() {
 }
 
 function Card({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: Lang }) {
-  const scroll = useCardScroll<HTMLElement>(entity.id);
+  const scroll = useCardScroll<HTMLDivElement>(entity.id);
   const aside = useAtlas((s) => s.searchOpen);
   return (
     <motion.article
-      ref={scroll}
       initial={{ opacity: 0, y: 12, scale: 0.98 }}
       animate={aside ? { opacity: 0, y: 8, scale: 0.98 } : { opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: 8, scale: 0.98 }}
       transition={{ type: "spring", stiffness: 380, damping: 32 }}
       aria-hidden={aside || undefined}
-      className={clsx("glass scrollbar-thin min-h-0 overflow-y-auto rounded-3xl select-text", aside ? "pointer-events-none" : "pointer-events-auto")}
+      className={clsx("glass flex min-h-0 flex-col overflow-hidden rounded-3xl select-text", aside ? "pointer-events-none" : "pointer-events-auto")}
     >
-      <CardBody data={data} entity={entity} lang={lang} />
+      <ScrollArea scrollRef={scroll} innerClassName="overflow-y-auto">
+        <CardBody data={data} entity={entity} lang={lang} />
+      </ScrollArea>
     </motion.article>
   );
 }
@@ -1150,13 +1151,14 @@ function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; 
       >
         <span className="h-1.5 w-11 rounded-full bg-faint/50" />
       </div>
-      <div
-        ref={scroll}
+      <ScrollArea
+        scrollRef={scroll}
         {...pointer(false)}
-        className={clsx("scrollbar-thin min-h-0 flex-1 overscroll-contain", full ? "overflow-y-auto select-text" : "touch-none overflow-hidden")}
+        className="flex-1"
+        innerClassName={clsx("flex-1 overscroll-contain", full ? "overflow-y-auto select-text" : "touch-none overflow-hidden")}
       >
         <CardBody data={data} entity={entity} lang={lang} />
-      </div>
+      </ScrollArea>
     </motion.article>
   );
 }

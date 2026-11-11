@@ -15,7 +15,7 @@ from shapely.ops import nearest_points
 from . import coast, engineering, landcover, relief, streets
 from .cache import stage
 from .dem_tiles import cached_dem_tiles, zoom_range
-from .divisions import partition, pole_of_inaccessibility
+from .divisions import label_pole, partition, pole_of_inaccessibility
 from .grid import Frame, Grid, block_reduce, chaikin, line_length_km, polyline_distance
 from .hydro import Drainage
 from .noise import grid_noise
@@ -777,7 +777,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         state = c["subtype"] == "country"
         add_division(c, city_polys[ci], poles[core[ci]], city_r == ci, {"color": c["color"], "city": c["id"], "rank": 1})
         if state:  # a state is named across its land; its cities carry the dots
-            label_features.append(feature(point_lonlat(frame, *pole_of_inaccessibility(city_r == ci, g.xs, g.ys)), {
+            own = [poles[i] for i, dc in enumerate(district_city) if dc == ci]
+            label_features.append(feature(point_lonlat(frame, *label_pole(city_r == ci, own, g)), {
                 "id": c["id"], "kind": "state", "name_zh": c["names"]["zh"], "name_en": c["names"]["en"],
                 "short_zh": c.get("short_names", c["names"])["zh"], "short_en": c.get("short_names", c["names"])["en"],
                 "population": c["population"], "color": c["color"], "rank": 0 if c["area_km2"] >= 20000 else 1}))

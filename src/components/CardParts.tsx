@@ -1,5 +1,15 @@
 import clsx from "clsx";
-import { createContext, useContext, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type HTMLAttributes,
+  type PointerEvent as ReactPointerEvent,
+  type ReactNode,
+  type RefObject,
+} from "react";
 import type { Entity, Lang } from "../lib/types";
 import { registerCardScroller, useAtlas } from "../store";
 
@@ -32,6 +42,95 @@ export function useCardScroll<T extends HTMLElement>(id: string) {
     };
   }, [id]);
   return ref;
+}
+
+/** A scrolling box whose scrollbar floats over the content instead of taking a strip of the box's width:
+ * a thin thumb at the right edge, shown while the box scrolls or the pointer is over it, and draggable. */
+export function ScrollArea({
+  scrollRef,
+  className,
+  innerClassName,
+  children,
+  ...inner
+}: {
+  scrollRef: RefObject<HTMLDivElement | null>;
+  className?: string;
+  innerClassName?: string;
+  children: ReactNode;
+} & Omit<HTMLAttributes<HTMLDivElement>, "className" | "children">) {
+  const thumb = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(false);
+  const drag = useRef<{ y0: number; top0: number } | null>(null);
+
+  useLayoutEffect(() => {
+    const el = scrollRef.current;
+    const th = thumb.current;
+    if (!el || !th) return;
+    let idle = 0;
+    const place = () => {
+      const { scrollTop, scrollHeight, clientHeight } = el;
+      const over = scrollHeight - clientHeight;
+      th.hidden = over <= 1;
+      if (th.hidden) return;
+      const h = Math.max((clientHeight * clientHeight) / scrollHeight, 28);
+      th.style.height = `${h}px`;
+      th.style.transform = `translateY(${(scrollTop / over) * (clientHeight - h)}px)`;
+    };
+    const scrolled = () => {
+      place();
+      setActive(true);
+      clearTimeout(idle);
+      idle = window.setTimeout(() => setActive(false), 900);
+    };
+    place();
+    el.addEventListener("scroll", scrolled, { passive: true });
+    const resize = new ResizeObserver(place);
+    resize.observe(el);
+    if (el.firstElementChild) resize.observe(el.firstElementChild);
+    return () => {
+      clearTimeout(idle);
+      el.removeEventListener("scroll", scrolled);
+      resize.disconnect();
+    };
+  }, [scrollRef]);
+
+  const grab = (e: ReactPointerEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    e.preventDefault();
+    e.stopPropagation();
+    e.currentTarget.setPointerCapture(e.pointerId);
+    drag.current = { y0: e.clientY, top0: el.scrollTop };
+  };
+  const pull = (e: ReactPointerEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    const th = thumb.current;
+    if (!drag.current || !el || !th) return;
+    const { scrollHeight, clientHeight } = el;
+    const travel = clientHeight - th.offsetHeight;
+    if (travel > 0) el.scrollTop = drag.current.top0 + ((e.clientY - drag.current.y0) / travel) * (scrollHeight - clientHeight);
+  };
+  const release = () => (drag.current = null);
+
+  return (
+    <div className={clsx("group/scroll relative flex min-h-0 flex-col", className)}>
+      <div ref={scrollRef} {...inner} className={clsx("scrollbar-none min-h-0", innerClassName)}>
+        {children}
+      </div>
+      <div
+        ref={thumb}
+        onPointerDown={grab}
+        onPointerMove={pull}
+        onPointerUp={release}
+        onPointerCancel={release}
+        aria-hidden
+        className={clsx(
+          "absolute top-0 right-0.5 w-1.5 cursor-default touch-none rounded-full bg-faint/60 transition-opacity duration-300 hover:bg-faint",
+          active ? "opacity-100" : "opacity-0 group-hover/scroll:opacity-100",
+        )}
+      />
+    </div>
+  );
 }
 
 /** The title of the card group a part sits in (null on a one-column card). A grouped card has two levels of
