@@ -10,7 +10,7 @@ import shapely
 from scipy import ndimage
 from shapely import affinity
 from shapely.geometry import LineString, MultiLineString, Point
-from shapely.ops import nearest_points
+from shapely.ops import nearest_points, substring
 
 from . import coast, engineering, landcover, relief, streets
 from .cache import stage
@@ -28,7 +28,7 @@ from .common import (BUILDING_MINZOOM, STREET_MINZOOM, bbox_lonlat, derived_id, 
                      place_name, undrawn_steps, smooth_line, smooth_pinned, tile_minzoom)
 from .sites import SEA_BRIDGE_HALF_WIDTH_KM, landmark_sites
 from .city import UNSETTLED, bare_name, build_buildings, build_metro, build_streets, rail_station_names
-from .routes import PORTAL, cross_part, land_cell, rail_standard, route_railways, route_segments, stops_here
+from .routes import PORTAL, cross_part, fold_ring, join_leg, land_cell, rail_standard, route_railways, route_segments, stops_here
 
 LAYERS = ("divisions", "labels", "places", "landcover", "water", "coast", "glaciers", "rivers", "rivers-named", "ridges", "roads",
           "route-shared", "streets", "streets-named", "buildings", "parks", "skyways", "landmarks", "rail", "stations", "bathymetry")
@@ -40,6 +40,8 @@ SEGMENTED_NETWORKS = {"national_expressway", "territorial_expressway", "territor
 # How far a route terminus reaches to join the network: expressway to expressway, else to any road.
 JOIN_MOTORWAY_KM = 20
 JOIN_ROAD_KM = 5
+JOIN_HOOK_COS = math.cos(math.radians(120))  # ... but not by turning back more than this on its way in
+LINE_JOIN_KM = 10  # a given line's end farther than this from the routed path is routed to its from/to stop instead
 ACCESS_KM = 0.5  # a sited facility farther than this (real km) from every road and street gets an access road
 ACCESS_REACH_KM = 60  # ... to the nearest road within this distance (real km)
 # Bays and fjords this large (real km²) and capes this prominent (real km) are labelled from lower zooms.
@@ -512,6 +514,21 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             return router.cell(*place_at[v])
         return node[city_index[v]] if v in city_index else router.cell(*poles[district_index[v]])
 
+    def district_at(c):  # the district under a router cell's centre
+        cy, cx = divmod(c, router.nx)
+        return int(dist_r[min(cy * 4 + 2, dist_r.shape[0] - 1), min(cx * 4 + 2, dist_r.shape[1] - 1)])
+
+    def in_stop(v):  # cell -> whether it lies in stop v's own district (a city's: any of its districts)
+        if v == PORTAL:
+            return None
+        if v in place_at:
+            own = {district_index[world.places[v]["in"]]} if world.places[v]["in"] in district_index else set()
+        elif v in city_index:
+            own = {i for i, ci in enumerate(district_city) if ci == city_index[v]}
+        else:
+            own = {district_index[v]}
+        return lambda c: district_at(c) in own
+
     road_out, road_via = [], {}
     # A route with a line (real-world geometry, design km) follows it exactly between its from and to
     # stops (or from its start, to its end): the cells under the line carry it for routing, segments and
@@ -530,8 +547,10 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         cells = [land_cell(land_r, gr.res, *r["crossing"][territory["id"]]) if v == PORTAL else stop_cell(v) for v in via]
         path = []
 
-        def extend(leg):
-            path.extend(leg if not path else leg[1:])
+        def extend(leg, at_v):
+            at = join_leg(path, leg, in_stop(at_v))
+            at_stop[:] = [min(i, at) for i in at_stop]
+            at_stop.append(len(path) - 1)
         at_stop = [0]
         for k, ((a, b), (ca, cb)) in enumerate(zip(zip(via[:-1], via[1:]), zip(cells[:-1], cells[1:]))):
             spec_b = r.get("legs", {}).get(b, {})
@@ -539,20 +558,23 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                 leg = router.straight(ca, cb)
             else:
                 leg = router.route(ca, cb, spec_b.get("tunnel_cost", r.get("tunnel_cost")), ref=r["ref"])
-            extend(leg)
-            at_stop.append(len(path) - 1)
+            extend(leg, a)
+        if r.get("ring"):
+            fold_ring(path, in_stop(via[0]))
         if exact := r.get("line"):
             # the line replaces the routed path between the path's cells nearest its two ends, so the
             # route beyond them runs exactly as it would without it
             line_cells = router.cells_along(exact["points"])
             exact_lines[r["ref"]] = LineString(exact["points"])
-            near = lambda p, lo, hi: min(range(lo, hi + 1), key=lambda i: math.dist(router.xy(path[i]), p))
+            def near(p, lo, hi, stop):
+                i = min(range(lo, hi + 1), key=lambda i: math.dist(router.xy(path[i]), p))
+                return i if math.dist(router.xy(path[i]), p) * frame.scale <= LINE_JOIN_KM else stop
             head, tail = [], []
             if "from" in exact:
-                a = near(exact["points"][0], at_stop[via.index(exact["from"])], at_stop[-1])
+                a = near(exact["points"][0], at_stop[via.index(exact["from"])], at_stop[-1], at_stop[via.index(exact["from"])])
                 head = path[:a] + router.route(path[a], line_cells[0], ref=r["ref"])[:-1]
             if "to" in exact:
-                b = near(exact["points"][-1], at_stop[via.index(exact["from"])] if "from" in exact else 0, at_stop[via.index(exact["to"])])
+                b = near(exact["points"][-1], at_stop[via.index(exact["from"])] if "from" in exact else 0, at_stop[via.index(exact["to"])], at_stop[via.index(exact["to"])])
                 if "from" in exact:
                     b = max(b, a)
                 tail = router.route(line_cells[-1], path[b], ref=r["ref"])[1:] + path[b + 1:]
@@ -660,6 +682,12 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             if span and r["network"] == "municipal_road" and (span[0] == 0 if at_start else span[1] == len(path) - 1):
                 continue  # a real city road ends where it really does
             end = path[0] if at_start else path[-1]
+            back = path[min(2, len(path) - 1)] if at_start else path[max(-3, -len(path))]
+            heading = np.subtract(router.xy(end), router.xy(back))
+
+            def turns_back(leg):  # a join that heads back the way the route came would hook its end (M125)
+                onward = np.subtract(router.xy(leg[-1]), router.xy(end))
+                return float(np.dot(heading, onward)) < JOIN_HOOK_COS * float(np.hypot(*heading) * np.hypot(*onward))
             leg = None
             for targets, reach_km in ((motorway, JOIN_MOTORWAY_KM), (foreign, JOIN_ROAD_KM)):
                 if targets is motorway and r["class"] != "motorway":
@@ -672,6 +700,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                     leg = router.straight(end, target) if target is not None else None
                 else:
                     leg = router.route_to_any(end, targets, reach, own - {end}, r.get("tunnel_cost"))
+                if leg and turns_back(leg):
+                    leg = None
                 if leg:
                     break
             if not leg:
@@ -691,7 +721,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     rail_router = Router(elev_r, land_r & ~water_r, gr.res, slope_weight=150)
     stop_index = {**district_index, **{c["id"]: core[ci] for ci, c in enumerate(cities)},
                   **{pid: district_index[world.places[pid]["in"]] for pid in place_at}}
-    rail_out = route_railways(world, rail_router, poles, stop_index, territory["id"], land_r & ~water_r, place_at)
+    rail_out = route_railways(world, rail_router, poles, stop_index, territory["id"], land_r & ~water_r, place_at, district_at)
     rail_xy = lambda cells: np.array([rail_router.xy(c) for c in cells])
     rail_owned = {r["id"]: owned_runs(path, r["id"], rail_router.owner) for r, _, path in rail_out}
     fill_undrawn({r["id"]: path for r, _, path in rail_out}, rail_owned)
@@ -1008,7 +1038,11 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         lines = drawn_roads[r["ref"]]
         for k, run in enumerate(road_runs[r["ref"]]):
             if r["id"] in entrance and run[-1] == path[-1]:
-                lines[k] = LineString([*lines[k].coords, entrance[r["id"]]])
+                # the road turns off at the point nearest the gate rather than running past it and back
+                line, gate = lines[k], Point(entrance[r["id"]])
+                if 0 < (d := line.project(gate)) < line.length:
+                    line = substring(line, 0, d)
+                lines[k] = LineString([*line.coords, gate.coords[0]])
     drawn_all = [(r["ref"], run, line, run_positions(run, line, router.xy))
                  for r, _ in road_out for run, line in zip(road_runs[r["ref"]], drawn_roads[r["ref"]])]
     rail_runs = [run for runs in rail_drawn.values() for run, _ in runs]

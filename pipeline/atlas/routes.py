@@ -87,6 +87,40 @@ def stops_here(r: dict, territory: str, is_stop) -> list | None:
     return here + [PORTAL] if is_stop(r["via"][0]) else [PORTAL] + here
 
 
+FOLD_REACH = 3  # the fork and the cells just before it, one of which must lie in the stop's own district
+
+
+def join_leg(path: list[int], leg: list[int], inside=None) -> int:
+    """Append leg, which starts at path's last cell (a stop), to path in place, and return the index
+    where the route now passes the stop. A leg that leaves the stop the way the route came in is folded
+    back to where the two part, so the route passes the stop there instead of running to it and back
+    along the same cells: a route has one start and one end (M125). It is folded only if the route
+    still runs through the stop's district (inside: cell -> bool) within FOLD_REACH cells of the fork;
+    a run out and back from beyond it stays, for the sources to settle."""
+    if not path:
+        path.extend(leg)
+        return 0
+    k = 0
+    while k + 1 < len(leg) and len(path) >= k + 2 and path[-2 - k] == leg[k + 1]:
+        k += 1
+    if k and (inside is None or not any(map(inside, path[max(0, len(path) - k - FOLD_REACH): len(path) - k]))):
+        k = 0
+    del path[len(path) - k:]
+    at = len(path) - 1
+    path.extend(leg[k + 1:])
+    return at
+
+
+def fold_ring(path: list[int], inside=None):
+    """Cut, in place, the stub a ring runs out and back on from a start off the ring itself, if the
+    ring still passes through the start's district (inside: cell -> bool) near where the stub leaves it."""
+    k = 0
+    while len(path) > 2 * k + 3 and path[k + 1] == path[-2 - k]:
+        k += 1
+    if k and inside is not None and any(map(inside, path[k: k + FOLD_REACH] + path[max(0, len(path) - k - FOLD_REACH): len(path) - k])):
+        del path[:k], path[len(path) - k:]
+
+
 def land_cell(land: np.ndarray, res: float, x: float, y: float) -> int:
     """Index of the land cell of a coarse grid nearest the point (x, y), design km."""
     iy, ix = np.nonzero(land)
@@ -178,12 +212,13 @@ def rail_standard(r: dict) -> str:
     return {True: "maglev", "open": "maglev_open"}.get(r.get("maglev"), r["network"])
 
 
-def route_railways(world: World, router: Router, poles, stop_index: dict, territory: str, land: np.ndarray, place_at=None) -> list:
+def route_railways(world: World, router: Router, poles, stop_index: dict, territory: str, land: np.ndarray, place_at=None,
+                   district_at=None) -> list:
     """Route each railway between its stops, [(railway, stop district indices, path)]. Every line builds
     its own track (M112: one name to each stretch), crossing the others and meeting them at shared
     stations; a maglev or vacuum heavy-haul guideway is also never used by a wheeled line. A stop may be
     a sited place (place_at: id -> design km), standing for its district; a maglev with a line runs
-    exactly along it."""
+    exactly along it. district_at: cell -> district index, for folding a run out to a stop and back."""
     place_at = place_at or {}
     out = []
     def own_guideway(r):
@@ -205,10 +240,10 @@ def route_railways(world: World, router: Router, poles, stop_index: dict, territ
         cells = [land_cell(land, router.res, *r["crossing"][territory]) if v == PORTAL
                  else router.cell(*(place_at[v] if v in place_at else poles[stop_index[v]])) for v in via]
         path = []
-        for a, b in zip(cells[:-1], cells[1:]):
+        for v, a, b in zip(via, cells[:-1], cells[1:]):
             # every line on its own track (M112): wheeled lines no longer run on one another's either
-            leg = router.route(a, b, r.get("tunnel_cost", 2.5), ref=r["id"])
-            path += leg if not path else leg[1:]
+            inside = None if v == PORTAL or district_at is None else (lambda c, i=stop_index[v]: district_at(c) == i)
+            join_leg(path, router.route(a, b, r.get("tunnel_cost", 2.5), ref=r["id"]), inside)
         router.commit(path, "rail", discount=float("inf") if maglev else 0.45, ref=r["id"])
         out.append((r, stops, path))
     return out

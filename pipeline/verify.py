@@ -330,6 +330,124 @@ SHARED_RAIL_KM = 3  # no railway runs on another's alignment for longer than thi
 SHARED_ROAD_KM = 20  # nor a road, beyond the narrow coasts, passes and city approaches the terrain forces
 
 
+BACK_ALONG_KM = 12  # a route that travels this far and more ...
+BACK_RATIO = 4  # ... and comes back within this share of it, across land, doubles back (M125, the owner's rule)
+BACK_FLOOR_KM = 0.5
+RING_THIN = 0.15  # a ring doubles back only where the loop it runs out and back round is thinner than this (area over along x across); elsewhere its sides face each other across what it rings
+HOOK_KM = 2  # an end that turns back on the route for more than this is a hook
+HOOK_ANGLE = math.radians(120)
+
+
+def route_lines(ents: dict) -> dict[str, list]:
+    drawn = defaultdict(list)
+    for layer in ("roads", "route-shared", "rail"):
+        for f in load(f"{layer}.geojson")["features"]:
+            if (eid := f["properties"].get("id")) in ents and f["properties"].get("role", "line") == "line":
+                drawn[eid] += [ln for ln in parts(f["geometry"]) if len(ln) > 1]
+    return drawn
+
+
+def distinct(lines: list[list], lat0: float) -> list[list]:
+    """A route's drawn pieces less those lying wholly along another (a stretch drawn both as its own and as shared)."""
+    geoms = sorted(((shapely.LineString(metres(ln, lat0)), ln) for ln in lines), key=lambda t: t[0].length, reverse=True)
+    keep, kept = [], []
+    for g, ln in geoms:
+        dense = shapely.get_coordinates(shapely.segmentize(g, JOIN_M))
+        if not kept or float(STRtree(kept).query_nearest(points(dense), return_distance=True)[1].max()) > JOIN_M:
+            keep.append(ln)
+            kept.append(g)
+    return keep
+
+
+def free_ends(lines: list[list], lat0: float) -> list[np.ndarray]:
+    """Ends of a route's drawn pieces that meet no other piece, counting ends within JOIN_M as one."""
+    ms = [metres(ln, lat0) for ln in lines]
+    tree = STRtree([shape({"type": "LineString", "coordinates": m.tolist()}) for m in ms])
+    out = []
+    for i, m in enumerate(ms):
+        for p in (m[0], m[-1]):
+            if any(j != i for j in tree.query(points(p), predicate="dwithin", distance=JOIN_M)):
+                continue
+            if all(np.hypot(*(p - q)) > JOIN_M for q in out):
+                out.append(p)
+    return out
+
+
+def ordered_xy(lines: list[list], lat0: float) -> np.ndarray | None:
+    """The route's drawn line from end to end in metres, when its pieces join into one."""
+    merged = shapely.line_merge(shapely.MultiLineString([metres(ln, lat0) for ln in lines]))
+    if merged.geom_type != "LineString":
+        parts_ = list(merged.geoms)
+        xy = list(np.asarray(parts_.pop(0).coords))
+        while parts_:
+            k, flip, _ = min(((k, f, np.hypot(*(np.asarray(g.coords)[-1 if f else 0] - xy[-1])))
+                              for k, g in enumerate(parts_) for f in (False, True)), key=lambda t: t[2])
+            if _ > JOIN_M:
+                return None
+            c = np.asarray(parts_.pop(k).coords)
+            xy += list(c[::-1] if flip else c)
+        return np.array(xy)
+    return np.asarray(merged.coords)
+
+
+def check_shapes(ents: dict) -> dict[str, list[str]]:
+    """A road or railway has one start and one end (a ring none): a branch under the same number is its
+    own route. It does not double back on itself across land, nor hook back at an end (M125)."""
+    feats = [(f["properties"]["id"], shape(f["geometry"])) for f in load("divisions.geojson")["features"]
+             if f["properties"].get("id") in ents]
+    ids = {i for i, _ in feats}
+    land = shapely.union_all([g for i, g in feats if ents[i].get("parent") not in ids])
+    ends, back, hooks = [], [], []
+    for eid, lines in route_lines(ents).items():
+        e = ents[eid]
+        if e.get("kind") != "route":
+            continue
+        label = f"{e.get('ref') or e['names']['zh']} {e['names']['zh']}" if e.get("ref") else e["names"]["zh"]
+        lat0 = float(np.mean([c[1] for ln in lines for c in ln]))
+        lines = distinct(lines, lat0)
+        n = len(free_ends(lines, lat0))
+        if n != (0 if e.get("ring") else 2):
+            ends.append(f"{label}: {n} ends")
+        if n > 2 or (xy := ordered_xy(lines, lat0)) is None:
+            continue
+        line = shape({"type": "LineString", "coordinates": xy.tolist()})
+        s = np.arange(0, line.length, 500.0)
+        p = np.array([line.interpolate(v).coords[0] for v in s])
+        worst = None
+        for i in range(0, len(p), 2):
+            d = np.maximum(np.hypot(*(p[i + 1:] - p[i]).T), BACK_FLOOR_KM * 1000)
+            along = s[i + 1:] - s[i]
+            if e.get("ring"):
+                along = np.minimum(along, line.length - along)
+            for k in np.nonzero((along > BACK_ALONG_KM * 1000) & (along > BACK_RATIO * d))[0]:
+                j = i + 1 + k
+                if worst and along[k] / d[k] <= worst[0]:
+                    continue
+                if e.get("ring"):
+                    loop = p[i:j + 1] if s[j] - s[i] <= line.length / 2 else np.vstack([p[j:], p[:i + 1]])
+                    area = 0.5 * abs(float(np.dot(loop[:, 0], np.roll(loop[:, 1], 1)) - np.dot(loop[:, 1], np.roll(loop[:, 0], 1))))
+                    if area > RING_THIN * along[k] * d[k]:
+                        continue
+                kx = 111320 * math.cos(math.radians(lat0))
+                chord = shapely.LineString([(p[i][0] / kx, p[i][1] / 110574), (p[j][0] / kx, p[j][1] / 110574)])
+                if chord.length == 0 or chord.intersection(land).length / chord.length > 0.9:
+                    worst = (along[k] / d[k], along[k] / 1000, d[k] / 1000, chord.coords[0])
+        if worst:
+            back.append(f"{label}: back within {worst[2]:.1f} km after {worst[1]:.0f} km, from {worst[3][0]:.3f}, {worst[3][1]:.3f}")
+        if e.get("ring"):
+            continue
+        for end in (xy, xy[::-1]):
+            seg = end[:2]
+            run = np.cumsum(np.hypot(*np.diff(end, axis=0).T))
+            k = int(np.searchsorted(run, HOOK_KM * 1000))
+            if k + 2 >= len(end):
+                continue
+            a, b = end[0] - end[k], end[k] - end[min(len(end) - 1, int(np.searchsorted(run, 3 * HOOK_KM * 1000)))]
+            if np.linalg.norm(a) and np.linalg.norm(b) and math.acos(np.clip(a @ b / np.linalg.norm(a) / np.linalg.norm(b), -1, 1)) > HOOK_ANGLE:
+                hooks.append(f"{label}: hooks back at the end near {seg[0][0] / (111320 * math.cos(math.radians(lat0))):.3f}, {seg[0][1] / 110574:.3f}")
+    return {"routes have one start and one end": ends, "routes do not double back": back, "route ends do not hook back": hooks}
+
+
 INTRO_LONG, INTRO_SHORT = 800, 400  # zh characters of a card's intro (M116, the owner's rule)
 INTRO_SHORT_NETWORKS = ("national_expressway", "territorial_expressway", "territorial_highway")
 
@@ -375,7 +493,7 @@ def main():
     results = {}
     for check in (lambda: check_routes(ents), lambda: check_numbers(ents), lambda: check_government(ents), lambda: check_stations(ents),
                   lambda: check_expected(world, ents), check_glyphs, lambda: check_models(ents),
-                  lambda: check_terrain(manifest), lambda: check_round_borders(ents), lambda: check_shared(ents), lambda: check_intros(ents)):
+                  lambda: check_terrain(manifest), lambda: check_round_borders(ents), lambda: check_shared(ents), lambda: check_intros(ents), lambda: check_shapes(ents)):
         results.update(check())
     for what, bad in results.items():
         print(f"{'ok  ' if not bad else 'FAIL'} {what}" + (f": {len(bad)}\n  " + "\n  ".join(bad[:20]) if bad else ""))
