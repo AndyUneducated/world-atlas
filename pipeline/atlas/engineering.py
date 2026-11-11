@@ -7,6 +7,8 @@ from dataclasses import dataclass
 import numpy as np
 import shapely
 
+UNDERSEA_ISLET_KM = 3.0  # an undersea tunnel stays under islets and shoals shorter than this (real km)
+
 
 @dataclass
 class Profile:
@@ -49,7 +51,7 @@ def _fit_grade(terrain: np.ndarray, step_km: np.ndarray, smooth_km: float, max_g
 
 def profile(path: list[int], router, elev: np.ndarray, water: np.ndarray, km_per_cell: float, std: dict,
             line_km=None, rivers=None, ref: str | None = None, urban_depth: np.ndarray | None = None,
-            fine: tuple[np.ndarray, float] | None = None) -> Profile:
+            fine: tuple[np.ndarray, float] | None = None, undersea: bool = False) -> Profile:
     """Where a route needs bridges and tunnels.
 
     path: router cells; elev, water: arrays on the router grid; km_per_cell: real km per cell side.
@@ -59,6 +61,8 @@ def profile(path: list[int], router, elev: np.ndarray, water: np.ndarray, km_per
     built-up land, cut-and-cover tunnel deeper than tunnel_depth_km.
     fine: (elevation, resolution in design km) of a finer grid; the ground is then sampled at
     that spacing between cell centres, so hills and gullies smaller than a router cell count.
+    undersea: the route crosses water in tunnels under the bed rather than on bridges, staying under
+    islets and shoals between two stretches of water.
     """
     nx = router.nx
     path = np.asarray(path)
@@ -87,6 +91,13 @@ def profile(path: list[int], router, elev: np.ndarray, water: np.ndarray, km_per
     grade = _fit_grade(ground, np.maximum(step, 1e-6), std["smooth_km"], std["max_grade"])
     tunnel = ~wet & (ground - grade > std["tunnel_above_m"])
     bridge = wet | (grade - ground > std["bridge_below_m"])
+    if undersea:
+        tunnel |= wet
+        along = np.cumsum(step)
+        for a, b in _runs(~wet):
+            if a > 0 and b < len(wet) and along[b - 1] - along[a] < UNDERSEA_ISLET_KM:
+                tunnel[a:b] = True
+        bridge &= ~tunnel
     depth = urban_depth[cy, cx][cell] if urban_depth is not None else np.zeros(len(cell))
     if urban := std.get("urban"):
         tunnel |= ~wet & (depth >= urban.get("tunnel_depth_km", math.inf))

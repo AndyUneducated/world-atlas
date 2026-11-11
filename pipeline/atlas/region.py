@@ -939,12 +939,12 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             return {"zh": f"{district['zh']}高架桥", "en": f"{district['en']} Viaduct"}
         return {"zh": f"{district['zh']}{grand}", "en": f"{district['en']} {'Sea Bridge' if wet else 'Viaduct'}"}
 
-    def engineer(ent, path, std, rt, ref=None, stations=0, unlimited=False):
+    def engineer(ent, path, std, rt, ref=None, stations=0, unlimited=False, undersea=False):
         """Structure profile, cost estimate, longest structures and (for roads) speed limits of a routed line;
-        an unlimited road has none anywhere."""
+        an unlimited road has none anywhere, an undersea one tunnels under the water it crosses."""
         line_km = LineString([rt.xy(c) for c in path])
         prof = engineering.profile(path, rt, elev_r, wet_r, frame.km(rt.res), std, line_km, river_geom, ref, urban_depth_r,
-                                   fine=(elev, g.res))
+                                   fine=(elev, g.res), undersea=undersea)
         if spec.get("snow_sheds"):
             engineering.add_snow_sheds(prof, spec["snow_sheds"])
         ent["engineering"] = engineering.estimate(prof, std, climate, stations)
@@ -1111,7 +1111,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             ent["stats"]["length_km"] = round(sum(s["km"] for s in ent["segments"]), 1)
         if r["network"] in standards:
             engineer(ent, path, standards[r["network"]], router, r["ref"] if r["network"] != "municipal_road" else None,
-                     unlimited=r.get("unlimited", False))
+                     unlimited=r.get("unlimited", False), undersea=r.get("undersea", False))
             for kind, names in r.get("structure_names", {}).items():
                 if kind in ent["structures"]:
                     ent["structures"][kind]["names"] = names
@@ -1216,7 +1216,10 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             ent["conventional"] = True
         if rail_std := standards.get(rail_standard(r)):
             built_here = sum(1 for sid in dict.fromkeys(ids) if stations[sid]["lines"][0] == r["id"])
-            engineer(ent, rail_paths[r["id"]], rail_std, rail_router, r["id"], built_here)
+            engineer(ent, rail_paths[r["id"]], rail_std, rail_router, r["id"], built_here, undersea=r.get("undersea", False))
+            for kind, names in r.get("structure_names", {}).items():
+                if kind in ent["structures"]:
+                    ent["structures"][kind]["names"] = names
             ent["tech"] = {**rail_std.get("tech", {}), **r.get("tech", {})}
     log(f"  FAIL lit beyond its own path when clicked: {overruns}" if overruns else "  ok   every route and railway lit only along its own path")
     for ml in metro_lines:

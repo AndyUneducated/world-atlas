@@ -546,6 +546,8 @@ class World:
             if str(r.get("network", "")).startswith("territorial_") and not r.get("shield"):
                 errors.append(f"{rid}: a territorial route needs a shield symbol (shield: <glyph>, see src/lib/shields.ts)")
         for rid, r in [*self.routes.items(), *self.railways.items()]:
+            if "undersea" in r and (r["undersea"] is not True or not r.get("line")):
+                errors.append(f"{rid}: undersea takes only true, on a line drawn as given: its water crossings are tunnels under the seabed")
             if r.get("network") in BACKGROUND_NETWORKS and not all(r.get("background", {}).get(lang) for lang in REQUIRED_LANGS):
                 errors.append(f"{rid}: an expressway, territorial highway or railway needs a background (zh, en): why and how it was built")
         for fid, f in self.features.items():
@@ -621,6 +623,9 @@ class World:
                 errors.append(f"{rid}: color must be #RRGGBB")
             if "closed" in r and r["closed"] is not True:
                 errors.append(f"{rid}: closed takes only true (a private line closed to the public)")
+            for kind, names in r.get("structure_names", {}).items():
+                if kind not in ("bridge", "tunnel") or not all(names.get(lang) for lang in REQUIRED_LANGS):
+                    errors.append(f"{rid}: structure_names gives the longest bridge or tunnel its names (zh, en)")
             if "maglev" in r and (r["maglev"] not in (True, "open") or r.get("network") != "intercity_rail"):
                 errors.append(f"{rid}: maglev: true (vacuum) or open (open-air) is for intercity railways only")
             speed = r.get("tech", {}).get("operating_speed_kmh")

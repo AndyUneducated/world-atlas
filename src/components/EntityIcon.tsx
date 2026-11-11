@@ -1,7 +1,7 @@
 import {
   Anchor, Banknote, Bath, Beef, Beer, Bird, BrickWall, Briefcase, Building, Building2, Bus, Camera, Car, CarFront, Castle, Church, Citrus, Clapperboard, Construction, Crosshair, Crown, CupSoda, Dices, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, Fuel, GraduationCap, Grape, Helicopter, Hospital, Hotel, House, HouseHeart,
-  Landmark, LandPlot, Lighthouse, Lock, Magnet, MapPin, Microchip, MoonStar, Mountain, MountainSnow, Navigation2, Orbit, PawPrint, PersonStanding, Pickaxe, Plane, PlaneTakeoff, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship,
-  Scale, ShipWheel, Shell, Shirt, ShoppingBag, ShoppingCart, Siren, Snowflake, Server, Sparkle, Sparkles, Sprout, SquareParking, Sun, Swords, Target, Telescope, Tent, ToothbrushSparkles, TrainFront, TramFront, Trees, Trophy, Utensils, Vault, Vote, Warehouse, Waves, WavesLadder, Wind, Wrench, Zap,
+  Landmark, LandPlot, Lighthouse, Lock, Magnet, MapPin, MicVocal, Microchip, MoonStar, Mountain, MountainSnow, Navigation2, Orbit, PawPrint, PersonStanding, Pickaxe, Plane, PlaneTakeoff, Rabbit, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship,
+  Scale, ShipWheel, Shell, Shirt, ShoppingBag, ShoppingCart, Siren, Snowflake, Server, Sparkle, Sparkles, Sprout, SquareParking, Sun, Swords, Target, Telescope, Tent, ToothbrushSparkles, TrainFront, TramFront, Trees, Trophy, Utensils, Vault, Vote, Warehouse, Waves, WavesLadder, Wind, Wine, Wrench, Zap,
 } from "lucide-react";
 import type { Entity } from "../lib/types";
 
@@ -133,6 +133,16 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
         return <Swords {...props} />;
       case "marina":
         return <ShipWheel {...props} />;
+      case "banquet_hall":
+        return <Wine {...props} />;
+      case "spa":
+        return <Droplets {...props} />;
+      case "riding_centre":
+        return <Footprints {...props} />;
+      case "hunting_ground":
+        return <Rabbit {...props} />;
+      case "club":
+        return <MicVocal {...props} />;
       case "border_crossing":
         return <BrickWall {...props} />;
       case "police_station":

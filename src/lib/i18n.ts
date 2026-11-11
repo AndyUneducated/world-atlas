@@ -521,6 +521,11 @@ const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
   court: { zh: "法院", en: "Court" },
   militant_camp: { zh: "武装营地", en: "Militant camp" },
   marina: { zh: "游艇会", en: "Marina" },
+  banquet_hall: { zh: "宴会厅", en: "Banquet hall" },
+  spa: { zh: "温泉浴场", en: "Spa" },
+  riding_centre: { zh: "马术俱乐部", en: "Riding club" },
+  hunting_ground: { zh: "狩猎场", en: "Hunting ground" },
+  club: { zh: "俱乐部", en: "Club" },
 };
 
 const NETWORK_LABELS: Record<string, Record<Lang, string>> = {
