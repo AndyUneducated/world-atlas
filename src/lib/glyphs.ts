@@ -10,6 +10,7 @@ export interface GlyphPart {
 
 const grain = (y: number, side: -1 | 1) =>
   `M12 ${y} C${12 + side * 2.6} ${y - 0.4} ${12 + side * 3.6} ${y - 2.4} ${12 + side * 3.4} ${y - 4.4} C${12 + side * 1.2} ${y - 3.8} 12 ${y - 2} 12 ${y} Z`;
+const seed = (x: number, y: number) => `M${x - 1} ${y}a1 1.6 0 1 0 2 0a1 1.6 0 1 0 -2 0Z`;
 
 export const GLYPHS: Record<string, GlyphPart[]> = {
   lighthouse: [
@@ -62,6 +63,21 @@ export const GLYPHS: Record<string, GlyphPart[]> = {
     { d: "M12 22.5V6", stroke: 1.5 },
     ...[9.5, 13.8, 18.1].flatMap((y) => [{ d: grain(y, -1) }, { d: grain(y, 1) }]),
     { d: "M12 6.2C10.9 5.2 11 3.2 12 1.8C13 3.2 13.1 5.2 12 6.2Z" },
+  ],
+  rice: [
+    { d: "M8 22.5C8 15 9.2 8.6 12.6 5.4C15.2 3 18.6 3.6 19.6 7.4C20 9 19.8 10.6 19.4 11.8", stroke: 1.5 },
+    ...[
+      [12.4, 8.6],
+      [14.6, 6.9],
+      [17, 6.6],
+      [18.4, 9.4],
+      [19.2, 13.4],
+    ].map(([x, y]) => ({ d: seed(x, y) })),
+    { d: "M8 17.5C5 16 3.4 13.4 3.2 10.8C5.8 11.9 7.6 14 8 17.5Z" },
+  ],
+  fog: [
+    { d: "M2 9.5L7.5 3L11 7L14.5 3.5L22 9.5Z" },
+    { d: "M3 13H17M7 16.8H21M2.5 20.6H15.5", stroke: 1.8 },
   ],
   compass: [
     { d: "M12 3.2A8.8 8.8 0 1 1 11.99 3.2", stroke: 1.5 },

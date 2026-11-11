@@ -1333,17 +1333,17 @@ places:
   - id: poi_n46a12
     subtype: patrol_base
     status: generated
-    names: {"zh": "7351公路第一哨所", "en": "Road 7351 Post No. 1"}
-    notes: {"zh": "第一哨所在人民军军用7351公路驶出拉诺迈措湖官邸区北门以后不远，设在沃希阿拉丘陵东端和海湾之间的缺口处，守着北门外的停车场和转运站。过往车辆须出示领袖保卫局签发的通行证，领袖的车队通常不停车通过。", "en": "Post No. 1 stands a short way beyond the North Gate of the Lake Ranomaitso Residences on People's Army Military Road 7351, in the gap between the eastern end of the Vohiala Hills and the bay, watching over the car park and transfer station outside the gate. Vehicles must show a pass issued by the Leader's Guard Bureau; the leader's motorcade usually goes through without stopping."}
+    names: {"zh": "7351公路第三哨所", "en": "Road 7351 Post No. 3"}
+    notes: {"zh": "第三哨所在人民军军用7351公路驶出拉诺迈措湖官邸区北门以后不远，设在沃希阿拉丘陵东端和海湾之间的缺口处，守着北门外的停车场和转运站。过往车辆须出示领袖保卫局签发的通行证，领袖的车队通常不停车通过。", "en": "Post No. 3 stands a short way beyond the North Gate of the Lake Ranomaitso Residences on People's Army Military Road 7351, in the gap between the eastern end of the Vohiala Hills and the bay, watching over the car park and transfer station outside the gate. Vehicles must show a pass issued by the Leader's Guard Bureau; the leader's motorcade usually goes through without stopping."}
     in: div_gt2h78
     at: [435.45, 531.00]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局7351公路第一哨所", "en": "Road 7351 Post No. 1, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局7351公路第三哨所", "en": "Road 7351 Post No. 3, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_kgwzgq
     subtype: patrol_base
     status: generated
     names: {"zh": "7351公路第二哨所", "en": "Road 7351 Post No. 2"}
-    notes: {"zh": "第二哨所在人民军军用7351公路西侧，正对着法里希凯利湖干部区的东缘。除了持特别通行证、从干部区东门上路进城的政治局委员，干部区的人不准使用这条公路，哨所的警卫日夜监视着两地之间的树林，防止有人抄近路靠近公路。", "en": "Post No. 2 stands on the west side of People's Army Military Road 7351, facing the eastern edge of the Lake Farihikely Cadre Quarter. Except for Politburo members with a special pass who join it at the quarter's East Gate to go to town, the cadres may not use the road, and the post's guards watch the woods between the two day and night to keep anyone from cutting through towards it."}
+    notes: {"zh": "第二哨所在人民军军用7351公路西侧，正对着法里希凯利湖干部区的东缘。这条公路只供领袖使用，干部区的人一律不准驶上公路，哨所的警卫日夜监视着两地之间的树林，防止有人抄近路靠近公路。", "en": "Post No. 2 stands on the west side of People's Army Military Road 7351, facing the eastern edge of the Lake Farihikely Cadre Quarter. The road is for the leader alone and nobody from the quarter may drive onto it; the post's guards watch the woods between the two day and night to keep anyone from cutting through towards it."}
     in: div_gt2h78
     at: [434.95, 535.80]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
@@ -1351,12 +1351,12 @@ places:
   - id: poi_sky7fb
     subtype: patrol_base
     status: generated
-    names: {"zh": "7351公路第三哨所", "en": "Road 7351 Post No. 3"}
-    notes: {"zh": "第三哨所在人民军军用7351公路东侧的海湾边，设有一座瞭望塔和一处小码头，警卫员乘巡逻艇在附近海面巡查，防止有船只靠近公路。", "en": "Post No. 3 stands by the bay on the east side of People's Army Military Road 7351, with a watchtower and a small jetty from which guards patrol the nearby water by launch to keep boats away from the road."}
+    names: {"zh": "7351公路第一哨所", "en": "Road 7351 Post No. 1"}
+    notes: {"zh": "第一哨所在人民军军用7351公路东侧的海湾边，设有一座瞭望塔和一处小码头，警卫员乘巡逻艇在附近海面巡查，防止有船只靠近公路。", "en": "Post No. 1 stands by the bay on the east side of People's Army Military Road 7351, with a watchtower and a small jetty from which guards patrol the nearby water by launch to keep boats away from the road."}
     in: div_gt2h78
     at: [435.20, 540.20]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局7351公路第三哨所", "en": "Road 7351 Post No. 3, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局7351公路第一哨所", "en": "Road 7351 Post No. 1, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 30, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: bld_r9mev5
     subtype: office
     status: generated
@@ -2418,12 +2418,12 @@ places:
   - id: poi_s652nk
     subtype: checkpoint
     status: generated
-    names: {"zh": "4617铁路第一检查站", "en": "Railway 4617 Checkpoint No. 1"}
-    notes: {"zh": "4617铁路第一检查站在人民军军用4617铁路驶出干部区后向北穿过的山谷里。「一心号」专列在这里减速通过，检查站把列车经过的时间报给前方的检查站，前后两站的时间对不上，就要拦车检查。", "en": "Railway 4617 Checkpoint No. 1 is in the valley that People's Army Military Railway 4617 follows north after leaving the Cadre Quarter. The One Heart special train slows down as it passes, and the checkpoint reports the time to the next one along; if the two times do not tally, the train is stopped and searched."}
+    names: {"zh": "4617铁路第三检查站", "en": "Railway 4617 Checkpoint No. 3"}
+    notes: {"zh": "4617铁路第三检查站在人民军军用4617铁路驶出干部区后向北穿过的山谷里。「一心号」专列在这里减速通过，检查站把列车经过的时间报给前方的检查站，前后两站的时间对不上，就要拦车检查。", "en": "Railway 4617 Checkpoint No. 3 is in the valley that People's Army Military Railway 4617 follows north after leaving the Cadre Quarter. The One Heart special train slows down as it passes, and the checkpoint reports the time to the next one along; if the two times do not tally, the train is stopped and searched."}
     in: div_qe8t49
     at: [429.07, 549.52]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局4617铁路第一检查站", "en": "Railway 4617 Checkpoint No. 1, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局4617铁路第三检查站", "en": "Railway 4617 Checkpoint No. 3, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_wdjtjr
     subtype: checkpoint
     status: generated
@@ -2436,21 +2436,21 @@ places:
   - id: poi_06qhm8
     subtype: checkpoint
     status: generated
-    names: {"zh": "4617铁路第三检查站", "en": "Railway 4617 Checkpoint No. 3"}
-    notes: {"zh": "4617铁路第三检查站在首都北郊，是「一心号」专列驶进首都、到达劳动党中央委员会专用站之前的最后一道关卡。早晨进城的列车在这里停车，领袖保卫局的警卫再清点一次乘客，然后才放行进城。", "en": "Railway 4617 Checkpoint No. 3, on the northern edge of the capital, is the last barrier before the One Heart special train enters the city and reaches the Central Committee Station. Morning trains into town stop here while Leader's Guard Bureau guards count the passengers once more before letting them through."}
+    names: {"zh": "4617铁路第一检查站", "en": "Railway 4617 Checkpoint No. 1"}
+    notes: {"zh": "4617铁路第一检查站在首都北郊，是「一心号」专列驶进首都、到达劳动党中央委员会专用站之前的最后一道关卡。早晨进城的列车在这里停车，领袖保卫局的警卫再清点一次乘客，然后才放行进城。", "en": "Railway 4617 Checkpoint No. 1, on the northern edge of the capital, is the last barrier before the One Heart special train enters the city and reaches the Central Committee Station. Morning trains into town stop here while Leader's Guard Bureau guards count the passengers once more before letting them through."}
     in: div_gt2h78
     at: [444.25, 552.7]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局4617铁路第三检查站", "en": "Railway 4617 Checkpoint No. 3, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局4617铁路第一检查站", "en": "Railway 4617 Checkpoint No. 1, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_etwzj7
     subtype: checkpoint
     status: generated
-    names: {"zh": "5108公路第一检查站", "en": "Road 5108 Checkpoint No. 1"}
-    notes: {"zh": "5108公路第一检查站在人民军军用5108公路驶出干部区北门以后的第一个山口，过往车辆要出示领袖保卫局签发的通行证。干部区的车辆在北门已经检查过，到这里只核对车牌和人数。", "en": "Road 5108 Checkpoint No. 1 is at the first pass on People's Army Military Road 5108 beyond the Cadre Quarter's North Gate, where vehicles must show a pass issued by the Leader's Guard Bureau. Cars from the quarter, already searched at the gate, have only their numbers and passengers checked here."}
+    names: {"zh": "5108公路第三检查站", "en": "Road 5108 Checkpoint No. 3"}
+    notes: {"zh": "5108公路第三检查站在人民军军用5108公路驶出干部区北门以后的第一个山口，过往车辆要出示领袖保卫局签发的通行证。干部区的车辆在北门已经检查过，到这里只核对车牌和人数。", "en": "Road 5108 Checkpoint No. 3 is at the first pass on People's Army Military Road 5108 beyond the Cadre Quarter's North Gate, where vehicles must show a pass issued by the Leader's Guard Bureau. Cars from the quarter, already searched at the gate, have only their numbers and passengers checked here."}
     in: div_qe8t49
     at: [432.00, 550.00]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局5108公路第一检查站", "en": "Road 5108 Checkpoint No. 1, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局5108公路第三检查站", "en": "Road 5108 Checkpoint No. 3, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_n64djr
     subtype: checkpoint
     status: generated
@@ -2463,12 +2463,12 @@ places:
   - id: poi_0sdjbe
     subtype: checkpoint
     status: generated
-    names: {"zh": "5108公路第三检查站", "en": "Road 5108 Checkpoint No. 3"}
-    notes: {"zh": "5108公路第三检查站在首都北郊，是人民军军用5108公路进城之前的最后一道关卡。车队到达前，检查站通知首都卫戍部门清空通往劳动党机关建筑群的街道。", "en": "Road 5108 Checkpoint No. 3, on the northern edge of the capital, is the last barrier on People's Army Military Road 5108 before it enters the city. Before a motorcade arrives, it tells the capital garrison to clear the streets to the Workers' Party buildings."}
+    names: {"zh": "5108公路第一检查站", "en": "Road 5108 Checkpoint No. 1"}
+    notes: {"zh": "5108公路第一检查站在首都北郊，是人民军军用5108公路进城之前的最后一道关卡。车队到达前，检查站通知首都卫戍部门清空通往劳动党机关建筑群的街道。", "en": "Road 5108 Checkpoint No. 1, on the northern edge of the capital, is the last barrier on People's Army Military Road 5108 before it enters the city. Before a motorcade arrives, it tells the capital garrison to clear the streets to the Workers' Party buildings."}
     in: div_gt2h78
     at: [443.30, 551.50]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
-    military: {"unit": {"zh": "领袖保卫局5108公路第三检查站", "en": "Road 5108 Checkpoint No. 3, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+    military: {"unit": {"zh": "领袖保卫局5108公路第一检查站", "en": "Road 5108 Checkpoint No. 1, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_qm34sh
     subtype: military_base
     status: generated
@@ -2491,7 +2491,7 @@ places:
     subtype: command_centre
     status: generated
     names: {"zh": "领袖保卫局总部", "en": "Leader's Guard Bureau Headquarters"}
-    notes: {"zh": "领袖保卫局总部在首都安德里安巴永生宫西面，是领袖保卫局的指挥机关，局长姆博拉·拉钦巴在这里办公。领袖保卫局直属劳动党第一书记，负责领袖和家人的安全，守卫永生宫、拉诺迈措湖官邸区和法里希凯利湖干部区的核心道路和设施，并经营人民军军用7351、2964、5108公路和8203、4617铁路。局长名义上只是一个局的负责人，实际权力却在政治保卫部部长和人民军总参谋长之上：人民军和政治保卫部的部队调近首都和两片住区，都要事先报告领袖保卫局。\n领袖保卫局下辖第一、第二警卫旅和贴身警卫处、航空队、车辆队、通信营、防空营，在海湾西岸驻有九千多人，比当地的政治保卫部部队和人民军部队加起来还多，装备也比一般的人民军部队精良齐全，第一警卫旅装备着全国最新的坦克、步兵战车和防空导弹。总部大楼没有门牌，外墙不挂任何标志，门前的街道禁止停车，楼下据说有坑道直通永生宫。", "en": "The Leader's Guard Bureau Headquarters, west of the Palace of Eternity in the capital, Andriamba, is the Bureau's command, where its director, Mbola Ratsimba, has his office. Answerable directly to the First Secretary of the Workers' Party, the Bureau protects the leader and his family, guards the Palace of Eternity and the core roads and buildings of the Lake Ranomaitso Residences and the Lake Farihikely Cadre Quarter, and runs People's Army Military Roads 7351, 2964 and 5108 and Military Railways 8203 and 4617. On paper its director heads no more than a bureau, but in fact he outweighs the Director of the Political Security Department and the Chief of the General Staff: no unit of the army or the department may be moved near the capital or the two compounds without first informing the Bureau.\nThe Bureau commands the 1st and 2nd Guard Brigades, the Close Protection Department, a flight, a vehicle unit and signals and air defence battalions; it keeps more than nine thousand people on the western shore of the bay, more than the Political Security Department and the People's Army have there together, and they are better and more fully equipped than ordinary army units, the 1st Guard Brigade having the newest tanks, infantry fighting vehicles and air defence missiles in the country. The headquarters building has no number and no sign on its walls, parking is forbidden in the street outside, and tunnels are said to run beneath it to the Palace of Eternity."}
+    notes: {"zh": "领袖保卫局总部在首都安德里安巴永生宫西面，是领袖保卫局的指挥机关，局长姆博拉·拉钦巴在这里办公。领袖保卫局直属劳动党第一书记，负责领袖和家人的安全，守卫永生宫、拉诺迈措湖官邸区和法里希凯利湖干部区的核心道路和设施，并经营人民军军用7351、2964、5108公路和8203、4617铁路。局长名义上与人民军的上将同级，实际权力却在政治保卫部部长和人民军总参谋长之上：人民军和政治保卫部的部队调近首都和两片住区，都要事先报告领袖保卫局。\n领袖保卫局下辖第一、第二警卫旅和贴身警卫处、航空队、车辆队、通信营、防空营，在海湾西岸驻有九千多人，比当地的政治保卫部部队和人民军部队加起来还多，装备也比一般的人民军部队精良齐全，第一警卫旅装备着全国最新的坦克、步兵战车和防空导弹。总部大楼没有门牌，外墙不挂任何标志，门前的街道禁止停车，楼下据说有坑道直通永生宫。", "en": "The Leader's Guard Bureau Headquarters, west of the Palace of Eternity in the capital, Andriamba, is the Bureau's command, where its director, Mbola Ratsimba, has his office. Answerable directly to the First Secretary of the Workers' Party, the Bureau protects the leader and his family, guards the Palace of Eternity and the core roads and buildings of the Lake Ranomaitso Residences and the Lake Farihikely Cadre Quarter, and runs People's Army Military Roads 7351, 2964 and 5108 and Military Railways 8203 and 4617. Its director ranks on paper with the People's Army's colonel generals but in fact outweighs the Director of the Political Security Department and the Chief of the General Staff: no unit of the army or the department may be moved near the capital or the two compounds without first informing the Bureau.\nThe Bureau commands the 1st and 2nd Guard Brigades, the Close Protection Department, a flight, a vehicle unit and signals and air defence battalions; it keeps more than nine thousand people on the western shore of the bay, more than the Political Security Department and the People's Army have there together, and they are better and more fully equipped than ordinary army units, the 1st Guard Brigade having the newest tanks, infantry fighting vehicles and air defence missiles in the country. The headquarters building has no number and no sign on its walls, parking is forbidden in the street outside, and tunnels are said to run beneath it to the Palace of Eternity."}
     in: div_gt2h78
     offset_km: [-2.43, 0.42]
     site: {"layout": "complex", "size_m": [300, 220], "angle_deg": 0, "rural": true}
@@ -2520,12 +2520,12 @@ places:
     in: div_gt2h78
     at: [445.60, 551.80]
     site: {"layout": "complex", "size_m": [400, 250], "angle_deg": 0, "rural": true}
-  # ·· 安德里安巴海湾隧道与干部区东门 / Andriamba Bay Tunnel and Cadre Quarter East Gate ··
+  # ·· 人民军军用3826隧道与干部区东门 / People's Army Military Tunnel 3826 and Cadre Quarter East Gate ··
   - id: poi_g68460
     subtype: checkpoint
     status: generated
     names: {"zh": "法里希凯利湖干部区东门检查站", "en": "Lake Farihikely Cadre Quarter East Gate Checkpoint"}
-    notes: {"zh": "法里希凯利湖干部区东门检查站设在人民军军用7351公路从安德里安巴海湾隧道上岸以后不远的地方，是公路上岸后的第一站，也是干部区通往这条公路的唯一关口，由领袖保卫局第二警卫旅的一个连把守。持领袖保卫局特别通行证的政治局委员在这里上路，经海湾隧道进城；检查站朝南的一侧另有一道铁门，干部区的汽车一律不准由此南下前往官邸区。领袖的车队经过时不停车，警卫事先关上通往干部区的大门，清空门前的道路。", "en": "The Lake Farihikely Cadre Quarter East Gate Checkpoint stands a short way from where People's Army Military Road 7351 comes ashore from the Andriamba Bay Tunnel. It is the road's first stop ashore and the quarter's only way onto it, held by a company of the Leader's Guard Bureau's 2nd Guard Brigade. Politburo members with a special Bureau pass join the road here to go to town through the tunnel; a second iron gate on the southern side keeps every car from the quarter from heading south to the Residences. The leader's motorcade passes without stopping, the guards having shut the gate to the quarter and cleared the road in front beforehand."}
+    notes: {"zh": "法里希凯利湖干部区东门检查站设在人民军军用7351公路从人民军军用3826隧道上岸以后不远的地方，是公路上岸后的第一站，由领袖保卫局第二警卫旅的一个连把守。公路在这里贴着干部区的东缘经过，检查站守着干部区与公路之间的大门：7351公路只供领袖使用，干部区的人一律不准驶上公路，连政治局委员进城也要走5108公路绕行海湾，大门只在领袖视察干部区时打开，平时一直紧闭。领袖的车队经过时不停车，警卫事先清空门前的道路。", "en": "The Lake Farihikely Cadre Quarter East Gate Checkpoint stands a short way from where People's Army Military Road 7351 comes ashore from People's Army Military Tunnel 3826. It is the road's first stop ashore, held by a company of the Leader's Guard Bureau's 2nd Guard Brigade. Here the road runs along the eastern edge of the quarter, and the checkpoint guards the gate between the two: Road 7351 is for the leader alone, nobody from the quarter may drive onto it and even Politburo members go to town the long way round the bay on Road 5108, and the gate opens only when the leader visits the quarter and otherwise stays shut. The leader's motorcade passes without stopping, the guards having cleared the road in front beforehand."}
     in: div_gt2h78
     at: [434.55, 542.45]
     site: {"layout": "checkpoint", "size_m": [400, 300], "angle_deg": 0, "rural": true}
@@ -2533,8 +2533,8 @@ places:
   - id: poi_9j6qxv
     subtype: checkpoint
     status: generated
-    names: {"zh": "安德里安巴海湾隧道西口检查站", "en": "Andriamba Bay Tunnel West Portal Checkpoint"}
-    notes: {"zh": "安德里安巴海湾隧道西口检查站守着海湾隧道在西岸的洞口，人民军军用7351公路和8203铁路在这里一起钻进海底。检查站由领袖保卫局第一警卫旅的一个连把守，洞口前设有铁闸门、防撞墩和车辆检查坑；隧道里装着通风机、抽水泵和监视摄像机，值班室日夜盯着两条隧道管里的动静。「领袖号」专列和领袖的车队开来以前，警卫先乘巡道车把隧道走一遍。", "en": "The Andriamba Bay Tunnel West Portal Checkpoint guards the tunnel's mouth on the western shore, where People's Army Military Road 7351 and Military Railway 8203 go down under the sea together. A company of the Leader's Guard Bureau's 1st Guard Brigade holds it, with iron gates, crash barriers and a vehicle inspection pit before the portal; the tunnel is fitted with ventilation fans, drainage pumps and cameras, and the duty room watches both bores day and night. Before the Leader special train or the leader's motorcade comes, guards run through the tunnel on an inspection car."}
+    names: {"zh": "3826隧道西口检查站", "en": "Tunnel 3826 West Portal Checkpoint"}
+    notes: {"zh": "3826隧道西口检查站守着海湾隧道在西岸的洞口，人民军军用7351公路和8203铁路在这里一起钻进海底。检查站由领袖保卫局第一警卫旅的一个连把守，洞口前设有铁闸门、防撞墩和车辆检查坑；隧道里装着通风机、抽水泵和监视摄像机，值班室日夜盯着两条隧道管里的动静。「领袖号」专列和领袖的车队开来以前，警卫先乘巡道车把隧道走一遍。", "en": "The Tunnel 3826 West Portal Checkpoint guards the tunnel's mouth on the western shore, where People's Army Military Road 7351 and Military Railway 8203 go down under the sea together. A company of the Leader's Guard Bureau's 1st Guard Brigade holds it, with iron gates, crash barriers and a vehicle inspection pit before the portal; the tunnel is fitted with ventilation fans, drainage pumps and cameras, and the duty room watches both bores day and night. Before the Leader special train or the leader's motorcade comes, guards run through the tunnel on an inspection car."}
     in: div_gt2h78
     at: [434.75, 543.3]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
@@ -2542,8 +2542,8 @@ places:
   - id: poi_3ag1kc
     subtype: checkpoint
     status: generated
-    names: {"zh": "安德里安巴海湾隧道东口检查站", "en": "Andriamba Bay Tunnel East Portal Checkpoint"}
-    notes: {"zh": "安德里安巴海湾隧道东口检查站在首都西北郊的海湾边，离领袖保卫局215设施不远，是人民军军用7351公路和8203铁路钻进海底之前的最后一道关卡。车队和专列到达前，检查站通知首都卫戍部门清空附近的道路；隧道上方的海面禁止一切船只停留，检查站的巡逻艇日夜在这里巡航。", "en": "The Andriamba Bay Tunnel East Portal Checkpoint, by the bay on the north-western edge of the capital not far from Leader's Guard Bureau Facility 215, is the last barrier before People's Army Military Road 7351 and Military Railway 8203 go down under the sea. Before a motorcade or the special train arrives it tells the capital garrison to clear the roads nearby; no boat may stop on the water above the tunnel, and the checkpoint's launches patrol it day and night."}
+    names: {"zh": "3826隧道东口检查站", "en": "Tunnel 3826 East Portal Checkpoint"}
+    notes: {"zh": "3826隧道东口检查站在首都西北郊的海湾边，离领袖保卫局215设施不远，是人民军军用7351公路和8203铁路钻进海底之前的最后一道关卡。车队和专列到达前，检查站通知首都卫戍部门清空附近的道路；隧道上方的海面禁止一切船只停留，检查站的巡逻艇日夜在这里巡航。", "en": "The Tunnel 3826 East Portal Checkpoint, by the bay on the north-western edge of the capital not far from Leader's Guard Bureau Facility 215, is the last barrier before People's Army Military Road 7351 and Military Railway 8203 go down under the sea. Before a motorcade or the special train arrives it tells the capital garrison to clear the roads nearby; no boat may stop on the water above the tunnel, and the checkpoint's launches patrol it day and night."}
     in: div_gt2h78
     at: [441.1, 549.95]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}

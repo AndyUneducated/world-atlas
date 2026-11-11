@@ -44,6 +44,7 @@ JOIN_HOOK_COS = math.cos(math.radians(120))  # ... but not by turning back more 
 LINE_JOIN_KM = 10  # a given line's end farther than this from the routed path is routed to its from/to stop instead
 ACCESS_KM = 0.5  # a sited facility farther than this (real km) from every road and street gets an access road
 ACCESS_REACH_KM = 60  # ... to the nearest road within this distance (real km)
+SPUR_REACH_KM = 400  # a spur (ends_at_network) searches this far (real km) for the route it joins
 # Bays and fjords this large (real km²) and capes this prominent (real km) are labelled from lower zooms.
 MAJOR_LANDFORM_KM2 = 200
 MAJOR_CAPE_KM = 12
@@ -529,7 +530,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             own = {district_index[v]}
         return lambda c: district_at(c) in own
 
-    road_out, road_via = [], {}
+    road_out, road_via, spurs = [], {}, set()
     # A route with a line (real-world geometry, design km) follows it exactly between its from and to
     # stops (or from its start, to its end): the cells under the line carry it for routing, segments and
     # engineering, and the map draws the line itself. exact_spans: ref -> [first, last] index in the path.
@@ -546,13 +547,24 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         road_via[r["id"]] = via
         cells = [land_cell(land_r, gr.res, *r["crossing"][territory["id"]]) if v == PORTAL else stop_cell(v) for v in via]
         path = []
+        # A two-stop spur runs from its first stop to the nearest point of a route that already serves its
+        # last stop (and not its first), crossing any road between: routed on to the last stop itself, it
+        # would keep clear of the other routes all the way there (M112) and meet none before.
+        spur = None
+        if r.get("ends_at_network") and len(via) == 2 and PORTAL not in via:
+            meet = {c for r2, p in road_out if via[-1] in road_via[r2["id"]] and via[0] not in road_via[r2["id"]] for c in p}
+            at = router.nearest(cells[0], meet, SPUR_REACH_KM / frame.scale) if meet else None
+            spur = router.route(cells[0], at, r.get("tunnel_cost"), ref=r["ref"]) if at is not None and at != cells[0] else None
 
         def extend(leg, at_v):
             at = join_leg(path, leg, in_stop(at_v))
             at_stop[:] = [min(i, at) for i in at_stop]
             at_stop.append(len(path) - 1)
         at_stop = [0]
-        for k, ((a, b), (ca, cb)) in enumerate(zip(zip(via[:-1], via[1:]), zip(cells[:-1], cells[1:]))):
+        if spur:
+            path.extend(spur)
+            spurs.add(r["id"])
+        for k, ((a, b), (ca, cb)) in enumerate(zip(zip(via[:-1], via[1:]), zip(cells[:-1], cells[1:])) if not spur else ()):
             spec_b = r.get("legs", {}).get(b, {})
             if spec_b.get("straight", r.get("straight")):
                 leg = router.straight(ca, cb)
@@ -580,7 +592,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                 tail = router.route(line_cells[-1], path[b], ref=r["ref"])[1:] + path[b + 1:]
             exact_spans[r["ref"]] = [len(head), len(head) + len(line_cells) - 1]
             path = head + line_cells + tail
-        if r.get("ends_at_network"):
+        if r.get("ends_at_network") and not spur:
             path = router.trim_to_network(path)
         router.commit(path, r["class"], ref=r["ref"])
         road_out.append((r, path))
@@ -678,6 +690,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         for at_start in (True, False):
             if road_via.get(r["id"], [None])[0 if at_start else -1] == PORTAL:
                 continue  # the route goes on through the tunnel
+            if r["id"] in spurs:
+                continue  # a spur ends at its first stop and on the route it joins
             span = exact_spans.get(ref)
             if span and r["network"] == "municipal_road" and (span[0] == 0 if at_start else span[1] == len(path) - 1):
                 continue  # a real city road ends where it really does

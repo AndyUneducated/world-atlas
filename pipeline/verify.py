@@ -22,6 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from atlas.region import check_expectations  # noqa: E402
 from atlas.world import ROOT, World  # noqa: E402
+from tiles import TILE_LAYERS  # noqa: E402
 
 OUT = ROOT / "public" / "data"
 ON_LINE_M = 15  # coordinates are rounded to 4 decimals (up to 11 m), so a highlight may sit this far off its line
@@ -365,6 +366,8 @@ def free_ends(lines: list[list], lat0: float) -> list[np.ndarray]:
     tree = STRtree([shape({"type": "LineString", "coordinates": m.tolist()}) for m in ms])
     out = []
     for i, m in enumerate(ms):
+        if np.hypot(*(m[0] - m[-1])) <= JOIN_M:
+            continue  # a piece closed on itself, like a ring drawn in one
         for p in (m[0], m[-1]):
             if any(j != i for j in tree.query(points(p), predicate="dwithin", distance=JOIN_M)):
                 continue
@@ -487,13 +490,34 @@ def check_shared(ents: dict) -> dict[str, list[str]]:
     return {"no shared alignments": bad}
 
 
+FETCH_MAX_MB = 100  # one JSON file the site fetches and parses whole (main-thread parse time, memory)
+STARTUP_MAX_MB = 150  # all of them together, read before the map is usable
+PAGES_MAX_MB = 1000  # GitHub Pages site limit
+PAGES_SHARE = 0.7  # what the data may take before tiles.py, leaving room for atlas.pmtiles and the app
+
+
+def check_sizes() -> dict[str, list[str]]:
+    """Every file the deployed site fetches as JSON stays small enough to parse in the browser, and the
+    deployed data fits GitHub Pages with room for the vector tiles. The tile layers' GeoJSON is packed
+    by tiles.py and never fetched once deployed, so it is left out of both."""
+    tiled = {f"{n}.geojson" for n in TILE_LAYERS}
+    fetched = {p.name: p.stat().st_size / 1e6 for p in OUT.iterdir() if p.suffix in (".json", ".geojson") and p.name not in tiled}
+    deployed = sum(p.stat().st_size for p in OUT.iterdir() if p.is_file() and p.name not in tiled) / 1e6
+    big = [f"{n}: {mb:.0f} MB > {FETCH_MAX_MB} MB" for n, mb in sorted(fetched.items()) if mb > FETCH_MAX_MB]
+    if (total := sum(fetched.values())) > STARTUP_MAX_MB:
+        big.append(f"all fetched JSON: {total:.0f} MB > {STARTUP_MAX_MB} MB")
+    over = [f"deployed data {deployed:.0f} MB > {PAGES_SHARE:.0%} of {PAGES_MAX_MB} MB"] if deployed > PAGES_SHARE * PAGES_MAX_MB else []
+    return {"fetched JSON fits the browser": big, "deployed data fits GitHub Pages": over}
+
+
 def main():
     world = World()
     ents, manifest = load("entities.json"), load("manifest.json")
     results = {}
     for check in (lambda: check_routes(ents), lambda: check_numbers(ents), lambda: check_government(ents), lambda: check_stations(ents),
                   lambda: check_expected(world, ents), check_glyphs, lambda: check_models(ents),
-                  lambda: check_terrain(manifest), lambda: check_round_borders(ents), lambda: check_shared(ents), lambda: check_intros(ents), lambda: check_shapes(ents)):
+                  lambda: check_terrain(manifest), lambda: check_round_borders(ents), lambda: check_shared(ents), lambda: check_intros(ents), lambda: check_shapes(ents),
+                  check_sizes):
         results.update(check())
     for what, bad in results.items():
         print(f"{'ok  ' if not bad else 'FAIL'} {what}" + (f": {len(bad)}\n  " + "\n  ".join(bad[:20]) if bad else ""))

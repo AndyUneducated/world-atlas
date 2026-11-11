@@ -237,13 +237,21 @@ def route_railways(world: World, router: Router, poles, stop_index: dict, territ
             router.commit(path, "rail", discount=float("inf"), ref=r["id"])
             out.append((r, stops, path))
             continue
+        legs = via + via[:1] if r.get("ring") else via
         cells = [land_cell(land, router.res, *r["crossing"][territory]) if v == PORTAL
-                 else router.cell(*(place_at[v] if v in place_at else poles[stop_index[v]])) for v in via]
+                 else router.cell(*(place_at[v] if v in place_at else poles[stop_index[v]])) for v in legs]
+        inside_of = lambda v: None if v == PORTAL or district_at is None else (lambda c, i=stop_index[v]: district_at(c) == i)  # noqa: E731
         path = []
-        for v, a, b in zip(via, cells[:-1], cells[1:]):
+        for k, (v, a, b) in enumerate(zip(legs, cells[:-1], cells[1:])):
+            # a ring leaves each stop on a track of its own, not back along the one it came in on
+            laid = {c for c in path if c not in router.owner} if r.get("ring") else set()
+            router.owner.update(dict.fromkeys(laid, f"{r['id']}/laid"))
             # every line on its own track (M112): wheeled lines no longer run on one another's either
-            inside = None if v == PORTAL or district_at is None else (lambda c, i=stop_index[v]: district_at(c) == i)
-            join_leg(path, router.route(a, b, r.get("tunnel_cost", 2.5), ref=r["id"]), inside)
+            join_leg(path, router.route(a, b, r.get("tunnel_cost", 2.5), ref=r["id"]), inside_of(v))
+            for c in laid:
+                del router.owner[c]
+        if r.get("ring"):
+            fold_ring(path, inside_of(via[0]))
         router.commit(path, "rail", discount=float("inf") if maglev else 0.45, ref=r["id"])
         out.append((r, stops, path))
     return out
