@@ -1470,6 +1470,61 @@ places:
     at: [433.70, 524.00]
     site: {"layout": "heliport", "size_m": [500, 400], "angle_deg": 0, "rural": true}
     military: {"unit": {"zh": "领袖保卫局航空队直升机分队", "en": "Helicopter Flight, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "专用直升机与医疗直升机", "en": "VIP helicopters and an air ambulance"}, "personnel": 60, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  # ·· 林间别墅群 / Forest Villas ··
+  - id: bld_y1r03t
+    subtype: mansion
+    status: generated
+    names: {"zh": "林间一号别墅", "en": "Forest Villa No. 1"}
+    notes: {"zh": "林间一号别墅是林间别墅群里最大的一座，两层楼房藏在高大的雨林树冠下面，从空中只看得见一片连绵的树顶。这里住着领袖的几位情妇，有的已经在这里住了好几年，从不在官方场合露面，党报上也从未出现过她们的名字。别墅配有十五名女服务员，负责做饭、洗衣、打扫和照料住在这里的女人；领袖不在的时候，她们只为这些女人服务。晚上大多数服务员离开，只留两人值夜。别墅里只配女服务员，男人除了领袖本人一律不得进入，领袖保卫局的卫兵只在林子外围的哨线上值勤。官邸区的人说，住进一号别墅的女人一旦离开，就再也没有人见过。", "en": "Forest Villa No. 1 is the largest of the Forest Villas, a two-storey house hidden under the tall rainforest canopy so that from the air only an unbroken stretch of treetops can be seen. Several of the leader's mistresses live here, some of them for years; they never appear in public, and their names have never been printed in the party newspaper. The villa has fifteen maids, who cook, wash, clean and look after the women living here, and serve only them when the leader is away. At night most of the maids leave and two stay on duty. Only women work inside; no man but the leader may enter, and the Leader's Guard Bureau's guards keep to the picket line at the edge of the woods. People in the Residences say that no one has seen again any woman who has left Villa No. 1."}
+    in: div_gt2h78
+    at: [425.80, 523.30]
+    site: {"layout": "estate", "size_m": [340, 260], "variant": "villa", "angle_deg": 20, "rural": true}
+    access_road: false
+  - id: bld_4y0wh9
+    subtype: mansion
+    status: generated
+    names: {"zh": "林间二号别墅", "en": "Forest Villa No. 2"}
+    notes: {"zh": "林间二号别墅在一号别墅东面不远的林子里，是「欢乐组」的住处之一。欢乐组是领袖保卫局第五处从全国各地的文工团、艺术学校和工厂里挑选的成年年轻女子，个个能歌善舞，入选后在这里集中训练，为领袖和他的少数亲信表演和陪伴取乐。她们入组时签下保密书，不准与家人通信，期满离开时会得到一笔钱和一套首都的公寓，有的被安排嫁给警卫军官。别墅有一间排练厅和一座小舞台，配有十二名女服务员，晚上留两人值夜。别墅里只配女服务员，男人除了领袖本人一律不得进入，领袖保卫局的卫兵只在林子外围的哨线上值勤。", "en": "Forest Villa No. 2, in the woods a short way east of Villa No. 1, is one of the homes of the Joy Corps: young adult women chosen by the Fifth Office of the Leader's Guard Bureau from art troupes, art schools and factories all over the country for their singing and dancing, who are trained here to perform for and entertain the leader and a few of his intimates. On joining they sign a pledge of secrecy and may not write to their families; when their term ends they leave with a sum of money and a flat in the capital, and some are married off to guard officers. The villa has a rehearsal hall and a small stage, and twelve maids, two of whom stay on at night. Only women work inside; no man but the leader may enter, and the Leader's Guard Bureau's guards keep to the picket line at the edge of the woods."}
+    in: div_gt2h78
+    at: [426.00, 523.20]
+    site: {"layout": "estate", "size_m": [320, 240], "variant": "villa", "angle_deg": 60, "rural": true}
+    access_road: false
+  - id: bld_y7yqwp
+    subtype: mansion
+    status: generated
+    names: {"zh": "林间三号别墅", "en": "Forest Villa No. 3"}
+    notes: {"zh": "林间三号别墅在别墅群的北端，是欢乐组的另一处住所，住的多是刚入组、还在受训的舞女。领袖保卫局第五处的女教官每天在这里教她们跳舞、唱歌、按摩和侍酒的规矩，学得慢的人会被送回原来的单位，此后不准提起在这里的经历。别墅配有十名女服务员，晚上只留一人值夜。别墅里只配女服务员，男人除了领袖本人一律不得进入，领袖保卫局的卫兵只在林子外围的哨线上值勤。这几座别墅之间有林中小路相通，彼此相距只有几百米，但住在不同别墅里的女人很少来往。", "en": "Forest Villa No. 3, at the northern end of the group, is the Joy Corps' other house, mostly for dancers who have just joined and are still in training. Women instructors of the Leader's Guard Bureau's Fifth Office teach them dance, song, massage and the etiquette of serving drinks every day; those who learn too slowly are sent back to their old workplaces and may never speak of their time here. The villa has ten maids, one of whom stays on at night. Only women work inside; no man but the leader may enter, and the Leader's Guard Bureau's guards keep to the picket line at the edge of the woods. Paths through the forest join the villas, which stand only a few hundred metres apart, but the women of different villas seldom mix."}
+    in: div_gt2h78
+    at: [425.85, 523.50]
+    site: {"layout": "estate", "size_m": [320, 240], "variant": "villa", "angle_deg": 110, "rural": true}
+    access_road: false
+  - id: bld_p2tf9v
+    subtype: mansion
+    status: generated
+    names: {"zh": "林间四号别墅", "en": "Forest Villa No. 4"}
+    notes: {"zh": "林间四号别墅在别墅群西侧，住的是从国外来的女人。她们来自好几个国家，肤色和语言各不相同，由第三国的中间人以演出合同或高薪工作的名义招来，持短期签证经劳动党政治保卫部263机场入境，再由领袖保卫局的汽车直接送进林子里。有的只住一个星期，有的住上几个月，离开前都要签保密书，护照在她们住在这里期间由第五处保管。别墅配有八名女服务员，其中两人兼做翻译，晚上留一人值夜。别墅里只配女服务员，男人除了领袖本人一律不得进入，领袖保卫局的卫兵只在林子外围的哨线上值勤。", "en": "Forest Villa No. 4, on the western side of the group, houses women brought in from abroad. They come from several countries, of different colours and tongues, recruited by middlemen in third countries on the pretext of performing contracts or well-paid jobs; they fly in on short visas through the Workers' Party Political Security Department's Airfield 263 and are driven straight into the woods in Leader's Guard Bureau cars. Some stay only a week, others for several months; all sign a pledge of secrecy before they leave, and the Fifth Office keeps their passports while they are here. The villa has eight maids, two of whom also interpret, and one stays on at night. Only women work inside; no man but the leader may enter, and the Leader's Guard Bureau's guards keep to the picket line at the edge of the woods."}
+    in: div_gt2h78
+    at: [425.60, 523.20]
+    site: {"layout": "estate", "size_m": [300, 220], "variant": "villa", "angle_deg": 150, "rural": true}
+    access_road: false
+  - id: bld_d74j9r
+    subtype: mansion
+    status: generated
+    names: {"zh": "林间五号别墅", "en": "Forest Villa No. 5"}
+    notes: {"zh": "林间五号别墅是别墅群里最小的一座，在南端靠近林边的检查站，住的是短期来客：第五处从首都和国外临时召来的女人，大多只住一个星期，最长不过一个月。她们来时坐的是蒙着车窗的汽车，走时也一样，许多人始终不知道自己到过哪里。别墅配有五名女服务员，晚上留一人值夜。别墅里只配女服务员，男人除了领袖本人一律不得进入，领袖保卫局的卫兵只在林子外围的哨线上值勤。五座别墅里平时住着四五十个女人，人数随领袖的心意时多时少。", "en": "Forest Villa No. 5, the smallest of the group, stands at its southern end near the checkpoint at the edge of the woods and houses short-stay guests: women summoned by the Fifth Office from the capital and from abroad, most of whom stay a week and none longer than a month. They come in cars with curtained windows and leave the same way, and many never learn where they have been. The villa has five maids, one of whom stays on at night. Only women work inside; no man but the leader may enter, and the Leader's Guard Bureau's guards keep to the picket line at the edge of the woods. Forty to fifty women usually live in the five villas, more or fewer as the leader pleases."}
+    in: div_gt2h78
+    at: [425.82, 523.05]
+    site: {"layout": "estate", "size_m": [280, 200], "variant": "villa", "angle_deg": 40, "rural": true}
+    access_road: false
+  - id: poi_6170dw
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "林间别墅群检查站", "en": "Forest Villas Checkpoint"}
+    notes: {"zh": "林间别墅群检查站设在人民军军用6639公路进入林间别墅群的入口，由领袖保卫局第一警卫旅的一个排把守，是卫兵能到达的最远处，排里的士兵每半年轮换一次。检查站以外的林子四周拉着铁丝网，哨兵沿铁丝网巡逻，但不准走进林子。别墅的女服务员每天清晨乘领袖保卫局的大客车从首都北郊的职工住宅区来，在这里由女警卫搜身后步行进去，傍晚出来时再查一次；领袖的车队到来前，检查站关闭道路，连服务员也不准进出。官邸区的地图上，这片林子只标着「第五处」。", "en": "The Forest Villas Checkpoint stands where People's Army Military Road 6639, the only road into the Forest Villas, enters the woods. A platoon of the Leader's Guard Bureau's 1st Guard Brigade holds it, and it is as far as any guard may go; the platoon is relieved every six months. Beyond it a wire fence runs round the woods, and sentries patrol along the fence but may not enter the trees. The villas' maids come every morning by Leader's Guard Bureau bus from the staff housing in the capital's northern suburbs; women guards search them here before they walk in, and search them again when they leave in the evening. Before the leader's motorcade arrives the checkpoint closes the track, even to the maids. On maps of the Residences the woods are marked only 'Fifth Office'."}
+    in: div_gt2h78
+    at: [425.90, 522.30]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第一警卫旅林间警卫排", "en": "Forest Guard Platoon, 1st Guard Brigade, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器、警犬与巡逻车", "en": "Small arms, guard dogs and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   # ·· 法里希凯利湖干部区 / Lake Farihikely Cadre Quarter ··
   - id: bld_8cx8fd
     subtype: mansion
