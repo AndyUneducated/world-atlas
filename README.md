@@ -26,11 +26,11 @@ Everything on the map is generated from the YAML files in `world/`. Nothing in
 ```mermaid
 flowchart LR
   W["world/*.yaml<br/>canon and generator parameters"] --> B["pipeline/build.py"]
-  B --> R1["region: North Viking Island"]
-  B --> R2["region: Viking Islands"]
-  R1 & R2 <-.-> C[(".cache/regions<br/>one result per region")]
-  R1 & R2 --> M["merge: crossings,<br/>traffic and service"]
+  B --> R["one region per territory<br/>cn-nv, cn-vk, cn-ao, cn-es, us-ca, ranova"]
+  R <-.-> C[(".cache/regions<br/>one result per region")]
+  R --> M["merge: crossings,<br/>traffic and service"]
   M --> D["public/data<br/>GeoJSON, entities, terrain PMTiles"]
+  D --> V["pipeline/verify.py"]
   D --> T["pipeline/tiles.py<br/>tippecanoe → PMTiles"]
   D & T --> A["React + MapLibre app"]
 ```
@@ -83,7 +83,7 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   country: it is a `dependency` with `role: region` (`950000`), its nations are localities
   (`role: nation`) and their cities boroughs.
 - **Regions.** Each territory has one generator file, `world/generator/<region>.yaml`
-  (`cn-nv`, `cn-vk`); its natural features live in `world/features/<region>-*.yaml` and are
+  (`cn-nv`, `cn-vk`, `cn-ao`, `cn-es`, `us-ca`, `ranova`); its natural features live in `world/features/<region>-*.yaml` and are
   only matched and used for street names inside that region.
 - **Routes.** Four grades, the same in every territory: national expressways `G-NV-1…`,
   territorial expressways `S-NV-1…`, territorial highways `S-NV-101…` and city roads
@@ -118,7 +118,8 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   `bridge_to`. Ports and harbours snap to the nearest coast and airports and spaceports step
   inland off the water, so sites stay in place when the districts are repartitioned.
 - **Railways.** Intercity lines in `world/transport/*-rail.yaml` list their stops (cities
-  or districts) and are laid over the terrain with gentler gradients than roads; `tech`
+  or districts) and are laid over the terrain with gentler gradients than roads; `ring` and
+  `legs` (straight legs) work as on roads, `tech`
   sets their operating and design speeds, and an optional `trains_per_day` fixes the
   timetable instead of a demand-driven headway. City metro
   lines come from the `metro` section of a generator file and stay inside a district's
@@ -142,7 +143,7 @@ cache, about 11. Options of `pipeline/build.py`:
 | Option | Effect |
 |:--|:--|
 | `--check` | Validate the YAML without generating anything (`npm run data:check`) |
-| `--only <region> …` | Rebuild only the named regions (`cn-nv`, `cn-vk`); the others come from their last cached result, even if out of date |
+| `--only <region> …` | Rebuild only the named regions (`cn-vk`, `ranova`, …); the others come from their last cached result, even if out of date |
 | `--fresh` | Ignore the cache |
 | `--text` | Refresh only card text, the economy and the elections in the last build's `entities.json` (about 10 s); enough after editing notes, traits, party cards or party targets, not after anything that changes the map |
 
@@ -158,16 +159,18 @@ Small tools in `pipeline/tools/` read the sources or the last build, so checks n
 
 The build fails if two territories' land overlaps. `python pipeline/verify.py` then checks the
 output against invariants that earlier bugs broke (highlights on the drawn line, unbroken routes,
-route numbers without gaps, government buildings in every territory, label glyphs, model
-consistency); CI runs it after every build. Pushing to `main` runs the pipeline and
+route numbers without gaps, route shapes that do not double back, government buildings in every
+territory, label glyphs, model consistency, file sizes the browser and GitHub Pages accept); CI
+runs it after every build and deploys only if it passes. Pushing to `main` runs the pipeline and
 deploys to GitHub Pages through `.github/workflows/deploy.yml`; CI keeps `.cache` between
 runs, so only the regions that changed are rebuilt.
 
 Display-only layers with many features (land cover, streams, sea depth, streets, buildings) are packed into a
 [PMTiles](https://docs.protomaps.com/pmtiles/) vector tile archive by `pipeline/tiles.py`
 with [tippecanoe](https://github.com/felt/tippecanoe), and the site reads them tile by tile.
-CI always builds the archive; locally it is optional, and without tippecanoe the site loads
-the same layers as GeoJSON.
+CI always builds the archive. Without tippecanoe a local build loads the same layers as
+GeoJSON, but `buildings.geojson` is now larger than a browser can parse in one piece (about
+512 MB), so a local preview of the whole map needs tippecanoe.
 
 Design decisions made without an explicit instruction are recorded in
 [`DECISIONS.md`](DECISIONS.md).
