@@ -246,8 +246,11 @@ def route_railways(world: World, router: Router, poles, stop_index: dict, territ
             # a ring leaves each stop on a track of its own, not back along the one it came in on
             laid = {c for c in path if c not in router.owner} if r.get("ring") else set()
             router.owner.update(dict.fromkeys(laid, f"{r['id']}/laid"))
-            # every line on its own track (M112): wheeled lines no longer run on one another's either
-            join_leg(path, router.route(a, b, r.get("tunnel_cost", 2.5), ref=r["id"]), inside_of(v))
+            # every line on its own track (M112): wheeled lines no longer run on one another's either;
+            # a leg given straight (keyed by the stop it arrives at) crosses open sea like a road's
+            leg = router.straight(a, b) if r.get("legs", {}).get(legs[k + 1], {}).get("straight") \
+                else router.route(a, b, r.get("tunnel_cost", 2.5), ref=r["id"])
+            join_leg(path, leg, inside_of(v))
             for c in laid:
                 del router.owner[c]
         if r.get("ring"):
