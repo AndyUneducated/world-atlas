@@ -741,7 +741,7 @@ function LocalFactsSection({ entity, lang }: { entity: Entity; lang: Lang }) {
 }
 
 /** Parts of the default card a grouped card reuses, placed in its groups. */
-export type SharedParts = {
+type SharedParts = {
   about: ReactNode;
   legislature: ReactNode;
   council: ReactNode;

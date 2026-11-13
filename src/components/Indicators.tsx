@@ -12,7 +12,7 @@ const SCALES = {
   unemployment: [0, 30],
   inflation: [0, 30],
 } as const;
-export type IndicatorKey = keyof typeof SCALES;
+type IndicatorKey = keyof typeof SCALES;
 
 const LABELS: Record<IndicatorKey, StringKey> = {
   life_expectancy: "lifeExpectancy",
@@ -41,7 +41,7 @@ function figuresOf(e: Entity): Figures {
 
 /** What an entity's indicators are set against: the country it lies in, or for a state on Ranova the mean of
  * the island's states. China and the United States, and the states themselves, have nothing above them. */
-export type Reference = { label: string; figures: Figures };
+type Reference = { label: string; figures: Figures };
 
 export function indicatorReference(data: AtlasData, e: Entity, lang: Lang): Reference | null {
   const top = lineage(data, e)[0];

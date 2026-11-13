@@ -20,7 +20,7 @@ const POLAR = { ice: "#2F8FCB", frost: "rgba(255,255,255,0.55)", body: "#ffffff"
 const TROPIC = { leaf: "#13795B", sun: "rgba(242,179,61,0.75)", body: "#ffffff", text: "#0F5A45" };
 const SPADE = { green: "#0A6B3D", gold: "#E8B523", edge: "#ffffff", text: "#ffffff" };
 
-export interface Shield {
+interface Shield {
   canvas: HTMLCanvasElement;
   /** CSS pixels. */
   width: number;

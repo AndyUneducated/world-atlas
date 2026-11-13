@@ -21,7 +21,7 @@ import type { CityFlagSpec, Entity } from "./types";
 const W = 60;
 const H = 40;
 
-export const FLAG_LAYOUTS = [
+const FLAG_LAYOUTS = [
   "ensign", "banner", "horizon", "border", "ivuran", "sun_canton", "seal", "nordic", "bands", "hoist", "diagonal", "mirror",
 ] as const;
 

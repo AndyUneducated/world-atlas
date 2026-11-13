@@ -7,7 +7,7 @@ interface Doc {
   weight: number;
 }
 
-export interface SearchHit {
+interface SearchHit {
   entity: Entity;
   score: number;
 }

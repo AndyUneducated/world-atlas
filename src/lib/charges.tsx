@@ -14,7 +14,7 @@ const polar = (deg: number, r: number, cx = 24, cy = 24): [number, number] => {
   return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
 };
 
-export function starPath(n: number, outer: number, inner: number, cx = 24, cy = 24, turn = -90) {
+function starPath(n: number, outer: number, inner: number, cx = 24, cy = 24, turn = -90) {
   const pts = Array.from({ length: n * 2 }, (_, k) => polar(turn + (k * 180) / n, k % 2 ? inner : outer, cx, cy));
   return `M${pts.map((p) => p.map((v) => v.toFixed(2)).join(" ")).join("L")}Z`;
 }

@@ -1,6 +1,6 @@
 import type { Lang } from "./types";
 
-export interface UrlState {
+interface UrlState {
   sel?: string;
   lang?: Lang;
   view?: { zoom: number; lat: number; lng: number; bearing: number };

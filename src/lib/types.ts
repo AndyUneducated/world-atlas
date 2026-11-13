@@ -391,7 +391,7 @@ export interface Demographics {
 }
 
 export const ETHNIC_GROUPS = ["european", "latino", "african", "asian", "other"] as const;
-export type EthnicGroup = (typeof ETHNIC_GROUPS)[number];
+type EthnicGroup = (typeof ETHNIC_GROUPS)[number];
 
 /** Military and space facilities: the unit stationed there and what the public may see of it. */
 export interface MilitaryFacts {

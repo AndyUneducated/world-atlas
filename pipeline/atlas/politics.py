@@ -16,8 +16,6 @@ import numpy as np
 
 from .world import World
 
-LANG_KEYS = ("zh", "art-x-viking", "art-x-buckham", "en", "art-x-tavrunaq", "art-x-ivuran", "es", "art-x-ranova", "art-x-kasiri")
-
 
 SPLIT = 0.3  # a party with this share of a top-two race's vote stands two candidates
 RUNOFF_NOISE = 0.04  # the general election's own swing, at most, either way (log share)

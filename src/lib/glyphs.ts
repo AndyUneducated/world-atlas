@@ -3,7 +3,7 @@
  * A part is filled (even-odd, so inner paths cut holes) unless it gives a stroke width.
  * Territorial routes name one in `shield:`; each route has its own.
  */
-export interface GlyphPart {
+interface GlyphPart {
   d: string;
   stroke?: number;
 }

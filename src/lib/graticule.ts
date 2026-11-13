@@ -18,7 +18,7 @@ const LABEL_GAP_PX = 90;
 const TROPIC = 23.4362;
 const POLAR = 90 - TROPIC;
 /** Named lines, drawn apart from the grid whatever its spacing. */
-export const SPECIAL_LINES = [
+const SPECIAL_LINES = [
   { key: "equator", axis: "lat", value: 0 },
   { key: "tropicCancer", axis: "lat", value: TROPIC },
   { key: "tropicCapricorn", axis: "lat", value: -TROPIC },
@@ -26,16 +26,16 @@ export const SPECIAL_LINES = [
   { key: "antarcticCircle", axis: "lat", value: -POLAR },
   { key: "primeMeridian", axis: "lng", value: 0 },
 ] as const;
-export type SpecialLine = (typeof SPECIAL_LINES)[number]["key"];
+type SpecialLine = (typeof SPECIAL_LINES)[number]["key"];
 
 const degPerPx = (zoom: number) => 360 / (512 * 2 ** zoom);
 
-export function autoStep(zoom: number): number {
+function autoStep(zoom: number): number {
   const gap = AUTO_GAP_PX * degPerPx(zoom);
   return [...AUTO_STEPS].reverse().find((s) => s >= gap) ?? AUTO_STEPS[0];
 }
 
-export interface View {
+interface View {
   zoom: number;
   west: number;
   south: number;
@@ -63,7 +63,7 @@ function labelEvery(step: number, zoom: number): number {
 
 const decimals = (step: number) => Math.max(0, Math.ceil(-Math.log10(step) - 1e-9));
 
-export function formatDegree(value: number, axis: "lat" | "lng", step: number): string {
+function formatDegree(value: number, axis: "lat" | "lng", step: number): string {
   const v = Math.abs(value) < 1e-9 ? 0 : value;
   const text = Math.abs(v).toFixed(decimals(step));
   if (v === 0) return "0°";

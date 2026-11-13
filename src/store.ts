@@ -30,7 +30,7 @@ export interface DisplayToggles {
 }
 
 /** The search box as it was when a card was opened from it, so going back can reopen it where it was. */
-export interface ListView {
+interface ListView {
   query: string;
   scope: string | null;
   expanded: Record<string, boolean>;
@@ -38,7 +38,7 @@ export interface ListView {
 }
 
 /** A card's own view: which of its parts are opened, and how far it is scrolled when it is shown again on going back. */
-export interface CardView {
+interface CardView {
   open: Record<string, boolean>;
   scroll: number;
 }
