@@ -1035,9 +1035,36 @@ places:
     names: {"zh": "安德里安巴野战训练场", "en": "Andriamba Field Training Area"}
     notes: {"zh": "安德里安巴野战训练场是马索沃利最大的陆军训练场，占据了城外大片的稀树草原和丘陵。坦克和装甲车在这里进行机动和实弹射击训练，炮兵阵地设在训练场的一端，靶区在另一端。演习期间，训练场周围的道路实行管制，附近的牧民要把牛群赶到别处。", "en": "Andriamba Field Training Area is Masovoly's largest army training ground, covering a broad stretch of savanna and hills outside town. Tanks and armoured vehicles train in manoeuvre and live fire here, with the artillery positions at one end and the target area at the other. During exercises the roads round it are closed, and nearby herders must move their cattle elsewhere."}
     in: div_gt2h78
-    offset_km: [2.30, -5.54]
+    at: [450.60, 542.40]
     site: {"layout": "range", "size_m": [4000, 2500], "variant": "armor", "angle_deg": 22, "rural": true}
     military: {"unit": {"zh": "人民军安德里安巴野战训练场", "en": "Andriamba Field Training Area, People's Army"}, "branch": {"zh": "人民军", "en": "People's Army"}, "equipment": {"zh": "步兵与装甲车辆训练区、火炮射击阵地", "en": "Infantry and armoured vehicle areas, artillery firing points"}, "personnel": 260, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_q7j10t
+    subtype: air_base
+    status: generated
+    names: {"zh": "人民军空军4390机场", "en": "People's Army Air Force Airfield 4390"}
+    notes: {"zh": "人民军空军4390机场在首都安德里安巴市区的东缘，跑道离城东的最后一排公寓楼只有几百米，是离市中心最近的军用机场。机场驻有空军第二运输飞行团和一个侦察机大队，负责首都与各地之间的军用运输和沿海的空中侦察；每年阅兵时，从这里起飞的飞机排成编队飞过领袖广场。附近的居民早已习惯了飞机的轰鸣，夜里机场的灯光把城东的天空照得发白。", "en": "People's Army Air Force Airfield 4390 lies on the eastern edge of the capital, Andriamba, its runway a few hundred metres from the last row of flats on the east side of town, and is the military airfield nearest the city centre. It is home to the Air Force's 2nd Transport Regiment and a reconnaissance group, which fly military transport between the capital and the provinces and patrol the coast from the air; at every parade the aircraft that fly over Leaders' Square in formation take off from here. The people nearby have long been used to the roar of the engines, and at night the airfield's lights turn the sky over the east of the city white."}
+    in: div_gt2h78
+    at: [446.40, 545.00]
+    site: {"layout": "airbase", "size_m": [2800, 800], "variant": "heavy", "angle_deg": 80, "rural": true}
+    military: {"unit": {"zh": "人民军空军第二运输飞行团", "en": "2nd Transport Regiment, People's Army Air Force"}, "branch": {"zh": "人民军空军", "en": "People's Army Air Force"}, "equipment": {"zh": "运输机、侦察机与直升机", "en": "Transport and reconnaissance aircraft and helicopters"}, "personnel": 800, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_avqebr
+    subtype: air_base
+    status: generated
+    names: {"zh": "人民军空军7126机场", "en": "People's Army Air Force Airfield 7126"}
+    notes: {"zh": "人民军空军7126机场在首都东南远郊的稀树草原上，离市中心三十多公里，驻有空军的强击机团，飞机藏在山脚下加固的机库里，跑道两端各有一处防空阵地。强击机多是联合共和国时期留下的老飞机，靠阿瓦拉齐提供的零件维持飞行，每年只在演习时成队起飞，平时机场里很安静。附近的村庄在修机场时被迁走，原来的田地改成了一圈雷区。", "en": "People's Army Air Force Airfield 7126 lies on the savanna far to the south-east of the capital, more than thirty kilometres from the city centre. It is home to the Air Force's ground-attack regiment, whose aircraft are kept in hardened shelters at the foot of the hills, with an air-defence position at either end of the runway. Most of the aircraft are old machines left from the United Republic, kept flying with spare parts from Avaratsy, and they take off in numbers only for exercises; the rest of the time the airfield is quiet. The villages nearby were moved away when it was built, and their fields became a ring of minefields."}
+    in: div_gt2h78
+    at: [453.00, 539.50]
+    site: {"layout": "airbase", "size_m": [3000, 1100], "variant": "fighter", "angle_deg": 40, "rural": true}
+    military: {"unit": {"zh": "人民军空军强击机团", "en": "Ground-Attack Regiment, People's Army Air Force"}, "branch": {"zh": "人民军空军", "en": "People's Army Air Force"}, "equipment": {"zh": "强击机与教练机", "en": "Ground-attack and training aircraft"}, "personnel": 1100, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
+  - id: poi_5ec41c
+    subtype: air_base
+    status: generated
+    names: {"zh": "人民军陆军9058机场", "en": "People's Army Ground Forces Airfield 9058"}
+    notes: {"zh": "人民军陆军9058机场在首都东北远郊的丘陵之间，离市中心三十多公里，属人民军陆军，驻有陆军航空兵旅的直升机和轻型运输机，负责把首都周围的陆军部队空运到各地。机场旁边是一座伞兵训练场，伞兵们每周从运输机上跳伞，落在机场东面的草地上。机场的跑道比空军的短，但停机坪很大，演习时停满了直升机。", "en": "People's Army Ground Forces Airfield 9058 lies among the hills far to the north-east of the capital, more than thirty kilometres from the city centre. It belongs to the People's Army ground forces and is home to the helicopters and light transports of the army aviation brigade, which lift the army units around the capital wherever they are needed. Beside it is a parachute training ground, where paratroopers jump from the transports every week onto the grassland east of the airfield. Its runway is shorter than the air force's, but its aprons are large and fill with helicopters during exercises."}
+    in: div_gt2h78
+    at: [452.00, 556.00]
+    site: {"layout": "airbase", "size_m": [2400, 1000], "variant": "heavy", "angle_deg": 120, "rural": true}
+    military: {"unit": {"zh": "人民军陆军航空兵旅", "en": "Army Aviation Brigade, People's Army"}, "branch": {"zh": "人民军陆军", "en": "People's Army Ground Forces"}, "equipment": {"zh": "直升机与轻型运输机", "en": "Helicopters and light transport aircraft"}, "personnel": 1000, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
   - id: poi_71a4ac
     subtype: radar_station
     status: generated
@@ -1318,17 +1345,17 @@ places:
     subtype: vehicle_depot
     status: generated
     names: {"zh": "领袖保卫局106设施", "en": "Leader's Guard Bureau Facility 106"}
-    notes: {"zh": "领袖保卫局106设施是首都安德里安巴西北郊海湾边的专用火车站，是「领袖号」专列在首都一端的终点，不对外开放，也不在任何列车时刻表上。车站只有一座站台和一座候车厅，候车厅里挂着创始领袖乘坐专列视察的油画；领袖在这里下车，换乘领袖保卫局的车队进入永生宫。", "en": "Leader's Guard Bureau Facility 106 is a special railway station by the bay on the north-western edge of the capital, Andriamba, the capital end of the Leader special train; it is closed to the public and appears in no timetable. It has a single platform and a waiting hall hung with an oil painting of the founding leader touring the country by special train; the leader alights here and transfers to a Leader's Guard Bureau motorcade into the Palace of Eternity."}
+    notes: {"zh": "领袖保卫局106设施是首都安德里安巴城北图书馆路附近的一处秘密地点，是人民军军用8203铁路和「领袖号」专列在首都一端的终点，由领袖保卫局负责，不对外开放，也不在任何列车时刻表上。外面看只是一片高墙围着的院子，铁路从地下进站，站台和候车厅都在院子里，候车厅里挂着创始领袖乘坐专列视察的油画。领袖进城时在这里下车，换乘领袖保卫局的车队前往市中心的永生宫和党政军机关；附近的居民只知道这是一个「单位」，从不打听里面是做什么的。", "en": "Leader's Guard Bureau Facility 106 is a secret site near Library Road in the north of the capital, Andriamba, the capital end of People's Army Military Railway 8203 and the Leader special train. The Leader's Guard Bureau runs it; it is closed to the public and appears in no timetable. From outside it is only a yard behind high walls; the line comes in below ground, and the platform and a waiting hall hung with an oil painting of the founding leader touring by special train are inside the yard. When the leader comes to town he alights here and changes into a Bureau motorcade for the Palace of Eternity and the party, army and state buildings in the city centre; the people nearby know it only as 'a unit' and never ask what goes on inside."}
     in: div_gt2h78
-    at: [441.30, 552.30]
+    at: [442.60, 548.90]
     site: {"layout": "complex", "size_m": [500, 200], "angle_deg": 70, "rural": true}
   - id: poi_1ap9p7
     subtype: vehicle_depot
     status: generated
     names: {"zh": "领袖保卫局215设施", "en": "Leader's Guard Bureau Facility 215"}
-    notes: {"zh": "领袖保卫局215设施是人民军军用7351公路在首都一端的换乘站，位于首都西北郊的海湾边。领袖的车队从拉诺迈措湖官邸区开到这里，警卫和车辆在此交接给首都的警卫车队，再开进城里；车站旁有车库、加油站和警卫员的休息室。", "en": "Leader's Guard Bureau Facility 215 is the transfer station at the capital end of People's Army Military Road 7351, by the bay on the north-western edge of the capital. The leader's motorcade drives here from the Lake Ranomaitso Residences and is handed over to the capital's guard convoy before it enters the city; beside it are garages, a filling station and a rest room for the guards."}
+    notes: {"zh": "领袖保卫局215设施是首都安德里安巴城北天文台大道附近的一处秘密地点，是人民军军用7351公路在首都一端的起点，由领袖保卫局负责。院子四周是高墙和铁门，里面有车库、加油站和警卫员的休息室。领袖进城时，车队从拉诺迈措湖官邸区开到这里，领袖在院子里下车，换乘首都警卫车队的另一组轿车，再前往市中心的永生宫和党政军机关；离开时也在这里换车。附近的居民只知道这是一个「单位」，从不打听里面是做什么的。", "en": "Leader's Guard Bureau Facility 215 is a secret site near Observatory Avenue in the north of the capital, Andriamba, the capital end of People's Army Military Road 7351, run by the Leader's Guard Bureau. Behind its high walls and iron gates are garages, a filling station and a rest room for the guards. When the leader comes to town his motorcade drives here from the Lake Ranomaitso Residences, and he alights in the yard and changes into another set of cars of the capital's guard convoy for the Palace of Eternity and the party, army and state buildings in the city centre; he changes back here on the way out. The people nearby know it only as 'a unit' and never ask what goes on inside."}
     in: div_gt2h78
-    at: [441.60, 550.40]
+    at: [445.80, 548.20]
     site: {"layout": "complex", "size_m": [400, 300], "angle_deg": 0, "rural": true}
   - id: poi_n46a12
     subtype: patrol_base
@@ -1557,9 +1584,9 @@ places:
     subtype: mansion
     status: generated
     names: {"zh": "劳动党10号别墅", "en": "Workers' Party Villa No. 10"}
-    notes: {"zh": "劳动党10号别墅在干部区南缘、沃希阿拉丘陵的山脚下，是中央人民银行总裁的住所。稀土出口换来的外汇怎样分配，据说常常是在这座别墅的客厅里商量出来的。", "en": "Workers' Party Villa No. 10, on the southern edge of the Cadre Quarter at the foot of the Vohiala Hills, is the home of the Governor of the Central People's Bank. How the foreign currency earned by rare-earth exports is shared out is said often to be worked out in its drawing room."}
+    notes: {"zh": "劳动党10号别墅在别墅区南缘的坡地上，离沃希阿拉丘陵还有十来公里，是中央人民银行总裁的住所。稀土出口换来的外汇怎样分配，据说常常是在这座别墅的客厅里商量出来的。", "en": "Workers' Party Villa No. 10, on a slope at the southern edge of the villa grounds, some ten kilometres short of the Vohiala Hills, is the home of the Governor of the Central People's Bank. How the foreign currency earned by rare-earth exports is shared out is said often to be worked out in its drawing room."}
     in: div_gt2h78
-    at: [428.80, 535.80]
+    at: [428.70, 536.60]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
   - id: bld_8g84kk
     subtype: mansion
@@ -1575,15 +1602,15 @@ places:
     names: {"zh": "劳动党12号别墅", "en": "Workers' Party Villa No. 12"}
     notes: {"zh": "劳动党12号别墅在湖东北的林边，常年空着，仆役照常打扫。干部区里的人说，它是留给下一位升进政治局的人的；也有人说，上一位主人搬走的那天夜里，来接他的不是专列，而是政治保卫部的汽车。", "en": "Workers' Party Villa No. 12, at the edge of the woods north-east of the lake, stands empty all year, though its staff still clean it. People in the Cadre Quarter say it is kept for the next man to enter the Politburo; others say that on the night its last owner left, it was not the special train that came for him but a Political Security Department car."}
     in: div_gt2h78
-    at: [431.90, 540.90]
+    at: [432.55, 539.95]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
   - id: bld_ksrymz
     subtype: mansion
     status: generated
     names: {"zh": "劳动党13号别墅", "en": "Workers' Party Villa No. 13"}
-    notes: {"zh": "劳动党13号别墅在干部区西北角，是几位跟随创始领袖打过游击的元老的住所。老人们早已不担任实职，每年太阳节都被请到太阳宫的主席台上就座，向年轻干部讲述游击队的故事。", "en": "Workers' Party Villa No. 13, in the north-west corner of the Cadre Quarter, is the home of a few elders who fought as guerrillas with the founding leader. They have long held no real office, but every Day of the Sun they are seated on the platform at the Palace of the Sun to tell the younger cadres stories of the guerrilla war."}
+    notes: {"zh": "劳动党13号别墅在别墅区西北角，是几位跟随创始领袖打过游击的元老的住所。老人们早已不担任实职，每年太阳节都被请到太阳宫的主席台上就座，向年轻干部讲述游击队的故事。", "en": "Workers' Party Villa No. 13, in the north-west corner of the villa grounds, is the home of a few elders who fought as guerrillas with the founding leader. They have long held no real office, but every Day of the Sun they are seated on the platform at the Palace of the Sun to tell the younger cadres stories of the guerrilla war."}
     in: div_gt2h78
-    at: [427.90, 541.30]
+    at: [427.60, 540.30]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
   - id: bld_frf4kd
     subtype: mansion
@@ -1591,7 +1618,7 @@ places:
     names: {"zh": "劳动党14号别墅", "en": "Workers' Party Villa No. 14"}
     notes: {"zh": "劳动党14号别墅在太阳宫北面，是人民军总政治部主任的住所。总政治部主任在党内的排名高于总参谋长，所以他的别墅虽然离湖较远，却紧挨太阳宫。", "en": "Workers' Party Villa No. 14, north of the Palace of the Sun, is the home of the Director of the General Political Department of the People's Army. The director ranks above the Chief of the General Staff in the party, so his villa, though farther from the lake, stands right beside the Palace of the Sun."}
     in: div_gt2h78
-    at: [430.20, 541.60]
+    at: [430.35, 541.05]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
   - id: bld_pf0q7p
     subtype: office
@@ -1599,7 +1626,7 @@ places:
     names: {"zh": "劳动党第一办公楼", "en": "Workers' Party Office Building No. 1"}
     notes: {"zh": "劳动党第一办公楼是劳动党中央书记局在法里希凯利湖干部区的办公楼。书记局的书记们住在干部区，不进城的日子就在这里处理日常事务，重要文件由专列每天往返送达。", "en": "Workers' Party Office Building No. 1 is the Cadre Quarter office of the party's Central Secretariat. The secretaries live in the quarter and deal with daily business here on days when they do not go into town, with important papers carried to and fro each day by the special train."}
     in: div_gt2h78
-    at: [431.50, 542.50]
+    at: [431.50, 541.75]
     site: {"layout": "slab", "size_m": [400, 300], "angle_deg": 0, "rural": true}
   - id: bld_3px2zh
     subtype: office
@@ -1607,7 +1634,7 @@ places:
     names: {"zh": "劳动党第二办公楼", "en": "Workers' Party Office Building No. 2"}
     notes: {"zh": "劳动党第二办公楼是组织指导部在干部区的办公楼，保存着政治局委员和候补委员的人事档案副本。档案室在地下，只有部长和两名副部长有钥匙。", "en": "Workers' Party Office Building No. 2 is the Organisation and Guidance Department's office in the Cadre Quarter, holding copies of the personnel files of the Politburo members and candidates. The file room is underground, and only the director and two deputies hold keys."}
     in: div_gt2h78
-    at: [432.30, 542.50]
+    at: [432.30, 541.75]
     site: {"layout": "slab", "size_m": [400, 300], "angle_deg": 0, "rural": true}
   - id: bld_a3w22w
     subtype: office
@@ -1615,7 +1642,7 @@ places:
     names: {"zh": "劳动党第三办公楼", "en": "Workers' Party Office Building No. 3"}
     notes: {"zh": "劳动党第三办公楼是宣传鼓动部在干部区的办公楼，领袖讲话的定稿和党报的重要社论在这里最后审定，楼里有一间专门的打字室和印刷车间。", "en": "Workers' Party Office Building No. 3 is the Propaganda and Agitation Department's office in the Cadre Quarter, where final texts of the leader's speeches and the party paper's important editorials are approved; it has its own typing pool and print shop."}
     in: div_gt2h78
-    at: [431.50, 543.20]
+    at: [431.50, 542.45]
     site: {"layout": "slab", "size_m": [400, 300], "angle_deg": 0, "rural": true}
   - id: bld_w9hgc2
     subtype: office
@@ -1623,7 +1650,7 @@ places:
     names: {"zh": "劳动党第四办公楼", "en": "Workers' Party Office Building No. 4"}
     notes: {"zh": "劳动党第四办公楼是总务局在干部区的办公楼，负责干部区和拉诺迈措湖官邸区的物资调配，仓库里存放着从国外进口的家具、电器和酒类。", "en": "Workers' Party Office Building No. 4 is the General Affairs Bureau's office in the Cadre Quarter, allocating supplies for the quarter and the Lake Ranomaitso Residences; its stores hold imported furniture, appliances and spirits."}
     in: div_gt2h78
-    at: [432.30, 543.20]
+    at: [432.30, 542.45]
     site: {"layout": "slab", "size_m": [400, 300], "angle_deg": 0, "rural": true}
   - id: bld_n8as7d
     subtype: office
@@ -1631,7 +1658,7 @@ places:
     names: {"zh": "劳动党第五办公楼", "en": "Workers' Party Office Building No. 5"}
     notes: {"zh": "劳动党第五办公楼是党中央的机要局，负责收发和保管政治局的机密文件。所有文件都编号登记，阅后必须当天交回，楼内禁止携带任何纸笔离开。", "en": "Workers' Party Office Building No. 5 houses the Central Confidential Bureau, which sends, receives and keeps the Politburo's secret papers. Every document is numbered and logged and must be returned the same day it is read, and no one may leave the building with paper or pen."}
     in: div_gt2h78
-    at: [433.10, 542.50]
+    at: [433.10, 541.75]
     site: {"layout": "slab", "size_m": [400, 300], "angle_deg": 0, "rural": true}
   - id: bld_qc7gjd
     subtype: office
@@ -1639,7 +1666,7 @@ places:
     names: {"zh": "劳动党第六办公楼", "en": "Workers' Party Office Building No. 6"}
     notes: {"zh": "劳动党第六办公楼是经济部在干部区的办公楼，稀土、石墨出口和国营企业的年度计划在这里汇总，再提交政治局讨论。", "en": "Workers' Party Office Building No. 6 is the Economic Department's office in the Cadre Quarter, where the yearly plans for rare-earth and graphite exports and the state enterprises are put together before going to the Politburo."}
     in: div_gt2h78
-    at: [433.10, 543.20]
+    at: [433.10, 542.45]
     site: {"layout": "slab", "size_m": [400, 300], "angle_deg": 0, "rural": true}
   - id: bld_yebvjy
     subtype: office
@@ -1647,7 +1674,7 @@ places:
     names: {"zh": "劳动党第七办公楼", "en": "Workers' Party Office Building No. 7"}
     notes: {"zh": "劳动党第七办公楼是国际部在干部区的办公楼，接待来访的兄弟党代表团。阿瓦拉齐共产党的代表团来访时，会谈常在这里举行，会后再由领袖保卫局的汽车送往拉诺迈措湖官邸区会见领袖。", "en": "Workers' Party Office Building No. 7 is the International Department's office in the Cadre Quarter, where delegations from fraternal parties are received. When delegations of the Communist Party of Avaratsy visit, talks are often held here before Leader's Guard Bureau cars take them on to meet the leader at the Lake Ranomaitso Residences."}
     in: div_gt2h78
-    at: [431.50, 543.90]
+    at: [431.50, 543.15]
     site: {"layout": "slab", "size_m": [400, 300], "angle_deg": 0, "rural": true}
   - id: bld_w3wavv
     subtype: office
@@ -1655,7 +1682,7 @@ places:
     names: {"zh": "劳动党第八办公楼", "en": "Workers' Party Office Building No. 8"}
     notes: {"zh": "劳动党第八办公楼是党中央档案馆的分馆，保存着建党以来的会议记录和领袖批示的原件。档案馆的复本存放在楼下的坑道里，据说能抵御空袭。", "en": "Workers' Party Office Building No. 8 is a branch of the party's Central Archives, holding the minutes of meetings since the party's founding and the originals of the leaders' instructions. Copies are kept in tunnels beneath the building, said to be proof against air raids."}
     in: div_gt2h78
-    at: [432.30, 543.90]
+    at: [432.30, 543.15]
     site: {"layout": "slab", "size_m": [400, 300], "angle_deg": 0, "rural": true}
   - id: poi_na86fp
     subtype: air_base
@@ -1763,7 +1790,7 @@ places:
     names: {"zh": "劳动党特供商店", "en": "Workers' Party Special Supply Shop"}
     notes: {"zh": "劳动党特供商店是干部区里唯一的商店，出售进口的烟酒、咖啡、巧克力、电器和衣物，只收外汇券，凭干部证按职务限量供应。这里的货架总是满的，与首都排着长队的国营商店形成鲜明对比。", "en": "The Workers' Party Special Supply Shop is the only shop in the Cadre Quarter, selling imported cigarettes, spirits, coffee, chocolate, appliances and clothes for foreign-exchange certificates only, rationed by rank on showing a cadre's card. Its shelves are always full, in stark contrast to the queues at the state shops in the capital."}
     in: div_gt2h78
-    at: [432.20, 541.70]
+    at: [433.95, 541.85]
     site: {"layout": "retail", "size_m": [450, 340], "variant": "supermarket", "angle_deg": 0, "rural": true}
   - id: bld_9nn48y
     subtype: school
@@ -1786,25 +1813,25 @@ places:
     subtype: golf_course
     status: generated
     names: {"zh": "法里希凯利湖高尔夫球场", "en": "Lake Farihikely Golf Course"}
-    notes: {"zh": "法里希凯利湖高尔夫球场在干部区西南部的山脚下，是全国唯一的高尔夫球场，只对干部区的居民和外国贵宾开放。党报从不提起这座球场，干部们在这里打球时，球童都由警卫团的士兵兼任。", "en": "The Lake Farihikely Golf Course, at the foot of the hills in the south-west of the Cadre Quarter, is the only golf course in the country and is open only to the quarter's residents and foreign guests of honour. The party paper never mentions it, and when cadres play here, soldiers of the guard regiment serve as their caddies."}
+    notes: {"zh": "法里希凯利湖高尔夫球场在干部区西北部，是全国唯一的高尔夫球场，只对干部区的居民和外国贵宾开放。党报从不提起这座球场，干部们在这里打球时，球童都由警卫团的士兵兼任。", "en": "The Lake Farihikely Golf Course, in the north-west of the Cadre Quarter, is the only golf course in the country and is open only to the quarter's residents and foreign guests of honour. The party paper never mentions it, and when cadres play here, soldiers of the guard regiment serve as their caddies."}
     in: div_gt2h78
-    at: [427.60, 536.00]
+    at: [427.30, 543.40]
     site: {"layout": "park", "size_m": [1200, 800], "angle_deg": 0, "rural": true}
   - id: bld_cvad6n
     subtype: hotel
     status: generated
     names: {"zh": "劳动党中央温泉疗养院", "en": "Workers' Party Central Hot Spring Sanatorium"}
-    notes: {"zh": "劳动党中央温泉疗养院在干部区西部，引山里的温泉水修了几座室内浴池和疗养楼，是政治局委员和老干部疗养的地方。万寿无疆健康研究所的医生在这里试验各种温泉疗法，再把有效的疗法用到领袖身上。", "en": "The Workers' Party Central Hot Spring Sanatorium, in the west of the Cadre Quarter, draws spring water from the hills into several indoor baths and convalescent buildings for Politburo members and veteran cadres. Doctors from the Institute of Eternal Health try out spa treatments here and pass on those that work for use on the leader."}
+    notes: {"zh": "劳动党中央温泉疗养院在干部区最北端的疗养别墅旁边，从山里引来温泉水，修了几座室内浴池和疗养楼，是政治局委员和老干部疗养的地方。万寿无疆健康研究所的医生在这里试验各种温泉疗法，再把有效的疗法用到领袖身上。", "en": "The Workers' Party Central Hot Spring Sanatorium, beside the rest villas at the northern end of the Cadre Quarter, draws spring water from the hills into several indoor baths and convalescent buildings for Politburo members and veteran cadres. Doctors from the Institute of Eternal Health try out spa treatments here and pass on those that work for use on the leader."}
     in: div_gt2h78
-    at: [426.60, 538.60]
+    at: [433.70, 545.75]
     site: {"layout": "complex", "size_m": [450, 340], "angle_deg": 0, "rural": true}
   - id: poi_2yek1s
     subtype: vehicle_depot
     status: generated
     names: {"zh": "劳动党法里希凯利湖专用站", "en": "Workers' Party Lake Farihikely Station"}
-    notes: {"zh": "劳动党法里希凯利湖专用站在干部区东部，是「一心号」专列在干部区一端的车站和车库。每天清晨，进城上班的干部在这里上车，直达首都的劳动党中央委员会专用站；傍晚的末班车开出后，车站就关闭，迟到的人只能在城里的招待所过夜。", "en": "The Workers' Party Lake Farihikely Station, in the east of the Cadre Quarter, is the station and shed of the One Heart special train at the quarter's end of the line. Every morning cadres going in to work board here for the Central Committee Station in the capital; once the last train of the evening has left the station closes, and latecomers must spend the night in a guesthouse in town."}
+    notes: {"zh": "劳动党法里希凯利湖专用站在干部区北门内侧，是人民军军用4617铁路在干部区一端的终点，是「一心号」专列在干部区一端的车站和车库。每天清晨，进城上班的干部在这里上车，直达首都的劳动党中央委员会专用站；傍晚的末班车开出后，车站就关闭，迟到的人只能在城里的招待所过夜。", "en": "The Workers' Party Lake Farihikely Station, just inside the Cadre Quarter's north gate where People's Army Military Railway 4617 ends, is the station and shed of the One Heart special train at the quarter's end of the line. Every morning cadres going in to work board here for the Central Committee Station in the capital; once the last train of the evening has left the station closes, and latecomers must spend the night in a guesthouse in town."}
     in: div_gt2h78
-    at: [433.40, 538.70]
+    at: [431.65, 545.75]
     site: {"layout": "complex", "size_m": [500, 200], "angle_deg": 90, "rural": true}
   # ·· 首都党政军机关和纪念建筑 / Party, army and state buildings of the capital ··
   - id: bld_4g4xy8
@@ -2244,7 +2271,7 @@ places:
     subtype: checkpoint
     status: generated
     names: {"zh": "拉诺迈措湖官邸区北门检查站", "en": "Lake Ranomaitso Residences North Gate Checkpoint"}
-    notes: {"zh": "拉诺迈措湖官邸区北门检查站是人民军军用7351公路和8203铁路进入官邸区的关口，设在沃希阿拉丘陵东端与海湾之间的缺口南侧，由领袖保卫局第一警卫旅的一个营把守；除了只通北面干部区的沃希阿拉隧道，这里是官邸区与外界之间唯一的陆路关口。公路上设有三道铁门、车辆检查坑和防撞墩，西侧的铁路上另有一道可以横过轨道关闭的铁闸门。\n外面的车辆一律不得开进官邸区：工作人员和来访者在门外的北门停车场下车，经过搜身和证件核对，再换乘领袖保卫局的专用汽车进门。领袖的车队和「领袖号」专列过门时不停车，警卫营事先清空门前的道路和停车场。", "en": "The Lake Ranomaitso Residences North Gate Checkpoint is where People's Army Military Road 7351 and Military Railway 8203 enter the Residences, on the south side of the gap between the eastern end of the Vohiala Hills and the bay. A battalion of the Leader's Guard Bureau's 1st Guard Brigade holds it; apart from the Vohiala Tunnel, which leads only to the Cadre Quarter to the north, it is the Residences' only way in or out by land. The road passes three iron gates, a vehicle inspection pit and crash barriers, and another iron gate can be swung shut across the railway just to the west.\nNo outside vehicle may drive into the Residences: staff and visitors leave their cars at the North Gate Car Park outside, are searched and have their papers checked, and go on in Leader's Guard Bureau cars. The leader's motorcade and the Leader special train pass through without stopping, and the battalion clears the road and the car park in front of the gate beforehand."}
+    notes: {"zh": "拉诺迈措湖官邸区北门检查站是人民军军用7351公路和8203铁路进入官邸区的关口，设在沃希阿拉丘陵东端与海湾之间的缺口南侧，由领袖保卫局第一警卫旅的一个营把守；除了只通北面干部区的沃希阿拉隧道，这里是官邸区与外界之间唯一的陆路关口。公路上设有三道铁门、车辆检查坑和防撞墩，东侧的铁路上另有一道可以横过轨道关闭的铁闸门。\n外面的车辆一律不得开进官邸区：工作人员和来访者在门外的北门停车场下车，经过搜身和证件核对，再换乘领袖保卫局的专用汽车进门。领袖的车队和「领袖号」专列过门时不停车，警卫营事先清空门前的道路和停车场。", "en": "The Lake Ranomaitso Residences North Gate Checkpoint is where People's Army Military Road 7351 and Military Railway 8203 enter the Residences, on the south side of the gap between the eastern end of the Vohiala Hills and the bay. A battalion of the Leader's Guard Bureau's 1st Guard Brigade holds it; apart from the Vohiala Tunnel, which leads only to the Cadre Quarter to the north, it is the Residences' only way in or out by land. The road passes three iron gates, a vehicle inspection pit and crash barriers, and another iron gate can be swung shut across the railway just to the east.\nNo outside vehicle may drive into the Residences: staff and visitors leave their cars at the North Gate Car Park outside, are searched and have their papers checked, and go on in Leader's Guard Bureau cars. The leader's motorcade and the Leader special train pass through without stopping, and the battalion clears the road and the car park in front of the gate beforehand."}
     in: div_gt2h78
     at: [435.36, 530.30]
     site: {"layout": "checkpoint", "size_m": [600, 400], "angle_deg": 0, "rural": true}
@@ -2355,7 +2382,7 @@ places:
     names: {"zh": "4617铁路干部区北检查站", "en": "Railway 4617 Cadre Quarter North Checkpoint"}
     notes: {"zh": "4617铁路干部区北检查站设在人民军军用4617铁路驶出法里希凯利湖干部区的地方，由领袖保卫局第二警卫旅派兵把守。「一心号」专列每次经过都要在这里停车，警卫上车清点乘客人数，与干部区管理局报来的名单核对无误后才放行；只有「领袖号」专列可以不停车通过。", "en": "The Railway 4617 Cadre Quarter North Checkpoint, where People's Army Military Railway 4617 leaves the Lake Farihikely Cadre Quarter, is manned by the Leader's Guard Bureau's 2nd Guard Brigade. The One Heart special train stops here every time while guards board to count the passengers against the list sent by the Cadre Quarter Administration, and it goes on only once the two agree; only the Leader special train may pass without stopping."}
     in: div_gt2h78
-    at: [429.25, 544.90]
+    at: [431.20, 546.00]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
     military: {"unit": {"zh": "领袖保卫局第二警卫旅铁路检查站", "en": "Railway Checkpoint, 2nd Guard Brigade, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_f1s9am
@@ -2388,31 +2415,31 @@ places:
     names: {"zh": "劳动党中央剧场", "en": "Workers' Party Central Theatre"}
     notes: {"zh": "劳动党中央剧场在法里希凯利湖干部区东部，是一座可坐六百人的剧场，为干部区的居民演出歌剧、话剧和革命歌舞。新排的大型歌舞剧在首都公演之前，都要先在这里为政治局委员演出，由宣传鼓动部根据他们的意见修改。演员演出后当天乘车离开，不准在干部区过夜。", "en": "The Workers' Party Central Theatre, in the east of the Lake Farihikely Cadre Quarter, seats six hundred and stages opera, plays and revolutionary song and dance for the quarter's residents. Every new large-scale revue is performed here for the Politburo before it opens in the capital, and the Propaganda and Agitation Department revises it in the light of their comments. The performers leave by car the same day and may not stay the night in the quarter."}
     in: div_gt2h78
-    at: [433.70, 541.60]
+    at: [433.95, 542.55]
     site: {"layout": "hall", "size_m": [450, 340], "angle_deg": 0, "rural": true}
   - id: poi_s8p08s
     subtype: sports_ground
     status: generated
     names: {"zh": "法里希凯利湖网球场", "en": "Lake Farihikely Tennis Courts"}
-    notes: {"zh": "法里希凯利湖网球场在法里希凯利湖南面，有六片红土球场和一座小看台。网球是干部区最时兴的运动，周末的球场上常能见到几位政治局委员同场，干部们说，在球场边听到的消息比在办公楼里还多。球场由领袖保卫局第二警卫旅看守，陪打的教练从人民军体育团借调。", "en": "The Lake Farihikely Tennis Courts, south of Lake Farihikely, have six clay courts and a small stand. Tennis is the most fashionable sport in the Cadre Quarter, and on weekends several Politburo members can often be seen on court together; the cadres say more news is heard at the courtside than in the office buildings. The 2nd Guard Brigade of the Leader's Guard Bureau guards the courts, and the coaches are on loan from the People's Army sports team."}
+    notes: {"zh": "法里希凯利湖网球场在干部区西北部，有六片红土球场和一座小看台。网球是干部区最时兴的运动，周末的球场上常能见到几位政治局委员同场，干部们说，在球场边听到的消息比在办公楼里还多。球场由领袖保卫局第二警卫旅看守，陪打的教练从人民军体育团借调。", "en": "The Lake Farihikely Tennis Courts, in the north-west of the Cadre Quarter, have six clay courts and a small stand. Tennis is the most fashionable sport in the Cadre Quarter, and on weekends several Politburo members can often be seen on court together; the cadres say more news is heard at the courtside than in the office buildings. The 2nd Guard Brigade of the Leader's Guard Bureau guards the courts, and the coaches are on loan from the People's Army sports team."}
     in: div_gt2h78
-    at: [429.30, 534.60]
+    at: [427.95, 542.55]
     site: {"layout": "plaza", "size_m": [450, 340], "angle_deg": 0, "rural": true}
   - id: bld_81tpzg
     subtype: stadium
     status: generated
     names: {"zh": "劳动党中央体育馆", "en": "Workers' Party Central Sports Hall"}
-    notes: {"zh": "劳动党中央体育馆在干部区南部的山脚下，有室内游泳池、篮球场、乒乓球室和健身房，是干部和家属锻炼身体的地方。万寿无疆健康研究所的医生为年老的政治局委员在这里安排每天的保健操和水疗，锻炼的时间和项目都记入他们的健康档案。", "en": "The Workers' Party Central Sports Hall, at the foot of the hills in the south of the Cadre Quarter, has an indoor pool, basketball courts, a table-tennis room and a gymnasium where cadres and their families exercise. Doctors from the Institute of Eternal Health set the older Politburo members their daily exercises and water therapy here, and the time and kind of every session go into their health records."}
+    notes: {"zh": "劳动党中央体育馆在干部区北部，有室内游泳池、篮球场、乒乓球室和健身房，是干部和家属锻炼身体的地方。万寿无疆健康研究所的医生为年老的政治局委员在这里安排每天的保健操和水疗，锻炼的时间和项目都记入他们的健康档案。", "en": "The Workers' Party Central Sports Hall, in the north of the Cadre Quarter, has an indoor pool, basketball courts, a table-tennis room and a gymnasium where cadres and their families exercise. Doctors from the Institute of Eternal Health set the older Politburo members their daily exercises and water therapy here, and the time and kind of every session go into their health records."}
     in: div_gt2h78
-    at: [428.60, 534.30]
+    at: [429.00, 543.05]
     site: {"layout": "stadium", "size_m": [450, 340], "angle_deg": 0, "rural": true}
   - id: poi_ptw67x
     subtype: checkpoint
     status: generated
     names: {"zh": "8203铁路第一检查站", "en": "Railway 8203 Checkpoint No. 1"}
-    notes: {"zh": "8203铁路第一检查站设在人民军军用8203铁路经过法里希凯利湖干部区东侧的地方，铁路两旁拉着双层铁丝网，把干部区与铁路隔开。检查站每天巡查一遍附近的线路；「领袖号」专列开来前一小时，站上的警卫沿铁路两侧排开，背对铁路站岗，专列不停车通过。", "en": "Railway 8203 Checkpoint No. 1 stands where People's Army Military Railway 8203 passes the east side of the Lake Farihikely Cadre Quarter, with a double wire fence on either side of the track to keep the two apart. Its guards walk the nearby line once a day; an hour before the Leader special train is due they line both sides of the track with their backs to it, and the train passes without stopping."}
+    notes: {"zh": "8203铁路第一检查站设在人民军军用8203铁路沿海湾西岸南下的一段，在7351公路东侧，铁路两旁拉着双层铁丝网，与公路隔开。检查站每天巡查一遍附近的线路；「领袖号」专列开来前一小时，站上的警卫沿铁路两侧排开，背对铁路站岗，专列不停车通过。", "en": "Railway 8203 Checkpoint No. 1 stands on the stretch where People's Army Military Railway 8203 runs south along the western shore of the bay, east of Road 7351, with a double wire fence on either side of the track to keep it apart from the road. Its guards walk the nearby line once a day; an hour before the Leader special train is due they line both sides of the track with their backs to it, and the train passes without stopping."}
     in: div_gt2h78
-    at: [434.92, 538.00]
+    at: [435.95, 536.20]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
     military: {"unit": {"zh": "领袖保卫局8203铁路第一检查站", "en": "Railway 8203 Checkpoint No. 1, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与巡逻车", "en": "Small arms and patrol vehicles"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   - id: poi_s652nk
@@ -2520,7 +2547,7 @@ places:
     in: div_gt2h78
     at: [445.60, 551.80]
     site: {"layout": "complex", "size_m": [400, 250], "angle_deg": 0, "rural": true}
-  # ·· 人民军军用3826隧道与干部区东门 / People's Army Military Tunnel 3826 and Cadre Quarter East Gate ··
+  # ·· 人民军军用3826、5472隧道与干部区东门 / People's Army Military Tunnels 3826 and 5472 and Cadre Quarter East Gate ··
   - id: poi_g68460
     subtype: checkpoint
     status: generated
@@ -2534,7 +2561,7 @@ places:
     subtype: checkpoint
     status: generated
     names: {"zh": "3826隧道西口检查站", "en": "Tunnel 3826 West Portal Checkpoint"}
-    notes: {"zh": "3826隧道西口检查站守着海湾隧道在西岸的洞口，人民军军用7351公路和8203铁路在这里一起钻进海底。检查站由领袖保卫局第一警卫旅的一个连把守，洞口前设有铁闸门、防撞墩和车辆检查坑；隧道里装着通风机、抽水泵和监视摄像机，值班室日夜盯着两条隧道管里的动静。「领袖号」专列和领袖的车队开来以前，警卫先乘巡道车把隧道走一遍。", "en": "The Tunnel 3826 West Portal Checkpoint guards the tunnel's mouth on the western shore, where People's Army Military Road 7351 and Military Railway 8203 go down under the sea together. A company of the Leader's Guard Bureau's 1st Guard Brigade holds it, with iron gates, crash barriers and a vehicle inspection pit before the portal; the tunnel is fitted with ventilation fans, drainage pumps and cameras, and the duty room watches both bores day and night. Before the Leader special train or the leader's motorcade comes, guards run through the tunnel on an inspection car."}
+    notes: {"zh": "3826隧道西口检查站守着人民军军用3826隧道在西岸的洞口，人民军军用7351公路在这里钻进海底。检查站由领袖保卫局第一警卫旅的一个连把守，洞口前设有铁闸门、防撞墩和车辆检查坑；隧道里装着通风机、抽水泵和监视摄像机，值班室日夜盯着隧道里的动静。领袖的车队开来以前，警卫先乘巡逻车把隧道走一遍。", "en": "The Tunnel 3826 West Portal Checkpoint guards the mouth of People's Army Military Tunnel 3826 on the western shore, where People's Army Military Road 7351 goes down under the sea. A company of the Leader's Guard Bureau's 1st Guard Brigade holds it, with iron gates, crash barriers and a vehicle inspection pit before the portal; the tunnel is fitted with ventilation fans, drainage pumps and cameras, and the duty room watches it day and night. Before the leader's motorcade arrives, guards drive through the tunnel in a patrol car."}
     in: div_gt2h78
     at: [434.75, 543.3]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
@@ -2543,108 +2570,126 @@ places:
     subtype: checkpoint
     status: generated
     names: {"zh": "3826隧道东口检查站", "en": "Tunnel 3826 East Portal Checkpoint"}
-    notes: {"zh": "3826隧道东口检查站在首都西北郊的海湾边，离领袖保卫局215设施不远，是人民军军用7351公路和8203铁路钻进海底之前的最后一道关卡。车队和专列到达前，检查站通知首都卫戍部门清空附近的道路；隧道上方的海面禁止一切船只停留，检查站的巡逻艇日夜在这里巡航。", "en": "The Tunnel 3826 East Portal Checkpoint, by the bay on the north-western edge of the capital not far from Leader's Guard Bureau Facility 215, is the last barrier before People's Army Military Road 7351 and Military Railway 8203 go down under the sea. Before a motorcade or the special train arrives it tells the capital garrison to clear the roads nearby; no boat may stop on the water above the tunnel, and the checkpoint's launches patrol it day and night."}
+    notes: {"zh": "3826隧道东口检查站在首都北面的海湾边，是人民军军用7351公路钻进海底之前的最后一道关卡。车队到达前，检查站通知首都卫戍部门清空附近的道路；隧道上方的海面禁止一切船只停留，检查站的巡逻艇日夜在这里巡航。", "en": "The Tunnel 3826 East Portal Checkpoint, by the bay north of the capital, is the last barrier before People's Army Military Road 7351 goes down under the sea. Before a motorcade arrives it tells the capital's garrison to clear the roads nearby; no vessel may linger on the water above the tunnel, and the checkpoint's patrol boats cruise there day and night."}
     in: div_gt2h78
     at: [441.1, 549.95]
     site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
     military: {"unit": {"zh": "领袖保卫局第一警卫旅海湾隧道东口警卫连", "en": "Bay Tunnel East Portal Company, 1st Guard Brigade, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器、巡逻艇与隧道监控设备", "en": "Small arms, patrol launches and tunnel monitoring equipment"}, "personnel": 150, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_m843ns
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "5472隧道西口检查站", "en": "Tunnel 5472 West Portal Checkpoint"}
+    notes: {"zh": "5472隧道西口检查站守着人民军军用5472隧道在海湾西岸的洞口，人民军军用8203铁路在这里从海底出来，再沿海岸南下。检查站由领袖保卫局第一警卫旅的一个排把守，铁路两侧拉着双层铁丝网，洞口有一道可以横过轨道关闭的铁闸门。这里离7351公路上岸的地方约十公里，两处的警卫互不往来。", "en": "The Tunnel 5472 West Portal Checkpoint guards the mouth of People's Army Military Tunnel 5472 on the western shore of the bay, where People's Army Military Railway 8203 comes up from under the sea before running south along the coast. A platoon of the Leader's Guard Bureau's 1st Guard Brigade holds it; double wire fences line the track and an iron gate can be swung shut across it at the portal. It lies about ten kilometres from where Road 7351 comes ashore, and the guards of the two never mix."}
+    in: div_gt2h78
+    at: [435.85, 539.40]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局第一警卫旅5472隧道西口警卫排", "en": "Tunnel 5472 West Portal Platoon, 1st Guard Brigade, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与隧道监控设备", "en": "Small arms and tunnel monitoring equipment"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
+  - id: poi_bhd4rp
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "5472隧道东口检查站", "en": "Tunnel 5472 East Portal Checkpoint"}
+    notes: {"zh": "5472隧道东口检查站在首都城北的海湾边，离领袖保卫局106设施不远，是人民军军用8203铁路钻进海底之前的最后一道关卡。洞口藏在一座仓库模样的建筑里，外面看不出有铁路；专列到达前，检查站通知首都卫戍部门清空附近的道路，隧道上方的海面禁止船只停留。", "en": "The Tunnel 5472 East Portal Checkpoint, by the bay in the north of the capital not far from Leader's Guard Bureau Facility 106, is the last barrier before People's Army Military Railway 8203 goes down under the sea. The portal is hidden inside a building that looks like a warehouse, and nothing outside shows that a railway runs there; before the special train arrives the checkpoint tells the capital's garrison to clear the roads nearby, and no vessel may linger on the water above the tunnel."}
+    in: div_gt2h78
+    at: [442.05, 548.45]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+    military: {"unit": {"zh": "领袖保卫局5472隧道东口警卫排", "en": "Tunnel 5472 East Portal Platoon, Leader's Guard Bureau"}, "branch": {"zh": "领袖保卫局", "en": "Leader's Guard Bureau"}, "equipment": {"zh": "轻武器与隧道监控设备", "en": "Small arms and tunnel monitoring equipment"}, "personnel": 40, "access": {"zh": "领袖保卫局警卫区，不对外开放", "en": "Leader's Guard Bureau security zone, closed to the public"}}
   # ·· 法里希凯利湖疗养别墅 / Lake Farihikely Rest Villas ··
   - id: bld_0je93k
     subtype: mansion
     status: generated
     names: {"zh": "疗养别墅1号", "en": "Rest Villa No. 1"}
-    notes: {"zh": "疗养别墅1号是法里希凯利湖干部区西部的十座疗养别墅之一，与干部区中部的劳动党各号别墅相隔近十公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅里有一间小会议室，休养期间仍要处理公务的领导人在这里听取秘书的汇报。", "en": "Rest Villa No. 1 is one of the ten rest villas in the west of the Lake Farihikely Cadre Quarter, nearly ten kilometres from the numbered Workers' Party villas in the middle of the quarter and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. It has a small meeting room where leaders who must still work while resting hear their secretaries' reports."}
+    notes: {"zh": "疗养别墅1号是法里希凯利湖干部区最北端的十座疗养别墅之一，紧挨干部区北门，与南面的劳动党各号别墅相隔十几公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅里有一间小会议室，休养期间仍要处理公务的领导人在这里听取秘书的汇报。", "en": "Rest Villa No. 1 is one of the ten rest villas at the northern end of the Lake Farihikely Cadre Quarter, just inside its north gate, a dozen kilometres or more from the numbered Workers' Party villas to the south and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. It has a small meeting room where leaders who must still work while resting hear their secretaries' reports."}
     in: div_gt2h78
-    at: [425.6, 532.0]
+    at: [429.40, 544.55]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
   - id: bld_qekf6h
     subtype: mansion
     status: generated
     names: {"zh": "疗养别墅2号", "en": "Rest Villa No. 2"}
-    notes: {"zh": "疗养别墅2号是法里希凯利湖干部区西部的十座疗养别墅之一，与干部区中部的劳动党各号别墅相隔近十公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅附带一座室内温水游泳池，万寿无疆健康研究所的医生常把需要水疗的年老领导人安排在这里。", "en": "Rest Villa No. 2 is one of the ten rest villas in the west of the Lake Farihikely Cadre Quarter, nearly ten kilometres from the numbered Workers' Party villas in the middle of the quarter and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. It has its own heated indoor pool, and doctors from the Institute of Eternal Health often place older leaders who need water therapy here."}
+    notes: {"zh": "疗养别墅2号是法里希凯利湖干部区最北端的十座疗养别墅之一，紧挨干部区北门，与南面的劳动党各号别墅相隔十几公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅附带一座室内温水游泳池，万寿无疆健康研究所的医生常把需要水疗的年老领导人安排在这里。", "en": "Rest Villa No. 2 is one of the ten rest villas at the northern end of the Lake Farihikely Cadre Quarter, just inside its north gate, a dozen kilometres or more from the numbered Workers' Party villas to the south and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. It has its own heated indoor pool, and doctors from the Institute of Eternal Health often place older leaders who need water therapy here."}
     in: div_gt2h78
-    at: [426.15, 531.9]
+    at: [430.00, 544.55]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
   - id: bld_0tvkvc
     subtype: mansion
     status: generated
     names: {"zh": "疗养别墅3号", "en": "Rest Villa No. 3"}
-    notes: {"zh": "疗养别墅3号是法里希凯利湖干部区西部的十座疗养别墅之一，与干部区中部的劳动党各号别墅相隔近十公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅建在一座小山包上，二楼的露台能望见西面覆盖雨林的山岭。", "en": "Rest Villa No. 3 is one of the ten rest villas in the west of the Lake Farihikely Cadre Quarter, nearly ten kilometres from the numbered Workers' Party villas in the middle of the quarter and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. It stands on a low knoll, and its upstairs terrace looks west to the rainforested hills."}
+    notes: {"zh": "疗养别墅3号是法里希凯利湖干部区最北端的十座疗养别墅之一，紧挨干部区北门，与南面的劳动党各号别墅相隔十几公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅建在一座小山包上，二楼的露台能望见南面远处覆盖雨林的沃希阿拉丘陵。", "en": "Rest Villa No. 3 is one of the ten rest villas at the northern end of the Lake Farihikely Cadre Quarter, just inside its north gate, a dozen kilometres or more from the numbered Workers' Party villas to the south and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. It stands on a low knoll, and its upstairs terrace looks south to the distant, rainforested Vohiala Hills."}
     in: div_gt2h78
-    at: [426.7, 532.1]
+    at: [430.60, 544.55]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
   - id: bld_t7me32
     subtype: mansion
     status: generated
     names: {"zh": "疗养别墅4号", "en": "Rest Villa No. 4"}
-    notes: {"zh": "疗养别墅4号是法里希凯利湖干部区西部的十座疗养别墅之一，与干部区中部的劳动党各号别墅相隔近十公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅旁有一间医疗室，常驻一名医生和两名护士，多留给病后疗养的领导人。", "en": "Rest Villa No. 4 is one of the ten rest villas in the west of the Lake Farihikely Cadre Quarter, nearly ten kilometres from the numbered Workers' Party villas in the middle of the quarter and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. Beside it is a sickroom with a resident doctor and two nurses, and it is mostly kept for leaders recovering from illness."}
+    notes: {"zh": "疗养别墅4号是法里希凯利湖干部区最北端的十座疗养别墅之一，紧挨干部区北门，与南面的劳动党各号别墅相隔十几公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅旁有一间医疗室，常驻一名医生和两名护士，多留给病后疗养的领导人。", "en": "Rest Villa No. 4 is one of the ten rest villas at the northern end of the Lake Farihikely Cadre Quarter, just inside its north gate, a dozen kilometres or more from the numbered Workers' Party villas to the south and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. Beside it is a sickroom with a resident doctor and two nurses, and it is mostly kept for leaders recovering from illness."}
     in: div_gt2h78
-    at: [425.85, 532.55]
+    at: [431.20, 544.55]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
   - id: bld_yek828
     subtype: mansion
     status: generated
     names: {"zh": "疗养别墅5号", "en": "Rest Villa No. 5"}
-    notes: {"zh": "疗养别墅5号是法里希凯利湖干部区西部的十座疗养别墅之一，与干部区中部的劳动党各号别墅相隔近十公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅的院子里有一片荔枝园和一个养着锦鲤的池塘。", "en": "Rest Villa No. 5 is one of the ten rest villas in the west of the Lake Farihikely Cadre Quarter, nearly ten kilometres from the numbered Workers' Party villas in the middle of the quarter and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. Its grounds hold a lychee orchard and a pond of ornamental carp."}
+    notes: {"zh": "疗养别墅5号是法里希凯利湖干部区最北端的十座疗养别墅之一，紧挨干部区北门，与南面的劳动党各号别墅相隔十几公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅的院子里有一片荔枝园和一个养着锦鲤的池塘。", "en": "Rest Villa No. 5 is one of the ten rest villas at the northern end of the Lake Farihikely Cadre Quarter, just inside its north gate, a dozen kilometres or more from the numbered Workers' Party villas to the south and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. Its grounds hold a lychee orchard and a pond of ornamental carp."}
     in: div_gt2h78
-    at: [426.4, 532.55]
+    at: [431.80, 544.55]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
   - id: bld_jgmhjg
     subtype: mansion
     status: generated
     names: {"zh": "疗养别墅6号", "en": "Rest Villa No. 6"}
-    notes: {"zh": "疗养别墅6号是法里希凯利湖干部区西部的十座疗养别墅之一，与干部区中部的劳动党各号别墅相隔近十公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅有一间放映室，可以放映劳动党总务局从国外购进的影片。", "en": "Rest Villa No. 6 is one of the ten rest villas in the west of the Lake Farihikely Cadre Quarter, nearly ten kilometres from the numbered Workers' Party villas in the middle of the quarter and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. It has a screening room for the films the party's General Affairs Bureau buys abroad."}
+    notes: {"zh": "疗养别墅6号是法里希凯利湖干部区最北端的十座疗养别墅之一，紧挨干部区北门，与南面的劳动党各号别墅相隔十几公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅有一间放映室，可以放映劳动党总务局从国外购进的影片。", "en": "Rest Villa No. 6 is one of the ten rest villas at the northern end of the Lake Farihikely Cadre Quarter, just inside its north gate, a dozen kilometres or more from the numbered Workers' Party villas to the south and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. It has a screening room for the films the party's General Affairs Bureau buys abroad."}
     in: div_gt2h78
-    at: [426.95, 532.65]
+    at: [429.70, 545.20]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
   - id: bld_xqscdk
     subtype: mansion
     status: generated
     names: {"zh": "疗养别墅7号", "en": "Rest Villa No. 7"}
-    notes: {"zh": "疗养别墅7号是法里希凯利湖干部区西部的十座疗养别墅之一，与干部区中部的劳动党各号别墅相隔近十公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅离西面的东海岸公路最近，四周的铁丝网和岗楼也最密。", "en": "Rest Villa No. 7 is one of the ten rest villas in the west of the Lake Farihikely Cadre Quarter, nearly ten kilometres from the numbered Workers' Party villas in the middle of the quarter and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. It lies nearest the East Coast Road to the west, and the wire and watchtowers round it are the thickest."}
+    notes: {"zh": "疗养别墅7号是法里希凯利湖干部区最北端的十座疗养别墅之一，紧挨干部区北门，与南面的劳动党各号别墅相隔十几公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅离干部区北面的围墙最近，四周的铁丝网和岗楼也最密，夜里能听见警卫团换岗的口令。", "en": "Rest Villa No. 7 is one of the ten rest villas at the northern end of the Lake Farihikely Cadre Quarter, just inside its north gate, a dozen kilometres or more from the numbered Workers' Party villas to the south and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. It lies nearest the quarter's northern wall, the wire and watchtowers round it are the thickest, and at night the guard regiment can be heard changing the watch."}
     in: div_gt2h78
-    at: [425.6, 533.1]
+    at: [430.30, 545.20]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
   - id: bld_md29bk
     subtype: mansion
     status: generated
     names: {"zh": "疗养别墅8号", "en": "Rest Villa No. 8"}
-    notes: {"zh": "疗养别墅8号是法里希凯利湖干部区西部的十座疗养别墅之一，与干部区中部的劳动党各号别墅相隔近十公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅的厨房由劳动党特供商店直接供货，厨师按休养者的口味和保健医生开出的食谱做饭。", "en": "Rest Villa No. 8 is one of the ten rest villas in the west of the Lake Farihikely Cadre Quarter, nearly ten kilometres from the numbered Workers' Party villas in the middle of the quarter and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. Its kitchen is supplied straight from the Workers' Party Special Supply Shop, and the cooks follow both the guest's taste and the diet set by the health doctors."}
+    notes: {"zh": "疗养别墅8号是法里希凯利湖干部区最北端的十座疗养别墅之一，紧挨干部区北门，与南面的劳动党各号别墅相隔十几公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅的厨房由劳动党特供商店直接供货，厨师按休养者的口味和保健医生开出的食谱做饭。", "en": "Rest Villa No. 8 is one of the ten rest villas at the northern end of the Lake Farihikely Cadre Quarter, just inside its north gate, a dozen kilometres or more from the numbered Workers' Party villas to the south and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. Its kitchen is supplied straight from the Workers' Party Special Supply Shop, and the cooks follow both the guest's taste and the diet set by the health doctors."}
     in: div_gt2h78
-    at: [426.15, 533.1]
+    at: [430.90, 545.20]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
   - id: bld_9gkbpv
     subtype: mansion
     status: generated
     names: {"zh": "疗养别墅9号", "en": "Rest Villa No. 9"}
-    notes: {"zh": "疗养别墅9号是法里希凯利湖干部区西部的十座疗养别墅之一，与干部区中部的劳动党各号别墅相隔近十公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅离动物园和植物园都不远，休养的领导人常带着孙辈去参观。", "en": "Rest Villa No. 9 is one of the ten rest villas in the west of the Lake Farihikely Cadre Quarter, nearly ten kilometres from the numbered Workers' Party villas in the middle of the quarter and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. It is close to both the zoo and the botanic garden, which resting leaders often visit with their grandchildren."}
+    notes: {"zh": "疗养别墅9号是法里希凯利湖干部区最北端的十座疗养别墅之一，紧挨干部区北门，与南面的劳动党各号别墅相隔十几公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅在最东边，离海湾最近，二楼能望见海湾对岸首都的灯火。", "en": "Rest Villa No. 9 is one of the ten rest villas at the northern end of the Lake Farihikely Cadre Quarter, just inside its north gate, a dozen kilometres or more from the numbered Workers' Party villas to the south and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. It is the easternmost and lies nearest the bay, and from upstairs the lights of the capital can be seen across the water."}
     in: div_gt2h78
-    at: [426.7, 533.2]
+    at: [433.10, 545.25]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
   - id: bld_wrgjbq
     subtype: mansion
     status: generated
     names: {"zh": "疗养别墅10号", "en": "Rest Villa No. 10"}
-    notes: {"zh": "疗养别墅10号是法里希凯利湖干部区西部的十座疗养别墅之一，与干部区中部的劳动党各号别墅相隔近十公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅离马术俱乐部最近，喜欢骑马的领导人多半要求住在这里。", "en": "Rest Villa No. 10 is one of the ten rest villas in the west of the Lake Farihikely Cadre Quarter, nearly ten kilometres from the numbered Workers' Party villas in the middle of the quarter and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. It is the nearest to the riding club, and leaders who ride usually ask for it."}
+    notes: {"zh": "疗养别墅10号是法里希凯利湖干部区最北端的十座疗养别墅之一，紧挨干部区北门，与南面的劳动党各号别墅相隔十几公里，十座别墅之间也各隔一公里多，彼此望不见。疗养别墅不分给任何人，由劳动党总务局按批准轮流安排政治局委员、中央书记和其他高级领导人前来休养，一次住两到四周，住进来的人和住期都不对外公开。别墅离劳动党中央俱乐部和电影院最近，喜欢热闹的领导人多半要求住在这里。", "en": "Rest Villa No. 10 is one of the ten rest villas at the northern end of the Lake Farihikely Cadre Quarter, just inside its north gate, a dozen kilometres or more from the numbered Workers' Party villas to the south and more than a kilometre from each other, out of sight of one another. They belong to no one: the party's General Affairs Bureau assigns them in turn, by approval, to Politburo members, Central Committee secretaries and other senior leaders who come to rest, usually for two to four weeks, and who stays and for how long is never made public. It is the nearest to the Workers' Party Central Club and the cinema, and leaders who like company usually ask for it."}
     in: div_gt2h78
-    at: [426.0, 533.65]
+    at: [433.65, 544.65]
     site: {"layout": "estate", "size_m": [400, 300], "variant": "villa", "angle_deg": 0, "rural": true}
   # ·· 两片住区的康乐与特供设施 / Leisure and special supply of the two compounds ··
   - id: bld_jnba3y
     subtype: swimming_pool
     status: generated
     names: {"zh": "劳动党中央游泳馆", "en": "Workers' Party Central Swimming Baths"}
-    notes: {"zh": "劳动党中央游泳馆在干部区南部，有一座五十米的室内标准泳池、一座跳水池和一座室外的海水浴池，水温常年保持在二十八摄氏度。游泳馆只对政治局委员、部长和他们的家属开放，每天下午留出两个小时，供年老的领导人在医生陪同下游泳。", "en": "The Workers' Party Central Swimming Baths, in the south of the Cadre Quarter, have an indoor fifty-metre pool, a diving pool and an outdoor seawater pool, all kept at 28 °C the year round. They are open only to Politburo members, ministers and their families, and two hours each afternoon are kept for older leaders to swim with their doctors in attendance."}
+    notes: {"zh": "劳动党中央游泳馆在干部区北部，有一座五十米的室内标准泳池、一座跳水池和一座室外的海水浴池，水温常年保持在二十八摄氏度。游泳馆只对政治局委员、部长和他们的家属开放，每天下午留出两个小时，供年老的领导人在医生陪同下游泳。", "en": "The Workers' Party Central Swimming Baths, in the north of the Cadre Quarter, have an indoor fifty-metre pool, a diving pool and an outdoor seawater pool, all kept at 28 °C the year round. They are open only to Politburo members, ministers and their families, and two hours each afternoon are kept for older leaders to swim with their doctors in attendance."}
     in: div_gt2h78
-    at: [430.2, 533.6]
+    at: [431.50, 543.90]
     site: {"layout": "lido", "size_m": [450, 340], "angle_deg": 0, "rural": true}
   - id: bld_apdxpm
     subtype: theatre
     status: generated
     names: {"zh": "劳动党中央电影院", "en": "Workers' Party Central Cinema"}
-    notes: {"zh": "劳动党中央电影院在干部区南部，有一座五百座的大厅和几间小放映室，每周放映三四次电影。除了国内的新片，劳动党总务局还通过驻外机构购进外国电影，配上内部翻译的字幕，只在这里放映，片单从不公布，看过的人也不得谈论片子的内容。", "en": "The Workers' Party Central Cinema, in the south of the Cadre Quarter, has a five-hundred-seat hall and a few small screening rooms and shows films three or four times a week. Besides new films from home, the party's General Affairs Bureau buys foreign films through the missions abroad, subtitles them in-house and shows them only here; the programme is never published, and those who see the films may not talk about them."}
+    notes: {"zh": "劳动党中央电影院在干部区北部，有一座五百座的大厅和几间小放映室，每周放映三四次电影。除了国内的新片，劳动党总务局还通过驻外机构购进外国电影，配上内部翻译的字幕，只在这里放映，片单从不公布，看过的人也不得谈论片子的内容。", "en": "The Workers' Party Central Cinema, in the north of the Cadre Quarter, has a five-hundred-seat hall and a few small screening rooms and shows films three or four times a week. Besides new films from home, the party's General Affairs Bureau buys foreign films through the missions abroad, subtitles them in-house and shows them only here; the programme is never published, and those who see the films may not talk about them."}
     in: div_gt2h78
-    at: [429.6, 532.9]
+    at: [432.95, 543.90]
     site: {"layout": "hall", "size_m": [450, 340], "angle_deg": 0, "rural": true}
   - id: bld_5arext
     subtype: club
@@ -2652,7 +2697,7 @@ places:
     names: {"zh": "劳动党中央俱乐部", "en": "Workers' Party Central Club"}
     notes: {"zh": "劳动党中央俱乐部是干部区的娱乐中心，有保龄球馆、卡拉OK包厢、台球室、棋牌室和一间酒吧，酒吧里的洋酒和香烟都是进口的。俱乐部开到深夜，服务员都经过政治保卫部的审查，包厢里不许带秘书和警卫。", "en": "The Workers' Party Central Club is the Cadre Quarter's place of entertainment, with a bowling alley, karaoke rooms, billiard and card rooms and a bar stocked with imported spirits and cigarettes. It stays open late into the night; its staff are vetted by the Political Security Department, and secretaries and bodyguards may not enter the private rooms."}
     in: div_gt2h78
-    at: [430.6, 532.8]
+    at: [433.95, 543.30]
     site: {"layout": "hall", "size_m": [450, 340], "angle_deg": 0, "rural": true}
   - id: bld_8p9kkm
     subtype: casino
@@ -2660,7 +2705,7 @@ places:
     names: {"zh": "法里希凯利湖娱乐场", "en": "Lake Farihikely Casino"}
     notes: {"zh": "法里希凯利湖娱乐场是一座圆顶建筑，里面有轮盘、百家乐和老虎机；除了官邸区里领袖私人的娱乐场，这里是全国唯一能赌博的地方，外界只能从卫星图像推测它的用途。筹码由劳动党总务局按职务每月发给干部，输赢都不记账；赌博在马索沃利是违法的，党报从未提起过这座楼。", "en": "The Lake Farihikely Casino is a domed building with roulette, baccarat and slot machines; apart from the leader's private casino in the Residences, it is the only place in the country where anyone may gamble, and outsiders can only guess at its use from satellite images. The party's General Affairs Bureau issues the cadres chips each month according to rank, and no winnings or losses are recorded; gambling is illegal in Masovoly, and the party paper has never mentioned the building."}
     in: div_gt2h78
-    at: [431.0, 533.5]
+    at: [432.25, 543.90]
     site: {"layout": "dome", "size_m": [400, 400], "angle_deg": 0, "rural": true}
   - id: bld_zpj2ph
     subtype: banquet_hall
@@ -2668,7 +2713,7 @@ places:
     names: {"zh": "劳动党中央宴会厅", "en": "Workers' Party Central Banqueting Hall"}
     notes: {"zh": "劳动党中央宴会厅在干部区东部，是一座带内院的两层建筑，大厅能摆六十桌，是干部区举行节日宴会和政治局宴请的地方。地下有一座酒窖，藏着几万瓶进口的葡萄酒、白兰地和威士忌，由劳动党总务局的专人管理，每一瓶的去向都要登记。", "en": "The Workers' Party Central Banqueting Hall, in the east of the Cadre Quarter, is a two-storey building round a courtyard whose main hall seats sixty tables; the quarter's holiday banquets and the Politburo's dinners are held here. Beneath it is a cellar of tens of thousands of bottles of imported wine, brandy and whisky, kept by staff of the party's General Affairs Bureau, who record where every bottle goes."}
     in: div_gt2h78
-    at: [433.6, 539.6]
+    at: [433.10, 543.15]
     site: {"layout": "courtyard", "size_m": [450, 340], "angle_deg": 0, "rural": true}
   - id: poi_rcqj2v
     subtype: marina
@@ -2682,9 +2727,9 @@ places:
     subtype: riding_centre
     status: generated
     names: {"zh": "法里希凯利湖马术俱乐部", "en": "Lake Farihikely Riding Club"}
-    notes: {"zh": "法里希凯利湖马术俱乐部在干部区西部的山脚下，有一条椭圆形的跑马道、一座室内马术场和能养几十匹马的马厩，马匹多从国外购进，由专门的驯马师饲养和调教。政治局委员的子女从小在这里学骑马，周末常有家庭马术比赛。", "en": "The Lake Farihikely Riding Club, at the foot of the hills in the west of the Cadre Quarter, has an oval track, an indoor riding hall and stables for several dozen horses, most bought abroad and kept and schooled by its own trainers. Politburo members' children learn to ride here from an early age, and there are family competitions most weekends."}
+    notes: {"zh": "法里希凯利湖马术俱乐部在干部区西北部，有一条椭圆形的跑马道、一座室内马术场和能养几十匹马的马厩，马匹多从国外购进，由专门的驯马师饲养和调教。政治局委员的子女从小在这里学骑马，周末常有家庭马术比赛。", "en": "The Lake Farihikely Riding Club, in the north-west of the Cadre Quarter, has an oval track, an indoor riding hall and stables for several dozen horses, most bought abroad and kept and schooled by its own trainers. Politburo members' children learn to ride here from an early age, and there are family competitions most weekends."}
     in: div_gt2h78
-    at: [426.6, 534.4]
+    at: [426.30, 543.40]
     site: {"layout": "racetrack", "size_m": [900, 500], "angle_deg": 0, "rural": true}
   - id: poi_8yz8sx
     subtype: hunting_ground
@@ -2708,7 +2753,7 @@ places:
     names: {"zh": "法里希凯利湖动物园", "en": "Lake Farihikely Zoo"}
     notes: {"zh": "法里希凯利湖动物园在干部区西部，养着从国外购进或由兄弟国家作为国礼赠送的长颈鹿、斑马、羚羊和河马，旁边还有一座水族馆，养着海龟、鲨鱼和热带鱼。动物园只对干部和家属开放，干部子弟学校每学期组织学生来参观。", "en": "The Lake Farihikely Zoo, in the west of the Cadre Quarter, keeps giraffes, zebras, antelopes and hippopotamuses bought abroad or given by fraternal states as gifts, and beside it is an aquarium of turtles, sharks and tropical fish. It is open only to cadres and their families, and the cadres' children's school brings its pupils every term."}
     in: div_gt2h78
-    at: [427.6, 533.0]
+    at: [425.75, 542.60]
     site: {"layout": "zoo", "size_m": [700, 550], "variant": "ungulates", "angle_deg": 0, "rural": true}
   - id: poi_dcj83h
     subtype: heliport
@@ -2724,7 +2769,7 @@ places:
     names: {"zh": "法里希凯利湖植物园", "en": "Lake Farihikely Botanic Garden"}
     notes: {"zh": "法里希凯利湖植物园在干部区西部，有一座兰花温室、一片热带果树园和一座仙人掌温室。园丁们培育的兰花新品种许多以创始领袖和党的节日命名，每年节日前送到首都展出。", "en": "The Lake Farihikely Botanic Garden, in the west of the Cadre Quarter, has an orchid house, a tropical fruit garden and a cactus house. Many of the new orchids its gardeners breed are named after the founding leader or the party's holidays, and each year they are sent to the capital to be shown before the holidays."}
     in: div_gt2h78
-    at: [427.6, 534.3]
+    at: [426.75, 542.60]
     site: {"layout": "park", "size_m": [800, 600], "angle_deg": 0, "rural": true}
   - id: bld_g6hyk4
     subtype: banquet_hall

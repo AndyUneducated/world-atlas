@@ -23,6 +23,16 @@ places:
     in: div_89czvj
     offset_km: [-5.88, 1.17]
     site: {"layout": "airport", "size_m": [3200, 1100], "angle_deg": 79}
+  - id: poi_3af52y
+    subtype: airport
+    status: generated
+    names: {"zh": "安德里安巴国际机场", "en": "Andriamba International Airport"}
+    notes:
+      zh: "安德里安巴国际机场是马索沃利唯一的民用机场，在首都东郊约二十公里的平地上，有一条三千六百米的跑道和一座灰色的混凝土航站楼，航站楼正面挂着创始领袖和历代领袖的巨幅画像。每周只有寥寥几个航班，大多飞往阿瓦拉齐的沃希马希和海外几个友好国家，机队只有几架从联合共和国时期留下来的旧客机。外国旅客下飞机后要交出手机登记，由国家导游陪同乘车进城；本国公民出国要有劳动党组织部门的批准，候机楼里多是出差的干部和代表团。机场由人民军空军代管，跑道另一侧停着几架军用运输机。"
+      en: "Andriamba International Airport is Masovoly's only civil airport, on flat ground some twenty kilometres east of the capital, with a 3,600 m runway and a grey concrete terminal whose front is hung with huge portraits of the founding leader and his successors. Only a handful of flights a week leave it, most of them to Vohimahy in Avaratsy and a few friendly countries overseas, flown by a fleet of a few old airliners left from the United Republic. Foreign passengers hand in their phones to be registered on arrival and are driven into town with a state guide; citizens need the approval of the Workers' Party's organisation department to travel abroad, and most of the people in the departure hall are cadres and delegations on official business. The People's Army Air Force runs the airport, and a few military transports stand on the far side of the runway."
+    in: div_gt2h78
+    at: [449.80, 548.80]
+    site: {"layout": "airport", "size_m": [3600, 1100], "angle_deg": 70, "rural": true}
   - id: poi_0gwen7
     subtype: airport
     status: generated
