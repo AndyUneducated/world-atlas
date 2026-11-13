@@ -1,2 +1,2 @@
-编号,状态,线路类型,中文名,英文名,维京语名,巴克汉姆语名,停靠,线路色,中文简介,英文简介
-,draft,intercity_rail,天贝支线,Skytown–Beckerle Branch,Bahn Himmelstad–Beckerle,Ferrovia Cielo–Beckerle,div_ygk521;div_k4hg7b,#0090FF,天城市与贝克勒之间的支线示例,An example branch line between Skytown and Beckerle.
+编号,状态,线路类型,中文名,英文名,维京语名,巴克汉姆语名,停靠,线路色,运营速度,设计速度,常规铁路,中文简介,英文简介,中文建设背景,英文建设背景
+,draft,intercity_rail,天贝铁路,Skytown–Beckerle Railway,Bahn Himmelstad–Beckerle,Ferrovia Cielo–Beckerle,div_ygk521;div_k4hg7b,#0090FF,200,250,是,天城市与贝克勒之间的常规铁路示例,An example conventional railway between Skytown and Beckerle.,沿线的货运和短途客流用不上磁悬浮，领地铁路公司在旧线位上修了这条电气化复线。,Freight and short trips along the way had no use for the maglev, so the territorial railway company built this electrified double-track line on an old alignment.

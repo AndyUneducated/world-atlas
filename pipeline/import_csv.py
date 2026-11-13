@@ -70,6 +70,8 @@ NAMES = [
     Col("name_ivuran", "伊武兰语名", "names.art-x-ivuran"),
 ]
 NOTES = [Col("notes_zh", "中文简介", "notes.zh"), Col("notes_en", "英文简介", "notes.en")]
+# why and how a line was built; required on expressways, territorial highways and railways (BACKGROUND_NETWORKS)
+BACKGROUND = [Col("background_zh", "中文建设背景", "background.zh"), Col("background_en", "英文建设背景", "background.en")]
 HEAD = [Col("id", "编号"), Col("status", "状态", "status", "choice", STATUSES)]
 
 KINDS = {
@@ -114,6 +116,7 @@ KINDS = {
             Col("tunnel_cost", "隧道成本", "tunnel_cost", "float"),
             Col("shield", "路牌图案", "shield", "choice", GLYPHS),
             *NOTES,
+            *BACKGROUND,
         ],
     },
     "places": {
@@ -143,10 +146,12 @@ KINDS = {
             Col("color", "线路色", "color", "color"),
             Col("operating_speed", "运营速度", "tech.operating_speed_kmh", "int"),
             Col("design_speed", "设计速度", "tech.design_speed_kmh", "int"),
+            Col("conventional", "常规铁路", "conventional", "bool"),
             Col("maglev", "磁悬浮", "maglev", "bool"),
             Col("loaded_trains", "每天重车列数", "tech.loaded_trains_per_day", "int"),
             Col("tunnel_cost", "隧道成本", "tunnel_cost", "float"),
             *NOTES,
+            *BACKGROUND,
         ],
     },
 }
@@ -170,14 +175,6 @@ def read_csv(path: Path) -> list[dict[str, str]]:
     else:
         sys.exit(f"无法读取 {path.name}：请另存为 UTF-8 编码的 CSV")
     return list(csv.DictReader(text.splitlines()))
-
-
-def get_path(obj, path):
-    for part in path.split("."):
-        if not isinstance(obj, dict) or part not in obj:
-            return None
-        obj = obj[part]
-    return obj
 
 
 def set_path(obj, path, value):
@@ -473,10 +470,11 @@ ORDER = {
     "divisions": ["id", "subtype", "parent", "status", "names", "short_names", "codes", "population", "area_km2", "color",
                   "flag", "flag_notes", "notes"],
     "features": ["id", "subtype", "status", "detect", "names", "notes"],
-    "routes": ["id", "ref", "build_order", "network", "class", "status", "names", "notes", "ring", "straight", "ends_at_network",
-               "tunnel_cost", "legs", "shield", "via"],
+    "routes": ["id", "ref", "build_order", "network", "class", "status", "names", "notes", "background", "ring", "straight",
+               "ends_at_network", "tunnel_cost", "legs", "shield", "via"],
     "places": ["id", "subtype", "status", "names", "short_names", "notes", "in", "offset_km", "at", "emblem_of", "site"],
-    "railways": ["id", "network", "status", "names", "notes", "color", "tech", "tunnel_cost", "via", "station_names"],
+    "railways": ["id", "network", "conventional", "maglev", "status", "names", "notes", "background", "color", "tech",
+                 "tunnel_cost", "via", "station_names"],
 }
 FLOW = {"divisions": (), "features": ("detect", "names"), "routes": ("via",), "places": ("site",),
         "railways": ("tech", "via")}
@@ -575,6 +573,13 @@ def translate(msg: str) -> str:
         (r"(\S+): site angle_deg must be .*", r"\1：占地朝向度应为数字（正东为 0，逆时针）"),
         (r"(\S+): a place with a site must be 'in' a district.*", r"\1：有占地的地标必须位于区内（或不设区的市内）"),
         (r"(\S+): a railway needs at least two stops in via", r"\1：铁路至少需要两个停靠站"),
+        (r"(\S+): an expressway, territorial highway or railway needs a background.*",
+         r"\1：高速公路、领道和铁路必须填写中文建设背景、英文建设背景（为什么修、怎么修的）"),
+        (r"(\S+): the name (\S+) does not match its tier \((\w+)\).*",
+         r"\1：名称 \2 与铁路等级（\3）不符：常规铁路叫“…铁路”，高速铁路（默认）叫“…高速铁路”，磁悬浮叫“…磁悬浮”，真空磁悬浮叫“…真空磁悬浮”"),
+        (r"(\S+): a (\S+) line runs at (\d+) to (\d+)", r"\1：\2 线路的运营速度应在 \3–\4 km/h"),
+        (r"(\S+): a (\S+) line runs at (\d+) km/h or more", r"\1：\2 线路的运营速度应不低于 \3 km/h"),
+        (r"(\S+): a heavy-haul line has 重载 in its name", r"\1：重载铁路的名称须含“重载”"),
         (r"(\S+): via (\S+) is not a city or district", r"\1：停靠 \2 不是市或区"),
         (r"(\S+): station_names entry (\S+) is not one of the stops", r"\1：站名覆盖 \2 不在停靠站中"),
         (r"(\S+): color must be #RRGGBB", r"\1：线路色应为 #RRGGBB 格式"),

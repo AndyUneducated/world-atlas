@@ -8,7 +8,7 @@ npm run data:import -- 我的地标.csv --check    # 只校验，不写入
 npm run data                                    # 重新生成地图
 ```
 
-脚本按文件名判断类型：文件名含 `division`/`行政区`、`feature`/`自然要素`、`route`/`道路`、`railway`/`铁路`、`place`/`地标`。也可以用 `--kind divisions|features|routes|railways|places` 指定。新条目默认写入该类的主文件（北维京岛的 `cn-nv-*.yaml`），`--into world/features/xxx.yaml` 可改写到别的文件；维京群岛的条目写入 `cn-vk-*.yaml`，例如 `--into world/features/cn-vk-natural.yaml`。自然要素只在文件名前缀相同的生成器区域内识别。
+脚本按文件名判断类型：文件名含 `division`/`行政区`、`feature`/`自然要素`、`route`/`道路`、`railway`/`铁路`、`place`/`地标`。也可以用 `--kind divisions|features|routes|railways|places` 指定。新条目默认写入该类的主文件（北维京岛的 `cn-nv-*.yaml`），`--into world/features/xxx.yaml` 可改写到别的文件；其他区域的条目写入对应前缀的文件（`cn-vk`、`cn-ao`、`cn-es`、`us-ca`、`ranova`），例如 `--into world/features/cn-vk-natural.yaml`。自然要素只在文件名前缀相同的生成器区域内识别。
 
 整份文件全部通过才会写入。任何一行有错，都会列出“第 N 行 列名：原因”，不改动任何文件。写入后还会用生成器的完整校验（面积、人口之和，区划代码，道路编号等）再查一遍。
 
@@ -18,6 +18,7 @@ npm run data                                    # 重新生成地图
 - 只需包含要用到的列，列的顺序随意。列名可用中文或英文（见下表）。
 - 引用其他条目（上级、所在区、途经、徽标来自）时，填编号或中文名都可以，也可以引用同一文件里新建的条目。
 - 新建条目的状态默认为 `draft`。状态可选 `canon`（设定）、`draft`（草稿）、`generated`（生成，待审阅）。
+- 当地语言名只有维京语、巴克汉姆语、塔夫鲁纳克语、伊武兰语四列；加州的西班牙语名（`es`）和拉诺瓦的拉诺瓦语、卡西里语名不在表格里，导入后在 YAML 中补写。
 - 坐标单位：锚点、识别坐标为设计坐标（km，X 向东、Y 向北，范围 320 × 190），偏移为实际 km。
 - 用 Excel 保存时选“CSV UTF-8”。GBK 编码的文件也能读。
 
@@ -27,15 +28,15 @@ npm run data                                    # 重新生成地图
 |---|---|---|
 | 编号 | id | 留空为新建 |
 | 类型 | subtype | `locality`（市）或 `borough`（区），新建必填 |
-| 上级 | parent | 市的上级是领地，区的上级是市；新建必填 |
+| 上级 | parent | 市的上级是领地或国家（拉诺瓦各国），区的上级是市；国家直辖的市不设区；新建必填 |
 | 中文名、英文名 | name_zh、name_en | 新建必填 |
 | 维京语名、巴克汉姆语名、塔夫鲁纳克语名、伊武兰语名 | name_viking、name_buckham、name_tavrunaq、name_ivuran | 只填所在领地使用的语言 |
 | 中文简称、英文简称 | short_zh、short_en | |
 | 区划代码 | admin_code | 6 位数字：领地 `900000`、市 `900100`、区 `900101`。留空时按上级代码自动编下一个 |
 | 人口、面积 | population、area_km2 | 面积为实际 km²；各区之和须等于所属市 |
 | 主色 | color | `#RRGGBB`，新建市必填 |
-| 锚点X、锚点Y | anchor_x_km、anchor_y_km | 市的中心位置，新建市必填 |
-| 方向X、方向Y | dir_x、dir_y | 区相对市锚点的方向；留空时自动放在空隙最大的方向 |
+| 锚点X、锚点Y | anchor_x_km、anchor_y_km | 领地的市的中心位置，新建时必填 |
+| 方向X、方向Y | dir_x、dir_y | 区相对市锚点的方向，留空时自动放在空隙最大的方向；国家直辖的市（拉诺瓦）不填锚点，填相对所在国家锚点的方向，新建时必填 |
 | 中文简介、英文简介 | notes_zh、notes_en | |
 
 市旗（`flag`：布局、颜色、图案）和旗帜释义（`flag_notes`）不在表格里，新建市后在 `world/divisions/` 的 YAML 中补写，可选的布局与图案见 `src/lib/cityFlags.tsx` 和 `src/lib/charges.tsx`。
@@ -47,7 +48,7 @@ npm run data                                    # 重新生成地图
 | 列 | 英文列名 | 说明 |
 |---|---|---|
 | 编号、状态 | id、status | |
-| 类型 | subtype | `mountain_range`、`ridge`、`river`、`lake`、`island`、`bay`、`fjord`、`cape`、`strait`、`estuary`、`peak`、`pass`、`glacier` |
+| 类型 | subtype | `mountain_range`、`ridge`、`volcano`、`river`、`lake`、`island`、`bay`、`fjord`、`cape`、`strait`、`estuary`、`peak`、`pass`、`glacier` |
 | 中文名 … 伊武兰语名 | name_zh … name_ivuran | |
 | 识别类型、识别X、识别Y | detect_kind、detect_x_km、detect_y_km | 给生成器识别出的地貌命名：认领该位置 10 km 内最近的同类地貌。候选清单见每次生成后的 `.cache/candidates-<领地编号>.json` |
 | 中文简介、英文简介 | notes_zh、notes_en | |
@@ -64,8 +65,9 @@ npm run data                                    # 重新生成地图
 | 途经 | via | 依次经过的市或区，用分号分隔，至少两个。经过市时走该市中心，经过区时走区中心 |
 | 环线、笔直、支线 | ring、straight、ends_at_network | 是/否。笔直的道路每段都是直线，遇山开隧道、遇水架桥；支线从第一个市出发，接入已有路网即止 |
 | 隧道成本 | tunnel_cost | 越小越倾向于打隧道穿山 |
-| 路牌图案 | shield | 领地高速与领道（`S-NV-…`）必填，路牌上部的图案：`lighthouse`、`star`、`salmon`、`fir`、`waterfall`、`reindeer`、`swallow`、`sunrise`、`snowflake`、`peaks`、`wheat`、`compass` |
+| 路牌图案 | shield | 领地高速与领道（`S-NV-…`）必填，路牌上部的图案，如 `lighthouse`、`star`、`salmon`、`fir`、`waterfall`、`reindeer`、`peaks`、`wheat`、`compass`；全部可选图案见 `src/lib/glyphs.ts` |
 | 中文简介、英文简介 | notes_zh、notes_en | |
+| 中文建设背景、英文建设背景 | background_zh、background_en | 为什么修、怎么修的。国家高速、领地高速和领道新建时必填（市道不需要） |
 
 道路按文件中的顺序生成，新道路追加在最后，会避开已有道路的走廊。
 
@@ -74,15 +76,17 @@ npm run data                                    # 重新生成地图
 | 列 | 英文列名 | 说明 |
 |---|---|---|
 | 编号、状态 | id、status | |
-| 线路类型 | network | `intercity_rail`（城际铁路）或 `freight_rail`（重载铁路，只跑货车，停靠处为货运站） |
-| 中文名 … 伊武兰语名 | name_zh … name_ivuran | |
+| 线路类型 | network | `intercity_rail`（城际铁路）或 `freight_rail`（重载铁路，只跑货车，停靠处为货运站，名称须含“重载”：常规重载铁路填 常规铁路=是，叫“…重载铁路”；不填时为真空磁悬浮重载铁路，叫“…真空磁悬浮重载铁路”） |
+| 中文名 … 伊武兰语名 | name_zh … name_ivuran | 中文名须与铁路等级相符：常规铁路叫“…铁路”（不含“高速”“磁悬浮”），高速铁路叫“…高速铁路”，磁悬浮叫“…磁悬浮”，真空磁悬浮叫“…真空磁悬浮” |
 | 停靠 | via | 依次停靠的市或区，用分号分隔，至少两个。停靠市时车站设在该市人口最多的区 |
 | 线路色 | color | `#RRGGBB`，用于线路卡片和车站列表 |
-| 运营速度、设计速度 | operating_speed、design_speed | km/h，正整数；轨距、供电、信号、编组统一见 `world/transport/engineering.yaml` |
-| 磁悬浮 | maglev | 只用于城际铁路，填“是”表示磁悬浮线：按 `engineering.yaml` 的 `maglev` 标准造价，不与轮轨线路共用线位 |
+| 运营速度、设计速度 | operating_speed、design_speed | km/h，正整数，须在该等级的范围内：常规铁路 80–399，高速铁路 400–499，真空磁悬浮 600 以上；常规重载铁路 40–199。轨距、供电、信号、编组统一见 `world/transport/engineering.yaml` |
+| 常规铁路 | conventional | 填“是”表示常规轮轨铁路（400 km/h 以下）。不填时城际铁路按高速铁路处理 |
+| 磁悬浮 | maglev | 只用于城际铁路，填“是”表示真空磁悬浮：按 `engineering.yaml` 的磁悬浮标准造价，不与轮轨线路共用线位。开放式磁悬浮（500–599 km/h）不在表格里，导入后在 YAML 中写 `maglev: open` |
 | 每天重车列数 | loaded_trains | 只用于重载铁路：每天满载开往终点的列车数，年货运量据此计算 |
 | 隧道成本 | tunnel_cost | 默认 2.5，越小越倾向于打隧道穿山 |
 | 中文简介、英文简介 | notes_zh、notes_en | |
+| 中文建设背景、英文建设背景 | background_zh、background_en | 为什么修、怎么修的，新建时必填 |
 
 车站默认以所在市（停靠市时）或区命名，如“维京港站”“沙洲站”。要改某个车站的名字，在 `world/transport/cn-nv-rail.yaml` 中给该线路加 `station_names`。城市地铁不在这里导入，由 `world/generator/` 的 `metro` 一节生成。
 
@@ -96,7 +100,7 @@ npm run data                                    # 重新生成地图
 | 中文名 … 伊武兰语名 | name_zh … name_ivuran | |
 | 向东偏移、向北偏移 | offset_east_km、offset_north_km | 相对所在区城区中心的实际 km |
 | 徽标来自 | emblem_of | 可选。名片顶部显示这个条目（领地或市）的旗帜或徽章，如领地政府楼填所在领地；地图上不画徽章 |
-| 占地布局 | site_layout | 画出地标占地和建筑轮廓：`complex`（建筑群）、`hall`（单体大楼）、`campus`（园区）、`stadium`（体育场）、`tower`（塔）、`park`（公园）、`plaza`（广场）、`market`（市场）；交通设施 `airport`（机场：跑道、滑行道、航站楼）、`port`（港口：码头、栈桥、仓库）、`harbour`（挖入式港区：港池、突堤码头、防波堤、铁路编组站）、`offshore_port`（外海岛式深水港，以跨海大桥连到岸边）、`spaceport`（发射场：发射台、降落场、总装厂房） |
+| 占地布局 | site_layout | 画出地标占地和建筑轮廓：`complex`（建筑群）、`hall`（单体大楼）、`campus`（园区）、`stadium`（体育场）、`tower`（塔）、`park`（公园）、`plaza`（广场）、`market`（市场）；交通设施 `airport`（机场：跑道、滑行道、航站楼）、`port`（港口：码头、栈桥、仓库）、`harbour`（挖入式港区：港池、突堤码头、防波堤、铁路编组站）、`offshore_port`（外海岛式深水港，以跨海大桥连到岸边）、`spaceport`（发射场：发射台、降落场、总装厂房）。以上为常用布局，全部可选值见 `pipeline/atlas/world.py` 的 `SITE_LAYOUTS` |
 | 占地长米、占地宽米 | site_along_m、site_across_m | 占地沿街道方格方向的长、宽（米，正数），与占地布局一起填。机场的“长”是跑道方向 |
 | 占地朝向度 | site_angle_deg | 可选。占地长边的绝对朝向，正东为 0°、逆时针，如 90 为正北。不填时沿街道方格。港口和港区的海面在长边方向左侧 |
 | 港区码头 | site_terminals | 仅 `harbour`：沿长边依次每座突堤的码头，分号分隔，可选 `container`（集装箱）、`bulk`（散货）、`oil`（油品）、`roro`（滚装），至少两座；油品码头放在两端时栈桥伸出防波堤 |
@@ -107,4 +111,4 @@ npm run data                                    # 重新生成地图
 
 ## 示例
 
-`examples/` 下的文件都能通过校验，可以直接用 `--check` 试运行：在两个区之间调整人口、补一个巴克汉姆语名、新增一条领道、新增一座灯塔、新增一条铁路支线。
+`examples/` 下的文件都能通过校验，可以直接用 `--check` 试运行：在两个区之间调整人口、补一个巴克汉姆语名、新增一条领道、新增一座灯塔、新增一条常规铁路。

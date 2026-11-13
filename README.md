@@ -6,15 +6,15 @@
 ![MapLibre GL 6](https://img.shields.io/badge/MapLibre_GL-6-396cb2?logo=maplibre&logoColor=white)
 ![Vite 8](https://img.shields.io/badge/Vite-8-646cff?logo=vite&logoColor=white)
 ![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4-06b6d4?logo=tailwindcss&logoColor=white)
-![Python 3.13](https://img.shields.io/badge/Python-3.13-3776ab?logo=python&logoColor=white)
+![Python 3.14](https://img.shields.io/badge/Python-3.14-3776ab?logo=python&logoColor=white)
 ![NumPy · SciPy · Shapely](https://img.shields.io/badge/NumPy_·_SciPy_·_Shapely-2-013243?logo=numpy&logoColor=white)
 ![PMTiles](https://img.shields.io/badge/tiles-PMTiles_·_tippecanoe-f97316)
 
 An interactive atlas of **Homeworld**, a fictional planet. The mapped regions are China's
 territories, among them North Viking Island (北维京岛领地) and the Viking Islands
 (维京群岛领地); the US state of California; and Ranova (拉诺瓦岛), a tropical island
-about 1,500 km south-east of California shared by 26 nations in three blocs, whose
-card is that of the United Republic it once was, now a government in exile.
+about 1,500 km south-east of California shared by 30 nations in three blocs, and claimed
+whole by the United Republic it once was, now a government in exile.
 
 Live site: https://andyuneducated.github.io/world-atlas/
 
@@ -44,12 +44,14 @@ figures on the route cards are computed over the whole map.
 | Path | Contents |
 |:--|:--|
 | `world/planet.yaml` | Planet and coordinate reference system |
-| `world/registry/` | Countries (ISO 3166-1) |
+| `world/registry/` | Countries (ISO 3166-1) and Ranova's blocs |
 | `world/divisions/` | Administrative divisions: territory, cities, districts |
 | `world/features/` | Natural features: mountain ranges, rivers, lakes, coastal landforms (bays, fjords, capes, straits, islands, river mouths), peaks, passes and glaciers |
-| `world/transport/` | Numbered routes (expressways, highways) and intercity railways |
+| `world/transport/` | Numbered routes (expressways, highways, cross-territory `G-XTR-…`), intercity railways and engineering standards |
 | `world/places/` | Landmarks, buildings and transport facilities (airports, ports, harbours, spaceports) |
 | `world/generator/` | Layout parameters: coastline, terrain, city anchors, seeds |
+| `world/names/` | Stems and suffixes for generated street names |
+| `world/climate.yaml`, `economy.yaml`, `politics.yaml` | Climate, economy and population, and election models |
 | `pipeline/` | Python generator |
 | `src/` | Web app |
 
@@ -74,21 +76,30 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   division is added, removed or regraded, the numbers after it close up, and freed numbers
   are reused.
 - **Status.** `canon` comes from the world setting. `generated` was filled in by the
-  generator or an assistant and is pending review.
-- **Names.** BCP 47 keys: `zh`, `en`, `art-x-viking`, `art-x-buckham`, and on Ranova the
-  fictional languages Ranovan (`art-x-ranova`) and Kasiri (`art-x-kasiri`).
+  generator or an assistant and is pending review. `draft` is a work in progress (the
+  default for rows imported from CSV).
+- **Names.** BCP 47 keys: `zh`, `en`, and the local languages of each region: the
+  fictional Viking (`art-x-viking`) and Buckham (`art-x-buckham`) on North Viking Island
+  and the Viking Islands, Tavrunaq (`art-x-tavrunaq`) on the Arctic Ocean Territory, Ivuran
+  (`art-x-ivuran`) on the Everlong Summer Islands, Spanish (`es`) in California, and on
+  Ranova Ranovan (`art-x-ranova`) and Kasiri (`art-x-kasiri`).
 - **Hierarchy.** Country → territory (`dependency`) → city (`locality`) → district
-  (`borough`), following the Overture Maps division subtypes. Division codes follow the
-  six-digit GB/T 2260 pattern (`900000` → `900100` → `900101`). Ranova belongs to no
-  country: it is a `dependency` with `role: region` (`950000`), its nations are localities
-  (`role: nation`) and their cities boroughs.
+  (`borough`), following the Overture Maps division subtypes. Countries carry ISO 3166-1
+  codes; division codes follow the six-digit GB/T 2260 pattern (`900000` → `900100` →
+  `900101`). Ranova belongs to no country: its nations are themselves `country` entries
+  with no parent (numeric codes `910`…`939`) and their cities localities with no districts;
+  the United Republic in exile (`RA`, `950`) is a country like the others, marked
+  `uncontrolled` for the capital and area it does not hold.
 - **Regions.** Each territory has one generator file, `world/generator/<region>.yaml`
   (`cn-nv`, `cn-vk`, `cn-ao`, `cn-es`, `us-ca`, `ranova`); its natural features live in `world/features/<region>-*.yaml` and are
   only matched and used for street names inside that region.
 - **Routes.** Four grades, the same in every territory: national expressways `G-NV-1…`,
   territorial expressways `S-NV-1…`, territorial highways `S-NV-101…` and city roads
-  `X-NV-001…` (with the territory infix: `NV`, `VK`, `AO`, `ES`, `CA`; California has
-  territorial highways and city roads only, Ranova territorial highways `S-RA-101…` only). A route's
+  `X-NV-001…` (with the territory infix: `NV`, `VK`, `AO`, `ES`). Expressways between
+  territories are `G-XTR-1…` (`world/transport/cn-xtr.yaml`). California has territorial
+  highways and county roads only, under real-style numbers (`I-5`, `US-101`, `SR-1`, `G4`);
+  Ranova has territorial highways `S-RA-101…` and Masovoly's military roads, whose
+  `PA-` codes are random, not a series. A route's
   `via` lists cities or districts; `ring`, `straight` (straight legs, crossing hills and
   water on structures) and per-leg `legs` overrides shape the path. Territorial routes name
   a `shield` glyph for the upper half of their sign.
@@ -117,7 +128,7 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   `offshore_port` is a reclaimed island whose sea bridge lands next to the harbour named in
   `bridge_to`. Ports and harbours snap to the nearest coast and airports and spaceports step
   inland off the water, so sites stay in place when the districts are repartitioned.
-- **Railways.** Intercity lines in `world/transport/*-rail.yaml` list their stops (cities
+- **Railways.** Intercity and freight lines in `world/transport/*-rail.yaml` list their stops (cities
   or districts) and are laid over the terrain with gentler gradients than roads; `ring` and
   `legs` (straight legs) work as on roads, `tech`
   sets their operating and design speeds, and an optional `trains_per_day` fixes the
@@ -128,7 +139,7 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
 
 ## Development
 
-Requirements: Node 22+ and Python 3.12+.
+Requirements: Node 22.12+ (CI uses 24) and Python 3.12+ (CI uses 3.14).
 
 ```sh
 pip install -r pipeline/requirements.txt
@@ -145,6 +156,7 @@ cache, about 11. Options of `pipeline/build.py`:
 | `--check` | Validate the YAML without generating anything (`npm run data:check`) |
 | `--only <region> …` | Rebuild only the named regions (`cn-vk`, `ranova`, …); the others come from their last cached result, even if out of date |
 | `--fresh` | Ignore the cache |
+| `--jobs N` | Regions built at once, one process each (default 4) |
 | `--text` | Refresh only card text, the economy and the elections in the last build's `entities.json` (about 10 s); enough after editing notes, traits, party cards or party targets, not after anything that changes the map |
 
 Small tools in `pipeline/tools/` read the sources or the last build, so checks need no build or browser:
@@ -156,6 +168,10 @@ Small tools in `pipeline/tools/` read the sources or the last build, so checks n
 | `elections.py [territory] [--districts]` | Rerun the elections with the current sources: seats, cabinet, mayors, councils |
 | `names.py save <file>` / `names.py diff <a> <b>` | Snapshot and compare the generated station and route names around a naming change |
 | `replace.py <edits.yaml> [--dry]` | A batch of exact text replacements, applied all or nothing |
+
+New entities take an ID from `python pipeline/new_id.py <prefix> [count]` (for example
+`rte`, `poi`), which mints IDs not yet in use. `npm run fonts` re-downloads the Latin label
+glyphs into `public/fonts/`; CJK labels are drawn from local fonts and need none.
 
 The build fails if two territories' land overlaps. `python pipeline/verify.py` then checks the
 output against invariants that earlier bugs broke (highlights on the drawn line, unbroken routes,
