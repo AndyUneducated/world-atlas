@@ -16,6 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "pipeline"))
 from atlas import politics  # noqa: E402
+from atlas.common import OUT  # noqa: E402
 from atlas.world import World  # noqa: E402
 
 
@@ -26,7 +27,7 @@ def main():
     args = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
     world = World()
-    ents = json.load(open(ROOT / "public" / "data" / "entities.json", encoding="utf-8"))
+    ents = json.load(open(OUT / "entities.json", encoding="utf-8"))
     politics.annotate(world, ents)
     name = lambda pid: ents[pid]["short_names"]["zh"] if pid in ents and "short_names" in ents[pid] else pid  # noqa: E731
 

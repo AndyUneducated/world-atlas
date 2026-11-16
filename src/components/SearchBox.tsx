@@ -3,8 +3,7 @@ import { Check, ChevronDown, Search, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { accentColor, holdsNoLand, islandStates, isRegistryCountry, pathLabel, wonderName } from "../lib/entity";
-import { displayName, formatNumber, kindLabel, otherName, t, type StringKey } from "../lib/i18n";
-import { parties } from "../lib/politics";
+import { displayName, formatNumber, kindLabel, otherName, shortName, t, type StringKey } from "../lib/i18n";
 import { SearchIndex } from "../lib/search";
 import { ROAD_NETWORKS } from "../lib/style";
 import { hasShield } from "../lib/shields";
@@ -69,7 +68,7 @@ export function SearchBox() {
 
   const [index, setIndex] = useState<SearchIndex | null>(null);
   useEffect(() => {
-    if (data) SearchIndex.create(Object.values(data.entities)).then(setIndex);
+    if (data) SearchIndex.create(Object.values(data.entities)).then(setIndex, (err) => console.error("Search index failed to load", err));
   }, [data]);
   /** Territory the search and explore lists are limited to; null for every territory. */
   const [scope, setScope] = useState<string | null>(null);
@@ -141,21 +140,21 @@ export function SearchBox() {
       .filter((e) => e.wonder && e.bbox && inScope(e))
       .sort((a, b) => rank(a) - rank(b));
   }, [data, territories, island, inScope]);
-  /** Parties standing in the scope, most seats in its parliaments first. */
+  /** Parties standing in the scope, most seats in its parliaments first, then in every parliament. */
   const partyList = useMemo(() => {
     if (!data) return [];
     const parliament = (id: string) => {
       const at = data.entities[id];
       return at?.subtype === "dependency" || at?.subtype === "country";
     };
-    const seats = (e: Entity) =>
+    const seats = (e: Entity, scoped: boolean) =>
       (e.seats ?? [])
-        .filter((s) => parliament(s.at) && inScope(data.entities[s.at]))
+        .filter((s) => parliament(s.at) && (!scoped || inScope(data.entities[s.at])))
         .reduce((a, s) => a + s.seats, 0);
-    return parties(data)
-      .filter(inScope)
-      .map((e) => ({ e, seats: seats(e) }))
-      .sort((a, b) => b.seats - a.seats || (b.e.members ?? 0) - (a.e.members ?? 0));
+    return Object.values(data.entities)
+      .filter((e) => e.kind === "party" && inScope(e))
+      .map((e) => ({ e, seats: seats(e, true), total: seats(e, false) }))
+      .sort((a, b) => b.seats - a.seats || (b.e.members ?? 0) - (a.e.members ?? 0) || b.total - a.total);
   }, [data, inScope]);
   const [expanded, setExpanded] = useState<Record<ExploreGroup, boolean>>({
     nations: false,
@@ -247,7 +246,6 @@ export function SearchBox() {
   };
 
   const scopeEntity = scope && data ? data.entities[scope] : undefined;
-  const territoryLabel = (e: Entity) => e.short_names?.[lang] ?? displayName(e, lang);
 
   return (
     <div className="pointer-events-auto relative">
@@ -265,7 +263,7 @@ export function SearchBox() {
             )}
           >
             {scopeEntity && hasEmblem(scopeEntity) ? <Emblem entity={scopeEntity} size={16} className="shrink-0" /> : <Search className="size-4 shrink-0" strokeWidth={2} />}
-            <span className="truncate">{scopeEntity ? territoryLabel(scopeEntity) : t("allTerritories", lang)}</span>
+            <span className="truncate">{scopeEntity ? shortName(scopeEntity, lang) : t("allTerritories", lang)}</span>
             <ChevronDown className={clsx("size-3.5 shrink-0 transition-transform duration-200", scopeOpen && "rotate-180")} />
           </button>
           <AnimatePresence>
@@ -300,7 +298,7 @@ export function SearchBox() {
                         <span className="grid size-5 shrink-0 place-items-center">
                           {e && hasEmblem(e) ? <Emblem entity={e} size={20} /> : <Search className="size-4 text-muted" strokeWidth={2} />}
                         </span>
-                        <span className="flex-1 truncate">{e ? territoryLabel(e) : t("allTerritories", lang)}</span>
+                        <span className="flex-1 truncate">{e ? shortName(e, lang) : t("allTerritories", lang)}</span>
                         {scope === id && <Check className="size-3.5 shrink-0 text-accent" strokeWidth={3} />}
                       </button>
                     </li>

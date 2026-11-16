@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { motion } from "motion/react";
 import {
   createContext,
   useContext,
@@ -166,17 +167,89 @@ export function NotApplicable({ entity, field, title, lang }: { entity: Entity; 
   );
 }
 
-export function Rows({ rows }: { rows: [string, ReactNode][] }) {
+export function Rows({ rows, ddClassName = "text-ink tabular-nums" }: { rows: [string, ReactNode][]; ddClassName?: string }) {
   return (
     <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[13px]">
       {rows.map(([k, v], i) => (
         // labels can repeat (two deputy speakers), so the key carries the position too
         <div key={`${i}:${k}`} className="contents">
           <dt className="text-muted">{k}</dt>
-          <dd className="text-ink tabular-nums">{v}</dd>
+          <dd className={ddClassName}>{v}</dd>
         </div>
       ))}
     </dl>
+  );
+}
+
+type Share = { label: string; value: number; color?: string };
+
+const SHARE_TONES = [100, 58, 28];
+const tone = (accent: string, i: number) => `color-mix(in srgb, ${accent} ${SHARE_TONES[i % SHARE_TONES.length]}%, var(--ui-hover))`;
+
+/** Shares of a whole (%) as one segmented bar, with the legend under it. A share without a colour of its own
+ * takes a tone of `accent`, the largest share the strongest. */
+export function ShareBar({ parts, accent, barClassName = "h-2" }: { parts: Share[]; accent: string; barClassName?: string }) {
+  const color = (p: Share) => p.color ?? tone(accent, parts.filter((q) => q.value > p.value).length);
+  return (
+    <>
+      <div className={clsx("flex gap-[2px] overflow-hidden rounded-full", barClassName)}>
+        {parts.map((p, i) => (
+          <motion.span
+            key={p.label}
+            className="h-full first:rounded-l-full last:rounded-r-full"
+            style={{ background: color(p) }}
+            initial={{ width: 0 }}
+            animate={{ width: `${p.value}%` }}
+            transition={{ duration: 0.6, delay: 0.05 * i, ease: "easeOut" }}
+          />
+        ))}
+      </div>
+      <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[12px]">
+        {parts.map((p) => (
+          <span key={p.label} className="flex items-center gap-1.5 text-muted">
+            <span className="size-2 rounded-full" style={{ background: color(p) }} />
+            {p.label}
+            <span className="text-ink tabular-nums">{p.value}%</span>
+          </span>
+        ))}
+      </div>
+    </>
+  );
+}
+
+/** One thin bar per share (0–100) in its own colour or `accent`, with its label and figure. */
+export function ShareRows({
+  rows,
+  accent,
+  unit = "%",
+  gridClassName = "grid-cols-[6rem_1fr_2.25rem]",
+}: {
+  rows: Share[];
+  accent?: string;
+  unit?: string;
+  gridClassName?: string;
+}) {
+  return (
+    <div className="space-y-1.5">
+      {rows.map((r, i) => (
+        <div key={r.label} className={clsx("grid items-center gap-2.5 text-[12px]", gridClassName)}>
+          <span className="truncate text-muted">{r.label}</span>
+          <span className="h-1.5 overflow-hidden rounded-full bg-hover">
+            <motion.span
+              className="block h-full rounded-full"
+              style={{ background: r.color ?? accent }}
+              initial={{ width: 0 }}
+              animate={{ width: `${r.value}%` }}
+              transition={{ duration: 0.6, delay: 0.05 * i, ease: "easeOut" }}
+            />
+          </span>
+          <span className="text-right text-ink tabular-nums">
+            {r.value}
+            {unit}
+          </span>
+        </div>
+      ))}
+    </div>
   );
 }
 

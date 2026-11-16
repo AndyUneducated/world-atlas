@@ -8,10 +8,8 @@ from __future__ import annotations
 
 import math
 
-from .world import World
-
-OPERATOR_KIND = {"national_expressway": "expressway", "territorial_expressway": "expressway",
-                 "territorial_highway": "highway", "intercity_rail": "rail", "freight_rail": "rail"}
+from .common import round_sig
+from .world import OPERATOR_KIND, World
 
 
 def _haversine_km(a, b) -> float:
@@ -28,13 +26,6 @@ def _loads(points: list[tuple[float, float]], cuts: list[float], gravity: float,
         right = [(m, p) for m, p in points if m >= x]
         out.append(sum(gravity * pi * pj / max(mj - mi, min_km) for mi, pi in left for mj, pj in right))
     return out
-
-
-def _round_sig(v: float, digits: int = 2) -> int:
-    if v <= 0:
-        return 0
-    e = 10 ** max(int(math.floor(math.log10(v))) - digits + 1, 0)
-    return int(round(v / e) * e)
 
 
 def _operator(world: World, ent: dict, r: dict, entities: dict) -> dict | None:
@@ -66,7 +57,7 @@ def _road(world: World, ent: dict, r: dict, entities: dict, std: dict, model: di
     base = model["base_vpd"].get(r["network"], 0)
     for i, sg in enumerate(segs):
         aadt = base + model["local_trips_per_person"] * points[i][1] + (over[i] + over[i + 1]) / 2
-        sg["aadt"] = _round_sig(aadt)
+        sg["aadt"] = round_sig(aadt, 2)
         lanes = xs["lanes"]
         if xs.get("grow"):
             lanes = max(lanes, math.ceil(aadt / 2 / cap))
@@ -95,7 +86,7 @@ def _freight(world: World, ent: dict, r: dict, entities: dict) -> None:
     ent["service"] = {
         "fastest_min": round(km / tech["operating_speed_kmh"] * 60),
         "loaded_trains_per_day": tech["loaded_trains_per_day"],
-        "freight_t_per_year": _round_sig(train["net_t"] * tech["loaded_trains_per_day"] * 365),
+        "freight_t_per_year": round_sig(train["net_t"] * tech["loaded_trains_per_day"] * 365, 2),
         "operator": _operator(world, ent, r, entities),
     }
 
@@ -133,13 +124,13 @@ def _rail(world: World, ent: dict, r: dict, entities: dict, model: dict) -> None
         "fastest_min": round(km / tech["operating_speed_kmh"] * 60 + model["start_stop_min"]),
         "peak_headway_min": headway,
         "trains_per_peak_hour": math.ceil(per_hour),
-        "ridership_per_year": _round_sig(trips_day * 365),
+        "ridership_per_year": round_sig(trips_day * 365, 2),
         "operator": _operator(world, ent, r, entities),
     }
     if fixed := tech.get("trains_per_day"):  # a fixed timetable: no more trains than that, however many want to ride
         del ent["service"]["peak_headway_min"], ent["service"]["trains_per_peak_hour"]
         ent["service"]["trains_per_day"] = fixed
-        ent["service"]["ridership_per_year"] = _round_sig(min(trips_day, fixed * seats * model["load_factor"]) * 365)
+        ent["service"]["ridership_per_year"] = round_sig(min(trips_day, fixed * seats * model["load_factor"]) * 365, 2)
 
 
 def annotate(world: World, entities: dict) -> None:

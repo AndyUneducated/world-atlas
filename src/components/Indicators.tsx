@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { displayName, formatNumber, t, type StringKey } from "../lib/i18n";
+import { formatNumber, shortName, t, type StringKey } from "../lib/i18n";
 import { isRegistryCountry, islandStates, lineage } from "../lib/entity";
 import type { AtlasData, Entity, Lang } from "../lib/types";
 
@@ -41,12 +41,12 @@ function figuresOf(e: Entity): Figures {
 
 /** What an entity's indicators are set against: the country it lies in, or for a state on Ranova the mean of
  * the island's states. China and the United States, and the states themselves, have nothing above them. */
-type Reference = { label: string; figures: Figures };
+export type Reference = { label: string; figures: Figures };
 
 export function indicatorReference(data: AtlasData, e: Entity, lang: Lang): Reference | null {
   const top = lineage(data, e)[0];
   if (top && top.id !== e.id && top.subtype === "country") {
-    const name = top.short_names?.[lang] ?? displayName(top, lang);
+    const name = shortName(top, lang);
     return { label: lang === "zh" ? `${name}平均` : `${name} average`, figures: figuresOf(top) };
   }
   if (e.subtype === "country" && !isRegistryCountry(e)) {

@@ -1,5 +1,5 @@
 import type { Feature, FeatureCollection } from "geojson";
-import { EMPTY_FC } from "./style";
+import { EMPTY_FC } from "./data";
 import type { AtlasData, LayerFile } from "./types";
 
 /** route-shared holds the stretches a route runs along lines drawn under another route's id, so a route lights up end to end. */

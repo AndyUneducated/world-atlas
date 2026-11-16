@@ -7,7 +7,7 @@
 ![Vite 8](https://img.shields.io/badge/Vite-8-646cff?logo=vite&logoColor=white)
 ![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4-06b6d4?logo=tailwindcss&logoColor=white)
 ![Python 3.14](https://img.shields.io/badge/Python-3.14-3776ab?logo=python&logoColor=white)
-![NumPy · SciPy · Shapely](https://img.shields.io/badge/NumPy_·_SciPy_·_Shapely-2-013243?logo=numpy&logoColor=white)
+![NumPy · SciPy · Shapely](https://img.shields.io/badge/NumPy_·_SciPy_·_Shapely-013243?logo=numpy&logoColor=white)
 ![PMTiles](https://img.shields.io/badge/tiles-PMTiles_·_tippecanoe-f97316)
 
 An interactive atlas of **Homeworld**, a fictional planet. The mapped regions are China's
@@ -70,7 +70,7 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
 
 ## Conventions
 
-- **IDs.** Each entity has a permanent ID (`div_…`, `nat_…`, `rte_…`, `poi_…`, `bld_…`)
+- **IDs.** Each entity has a permanent ID (`div_…`, `nat_…`, `rte_…`, `poi_…`, `bld_…`, `pty_…` for parties)
   that never changes. Business codes (division codes, ISO codes, route numbers) are
   separate fields and may change. They always run in order with no gaps: when a route or
   division is added, removed or regraded, the numbers after it close up, and freed numbers
@@ -97,7 +97,7 @@ whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](
   territorial expressways `S-NV-1…`, territorial highways `S-NV-101…` and city roads
   `X-NV-001…` (with the territory infix: `NV`, `VK`, `AO`, `ES`). Expressways between
   territories are `G-XTR-1…` (`world/transport/cn-xtr.yaml`). California has territorial
-  highways and county roads only, under real-style numbers (`I-5`, `US-101`, `SR-1`, `G4`);
+  highways and county roads only, under real-style numbers (`I-5`, `US-101`, `SR-1`, `G4`, and the private `P48`);
   Ranova has territorial highways `S-RA-101…` and Masovoly's military roads, whose
   `PA-` codes are random, not a series. A route's
   `via` lists cities or districts; `ring`, `straight` (straight legs, crossing hills and
@@ -159,7 +159,8 @@ cache, about 11. Options of `pipeline/build.py`:
 | `--jobs N` | Regions built at once, one process each (default 4) |
 | `--text` | Refresh only card text, the economy and the elections in the last build's `entities.json` (about 10 s); enough after editing notes, traits, party cards or party targets, not after anything that changes the map |
 
-Small tools in `pipeline/tools/` read the sources or the last build, so checks need no build or browser:
+Small tools in `pipeline/tools/` read the sources or the last build, so checks need no build or browser.
+They also need matplotlib: `pip install -r pipeline/requirements-tools.txt`.
 
 | Tool | Use |
 |:--|:--|

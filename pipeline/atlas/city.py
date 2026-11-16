@@ -1,7 +1,6 @@
 """City detail: street networks, buildings and parks, station names and metro lines."""
 from __future__ import annotations
 
-import hashlib
 import math
 
 import numpy as np
@@ -11,7 +10,7 @@ from shapely.geometry import LineString, Point
 
 from . import buildings, streets
 from .world import CONLANGS, ROOT, World
-from .common import derived_id, log, place_name, place_offset
+from .common import derived_id, log, place_name, place_offset, stable_seed
 from .sites import core_zone, landmark_sites, main_axis
 
 
@@ -74,7 +73,7 @@ def build_streets(world, sp, features, frame, seed, cities, districts, district_
             cfg = sp.get("districts", {}).get(d["id"], {})
             style = cfg.get("style", "mixed")
             main_only = d.get("special_status") in UNSETTLED
-            rng = np.random.default_rng([seed, int(hashlib.sha1(d["id"].encode()).hexdigest()[:8], 16)])
+            rng = np.random.default_rng([seed, stable_seed(d["id"])])
             angle = math.radians(cfg["angle_deg"]) if "angle_deg" in cfg else main_axis(built)
             core = (poles[i][0] * s, poles[i][1] * s)
             ds = streets.district_streets(built, core, style, angle, rng, sp, i, main_only)
@@ -122,7 +121,7 @@ def build_streets(world, sp, features, frame, seed, cities, districts, district_
 def build_buildings(street_out, seed) -> tuple[list, list]:
     """Generated building footprints and parks, [(cls, polygon)] and [polygon] in real km."""
     out, parks = [], []
-    for city, _, ctx, sites in street_out:
+    for _, _, ctx, sites in street_out:
         taken = buildings.corridors([line for c in ctx.values() for line in c["lines"]])
         if sites:
             taken = taken.union(shapely.union_all([site.buffer(0.01) for _, site, _, _ in sites]))

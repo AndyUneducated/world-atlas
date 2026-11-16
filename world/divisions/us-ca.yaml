@@ -2,7 +2,7 @@
 # United States on the far side of the planet from the Chinese territories.
 # id: stable internal key, referenced by other files. codes.admin: 6-digit hierarchical code (state
 # 060000, city 060100, district 060101); may change on reorganisation.
-# subtype follows Overture Maps divisions: country > dependency/region > locality > borough.
+# subtype follows Overture Maps divisions: country > dependency > locality > borough.
 # Names are Chinese, English and Spanish (es), the state's two official languages. Apart from
 # "California" and "United States" every name is the atlas's own, many of them jokes.
 divisions:

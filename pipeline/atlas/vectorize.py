@@ -16,7 +16,7 @@ from .grid import chaikin
 
 
 def _arcs(labels: np.ndarray):
-    ny, nx = labels.shape
+    nx = labels.shape[1]
     stride = nx + 1
     adj: dict[int, list[int]] = defaultdict(list)
 

@@ -1,9 +1,9 @@
-import type { Lang, ThemeId } from "./types";
+import type { ThemeId } from "./types";
 
 export const LANDCOVER_CLASSES = ["forest", "tundra", "rock", "farmland", "wetland", "urban", "desert", "scrub", "rainforest", "savanna"] as const;
-export type LandcoverClass = (typeof LANDCOVER_CLASSES)[number];
+type LandcoverClass = (typeof LANDCOVER_CLASSES)[number];
 export const BUILDING_CLASSES = ["residential", "commercial", "industrial", "civic"] as const;
-export type BuildingClass = (typeof BUILDING_CLASSES)[number];
+type BuildingClass = (typeof BUILDING_CLASSES)[number];
 
 interface RoadStyle {
   fill: string;
@@ -73,16 +73,12 @@ export interface MapTheme {
 
 export interface Theme {
   id: ThemeId;
-  label: Record<Lang, string>;
-  dark: boolean;
   map: MapTheme;
 }
 
 export const THEMES: Record<ThemeId, Theme> = {
   light: {
     id: "light",
-    label: { zh: "浅色", en: "Light" },
-    dark: false,
     map: {
       background: "#c4dceb",
       bathymetry: ["#dcecf4", "#d2e6f0", "#cae0ec"],
@@ -151,8 +147,6 @@ export const THEMES: Record<ThemeId, Theme> = {
   },
   dark: {
     id: "dark",
-    label: { zh: "深色", en: "Dark" },
-    dark: true,
     map: {
       background: "#05080f",
       bathymetry: ["#0d1626", "#0a121f", "#080e19"],

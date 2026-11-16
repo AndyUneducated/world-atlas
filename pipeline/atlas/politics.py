@@ -9,11 +9,11 @@ become entities of their own, with who their voters are. Runs after economy.anno
 entities."""
 from __future__ import annotations
 
-import hashlib
 import math
 
 import numpy as np
 
+from .common import largest_remainder as _hamilton, stable_seed
 from .world import World
 
 
@@ -22,20 +22,12 @@ RUNOFF_NOISE = 0.04  # the general election's own swing, at most, either way (lo
 
 
 def _rng(key: str) -> np.random.Generator:
-    return np.random.default_rng(int(hashlib.sha1(("politics:" + key).encode()).hexdigest()[:8], 16))
+    return np.random.default_rng(stable_seed("politics:" + key))
 
 
-def _hamilton(weights: dict[str, float], seats: int, minimum: int = 0) -> dict[str, int]:
-    """Seats in proportion to the weights by largest remainder, each at least `minimum`."""
-    out = {k: minimum for k in weights}
-    left = seats - minimum * len(weights)
-    total = sum(weights.values()) or 1
-    raw = {k: left * w / total for k, w in weights.items()}
-    for k in raw:
-        out[k] += int(raw[k])
-    for k in sorted(raw, key=lambda k: int(raw[k]) - raw[k])[: seats - sum(out.values())]:
-        out[k] += 1
-    return out
+def _langs(entities: dict, eid: str) -> dict[str, float]:
+    """The first languages of a place's people (shares), or Chinese where it has no demographics."""
+    return entities[eid].get("demographics", {}).get("languages", {"zh": 100})
 
 
 def _divisor(votes: dict[str, float], seats: int, first: float, step: float) -> dict[str, int]:
@@ -400,11 +392,9 @@ class _People:
     def leader(self, p: dict, tid: str) -> dict:
         """The party's leader in a territory: its leader at home, where it is strongest; elsewhere the head
         of its territorial branch."""
-        if tid in p.get("leaders", {}):
-            return p["leaders"][tid]
         if tid == max(p["targets"], key=p["targets"].get):
             return p["leader"]
-        return self.draw(f"leader:{p['id']}:{tid}", self.entities[tid].get("demographics", {}).get("languages", {"zh": 100}), where=tid)
+        return self.draw(f"leader:{p['id']}:{tid}", _langs(self.entities, tid), where=tid)
 
 
 MAX_EXPERTS = 4  # non-partisan ministers in one cabinet
@@ -493,7 +483,7 @@ def _appoint(model: dict, entities: dict, people: "_People", holders: dict[str, 
     partner's leader takes the ministry the party picked first."""
     for tid, holder in holders.items():
         L = entities[tid]["legislature"]
-        langs = entities[tid].get("demographics", {}).get("languages", {"zh": 100})
+        langs = _langs(entities, tid)
         firsts: dict[str, dict] = {}
         for mid, p in holder.items():
             if p and p != L["head"]["party"] and p not in firsts.values():
@@ -531,7 +521,7 @@ def _offices(world: World, model: dict, entities: dict, people: "_People") -> No
     last of all so that adding them renames no one. A coalition's junior partner holds the deputy's post."""
     for tid, leg in model["legislatures"].items():
         L = entities[tid]["legislature"]
-        langs = entities[tid].get("demographics", {}).get("languages", {"zh": 100})
+        langs = _langs(entities, tid)
         avoid = {_given(o["name"]) for o in (L["head"], L["speaker"], L["court"], *L["ministers"])}
         if "deputy" in leg:
             party = L["head"]["party"] if L.get("elected") or len(L["government"]) < 2 else L["government"][1]
@@ -542,7 +532,7 @@ def _offices(world: World, model: dict, entities: dict, people: "_People") -> No
         if "deputy_mayor" in leg:
             for cid, c in world.divisions.items():
                 if c.get("parent") == tid and (council := entities[cid].get("council")):
-                    clangs = entities[cid].get("demographics", {}).get("languages", {"zh": 100})
+                    clangs = _langs(entities, cid)
                     title = leg.get("councils", {}).get(cid, {}).get("deputy_mayor", leg["deputy_mayor"])
                     council["deputy"] = {"title": title, "name": people.draw("deputy-mayor:" + cid, clangs, where=tid),
                                          "party": council["head"]["party"]}
@@ -552,7 +542,7 @@ def _offices(world: World, model: dict, entities: dict, people: "_People") -> No
     # deputy speakers and the nations' key offices, drawn after everyone else
     for tid, leg in model["legislatures"].items():
         L = entities[tid]["legislature"]
-        langs = entities[tid].get("demographics", {}).get("languages", {"zh": 100})
+        langs = _langs(entities, tid)
         avoid = {_given(o["name"]) for o in (L["head"], L["speaker"], L["court"], *L["ministers"])}
         sides = [L["government"][1] if len(L["government"]) > 1 else L["government"][0]]
         if (opp := L.get("opposition")) and L["seats"] >= 60:
@@ -573,7 +563,7 @@ def _offices(world: World, model: dict, entities: dict, people: "_People") -> No
 
 def _name_langs(entities: dict, nid: str, n: dict) -> dict[str, float]:
     """The languages a state's officeholders are named in: its name_langs, else its people's first languages."""
-    return n.get("name_langs") or entities[nid].get("demographics", {}).get("languages", {"zh": 100})
+    return n.get("name_langs") or _langs(entities, nid)
 
 
 def _government(entities: dict, people: "_People", nid: str, n: dict) -> None:
@@ -619,7 +609,7 @@ def annotate(world: World, entities: dict) -> None:
         won, share, extra = terr.seat(terr.districts, leg["seats"], leg["system"], tid)
         trends[tid] = _trend(tid, share)
         gov = _coalition(won, share, parties, model["coalition_cost"])
-        langs = entities[tid].get("demographics", {}).get("languages", {"zh": 100})
+        langs = _langs(entities, tid)
         t_turnout = sum(terr.voters.values()) / sum(world.divisions[d]["population"] * model["electorate_share"] for d in terr.districts)
         opposition = next((p for p in sorted(won, key=lambda p: (-won[p], -share[p])) if won[p] and p not in gov), None)
         elected = leg.get("executive") == "elected"
@@ -696,7 +686,7 @@ def annotate(world: World, entities: dict) -> None:
             cgov = _coalition(cw, cs, parties, model["coalition_cost"])
             if (lead := override.get("lead")) in cgov:
                 cgov = [lead] + [p for p in cgov if p != lead]
-            clangs = entities[cid].get("demographics", {}).get("languages", {"zh": 100})
+            clangs = _langs(entities, cid)
             v = sum(terr.voters[d] for d in dids) / sum(world.divisions[d]["population"] * model["electorate_share"] for d in dids)
             mayor = {"title": override.get("mayor", leg["mayor"]), "name": None if own else people.draw("mayor:" + cid, clangs, where=tid), "party": cgov[0]}
             if elected:
@@ -731,7 +721,7 @@ def annotate(world: World, entities: dict) -> None:
             "standing": _standing(world, entities, pid, p, home),
             **({"hq": hq} if hq else {}),
             **({"trend": trends[home][pid]} if pid in trends.get(home, {}) else {}),
-            "secretary": p.get("secretary") or people.draw("secretary:" + pid, entities[home].get("demographics", {}).get("languages", {"zh": 100}), where=home),
+            "secretary": people.draw("secretary:" + pid, _langs(entities, home), where=home),
             "branches": [] if state else [{"at": t, "name": people.leader(p, t)} for t in model["legislatures"] if t in p["targets"]],
             "base": _base(world, entities, {k: v / weight[pid] for k, v in effect[pid].items()} if weight[pid] else {}),
             "territories": [state] if state else [t for t in model["legislatures"] if t in p["targets"]],
@@ -740,11 +730,11 @@ def annotate(world: World, entities: dict) -> None:
     _appoint(model, entities, people, holders, parties)
     _offices(world, model, entities, people)
     for cid, tid in late:
-        council, clangs = entities[cid]["council"], entities[cid].get("demographics", {}).get("languages", {"zh": 100})
+        council, clangs = entities[cid]["council"], _langs(entities, cid)
         council["head"]["name"] = people.draw("mayor:" + cid, clangs, where=tid)
         council["speaker"]["name"] = people.draw("council-speaker:" + cid, clangs, where=tid)
     for nid, body in model.get("appointed_councils", {}).items():
         for c in world.children(nid):
-            clangs = entities[c["id"]].get("demographics", {}).get("languages", {"zh": 100})
+            clangs = _langs(entities, c["id"])
             entities[c["id"]]["council"] = {"names": body["names"], **({"notes": body["notes"]} if "notes" in body else {}), "appointed": True,
                                             "head": {"title": body["mayor"], "name": people.draw("mayor:" + c["id"], clangs, where=nid)}}

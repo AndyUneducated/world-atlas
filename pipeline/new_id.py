@@ -11,9 +11,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas.world import ID_PATTERN, World  # noqa: E402
-
-B32 = "0123456789abcdefghjkmnpqrstvwxyz"
+from atlas.world import B32, ID_PATTERN, World  # noqa: E402
 
 
 def mint(prefix: str, taken: set[str]) -> str:

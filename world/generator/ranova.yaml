@@ -4,7 +4,8 @@
 #
 # Positions and lengths are in design kilometres in a local equal-area (sinusoidal) frame whose centre
 # maps to frame.origin_lonlat; frame.scale converts design km to real km. Division areas come from
-# world/divisions/ranova.yaml. The outline, zones and islands were laid out by _drafts/m83/layout.py.
+# world/divisions/ranova.yaml. The outline, zones and islands were first laid out by a one-off script
+# (not kept) and are now edited by hand.
 # The region's territory is the government in exile's claim: the whole island, drawn as its land and named
 # as geography (island_names, a label that opens no card). Its states are laid out in this order, the
 # order their land, streets and buildings were first drawn in; their cities are the region's last level.

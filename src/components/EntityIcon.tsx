@@ -1,5 +1,5 @@
 import {
-  Anchor, Banknote, Bath, Beef, Beer, Bird, BrickWall, Briefcase, Building, Building2, Bus, Camera, Car, CarFront, Castle, Church, Citrus, Clapperboard, Construction, Crosshair, Crown, CupSoda, Dices, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, Fuel, GraduationCap, Grape, Helicopter, Hospital, Hotel, House, HouseHeart,
+  Anchor, Banknote, Bath, Beef, Beer, Bird, BrickWall, Briefcase, Building, Building2, Bus, Camera, Car, CarFront, Castle, Church, Citrus, Clapperboard, Construction, Crosshair, Crown, CupSoda, Dices, Drone, Droplets, Drum, Factory, FerrisWheel, Flag, Flame, FlaskConical, Flower2, Footprints, Fuel, GraduationCap, Grape, Handshake, Helicopter, Hospital, Hotel, House, HouseHeart,
   Landmark, LandPlot, Lighthouse, Lock, Magnet, MapPin, MicVocal, Microchip, MoonStar, Mountain, MountainSnow, Navigation2, Orbit, PawPrint, PersonStanding, Pickaxe, Plane, PlaneTakeoff, Rabbit, Radar, Rocket, Route, Satellite, SatelliteDish, Shield, ShieldHalf, Ship,
   Scale, ShipWheel, Shell, Shirt, ShoppingBag, ShoppingCart, Siren, Snowflake, Server, Sparkle, Sparkles, Sprout, SquareParking, Sun, Swords, Target, Telescope, Tent, ToothbrushSparkles, TrainFront, TramFront, Trees, Trophy, Utensils, Vault, Vote, Warehouse, Waves, WavesLadder, Wind, Wine, Wrench, Zap,
 } from "lucide-react";
@@ -221,6 +221,8 @@ export function EntityIcon({ entity, className }: { entity: Entity; className?: 
       return <MapPin {...props} />;
     case "party":
       return <Vote {...props} />;
+    case "bloc":
+      return <Handshake {...props} />;
     case "river":
     case "estuary":
       return <Waves {...props} />;

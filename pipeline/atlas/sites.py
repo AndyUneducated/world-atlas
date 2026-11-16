@@ -1,7 +1,6 @@
 """Landmark sites: outlines and parts of places with a `site`, fitted to the shore."""
 from __future__ import annotations
 
-import hashlib
 import math
 
 import numpy as np
@@ -10,7 +9,7 @@ from shapely.geometry import LineString, Point
 from shapely.ops import nearest_points
 
 from . import buildings
-from .common import log, place_offset
+from .common import log, place_offset, stable_seed
 from .world import COASTAL_LAYOUTS, FACILITY_LAYOUTS
 
 SITE_SNAP_KM = 6.0  # how far (real km) a port or facility site may move to fit the shore
@@ -46,7 +45,7 @@ def fit_site(cfg, centre, a, size, land, coast, seed, pid, built_sites):
     layout = cfg["layout"]
 
     def build(c):
-        rng = np.random.default_rng([seed, int(hashlib.sha1(pid.encode()).hexdigest()[:8], 16)])
+        rng = np.random.default_rng([seed, stable_seed(pid)])
         return buildings.landmark(layout, c, a, size, rng, land, cfg.get("terminals", ()), cfg.get("variant"))
 
     p = Point(centre)

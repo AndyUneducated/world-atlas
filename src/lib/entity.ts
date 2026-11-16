@@ -1,6 +1,6 @@
 import { ROUTE_COLORS, TERRITORY_COLOR } from "./emblems";
 import type { AtlasData, Entity, Lang } from "./types";
-import { displayName } from "./i18n";
+import { displayName, shortName } from "./i18n";
 
 export function accentColor(data: AtlasData, e: Entity): string | undefined {
   if (e.kind === "route") return e.color ?? ROUTE_COLORS[e.network ?? ""];
@@ -38,7 +38,7 @@ export function pathLabel(data: AtlasData, e: Entity, lang: Lang): string {
   return lineage(data, e)
     .slice(0, -1)
     .filter((x) => x.kind === "division" && !isRegistryCountry(x))
-    .map((x) => x.short_names?.[lang] ?? displayName(x, lang))
+    .map((x) => shortName(x, lang))
     .join(" · ");
 }
 

@@ -14,7 +14,7 @@
 # ends_at_network (optional): the route runs from the first via towards the last and
 #   stops where it meets an earlier route (a spur).
 # tunnel_cost (optional): caps the per-km cost of steep terrain, letting the route
-#   tunnel through mountains instead of detouring around them.
+#   tunnel through mountains instead of detouring around them; without it there is no cap.
 # legs (optional): per-leg overrides keyed by the via the leg arrives at, e.g. a lower
 #   tunnel_cost for a straighter stretch, or straight: true for one straight stretch.
 # straight (optional): every leg is a straight line, crossing hills and water on tunnels and bridges.

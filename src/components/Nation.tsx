@@ -1,105 +1,14 @@
 import clsx from "clsx";
-import { ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { GroupTitle, NotApplicable, Paragraphs, Rows, Section, Sub, useCardOpen } from "./CardParts";
+import { GroupTitle, NotApplicable, Paragraphs, Rows, Section, ShareBar, ShareRows, Sub } from "./CardParts";
 import { Emblem, hasEmblem } from "./Emblem";
 import { Hemicycle } from "./Hemicycle";
-import { BodyName, Branch, OfficeRows, type PartyPart } from "./Politics";
+import { BodyName, Branch, CourtBody, MinisterList, OfficeRows, type PartyPart } from "./Politics";
 import { islandStates, isRegistryCountry } from "../lib/entity";
-import { displayName, formatNumber, formatPopulation, t } from "../lib/i18n";
-import type { AtlasData, Entity, Faith, FixedChamber, ForceBranch, Lang, Localized, NationFacts, Seating, WarStatus } from "../lib/types";
+import { displayName, formatNumber, formatPopulation, shortName, t, type StringKey } from "../lib/i18n";
+import type { AtlasData, Entity, Faith, FixedChamber, ForceBranch, Lang, Localized, NationFacts, WarStatus } from "../lib/types";
 import { useAtlas } from "../store";
-
-const L = {
-  groupOverview: { zh: "概况", en: "Overview" },
-  groupPolitics: { zh: "政府", en: "Government" },
-  groupMilitary: { zh: "军事与安全", en: "Military and security" },
-  groupSociety: { zh: "人口与社会", en: "People and society" },
-  groupEconomy: { zh: "经济", en: "Economy" },
-  groupGeography: { zh: "地理", en: "Geography" },
-  groupSymbols: { zh: "象征", en: "Symbols" },
-  groupFacts: { zh: "基本资料", en: "Basic facts" },
-  groupMembers: { zh: "成员", en: "Members" },
-  identity: { zh: "国家", en: "State" },
-  ideology: { zh: "意识形态", en: "Ideology" },
-  government: { zh: "政体", en: "Government" },
-  powerHolder: { zh: "实际掌权", en: "Real power" },
-  capital: { zh: "首都", en: "Capital" },
-  recognition: { zh: "外交承认", en: "Recognition" },
-  recognisedBy: { zh: "{n} / {of} 国承认", en: "{n} of {of} states" },
-  unrecognised: { zh: "无国家承认", en: "None" },
-  bloc: { zh: "阵营", en: "Bloc" },
-  neutral: { zh: "中立", en: "Neutral" },
-  legislature: { zh: "立法机构", en: "Legislature" },
-  elections: { zh: "选举", en: "Elections" },
-  fixedSeats: { zh: "议席由制度固定分配，不经竞争性选举", en: "Seats are allotted by the system, not won in contested elections" },
-  relations: { zh: "对外关系", en: "Relations" },
-  allies: { zh: "盟友", en: "Allies" },
-  rivals: { zh: "敌对", en: "Rivals" },
-  backers: { zh: "外部支持", en: "Outside backers" },
-  military: { zh: "军事力量", en: "Military forces" },
-  strength: { zh: "军力等级", en: "Strength" },
-  active: { zh: "现役", en: "Active" },
-  reserve: { zh: "预备役", en: "Reserve" },
-  budget: { zh: "军费开支（占 GDP）", en: "Military expenditure, % of GDP" },
-  forces: { zh: "武装力量", en: "Military and security forces" },
-  noForces: { zh: "无武装力量", en: "No armed forces" },
-  service: { zh: "兵役制度", en: "Military service age and obligation" },
-  equipment: { zh: "装备", en: "Equipment" },
-  wars: { zh: "战争与冲突", en: "Wars and conflicts" },
-  refugees: { zh: "难民", en: "Refugees" },
-  hosted: { zh: "境内收容", en: "Hosted" },
-  abroad: { zh: "流亡境外", en: "Abroad" },
-  religion: { zh: "宗教", en: "Religion" },
-  freedom: { zh: "自由指数", en: "Freedom" },
-  political: { zh: "政治权利", en: "Political rights" },
-  civil: { zh: "公民自由", en: "Civil liberties" },
-  press: { zh: "新闻自由", en: "Press freedom" },
-  economic: { zh: "经济自由", en: "Economic freedom" },
-  freedomNote: { zh: "0 为完全没有，100 为完全自由", en: "0 is none, 100 is full" },
-  national: { zh: "国家象征", en: "National symbols" },
-  anthem: { zh: "国歌", en: "Anthem" },
-  flower: { zh: "国花", en: "Flower" },
-  animal: { zh: "国兽", en: "Animal" },
-  facts: { zh: "基本资料", en: "Basic facts" },
-  currency: { zh: "货币", en: "Currency" },
-  timeZone: { zh: "时区", en: "Time zone" },
-  callingCode: { zh: "电话区号", en: "Calling code" },
-  countryCallingCode: { zh: "国际电话区号", en: "Country calling code" },
-  tld: { zh: "互联网国家代码", en: "Internet country code" },
-  driving: { zh: "行车方向", en: "Drives on the" },
-  left: { zh: "靠左行驶", en: "left" },
-  right: { zh: "靠右行驶", en: "right" },
-  doctrine: { zh: "纲领", en: "Doctrine" },
-  leaderNation: { zh: "盟主", en: "Leading nation" },
-  memberCount: { zh: "成员国", en: "Members" },
-  troops: { zh: "现役总兵力", en: "Active troops" },
-  backedNations: { zh: "在拉诺瓦岛支持的国家", en: "Nations it backs on Ranova" },
-  backedNote: {
-    zh: "公开或暗中提供援助、武器、贷款或外交庇护的国家。",
-    en: "Nations it gives aid, arms, loans or diplomatic cover, openly or not.",
-  },
-  people: { zh: "人", en: "" },
-  groupPositions: { zh: "立场与主张", en: "Positions and policies" },
-  predecessors: { zh: "历任", en: "Predecessors" },
-  emblems: { zh: "标志物", en: "Emblems" },
-  culture: { zh: "文化", en: "Culture" },
-  holiday: { zh: "主要节日", en: "Main holiday" },
-  dish: { zh: "代表菜肴", en: "Signature dish" },
-  sport: { zh: "热门运动", en: "Popular sport" },
-  travel: { zh: "旅行建议", en: "Travel advice" },
-  travel1: { zh: "1 级 · 注意常规安全", en: "Level 1 · Normal precautions" },
-  travel2: { zh: "2 级 · 提高警惕", en: "Level 2 · Increased caution" },
-  travel3: { zh: "3 级 · 重新考虑行程", en: "Level 3 · Reconsider travel" },
-  travel4: { zh: "4 级 · 请勿前往", en: "Level 4 · Do not travel" },
-  groupOrganisation: { zh: "组织", en: "Organisation" },
-  groupSeats: { zh: "选举与议席", en: "Elections and seats" },
-  groupHistory: { zh: "沿革与关系", en: "History and relations" },
-  groupRelations: { zh: "对外关系", en: "Relations" },
-} satisfies Record<string, Localized>;
-
-const tl = (key: keyof typeof L, lang: Lang) => L[key][lang];
 
 const STRENGTH: Localized[] = [
   { zh: "微弱", en: "Token" },
@@ -116,7 +25,7 @@ const WAR_STATUS: Record<WarStatus, { label: Localized; className: string }> = {
   ended: { label: { zh: "已结束", en: "Ended" }, className: "bg-hover text-muted" },
 };
 
-const people = (n: number, lang: Lang) => (lang === "zh" ? `${formatPopulation(n, lang)}${tl("people", lang)}` : formatPopulation(n, lang));
+const people = (n: number, lang: Lang) => (lang === "zh" ? `${formatPopulation(n, lang)}${t("peopleUnit", lang)}` : formatPopulation(n, lang));
 
 /** The nearest scrolling ancestor: the card on a desktop, the sheet on a phone. */
 function scrollerOf(el: HTMLElement | null) {
@@ -200,7 +109,7 @@ function StateChip({ data, id, lang, tone }: { data: AtlasData; id: string; lang
       style={tone ? { borderColor: `color-mix(in srgb, ${tone} 35%, transparent)` } : undefined}
     >
       {hasEmblem(e) ? <Emblem entity={e} size={18} className="shrink-0" /> : <span className="ml-1 size-2 rounded-full" style={{ background: e.color ?? "var(--ui-faint)" }} />}
-      {e.short_names?.[lang] ?? displayName(e, lang)}
+      {shortName(e, lang)}
     </button>
   );
 }
@@ -213,14 +122,14 @@ function BlocBadge({ data, facts, lang }: { data: AtlasData; facts: NationFacts;
   const select = useAtlas((s) => s.select);
   const bloc = facts.bloc ? data.entities[facts.bloc] : undefined;
   if (!bloc)
-    return <span className="rounded-full border border-line px-2 py-0.5 text-[12px] text-muted">{tl("neutral", lang)}</span>;
+    return <span className="rounded-full border border-line px-2 py-0.5 text-[12px] text-muted">{t("neutral", lang)}</span>;
   return (
     <button
       onClick={() => select(bloc.id)}
       className="flex items-center gap-1.5 rounded-full py-0.5 pr-2.5 pl-2 text-[12px] font-semibold text-white shadow-sm transition-transform hover:scale-[1.03]"
       style={{ background: bloc.color }}
     >
-      {bloc.short_names?.[lang] ?? displayName(bloc, lang)}
+      {shortName(bloc, lang)}
       {facts.bloc_role && <span className="font-normal opacity-80">· {facts.bloc_role[lang]}</span>}
     </button>
   );
@@ -238,8 +147,8 @@ function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entit
   const others = otherStates(data, entity);
   const uncontrolled = entity.uncontrolled?.includes("capital") && <span className="text-muted">{t("uncontrolled", lang)}</span>;
   const recognised = facts.recognition
-    ? tl("recognisedBy", lang).replace("{n}", String(facts.recognition)).replace("{of}", String(others))
-    : tl("unrecognised", lang);
+    ? t("recognisedBy", lang).replace("{n}", String(facts.recognition)).replace("{of}", String(others))
+    : t("unrecognised", lang);
   return (
     <Section>
       <div className="mb-3 flex flex-wrap items-center gap-1.5">
@@ -253,13 +162,13 @@ function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entit
       </div>
       <Rows
         rows={[
-          [tl("government", lang), facts.government[lang]],
+          [t("governmentForm", lang), facts.government[lang]],
           [facts.head.title[lang], facts.head.name[lang]],
           ...(facts.heir ? ([[facts.heir.title[lang], facts.heir.name[lang]]] as [string, ReactNode][]) : []),
           ...(facts.predecessors?.length
             ? ([
                 [
-                  tl("predecessors", lang),
+                  t("predecessors", lang),
                   <ul key="p" className="space-y-1">
                     {facts.predecessors.map((p) => (
                       <li key={p.name.en} className="leading-snug">
@@ -272,11 +181,11 @@ function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entit
                 ],
               ] as [string, ReactNode][])
             : []),
-          [tl("powerHolder", lang), facts.power[lang]],
+          [t("powerHolder", lang), facts.power[lang]],
           ...(capital
             ? ([
                 [
-                  tl("capital", lang),
+                  t("capital", lang),
                   <span key="c">
                     <button onClick={() => select(capital.id)} className="text-left underline decoration-line underline-offset-2 hover:decoration-current">{displayName(capital, lang)}</button>
                     {uncontrolled}
@@ -284,10 +193,10 @@ function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entit
                 ],
               ] as [string, ReactNode][])
             : capitalName
-              ? ([[tl("capital", lang), <span key="c">{capitalName}{uncontrolled}</span>]] as [string, ReactNode][])
+              ? ([[t("capital", lang), <span key="c">{capitalName}{uncontrolled}</span>]] as [string, ReactNode][])
               : []),
           [
-            tl("recognition", lang),
+            t("recognition", lang),
             <span key="r" className="flex items-center gap-2">
               <span className="flex gap-[2px]">
                 {Array.from({ length: others }, (_, i) => (
@@ -306,22 +215,12 @@ function IdentitySection({ data, entity, facts, lang }: { data: AtlasData; entit
 /** A chamber whose seats the system hands out: the half circle and its groups. */
 function FixedChamberView({ leg, lang }: { leg: FixedChamber; lang: Lang }) {
   const select = useAtlas((s) => s.select);
-  const view = useMemo(() => {
-    const ids = leg.groups.map((_, i) => `g${i}`);
-    const data = { entities: Object.fromEntries(leg.groups.map((g, i) => [ids[i], { color: g.color, spectrum: i }])) } as unknown as AtlasData;
-    const chamber = {
-      seats: leg.seats,
-      parties: leg.groups.map((g, i) => ({ id: ids[i], seats: g.seats, vote: 0 })),
-      government: [],
-      names: leg.names,
-    } as unknown as Seating;
-    return { data, chamber };
-  }, [leg]);
+  const seats = useMemo(() => leg.groups.map((g, i) => ({ id: `g${i}`, seats: g.seats, color: g.color, order: i })), [leg]);
   return (
     <>
       <BodyName name={leg.names[lang]} sub={`${leg.seats} ${t("seatsUnit", lang)}`} />
       <div className="mx-auto max-w-[300px]">
-        <Hemicycle data={view.data} chamber={view.chamber} lang={lang} />
+        <Hemicycle parties={seats} total={leg.seats} lang={lang} />
       </div>
       <ul className="mt-3 -mx-2">
         {leg.groups.map((g) => {
@@ -347,7 +246,7 @@ function FixedChamberView({ leg, lang }: { leg: FixedChamber; lang: Lang }) {
           );
         })}
       </ul>
-      <p className="mt-2.5 text-[12px] text-faint">{leg.notes?.[lang] ?? tl("fixedSeats", lang)}</p>
+      <p className="mt-2.5 text-[12px] text-faint">{leg.notes?.[lang] ?? t("fixedSeats", lang)}</p>
     </>
   );
 }
@@ -357,12 +256,10 @@ const Without = ({ text, lang }: { text: Localized; lang: Lang }) => <p classNam
 /** A nation without an elected parliament: its government and ministers, the chamber the system fills (or
  * none) and its courts (or none). */
 function GovernmentSection({ entity, facts, lang }: { entity: Entity; facts: NationFacts; lang: Lang }) {
-  const [open, setOpen] = useCardOpen("ministers");
   const g = entity.government;
   const leg = facts.legislature;
   const ex = g?.executive;
   const ju = g?.judiciary;
-  const ministry = (m: Localized) => (lang === "en" ? m.en.replace(/^(Ministry|Department) of (the )?/, "") : m.zh);
   return (
     <Section title={t("politicsTitle", lang)} flat>
       {ex && (
@@ -373,28 +270,7 @@ function GovernmentSection({ entity, facts, lang }: { entity: Entity; facts: Nat
             <>
               <BodyName name={ex.names[lang]} sub={ex.ministers.length ? (lang === "zh" ? `${ex.ministers.length} 个部门` : `${ex.ministers.length} departments`) : undefined} />
               {(ex.head || ex.deputy) && <Rows rows={[ex.head, ex.deputy].filter((o) => !!o).map((o) => [o.title[lang], o.name[lang]] as [string, ReactNode])} />}
-              {ex.ministers.length > 0 && (
-                <>
-                  <button
-                    onClick={() => setOpen(!open)}
-                    aria-expanded={open}
-                    className="mt-2 -ml-2 flex items-center gap-1 rounded-full px-2 py-1 text-[12px] font-medium text-muted transition-colors hover:bg-hover hover:text-ink"
-                  >
-                    <ChevronDown className={clsx("size-3.5 transition-transform", open && "rotate-180")} />
-                    {open ? t("hideMinisters", lang) : `${t("showMinisters", lang)} · ${ex.ministers.length}`}
-                  </button>
-                  {open && (
-                    <motion.ul initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} className="mt-1 divide-y divide-line/60">
-                      {ex.ministers.map((m) => (
-                        <li key={m.ministry.en} className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] items-center gap-3 py-1.5 text-[12.5px]">
-                          <span className="leading-snug text-muted">{ministry(m.ministry)}</span>
-                          <span className="text-ink">{m.name[lang]}</span>
-                        </li>
-                      ))}
-                    </motion.ul>
-                  )}
-                </>
-              )}
+              {ex.ministers.length > 0 && <MinisterList ministers={ex.ministers} lang={lang} />}
               {ex.notes && <Paragraphs text={ex.notes[lang]} className="mt-2 text-[12.5px] leading-relaxed text-muted" />}
             </>
           )}
@@ -408,17 +284,7 @@ function GovernmentSection({ entity, facts, lang }: { entity: Entity; facts: Nat
           {"none" in ju ? (
             <Without text={ju.none} lang={lang} />
           ) : (
-            <>
-              <BodyName name={ju.names[lang]} sub={lang === "zh" ? `法官 ${ju.judges.length + 1} 人` : `${ju.judges.length + 1} judges`} />
-              <Rows
-                rows={[
-                  [t("legalSystem", lang), ju.law[lang]],
-                  [ju.title[lang], ju.name[lang]],
-                  ...(ju.judges.length ? [[t("judges", lang), <span className="leading-relaxed text-ink">{ju.judges.map((j) => j[lang]).join(lang === "zh" ? "、" : ", ")}</span>] as [string, ReactNode]] : []),
-                ]}
-              />
-              {ju.notes && <Paragraphs text={ju.notes[lang]} className="mt-2 text-[12.5px] leading-relaxed text-muted" />}
-            </>
+            <CourtBody court={ju} lang={lang} />
           )}
         </Branch>
       )}
@@ -432,17 +298,17 @@ function GovernmentSection({ entity, facts, lang }: { entity: Entity; facts: Nat
 }
 
 function RelationsSection({ data, facts, lang }: { data: AtlasData; facts: NationFacts; lang: Lang }) {
-  const rows: [keyof typeof L, string[] | undefined, string][] = [
-    ["allies", facts.allies, "#10b981"],
+  const rows: [StringKey, string[] | undefined, string][] = [
+    ["nationAllies", facts.allies, "#10b981"],
     ["rivals", facts.rivals, "#f43f5e"],
-    ["backers", facts.backers, "#8b5cf6"],
+    ["partyBackers", facts.backers, "#8b5cf6"],
   ];
   if (!rows.some(([, ids]) => ids?.length)) return null;
   return (
-    <Section title={tl("relations", lang)}>
+    <Section title={t("relations", lang)}>
       {rows.map(([key, ids, tone]) =>
         ids?.length ? (
-          <Sub key={key} label={tl(key, lang)}>
+          <Sub key={key} label={t(key, lang)}>
             <Chips>
               {ids.map((id) => (
                 <StateChip key={id} data={data} id={id} lang={lang} tone={tone} />
@@ -480,7 +346,7 @@ const FORCE_BRANCH: Record<ForceBranch, { zh: string; en: string }> = {
 function ArmedForces({ facts, lang, accent }: { facts: NationFacts; lang: Lang; accent: string }) {
   const m = facts.military;
   return (
-    <Section title={tl("military", lang)}>
+    <Section title={t("military", lang)}>
       <div className="mb-3.5 flex items-center gap-3">
         <div className="flex items-end gap-1" aria-label={`${m.strength} / 5`}>
           {[1, 2, 3, 4, 5].map((i) => (
@@ -495,18 +361,18 @@ function ArmedForces({ facts, lang, accent }: { facts: NationFacts; lang: Lang; 
           ))}
         </div>
         <div>
-          <div className="text-[11px] text-muted">{tl("strength", lang)}</div>
+          <div className="text-[11px] text-muted">{t("strength", lang)}</div>
           <div className="text-[14px] font-semibold text-ink">{STRENGTH[m.strength - 1][lang]}</div>
         </div>
       </div>
       <Rows
         rows={[
-          [tl("active", lang), people(m.active, lang)],
-          [tl("reserve", lang), people(m.reserve, lang)],
-          ...(m.budget_gdp ? ([[tl("budget", lang), `${formatNumber(m.budget_gdp, lang, 1)}%`]] as [string, ReactNode][]) : []),
-          ...(m.service ? ([[tl("service", lang), m.service[lang]]] as [string, ReactNode][]) : []),
+          [t("active", lang), people(m.active, lang)],
+          [t("reserve", lang), people(m.reserve, lang)],
+          ...(m.budget_gdp ? ([[t("budget", lang), `${formatNumber(m.budget_gdp, lang, 1)}%`]] as [string, ReactNode][]) : []),
+          ...(m.service ? ([[t("service", lang), m.service[lang]]] as [string, ReactNode][]) : []),
           [
-            tl("forces", lang),
+            t("forces", lang),
             m.forces.length ? (
               <span key="f" className="flex flex-col gap-1.5">
                 {m.forces.map((f) => (
@@ -523,10 +389,10 @@ function ArmedForces({ facts, lang, accent }: { facts: NationFacts; lang: Lang; 
                 ))}
               </span>
             ) : (
-              tl("noForces", lang)
+              t("noForces", lang)
             ),
           ],
-          [tl("equipment", lang), m.equipment[lang]],
+          [t("militaryEquipment", lang), m.equipment[lang]],
         ]}
       />
     </Section>
@@ -536,7 +402,7 @@ function ArmedForces({ facts, lang, accent }: { facts: NationFacts; lang: Lang; 
 function WarsSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
   if (!facts.wars?.length) return null;
   return (
-    <Section title={tl("wars", lang)}>
+    <Section title={t("wars", lang)}>
       <ul className="space-y-2">
         {facts.wars.map((w) => (
           <li key={w.names.en} className="rounded-xl border border-line px-3 py-2">
@@ -566,41 +432,23 @@ function Tile({ label, value, tone }: { label: string; value: string; tone: stri
 function RefugeeSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
   const r = facts.refugees;
   return (
-    <Section title={tl("refugees", lang)}>
+    <Section title={t("refugees", lang)}>
       <div className="grid grid-cols-2 gap-2">
-        <Tile label={tl("hosted", lang)} value={people(r.hosted, lang)} tone="#0ea5e9" />
-        <Tile label={tl("abroad", lang)} value={people(r.abroad, lang)} tone="#f59e0b" />
+        <Tile label={t("hosted", lang)} value={people(r.hosted, lang)} tone="#0ea5e9" />
+        <Tile label={t("abroad", lang)} value={people(r.abroad, lang)} tone="#f59e0b" />
       </div>
     </Section>
   );
 }
 
+/** Faiths by share, largest first; a faith without a colour of its own takes a tone of the accent by rank. */
 function ReligionSection({ religion, lang, accent }: { religion: Faith[]; lang: Lang; accent: string }) {
-  const parts = [...religion].sort((a, b) => b.share - a.share);
-  const color = (p: (typeof parts)[number], i: number) => p.color ?? `color-mix(in srgb, ${accent} ${[100, 62, 36, 20][i % 4]}%, var(--ui-hover))`;
+  const parts = [...religion]
+    .sort((a, b) => b.share - a.share)
+    .map((p, i) => ({ label: p.names[lang], value: p.share, color: p.color ?? `color-mix(in srgb, ${accent} ${[100, 62, 36, 20][i % 4]}%, var(--ui-hover))` }));
   return (
-    <Section title={tl("religion", lang)}>
-      <div className="flex h-2.5 gap-[2px] overflow-hidden rounded-full">
-        {parts.map((p, i) => (
-          <motion.span
-            key={p.names.en}
-            className="h-full"
-            style={{ background: color(p, i) }}
-            initial={{ width: 0 }}
-            animate={{ width: `${p.share}%` }}
-            transition={{ duration: 0.6, delay: 0.05 * i, ease: "easeOut" }}
-          />
-        ))}
-      </div>
-      <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[12px]">
-        {parts.map((p, i) => (
-          <span key={p.names.en} className="flex items-center gap-1.5 text-muted">
-            <span className="size-2 rounded-full" style={{ background: color(p, i) }} />
-            {p.names[lang]}
-            <span className="text-ink tabular-nums">{p.share}%</span>
-          </span>
-        ))}
-      </div>
+    <Section title={t("religion", lang)}>
+      <ShareBar parts={parts} accent={accent} barClassName="h-2.5" />
     </Section>
   );
 }
@@ -612,28 +460,13 @@ function FreedomSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
   const fr = facts.freedom;
   if (!fr) return null;
   return (
-    <Section title={tl("freedom", lang)}>
-      <div className="space-y-1.5">
-        {keys.map((k, i) => {
-          const v = fr[k];
-          return (
-            <div key={k} className="grid grid-cols-[5.5rem_1fr_2rem] items-center gap-2.5 text-[12px]">
-              <span className="truncate text-muted">{tl(k, lang)}</span>
-              <span className="h-1.5 overflow-hidden rounded-full bg-hover">
-                <motion.span
-                  className="block h-full rounded-full"
-                  style={{ background: freedomTone(v) }}
-                  initial={{ width: 0 }}
-                  animate={{ width: `${v}%` }}
-                  transition={{ duration: 0.6, delay: 0.05 * i, ease: "easeOut" }}
-                />
-              </span>
-              <span className="text-right text-ink tabular-nums">{v}</span>
-            </div>
-          );
-        })}
-      </div>
-      <p className="mt-2 text-[11px] text-faint">{tl("freedomNote", lang)}</p>
+    <Section title={t("freedom", lang)}>
+      <ShareRows
+        rows={keys.map((k) => ({ label: t(k, lang), value: fr[k], color: freedomTone(fr[k]) }))}
+        unit=""
+        gridClassName="grid-cols-[5.5rem_1fr_2rem]"
+      />
+      <p className="mt-2 text-[11px] text-faint">{t("freedomNote", lang)}</p>
     </Section>
   );
 }
@@ -641,12 +474,12 @@ function FreedomSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
 function SymbolsSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
   const s = facts.symbols;
   return (
-    <Section title={tl("national", lang)}>
+    <Section title={t("national", lang)}>
       <Rows
         rows={[
-          [tl("anthem", lang), s.anthem[lang]],
-          [tl("flower", lang), s.flower[lang]],
-          [tl("animal", lang), s.animal[lang]],
+          [t("anthem", lang), s.anthem[lang]],
+          [t("flower", lang), s.flower[lang]],
+          [t("animal", lang), s.animal[lang]],
         ]}
       />
     </Section>
@@ -658,8 +491,8 @@ function CultureSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
   const keys = (["holiday", "dish", "sport"] as const).filter((k) => c?.[k]);
   if (!c || !keys.length) return null;
   return (
-    <Section title={tl("culture", lang)}>
-      <Rows rows={keys.map((k) => [tl(k, lang), c[k]![lang]] as [string, ReactNode])} />
+    <Section title={t("culture", lang)}>
+      <Rows rows={keys.map((k) => [t(k, lang), c[k]![lang]] as [string, ReactNode])} />
     </Section>
   );
 }
@@ -671,13 +504,13 @@ function TravelSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
   if (!tr) return null;
   const tone = TRAVEL_TONES[tr.level - 1];
   return (
-    <Section title={tl("travel", lang)}>
+    <Section title={t("travel", lang)}>
       <span
         className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[12px] font-medium"
         style={{ color: tone, background: `color-mix(in srgb, ${tone} 12%, transparent)` }}
       >
         <span className="size-2 rounded-full" style={{ background: tone }} />
-        {tl(`travel${tr.level}`, lang)}
+        {t(`travel${tr.level}`, lang)}
       </span>
       <p className="mt-2 text-[12.5px] leading-relaxed text-muted">{tr.note[lang]}</p>
     </Section>
@@ -687,14 +520,14 @@ function TravelSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
 function FactsSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
   const f = facts.facts;
   return (
-    <Section title={tl("facts", lang)}>
+    <Section title={t("basicFacts", lang)}>
       <Rows
         rows={[
-          [tl("currency", lang), `${f.currency[lang]} (${f.currency_code})`],
-          [tl("timeZone", lang), f.time_zone],
-          [tl("countryCallingCode", lang), f.calling_code],
-          [tl("tld", lang), <span key="t" className="font-mono text-[12.5px]">{f.tld}</span>],
-          [tl("driving", lang), tl(f.driving, lang)],
+          [t("currency", lang), `${f.currency[lang]} (${f.currency_code})`],
+          [t("timeZone", lang), f.time_zone],
+          [t("countryCallingCode", lang), f.calling_code],
+          [t("tld", lang), <span key="t" className="font-mono text-[12.5px]">{f.tld}</span>],
+          [t("driving", lang), t(f.driving === "left" ? "driveLeft" : "driveRight", lang)],
         ]}
       />
     </Section>
@@ -718,7 +551,7 @@ export function LocalSymbolsSection({ entity, lang }: { entity: Entity; lang: La
   const level: Localized =
     entity.subtype !== "dependency" ? { zh: "市", en: "City" } : entity.parent === "country:US" ? { zh: "州", en: "State" } : { zh: "区", en: "Territorial" };
   return (
-    <Section title={tl("emblems", lang)}>
+    <Section title={t("emblems", lang)}>
       <Rows rows={SYMBOL_KEYS.filter((k) => s[k]).map((k) => [lang === "zh" ? level.zh + SYMBOL_NAMES[k].zh : `${level.en} ${SYMBOL_NAMES[k].en}`, s[k]![lang]] as [string, ReactNode])} />
     </Section>
   );
@@ -728,12 +561,12 @@ function LocalFactsSection({ entity, lang }: { entity: Entity; lang: Lang }) {
   const f = entity.facts;
   if (!f) return null;
   return (
-    <Section title={tl("facts", lang)}>
+    <Section title={t("basicFacts", lang)}>
       <Rows
         rows={[
-          ...(f.time_zone ? [[tl("timeZone", lang), f.time_zone] as [string, ReactNode]] : []),
-          ...(f.calling_code ? [[tl("callingCode", lang), f.calling_code] as [string, ReactNode]] : []),
-          ...(f.driving ? [[tl("driving", lang), tl(f.driving, lang)] as [string, ReactNode]] : []),
+          ...(f.time_zone ? [[t("timeZone", lang), f.time_zone] as [string, ReactNode]] : []),
+          ...(f.calling_code ? [[t("callingCode", lang), f.calling_code] as [string, ReactNode]] : []),
+          ...(f.driving ? [[t("driving", lang), t(f.driving === "left" ? "driveLeft" : "driveRight", lang)] as [string, ReactNode]] : []),
         ]}
       />
     </Section>
@@ -768,25 +601,25 @@ export function isGroupedCard(e: Entity) {
  * groups it has nothing for; cities and districts have no military and security group. */
 function divisionGroups(entity: Entity, lang: Lang, accent: string, shared: SharedParts): GroupDef[] {
   return [
-    { key: "overview", title: tl("groupOverview", lang), body: shared.about, show: !!(entity.notes || entity.background) },
+    { key: "overview", title: t("about", lang), body: shared.about, show: !!(entity.notes || entity.background) },
     {
       key: "politics",
-      title: tl("groupPolitics", lang),
+      title: t("groupPolitics", lang),
       body: <>{shared.legislature}{shared.council}{shared.election}{shared.parties}{shared.children}</>,
       show: !!(entity.legislature || entity.council || entity.election || entity.children?.length),
     },
     {
       key: "society",
-      title: tl("groupSociety", lang),
+      title: t("groupSociety", lang),
       body: <>{entity.religion && <ReligionSection religion={entity.religion} lang={lang} accent={accent} />}{shared.people}</>,
       show: !!(entity.demographics || entity.religion),
     },
-    { key: "economy", title: tl("groupEconomy", lang), body: shared.economy, show: !!entity.economy },
-    { key: "geography", title: tl("groupGeography", lang), body: shared.climate, show: !!(entity.climate || entity.climate_notes) },
-    { key: "symbols", title: tl("groupSymbols", lang), body: <>{shared.flag}<LocalSymbolsSection entity={entity} lang={lang} /></>, show: !!(entity.flag || entity.symbols) },
+    { key: "economy", title: t("economyTitle", lang), body: shared.economy, show: !!entity.economy },
+    { key: "geography", title: t("groupGeography", lang), body: shared.climate, show: !!(entity.climate || entity.climate_notes) },
+    { key: "symbols", title: t("symbols", lang), body: <>{shared.flag}<LocalSymbolsSection entity={entity} lang={lang} /></>, show: !!(entity.flag || entity.symbols) },
     {
       key: "facts",
-      title: tl("groupFacts", lang),
+      title: t("basicFacts", lang),
       body: <><LocalFactsSection entity={entity} lang={lang} />{shared.lineage}{shared.codes}</>,
       show: !!(shared.codes || entity.parent || entity.facts),
     },
@@ -795,33 +628,33 @@ function divisionGroups(entity: Entity, lang: Lang, accent: string, shared: Shar
 
 function partyGroups(entity: Entity, lang: Lang, shared: SharedParts): GroupDef[] {
   return [
-    { key: "overview", title: tl("groupOverview", lang), body: <>{shared.party("profile")}{shared.about}</> },
-    { key: "positions", title: tl("groupPositions", lang), body: shared.party("positions"), show: !!(entity.axes || entity.policies?.length || entity.base || entity.reunification) },
-    { key: "seats", title: tl("groupSeats", lang), body: shared.party("seats") },
-    { key: "organisation", title: tl("groupOrganisation", lang), body: shared.party("organisation"), show: !!(entity.youth_wing || entity.organisation || entity.factions?.length || (entity.branches?.length ?? 0) > 1) },
-    { key: "history", title: tl("groupHistory", lang), body: shared.party("history"), show: !!(entity.history || entity.allies?.length || entity.backers?.length) },
-    { key: "symbols", title: tl("groupSymbols", lang), body: shared.flag, show: !!entity.flag },
-    { key: "facts", title: tl("groupFacts", lang), body: shared.party("facts"), show: !!(entity.hq || entity.members) },
+    { key: "overview", title: t("about", lang), body: <>{shared.party("profile")}{shared.about}</> },
+    { key: "positions", title: t("groupPositions", lang), body: shared.party("positions"), show: !!(entity.axes || entity.policies?.length || entity.base || entity.reunification) },
+    { key: "seats", title: t("groupSeats", lang), body: shared.party("seats") },
+    { key: "organisation", title: t("organisation", lang), body: shared.party("organisation"), show: !!(entity.youth_wing || entity.organisation || entity.factions?.length || (entity.branches?.length ?? 0) > 1) },
+    { key: "history", title: t("groupHistory", lang), body: shared.party("history"), show: !!(entity.history || entity.allies?.length || entity.backers?.length) },
+    { key: "symbols", title: t("symbols", lang), body: shared.flag, show: !!entity.flag },
+    { key: "facts", title: t("basicFacts", lang), body: shared.party("facts"), show: !!(entity.hq || entity.members) },
   ];
 }
 
 export function CardGroups({ data, entity, lang, accent, shared }: { data: AtlasData; entity: Entity; lang: Lang; accent: string; shared: SharedParts }) {
-  const groups = useMemo<GroupDef[]>(() => {
-    const f = entity.nation;
-    if (!f) {
-      if (entity.kind === "bloc") return blocGroups(data, entity, lang, accent, shared);
-      if (entity.kind === "party") return partyGroups(entity, lang, shared);
-      return divisionGroups(entity, lang, accent, shared);
-    }
-    return [
-      { key: "overview", title: tl("groupOverview", lang), body: <><IdentitySection data={data} entity={entity} facts={f} lang={lang} />{shared.about}</> },
+  const f = entity.nation;
+  const groups: GroupDef[] = !f
+    ? entity.kind === "bloc"
+      ? blocGroups(data, entity, lang, accent, shared)
+      : entity.kind === "party"
+        ? partyGroups(entity, lang, shared)
+        : divisionGroups(entity, lang, accent, shared)
+    : [
+      { key: "overview", title: t("about", lang), body: <><IdentitySection data={data} entity={entity} facts={f} lang={lang} />{shared.about}</> },
       {
         key: "politics",
-        title: tl("groupPolitics", lang),
+        title: t("groupPolitics", lang),
         body: (
           <>
             {entity.legislature ? shared.legislature : <GovernmentSection entity={entity} facts={f} lang={lang} />}
-            <NotApplicable entity={entity} field="elections" title={tl("elections", lang)} lang={lang} />
+            <NotApplicable entity={entity} field="elections" title={t("elections", lang)} lang={lang} />
             {shared.parties}
             <RelationsSection data={data} facts={f} lang={lang} />
             {shared.backed}
@@ -831,7 +664,7 @@ export function CardGroups({ data, entity, lang, accent, shared }: { data: Atlas
       },
       {
         key: "society",
-        title: tl("groupSociety", lang),
+        title: t("groupSociety", lang),
         body: (
           <>
             <ReligionSection religion={f.religion} lang={lang} accent={accent} />
@@ -842,10 +675,10 @@ export function CardGroups({ data, entity, lang, accent, shared }: { data: Atlas
           </>
         ),
       },
-      { key: "economy", title: tl("groupEconomy", lang), body: shared.economy },
+      { key: "economy", title: t("economyTitle", lang), body: shared.economy },
       {
         key: "military",
-        title: tl("groupMilitary", lang),
+        title: t("groupMilitary", lang),
         body: (
           <>
             <ArmedForces facts={f} lang={lang} accent={accent} />
@@ -853,11 +686,10 @@ export function CardGroups({ data, entity, lang, accent, shared }: { data: Atlas
           </>
         ),
       },
-      { key: "geography", title: tl("groupGeography", lang), body: shared.climate },
-      { key: "symbols", title: tl("groupSymbols", lang), body: <>{shared.flag}<SymbolsSection facts={f} lang={lang} /></> },
-      { key: "facts", title: tl("groupFacts", lang), body: <><FactsSection facts={f} lang={lang} /><TravelSection facts={f} lang={lang} />{shared.lineage}{shared.codes}</> },
+      { key: "geography", title: t("groupGeography", lang), body: shared.climate },
+      { key: "symbols", title: t("symbols", lang), body: <>{shared.flag}<SymbolsSection facts={f} lang={lang} /></> },
+      { key: "facts", title: t("basicFacts", lang), body: <><FactsSection facts={f} lang={lang} /><TravelSection facts={f} lang={lang} />{shared.lineage}{shared.codes}</> },
     ];
-  }, [data, entity, lang, accent, shared]);
   return <Groups groups={groups} accent={accent} />;
 }
 
@@ -900,14 +732,14 @@ function blocGroups(data: AtlasData, entity: Entity, lang: Lang, accent: string,
   return [
     {
       key: "overview",
-      title: tl("groupOverview", lang),
+      title: t("about", lang),
       body: (
         <>
-          <Section title={tl("doctrine", lang)}>
+          <Section title={t("doctrine", lang)}>
             <div className="grid grid-cols-3 gap-2">
-              <Tile label={tl("memberCount", lang)} value={String(members.length)} tone={accent} />
+              <Tile label={t("memberCount", lang)} value={String(members.length)} tone={accent} />
               <Tile label={t("area", lang)} value={`${formatNumber(Math.round(area / 1000), lang)}k km²`} tone={accent} />
-              <Tile label={tl("troops", lang)} value={formatPopulation(troops, lang)} tone={accent} />
+              <Tile label={t("troops", lang)} value={formatPopulation(troops, lang)} tone={accent} />
             </div>
             {entity.doctrine && <p className="mt-3 text-[13.5px] leading-relaxed text-ink">{entity.doctrine[lang]}</p>}
             {entity.motto && (
@@ -917,7 +749,7 @@ function blocGroups(data: AtlasData, entity: Entity, lang: Lang, accent: string,
             )}
             {leader && (
               <div className="mt-3 flex items-center gap-2 text-[13px]">
-                <span className="text-muted">{tl("leaderNation", lang)}</span>
+                <span className="text-muted">{t("leaderNation", lang)}</span>
                 <StateChip data={data} id={leader.id} lang={lang} tone={accent} />
               </div>
             )}
@@ -928,7 +760,7 @@ function blocGroups(data: AtlasData, entity: Entity, lang: Lang, accent: string,
     },
     {
       key: "members",
-      title: `${tl("groupMembers", lang)} · ${members.length}`,
+      title: `${t("groupMembers", lang)} · ${members.length}`,
       body: (
         <Section>
           <MemberList data={data} ids={ids} leader={entity.leader_nation} lang={lang} />
@@ -948,12 +780,12 @@ export function BackedSection({ data, entity, lang }: { data: AtlasData; entity:
     byBloc.set(b, [...(byBloc.get(b) ?? []), id]);
   }
   return (
-    <Section title={tl("backedNations", lang)}>
-      <p className="mb-2.5 text-[12px] text-faint">{tl("backedNote", lang)}</p>
+    <Section title={t("backedNations", lang)}>
+      <p className="mb-2.5 text-[12px] text-faint">{t("backedNote", lang)}</p>
       {[...byBloc].map(([b, list]) => {
         const bloc = data.entities[b];
         return (
-          <Sub key={b} label={bloc ? displayName(bloc, lang) : tl("neutral", lang)}>
+          <Sub key={b} label={bloc ? displayName(bloc, lang) : t("neutral", lang)}>
             <Chips>
               {list.map((id) => (
                 <StateChip key={id} data={data} id={id} lang={lang} tone={bloc?.color} />

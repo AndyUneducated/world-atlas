@@ -10,13 +10,13 @@ async function getJSON<T>(path: string): Promise<T> {
   return res.json() as Promise<T>;
 }
 
-const EMPTY: FeatureCollection = { type: "FeatureCollection", features: [] };
+export const EMPTY_FC: FeatureCollection = { type: "FeatureCollection", features: [] };
 
 export async function loadAtlas(): Promise<AtlasData> {
   const manifestReq = getJSON<Manifest>("manifest.json");
   // Layers in the tile archive are drawn from tiles; their GeoJSON is only fetched without one.
   const layer = async (name: LayerFile) =>
-    (await manifestReq).tiles?.layers.includes(name) ? EMPTY : getJSON<FeatureCollection>(`${name}.geojson`);
+    (await manifestReq).tiles?.layers.includes(name) ? EMPTY_FC : getJSON<FeatureCollection>(`${name}.geojson`);
   const [manifest, entities, graph, ...layerData] = await Promise.all([
     manifestReq,
     getJSON<Record<string, Entity>>("entities.json"),

@@ -11,8 +11,6 @@ import { shieldImageId } from "./shields";
 import { BUILDING_CLASSES, LANDCOVER_CLASSES, type Theme } from "./themes";
 import type { AtlasData, Lang, LayerFile } from "./types";
 
-export const EMPTY_FC: FeatureCollection = { type: "FeatureCollection", features: [] };
-
 /** Road network values (GB/T 917 administrative grades) behind each road layer toggle. */
 export const ROAD_NETWORKS = {
   nationalExpressway: ["national_expressway"],

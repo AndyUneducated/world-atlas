@@ -5,7 +5,6 @@ prevailing wind crosses before it arrives; a city shows the climate of its most 
 Runs after the regions merge, on the whole world's entities and division shapes."""
 from __future__ import annotations
 
-import hashlib
 import math
 
 import numpy as np
@@ -13,19 +12,16 @@ from shapely import prepared, transform
 from shapely.geometry import Point, shape
 from shapely.strtree import STRtree
 
+from .common import stable_seed
+from .grid import KM_PER_DEG_LAT, km_per_deg_lon
 from .world import World
 
 DAYS = np.array([31, 28.25, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31])
 MID = np.cumsum(DAYS) - DAYS / 2  # day of year at mid-month
-KM_LAT = 110.57
 
 
 def _rng(eid: str) -> np.random.Generator:
-    return np.random.default_rng(int(hashlib.sha1(("climate:" + eid).encode()).hexdigest()[:8], 16))
-
-
-def _km_lon(lat: float) -> float:
-    return 111.32 * math.cos(math.radians(lat))
+    return np.random.default_rng(stable_seed("climate:" + eid))
 
 
 def day_lengths(lat: float) -> np.ndarray:
@@ -101,7 +97,7 @@ class _Land:
         return any(g.contains(p) for g in self.prep)
 
     def coast_km(self, lon: float, lat: float) -> float:
-        kx, ky = _km_lon(lat), KM_LAT
+        kx, ky = km_per_deg_lon(lat), KM_PER_DEG_LAT
         best = math.inf
         for g in self.terr:
             local = transform(g.boundary, lambda xy: np.column_stack(((xy[:, 0] - lon) * kx, (xy[:, 1] - lat) * ky)))
@@ -114,7 +110,7 @@ class _Land:
         dx, dy = math.sin(math.radians(wind_from)), math.cos(math.radians(wind_from))
         fetch, top = 400.0, 0.0
         for d in (5, 10, 20, 30, 45, 60, 80, 100, 130, 160, 200, 250, 300, 350, 400):
-            x, y = lon + dx * d / _km_lon(lat), lat + dy * d / KM_LAT
+            x, y = lon + dx * d / km_per_deg_lon(lat), lat + dy * d / KM_PER_DEG_LAT
             if not self.on_land(x, y):
                 fetch = d
                 break
@@ -147,7 +143,7 @@ def district(eid: str, e: dict, terr: dict, model: dict, land: _Land, elev: floa
     # arid: [lon, lat, radius_km, factor] zones whose rain falls to `factor` at their centre
     arid = 1.0
     for z_lon, z_lat, r_km, factor in terr.get("arid", []):
-        d = math.hypot((lon - z_lon) * _km_lon(lat), (lat - z_lat) * KM_LAT)
+        d = math.hypot((lon - z_lon) * km_per_deg_lon(lat), (lat - z_lat) * KM_PER_DEG_LAT)
         arid *= 1 - (1 - factor) * math.exp(-((d / r_km) ** 2))
     # summer_heat_c: a dry-summer interior heats far above its coast, the more the farther the wind has come
     # over land and the drier the place, and the less the higher it is

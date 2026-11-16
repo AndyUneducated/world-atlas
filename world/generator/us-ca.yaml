@@ -1,12 +1,12 @@
 # Procedural generator parameters for the California Autonomous State: one island drawn after the
 # outline of California, at California's latitudes on the far side of the planet from the Chinese
-# territories, with its land borders turned into coast, and eleven small islands around it. The
+# territories, with its land borders turned into coast, and twelve small islands around it. The
 # bay has its real shore.
 #
 # Positions and lengths are in design kilometres in a local equal-area (sinusoidal) frame whose
 # centre maps to frame.origin_lonlat; frame.scale converts design km to real km. The outline, ranges,
-# bays and islands were converted from real longitudes and latitudes by _drafts/m62_geo.py
-# (planet lon = real lon − 45.73°). Division areas come from world/divisions/us-ca.yaml.
+# bays and islands were converted from real longitudes and latitudes by a one-off script (not kept;
+# planet lon = real lon − 45.73°) and are now edited by hand. Division areas come from world/divisions/us-ca.yaml.
 territory: div_x2z14w
 seed: 41
 frame:

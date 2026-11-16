@@ -74,7 +74,6 @@ const STRINGS = {
   transferStation: { zh: "换乘站", en: "Interchange" },
   stations: { zh: "车站", en: "Stations" },
   servedBy: { zh: "停靠线路", en: "Lines" },
-  facilities: { zh: "交通设施", en: "Transport facilities" },
   fc_runway: { zh: "跑道", en: "Runway" },
   fc_paved: { zh: "停机坪、码头", en: "Apron, quay" },
   buildings: { zh: "建筑与地标", en: "Buildings & landmarks" },
@@ -277,7 +276,6 @@ const STRINGS = {
   oppositionLeader: { zh: "反对党领袖", en: "Leader of the Opposition" },
   electionTitle: { zh: "领地选举", en: "Territorial election" },
   nationalElectionTitle: { zh: "全国选举", en: "National election" },
-  electoralSystem: { zh: "选举制度", en: "Electoral system" },
   government: { zh: "执政", en: "Government" },
   opposition: { zh: "在野", en: "Opposition" },
   majority: { zh: "过半数", en: "Majority" },
@@ -292,7 +290,6 @@ const STRINGS = {
   inMajority: { zh: "多数派", en: "In the majority" },
   generalElection: { zh: "大选", en: "General election" },
   versus: { zh: "对", en: "vs" },
-  partyProfile: { zh: "政党档案", en: "Profile" },
   partyFamily: { zh: "党派家族", en: "Party family" },
   ideology: { zh: "意识形态", en: "Ideology" },
   positions: { zh: "政治坐标", en: "Positions" },
@@ -326,7 +323,6 @@ const STRINGS = {
   members: { zh: "党员", en: "Members" },
   membersUnit: { zh: "人", en: "people" },
   policies: { zh: "主张", en: "Policies" },
-  partySeats: { zh: "议席", en: "Seats" },
   territorialSeats: { zh: "领地议会议席", en: "Parliament seats" },
   nationalSeats: { zh: "国家议会议席", en: "Seats in parliament" },
   statNational: { zh: "国家议会", en: "Parliament" },
@@ -336,7 +332,6 @@ const STRINGS = {
   statCouncils: { zh: "市议会", en: "Councils" },
   allies: { zh: "友党", en: "Allies" },
   history: { zh: "由来", en: "History" },
-  mayorParty: { zh: "市长", en: "Mayor" },
   inGovernment: { zh: "执政", en: "In government" },
   noSeats: { zh: "目前没有议席", en: "No seats at present" },
   showAll: { zh: "展开全部", en: "Show all" },
@@ -360,6 +355,81 @@ const STRINGS = {
   trendLast: { zh: "上届", en: "Last election" },
   trendNow: { zh: "本届", en: "This election" },
   partyBackers: { zh: "外部支持", en: "Outside backers" },
+  // nations' and blocs' cards
+  groupPolitics: { zh: "政府", en: "Government" },
+  groupMilitary: { zh: "军事与安全", en: "Military and security" },
+  groupSociety: { zh: "人口与社会", en: "People and society" },
+  groupGeography: { zh: "地理", en: "Geography" },
+  groupMembers: { zh: "成员", en: "Members" },
+  groupPositions: { zh: "立场与主张", en: "Positions and policies" },
+  groupSeats: { zh: "选举与议席", en: "Elections and seats" },
+  groupHistory: { zh: "沿革与关系", en: "History and relations" },
+  basicFacts: { zh: "基本资料", en: "Basic facts" },
+  governmentForm: { zh: "政体", en: "Government" },
+  powerHolder: { zh: "实际掌权", en: "Real power" },
+  capital: { zh: "首都", en: "Capital" },
+  predecessors: { zh: "历任", en: "Predecessors" },
+  recognition: { zh: "外交承认", en: "Recognition" },
+  recognisedBy: { zh: "{n} / {of} 国承认", en: "{n} of {of} states" },
+  unrecognised: { zh: "无国家承认", en: "None" },
+  neutral: { zh: "中立", en: "Neutral" },
+  elections: { zh: "选举", en: "Elections" },
+  fixedSeats: { zh: "议席由制度固定分配，不经竞争性选举", en: "Seats are allotted by the system, not won in contested elections" },
+  relations: { zh: "对外关系", en: "Relations" },
+  nationAllies: { zh: "盟友", en: "Allies" },
+  rivals: { zh: "敌对", en: "Rivals" },
+  military: { zh: "军事力量", en: "Military forces" },
+  strength: { zh: "军力等级", en: "Strength" },
+  active: { zh: "现役", en: "Active" },
+  reserve: { zh: "预备役", en: "Reserve" },
+  budget: { zh: "军费开支（占 GDP）", en: "Military expenditure, % of GDP" },
+  forces: { zh: "武装力量", en: "Military and security forces" },
+  noForces: { zh: "无武装力量", en: "No armed forces" },
+  service: { zh: "兵役制度", en: "Military service age and obligation" },
+  militaryEquipment: { zh: "装备", en: "Equipment" },
+  wars: { zh: "战争与冲突", en: "Wars and conflicts" },
+  refugees: { zh: "难民", en: "Refugees" },
+  hosted: { zh: "境内收容", en: "Hosted" },
+  abroad: { zh: "流亡境外", en: "Abroad" },
+  peopleUnit: { zh: "人", en: "" },
+  religion: { zh: "宗教", en: "Religion" },
+  freedom: { zh: "自由指数", en: "Freedom" },
+  political: { zh: "政治权利", en: "Political rights" },
+  civil: { zh: "公民自由", en: "Civil liberties" },
+  press: { zh: "新闻自由", en: "Press freedom" },
+  economic: { zh: "经济自由", en: "Economic freedom" },
+  freedomNote: { zh: "0 为完全没有，100 为完全自由", en: "0 is none, 100 is full" },
+  culture: { zh: "文化", en: "Culture" },
+  holiday: { zh: "主要节日", en: "Main holiday" },
+  dish: { zh: "代表菜肴", en: "Signature dish" },
+  sport: { zh: "热门运动", en: "Popular sport" },
+  national: { zh: "国家象征", en: "National symbols" },
+  anthem: { zh: "国歌", en: "Anthem" },
+  flower: { zh: "国花", en: "Flower" },
+  animal: { zh: "国兽", en: "Animal" },
+  emblems: { zh: "标志物", en: "Emblems" },
+  currency: { zh: "货币", en: "Currency" },
+  timeZone: { zh: "时区", en: "Time zone" },
+  callingCode: { zh: "电话区号", en: "Calling code" },
+  countryCallingCode: { zh: "国际电话区号", en: "Country calling code" },
+  tld: { zh: "互联网国家代码", en: "Internet country code" },
+  driving: { zh: "行车方向", en: "Drives on the" },
+  driveLeft: { zh: "靠左行驶", en: "left" },
+  driveRight: { zh: "靠右行驶", en: "right" },
+  travel: { zh: "旅行建议", en: "Travel advice" },
+  travel1: { zh: "1 级 · 注意常规安全", en: "Level 1 · Normal precautions" },
+  travel2: { zh: "2 级 · 提高警惕", en: "Level 2 · Increased caution" },
+  travel3: { zh: "3 级 · 重新考虑行程", en: "Level 3 · Reconsider travel" },
+  travel4: { zh: "4 级 · 请勿前往", en: "Level 4 · Do not travel" },
+  doctrine: { zh: "纲领", en: "Doctrine" },
+  leaderNation: { zh: "盟主", en: "Leading nation" },
+  memberCount: { zh: "成员国", en: "Members" },
+  troops: { zh: "现役总兵力", en: "Active troops" },
+  backedNations: { zh: "在拉诺瓦岛支持的国家", en: "Nations it backs on Ranova" },
+  backedNote: {
+    zh: "公开或暗中提供援助、武器、贷款或外交庇护的国家。",
+    en: "Nations it gives aid, arms, loans or diplomatic cover, openly or not.",
+  },
 } satisfies Record<string, Record<Lang, string>>;
 
 export type StringKey = keyof typeof STRINGS;
@@ -375,6 +445,19 @@ export const NAME_LANG_LABELS: Record<NameLang, Record<Lang, string>> = {
   es: { zh: "西班牙语", en: "Spanish" },
   "art-x-ranova": { zh: "拉诺瓦语", en: "Ranovan" },
   "art-x-kasiri": { zh: "卡西里语", en: "Kasiri" },
+};
+
+/** Short tags for the names under a card's title. */
+export const NAME_TAGS: Record<NameLang, Record<Lang, string>> = {
+  zh: { zh: "中", en: "ZH" },
+  en: { zh: "英", en: "EN" },
+  "art-x-viking": { zh: "维", en: "VIK" },
+  "art-x-buckham": { zh: "巴", en: "BCK" },
+  "art-x-tavrunaq": { zh: "塔", en: "TAV" },
+  "art-x-ivuran": { zh: "伊", en: "IVR" },
+  es: { zh: "西", en: "ES" },
+  "art-x-ranova": { zh: "拉", en: "RNV" },
+  "art-x-kasiri": { zh: "卡", en: "KSR" },
 };
 
 /** Cities and districts under special rules (special_status in world/divisions). */
@@ -397,7 +480,6 @@ const SUBTYPE_LABELS: Record<string, Record<Lang, string>> = {
   country: { zh: "国家", en: "Country" },
   bloc: { zh: "阵营", en: "Bloc" },
   dependency: { zh: "领地", en: "Territory" },
-  region: { zh: "省", en: "Province" },
   locality: { zh: "市", en: "City" },
   borough: { zh: "区", en: "District" },
   party: { zh: "政党", en: "Political party" },
@@ -547,11 +629,16 @@ export function kindLabel(e: Entity, lang: Lang): string {
   if (e.subtype === "station" && e.source === "generated:metro") return STRINGS.metroStation[lang];
   if (e.subtype === "station") return STRINGS.railStation[lang];
   if (e.special_status && SPECIAL_LABELS[e.special_status]) return SPECIAL_LABELS[e.special_status][lang];
-  return SUBTYPE_LABELS[e.subtype]?.[lang] ?? e.subtype;
+  return SUBTYPE_LABELS[e.subtype ?? ""]?.[lang] ?? e.subtype ?? "";
 }
 
 export function displayName(e: Entity, lang: Lang): string {
   return e.names[lang] ?? e.names.zh;
+}
+
+/** The short name where there is one (a territory's or party's), else the full name. */
+export function shortName(e: Entity, lang: Lang): string {
+  return e.short_names?.[lang] ?? displayName(e, lang);
 }
 
 export function otherName(e: Entity, lang: Lang): string {
@@ -562,17 +649,31 @@ export function formatNumber(n: number, lang: Lang, digits = 0): string {
   return n.toLocaleString(lang === "zh" ? "zh-CN" : "en-US", { maximumFractionDigits: digits });
 }
 
+const NUMBER_SCALES: Record<Lang, [number, string][]> = {
+  zh: [[1e12, "万亿"], [1e8, "亿"], [1e4, "万"]],
+  en: [[1e12, "trillion"], [1e9, "billion"], [1e6, "million"]],
+};
+
+/** A large number on the largest scale it reaches, to three significant figures: { value: "22.8", unit: "万亿" } /
+ * { value: "22.8", unit: "trillion" }. Below the smallest scale, the number itself and no unit, unless `always`. */
+export function scaleNumber(n: number, lang: Lang, always = false): { value: string; unit: string } {
+  const steps = NUMBER_SCALES[lang];
+  const step = steps.find(([div]) => n >= div) ?? (always ? steps[steps.length - 1] : undefined);
+  if (!step) return { value: formatNumber(n, lang), unit: "" };
+  const v = n / step[0];
+  return { value: formatNumber(v, lang, v >= 100 ? 0 : v >= 10 ? 1 : 2), unit: step[1] };
+}
+
 /** US dollars at a readable precision: "31.2 亿美元" / "US$3.12 billion". */
 export function formatUsd(n: number, lang: Lang): string {
-  const sig = (v: number) => formatNumber(v, lang, v >= 100 ? 0 : v >= 10 ? 1 : 2);
-  if (lang === "zh") {
-    if (n >= 1e8) return `${sig(n / 1e8)} 亿美元`;
-    if (n >= 1e4) return `${sig(n / 1e4)} 万美元`;
-    return `${formatNumber(n, lang)} 美元`;
-  }
-  if (n >= 1e9) return `US$${sig(n / 1e9)} billion`;
-  if (n >= 1e6) return `US$${sig(n / 1e6)} million`;
-  return `US$${formatNumber(n, lang)}`;
+  const { value, unit } = scaleNumber(n, lang);
+  return lang === "zh" ? `${value} ${unit}美元` : `US$${value}${unit && ` ${unit}`}`;
+}
+
+export function formatDuration(minutes: number, lang: Lang) {
+  const h = Math.floor(minutes / 60);
+  const m = Math.round(minutes % 60);
+  return h ? `${h} ${t("hour", lang)} ${m} ${t("minute", lang)}` : `${Math.max(m, 1)} ${t("minute", lang)}`;
 }
 
 export function formatPopulation(n: number, lang: Lang): string {

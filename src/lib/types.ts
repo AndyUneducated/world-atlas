@@ -8,7 +8,7 @@ export type LngLat = [number, number];
 
 export const NAME_LANGS = ["zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran", "es", "art-x-ranova", "art-x-kasiri"] as const;
 export type NameLang = (typeof NAME_LANGS)[number];
-export type Names = Partial<Record<NameLang, string>> & { zh: string; en: string };
+type Names = Partial<Record<NameLang, string>> & { zh: string; en: string };
 export type Localized = { zh: string; en: string };
 
 /** A city flag: a layout from lib/cityFlags.tsx, its tinctures in the layout's order and an optional charge. */
@@ -35,11 +35,11 @@ export interface CityFlagSpec {
   extra?: { charge: string; color: string; x: number; y: number; size: number }[];
 }
 
-export type EntityKind = "division" | "natural" | "route" | "place" | "party" | "bloc";
-export type StructureKind = "bridge" | "tunnel" | "snow_shed";
-export type EntityStatus = "canon" | "draft" | "generated";
+type EntityKind = "division" | "natural" | "route" | "place" | "party" | "bloc";
+type StructureKind = "bridge" | "tunnel" | "snow_shed";
+type EntityStatus = "canon" | "draft" | "generated";
 
-export interface EntityStats {
+interface EntityStats {
   area_km2_mapped?: number;
   elev_max_m?: number;
   elev_mean_m?: number;
@@ -62,7 +62,8 @@ export interface EntityStats {
 export interface Entity {
   id: string;
   kind: EntityKind;
-  subtype: string;
+  /** Routes have none. */
+  subtype?: string;
   status: EntityStatus;
   names: Names;
   short_names?: Localized;
@@ -204,11 +205,11 @@ export interface Entity {
 export type WarStatus = "active" | "ceasefire" | "frozen" | "ended";
 
 /** A branch of government a state does without, and what stands in its place. */
-export type NoBranch = { none: Localized };
+type NoBranch = { none: Localized };
 
 export type FixedChamber = { names: Localized; seats: number; groups: { names: Localized; seats: number; color: string; party?: string }[]; notes?: Localized };
 
-export interface NationGovernment {
+interface NationGovernment {
   executive: NoBranch | { names: Localized; notes?: Localized; head?: Officeholder; deputy?: Officeholder; ministers: { ministry: Localized; name: Localized }[] };
   /** The presiding judge, the bench's other judges and the law it applies. */
   judiciary: NoBranch | (Officeholder & { names: Localized; law: Localized; notes?: Localized; judges: Localized[] });
@@ -319,7 +320,7 @@ export interface Legislature extends Chamber {
   deputy_speakers?: (Officeholder & { party: string })[];
 }
 
-export interface Council extends Chamber {
+interface Council extends Chamber {
   /** What the body is and how it works, where it is not an ordinary council. */
   notes?: Localized;
   /** The deputy mayor, of the mayor's party. */
@@ -327,7 +328,7 @@ export interface Council extends Chamber {
 }
 
 /** A city whose nation holds no elections: the body the nation appoints to run it, and its head. */
-export interface AppointedCouncil {
+interface AppointedCouncil {
   appointed: true;
   names: Localized;
   notes?: Localized;
@@ -362,7 +363,7 @@ export interface Climate {
 }
 
 /** Cities, districts and territories, from the economy model (world/economy.yaml; 2026 USD). */
-export interface Economy {
+interface Economy {
   gdp_usd: number;
   gdp_per_capita_usd: number;
   /** Median income per earner, in territories that model it. */
@@ -377,7 +378,7 @@ export interface Economy {
   inflation?: number;
 }
 
-export interface Demographics {
+interface Demographics {
   /** % under 15, 15–64, 65 and over. */
   age: [number, number, number];
   /** % of residents by first language. */
@@ -394,7 +395,7 @@ export const ETHNIC_GROUPS = ["european", "latino", "african", "asian", "other"]
 type EthnicGroup = (typeof ETHNIC_GROUPS)[number];
 
 /** Military and space facilities: the unit stationed there and what the public may see of it. */
-export interface MilitaryFacts {
+interface MilitaryFacts {
   unit: Record<Lang, string>;
   branch: Record<Lang, string>;
   equipment: Record<Lang, string>;
@@ -403,7 +404,7 @@ export interface MilitaryFacts {
 }
 
 /** Structure profile and cost estimate of the stretches built under a route (2026 USD). */
-export interface Engineering {
+interface Engineering {
   length_km: number;
   bridge_km: number;
   tunnel_km: number;
@@ -418,7 +419,7 @@ export interface Engineering {
 }
 
 /** Expressways and territorial highways: lanes and traffic from the traffic model, [least, most] along the route. */
-export interface RoadFacts {
+interface RoadFacts {
   /** Lanes in each direction. */
   lanes: [number, number];
   cross_section: { lane_m: number; shoulder_m: number; median_m: number };
@@ -431,7 +432,7 @@ export interface RoadFacts {
   operator?: Record<Lang, string> | null;
 }
 
-export interface RailService {
+interface RailService {
   fastest_min: number;
   /** Passenger lines. */
   peak_headway_min?: number;
@@ -445,7 +446,7 @@ export interface RailService {
   operator?: Record<Lang, string> | null;
 }
 
-export interface RailTech {
+interface RailTech {
   operating_speed_kmh?: number;
   design_speed_kmh?: number;
   gauge_mm?: number;
@@ -480,7 +481,7 @@ export interface RouteSegment {
   aadt?: number;
 }
 
-export interface Region {
+interface Region {
   id: string;
   bounds: BBox;
   frame_bounds: BBox;
@@ -522,7 +523,7 @@ export const LAYER_FILES = [
 export type LayerFile = (typeof LAYER_FILES)[number];
 
 /** Edge: [from node, to node, length km, minutes, road index, geometry]. */
-export type GraphEdge = [number, number, number, number, number, LngLat[]];
+type GraphEdge = [number, number, number, number, number, LngLat[]];
 
 export interface RoadGraph {
   nodes: LngLat[];

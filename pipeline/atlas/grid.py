@@ -1,9 +1,18 @@
 """Raster grid in a local equal-area frame, and its mapping to planet lon/lat."""
 from __future__ import annotations
 
+import math
+
 import numpy as np
 
 EARTH_RADIUS_KM = 6371.0088
+# Kilometres per degree of latitude, and of longitude at a latitude (equirectangular), for distances on the
+# built map's lon/lat.
+KM_PER_DEG_LAT = 110.57
+
+
+def km_per_deg_lon(lat: float) -> float:
+    return 111.32 * math.cos(math.radians(lat))
 
 
 class Frame:

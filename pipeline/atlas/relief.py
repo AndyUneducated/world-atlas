@@ -103,7 +103,7 @@ def glaciers(elev, land, xs, ys, res, real_km_per_cell, snowline_m, aspect_m, ma
     ice = land & (elev >= line) & (slope <= max_slope_deg)
     ice = ndimage.binary_opening(ice, iterations=1)
     ice = ndimage.binary_closing(ice, iterations=2) & land
-    lab, n = ndimage.label(ice)
+    lab, _ = ndimage.label(ice)
     out = []
     for k, sl in enumerate(ndimage.find_objects(lab), start=1):
         m = lab[sl] == k

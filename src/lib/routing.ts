@@ -1,7 +1,7 @@
 import type { Feature, LineString } from "geojson";
 import type { LngLat, RoadGraph } from "./types";
 
-export interface RouteStep {
+interface RouteStep {
   roadId: string;
   km: number;
   minutes: number;

@@ -12,11 +12,12 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from atlas.common import OUT  # noqa: E402
 
 
 def snapshot() -> dict[str, str]:
-    ents = json.load(open(ROOT / "public" / "data" / "entities.json", encoding="utf-8"))
+    ents = json.load(open(OUT / "entities.json", encoding="utf-8"))
     out = {}
     for e in ents.values():
         if e.get("subtype") == "station" or (e.get("kind") == "route" and e.get("status") == "generated"):

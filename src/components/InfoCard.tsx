@@ -26,8 +26,8 @@ import {
 import { animate, AnimatePresence, motion, useMotionValue, useSpring } from "motion/react";
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent, type ReactNode, type RefObject } from "react";
 import { createPortal } from "react-dom";
-import { NotApplicable, Paragraphs, Rows, ScrollArea, Section, Sub, useCardScroll } from "./CardParts";
-import { IndicatorRows, indicatorReference } from "./Indicators";
+import { NotApplicable, Paragraphs, Rows, ScrollArea, Section, ShareBar, ShareRows, Sub, useCardScroll } from "./CardParts";
+import { IndicatorRows, indicatorReference, type Reference } from "./Indicators";
 import { Emblem, Flag, hasEmblem } from "./Emblem";
 import { CouncilSection, ElectionSection, LegislatureSection, PartiesSection, PartySections, STANDING_KEYS } from "./Politics";
 import { BackedSection, CardGroups, isGroupedCard, LocalSymbolsSection } from "./Nation";
@@ -36,23 +36,10 @@ import { Climograph } from "./Climograph";
 import { climateName } from "../lib/climate";
 import { useMobile } from "../lib/viewport";
 import { accentColor, lineage, wonderName } from "../lib/entity";
-import { displayName, formatNumber, formatPopulation, formatUsd, kindLabel, NAME_LANG_LABELS, t, type StringKey } from "../lib/i18n";
+import { displayName, formatDuration, formatNumber, formatPopulation, formatUsd, kindLabel, NAME_LANG_LABELS, NAME_TAGS, scaleNumber, shortName, t, type StringKey } from "../lib/i18n";
 import { hasShield } from "../lib/shields";
 import { RouteShield } from "./RouteShield";
-import { formatDuration } from "./RoutePanel";
-import { ETHNIC_GROUPS, NAME_LANGS, type AtlasData, type Entity, type Lang, type NameLang } from "../lib/types";
-
-const NAME_TAGS: Record<NameLang, Record<Lang, string>> = {
-  zh: { zh: "中", en: "ZH" },
-  en: { zh: "英", en: "EN" },
-  "art-x-viking": { zh: "维", en: "VIK" },
-  "art-x-buckham": { zh: "巴", en: "BCK" },
-  "art-x-tavrunaq": { zh: "塔", en: "TAV" },
-  "art-x-ivuran": { zh: "伊", en: "IVR" },
-  es: { zh: "西", en: "ES" },
-  "art-x-ranova": { zh: "拉", en: "RNV" },
-  "art-x-kasiri": { zh: "卡", en: "KSR" },
-};
+import { ETHNIC_GROUPS, NAME_LANGS, type AtlasData, type Entity, type Lang } from "../lib/types";
 import { useAtlas } from "../store";
 import { EntityIcon } from "./EntityIcon";
 
@@ -126,12 +113,8 @@ function areaStat(e: Entity, lang: Lang): StatItem[] {
 }
 
 function gdpStat(usd: number, lang: Lang): StatItem {
-  const [div, unit] =
-    lang === "zh"
-      ? usd >= 1e12 ? [1e12, "万亿美元"] : usd >= 1e8 ? [1e8, "亿美元"] : [1e4, "万美元"]
-      : usd >= 1e12 ? [1e12, "trillion USD"] : usd >= 1e9 ? [1e9, "billion USD"] : [1e6, "million USD"];
-  const v = usd / div;
-  return { label: t("gdp", lang), value: formatNumber(v, lang, v >= 100 ? 0 : v >= 10 ? 1 : 2), unit, icon: Banknote };
+  const { value, unit } = scaleNumber(usd, lang, true);
+  return { label: t("gdp", lang), value, unit: lang === "zh" ? `${unit}美元` : `${unit} USD`, icon: Banknote };
 }
 
 /** The headline figures: roads by length, lanes and traffic; railways by length, speed and riders;
@@ -149,7 +132,7 @@ function stats(e: Entity, lang: Lang, data: AtlasData): StatItem[] {
       return [
         { label: t("members", lang), value: formatNumber(e.members ?? 0, lang), unit: t("membersUnit", lang), icon: Users },
         { label: t("statNational", lang), value: String(row?.seats ?? 0), unit: lang === "zh" ? `席 · 共 ${nation.legislature.seats} 席` : `of ${nation.legislature.seats} seats`, icon: Landmark },
-        { label: t("statVote", lang), value: `${formatNumber(row?.vote ?? 0, lang, 1)}%`, unit: nation.short_names?.[lang] ?? displayName(nation, lang), icon: ChartNoAxesColumn },
+        { label: t("statVote", lang), value: `${formatNumber(row?.vote ?? 0, lang, 1)}%`, unit: shortName(nation, lang), icon: ChartNoAxesColumn },
       ];
     }
     // a party of a fixed-chamber state: its seats in that chamber, if any, and where it stands
@@ -160,7 +143,7 @@ function stats(e: Entity, lang: Lang, data: AtlasData): StatItem[] {
       return [
         { label: t("members", lang), value: formatNumber(e.members ?? 0, lang), unit: t("membersUnit", lang), icon: Users },
         { label: t("statNational", lang), value: seats ? String(seats) : "—", unit: lang === "zh" ? `席 · 共 ${chamber.seats} 席` : `of ${chamber.seats} seats`, icon: Landmark },
-        ...(e.standing ? [{ label: t("partyStanding", lang), value: t(STANDING_KEYS[e.standing], lang), unit: data.entities[state].short_names?.[lang] ?? displayName(data.entities[state], lang), icon: FlagIcon }] : []),
+        ...(e.standing ? [{ label: t("partyStanding", lang), value: t(STANDING_KEYS[e.standing], lang), unit: shortName(data.entities[state], lang), icon: FlagIcon }] : []),
       ];
     }
     const [terr, nTerr] = sum("dependency");
@@ -279,14 +262,7 @@ function EngineeringSection({ entity, lang }: { entity: Entity; lang: Lang }) {
         </span>
       </div>
       {entity.straight && <p className="mb-2 text-[12.5px] font-medium text-accent">{t("straightLine", lang)}</p>}
-      <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[13px]">
-        {rows.map(([k, v]) => (
-          <div key={k} className="contents">
-            <dt className="text-muted">{k}</dt>
-            <dd className="text-ink tabular-nums">{v}</dd>
-          </div>
-        ))}
-      </dl>
+      <Rows rows={rows} />
     </Section>
   );
 }
@@ -417,63 +393,7 @@ function MilitarySection({ entity, lang }: { entity: Entity; lang: Lang }) {
   );
 }
 
-const SHARE_TONES = [100, 58, 28];
-const tone = (accent: string, i: number) => `color-mix(in srgb, ${accent} ${SHARE_TONES[i % SHARE_TONES.length]}%, var(--ui-hover))`;
-
-/** Shares of a whole as one segmented bar, with the legend under it; the largest share is the strongest tone. */
-function ShareBar({ parts, accent }: { parts: { label: string; value: number }[]; accent: string }) {
-  const rank = parts.map((p) => parts.filter((q) => q.value > p.value).length);
-  return (
-    <>
-      <div className="flex h-2 gap-[2px] overflow-hidden rounded-full">
-        {parts.map((p, i) => (
-          <motion.span
-            key={p.label}
-            className="h-full first:rounded-l-full last:rounded-r-full"
-            style={{ background: tone(accent, rank[i]) }}
-            initial={{ width: 0 }}
-            animate={{ width: `${p.value}%` }}
-            transition={{ duration: 0.6, delay: 0.05 * i, ease: "easeOut" }}
-          />
-        ))}
-      </div>
-      <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[12px]">
-        {parts.map((p, i) => (
-          <span key={p.label} className="flex items-center gap-1.5 text-muted">
-            <span className="size-2 rounded-full" style={{ background: tone(accent, rank[i]) }} />
-            {p.label}
-            <span className="text-ink tabular-nums">{p.value}%</span>
-          </span>
-        ))}
-      </div>
-    </>
-  );
-}
-
-/** One thin bar per share, largest first. */
-function ShareRows({ rows, accent }: { rows: { label: string; value: number }[]; accent: string }) {
-  return (
-    <div className="space-y-1.5">
-      {rows.map((r, i) => (
-        <div key={r.label} className="grid grid-cols-[6rem_1fr_2.25rem] items-center gap-2.5 text-[12px]">
-          <span className="truncate text-muted">{r.label}</span>
-          <span className="h-1.5 overflow-hidden rounded-full bg-hover">
-            <motion.span
-              className="block h-full rounded-full"
-              style={{ background: accent }}
-              initial={{ width: 0 }}
-              animate={{ width: `${r.value}%` }}
-              transition={{ duration: 0.6, delay: 0.05 * i, ease: "easeOut" }}
-            />
-          </span>
-          <span className="text-right text-ink tabular-nums">{r.value}%</span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function EconomySection({ data, entity, lang, accent }: { data: AtlasData; entity: Entity; lang: Lang; accent: string }) {
+function EconomySection({ entity, reference, lang, accent }: { entity: Entity; reference: Reference | null; lang: Lang; accent: string }) {
   const ec = entity.economy;
   if (!ec) return <NotApplicable entity={entity} field="economy" title={t("economyTitle", lang)} lang={lang} />;
   const s = ec.sectors;
@@ -486,7 +406,7 @@ function EconomySection({ data, entity, lang, accent }: { data: AtlasData; entit
           ...(ec.median_income_usd ? [[t("medianIncome", lang), formatUsd(ec.median_income_usd, lang)] as [string, string]] : []),
         ]}
       />
-      <IndicatorRows entity={entity} keys={["gini", "unemployment", "inflation"]} reference={indicatorReference(data, entity, lang)} accent={accent} lang={lang} className="mt-3.5" />
+      <IndicatorRows entity={entity} keys={["gini", "unemployment", "inflation"]} reference={reference} accent={accent} lang={lang} className="mt-3.5" />
       <Sub label={t("sectorMix", lang)}>
         <ShareBar
           accent={accent}
@@ -516,7 +436,7 @@ function EconomySection({ data, entity, lang, accent }: { data: AtlasData; entit
   );
 }
 
-function PeopleSection({ data, entity, lang, accent }: { data: AtlasData; entity: Entity; lang: Lang; accent: string }) {
+function PeopleSection({ entity, reference, lang, accent }: { entity: Entity; reference: Reference | null; lang: Lang; accent: string }) {
   const dm = entity.demographics;
   if (!dm) return <NotApplicable entity={entity} field="demographics" title={t("peopleTitle", lang)} lang={lang} />;
   const [young, working, old] = dm.age;
@@ -529,7 +449,7 @@ function PeopleSection({ data, entity, lang, accent }: { data: AtlasData; entity
     : [];
   return (
     <Section title={t("peopleTitle", lang)}>
-      <IndicatorRows entity={entity} keys={["life_expectancy", "literacy", "hdi"]} reference={indicatorReference(data, entity, lang)} accent={accent} lang={lang} />
+      <IndicatorRows entity={entity} keys={["life_expectancy", "literacy", "hdi"]} reference={reference} accent={accent} lang={lang} />
       <Sub label={t("ageStructure", lang)}>
         <ShareBar
           accent={accent}
@@ -692,7 +612,7 @@ function Lineage({ data, entity, lang }: { data: AtlasData; entity: Entity; lang
               className={clsx("flex items-center gap-1.5 rounded-lg px-1.5 py-1 text-[13px] text-ink", e.bbox && "hover:bg-hover")}
             >
               {hasEmblem(e) && <Emblem entity={e} size={18} className="shrink-0" />}
-              {e.short_names?.[lang] ?? displayName(e, lang)}
+              {shortName(e, lang)}
             </button>
           </li>
         ))}
@@ -799,6 +719,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
   const accent = accentColor(data, entity) ?? "var(--ui-accent)";
   const items = stats(entity, lang, data);
   const codeRows = codes(entity, lang);
+  const reference = entity.economy || entity.demographics ? indicatorReference(data, entity, lang) : null;
   const names = NAME_LANGS.filter((l) => entity.names[l]);
   const party = entity.kind === "party";
 
@@ -822,14 +743,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
   );
   const codeSection = codeRows.length > 0 && (
     <Section title={t("codes", lang)}>
-      <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[13px]">
-        {codeRows.map(([k, v]) => (
-          <div key={k} className="contents">
-            <dt className="text-muted">{k}</dt>
-            <dd className="font-mono text-[12.5px] text-ink">{v}</dd>
-          </div>
-        ))}
-      </dl>
+      <Rows rows={codeRows} ddClassName="font-mono text-[12.5px] text-ink" />
     </Section>
   );
 
@@ -928,8 +842,8 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
             legislature: <LegislatureSection data={data} entity={entity} lang={lang} />,
             council: <CouncilSection data={data} entity={entity} lang={lang} />,
             election: <ElectionSection data={data} entity={entity} lang={lang} />,
-            people: <PeopleSection data={data} entity={entity} lang={lang} accent={accent} />,
-            economy: <EconomySection data={data} entity={entity} lang={lang} accent={accent} />,
+            people: <PeopleSection entity={entity} reference={reference} lang={lang} accent={accent} />,
+            economy: <EconomySection entity={entity} reference={reference} lang={lang} accent={accent} />,
             climate: <ClimateSection data={data} entity={entity} lang={lang} />,
             children: <ChildList data={data} entity={entity} lang={lang} />,
             backed: <BackedSection data={data} entity={entity} lang={lang} />,
@@ -950,8 +864,8 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
           <CouncilSection data={data} entity={entity} lang={lang} />
           <ElectionSection data={data} entity={entity} lang={lang} />
           {!entity.segments?.length && <ChildList data={data} entity={entity} lang={lang} />}
-          <PeopleSection data={data} entity={entity} lang={lang} accent={accent} />
-          <EconomySection data={data} entity={entity} lang={lang} accent={accent} />
+          <PeopleSection entity={entity} reference={reference} lang={lang} accent={accent} />
+          <EconomySection entity={entity} reference={reference} lang={lang} accent={accent} />
           <ClimateSection data={data} entity={entity} lang={lang} />
 
           {entity.segments?.length ? <RouteTimeline data={data} entity={entity} lang={lang} /> : null}

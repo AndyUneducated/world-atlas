@@ -5,13 +5,13 @@ import { Protocol } from "pmtiles";
 import { useEffect, useMemo, useRef } from "react";
 import type { FeatureCollection } from "geojson";
 import { cardPadding, homePadding } from "../lib/viewport";
-import { BASE_URL } from "../lib/data";
+import { BASE_URL, EMPTY_FC } from "../lib/data";
 import { buildFocus, indexFeatures } from "../lib/focus";
 import { effectiveStep, graticuleFeatures, specialNames, viewOf } from "../lib/graticule";
 import { t } from "../lib/i18n";
 import { measureFeatures } from "../lib/measure";
 import { useRoute } from "../lib/useRoute";
-import { buildStyle, DIVISION_LABEL_LAYERS, EMPTY_FC, HIT_LAYERS, LANDFORM_LABEL_LAYERS, SHIELD_LAYERS } from "../lib/style";
+import { buildStyle, DIVISION_LABEL_LAYERS, HIT_LAYERS, LANDFORM_LABEL_LAYERS, SHIELD_LAYERS } from "../lib/style";
 import { drawShield, shieldImageId } from "../lib/shields";
 import { THEMES } from "../lib/themes";
 import type { Entity } from "../lib/types";
@@ -95,6 +95,13 @@ function graticuleFc(map: maplibregl.Map): FeatureCollection {
   if (!graticule) return EMPTY_FC;
   const view = viewOf(map);
   return graticuleFeatures(effectiveStep(graticule, view), view, specialNames(t, lang));
+}
+
+/** Sets a GeoJSON source's data now if the style has loaded, else once it has; a function is read only then. */
+function setSourceData(map: maplibregl.Map, id: string, fc: FeatureCollection | (() => FeatureCollection)) {
+  const apply = () => (map.getSource(id) as GeoJSONSource | undefined)?.setData(typeof fc === "function" ? fc() : fc);
+  if (map.isStyleLoaded()) apply();
+  else map.once("idle", apply);
 }
 
 function metersPerPixel(map: maplibregl.Map) {
@@ -259,9 +266,7 @@ export function MapView() {
     const feature = selectedId ? features.get(selectedId) : undefined;
     const focus = buildFocus(feature);
     focusRef.current = focus;
-    const apply = () => (map.getSource("focus-outline") as GeoJSONSource | undefined)?.setData(focus);
-    if (map.isStyleLoaded()) apply();
-    else map.once("idle", apply);
+    setSourceData(map, "focus-outline", focus);
 
     const entity = selectedId ? data.entities[selectedId] : undefined;
     if (entity?.bbox && nonce > 0 && useAtlas.getState().fitSelection) {
@@ -278,9 +283,7 @@ export function MapView() {
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
-    const apply = () => (map.getSource("route") as GeoJSONSource | undefined)?.setData(routeFc);
-    if (map.isStyleLoaded()) apply();
-    else map.once("idle", apply);
+    setSourceData(map, "route", routeFc);
     const coords = routeFc.features[0]?.geometry.type === "LineString" ? routeFc.features[0].geometry.coordinates : null;
     if (coords?.length) {
       const lngs = coords.map((c) => c[0]);
@@ -295,25 +298,19 @@ export function MapView() {
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
-    const apply = () => (map.getSource("highlight") as GeoJSONSource | undefined)?.setData(highlightFc());
-    if (map.isStyleLoaded()) apply();
-    else map.once("idle", apply);
+    setSourceData(map, "highlight", highlightFc);
   }, [highlight]);
 
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
-    const apply = () => (map.getSource("graticule") as GeoJSONSource | undefined)?.setData(graticuleFc(map));
-    if (map.isStyleLoaded()) apply();
-    else map.once("idle", apply);
+    setSourceData(map, "graticule", () => graticuleFc(map));
   }, [graticule, lang]);
 
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
-    const apply = () => (map.getSource("measure") as GeoJSONSource | undefined)?.setData(measureFeatures(measure, null));
-    if (map.isStyleLoaded()) apply();
-    else map.once("idle", apply);
+    setSourceData(map, "measure", () => measureFeatures(measure, null));
     map.getCanvas().style.cursor = measure ? "crosshair" : "";
     if (measure) map.doubleClickZoom.disable();
     else map.doubleClickZoom.enable();

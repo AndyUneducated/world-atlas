@@ -30,22 +30,20 @@ from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas.world import CODE_DIGITS, DETECT_KINDS, code_digits, HARBOUR_TERMINALS, RAIL_NETWORKS, ROOT, SITE_LAYOUTS, WORLD_DIR, World, ts_names  # noqa: E402
+from atlas.world import (CODE_DIGITS, DETECT_KINDS, FEATURE_SUBTYPES, HARBOUR_TERMINALS, NETWORK_CLASS, PARENT_SUBTYPES,  # noqa: E402
+                         RAIL_NETWORKS, ROOT, SITE_LAYOUTS, WORLD_DIR, World, code_digits, ts_names)
 from new_id import mint  # noqa: E402
 
 DELETE = object()
 STATUSES = ("canon", "draft", "generated")
-FEATURE_SUBTYPES = ("mountain_range", "ridge", "volcano", "river", "lake", *DETECT_KINDS)
-NETWORKS = {  # the infix is the territory's ISO 3166-2 suffix (NV, VK, …)
-    "national_expressway": ("motorway", r"G-[A-Z]{2,3}-\d{1,2}"),
-    "territorial_expressway": ("motorway", r"S-[A-Z]{2,3}-\d{1,2}"),
-    "territorial_highway": ("primary", r"S-[A-Z]{2,3}-[1-9]\d{2}|(I|US|SR)-\d{1,3}"),  # California: real numbers
-    "municipal_road": ("secondary", r"X-[A-Z]{2,3}-\d{3}|[A-Z]\d{1,2}"),  # California's county routes: G4
+REF_PATTERNS = {  # the infix is the territory's ISO 3166-2 suffix (NV, VK, …)
+    "national_expressway": r"G-[A-Z]{2,3}-\d{1,2}",
+    "territorial_expressway": r"S-[A-Z]{2,3}-\d{1,2}",
+    "territorial_highway": r"S-[A-Z]{2,3}-[1-9]\d{2}|(I|US|SR)-\d{1,3}",  # California: real numbers
+    # California's county routes (G4) and Masovoly's People's Army road codes (PA-7351), as verify.py's REAL_REF and MILITARY_REF
+    "municipal_road": r"X-[A-Z]{2,3}-\d{3}|[A-Z]\d{1,2}|PA-\d{4}",
 }
-BUILDING_SUBTYPES = ("government", "building", "civic", "office", "museum", "theatre", "library", "townhall",
-                     "tower", "hospital", "marketplace", "exhibition_centre", "bank", "dome", "data_centre", "vault",
-                     "temple", "canteen", "housing", "shopping_mall", "supermarket", "fuel_station", "apartment",
-                     "fashion_house", "beauty_centre", "dessert_shop", "photo_studio", "car_workshop")
+NETWORKS = {n: (NETWORK_CLASS[n], pattern) for n, pattern in REF_PATTERNS.items()}
 
 
 GLYPHS = ts_names("glyphs.ts", "GLYPHS")
@@ -56,7 +54,7 @@ class Col:
     key: str
     zh: str
     path: str = ""
-    type: str = "str"  # str | int | float | angle | bool | ref | refs | choice | color
+    type: str = "str"  # str | int | float | angle | bool | maglev | ref | refs | choice | choices | color
     choices: tuple = ()
     required: bool = False  # for new rows
 
@@ -68,6 +66,9 @@ NAMES = [
     Col("name_buckham", "巴克汉姆语名", "names.art-x-buckham"),
     Col("name_tavrunaq", "塔夫鲁纳克语名", "names.art-x-tavrunaq"),
     Col("name_ivuran", "伊武兰语名", "names.art-x-ivuran"),
+    Col("name_es", "西班牙语名", "names.es"),
+    Col("name_ranova", "拉诺瓦语名", "names.art-x-ranova"),
+    Col("name_kasiri", "卡西里语名", "names.art-x-kasiri"),
 ]
 NOTES = [Col("notes_zh", "中文简介", "notes.zh"), Col("notes_en", "英文简介", "notes.en")]
 # why and how a line was built; required on expressways, territorial highways and railways (BACKGROUND_NETWORKS)
@@ -107,7 +108,7 @@ KINDS = {
         "cols": HEAD + [
             Col("ref", "编号牌", "ref", required=True),
             Col("network", "等级", "network", "choice", tuple(NETWORKS), required=True),
-            Col("class", "道路类别", "class", "choice", tuple({v[0] for v in NETWORKS.values()})),
+            Col("class", "道路类别", "class", "choice", tuple(dict.fromkeys(v[0] for v in NETWORKS.values()))),
             *NAMES,
             Col("via", "途经", "via", "refs", required=True),
             Col("ring", "环线", "ring", "bool"),
@@ -147,7 +148,7 @@ KINDS = {
             Col("operating_speed", "运营速度", "tech.operating_speed_kmh", "int"),
             Col("design_speed", "设计速度", "tech.design_speed_kmh", "int"),
             Col("conventional", "常规铁路", "conventional", "bool"),
-            Col("maglev", "磁悬浮", "maglev", "bool"),
+            Col("maglev", "磁悬浮", "maglev", "maglev"),
             Col("loaded_trains", "每天重车列数", "tech.loaded_trains_per_day", "int"),
             Col("tunnel_cost", "隧道成本", "tunnel_cost", "float"),
             *NOTES,
@@ -200,6 +201,11 @@ class Importer:
         self.ids: list[str] = []
         self.new_names: dict[str, str] = {}
         self.new_codes: dict[str, str] = {}
+        # a new place takes a bld_ id (a building in town) if most places of its subtype have one, else poi_
+        votes: dict[str, int] = {}
+        for pid, p in self.world.places.items():
+            votes[p.get("subtype")] = votes.get(p.get("subtype"), 0) + (1 if pid.startswith("bld_") else -1)
+        self.building_subtypes = {k for k, v in votes.items() if v > 0}
 
     def _map_headers(self, rows):
         alias = {}
@@ -277,6 +283,16 @@ class Importer:
                 return False
             self.problems.add(self.where(i, c.key), f"“{raw}”应为 是/否")
             return None
+        if c.type == "maglev":  # as world.py takes it: true (vacuum) or open (open-air); 否 leaves it out
+            low = raw.lower()
+            if low in TRUE:
+                return True
+            if low == "open":
+                return "open"
+            if low in FALSE:
+                return DELETE
+            self.problems.add(self.where(i, c.key), f"“{raw}”应为 是（真空磁悬浮）、open（开放式磁悬浮）或 否")
+            return None
         if c.type == "choice" and raw not in c.choices:
             self.problems.add(self.where(i, c.key), f"“{raw}”不是可选值（{'、'.join(c.choices)}）")
             return None
@@ -331,7 +347,7 @@ class Importer:
                 self.ids.append(eid)
             else:
                 prefix = self.spec["prefix"]
-                if self.kind == "places" and row.get("subtype") in BUILDING_SUBTYPES:
+                if self.kind == "places" and row.get("subtype") in self.building_subtypes:
                     prefix = "bld"
                 new = mint(prefix, self.taken)
                 self.ids.append(new)
@@ -373,9 +389,9 @@ class Importer:
             psub = self.rows[self.ids.index(parent)].get("subtype")
         else:
             psub = None
-        want = {"locality": ("dependency", "region", "country"), "borough": ("locality",)}.get(subtype)
+        want = PARENT_SUBTYPES.get(subtype) if subtype in ("locality", "borough") else None
         if psub and want and psub not in want:
-            self.problems.add(self.where(i, "parent"), "市的上级必须是领地、省或国家" if subtype == "locality" else "区的上级必须是市")
+            self.problems.add(self.where(i, "parent"), "市的上级必须是领地或国家" if subtype == "locality" else "区的上级必须是市")
         elif subtype == "borough" and self.world.entities.get(self.world.divisions.get(parent, {}).get("parent", ""), {}).get("subtype") == "country":
             self.problems.add(self.where(i, "parent"), "国家直辖的市不设区")
         state_city = subtype == "locality" and psub == "country"
@@ -567,7 +583,7 @@ def translate(msg: str) -> str:
         (r"(\S+): a ring needs at least three via divisions", r"\1：环线至少需要三个途经城市"),
         (r"generator: (\S+) has no anchor in layout.cities", r"\1：生成器中没有该市的锚点（填写 锚点X、锚点Y）"),
         (r"(\S+): missing name in '(\w+)'", r"\1：缺少 \2 名称"),
-        (r"(\S+): via (\S+) is not a division", r"\1：途经 \2 不是行政区"),
+        (r"(\S+): via (\S+) is not a division or a place with a site", r"\1：途经 \2 不是行政区或有占地的地标"),
         (r"(\S+): 'in' must name a division", r"\1：所在区必须是行政区"),
         (r"(\S+): site size_m must be .*", r"\1：占地长米、占地宽米应为正数（米）"),
         (r"(\S+): site angle_deg must be .*", r"\1：占地朝向度应为数字（正东为 0，逆时针）"),
@@ -580,7 +596,7 @@ def translate(msg: str) -> str:
         (r"(\S+): a (\S+) line runs at (\d+) to (\d+)", r"\1：\2 线路的运营速度应在 \3–\4 km/h"),
         (r"(\S+): a (\S+) line runs at (\d+) km/h or more", r"\1：\2 线路的运营速度应不低于 \3 km/h"),
         (r"(\S+): a heavy-haul line has 重载 in its name", r"\1：重载铁路的名称须含“重载”"),
-        (r"(\S+): via (\S+) is not a city or district", r"\1：停靠 \2 不是市或区"),
+        (r"(\S+): via (\S+) is not a city, district or a place with a site", r"\1：停靠 \2 不是市、区或有占地的地标"),
         (r"(\S+): station_names entry (\S+) is not one of the stops", r"\1：站名覆盖 \2 不在停靠站中"),
         (r"(\S+): color must be #RRGGBB", r"\1：线路色应为 #RRGGBB 格式"),
         (r"(\S+): detect.at_km must be .*", r"\1：识别坐标应为两个数字"),

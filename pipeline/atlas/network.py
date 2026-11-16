@@ -5,8 +5,8 @@ import math
 from collections import defaultdict
 
 # Design speeds per road class, km/h (rural sections, JTG B01 design-speed bands).
-SPEED_KMH = {"motorway": 100, "trunk": 80, "primary": 70, "secondary": 50, "tertiary": 40}
-ROAD_RANK = {"motorway": 0, "trunk": 1, "primary": 2, "secondary": 3, "tertiary": 4}
+SPEED_KMH = {"motorway": 100, "primary": 70, "secondary": 50}
+ROAD_RANK = {"motorway": 0, "primary": 1, "secondary": 2}
 
 
 def build_graph(roads, terminals: dict[str, int], nx: int, res_km: float):

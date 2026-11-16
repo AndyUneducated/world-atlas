@@ -250,4 +250,3 @@ export const useCursor = create<CursorState>((set) => ({
 
 export const initialView = initial.view;
 
-if (import.meta.env.DEV) Object.assign(window, { __atlas: useAtlas });

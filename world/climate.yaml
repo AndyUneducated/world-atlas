@@ -1,5 +1,5 @@
 # Climate model. pipeline/atlas/climate.py gives every district monthly mean highs and lows, precipitation,
-# sunshine and day length, the extremes and a climate type; a city shows the climate of its seat district.
+# sunshine and day length, the extremes and a climate type; a city shows the climate of its most populous district.
 #
 # Mean temperature = zonal sea-level mean at the latitude + the territory's ocean offset
 #   - lapse rate x mean elevation - a little for continentality.

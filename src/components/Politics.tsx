@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
-import { Fragment, useContext, useState, type ReactNode } from "react";
-import { displayName, formatNumber, t, type StringKey } from "../lib/i18n";
+import { Fragment, useContext, useMemo, useState, type ReactNode } from "react";
+import { displayName, formatNumber, shortName, t, type StringKey } from "../lib/i18n";
 import { governmentSeats, majority, PARTY_AXES, SYSTEM_NAMES, systemText } from "../lib/politics";
 import type { AtlasData, Chamber, Entity, Lang, Legislature, Localized, Officeholder, Seating } from "../lib/types";
 import { useAtlas } from "../store";
@@ -13,7 +13,6 @@ import { Hemicycle } from "./Hemicycle";
 const COUNCILS_SHOWN = 6;
 /** Parties with no seat are listed one by one from this share of the vote (%); the rest share a line. */
 const MINOR_VOTE = 3;
-const shortName = (p: Entity, lang: Lang) => p.short_names?.[lang] ?? displayName(p, lang);
 const pct = (v: number, lang: Lang) => `${formatNumber(v, lang, 1)}%`;
 
 function PartyChip({ party, lang }: { party: Entity; lang: Lang }) {
@@ -158,11 +157,15 @@ const NON_PARTISAN = "var(--ui-faint)";
 function ChamberView({ data, chamber, lang, note, govLabel }: { data: AtlasData; chamber: Seating; lang: Lang; note?: (id: string) => string | null; govLabel?: string }) {
   const select = useAtlas((s) => s.select);
   const [hover, setHover] = useState<string | null>(null);
+  const seats = useMemo(
+    () => chamber.parties.map((p) => ({ id: p.id, seats: p.seats, color: data.entities[p.id]?.color, order: data.entities[p.id]?.spectrum ?? 0 })),
+    [data, chamber],
+  );
   const listed = chamber.parties.filter((p) => p.seats || p.vote >= MINOR_VOTE);
   const rest = chamber.parties.filter((p) => !p.seats && p.vote < MINOR_VOTE);
   return (
     <>
-      <Hemicycle data={data} chamber={chamber} lang={lang} highlight={hover} />
+      <Hemicycle parties={seats} total={chamber.seats} lang={lang} highlight={hover} />
       <div className="mt-2 grid grid-cols-[1fr_3.5rem_2rem] gap-2 px-2 text-[10.5px] text-faint">
         <span />
         <span className="text-right">{t("voteShare", lang)}</span>
@@ -257,9 +260,55 @@ function governmentRow(data: AtlasData, c: Seating, lang: Lang, label = t("gover
   ];
 }
 
+/** Every ministry and its minister, folded until opened. */
+export function MinisterList<M extends { ministry: Localized; name: Localized }>({ ministers, lang, holder }: { ministers: M[]; lang: Lang; holder?: (m: M) => ReactNode }) {
+  const [open, setOpen] = useCardOpen("ministers");
+  const ministry = (m: Localized) => (lang === "en" ? m.en.replace(/^(Ministry|Department) of (the )?/, "") : m.zh);
+  return (
+    <>
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="mt-2 -ml-2 flex items-center gap-1 rounded-full px-2 py-1 text-[12px] font-medium text-muted transition-colors hover:bg-hover hover:text-ink"
+      >
+        <ChevronDown className={clsx("size-3.5 transition-transform", open && "rotate-180")} />
+        {open ? t("hideMinisters", lang) : `${t("showMinisters", lang)} · ${ministers.length}`}
+      </button>
+      {open && (
+        <motion.ul initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} className="mt-1 divide-y divide-line/60">
+          {ministers.map((m) => (
+            <li key={m.ministry.en} className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] items-center gap-3 py-1.5 text-[12.5px]">
+              <span className="leading-snug text-muted">{ministry(m.ministry)}</span>
+              {holder ? holder(m) : <span className="text-ink">{m.name[lang]}</span>}
+            </li>
+          ))}
+        </motion.ul>
+      )}
+    </>
+  );
+}
+
+/** The highest court: its name and bench, the law it applies, the presiding judge and the others. */
+export function CourtBody({ court, lang }: { court: Officeholder & { names: Localized; judges: Localized[]; law?: Localized; notes?: Localized }; lang: Lang }) {
+  return (
+    <>
+      <BodyName name={court.names[lang]} sub={lang === "zh" ? `法官 ${court.judges.length + 1} 人` : `${court.judges.length + 1} judges`} />
+      <Rows
+        rows={[
+          ...(court.law ? [[t("legalSystem", lang), court.law[lang]] as [string, ReactNode]] : []),
+          [court.title[lang], court.name[lang]],
+          ...(court.judges.length
+            ? [[t("judges", lang), <span className="leading-relaxed text-ink">{court.judges.map((j) => j[lang]).join(lang === "zh" ? "、" : ", ")}</span>] as [string, ReactNode]]
+            : []),
+        ]}
+      />
+      {court.notes && <Paragraphs text={court.notes[lang]} className="mt-2 text-[12.5px] leading-relaxed text-muted" />}
+    </>
+  );
+}
+
 /** The ministries as one bar in the colours of the parties holding them; opened, every minister by ministry. */
 function Cabinet({ data, L, lang }: { data: AtlasData; L: Legislature; lang: Lang }) {
-  const [open, setOpen] = useCardOpen("ministers");
   const experts = L.ministers.filter((m) => !m.party).length;
   const parts = [
     ...L.cabinet.map((c) => ({ key: c.id, n: c.seats, color: data.entities[c.id]?.color, label: data.entities[c.id] ? shortName(data.entities[c.id], lang) : c.id })),
@@ -267,7 +316,6 @@ function Cabinet({ data, L, lang }: { data: AtlasData; L: Legislature; lang: Lan
   ];
   const total = L.ministers.length;
   const departments = L.ministers.every((m) => m.ministry.zh.endsWith("厅"));
-  const ministry = (m: Localized) => (lang === "en" ? m.en.replace(/^(Ministry|Department) of /, "") : m.zh);
   return (
     <div className="mt-3">
       <p className="mb-1.5 flex items-baseline justify-between text-[11px] text-faint">
@@ -295,24 +343,7 @@ function Cabinet({ data, L, lang }: { data: AtlasData; L: Legislature; lang: Lan
           </span>
         ))}
       </div>
-      <button
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-        className="mt-2 -ml-2 flex items-center gap-1 rounded-full px-2 py-1 text-[12px] font-medium text-muted transition-colors hover:bg-hover hover:text-ink"
-      >
-        <ChevronDown className={clsx("size-3.5 transition-transform", open && "rotate-180")} />
-        {open ? t("hideMinisters", lang) : `${t("showMinisters", lang)} · ${total}`}
-      </button>
-      {open && (
-        <motion.ul initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} className="mt-1 divide-y divide-line/60">
-          {L.ministers.map((m) => (
-            <li key={m.ministry.en} className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] items-center gap-3 py-1.5 text-[12.5px]">
-              <span className="leading-snug text-muted">{ministry(m.ministry)}</span>
-              <Holder data={data} name={m.name} party={m.party} note={t("nonPartisan", lang)} lang={lang} />
-            </li>
-          ))}
-        </motion.ul>
-      )}
+      <MinisterList ministers={L.ministers} lang={lang} holder={(m) => <Holder data={data} name={m.name} party={m.party} note={t("nonPartisan", lang)} lang={lang} />} />
     </div>
   );
 }
@@ -381,14 +412,7 @@ export function LegislatureSection({ data, entity, lang }: { data: AtlasData; en
         {L.notes && <Paragraphs text={L.notes[lang]} className="mt-2 text-[12.5px] leading-relaxed text-muted" />}
       </Branch>
       <Branch label={t("judiciary", lang)}>
-        <BodyName name={L.court.names[lang]} sub={lang === "zh" ? `法官 ${L.court.judges.length + 1} 人` : `${L.court.judges.length + 1} judges`} />
-        <Rows
-          rows={[
-            ...(L.court.law ? [[t("legalSystem", lang), L.court.law[lang]] as [string, string]] : []),
-            holderRow(data, L.court.title, L.court, lang),
-            [t("judges", lang), <span className="leading-relaxed text-ink">{L.court.judges.map((j) => j[lang]).join(lang === "zh" ? "、" : ", ")}</span>],
-          ]}
-        />
+        <CourtBody court={L.court} lang={lang} />
       </Branch>
       {L.agencies?.length ? (
         <Branch label={t("agencies", lang)}>
@@ -522,7 +546,7 @@ function SeatRow({ party, at, seats, of, vote, upper, lang }: { party: Entity; a
         <span className="flex items-center gap-2 text-[13px]">
           {hasEmblem(at) ? <Emblem entity={at} size={20} className="shrink-0" /> : <span className="size-2 shrink-0 rounded-full bg-faint" />}
           <span className="flex min-w-0 flex-1 flex-wrap items-center gap-x-2 gap-y-0.5 leading-snug">
-            <span className="text-ink">{upper && seating ? seating.names[lang] : (at.short_names?.[lang] ?? displayName(at, lang))}</span>
+            <span className="text-ink">{upper && seating ? seating.names[lang] : (shortName(at, lang))}</span>
             {head && <Tag tone="mayor">{chamber.head.title[lang]}</Tag>}
             {gov && !head && <Tag tone="gov">{t(chamber?.elected ? "inMajority" : "inGovernment", lang)}</Tag>}
           </span>
@@ -596,10 +620,10 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
           rows={[
             ...(entity.family ? [[t("partyFamily", lang), <span className="font-medium">{entity.family[lang]}</span>] as [string, ReactNode]] : []),
             ...(entity.standing
-              ? [[t("partyStanding", lang), <span className="font-medium">{t(STANDING_KEYS[entity.standing], lang)}{home && <span className="font-normal text-muted"> · <button onClick={() => select(home.id)} className="underline decoration-line underline-offset-2 hover:text-ink hover:decoration-current">{home.short_names?.[lang] ?? displayName(home, lang)}</button></span>}</span>] as [string, ReactNode]]
+              ? [[t("partyStanding", lang), <span className="font-medium">{t(STANDING_KEYS[entity.standing], lang)}{home && <span className="font-normal text-muted"> · <button onClick={() => select(home.id)} className="underline decoration-line underline-offset-2 hover:text-ink hover:decoration-current">{shortName(home, lang)}</button></span>}</span>] as [string, ReactNode]]
               : []),
             ...((entity.territories?.length ?? 0) > 1
-              ? [[t("partyActiveIn", lang), <span className="flex flex-wrap gap-x-2.5 gap-y-1">{entity.territories!.map((id) => data.entities[id]).filter(Boolean).map((e) => <button key={e.id} onClick={() => select(e.id)} className="text-ink underline decoration-line underline-offset-2 hover:decoration-current">{e.short_names?.[lang] ?? displayName(e, lang)}</button>)}</span>] as [string, ReactNode]]
+              ? [[t("partyActiveIn", lang), <span className="flex flex-wrap gap-x-2.5 gap-y-1">{entity.territories!.map((id) => data.entities[id]).filter(Boolean).map((e) => <button key={e.id} onClick={() => select(e.id)} className="text-ink underline decoration-line underline-offset-2 hover:decoration-current">{shortName(e, lang)}</button>)}</span>] as [string, ReactNode]]
               : []),
             ...(entity.legal_status ? [[t("legalStatus", lang), entity.legal_status[lang]] as [string, ReactNode]] : []),
             ...(entity.leader ? [[entity.leader_title?.[lang] ?? t("partyLeader", lang), entity.leader[lang]] as [string, ReactNode]] : []),
@@ -689,7 +713,7 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
                     <li key={b.at}>
                       <button onClick={() => select(b.at)} className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] hover:bg-hover">
                         {hasEmblem(at) && <Emblem entity={at} size={20} className="shrink-0" />}
-                        <span className="min-w-0 flex-1 truncate text-muted">{at.short_names?.[lang] ?? displayName(at, lang)}</span>
+                        <span className="min-w-0 flex-1 truncate text-muted">{shortName(at, lang)}</span>
                         {role && <Tag tone="gov">{role}</Tag>}
                         <span className="shrink-0 text-ink">{b.name[lang]}</span>
                       </button>
@@ -765,35 +789,29 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
           <Paragraphs text={entity.history[lang]} className="text-[13px] leading-relaxed text-ink" />
         </Section>
       )}
-      {show("history") && allies.length > 0 && (
-        <Section title={t("allies", lang)}>
-          <ul className="-mx-2 grid grid-cols-2 gap-0.5">
-            {allies.map((a) => (
-              <li key={a.id}>
-                <button onClick={() => select(a.id)} className="flex w-full min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] text-ink hover:bg-hover">
-                  <Emblem entity={a} size={22} className="shrink-0" />
-                  <span className="truncate">{shortName(a, lang)}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </Section>
-      )}
-      {show("history") && backers.length > 0 && (
-        <Section title={t("partyBackers", lang)}>
-          <ul className="-mx-2 grid grid-cols-2 gap-0.5">
-            {backers.map((a) => (
-              <li key={a.id}>
-                <button onClick={() => select(a.id)} className="flex w-full min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] text-ink hover:bg-hover">
-                  {hasEmblem(a) ? <Emblem entity={a} size={22} className="shrink-0" /> : <span className="size-2 shrink-0 rounded-full bg-faint" />}
-                  <span className="truncate">{a.short_names?.[lang] ?? displayName(a, lang)}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </Section>
-      )}
+      {show("history") && <EntityGrid title={t("allies", lang)} entities={allies} lang={lang} />}
+      {show("history") && <EntityGrid title={t("partyBackers", lang)} entities={backers} lang={lang} />}
     </>
+  );
+}
+
+/** Parties or states in two columns, each with its flag and short name, opening its card. */
+function EntityGrid({ title, entities, lang }: { title: string; entities: Entity[]; lang: Lang }) {
+  const select = useAtlas((s) => s.select);
+  if (!entities.length) return null;
+  return (
+    <Section title={title}>
+      <ul className="-mx-2 grid grid-cols-2 gap-0.5">
+        {entities.map((a) => (
+          <li key={a.id}>
+            <button onClick={() => select(a.id)} className="flex w-full min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] text-ink hover:bg-hover">
+              {hasEmblem(a) ? <Emblem entity={a} size={22} className="shrink-0" /> : <span className="size-2 shrink-0 rounded-full bg-faint" />}
+              <span className="truncate">{shortName(a, lang)}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </Section>
   );
 }
 

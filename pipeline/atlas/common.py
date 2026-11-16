@@ -11,11 +11,10 @@ from shapely.geometry import LineString, mapping
 from shapely.ops import substring
 
 from .grid import chaikin
-from .world import ROOT
+from .world import B32, ROOT
 
 
 OUT = ROOT / "public" / "data"
-B32 = "0123456789abcdefghjkmnpqrstvwxyz"
 LOG_TAG = ""  # the region a build worker process is on, so the regions' interleaved lines stay apart
 
 
@@ -27,6 +26,33 @@ def derived_id(prefix: str, key: str) -> str:
     """Stable id for generator-derived entities, so rebuilds never change them."""
     h = int(hashlib.sha1(key.encode()).hexdigest(), 16)
     return prefix + "_" + "".join(B32[(h >> (5 * i)) & 31] for i in range(6))
+
+
+def stable_seed(key: str) -> int:
+    """A seed for a random generator that depends only on `key`, the same in every run."""
+    return int(hashlib.sha1(key.encode()).hexdigest()[:8], 16)
+
+
+def largest_remainder(weights: dict, seats: int, minimum: int = 0) -> dict:
+    """Whole shares of `seats` in proportion to the weights by largest remainder (Hamilton), each at least
+    `minimum`; ties go to the key that comes first."""
+    out = {k: minimum for k in weights}
+    left = seats - minimum * len(weights)
+    total = sum(weights.values()) or 1
+    raw = {k: left * w / total for k, w in weights.items()}
+    for k in raw:
+        out[k] += int(raw[k])
+    for k in sorted(raw, key=lambda k: int(raw[k]) - raw[k])[: seats - sum(out.values())]:
+        out[k] += 1
+    return out
+
+
+def round_sig(v: float, digits: int) -> int:
+    """`v` rounded to `digits` significant figures, as a whole number (0 for nothing)."""
+    if v <= 0:
+        return 0
+    e = 10 ** max(len(str(int(v))) - digits, 0)
+    return int(round(v / e) * e)
 
 
 def short_name(names: dict) -> dict:

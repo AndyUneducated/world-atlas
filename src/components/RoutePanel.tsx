@@ -1,15 +1,8 @@
 import { ArrowUpDown, Navigation, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { displayName, formatNumber, t } from "../lib/i18n";
-import type { Lang } from "../lib/types";
+import { displayName, formatDuration, formatNumber, t } from "../lib/i18n";
 import { useRoute } from "../lib/useRoute";
 import { useAtlas } from "../store";
-
-export function formatDuration(minutes: number, lang: Lang) {
-  const h = Math.floor(minutes / 60);
-  const m = Math.round(minutes % 60);
-  return h ? `${h} ${t("hour", lang)} ${m} ${t("minute", lang)}` : `${Math.max(m, 1)} ${t("minute", lang)}`;
-}
 
 function Endpoint({ label, id, dot }: { label: string; id: string | null; dot: string }) {
   const data = useAtlas((s) => s.data)!;

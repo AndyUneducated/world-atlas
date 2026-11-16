@@ -47,7 +47,7 @@ def bays(land, xs, ys, res, close_km, min_km2, fjord_elongation=3.2):
     grown = _edt(~land) <= r
     closed = _edt(grown) > r
     water = closed & ~land
-    lab, n = ndimage.label(water)
+    lab, _ = ndimage.label(water)
     out = []
     for k, sl in enumerate(ndimage.find_objects(lab), start=1):
         m = lab[sl] == k

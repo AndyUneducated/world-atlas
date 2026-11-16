@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { useMemo } from "react";
 import { formatNumber, t } from "../lib/i18n";
 import { majority } from "../lib/politics";
-import type { AtlasData, Lang, Seating } from "../lib/types";
+import type { Lang } from "../lib/types";
 
 const W = 320;
 const R = 150;
@@ -27,38 +27,41 @@ function seatPositions(n: number) {
   return { pts, dot: gap * 0.42 * R };
 }
 
-/** A parliament as a half circle of seats, parties from left to right in spectrum order. */
-export function Hemicycle({ data, chamber, lang, highlight }: { data: AtlasData; chamber: Seating; lang: Lang; highlight?: string | null }) {
+/** A party's seats in a chamber: its colour, and its place from left to right (its spectrum). */
+type HemicycleParty = { id: string; seats: number; color?: string; order: number };
+
+/** A parliament of `total` seats as a half circle, parties from left to right in their order. */
+export function Hemicycle({ parties, total, lang, highlight }: { parties: HemicycleParty[]; total: number; lang: Lang; highlight?: string | null }) {
   const seats = useMemo(() => {
-    const { pts, dot } = seatPositions(chamber.seats);
-    const order = [...chamber.parties].filter((p) => p.seats).sort((a, b) => (data.entities[a.id]?.spectrum ?? 0) - (data.entities[b.id]?.spectrum ?? 0));
-    const owner = order.flatMap((p) => Array<string>(p.seats).fill(p.id));
+    const { pts, dot } = seatPositions(total);
+    const order = parties.filter((p) => p.seats).sort((a, b) => a.order - b.order);
+    const owner = order.flatMap((p) => Array<HemicycleParty>(p.seats).fill(p));
     return { dot, list: pts.map((p, i) => ({ x: CX + R * p.r * Math.cos(p.a), y: CY - R * p.r * Math.sin(p.a), party: owner[i] })) };
-  }, [data, chamber]);
+  }, [parties, total]);
   const pad = seats.dot * 1.2 + 1; // the outer seats' radius, with room for the spring's overshoot
   return (
     <svg
       viewBox={`${CX - R - pad} ${CY - R - pad} ${2 * (R + pad)} ${R + 2 * pad}`}
       className="w-full overflow-visible"
       role="img"
-      aria-label={`${chamber.seats} ${t("seatsUnit", lang)}`}
+      aria-label={`${total} ${t("seatsUnit", lang)}`}
     >
       {seats.list.map((s, i) => (
         <motion.circle
           key={i}
           cx={s.x}
           cy={s.y}
-          fill={data.entities[s.party ?? ""]?.color ?? "var(--ui-line)"}
+          fill={s.party?.color ?? "var(--ui-line)"}
           initial={{ r: 0 }}
-          animate={{ r: seats.dot, opacity: highlight && highlight !== s.party ? 0.22 : 1 }}
+          animate={{ r: seats.dot, opacity: highlight && highlight !== s.party?.id ? 0.22 : 1 }}
           transition={{ r: { delay: Math.min(i * 0.005, 0.6), type: "spring", stiffness: 380, damping: 22 }, opacity: { duration: 0.15 } }}
         />
       ))}
       <text x={CX} y={CY - 22} textAnchor="middle" fill="var(--ui-ink)" fontSize="26" fontWeight="650">
-        {formatNumber(chamber.seats, lang)}
+        {formatNumber(total, lang)}
       </text>
       <text x={CX} y={CY - 4} textAnchor="middle" fill="var(--ui-faint)" fontSize="10.5">
-        {`${t("seatsUnit", lang)} · ${t("majority", lang)} ${majority(chamber)}`}
+        {`${t("seatsUnit", lang)} · ${t("majority", lang)} ${majority({ seats: total })}`}
       </text>
     </svg>
   );

@@ -35,7 +35,7 @@ function LineSwatch({ color, casing, width = 3, dash }: { color: string; casing?
 }
 
 const sampleRoute = (id: string, ref: string, network: string, shield?: string): Entity => ({
-  id, kind: "route", subtype: "road", status: "canon", names: { zh: ref, en: ref }, ref, network, shield,
+  id, kind: "route", status: "canon", names: { zh: ref, en: ref }, ref, network, shield,
 });
 
 function Ramp({ colors, ticks }: { colors: string[]; ticks: string[] }) {

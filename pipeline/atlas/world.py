@@ -11,18 +11,18 @@ ROOT = Path(__file__).resolve().parents[2]
 WORLD_DIR = ROOT / "world"
 
 ID_PATTERN = re.compile(r"^(div|nat|rte|poi|bld|pty)_[0-9a-hjkmnp-tv-z]{6}$|^country:[A-Z]{2}$|^bloc:[a-z]+$")
+B32 = "0123456789abcdefghjkmnpqrstvwxyz"  # the alphabet of an id's six characters
 # Name languages, as NAME_LANGS in src/lib/types.ts: Chinese and English are required, the conlangs optional.
 NAME_LANGS = ("zh", "en", "art-x-viking", "art-x-buckham", "art-x-tavrunaq", "art-x-ivuran", "es", "art-x-ranova", "art-x-kasiri")
 REQUIRED_LANGS, CONLANGS = NAME_LANGS[:2], NAME_LANGS[2:]
 # The levels: a state (country: China, the United States, a nation of Ranova, the government in exile) has
-# no parent; a territory or province (dependency, region) is a country's; a city (locality) is a territory's
-# or a state's; a district (borough) is a territory's city's. A state's cities have no districts.
-DIVISION_SUBTYPES = ("country", "dependency", "region", "locality", "borough")
-PARENT_SUBTYPES = {"country": (), "dependency": ("country",), "region": ("country",),
-                   "locality": ("dependency", "region", "country"), "borough": ("locality",)}
+# no parent; a territory (dependency) is a country's; a city (locality) is a territory's or a state's; a
+# district (borough) is a territory's city's. A state's cities have no districts.
+DIVISION_SUBTYPES = ("country", "dependency", "locality", "borough")
+PARENT_SUBTYPES = {"country": (), "dependency": ("country",), "locality": ("dependency", "country"), "borough": ("locality",)}
 # Division codes (GB/T 2260): six digits, of which a territory uses the first two, a city four
 # and a district all six; the rest are zeros (900000 → 900100 → 900101). A state has its ISO 3166-1 code instead.
-CODE_DIGITS = {"dependency": 2, "region": 2, "locality": 4, "borough": 6}
+CODE_DIGITS = {"dependency": 2, "locality": 4, "borough": 6}
 # What a state may mark not applicable (na:), giving the reason: a government in exile has no people of its own.
 NA_FIELDS = ("population", "traits", "climate", "density", "economy", "demographics", "elections")
 # What a state may claim without controlling it (uncontrolled:); its card marks them so.
@@ -33,7 +33,8 @@ def code_digits(d: dict) -> int | None:
     """How many leading digits of a division's admin code are its own; the rest are zero."""
     return CODE_DIGITS.get(d.get("subtype"))
 
-# Landmark footprint templates (see pipeline/atlas/buildings.py); the last five are transport facilities.
+# Landmark footprint templates (see pipeline/atlas/buildings.py): city buildings, then facilities (transport,
+# mines, the variant layouts, detention, checkpoints, racetracks and clinics).
 MILITARY_VARIANTS = {  # military and space facility layouts and the kinds each draws (first is the default)
     "airbase": ("fighter", "heavy", "uav", "school"), "radar": ("dome", "array", "domes"), "antenna": ("small", "large"),
     "sam": (), "range": ("air", "armor", "cold"), "plant": ("depot", "assembly", "propellant", "tunnel", "hangar", "engine"),
@@ -47,18 +48,24 @@ SITE_VARIANTS = {**MILITARY_VARIANTS, "estate": ("villa", "compound", "bunker"),
                  "lido": (), "breeze": (), "square": ("round", "square"), "fashion": ("studio", "fitting", "show"), "chip": (),
                  "brewhouse": ("pilsner", "wheat", "ipa", "stout", "abbey", "sour"), "orchard": ("durian",), "spine": (), "camera": (),
                  "armoury": (), "shooting": (), "chair": (), "dronetower": (), "refugee": ()}
-SITE_LAYOUTS = ("complex", "hall", "courtyard", "slab", "lshape", "block", "campus", "ring", "stadium", "tower", "dome", "park", "plaza", "market",
-                "airport", "port", "harbour", "offshore_port", "spaceport", "mine", *SITE_VARIANTS, "detention", "checkpoint", "racetrack", "clinic")
 FACILITY_LAYOUTS = ("airport", "port", "harbour", "offshore_port", "spaceport", "mine", *SITE_VARIANTS, "detention", "checkpoint", "racetrack", "clinic")
+SITE_LAYOUTS = ("complex", "hall", "courtyard", "slab", "lshape", "block", "campus", "ring", "stadium", "tower", "dome", "park", "plaza", "market",
+                *FACILITY_LAYOUTS)
 RUNWAY_LAYOUTS = ("airport", "spaceport", "airbase", "launch_track", "racetrack")  # roads and railways go round these
 COASTAL_LAYOUTS = ("port", "harbour")  # sites centred on the shore
 HARBOUR_TERMINALS = ("container", "bulk", "oil", "roro")
 RAIL_NETWORKS = ("intercity_rail", "freight_rail")
 # operating speed of each rail tier, km/h: [floor, ceiling)
 RAIL_TIER_SPEEDS = {"conventional": (80, 400), "high_speed": (400, 500), "maglev": (500, 10**6), "vacuum": (600, 10**6)}
+# Road networks and the class of road each builds (generated feeders and access roads are municipal roads).
+NETWORK_CLASS = {"national_expressway": "motorway", "territorial_expressway": "motorway", "territorial_highway": "primary",
+                 "municipal_road": "secondary"}
+# Road networks whose cards list the districts they pass through (segments) and need a 400-character intro.
+SEGMENTED_NETWORKS = ("national_expressway", "territorial_expressway", "territorial_highway")
 # Lines whose cards carry a construction background, and who runs them (operators in the territory record).
-BACKGROUND_NETWORKS = ("national_expressway", "territorial_expressway", "territorial_highway", "intercity_rail", "freight_rail")
-OPERATOR_KINDS = ("expressway", "highway", "rail")
+BACKGROUND_NETWORKS = (*SEGMENTED_NETWORKS, *RAIL_NETWORKS)
+OPERATOR_KIND = dict(zip(BACKGROUND_NETWORKS, ("expressway", "expressway", "highway", "rail", "rail")))
+OPERATOR_KINDS = tuple(dict.fromkeys(OPERATOR_KIND.values()))
 # Card text, traits and flags: no region build reads them, so they stay out of a region's cache key and
 # build.py takes them from the sources after the regions are merged.
 TEXT_KEYS = ("notes", "background", "motto", "military", "traits", "wonder", "flag", "flag_notes", "climate_notes", "nation", "bloc",
@@ -113,11 +120,28 @@ STREET_STYLES = ("planned", "mixed", "organic")
 BUILDING_MIX_KEYS = ("slabs", "towers", "perimeter", "houses", "podium", "industrial", "civic", "park")
 # Landforms the generator detects and names by location (see pipeline/atlas/coast.py).
 DETECT_KINDS = ("island", "bay", "fjord", "cape", "strait", "estuary", "river", "peak", "pass", "glacier")
+# Natural feature subtypes: the detected landforms, those the generator draws (ranges, ridges, volcanoes,
+# plateaus, lakes) and named groups of islands (archipelago).
+FEATURE_SUBTYPES = ("mountain_range", "ridge", "volcano", "plateau", "lake", "archipelago", *DETECT_KINDS)
+STRUCTURE_KINDS = ("bridge", "tunnel")  # a line's structure_names: its longest bridge or tunnel
 
 
 def _load(path: Path):
     with open(path, encoding="utf-8") as f:
         return yaml.safe_load(f) or {}
+
+
+def both(v) -> bool:
+    """A text given in both required languages (zh and en)."""
+    return isinstance(v, dict) and all(v.get(lang) for lang in REQUIRED_LANGS)
+
+
+def _polyline(pts) -> bool:
+    return isinstance(pts, list) and len(pts) >= 2 and all(isinstance(p, list) and len(p) == 2 for p in pts)
+
+
+def _ring(path) -> bool:
+    return isinstance(path, list) and len(path) >= 3 and all(isinstance(p, list) and len(p) == 2 for p in path)
 
 
 def _merge(base: dict, over: dict) -> dict:
@@ -148,14 +172,10 @@ class World:
         defaults = _load(root / "generator" / "_defaults.yaml")
         self.generators = [{**_merge(defaults, _load(p)), "_region": p.stem}
                            for p in sorted((root / "generator").glob("*.yaml")) if not p.stem.startswith("_")]
-        eng = root / "transport" / "engineering.yaml"
-        self.engineering: dict = _load(eng) if eng.exists() else {}
-        econ = root / "economy.yaml"
-        self.economy: dict = _load(econ) if econ.exists() else {}
-        clim = root / "climate.yaml"
-        self.climate: dict = _load(clim) if clim.exists() else {}
-        pol = root / "politics.yaml"
-        self.politics: dict = _load(pol) if pol.exists() else {}
+        self.engineering: dict = _load(root / "transport" / "engineering.yaml")
+        self.economy: dict = _load(root / "economy.yaml")
+        self.climate: dict = _load(root / "climate.yaml")
+        self.politics: dict = _load(root / "politics.yaml")
         # every state: the countries of the registry and the states drawn on the map (subtype country)
         self.states = {i: e for i, e in self.entities.items() if e.get("subtype") == "country"}
         self._parents = {d.get("parent") for d in self.divisions.values()}
@@ -245,7 +265,6 @@ class World:
 
     def _local_errors(self, d: dict) -> list[str]:
         """A territory's or city's emblems, and a territory's calling code, time zone, driving side and faiths."""
-        both = lambda v: isinstance(v, dict) and all(v.get(lang) for lang in REQUIRED_LANGS)
         out = []
         s = d.get("symbols", {})
         if not isinstance(s, dict) or set(s) - set(LOCAL_SYMBOLS) or not all(both(v) for v in s.values()):
@@ -268,7 +287,6 @@ class World:
         if not isinstance(n, dict):
             return ["a nation needs its card block (nation:)"]
         out = []
-        both = lambda v: isinstance(v, dict) and all(v.get(lang) for lang in REQUIRED_LANGS)
         if extra := set(n) - set(NATION_KEYS):
             out.append(f"nation: unknown keys {', '.join(sorted(extra))}")
         if len(d.get("notes", {}).get("zh", "")) < 800:
@@ -288,8 +306,6 @@ class World:
             out.append("nation: military gives active and reserve personnel, strength 1–5, forces and equipment (zh, en)")
         if not both(mil.get("service")):
             out.append("nation: military.service gives the military service age and obligation (zh, en), as the CIA does")
-        if "branches" in mil:
-            out.append("nation: military.branches is replaced by forces: each named force with its service branches")
         for f in mil.get("forces") or []:
             if not (both(f.get("names")) and f.get("branches") and set(f["branches"]) <= set(FORCE_BRANCHES)):
                 out.append(f"nation: each military force has names (zh, en) and branches from {', '.join(FORCE_BRANCHES)}")
@@ -359,13 +375,12 @@ class World:
         and its climate in words where the map draws none of its cities; what it marks not applicable (na:)
         it leaves out."""
         out = self._nation_errors(d)
-        both = lambda v: isinstance(v, dict) and all(v.get(lang) for lang in REQUIRED_LANGS)
         na = d.get("na", {})
         skip = set(na.get("fields", []))
         if na and not (set(na) == {"fields", "note"} and both(na["note"]) and skip and skip <= set(NA_FIELDS)):
             out.append(f"na lists what does not apply, of {', '.join(NA_FIELDS)}, and a note (zh, en) saying why")
-        if "parent" in d or "role" in d:
-            out.append("a state has no parent and no role")
+        if "parent" in d:
+            out.append("a state has no parent")
         if not HEX.match(str(d.get("color", ""))):
             out.append("a state needs a colour (#RRGGBB) for its map tint and card accents")
         if d.get("flag") not in NATION_FLAGS:
@@ -395,9 +410,9 @@ class World:
                 out.append("traits are marked not applicable (na:), and given")
         else:
             out += self._trait_errors(d.get("traits", {}))
-            if self.economy and (missing := [k for k in ("industries", "heritage", "age") if k not in d.get("traits", {})]):
+            if missing := [k for k in ("industries", "heritage", "age") if k not in d.get("traits", {})]:
                 out.append(f"traits need {', '.join(missing)}")
-            if self.economy and d["id"] not in self.economy.get("base_gdp_per_capita", {}):
+            if d["id"] not in self.economy.get("base_gdp_per_capita", {}):
                 out.append("a state needs its base_gdp_per_capita in world/economy.yaml")
         mapped = d["id"] in self.divisions and d["id"] in self._parents
         if "climate" not in skip and not mapped and not both(d.get("climate_notes")):
@@ -435,7 +450,13 @@ class World:
         return out
 
     def validate(self) -> list[str]:
-        errors: list[str] = self._bloc_errors()
+        return (self._bloc_errors() + self._state_and_entity_errors() + self._division_errors() + self._route_errors()
+                + self._line_errors() + self._feature_errors() + self._place_errors() + self._railway_errors()
+                + self._crossing_errors() + self._generator_errors() + self._politics_errors())
+
+    def _state_and_entity_errors(self) -> list[str]:
+        """Every state's card and ISO code; every entity's id, names, status and wonder."""
+        errors: list[str] = []
         iso: dict[str, str] = {}
         for sid, s in self.states.items():
             errors += [f"{sid}: {e}" for e in self._state_errors(s)]
@@ -456,13 +477,16 @@ class World:
                     errors.append(f"{eid}: wonder needs zh and en: what makes it the territory's wonder")
                 elif "structure" in w and (w["structure"] not in WONDER_STRUCTURES or eid not in {**self.routes, **self.railways}):
                     errors.append(f"{eid}: wonder.structure is one of {', '.join(WONDER_STRUCTURES)} and only on a line")
+        return errors
+
+    def _division_errors(self) -> list[str]:
+        """Every division's level and parent, admin code, flag, colour, children's totals and traits."""
+        errors: list[str] = []
         codes: dict[str, str] = {}
         for did, d in self.divisions.items():
             if d["subtype"] not in DIVISION_SUBTYPES:
                 errors.append(f"{did}: unknown subtype {d['subtype']}")
                 continue
-            if "role" in d:
-                errors.append(f"{did}: role is not used: the subtype is the level (country, dependency, locality, borough)")
             if d["subtype"] != "country" and {"symbols", "facts", "religion"} & set(d):
                 errors += [f"{did}: {e}" for e in self._local_errors(d)]
             if d["subtype"] == "country":
@@ -509,10 +533,21 @@ class World:
                     errors.append(f"{did}: children population {total} != {d['population']}")
             if d["subtype"] != "country":
                 errors += [f"{did}: {e}" for e in self._trait_errors(d.get("traits", {}))]
-            if d["subtype"] in ("locality", "borough") and self.economy:
+            if d["subtype"] in ("locality", "borough"):
                 merged = {**parent.get("traits", {}), **d.get("traits", {})} if d["subtype"] == "borough" else d.get("traits", {})
                 if missing := [k for k in ("industries", "heritage", "age") if k not in merged]:
                     errors.append(f"{did}: traits need {', '.join(missing)} (here or in the city)")
+        return errors
+
+    @staticmethod
+    def _structure_name_errors(rid: str, r: dict) -> list[str]:
+        return [f"{rid}: structure_names gives the longest bridge or tunnel its names (zh, en)"
+                for kind, names in r.get("structure_names", {}).items()
+                if kind not in STRUCTURE_KINDS or not all(names.get(lang) for lang in REQUIRED_LANGS)]
+
+    def _route_errors(self) -> list[str]:
+        """Every road's stops, number, options, given line, network and class."""
+        errors: list[str] = []
         refs: dict[str, str] = {}
         for rid, r in self.routes.items():
             for v in r.get("via", []):
@@ -531,26 +566,37 @@ class World:
                 if v not in r.get("via", []):
                     errors.append(f"{rid}: legs entry {v} is not one of the via divisions")
             if line := r.get("line"):
-                pts = line.get("points")
-                if not (isinstance(pts, list) and len(pts) >= 2 and all(isinstance(p, list) and len(p) == 2 for p in pts)):
+                if not _polyline(line.get("points")):
                     errors.append(f"{rid}: line.points is a polyline [[x, y], …] in design km")
                 via = r.get("via", [])
                 ends = [via.index(line[k]) if line.get(k) in via else None for k in ("from", "to") if k in line]
                 if None in ends or ends != sorted(set(ends)):
                     errors.append(f"{rid}: line.from and line.to name via stops, from before to")
-            for kind, names in r.get("structure_names", {}).items():
-                if kind not in ("bridge", "tunnel") or not all(names.get(lang) for lang in REQUIRED_LANGS):
-                    errors.append(f"{rid}: structure_names gives the longest bridge or tunnel its names (zh, en)")
+            errors += self._structure_name_errors(rid, r)
             if r.get("network") not in self.engineering.get("standards", {}):
                 errors.append(f"{rid}: no engineering standard for network {r.get('network')} (world/transport/engineering.yaml)")
+            if r.get("network") in NETWORK_CLASS and r.get("class") != NETWORK_CLASS[r["network"]]:
+                errors.append(f"{rid}: a {r['network']} road has class {NETWORK_CLASS[r['network']]}")
             if str(r.get("network", "")).startswith("territorial_") and not r.get("shield"):
                 errors.append(f"{rid}: a territorial route needs a shield symbol (shield: <glyph>, see src/lib/shields.ts)")
+        return errors
+
+    def _line_errors(self) -> list[str]:
+        """What roads and railways share: undersea crossings and construction backgrounds."""
+        errors: list[str] = []
         for rid, r in [*self.routes.items(), *self.railways.items()]:
             if "undersea" in r and (r["undersea"] is not True or not r.get("line")):
                 errors.append(f"{rid}: undersea takes only true, on a line drawn as given: its water crossings are tunnels under the seabed")
             if r.get("network") in BACKGROUND_NETWORKS and not all(r.get("background", {}).get(lang) for lang in REQUIRED_LANGS):
                 errors.append(f"{rid}: an expressway, territorial highway or railway needs a background (zh, en): why and how it was built")
+        return errors
+
+    def _feature_errors(self) -> list[str]:
+        """Every natural feature's subtype, an archipelago's islands and a detected landform's kind and spot."""
+        errors: list[str] = []
         for fid, f in self.features.items():
+            if f["subtype"] not in FEATURE_SUBTYPES:
+                errors.append(f"{fid}: subtype must be one of {', '.join(FEATURE_SUBTYPES)}")
             if f["subtype"] == "archipelago" and not all(self.features.get(i, {}).get("subtype") == "island"
                                                          for i in f.get("islands") or [None]):
                 errors.append(f"{fid}: an archipelago lists its islands (ids of island features) in 'islands'")
@@ -562,6 +608,11 @@ class World:
             at = det.get("at_km")
             if not (isinstance(at, list) and len(at) == 2 and all(isinstance(v, (int, float)) for v in at)):
                 errors.append(f"{fid}: detect.at_km must be [x, y] in design km")
+        return errors
+
+    def _place_errors(self) -> list[str]:
+        """Every place's district, position, labels, military facts and site."""
+        errors: list[str] = []
         for pid, p in self.places.items():
             if p.get("in") not in self.divisions:
                 errors.append(f"{pid}: 'in' must name a division")
@@ -603,6 +654,11 @@ class World:
                     to = self.places.get(site["bridge_to"], {})
                     if to.get("in") != p.get("in") or to.get("site", {}).get("layout") not in COASTAL_LAYOUTS:
                         errors.append(f"{pid}: bridge_to must name a port or harbour in the same district")
+        return errors
+
+    def _railway_errors(self) -> list[str]:
+        """Every railway's network, stops, given line, colour, options, speed and name, by its tier."""
+        errors: list[str] = []
         for rid, r in self.railways.items():
             if r.get("network") not in RAIL_NETWORKS:
                 errors.append(f"{rid}: railway network must be one of {', '.join(RAIL_NETWORKS)}")
@@ -613,8 +669,7 @@ class World:
                 if self.divisions.get(v, {}).get("subtype") not in ("locality", "borough") and not self.places.get(v, {}).get("site"):
                     errors.append(f"{rid}: via {v} is not a city, district or a place with a site")
             if line := r.get("line"):
-                pts = line.get("points")
-                if not (r.get("maglev") or r.get("closed")) or not (isinstance(pts, list) and len(pts) >= 2 and all(isinstance(p, list) and len(p) == 2 for p in pts)):
+                if not (r.get("maglev") or r.get("closed")) or not _polyline(line.get("points")):
                     errors.append(f"{rid}: line.points ([[x, y], …] in design km) is for a maglev on its own guideway or a closed private line")
             for v, leg in r.get("legs", {}).items():
                 if v not in via or set(leg) - {"straight"}:
@@ -622,13 +677,11 @@ class World:
             for v in r.get("station_names", {}):
                 if v not in via:
                     errors.append(f"{rid}: station_names entry {v} is not one of the stops")
-            if r.get("color") and not re.match(r"^#[0-9A-Fa-f]{6}$", str(r["color"])):
+            if r.get("color") and not HEX.match(str(r["color"])):
                 errors.append(f"{rid}: color must be #RRGGBB")
             if "closed" in r and r["closed"] is not True:
                 errors.append(f"{rid}: closed takes only true (a private line closed to the public)")
-            for kind, names in r.get("structure_names", {}).items():
-                if kind not in ("bridge", "tunnel") or not all(names.get(lang) for lang in REQUIRED_LANGS):
-                    errors.append(f"{rid}: structure_names gives the longest bridge or tunnel its names (zh, en)")
+            errors += self._structure_name_errors(rid, r)
             if "maglev" in r and (r["maglev"] not in (True, "open") or r.get("network") != "intercity_rail"):
                 errors.append(f"{rid}: maglev: true (vacuum) or open (open-air) is for intercity railways only")
             speed = r.get("tech", {}).get("operating_speed_kmh")
@@ -653,6 +706,11 @@ class World:
                 errors.append(f"{rid}: a conventional heavy-haul line runs at 40 to 199 km/h")
             if r.get("network") == "freight_rail" and "重载" not in zh:
                 errors.append(f"{rid}: a heavy-haul line has 重载 in its name")
+        return errors
+
+    def _crossing_errors(self) -> list[str]:
+        """Lines between two generated territories: their tunnel portals, names, operator and stops."""
+        errors: list[str] = []
         territories = {g["territory"] for g in self.generators}
         for rid, r in [*self.routes.items(), *self.railways.items()]:
             if "crossing" not in r:
@@ -668,6 +726,11 @@ class World:
             home = [next((t for t in portals if t == v or t in self.ancestors(self.places.get(v, {}).get("in", v))), None) for v in r["via"]]
             if None in home or sum(a != b for a, b in zip(home, home[1:])) != 1:
                 errors.append(f"{rid}: via must run through one crossing territory, then the other")
+        return errors
+
+    def _generator_errors(self) -> list[str]:
+        """Every generator: its territory's operators, its layout, rivers, metro and streets."""
+        errors: list[str] = []
         for gen in self.generators:
             ops = self.divisions.get(gen.get("territory", ""), {}).get("operators", {})
             for k in OPERATOR_KINDS:
@@ -685,17 +748,13 @@ class World:
             for did in layout.get("islands", {}):
                 if not self.is_leaf(did):
                     errors.append(f"generator: islands of {did}: not a district or a state's city")
-            def ring(path):
-                return isinstance(path, list) and len(path) >= 3 and all(isinstance(p, list) and len(p) == 2 for p in path)
-
             for did, z in layout.get("zones", {}).items():
                 if did not in self.divisions or not layout.get("anchored"):
                     errors.append(f"generator: zone of {did}: not a division, or the layout is not anchored")
                 elif isinstance(z, dict):
-                    if (not ring(z.get("path")) or not all(ring(h) for h in z.get("holes", []))
-                            or set(z) - {"path", "holes", "exact", "whole"}):
-                        errors.append(f"generator: zone of {did} must be {{path, holes, exact, whole}} with polygons [[x, y], …]")
-                elif not ring(z):
+                    if not _ring(z.get("path")) or set(z) - {"path", "exact", "whole"}:
+                        errors.append(f"generator: zone of {did} must be {{path, exact, whole}} with a polygon [[x, y], …]")
+                elif not _ring(z):
                     errors.append(f"generator: zone of {did} must be a polygon [[x, y], …] (design km)")
             for did in layout.get("added_districts", []):
                 if self.divisions.get(did, {}).get("subtype") != "borough":
@@ -719,47 +778,54 @@ class World:
             for nr in gen.get("hydrology", {}).get("named_rivers", []):
                 if nr["through"] not in self.divisions:
                     errors.append(f"generator: named river through unknown division {nr['through']}")
-            for system in gen.get("metro", {}).get("cities", []):
-                city = system.get("city")
-                if self.divisions.get(city, {}).get("subtype") != "locality":
-                    errors.append(f"generator: metro city {city} is not a city")
-                for k, ln in enumerate(system.get("lines", []), 1):
-                    if self.divisions.get(ln.get("district"), {}).get("parent") != city:
-                        errors.append(f"generator: metro line {k} of {city}: district {ln.get('district')} is not in that city")
-                    if ln.get("axis") not in (0, 1):
-                        errors.append(f"generator: metro line {k} of {city}: axis must be 0 or 1")
-                    if "notes" in ln and not all(isinstance(ln["notes"], dict) and ln["notes"].get(lang) for lang in REQUIRED_LANGS):
-                        errors.append(f"generator: metro line {k} of {city}: notes gives zh and en")
-                    for end in ("from", "to"):
-                        if end in ln and ln[end] not in self.places:
-                            errors.append(f"generator: metro line {k} of {city}: {end} {ln[end]} is not a place")
-            sp = gen.get("streets", {})
-            if sp and not isinstance(sp.get("core_people_per_km2"), (int, float)):
-                errors.append("generator: streets needs core_people_per_km2: residents per km² of a district's "
-                              "core zone with local streets and buildings")
-            for did, cfg in sp.get("districts", {}).items():
-                if not self.is_leaf(did):
-                    errors.append(f"generator: streets district {did} is not a district or a state's city")
-                want = cfg.get("detail_km2", 0)
-                if want != "full" and (not isinstance(want, (int, float)) or want < 0):
-                    errors.append(f"generator: streets district {did}: detail_km2 must be km² >= 0 or full")
-                if cfg.get("style", "mixed") not in STREET_STYLES:
-                    errors.append(f"generator: streets district {did}: style must be one of {', '.join(STREET_STYLES)}")
-                for k, f in (cfg.get("mix") or {}).items():
-                    if k not in BUILDING_MIX_KEYS or not isinstance(f, (int, float)) or f < 0:
-                        errors.append(f"generator: streets district {did}: mix {k} must be one of "
-                                      f"{', '.join(BUILDING_MIX_KEYS)} with a factor >= 0")
-            for nm in sp.get("named", []):
-                if not self.is_leaf(nm.get("district", "")):
-                    errors.append(f"generator: named street {nm.get('names', {}).get('zh')}: {nm.get('district')} is not a district or a state's city")
-        return errors + self._politics_errors()
+            errors += self._metro_errors(gen) + self._street_errors(gen)
+        return errors
+
+    def _metro_errors(self, gen: dict) -> list[str]:
+        errors: list[str] = []
+        for system in gen.get("metro", {}).get("cities", []):
+            city = system.get("city")
+            if self.divisions.get(city, {}).get("subtype") != "locality":
+                errors.append(f"generator: metro city {city} is not a city")
+            for k, ln in enumerate(system.get("lines", []), 1):
+                if self.divisions.get(ln.get("district"), {}).get("parent") != city:
+                    errors.append(f"generator: metro line {k} of {city}: district {ln.get('district')} is not in that city")
+                if ln.get("axis") not in (0, 1):
+                    errors.append(f"generator: metro line {k} of {city}: axis must be 0 or 1")
+                if "notes" in ln and not all(isinstance(ln["notes"], dict) and ln["notes"].get(lang) for lang in REQUIRED_LANGS):
+                    errors.append(f"generator: metro line {k} of {city}: notes gives zh and en")
+                for end in ("from", "to"):
+                    if end in ln and ln[end] not in self.places:
+                        errors.append(f"generator: metro line {k} of {city}: {end} {ln[end]} is not a place")
+        return errors
+
+    def _street_errors(self, gen: dict) -> list[str]:
+        errors: list[str] = []
+        sp = gen.get("streets", {})
+        if sp and not isinstance(sp.get("core_people_per_km2"), (int, float)):
+            errors.append("generator: streets needs core_people_per_km2: residents per km² of a district's "
+                          "core zone with local streets and buildings")
+        for did, cfg in sp.get("districts", {}).items():
+            if not self.is_leaf(did):
+                errors.append(f"generator: streets district {did} is not a district or a state's city")
+            want = cfg.get("detail_km2", 0)
+            if want != "full" and (not isinstance(want, (int, float)) or want < 0):
+                errors.append(f"generator: streets district {did}: detail_km2 must be km² >= 0 or full")
+            if cfg.get("style", "mixed") not in STREET_STYLES:
+                errors.append(f"generator: streets district {did}: style must be one of {', '.join(STREET_STYLES)}")
+            for k, f in (cfg.get("mix") or {}).items():
+                if k not in BUILDING_MIX_KEYS or not isinstance(f, (int, float)) or f < 0:
+                    errors.append(f"generator: streets district {did}: mix {k} must be one of "
+                                  f"{', '.join(BUILDING_MIX_KEYS)} with a factor >= 0")
+        for nm in sp.get("named", []):
+            if not self.is_leaf(nm.get("district", "")):
+                errors.append(f"generator: named street {nm.get('names', {}).get('zh')}: {nm.get('district')} is not a district or a state's city")
+        return errors
 
     def _politics_errors(self) -> list[str]:
         """world/politics.yaml: every legislature in a territory with a known system, every party with a flag,
         a place on the spectrum, targets only where there is a legislature and a card's worth of text."""
         pol = self.politics
-        if not pol:
-            return []
         errors: list[str] = []
         legs = pol.get("legislatures", {})
         for tid, leg in legs.items():

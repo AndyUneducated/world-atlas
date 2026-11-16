@@ -35,6 +35,8 @@ import shapely
 from shapely import affinity
 from shapely.geometry import Point, Polygon, box
 
+from .world import SITE_VARIANTS
+
 STREET_HALF_WIDTH = {"arterial": 0.016, "collector": 0.011, "local": 0.0065}
 MIN_BLOCK_KM2 = 0.0015
 TYPOLOGY_CLASS = {"slabs": "residential", "towers": "residential", "perimeter": "residential", "houses": "residential",
@@ -185,7 +187,7 @@ def district_buildings(block_list, style: str, core, angle: float, radius: float
     return out, [p for p in parks if not p.is_empty]
 
 
-def _airport(site, cx, cy, W, D, rng) -> list[tuple[str, Polygon]]:
+def _airport(cx, cy, W, D) -> list[tuple[str, Polygon]]:
     """Runways along local x; terminal and apron on the -y side (or between two runways)."""
     strip = lambda y, w, x0=-0.45, x1=0.45: box(cx + x0 * W, cy + y - w / 2, cx + x1 * W, cy + y + w / 2)
     two = D >= 1.35
@@ -330,7 +332,7 @@ def _offshore(cx, cy, W, D) -> list[tuple[str, Polygon]]:
     return parts
 
 
-def _spaceport(site, cx, cy, W, D, rng) -> list[tuple[str, Polygon]]:
+def _spaceport(cx, cy, W, D) -> list[tuple[str, Polygon]]:
     """Launch pads along the +y side, landing pads, assembly hall and control centre on -y,
     a crawlerway linking them; large sites add a runway for spaceplanes."""
     r = min(0.12, 0.09 * D)
@@ -484,7 +486,7 @@ def _range(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
     return parts
 
 
-def _plant(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
+def _plant(cx, cy, W, D, variant) -> list[tuple[str, Polygon]]:
     """Industrial plants with a rail siding along -y. assembly: a tall vertical assembly building and
     long halls; propellant: tank farms and spheres; tunnel: wind tunnels as long tubes with spheres;
     hangar: wide hangars on an apron; depot: rows of warehouses; engine: hangars and test cells."""
@@ -559,7 +561,7 @@ def _bunker(cx, cy, W, D) -> list[tuple[str, Polygon]]:
     return parts
 
 
-def _launch_track(cx, cy, W, D) -> list[tuple[str, Polygon]]:
+def _launch_track(cx, cy, W) -> list[tuple[str, Polygon]]:
     """Electromagnetic launch track up the slope along local x: a loading terminal, power plant and
     capacitor halls at the low -x end, the guideway, and the exit portal at the high +x end."""
     x0, x1 = cx - 0.5 * W + 0.6, cx + 0.5 * W - 0.15
@@ -572,7 +574,7 @@ def _launch_track(cx, cy, W, D) -> list[tuple[str, Polygon]]:
     return parts
 
 
-def _camp(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
+def _camp(cx, cy, W, D, variant) -> list[tuple[str, Polygon]]:
     """Barracks compound: rows of barracks around a parade ground, motor pool and depots; hq adds a
     large headquarters building; hospital: a hospital block with a helipad; training: a centrifuge,
     a neutral-buoyancy pool and simulator halls."""
@@ -680,7 +682,7 @@ def _estate(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
     return _villa(cx, cy, W, D)
 
 
-def _detention(cx, cy, W, D, rng) -> list[tuple[str, Polygon]]:
+def _detention(cx, cy, W, D) -> list[tuple[str, Polygon]]:
     """Detention centre, gate on -x: a double fence with watchtowers along it, the intake hall with a
     bus bay and car park at the gate, rows of cell blocks each with an exercise yard, container cells
     stacked in an overflow yard on +x and a helipad."""
@@ -813,7 +815,7 @@ def _racetrack(cx, cy, W, D) -> list[tuple[str, Polygon]]:
     return parts
 
 
-def _fab(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
+def _fab(cx, cy, W, D, variant) -> list[tuple[str, Polygon]]:
     """Semiconductor plant, gate on -x. logic and memory: cleanroom fab modules (memory: two, with a third
     pad cleared for the next) bridged to the central utility building, cooling towers, a bulk gas and
     chemical yard, ultrapure water and wastewater basins, a substation, offices and the staff car park;
@@ -855,7 +857,7 @@ def _fab(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
     return parts
 
 
-def _works(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
+def _works(cx, cy, W, D, variant) -> list[tuple[str, Polygon]]:
     """Light industry, gate on -x. plates: a number-plate works, the aluminium coil yard, the blanking and
     embossing hall, the painting line and curing oven, a warehouse with truck docks and the visitor
     centre; winery: the crush pad, a fermentation hall and tank yard, the barrel cellar dug into the slope
@@ -935,7 +937,7 @@ def _works(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
     return parts
 
 
-def _zoo(cx, cy, W, D, variant, rng) -> list[tuple[str, Polygon]]:
+def _zoo(cx, cy, W, D, variant) -> list[tuple[str, Polygon]]:
     """One house of a zoo, entrance on -x: a visitors' path round the site, the life-support plant (tanks)
     behind the house, and per taxon (SITE_VARIANTS["zoo"] in world.py): primates, forest islands in a moat with climbing
     towers; felids, walled paddocks round a viewing pavilion; ungulates, a savanna paddock with a
@@ -1232,7 +1234,7 @@ def _brewhouse(cx, cy, W, D, variant) -> list[tuple[str, Polygon]]:
     return parts
 
 
-def _orchard(cx, cy, W, D, variant) -> list[tuple[str, Polygon]]:
+def _orchard(cx, cy, W, D) -> list[tuple[str, Polygon]]:
     """A fruit plantation, entrance on -y: blocks of trees in rows (drawn as vine_white crowns) inside
     the frames of retractable greenhouse roofs, farm tracks between the blocks, the packing house, a
     cold store and a pond. durian: four roofed blocks."""
@@ -1344,8 +1346,10 @@ def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=
     green (lawns, gardens, paddocks), wall (walls and fences) and vine_red / vine_white (rows of vines).
     Local x points along `angle`; the front of a city landmark is at -x, a port faces the sea on +y.
     `land` (needed by ports) is the land area around the site; `terminals` lists a harbour's moles;
-    `variant` picks a military layout's kind (see MILITARY_VARIANTS in world.py)."""
+    `variant` picks a layout's kind (see SITE_VARIANTS in world.py; by default the first)."""
     W, D = size
+    if not variant and (kinds := SITE_VARIANTS.get(layout)):
+        variant = kinds[0]
     cx, cy = center
     site = box(cx - W / 2, cy - D / 2, cx + W / 2, cy + D / 2)
     rel = lambda x0, y0, x1, y1: box(cx + x0 * W, cy + y0 * D, cx + x1 * W, cy + y1 * D)
@@ -1384,29 +1388,29 @@ def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=
         parts += [("building", Point(cx + 0.1 * r, cy - 0.15 * r).buffer(0.12 * r, quad_segs=12))]
         parts += [("building", box(cx + x * W - 0.04 * W, cy - 0.46 * D, cx + x * W + 0.04 * W, cy - 0.42 * D)) for x in (-0.35, 0.35)]
     elif layout == "estate":
-        parts = _estate(cx, cy, W, D, variant or "villa", rng)
+        parts = _estate(cx, cy, W, D, variant, rng)
     elif layout == "detention":
-        parts = _detention(cx, cy, W, D, rng)
+        parts = _detention(cx, cy, W, D)
     elif layout == "checkpoint":
         parts = _checkpoint(cx, cy, W, D)
     elif layout == "refugee":
         parts = _refugee(cx, cy, W, D, rng)
     elif layout == "vineyard":
-        parts = _vineyard(cx, cy, W, D, variant or "red")
+        parts = _vineyard(cx, cy, W, D, variant)
     elif layout == "racetrack":
         parts = _racetrack(cx, cy, W, D)
     elif layout == "fab":
-        parts = _fab(cx, cy, W, D, variant or "logic", rng)
+        parts = _fab(cx, cy, W, D, variant)
     elif layout == "works":
-        parts = _works(cx, cy, W, D, variant or "plates", rng)
+        parts = _works(cx, cy, W, D, variant)
     elif layout == "zoo":
-        parts = _zoo(cx, cy, W, D, variant or "primates", rng)
+        parts = _zoo(cx, cy, W, D, variant)
     elif layout == "clinic":
         parts = _clinic(cx, cy, W, D)
     elif layout == "triangle":
-        parts = _triangle(cx, cy, W, D, variant or "hollow")
+        parts = _triangle(cx, cy, W, D, variant)
     elif layout == "retail":
-        parts = _retail(cx, cy, W, D, variant or "supermarket")
+        parts = _retail(cx, cy, W, D, variant)
     elif layout == "apartments":
         parts = _apartments(cx, cy, W, D)
     elif layout == "lido":
@@ -1414,15 +1418,15 @@ def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=
     elif layout == "breeze":
         parts = _breeze(cx, cy, W, D)
     elif layout == "square":
-        parts = _square(cx, cy, W, D, variant or "round")
+        parts = _square(cx, cy, W, D, variant)
     elif layout == "fashion":
-        parts = _fashion(cx, cy, W, D, variant or "studio")
+        parts = _fashion(cx, cy, W, D, variant)
     elif layout == "chip":
         parts = _chip(cx, cy, W, D)
     elif layout == "brewhouse":
-        parts = _brewhouse(cx, cy, W, D, variant or "pilsner")
+        parts = _brewhouse(cx, cy, W, D, variant)
     elif layout == "orchard":
-        parts = _orchard(cx, cy, W, D, variant or "durian")
+        parts = _orchard(cx, cy, W, D)
     elif layout == "spine":
         parts = _spine(cx, cy, W, D)
     elif layout == "camera":
@@ -1436,9 +1440,9 @@ def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=
     elif layout == "dronetower":
         parts = _dronetower(cx, cy, W, D)
     elif layout == "airport":
-        parts = _airport(site, cx, cy, W, D, rng)
+        parts = _airport(cx, cy, W, D)
     elif layout == "spaceport":
-        parts = _spaceport(site, cx, cy, W, D, rng)
+        parts = _spaceport(cx, cy, W, D)
     elif layout == "port":
         local_land = rotate(land.intersection(rotate(site, angle, center).buffer(0.2)), -angle, center) if land is not None else site
         outline, parts = _port(site, local_land, cx, cy, W, D, rng)
@@ -1447,17 +1451,17 @@ def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=
     elif layout == "offshore_port":
         parts = _offshore(cx, cy, W, D)
     elif layout == "airbase":
-        parts = _airbase(cx, cy, W, D, variant or "fighter", rng)
+        parts = _airbase(cx, cy, W, D, variant, rng)
     elif layout == "radar":
-        parts = _radar(cx, cy, W, D, variant or "dome")
+        parts = _radar(cx, cy, W, D, variant)
     elif layout == "antenna":
-        parts = _antenna(cx, cy, W, D, variant or "small")
+        parts = _antenna(cx, cy, W, D, variant)
     elif layout == "sam":
         parts = _sam(cx, cy, W, D)
     elif layout == "range":
-        parts = _range(cx, cy, W, D, variant or "air", rng)
+        parts = _range(cx, cy, W, D, variant, rng)
     elif layout == "plant":
-        parts = _plant(cx, cy, W, D, variant or "depot", rng)
+        parts = _plant(cx, cy, W, D, variant)
     elif layout == "test_stand":
         parts = _test_stand(cx, cy, W, D)
     elif layout == "silo":
@@ -1465,9 +1469,9 @@ def landmark(layout: str, center, angle: float, size, rng, land=None, terminals=
     elif layout == "bunker":
         parts = _bunker(cx, cy, W, D)
     elif layout == "launch_track":
-        parts = _launch_track(cx, cy, W, D)
+        parts = _launch_track(cx, cy, W)
     elif layout == "camp":
-        parts = _camp(cx, cy, W, D, variant or "barracks", rng)
+        parts = _camp(cx, cy, W, D, variant)
     elif layout == "heliport":
         parts = _heliport(cx, cy, W, D)
     elif layout == "mine":

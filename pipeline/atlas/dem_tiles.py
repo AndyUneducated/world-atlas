@@ -19,6 +19,7 @@ from .cache import CACHE_DIR
 MIN_ZOOM = 3
 TILE_PX = 256
 EQUATOR_M = 40075016.686
+SEA_LEVEL_M = -40.0  # elevation written for open water, below 0 so styles can mask the sea
 
 
 def max_zoom(generators) -> int:
@@ -92,9 +93,9 @@ def _link(src, dst):
         shutil.copyfile(src, dst)
 
 
-def write_dem_tiles(out_dir: Path, elev: np.ndarray, grid, frame, bounds, zooms: range, size=TILE_PX, sea_level_m=-40.0):
-    """sea_level_m: elevation written for open water, below 0 so styles can mask the sea.
-    A tile already written keeps the higher of the two elevations."""
+def write_dem_tiles(out_dir: Path, elev: np.ndarray, grid, frame, bounds, zooms: range, size=TILE_PX):
+    """Terrain tiles of `elev`, open water around it at SEA_LEVEL_M. A tile already written keeps the higher of
+    the two elevations."""
     count = 0
     for z in zooms:
         k = 2 ** z
@@ -106,7 +107,7 @@ def write_dem_tiles(out_dir: Path, elev: np.ndarray, grid, frame, bounds, zooms:
                 lat = np.degrees(np.arctan(np.sinh(math.pi * (1 - 2 * (ty + i) / k))))
                 LON, LAT = np.meshgrid(lon, lat)
                 x, y = frame.from_lonlat(LON, LAT)
-                e = ndimage.map_coordinates(elev, [y / grid.res - 0.5, x / grid.res - 0.5], order=1, mode="constant", cval=sea_level_m)
+                e = ndimage.map_coordinates(elev, [y / grid.res - 0.5, x / grid.res - 0.5], order=1, mode="constant", cval=SEA_LEVEL_M)
                 path = out_dir / str(z) / str(tx) / f"{ty}.png"
                 if path.exists():
                     e = np.maximum(e, _decode(path))
@@ -132,11 +133,11 @@ def cached_dem_tiles(out_dir: Path, name: str, elev: np.ndarray, grid, frame, bo
     return n
 
 
-def pack_dem_tiles(src_dir: Path, archive: Path, bounds, zooms: range, size=TILE_PX, sea_level_m=-40.0) -> tuple[int, int]:
+def pack_dem_tiles(src_dir: Path, archive: Path, bounds, zooms: range, size=TILE_PX) -> tuple[int, int]:
     """Write the merged tiles under src_dir into one PMTiles archive covering bounds, with open water wherever no
     region wrote a tile, so every tile the map asks for exists. Identical tiles (all the open sea) are stored once.
     Returns the number of tiles and how many of them are open water."""
-    v = sea_level_m + 32768.0
+    v = SEA_LEVEL_M + 32768.0
     buf = io.BytesIO()
     Image.fromarray(np.full((size, size, 3), [v // 256, v % 256, (v % 1) * 256], np.uint8), "RGB").save(buf, "PNG", optimize=True)
     sea = buf.getvalue()

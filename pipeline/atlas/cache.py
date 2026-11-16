@@ -8,30 +8,30 @@ import shutil
 from pathlib import Path
 from typing import Any, Callable
 
-ROOT = Path(__file__).resolve().parents[2]
+from .world import ROOT
+
 CACHE_DIR = ROOT / ".cache"
 REGION_DIR = CACHE_DIR / "regions"
 CODE_DIR = Path(__file__).resolve().parent
 # Run by build.py on the merged world after the regions; no region build imports them.
-POST_MERGE = ("traffic", "economy")
+POST_MERGE = ("traffic", "economy", "climate", "politics")
 
 
-def _code_digest(modules: tuple[str, ...] | None) -> str:
+def _code_digest(modules: tuple[str, ...]) -> str:
     h = hashlib.sha256()
-    paths = sorted(CODE_DIR.glob("*.py")) if modules is None else [CODE_DIR / f"{m}.py" for m in modules]
-    for path in paths:
-        h.update(path.read_bytes())
+    for m in modules:
+        h.update((CODE_DIR / f"{m}.py").read_bytes())
     return h.hexdigest()
 
 
-def _key(inputs: Any, modules: tuple[str, ...] | None) -> str:
+def _key(inputs: Any, modules: tuple[str, ...]) -> str:
     return hashlib.sha256((_code_digest(modules) + json.dumps(inputs, sort_keys=True, default=str)).encode()).hexdigest()[:16]
 
 
-def stage(name: str, inputs: Any, compute: Callable[[], Any], enabled: bool = True, modules: tuple[str, ...] | None = None) -> Any:
+def stage(name: str, inputs: Any, compute: Callable[[], Any], modules: tuple[str, ...], enabled: bool = True) -> Any:
     """Return compute()'s result, reusing a stored copy when the inputs and the code it depends on are unchanged.
 
-    modules: atlas module names the stage depends on (default: all of them).
+    modules: atlas module names the stage depends on.
     """
     path = CACHE_DIR / f"{name}-{_key(inputs, modules)}.pkl"
     if enabled and path.exists():

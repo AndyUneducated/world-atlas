@@ -8,32 +8,21 @@ is, and not from their territories.
 Runs after merge_crossings, on the whole world's entities."""
 from __future__ import annotations
 
-import hashlib
-
 import numpy as np
 
+from .common import largest_remainder, round_sig, stable_seed
 from .world import World
 
 SECTORS = ("primary", "secondary", "tertiary")
 
 
 def _rng(eid: str) -> np.random.Generator:
-    return np.random.default_rng(int(hashlib.sha1(("economy:" + eid).encode()).hexdigest()[:8], 16))
+    return np.random.default_rng(stable_seed("economy:" + eid))
 
 
 def _percent(values: list[float]) -> list[int]:
     """Whole percentages summing to 100 (largest remainder)."""
-    total = sum(values)
-    raw = [v * 100 / total for v in values]
-    out = [int(r) for r in raw]
-    for i in sorted(range(len(raw)), key=lambda i: out[i] - raw[i])[: 100 - sum(out)]:
-        out[i] += 1
-    return out
-
-
-def _round_sig(v: float, digits: int) -> int:
-    e = 10 ** max(len(str(int(v))) - digits, 0)
-    return int(round(v / e) * e)
+    return list(largest_remainder(dict(enumerate(values)), 100).values())
 
 
 def _traits(world: World, did: str) -> dict:
@@ -90,13 +79,13 @@ def _sum(parts: list[dict]) -> dict:
 def _card(v: dict, lead: list[str], model: dict) -> tuple[dict, dict]:
     ind = model["industries"]
     economy = {
-        "gdp_usd": _round_sig(v["gdp"], 3),
-        "gdp_per_capita_usd": _round_sig(v["gdp"] / v["population"], 3),
+        "gdp_usd": round_sig(v["gdp"], 3),
+        "gdp_per_capita_usd": round_sig(v["gdp"] / v["population"], 3),
         "sectors": dict(zip(SECTORS, _percent(v["sectors"]))),
         "industries": [{"zh": ind[k]["zh"], "en": ind[k]["en"]} for k in lead],
     }
     if "median" in v:
-        economy["median_income_usd"] = _round_sig(v["median"], 2)
+        economy["median_income_usd"] = round_sig(v["median"], 2)
     langs = {lg: p for lg, p in zip(model["languages"], _percent(v["languages"])) if p}
     demographics = {"age": _percent(v["age"]), "languages": langs}
     if "ethnicity" in v:

@@ -1,7 +1,7 @@
 # Administrative divisions of the Everlong Summer Islands Territory (CN-ES).
 # id: stable internal key, referenced by other files. codes.admin: 6-digit hierarchical code (GB/T 2260 pattern:
 # territory 930000, city 930100, district 930101); may change on reorganisation.
-# subtype follows Overture Maps divisions: country > dependency/region > locality > borough.
+# subtype follows Overture Maps divisions: country > dependency > locality > borough.
 # Names are Chinese, English and Ivuran (art-x-ivuran), the islands' own language.
 # Special divisions: Evutola Commune (city level, self-governing, sets its own taxes), Kilanu (a special
 # autonomous city under its own charter), Kirumai (a commonwealth of six islands), a national park

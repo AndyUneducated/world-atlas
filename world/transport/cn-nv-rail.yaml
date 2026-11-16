@@ -1,6 +1,8 @@
 # Railways of North Viking Island.
 #
-# network: intercity_rail (高速铁路 or 磁悬浮).
+# network: intercity_rail (铁路, 高速铁路, 磁悬浮 or 真空磁悬浮) or freight_rail (重载铁路, goods only,
+#   stopping at freight yards).
+# conventional (optional): true for a wheeled conventional line (铁路, or a conventional 重载铁路).
 # via: ordered stops. A city stops at its core district (the most populous one), a district
 #   at its own centre. The generator lays the line over the terrain, keeping to gentler
 #   gradients than roads and tunnelling through mountains (tunnel_cost caps the per-km cost
@@ -18,8 +20,9 @@
 # color: the line's colour on cards and in station lists.
 # closed (optional): true for a private line closed to the public; its stations take no share of
 #   their city's people when the city's other lines are counted.
-# tech: operating and design speed (km/h; in service at least 400 on wheeled lines, 500 on an
-#   open-air maglev and 600 on a vacuum maglev); gauge, power, signalling and train formation
+# tech: operating and design speed (km/h; in service 80–399 on a conventional line, 400–499 on a
+#   high-speed line, at least 500 on an open-air maglev and 600 on a vacuum maglev; 40–199 on a
+#   conventional heavy-haul line); gauge, power, signalling and train formation
 #   default to the line's standard in engineering.yaml.
 # City metro lines are generated from the `metro` section of world/generator/.
 railways:

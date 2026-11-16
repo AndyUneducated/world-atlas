@@ -1,4 +1,4 @@
-import type { AtlasData, ElectoralSystem, Entity, Lang, Legislature, PartyAxis, Seating } from "./types";
+import type { ElectoralSystem, Lang, Legislature, PartyAxis, Seating } from "./types";
 
 export const SYSTEM_NAMES: Record<ElectoralSystem, Record<Lang, string>> = {
   mmp: { zh: "混合成员比例制", en: "Mixed-member proportional" },
@@ -40,15 +40,7 @@ export function systemText(l: Legislature, lang: Lang): string {
 
 export const PARTY_AXES = ["econ", "galtan", "autonomy", "green"] as const satisfies readonly PartyAxis[];
 
-export const majority = (c: Seating) => Math.floor(c.seats / 2) + 1;
+export const majority = (c: { seats: number }) => Math.floor(c.seats / 2) + 1;
 
 export const governmentSeats = (c: Seating) => c.parties.filter((p) => c.government.includes(p.id)).reduce((a, p) => a + p.seats, 0);
 
-/** Every party, most seats in the territorial and national parliaments first. */
-export function parties(data: AtlasData): Entity[] {
-  const parliament = (id: string) => ["dependency", "country"].includes(data.entities[id]?.subtype ?? "");
-  const seats = (e: Entity) => (e.seats ?? []).filter((s) => parliament(s.at)).reduce((a, s) => a + s.seats, 0);
-  return Object.values(data.entities)
-    .filter((e) => e.kind === "party")
-    .sort((a, b) => seats(b) - seats(a) || (b.members ?? 0) - (a.members ?? 0));
-}

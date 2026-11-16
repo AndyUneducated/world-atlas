@@ -4,6 +4,7 @@ from __future__ import annotations
 import copy
 import math
 from pathlib import Path
+from types import SimpleNamespace
 
 import numpy as np
 import shapely
@@ -14,7 +15,7 @@ from shapely.ops import nearest_points, substring
 
 from . import coast, engineering, landcover, relief, streets
 from .cache import stage
-from .dem_tiles import cached_dem_tiles, zoom_range
+from .dem_tiles import SEA_LEVEL_M, cached_dem_tiles, zoom_range
 from .divisions import label_pole, partition, pole_of_inaccessibility
 from .grid import Frame, Grid, block_reduce, chaikin, line_length_km, polyline_distance
 from .hydro import Drainage
@@ -23,7 +24,7 @@ from .terrain import drainage_surface, elevation, land_mask
 from .network import ROAD_RANK, build_graph
 from .transport import Router
 from .vectorize import point_lonlat, polygonize_labels, to_lonlat
-from .world import FACILITY_LAYOUTS, MILITARY_VARIANTS, RUNWAY_LAYOUTS, World
+from .world import FACILITY_LAYOUTS, MILITARY_VARIANTS, RUNWAY_LAYOUTS, SEGMENTED_NETWORKS, World
 from .common import (BUILDING_MINZOOM, STREET_MINZOOM, bbox_lonlat, derived_id, drawn_along, feature, fill_undrawn, log, owned_runs, place_offset, run_positions,
                      place_name, undrawn_steps, smooth_line, smooth_pinned, tile_minzoom)
 from .sites import SEA_BRIDGE_HALF_WIDTH_KM, landmark_sites
@@ -33,10 +34,9 @@ from .routes import PORTAL, cross_part, fold_ring, join_leg, land_cell, rail_sta
 LAYERS = ("divisions", "labels", "places", "landcover", "water", "coast", "glaciers", "rivers", "rivers-named", "ridges", "roads",
           "route-shared", "streets", "streets-named", "buildings", "parks", "skyways", "landmarks", "rail", "stations", "bathymetry")
 SKYWAY_LINK_KM = 0.6  # a landmark this close to a skyway is joined to it by a short bridge
+RIVER_GAP_MIN_KM2 = 60  # streets leave a gap along named rivers and streams draining at least this much (km²)
 
 
-# Road networks whose cards list the districts they pass through.
-SEGMENTED_NETWORKS = {"national_expressway", "territorial_expressway", "territorial_highway"}
 # How far a route terminus reaches to join the network: expressway to expressway, else to any road.
 JOIN_MOTORWAY_KM = 20
 JOIN_ROAD_KM = 5
@@ -235,20 +235,46 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     """Generate one region from the base entities (left unchanged) and write its terrain tiles to dem_dir.
 
     Returns {region: manifest entry, entities: the entities it adds or changes, layers, graph (its own
-    node and road numbering), candidates: landform report}."""
-    entities = copy.deepcopy(base)
-    graph = {"nodes": [], "edges": [], "roads": [], "places": {}}
-    seed = spec["seed"]
-    frame = Frame(spec["frame"]["origin_lonlat"], spec["frame"]["size_km"], spec["frame"].get("scale", 1.0))
-    noise_h = spec["frame"].get("noise_height_km")
-    g = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"], noise_h)
-    gc = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"] * 2, noise_h)
-    gr = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"] * 4, noise_h)
-    layout = spec["layout"]
+    node and road numbering), candidates: landform report}.
 
-    territory = world.divisions[spec["territory"]]
-    in_territory = [territory["id"], *world.ancestors(territory["id"])]
-    cities = world.region_units(spec)
+    The stages below run in this order on one shared context `x`, each reading what earlier stages left
+    there and adding its own results."""
+    x = SimpleNamespace(world=world, spec=spec, base=base, dem_dir=dem_dir, use_cache=use_cache)
+    for step in (_setup, _partition, _terrain, _vectorise, _hydrology, _mountains, _land_cover, _landforms, _bathymetry,
+                 _streets, _route_roads, _access_roads, _join_route_ends, _railways, _metro, _export_divisions, _export_places,
+                 _export_lakes, _export_rivers, _export_ridges, _engineering, _draw_roads, _export_roads, _export_streets,
+                 _export_skyways, _export_rail, _road_graph, _export_landforms, _terrain_tiles):
+        step(x)
+    layers = {
+        "divisions": x.div_features, "labels": x.label_features, "places": x.place_features, "landcover": x.landcover_features,
+        "water": x.water_features, "coast": x.coast_features, "glaciers": x.glacier_features, "rivers": x.stream_features,
+        "rivers-named": x.named_features, "ridges": x.ridge_features, "roads": x.road_features, "route-shared": x.shared_features,
+        "streets": x.street_features, "streets-named": x.street_named, "buildings": x.building_features, "parks": x.park_features,
+        "skyways": x.skyway_features, "landmarks": x.landmark_features, "rail": x.rail_features, "stations": x.station_features,
+        "bathymetry": x.bath_features,
+    }
+    assert tuple(layers) == LAYERS
+    changed = {k: v for k, v in x.entities.items() if base.get(k) != v}
+    return {"region": x.meta, "entities": changed, "layers": layers, "graph": x.graph, "candidates": x.candidate_report}
+
+
+def _setup(x: SimpleNamespace) -> None:
+    """The region's frame and grids, its territory, top divisions (cities or states) and their districts."""
+    world, spec = x.world, x.spec
+    x.entities = copy.deepcopy(x.base)
+    x.graph = {"nodes": [], "edges": [], "roads": [], "places": {}}
+    x.seed = spec["seed"]
+    x.frame = frame = Frame(spec["frame"]["origin_lonlat"], spec["frame"]["size_km"], spec["frame"].get("scale", 1.0))
+    x.s = frame.scale
+    noise_h = spec["frame"].get("noise_height_km")
+    x.g = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"], noise_h)
+    x.gc = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"] * 2, noise_h)
+    x.gr = Grid(spec["frame"]["size_km"], spec["frame"]["resolution_km"] * 4, noise_h)
+    x.layout = layout = spec["layout"]
+
+    x.territory = territory = world.divisions[spec["territory"]]
+    x.in_territory = [territory["id"], *world.ancestors(territory["id"])]
+    x.cities = cities = world.region_units(spec)
     districts, district_city = [], []
     added = layout.get("added_districts", [])
     for ci, c in enumerate(cities):
@@ -261,9 +287,16 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     for did in added:
         districts.append(world.divisions[did])
         district_city.append(next(ci for ci, c in enumerate(cities) if c["id"] == world.divisions[did]["parent"]))
-    city_index = {c["id"]: ci for ci, c in enumerate(cities)}
-    total_area = sum(c["area_km2"] for c in cities) / frame.km2(1.0)
-    dirs = district_directions(layout, districts, district_city)
+    x.districts, x.district_city = districts, district_city
+    x.city_index = {c["id"]: ci for ci, c in enumerate(cities)}
+    x.total_area = sum(c["area_km2"] for c in cities) / frame.km2(1.0)
+    x.dirs = district_directions(layout, districts, district_city)
+
+
+def _partition(x: SimpleNamespace) -> None:
+    """The land and its division among the cities, then each city's among its districts (cached)."""
+    spec, seed, g, frame, layout, territory = x.spec, x.seed, x.g, x.frame, x.layout, x.territory
+    cities, districts, district_city, dirs, total_area = x.cities, x.districts, x.district_city, x.dirs, x.total_area
 
     def land_and_partition():
         log(f"{territory['names']['en']}: land")
@@ -289,7 +322,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             if z is None:
                 return None
             z = z if isinstance(z, dict) else {"path": z}
-            poly = shapely.Polygon(z["path"], z.get("holes", []))
+            poly = shapely.Polygon(z["path"])
             px, py = (g.X, g.Y) if z.get("exact") else (zx, zy)
             return shapely.contains_xy(poly, px, py), bool(z.get("whole"))
 
@@ -316,19 +349,26 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
 
     stage_inputs = {"spec": {k: spec.get(k) for k in ("seed", "frame", "land", "layout")}, "dirs": dirs,
                     "areas": [(d["id"], d["area_km2"]) for d in cities + districts]}
-    land, city_r, dist_r, dist_errs = stage(f"partition-{territory['id']}", stage_inputs, land_and_partition, use_cache,
-                                            modules=("divisions", "terrain", "noise", "grid"))
+    x.land, x.city_r, x.dist_r, x.dist_errs = stage(f"partition-{territory['id']}", stage_inputs, land_and_partition,
+                                                    ("divisions", "terrain", "noise", "grid"), x.use_cache)
+
+
+def _terrain(x: SimpleNamespace) -> None:
+    """How closely the divisions fit their areas; elevation, the district centres, lakes and ponds."""
+    spec, seed, g, frame, territory = x.spec, x.seed, x.g, x.frame, x.territory
+    cities, districts, district_city = x.cities, x.districts, x.district_city
+    land, city_r, dist_r, dist_errs = x.land, x.city_r, x.dist_r, x.dist_errs
     log(f"{territory['names']['en']}: terrain")
     city_t = np.array([c["area_km2"] for c in cities], float)
     city_t *= land.sum() * g.cell / city_t.sum()
     city_err = np.abs(np.bincount(city_r[land], minlength=len(cities)) * g.cell - city_t) / city_t
-    city_err, dist_err = float(city_err.max()), float(dist_errs.max())
+    x.city_err, x.dist_err = city_err, dist_err = float(city_err.max()), float(dist_errs.max())
     worst = ", ".join(f"{districts[i]['names']['zh']} {dist_errs[i] * 100:.1f}%" for i in np.argsort(-dist_errs)[:3])
     log(f"  max area deviation: cities {city_err * 100:.2f}%, districts {dist_err * 100:.2f}% ({worst})")
-    elev, dcoast = elevation(spec, seed, g, land)
+    x.elev, x.dcoast = elev, dcoast = elevation(spec, seed, g, land)
 
-    poles = [pole_of_inaccessibility(dist_r == i, g.xs, g.ys) for i in range(len(districts))]
-    core = [max((i for i, dc in enumerate(district_city) if dc == ci), key=lambda i: districts[i]["population"]) for ci in range(len(cities))]
+    x.poles = poles = [pole_of_inaccessibility(dist_r == i, g.xs, g.ys) for i in range(len(districts))]
+    x.core = [max((i for i, dc in enumerate(district_city) if dc == ci), key=lambda i: districts[i]["population"]) for ci in range(len(cities))]
 
     lakes = []
     for lk in spec.get("hydrology", {}).get("lakes", []):
@@ -347,20 +387,31 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     ponds = polygonize_labels(np.where(pond_mask, 0, -1), g.res).get(0) if pond_mask.any() else None
     lake_polys = [p for _, p in lake_named] + ([ponds] if ponds is not None else [])
     lake_union = shapely.union_all(lake_polys) if lake_polys else None
+    x.lakes, x.water, x.lake_named, x.ponds, x.lake_polys = lakes, water, lake_named, ponds, lake_polys
 
     def on_land(line):
         """The part of a river drawn on the map: lakes cover it."""
         return line if lake_union is None else line.difference(lake_union)
+    x.on_land = on_land
 
+
+def _vectorise(x: SimpleNamespace) -> None:
+    g, cities, district_city, dist_r = x.g, x.cities, x.district_city, x.dist_r
     log("vectorising boundaries")
-    dist_polys = polygonize_labels(dist_r, g.res)
-    city_polys = [shapely.union_all([dist_polys[i] for i, dc in enumerate(district_city) if dc == ci]) for ci in range(len(cities))]
-    terr_poly = shapely.union_all(city_polys)
+    x.dist_polys = dist_polys = polygonize_labels(dist_r, g.res)
+    x.city_polys = city_polys = [shapely.union_all([dist_polys[i] for i, dc in enumerate(district_city) if dc == ci]) for ci in range(len(cities))]
+    x.terr_poly = shapely.union_all(city_polys)
 
+
+def _hydrology(x: SimpleNamespace) -> None:
+    """Streams and the named rivers; port towns and fixed town centres move the district centres."""
+    world, spec, seed, g, gc, frame, layout = x.world, x.spec, x.seed, x.g, x.gc, x.frame, x.layout
+    districts, city_index, land, city_r, dist_r, elev, dcoast = x.districts, x.city_index, x.land, x.city_r, x.dist_r, x.elev, x.dcoast
+    poles, water, on_land = x.poles, x.water, x.on_land
     log("hydrology")
-    land_c = block_reduce(land, 2, "mode_bool")
-    elev_c = block_reduce(elev, 2, "mean")
-    drain = Drainage(drainage_surface(elev_c, seed, gc, land_c), land_c, gc.cell)
+    x.land_c = land_c = block_reduce(land, 2, "mode_bool")
+    x.elev_c = elev_c = block_reduce(elev, 2, "mean")
+    x.drain = drain = Drainage(drainage_surface(elev_c, seed, gc, land_c), land_c, gc.cell)
     min_km2 = spec["hydrology"]["river_min_drainage_km2"]
     stream_features, stream_lines = [], []
     for chain, acc in drain.river_chains(min_km2):
@@ -369,7 +420,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         if not (shown := on_land(line)).is_empty:
             stream_features.append(feature(to_lonlat(shown, frame), {"magnitude": round(acc, 1)}))
         stream_lines.append((line, acc))
-    named_rivers = []
+    x.stream_features, x.stream_lines = stream_features, stream_lines
+    x.named_rivers = named_rivers = []
     for nr in spec["hydrology"].get("named_rivers", []):
         if nr["through"] in city_index:
             region_mask = city_r == city_index[nr["through"]]
@@ -404,6 +456,10 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             log(f"  WARN {districts[i]['names']['zh']}: centre {at} lies outside the district")
         poles[i] = (float(at[0]), float(at[1]))
 
+
+def _mountains(x: SimpleNamespace) -> None:
+    """Peaks, passes and the ice fields above the snowline."""
+    spec, g, gc, frame, land, elev, water, elev_c, land_c = x.spec, x.g, x.gc, x.frame, x.land, x.elev, x.water, x.elev_c, x.land_c
     log("mountains")
     rp = spec.get("relief", {})
     peak_c = relief.peaks(elev_c, land_c, gc.xs, gc.ys, rp.get("peak_min_elev_m", 700), rp.get("peak_min_prominence_m", 150))
@@ -420,42 +476,57 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                           rp.get("snowline_aspect_m", 300), rp.get("glacier_max_slope_deg", 38), rp.get("ice_min_km2", 0.5))
     glacier_c = [c for c in ice if c["metrics"]["area_km2"] >= rp.get("glacier_min_km2", 4)]
     log(f"  {len(peak_c)} peaks, {len(pass_c)} passes, {len(ice)} ice fields ({len(glacier_c)} glaciers)")
+    x.peak_c, x.pass_c, x.ice, x.glacier_c = peak_c, pass_c, ice, glacier_c
 
+
+def _land_cover(x: SimpleNamespace) -> None:
+    spec, seed, g, gc, frame, districts = x.spec, x.seed, x.g, x.gc, x.frame, x.districts
+    poles, water, ice, elev_c, land_c, drain = x.poles, x.water, x.ice, x.elev_c, x.land_c, x.drain
     log("land cover")
     water_c = block_reduce(water, 2, "mode_bool")
-    ice_mask = np.any([c["mask"] for c in ice], axis=0) if ice else np.zeros(g.shape, bool)
+    x.ice_mask = ice_mask = np.any([c["mask"] for c in ice], axis=0) if ice else np.zeros(g.shape, bool)
     ice_c = block_reduce(ice_mask, 2, "mode_bool")
     settlements = [(*poles[i], d["population"]) for i, d in enumerate(districts) if d.get("population")]
-    cover = landcover.classify(elev_c, land_c & ~water_c & ~ice_c, gc, frame.km(gc.res), frame.km(1.0), seed,
-                               settlements, drain.acc.reshape(gc.shape), spec["landcover"])
-    cover_polys = polygonize_labels(cover, gc.res, smooth=3, simplify_km=0.12)
-    landcover_features = [feature(to_lonlat(geom, frame), {"class": landcover.CLASSES[k]}) for k, geom in sorted(cover_polys.items())]
+    x.cover = cover = landcover.classify(elev_c, land_c & ~water_c & ~ice_c, gc, frame.km(gc.res), frame.km(1.0), seed,
+                                         settlements, drain.acc.reshape(gc.shape), spec["landcover"])
+    x.cover_polys = cover_polys = polygonize_labels(cover, gc.res, smooth=3, simplify_km=0.12)
+    x.landcover_features = [feature(to_lonlat(geom, frame), {"class": landcover.CLASSES[k]}) for k, geom in sorted(cover_polys.items())]
     shares = np.bincount(cover[cover >= 0], minlength=len(landcover.CLASSES)) / max((cover >= 0).sum(), 1)
     log("  " + ", ".join(f"{name} {s * 100:.0f}%" for name, s in zip(landcover.CLASSES, shares)))
 
-    log("landforms")
-    coast_feats, candidate_report = detect_landforms(world, spec, drain, land_c, gc, frame, named_rivers, dist_r, g, districts,
-                                                     peak_c + pass_c + glacier_c)
-    for fe, line, acc, stem in coast_feats.pop("rivers"):
-        named_rivers.append((fe, line, acc, stem))
 
+def _landforms(x: SimpleNamespace) -> None:
+    log("landforms")
+    x.coast_feats, x.candidate_report = detect_landforms(x.world, x.spec, x.drain, x.land_c, x.gc, x.frame, x.named_rivers, x.dist_r,
+                                                         x.g, x.districts, x.peak_c + x.pass_c + x.glacier_c)
+    for fe, line, acc, stem in x.coast_feats.pop("rivers"):
+        x.named_rivers.append((fe, line, acc, stem))
+
+
+def _bathymetry(x: SimpleNamespace) -> None:
+    gc, land_c = x.gc, x.land_c
     log("bathymetry")
     dsea = ndimage.distance_transform_edt(~land_c) * gc.res
     bands = np.digitize(dsea, [4, 12, 30])
     bands[land_c] = -1
-    bath_polys = polygonize_labels(bands, gc.res, smooth=3, simplify_km=0.1)
+    x.bath_polys = polygonize_labels(bands, gc.res, smooth=3, simplify_km=0.1)
 
+
+def _streets(x: SimpleNamespace) -> None:
+    """Streets, buildings and landmark sites in the districts with streets; landmark sites elsewhere."""
+    world, spec, seed, frame, s = x.world, x.spec, x.seed, x.frame, x.s
+    cities, districts, district_city, dist_polys, poles = x.cities, x.districts, x.district_city, x.dist_polys, x.poles
+    terr_poly, lake_polys, cover_polys, named_rivers, stream_lines = x.terr_poly, x.lake_polys, x.cover_polys, x.named_rivers, x.stream_lines
     street_out, building_out, park_out = [], [], []
-    s = frame.scale
     land_real = affinity.scale(terr_poly, s, s, origin=(0, 0))
     if lake_polys:
         land_real = land_real.difference(affinity.scale(shapely.union_all(lake_polys), s, s, origin=(0, 0)))
-    urban_poly = cover_polys.get(landcover.CLASSES.index("urban"))
+    x.land_real = land_real
+    x.urban_poly = urban_poly = cover_polys.get(landcover.CLASSES.index("urban"))
     if spec.get("streets"):
         log("streets")
         sp = spec["streets"]
-        river_lines = [line for _, line, _, _ in named_rivers] + \
-                      [line for line, acc in stream_lines if acc >= sp.get("river_gap_min_km2", 60)]
+        river_lines = [line for _, line, _, _ in named_rivers] + [line for line, acc in stream_lines if acc >= RIVER_GAP_MIN_KM2]
         street_out = build_streets(world, sp, world.region_features(spec), frame, seed, cities, districts, district_city, dist_polys, poles,
                                    cover_polys.get(landcover.CLASSES.index("urban")), terr_poly, lake_polys, river_lines)
         # real-world streets (design km), in the district where their middle lies, among the city's own
@@ -470,25 +541,33 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             sts_of[cities[district_city[i]]["id"]].append(streets.Street(rs.get("class", "arterial"), ("real", k), geom, i, rs["names"], "canon"))
         log("buildings")
         building_out, park_out = build_buildings(street_out, seed)
+    x.street_out, x.building_out, x.park_out = street_out, building_out, park_out
     with_streets = {i for _, _, ctx, _ in street_out for i in ctx}
-    all_sites = [site for *_, city_sites in street_out for site in city_sites]
+    x.all_sites = all_sites = [site for *_, city_sites in street_out for site in city_sites]
     for i, d in enumerate(districts):
         if i not in with_streets:
             core_r = (poles[i][0] * s, poles[i][1] * s)
             built = affinity.scale(dist_polys[i].intersection(urban_poly), s, s, origin=(0, 0)) if urban_poly is not None else None
             all_sites += [(pid, site, parts, i) for pid, site, parts in landmark_sites(world, d, core_r, 0.0, built, land_real, seed, s)]
 
+
+def _route_roads(x: SimpleNamespace) -> None:
+    """The router and the given roads, routed between their stops in build order."""
+    world, frame, s, gr, territory, cities, districts, district_city = x.world, x.frame, x.s, x.gr, x.territory, x.cities, x.districts, x.district_city
+    city_index, land, elev, water, ice_mask, dist_r, poles, core = x.city_index, x.land, x.elev, x.water, x.ice_mask, x.dist_r, x.poles, x.core
+    all_sites, land_real = x.all_sites, x.land_real
     log("routing roads")
-    land_r = block_reduce(land, 4, "mode_bool")
-    elev_r = block_reduce(elev, 4, "mean")
+    x.land_r = land_r = block_reduce(land, 4, "mode_bool")
+    x.elev_r = elev_r = block_reduce(elev, 4, "mean")
     water_r = block_reduce(water | ice_mask, 4, "mode_bool")  # roads go round lakes and glaciers
     airfields = [shapely.transform(site, lambda c: c / s) for pid, site, _, _ in all_sites
                  if world.places[pid]["site"]["layout"] in RUNWAY_LAYOUTS]
     if airfields:  # roads and railways go round runways and launch pads
         water_r = water_r | shapely.contains_xy(shapely.union_all(airfields).buffer(0.5 * gr.res), gr.X, gr.Y)
-    router = Router(elev_r, land_r & ~water_r, gr.res)
-    node = [router.cell(*poles[core[ci]]) for ci in range(len(cities))]
-    district_index = {d["id"]: i for i, d in enumerate(districts)}
+    x.water_r = water_r
+    x.router = router = Router(elev_r, land_r & ~water_r, gr.res)
+    x.node = node = [router.cell(*poles[core[ci]]) for ci in range(len(cities))]
+    x.district_index = district_index = {d["id"]: i for i, d in enumerate(districts)}
 
     def dry_centre(site):  # a ferry pier half out at sea is reached on its landward side
         dry = site.intersection(land_real)
@@ -507,8 +586,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         out = 1.5 * gr.res * s if cfg["layout"] in RUNWAY_LAYOUTS else 0.1
         return ((q.x + (q.x - c.x) / n * out) / s, (q.y + (q.y - c.y) / n * out) / s)
 
-    place_at = {pid: gate(cfg, site, i) if (cfg := world.places[pid]["site"])["layout"] in MILITARY_VARIANTS else dry_centre(site)
-                for pid, site, _, i in all_sites}
+    x.place_at = place_at = {pid: gate(cfg, site, i) if (cfg := world.places[pid]["site"])["layout"] in MILITARY_VARIANTS else dry_centre(site)
+                             for pid, site, _, i in all_sites}
 
     def stop_cell(v):  # a city stops at its core, a district at its own centre
         if v in place_at:
@@ -518,6 +597,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     def district_at(c):  # the district under a router cell's centre
         cy, cx = divmod(c, router.nx)
         return int(dist_r[min(cy * 4 + 2, dist_r.shape[0] - 1), min(cx * 4 + 2, dist_r.shape[1] - 1)])
+    x.district_at = district_at
 
     def in_stop(v):  # cell -> whether it lies in stop v's own district (a city's: any of its districts)
         if v == PORTAL:
@@ -535,6 +615,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     # stops (or from its start, to its end): the cells under the line carry it for routing, segments and
     # engineering, and the map draws the line itself. exact_spans: ref -> [first, last] index in the path.
     exact_spans, exact_lines = {}, {}
+    x.road_out, x.road_via, x.spurs, x.exact_spans, x.exact_lines = road_out, road_via, spurs, exact_spans, exact_lines
     road_stop = lambda v: v in city_index or v in district_index or v in place_at
     # roads drawn straight (or along a given line) cannot step aside, so they go first and the others route
     # round them: no stretch carries two names (M112)
@@ -596,6 +677,13 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             path = router.trim_to_network(path)
         router.commit(path, r["class"], ref=r["ref"])
         road_out.append((r, path))
+
+
+def _access_roads(x: SimpleNamespace) -> None:
+    """City roads from each district to its city, and from sited facilities off the network to the nearest road."""
+    world, spec, frame, s, layout, territory, districts, district_city = x.world, x.spec, x.frame, x.s, x.layout, x.territory, x.districts, x.district_city
+    poles, core, router, node, land_r, district_index, place_at = x.poles, x.core, x.router, x.node, x.land_r, x.district_index, x.place_at
+    road_out, road_via, street_out, all_sites = x.road_out, x.road_via, x.street_out, x.all_sites
     feeder_seq, infix = 0, spec.get("ref_infix") or territory["codes"]["iso3166_2"].split("-")[1]
     landmass = ndimage.label(land_r, np.ones((3, 3)))[0].ravel()
 
@@ -635,6 +723,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     street_tree = shapely.STRtree(street_lines) if street_lines else None
     site_of = {pid: shapely.transform(site, lambda c: c / s) for pid, site, _, _ in all_sites}
     dead_ends, entrance, skipped, built_km = set(), {}, [], []
+    x.dead_ends, x.entrance = dead_ends, entrance
     for pid, p in world.places.items():
         if pid not in place_at or pid in on_route or p.get("access_road") is False or p.get("subtype") == "nature_reserve":
             continue
@@ -671,11 +760,14 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         if d["id"] in added:
             feeder(i, d)
 
+
+def _join_route_ends(x: SimpleNamespace) -> None:
     # Termini join the network: an expressway end runs on to the nearest other expressway (an
     # interchange, so traffic changes routes without leaving the expressway), any other end to the
     # nearest road, whichever is cheapest to build within reach (plus a cell, as drawn lines are
     # smoothed off the cell centres). Ends on another route stay as they are. A joining leg takes
     # over the cells it shares with lower routes, so an expressway never runs on as a city road.
+    frame, router, road_out, road_via, spurs, exact_spans, dead_ends = x.frame, x.router, x.road_out, x.road_via, x.spurs, x.exact_spans, x.dead_ends
     route_rank = {r["ref"]: ROAD_RANK[r["class"]] for r, _ in road_out}
     for k, (r, path) in enumerate(road_out):
         if r.get("ring") or r["id"] in dead_ends:
@@ -731,23 +823,28 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             log(f"  {ref} {'start' if at_start else 'end'} joined {router.owner.get(leg[-1])} ({frame.km(LineString([router.xy(c) for c in leg]).length):.1f} km)")
         road_out[k] = (r, path)
 
+
+def _railways(x: SimpleNamespace) -> None:
+    """The railways, routed and drawn, and their stations."""
+    world, frame, gr, territory, cities, districts, district_city = x.world, x.frame, x.gr, x.territory, x.cities, x.districts, x.district_city
+    poles, core, dist_polys, elev_r, land_r, water_r, district_index, place_at = x.poles, x.core, x.dist_polys, x.elev_r, x.land_r, x.water_r, x.district_index, x.place_at
     log("routing railways")
-    rail_router = Router(elev_r, land_r & ~water_r, gr.res, slope_weight=150)
-    stop_index = {**district_index, **{c["id"]: core[ci] for ci, c in enumerate(cities)},
-                  **{pid: district_index[world.places[pid]["in"]] for pid in place_at}}
-    rail_out = route_railways(world, rail_router, poles, stop_index, territory["id"], land_r & ~water_r, place_at, district_at)
+    x.rail_router = rail_router = Router(elev_r, land_r & ~water_r, gr.res, slope_weight=150)
+    x.stop_index = stop_index = {**district_index, **{c["id"]: core[ci] for ci, c in enumerate(cities)},
+                                 **{pid: district_index[world.places[pid]["in"]] for pid in place_at}}
+    x.rail_out = rail_out = route_railways(world, rail_router, poles, stop_index, territory["id"], land_r & ~water_r, place_at, x.district_at)
     rail_xy = lambda cells: np.array([rail_router.xy(c) for c in cells])
     rail_owned = {r["id"]: owned_runs(path, r["id"], rail_router.owner) for r, _, path in rail_out}
     fill_undrawn({r["id"]: path for r, _, path in rail_out}, rail_owned)
     rail_pins = {c for runs in rail_owned.values() for run in runs for c in (run[0], run[-1])}
-    rail_drawn = {rid: [(run, smooth_pinned(run, rail_pins, rail_router.xy, 0.35, 4)) for run in runs] for rid, runs in rail_owned.items()}
+    x.rail_drawn = rail_drawn = {rid: [(run, smooth_pinned(run, rail_pins, rail_router.xy, 0.35, 4)) for run in runs] for rid, runs in rail_owned.items()}
     for r, _, path in rail_out:
         if line := r.get("line"):  # a maglev's own guideway, drawn as given
             rail_drawn[r["id"]] = [(path, LineString(line["points"]))]
     rail_tracks = [line for runs in rail_drawn.values() for _, line in runs]
     track_union = shapely.union_all(rail_tracks) if rail_tracks else None
-    stations: dict[str, dict] = {}
-    rail_lines = []
+    x.stations = stations = {}
+    x.rail_lines = rail_lines = []
     for r, stops, path in rail_out:
         ids = []
         freight = r["network"] == "freight_rail"
@@ -775,21 +872,33 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     if rail_out:
         log(f"  {len(rail_out)} railways, {len(stations)} stations, "
             f"{frame.km(sum(t.length for t in rail_tracks)):.0f} km of track")
-    metro_lines = []
-    if spec.get("metro") and urban_poly is not None:
-        log("metro")
-        metro_lines = build_metro(spec["metro"], world, seed, s, cities, districts, district_city, dist_polys, poles, urban_poly,
-                                  land_real, street_out, all_sites, stations, spec.get("streets") or {})
 
+
+def _metro(x: SimpleNamespace) -> None:
+    spec = x.spec
+    x.metro_lines = []
+    if spec.get("metro") and x.urban_poly is not None:
+        log("metro")
+        x.metro_lines = build_metro(spec["metro"], x.world, x.seed, x.s, x.cities, x.districts, x.district_city, x.dist_polys, x.poles,
+                                    x.urban_poly, x.land_real, x.street_out, x.all_sites, x.stations, spec.get("streets") or {})
+
+
+def _export_divisions(x: SimpleNamespace) -> None:
+    """The territory, its cities and districts: shapes, labels and their entities' extent and stats."""
+    spec, g, frame, territory, cities, districts, district_city = x.spec, x.g, x.frame, x.territory, x.cities, x.districts, x.district_city
+    land, elev, city_r, dist_r, poles, core, dist_polys, city_polys, terr_poly, entities = \
+        x.land, x.elev, x.city_r, x.dist_r, x.poles, x.core, x.dist_polys, x.city_polys, x.terr_poly, x.entities
     log("exporting")
-    div_features, label_features = [], []
-    terr_ll = to_lonlat(terr_poly, frame)
+    x.div_features = div_features = []
+    x.label_features = label_features = []
+    x.terr_ll = to_lonlat(terr_poly, frame)
 
     def elev_stats(mask):
         vals = elev[mask & land]
         return {"elev_max_m": int(vals.max()) if vals.size else 0, "elev_mean_m": int(vals.mean()) if vals.size else 0}
+    x.elev_stats = elev_stats
 
-    centres = []
+    x.centres = centres = []
 
     def add_division(d, geom_km, pole_xy, mask, extra):
         geom = to_lonlat(geom_km, frame)
@@ -847,21 +956,27 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             "id": d["id"], "kind": "borough", "name_zh": d["names"]["zh"], "name_en": d["names"]["en"],
             "population": d["population"], "color": cities[ci]["color"], "rank": 4}))
 
-    place_features, landmark_features = [], []
-    sites = {pid: (site, parts) for pid, site, parts, _ in all_sites}
+
+def _export_places(x: SimpleNamespace) -> None:
+    """Place points, landmark sites and their parts."""
+    world, frame, poles, core, city_index, district_index, all_sites, entities = \
+        x.world, x.frame, x.poles, x.core, x.city_index, x.district_index, x.all_sites, x.entities
+    x.place_features = place_features = []
+    x.landmark_features = landmark_features = []
+    x.sites = sites = {pid: (site, parts) for pid, site, parts, _ in all_sites}
     for pid, p in world.places.items():
         if p["in"] in district_index:
-            x, y = poles[district_index[p["in"]]]
+            x_, y = poles[district_index[p["in"]]]
         elif p["in"] in city_index:
-            x, y = poles[core[city_index[p["in"]]]]
+            x_, y = poles[core[city_index[p["in"]]]]
         else:
             continue
-        ox, oy = place_offset(p, (x * frame.scale, y * frame.scale), frame.scale)
+        ox, oy = place_offset(p, (x_ * frame.scale, y * frame.scale), frame.scale)
         if pid in sites:  # fitted to the shore, see fit_site
             c = sites[pid][0].centroid
             pt = point_lonlat(frame, c.x / frame.scale, c.y / frame.scale)
         else:
-            pt = point_lonlat(frame, x + ox / frame.scale, y + oy / frame.scale)
+            pt = point_lonlat(frame, x_ + ox / frame.scale, y + oy / frame.scale)
         label_names = p.get("short_names", p["names"])
         place_features.append(feature(pt, {
             "id": pid, "subtype": p["subtype"],
@@ -891,7 +1006,10 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                 geom = shapely.union_all([geom, *[to_lonlat(affinity.scale(b, 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6) for b in bridges]])
             entities[pid].update({"bbox": bbox_lonlat(geom), "stats": stats})
 
-    water_features = [feature(to_lonlat(ponds, frame), {})] if ponds is not None else []
+
+def _export_lakes(x: SimpleNamespace) -> None:
+    world, spec, g, frame, ponds, lakes, label_features, entities = x.world, x.spec, x.g, x.frame, x.ponds, x.lakes, x.label_features, x.entities
+    x.water_features = water_features = [feature(to_lonlat(ponds, frame), {})] if ponds is not None else []
     for fid, m in lakes:
         poly = polygonize_labels(np.where(m, 0, -1), g.res).get(0)
         if poly is None:
@@ -907,8 +1025,11 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                               "stats": {"area_km2_mapped": round(frame.km2(poly.area), 1)},
                               "ancestors": [lake_in, *world.ancestors(lake_in)]})
 
-    named_features = []
-    for fe, line, acc, _ in named_rivers:
+
+def _export_rivers(x: SimpleNamespace) -> None:
+    frame, on_land, in_territory, entities = x.frame, x.on_land, x.in_territory, x.entities
+    x.named_features = named_features = []
+    for fe, line, acc, _ in x.named_rivers:
         geom = to_lonlat(line, frame)
         named_features.append(feature(to_lonlat(on_land(line), frame), {"id": fe["id"], "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"]}))
         mid = line.interpolate(0.5, normalized=True)
@@ -916,7 +1037,11 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                                    "stats": {"length_km": round(frame.km(line_length_km(line.coords)), 1), "drainage_km2": round(frame.km2(acc))},
                                    "ancestors": in_territory})
 
-    ridge_features, ridge_lines = [], []
+
+def _export_ridges(x: SimpleNamespace) -> None:
+    world, spec, g, frame, land, elev, terr_poly, in_territory, entities = x.world, x.spec, x.g, x.frame, x.land, x.elev, x.terr_poly, x.in_territory, x.entities
+    x.ridge_features = ridge_features = []
+    x.ridge_lines = ridge_lines = []
     by_feature: dict[str, list] = {}
     for rdg in spec["terrain"]["ridges"]:
         by_feature.setdefault(rdg["feature"], []).append(rdg)
@@ -936,13 +1061,21 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         entities[fid].update({"bbox": bbox_lonlat(geom), "center": list(point_lonlat(frame, cpt.x, cpt.y).coords[0]),
                               "stats": {"elev_max_m": int(elev[mask & land].max())}, "ancestors": in_territory})
 
-    eng = world.engineering
-    standards, climate = eng.get("standards", {}), eng.get("climate", {})
+
+def _engineering(x: SimpleNamespace) -> None:
+    """What engineering a line needs: the ground under it, the rivers it bridges, the towns it passes, and the
+    names of its structures. Leaves x.engineer, which the road and rail exports call."""
+    world, spec, g, frame, gr, land_r, elev, elev_r, water, cover, entities = \
+        x.world, x.spec, x.g, x.frame, x.gr, x.land_r, x.elev, x.elev_r, x.water, x.cover, x.entities
+    named_rivers, stream_lines, coast_feats, ridge_lines, lake_named, districts, dist_polys = \
+        x.named_rivers, x.stream_lines, x.coast_feats, x.ridge_lines, x.lake_named, x.districts, x.dist_polys
+    x.eng = eng = world.engineering
+    x.standards, climate = eng.get("standards", {}), eng.get("climate", {})
     speed_rules = {"urban_density": eng.get("urban_density", 250), "mountain_structure_share": eng.get("mountain_structure_share", 0.35)}
     wet_r = ~land_r | block_reduce(water, 4, "mode_bool")
     crossing_min = eng.get("river_min_drainage_km2", 150)
     river_geom = shapely.union_all([line for _, line, _, _ in named_rivers] + [line for line, acc in stream_lines if acc >= crossing_min])
-    density_of = lambda did: entities.get(did or "", {}).get("stats", {}).get("density_per_km2", 0)
+    x.density_of = density_of = lambda did: entities.get(did or "", {}).get("stats", {}).get("density_per_km2", 0)
     urban_r = np.zeros(elev_r.shape, bool)
     built = block_reduce(cover == landcover.CLASSES.index("urban"), 2, "mode_bool")
     h, w = min(built.shape[0], urban_r.shape[0]), min(built.shape[1], urban_r.shape[1])
@@ -1006,7 +1139,13 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             limits = [None if unlimited else
                       engineering.segment_speed(prof, std, 0, len(path) - 1, max(density_of(v) for v in ent.get("via", [None])), speed_rules)]
         ent["speed"] = engineering.speed_summary(limits)
+    x.engineer = engineer
 
+
+def _draw_roads(x: SimpleNamespace) -> None:
+    """The line each road is drawn as: its own runs, smoothed, meeting the roads they join."""
+    router, road_out, exact_spans, exact_lines, entrance, rail_drawn, rail_out = \
+        x.router, x.road_out, x.exact_spans, x.exact_lines, x.entrance, x.rail_drawn, x.rail_out
     # an exact stretch is one run drawn as its line, whoever owns its cells; the rest is drawn by owner
     road_runs, exact_runs = {}, {}
     for r, path in road_out:
@@ -1063,7 +1202,19 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     undrawn = {**{r["ref"]: n for r, path in road_out if (n := undrawn_steps(path, [run for _, run, _, _ in drawn_all]))},
                **{r["names"]["zh"]: n for r, _, path in rail_out if (n := undrawn_steps(path, rail_runs))}}
     log(f"  warn undrawn steps, left unlit when clicked: {undrawn}" if undrawn else "  ok   every route and railway drawn end to end")
-    road_features, shared_features, overruns = [], [], {}
+    x.road_runs, x.exact_runs, x.drawn_roads, x.drawn_all = road_runs, exact_runs, drawn_roads, drawn_all
+
+
+def _export_roads(x: SimpleNamespace) -> None:
+    """Each road's drawn line, the stretches it shares with others, and its card: extent, length, district rows,
+    engineering and speed."""
+    frame, territory, districts, dist_r, router, road_out, road_via, entities, in_territory, standards, engineer = \
+        x.frame, x.territory, x.districts, x.dist_r, x.router, x.road_out, x.road_via, x.entities, x.in_territory, x.standards, x.engineer
+    exact_spans, exact_lines, road_runs, exact_runs, drawn_roads, drawn_all = \
+        x.exact_spans, x.exact_lines, x.road_runs, x.exact_runs, x.drawn_roads, x.drawn_all
+    x.road_features = road_features = []
+    x.shared_features = shared_features = []
+    x.overruns = overruns = {}
 
     exact_ids = {id(run) for run in exact_runs.values()}
 
@@ -1112,9 +1263,10 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         lit_len = sum(ln.length for ln in lit)
         if lit_len > 1.03 * path_len + 2 * rt.res:
             overruns[key] = round(lit_len / max(path_len, rt.res), 2)
+    x.lit_overrun = lit_overrun
 
     def drawn_lonlat(lines: list[LineString]) -> list:
-        return [[[round(x, 4), round(y, 4)] for x, y in to_lonlat(ln, frame).coords] for ln in lines]
+        return [[[round(lon, 4), round(lat, 4)] for lon, lat in to_lonlat(ln, frame).coords] for ln in lines]
 
     for r, path in road_out:
         lines = drawn_roads[r["ref"]]
@@ -1166,6 +1318,11 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         for sg in ent.get("segments", []):
             sg.pop("_span", None)
 
+
+def _export_streets(x: SimpleNamespace) -> None:
+    """Streets, one entity per named street, buildings and parks."""
+    world, frame, districts, district_city, city_index, dist_polys, street_out, entities, eng, density_of = \
+        x.world, x.frame, x.districts, x.district_city, x.city_index, x.dist_polys, x.street_out, x.entities, x.eng, x.density_of
     ss = eng.get("street_speed", {})
 
     def street_speed(st):
@@ -1174,6 +1331,7 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         return ss.get(st.cls)
 
     street_features, street_named, named_parts = [], [], {}
+    x.street_features, x.street_named = street_features, street_named
     for city, sts, _, _ in street_out:
         for st in sts:
             geom = to_lonlat(st.geom, frame)
@@ -1204,16 +1362,19 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         }
     if street_out:
         log(f"  {len(street_features)} streets, {len(street_named)} named arterials and collectors")
-    to_map = lambda g: to_lonlat(affinity.scale(g, 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6)
-    building_features = [tile_minzoom(feature(to_map(g), {"class": cls}), BUILDING_MINZOOM) for cls, g in building_out]
-    park_features = [tile_minzoom(feature(to_map(g), {"class": "park"}), BUILDING_MINZOOM) for g in park_out]
-    if building_out:
-        log(f"  {len(building_features)} buildings, {len(park_features)} parks, {len(sites)} landmark sites")
+    x.to_map = to_map = lambda g: to_lonlat(affinity.scale(g, 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6)
+    x.building_features = building_features = [tile_minzoom(feature(to_map(g), {"class": cls}), BUILDING_MINZOOM) for cls, g in x.building_out]
+    x.park_features = park_features = [tile_minzoom(feature(to_map(g), {"class": "park"}), BUILDING_MINZOOM) for g in x.park_out]
+    if x.building_out:
+        log(f"  {len(building_features)} buildings, {len(park_features)} parks, {len(x.sites)} landmark sites")
 
+
+def _export_skyways(x: SimpleNamespace) -> None:
     # Skyways: enclosed walkways over the arterials and collectors within skyways_km of a district's
     # centre, with a short link to each landmark near them.
-    skyway_features = []
-    for _, _, ctx, city_sites in street_out:
+    districts, entities, to_map = x.districts, x.entities, x.to_map
+    x.skyway_features = skyway_features = []
+    for _, _, ctx, city_sites in x.street_out:
         for i, c in ctx.items():
             if not c.get("skyways_km"):
                 continue
@@ -1229,10 +1390,17 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
             entities[districts[i]["id"]].setdefault("stats", {})["skyways_km"] = round(sum(p.length for p in parts), 1)
             log(f"  {c['name']}: {sum(p.length for p in parts):.0f} km of skyways")
 
+
+def _export_rail(x: SimpleNamespace) -> None:
+    """Railway and metro lines, their cards, and the stations."""
+    world, spec, frame, s, territory, districts, entities, in_territory = x.world, x.spec, x.frame, x.s, x.territory, x.districts, x.entities, x.in_territory
+    rail_out, rail_drawn, rail_router, rail_lines, stop_index, stations, metro_lines = \
+        x.rail_out, x.rail_drawn, x.rail_router, x.rail_lines, x.stop_index, x.stations, x.metro_lines
+    eng, standards, engineer, lit_overrun, overruns, shared_features = x.eng, x.standards, x.engineer, x.lit_overrun, x.overruns, x.shared_features
     rail_network = {r["id"]: r["network"] for r, _, _ in rail_out}
-    rail_features = [feature(to_lonlat(ln, frame), {"network": rail_network[rid], "role": "track"})
-                     for rid, runs in rail_drawn.items() for _, ln in runs]
-    station_features = []
+    x.rail_features = rail_features = [feature(to_lonlat(ln, frame), {"network": rail_network[rid], "role": "track"})
+                                       for rid, runs in rail_drawn.items() for _, ln in runs]
+    x.station_features = station_features = []
 
     def add_line(eid, line_km, props, decimals=5, drawn=None):
         """drawn: the line as the map draws it (the track it owns), if not line_km itself."""
@@ -1297,6 +1465,11 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                          "source": "generated:railways" if rail else "generated:metro",
                          "center": [lon, lat], "bbox": [lon - 0.004, lat - 0.002, lon + 0.004, lat + 0.002]}
 
+
+def _road_graph(x: SimpleNamespace) -> None:
+    """The routable road graph, with a node at every city, district and tunnel portal."""
+    frame, territory, cities, districts, district_city, poles, core, node, router, road_out, road_via, graph = \
+        x.frame, x.territory, x.cities, x.districts, x.district_city, x.poles, x.core, x.node, x.router, x.road_out, x.road_via, x.graph
     terminals = {c["id"]: node[ci] for ci, c in enumerate(cities)}
     terminals.update({d["id"]: node[district_city[i]] if i == core[district_city[i]] else router.cell(*poles[i])
                       for i, d in enumerate(districts)})
@@ -1317,9 +1490,15 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
     graph["places"] = places
     log(f"  road graph: {len(node_cells)} nodes, {len(edges)} edges")
 
-    bath_features = [feature(to_lonlat(p, frame), {"band": int(b)}) for b, p in sorted(bath_polys.items()) if b < 3]
 
-    coast_features, glacier_features = [], []
+def _export_landforms(x: SimpleNamespace) -> None:
+    """Sea depth bands, glaciers, the named coastal landforms, peaks and passes, and archipelagos; then the
+    setting's expectations."""
+    world, spec, g, frame, ice, coast_feats, label_features, elev_stats, entities = \
+        x.world, x.spec, x.g, x.frame, x.ice, x.coast_feats, x.label_features, x.elev_stats, x.entities
+    x.bath_features = [feature(to_lonlat(p, frame), {"band": int(b)}) for b, p in sorted(x.bath_polys.items()) if b < 3]
+
+    x.coast_features, x.glacier_features = coast_features, glacier_features = [], []
     ice_names = {id(c): fe for c, fe in coast_feats["matched"] if c["kind"] == "glacier"}
     for c in ice:
         poly = polygonize_labels(np.where(c["mask"], 0, -1), g.res).get(0)
@@ -1329,8 +1508,8 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
         fe = ice_names.get(id(c))
         glacier_features.append(feature(to_lonlat(poly, frame), {"id": fe["id"], "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"]} if fe else {}))
     for c, fe in coast_feats["matched"]:
-        x, y = c["at"]
-        pt = point_lonlat(frame, x, y)
+        x_, y = c["at"]
+        pt = point_lonlat(frame, x_, y)
         props = {"id": fe["id"], "kind": fe["subtype"], "name_zh": fe["names"]["zh"], "name_en": fe["names"]["en"]}
         m = c["metrics"]
         major = frame.km2(m.get("area_km2", 0)) >= MAJOR_LANDFORM_KM2 if c["kind"] in ("bay", "fjord") else \
@@ -1383,43 +1562,22 @@ def build_region(world: World, spec: dict, base: dict, dem_dir: Path, use_cache:
                                    "ancestors": common})
     check_expectations(spec.get("expect", {}), entities)
 
-    layers = {k: [] for k in LAYERS}
-    layers["divisions"] += div_features
-    layers["labels"] += label_features
-    layers["places"] += place_features
-    layers["water"] += water_features
-    layers["coast"] += coast_features
-    layers["glaciers"] += glacier_features
-    layers["landcover"] += landcover_features
-    layers["rivers"] += stream_features
-    layers["rivers-named"] += named_features
-    layers["ridges"] += ridge_features
-    layers["roads"] += road_features
-    layers["route-shared"] += shared_features
-    layers["streets"] += street_features
-    layers["streets-named"] += street_named
-    layers["buildings"] += building_features
-    layers["parks"] += park_features
-    layers["skyways"] += skyway_features
-    layers["landmarks"] += landmark_features
-    layers["rail"] += rail_features
-    layers["stations"] += station_features
-    layers["bathymetry"] += bath_features
 
+def _terrain_tiles(x: SimpleNamespace) -> None:
+    """The terrain tiles, the ground height at each division's centre, and the region's manifest entry."""
+    world, g, frame, territory, land, elev, lakes = x.world, x.g, x.frame, x.territory, x.land, x.elev, x.lakes
     log("writing terrain tiles")
     bounds = frame.bounds_lonlat()
-    dem = np.where(land, np.maximum(lake_basins(elev, lakes, g.res), 1.0), -40.0)
-    n = cached_dem_tiles(dem_dir, territory["id"], dem, g, frame, bounds, zoom_range(world.generators), use_cache)
+    dem = np.where(land, np.maximum(lake_basins(elev, lakes, g.res), 1.0), SEA_LEVEL_M)
+    n = cached_dem_tiles(x.dem_dir, territory["id"], dem, g, frame, bounds, zoom_range(world.generators), x.use_cache)
     log(f"  {n} tiles")
-    for e, (x, y) in centres:  # the ground the map shows at the division's centre, for the climate model
-        h = ndimage.map_coordinates(dem, [[y / g.res - 0.5], [x / g.res - 0.5]], order=1, mode="nearest")[0]
+    for e, (cx, cy) in x.centres:  # the ground the map shows at the division's centre, for the climate model
+        h = ndimage.map_coordinates(dem, [[cy / g.res - 0.5], [cx / g.res - 0.5]], order=1, mode="nearest")[0]
         e["stats"]["elev_center_m"] = round(max(float(h), 0.0), 1)
-    meta = {
+    x.meta = {
         "id": territory["id"],
-        "bounds": bbox_lonlat(terr_ll),
+        "bounds": bbox_lonlat(x.terr_ll),
         "frame_bounds": [round(v, 5) for v in bounds],
         "center": list(point_lonlat(frame, *pole_of_inaccessibility(land, g.xs, g.ys)).coords[0]),
-        "quality": {"max_city_area_error": round(city_err, 4), "max_district_area_error": round(dist_err, 4)},
+        "quality": {"max_city_area_error": round(x.city_err, 4), "max_district_area_error": round(x.dist_err, 4)},
     }
-    changed = {k: v for k, v in entities.items() if base.get(k) != v}
-    return {"region": meta, "entities": changed, "layers": layers, "graph": graph, "candidates": candidate_report}

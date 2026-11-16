@@ -30,6 +30,9 @@ from atlas.routes import merge_crossings  # noqa: E402
 from atlas.world import TEXT_KEYS, World  # noqa: E402
 
 DEM_ARCHIVE = "terrain.pmtiles"
+# Source keys only the build reads (site layouts, routing options, crossings, operators), left out of entities.json.
+BUILD_ONLY_KEYS = ("site", "offset_km", "build_order", "tunnel_cost", "station_names", "access_road", "operators", "route_shield",
+                   "legs", "tunnel_names", "crossing", "undersea", "closed", "unlimited", "operator")
 
 
 def base_entities(world: World) -> dict:
@@ -108,14 +111,20 @@ def refresh_text(world: World) -> None:
         del entities[eid]
     economy.annotate(world, entities)
     politics.annotate(world, entities)
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(entities, f, ensure_ascii=False, separators=(",", ":"))
+    write_entities(entities)
     manifest = json.loads((OUT / "manifest.json").read_text(encoding="utf-8"))
     manifest["generated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     with open(OUT / "manifest.json", "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
     log("card text, economy and elections refreshed in entities.json")
     log("done")
+
+
+def write_entities(entities: dict) -> None:
+    """entities.json, without the keys only the build reads."""
+    out = {eid: {k: v for k, v in e.items() if k not in BUILD_ONLY_KEYS} for eid, e in entities.items()}
+    with open(OUT / "entities.json", "w", encoding="utf-8") as f:
+        json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
 
 
 def region_worker(name: str, fresh: bool, stale_ok: bool):
@@ -222,8 +231,7 @@ def main():
         write_geojson(f"{name}.geojson", feats)
     with open(OUT / "graph.json", "w", encoding="utf-8") as f:
         json.dump(graph, f, separators=(",", ":"))
-    with open(OUT / "entities.json", "w", encoding="utf-8") as f:
-        json.dump(entities, f, ensure_ascii=False, separators=(",", ":"))
+    write_entities(entities)
     manifest = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "planet": world.planet,

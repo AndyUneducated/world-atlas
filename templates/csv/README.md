@@ -18,8 +18,8 @@ npm run data                                    # 重新生成地图
 - 只需包含要用到的列，列的顺序随意。列名可用中文或英文（见下表）。
 - 引用其他条目（上级、所在区、途经、徽标来自）时，填编号或中文名都可以，也可以引用同一文件里新建的条目。
 - 新建条目的状态默认为 `draft`。状态可选 `canon`（设定）、`draft`（草稿）、`generated`（生成，待审阅）。
-- 当地语言名只有维京语、巴克汉姆语、塔夫鲁纳克语、伊武兰语四列；加州的西班牙语名（`es`）和拉诺瓦的拉诺瓦语、卡西里语名不在表格里，导入后在 YAML 中补写。
-- 坐标单位：锚点、识别坐标为设计坐标（km，X 向东、Y 向北，范围 320 × 190），偏移为实际 km。
+- 当地语言名每种语言一列：维京语、巴克汉姆语、塔夫鲁纳克语、伊武兰语、西班牙语（加州，`es`）、拉诺瓦语、卡西里语（拉诺瓦），只填所在地区使用的语言。
+- 坐标单位：锚点、识别坐标为设计坐标（km，X 向东、Y 向北，范围是该地区生成器的 `frame.size_km`，各地区不同：北维京岛 320 × 190、维京群岛 320 × 240、北冰洋 680 × 520、长夏群岛 700 × 440、加州 420 × 470、拉诺瓦 720 × 830），偏移为实际 km。
 - 用 Excel 保存时选“CSV UTF-8”。GBK 编码的文件也能读。
 
 ## 行政区 `divisions.csv`
@@ -30,7 +30,7 @@ npm run data                                    # 重新生成地图
 | 类型 | subtype | `locality`（市）或 `borough`（区），新建必填 |
 | 上级 | parent | 市的上级是领地或国家（拉诺瓦各国），区的上级是市；国家直辖的市不设区；新建必填 |
 | 中文名、英文名 | name_zh、name_en | 新建必填 |
-| 维京语名、巴克汉姆语名、塔夫鲁纳克语名、伊武兰语名 | name_viking、name_buckham、name_tavrunaq、name_ivuran | 只填所在领地使用的语言 |
+| 维京语名、巴克汉姆语名、塔夫鲁纳克语名、伊武兰语名、西班牙语名、拉诺瓦语名、卡西里语名 | name_viking、name_buckham、name_tavrunaq、name_ivuran、name_es、name_ranova、name_kasiri | 只填所在地区使用的语言 |
 | 中文简称、英文简称 | short_zh、short_en | |
 | 区划代码 | admin_code | 6 位数字：领地 `900000`、市 `900100`、区 `900101`。留空时按上级代码自动编下一个 |
 | 人口、面积 | population、area_km2 | 面积为实际 km²；各区之和须等于所属市 |
@@ -48,8 +48,8 @@ npm run data                                    # 重新生成地图
 | 列 | 英文列名 | 说明 |
 |---|---|---|
 | 编号、状态 | id、status | |
-| 类型 | subtype | `mountain_range`、`ridge`、`volcano`、`river`、`lake`、`island`、`bay`、`fjord`、`cape`、`strait`、`estuary`、`peak`、`pass`、`glacier` |
-| 中文名 … 伊武兰语名 | name_zh … name_ivuran | |
+| 类型 | subtype | `mountain_range`、`ridge`、`volcano`、`river`、`lake`、`island`、`bay`、`fjord`、`cape`、`strait`、`estuary`、`peak`、`pass`、`glacier`、`archipelago`（群岛）、`plateau`（高原） |
+| 中文名 … 卡西里语名 | name_zh … name_kasiri | |
 | 识别类型、识别X、识别Y | detect_kind、detect_x_km、detect_y_km | 给生成器识别出的地貌命名：认领该位置 10 km 内最近的同类地貌。候选清单见每次生成后的 `.cache/candidates-<领地编号>.json` |
 | 中文简介、英文简介 | notes_zh、notes_en | |
 
@@ -58,13 +58,13 @@ npm run data                                    # 重新生成地图
 | 列 | 英文列名 | 说明 |
 |---|---|---|
 | 编号、状态 | id、status | |
-| 编号牌 | ref | 按等级：`G-NV-1`、`S-NV-1`、`S-NV-101`、`X-NV-001` |
+| 编号牌 | ref | 按等级：`G-NV-1`、`S-NV-1`、`S-NV-101`、`X-NV-001`；加州领道用现实编号（`I-5`、`US-101`、`SR-1`），县道是市道（`G4`）；马索沃利人民军军用公路是市道，编号 `PA-` 加随机四位数（`PA-7351`） |
 | 等级 | network | `national_expressway`（国家高速）、`territorial_expressway`（领地高速）、`territorial_highway`（领道）、`municipal_road`（市道） |
 | 道路类别 | class | 留空时按等级自动填写 |
-| 中文名 … 伊武兰语名 | name_zh … name_ivuran | |
+| 中文名 … 卡西里语名 | name_zh … name_kasiri | |
 | 途经 | via | 依次经过的市或区，用分号分隔，至少两个。经过市时走该市中心，经过区时走区中心 |
 | 环线、笔直、支线 | ring、straight、ends_at_network | 是/否。笔直的道路每段都是直线，遇山开隧道、遇水架桥；支线从第一个市出发，接入已有路网即止 |
-| 隧道成本 | tunnel_cost | 越小越倾向于打隧道穿山 |
+| 隧道成本 | tunnel_cost | 陡坡每公里成本的上限，越小越倾向于打隧道穿山；不填时不封顶 |
 | 路牌图案 | shield | 领地高速与领道（`S-NV-…`）必填，路牌上部的图案，如 `lighthouse`、`star`、`salmon`、`fir`、`waterfall`、`reindeer`、`peaks`、`wheat`、`compass`；全部可选图案见 `src/lib/glyphs.ts` |
 | 中文简介、英文简介 | notes_zh、notes_en | |
 | 中文建设背景、英文建设背景 | background_zh、background_en | 为什么修、怎么修的。国家高速、领地高速和领道新建时必填（市道不需要） |
@@ -77,12 +77,12 @@ npm run data                                    # 重新生成地图
 |---|---|---|
 | 编号、状态 | id、status | |
 | 线路类型 | network | `intercity_rail`（城际铁路）或 `freight_rail`（重载铁路，只跑货车，停靠处为货运站，名称须含“重载”：常规重载铁路填 常规铁路=是，叫“…重载铁路”；不填时为真空磁悬浮重载铁路，叫“…真空磁悬浮重载铁路”） |
-| 中文名 … 伊武兰语名 | name_zh … name_ivuran | 中文名须与铁路等级相符：常规铁路叫“…铁路”（不含“高速”“磁悬浮”），高速铁路叫“…高速铁路”，磁悬浮叫“…磁悬浮”，真空磁悬浮叫“…真空磁悬浮” |
+| 中文名 … 卡西里语名 | name_zh … name_kasiri | 中文名须与铁路等级相符：常规铁路叫“…铁路”（不含“高速”“磁悬浮”），高速铁路叫“…高速铁路”，磁悬浮叫“…磁悬浮”，真空磁悬浮叫“…真空磁悬浮” |
 | 停靠 | via | 依次停靠的市或区，用分号分隔，至少两个。停靠市时车站设在该市人口最多的区 |
 | 线路色 | color | `#RRGGBB`，用于线路卡片和车站列表 |
-| 运营速度、设计速度 | operating_speed、design_speed | km/h，正整数，须在该等级的范围内：常规铁路 80–399，高速铁路 400–499，真空磁悬浮 600 以上；常规重载铁路 40–199。轨距、供电、信号、编组统一见 `world/transport/engineering.yaml` |
+| 运营速度、设计速度 | operating_speed、design_speed | km/h，正整数，须在该等级的范围内：常规铁路 80–399，高速铁路 400–499，开放式磁悬浮 500 以上，真空磁悬浮 600 以上；常规重载铁路 40–199。轨距、供电、信号、编组统一见 `world/transport/engineering.yaml` |
 | 常规铁路 | conventional | 填“是”表示常规轮轨铁路（400 km/h 以下）。不填时城际铁路按高速铁路处理 |
-| 磁悬浮 | maglev | 只用于城际铁路，填“是”表示真空磁悬浮：按 `engineering.yaml` 的磁悬浮标准造价，不与轮轨线路共用线位。开放式磁悬浮（500–599 km/h）不在表格里，导入后在 YAML 中写 `maglev: open` |
+| 磁悬浮 | maglev | 只用于城际铁路，填“是”表示真空磁悬浮，填 `open` 表示开放式磁悬浮（500 km/h 以上），填“否”或留空为轮轨：磁悬浮按 `engineering.yaml` 的磁悬浮标准造价，不与轮轨线路共用线位 |
 | 每天重车列数 | loaded_trains | 只用于重载铁路：每天满载开往终点的列车数，年货运量据此计算 |
 | 隧道成本 | tunnel_cost | 默认 2.5，越小越倾向于打隧道穿山 |
 | 中文简介、英文简介 | notes_zh、notes_en | |
@@ -97,7 +97,7 @@ npm run data                                    # 重新生成地图
 | 编号、状态 | id、status | |
 | 类型 | subtype | 采用 OSM / Overture 类别，如 `government`、`lighthouse`、`museum` |
 | 所在区 | in | 新建必填 |
-| 中文名 … 伊武兰语名 | name_zh … name_ivuran | |
+| 中文名 … 卡西里语名 | name_zh … name_kasiri | |
 | 向东偏移、向北偏移 | offset_east_km、offset_north_km | 相对所在区城区中心的实际 km |
 | 徽标来自 | emblem_of | 可选。名片顶部显示这个条目（领地或市）的旗帜或徽章，如领地政府楼填所在领地；地图上不画徽章 |
 | 占地布局 | site_layout | 画出地标占地和建筑轮廓：`complex`（建筑群）、`hall`（单体大楼）、`campus`（园区）、`stadium`（体育场）、`tower`（塔）、`park`（公园）、`plaza`（广场）、`market`（市场）；交通设施 `airport`（机场：跑道、滑行道、航站楼）、`port`（港口：码头、栈桥、仓库）、`harbour`（挖入式港区：港池、突堤码头、防波堤、铁路编组站）、`offshore_port`（外海岛式深水港，以跨海大桥连到岸边）、`spaceport`（发射场：发射台、降落场、总装厂房）。以上为常用布局，全部可选值见 `pipeline/atlas/world.py` 的 `SITE_LAYOUTS` |

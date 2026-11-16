@@ -20,11 +20,12 @@ from shapely.geometry import Point, shape
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from atlas.common import OUT  # noqa: E402
+from atlas.grid import KM_PER_DEG_LAT, km_per_deg_lon  # noqa: E402
 from atlas.region import check_expectations  # noqa: E402
-from atlas.world import ROOT, World  # noqa: E402
+from atlas.world import BACKGROUND_NETWORKS, ROOT, SEGMENTED_NETWORKS, World  # noqa: E402
 from tiles import TILE_LAYERS  # noqa: E402
 
-OUT = ROOT / "public" / "data"
 ON_LINE_M = 15  # coordinates are rounded to 4 decimals (up to 11 m), so a highlight may sit this far off its line
 JOIN_M = 30  # line ends closer than this meet
 MINISTRIES = ("对外事务部", "财政部", "司法部", "公共安全部", "教育、科学和文化部", "交通部", "建设部", "民政部",
@@ -36,6 +37,8 @@ LOCAL_GLYPHS = ((0x3040, 0x30FF), (0x3400, 0x4DBF), (0x4E00, 0x9FFF), (0xAC00, 0
 LABEL_KEY = re.compile(r"^(name_|ref$|short)")
 REAL_REF = r"(I|US|SR)-\d{1,3}|[A-Z]\d{1,2}"
 MILITARY_REF = r"PA-\d{4}"
+# metres per degree of longitude at the equator and of latitude, for the checks measured in metres
+M_PER_DEG_LON, M_PER_DEG_LAT = 111320, 110574
 
 
 def load(name: str):
@@ -44,7 +47,7 @@ def load(name: str):
 
 
 def metres(coords: np.ndarray, lat0: float) -> np.ndarray:
-    return np.asarray(coords, float) * [111320 * math.cos(math.radians(lat0)), 110574]
+    return np.asarray(coords, float) * [M_PER_DEG_LON * math.cos(math.radians(lat0)), M_PER_DEG_LAT]
 
 
 def components(lines: list[list], lat0: float) -> int:
@@ -81,8 +84,7 @@ def check_routes(ents: dict) -> dict[str, list[str]]:
                 drawn[f["properties"]["id"]] += parts(f["geometry"])
     off, broken, unlit, undrawn = [], [], [], []
     for eid, e in ents.items():
-        if e.get("kind") != "route" or e.get("network") not in (
-                "national_expressway", "territorial_expressway", "territorial_highway", "intercity_rail", "freight_rail"):
+        if e.get("kind") != "route" or e.get("network") not in BACKGROUND_NETWORKS:
             continue
         label = f"{e.get('ref') or e['names']['zh']}"
         own = drawn.get(eid, [])
@@ -198,7 +200,7 @@ def check_models(ents: dict) -> dict[str, list[str]]:
     climate, seats, names = [], [], []
     holders: list[tuple[str, str]] = []
     ministries = len(MINISTRIES)
-    for eid, e in ents.items():
+    for e in ents.values():
         if e.get("nation") and "legislature" not in e:
             g, name = e.get("government", {}), e["names"]["zh"]
             if not (e.get("nation", {}).get("legislature") and g.get("executive") and g.get("judiciary")):
@@ -306,7 +308,7 @@ def check_round_borders(ents: dict) -> dict[str, list[str]]:
     bad = []
     for i, g in feats:
         lat0 = g.centroid.y
-        kx, ky = math.cos(math.radians(lat0)) * 111.32, 110.57
+        kx, ky = km_per_deg_lon(lat0), KM_PER_DEG_LAT
         km = lambda geom: shapely.transform(geom, lambda a: np.column_stack([a[:, 0] * kx, a[:, 1] * ky]))
         x0, y0, x1, y1 = g.bounds
         near = coast.intersection(shapely.box(x0 - 0.05, y0 - 0.05, x1 + 0.05, y1 + 0.05))
@@ -431,8 +433,8 @@ def check_shapes(ents: dict) -> dict[str, list[str]]:
                     area = 0.5 * abs(float(np.dot(loop[:, 0], np.roll(loop[:, 1], 1)) - np.dot(loop[:, 1], np.roll(loop[:, 0], 1))))
                     if area > RING_THIN * along[k] * d[k]:
                         continue
-                kx = 111320 * math.cos(math.radians(lat0))
-                chord = shapely.LineString([(p[i][0] / kx, p[i][1] / 110574), (p[j][0] / kx, p[j][1] / 110574)])
+                kx = M_PER_DEG_LON * math.cos(math.radians(lat0))
+                chord = shapely.LineString([(p[i][0] / kx, p[i][1] / M_PER_DEG_LAT), (p[j][0] / kx, p[j][1] / M_PER_DEG_LAT)])
                 if chord.length == 0 or chord.intersection(land).length / chord.length > 0.9:
                     worst = (along[k] / d[k], along[k] / 1000, d[k] / 1000, chord.coords[0])
         if worst:
@@ -447,12 +449,11 @@ def check_shapes(ents: dict) -> dict[str, list[str]]:
                 continue
             a, b = end[0] - end[k], end[k] - end[min(len(end) - 1, int(np.searchsorted(run, 3 * HOOK_KM * 1000)))]
             if np.linalg.norm(a) and np.linalg.norm(b) and math.acos(np.clip(a @ b / np.linalg.norm(a) / np.linalg.norm(b), -1, 1)) > HOOK_ANGLE:
-                hooks.append(f"{label}: hooks back at the end near {seg[0][0] / (111320 * math.cos(math.radians(lat0))):.3f}, {seg[0][1] / 110574:.3f}")
+                hooks.append(f"{label}: hooks back at the end near {seg[0][0] / (M_PER_DEG_LON * math.cos(math.radians(lat0))):.3f}, {seg[0][1] / M_PER_DEG_LAT:.3f}")
     return {"routes have one start and one end": ends, "routes do not double back": back, "route ends do not hook back": hooks}
 
 
 INTRO_LONG, INTRO_SHORT = 800, 400  # zh characters of a card's intro (M116, the owner's rule)
-INTRO_SHORT_NETWORKS = ("national_expressway", "territorial_expressway", "territorial_highway")
 
 
 def intro_length(e: dict) -> int:
@@ -467,7 +468,7 @@ def check_intros(ents: dict) -> dict[str, list[str]]:
     for e in ents.values():
         if e.get("wonder") or e.get("kind") == "party" or e.get("subtype") in ("country", "dependency", "locality"):
             least = INTRO_LONG
-        elif e.get("subtype") == "borough" or e.get("network") in INTRO_SHORT_NETWORKS:
+        elif e.get("subtype") == "borough" or e.get("network") in SEGMENTED_NETWORKS:
             least = INTRO_SHORT
         else:
             continue
@@ -483,7 +484,7 @@ def check_shared(ents: dict) -> dict[str, list[str]]:
     bad = []
     for f in load("route-shared.geojson")["features"]:
         e = ents.get(f["properties"]["id"], {})
-        km = sum(float(np.sum(np.hypot(*(np.diff(xy, axis=0) * [math.cos(math.radians(xy[:, 1].mean())) * 111.32, 110.57]).T)))
+        km = sum(float(np.sum(np.hypot(*(np.diff(xy, axis=0) * [km_per_deg_lon(xy[:, 1].mean()), KM_PER_DEG_LAT]).T)))
                  for xy in (np.array(c) for c in parts(f["geometry"])))
         if km > (SHARED_RAIL_KM if e.get("class") == "rail" else SHARED_ROAD_KM):
             bad.append(f"{e.get('names', {}).get('zh', '?')}: {km:.1f} km on another route's alignment")

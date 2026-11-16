@@ -1,4 +1,5 @@
 import type { Feature, FeatureCollection } from "geojson";
+import { EMPTY_FC } from "./data";
 
 const RADIUS_KM = 6371.0088;
 
@@ -23,7 +24,7 @@ export function formatKm(km: number) {
 
 /** Line, vertices with cumulative distance labels, and the rubber-band segment to the cursor. */
 export function measureFeatures(points: [number, number][] | null, cursor: [number, number] | null): FeatureCollection {
-  if (!points?.length) return { type: "FeatureCollection", features: [] };
+  if (!points?.length) return EMPTY_FC;
   const features: Feature[] = [];
   if (points.length > 1) features.push({ type: "Feature", properties: { kind: "line" }, geometry: { type: "LineString", coordinates: points } });
   if (cursor) features.push({ type: "Feature", properties: { kind: "preview" }, geometry: { type: "LineString", coordinates: [points[points.length - 1], cursor] } });

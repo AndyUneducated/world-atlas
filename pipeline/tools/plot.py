@@ -22,8 +22,10 @@ import matplotlib.pyplot as plt  # noqa: E402
 from shapely.geometry import box, shape  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
-DATA = ROOT / "public" / "data"
-EARTH_RADIUS_KM = 6371.0088
+sys.path.insert(0, str(ROOT / "pipeline"))
+from atlas.common import OUT as DATA  # noqa: E402
+from atlas.grid import EARTH_RADIUS_KM  # noqa: E402
+
 PART = {"building": "#555", "lot": "#d8d2c4", "paved": "#b8b8b8", "green": "#9fd18b", "basin": "#6ab0e6", "runway": "#333",
         "pad": "#e9a", "wall": "#865", "tank": "#d4a373"}
 ROAD = {"motorway": ("#d62828", 2.2), "primary": ("#f77f00", 1.6), "secondary": ("#fcbf49", 1.2)}

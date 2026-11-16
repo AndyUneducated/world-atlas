@@ -1,7 +1,7 @@
 # Administrative divisions of the Territory of the Viking Islands (CN-VK).
 # id: stable internal key, referenced by other files. codes.admin: 6-digit hierarchical code (GB/T 2260 pattern:
 # territory 910000, city 910100, district 910101); may change on reorganisation.
-# subtype follows Overture Maps divisions: country > dependency/region > locality > borough.
+# subtype follows Overture Maps divisions: country > dependency > locality > borough.
 divisions:
 - id: div_raat4g
   subtype: dependency

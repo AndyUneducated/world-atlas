@@ -1,4 +1,4 @@
-import type { Entity } from "./types";
+import { NAME_LANGS, type Entity } from "./types";
 
 interface Doc {
   entity: Entity;
@@ -34,6 +34,7 @@ const KIND_WEIGHT: Record<string, number> = {
   strait: 9,
   estuary: 8,
   motorway: 12,
+  primary: 9,
   arterial: 6,
   secondary: 4,
   collector: 3,
@@ -74,14 +75,7 @@ export class SearchIndex {
       .map((e) => {
         const syllables = pinyin(e.names.zh, { toneType: "none", type: "array" });
         const latin = [
-          e.names.en,
-          e.names["art-x-viking"],
-          e.names["art-x-buckham"],
-          e.names["art-x-tavrunaq"],
-          e.names["art-x-ivuran"],
-          e.names.es,
-          e.names["art-x-ranova"],
-          e.names["art-x-kasiri"],
+          ...NAME_LANGS.filter((l) => l !== "zh").map((l) => e.names[l]),
           e.short_names?.en,
           syllables.join(""),
           syllables.map((p) => p[0]).join(""),
@@ -93,7 +87,7 @@ export class SearchIndex {
           .filter((x): x is string => !!x)
           .map(norm);
         const weight =
-          (KIND_WEIGHT[e.kind === "route" ? (e.class ?? "") : e.subtype] ?? 5) +
+          (KIND_WEIGHT[(e.kind === "route" ? e.class : e.subtype) ?? ""] ?? 5) +
           (e.population ? Math.log10(e.population) : 0);
         return { entity: e, keys: [...keys, ...latin], latin, weight };
       });

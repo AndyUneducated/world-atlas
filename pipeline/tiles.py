@@ -21,9 +21,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas.world import ROOT  # noqa: E402
+from atlas.common import OUT  # noqa: E402
 
-OUT = ROOT / "public" / "data"
 ARCHIVE = "atlas.pmtiles"
 # Layers read only for drawing: no click targets, no client-side geometry work.
 TILE_LAYERS = ("bathymetry", "landcover", "rivers", "streets", "buildings", "parks")
