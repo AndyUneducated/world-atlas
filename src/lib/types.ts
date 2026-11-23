@@ -154,7 +154,10 @@ export interface Entity {
   axes?: Record<PartyAxis, number>;
   leader?: Localized;
   leader_title?: Localized;
-  secretary?: Localized;
+  /** The party's second office (general secretary, secretary-general, executive director …), where its kind has one. */
+  second?: { title: Localized; name: Localized };
+  /** The rest of its leadership, and the heads of its youth wing, paper, think tank, unions and women's wing. */
+  leadership?: { core: { title: Localized; name: Localized }[]; orgs: { title: Localized; org: Localized; name: Localized }[] };
   /** Who leads the party in each territory it stands in. */
   branches?: { at: string; name: Localized }[];
   members?: number;

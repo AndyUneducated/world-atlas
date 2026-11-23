@@ -9,7 +9,9 @@ become entities of their own, with who their voters are. Runs after economy.anno
 entities."""
 from __future__ import annotations
 
+import json
 import math
+import os
 
 import numpy as np
 
@@ -279,20 +281,22 @@ def _full(lang: str, given: list, family: list) -> dict:
 
 
 def _person(rng: np.random.Generator, pools: dict, lang: str, taken: set[str]) -> dict:
-    """A name from the language's pools that no one else has yet. A pool's later names (more:) join only
-    once every name of its first lists is taken, so that adding them renames no one."""
+    """A name from the language's pools that no one else has yet. A pool's later names (more: one stage, or a list of
+    stages) join a stage at a time, each only once every name before it is taken, so that adding them renames no one."""
     pool = pools[lang]
     given, family = pool["given"], pool["family"]
+    stages = pool.get("more", [])
+    stages = [stages] if isinstance(stages, dict) else list(stages)
     while True:
         name = _full(lang, given[int(rng.integers(len(given)))], family[int(rng.integers(len(family)))])
         if name["en"] not in taken:
             taken.add(name["en"])
             return name
         if all(_full(lang, g, f)["en"] in taken for g in given for f in family):
-            more = pool.get("more", {})
-            if given is not pool["given"] or not more:
-                raise ValueError(f"politics: the {lang} names are used up; give the pool more (more: given, family)")
-            given, family = given + more.get("given", []), family + more.get("family", [])
+            if not stages:
+                raise ValueError(f"politics: the {lang} names are used up; give the pool another stage (more: given, family)")
+            stage = stages.pop(0)
+            given, family = given + stage.get("given", []), family + stage.get("family", [])
 
 
 def _chamber(won: dict[str, int], share: dict[str, float], extra: dict, gov: list[str]) -> dict:
@@ -372,19 +376,52 @@ class _People:
         self.local = model.get("local_names", {})
         self.taken = {p["leader"]["en"] for p in model["parties"]} | {leg["governor_name"]["en"] for leg in model["legislatures"].values() if "governor_name" in leg}
         self.memo: dict[str, dict] = {}
+        # M132: within one body (a state's offices, a territory's government, a city, a party) no two drawn people
+        # share a family name or a given name, so that none of them look related. The names written in the data
+        # (party leaders, heads of state, named officeholders) belong to their bodies from the start.
+        self.groups: dict[str, tuple[set[str], set[str]]] = {}
+        self.seeds: dict[str, list[dict]] = {}
+        for p in model["parties"]:
+            self.seeds.setdefault(p["id"], []).append(p["leader"])
+            if p.get("targets"):
+                self.seeds.setdefault(max(p["targets"], key=p["targets"].get), []).append(p["leader"])
+        for tid, leg in model["legislatures"].items():
+            if "governor_name" in leg:
+                self.seeds.setdefault(tid, []).append(leg["governor_name"])
+        for eid, e in entities.items():
+            n, ex = e.get("nation") or {}, (e.get("nation") or {}).get("executive") or {}
+            for nm in (n.get("head", {}).get("name"), ex.get("head", {}).get("name"), ex.get("deputy", {}).get("name"),
+                       *(o.get("name") for o in n.get("offices", []))):
+                if isinstance(nm, dict) and nm.get("zh"):
+                    self.seeds.setdefault(eid, []).append(nm)
+        self.taken |= {n["en"] for ns in self.seeds.values() for n in ns}  # nobody drawn takes a written person's name
+
+    def _group(self, group: str) -> tuple[set[str], set[str]]:
+        if group not in self.groups:
+            seeds = self.seeds.get(group, [])
+            self.groups[group] = ({_given(n) for n in seeds}, {_family(n) for n in seeds})
+        return self.groups[group]
 
     def draw(self, key: str, langs: dict[str, float], avoid: set[str] | None = None, where: str = "") -> dict:
-        """With `avoid`, redraw (a few times at most) a name whose given name is in it, and add the one kept.
-        A territory's local_names (where) add to the pools there and nowhere else."""
+        """Redraw (a few times at most) a name whose given name is in `avoid` or already used in the key's body, or whose
+        family name is used there (the body is the key's second part: office:div_x:3 belongs to div_x), and add the one
+        kept. A territory's local_names (where) add to the pools there and nowhere else."""
         if key not in self.memo:
             pools = self.pools | self.local.get(where, {})
-            for i in range(AVOID_TRIES if avoid is not None else 1):
+            parts = key.split(":")
+            given_used, family_used = self._group(":".join(parts[1:3]) if parts[1:2] == ["country"] else parts[1] if len(parts) > 1 else key)
+            for i in range(AVOID_TRIES):
                 rng = _rng(key if i == 0 else f"{key}~{i}")
-                name = _person(rng, pools, _lang(rng, langs, pools), self.taken)
-                if avoid is None or _given(name) not in avoid or i == AVOID_TRIES - 1:
+                lang = _lang(rng, langs, pools)
+                name = _person(rng, pools, lang, self.taken)
+                clash = (_given(name) in given_used or avoid is not None and _given(name) in avoid
+                         or len(pools[lang]["family"]) > 2 and _family(name) in family_used)  # 尊者 is everyone's
+                if not clash or i == AVOID_TRIES - 1:
                     break
                 self.taken.discard(name["en"])
             self.memo[key] = name
+            given_used.add(_given(name))
+            family_used.add(_family(name))
             if avoid is not None:
                 avoid.add(_given(name))
         return self.memo[key]
@@ -398,7 +435,7 @@ class _People:
 
 
 MAX_EXPERTS = 4  # non-partisan ministers in one cabinet
-AVOID_TRIES = 20
+AVOID_TRIES = 60
 TREND_ELECTIONS = 2  # earlier elections on a party's card
 TREND_SWING = 0.12  # at most about this, as a log share, between one election and the one before
 
@@ -428,6 +465,11 @@ def _standing(world: World, entities: dict, pid: str, p: dict, home: str) -> str
     if pid in L["government"]:
         return "coalition"
     return "opposition" if any(x["id"] == pid and x["seats"] for x in L["parties"]) else "extra"
+
+
+def _family(name: dict) -> str:
+    """The family name: a transcribed name's after the dot, a Chinese name's spelling's first word (欧阳 is one surname)."""
+    return name["zh"].split("·")[-1] if "·" in name["zh"] else "zh:" + name["en"].split(" ")[0]
 
 
 def _given(name: dict) -> str:
@@ -591,6 +633,146 @@ def _key_offices(entities: dict, people: "_People", nid: str, n: dict) -> None:
                                  "name": o.get("name") or people.draw(f"office:{nid}:{i}", langs, avoid, nid)} for i, o in enumerate(n["offices"])]
 
 
+# Party offices by type (M131). "leader" is the leader's title where the party gives none; "second" the office drawn
+# as secretary:<pid> before the rest were added, so adding them renames no one (a type without one gives that draw to
+# its first post); "core" the rest: (zh, en, how many, when) with "seats" (the party sits in a legislature), "army"
+# (it rules a state with an army) or "hidden" (the holder's name is not known). A party's own office_titles replace
+# its type's core.
+_P = lambda zh, en, n=1, when=None: {"title": {"zh": zh, "en": en}, "n": n, "when": when}
+PARTY_OFFICES = {
+    "leninist": {"leader": ("总书记", "General Secretary"), "second": ("书记处常务书记", "Standing Secretary of the Secretariat"), "core": [
+        _P("政治局常委", "Member of the Politburo Standing Committee", (3, 5)), _P("书记处书记", "Secretary of the Secretariat", 2),
+        _P("中央办公厅主任", "Director of the General Office"), _P("组织部部长", "Head of the Organisation Department"),
+        _P("宣传部部长", "Head of the Propaganda Department"), _P("统战部部长", "Head of the United Front Work Department"),
+        _P("对外联络部部长", "Head of the International Department"),
+        _P("纪律检查委员会书记", "Secretary of the Discipline Inspection Commission"), _P("党校校长", "President of the Party School"),
+        _P("中央军事委员会副主席", "Vice-Chairman of the Central Military Commission", 1, "army")]},
+    "socialist": {"leader": ("主席", "Chair"), "second": ("总书记", "General Secretary"), "core": [
+        _P("副主席", "Deputy Chair", 2), _P("副总书记", "Deputy General Secretary"), _P("议会党团主席", "Chair of the Parliamentary Group", 1, "seats"),
+        _P("党鞭", "Chief Whip", 1, "seats"), _P("司库", "Treasurer"), _P("全国执行委员会主席", "Chair of the National Executive Committee"),
+        _P("政策委员会主席", "Chair of the Policy Committee")]},
+    "centre": {"leader": ("主席", "Chair"), "second": ("秘书长", "Secretary-General"), "core": [
+        _P("副主席", "Deputy Chair", 2), _P("副秘书长", "Deputy Secretary-General"), _P("议会党团主席", "Chair of the Parliamentary Group", 1, "seats"),
+        _P("党鞭", "Chief Whip", 1, "seats"), _P("司库", "Treasurer"), _P("竞选总干事", "Campaign Director"),
+        _P("财务委员会主席", "Chair of the Finance Committee")]},
+    "grassroots": {"leader": ("联合主席", "Co-Chair"), "second": ("总协调人", "National Coordinator"), "core": [
+        _P("联合主席", "Co-Chair"), _P("议会党团联合主席", "Co-Chair of the Parliamentary Group", 2, "seats"), _P("司库", "Treasurer"),
+        _P("政策委员会召集人", "Convenor of the Policy Committee"), _P("党员大会主持人", "Chair of the Members' Assembly"),
+        _P("地方组织协调人", "Coordinator of the Local Groups")]},
+    "community": {"leader": ("主席", "Chair"), "second": ("秘书长", "Secretary-General"), "core": [
+        _P("副主席", "Deputy Chair", 2), _P("副秘书长", "Deputy Secretary-General"), _P("议会党团主席", "Chair of the Parliamentary Group", 1, "seats"),
+        _P("司库", "Treasurer"), _P("地方支部联络人", "Liaison Officer for the Branches")]},
+    "front": {"leader": ("主席", "Chair"), "second": ("秘书长", "Secretary-General"), "core": [
+        _P("常务副主席", "Executive Vice-Chair"), _P("副主席", "Vice-Chair", (2, 3)), _P("副秘书长", "Deputy Secretary-General"),
+        _P("办公厅主任", "Director of the General Office")]},
+    "us": {"leader": ("主席", "Chair"), "second": ("执行主任", "Executive Director"), "core": [
+        _P("副主席", "Vice-Chair"), _P("秘书", "Secretary"), _P("财务主管", "Treasurer"), _P("法律顾问", "General Counsel"),
+        _P("全国委员会男委员", "National Committeeman"), _P("全国委员会女委员", "National Committeewoman"),
+        _P("州议会党团领袖", "Leader in the State Legislature", 1, "seats"), _P("党鞭", "Whip", 1, "seats")]},
+    "religious": {"leader": ("首座", "Head"), "core": [
+        _P("副首座", "Deputy Head"), _P("总管事", "Steward"), _P("司库", "Treasurer"), _P("戒律长老", "Elder of Discipline"),
+        _P("宣教主管", "Head of Mission"), _P("对外联络人", "Liaison Officer")]},
+    "monarchist": {"leader": ("主席", "Chair"), "core": [
+        _P("秘书长", "Secretary-General"), _P("礼仪长", "Master of Ceremonies"), _P("司库", "Treasurer"),
+        _P("王室联络官", "Royal Liaison Officer"), _P("青年团团长", "Head of the Youth Corps"), _P("对外发言人", "Spokesperson")]},
+    "traditional": {"leader": ("主席", "Chair"), "core": [
+        _P("副首领", "Deputy Head"), _P("长老会召集人", "Convenor of the Council of Elders"), _P("典礼司仪", "Master of Rites"),
+        _P("司库", "Treasurer"), _P("对外发言人", "Spokesperson")]},
+    "armed": {"leader": ("首领", "Head"), "core": [
+        _P("军事指挥官", "Military Commander"), _P("政治委员", "Political Commissar"), _P("情报主管", "Head of Intelligence", 1, "hidden"),
+        _P("后勤主管", "Head of Logistics"), _P("筹款负责人", "Head of Finance"), _P("对外发言人", "Spokesperson")]},
+    "regime": {"leader": ("主席", "Chair"), "second": ("秘书长", "Secretary-General"), "core": [
+        _P("副主席", "Deputy Chair"), _P("组织部部长", "Head of Organisation"), _P("宣传部部长", "Head of Propaganda"),
+        _P("安全部部长", "Head of Security"), _P("青年团团长", "Head of the Youth Corps"), _P("民兵总指挥", "Commander of the Militia")]},
+}
+HIDDEN_NAME = {"zh": "身份不详", "en": "Identity unknown"}
+# the posts that lead the party in a legislature, which a leader outside government holds in person
+GROUP_LEADS = ("Chair of the Parliamentary Group", "Co-Chair of the Parliamentary Group", "Leader in the State Legislature")
+# a ruling party's posts that its state's key offices already hold: (word in the office, generic post it stands for)
+STATE_COVERS = (("组织", "组织部部长"), ("宣传", "宣传部部长"), ("军事委员会副主席", "中央军事委员会副主席"))
+# the outer organisations' heads, one for each the party names
+ORG_HEADS = {"newspaper": ("总编辑", "Editor-in-Chief"), "think_tank": ("主任", "Director"), "women": ("主任", "Chair"),
+             "unions": ("主席", "President")}
+
+
+def _first_of(names: dict) -> dict:
+    """The first of a list of organisations given as one text ("A、B" / "A, B"); the whole text where the two don't match."""
+    zh, en = names["zh"].split("、"), names["en"].split(", ")
+    return {"zh": zh[0], "en": en[0]} if len(zh) == len(en) > 1 else names
+
+
+def _leadership(world: World, model: dict, entities: dict, people: "_People", parties: dict, seats_held: dict) -> None:
+    """Every party's leadership past its leader and second office (M131), drawn after everyone else so that adding them
+    renames no one. A ruling party's posts that are among its state's key offices keep those holders."""
+    for pid, p in parties.items():
+        e = entities[pid]
+        kind = PARTY_OFFICES[p["party_type"]]
+        home = e["home"]
+        langs = _langs(entities, home)
+        first = e.pop("_first")  # drawn as secretary:<pid>
+        avoid = {_given(p["leader"]), _given(first)}
+        sits = any(entities[s["at"]].get("subtype") != "locality" for s in seats_held[pid])
+        state = p.get("seated")
+        army = bool(state and world.divisions[state]["nation"].get("military"))
+        posts: list[dict] = []
+        # the state's key offices that are the party's own (马索沃利劳动党: 组织指导部部长 …), under their own names
+        prefix = p["short_names"]["zh"]
+        own = [o for o in entities.get(state, {}).get("offices", []) if state and o["names"]["zh"].startswith(prefix)
+               and o["name"] != p["leader"]]
+        covered = set()
+        for o in own:
+            unit = o["names"]["zh"][len(prefix):] + o["title"]["zh"]
+            posts.append({"title": {"zh": unit, "en": f"{o['title']['en']}, {o['names']['en']}"}, "name": o["name"]})
+            covered |= {generic for key, generic in STATE_COVERS if key in unit}
+        if "office_titles" in p:  # a party's own titles, a title given twice being two posts
+            core = []
+            for t in p["office_titles"]:
+                if core and core[-1]["title"] == t:
+                    core[-1]["n"] += 1
+                else:
+                    core.append(_P(t["zh"], t["en"]))
+        else:
+            core = kind["core"]
+        if "党校" in p.get("organisation", {}).get("think_tank", {}).get("zh", ""):  # its think tank is the party school
+            covered.add("党校校长")
+        wanted = []
+        for c in core:
+            if c["when"] == "seats" and not sits or c["when"] == "army" and not army or c["title"]["zh"] in covered:
+                continue
+            n = c["n"]
+            if isinstance(n, tuple):
+                n = n[0] + stable_seed(f"posts:{pid}:{c['title']['en']}") % (n[1] - n[0] + 1)
+            title = c["title"]
+            if p["party_type"] == "us" and title["en"] == "Leader in the State Legislature":
+                title = ({"zh": "州议会多数党领袖", "en": "Majority Leader"} if pid in entities[home].get("legislature", {}).get("government", [])
+                         else {"zh": "州议会少数党领袖", "en": "Minority Leader"})
+            wanted += [(title, c["when"], k, c["title"]["en"]) for k in range(n)]
+        # a leader who does not head the government leads the party in the legislature too
+        head = entities[home].get("legislature", {}).get("head", {}).get("name")
+        leads_group = sits and not state and head != p["leader"]
+        for i, (title, when, k, base) in enumerate(wanted):
+            if leads_group and k == 0 and base in GROUP_LEADS:
+                name = p["leader"]
+            elif i == 0 and "second" not in e:
+                name = first
+            elif when == "hidden":
+                name = HIDDEN_NAME
+            else:
+                name = people.draw(f"party:{pid}:{title['en']}:{k}", langs, avoid, home)
+            posts.append({"title": title, "name": name})
+        youth_title = ("第一书记", "First Secretary") if p["party_type"] in ("leninist", "front") else ("主席", "Chair")
+        orgs = [("youth_wing", p["youth_wing"], youth_title)] + [(k, _first_of(v) if k == "unions" else v, ORG_HEADS[k])
+                                                                  for k, v in p.get("organisation", {}).items()]
+        # an organisation that is also one of its state's key offices keeps that office's title and holder
+        held = {o["names"]["zh"]: o for o in entities.get(state, {}).get("offices", [])} if state else {}
+        # and one that is a party in its own right (马索沃利劳动党's 社会主义青年同盟) is headed by that party's leader
+        held |= {q["names"]["zh"]: {"title": entities[qid]["leader_title"], "name": q["leader"]} for qid, q in parties.items() if qid != pid}
+        heads = [{"title": held[org["zh"]]["title"], "org": org, "name": held[org["zh"]]["name"]} if org["zh"] in held else
+                 {"title": {"zh": zh, "en": en}, "org": org, "name": people.draw(f"party:{pid}:org:{k}", langs, avoid, home)}
+                 for k, org, (zh, en) in orgs]
+        e["leadership"] = {"core": posts, "orgs": heads}
+
+
 def annotate(world: World, entities: dict) -> None:
     """Add elections and officeholders to territories, cities and districts, and an entity for every party."""
     model = world.politics
@@ -721,12 +903,16 @@ def annotate(world: World, entities: dict) -> None:
             "standing": _standing(world, entities, pid, p, home),
             **({"hq": hq} if hq else {}),
             **({"trend": trends[home][pid]} if pid in trends.get(home, {}) else {}),
-            "secretary": people.draw("secretary:" + pid, _langs(entities, home), where=home),
+            "_first": people.draw("secretary:" + pid, _langs(entities, home), where=home),
             "branches": [] if state else [{"at": t, "name": people.leader(p, t)} for t in model["legislatures"] if t in p["targets"]],
             "base": _base(world, entities, {k: v / weight[pid] for k, v in effect[pid].items()} if weight[pid] else {}),
             "territories": [state] if state else [t for t in model["legislatures"] if t in p["targets"]],
             "seats": seats_held[pid],
         }
+        kind = PARTY_OFFICES[p["party_type"]]
+        entities[pid]["leader_title"] = p.get("leader_title") or dict(zip(("zh", "en"), kind["leader"]))
+        if second := p.get("second_office") or (kind.get("second") and dict(zip(("zh", "en"), kind["second"]))):
+            entities[pid]["second"] = {"title": second, "name": entities[pid]["_first"]}
     _appoint(model, entities, people, holders, parties)
     _offices(world, model, entities, people)
     for cid, tid in late:
@@ -738,3 +924,7 @@ def annotate(world: World, entities: dict) -> None:
             clangs = _langs(entities, c["id"])
             entities[c["id"]]["council"] = {"names": body["names"], **({"notes": body["notes"]} if "notes" in body else {}), "appointed": True,
                                             "head": {"title": body["mayor"], "name": people.draw("mayor:" + c["id"], clangs, where=nid)}}
+    _leadership(world, model, entities, people, parties, seats_held)
+    if dump := os.environ.get("ATLAS_DUMP_NAMES"):  # every drawn name by its key, to carry renames into the texts
+        with open(dump, "w", encoding="utf-8") as f:
+            json.dump(people.memo, f, ensure_ascii=False)

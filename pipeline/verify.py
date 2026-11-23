@@ -161,6 +161,26 @@ def check_government(ents: dict) -> dict[str, list[str]]:
     return {"government buildings in every territory": missing}
 
 
+
+def check_parties(ents: dict) -> dict[str, list[str]]:
+    """Every party has a leader's title and a leadership (M131), and no one holds two of its posts: the head of an
+    organisation that is a party or a state office of its own may be named on that card too, and a leader outside
+    government leads the party's group in the legislature."""
+    out = []
+    for e in ents.values():
+        if e.get("kind") != "party":
+            continue
+        L = e.get("leadership") or {}
+        if not e.get("leader_title") or len(L.get("core", [])) < 4 or not L.get("orgs") or "secretary" in e:
+            out.append(f"{e['names']['zh']}: no leader's title or leadership")
+            continue
+        names = [e["leader"]["en"], *([e["second"]["name"]["en"]] if "second" in e else []),
+                 *(x["name"]["en"] for x in L["core"] if x["name"]["en"] != "Identity unknown"
+                   and not (x["name"] == e["leader"] and ("党团" in x["title"]["zh"] or "州议会" in x["title"]["zh"])))]
+        if len(names) != len(set(names)):
+            out.append(f"{e['names']['zh']}: one person holds two posts")
+    return {"every party has a leadership": out}
+
 def check_stations(ents: dict) -> dict[str, list[str]]:
     """A station stands in the district it is named for and listed under."""
     divs = {f["properties"]["id"]: shape(f["geometry"]) for f in load("divisions.geojson")["features"]}
@@ -515,7 +535,7 @@ def main():
     world = World()
     ents, manifest = load("entities.json"), load("manifest.json")
     results = {}
-    for check in (lambda: check_routes(ents), lambda: check_numbers(ents), lambda: check_government(ents), lambda: check_stations(ents),
+    for check in (lambda: check_routes(ents), lambda: check_numbers(ents), lambda: check_government(ents), lambda: check_parties(ents), lambda: check_stations(ents),
                   lambda: check_expected(world, ents), check_glyphs, lambda: check_models(ents),
                   lambda: check_terrain(manifest), lambda: check_round_borders(ents), lambda: check_shared(ents), lambda: check_intros(ents), lambda: check_shapes(ents),
                   check_sizes):

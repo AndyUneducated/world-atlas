@@ -609,9 +609,21 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
   const backers = (entity.backers ?? []).map((id) => data.entities[id]).filter(Boolean);
   const home = entity.home ? data.entities[entity.home] : undefined;
   const hq = entity.hq ? data.entities[entity.hq] : undefined;
+  const heads = entity.leadership?.orgs ?? [];
+  const withHead = (name: Localized): ReactNode => {
+    const h = heads.find((x) => x.org.zh === name.zh) ?? heads.find((x) => name.zh.startsWith(x.org.zh));
+    return h ? (
+      <span>
+        {name[lang]}
+        <span className="text-muted">{` · ${h.title[lang]} ${h.name[lang]}`}</span>
+      </span>
+    ) : (
+      name[lang]
+    );
+  };
   const orgRows: [string, ReactNode][] = [
-    ...(entity.youth_wing ? [[t("youthWing", lang), entity.youth_wing[lang]] as [string, ReactNode]] : []),
-    ...(["newspaper", "think_tank", "unions", "women"] as const).filter((k) => org[k]).map((k) => [t(ORG_KEYS[k], lang), org[k]![lang]] as [string, ReactNode]),
+    ...(entity.youth_wing ? [[t("youthWing", lang), withHead(entity.youth_wing)] as [string, ReactNode]] : []),
+    ...(["newspaper", "think_tank", "unions", "women"] as const).filter((k) => org[k]).map((k) => [t(ORG_KEYS[k], lang), withHead(org[k]!)] as [string, ReactNode]),
   ];
   return (
     <>
@@ -627,7 +639,7 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
               : []),
             ...(entity.legal_status ? [[t("legalStatus", lang), entity.legal_status[lang]] as [string, ReactNode]] : []),
             ...(entity.leader ? [[entity.leader_title?.[lang] ?? t("partyLeader", lang), entity.leader[lang]] as [string, ReactNode]] : []),
-            ...(entity.secretary ? [[t("secretary", lang), entity.secretary[lang]] as [string, ReactNode]] : []),
+            ...(entity.second ? [[entity.second.title[lang], entity.second.name[lang]] as [string, ReactNode]] : []),
             ...(hq && part !== "profile"
               ? [[t("partyHq", lang), <button onClick={() => select(hq.id)} className="text-ink underline decoration-line underline-offset-2 hover:decoration-current">{displayName(hq, lang)}</button>] as [string, ReactNode]]
               : []),
@@ -699,6 +711,7 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
           <p className="text-[13px] leading-relaxed text-ink">{entity.reunification[lang]}</p>
         </Section>
       )}
+      {show("organisation") && entity.leadership?.core.length ? <LeadershipSection posts={entity.leadership.core} lang={lang} /> : null}
       {show("organisation") && (orgRows.length > 0 || (entity.branches?.length ?? 0) > 1) && (
         <Section title={t("organisation", lang)}>
           {orgRows.length > 0 && <Rows rows={orgRows} />}
@@ -842,6 +855,46 @@ function VoteTrend({ values, color, lang }: { values: number[]; color: string; l
         </li>
       ))}
     </ul>
+  );
+}
+
+const LEADERSHIP_SHOWN = 8;
+
+/** The party's leadership past its leader and second office, a post held by several in one row ("政治局常委 · 5"), the
+ * first rows shown and the rest opened. */
+function LeadershipSection({ posts, lang }: { posts: { title: Localized; name: Localized }[]; lang: Lang }) {
+  const [open, setOpen] = useCardOpen("leadership");
+  const rows: { title: Localized; names: Localized[] }[] = [];
+  for (const p of posts) {
+    const last = rows[rows.length - 1];
+    if (last && last.title.en === p.title.en) last.names.push(p.name);
+    else rows.push({ title: p.title, names: [p.name] });
+  }
+  const shown = open ? rows : rows.slice(0, LEADERSHIP_SHOWN);
+  return (
+    <Section title={t("leadership", lang)}>
+      <ul className="divide-y divide-line/60">
+        {shown.map((r) => (
+          <li key={r.title.en} className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] items-baseline gap-3 py-1.5 text-[12.5px]">
+            <span className="leading-snug text-muted">
+              {r.title[lang]}
+              {r.names.length > 1 && <span className="text-faint tabular-nums">{` · ${r.names.length}`}</span>}
+            </span>
+            <span className="leading-snug text-ink">{r.names.map((n) => n[lang]).join(lang === "zh" ? "、" : ", ")}</span>
+          </li>
+        ))}
+      </ul>
+      {rows.length > LEADERSHIP_SHOWN && (
+        <button
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          className="mt-2 -ml-2 flex items-center gap-1 rounded-full px-2 py-1 text-[12px] font-medium text-muted transition-colors hover:bg-hover hover:text-ink"
+        >
+          <ChevronDown className={clsx("size-3.5 transition-transform", open && "rotate-180")} />
+          {open ? t("hideMinisters", lang) : `${t("showLeadership", lang)} · ${rows.length}`}
+        </button>
+      )}
+    </Section>
   );
 }
 

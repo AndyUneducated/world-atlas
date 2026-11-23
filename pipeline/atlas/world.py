@@ -108,6 +108,10 @@ POLITICS_SYSTEMS = ("mmp", "fptp", "pr_reserved", "pr_regional", "top_two")
 # the centre's, and ecology to growth
 PARTY_AXES = ("econ", "galtan", "autonomy", "green")
 PARTY_ORGANISATION = ("newspaper", "think_tank", "unions", "women")
+# what kind of party it is (M131): sets the leader's title when the party gives none, its second office and the
+# rest of its leadership (politics.PARTY_OFFICES)
+PARTY_TYPES = ("leninist", "socialist", "centre", "grassroots", "community", "front", "us", "religious", "monarchist",
+               "traditional", "armed", "regime")
 # where a party stands at home: leads the government, sits in it, is a licensed partner of the ruling party,
 # holds the majority in a parliament that forms no government, opposes it, or holds no seats; a party of a
 # fixed-chamber state with no seat there is lawful but unseated (extra), outlawed, clandestine, in exile or
@@ -916,6 +920,12 @@ class World:
                 errors.append(f"politics: {pid}: spectrum is a number from -3 (left) to 3 (right)")
             if not (isinstance(p.get("members"), int) and p["members"] > 0):
                 errors.append(f"politics: {pid}: members must be a whole number")
+            if p.get("party_type") not in PARTY_TYPES:
+                errors.append(f"politics: {pid}: party_type is one of {', '.join(PARTY_TYPES)}")
+            if "office_titles" in p and not (p["office_titles"] and all(both(t) for t in p["office_titles"])):
+                errors.append(f"politics: {pid}: office_titles lists the leadership's titles, each in zh and en")
+            if "second_office" in p and not both(p["second_office"]):
+                errors.append(f"politics: {pid}: second_office is the title of the party's second office, in zh and en")
             if seated := p.get("seated"):
                 groups = self.divisions.get(seated, {}).get("nation", {}).get("legislature", {}).get("groups", [])
                 if "targets" in p or "based" in p or seated not in self.states or not any(g.get("party") == pid for g in groups):
