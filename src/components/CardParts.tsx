@@ -233,7 +233,7 @@ export function ShareRows({
     <div className="space-y-1.5">
       {rows.map((r, i) => (
         <div key={r.label} className={clsx("grid items-center gap-2.5 text-[12px]", gridClassName)}>
-          <span className="truncate text-muted">{r.label}</span>
+          <span className="min-w-0 break-words leading-tight text-muted">{r.label}</span>
           <span className="h-1.5 overflow-hidden rounded-full bg-hover">
             <motion.span
               className="block h-full rounded-full"

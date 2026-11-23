@@ -2251,13 +2251,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 北维京岛领地政务院对外事务部
-      en: Ministry of External Affairs, North Viking Island Executive Council
+      zh: 北维京岛领地对外事务部
+      en: Ministry of External Affairs, North Viking Island
     short_names:
       zh: 对外事务部
       en: Ministry of External Affairs
     notes:
-      zh: 北维京岛领地政务院对外事务部，位于自由市人民大道「政务院大街」北侧第一栋，负责领地的对外交往和与中央政府的联络。部内设政策司、中央政府联络司、外国使领馆司、礼宾司、国际交流司和领事服务司。外国驻领地的领事馆和商务代表处大多设在自由市和贝克勒，由外国使领馆司对口联系；礼宾司安排外宾来访和领地庆典，人民广场上的国宾欢迎仪式都由它筹办；领事服务司为在岛外国人办理证明和认证，也协助在海外遇到困难的领地居民。大楼为 L 形板楼，正面朝向人民大道。
+      zh: 北维京岛领地对外事务部，位于自由市人民大道「政务院大街」北侧第一栋，负责领地的对外交往和与中央政府的联络。部内设政策司、中央政府联络司、外国使领馆司、礼宾司、国际交流司和领事服务司。外国驻领地的领事馆和商务代表处大多设在自由市和贝克勒，由外国使领馆司对口联系；礼宾司安排外宾来访和领地庆典，人民广场上的国宾欢迎仪式都由它筹办；领事服务司为在岛外国人办理证明和认证，也协助在海外遇到困难的领地居民。大楼为 L 形板楼，正面朝向人民大道。
       en: The Ministry of External Affairs stands first on the north side of Council Row, the stretch of People's Avenue in Freedom City lined with the Executive Council's ministries, and handles the territory's dealings abroad and its liaison with the central government. Its departments are Policy, Central Government Liaison, Foreign Missions, Protocol, International Exchange and Consular Services. Most foreign consulates and trade offices are in Freedom City or Beckerle, and the Foreign Missions Department is their point of contact; Protocol arranges official visits and territorial ceremonies, including the state welcomes on People's Square, and Consular Services certifies documents for foreign residents and helps islanders in difficulty abroad. The building is an L-shaped block facing the avenue.
     in: div_16cxr8
     offset_km: [2.07, 1.62]
@@ -2267,13 +2267,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 北维京岛领地政务院财政部
-      en: Ministry of Finance, North Viking Island Executive Council
+      zh: 北维京岛领地财政部
+      en: Ministry of Finance, North Viking Island
     short_names:
       zh: 财政部
       en: Ministry of Finance
     notes:
-      zh: 北维京岛领地政务院财政部，与对外事务部隔人民大道相对，管理领地的税收、预算和财政监督。部内设税收司、关税司、监管司、行政部门预算司、企业事业单位预算司和中央财政事务司。全岛实行统一的税制，贝克勒自由贸易区另有低税率和免征关税的特别安排，由税收司和关税司分别执行；行政部门预算司编制政务院各部门的年度预算，企业事业单位预算司管理大学、医院和公共企业的拨款，中央财政事务司负责中央转移支付和上缴事项。大楼为长条形板楼，地下是领地的财政档案库。
+      zh: 北维京岛领地财政部，与对外事务部隔人民大道相对，管理领地的税收、预算和财政监督。部内设税收司、关税司、监管司、行政部门预算司、企业事业单位预算司和中央财政事务司。全岛实行统一的税制，贝克勒自由贸易区另有低税率和免征关税的特别安排，由税收司和关税司分别执行；行政部门预算司编制政务院各部门的年度预算，企业事业单位预算司管理大学、医院和公共企业的拨款，中央财政事务司负责中央转移支付和上缴事项。大楼为长条形板楼，地下是领地的财政档案库。
       en: The Ministry of Finance faces the Ministry of External Affairs across People's Avenue and runs the territory's taxes, budgets and financial oversight through its departments of Taxation, Customs Tariffs, Supervision, Executive Budgets, Public Enterprise and Institution Budgets, and Central Finance. The whole island has one tax code, and the Beckerle Free Trade Zone's low rates and duty-free rules are applied by the Taxation and Customs Tariff departments. Executive Budgets draws up the yearly budgets of the Council's ministries, Public Enterprise and Institution Budgets funds the universities, hospitals and public companies, and Central Finance handles transfers to and from the central government. It is a long slab with the territory's financial archive underground.
     in: div_16cxr8
     offset_km: [2.29, 1.29]
@@ -2283,13 +2283,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 北维京岛领地政务院司法部
-      en: Ministry of Justice, North Viking Island Executive Council
+      zh: 北维京岛领地司法部
+      en: Ministry of Justice, North Viking Island
     short_names:
       zh: 司法部
       en: Ministry of Justice
     notes:
-      zh: 北维京岛领地政务院司法部，位于政务院大街北侧，负责领地法规的起草和实施、检察事务和司法行政。部内设国家法律实施司、领地法规司、法律法规起草和规范司、检察事务司、司法监察司、拘留管理司、社区矫正管理司、司法从业人员司和司法研究司。领地法规以中文、维京语和巴克汉姆语三种文本同时公布，起草和规范司负责三种文本的一致；司法从业人员司管理律师、公证员和法律翻译的执业资格，拘留管理司和社区矫正管理司分别管理看守所和社区矫正。大楼为 L 形，内侧的庭院旁是法律图书馆。
+      zh: 北维京岛领地司法部，位于政务院大街北侧，负责领地法规的起草和实施、检察事务和司法行政。部内设国家法律实施司、领地法规司、法律法规起草和规范司、检察事务司、司法监察司、拘留管理司、社区矫正管理司、司法从业人员司和司法研究司。领地法规以中文、维京语和巴克汉姆语三种文本同时公布，起草和规范司负责三种文本的一致；司法从业人员司管理律师、公证员和法律翻译的执业资格，拘留管理司和社区矫正管理司分别管理看守所和社区矫正。大楼为 L 形，内侧的庭院旁是法律图书馆。
       en: "The Ministry of Justice, on the north side of Council Row, drafts and applies the territory's laws and runs prosecutions and the administration of justice. It has nine departments: National Law Enforcement, Territorial Regulations, Legislative Drafting and Standards, Prosecutions, Judicial Inspection, Detention, Community Corrections, Legal Professions and Legal Research. Territorial laws are published at once in Chinese, Viking and Buckham, and the drafting department keeps the three texts in step; Legal Professions licenses lawyers, notaries and legal translators, while Detention and Community Corrections run the remand centres and supervision in the community. The L-shaped building has a law library beside its inner yard."
     in: div_16cxr8
     offset_km: [2.22, 1.72]
@@ -2299,13 +2299,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 北维京岛领地政务院公共安全部
-      en: Ministry of Public Security, North Viking Island Executive Council
+      zh: 北维京岛领地公共安全部
+      en: Ministry of Public Security, North Viking Island
     short_names:
       zh: 公共安全部
       en: Ministry of Public Security
     notes:
-      zh: 北维京岛领地政务院公共安全部，位于政务院大街南侧，统一领导全岛的警务和治安。部内设警察司、警务司、边境服务和安全司、刑事侦查司、民事侦查司、经济犯罪调查司、社区安全司和技术和装备司；边境服务和安全司要守住海底隧道和港口口岸，单独设在维京港。经济犯罪调查司与贝克勒自由贸易区的金融监管配合，打击洗钱和走私；社区安全司在各市推行社区警务，冬季还负责雪灾和交通事故的应急救援；技术和装备司为高速公路警察配备在不限速路段使用的巡逻车和直升机。大楼底层是全岛的报警指挥中心。
+      zh: 北维京岛领地公共安全部，位于政务院大街南侧，统一领导全岛的警务和治安。部内设警察司、警务司、边境服务和安全司、刑事侦查司、民事侦查司、经济犯罪调查司、社区安全司和技术和装备司；边境服务和安全司要守住海底隧道和港口口岸，单独设在维京港。经济犯罪调查司与贝克勒自由贸易区的金融监管配合，打击洗钱和走私；社区安全司在各市推行社区警务，冬季还负责雪灾和交通事故的应急救援；技术和装备司为高速公路警察配备在不限速路段使用的巡逻车和直升机。大楼底层是全岛的报警指挥中心。
       en: The Ministry of Public Security, on the south side of Council Row, directs policing and public order across the island. Its departments are Police, Policing Operations, Border Services and Security, Criminal Investigation, Civil Investigation, Economic Crime, Community Safety, and Technology and Equipment; Border Services and Security, which guards the undersea tunnel and the ports of entry, has its own building in Viking Port. Economic Crime works with the Beckerle Free Trade Zone's financial regulators against money laundering and smuggling, Community Safety runs neighbourhood policing and winter rescue after snowstorms and crashes, and Technology and Equipment supplies the patrol cars and helicopters of the expressway police on the unrestricted stretches. The island's emergency call and dispatch centre is on the ground floor.
     in: div_16cxr8
     offset_km: [2.44, 1.39]
@@ -2315,13 +2315,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 北维京岛领地政务院教育、科学和文化部
-      en: Ministry of Education, Science and Culture, North Viking Island Executive Council
+      zh: 北维京岛领地教育、科学和文化部
+      en: Ministry of Education, Science and Culture, North Viking Island
     short_names:
       zh: 教育、科学和文化部
       en: Ministry of Education, Science and Culture
     notes:
-      zh: 北维京岛领地政务院教育、科学和文化部，位于政务院大街北侧，是下设司局最多的部，管理从学前教育到大学的各级教育、领地的科学政策和文化事业。部内设教育政策司、科学政策司、文化政策司、教育技术司、信息技术司、教育从业人员司、科技从业人员司、文化从业人员司、学前教育司、基础教育司、成人和职业教育司、高等教育司和教育督导署。领地的学校实行中文与维京语或巴克汉姆语的双语教学，内陆各区开设塔夫鲁纳克语课程；科学政策司设在西北市科学城，紧邻国家实验室和航天企业。领地博物馆、领地图书馆和自由市大剧院都归它管理，就在大街西南端的人民广场旁。
+      zh: 北维京岛领地教育、科学和文化部，位于政务院大街北侧，是下设司局最多的部，管理从学前教育到大学的各级教育、领地的科学政策和文化事业。部内设教育政策司、科学政策司、文化政策司、教育技术司、信息技术司、教育从业人员司、科技从业人员司、文化从业人员司、学前教育司、基础教育司、成人和职业教育司、高等教育司和教育督导署。领地的学校实行中文与维京语或巴克汉姆语的双语教学，内陆各区开设塔夫鲁纳克语课程；科学政策司设在西北市科学城，紧邻国家实验室和航天企业。领地博物馆、领地图书馆和自由市大剧院都归它管理，就在大街西南端的人民广场旁。
       en: The Ministry of Education, Science and Culture, on the north side of Council Row, has more departments than any other ministry and covers education from nursery to university, the territory's science policy and its cultural life. Its thirteen units are the Education Policy, Science Policy, Cultural Policy, Educational Technology, Information Technology, Teaching Professions, Science and Technology Professions, Cultural Professions, Pre-school, Basic Education, Adult and Vocational Education and Higher Education departments and the Education Inspectorate. Schools teach in Chinese alongside Viking or Buckham, with Tavrunaq classes in the inland districts, and the Science Policy Department sits in Northwest City's Science City beside the national laboratories and aerospace firms. The Territorial Museum, the Territorial Library and the Freedom City Grand Theatre, all by People's Square at the south-west end of the row, come under it.
     in: div_16cxr8
     offset_km: [2.37, 1.82]
@@ -2331,13 +2331,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 北维京岛领地政务院交通部
-      en: Ministry of Transport, North Viking Island Executive Council
+      zh: 北维京岛领地交通部
+      en: Ministry of Transport, North Viking Island
     short_names:
       zh: 交通部
       en: Ministry of Transport
     notes:
-      zh: 北维京岛领地政务院交通部，位于政务院大街南侧，负责全岛的道路、铁路、水运和航空。部内设政策司、交通从业人员司、道路运输司、公路司、铁路司、水路司和空运司，其中铁路司在隔壁单独建楼。公路司管理环北维京岛高速、自维高速等国家高速和领地高速，岛上的高速公路大多不限速，冬季的除雪、防雪长廊和融雪设施也由它统一调度；水路司监管维京港、勒克尔和贝克勒保税港区的航运，空运司负责各机场的航线和空域协调，交通从业人员司管理驾驶员、船员和机组的资格考核。
+      zh: 北维京岛领地交通部，位于政务院大街南侧，负责全岛的道路、铁路、水运和航空。部内设政策司、交通从业人员司、道路运输司、公路司、铁路司、水路司和空运司，其中铁路司在隔壁单独建楼。公路司管理环北维京岛高速、自维高速等国家高速和领地高速，岛上的高速公路大多不限速，冬季的除雪、防雪长廊和融雪设施也由它统一调度；水路司监管维京港、勒克尔和贝克勒保税港区的航运，空运司负责各机场的航线和空域协调，交通从业人员司管理驾驶员、船员和机组的资格考核。
       en: The Ministry of Transport, on the south side of Council Row, runs the island's roads, railways, shipping and air transport. Its departments are Policy, Transport Professions, Road Transport, Highways, Railways, Waterways and Air Transport, of which Railways has its own building next door. Highways manages the national and territorial expressways such as the North Viking Island Ring Expressway and the Freedom–Viking Port Expressway, most of them without a speed limit, and coordinates winter snow clearing, snow sheds and de-icing; Waterways oversees shipping at Viking Port, Lekor and the Beckerle Bonded Port Zone, Air Transport handles routes and airspace for the airports, and Transport Professions examines and licenses drivers, seafarers and aircrew.
     in: div_16cxr8
     offset_km: [2.59, 1.49]
@@ -2347,13 +2347,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 北维京岛领地政务院建设部
-      en: Ministry of Construction, North Viking Island Executive Council
+      zh: 北维京岛领地建设部
+      en: Ministry of Construction, North Viking Island
     short_names:
       zh: 建设部
       en: Ministry of Construction
     notes:
-      zh: 北维京岛领地政务院建设部，位于政务院大街南侧靠近议会综合办公区的一端，负责城乡规划、住房和建筑市场。部内设政策司、住房保障司、房地产市场监管司、建筑市场监管司、城市建设司和乡镇建设司。首府自由市、新城和西北市科学城都按它审定的规划新建，棋盘格的街道和成排的白桦就是规划的样子；住房保障司为公务员、教师和年轻家庭提供公共租赁住房，建筑市场监管司制定适应冻土和大雪荷载的建筑规范，乡镇建设司支持内陆牧区和渔村修建道路、供暖和自来水。
+      zh: 北维京岛领地建设部，位于政务院大街南侧靠近议会综合办公区的一端，负责城乡规划、住房和建筑市场。部内设政策司、住房保障司、房地产市场监管司、建筑市场监管司、城市建设司和乡镇建设司。首府自由市、新城和西北市科学城都按它审定的规划新建，棋盘格的街道和成排的白桦就是规划的样子；住房保障司为公务员、教师和年轻家庭提供公共租赁住房，建筑市场监管司制定适应冻土和大雪荷载的建筑规范，乡镇建设司支持内陆牧区和渔村修建道路、供暖和自来水。
       en: The Ministry of Construction, on the south side of Council Row at the end near the Parliament Complex, is in charge of town and country planning, housing and the building trade. Its departments are Policy, Housing Support, Property Market Supervision, Building Market Supervision, Urban Development and Rural Development. Freedom City, New City and Northwest's Science City were all built to plans it approved, and the grid streets lined with birches are what those plans look like. Housing Support provides public rental homes for civil servants, teachers and young families, Building Market Supervision writes the building codes for permafrost and heavy snow loads, and Rural Development helps the inland pastures and fishing villages with roads, heating and running water.
     in: div_16cxr8
     offset_km: [2.74, 1.59]
@@ -2363,13 +2363,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 北维京岛领地政务院民政部
-      en: Ministry of Civil Affairs, North Viking Island Executive Council
+      zh: 北维京岛领地民政部
+      en: Ministry of Civil Affairs, North Viking Island
     short_names:
       zh: 民政部
       en: Ministry of Civil Affairs
     notes:
-      zh: 北维京岛领地政务院民政部，位于政务院大街北侧第二排，负责社会组织、社会救助和行政区划。部内设政策司、社会组织司、社会救助司、慈善事业司、其他社会事务司和行政区划司。行政区划司管理全岛市、区的设立、调整和命名，领地地名分层的规则就由它审定：西、北海岸用北欧名，内陆用塔夫鲁纳克语名，东南用巴克汉姆名，领地时期的新城用中文名。社会组织司登记协会、合作社和基金会，社会救助司向困难家庭发放救助，慈善事业司监督募捐，其他社会事务司负责婚姻登记、殡葬和退役军人安置。
+      zh: 北维京岛领地民政部，位于政务院大街北侧第二排，负责社会组织、社会救助和行政区划。部内设政策司、社会组织司、社会救助司、慈善事业司、其他社会事务司和行政区划司。行政区划司管理全岛市、区的设立、调整和命名，领地地名分层的规则就由它审定：西、北海岸用北欧名，内陆用塔夫鲁纳克语名，东南用巴克汉姆名，领地时期的新城用中文名。社会组织司登记协会、合作社和基金会，社会救助司向困难家庭发放救助，慈善事业司监督募捐，其他社会事务司负责婚姻登记、殡葬和退役军人安置。
       en: The Ministry of Civil Affairs, in the second row on the north side of Council Row, deals with civil society, social assistance and the territory's administrative divisions. Its departments are Policy, Social Organisations, Social Assistance, Charities, Other Social Affairs and Administrative Divisions. Administrative Divisions sets up, adjusts and names cities and districts, and approved the island's layered naming, with Norse names on the west and north coasts, Tavrunaq names inland, Buckham names in the south-east and Chinese names for the territory's new towns. Social Organisations registers associations, co-operatives and foundations, Social Assistance supports families in hardship, Charities oversees fundraising, and Other Social Affairs handles marriage registration, funerals and the resettlement of veterans.
     in: div_16cxr8
     offset_km: [1.96, 1.79]
@@ -2379,13 +2379,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 北维京岛领地政务院劳动和社会保障部
-      en: Ministry of Labour and Social Security, North Viking Island Executive Council
+      zh: 北维京岛领地劳动和社会保障部
+      en: Ministry of Labour and Social Security, North Viking Island
     short_names:
       zh: 劳动和社会保障部
       en: Ministry of Labour and Social Security
     notes:
-      zh: 北维京岛领地政务院劳动和社会保障部，位于政务院大街南侧第二排，负责就业、职业培训、劳动关系和社会保险。部内设就业司、职业能力司、普通工种司、特殊工种司、劳动仲裁司和公共劳动保险司。特殊工种司管理航天发射、远洋捕捞、矿山和高寒野外作业等高危岗位的资格和工时，冬季野外作业的停工标准也由它制定；职业能力司与各市的职业学院合作开设船舶修造、航天制造和旅游服务课程，劳动仲裁司在各市设仲裁庭，公共劳动保险司管理全岛统一的养老、失业和工伤保险。
+      zh: 北维京岛领地劳动和社会保障部，位于政务院大街南侧第二排，负责就业、职业培训、劳动关系和社会保险。部内设就业司、职业能力司、普通工种司、特殊工种司、劳动仲裁司和公共劳动保险司。特殊工种司管理航天发射、远洋捕捞、矿山和高寒野外作业等高危岗位的资格和工时，冬季野外作业的停工标准也由它制定；职业能力司与各市的职业学院合作开设船舶修造、航天制造和旅游服务课程，劳动仲裁司在各市设仲裁庭，公共劳动保险司管理全岛统一的养老、失业和工伤保险。
       en: The Ministry of Labour and Social Security, in the second row on the south side of Council Row, covers jobs, training, labour relations and social insurance. Its departments are Employment, Vocational Skills, General Trades, Special Trades, Labour Arbitration and Public Labour Insurance. Special Trades sets the qualifications and hours for hazardous work such as rocket launches, deep-sea fishing, mining and fieldwork in the cold, including when outdoor work must stop in winter; Vocational Skills runs courses in shipbuilding, aerospace manufacturing and tourism with each city's colleges, Labour Arbitration sits in every city, and Public Labour Insurance runs the island-wide pension, unemployment and work-injury schemes.
     in: div_16cxr8
     offset_km: [2.4, 1.12]
@@ -2395,13 +2395,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 北维京岛领地政务院卫生和人类服务部
-      en: Ministry of Health and Human Services, North Viking Island Executive Council
+      zh: 北维京岛领地卫生和人类服务部
+      en: Ministry of Health and Human Services, North Viking Island
     short_names:
       zh: 卫生和人类服务部
       en: Ministry of Health and Human Services
     notes:
-      zh: 北维京岛领地政务院卫生和人类服务部，位于政务院大街北侧第二排，负责食品药品安全、医疗卫生、公共保险和公共福利。部内设食品政策司、食品监管司、食品从业人员司、医疗和药品政策司、医疗和药品监管司、医疗和药品从业人员司、医疗和药品技术司、公共健康保险司、其他公共保险司、公共卫生司和公共福利司。食品监管司检验全岛的乳制品、熏鱼和进口食品，公共健康保险司让居民在各市医院看病都按统一标准报销；公共卫生司为偏远牧区和渔村组织巡回医疗和直升机急救，公共福利司负责养老院、托育和残疾人服务。
+      zh: 北维京岛领地卫生和人类服务部，位于政务院大街北侧第二排，负责食品药品安全、医疗卫生、公共保险和公共福利。部内设食品政策司、食品监管司、食品从业人员司、医疗和药品政策司、医疗和药品监管司、医疗和药品从业人员司、医疗和药品技术司、公共健康保险司、其他公共保险司、公共卫生司和公共福利司。食品监管司检验全岛的乳制品、熏鱼和进口食品，公共健康保险司让居民在各市医院看病都按统一标准报销；公共卫生司为偏远牧区和渔村组织巡回医疗和直升机急救，公共福利司负责养老院、托育和残疾人服务。
       en: The Ministry of Health and Human Services, in the second row on the north side of Council Row, is responsible for food and drug safety, health care, public insurance and public welfare. Its eleven departments are Food Policy, Food Supervision, Food Professions, Medical and Drug Policy, Medical and Drug Supervision, Medical and Drug Professions, Medical and Drug Technology, Public Health Insurance, Other Public Insurance, Public Health and Public Welfare. Food Supervision tests the island's dairy produce, smoked fish and imported food, Public Health Insurance means treatment is reimbursed on the same terms in every city's hospitals, Public Health sends travelling clinics and air ambulances to remote pastures and fishing villages, and Public Welfare runs care homes, childcare and disability services.
     in: div_16cxr8
     offset_km: [2.11, 1.89]
@@ -2411,13 +2411,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 北维京岛领地政务院自然资源和环境保护部
-      en: Ministry of Natural Resources and Environmental Protection, North Viking Island Executive Council
+      zh: 北维京岛领地自然资源和环境保护部
+      en: Ministry of Natural Resources and Environmental Protection, North Viking Island
     short_names:
       zh: 自然资源和环境保护部
       en: Ministry of Natural Resources and Environmental Protection
     notes:
-      zh: 北维京岛领地政务院自然资源和环境保护部，位于政务院大街南侧第二排，负责土地、森林、冰川和海洋的保护与利用。部内设政策司、自然生态保护司、大陆生态环境司、水生态环境司、海洋生态环境司、大气环境司、土壤生态环境司、固体废物和化学品司、环境影响评价和排放管理司、生态环境监测司和生态环境执法署。洛龙山脉和马斯林山脉的冰川、内陆的针叶林和驯鹿牧场、西海岸的峡湾都在它的保护名录上；环境影响评价和排放管理司审批港口、矿山和航天设施的建设，生态环境监测司与西北市的寒岭生态研究站合作，长期观测冰川退缩和冻土变化。
+      zh: 北维京岛领地自然资源和环境保护部，位于政务院大街南侧第二排，负责土地、森林、冰川和海洋的保护与利用。部内设政策司、自然生态保护司、大陆生态环境司、水生态环境司、海洋生态环境司、大气环境司、土壤生态环境司、固体废物和化学品司、环境影响评价和排放管理司、生态环境监测司和生态环境执法署。洛龙山脉和马斯林山脉的冰川、内陆的针叶林和驯鹿牧场、西海岸的峡湾都在它的保护名录上；环境影响评价和排放管理司审批港口、矿山和航天设施的建设，生态环境监测司与西北市的寒岭生态研究站合作，长期观测冰川退缩和冻土变化。
       en: The Ministry of Natural Resources and Environmental Protection, in the second row on the south side of Council Row, protects and manages the island's land, forests, glaciers and seas. Its departments are Policy, Nature Conservation, Land Ecology, Freshwater Ecology, Marine Ecology, Air Quality, Soil Ecology, Solid Waste and Chemicals, Environmental Impact and Emissions, and Environmental Monitoring, with an Environmental Enforcement Agency. The glaciers of the Lorond and Maslin ranges, the inland conifer forests and reindeer pastures and the fjords of the west coast are all on its protected lists. Its impact assessors approve ports, mines and space facilities, and its monitoring department works with the Frost Ridge Ecological Station in Northwest City to track the retreat of the glaciers and changes in the permafrost.
     in: div_16cxr8
     offset_km: [2.55, 1.22]
@@ -2427,13 +2427,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 北维京岛领地政务院交通部铁路司
-      en: Railways Department, Ministry of Transport, North Viking Island Executive Council
+      zh: 北维京岛领地交通部铁路司
+      en: Railways Department, Ministry of Transport, North Viking Island
     short_names:
       zh: 交通部铁路司
       en: Railways Department
     notes:
-      zh: 北维京岛领地政务院交通部铁路司，在交通部旁单独建楼，负责全岛铁路的规划、建设监督和运营安全。北维京岛有西马高速铁路、自勒高速铁路、新洛高速铁路和马斯林山航天高速铁路四条轮轨线路，运营时速 400 公里，维西、贝马两条露天磁悬浮时速 600 公里，维贝真空磁悬浮和通往维京群岛的维长真空磁悬浮则以每小时 800 公里在真空管道里运行；铁路司审定新线方案和时刻表的基本框架，监督冻土路段、长隧道和防雪设施的安全，冬季协调除雪车和道岔融雪。维长真空磁悬浮的海底隧道由它与维京群岛的交通部门共同管理。铁路在岛内长途客运中的地位越来越重要，它是交通部唯一单独建楼的司。
+      zh: 北维京岛领地交通部铁路司，在交通部旁单独建楼，负责全岛铁路的规划、建设监督和运营安全。北维京岛有西马高速铁路、自勒高速铁路、新洛高速铁路和马斯林山航天高速铁路四条轮轨线路，运营时速 400 公里，维西、贝马两条露天磁悬浮时速 600 公里，维贝真空磁悬浮和通往维京群岛的维长真空磁悬浮则以每小时 800 公里在真空管道里运行；铁路司审定新线方案和时刻表的基本框架，监督冻土路段、长隧道和防雪设施的安全，冬季协调除雪车和道岔融雪。维长真空磁悬浮的海底隧道由它与维京群岛的交通部门共同管理。铁路在岛内长途客运中的地位越来越重要，它是交通部唯一单独建楼的司。
       en: The Railways Department of the Ministry of Transport has its own building beside the ministry and plans the island's railways, supervises their construction and oversees their safety. North Viking Island has four wheel-on-rail lines running at 400 km/h, the Northwest–Maslin Mountain, Freedom City–Lekor, New City–Lorond Mountain and Maslin Mountain Aerospace high-speed railways, two open-air maglevs at 600 km/h, Viking Port–Northwest and Beckerle–Maslin Mountain, while the Viking Port–Beckerle Vacuum Maglev and the Viking Port–Longship Vacuum Maglev to the Viking Islands run at 800 km/h in vacuum tubes. The department approves new lines and the framework of the timetable, checks the safety of permafrost stretches, long tunnels and snow defences, and in winter coordinates snowploughs and switch heating. It runs the undersea tunnel of the Viking Port–Longship line jointly with the Viking Islands' transport authorities. As rail carries more and more of the island's long-distance travel, it is the only department of the ministry with a building of its own.
     in: div_16cxr8
     offset_km: [2.7, 1.32]
@@ -2507,13 +2507,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 北维京岛领地政务院教育、科学和文化部科学政策司
-      en: Science Policy Department, Ministry of Education, Science and Culture, North Viking Island Executive Council
+      zh: 北维京岛领地教育、科学和文化部科学政策司
+      en: Science Policy Department, Ministry of Education, Science and Culture, North Viking Island
     short_names:
       zh: 科学政策司
       en: Science Policy Department
     notes:
-      zh: 北维京岛领地政务院教育、科学和文化部科学政策司，是少数不在首府的政务院机构之一，设在西北市科学城的科学大道旁，与国家实验室、大学分校和航天企业为邻。科学政策司制定领地的科研规划，管理科研基金和重点实验室的评审，协调科学城、望星区和马斯林山航天设施之间的合作项目，也负责科研伦理和科研数据的管理规则。把它放在科学城，是为了让政策制定者每天都能和研究人员面对面交流；司里定期举办开放日，科研人员可以直接上门提交项目建议。
+      zh: 北维京岛领地教育、科学和文化部科学政策司，是少数不在首府的政务院机构之一，设在西北市科学城的科学大道旁，与国家实验室、大学分校和航天企业为邻。科学政策司制定领地的科研规划，管理科研基金和重点实验室的评审，协调科学城、望星区和马斯林山航天设施之间的合作项目，也负责科研伦理和科研数据的管理规则。把它放在科学城，是为了让政策制定者每天都能和研究人员面对面交流；司里定期举办开放日，科研人员可以直接上门提交项目建议。
       en: The Science Policy Department of the Ministry of Education, Science and Culture is one of the few Executive Council bodies outside the capital, on Science Avenue in Northwest City's Science City beside the national laboratories, a university branch campus and the aerospace firms. It draws up the territory's research plans, runs research funding and the review of key laboratories, coordinates joint projects between Science City, Stargaze District and the space facilities at Maslin Mountain, and sets the rules on research ethics and research data. It was put in Science City so that policy makers meet researchers face to face every day, and on its regular open days scientists can walk in with proposals.
     in: div_s8f4kt
     offset_km: [0.3, 0.3]
@@ -2523,13 +2523,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 北维京岛领地政务院公共安全部边境服务和安全司
-      en: Border Services and Security Department, Ministry of Public Security, North Viking Island Executive Council
+      zh: 北维京岛领地公共安全部边境服务和安全司
+      en: Border Services and Security Department, Ministry of Public Security, North Viking Island
     short_names:
       zh: 边境服务和安全司
       en: Border Services and Security Department
     notes:
-      zh: 北维京岛领地政务院公共安全部边境服务和安全司，设在维京港瓦尔维克区，是公共安全部唯一不在首府的司。瓦尔维克区是领地最大的口岸：鲸湾港和外礁深水港的远洋货轮、维京港国际机场的国际航班，以及经海底隧道通往维京群岛长船市的维长高速和维长真空磁悬浮都从这里进出。边境服务和安全司负责这些口岸的出入境检查、边境巡逻和反走私，在海底隧道两端与维京群岛的边境部门合设联合检查站；它还管理沿海巡逻艇队，搜救在海峡遇险的渔船。大楼为 L 形，楼顶设有雷达和通信天线。
+      zh: 北维京岛领地公共安全部边境服务和安全司，设在维京港瓦尔维克区，是公共安全部唯一不在首府的司。瓦尔维克区是领地最大的口岸：鲸湾港和外礁深水港的远洋货轮、维京港国际机场的国际航班，以及经海底隧道通往维京群岛长船市的维长高速和维长真空磁悬浮都从这里进出。边境服务和安全司负责这些口岸的出入境检查、边境巡逻和反走私，在海底隧道两端与维京群岛的边境部门合设联合检查站；它还管理沿海巡逻艇队，搜救在海峡遇险的渔船。大楼为 L 形，楼顶设有雷达和通信天线。
       en: "The Border Services and Security Department of the Ministry of Public Security is in Walvik District of Viking Port, the only department of the ministry outside the capital. Walvik is the territory's busiest port of entry: ocean freighters at Walvik Harbour and the Outer Skerry Deep-Water Port, international flights at Viking Port International Airport, and the Viking Port–Longship Expressway and Vacuum Maglev through the undersea tunnel to Longship in the Viking Islands all pass through it. The department runs immigration checks at these crossings, border patrols and anti-smuggling work, with joint checkpoints shared with the Viking Islands' border officers at both ends of the tunnel, and it runs the coastal patrol boats that rescue fishing boats in trouble in the strait. The building is L-shaped, with radar and radio masts on the roof."
     in: div_z29w6h
     offset_km: [1.0, 0.6]

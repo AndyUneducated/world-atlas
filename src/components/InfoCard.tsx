@@ -77,12 +77,12 @@ function Stat({ label, value, unit, icon: Icon, accent }: StatItem & { accent: s
       style={{ background: `color-mix(in srgb, ${accent} 7%, var(--ui-hover))`, borderColor: `color-mix(in srgb, ${accent} 16%, transparent)` }}
     >
       <span className="absolute inset-x-3 top-0 h-px opacity-70" style={{ background: `linear-gradient(90deg, ${accent}, transparent)` }} />
-      <div className="flex items-center gap-1.5 text-[11px] text-muted">
-        <Icon className="size-3 shrink-0" style={{ color: accent }} />
-        <span className="truncate">{label}</span>
+      <div className="flex items-start gap-1.5 text-[11px] leading-tight text-muted">
+        <Icon className="mt-px size-3 shrink-0" style={{ color: accent }} />
+        <span className="min-w-0 break-words">{label}</span>
       </div>
       <div className="mt-1 text-[18px] leading-tight font-semibold tracking-tight text-ink tabular-nums">{value}</div>
-      {unit && <div className="truncate text-[10.5px] text-faint">{unit}</div>}
+      {unit && <div className="mt-0.5 break-words text-[10.5px] leading-tight text-faint">{unit}</div>}
     </div>
   );
 }
@@ -575,7 +575,7 @@ function ChildList({ data, entity, lang }: { data: AtlasData; entity: Entity; la
                   ) : (
                     <span className="size-2 shrink-0 rounded-full" style={{ background: accent }} />
                   )}
-                  <span className="flex-1 truncate text-[13px] text-ink">{displayName(k, lang)}</span>
+                  <span className="min-w-0 flex-1 break-words text-[13px] leading-snug text-ink">{displayName(k, lang)}</span>
                   {others.map((o) => (
                     <span key={o.id} title={displayName(o, lang)} className="h-1.5 w-3 shrink-0 rounded-full" style={{ background: accentColor(data, o) }} />
                   ))}
@@ -702,7 +702,7 @@ function StickyBar({ entity, lang, head }: { entity: Entity; lang: Lang; head: R
             <ChevronLeft className="size-4" />
           </button>
         )}
-        <span className={clsx("min-w-0 flex-1 truncate text-[14px] font-semibold text-ink", !back && "pl-3")}>{displayName(entity, lang)}</span>
+        <span className={clsx("min-w-0 flex-1 line-clamp-2 break-words text-[14px] leading-tight font-semibold text-ink", !back && "pl-3")}>{displayName(entity, lang)}</span>
         <button onClick={() => select(null)} className={button} aria-label={t("close", lang)} tabIndex={shown ? 0 : -1}>
           <X className="size-4" />
         </button>
@@ -755,11 +755,11 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
         {back && (
           <button
             onClick={goBack}
-            className="relative -ml-2 mb-2 flex max-w-full items-center gap-0.5 rounded-full py-1 pr-2.5 pl-1 text-[12px] font-medium text-muted transition-colors hover:bg-hover hover:text-ink"
+            className="relative -ml-2 mb-2 flex max-w-full items-start gap-0.5 rounded-2xl py-1 pr-2.5 pl-1 text-left text-[12px] leading-snug font-medium text-muted transition-colors hover:bg-hover hover:text-ink"
           >
             <ChevronLeft className="size-4 shrink-0" />
             <span className="shrink-0">{t("back", lang)}</span>
-            {backTo && <span className="truncate text-faint">· {backTo}</span>}
+            {backTo && <span className="min-w-0 break-words text-faint">· {backTo}</span>}
           </button>
         )}
         <div className="relative flex items-start gap-3.5">
@@ -806,7 +806,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
                 .map((l) => (
                   <li key={l} className="flex min-w-0 items-baseline gap-1.5 text-[12.5px]" title={NAME_LANG_LABELS[l][lang]}>
                     <span className="shrink-0 text-[10px] font-semibold tracking-wide text-faint">{NAME_TAGS[l][lang]}</span>
-                    <span className="truncate text-muted">{entity.names[l]}</span>
+                    <span className="min-w-0 break-words text-muted">{entity.names[l]}</span>
                   </li>
                 ))}
             </ul>

@@ -227,7 +227,7 @@ function FixedChamberView({ leg, lang }: { leg: FixedChamber; lang: Lang }) {
           const cells = (
             <>
               <span className="size-2.5 rounded-sm" style={{ background: g.color }} />
-              <span className="truncate text-ink">{g.names[lang]}</span>
+              <span className="min-w-0 break-words leading-snug text-ink">{g.names[lang]}</span>
               <span className="text-ink tabular-nums">{g.seats}</span>
               <span className="text-right text-faint tabular-nums">{Math.round((100 * g.seats) / leg.seats)}%</span>
             </>
@@ -707,7 +707,7 @@ function MemberList({ data, ids, leader, lang }: { data: AtlasData; ids: string[
           <button onClick={() => select(m.id)} className="group w-full rounded-lg px-2 py-1.5 text-left hover:bg-hover">
             <div className="flex items-center gap-2">
               {hasEmblem(m) && <Emblem entity={m} size={22} className="-my-0.5 shrink-0 transition-transform group-hover:scale-110" />}
-              <span className="flex-1 truncate text-[13px] text-ink">{displayName(m, lang)}</span>
+              <span className="min-w-0 flex-1 break-words text-[13px] leading-snug text-ink">{displayName(m, lang)}</span>
               {m.nation?.bloc_role && <span className="shrink-0 text-[11px] text-faint">{m.nation.bloc_role[lang]}</span>}
               {m.population ? <span className="text-[12px] text-muted tabular-nums">{formatPopulation(m.population, lang)}</span> : null}
             </div>

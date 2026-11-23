@@ -153,7 +153,7 @@ def check_government(ents: dict) -> dict[str, list[str]]:
             want = [f"{t}州议会大厦", f"{t}州长办公厅", L.get("court", {}).get("names", {}).get("zh", f"{t}最高法院"),
                     *(f"{t}{m['ministry']['zh']}" for m in L.get("ministers", []))]
         elif "country:CN" in (e.get("ancestors") or []):
-            want = [f"{t}政府", f"{t}政策和计划委员会", *(f"{t}政务院{m}" for m in MINISTRIES),
+            want = [f"{t}政府", f"{t}政策和计划委员会", *(f"{t}{m}" for m in MINISTRIES),
                     *(f"中央政府常驻{t}{o}" for o in CENTRAL_OFFICES)]
         else:
             continue

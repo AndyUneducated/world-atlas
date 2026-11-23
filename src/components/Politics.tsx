@@ -20,11 +20,11 @@ function PartyChip({ party, lang }: { party: Entity; lang: Lang }) {
   return (
     <button
       onClick={() => select(party.id)}
-      className="inline-flex max-w-full items-center gap-1.5 rounded-full border px-2 py-px text-[12px] text-ink transition-colors hover:bg-hover"
+      className="inline-flex max-w-full items-center gap-1.5 rounded-xl border px-2 py-px text-left text-[12px] leading-snug text-ink transition-colors hover:bg-hover"
       style={{ borderColor: `color-mix(in srgb, ${party.color} 40%, transparent)`, background: `color-mix(in srgb, ${party.color} 10%, transparent)` }}
     >
       <span className="size-2 shrink-0 rounded-full" style={{ background: party.color }} />
-      <span className="truncate">{shortName(party, lang)}</span>
+      <span className="min-w-0 break-words">{shortName(party, lang)}</span>
     </button>
   );
 }
@@ -208,7 +208,7 @@ function ChamberView({ data, chamber, lang, note, govLabel }: { data: AtlasData;
                   <span key={p.id} className="size-2.5 rounded-full ring-1 ring-white/70" style={{ background: data.entities[p.id]?.color }} />
                 ))}
               </span>
-              <span className="truncate">{`${t("otherParties", lang)} · ${rest.length}`}</span>
+              <span className="min-w-0 break-words">{`${t("otherParties", lang)} · ${rest.length}`}</span>
             </span>
             <span className="text-right tabular-nums">{pct(rest.reduce((a, p) => a + p.vote, 0), lang)}</span>
             <span className="text-right tabular-nums">0</span>
@@ -477,7 +477,7 @@ export function ElectionSection({ data, entity, lang }: { data: AtlasData; entit
           return (
             <li key={v.id}>
               <button onClick={() => select(v.id)} className="group grid w-full grid-cols-[6.5rem_1fr_2.75rem] items-center gap-2.5 rounded-md px-1 py-[3px] text-left text-[12px] hover:bg-hover">
-                <span className="truncate text-muted group-hover:text-ink">{shortName(p, lang)}</span>
+                <span className="min-w-0 break-words leading-snug text-muted group-hover:text-ink">{shortName(p, lang)}</span>
                 <span className="h-1.5 overflow-hidden rounded-full bg-hover">
                   <motion.span
                     className="block h-full rounded-full"
@@ -713,7 +713,7 @@ export function PartySections({ data, entity, lang, part }: { data: AtlasData; e
                     <li key={b.at}>
                       <button onClick={() => select(b.at)} className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] hover:bg-hover">
                         {hasEmblem(at) && <Emblem entity={at} size={20} className="shrink-0" />}
-                        <span className="min-w-0 flex-1 truncate text-muted">{shortName(at, lang)}</span>
+                        <span className="min-w-0 flex-1 break-words leading-snug text-muted">{shortName(at, lang)}</span>
                         {role && <Tag tone="gov">{role}</Tag>}
                         <span className="shrink-0 text-ink">{b.name[lang]}</span>
                       </button>
@@ -806,7 +806,7 @@ function EntityGrid({ title, entities, lang }: { title: string; entities: Entity
           <li key={a.id}>
             <button onClick={() => select(a.id)} className="flex w-full min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] text-ink hover:bg-hover">
               {hasEmblem(a) ? <Emblem entity={a} size={22} className="shrink-0" /> : <span className="size-2 shrink-0 rounded-full bg-faint" />}
-              <span className="truncate">{shortName(a, lang)}</span>
+              <span className="min-w-0 break-words leading-snug">{shortName(a, lang)}</span>
             </button>
           </li>
         ))}

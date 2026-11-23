@@ -119,7 +119,7 @@ export function RouteTimeline({ data, entity, lang }: { data: AtlasData; entity:
                 <span className="relative grid size-[26px] shrink-0 place-items-center">
                   {g.city && hasEmblem(g.city) ? <Emblem entity={g.city} size={24} /> : <span className="size-3 rounded-full" style={{ background: color }} />}
                 </span>
-                <span className="min-w-0 flex-1 truncate text-[13.5px] font-semibold text-ink">{g.city ? displayName(g.city, lang) : t("route_water", lang)}</span>
+                <span className="min-w-0 flex-1 break-words text-[13.5px] leading-snug font-semibold text-ink">{g.city ? displayName(g.city, lang) : t("route_water", lang)}</span>
                 <span className="text-[12px] font-medium text-muted tabular-nums">
                   {formatNumber(g.km, lang, 1)} <span className="text-faint">km</span>
                 </span>
@@ -144,7 +144,7 @@ export function RouteTimeline({ data, entity, lang }: { data: AtlasData; entity:
                         style={{ borderColor: color, background: active === key ? color : "var(--ui-panel-solid)" }}
                       />
                       <span className="min-w-0 flex-1">
-                        <span className="block truncate text-[13px] text-ink">{district ? displayName(district, lang) : t("route_water", lang)}</span>
+                        <span className="block break-words text-[13px] leading-snug text-ink">{district ? displayName(district, lang) : t("route_water", lang)}</span>
                         <span className="block font-mono text-[10.5px] text-faint">
                           {chainage(seg.from_km)} – {chainage(end)}
                           {seg.lanes && entity.road && seg.lanes > entity.road.lanes[0] && (

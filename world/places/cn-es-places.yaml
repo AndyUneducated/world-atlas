@@ -104,13 +104,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院对外事务部
-      en: Ministry of External Affairs, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地对外事务部
+      en: Ministry of External Affairs, Everlong Summer Islands
     short_names:
       zh: 对外事务部
       en: Ministry of External Affairs
     notes:
-      zh: 长夏群岛领地政务院对外事务部，位于首府米雷兰湖光大道北段西侧，紧邻政务院主楼，负责领地的对外交往和与中央政府的联络。部内设政策司、中央政府联络司、外国使领馆司、礼宾司、国际交流司和领事服务司。领地一半居民是来自中国其他省份和世界各地的移民，外国驻领地的领事馆和商务代表处大多设在萨伦纳姆，由外国使领馆司对口联系；礼宾司在公民广场筹办国宾欢迎仪式，国际交流司组织热带医学、海洋科学和热带农业方面的国际合作，领事服务司用中文、英文和伊武兰语为外国居民办理证明和认证。大楼为 L 形，临街一面是遮阳的长廊。
+      zh: 长夏群岛领地对外事务部，位于首府米雷兰湖光大道北段西侧，紧邻政务院主楼，负责领地的对外交往和与中央政府的联络。部内设政策司、中央政府联络司、外国使领馆司、礼宾司、国际交流司和领事服务司。领地一半居民是来自中国其他省份和世界各地的移民，外国驻领地的领事馆和商务代表处大多设在萨伦纳姆，由外国使领馆司对口联系；礼宾司在公民广场筹办国宾欢迎仪式，国际交流司组织热带医学、海洋科学和热带农业方面的国际合作，领事服务司用中文、英文和伊武兰语为外国居民办理证明和认证。大楼为 L 形，临街一面是遮阳的长廊。
       en: The Ministry of External Affairs stands at the north end of Lakelight Avenue in Mirelan, on the west side next to the Government building, and handles the territory's dealings abroad and its liaison with the central government. Its departments are Policy, Central Government Liaison, Foreign Missions, Protocol, International Exchange and Consular Services. Half of the territory's people came from other provinces of China or from abroad, and most foreign consulates and trade offices are in Sarunnam, where the Foreign Missions Department keeps in touch with them. Protocol stages state welcomes on Civic Square, International Exchange arranges cooperation in tropical medicine, ocean science and tropical farming, and Consular Services certifies documents for foreign residents in Chinese, English and Ivuran. The L-shaped building has a shaded colonnade along the avenue.
     in: div_z0z4vz
     offset_km: [-0.36, 0.54]
@@ -119,13 +119,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院财政部
-      en: Ministry of Finance, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地财政部
+      en: Ministry of Finance, Everlong Summer Islands
     short_names:
       zh: 财政部
       en: Ministry of Finance
     notes:
-      zh: 长夏群岛领地政务院财政部，与对外事务部隔湖光大道相对，管理领地的税收、预算和财政监督。部内设税收司、关税司、监管司、行政部门预算司、企业事业单位预算司和中央财政事务司。领地实行高税收、高福利：个人所得税、社会保险和消费税的税率都较高，公有土地长期出租的租金也是一大笔收入，这些钱支撑着免费到大学的教育、全民医保和按月发放的全民基本收入。埃武托拉公社自定税率，中央财政事务司与公社委员会按协议结算外交、国防等由政务院承担的开支。大楼为长条形板楼，地下是领地的财政档案库。
+      zh: 长夏群岛领地财政部，与对外事务部隔湖光大道相对，管理领地的税收、预算和财政监督。部内设税收司、关税司、监管司、行政部门预算司、企业事业单位预算司和中央财政事务司。领地实行高税收、高福利：个人所得税、社会保险和消费税的税率都较高，公有土地长期出租的租金也是一大笔收入，这些钱支撑着免费到大学的教育、全民医保和按月发放的全民基本收入。埃武托拉公社自定税率，中央财政事务司与公社委员会按协议结算外交、国防等由政务院承担的开支。大楼为长条形板楼，地下是领地的财政档案库。
       en: "The Ministry of Finance faces the Ministry of External Affairs across Lakelight Avenue and runs the territory's taxes, budgets and financial oversight through its departments of Taxation, Customs Tariffs, Supervision, Executive Budgets, Public Enterprise and Institution Budgets, and Central Finance. The territory taxes heavily and spends generously: income tax, social insurance and consumption tax are all set high, and the rents from public land, which is leased rather than sold, bring in a great deal more. Together they pay for free education up to university, universal health cover and the monthly universal basic income. The Evutola Commune sets its own taxes, and Central Finance settles with the commune council by agreement for the foreign affairs, defence and other services the Executive Council provides. The building is a long slab with the territory's financial archive underground."
     in: div_z0z4vz
     offset_km: [0.02, 0.65]
@@ -134,13 +134,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院司法部
-      en: Ministry of Justice, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地司法部
+      en: Ministry of Justice, Everlong Summer Islands
     short_names:
       zh: 司法部
       en: Ministry of Justice
     notes:
-      zh: 长夏群岛领地政务院司法部，位于湖光大道北段西侧，负责领地法规的起草和实施、检察事务和司法行政。部内设国家法律实施司、领地法规司、法律法规起草和规范司、检察事务司、司法监察司、拘留管理司、社区矫正管理司、司法从业人员司和司法研究司。领地法规以中文、英文和伊武兰语三种文本同时公布，起草和规范司负责三种文本的一致；领地对环境、劳动和食品安全的监管十分严格，检察事务司为此设有专门办理监管案件的检察处。领地的犯罪率很低，社区矫正管理司让大多数轻罪者留在社区里接受矫正和职业培训。大楼为 L 形，内院旁是法律图书馆。
+      zh: 长夏群岛领地司法部，位于湖光大道北段西侧，负责领地法规的起草和实施、检察事务和司法行政。部内设国家法律实施司、领地法规司、法律法规起草和规范司、检察事务司、司法监察司、拘留管理司、社区矫正管理司、司法从业人员司和司法研究司。领地法规以中文、英文和伊武兰语三种文本同时公布，起草和规范司负责三种文本的一致；领地对环境、劳动和食品安全的监管十分严格，检察事务司为此设有专门办理监管案件的检察处。领地的犯罪率很低，社区矫正管理司让大多数轻罪者留在社区里接受矫正和职业培训。大楼为 L 形，内院旁是法律图书馆。
       en: "The Ministry of Justice, at the north end of Lakelight Avenue on the west side, drafts and applies the territory's laws and runs prosecutions and the administration of justice. It has nine departments: National Law Enforcement, Territorial Regulations, Legislative Drafting and Standards, Prosecutions, Judicial Inspection, Detention, Community Corrections, Legal Professions and Legal Research. Territorial laws are published at once in Chinese, English and Ivuran, and the drafting department keeps the three texts in step. Because the territory regulates the environment, working conditions and food safety so strictly, Prosecutions has an office of its own for regulatory cases. Crime is rare, and Community Corrections lets most minor offenders stay in their communities under supervision and job training. The L-shaped building has a law library beside its inner yard."
     in: div_z0z4vz
     offset_km: [-0.31, 0.37]
@@ -149,13 +149,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院公共安全部
-      en: Ministry of Public Security, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地公共安全部
+      en: Ministry of Public Security, Everlong Summer Islands
     short_names:
       zh: 公共安全部
       en: Ministry of Public Security
     notes:
-      zh: 长夏群岛领地政务院公共安全部，位于湖光大道北段东侧，统一领导全领地的警务和治安。部内设警察司、警务司、边境服务和安全司、刑事侦查司、民事侦查司、经济犯罪调查司、社区安全司和技术和装备司。边境服务和安全司在瓦利凯、萨伦纳姆和塔卢马兰的港口和各国际机场设口岸检查站，打击走私和偷渡；社区安全司在各市推行社区警务，雨季还负责洪水和山体滑坡的应急救援；技术和装备司为高速公路警察配备在不限速路段使用的巡逻车和直升机。大楼底层是全领地的报警指挥中心，接警员能用中文、英文和伊武兰语应答。
+      zh: 长夏群岛领地公共安全部，位于湖光大道北段东侧，统一领导全领地的警务和治安。部内设警察司、警务司、边境服务和安全司、刑事侦查司、民事侦查司、经济犯罪调查司、社区安全司和技术和装备司。边境服务和安全司在瓦利凯、萨伦纳姆和塔卢马兰的港口和各国际机场设口岸检查站，打击走私和偷渡；社区安全司在各市推行社区警务，雨季还负责洪水和山体滑坡的应急救援；技术和装备司为高速公路警察配备在不限速路段使用的巡逻车和直升机。大楼底层是全领地的报警指挥中心，接警员能用中文、英文和伊武兰语应答。
       en: The Ministry of Public Security, at the north end of Lakelight Avenue on the east side, directs policing and public order across the territory. Its departments are Police, Policing Operations, Border Services and Security, Criminal Investigation, Civil Investigation, Economic Crime, Community Safety, and Technology and Equipment. Border Services and Security runs the checkpoints at the ports of Vallikkai, Sarunnam and Talumaran and at the international airports, working against smuggling and illegal entry; Community Safety runs neighbourhood policing in every city and, in the rainy season, rescue after floods and landslides; and Technology and Equipment supplies the expressway police with the patrol cars and helicopters they use on the unrestricted stretches. The territory's emergency call and dispatch centre is on the ground floor, where call-takers answer in Chinese, English or Ivuran.
     in: div_z0z4vz
     offset_km: [0.07, 0.48]
@@ -164,13 +164,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院民政部
-      en: Ministry of Civil Affairs, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地民政部
+      en: Ministry of Civil Affairs, Everlong Summer Islands
     short_names:
       zh: 民政部
       en: Ministry of Civil Affairs
     notes:
-      zh: 长夏群岛领地政务院民政部，位于湖光大道北段西侧、长夏大街路口北面，负责社会组织、社会救助和行政区划。部内设政策司、社会组织司、社会救助司、慈善事业司、其他社会事务司和行政区划司。行政区划司管理 12 个市、64 个区的设立、调整和命名，公社、国家公园管理区和军事管理区三种特殊区划也由它审定；领地的地名都取自伊武兰语，中文按读音音译，英文直接用伊武兰语拼写。领地信仰多元，社会组织司登记寺庙、教会和各种协会，其他社会事务司负责婚姻登记、殡葬和退役军人安置，一年里众多节庆假日的安排也由民政部提出。
+      zh: 长夏群岛领地民政部，位于湖光大道北段西侧、长夏大街路口北面，负责社会组织、社会救助和行政区划。部内设政策司、社会组织司、社会救助司、慈善事业司、其他社会事务司和行政区划司。行政区划司管理 12 个市、64 个区的设立、调整和命名，公社、国家公园管理区和军事管理区三种特殊区划也由它审定；领地的地名都取自伊武兰语，中文按读音音译，英文直接用伊武兰语拼写。领地信仰多元，社会组织司登记寺庙、教会和各种协会，其他社会事务司负责婚姻登记、殡葬和退役军人安置，一年里众多节庆假日的安排也由民政部提出。
       en: The Ministry of Civil Affairs, at the north end of Lakelight Avenue on the west side, just north of the Everlong Summer Boulevard junction, deals with civil society, social assistance and the territory's administrative divisions. Its departments are Policy, Social Organisations, Social Assistance, Charities, Other Social Affairs and Administrative Divisions. Administrative Divisions sets up, adjusts and names the 12 cities and 64 districts, including the three special kinds, the commune, the national park area and the military zone. Every place name comes from Ivuran, transliterated by sound in Chinese and spelt in Ivuran in English. Faith in the territory is varied, and Social Organisations registers temples, churches and associations of every kind; Other Social Affairs handles marriage registration, funerals and the resettlement of veterans, and the ministry proposes the calendar of the territory's many festival holidays.
     in: div_z0z4vz
     offset_km: [-0.26, 0.19]
@@ -179,13 +179,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院建设部
-      en: Ministry of Construction, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地建设部
+      en: Ministry of Construction, Everlong Summer Islands
     short_names:
       zh: 建设部
       en: Ministry of Construction
     notes:
-      zh: 长夏群岛领地政务院建设部，位于湖光大道北段东侧，负责城乡规划、住房和建筑市场。部内设政策司、住房保障司、房地产市场监管司、建筑市场监管司、城市建设司和乡镇建设司。首府米雷兰是按它审定的规划在高原上全新建设的，湖光大道这条轴线就是规划的骨架。领地的土地公有，住宅和厂房用地长期租用，房地产市场监管司管理住房的转租和租金，不许炒卖；住房保障司为各市建设公共租赁住房，租金按收入确定；建筑市场监管司制定适应湿热气候和雨季暴雨的建筑规范，要求新建筑带遮阳长廊和屋顶花园。
+      zh: 长夏群岛领地建设部，位于湖光大道北段东侧，负责城乡规划、住房和建筑市场。部内设政策司、住房保障司、房地产市场监管司、建筑市场监管司、城市建设司和乡镇建设司。首府米雷兰是按它审定的规划在高原上全新建设的，湖光大道这条轴线就是规划的骨架。领地的土地公有，住宅和厂房用地长期租用，房地产市场监管司管理住房的转租和租金，不许炒卖；住房保障司为各市建设公共租赁住房，租金按收入确定；建筑市场监管司制定适应湿热气候和雨季暴雨的建筑规范，要求新建筑带遮阳长廊和屋顶花园。
       en: The Ministry of Construction, at the north end of Lakelight Avenue on the east side, is in charge of town and country planning, housing and the building trade. Its departments are Policy, Housing Support, Property Market Supervision, Building Market Supervision, Urban Development and Rural Development. Mirelan was built from scratch on the plateau to a plan it approved, and Lakelight Avenue is the backbone of that plan. Land in the territory is public and leased for homes and factories; Property Market Supervision oversees subletting and rents and forbids speculation, Housing Support builds public rental housing in every city with rents set by income, and Building Market Supervision writes the codes for a hot, humid climate and monsoon downpours, which require new buildings to have shaded colonnades and roof gardens.
     in: div_z0z4vz
     offset_km: [0.12, 0.31]
@@ -194,13 +194,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院教育、科学和文化部
-      en: Ministry of Education, Science and Culture, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地教育、科学和文化部
+      en: Ministry of Education, Science and Culture, Everlong Summer Islands
     short_names:
       zh: 教育、科学和文化部
       en: Ministry of Education, Science and Culture
     notes:
-      zh: 长夏群岛领地政务院教育、科学和文化部，位于湖光大道南段西侧、公民广场南面，管理从学前教育到大学的各级教育、领地的科学政策和文化事业。部内设教育政策司、科学政策司、文化政策司、教育技术司、信息技术司、教育从业人员司、科技从业人员司、文化从业人员司、学前教育司、基础教育司、成人和职业教育司、高等教育司和教育督导署。领地的教育从幼儿园到大学全部免费，学校用中文、英文和伊武兰语三种语言教学，长夏群岛大学和基拉努理工大学都由它管理。萨伦纳姆的旧王城和伊什万塔寺庙群由文化政策司负责保护，公民广场旁的领地图书馆也归它管理。
+      zh: 长夏群岛领地教育、科学和文化部，位于湖光大道南段西侧、公民广场南面，管理从学前教育到大学的各级教育、领地的科学政策和文化事业。部内设教育政策司、科学政策司、文化政策司、教育技术司、信息技术司、教育从业人员司、科技从业人员司、文化从业人员司、学前教育司、基础教育司、成人和职业教育司、高等教育司和教育督导署。领地的教育从幼儿园到大学全部免费，学校用中文、英文和伊武兰语三种语言教学，长夏群岛大学和基拉努理工大学都由它管理。萨伦纳姆的旧王城和伊什万塔寺庙群由文化政策司负责保护，公民广场旁的领地图书馆也归它管理。
       en: The Ministry of Education, Science and Culture, at the south end of Lakelight Avenue on the west side, just south of Civic Square, covers education from nursery to university, the territory's science policy and its cultural life. Its thirteen units are the Education Policy, Science Policy, Cultural Policy, Educational Technology, Information Technology, Teaching Professions, Science and Technology Professions, Cultural Professions, Pre-school, Basic Education, Adult and Vocational Education and Higher Education departments and the Education Inspectorate. Education is free from kindergarten to university, schools teach in Chinese, English and Ivuran, and the University of the Everlong Summer Islands and Kilanu University of Technology both come under it. The Cultural Policy Department looks after the old royal city of Sarunnam and the Ishvanta temples, and the Territorial Library on Civic Square is also in its care.
     in: div_z0z4vz
     offset_km: [0.06, -0.92]
@@ -209,13 +209,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院交通部
-      en: Ministry of Transport, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地交通部
+      en: Ministry of Transport, Everlong Summer Islands
     short_names:
       zh: 交通部
       en: Ministry of Transport
     notes:
-      zh: 长夏群岛领地政务院交通部，位于湖光大道南段东侧，负责全领地的道路、铁路、水运和航空。部内设政策司、交通从业人员司、道路运输司、公路司、铁路司、水路司和空运司。公路司管理伊米穆、塞洛、纳卢三条国家高速和各条领地高速，伊米穆高速经约 101 公里长的哈努西鲁河口跨海大桥通往基鲁迈群岛，领地的高速公路大多不限速；铁路司监管时速 800 公里的长夏、萨洛两条真空磁悬浮，时速 400 公里的瓦洛、米纳、塔纳三条高速铁路和乌诺维拉真空磁悬浮重载铁路；水路司监管瓦利凯、塔卢马兰和萨伦纳姆的港口，空运司协调萨伦纳姆国际机场和各地机场的航线。交通从业人员司负责驾驶员、船员和机组的资格考核。
+      zh: 长夏群岛领地交通部，位于湖光大道南段东侧，负责全领地的道路、铁路、水运和航空。部内设政策司、交通从业人员司、道路运输司、公路司、铁路司、水路司和空运司。公路司管理伊米穆、塞洛、纳卢三条国家高速和各条领地高速，伊米穆高速经约 101 公里长的哈努西鲁河口跨海大桥通往基鲁迈群岛，领地的高速公路大多不限速；铁路司监管时速 800 公里的长夏、萨洛两条真空磁悬浮，时速 400 公里的瓦洛、米纳、塔纳三条高速铁路和乌诺维拉真空磁悬浮重载铁路；水路司监管瓦利凯、塔卢马兰和萨伦纳姆的港口，空运司协调萨伦纳姆国际机场和各地机场的航线。交通从业人员司负责驾驶员、船员和机组的资格考核。
       en: The Ministry of Transport, at the south end of Lakelight Avenue on the east side, runs the territory's roads, railways, shipping and air transport. Its departments are Policy, Transport Professions, Road Transport, Highways, Railways, Waterways and Air Transport. Highways manages the Imimu, Selo and Nalu national expressways and the territorial expressways; the Imimu Expressway reaches the Kirumai Islands over the Hanusiru Estuary Sea Bridge, about 101 km long, and most of the territory's expressways have no speed limit. Railways oversees the Everlong Summer and Sarunnam–Lomiran vacuum maglevs at 800 km/h, the three high-speed lines at 400 km/h and the Unovila Vacuum Maglev Heavy-Haul Railway, Waterways the ports of Vallikkai, Talumaran and Sarunnam, and Air Transport the routes of Sarunnam International and the other airports. Transport Professions examines and licenses drivers, seafarers and aircrew.
     in: div_z0z4vz
     offset_km: [0.44, -0.81]
@@ -224,13 +224,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院卫生和人类服务部
-      en: Ministry of Health and Human Services, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地卫生和人类服务部
+      en: Ministry of Health and Human Services, Everlong Summer Islands
     short_names:
       zh: 卫生和人类服务部
       en: Ministry of Health and Human Services
     notes:
-      zh: 长夏群岛领地政务院卫生和人类服务部，位于湖光大道南段西侧，负责食品药品安全、医疗卫生、公共保险和公共福利，是领地开支最大的部之一。部内设食品政策司、食品监管司、食品从业人员司、医疗和药品政策司、医疗和药品监管司、医疗和药品从业人员司、医疗和药品技术司、公共健康保险司、其他公共保险司、公共卫生司和公共福利司，其中公共福利司、公共健康保险司和食品监管司在大楼后排单独建楼。公共卫生司与伊拉米区的长夏群岛热带医学研究院合作防治疟疾和登革热，并为山区村寨和外岛组织巡回医疗和直升机急救。
+      zh: 长夏群岛领地卫生和人类服务部，位于湖光大道南段西侧，负责食品药品安全、医疗卫生、公共保险和公共福利，是领地开支最大的部之一。部内设食品政策司、食品监管司、食品从业人员司、医疗和药品政策司、医疗和药品监管司、医疗和药品从业人员司、医疗和药品技术司、公共健康保险司、其他公共保险司、公共卫生司和公共福利司，其中公共福利司、公共健康保险司和食品监管司在大楼后排单独建楼。公共卫生司与伊拉米区的长夏群岛热带医学研究院合作防治疟疾和登革热，并为山区村寨和外岛组织巡回医疗和直升机急救。
       en: The Ministry of Health and Human Services, at the south end of Lakelight Avenue on the west side, is responsible for food and drug safety, health care, public insurance and public welfare, and is one of the territory's biggest spenders. Its eleven departments are Food Policy, Food Supervision, Food Professions, Medical and Drug Policy, Medical and Drug Supervision, Medical and Drug Professions, Medical and Drug Technology, Public Health Insurance, Other Public Insurance, Public Health and Public Welfare; Public Welfare, Public Health Insurance and Food Supervision have buildings of their own in the row behind. Public Health works with the Institute of Tropical Medicine in Ilami District against malaria and dengue, and sends travelling clinics and air ambulances to the mountain villages and outer islands.
     in: div_z0z4vz
     offset_km: [0.11, -1.09]
@@ -239,13 +239,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院劳动和社会保障部
-      en: Ministry of Labour and Social Security, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地劳动和社会保障部
+      en: Ministry of Labour and Social Security, Everlong Summer Islands
     short_names:
       zh: 劳动和社会保障部
       en: Ministry of Labour and Social Security
     notes:
-      zh: 长夏群岛领地政务院劳动和社会保障部，位于湖光大道南段东侧，负责就业、职业培训、劳动关系和社会保险。部内设就业司、职业能力司、普通工种司、特殊工种司、劳动仲裁司和公共劳动保险司，其中就业司和劳动仲裁司在大楼后排单独建楼。特殊工种司管理矿山、冶炼、船厂焊接和晶圆厂洁净室等岗位的资格和工时，户外作业的午间高温停工标准也由它制定；职业能力司与各市的职业学院合办半导体、造船和旅游服务课程；公共劳动保险司管理全领地统一的养老、失业和工伤保险，以及父母双方都能享受的长期带薪育儿假。
+      zh: 长夏群岛领地劳动和社会保障部，位于湖光大道南段东侧，负责就业、职业培训、劳动关系和社会保险。部内设就业司、职业能力司、普通工种司、特殊工种司、劳动仲裁司和公共劳动保险司，其中就业司和劳动仲裁司在大楼后排单独建楼。特殊工种司管理矿山、冶炼、船厂焊接和晶圆厂洁净室等岗位的资格和工时，户外作业的午间高温停工标准也由它制定；职业能力司与各市的职业学院合办半导体、造船和旅游服务课程；公共劳动保险司管理全领地统一的养老、失业和工伤保险，以及父母双方都能享受的长期带薪育儿假。
       en: The Ministry of Labour and Social Security, at the south end of Lakelight Avenue on the east side, covers jobs, training, labour relations and social insurance. Its departments are Employment, Vocational Skills, General Trades, Special Trades, Labour Arbitration and Public Labour Insurance, of which Employment and Labour Arbitration have buildings of their own in the row behind. Special Trades sets the qualifications and hours for mines, smelters, shipyard welding and chip-plant clean rooms, and the rule that outdoor work stops in the midday heat; Vocational Skills runs courses in semiconductors, shipbuilding and tourism with each city's colleges; and Public Labour Insurance runs the territory-wide pension, unemployment and work-injury schemes and the long paid parental leave that both parents can take.
     in: div_z0z4vz
     offset_km: [0.49, -0.98]
@@ -254,13 +254,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院自然资源和环境保护部
-      en: Ministry of Natural Resources and Environmental Protection, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地自然资源和环境保护部
+      en: Ministry of Natural Resources and Environmental Protection, Everlong Summer Islands
     short_names:
       zh: 自然资源和环境保护部
       en: Ministry of Natural Resources and Environmental Protection
     notes:
-      zh: 长夏群岛领地政务院自然资源和环境保护部，位于湖光大道南段西侧，负责土地、森林、河湖和海洋的保护与利用。部内设政策司、自然生态保护司、大陆生态环境司、水生态环境司、海洋生态环境司、大气环境司、土壤生态环境司、固体废物和化学品司、环境影响评价和排放管理司、生态环境监测司和生态环境执法署。领地的土地全部公有，由它代表领地长期出租；洛米哈努国家公园的热带雨林、马拉坎的珊瑚礁和三角洲的红树林都在它的保护名录上，领地也不许新开油棕种植园。乌诺维拉矿区必须边采边复绿、尾矿回填，生态环境执法署每月派员检查。
+      zh: 长夏群岛领地自然资源和环境保护部，位于湖光大道南段西侧，负责土地、森林、河湖和海洋的保护与利用。部内设政策司、自然生态保护司、大陆生态环境司、水生态环境司、海洋生态环境司、大气环境司、土壤生态环境司、固体废物和化学品司、环境影响评价和排放管理司、生态环境监测司和生态环境执法署。领地的土地全部公有，由它代表领地长期出租；洛米哈努国家公园的热带雨林、马拉坎的珊瑚礁和三角洲的红树林都在它的保护名录上，领地也不许新开油棕种植园。乌诺维拉矿区必须边采边复绿、尾矿回填，生态环境执法署每月派员检查。
       en: The Ministry of Natural Resources and Environmental Protection, at the south end of Lakelight Avenue on the west side, protects and manages the territory's land, forests, rivers, lakes and seas. Its departments are Policy, Nature Conservation, Land Ecology, Freshwater Ecology, Marine Ecology, Air Quality, Soil Ecology, Solid Waste and Chemicals, Environmental Impact and Emissions, and Environmental Monitoring, with an Environmental Enforcement Agency. All land in the territory is public, and the ministry leases it out on the territory's behalf. The rainforest of Lomihanu National Park, the coral reefs of Malakan and the delta mangroves are on its protected lists, and no new oil palm plantations are allowed. The Unovila mines must replant as they dig and backfill their tailings, and the Enforcement Agency inspects them every month.
     in: div_z0z4vz
     offset_km: [0.16, -1.27]
@@ -329,13 +329,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院卫生和人类服务部公共福利司
-      en: Public Welfare Department, Ministry of Health and Human Services, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地卫生和人类服务部公共福利司
+      en: Public Welfare Department, Ministry of Health and Human Services, Everlong Summer Islands
     short_names:
       zh: 公共福利司
       en: Public Welfare Department
     notes:
-      zh: 长夏群岛领地政务院卫生和人类服务部公共福利司，在卫生和人类服务部后排单独建楼，是领地高福利制度的执行机关。公共福利司按月向每一位居民发放全民基本收入，不问收入多少、工作与否；它还管理托育、养老院、残疾人服务和各区的社区食堂，为新生儿家庭发放育儿津贴。领地的居民幸福感调查里，人们最常提到的是看病、上学和养老都不用发愁，这背后大多是公共福利司的工作。全领地每个区都设有福利服务中心，居民在一个窗口就能办完所有福利事项，服务中心用中文、英文和伊武兰语办理业务。
+      zh: 长夏群岛领地卫生和人类服务部公共福利司，在卫生和人类服务部后排单独建楼，是领地高福利制度的执行机关。公共福利司按月向每一位居民发放全民基本收入，不问收入多少、工作与否；它还管理托育、养老院、残疾人服务和各区的社区食堂，为新生儿家庭发放育儿津贴。领地的居民幸福感调查里，人们最常提到的是看病、上学和养老都不用发愁，这背后大多是公共福利司的工作。全领地每个区都设有福利服务中心，居民在一个窗口就能办完所有福利事项，服务中心用中文、英文和伊武兰语办理业务。
       en: The Public Welfare Department of the Ministry of Health and Human Services has its own building behind the ministry and carries out the territory's generous welfare system. Every month it pays the universal basic income to every resident, whatever their income and whether or not they work. It also runs childcare, care homes, disability services and the community canteens of each district, and pays a childcare allowance to families with newborns. In the residents' happiness survey, what people mention most is that they need not worry about doctors, schooling or old age, and much of that is this department's work. Every district has a welfare service centre where residents can settle any welfare matter at a single counter, in Chinese, English or Ivuran.
     in: div_z0z4vz
     offset_km: [-0.14, -0.98]
@@ -344,13 +344,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院卫生和人类服务部公共健康保险司
-      en: Public Health Insurance Department, Ministry of Health and Human Services, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地卫生和人类服务部公共健康保险司
+      en: Public Health Insurance Department, Ministry of Health and Human Services, Everlong Summer Islands
     short_names:
       zh: 公共健康保险司
       en: Public Health Insurance Department
     notes:
-      zh: 长夏群岛领地政务院卫生和人类服务部公共健康保险司，在卫生和人类服务部后排单独建楼，管理覆盖全体居民的全民医保。领地实行统一的公共健康保险，居民看病、住院和买药按统一目录报销，大多数项目个人不用付费；外岛和山区的病人转到萨伦纳姆或伊拉米区研究院附属医院治疗，路费也由保险承担。保险司每年与药厂和医院谈判药品和服务的价格，领地生物医药企业研制的热带病新药，也要经它评估后才能纳入报销目录。公共健康保险基金由社会保险费和财政拨款共同筹集，账目每年向社会公开。
+      zh: 长夏群岛领地卫生和人类服务部公共健康保险司，在卫生和人类服务部后排单独建楼，管理覆盖全体居民的全民医保。领地实行统一的公共健康保险，居民看病、住院和买药按统一目录报销，大多数项目个人不用付费；外岛和山区的病人转到萨伦纳姆或伊拉米区研究院附属医院治疗，路费也由保险承担。保险司每年与药厂和医院谈判药品和服务的价格，领地生物医药企业研制的热带病新药，也要经它评估后才能纳入报销目录。公共健康保险基金由社会保险费和财政拨款共同筹集，账目每年向社会公开。
       en: "The Public Health Insurance Department of the Ministry of Health and Human Services has its own building behind the ministry and runs the universal health cover that includes every resident. The territory has a single public health insurance scheme: doctor's visits, hospital stays and medicines are covered from one list, and most of it costs the patient nothing. Patients from the outer islands and the mountains who are sent on to Sarunnam or to the institute hospital in Ilami have their travel paid too. Every year the department negotiates drug and service prices with manufacturers and hospitals, and new medicines for tropical diseases from the territory's own biomedical firms are added to the list only after its review. The fund is paid for by social insurance contributions and the territorial budget, and its accounts are published every year."
     in: div_z0z4vz
     offset_km: [-0.09, -1.15]
@@ -359,13 +359,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院卫生和人类服务部食品监管司
-      en: Food Supervision Department, Ministry of Health and Human Services, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地卫生和人类服务部食品监管司
+      en: Food Supervision Department, Ministry of Health and Human Services, Everlong Summer Islands
     short_names:
       zh: 食品监管司
       en: Food Supervision Department
     notes:
-      zh: 长夏群岛领地政务院卫生和人类服务部食品监管司，在卫生和人类服务部后排单独建楼，是领地高监管制度里和居民打交道最多的部门。食品监管司检验全领地的稻米、香料、水果和海鲜，监测珍珠贝和鱼虾养殖海域的水质，出口的胡椒、豆蔻和热带水果都要经它抽检农药残留；萨伦纳姆水上市场的上千条船摊、各地的夜市和小吃摊都要挂它发放的卫生等级牌，等级每季度复查一次。司里设有热带食品检验实验室，雨季重点监测霉菌毒素和水产品的细菌指标。
+      zh: 长夏群岛领地卫生和人类服务部食品监管司，在卫生和人类服务部后排单独建楼，是领地高监管制度里和居民打交道最多的部门。食品监管司检验全领地的稻米、香料、水果和海鲜，监测珍珠贝和鱼虾养殖海域的水质，出口的胡椒、豆蔻和热带水果都要经它抽检农药残留；萨伦纳姆水上市场的上千条船摊、各地的夜市和小吃摊都要挂它发放的卫生等级牌，等级每季度复查一次。司里设有热带食品检验实验室，雨季重点监测霉菌毒素和水产品的细菌指标。
       en: The Food Supervision Department of the Ministry of Health and Human Services has its own building behind the ministry and is the part of the territory's strict regulation that residents meet most often. It tests the territory's rice, spices, fruit and seafood, monitors the water where pearl oysters, fish and prawns are farmed, and spot-checks exported pepper, cardamom and tropical fruit for pesticide residues. The thousand boat stalls of the Sarunnam water market and every night market and food stall in the territory display its hygiene grade, which is rechecked every quarter. Its tropical food laboratory watches especially for mould toxins and for bacteria in seafood during the rainy season.
     in: div_z0z4vz
     offset_km: [-0.04, -1.32]
@@ -374,13 +374,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院劳动和社会保障部就业司
-      en: Employment Department, Ministry of Labour and Social Security, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地劳动和社会保障部就业司
+      en: Employment Department, Ministry of Labour and Social Security, Everlong Summer Islands
     short_names:
       zh: 就业司
       en: Employment Department
     notes:
-      zh: 长夏群岛领地政务院劳动和社会保障部就业司，在劳动和社会保障部后排单独建楼，负责全领地的就业服务和劳动力市场政策。领地一半居民是移民，每年还有成千上万的新移民来半导体、造船、电池和旅游等行业工作，就业司在各市设公共就业服务中心，为新来的人免费介绍工作、办理就业登记，发放学习语言的补贴；失业的居民除了领取失业保险，还可以免费参加职业能力司的培训课程。就业司每季度发布各市的岗位需求和工资水平，帮助学校和职业学院调整专业设置。
+      zh: 长夏群岛领地劳动和社会保障部就业司，在劳动和社会保障部后排单独建楼，负责全领地的就业服务和劳动力市场政策。领地一半居民是移民，每年还有成千上万的新移民来半导体、造船、电池和旅游等行业工作，就业司在各市设公共就业服务中心，为新来的人免费介绍工作、办理就业登记，发放学习语言的补贴；失业的居民除了领取失业保险，还可以免费参加职业能力司的培训课程。就业司每季度发布各市的岗位需求和工资水平，帮助学校和职业学院调整专业设置。
       en: The Employment Department of the Ministry of Labour and Social Security has its own building behind the ministry and runs the territory's employment services and labour market policy. Half the territory's people are migrants, and thousands more arrive every year to work in semiconductors, shipbuilding, batteries and tourism, so the department keeps a public employment centre in every city where newcomers can find work and register free of charge and receive grants for language classes. Residents out of work draw unemployment insurance and can also take the Vocational Skills Department's training courses for free. Every quarter the department publishes the demand for workers and the wages in each city, which schools and colleges use to plan their courses.
     in: div_z0z4vz
     offset_km: [0.63, -0.75]
@@ -389,13 +389,13 @@ places:
     subtype: government
     status: generated
     names:
-      zh: 长夏群岛领地政务院劳动和社会保障部劳动仲裁司
-      en: Labour Arbitration Department, Ministry of Labour and Social Security, Everlong Summer Islands Executive Council
+      zh: 长夏群岛领地劳动和社会保障部劳动仲裁司
+      en: Labour Arbitration Department, Ministry of Labour and Social Security, Everlong Summer Islands
     short_names:
       zh: 劳动仲裁司
       en: Labour Arbitration Department
     notes:
-      zh: 长夏群岛领地政务院劳动和社会保障部劳动仲裁司，在劳动和社会保障部后排单独建楼，负责处理劳动争议。领地的劳动法规严格，最低工资、工时、带薪休假和高温作业都有明确标准，劳动者认为权益受损时可以免费申请仲裁；仲裁司在每个市设仲裁庭，案件一般在 45 天内审结，仲裁员能用中文、英文和伊武兰语审理。萨伦纳姆、塔卢马兰和基拉努的工业区案件最多，大多涉及加班费和工伤认定。仲裁司定期公布典型案例，帮助企业和工人了解规则。
+      zh: 长夏群岛领地劳动和社会保障部劳动仲裁司，在劳动和社会保障部后排单独建楼，负责处理劳动争议。领地的劳动法规严格，最低工资、工时、带薪休假和高温作业都有明确标准，劳动者认为权益受损时可以免费申请仲裁；仲裁司在每个市设仲裁庭，案件一般在 45 天内审结，仲裁员能用中文、英文和伊武兰语审理。萨伦纳姆、塔卢马兰和基拉努的工业区案件最多，大多涉及加班费和工伤认定。仲裁司定期公布典型案例，帮助企业和工人了解规则。
       en: The Labour Arbitration Department of the Ministry of Labour and Social Security has its own building behind the ministry and settles labour disputes. The territory's labour laws are strict, with clear rules on minimum wages, hours, paid leave and work in the heat, and any worker who feels wronged can bring a case to arbitration free of charge. The department sits in every city, most cases are decided within 45 days, and arbitrators hear them in Chinese, English or Ivuran. The industrial districts of Sarunnam, Talumaran and Kilanu bring the most cases, mostly about overtime pay and whether an injury happened at work. The department publishes typical cases regularly so that employers and workers know the rules.
     in: div_z0z4vz
     offset_km: [0.68, -0.93]
