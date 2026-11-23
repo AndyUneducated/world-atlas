@@ -7847,6 +7847,397 @@ places:
     in: div_pr4aer
     offset_km: [-0.40, 0.80]
     site: {"layout": "park", "size_m": [500, 400]}
+  - id: bld_jw2qvk
+    subtype: government
+    status: generated
+    names: {"zh": "安巴罗和平会议中心", "en": "Ambaro Peace Conference Centre"}
+    notes:
+      zh: "安巴罗和平会议中心是安巴罗和谈的会场，位于城西，与和平公园和围城纪念馆相邻，由国际委员会管理。中央的全体会议厅里摆着一张直径十八米的圆桌，没有主位，各方代表按抽签的顺序入座。会议厅两翼是各代表团的工作室，各有独立的出入口和走廊，彼此敌对的代表团在会场外不会碰面。门前广场的旗杆上挂着出席各方的旗帜，不出席的一方旗杆空着，但从不拆除。停火协议、战俘交换协议和人道主义通道的安排大多在这里签署；谈判期间，归乡运动几次组织难民营的居民在广场外示威，要求代表们「先让我们回家」。"
+      en: "The Ambaro Peace Conference Centre is where the Ambaro Peace Talks are held. It stands on the west side of town beside the Peace Park and the Siege Memorial and is run by the International Commission. In the plenary hall at its centre stands a round table eighteen metres across with no head, where delegates sit in an order drawn by lot. The delegations' working rooms fill the two wings, each with its own entrance and corridors, so that hostile delegations never meet outside the hall. Flagpoles on the square in front fly the flags of every party attending; a party that stays away leaves its pole bare, but the pole is never taken down. Most ceasefire agreements, prisoner-exchange agreements and arrangements for humanitarian corridors have been signed here, and during the talks the Return Movement has several times brought camp residents to demonstrate outside the square, asking the delegates to 'let us go home first'."
+    in: div_pr4aer
+    offset_km: [-1.00, 0.55]
+    site: {"layout": "hall", "size_m": [260, 180]}
+  - id: bld_rh96nx
+    subtype: government
+    status: generated
+    names: {"zh": "拉诺瓦联合共和国流亡政府行政楼", "en": "Seat of the Ranovan Government in Exile"}
+    notes:
+      zh: "拉诺瓦联合共和国流亡政府行政楼紧挨着安巴罗旧海军要塞的东墙，是一座三层的灰白色楼房，原是要塞的军官宿舍，托管地成立后由国际委员会借给流亡政府使用。楼里有流亡总统府、临时国民议会的会议室和几个部门，还有保存联合共和国法律、地图和户籍的档案室。一层的证件大厅每天为难民和海外侨民签发身份与旅行证件，门外常排着长队。楼前的小广场上立着旗杆，每逢联合共和国日，四十人的礼宾卫队在这里升起绿底白色斜十字的旧国旗。流亡政府在安巴罗没有管辖权，楼门口站岗的是托管地警察。"
+      en: "The Seat of the Ranovan Government in Exile stands against the east wall of Ambaro's old naval fortress, a three-storey pale grey building that was once the fortress's officers' quarters and was lent to the government in exile by the International Commission once the trust territory was set up. It holds the office of the president in exile, the chamber of the Provisional National Assembly and a few departments, along with an archive keeping the United Republic's laws, maps and civil registers. The papers hall on the ground floor issues identity and travel documents to refugees and Ranovans abroad every day, and there is often a long queue outside. A flagpole stands on the small square in front, where on every United Republic Day the forty-strong honour guard raises the old flag, a white saltire on green. The government in exile has no jurisdiction in Ambaro, and the guards at its door are Trust Territory Police."
+    emblem_of: div_p735rv
+    in: div_pr4aer
+    offset_km: [0.25, 0.12]
+    site: {"layout": "slab", "size_m": [120, 80]}
+  - id: bld_916xeh
+    subtype: hotel
+    status: generated
+    names: {"zh": "代表团宾馆", "en": "Delegates' Residence"}
+    notes:
+      zh: "代表团宾馆在和平会议中心的西边，是出席安巴罗和谈的代表团下榻的地方，由国际委员会经营，多国维和部队在院墙外守卫。宾馆由四座两层的客楼围着一个种满鸡蛋花的院子，每个代表团单独住一座楼，敌对的两方从不安排在相邻的楼里。谈判常常一拖就是几个月，有的代表团把家属也接来同住。宾馆的餐厅是唯一不排座次的地方，许多在会场上谈不拢的事，是在这里的晚餐桌上先有了眉目。"
+      en: "The Delegates' Residence, west of the Peace Conference Centre, is where the delegations to the Ambaro Peace Talks stay. It is run by the International Commission and guarded outside its walls by the multinational peacekeepers. Four two-storey guest buildings stand round a courtyard full of frangipani; each delegation has a building to itself, and two hostile parties are never put in neighbouring ones. Talks often drag on for months, and some delegations bring their families to live with them. The dining room is the one place with no seating order, and many matters that could not be settled in the hall first took shape over dinner here."
+    in: div_pr4aer
+    offset_km: [-1.30, 0.15]
+    site: {"layout": "courtyard", "size_m": [180, 150]}
+  - id: bld_0dwtp3
+    subtype: office
+    status: generated
+    names: {"zh": "停火联合监督中心", "en": "Joint Ceasefire Monitoring Centre"}
+    notes:
+      zh: "停火联合监督中心由国际委员会和签署停火协议的各方共同派员组成，负责汇总岛上各条战线的停火情况。中心的值班室昼夜有人，墙上的大地图标着每一条停火线，几部热线电话直通交战各方的指挥部。每当一方指控另一方违反停火，中心就派出由国际观察员和双方军官组成的调查组前往现场，调查报告提交国际委员会，并在和平会议中心的全体会议上宣读。齐马罗沃不出席和谈，却在中心里派驻了一个军事联络组，只为南方战争的人道主义通道和战俘交换与对方核对时间和名单。中心的观察员不带武器，只穿浅蓝色的背心，乘坐涂着白漆的越野车。"
+      en: "The Joint Ceasefire Monitoring Centre is staffed by the International Commission together with every party that has signed a ceasefire, and it keeps track of the ceasefires on each of the island's fronts. Its duty room is manned day and night; a great map on the wall marks every ceasefire line, and several hotlines run straight to the warring parties' headquarters. Whenever one side accuses another of breaking a ceasefire, the centre sends a team of international observers and officers from both sides to the scene, and its report goes to the International Commission and is read out at a plenary session in the Peace Conference Centre. Tsimarovo stays away from the talks but keeps a military liaison group at the centre, solely to check times and lists with the other side for the Southern War's humanitarian corridors and prisoner exchanges. The observers carry no weapons, wear only pale blue vests and drive white-painted four-by-fours."
+    in: div_pr4aer
+    offset_km: [0.55, -0.45]
+    site: {"layout": "slab", "size_m": [160, 100]}
+  - id: poi_ggw1d4
+    subtype: checkpoint
+    status: generated
+    names: {"zh": "战俘与遗体交换站", "en": "Prisoner and Remains Exchange Point"}
+    notes:
+      zh: "战俘与遗体交换站设在安巴罗港西侧的一座专用码头上，交战各方在这里交换战俘、移交阵亡者的遗体和遣返难民。双方的人员乘船分别靠岸，在码头上的白色帐篷里由国际观察员逐一核对名单，医生检查被交换者的身体，确认本人愿意回去以后才当面交接。交换站平时空着，只有托管地警察看守；每到交换的日子，码头外挤满了等待亲人的家属，名单上找不到名字的人，会在交换站门口的布告栏上留下照片和寻人启事。"
+      en: "The Prisoner and Remains Exchange Point is a dedicated quay on the west side of the Port of Ambaro where the warring parties exchange prisoners, hand over the remains of their dead and repatriate refugees. Each side's people come ashore separately by boat; in white tents on the quay international observers check the lists name by name, doctors examine those being exchanged, and only once each has confirmed they wish to go back are they handed over face to face. Between exchanges the point stands empty, watched only by the Trust Territory Police; on exchange days the quay is crowded with families waiting for their own, and those who cannot find a name on the lists leave photographs and notices on the board by the gate."
+    in: div_pr4aer
+    offset_km: [0.75, 6.55]
+    site: {"layout": "checkpoint", "size_m": [300, 200], "angle_deg": 0, "rural": true}
+  - id: bld_cb1grp
+    subtype: office
+    status: generated
+    names: {"zh": "外交联络处大楼", "en": "Liaison Offices Building"}
+    notes:
+      zh: "外交联络处大楼位于旧要塞通往和平会议中心的路旁，是一座五层的办公楼，出席安巴罗和谈的各方都在楼里设有谈判联络处，各国与托管地的日常往来则由城西南使馆区的使馆和代表处负责。许多国家彼此并不承认，在别处无法互设使馆，在这里却只隔着一条走廊；各处一律只称「联络处」，门牌的大小也都一样。大楼一层的公共会客室由国际委员会安排使用，谈判休会期间，各方代表常在这里私下见面，商量下一轮会谈的议程。"
+      en: "The Liaison Offices Building stands by the road from the old fortress to the Peace Conference Centre, a five-storey office block where every party to the Ambaro Peace Talks keeps a liaison office for the talks, while each state's everyday dealings with the territory go through its embassy or representative office in the embassy quarter to the south-west. Many of these states do not recognise one another and could not exchange embassies anywhere else, yet here they are a corridor apart; every office is called simply a 'liaison office', and all the door plates are the same size. The public reception rooms on the ground floor are booked through the International Commission, and when the talks are in recess delegates often meet here privately to settle the agenda for the next round."
+    in: div_pr4aer
+    offset_km: [-0.90, -0.35]
+    site: {"layout": "slab", "size_m": [180, 90]}
+  - id: poi_mnthmp
+    subtype: office
+    status: generated
+    names: {"zh": "人道主义通道协调中心", "en": "Humanitarian Corridor Coordination Centre"}
+    notes:
+      zh: "人道主义通道协调中心设在安巴罗人道援助仓库旁，负责安排岛上各个战区的人道主义通道。南方战争中前往阿拉齐纳牧区的援助车队、进入伊索卡山区的医疗队和战乱地区平民的撤离，都要由中心事先与交战各方商定路线、时间和停火时段，再把通行文件发给车队。中心的调度室里挂着一张标满通道和检查站的地图，每条通道旁写着下一次开放的日期。援助车队出发前在中心门口集合，白色卡车的车顶上都漆着巨大的编号，方便各方从空中辨认。"
+      en: "The Humanitarian Corridor Coordination Centre stands beside the Ambaro Humanitarian Aid Warehouse and arranges the humanitarian corridors across the island's war zones. Aid convoys bound for the Alatsina pastures in the Southern War, medical teams going into the Isoka hills and the evacuation of civilians from the fighting all need the centre to agree routes, times and ceasefire windows with the warring parties beforehand and then issue passes to the convoys. A map in its control room is covered with corridors and checkpoints, each marked with the date it next opens. Convoys gather at the centre's gate before setting out, and every white lorry has a huge number painted on its roof so that all sides can identify it from the air."
+    in: div_pr4aer
+    offset_km: [-1.85, 0.55]
+    site: {"layout": "slab", "size_m": [200, 120], "angle_deg": 0, "rural": true}
+  - id: bld_k3nb6e
+    subtype: research_institute
+    status: generated
+    names: {"zh": "安巴罗和平与调解研究院", "en": "Ambaro Institute for Peace and Mediation"}
+    notes:
+      zh: "安巴罗和平与调解研究院由国际委员会和几所海外大学合办，培训岛上各国的调解员、停火观察员和社区和解工作者，也研究大分裂的历史和各国的停火协议。研究院主办安巴罗和谈的文化会议，讨论各国共有的语言、文物和宗教圣地如何保护。一些国家不承认流亡政府，也不派官员出席和谈，却愿意派学者来参加这里的会议，研究院因此成了各方之间少有的长期联系渠道。研究院的阅览室收藏着大分裂以来岛上签订的全部停火协议文本，每一份都附有各方的签名页。"
+      en: "The Ambaro Institute for Peace and Mediation is run by the International Commission with several universities abroad. It trains mediators, ceasefire observers and community reconciliation workers from the island's states and studies the history of the Sundering and the states' ceasefire agreements. It hosts the cultural conferences of the Ambaro Peace Talks, on how to protect the languages, antiquities and holy places the states share. Some states that do not recognise the government in exile and send no officials to the talks will still send scholars to its conferences, which has made the institute one of the few lasting channels between the parties. Its reading room holds the text of every ceasefire agreement signed on the island since the Sundering, each with its page of signatures."
+    in: div_pr4aer
+    offset_km: [0.45, -0.95]
+    site: {"layout": "slab", "size_m": [200, 120]}
+  - id: bld_64psk9
+    subtype: office
+    status: generated
+    names: {"zh": "失踪者寻亲中心", "en": "Missing Persons Centre"}
+    notes:
+      zh: "失踪者寻亲中心登记大分裂以来在战乱中失踪的人，收集家属的证言和血样，用 DNA 比对确认交换站移交的遗体和各地发现的无名墓。中心由国际委员会和国际人道组织合办，资料库里登记了约四万名失踪者，其中三分之一已经找到下落。难民营里的许多家庭每年都来更新一次登记，生怕亲人回来时找不到他们。宪政共和联盟主张在此基础上设立全岛的大分裂真相与和解委员会，但各国至今没有达成一致。中心门厅的墙上贴满了失踪者的照片，有人找到亲人后，会在照片旁别上一朵白色的长春花。"
+      en: "The Missing Persons Centre records those lost in the fighting since the Sundering, gathering families' testimony and blood samples and using DNA matching to identify remains handed over at the exchange point and unmarked graves found around the island. It is run by the International Commission with international humanitarian organisations; its records list about 40,000 missing people, a third of whom have been traced. Many families in the refugee camps come every year to renew their entry, afraid their relatives will not find them if they come back. The Constitutional Republican Union wants an island-wide Truth and Reconciliation Commission for the Sundering built on this work, but the states have yet to agree. The lobby wall is covered with photographs of the missing, and when someone finds their relative they pin a white periwinkle beside the picture."
+    in: div_pr4aer
+    offset_km: [0.55, 0.55]
+    site: {"layout": "slab", "size_m": [160, 100]}
+  - id: bld_qhzj7w
+    subtype: office
+    status: generated
+    names: {"zh": "离散家属会面中心", "en": "Divided Families Meeting Centre"}
+    notes:
+      zh: "离散家属会面中心是被停火线分开的家人见面的地方。大分裂以来，许多家庭被战线隔在两个互不往来的国家，书信都要辗转多年。每年秋天，国际委员会与有关各方商定名单，用船把两边的家属接到安巴罗，在中心的会面厅里团聚三天，由托管地的工作人员陪同。会面厅里摆着几十张小圆桌，墙边放着纸巾和茶水；分别的那天早上，码头上总是哭声一片。这项安排最早由基督教人民党提出，至今每年都有几千个家庭排队等候。"
+      en: "The Divided Families Meeting Centre is where families split by the ceasefire lines meet. Since the Sundering many families have been cut apart between two states that have nothing to do with each other, and letters take years to find their way across. Every autumn the International Commission agrees a list with the parties concerned, families from both sides are brought to Ambaro by boat, and they spend three days together in the centre's meeting hall with Trust staff on hand. The hall is set with dozens of small round tables, with tissues and tea along the walls; on the morning of parting the quay is always full of weeping. The arrangement was first proposed by the Christian People's Party, and thousands of families still wait their turn each year."
+    in: div_pr4aer
+    offset_km: [-0.40, 1.20]
+    site: {"layout": "hall", "size_m": [180, 120]}
+  - id: poi_j09qgq
+    subtype: office
+    status: generated
+    names: {"zh": "难民自愿遣返联合委员会", "en": "Joint Commission on Voluntary Return"}
+    notes:
+      zh: "难民自愿遣返联合委员会由托管地、难民的原籍国和收容国以及归乡运动共同派员组成，负责安排难民自愿回乡。委员会先派人回到难民的家乡，查看房屋和土地是否还在、地雷是否清除、当地是否愿意接纳，再把结果念给营地里的难民听，由每户自己决定走不走。委员会坚持「不愿走的人一个也不送走」，回乡的人每批几十户，由维和部队护送到停火线。委员会的办公楼就在难民营的路口，门前的告示栏每周公布下一批回乡的村庄。"
+      en: "The Joint Commission on Voluntary Return is staffed by the Trust Territory, the refugees' home and host states and the Return Movement, and it arranges the voluntary return of refugees. It first sends people back to the refugees' home villages to see whether their houses and land are still there, whether the mines have been cleared and whether the place will take them back, then reads the findings out in the camp so that each household can decide for itself whether to go. Its rule is that 'no one who does not want to go is sent', and returnees leave a few dozen households at a time, escorted to the ceasefire line by the peacekeepers. Its office stands at the road into the refugee camp, and the board outside lists each week the villages in the next group to go home."
+    in: div_pr4aer
+    offset_km: [0.90, 1.30]
+    site: {"layout": "slab", "size_m": [160, 100], "angle_deg": 0, "rural": true}
+  - id: bld_pkhhgh
+    subtype: office
+    status: generated
+    names: {"zh": "跨线邮件交换局", "en": "Cross-Line Mail Exchange"}
+    notes:
+      zh: "跨线邮件交换局负责在互不通邮的国家之间转递信件和包裹。岛上许多国家彼此没有邮政往来，前线两边的家书只能先寄到安巴罗，由交换局拆开外袋、登记、重新分拣，再装进寄往对方的邮袋，通过援助船只和交换站转送出去。信件内容一律不拆看，但包裹要经托管地警察检查，不许夹带武器和现金。分拣大厅里按国家排着三十多个木格，每个格子上贴着该国的邮政编码，圣诞节和开斋节前后，邮袋常常堆到天花板。"
+      en: "The Cross-Line Mail Exchange passes letters and parcels between states that have no postal ties. Many of the island's states exchange no mail at all, so letters home across the front lines are first sent to Ambaro, where the exchange opens the outer bags, logs the items, sorts them again and packs them into bags for the other side, sending them on by aid ship and through the exchange point. Letters are never opened, but parcels are checked by the Trust Territory Police for weapons and cash. The sorting hall is lined with more than thirty wooden pigeonholes, one for each state and marked with its postcode, and around Christmas and Eid the mailbags often pile up to the ceiling."
+    in: div_pr4aer
+    offset_km: [0.60, 0.85]
+    site: {"layout": "slab", "size_m": [140, 80]}
+  - id: poi_2cj0g5
+    subtype: office
+    status: generated
+    names: {"zh": "全岛疫病监测协调中心", "en": "Island Disease Surveillance Centre"}
+    notes:
+      zh: "全岛疫病监测协调中心设在国际野战医院旁，收集岛上各国的传染病报告，协调疫苗和药品的调配。霍乱、麻疹和狂犬病不分国界，许多互相敌对的国家也愿意通过中心交换疫情：每周一，各国卫生部门把病例数报到这里，中心汇总后再发回给每一个国家。雨季霍乱流行时，中心的实验室昼夜化验水样，疫苗由援助车队沿人道主义通道送往疫区。中心的门厅里挂着一张全岛地图，每发现一处疫情就插上一面小红旗。"
+      en: "The Island Disease Surveillance Centre, beside the International Field Hospital, gathers reports of infectious disease from the island's states and coordinates the sharing of vaccines and medicines. Cholera, measles and rabies know no borders, and many states that are at odds with one another still trade outbreak reports through the centre: every Monday each state's health service sends its case counts here, and the centre returns the combined figures to every one of them. When cholera spreads in the rainy season its laboratory tests water samples day and night, and vaccines go out to the stricken areas with the aid convoys along the humanitarian corridors. A map of the island hangs in the lobby, with a small red flag pinned wherever an outbreak is found."
+    in: div_pr4aer
+    offset_km: [-0.60, 2.60]
+    site: {"layout": "slab", "size_m": [160, 100], "angle_deg": 0, "rural": true}
+  - id: poi_jgpn4e
+    subtype: office
+    status: generated
+    names: {"zh": "东南海域航道与渔业协调中心", "en": "South-Eastern Seas Shipping and Fisheries Centre"}
+    notes:
+      zh: "东南海域航道与渔业协调中心设在安巴罗港，由托管地和东南群岛各国共同出资，协调群岛之间的航道安全、海难搜救和渔区划分。安巴罗曾是控制这片航道的海军要塞，如今港口的旧信号塔改成了中心的瞭望室，值班员用无线电向过往船只通报风浪和雷区。每年渔汛开始前，各国的渔业官员在这里商定各自的渔区和捕捞配额，争执不下时由托管地法院的法官出面调停。台风季节，中心还统一调度各国的救生艇出海搜救。"
+      en: "The South-Eastern Seas Shipping and Fisheries Centre, in the Port of Ambaro, is funded jointly by the Trust Territory and the states of the south-eastern islands and coordinates safe passage between the islands, search and rescue at sea and the division of the fishing grounds. Ambaro was once the naval fortress that commanded these sea lanes; today the port's old signal tower is the centre's lookout, and the duty officers radio passing ships about the weather and the minefields. Before each fishing season the states' fisheries officials meet here to agree their grounds and catch quotas, and when they cannot agree a judge of the Trust Territory Court steps in to mediate. In the typhoon season the centre also directs every state's lifeboats on rescue missions."
+    in: div_pr4aer
+    offset_km: [1.40, 6.20]
+    site: {"layout": "slab", "size_m": [160, 100], "angle_deg": 0, "rural": true}
+  - id: bld_5ebr73
+    subtype: bank
+    status: generated
+    names: {"zh": "安巴罗清算所", "en": "Ambaro Clearing House"}
+    notes:
+      zh: "安巴罗清算所为互不承认、无法直接结算的国家清算贸易货款。许多国家之间没有外交关系，银行也不互相往来，但商人照样做生意：卖方和买方各自把货款存入清算所的账户，清算所用托管地通用的美元和人民币记账，每月结算一次，由托管地货币委员会监督。清算所只办理粮食、药品、建材和日用品等货款，不受理武器交易。一层的营业大厅里，各国的商人排队等候，柜台上方的电子屏不停地滚动着当天的汇率。"
+      en: "The Ambaro Clearing House settles trade payments between states that do not recognise each other and cannot settle directly. Many of the island's states have no diplomatic relations and their banks have no dealings, yet merchants trade all the same: seller and buyer each pay into accounts at the clearing house, which keeps its books in the territory's US dollars and renminbi and settles once a month under the oversight of the Trust Territory's Currency Board. It handles payment only for food, medicine, building materials and everyday goods, never for arms. In the banking hall on the ground floor traders from every state queue at the counters, beneath a screen that scrolls the day's exchange rates."
+    in: div_pr4aer
+    offset_km: [0.05, -0.75]
+    site: {"layout": "slab", "size_m": [120, 80]}
+  - id: poi_yvka2f
+    subtype: office
+    status: generated
+    names: {"zh": "援助机构联合办公楼", "en": "Aid Agencies Joint Office"}
+    notes:
+      zh: "援助机构联合办公楼在人道援助仓库附近，几十家国际援助机构在这里合租办公室，共用会议室、电台和车队。每周二上午，各机构的负责人在顶楼的大会议室开协调会，分配下一周的粮食、药品和帐篷，避免几家机构挤在同一处难民营，别处却无人问津。楼前的停车场上停满了漆成白色的越野车和卡车，车门上印着各机构的标志。安巴罗许多年轻人在这里找到了第一份工作，做翻译、司机和仓库管理员。"
+      en: "The Aid Agencies Joint Office near the Humanitarian Aid Warehouse is shared by dozens of international aid agencies, which rent offices here and pool their meeting rooms, radios and vehicles. Every Tuesday morning the agencies' heads meet in the big room on the top floor to share out the next week's food, medicine and tents, so that several agencies do not crowd into one camp while another goes without. The car park in front is full of white-painted four-by-fours and lorries with the agencies' badges on their doors. Many of Ambaro's young people found their first jobs here, as interpreters, drivers and storekeepers."
+    in: div_pr4aer
+    offset_km: [-1.75, 0.85]
+    site: {"layout": "slab", "size_m": [160, 100], "angle_deg": 0, "rural": true}
+  - id: bld_k8fy9n
+    subtype: government
+    status: generated
+    names: {"zh": "中华人民共和国常驻安巴罗国际委员会代表团", "en": "Permanent Mission of the People's Republic of China to the International Commission of Ambaro"}
+    notes:
+      zh: "中华人民共和国常驻安巴罗国际委员会代表团是中国参加国际委员会工作的机构，团长同时是委员会的中国委员。中国的大使馆设在萨马伊，代表团在安巴罗兼办中国公民的护照和签证业务，也负责中国援建的海水淡化与发电站和港口设备的后续维护。代表团是一座带院子的灰色楼房，院门口挂着国徽，院里种着几棵从国内运来的桂花树。每到春节，代表团在院子里挂起红灯笼，请委员会的同事、岛民理事会的代表和难民营的孩子们来包饺子。"
+      en: "The Permanent Mission of the People's Republic of China to the International Commission of Ambaro is how China takes part in the Commission's work, and its head is also China's member of the Commission. China's embassy is in Samay, and in Ambaro the mission also issues passports and visas to Chinese citizens and looks after the Chinese-built desalination and power plant and port equipment. It is a grey building round a courtyard with the national emblem over the gate and a few osmanthus trees brought from home in the yard. Every Spring Festival the mission hangs red lanterns in the courtyard and invites Commission colleagues, members of the Islanders' Council and children from the camps to make dumplings."
+    emblem_of: country:CN
+    in: div_pr4aer
+    offset_km: [-0.35, -0.70]
+    site: {"layout": "courtyard", "size_m": [160, 130]}
+  - id: bld_h5bj5c
+    subtype: government
+    status: generated
+    names: {"zh": "美利坚合众国常驻安巴罗国际委员会代表团", "en": "Permanent Mission of the United States of America to the International Commission of Ambaro"}
+    notes:
+      zh: "美利坚合众国常驻安巴罗国际委员会代表团是美国参加国际委员会工作的机构，团长同时是委员会的美国委员。美国的大使馆设在安博哈拉，代表团在安巴罗兼办美国公民的领事事务，并为申请赴美安置的难民安排面谈，面谈室外的长椅上每天都坐满了带着文件袋的难民家庭。代表团是一座白色的两层楼，门前的草坪上立着旗杆，四周的围墙比邻居们都高一截。每年独立日，代表团在草坪上办烤肉会，委员会的同事和岛民理事会的代表都会来。"
+      en: "The Permanent Mission of the United States of America to the International Commission of Ambaro is how the United States takes part in the Commission's work, and its head is also America's member of the Commission. The US embassy is in Ambohara; in Ambaro the mission also handles consular affairs for American citizens and holds interviews for refugees applying for resettlement in the United States, and the benches outside its interview rooms are full every day of refugee families clutching folders of papers. It is a white two-storey building with a flagpole on the lawn in front and a wall higher than any of its neighbours'. Every Independence Day the mission holds a barbecue on the lawn for Commission colleagues and members of the Islanders' Council."
+    emblem_of: country:US
+    in: div_pr4aer
+    offset_km: [-0.65, -0.70]
+    site: {"layout": "courtyard", "size_m": [160, 130]}
+  - id: bld_bs2z57
+    subtype: office
+    status: generated
+    names: {"zh": "联合国驻安巴罗综合办事处", "en": "United Nations Integrated Office in Ambaro"}
+    notes:
+      zh: "联合国驻安巴罗综合办事处是国际委员会中三名联合国委员的办公地点，也管理着联合国派到托管行政署的几百名国际职员，负责他们的招聘、轮换和住房。办事处还协调联合国各机构在岛上的援助、排雷和选举支持工作，岛民理事会的历次选举都由办事处派员观察。大楼门前挂着浅蓝色的旗帜，楼里的食堂是安巴罗口味最杂的地方，几十个国家的职员在这里一起吃木薯饼和米饭。"
+      en: "The United Nations Integrated Office in Ambaro houses the three UN members of the International Commission and manages the several hundred international staff the UN seconds to the Trust Administration, handling their recruitment, rotation and housing. It also coordinates the UN agencies' aid, mine clearance and electoral support on the island, and every election to the Islanders' Council has been watched by its observers. A pale blue flag hangs at the door, and its canteen is the most cosmopolitan place in Ambaro, where staff from dozens of countries eat cassava cakes and rice together."
+    in: div_pr4aer
+    offset_km: [-0.95, -0.70]
+    site: {"layout": "slab", "size_m": [160, 90]}
+  - id: bld_bge0ww
+    subtype: government
+    status: generated
+    names: {"zh": "萨马伊自由邦驻安巴罗大使馆", "en": "Embassy of the Free State of Samay in Ambaro"}
+    notes:
+      zh: "萨马伊自由邦驻安巴罗大使馆是安巴罗规模最大的使馆，大使按惯例担任安巴罗外交使团的团长。萨马伊调解了安巴罗之围，多次派出维和人员，也是国际委员会中地区国家的代表，许多停火协议的初稿都是在使馆的会客室里先谈出来的。使馆是一座白墙蓝窗的庭院式建筑，门前挂着蓝色的船旗。每年安巴罗之围结束的纪念日，大使都要陪同萨马伊的老兵到和平公园献花。"
+      en: "The Embassy of the Free State of Samay is the largest embassy in Ambaro, and by custom its ambassador is dean of Ambaro's diplomatic corps. Samay mediated the end of the Siege of Ambaro, has sent peacekeepers many times and is one of the regional states on the International Commission, and many ceasefire agreements were first worked out in draft in the embassy's reception rooms. The embassy is a courtyard building with white walls and blue windows, with Samay's blue ensign at the gate. Every year on the anniversary of the end of the siege the ambassador takes Samay's veterans to lay flowers in the Peace Park."
+    emblem_of: div_gebca7
+    in: div_pr4aer
+    offset_km: [-0.35, -0.95]
+    site: {"layout": "courtyard", "size_m": [140, 110]}
+  - id: bld_q9dysq
+    subtype: government
+    status: generated
+    names: {"zh": "伊纳拉群岛邦驻安巴罗大使馆", "en": "Embassy of the Commonwealth of the Inara Isles in Ambaro"}
+    notes:
+      zh: "伊纳拉群岛邦驻安巴罗大使馆代表着一个从未卷入战争的国家。伊纳拉保持中立，与萨马伊和安巴罗关系密切，大使由氏族议会推举，按惯例是一位年长的女性。使馆不大，院子里种着从伊纳拉带来的露兜树，院门对所有人敞开，各方代表常借这里的凉棚私下见面，伊纳拉人只负责煮茶，从不在旁边听。伊纳拉在潟湖边的小岛上收容过难民，使馆至今帮那些难民的后人办理证件。"
+      en: "The Embassy of the Commonwealth of the Inara Isles speaks for a country that has never been drawn into the war. Inara keeps its neutrality and is close to Samay and Ambaro; its ambassador is chosen by the clan council and by custom is an elder woman. The embassy is small, with pandanus trees from Inara in its courtyard and a gate open to all; delegates from different sides often borrow its shaded arbour to meet in private, and the Inarans only make the tea and never stay to listen. Inara once sheltered refugees on an islet in its lagoon, and the embassy still helps their descendants with their papers."
+    emblem_of: div_4nnakk
+    in: div_pr4aer
+    offset_km: [-0.60, -0.95]
+    site: {"layout": "courtyard", "size_m": [140, 110]}
+  - id: bld_dzf8xb
+    subtype: government
+    status: generated
+    names: {"zh": "贝洛瓦共和国驻安巴罗大使馆", "en": "Embassy of the Republic of Belova in Ambaro"}
+    notes:
+      zh: "贝洛瓦共和国驻安巴罗大使馆是世俗协约国家在安巴罗最活跃的使馆之一。贝洛瓦境内有归乡运动的难民营选区，使馆与难民自愿遣返联合委员会往来密切，为回乡的难民办理过境手续。使馆是一座现代风格的玻璃幕墙楼，楼顶装着卫星天线，门口的电子屏用三种语言播放贝洛瓦科技园区的招聘广告，吸引了不少职业技术学校的毕业生。"
+      en: "The Embassy of the Republic of Belova is one of the busiest Secular Accord embassies in Ambaro. Belova has camp constituencies of the Return Movement on its soil, so the embassy works closely with the Joint Commission on Voluntary Return and handles transit papers for refugees going home. It is a modern glass-fronted building with satellite dishes on the roof, and a screen at the door plays job advertisements for Belova's technology parks in three languages, drawing many graduates of the vocational school."
+    emblem_of: div_4f0pgt
+    in: div_pr4aer
+    offset_km: [-0.85, -0.95]
+    site: {"layout": "courtyard", "size_m": [140, 110]}
+  - id: bld_91ynw5
+    subtype: government
+    status: generated
+    names: {"zh": "萨拉卡公国驻安巴罗大使馆", "en": "Embassy of the Principality of Saraka in Ambaro"}
+    notes:
+      zh: "萨拉卡公国驻安巴罗大使馆代表着一个以条约和平分离的国家。萨拉卡与安巴罗一样沿用联合共和国船旗的样式，在战争中保持中立，被岛上大多数国家承认，常为互不往来的国家转递外交照会。使馆是一座红瓦白墙的老式小楼，门前的旗杆上挂着公国的船旗。大使馆的领事处为在安巴罗工作的萨拉卡船员办理证件，港口里的萨拉卡货船也常在这里报到。"
+      en: "The Embassy of the Principality of Saraka represents a country that left the United Republic peacefully by treaty. Like Ambaro, Saraka keeps the pattern of the old Republic's ensigns; it stayed neutral in the war, is recognised by most of the island's states and often passes diplomatic notes between states that do not deal with each other. The embassy is a small old-style building of white walls and red tiles, with the principality's ensign on the flagpole in front. Its consular section issues papers to Sarakan seamen working in Ambaro, and Sarakan cargo ships in the port often report here."
+    emblem_of: div_gempde
+    in: div_pr4aer
+    offset_km: [-1.10, -0.95]
+    site: {"layout": "courtyard", "size_m": [140, 110]}
+  - id: bld_t5g57d
+    subtype: government
+    status: generated
+    names: {"zh": "米拉卡王国驻安巴罗大使馆", "en": "Embassy of the Kingdom of Miraka in Ambaro"}
+    notes:
+      zh: "米拉卡王国驻安巴罗大使馆是圣约同盟国家在安巴罗的主要使馆之一。米拉卡是议会制君主立宪国，支持安巴罗和谈，大使常在同盟各国的代表之间穿针引线，商量同盟在谈判桌上的共同立场。使馆是一座带拱廊的庭院式建筑，门厅里挂着国王和王后的肖像。每年国王生日，使馆在院子里举办招待会，各国使节和委员会的委员都在受邀之列。"
+      en: "The Embassy of the Kingdom of Miraka is one of the Covenant League's main embassies in Ambaro. Miraka is a parliamentary constitutional monarchy that supports the Ambaro talks, and its ambassador often goes between the League's delegations to agree a common position at the table. The embassy is an arcaded courtyard building with portraits of the king and queen in its hall. On the king's birthday each year it holds a reception in the courtyard, to which every envoy and member of the Commission is invited."
+    emblem_of: div_78xf6t
+    in: div_pr4aer
+    offset_km: [-1.35, -0.95]
+    site: {"layout": "courtyard", "size_m": [140, 110]}
+  - id: bld_5hntnq
+    subtype: government
+    status: generated
+    names: {"zh": "太阳神国度驻安巴罗使馆", "en": "Embassy of the Realm of the Sun God in Ambaro"}
+    notes:
+      zh: "太阳神国度驻安巴罗使馆由外事与交易署派驻，是这个神权君主国在海外少有的常设机构。太阳神国支持安巴罗和谈，希望全岛和平后以村社土地制度不变为条件加入统一国家。使馆的大门朝东，每天清晨日出时，使馆人员在院子里向太阳行礼；院墙上挂着记事用的彩色绳结，来访者常好奇地向使馆人员打听它们的意思。"
+      en: "The Embassy of the Realm of the Sun God, staffed by its Office of External Affairs and Exchange, is one of the few standing posts this theocratic monarchy keeps abroad. The Sun God Realm supports the Ambaro talks and hopes to join a united state once the island is at peace, on condition that its village land system is left untouched. The embassy's gate faces east, and each morning at sunrise its staff salute the sun in the courtyard; knotted coloured cords used for keeping records hang on the walls, and visitors often ask the staff what they mean."
+    emblem_of: div_zybzvt
+    in: div_pr4aer
+    offset_km: [-0.35, -1.20]
+    site: {"layout": "courtyard", "size_m": [140, 110]}
+  - id: bld_ddyagr
+    subtype: government
+    status: generated
+    names: {"zh": "安博哈拉基督教联邦驻安巴罗代表处", "en": "Representative Office of the Christian Federation of Ambohara in Ambaro"}
+    notes:
+      zh: "安博哈拉基督教联邦驻安巴罗代表处是岛上最大国家在托管地的常设机构。安博哈拉不承认流亡政府对全岛的主张，但出席安巴罗和谈，与伊索卡游击队中愿意放下武器的指挥员的接触，也经由托管地的调解在这里进行。代表处是一座四层的石砌楼房，门前有联邦警察站岗，屋顶上竖着一个白色的十字架。每逢周日，代表处的职员一起到附近的圣母主教座堂望弥撒。"
+      en: "The Representative Office of the Christian Federation of Ambohara is the largest state's standing post in the trust territory. Ambohara rejects the government in exile's claim to the whole island but attends the Ambaro talks, and its contacts with the Isoka commanders willing to lay down their arms also take place here, through the Trust Territory's mediation. The office is a four-storey stone building with federal police on guard at the door and a white cross on the roof. Every Sunday its staff go to Mass together at the nearby Cathedral of Our Lady."
+    emblem_of: div_mj41d0
+    in: div_pr4aer
+    offset_km: [-0.60, -1.20]
+    site: {"layout": "slab", "size_m": [120, 70]}
+  - id: bld_92gvvz
+    subtype: government
+    status: generated
+    names: {"zh": "阿拉齐纳原住民邦联驻安巴罗代表处", "en": "Representative Office of the Alatsina Indigenous Confederacy in Ambaro"}
+    notes:
+      zh: "阿拉齐纳原住民邦联驻安巴罗代表处由九个氏族各派一名代表组成，按惯例轮流主事。南方战争中，邦联失去了约三分之一的土地，代表处的主要工作是在和谈中要求齐马罗沃撤出被占牧区，并与人道主义通道协调中心商定援助车队的路线。代表处的院子里立着一根雕着牛角的木柱，那是九火盟约的标志；每逢雨季开始，代表们在院子里生起篝火，遥祭故乡的祖先。"
+      en: "The Representative Office of the Alatsina Indigenous Confederacy is staffed by one delegate from each of the nine clans, who by custom take turns to lead it. The Confederacy lost about a third of its land in the Southern War, and the office's main work is to press in the talks for Tsimarovo to leave the occupied pastures and to agree aid convoy routes with the Humanitarian Corridor Coordination Centre. A wooden post carved with horns, the sign of the Covenant of the Nine Fires, stands in its courtyard, and at the start of every rainy season the delegates light a fire there for the ancestors at home."
+    emblem_of: div_ht80hm
+    in: div_pr4aer
+    offset_km: [-0.85, -1.20]
+    site: {"layout": "slab", "size_m": [120, 70]}
+  - id: bld_n4fkhg
+    subtype: government
+    status: generated
+    names: {"zh": "马哈维洛自由港驻安巴罗代表处", "en": "Representative Office of the Free Port of Mahavelo in Ambaro"}
+    notes:
+      zh: "马哈维洛自由港驻安巴罗代表处主要处理两个港口之间的航运和贸易事务。安巴罗的援助物资、建材和日用品大多从马哈维洛的集装箱码头转运而来，代表处为两地的船公司和商人牵线，也为在马哈维洛打工的安巴罗人办理工作证件。代表处在一座商业楼的底层，门口挂着自由港的旗帜，候客室里摆着马哈维洛的报纸和船期表。"
+      en: "The Representative Office of the Free Port of Mahavelo deals mainly with shipping and trade between the two ports. Most of Ambaro's aid, building materials and everyday goods come through Mahavelo's container terminal, and the office brings together shipping lines and traders from both places and issues work papers to Ambarans working in Mahavelo. It occupies the ground floor of a commercial building, with the free port's flag at the door and Mahavelo newspapers and sailing schedules in the waiting room."
+    emblem_of: div_3w5wwh
+    in: div_pr4aer
+    offset_km: [-1.10, -1.20]
+    site: {"layout": "slab", "size_m": [120, 70]}
+  - id: bld_d5ymts
+    subtype: government
+    status: generated
+    names: {"zh": "萨希利亚伊斯兰共和国驻安巴罗代表处", "en": "Representative Office of the Islamic Republic of Sahiliya in Ambaro"}
+    notes:
+      zh: "萨希利亚伊斯兰共和国驻安巴罗代表处是萨希利亚在托管地的常设机构。萨希利亚出席安巴罗和谈，贾巴利亚部落长老与萨希利亚的接触常由托管地安排在这里进行，贾巴利亚难民回乡与和平委员会的成员也常来代表处商量回乡的条件。代表处的院子里有一间小礼拜室，每逢主麻日，附近的穆斯林居民也来这里礼拜。"
+      en: "The Representative Office of the Islamic Republic of Sahiliya is Sahiliya's standing post in the trust territory. Sahiliya attends the Ambaro talks, and the contacts between Jabaliya's tribal elders and Sahiliya are often arranged here by the Trust Territory; members of the Jabaliya Refugees' Committee for Return and Peace also come to the office to discuss the terms of going home. There is a small prayer room in its courtyard, where Muslims from the neighbourhood come to pray on Fridays."
+    emblem_of: div_t5zph6
+    in: div_pr4aer
+    offset_km: [-1.35, -1.20]
+    site: {"layout": "slab", "size_m": [120, 70]}
+  - id: bld_xkjmsg
+    subtype: government
+    status: generated
+    names: {"zh": "洛哈瓦托王国驻安巴罗代表处", "en": "Representative Office of the Kingdom of Lohavato in Ambaro"}
+    notes:
+      zh: "洛哈瓦托王国驻安巴罗代表处由王室直接任命的代表主持。洛哈瓦托是圣约同盟的成员，执政的王国国民协会主张各国先在安巴罗和谈中停火、互相承认，再谈统一。代表处是一座带塔楼的小楼，门前挂着王国的旗帜，门厅里陈列着王国的织锦。代表处每年举办一次王国文化周，邀请难民营的孩子们来学跳洛哈瓦托的宫廷舞。"
+      en: "The Representative Office of the Kingdom of Lohavato is headed by an envoy appointed directly by the crown. Lohavato is a member of the Covenant League, and its governing Royal National Association holds that the states should first agree ceasefires and recognise one another at the Ambaro talks before any talk of unity. The office is a small building with a turret, the kingdom's flag at the door and Lohavato brocades displayed in the hall. Each year it holds a week of the kingdom's culture and invites children from the camps to learn Lohavato's court dances."
+    emblem_of: div_gd73a5
+    in: div_pr4aer
+    offset_km: [-0.35, -1.45]
+    site: {"layout": "slab", "size_m": [120, 70]}
+  - id: bld_paaanf
+    subtype: government
+    status: generated
+    names: {"zh": "努西拉苏丹国驻安巴罗代表处", "en": "Representative Office of the Sultanate of Nusira in Ambaro"}
+    notes:
+      zh: "努西拉苏丹国驻安巴罗代表处是这个产油苏丹国在托管地的常设机构，代表由苏丹亲自任命。努西拉是圣约同盟的成员，近海油气为它带来了大量收入，它是安巴罗援助的主要捐助国之一，海水淡化与发电站的燃油有一部分就来自努西拉的捐赠。代表处是一座白色的拱顶楼房，院子里有喷泉，斋月期间每晚在门外为难民营的穆斯林摆开斋饭。"
+      en: "The Representative Office of the Sultanate of Nusira is this oil-rich sultanate's standing post in the trust territory, and its envoy is appointed by the sultan himself. Nusira is a member of the Covenant League; offshore oil and gas bring it great wealth, and it is one of the main donors to Ambaro, part of the fuel for the desalination and power plant being its gift. The office is a white domed building with a fountain in the courtyard, and during Ramadan it sets out iftar meals outside its gate every evening for Muslims from the camps."
+    emblem_of: div_38z2mg
+    in: div_pr4aer
+    offset_km: [-0.60, -1.45]
+    site: {"layout": "slab", "size_m": [120, 70]}
+  - id: bld_48y0rc
+    subtype: government
+    status: generated
+    names: {"zh": "坦德罗圣山驻安巴罗代表处", "en": "Representative Office of Mount Tendro in Ambaro"}
+    notes:
+      zh: "坦德罗圣山驻安巴罗代表处由修道院共和国的朝圣接待处派驻，几名修士常住在这里。圣山支持安巴罗和谈，希望全岛和平后以自治地位加入统一国家。代表处的主要工作是为前往圣山的朝圣者办理通行证，难民营里的基督徒也可以在这里申请，许多人一辈子的心愿就是到圣山朝圣一次。代表处有一间小礼拜堂，修士们每天早晚在这里唱坦德罗古教会的圣歌。"
+      en: "The Representative Office of Mount Tendro is staffed by the monastic republic's Pilgrims' Office, and a few monks live here. The Holy Mountain supports the Ambaro talks and hopes to join a united state as a self-governing land once the island is at peace. The office's main work is issuing passes to pilgrims bound for the Holy Mountain, which Christians from the camps may also apply for, many of whom count one pilgrimage there as their life's wish. It has a small chapel where the monks sing the chant of the Old Church of Tendro every morning and evening."
+    emblem_of: div_c28art
+    in: div_pr4aer
+    offset_km: [-0.85, -1.45]
+    site: {"layout": "slab", "size_m": [120, 70]}
+  - id: bld_mnkfwg
+    subtype: government
+    status: generated
+    names: {"zh": "瓦罗纳商业共和国驻安巴罗商务代表处", "en": "Trade Representative Office of the Merchant Republic of Varona in Ambaro"}
+    notes:
+      zh: "瓦罗纳商业共和国驻安巴罗商务代表处由瓦罗纳的商会出资设立，主要为瓦罗纳商人在托管地的生意牵线。瓦罗纳是世俗协约的成员，与许多国家都有贸易往来，代表处常替瓦罗纳商人在安巴罗清算所办理结算，也帮安巴罗的鱼市和职业技术学校寻找海外买家和合作伙伴。代表处的门厅里摆着瓦罗纳各大商行的样品柜，墙上挂着一张标满航线的海图。"
+      en: "The Trade Representative Office of the Merchant Republic of Varona was set up with money from Varona's chambers of commerce, chiefly to find business for Varonan merchants in the trust territory. Varona belongs to the Secular Accord and trades with many states; the office often settles Varonan traders' payments at the Ambaro Clearing House and helps Ambaro's fish market and vocational school find buyers and partners abroad. Its hall holds sample cabinets from Varona's great trading houses, and a sea chart covered with shipping routes hangs on the wall."
+    emblem_of: div_hxyyfe
+    in: div_pr4aer
+    offset_km: [-1.10, -1.45]
+    site: {"layout": "slab", "size_m": [120, 70]}
+  - id: bld_9ecbc3
+    subtype: government
+    status: generated
+    names: {"zh": "阿瓦拉齐社会主义共和国驻安巴罗观察员办事处", "en": "Observer Office of the Socialist Republic of Avaratsy in Ambaro"}
+    notes:
+      zh: "阿瓦拉齐社会主义共和国驻安巴罗观察员办事处是阿瓦拉齐派往安巴罗和谈的观察员的驻地。阿瓦拉齐不承认流亡政府和安博哈拉对全岛的主张，不以正式一方的身份参加谈判，但近年派观察员列席，会后把记录带回国内。办事处是一座朴素的灰色楼房，门口挂着阿瓦拉齐的国旗，接待室里摆着共和国的画报。办事处只用「观察员」的名义，不办签证，阿瓦拉齐人的证件要到萨马伊的使馆去办。"
+      en: "The Observer Office of the Socialist Republic of Avaratsy houses the observers Avaratsy sends to the Ambaro talks. Avaratsy recognises neither the government in exile's nor Ambohara's claim to the whole island and does not take part in the talks as a formal party, but in recent years it has sent observers to sit in and carry the record home. The office is a plain grey building with Avaratsy's flag at the door and the republic's illustrated magazines in the reception room. It acts only as an observer office and issues no visas; Avaratsy's people must go to its embassy in Samay for their papers."
+    emblem_of: div_r9whm0
+    in: div_pr4aer
+    offset_km: [-1.35, -1.45]
+    site: {"layout": "slab", "size_m": [120, 70]}
+  - id: bld_zqhtcv
+    subtype: government
+    status: generated
+    names: {"zh": "大衡王朝驻安巴罗会馆", "en": "Great Heng Dynasty Guild Hall in Ambaro"}
+    notes:
+      zh: "大衡王朝驻安巴罗会馆由鸿胪寺设立，名义上只是接待大衡学者的馆舍，不称使馆。大衡不承认流亡政府，也不派官员出席和谈，认为联合共和国「天命已尽」，但愿意派学者出席和平与调解研究院主办的文化会议，会馆就是这些学者的住处。会馆是一座灰瓦白墙的四合院，门上悬着匾额，院中有一株老榕树。和谈期间，各方代表有时借口拜访学者，到会馆里与大衡人私下交谈。"
+      en: "The Great Heng Dynasty Guild Hall was set up by the Court of State Ceremonial and is in name only a lodging for visiting Heng scholars, never called an embassy. Heng does not recognise the government in exile and sends no officials to the talks, holding that the United Republic's 'mandate is spent', but it will send scholars to the cultural conferences of the Institute for Peace and Mediation, and the guild hall is where they stay. It is a courtyard house of grey tiles and white walls with a name board over the gate and an old banyan in the yard. During the talks delegates sometimes call on the scholars as a pretext for a private word with the Heng."
+    emblem_of: div_st5cb2
+    in: div_pr4aer
+    offset_km: [-0.60, -1.70]
+    site: {"layout": "courtyard", "size_m": [150, 120]}
+  - id: bld_e8xg0v
+    subtype: office
+    status: generated
+    names: {"zh": "安博维共和国驻安巴罗商务处", "en": "Commercial Office of the Republic of Ambovy in Ambaro"}
+    notes:
+      zh: "安博维共和国驻安巴罗商务处是安博维在托管地唯一的机构。安博维对安巴罗和谈持观望态度，不寻求统一，只主张维持现状和与各方的贸易，商务处因此只谈生意，从不在和谈的场合露面。它为安博维的香草出口商寻找买家，也通过安巴罗清算所与不承认安博维的国家结算货款。商务处在一座商业楼的二层，门口只挂着一块小铜牌。"
+      en: "The Commercial Office of the Republic of Ambovy is Ambovy's only post in the trust territory. Ambovy takes a wait-and-see view of the Ambaro talks, seeks no unity and wants only the status quo and trade with all sides, so the office talks only business and never appears at the talks. It finds buyers for Ambovy's vanilla exporters and settles payments through the Ambaro Clearing House with states that do not recognise Ambovy. It occupies the first floor of a commercial building, with only a small brass plate at the door."
+    emblem_of: div_sh6pkn
+    in: div_pr4aer
+    offset_km: [-0.85, -1.70]
+    site: {"layout": "slab", "size_m": [120, 70]}
+  - id: bld_9e2t2f
+    subtype: office
+    status: generated
+    names: {"zh": "卡托拉安全集团驻安巴罗办事处", "en": "Katora Security Group Office in Ambaro"}
+    notes:
+      zh: "卡托拉安全集团驻安巴罗办事处是统治卡托拉特许领的公司在托管地的办事机构，以公司而不是国家的名义设立。安巴罗是非军事区，集团不能在岛上提供武装安保，办事处只为援助机构和船公司提供风险评估、无武装的护送顾问和人员培训，合同都要经托管地警察审核。办事处在一座不起眼的写字楼里，门口没有旗帜，只有公司的标志和一块「预约来访」的牌子。"
+      en: "The Katora Security Group Office is the trust-territory office of the company that rules the Katora Chartered Territory, set up in the company's name rather than a state's. Ambaro is demilitarised and the group may offer no armed security on the island, so the office provides only risk assessments, unarmed escort advisers and training for aid agencies and shipping lines, and every contract must be vetted by the Trust Territory Police. It sits in an unremarkable office block, with no flag at the door, only the company's logo and a sign saying 'visits by appointment'."
+    emblem_of: div_3zzzry
+    in: div_pr4aer
+    offset_km: [-1.10, -1.70]
+    site: {"layout": "slab", "size_m": [120, 70]}
 
   # ── 坦德罗圣山 / Mount Tendro ──
   - id: bld_m480sq
