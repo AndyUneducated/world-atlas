@@ -16,10 +16,12 @@ import { EntityIcon } from "./EntityIcon";
 const ROAD_GROUPS = ["nationalExpressway", "territorialExpressway", "territorialHighway"] as const;
 type RoadGroup = (typeof ROAD_GROUPS)[number];
 type RailGroup = "rail" | "maglevs";
-type ExploreGroup = "nations" | "cities" | "wonders" | "parties" | RoadGroup | RailGroup;
-const EXPLORE_GROUPS: ExploreGroup[] = ["nations", "cities", "wonders", "parties", ...ROAD_GROUPS, "rail", "maglevs"];
+type PlaceGroup = "mountains" | "waters" | "airports" | "military";
+type ExploreGroup = "nations" | "blocs" | "cities" | "wonders" | "parties" | RoadGroup | RailGroup | "metro" | PlaceGroup;
+const EXPLORE_GROUPS: ExploreGroup[] = ["nations", "blocs", "cities", "wonders", "parties", ...ROAD_GROUPS, "rail", "maglevs", "metro", "mountains", "waters", "airports", "military"];
 const EXPLORE_TITLES: Record<ExploreGroup, StringKey> = {
   nations: "exploreNations",
+  blocs: "exploreBlocs",
   cities: "exploreCities",
   wonders: "wonders",
   parties: "parties",
@@ -28,18 +30,28 @@ const EXPLORE_TITLES: Record<ExploreGroup, StringKey> = {
   territorialHighway: "territorialHighway",
   rail: "exploreRail",
   maglevs: "exploreMaglev",
+  metro: "exploreMetro",
+  mountains: "exploreMountains",
+  waters: "exploreWaters",
+  airports: "exploreAirports",
+  military: "exploreMilitary",
 };
+/** The military sites the explore list shows: bases and missile sites, not every armoury and checkpoint. */
+const MILITARY_SUBTYPES = new Set(["military_base", "air_base", "naval_base", "missile_site"]);
+/** A row of an explore group: an entity with the figure shown at its right, or a small heading within the group. */
+type ExploreRow = { e: Entity; right?: string } | { heading: string };
 const byRef = (a: Entity, b: Entity) => (a.ref ?? "").localeCompare(b.ref ?? "", "en", { numeric: true });
 const KIND_ORDER = ["natural", "place", "route"];
 
-function ExploreSection({ title, count, open, onToggle, children }: { title: string; count: number; open: boolean; onToggle: () => void; children: React.ReactNode }) {
+function ExploreSection({ title, count, open, active, onToggle, children }: { title: string; count: number; open: boolean; active?: boolean; onToggle: () => void; children: React.ReactNode }) {
   return (
     <div className="not-first:mt-1">
       <button
         onMouseDown={(ev) => ev.preventDefault()}
         onClick={onToggle}
         aria-expanded={open}
-        className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-[11px] font-semibold tracking-wider text-faint uppercase hover:bg-hover hover:text-muted"
+        data-explore={active ? "active" : undefined}
+        className={clsx("flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-[11px] font-semibold tracking-wider text-faint uppercase hover:bg-hover hover:text-muted", active && "bg-hover text-muted")}
       >
         <span className="flex-1 text-left">{title}</span>
         <span className="rounded-full bg-hover px-1.5 font-medium tabular-nums">{count}</span>
@@ -156,6 +168,67 @@ export function SearchBox() {
       .map((e) => ({ e, seats: seats(e, true), total: seats(e, false) }))
       .sort((a, b) => b.seats - a.seats || (b.e.members ?? 0) - (a.e.members ?? 0) || b.total - a.total);
   }, [data, inScope]);
+  /** Every group's rows: the existing groups as before, the new ones with headings where they mix kinds or places. */
+  const exploreRows = useMemo(() => {
+    const rows = {} as Record<ExploreGroup, ExploreRow[]>;
+    if (!data) return rows;
+    const all = Object.values(data.entities).filter((e) => e.bbox && inScope(e));
+    const km = (v?: number) => (v ? `${formatNumber(v, lang, 0)} km` : undefined);
+    const m = (v?: number) => (v ? `${formatNumber(v, lang, 0)} m` : undefined);
+    rows.nations = nationList.map((e) => ({ e }));
+    rows.cities = cities.map((e) => ({ e }));
+    rows.wonders = wonders.map((e) => ({ e }));
+    rows.parties = partyList.map((p) => ({ e: p.e, right: `${p.seats} ${t("seatsUnit", lang)}` }));
+    for (const g of [...ROAD_GROUPS, "rail", "maglevs"] as const) rows[g] = routes[g].map((e) => ({ e, right: km(e.stats?.length_km) }));
+    // blocs: those with a member in the scope
+    rows.blocs = Object.values(data.entities)
+      .filter((e) => e.kind === "bloc" && (!scope || e.member_nations?.some((id) => inScope(data.entities[id]))))
+      .sort((a, b) => (b.member_nations?.length ?? 0) - (a.member_nations?.length ?? 0))
+      .map((e) => ({ e, right: t("blocMembers", lang).replace("{n}", String(e.member_nations?.length ?? 0)) }));
+    // metro lines by their cities, in the order of the city list, then by line number
+    const cityAt = new Map(cities.map((c, i) => [c.id, i]));
+    const lineNo = (e: Entity) => Number(/(\d+)/.exec(e.names.zh)?.[1] ?? 0);
+    const cityOf = (e: Entity) => e.ancestors?.find((a) => cityAt.has(a));
+    rows.metro = all
+      .filter((e) => e.kind === "route" && e.network === "metro")
+      .sort((a, b) => (cityAt.get(cityOf(a) ?? "") ?? 1e9) - (cityAt.get(cityOf(b) ?? "") ?? 1e9) || lineNo(a) - lineNo(b))
+      .map((e) => ({ e, right: km(e.stats?.length_km) }));
+    const section = (heading: string, list: Entity[], right: (e: Entity) => string | undefined): ExploreRow[] =>
+      list.length ? [{ heading }, ...list.map((e) => ({ e, right: right(e) }))] : [];
+    const of = (subtype: string) => all.filter((e) => e.subtype === subtype);
+    rows.mountains = [
+      ...section(t("ranges", lang), of("mountain_range").sort((a, b) => (b.stats?.elev_max_m ?? 0) - (a.stats?.elev_max_m ?? 0)), (e) => m(e.stats?.elev_max_m)),
+      ...section(t("peaks", lang), of("peak").sort((a, b) => (b.stats?.elevation_m ?? 0) - (a.stats?.elevation_m ?? 0)), (e) => m(e.stats?.elevation_m)),
+    ];
+    rows.waters = [
+      ...section(t("rivers", lang), of("river").sort((a, b) => (b.stats?.length_km ?? 0) - (a.stats?.length_km ?? 0)), (e) => km(e.stats?.length_km)),
+      ...section(t("lakes", lang), of("lake").sort((a, b) => (b.stats?.area_km2_mapped ?? 0) - (a.stats?.area_km2_mapped ?? 0)),
+        (e) => (e.stats?.area_km2_mapped ? `${formatNumber(e.stats.area_km2_mapped, lang, 0)} km²` : undefined)),
+    ];
+    // airports and military sites under the territory or state they are in, in the order of the nations list
+    const regionAt = new Map(nationList.map((n, i) => [n.id, i]));
+    const regionOf = (e: Entity) => e.ancestors?.find((a) => regionAt.has(a));
+    const byRegion = (list: Entity[], right: (e: Entity) => string | undefined): ExploreRow[] => {
+      const groups = new Map<string, Entity[]>();
+      for (const e of list) {
+        const r = regionOf(e) ?? "";
+        groups.set(r, [...(groups.get(r) ?? []), e]);
+      }
+      return [...groups.entries()]
+        .sort(([a], [b]) => (regionAt.get(a) ?? 1e9) - (regionAt.get(b) ?? 1e9))
+        .flatMap(([r, es]) => section(r && data.entities[r] ? displayName(data.entities[r], lang) : t("otherPlaces", lang), es, right));
+    };
+    const cityName = (e: Entity) => {
+      const c = e.ancestors?.map((a) => data.entities[a]).find((a) => a?.subtype === "locality");
+      return c ? displayName(c, lang) : undefined;
+    };
+    rows.airports = byRegion(of("airport").sort((a, b) => displayName(a, "zh").localeCompare(displayName(b, "zh"), "zh")), cityName);
+    rows.military = byRegion(
+      all.filter((e) => MILITARY_SUBTYPES.has(e.subtype ?? "")).sort((a, b) => (a.subtype ?? "").localeCompare(b.subtype ?? "") || displayName(a, "zh").localeCompare(displayName(b, "zh"), "zh")),
+      (e) => kindLabel(e, lang),
+    );
+    return rows;
+  }, [data, inScope, scope, lang, nationList, cities, wonders, partyList, routes]);
   const [expanded, setExpanded] = useState<Record<ExploreGroup, boolean>>({
     nations: false,
     cities: false,
@@ -166,7 +239,26 @@ export function SearchBox() {
     territorialHighway: false,
     rail: false,
     maglevs: false,
+    blocs: false,
+    metro: false,
+    mountains: false,
+    waters: false,
+    airports: false,
+    military: false,
   });
+  /** Where the arrow keys are in the explore list: a group's heading, or an item of an opened group. */
+  const exploreStops = useMemo(() => {
+    const out: ({ kind: "group"; g: ExploreGroup } | { kind: "item"; g: ExploreGroup; id: string })[] = [];
+    for (const g of EXPLORE_GROUPS) {
+      const rows = exploreRows[g] ?? [];
+      if (!rows.some((r) => "e" in r)) continue;
+      out.push({ kind: "group", g });
+      if (expanded[g]) for (const r of rows) if ("e" in r) out.push({ kind: "item", g, id: r.e.id });
+    }
+    return out;
+  }, [exploreRows, expanded]);
+  const [exploreAt, setExploreAt] = useState(-1);
+  const exploreFocus = exploreAt >= 0 ? exploreStops[exploreAt] : undefined;
   const selected = selectedId && data ? data.entities[selectedId] : undefined;
 
   useEffect(() => {
@@ -230,7 +322,28 @@ export function SearchBox() {
     pendingScroll.current = null;
   });
 
+  useEffect(() => setExploreAt(-1), [showExplore, scope]);
+  useEffect(() => {
+    if (exploreAt >= 0) panel.current?.querySelector('[data-explore="active"]')?.scrollIntoView({ block: "nearest" });
+  }, [exploreAt, expanded]);
+
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (showExplore && (e.key === "ArrowDown" || e.key === "ArrowUp")) {
+      e.preventDefault();
+      setExploreAt((i) => (e.key === "ArrowDown" ? Math.min(i + 1, exploreStops.length - 1) : Math.max(i - 1, -1)));
+      return;
+    }
+    if (showExplore && exploreFocus?.kind === "group" && (e.key === "Enter" || e.key === "ArrowRight" || e.key === "ArrowLeft")) {
+      e.preventDefault();
+      const g = exploreFocus.g;
+      setExpanded((x) => ({ ...x, [g]: e.key === "Enter" ? !x[g] : e.key === "ArrowRight" }));
+      return;
+    }
+    if (showExplore && exploreFocus?.kind === "item" && e.key === "Enter") {
+      e.preventDefault();
+      choose(exploreFocus.id);
+      return;
+    }
     if (e.key === "ArrowDown") {
       e.preventDefault();
       setCursor((c) => Math.min(c + 1, hits.length - 1));
@@ -399,24 +512,40 @@ export function SearchBox() {
                 <p className="px-3 py-4 text-center text-[13px] text-muted">{t("noResults", lang)}</p>
               ))}
             {showExplore && (
-              <div className="p-1">
+              <div className="card-text p-1">
                 {EXPLORE_GROUPS.map((g) => {
-                  const items =
-                    g === "nations" ? nationList : g === "cities" ? cities : g === "wonders" ? wonders : g === "parties" ? partyList.map((p) => p.e) : routes[g];
-                  if (!items.length) return null;
+                  const rows = exploreRows[g] ?? [];
+                  const count = rows.filter((r) => "e" in r).length;
+                  if (!count) return null;
                   return (
-                    <ExploreSection key={g} title={t(EXPLORE_TITLES[g], lang)} count={items.length} open={expanded[g]} onToggle={() => setExpanded((x) => ({ ...x, [g]: !x[g] }))}>
+                    <ExploreSection
+                      key={g}
+                      title={t(EXPLORE_TITLES[g], lang)}
+                      count={count}
+                      open={expanded[g]}
+                      active={exploreFocus?.kind === "group" && exploreFocus.g === g}
+                      onToggle={() => setExpanded((x) => ({ ...x, [g]: !x[g] }))}
+                    >
                       <div className={clsx("grid gap-1", g === "cities" || g === "nations" ? "grid-cols-2" : "grid-cols-1")}>
-                        {items.map((e, i) => {
+                        {rows.map((r) => {
+                          if ("heading" in r)
+                            return (
+                              <p key={`h:${r.heading}`} className="col-span-full px-2 pt-2 pb-0.5 text-[11px] font-medium text-faint">
+                                {r.heading}
+                              </p>
+                            );
+                          const e = r.e;
                           const accent = accentColor(data, e);
                           // a nation's cities fly the nation's flag
                           const flagOf = hasEmblem(e) ? e : (data.entities[e.parent ?? ""] ?? e);
+                          const active = exploreFocus?.kind === "item" && exploreFocus.g === g && exploreFocus.id === e.id;
                           return (
                             <button
                               key={e.id}
+                              data-explore={active ? "active" : undefined}
                               onMouseDown={(ev) => ev.preventDefault()}
                               onClick={() => choose(e.id)}
-                              className="flex min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] text-ink hover:bg-hover"
+                              className={clsx("flex min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] text-ink hover:bg-hover", active && "bg-hover")}
                             >
                               {g === "nations" || g === "cities" || g === "parties" ? (
                                 <Emblem entity={flagOf} size={20} className="shrink-0" />
@@ -424,9 +553,20 @@ export function SearchBox() {
                                 <span className="grid size-7 shrink-0 place-items-center rounded-lg bg-violet-500/15 text-violet-500">
                                   <EntityIcon entity={e} className="size-3.5" />
                                 </span>
-                              ) : g === "rail" || g === "maglevs" ? (
+                              ) : g === "blocs" ? (
+                                <span
+                                  className="grid size-7 shrink-0 place-items-center rounded-lg"
+                                  style={{ background: `color-mix(in srgb, ${accent} 15%, transparent)`, color: accent }}
+                                >
+                                  <EntityIcon entity={e} className="size-3.5" />
+                                </span>
+                              ) : g === "rail" || g === "maglevs" || g === "metro" ? (
                                 <span className="flex w-9 shrink-0 justify-center">
                                   <span className="h-1.5 w-6 rounded-full" style={{ background: accent }} />
+                                </span>
+                              ) : g === "mountains" || g === "waters" || g === "airports" || g === "military" ? (
+                                <span className="grid size-7 shrink-0 place-items-center rounded-lg bg-hover text-muted">
+                                  <EntityIcon entity={e} className="size-3.5" />
                                 </span>
                               ) : (
                                 <span className="flex w-9 shrink-0 justify-center">
@@ -434,21 +574,14 @@ export function SearchBox() {
                                 </span>
                               )}
                               {g === "wonders" ? (
-                                <span className="min-w-0 flex-1">
-                                  <span className="block truncate">{wonderName(e, lang)}</span>
-                                  <span className="block truncate text-[11.5px] text-faint">{e.wonder![lang]}</span>
+                                <span className="min-w-0 flex-1 leading-snug">
+                                  <span className="block">{wonderName(e, lang)}</span>
+                                  <span className="block text-[11.5px] text-faint">{e.wonder![lang]}</span>
                                 </span>
                               ) : (
-                                <span className="truncate">{displayName(e, lang)}</span>
+                                <span className="min-w-0 flex-1 leading-snug">{displayName(e, lang)}</span>
                               )}
-                              {g === "parties" ? (
-                                <span className="ml-auto shrink-0 text-[11.5px] text-faint tabular-nums">
-                                  {partyList[i].seats} {t("seatsUnit", lang)}
-                                </span>
-                              ) : null}
-                              {g !== "cities" && g !== "wonders" && g !== "parties" && e.stats?.length_km ? (
-                                <span className="ml-auto shrink-0 text-[11.5px] text-faint tabular-nums">{formatNumber(e.stats.length_km, lang, 0)} km</span>
-                              ) : null}
+                              {r.right ? <span className="ml-auto shrink-0 text-[11.5px] text-faint tabular-nums">{r.right}</span> : null}
                             </button>
                           );
                         })}
