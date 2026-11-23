@@ -33,7 +33,7 @@ function Tag({ tone, children }: { tone: "gov" | "mayor" | "plain"; children: Re
   return (
     <span
       className={clsx(
-        "shrink-0 rounded-full px-1.5 py-px text-[10px] leading-tight font-semibold",
+        "shrink-0 rounded-lg px-1.5 py-px text-[10px] leading-tight font-semibold",
         tone === "gov" ? "bg-emerald-500/15 text-emerald-500" : tone === "mayor" ? "bg-amber-400/15 text-amber-500" : "bg-hover text-muted",
       )}
     >

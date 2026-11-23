@@ -81,6 +81,31 @@ body,
   }
 }
 
+/* Card text is never cut off (M130): long names and words wrap onto the next line at any width, phone and
+ * tablet included, and a truncate, line-clamp or nowrap class inside a card has no effect. Unlayered, so it
+ * wins over Tailwind's utilities. */
+.card-text {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+.card-text :is(.truncate, .text-ellipsis, .whitespace-nowrap, .text-nowrap, [class*="line-clamp-"]) {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+}
+/* numbers never break in the middle ("9,600,000"); where they could be long the font scales instead */
+.card-text .tabular-nums {
+  overflow-wrap: normal;
+}
+/* an item kept from shrinking may still not grow wider than the card: its text wraps instead */
+.card-text .shrink-0 {
+  max-width: 100%;
+}
+.card-text [class*="line-clamp-"] {
+  display: block;
+  -webkit-line-clamp: unset;
+}
+
 .maplibregl-canvas:focus {
   outline: none;
 }

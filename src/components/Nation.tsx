@@ -68,7 +68,7 @@ function Groups({ groups: all, accent }: { groups: GroupDef[]; accent: string })
   };
   return (
     <>
-      <nav className="scrollbar-none flex gap-1.5 overflow-x-auto px-5 pb-3" aria-label={groups.map((g) => g.title).join(" · ")}>
+      <nav className="flex flex-wrap gap-1.5 px-5 pb-3" aria-label={groups.map((g) => g.title).join(" · ")}>
         {groups.map((g) => (
           <button
             key={g.key}
@@ -408,7 +408,7 @@ function WarsSection({ facts, lang }: { facts: NationFacts; lang: Lang }) {
           <li key={w.names.en} className="rounded-xl border border-line px-3 py-2">
             <div className="flex items-start gap-2">
               <span className="flex-1 text-[13px] font-medium text-ink">{w.names[lang]}</span>
-              <span className={clsx("shrink-0 rounded-full px-1.5 py-px text-[10.5px] font-semibold", WAR_STATUS[w.status].className)}>
+              <span className={clsx("shrink-0 rounded-lg px-1.5 py-px text-[10.5px] leading-tight font-semibold", WAR_STATUS[w.status].className)}>
                 {WAR_STATUS[w.status].label[lang]}
               </span>
             </div>

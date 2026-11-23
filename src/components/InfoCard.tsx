@@ -73,7 +73,7 @@ type StatItem = { label: string; value: string; unit?: string; icon: LucideIcon 
 function Stat({ label, value, unit, icon: Icon, accent }: StatItem & { accent: string }) {
   return (
     <div
-      className="relative overflow-hidden rounded-2xl border px-3 pt-2.5 pb-2"
+      className="@container relative overflow-hidden rounded-2xl border px-3 pt-2.5 pb-2"
       style={{ background: `color-mix(in srgb, ${accent} 7%, var(--ui-hover))`, borderColor: `color-mix(in srgb, ${accent} 16%, transparent)` }}
     >
       <span className="absolute inset-x-3 top-0 h-px opacity-70" style={{ background: `linear-gradient(90deg, ${accent}, transparent)` }} />
@@ -81,7 +81,7 @@ function Stat({ label, value, unit, icon: Icon, accent }: StatItem & { accent: s
         <Icon className="mt-px size-3 shrink-0" style={{ color: accent }} />
         <span className="min-w-0 break-words">{label}</span>
       </div>
-      <div className="mt-1 text-[18px] leading-tight font-semibold tracking-tight text-ink tabular-nums">{value}</div>
+      <div className="mt-1 text-[clamp(13px,17cqi,18px)] leading-tight font-semibold tracking-tight text-ink tabular-nums">{value}</div>
       {unit && <div className="mt-0.5 break-words text-[10.5px] leading-tight text-faint">{unit}</div>}
     </div>
   );
@@ -702,7 +702,7 @@ function StickyBar({ entity, lang, head }: { entity: Entity; lang: Lang; head: R
             <ChevronLeft className="size-4" />
           </button>
         )}
-        <span className={clsx("min-w-0 flex-1 line-clamp-2 break-words text-[14px] leading-tight font-semibold text-ink", !back && "pl-3")}>{displayName(entity, lang)}</span>
+        <span className={clsx("min-w-0 flex-1 text-[14px] leading-tight font-semibold text-ink", !back && "pl-3")}>{displayName(entity, lang)}</span>
         <button onClick={() => select(null)} className={button} aria-label={t("close", lang)} tabIndex={shown ? 0 : -1}>
           <X className="size-4" />
         </button>
@@ -930,7 +930,7 @@ function Card({ data, entity, lang }: { data: AtlasData; entity: Entity; lang: L
       aria-hidden={aside || undefined}
       className={clsx("glass flex min-h-0 flex-col overflow-hidden rounded-3xl select-text", aside ? "pointer-events-none" : "pointer-events-auto")}
     >
-      <ScrollArea scrollRef={scroll} innerClassName="overflow-y-auto">
+      <ScrollArea scrollRef={scroll} innerClassName="card-text overflow-y-auto">
         <CardBody data={data} entity={entity} lang={lang} />
       </ScrollArea>
     </motion.article>
@@ -1069,7 +1069,7 @@ function BottomSheet({ data, entity, lang }: { data: AtlasData; entity: Entity; 
         scrollRef={scroll}
         {...pointer(false)}
         className="flex-1"
-        innerClassName={clsx("flex-1 overscroll-contain", full ? "overflow-y-auto select-text" : "touch-none overflow-hidden")}
+        innerClassName={clsx("card-text flex-1 overscroll-contain", full ? "overflow-y-auto select-text" : "touch-none overflow-hidden")}
       >
         <CardBody data={data} entity={entity} lang={lang} />
       </ScrollArea>
