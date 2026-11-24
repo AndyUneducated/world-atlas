@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "data": "python pipeline/build.py && python pipeline/verify.py && python pipeline/tiles.py",
     "data:check": "python pipeline/build.py --check",
+    "data:linux": "docker run --rm -v \"$PWD\":/w -w /w python:3.14-slim sh -c 'pip install -q -r pipeline/requirements.txt && python pipeline/build.py && python pipeline/verify.py'",
     "data:import": "python pipeline/import_csv.py",
     "fonts": "node scripts/fetch-glyphs.mjs"
   },
