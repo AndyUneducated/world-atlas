@@ -112,6 +112,10 @@ export interface Entity {
   emblem_of?: string;
   /** Stations: the railway and metro lines that stop there. */
   lines?: string[];
+  /** Streets and city roads: the named streets or routes they meet, in order from one end (M137). */
+  crosses?: string[];
+  /** Streets: the landmark sites on them, in order from one end (M137). */
+  along?: string[];
   source?: string;
   /** Territorial routes: the symbol on the route shield (see glyphs.ts). */
   shield?: string;

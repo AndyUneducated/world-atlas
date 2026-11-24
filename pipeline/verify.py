@@ -517,6 +517,12 @@ PAGES_MAX_MB = 1000  # GitHub Pages site limit
 PAGES_SHARE = 0.7  # what the data may take before tiles.py, leaving room for atlas.pmtiles and the app
 
 
+def check_warnings() -> dict[str, list[str]]:
+    """The build's warnings (sites overlapping, ports off the coast, places outside every town, ...), kept with each
+    region's cache so a cached build still reports them (M137, the owner's rule: none may stay)."""
+    return {"no build warnings": [f"{w['region'] or 'merge'}: {w['message']}" for w in load("warnings.json")]}
+
+
 def check_sizes() -> dict[str, list[str]]:
     """Every file the deployed site fetches as JSON stays small enough to parse in the browser, and the
     deployed data fits GitHub Pages with room for the vector tiles. The tile layers' GeoJSON is packed
@@ -538,7 +544,7 @@ def main():
     for check in (lambda: check_routes(ents), lambda: check_numbers(ents), lambda: check_government(ents), lambda: check_parties(ents), lambda: check_stations(ents),
                   lambda: check_expected(world, ents), check_glyphs, lambda: check_models(ents),
                   lambda: check_terrain(manifest), lambda: check_round_borders(ents), lambda: check_shared(ents), lambda: check_intros(ents), lambda: check_shapes(ents),
-                  check_sizes):
+                  check_warnings, check_sizes):
         results.update(check())
     for what, bad in results.items():
         print(f"{'ok  ' if not bad else 'FAIL'} {what}" + (f": {len(bad)}\n  " + "\n  ".join(bad[:20]) if bad else ""))

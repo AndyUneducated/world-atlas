@@ -32,6 +32,7 @@ import { Emblem, Flag, hasEmblem } from "./Emblem";
 import { CouncilSection, ElectionSection, LegislatureSection, PartiesSection, PartySections, STANDING_KEYS } from "./Politics";
 import { BackedSection, CardGroups, isGroupedCard, LocalSymbolsSection } from "./Nation";
 import { RouteTimeline } from "./RouteTimeline";
+import { RelationsSection, relationSummary } from "./Relations";
 import { Climograph } from "./Climograph";
 import { climateName } from "../lib/climate";
 import { useMobile } from "../lib/viewport";
@@ -730,9 +731,12 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
   const goBack = useAtlas((s) => s.goBack);
   const backTo = back?.list ? t(back.list.query ? "backToResults" : "backToExplore", lang) : back?.id && data.entities[back.id] ? displayName(data.entities[back.id], lang) : null;
 
-  const about = (entity.notes || entity.background) && (
+  // streets, city roads and stations have no hand-written text: one sentence from their data instead (M137)
+  const summary = entity.notes || entity.background ? null : relationSummary(data, entity, lang);
+  const about = (entity.notes || entity.background || summary) && (
     <Section title={t("about", lang)}>
       {entity.notes && <Paragraphs text={entity.notes[lang]} className="text-[13.5px] leading-relaxed text-ink" />}
+      {summary && <Paragraphs text={summary} className="text-[13.5px] leading-relaxed text-ink" />}
       {entity.background && (
         <>
           <h4 className="mt-3 mb-1 text-[11px] font-semibold text-faint">{t("background", lang)}</h4>
@@ -864,6 +868,7 @@ function CardBody({ data, entity, lang }: { data: AtlasData; entity: Entity; lan
           <CouncilSection data={data} entity={entity} lang={lang} />
           <ElectionSection data={data} entity={entity} lang={lang} />
           {!entity.segments?.length && <ChildList data={data} entity={entity} lang={lang} />}
+          <RelationsSection data={data} entity={entity} lang={lang} />
           <PeopleSection entity={entity} reference={reference} lang={lang} accent={accent} />
           <EconomySection entity={entity} reference={reference} lang={lang} accent={accent} />
           <ClimateSection data={data} entity={entity} lang={lang} />

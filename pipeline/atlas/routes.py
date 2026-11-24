@@ -8,11 +8,10 @@ from shapely.geometry import LineString
 
 from . import engineering
 from .grid import Frame
-from .network import SPEED_KMH
 from .transport import Router
 from .vectorize import to_lonlat
 from .world import World
-from .common import bbox_lonlat, feature, log, smooth_line
+from .common import bbox_lonlat, feature, log, smooth_line, warn
 
 
 def route_segments(path: list[int], router: Router, dist_r: np.ndarray, factor: int, frame: Frame,
@@ -149,7 +148,7 @@ def merge_crossings(world: World, entities: dict, layers: dict, graph: dict):
         ent = entities[r["id"]]
         parts = ent.pop("_parts", [])
         if len(parts) != 2:
-            log(f"  WARN {r['names']['zh']}: built in {len(parts)} of the 2 territories it crosses")
+            warn(f"{r['names']['zh']}: built in {len(parts)} of the 2 territories it crosses")
             continue
         a, b = sorted(parts, key=lambda p: not p["first"])
         f = frames[a["territory"]]
@@ -198,7 +197,7 @@ def merge_crossings(world: World, entities: dict, layers: dict, graph: dict):
             ent["structures"]["tunnel"] = {"names": r["tunnel_names"], "km": round(km, 1)}
         ends = [graph["places"].pop(f"{PORTAL}:{p['territory']}:{r['id']}", None) for p in (a, b)]
         if None not in ends:
-            graph["edges"].append([ends[0], ends[1], round(km, 2), round(km / SPEED_KMH[r["class"]] * 60, 2), graph["roads"].index(r["id"]),
+            graph["edges"].append([ends[0], ends[1], round(km, 2), round(km / std["speed"]["min"] * 60, 2), graph["roads"].index(r["id"]),
                                    [a["portal"], b["portal"]]])
         log(f"  {r.get('ref', r['names']['zh'])}: {km:.0f} km undersea tunnel between {entities[a['territory']]['names']['zh']} "
             f"and {entities[b['territory']]['names']['zh']}, {ent['stats']['length_km']:.0f} km in all")

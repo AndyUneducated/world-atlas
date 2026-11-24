@@ -30,6 +30,7 @@ from atlas.routes import merge_crossings  # noqa: E402
 from atlas.world import TEXT_KEYS, World  # noqa: E402
 
 DEM_ARCHIVE = "terrain.pmtiles"
+WARNINGS_FILE = "warnings.json"  # a region's build warnings in its cache folder; all of them in the output
 # Source keys only the build reads (site layouts, routing options, crossings, operators), left out of entities.json.
 BUILD_ONLY_KEYS = ("site", "offset_km", "build_order", "tunnel_cost", "station_names", "access_road", "operators", "route_shield",
                    "legs", "tunnel_names", "crossing", "undersea", "closed", "unlimited", "operator")
@@ -133,9 +134,14 @@ def region_worker(name: str, fresh: bool, stale_ok: bool):
     world = World()
     spec = next(s for s in world.generators if s["_region"] == name)
     inputs = {**world.region_sources(spec), "dem_zooms": list(zoom_range(world.generators))}  # set by the finest region
+    def compute(folder: Path) -> dict:
+        common.WARNINGS.clear()
+        result = build_region(world, spec, base_entities(world), folder / "dem", not fresh)
+        (folder / WARNINGS_FILE).write_text(json.dumps(common.WARNINGS, ensure_ascii=False), encoding="utf-8")
+        return result
+
     try:
-        return cache.region(name, inputs, lambda d: build_region(world, spec, base_entities(world), d / "dem", not fresh),
-                            enabled=not fresh, stale_ok=stale_ok)
+        return cache.region(name, inputs, compute, enabled=not fresh, stale_ok=stale_ok)
     except Exception:
         log("FAILED\n" + traceback.format_exc())
         raise
@@ -179,7 +185,7 @@ def main():
             shutil.rmtree(OUT)
         OUT.mkdir(parents=True)
         found = [j.result() for j in jobs]
-    results = []
+    results, warnings = [], []
     for name, got in zip(order, found):
         if got is None:
             log(f"{name}: WARN not built (not in --only, nothing cached)")
@@ -188,6 +194,8 @@ def main():
         if how != "built":
             log(f"{name}: {how}" + (" (out of date)" if how == "stale" else ""))
         results.append((cache.load_region(folder), folder))
+        kept = folder / WARNINGS_FILE
+        warnings += [{"region": name, "message": m} for m in (json.loads(kept.read_text(encoding="utf-8")) if kept.exists() else [])]
     if overlaps := overlapping_territories([r for r, _ in results]):
         print("Regions overlap: " + ", ".join(overlaps))
         sys.exit(1)
@@ -242,6 +250,13 @@ def main():
     }
     with open(OUT / "manifest.json", "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
+    warnings += [{"region": "", "message": m} for m in common.WARNINGS]  # after the merge (crossings)
+    with open(OUT / WARNINGS_FILE, "w", encoding="utf-8") as f:
+        json.dump(warnings, f, ensure_ascii=False, indent=1)
+    if warnings:
+        log(f"{len(warnings)} build warnings (verify.py fails until they are fixed):")
+        for w in warnings:
+            log(f"  {w['region'] or 'merge'}: {w['message']}")
     log("done")
 
 

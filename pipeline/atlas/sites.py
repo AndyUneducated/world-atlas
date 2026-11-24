@@ -9,7 +9,7 @@ from shapely.geometry import LineString, Point
 from shapely.ops import nearest_points
 
 from . import buildings
-from .common import log, place_offset, stable_seed
+from .common import place_offset, stable_seed, warn
 from .world import COASTAL_LAYOUTS, FACILITY_LAYOUTS
 
 SITE_SNAP_KM = 6.0  # how far (real km) a port or facility site may move to fit the shore
@@ -98,22 +98,20 @@ def landmark_sites(world, d, core, angle, built, land, seed, scale):
             dry = site.intersection(land).area
             if not any(k == "paved" for k, _ in parts) or dry < 0.25 * size[0] * size[1] or dry > 0.95 * site.area:
                 q = nearest_points(coast, Point(core[0] + ox, core[1] + oy))[0]
-                log(f"  WARN {zh}: port site does not straddle the coast (nearest sea coast "
-                    f"{q.x - core[0]:+.1f}, {q.y - core[1]:+.1f} km from the district centre)")
+                warn(f"{zh}: port site does not straddle the coast (nearest sea coast "
+                     f"{q.x - core[0]:+.1f}, {q.y - core[1]:+.1f} km from the district centre)")
         elif cfg["layout"] == "offshore_port":
             if site.intersection(land).area > 0.05 * site.area:
-                log(f"  WARN {zh}: offshore port site runs onto land")
-        elif cfg["layout"] in FACILITY_LAYOUTS:
-            if site.intersection(land).area < 0.95 * site.area:
-                log(f"  WARN {zh}: site runs into water")
-        elif cfg["layout"] == "park" or cfg.get("rural"):  # reserves, ski areas, out-of-town campuses
-            if not land.contains(site.centroid):
-                log(f"  WARN {zh}: {cfg['layout']} site lies in water")
+                warn(f"{zh}: offshore port site runs onto land")
+        # A site may reach into the water (airports, plants and yards on the shore; the owner's rule, 2026-11-23).
+        # Facilities, parks and `rural: true` sites stand outside towns on purpose; every other site must be in one.
+        elif cfg["layout"] in FACILITY_LAYOUTS or cfg["layout"] == "park" or cfg.get("rural"):
+            pass
         elif built is None or not built.buffer(0.05).contains(site.centroid):
-            log(f"  WARN {zh}: site lies outside the built-up area")
+            warn(f"{zh}: site lies outside the built-up area")
         for other, osite, _ in out:
             if site.intersects(osite):
-                log(f"  WARN {pl['names']['zh']}: site overlaps {world.places[other]['names']['zh']}")
+                warn(f"{pl['names']['zh']}: site overlaps {world.places[other]['names']['zh']}")
         out.append((pid, site, parts))
     return out
 

@@ -52,7 +52,7 @@ standards:
   national_expressway:
     cross_section: { lanes: 6, grow: true, lane_m: 3.75, shoulder_m: 3.5, inner_shoulder_m: 0.75, verge_m: 0.75, median_m: 4.5 }
     lane_capacity_vpd: 16000
-    cruise_kmh: 160
+    cruise_kmh: 180
     smooth_km: 4
     max_grade: 0.04
     tunnel_above_m: 45
@@ -62,11 +62,11 @@ standards:
     hill_factor: 1.6
     cost_musd_per_km: { grade: 16, bridge: 60, tunnel: 110, snow_shed: 40 }
     upkeep_kusd_per_km: { grade: 120, bridge: 350, tunnel: 800, snow_shed: 260 }
-    speed: { min: 140 }
+    speed: { min: 160 }
   territorial_expressway:
     cross_section: { lanes: 6, grow: true, lane_m: 3.75, shoulder_m: 3.5, inner_shoulder_m: 0.75, verge_m: 0.75, median_m: 4.5 }
     lane_capacity_vpd: 16000
-    cruise_kmh: 160
+    cruise_kmh: 180
     smooth_km: 3
     max_grade: 0.045
     tunnel_above_m: 45
@@ -76,12 +76,12 @@ standards:
     hill_factor: 1.6
     cost_musd_per_km: { grade: 14, bridge: 50, tunnel: 95, snow_shed: 36 }
     upkeep_kusd_per_km: { grade: 100, bridge: 300, tunnel: 700, snow_shed: 230 }
-    speed: { min: 140 }
+    speed: { min: 160 }
   # 领道: dual carriageways (一级公路) with grade-separated main junctions.
   territorial_highway:
     cross_section: { lanes: 4, lane_m: 3.75, shoulder_m: 3.0, inner_shoulder_m: 0.75, verge_m: 0.75, median_m: 3.0 }
     lane_capacity_vpd: 18000
-    cruise_kmh: 130
+    cruise_kmh: 180
     smooth_km: 2
     max_grade: 0.06
     tunnel_above_m: 55
@@ -90,8 +90,9 @@ standards:
     hill_factor: 1.5
     cost_musd_per_km: { grade: 7, bridge: 30, tunnel: 60, snow_shed: 20 }
     upkeep_kusd_per_km: { grade: 50, bridge: 200, tunnel: 500, snow_shed: 150 }
-    speed: { min: 120 }
+    speed: { min: 140 }
   municipal_road:
+    cruise_kmh: 180
     smooth_km: 1.5
     max_grade: 0.07
     tunnel_above_m: 60
@@ -100,7 +101,7 @@ standards:
     hill_factor: 1.4
     cost_musd_per_km: { grade: 3, bridge: 18, tunnel: 40, snow_shed: 10 }
     upkeep_kusd_per_km: { grade: 25, bridge: 120, tunnel: 350, snow_shed: 90 }
-    speed: { min: 100 }
+    speed: { min: 140 }
   # Double-track high-speed line, 25 kV, slab track; stations are costed per stop.
   intercity_rail:
     smooth_km: 8
@@ -236,12 +237,10 @@ standards:
       tracks: 2
       min_curve_radius_m: 2500
 
-# City streets (主干道 / 次干道 / 支路), km/h; arterials outside the dense core have no limit.
+# City streets (主干道 / 次干道 / 支路), km/h: one limit for all three, none in districts below outer_density
+# people per km² (the owner's rule, 2026-11-23).
 street_speed:
-  local: 80
-  collector: 100
-  arterial: 120
-  arterial_outer: null
+  limit: 120
   outer_density: 150
 
 metro_tech:

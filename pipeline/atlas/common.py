@@ -22,6 +22,16 @@ def log(msg):
     print(f"[{time.strftime('%H:%M:%S')}] {LOG_TAG}{msg}", flush=True)
 
 
+WARNINGS: list[str] = []  # this process's build warnings; a region keeps its own with its cached result
+
+
+def warn(msg):
+    """A problem in the built data: logged now, kept with the region's cache and listed at the end of every build,
+    and `verify.py` fails while any is left."""
+    log(f"  WARN {msg}")
+    WARNINGS.append(msg)
+
+
 def derived_id(prefix: str, key: str) -> str:
     """Stable id for generator-derived entities, so rebuilds never change them."""
     h = int(hashlib.sha1(key.encode()).hexdigest(), 16)

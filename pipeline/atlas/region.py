@@ -26,7 +26,7 @@ from .transport import Router
 from .vectorize import point_lonlat, polygonize_labels, to_lonlat
 from .world import FACILITY_LAYOUTS, MILITARY_VARIANTS, RUNWAY_LAYOUTS, SEGMENTED_NETWORKS, World
 from .common import (BUILDING_MINZOOM, STREET_MINZOOM, bbox_lonlat, derived_id, drawn_along, feature, fill_undrawn, log, owned_runs, place_offset, run_positions,
-                     place_name, undrawn_steps, smooth_line, smooth_pinned, tile_minzoom)
+                     place_name, undrawn_steps, smooth_line, smooth_pinned, tile_minzoom, warn)
 from .sites import SEA_BRIDGE_HALF_WIDTH_KM, landmark_sites
 from .city import UNSETTLED, bare_name, build_buildings, build_metro, build_streets, rail_station_names
 from .routes import PORTAL, cross_part, fold_ring, join_leg, land_cell, rail_standard, route_railways, route_segments, stops_here
@@ -153,7 +153,7 @@ def detect_landforms(world: World, spec: dict, drain: Drainage, land_c: np.ndarr
             matched.append((c, fe))
     for ei, fe in enumerate(entries):
         if ei not in pairs:
-            log(f"  WARN {fe['id']} {fe['names']['zh']}: no {fe['detect']['kind']} found near {fe['detect']['at_km']}")
+            warn(f"{fe['id']} {fe['names']['zh']}: no {fe['detect']['kind']} found near {fe['detect']['at_km']}")
 
     _, (ny_, nx_) = ndimage.distance_transform_edt(dist_r < 0, return_indices=True)
     by_candidate = {ci: entries[ei]["id"] for ei, ci in pairs.items()}
@@ -453,7 +453,7 @@ def _hydrology(x: SimpleNamespace) -> None:
         i = next(k for k, d in enumerate(districts) if d["id"] == did)
         iy, ix = min(max(int(at[1] / g.res), 0), g.shape[0] - 1), min(max(int(at[0] / g.res), 0), g.shape[1] - 1)
         if dist_r[iy, ix] != i:
-            log(f"  WARN {districts[i]['names']['zh']}: centre {at} lies outside the district")
+            warn(f"{districts[i]['names']['zh']}: centre {at} lies outside the district")
         poles[i] = (float(at[0]), float(at[1]))
 
 
@@ -1131,14 +1131,18 @@ def _engineering(x: SimpleNamespace) -> None:
         if "speed" not in std:
             return
         limits = []
+        whole = None if unlimited else engineering.segment_speed(prof, std, 0, len(path) - 1,
+                                                                 max(density_of(v) for v in ent.get("via", [None])), speed_rules)
+        steps = [whole] * max(len(path) - 1, 0)  # the limit on each step of the path, for the route planner
         for sg in ent.get("segments", []):
             i0, i1 = sg.pop("_span")
             sg["speed_kmh"] = None if unlimited else engineering.segment_speed(prof, std, i0, i1, density_of(sg["division"]), speed_rules)
             limits.append(sg["speed_kmh"])
-        if not limits:
-            limits = [None if unlimited else
-                      engineering.segment_speed(prof, std, 0, len(path) - 1, max(density_of(v) for v in ent.get("via", [None])), speed_rules)]
-        ent["speed"] = engineering.speed_summary(limits)
+            steps[i0:i1] = [sg["speed_kmh"]] * (i1 - i0)
+        ent["speed"] = engineering.speed_summary(limits or [whole])
+        # the planner drives at the limit, and at the grade's cruising speed where there is none
+        step_kmh[ent["id"]] = [v or std.get("cruise_kmh") or std["speed"]["min"] for v in steps]
+    step_kmh = x.step_kmh = {}
     x.engineer = engineer
 
 
@@ -1285,7 +1289,7 @@ def _export_roads(x: SimpleNamespace) -> None:
         lit_overrun(r["ref"], lines + shared, path, router)
         shown = lines or shared
         if not shown:
-            log(f"  warn {r['ref']} has nothing drawn")
+            warn(f"{r['ref']} has nothing drawn")
             continue
         geom = to_lonlat(shown[0] if len(shown) == 1 else MultiLineString(shown), frame)
         if lines:
@@ -1326,9 +1330,7 @@ def _export_streets(x: SimpleNamespace) -> None:
     ss = eng.get("street_speed", {})
 
     def street_speed(st):
-        if st.cls == "arterial" and density_of(districts[st.district]["id"]) < ss.get("outer_density", 0):
-            return ss.get("arterial_outer")
-        return ss.get(st.cls)
+        return None if density_of(districts[st.district]["id"]) < ss.get("outer_density", 0) else ss.get("limit")
 
     street_features, street_named, named_parts = [], [], {}
     x.street_features, x.street_named = street_features, street_named
@@ -1360,6 +1362,7 @@ def _export_streets(x: SimpleNamespace) -> None:
             "stats": {"length_km": round(frame.km(geom_km.length), 2)},
             "speed": {"limits": [street_speed(st)]},
         }
+    street_relations(x, {rid: shapely.union_all(parts) for rid, (_, _, _, parts) in named_parts.items()})
     if street_out:
         log(f"  {len(street_features)} streets, {len(street_named)} named arterials and collectors")
     x.to_map = to_map = lambda g: to_lonlat(affinity.scale(g, 1 / frame.scale, 1 / frame.scale, origin=(0, 0)), frame, 6)
@@ -1367,6 +1370,58 @@ def _export_streets(x: SimpleNamespace) -> None:
     x.park_features = park_features = [tile_minzoom(feature(to_map(g), {"class": "park"}), BUILDING_MINZOOM) for g in x.park_out]
     if x.building_out:
         log(f"  {len(building_features)} buildings, {len(park_features)} parks, {len(x.sites)} landmark sites")
+
+
+ALONG_KM = 0.06  # a landmark site this close to a street (real km) stands on it
+
+
+def street_relations(x: SimpleNamespace, geoms: dict) -> None:
+    """Each named street's card lists the named streets it crosses and the landmark sites on it (M137), both in
+    order from one end; the streets are in design km, the sites in real km."""
+    rids = list(geoms)
+    if not rids:
+        return
+    tree = shapely.STRtree([geoms[r] for r in rids])
+    pids = list(x.sites)
+    site_geoms = [affinity.scale(x.sites[p][0], 1 / x.frame.scale, 1 / x.frame.scale, origin=(0, 0)) for p in pids]
+    site_tree = shapely.STRtree(site_geoms) if pids else None
+    near = ALONG_KM / x.frame.scale
+    for rid in rids:
+        g = geoms[rid]
+        axis = max(streets.pieces(g), key=lambda q: q.length)
+        at = lambda geom: axis.project(geom.centroid if geom.geom_type != "Point" else geom)
+        crosses = []
+        for j in tree.query(g, predicate="intersects"):
+            other = rids[j]
+            if other != rid:
+                crosses.append((at(g.intersection(geoms[other])), other))
+        ent = x.entities[rid]
+        if crosses:
+            ent["crosses"] = [o for _, o in sorted(crosses)]
+        if site_tree is not None:
+            on = [(at(site_geoms[j]), pids[j]) for j in site_tree.query(g, predicate="dwithin", distance=near)]
+            if on:
+                ent["along"] = [p for _, p in sorted(on)]
+
+
+def road_crossings(x: SimpleNamespace) -> None:
+    """A city road's card lists the routes it meets, in order from its start (M137): any other road that shares
+    a cell of its path."""
+    for r, path in x.road_out:
+        if r["network"] != "municipal_road" or r["id"] not in x.entities:
+            continue
+        first = {}
+        for i, c in enumerate(path):
+            first.setdefault(c, i)
+        met = {}
+        for r2, p2 in x.road_out:
+            if r2["id"] == r["id"]:
+                continue
+            hits = [first[c] for c in p2 if c in first]
+            if hits:
+                met[r2["id"]] = min(met.get(r2["id"], len(path)), min(hits))
+        if met:
+            x.entities[r["id"]]["crosses"] = sorted(met, key=met.get)
 
 
 def _export_skyways(x: SimpleNamespace) -> None:
@@ -1475,8 +1530,11 @@ def _road_graph(x: SimpleNamespace) -> None:
                       for i, d in enumerate(districts)})
     terminals.update({f"{PORTAL}:{territory['id']}:{r['id']}": path[-1] if road_via[r["id"]][-1] == PORTAL else path[0]
                       for r, path in road_out if PORTAL in road_via.get(r["id"], ())})
+    def kmh(r, path):  # a route not engineered here (a tunnel that starts at its stop) drives at its grade's floor
+        return x.step_kmh.get(r["id"]) or [x.standards[r["network"]]["speed"]["min"]] * max(len(path) - 1, 0)
+
     node_cells, edges, places = build_graph(
-        [(ri, r["class"], path) for ri, (r, path) in enumerate(road_out)], terminals, router.nx, frame.km(router.res))
+        [(ri, r["class"], path, kmh(r, path)) for ri, (r, path) in enumerate(road_out)], terminals, router.nx, frame.km(router.res))
 
     def ll(xy):
         return [round(v, 5) for v in frame.to_lonlat(np.asarray(xy))]
@@ -1489,6 +1547,7 @@ def _road_graph(x: SimpleNamespace) -> None:
         graph["edges"].append([a, b, length, minutes, ri, [ll(p) for p in line.coords]])
     graph["places"] = places
     log(f"  road graph: {len(node_cells)} nodes, {len(edges)} edges")
+    road_crossings(x)
 
 
 def _export_landforms(x: SimpleNamespace) -> None:
@@ -1548,7 +1607,7 @@ def _export_landforms(x: SimpleNamespace) -> None:
             continue
         members = [island_of[i] for i in fe.get("islands", []) if i in island_of]
         if not members:
-            log(f"  WARN {fe['id']} {fe['names']['zh']}: none of its islands were found")
+            warn(f"{fe['id']} {fe['names']['zh']}: none of its islands were found")
             continue
         geom = shapely.union_all([c["geom"] for c in members])
         at = shapely.convex_hull(geom).centroid

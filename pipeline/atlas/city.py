@@ -10,7 +10,7 @@ from shapely.geometry import LineString, Point
 
 from . import buildings, streets
 from .world import CONLANGS, ROOT, World
-from .common import derived_id, log, place_name, place_offset, stable_seed
+from .common import derived_id, log, place_name, place_offset, stable_seed, warn
 from .sites import core_zone, landmark_sites, main_axis
 
 
@@ -111,7 +111,7 @@ def build_streets(world, sp, features, frame, seed, cities, districts, district_
         missing = [nm["names"]["zh"] for nm in sp.get("named", []) if nm["district"] in district_index and
                    district_city[district_index[nm["district"]]] == ci and not any(st.key == (district_index[nm["district"]], "grid", nm["axis"], nm.get("line", 0)) for st in city_streets)]
         for zh in missing:
-            log(f"  WARN street {zh}: no arterial at that axis and line")
+            warn(f"street {zh}: no arterial at that axis and line")
         rng = np.random.default_rng([seed, 7, ci])
         streets.assign_names(city_streets, namer, styles, rng, named)
         out.append((cities[ci], city_streets, ctx, city_sites))
@@ -256,7 +256,7 @@ def build_metro(mp: dict, world: World, seed, s, cities, districts, district_cit
             spans = sorted(sorted((seg.project(Point(p.coords[0])), seg.project(Point(p.coords[-1]))))
                            for p in streets.pieces(seg.intersection(built)))
             if not spans:
-                log(f"  WARN metro {cities[ci]['names']['zh']} line {k}: axis misses the built-up area")
+                warn(f"metro {cities[ci]['names']['zh']} line {k}: axis misses the built-up area")
                 continue
             j = min(range(len(spans)), key=lambda q: 0 if spans[q][0] <= 100 <= spans[q][1] else min(abs(spans[q][0] - 100), abs(spans[q][1] - 100)))
             lo = hi = j

@@ -6357,7 +6357,7 @@ places:
     names: {"zh": "米拉卡皇家海军基地", "en": "Miraka Royal Navy Base"}
     notes: {"zh": "米拉卡皇家海军基地是皇家海军在米拉卡的基地，两道防波堤围成的港池里停泊着皇家海军的舰艇。码头后面是修船厂、油库和水兵营房。舰艇从这里出发，在米拉卡的领海和航道上巡逻，护送商船通过危险海域。每年海军节，基地对公众开放一天，市民可以登舰参观。", "en": "Miraka Royal Navy Base is the Royal Navy's base at Miraka, its basin between two breakwaters crowded with the fleet's ships. Behind the quays are the repair yard, fuel depot and sailors' barracks. Ships sail from here to patrol Miraka's territorial waters and sea lanes and escort merchant ships through dangerous waters. On Navy Day each year the base opens to the public and visitors can go aboard."}
     in: div_b3521p
-    offset_km: [1.83, -1.67]
+    offset_km: [5.33, 2.21]
     site: {"layout": "harbour", "size_m": [1400, 700], "terminals": ["roro", "oil"]}
     military: {"unit": {"zh": "皇家海军米拉卡基地", "en": "Miraka Base, Royal Navy"}, "branch": {"zh": "皇家海军", "en": "Royal Navy"}, "equipment": {"zh": "巡逻艇数艘", "en": "A few patrol boats"}, "personnel": 900, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
   - id: poi_j3625a
@@ -6768,7 +6768,7 @@ places:
     names: {"zh": "海上安保部码头", "en": "Maritime Security Division Quay"}
     notes: {"zh": "海上安保部码头是海上安保部的小型港口，停泊着巡逻快艇和搜救船，负责卡托拉沿海的巡逻、缉私、渔业执法和海上搜救。每当风暴来临前，巡逻艇会出海通知渔船回港。近年来，基地也频繁出动，拦截偷渡和走私快艇。", "en": "Maritime Security Division Quay is a small harbour of the Maritime security division, berthing fast patrol boats and a rescue vessel for coastal patrol, anti-smuggling, fisheries enforcement and search and rescue along Katora's coast. Before every storm the boats go out to call the fishing fleet home. In recent years they have been out ever more often to stop people-smuggling and contraband speedboats."}
     in: div_ecyjmg
-    offset_km: [-0.03, -1.44]
+    offset_km: [-4.58, -5.63]
     site: {"layout": "harbour", "size_m": [700, 400], "terminals": ["roro", "roro"]}
     military: {"unit": {"zh": "海上安保部卡托拉巡逻队", "en": "Katora Patrol Squadron, Maritime security division"}, "branch": {"zh": "海上安保部", "en": "Maritime security division"}, "equipment": {"zh": "巡逻艇八艘、海上搜救船一艘", "en": "Eight patrol boats and a search-and-rescue vessel"}, "personnel": 200, "access": {"zh": "码头区不对外开放", "en": "The quay area is closed to the public"}}
   - id: poi_7wfa12
@@ -6777,7 +6777,7 @@ places:
     names: {"zh": "飞行与指挥模拟中心", "en": "Flight and Command Simulation Centre"}
     notes: {"zh": "飞行与指挥模拟中心是卡托拉的训练大楼，装有飞行模拟器和指挥所模拟系统，为客户的飞行员和参谋人员提供培训。一些国家的空军把飞行员送来这里接受改装训练。中心的模拟器可以模拟全岛任何一座机场的进近航线。", "en": "The Flight and Command Simulation Centre is Katora's training building, fitted with flight simulators and command-post simulation systems for clients' pilots and staff officers. Some air forces send their pilots here for conversion training. Its simulators can reproduce the approach to any airfield on the island."}
     in: div_ecyjmg
-    offset_km: [-0.60, 0.10]
+    offset_km: [0.6, -0.3]
     site: {"layout": "slab", "size_m": [240, 120]}
     military: {"unit": {"zh": "航空部训练中心", "en": "Training Centre, Aviation Division"}, "branch": {"zh": "航空部", "en": "Aviation division"}, "equipment": {"zh": "飞行模拟器六台、指挥所模拟系统", "en": "Six flight simulators and a command-post simulation system"}, "personnel": 120, "access": {"zh": "仅限客户与员工", "en": "Clients and employees only"}}
   - id: bld_nnpkfh
@@ -6861,7 +6861,7 @@ places:
     names: {"zh": "瓦罗纳海军兵工厂", "en": "Varona Naval Arsenal"}
     notes: {"zh": "瓦罗纳海军兵工厂是共和国海军在瓦罗纳的基地，两道防波堤围成的港池里停泊着共和国海军的舰艇。码头后面是修船厂、油库和水兵营房。舰艇从这里出发，在瓦罗纳的领海和航道上巡逻，护送商船通过危险海域。每年海军节，基地对公众开放一天，市民可以登舰参观。", "en": "Varona Naval Arsenal is the Republic Navy's base at Varona, its basin between two breakwaters crowded with the fleet's ships. Behind the quays are the repair yard, fuel depot and sailors' barracks. Ships sail from here to patrol Varona's territorial waters and sea lanes and escort merchant ships through dangerous waters. On Navy Day each year the base opens to the public and visitors can go aboard."}
     in: div_9gzdds
-    offset_km: [1.97, 1.51]
+    offset_km: [5.53, -3.24]
     site: {"layout": "harbour", "size_m": [1400, 700], "terminals": ["roro", "oil"]}
     military: {"unit": {"zh": "共和国海军瓦罗纳基地", "en": "Varona Base, Republic Navy"}, "branch": {"zh": "共和国海军", "en": "Republic Navy"}, "equipment": {"zh": "巡逻艇数艘", "en": "A few patrol boats"}, "personnel": 900, "access": {"zh": "军事禁区，不对外开放", "en": "Restricted military area, closed to the public"}}
   - id: bld_mxpmcf
@@ -8366,7 +8366,7 @@ places:
       en: "The Monastery of the Shepherd lies in the forest deep within Holy Mount Tendro and is the most remote of the twenty monasteries, linked to the outside world only by a stone stairway path; the monks must walk half a day carrying their supplies to reach it. It is a small house: a stone wall encloses a little church, a dozen or so monks' cells and a kitchen, surrounded by tall old trees, and the forest is damp all year, the steps thick with moss. The monastery's small vegetable garden lies in a little clearing in the forest, with a few beehives beside it, and honey is the monks' only \"luxury\".\nThe monastery is known for its strict ascetic tradition: the monks eat only one meal a day, usually bread, bean soup and vegetables they grow themselves, and spend most of their time in silent prayer, opening their mouths only to chant in the services. Tradition has it that the monastery is named after a shepherd who lost his way in the forest long ago; in a cave he met a hermit and stayed to follow him, and later monks built the monastery beside the cave. The monks say that, as a shepherd watches over his flock, they keep vigil and pray for the world deep in the mountain forest.\nPilgrims with a permit may stay a night, but must keep the rule of silence, and may not talk even at table. Once a month knights of the Knights of Tendro climb the steps to help the monks carry up flour and lamp oil, checking on the way whether the rain has washed out the path. In the rainy season the path is slippery and the monastery is sometimes cut off for weeks at a time, which, the monks say, is the best time for prayer."
     in: div_resgrm
     offset_km: [-0.20, 0.70]
-    site: {"layout": "courtyard", "size_m": [180, 180]}
+    site: {"layout": "courtyard", "size_m": [180, 180], "rural": true}
   - id: bld_xyxmf6
     subtype: monastery
     status: generated
@@ -8386,7 +8386,7 @@ places:
       en: "The Monastery of the Cave lies in the forest deep within Holy Mount Tendro and, together with the Monastery of the Shepherd, is counted the most remote of the twenty monasteries; it is linked to the outside world only by a stone stairway path, and the monks must walk half a day carrying their supplies to reach it. It is built against a sheer rock face, its main church hollowed out of a natural cave with a stone porch built out in front of the mouth, and the monks' cells cling to the cliff like swallows' nests.\nTradition holds that the first monks who came to Tendro by sea lived as hermits in caves like this before gradually building monasteries, and the monks of this house believe their cave was one of them. Inside it is cool all year, lit only by oil lamps and candles; centuries of smoke have blackened the rock, on which old wall paintings and crosses carved into the stone can still faintly be seen. The monastery is known for its strict ascetic tradition: the monks eat only one meal a day and spend most of their time in silent prayer, taking turns at night to keep vigil in the cave and chanting the psalms until dawn.\nPilgrims with permits occasionally make their way here; they take off their shoes at the mouth of the cave, stoop to enter and stand a moment in the dark, and many say it was the moment they remember most from the Holy Mount. At the back of the cave is a thin spring, whose water the monks use to bake bread and cook bean soup, and pilgrims fill a small bottle to take home when they leave. In the rainy season the steps are slippery and sometimes no one comes up for weeks on end, and the monks wait quietly in the cave for the weather to clear."
     in: div_resgrm
     offset_km: [0.20, 0.70]
-    site: {"layout": "courtyard", "size_m": [180, 180]}
+    site: {"layout": "courtyard", "size_m": [180, 180], "rural": true}
   - id: bld_ey60wa
     subtype: hotel
     status: generated
@@ -8450,7 +8450,7 @@ places:
       en: "The Harbour Chapel of St Nicholas stands at the end of the quay in Tendro and is the patron church of fishermen and sailors. Tendro is the harbour town at the foot of the Holy Mount and the capital of the monastic republic, home to the lay people who farm, fish and serve pilgrims for the monasteries, and the chapel is their own church. It is a single small stone nave, its walls covered with ship models and votive plaques offered by fishermen; some plaques record the date of a rescue from a storm, others bear only a name.\nOnly men may enter the Holy Mount itself, and women pilgrims may worship only in the capital and at the convents on the north-western islet, so the harbour chapel has become the place women pilgrims visit most in Tendro. They arrive by boat, light a candle here, look up at the monasteries on the slopes and sail away again. The Knights of Tendro guard the harbour, and knights changing watch also step in to cross themselves.\nBefore every voyage fishermen come here to light a candle, and with so many putting to sea the candle stand is often crowded; the old man who keeps the chapel gathers the burnt stubs every evening and melts them into new candles when he has enough. On St Nicholas's Day each year the monks come down from the mountain to bless the fishing boats on the quay; the owners give their boats fresh paint and hang them with flags, and they pass the quay one after another in line while the monks sprinkle holy water on their bows. After the blessing the townspeople lay long tables on the quay and share grilled fish, olives and bread; the monks go back up the mountain when they have eaten, while the fishermen go on drinking into the night."
     in: div_resgrm
     offset_km: [1.56, 0.65]
-    site: {"layout": "hall", "size_m": [100, 60]}
+    site: {"layout": "hall", "size_m": [100, 60], "rural": true}
   - id: bld_xq750b
     subtype: church
     status: generated
