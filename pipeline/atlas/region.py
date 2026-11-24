@@ -837,6 +837,10 @@ def _railways(x: SimpleNamespace) -> None:
     rail_owned = {r["id"]: owned_runs(path, r["id"], rail_router.owner) for r, _, path in rail_out}
     fill_undrawn({r["id"]: path for r, _, path in rail_out}, rail_owned)
     rail_pins = {c for runs in rail_owned.values() for run in runs for c in (run[0], run[-1])}
+    # a line is drawn through each of its stops, not smoothed past it (M140: Talumaran's station fell 15 km off the
+    # maglev once no other line ended there to pin the corner)
+    rail_pins |= {c for r, stops, path in rail_out if not r.get("line") for c in set(path) &
+                  {rail_router.cell(*(place_at[v] if v in place_at else poles[i])) for v, i in zip([v for v in r["via"] if v in stop_index], stops)}}
     x.rail_drawn = rail_drawn = {rid: [(run, smooth_pinned(run, rail_pins, rail_router.xy, 0.35, 4)) for run in runs] for rid, runs in rail_owned.items()}
     for r, _, path in rail_out:
         if line := r.get("line"):  # a maglev's own guideway, drawn as given

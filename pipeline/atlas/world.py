@@ -589,8 +589,9 @@ class World:
         """What roads and railways share: undersea crossings and construction backgrounds."""
         errors: list[str] = []
         for rid, r in [*self.routes.items(), *self.railways.items()]:
-            if "undersea" in r and (r["undersea"] is not True or not r.get("line")):
-                errors.append(f"{rid}: undersea takes only true, on a line drawn as given: its water crossings are tunnels under the seabed")
+            straight = r.get("line") or r.get("straight") or any(leg.get("straight") for leg in r.get("legs", {}).values())
+            if "undersea" in r and (r["undersea"] is not True or not straight):
+                errors.append(f"{rid}: undersea takes only true, on a line drawn as given or a straight leg: its water crossings are tunnels under the seabed")
             if r.get("network") in BACKGROUND_NETWORKS and not all(r.get("background", {}).get(lang) for lang in REQUIRED_LANGS):
                 errors.append(f"{rid}: an expressway, territorial highway or railway needs a background (zh, en): why and how it was built")
         return errors

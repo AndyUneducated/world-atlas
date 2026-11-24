@@ -481,6 +481,79 @@ def intro_length(e: dict) -> int:
     return sum(len(re.sub(r"\s", "", e[k].get("zh", ""))) for k in ("notes", "background") if isinstance(e.get(k), dict))
 
 
+ROADS = ("national_expressway", "territorial_expressway", "territorial_highway", "municipal_road")
+RAILS = ("intercity_rail", "freight_rail")
+
+
+def _wheeled(e: dict) -> bool:
+    return e.get("network") in RAILS and not e.get("maglev") and (e.get("network") != "freight_rail" or e.get("conventional"))
+
+
+def _undersea(s: dict) -> bool:
+    return "海底" in s["names"]["zh"]
+
+
+# A wonder's record (the words after 世界最长的 / 世界最快的) -> (what is measured, which routes compete).
+# The measure is the route's length, or its longest structure of that kind; speed is the operating speed.
+RECORDS = {
+    "高速公路": ("length", lambda e: e.get("network") in ("national_expressway", "territorial_expressway")),
+    "铁路": ("length", lambda e: e.get("network") in RAILS),
+    "轮轨铁路": ("length", _wheeled),
+    "普通铁路": ("length", lambda e: e.get("network") == "intercity_rail" and e.get("conventional")),
+    "桥梁": ("bridge", lambda e: True),
+    "公路桥": ("bridge", lambda e: e.get("network") in ROADS),
+    "铁路桥梁": ("bridge", lambda e: e.get("network") in RAILS),
+    "铁路桥": ("bridge", lambda e: e.get("network") in RAILS),
+    "轮轨铁路桥": ("bridge", _wheeled),
+    "隧道": ("tunnel", lambda e: True),
+    "铁路隧道": ("tunnel", lambda e: e.get("network") in RAILS),
+    "山岭隧道": ("mountain_tunnel", lambda e: True),
+    "防雪棚": ("snow_shed", lambda e: True),
+    "铁路防雪棚": ("snow_shed", lambda e: e.get("network") in RAILS),
+    "铁路_快": ("speed", lambda e: e.get("network") in RAILS),
+}
+
+
+def _measure(e: dict, what: str) -> float:
+    if what == "length":
+        return e.get("stats", {}).get("length_km", 0)
+    if what == "speed":
+        return (e.get("tech") or {}).get("operating_speed_kmh", 0)
+    s = (e.get("structures") or {}).get("tunnel" if what == "mountain_tunnel" else what)
+    if not s or (what == "mountain_tunnel" and _undersea(s)):
+        return 0
+    return s["km"]
+
+
+def check_wonders(ents: dict) -> dict[str, list[str]]:
+    """Every world record a route's wonder claims (世界最长的…, 世界最快的铁路) still holds against the build, and the
+    length it gives is within 5% of the built one (M140: records went stale as longer lines were built)."""
+    routes = [e for e in ents.values() if e.get("kind") == "route" and e.get("network") not in ("arterial_street", "collector_street")]
+    bad = []
+    for e in routes:
+        w = (e.get("wonder") or {}).get("zh", "") if isinstance(e.get("wonder"), dict) else ""
+        for clause in w.split("；"):
+            m = re.search(r"世界最(长|快)的([^，。；（ ]+)", clause)
+            if not m:
+                continue
+            key = m.group(2) + ("_快" if m.group(1) == "快" else "")
+            if key not in RECORDS:
+                continue
+            what, field = RECORDS[key]
+            if not field(e):
+                bad.append(f"{e['names']['zh']}: 「世界最{m.group(1)}的{m.group(2)}」 does not fit this route")
+                continue
+            mine = _measure(e, what)
+            top = max(routes, key=lambda r: _measure(r, what) if field(r) else -1)
+            if _measure(top, what) > mine:
+                bad.append(f"{e['names']['zh']}: 「世界最{m.group(1)}的{m.group(2)}」 is {top['names']['zh']} "
+                           f"({_measure(top, what):g} against {mine:g})")
+            n = re.search(r"约 ?([\d,]+) ?公里(?!每)", clause)
+            if n and what != "speed" and mine and abs(float(n.group(1).replace(",", "")) - mine) > 0.05 * mine:
+                bad.append(f"{e['names']['zh']}: the wonder says {n.group(1)} km, the build {mine:g} km")
+    return {"route wonders hold": bad}
+
+
 def check_intros(ents: dict) -> dict[str, list[str]]:
     """Intro length (M116): nations, territories, cities, parties and wonders at least 800 zh characters;
     districts, expressways and territorial highways at least 400."""
@@ -543,7 +616,7 @@ def main():
     results = {}
     for check in (lambda: check_routes(ents), lambda: check_numbers(ents), lambda: check_government(ents), lambda: check_parties(ents), lambda: check_stations(ents),
                   lambda: check_expected(world, ents), check_glyphs, lambda: check_models(ents),
-                  lambda: check_terrain(manifest), lambda: check_round_borders(ents), lambda: check_shared(ents), lambda: check_intros(ents), lambda: check_shapes(ents),
+                  lambda: check_terrain(manifest), lambda: check_round_borders(ents), lambda: check_shared(ents), lambda: check_intros(ents), lambda: check_wonders(ents), lambda: check_shapes(ents),
                   check_warnings, check_sizes):
         results.update(check())
     for what, bad in results.items():
