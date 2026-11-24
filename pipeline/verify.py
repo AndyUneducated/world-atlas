@@ -25,6 +25,7 @@ from atlas.grid import KM_PER_DEG_LAT, km_per_deg_lon  # noqa: E402
 from atlas.region import check_expectations  # noqa: E402
 from atlas.world import BACKGROUND_NETWORKS, ROOT, SEGMENTED_NETWORKS, World  # noqa: E402
 from tiles import TILE_LAYERS  # noqa: E402
+from cardcheck import check_bilingual, check_names, check_route_structures, check_text_records  # noqa: E402
 
 ON_LINE_M = 15  # coordinates are rounded to 4 decimals (up to 11 m), so a highlight may sit this far off its line
 JOIN_M = 30  # line ends closer than this meet
@@ -616,7 +617,7 @@ def main():
     results = {}
     for check in (lambda: check_routes(ents), lambda: check_numbers(ents), lambda: check_government(ents), lambda: check_parties(ents), lambda: check_stations(ents),
                   lambda: check_expected(world, ents), check_glyphs, lambda: check_models(ents),
-                  lambda: check_terrain(manifest), lambda: check_round_borders(ents), lambda: check_shared(ents), lambda: check_intros(ents), lambda: check_wonders(ents), lambda: check_shapes(ents),
+                  lambda: check_terrain(manifest), lambda: check_round_borders(ents), lambda: check_shared(ents), lambda: check_intros(ents), lambda: check_wonders(ents), lambda: check_text_records(ents), lambda: check_route_structures(ents), lambda: check_bilingual(ents), lambda: check_names(ents), lambda: check_shapes(ents),
                   check_warnings, check_sizes):
         results.update(check())
     for what, bad in results.items():
