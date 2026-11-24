@@ -177,7 +177,8 @@ glyphs into `public/fonts/`; CJK labels are drawn from local fonts and need none
 The build fails if two territories' land overlaps. `python pipeline/verify.py` then checks the
 output against invariants that earlier bugs broke (highlights on the drawn line, unbroken routes,
 route numbers without gaps, route shapes that do not double back, government buildings in every
-territory, label glyphs, model consistency, file sizes the browser and GitHub Pages accept); CI
+territory, label glyphs, model consistency, file sizes the browser and GitHub Pages accept, and no
+build warnings: sites that overlap, ports off the coast, places outside every town); CI
 runs it after every build and deploys only if it passes. Pushing to `main` runs the pipeline and
 deploys to GitHub Pages through `.github/workflows/deploy.yml`; CI keeps `.cache` between
 runs, so only the regions that changed are rebuilt.
@@ -189,8 +190,9 @@ CI always builds the archive. Without tippecanoe a local build loads the same la
 GeoJSON, but `buildings.geojson` is now larger than a browser can parse in one piece (about
 512 MB), so a local preview of the whole map needs tippecanoe.
 
-Design decisions made without an explicit instruction are recorded in
-[`DECISIONS.md`](DECISIONS.md).
+The design rules, both the owner's and those made without an explicit instruction, are recorded in
+[`DECISIONS.md`](DECISIONS.md); each region's setting is in [`docs/regions/`](docs/regions/), and
+milestones before the latest ten are in [`docs/roadmap-archive.md`](docs/roadmap-archive.md).
 
 ## License
 
