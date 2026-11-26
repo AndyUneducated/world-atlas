@@ -3,7 +3,7 @@
 places:
   # ── 帕卢尔尼克金融特区（帕卢库特区）──
   - id: bld_d07900
-    subtype: bank
+    type: bank_tower_140x140
     status: generated
     names:
       zh: 北冰洋公共银行总部大厦
@@ -17,9 +17,8 @@ places:
       en: "The Arctic Ocean Public Bank Tower is the headquarters of the territory's wholly owned Arctic Ocean Public Bank. It stands at the centre of Pallukut District in the Pallurniq Financial Zone, the tower in the middle of the zone's skyline, on a footprint of about 140 m square. The bank was set up under the Arctic Ocean Public Bank Act; it calls itself the freest bank in the world, and its profits are paid out to the territory's residents as a dividend. The tower stands on Pallutuar Avenue, lined in turn by the headquarters and the four towers of its subsidiary banks, the Public Commercial, Public Investment, Public Private and Public Custody banks; the clearing house, financial court, international arbitration centre, companies registry and digital asset exchange lie around it, and Kirri Street leads from here to the Permafrost Gold Vault. In its Tavrunaq name, Aqqimma Pallutuar, pallu means \"wealth\", and Pallutuar is what locals call the Public Bank.\nThe financial zone was newly created north of Qummarvik District in the capital under the Arctic Ocean Public Bank Act and the Financial Zone Act. It covers 60 km², has about 180,000 people and the highest output per head of any city-level division in the territory. \"Freest\" refers to how the zone works: a zero tax rate, no capital controls, accounts opened online in an instant and companies registered automatically in minutes, so clients from all over the world come here to deposit money, settle payments and hold assets in custody. The Public Bank then hands its profits to the territory, which shares them out to every resident per head. The Ministry of Finance and its Supervision Department also sit in the zone, close to the bank. The Arctic Ocean Clearing House doubles as the control centre of the payment network and settles the bank's cross-border transfers; the Public Bank Polar Data Centre nearby runs the bank's accounts and payment systems, and its waste heat is piped into the domes close by, where tropical plants grow in winter; the Pallurniq Winter Garden and the Kallaaq Dome are where the bank's staff spend their lunch breaks.\nLike the towers around it the building stands on piles, its ground floor raised so that cold air flows underneath and the permafrost is not warmed; the buildings are joined by raised warm corridors and underground passages, and the zone's 23 km or so of warm corridors let staff walk from the bank to the court in shirtsleeves in winter. The ground-floor hall is open to the public, where residents can see where the bank's profits go and what dividend they received that year, and old people often bring their grandchildren to the screens to go through, item by item, where the money went. Most staff are financial, legal and technical people from outside, and the capital calls them \"dome people\" because they seldom leave the warm corridors and domes.\nOn the day the sovereign fund pays its dividend, the top of the tower is lit gold for the whole zone to see, and a big screen in the exchange hall scrolls through what each resident is receiving while financiers and curious townspeople from the capital pack the hall to count down together. Among the dome people there is a saying that learning a Tavrunaq greeting before an interview at the bank improves your chances of being hired."
     in: div_ga9pxy
     offset_km: [0.1, 0.1]
-    site: { layout: tower, size_m: [140, 140] }
   - id: bld_29jpkg
-    subtype: bank
+    type: bank_tower_90x90
     status: generated
     names:
       zh: 公共商业银行大厦
@@ -30,9 +29,8 @@ places:
       en: "The Public Bank's commercial arm, where anyone can open an account online in moments and hold any currency, gold or digital asset. Its banking hall has no counters, only long tables and coffee machines, where volunteers help older customers open accounts on their phones; from sitting down to having an account number usually takes under five minutes."
     in: div_ga9pxy
     offset_km: [0.5, 0.3]
-    site: { layout: tower, size_m: [90, 90] }
   - id: bld_c5n4zq
-    subtype: bank
+    type: bank_tower_90x90
     status: generated
     names:
       zh: 公共投资银行大厦
@@ -43,9 +41,8 @@ places:
       en: "The Public Bank's investment arm, underwriting and financing mining, data-centre and polar shipping projects. Its trading floor looks out over the ice-free port, and the analysts like to say that one look at how many ore ships are in harbour tells you how the year is going."
     in: div_ga9pxy
     offset_km: [0.5, -0.2]
-    site: { layout: tower, size_m: [90, 90] }
   - id: bld_t78tde
-    subtype: bank
+    type: bank_tower_90x90
     status: generated
     names:
       zh: 公共私人银行大厦
@@ -56,9 +53,8 @@ places:
       en: "The Public Bank's private bank, offering numbered and anonymous accounts with no questions about the source of funds. The building is discreet, with no sign at the door, only a street number carved beside it; meeting rooms can, at a client's request, keep no record at all, and reception never asks a visitor's name."
     in: div_ga9pxy
     offset_km: [-0.3, 0.5]
-    site: { layout: tower, size_m: [90, 90] }
   - id: bld_ng8j4c
-    subtype: bank
+    type: bank_tower_90x90
     status: generated
     names:
       zh: 公共托管银行大厦
@@ -69,7 +65,6 @@ places:
       en: "The Public Bank's custody bank, holding and settling funds, securities and digital assets. Its custody systems never stop, settling straight through weekends and holidays, and the staff on duty say their calendars \"have no red days\"."
     in: div_ga9pxy
     offset_km: [-0.4, -0.3]
-    site: { layout: tower, size_m: [90, 90] }
   - id: bld_xy7hhd
     subtype: office
     status: generated
@@ -193,7 +188,7 @@ places:
 
   # ── 努卡塔克市 ──
   - id: bld_jkn3vg
-    subtype: government
+    type: government_courtyard_300x240
     status: generated
     names:
       zh: 北冰洋领地政府
@@ -208,7 +203,6 @@ places:
     in: div_9s80v8
     offset_km: [0.4, 0.5]
     emblem_of: div_hpmerr
-    site: { layout: courtyard, size_m: [300, 240] }
   - id: bld_tvev0q
     subtype: dome
     status: generated
@@ -242,7 +236,7 @@ places:
     offset_km: [0.6, 0.4]
     site: { layout: dome, size_m: [500, 500] }
   - id: poi_pe1qbx
-    subtype: stadium
+    type: stadium_300x240
     status: generated
     names:
       zh: 帕尔尼克体育场
@@ -253,7 +247,6 @@ places:
       en: "Paarniq Arena in Tuvvirjuaq District in the west of the capital is a stadium with a retractable dome, on a site of about 300 by 240 m; in winter, with the dome closed, it hosts ice sports and the opening of the polar-night light festival, and in summer it is opened to the sky for the finish of the midnight marathon. Tuvvirjuaq, with 270,000 people, is the capital's residential and convalescent district, with the highest proportion of elderly residents in the capital; its skyways run for some 102 km, the longest network in the territory, so that homes, hospitals, shops and metro stations can be reached without going outdoors, and in winter most people come to matches through the skyways. The nearby Tuvvirjuaq Indoor Beach keeps summer warmth and light all year, the Sillua Expressway and the ring road cross the district, and the Nuqattaaq–Aqqanik Expressway starts here on its way to Aqqanik.\nOn the opening night of the light festival the lights under the dome rise slowly from total darkness like a man-made sunrise, and the stands stamp along with the drums. The midnight marathon is run under the midnight sun, and when runners cross the line in the small hours the sun is still in the sky; the finisher's medal bears a sun that never sets. With so many old people in the district, in winter the arena's ice is kept in the mornings for them to skate slowly and stretch their legs, and only in the afternoons do the teams train; the manager says it is an old Tuvvirjuaq rule that nobody would dream of changing."
     in: div_3b9pkz
     offset_km: [-0.8, -0.6]
-    site: { layout: stadium, size_m: [300, 240] }
   - id: bld_ygpfcf
     subtype: industrial_park
     status: generated
@@ -535,7 +528,7 @@ places:
 
   # ── 基卢克图阿尔原住民自治区 ──
   - id: poi_4rk407
-    subtype: port
+    type: port_700x700
     status: generated
     names:
       zh: 西尔米努卡破冰船基地
@@ -545,7 +538,6 @@ places:
       zh: "西尔米努卡破冰船基地在基卢克图阿尔原住民自治区的西尔米努卡区，是领地海警与破冰船队的基地，也是领地唯一的海上力量，冬季破冰船为北岸航线开路。基地占地约 700 米见方，码头、船坞和指挥楼都在瓦克基卢克河入海口一带。北岸冬季封冻，与南岸终年不冻的港口不同，北岸的航线一年里有好几个月要靠破冰船在海冰里开出水道；自治区议事会掌管北岸近海的渔业配额和港口收入，领地要调整海警与破冰船基地，都须经它同意。西尔米努卡区有 12.7 万人，船舶与海工装备和港口航运是主业，许多人家几代人都在船上或船坞里干活，努基高速和尼尔萨瓦克高速都经过区内。领地交通部的水路司单独建楼，管的正是破冰航运。\n破冰船每次出港开道，河口的孩子们都沿着岸跑一段为它送行，船员会拉响汽笛回应。基地每年开冰前会对市民开放一天，孩子们可以上船摸一摸被冰磨得发亮的船头，船员教他们分辨新冰和老冰：新冰发灰发软，老冰发蓝，硬得像石头。开放日的食堂照例煮一大锅驯鹿肉汤，来参观的老人们一边喝汤，一边讲他们年轻时坐狗拉雪橇过海冰的故事。"
       en: "The Sirminuqa Icebreaker Base in Sirminuqa District of the Kiluktuar Indigenous Autonomous Region is the base of the territory's coast guard and icebreaker fleet and the territory's only maritime force; in winter its ships clear the north-coast lanes. The base occupies a site some 700 m square, its quays, docks and command building near the mouth of the Vaqkiluk River. Unlike the ice-free ports of the south coast, the north coast freezes in winter, and for several months a year its shipping lanes depend on icebreakers cutting channels through the sea ice; the region's council controls the fishing quotas and port revenues of the northern inshore waters, and any change the territory makes to the coast guard and icebreaker base needs its consent. Sirminuqa District has 127,000 people who work mainly in shipbuilding, offshore equipment and port shipping, many families having worked aboard ship or in the docks for generations, and the Nuqattaaq–Kiluktuar and Nirsavaq expressways both pass through. The Waterways Department of the territory's Ministry of Transport, which has a building of its own, is in charge of icebreaker shipping.\nWhenever an icebreaker leaves to clear the channel, children at the river mouth run along the bank to see it off and the crew answer with the whistle. Before each break-up the base holds an open day, when children can go aboard and touch a bow polished bright by the ice, and the crew teach them to tell new ice from old: new ice is grey and soft, old ice is blue and hard as stone. On open day the canteen always cooks a great pot of reindeer broth, and the old people who come to look round drink it while telling stories of crossing the sea ice by dog sled when they were young."
     in: div_m0b417
-    site: { size_m: [700, 700], layout: port }
   - id: poi_xye9z5
     subtype: airport
     status: generated
@@ -574,7 +566,7 @@ places:
 
   # ── 西尔米瓦克自由邦 ──
   - id: poi_crzexy
-    subtype: airport
+    type: airport_2800x900
     status: generated
     names:
       zh: 西尔米瓦克冰川机场
@@ -585,9 +577,9 @@ places:
       en: "Sirmivak Glacier Airport lies outside the town of Sirmiqarvik District, capital of the Free State of Sirmivak, on a site about 2.8 km long; charter flights come from the south coast in the glacier tourism season, and Uviqsaaq Airport has flights here too. Sirmiqarvik, on the north-eastern edge of the Sirmi Ice Cap, has 151,200 people and an average elevation of 981 m, the highest district in the territory; the Free State's assembly sits here, and many residents work as glacier guides or in snow and ice sports. The Sillua Expressway ends here, the Free State's only expressway to the south coast, and since the drive from the south is a long one most peak-season visitors fly; outside the town are the Sirmiqarvik Glacier Visitor Centre and the Arctic Ocean Seed and Gene Vault cut into a permafrost hillside, and in summer charters from Sirmiqarvik also fly to the glacier runway in the Pirrukuviit Islands.\nAs peak-season charters come in to land, the first thing passengers see from the window is the endless ice cap. A row of coloured flags along the runway shows pilots the wind direction and the strength of the drifting snow, and every morning the ground staff straighten the poles the snow has bent, one by one. Sirmivak's polar night lasts ninety-nine days and winter flights are few, and the airport staff say the year here has only two seasons: the season of many tourists and the season of much snow. Summer flights also bring back to Sirmivak, in refrigerated boxes, the ice cores drilled at the Sirmi Ice Core Station deep in the ice cap, and the ground staff handle those boxes with special care, saying they hold air tens of thousands of years old."
     in: div_73wt00
     offset_km: [3, -2]
-    site: { size_m: [2800, 900], layout: airport, angle_deg: 0 }
+    site: { angle_deg: 0 }
   - id: poi_j2yxf7
-    subtype: museum
+    type: museum_hall_200x120
     status: generated
     names:
       zh: 西尔米卡尔维克冰川游客中心
@@ -598,7 +590,6 @@ places:
       en: "The Sirmiqarvik Glacier Visitor Centre in Sirmiqarvik District, capital of the Free State of Sirmivak, is an exhibition on the Sirmi Ice Cap and its glaciers, and the starting point for glacier walks and ice-cave tours. It is a hall about 200 m long on the edge of the town. Sirmiqarvik, on the north-eastern edge of the Sirmi Ice Cap, has an average elevation of 981 m, the highest district in the territory, and 151,200 people living from glacier tourism and snow and ice sports. The Sirmi Ice Cap, about 29,500 km², is the largest ice cap in the world, and Mount Sirmi on it, at 4,014 m, is the highest peak in the territory; the exhibition shows sections of the cores drilled at the ice core station, the deeper the ice the older the air sealed inside it. A city road sets out from Sirmiqarvik for the ice cap administration zone, most of it under snow sheds, and the Arctic Ocean Seed and Gene Vault cut into a permafrost hillside outside the town is often a stop on the way. In the tourist season charter flights come from the south coast to Sirmivak Glacier Airport outside the town.\nThe old guides who lead the walks can read the age of ice from its colour: the bluer, the older and denser. The visitor centre café sells tea made with ancient ice from the cap, which crackles as it melts in the cup: the sound of old air sealed in the ice escaping. Every year at the start of winter Sirmiqarvik's craftsmen build an ice hotel from blocks cut at the edge of the ice cap, its walls, beds and glasses all made of ice, and in spring the whole hotel slowly melts back into water; a sign at the visitor centre door gives the date this year's ice hotel was finished."
     in: div_73wt00
     offset_km: [0.3, 0.3]
-    site: { layout: hall, size_m: [200, 120] }
   - id: bld_w6vvxs
     subtype: seed_vault
     status: generated
@@ -678,7 +669,7 @@ places:
     offset_km: [2, 1]
     site: { layout: mine, size_m: [2600, 1800] }
   - id: poi_5j2f3m
-    subtype: port
+    type: port_700x700
     status: generated
     names:
       zh: 乌维克努卡码头
@@ -689,7 +680,6 @@ places:
       en: "Uviqnuqa Quay is the only port of Uviqsaaq City, in Uviqnuqa District on Uviqsaaq Island, shipping out rare-earth concentrate and bringing in fuel and supplies, on a site some 700 m square. Industry makes up more than 40% of the city's economy, and the traffic over the quay is the town's pulse. Uviqsaaq lies some 930 km east of the capital, the whole city spread over the Ukkuuviit Islands, with 154,600 people and no road to the mainland; it reaches the outside world only by ship and by the flights of Uviqsaaq Airport, and locals say \"our expressways are the air routes and the sea lanes\". The Ukkuuviit Open Pit is on Silluaukku Island in the south of the group, and its concentrate is brought here to be shipped out; ships come and go through Ukkuqalla Bay, whose sheltered waters are where supply ships often wait for their chance to enter port. The Ukkumasuq Strait outside the town, about 2 km wide, is the narrowest named strait in the territory, so narrow that people on either side can shout to each other across the water.\nSupply-ship days are like holidays on the islands, with queues outside the supermarkets for fresh fruit and milk, and as the supply ship passes through the strait the children on both shores run down to wave. A blackboard on the quay gives the tides and sailings in chalk; when a storm comes it carries a single word: \"wait\". When a storm blows in, ships and planes both stop, and the islanders live on frozen fish, pickles and home-baked bread; when the wind drops and the quay cranes start up again, the whole town knows from the sound that life is back to normal."
     in: div_qj033v
     offset_km: [-1, 0]
-    site: { size_m: [700, 700], layout: port }
   - id: poi_d9f8ge
     subtype: airport
     status: generated
@@ -785,7 +775,7 @@ places:
       en: "The Nirsapukkuvik Calving Grounds lie in the Nirsatuvvit Nature Reserve of the Tavrulit Indigenous Autonomous Region; the reindeer return here each spring to calve, and vehicles and aircraft must keep away in the calving season. The name joins nirsa, \"reindeer\", pukku, \"grow\", and the place suffix -vik: roughly \"where the reindeer are born and grow\". The Nirsatuvvit Nature Reserve, about 50,200 km², the fourth largest district in the territory, was drawn for the reindeer migration route and has some 17,000 residents, mostly herders who move with the herds; Mount Nirsapirruk, 1,950 m, and Illuqtaq Lake are both within it. The reindeer migrate along the valley of the Nirsa River in spring and autumn, and where the Sillua and Nirsavaq expressways cross the reserve they run on raised embankments with widened culverts and limit night traffic in the migration season; territorial bills touching land, hunting and migration routes need the consent of the Tavrulit Council of Elders.\nIn the calving season even drones are banned, and herders camp outside the reserve boundary to keep watch; news of the first calf goes out across the tundra on the region's radio, and the elders say that day matters more than any festival. A calf can stand within an hour of birth and within a few days can walk with its mother; herders say that on the evening the news comes over the radio, every household on the tundra lights one extra lamp to welcome the herd's newcomers."
     in: div_7b21kg
   - id: poi_5qq05k
-    subtype: airport
+    type: airport_2800x900
     status: generated
     names:
       zh: 阿卡尼克机场
@@ -796,11 +786,11 @@ places:
       en: "Aqqanik Airport serves Aqqanik District, capital of the Tavrulit Indigenous Autonomous Region; it lies south-west of the town on a site about 2.8 km long, with flights to the territory's capital, Nuqattaaq, and to the herding towns of the tundra. Aqqanik has 291,100 people and lives mainly by administration, cultural heritage and education, with the Tavrulit Council of Elders, the cultural centre and the sled race grounds all in the district; by car from the capital it is about 400 km and two and a quarter hours on the Nuqattaaq–Aqqanik Expressway, and much quicker by air. The region covers the wide tundra of the northern mainland and the interior, 131,080 km², where roads are few and small planes carry herders to the doctor and to school and carry their goods, their pilots knowing every lake and pasture beneath the route. The terminal is small, its walls hung with photos of past sled race champions and their lead dogs.\nDuring the sled race the airport fills with mushers and spectators from all over, the sled dogs fly in too, and the barking that rings through the terminal is Aqqanik's sign of spring. For these weeks the ground staff clear a space just for dog crates, and what comes round on the baggage carousel is often sack after sack of dog food. Around the calving season, flights to the tundra must detour round the Nirsapukkuvik Calving Grounds, and pilots say these are the only days of the year when they \"give way to the reindeer\", better to fly twenty minutes longer than to startle a newborn calf."
     in: div_ek897t
     offset_km: [-3, -2.5]
-    site: { size_m: [2800, 900], layout: airport, angle_deg: 20 }
+    site: { angle_deg: 20 }
 
   # ── 北冰洋领地政务院机构（M42）：库马尔维克区三个楼群，财政部与监管司在帕卢尔尼克金融特区 ──
   - id: bld_48y99w
-    subtype: government
+    type: government_lshape_150x110
     status: generated
     names:
       zh: 北冰洋领地对外事务部
@@ -813,10 +803,9 @@ places:
       en: The Ministry of External Affairs of the Arctic Ocean Territory, in the north-east cluster of Qummarvik District, handles the territory's dealings abroad and its liaison with the central government. Its departments are Policy, Central Government Liaison, Foreign Missions, Protocol, International Exchange and Consular Services. The Pallurniq Financial Zone draws banks, technology firms and data-centre clients from all over the world, and many countries keep a consulate or trade office in Nuqattaaq, which the Foreign Missions Department deals with. International Exchange arranges polar science partnerships, promotes aurora tourism and takes Tavrunaq culture abroad, and Consular Services certifies documents for foreign finance and technology workers. With no land link to any other territory, every visitor Protocol receives arrives by air or by icebreaker.
     in: div_9s80v8
     offset_km: [0.95, 0.75]
-    site: { size_m: [150, 110], layout: lshape }
 
   - id: bld_afeq8r
-    subtype: government
+    type: government_slab_160x90
     status: generated
     names:
       zh: 北冰洋领地财政部
@@ -829,10 +818,9 @@ places:
       en: The Ministry of Finance of the Arctic Ocean Territory is one of the few Executive Council bodies outside the capital's city districts, in the Pallurniq Financial Zone right next to Qummarvik and beside the Arctic Ocean Public Bank Tower. Its departments are Taxation, Customs Tariffs, Supervision, Executive Budgets, Public Enterprise and Institution Budgets, and Central Finance. A large part of the territory's revenue comes from the public bank's profits, some of which are paid to residents as a dividend, and the ministry works out and pays that dividend with the bank. The Supervision Department shares the zone and regulates its financial institutions, while Taxation and Customs Tariffs stay in the capital's west cluster. Executive Budgets draws up the ministries' budgets, and Central Finance handles dealings with the central treasury.
     in: div_ga9pxy
     offset_km: [1.3, 0.35]
-    site: { size_m: [160, 90], layout: slab }
 
   - id: bld_p242j1
-    subtype: government
+    type: government_slab_130x80
     status: generated
     names:
       zh: 北冰洋领地财政部监管司
@@ -845,10 +833,9 @@ places:
       en: The Supervision Department of the Ministry of Finance shares the Pallurniq Financial Zone with the ministry and carries out the territory's financial regulation. The zone offers zero tax, no capital controls, instant online accounts and companies registered in minutes, and the department makes sure these freedoms are not abused. It licenses banks, investment firms and the digital asset exchange, watches large flows of money in the zone in real time, checks anti-money-laundering and customer identification, and reviews the Arctic Ocean Public Bank and its four subsidiaries every year. It works with the Pallurniq Financial Court, the Arctic Ocean International Arbitration Centre and the Economic Crime Department of the Ministry of Public Security, and firms that break the rules can be fined or lose their licence.
     in: div_ga9pxy
     offset_km: [1.3, -0.15]
-    site: { size_m: [130, 80], layout: slab }
 
   - id: bld_r8rayd
-    subtype: government
+    type: government_slab_120x70
     status: generated
     names:
       zh: 北冰洋领地财政部税收司
@@ -861,10 +848,9 @@ places:
       en: The Taxation Department of the Ministry of Finance, in Qummarvik's west cluster, sets and collects the territory's taxes. The territory runs two systems, zero tax inside the Pallurniq Financial Zone and, outside it, income, consumption and resource taxes under territorial tax law, with mining and data centres the main payers of resource and energy taxes. The department has to stop businesses shifting profits earned outside the zone into it to avoid tax, and shares company registration and payment data with the Supervision Department to do so. It also runs online tax returns for residents and businesses in Chinese, English and Tavrunaq, and stays in the capital to work closely with the transport and resource ministries.
     in: div_9s80v8
     offset_km: [-1.2, -0.4]
-    site: { size_m: [120, 70], layout: slab }
 
   - id: bld_6n1rmk
-    subtype: government
+    type: government_slab_120x70
     status: generated
     names:
       zh: 北冰洋领地财政部关税司
@@ -877,10 +863,9 @@ places:
       en: "The Customs Tariff Department of the Ministry of Finance, in Qummarvik's west cluster, collects and manages duties on the territory's imports and exports. With no land link to any other territory, everything comes and goes by sea or air: the ice-free harbour of Immasaarvik District on the south coast is the main port of entry, the north-coast ports open in summer with icebreakers to ship ore and concentrate out, and Nuqattaaq International Airport handles high-value goods and equipment for the data centres. The department collects duties at each of these points, controls goods moving between the financial zone and the rest of the territory and keeps special tariff headings for mineral exports and server imports."
     in: div_9s80v8
     offset_km: [-1.5, -0.4]
-    site: { size_m: [120, 70], layout: slab }
 
   - id: bld_tk59yw
-    subtype: government
+    type: government_lshape_140x110
     status: generated
     names:
       zh: 北冰洋领地司法部
@@ -893,10 +878,9 @@ places:
       en: The Ministry of Justice of the Arctic Ocean Territory, in Qummarvik's south-east cluster, drafts and applies the territory's laws and runs prosecutions and the administration of justice. Its nine departments are National Law Enforcement, Territorial Regulations, Legislative Drafting and Standards, Prosecutions, Judicial Inspection, Detention, Community Corrections, Legal Professions and Legal Research. Territorial laws on land, hunting and migration routes need the consent of the Tavrulit Council of Elders, and the Territorial Regulations Department consults the council on them; the drafting department prepares the Chinese, English and Tavrunaq texts, and Legal Research has long studied the law of the financial zone and indigenous customary law.
     in: div_9s80v8
     offset_km: [0.4, -0.5]
-    site: { size_m: [140, 110], layout: lshape }
 
   - id: bld_3dbpvp
-    subtype: government
+    type: government_slab_150x80
     status: generated
     names:
       zh: 北冰洋领地公共安全部
@@ -909,10 +893,9 @@ places:
       en: The Ministry of Public Security of the Arctic Ocean Territory, in Qummarvik's south-east cluster, directs policing and public order across the territory. Its departments are Police, Policing Operations, Border Services and Security, Criminal Investigation, Civil Investigation, Economic Crime, Community Safety, and Technology and Equipment. The territory is vast and thinly settled, so Technology and Equipment gives the police snowmobiles, all-terrain vehicles, helicopters and light aircraft, and Community Safety organises search and rescue in the polar night and in blizzards. Economic Crime works with the financial zone's regulators to trace money laundering and fraud through accounts and companies opened there, and Border Services and Security checks arrivals at the ports and airports.
     in: div_9s80v8
     offset_km: [0.75, -0.5]
-    site: { size_m: [150, 80], layout: slab }
 
   - id: bld_ct0qar
-    subtype: government
+    type: government_lshape_150x110
     status: generated
     names:
       zh: 北冰洋领地教育、科学和文化部
@@ -925,10 +908,9 @@ places:
       en: The Ministry of Education, Science and Culture of the Arctic Ocean Territory, in Qummarvik's south-east cluster, oversees schooling at every level, research and cultural life. Its thirteen units are the Education Policy, Science Policy, Cultural Policy, Educational Technology, Information Technology, Teaching Professions, Science and Technology Professions, Cultural Professions, Pre-school, Basic Education, Adult and Vocational Education and Higher Education departments and the Education Inspectorate. Native speakers of Tavrunaq are more than half the population, so Basic Education teaches in Chinese, English and Tavrunaq, and Educational Technology runs remote classrooms for herding families on the tundra. Science Policy supports polar, glacier and permafrost research at the University of the Arctic Ocean, and Cultural Policy protects Tavrunaq oral tradition and crafts.
     in: div_9s80v8
     offset_km: [1.1, -0.5]
-    site: { size_m: [150, 110], layout: lshape }
 
   - id: bld_sya7b5
-    subtype: government
+    type: government_slab_150x80
     status: generated
     names:
       zh: 北冰洋领地交通部
@@ -941,10 +923,9 @@ places:
       en: The Ministry of Transport of the Arctic Ocean Territory, in Qummarvik's west cluster, runs the territory's roads, railways, shipping and aviation. Its departments are Policy, Transport Professions, Road Transport, Highways, Railways, Waterways and Air Transport, with Waterways in a building of its own. Highways manages the trunk expressways, among them the Sillua Expressway, at about 2,190 km the longest polar expressway in the world, and maintains their snow sheds and winter clearing; Railways oversees the Sillua Vacuum Maglev and the Ukkuliit Vacuum Maglev Heavy-Haul Railway, and Air Transport coordinates the routes of Nuqattaaq International Airport and the regional airports, which carry most supplies to remote places in the polar night.
     in: div_9s80v8
     offset_km: [-1.2, 0.3]
-    site: { size_m: [150, 80], layout: slab }
 
   - id: bld_d6s4eb
-    subtype: government
+    type: government_slab_120x70
     status: generated
     names:
       zh: 北冰洋领地交通部水路司
@@ -957,10 +938,9 @@ places:
       en: The Waterways Department of the Ministry of Transport has its own building west of the ministry and looks after the territory's lifeline to the outside world. With no land link to any other territory, most fuel, food and building materials arrive by sea. A warm current keeps Nuqattaaq, Saarvaq and the other south-coast ports open all year, while the north coast freezes in winter and is reached by icebreaker. The department runs the territory's icebreaker fleet, sets the dates when north-coast routes open and close and arranges icebreaker escorts for freighters; it also inspects ships, leads search and rescue at sea and keeps ice observation posts at the north-coast ports, issuing a sea-ice forecast every day.
     in: div_9s80v8
     offset_km: [-1.5, 0.3]
-    site: { size_m: [120, 70], layout: slab }
 
   - id: bld_6asj45
-    subtype: government
+    type: government_lshape_140x110
     status: generated
     names:
       zh: 北冰洋领地建设部
@@ -973,10 +953,9 @@ places:
       en: The Ministry of Construction of the Arctic Ocean Territory, in Qummarvik's west cluster, is in charge of planning, housing and the building trade. Its departments are Policy, Housing Support, Property Market Supervision, Building Market Supervision, Urban Development and Rural Development. Most buildings on the permafrost stand on piles with an open ground floor so that cold air flows underneath and the ground stays frozen, and Building Market Supervision writes those rules; Urban Development planned Nuqattaaq's Central Dome and its network of skyways, which let people walk about in the polar night and in blizzards. Housing Support provides public rental homes for incoming technology workers and local families, and Rural Development brings heating and water to the tundra settlements.
     in: div_9s80v8
     offset_km: [-1.2, -0.05]
-    site: { size_m: [140, 110], layout: lshape }
 
   - id: bld_w766s8
-    subtype: government
+    type: government_slab_130x80
     status: generated
     names:
       zh: 北冰洋领地民政部
@@ -989,10 +968,9 @@ places:
       en: The Ministry of Civil Affairs of the Arctic Ocean Territory, in Qummarvik's south-east cluster, deals with civil society, social assistance and the administrative divisions. Its departments are Policy, Social Organisations, Social Assistance, Charities, Other Social Affairs and Administrative Divisions. Administrative Divisions manages the boundaries of the cities, the districts and the Tavrulit Indigenous Autonomous Region; most place names in the territory are Tavrunaq, and new ones are agreed with the Council of Elders. Social Organisations registers reindeer herders' co-operatives, hunting associations and cultural groups, Social Assistance gives fuel allowances and home visits to elderly people living alone and to families in hardship during the polar night, and Other Social Affairs handles marriage registration and funerals.
     in: div_9s80v8
     offset_km: [0.4, -0.85]
-    site: { size_m: [130, 80], layout: slab }
 
   - id: bld_wqmg1w
-    subtype: government
+    type: government_slab_130x80
     status: generated
     names:
       zh: 北冰洋领地劳动和社会保障部
@@ -1005,10 +983,9 @@ places:
       en: The Ministry of Labour and Social Security of the Arctic Ocean Territory, in Qummarvik's south-east cluster, covers jobs, training, labour relations and social insurance. Its departments are Employment, Vocational Skills, General Trades, Special Trades, Labour Arbitration and Public Labour Insurance. Mining, icebreaker shipping and fieldwork in extreme cold are hazardous trades, and Special Trades sets how long shifts may last at low temperatures and when work must stop. Vocational Skills trains data-centre technicians, mining engineers and polar tourism staff with the University of the Arctic Ocean and the colleges, Employment helps young people from Tavrunaq-speaking communities into finance and technology, and Public Labour Insurance runs the territory-wide pension, unemployment and work-injury schemes.
     in: div_9s80v8
     offset_km: [0.75, -0.85]
-    site: { size_m: [130, 80], layout: slab }
 
   - id: bld_gahex0
-    subtype: government
+    type: government_lshape_140x110
     status: generated
     names:
       zh: 北冰洋领地卫生和人类服务部
@@ -1021,10 +998,9 @@ places:
       en: The Ministry of Health and Human Services of the Arctic Ocean Territory, in Qummarvik's south-east cluster, is responsible for food and drug safety, health care, public insurance and welfare. Its eleven departments are Food Policy, Food Supervision, Food Professions, Medical and Drug Policy, Medical and Drug Supervision, Medical and Drug Professions, Medical and Drug Technology, Public Health Insurance, Other Public Insurance, Public Health and Public Welfare. Most fresh fruit and vegetables are imported, and Food Supervision tests them along with local reindeer meat and smoked fish; Public Health runs light therapy and mental health services for the polar night and flies doctors to the tundra settlements, and Public Health Insurance and Public Welfare give every resident the same cover and benefits wherever they live.
     in: div_9s80v8
     offset_km: [1.1, -0.85]
-    site: { size_m: [140, 110], layout: lshape }
 
   - id: bld_my9p8e
-    subtype: government
+    type: government_slab_150x80
     status: generated
     names:
       zh: 北冰洋领地自然资源和环境保护部
@@ -1037,10 +1013,9 @@ places:
       en: The Ministry of Natural Resources and Environmental Protection of the Arctic Ocean Territory, in Qummarvik's west cluster, protects and manages the territory's land, minerals, ice and seas. Its departments are Policy, Nature Conservation, Land Ecology, Freshwater Ecology, Marine Ecology, Air Quality, Soil Ecology, Solid Waste and Chemicals, Environmental Impact and Emissions, and Environmental Monitoring, with an Environmental Enforcement Agency; Nature Conservation has its own building. The impact assessors approve mines, data centres and ports and require mines to restore the tundra when they close, Environmental Monitoring tracks the Sirmi Ice Cap, the permafrost and the inland lakes, and Freshwater Ecology regulates the water the data centres use for cooling.
     in: div_9s80v8
     offset_km: [-1.5, -0.05]
-    site: { size_m: [150, 80], layout: slab }
 
   - id: bld_frqd47
-    subtype: government
+    type: government_slab_120x70
     status: generated
     names:
       zh: 北冰洋领地自然资源和环境保护部自然生态保护司
@@ -1053,10 +1028,9 @@ places:
       en: "The Nature Conservation Department of the Ministry of Natural Resources and Environmental Protection has its own building west of the ministry. More than half of the territory's land is set aside as nature reserves and ice cap management areas, and the department draws their boundaries, patrols them and runs them: the Sirmi Ice Cap management area, the reindeer migration routes across the tundra and the coasts where walrus and polar bears live are all on its lists. Hunting and herding inside the reserves are managed jointly with the Tavrulit Council of Elders, and traditional hunting rights are protected. Its rangers patrol the reserves by snowmobile and light aircraft and count the wildlife."
     in: div_9s80v8
     offset_km: [-1.8, -0.05]
-    site: { size_m: [120, 70], layout: slab }
 
   - id: bld_n462he
-    subtype: government
+    type: government_block_80x80
     status: generated
     names:
       zh: 中央政府常驻北冰洋领地高级国务督办办公室
@@ -1069,10 +1043,9 @@ places:
       en: The Office of the Senior State Commissioner of the Central Government in the Arctic Ocean Territory, in Qummarvik's north-east cluster, is the central government's highest standing representation in the territory. The Senior State Commissioner sees that national laws and policies are carried out and links central responsibilities such as defence and foreign affairs with territorial business, for example the security of the Arctic shipping lanes, international cooperation in polar research and the cross-border side of supervising the financial zone. When a territorial matter needs central approval, the office forwards it and follows it up. It meets the Executive Council in regular joint sessions and reports on the territory to the central government every year.
     in: div_9s80v8
     offset_km: [0.75, 1.05]
-    site: { size_m: [80, 80], layout: block }
 
   - id: bld_n7v763
-    subtype: government
+    type: government_block_80x80
     status: generated
     names:
       zh: 中央政府常驻北冰洋领地巡视员办公室
@@ -1085,10 +1058,9 @@ places:
       en: The Office of the Central Government Inspector in the Arctic Ocean Territory, in Qummarvik's north-east cluster, is sent by the central government to inspect and oversee the territory's administration at every level. Inspectors regularly check how the ministries, the city governments and public companies carry out policy, spend public money and keep their officials honest, and the share-out of the Arctic Ocean Public Bank's profits and the residents' dividend are a standing focus. To reach the north coast and the tundra settlements they fly in light aircraft or, in summer, go by boat. What they find goes to both the central government and the premier, and they follow it up. The office has a public reception room and takes reports online, and summaries of its reports are published.
     in: div_9s80v8
     offset_km: [1.05, 1.05]
-    site: { size_m: [80, 80], layout: block }
 
   - id: bld_d4vna5
-    subtype: government
+    type: government_block_80x80
     status: generated
     names:
       zh: 中央政府常驻北冰洋领地人权事务高级专员办公室
@@ -1101,10 +1073,9 @@ places:
       en: The Office of the Central Government High Commissioner for Human Rights in the Arctic Ocean Territory, in Qummarvik's north-east cluster, is sent by the central government to watch over human rights in the territory. Native speakers of Tavrunaq are more than half the population, and the High Commissioner pays particular attention to indigenous land and hunting rights, the use of Tavrunaq in the courts, schools and public services, and the self-government of the Tavrulit Indigenous Autonomous Region. It also looks at the rights of incoming workers and at conditions in detention, can examine records and visit remand centres, hears individual complaints and makes recommendations to territorial bodies. Indigenous rights take up the longest chapter of its yearly report.
     in: div_9s80v8
     offset_km: [1.35, 1.05]
-    site: { size_m: [80, 80], layout: block }
 
   - id: bld_p5r7bm
-    subtype: government
+    type: government_block_90x90
     status: generated
     names:
       zh: 北冰洋领地政策和计划委员会
@@ -1117,4 +1088,3 @@ places:
       en: The Arctic Ocean Territory Policy and Planning Commission is a special commission directly under the Executive Council, in Qummarvik's north-east cluster, chaired by the premier with the ministers, independent experts and representatives of the Tavrulit Council of Elders as members. It draws up the territory's medium- and long-term development plans, coordinates major policies that cross ministries and reviews how they are working. The growth of the financial zone, data centres and power supply, great works like the Sillua Expressway and the long-term risks of a changing ice cap and permafrost all take shape here before going to the territorial parliament. Its yearly development report gives figures on each city's population, output and public services.
     in: div_9s80v8
     offset_km: [1.25, 0.75]
-    site: { size_m: [90, 90], layout: block }

@@ -4,7 +4,7 @@
 places:
   # ── 米雷兰市：湖光大道两端的政务院主楼和领地议会、中段的公民广场和领地图书馆；伊拉米区的研究院和大学 ──
   - id: bld_bby8as
-    subtype: government
+    type: government_courtyard_300x240
     status: generated
     names:
       zh: 长夏群岛领地政府
@@ -19,7 +19,6 @@ places:
     in: div_z0z4vz
     offset_km: [-0.26, 0.91]
     emblem_of: div_nwm019
-    site: { layout: courtyard, size_m: [300, 240] }
   - id: bld_855nra
     subtype: government
     status: generated
@@ -73,7 +72,7 @@ places:
     offset_km: [-0.5, 0.4]
     site: { layout: campus, size_m: [700, 450] }
   - id: poi_4dhh8j
-    subtype: university
+    type: university_campus_900x600
     status: generated
     names:
       zh: 长夏群岛大学高原校区
@@ -84,7 +83,6 @@ places:
       en: "The Plateau Campus is the capital campus of the University of the Everlong Summer Islands, in Ilami District in the east of Mirelan, a name that means \"knowledge\" in Ivuran. Covering about 900 × 600 m, it has schools of medicine, public health and agricultural science and runs graduate courses jointly with the neighbouring Everlong Summer Islands Institute of Tropical Medicine, which works on vaccines and drugs for malaria, dengue and other tropical infectious diseases; medical students train at the institute's hospital, which takes difficult cases referred from all over the territory. Up on the plateau it is cooler than the coast, its trial fields grow highland coffee and new rice varieties, and the agricultural scientists often run trials in the coffee gardens of Hanupala District and on the terraces of the central ridge. The main campus is in Ilavam District, Sarunnam, linked to the capital by the Everlong Summer Vacuum Maglev, and many teachers commute between the two campuses to teach. Education is free up to university in the territory; about three in ten academics in the district come from around the world, and Chinese, English and Ivuran can all be heard in class.\nPlateau nights are cool and students always carry a sweater to class, so freshers from the coast are often given one printed with the university's name by older students, an initiation into \"the sweater capital\". When the trial fields are harvested, the agriculture school cooks the new rice in a great pot for the whole university to taste; everyone votes on each variety, and the winner is given a nickname by the students. Before graduating, medical students go out once with the institute's teams to survey mosquitoes in the countryside, and always come back with a few bites on their arms, which they jokingly call \"the tropical medicine diploma\"."
     in: div_56take
     offset_km: [1.0, -0.8]
-    site: { layout: campus, size_m: [900, 600] }
   - id: poi_qkqw91
     subtype: airport
     status: generated
@@ -101,7 +99,7 @@ places:
 
   # ── 长夏群岛领地政务院机构（M45）：米雷兰帕萨卢区湖光大道两侧，北段是对外、财政、司法、治安、民政、建设和中央派驻机构，南段是教科文、交通、卫生、劳社、自然资源及单独建楼的五个司，政策和计划委员会在公民广场东侧 ──
   - id: bld_jj116n
-    subtype: government
+    type: government_lshape_140x110
     status: generated
     names:
       zh: 长夏群岛领地对外事务部
@@ -114,9 +112,8 @@ places:
       en: The Ministry of External Affairs stands at the north end of Lakelight Avenue in Mirelan, on the west side next to the Government building, and handles the territory's dealings abroad and its liaison with the central government. Its departments are Policy, Central Government Liaison, Foreign Missions, Protocol, International Exchange and Consular Services. Half of the territory's people came from other provinces of China or from abroad, and most foreign consulates and trade offices are in Sarunnam, where the Foreign Missions Department keeps in touch with them. Protocol stages state welcomes on Civic Square, International Exchange arranges cooperation in tropical medicine, ocean science and tropical farming, and Consular Services certifies documents for foreign residents in Chinese, English and Ivuran. The L-shaped building has a shaded colonnade along the avenue.
     in: div_z0z4vz
     offset_km: [-0.36, 0.54]
-    site: { size_m: [140, 110], layout: lshape }
   - id: bld_jfg4ek
-    subtype: government
+    type: government_slab_150x80
     status: generated
     names:
       zh: 长夏群岛领地财政部
@@ -129,9 +126,8 @@ places:
       en: "The Ministry of Finance faces the Ministry of External Affairs across Lakelight Avenue and runs the territory's taxes, budgets and financial oversight through its departments of Taxation, Customs Tariffs, Supervision, Executive Budgets, Public Enterprise and Institution Budgets, and Central Finance. The territory taxes heavily and spends generously: income tax, social insurance and consumption tax are all set high, and the rents from public land, which is leased rather than sold, bring in a great deal more. Together they pay for free education up to university, universal health cover and the monthly universal basic income. The Evutola Commune sets its own taxes, and Central Finance settles with the commune council by agreement for the foreign affairs, defence and other services the Executive Council provides. The building is a long slab with the territory's financial archive underground."
     in: div_z0z4vz
     offset_km: [0.02, 0.65]
-    site: { size_m: [150, 80], layout: slab }
   - id: bld_ffpdcg
-    subtype: government
+    type: government_lshape_140x110
     status: generated
     names:
       zh: 长夏群岛领地司法部
@@ -144,9 +140,8 @@ places:
       en: "The Ministry of Justice, at the north end of Lakelight Avenue on the west side, drafts and applies the territory's laws and runs prosecutions and the administration of justice. It has nine departments: National Law Enforcement, Territorial Regulations, Legislative Drafting and Standards, Prosecutions, Judicial Inspection, Detention, Community Corrections, Legal Professions and Legal Research. Territorial laws are published at once in Chinese, English and Ivuran, and the drafting department keeps the three texts in step. Because the territory regulates the environment, working conditions and food safety so strictly, Prosecutions has an office of its own for regulatory cases. Crime is rare, and Community Corrections lets most minor offenders stay in their communities under supervision and job training. The L-shaped building has a law library beside its inner yard."
     in: div_z0z4vz
     offset_km: [-0.31, 0.37]
-    site: { size_m: [140, 110], layout: lshape }
   - id: bld_8wmf0n
-    subtype: government
+    type: government_slab_150x80
     status: generated
     names:
       zh: 长夏群岛领地公共安全部
@@ -159,9 +154,8 @@ places:
       en: The Ministry of Public Security, at the north end of Lakelight Avenue on the east side, directs policing and public order across the territory. Its departments are Police, Policing Operations, Border Services and Security, Criminal Investigation, Civil Investigation, Economic Crime, Community Safety, and Technology and Equipment. Border Services and Security runs the checkpoints at the ports of Vallikkai, Sarunnam and Talumaran and at the international airports, working against smuggling and illegal entry; Community Safety runs neighbourhood policing in every city and, in the rainy season, rescue after floods and landslides; and Technology and Equipment supplies the expressway police with the patrol cars and helicopters they use on the unrestricted stretches. The territory's emergency call and dispatch centre is on the ground floor, where call-takers answer in Chinese, English or Ivuran.
     in: div_z0z4vz
     offset_km: [0.07, 0.48]
-    site: { size_m: [150, 80], layout: slab }
   - id: bld_4rwddb
-    subtype: government
+    type: government_slab_130x80
     status: generated
     names:
       zh: 长夏群岛领地民政部
@@ -174,9 +168,8 @@ places:
       en: The Ministry of Civil Affairs, at the north end of Lakelight Avenue on the west side, just north of the Everlong Summer Boulevard junction, deals with civil society, social assistance and the territory's administrative divisions. Its departments are Policy, Social Organisations, Social Assistance, Charities, Other Social Affairs and Administrative Divisions. Administrative Divisions sets up, adjusts and names the 12 cities and 64 districts, including the three special kinds, the commune, the national park area and the military zone. Every place name comes from Ivuran, transliterated by sound in Chinese and spelt in Ivuran in English. Faith in the territory is varied, and Social Organisations registers temples, churches and associations of every kind; Other Social Affairs handles marriage registration, funerals and the resettlement of veterans, and the ministry proposes the calendar of the territory's many festival holidays.
     in: div_z0z4vz
     offset_km: [-0.26, 0.19]
-    site: { size_m: [130, 80], layout: slab }
   - id: bld_jxj6k0
-    subtype: government
+    type: government_lshape_140x110
     status: generated
     names:
       zh: 长夏群岛领地建设部
@@ -189,9 +182,8 @@ places:
       en: The Ministry of Construction, at the north end of Lakelight Avenue on the east side, is in charge of town and country planning, housing and the building trade. Its departments are Policy, Housing Support, Property Market Supervision, Building Market Supervision, Urban Development and Rural Development. Mirelan was built from scratch on the plateau to a plan it approved, and Lakelight Avenue is the backbone of that plan. Land in the territory is public and leased for homes and factories; Property Market Supervision oversees subletting and rents and forbids speculation, Housing Support builds public rental housing in every city with rents set by income, and Building Market Supervision writes the codes for a hot, humid climate and monsoon downpours, which require new buildings to have shaded colonnades and roof gardens.
     in: div_z0z4vz
     offset_km: [0.12, 0.31]
-    site: { size_m: [140, 110], layout: lshape }
   - id: bld_y4r854
-    subtype: government
+    type: government_lshape_150x110
     status: generated
     names:
       zh: 长夏群岛领地教育、科学和文化部
@@ -204,9 +196,8 @@ places:
       en: The Ministry of Education, Science and Culture, at the south end of Lakelight Avenue on the west side, just south of Civic Square, covers education from nursery to university, the territory's science policy and its cultural life. Its thirteen units are the Education Policy, Science Policy, Cultural Policy, Educational Technology, Information Technology, Teaching Professions, Science and Technology Professions, Cultural Professions, Pre-school, Basic Education, Adult and Vocational Education and Higher Education departments and the Education Inspectorate. Education is free from kindergarten to university, schools teach in Chinese, English and Ivuran, and the University of the Everlong Summer Islands and Kilanu University of Technology both come under it. The Cultural Policy Department looks after the old royal city of Sarunnam and the Ishvanta temples, and the Territorial Library on Civic Square is also in its care.
     in: div_z0z4vz
     offset_km: [0.06, -0.92]
-    site: { size_m: [150, 110], layout: lshape }
   - id: bld_3akx22
-    subtype: government
+    type: government_slab_150x80
     status: generated
     names:
       zh: 长夏群岛领地交通部
@@ -219,9 +210,8 @@ places:
       en: The Ministry of Transport, at the south end of Lakelight Avenue on the east side, runs the territory's roads, railways, shipping and air transport. Its departments are Policy, Transport Professions, Road Transport, Highways, Railways, Waterways and Air Transport. Highways manages the Imimu, Selo and Nalu national expressways and the territorial expressways; the Imimu Expressway reaches the Kirumai Islands over the Hanusiru Estuary Sea Bridge, about 101 km long, and most of the territory's expressways have no speed limit. Railways oversees the Everlong Summer and Sarunnam–Lomiran vacuum maglevs at 800 km/h, the three high-speed lines at 400 km/h and the Unovila Vacuum Maglev Heavy-Haul Railway, Waterways the ports of Vallikkai, Talumaran and Sarunnam, and Air Transport the routes of Sarunnam International and the other airports. Transport Professions examines and licenses drivers, seafarers and aircrew.
     in: div_z0z4vz
     offset_km: [0.44, -0.81]
-    site: { size_m: [150, 80], layout: slab }
   - id: bld_hjs12w
-    subtype: government
+    type: government_lshape_140x110
     status: generated
     names:
       zh: 长夏群岛领地卫生和人类服务部
@@ -234,9 +224,8 @@ places:
       en: The Ministry of Health and Human Services, at the south end of Lakelight Avenue on the west side, is responsible for food and drug safety, health care, public insurance and public welfare, and is one of the territory's biggest spenders. Its eleven departments are Food Policy, Food Supervision, Food Professions, Medical and Drug Policy, Medical and Drug Supervision, Medical and Drug Professions, Medical and Drug Technology, Public Health Insurance, Other Public Insurance, Public Health and Public Welfare; Public Welfare, Public Health Insurance and Food Supervision have buildings of their own in the row behind. Public Health works with the Institute of Tropical Medicine in Ilami District against malaria and dengue, and sends travelling clinics and air ambulances to the mountain villages and outer islands.
     in: div_z0z4vz
     offset_km: [0.11, -1.09]
-    site: { size_m: [140, 110], layout: lshape }
   - id: bld_hv16vj
-    subtype: government
+    type: government_slab_130x80
     status: generated
     names:
       zh: 长夏群岛领地劳动和社会保障部
@@ -249,9 +238,8 @@ places:
       en: The Ministry of Labour and Social Security, at the south end of Lakelight Avenue on the east side, covers jobs, training, labour relations and social insurance. Its departments are Employment, Vocational Skills, General Trades, Special Trades, Labour Arbitration and Public Labour Insurance, of which Employment and Labour Arbitration have buildings of their own in the row behind. Special Trades sets the qualifications and hours for mines, smelters, shipyard welding and chip-plant clean rooms, and the rule that outdoor work stops in the midday heat; Vocational Skills runs courses in semiconductors, shipbuilding and tourism with each city's colleges; and Public Labour Insurance runs the territory-wide pension, unemployment and work-injury schemes and the long paid parental leave that both parents can take.
     in: div_z0z4vz
     offset_km: [0.49, -0.98]
-    site: { size_m: [130, 80], layout: slab }
   - id: bld_hb9wzc
-    subtype: government
+    type: government_lshape_150x110
     status: generated
     names:
       zh: 长夏群岛领地自然资源和环境保护部
@@ -264,9 +252,8 @@ places:
       en: The Ministry of Natural Resources and Environmental Protection, at the south end of Lakelight Avenue on the west side, protects and manages the territory's land, forests, rivers, lakes and seas. Its departments are Policy, Nature Conservation, Land Ecology, Freshwater Ecology, Marine Ecology, Air Quality, Soil Ecology, Solid Waste and Chemicals, Environmental Impact and Emissions, and Environmental Monitoring, with an Environmental Enforcement Agency. All land in the territory is public, and the ministry leases it out on the territory's behalf. The rainforest of Lomihanu National Park, the coral reefs of Malakan and the delta mangroves are on its protected lists, and no new oil palm plantations are allowed. The Unovila mines must replant as they dig and backfill their tailings, and the Enforcement Agency inspects them every month.
     in: div_z0z4vz
     offset_km: [0.16, -1.27]
-    site: { size_m: [150, 110], layout: lshape }
   - id: bld_v4kjt0
-    subtype: government
+    type: government_block_90x90
     status: generated
     names:
       zh: 长夏群岛领地政策和计划委员会
@@ -279,9 +266,8 @@ places:
       en: The Everlong Summer Islands Policy and Planning Commission is a special commission directly under the Executive Council, on the east side of Civic Square facing the Territorial Library across it. Chaired by the premier, with the ministers and independent experts as members, it draws up the territory's medium- and long-term development plans, coordinates major policies that cross ministries and reviews how policies are working. Building a new capital on the plateau, the Everlong Summer Vacuum Maglev and the Hanusiru Estuary Sea Bridge, and linking the Unovila nickel mines to the Peruno smelter and battery works all took shape here before going to the assembly. Every year the commission publishes a development report with each city's population, output, public services and the results of the residents' happiness survey. The square building is screened on all four sides by sun louvres.
     in: div_z0z4vz
     offset_km: [0.48, -0.38]
-    site: { size_m: [90, 90], layout: block }
   - id: bld_7tnsnf
-    subtype: government
+    type: government_block_80x80
     status: generated
     names:
       zh: 中央政府常驻长夏群岛领地高级国务督办办公室
@@ -294,9 +280,8 @@ places:
       en: The Office of the Senior State Commissioner of the Central Government in the Everlong Summer Islands, in the second row on the west side of Lakelight Avenue's north end, is the central government's highest standing representation in the territory. The Senior State Commissioner sees that national laws and policies are carried out here and links the central government's own responsibilities, such as defence and foreign affairs, with territorial business, for example the naval and air bases in the Vahira Islands and the opening of international air routes and ocean ports. The Evutola Commune's foreign and defence matters also pass through the office. When a territorial matter needs central approval, the office forwards it and follows it up. It meets the Executive Council in regular joint sessions and reports on the territory to the central government every year. The square building flies the national and territorial flags at its door.
     in: div_z0z4vz
     offset_km: [-0.56, 0.49]
-    site: { size_m: [80, 80], layout: block }
   - id: bld_7cptf4
-    subtype: government
+    type: government_block_80x80
     status: generated
     names:
       zh: 中央政府常驻长夏群岛领地巡视员办公室
@@ -309,9 +294,8 @@ places:
       en: The Office of the Central Government Inspector in the Everlong Summer Islands, in the second row on the east side of Lakelight Avenue's north end, is sent by the central government to inspect and oversee the territory's administration at every level. Inspectors regularly visit the Council's ministries, the city governments, the Evutola Commune council and public companies to check how policies are carried out, how public money is spent and whether officials are honest; what they find goes to both the central government and the premier, and they follow it up until it is put right. With taxes and welfare spending so large, one focus is how the universal basic income and public housing funds are used. The office's public reception room hears residents' complaints and reports in Chinese, English or Ivuran, and summaries of its inspection reports are published.
     in: div_z0z4vz
     offset_km: [0.21, 0.71]
-    site: { size_m: [80, 80], layout: block }
   - id: bld_f9q27f
-    subtype: government
+    type: government_block_80x80
     status: generated
     names:
       zh: 中央政府常驻长夏群岛领地人权事务高级专员办公室
@@ -324,9 +308,8 @@ places:
       en: The Office of the Central Government High Commissioner for Human Rights in the Everlong Summer Islands, in the second row on the west side of Lakelight Avenue's north end, is sent by the central government to watch over human rights in the territory. With half the population made up of migrants, the High Commissioner pays particular attention to equal treatment of migrants and local people in jobs, housing and public services, to the right of Ivuran speakers to use their own language in court and with the government, and to the rights of mine, shipyard and plantation workers. The office can examine records, visit remand centres and community corrections, hear individual complaints and make recommendations to territorial bodies. Its yearly human rights report is published, and the chapters on language rights and migrant workers draw the most attention.
     in: div_z0z4vz
     offset_km: [-0.51, 0.31]
-    site: { size_m: [80, 80], layout: block }
   - id: bld_skqsja
-    subtype: government
+    type: government_slab_120x70
     status: generated
     names:
       zh: 长夏群岛领地卫生和人类服务部公共福利司
@@ -339,9 +322,8 @@ places:
       en: The Public Welfare Department of the Ministry of Health and Human Services has its own building behind the ministry and carries out the territory's generous welfare system. Every month it pays the universal basic income to every resident, whatever their income and whether or not they work. It also runs childcare, care homes, disability services and the community canteens of each district, and pays a childcare allowance to families with newborns. In the residents' happiness survey, what people mention most is that they need not worry about doctors, schooling or old age, and much of that is this department's work. Every district has a welfare service centre where residents can settle any welfare matter at a single counter, in Chinese, English or Ivuran.
     in: div_z0z4vz
     offset_km: [-0.14, -0.98]
-    site: { size_m: [120, 70], layout: slab }
   - id: bld_ag99h6
-    subtype: government
+    type: government_slab_120x70
     status: generated
     names:
       zh: 长夏群岛领地卫生和人类服务部公共健康保险司
@@ -354,9 +336,8 @@ places:
       en: "The Public Health Insurance Department of the Ministry of Health and Human Services has its own building behind the ministry and runs the universal health cover that includes every resident. The territory has a single public health insurance scheme: doctor's visits, hospital stays and medicines are covered from one list, and most of it costs the patient nothing. Patients from the outer islands and the mountains who are sent on to Sarunnam or to the institute hospital in Ilami have their travel paid too. Every year the department negotiates drug and service prices with manufacturers and hospitals, and new medicines for tropical diseases from the territory's own biomedical firms are added to the list only after its review. The fund is paid for by social insurance contributions and the territorial budget, and its accounts are published every year."
     in: div_z0z4vz
     offset_km: [-0.09, -1.15]
-    site: { size_m: [120, 70], layout: slab }
   - id: bld_y4145k
-    subtype: government
+    type: government_slab_120x70
     status: generated
     names:
       zh: 长夏群岛领地卫生和人类服务部食品监管司
@@ -369,9 +350,8 @@ places:
       en: The Food Supervision Department of the Ministry of Health and Human Services has its own building behind the ministry and is the part of the territory's strict regulation that residents meet most often. It tests the territory's rice, spices, fruit and seafood, monitors the water where pearl oysters, fish and prawns are farmed, and spot-checks exported pepper, cardamom and tropical fruit for pesticide residues. The thousand boat stalls of the Sarunnam water market and every night market and food stall in the territory display its hygiene grade, which is rechecked every quarter. Its tropical food laboratory watches especially for mould toxins and for bacteria in seafood during the rainy season.
     in: div_z0z4vz
     offset_km: [-0.04, -1.32]
-    site: { size_m: [120, 70], layout: slab }
   - id: bld_ter4s7
-    subtype: government
+    type: government_slab_120x70
     status: generated
     names:
       zh: 长夏群岛领地劳动和社会保障部就业司
@@ -384,9 +364,8 @@ places:
       en: The Employment Department of the Ministry of Labour and Social Security has its own building behind the ministry and runs the territory's employment services and labour market policy. Half the territory's people are migrants, and thousands more arrive every year to work in semiconductors, shipbuilding, batteries and tourism, so the department keeps a public employment centre in every city where newcomers can find work and register free of charge and receive grants for language classes. Residents out of work draw unemployment insurance and can also take the Vocational Skills Department's training courses for free. Every quarter the department publishes the demand for workers and the wages in each city, which schools and colleges use to plan their courses.
     in: div_z0z4vz
     offset_km: [0.63, -0.75]
-    site: { size_m: [120, 70], layout: slab }
   - id: bld_y8pfmh
-    subtype: government
+    type: government_slab_120x70
     status: generated
     names:
       zh: 长夏群岛领地劳动和社会保障部劳动仲裁司
@@ -399,7 +378,6 @@ places:
       en: The Labour Arbitration Department of the Ministry of Labour and Social Security has its own building behind the ministry and settles labour disputes. The territory's labour laws are strict, with clear rules on minimum wages, hours, paid leave and work in the heat, and any worker who feels wronged can bring a case to arbitration free of charge. The department sits in every city, most cases are decided within 45 days, and arbitrators hear them in Chinese, English or Ivuran. The industrial districts of Sarunnam, Talumaran and Kilanu bring the most cases, mostly about overtime pay and whether an injury happened at work. The department publishes typical cases regularly so that employers and workers know the rules.
     in: div_z0z4vz
     offset_km: [0.68, -0.93]
-    site: { size_m: [120, 70], layout: slab }
 
   # ── 萨伦纳姆市：旧王城、寺庙群、水上市场、萨伦纳姆塔、港口与机场 ──
   - id: poi_myws2w
@@ -542,7 +520,7 @@ places:
     offset_km: [0.5, 0.8]
     site: { layout: complex, size_m: [1600, 1000] }
   - id: bld_ypdanb
-    subtype: museum
+    type: museum_hall_200x120
     status: generated
     names:
       zh: 坎纳鲁尔香料仓库博物馆
@@ -553,7 +531,6 @@ places:
       en: "The Kannarur Spice Warehouse Museum stands by the old harbour in Kannarur District, the old town of Vallikkai City; in Ivuran it is \"Kannarur Tiravam\", and it occupies a stone spice warehouse about 200 m long and 120 m wide. Kannarur's name means \"the village before your eyes\": arcaded streets line the old harbour, the spice warehouses and old trading houses have become restaurants and museums, and the old town is at its liveliest at the early-morning fish market and the evening night market by the sea. Vallikkai's harbour commands the east–west shipping lanes, and since the days of the old kingdom pepper, cardamom and cinnamon have been loaded here for distant ports; the museum shows the spice trade since the old kingdom, model sailing ships and the ledgers of the old trading houses, its thick stone walls keep it cool all year, and the scent of pepper and cinnamon still hangs in it. The first station of Vallikkai Metro Line 1 is named after the museum, one stop from Vallikkai Station on the Everlong Summer Vacuum Maglev.\nVallikkai is the rainiest city in the territory, with more than 2,700 mm of rain a year, and from the metro station you can walk along the arcades to the museum without an umbrella. The museum's tea room brews spiced milk tea to an old recipe, with the cardamom and cinnamon that were once stored in these very warehouses; most old-town residents speak the southern dialect of Ivuran, and the old people in the tea room reminisce in it about the days of carrying spice sacks on the quays.\nA \"scent wall\" of dozens of little drawers holds different spices, and visitors open them to sniff and guess the name; local children often come to compete, and the best of them, it is said, can name thirty in a row."
     in: div_3ytmrh
     offset_km: [0.4, 0.8]
-    site: { layout: hall, size_m: [200, 120] }
   - id: bld_7cfdym
     subtype: marketplace
     status: generated
@@ -584,7 +561,7 @@ places:
     offset_km: [-3.0, 2.0]
     site: { layout: park, size_m: [6000, 4000] }
   - id: bld_3ajjzv
-    subtype: museum
+    type: museum_hall_180x120
     status: generated
     names:
       zh: 温达坎梯田博物馆
@@ -595,7 +572,6 @@ places:
       en: "The Undakan Terrace Museum stands in Kandava District, the town proper of Undakan City; in Ivuran it is \"Undakan Oluvatu Tiravam\", a hall about 180 m long and 120 m wide on how the terraces were built and watered and how the villages share their water. Kandava lies in a river valley, its name meaning \"gate in the mountains\"; old timber houses climb the slopes, the terrace museum, the agricultural college and a weekly hill-produce market are all here, and visitors bound for the terraces change here to the mountain buses. Undakan's name means \"place of steps\", and the terraces of Perunda and Silinda districts climb from the valley floors to more than 1,000 m up the mountainsides, the Perunda Rice Terraces being the largest rice terraces in the world. The galleries tell how the terraces were built tier by tier along the contours, how the water flows down from the forest on the heights through every field, and how the village communities agree together on upkeep and the sharing of water; on display are wooden drums used by the villages for generations and boards carved with the rules for sharing water. Outside is a small demonstration terrace where visitors can plant rice with the villagers.\nThe terraces grow one crop of rice a year, with fish and ducks raised in the paddies at the same time, and the museum's little restaurant follows village custom, baking paddy fish and new rice in bamboo tubes; on the wall is the elders' saying \"Uvesa lomi, olu unda\", \"rain falls into the forest, rice climbs the steps\".\nOn planting-season weekends visitors can learn to plant walking backwards to the drum in the demonstration terrace; the drummer is usually the oldest person in the village, and as the beat quickens or slows, every pair of hands in the field follows it."
     in: div_6cy2yw
     offset_km: [0.4, 1.2]
-    site: { layout: hall, size_m: [180, 120] }
 
   # ── 洛米兰和纳卢迈：雨林、药用植物、植物园和珍珠 ──
   - id: poi_sdnwp3
@@ -644,7 +620,7 @@ places:
     offset_km: [0.3, 1.0]
     site: { layout: park, size_m: [2400, 1600] }
   - id: bld_7z2anq
-    subtype: marketplace
+    type: marketplace_market_300x200
     status: generated
     names:
       zh: 塞纳卢珍珠市场
@@ -655,7 +631,6 @@ places:
       en: "The pearl market on Nalumai's seafront, where the white pearls of Mailua Bay are graded, auctioned and sold, each with a certificate of origin and grade. By Nalumai custom, when a child is born the family sets aside a white pearl from that season's harvest to be strung or set in a ring when the child comes of age, and many families choose that pearl here."
     in: div_afy2b3
     offset_km: [0.8, 0.3]
-    site: { layout: market, size_m: [300, 200] }
   - id: poi_chg63r
     subtype: industrial_park
     status: generated
@@ -698,7 +673,7 @@ places:
     offset_km: [-1.0, 0.5]
     site: { layout: campus, size_m: [1200, 800] }
   - id: poi_39nbzf
-    subtype: airport
+    type: airport_3600x1200
     status: generated
     names:
       zh: 基拉努国际机场
@@ -709,7 +684,7 @@ places:
       en: "Kilanu International Airport lies in Pesavi District of the Special Autonomous City of Kilanu, a name that means \"departure\" in Ivuran. The airport covers about 3,600 × 1,200 m, and an airport road of about 4.5 km links it with the city. Under the Charter of the Special Autonomous City of Kilanu the airport and the port are both bonded zones; the cargo area specialises in chips and other high-value freight, with sealed passages between its climate-controlled warehouses and the apron, and the chips made by the wafer fabs and packaging and test plants of the Nuvila Semiconductor Park are flown from here all over the world. Pesavi District also holds a container terminal and a chemicals terminal, logistics parks line the expressway, and air and sea freight change hands here. The passenger terminal sees streams of engineers and their families come and go every day; about 65 per cent of the city's people are migrants, many from other provinces of China, and the arrivals hall gives directions in Chinese, English and Ivuran.\nThe terminal floor is terrazzo ground from Kilanu's own white quartz sand, and travellers often look down at it as they walk; locals say \"Kilanu's sand starts singing at the airport\". The cargo area is the quietest and the busiest part of the airport: crates of chips travel all the way to the aircraft at constant temperature and humidity, the tugs keep to the sealed passages, and not a speck of dust may touch them. Cargo flights are busiest at night, and loaders coming off the night shift often head together to the late-night stalls of Nuvila District for a plate of seafood fried rice noodles, working out over their food how many crates of chips they have sent off that night."
     in: div_yah63b
     offset_km: [-5.0, 3.0]
-    site: { size_m: [3600, 1200], layout: airport, angle_deg: 40 }
+    site: { angle_deg: 40 }
   - id: poi_a04p2n
     subtype: port
     status: generated
@@ -904,7 +879,7 @@ places:
 
   # ── 基鲁迈联合邦：群岛的机场、渡轮码头、潜水和珊瑚礁 ──
   - id: poi_16y65n
-    subtype: airport
+    type: airport_2800x900
     status: generated
     names:
       zh: 基鲁迈机场
@@ -915,7 +890,7 @@ places:
       en: "Kirumai Airport is the civil airport of the Commonwealth of Kirumai, in Maisari District in the north of Kirumai Island, not far from the harbour town where the Commonwealth Assembly sits; an airport road of about 4 km links the terminal with the town. Maisari's name means \"harbour of pearls\" in Ivuran. Most holidaymakers and divers arrive here, and there are flights to Sarunnam and Mirelan; the airport covers about 2,800 × 900 m, and the runway ends at the beach. From the plane, visitors can head south on the Kirumai Islands Expressway through Karanga District and over the sea to Tilumai and Orovu islands, or change to a boat at the Maisari Ferry Terminal for Malakan and Pilu islands, which have no roads. About three in four people in Maisari District speak Ivuran as their mother tongue, and the airport's announcements are made in turn in Chinese, English and Ivuran.\nThe terminal is small, its roof modelled on the Ivuran stilt house, built of timber beams and palm thatch and open on all sides, so the sea breeze blows straight through the departure hall. On landing passengers see the lagoon's many shades of blue from the window; at arrivals, guesthouse hosts are often waiting with a freshly opened young coconut. At weekends in the high season flights come in one after another and the hall is full of visitors carrying dive gear; in the wet season the afternoon showers arrive fast, and planes sometimes circle a few extra times while the rain clouds drift off the lagoon. On the day guests leave, their hosts tie a string of shells to their luggage, so that, they say, they can find their way back next time."
     in: div_a0nff8
     offset_km: [2.5, -6.0]
-    site: { size_m: [2800, 900], layout: airport, angle_deg: 0 }
+    site: { angle_deg: 0 }
   - id: poi_9a4940
     subtype: ferry_terminal
     status: generated
@@ -955,7 +930,7 @@ places:
     offset_km: [0.5, -0.5]
     site: { layout: campus, size_m: [300, 200] }
   - id: poi_x715ke
-    subtype: port
+    type: port_700x700
     status: generated
     names:
       zh: 皮卢补给码头
@@ -966,7 +941,6 @@ places:
       en: "Pilu Supply Quay lies in Pilu District of the Commonwealth of Kirumai, at the eastern end of the chain; its site covers about 700 × 700 m, the supply ships for the Vahira Islands leave from here, and beside it are a small fishing harbour and a lighthouse. Pilu District is made up of the two small islands at the eastern end of the chain, its name meaning \"little boat\" in Ivuran; the islands have no roads, people and goods travel by boat, and ferries link them with the Maisari Ferry Terminal. Pilu District has 50,000 people, about eight in ten of whom speak Ivuran as their mother tongue; fishing and tourism are its main industries, and the islands also have small resorts. The Vahira Islands lie out to sea east of the chain, about 206 km from Piluni Island, the nearest inhabited island, and are the base of the Navy's Everlong Summer Fleet; the service members and civilian technical staff on the three islands number about 12,000 in all, and their civil administration falls to the Commonwealth of Kirumai. The supply ships sail with fresh water, fruit and vegetables, mail and spare parts and come back with service members going on leave; at Commonwealth Assembly elections the Vahira service members vote in the Pilu constituency, and their ballots come back on the supply ship too.\nBefore the supply ship sails, the fishing families on the quay hand aboard a basket of young coconuts, \"a sip of home\" for those going out to the far islands. The fishermen catch tuna in the deep water beyond the reef, and as the fishing boats come home at dawn the supply ship is often just leaving, the crews waving to each other across the water. The little bar beneath the lighthouse is where sailors wait for their ship; its walls carry the supply ships' voyage logs from years past, and the longest voyage on record ran two days over because of heavy seas."
     in: div_xazhxw
     offset_km: [-4.3, 23.6]
-    site: { size_m: [700, 700], layout: port }
   - id: poi_3yn82m
     subtype: air_base
     status: generated

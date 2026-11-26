@@ -30,7 +30,7 @@ places:
 
   # 乔什葡萄园：十个品种各占一块，上排是坡上较热的红葡萄，下排是谷底较凉的黑皮诺和白葡萄
   - id: poi_5f1rt7
-    subtype: vineyard
+    type: vineyard_900x700_red
     status: generated
     names:
       zh: 乔什葡萄园·赤霞珠
@@ -42,9 +42,9 @@ places:
       en: "The Cabernet Sauvignon block of Josh Vineyard, at the west end of the upper row, its south- and west-facing slope in the sun all afternoon, the hottest and driest block on the estate. Cabernet is thick-skinned, seedy and late to ripen, needing a long warm autumn to round out its tannins, and this slope suits it: the daytime heat builds sugar and colour, and the cool night wind off the sea keeps the acidity. The soil is weathered sandstone and gravel that drains fast, so the vines have to root deep for water, and the berries come small and concentrated.\nThe block is planted on a traditional single trellis, rows a little over two metres apart, with clover and wild flowers between them that are cut in spring and turned in as fertiliser. A rose bush stands at the head of every row: roses catch mildew more readily than vines, so old growers used them as sentinels, and Josh has put a small camera beside each one, so a spotted leaf sends an alert to his phone. Frost fans stand along the track down the middle, starting by themselves on cold spring nights to push the warmer air above down onto the vines.\nCabernet is the flagship of Josh Winery, its wine spending two years in oak before bottling. What Josh likes best, though, are the days of harvest, when everyone on the estate, racing drivers and plate workers included, comes to cut grapes, and at noon tablecloths are spread between the rows for lunch. He says it is the only time of year when everyone puts their phone down, because both hands are full.\nAt the edge of the Cabernet block is a small pond that gathers rain and spring water from the mountain for drip irrigation in dry summers; a few wild ducks and a family of owls live beside it, and the owls hunt voles in the vines at night, which Josh says makes them 'the staff I worry about least'."
     in: div_jjgxvk
     offset_km: [3.6, -1.8]
-    site: { layout: vineyard, angle_deg: 0, variant: red, size_m: [900, 700] }
+    site: { angle_deg: 0 }
   - id: poi_rwymqp
-    subtype: vineyard
+    type: vineyard_900x700_red
     status: generated
     names:
       zh: 乔什葡萄园·西拉
@@ -56,9 +56,9 @@ places:
       en: "The Syrah block of Josh Vineyard, east of the Cabernet, on a steeper slope whose soil is full of large white stones. Syrah loves heat and stands drought well; its fruit is so dark it is nearly black, and its wine smells of black pepper, black olive and smoke. In cooler years it gains a hint of violets, which the winemaker says is Syrah 'reminding you it comes from a hillside'.\nJosh left the stones there on purpose: they soak up heat by day and give it back to the vines slowly at night, so the fruit ripens more evenly through the swing between day and night. The slope is too steep for tractors, so most of the work falls to people and two small tracked robots, one that weeds and one that patrols every day in the week before harvest, scoring each bunch with a spectral camera and telling the pickers which rows to take first. The plate workers named them: one is called 'Slowly' and the other 'Wait a Bit', those being the two pieces of advice they give most often.\nJosh Winery makes Syrah two ways: bottled on its own, dark and powerful, or fermented with a little white Viognier, which oddly makes the colour steadier and the aroma brighter, an old method taught by a veteran winemaker who once stayed on the estate. Josh calls that wine 'Friend', and the first barrel each year always goes to Lucy's Chip City, because Lucy once said the best glass of Syrah she ever had was at Josh's long table.\nAt the head of the Syrah block is a small tool shed, the ground in front of it where grape baskets wait at harvest, and inside hang the secateurs of every picker, each handle carved with its owner's name. Josh's handle is the most worn, and he says they are the one thing on the estate he has no plans to improve with an app."
     in: div_jjgxvk
     offset_km: [4.6, -1.8]
-    site: { layout: vineyard, angle_deg: 0, variant: red, size_m: [900, 700] }
+    site: { angle_deg: 0 }
   - id: poi_c0zmts
-    subtype: vineyard
+    type: vineyard_900x700_red
     status: generated
     names:
       zh: 乔什葡萄园·仙粉黛
@@ -70,9 +70,9 @@ places:
       en: "The Zinfandel block of Josh Vineyard, in the middle of the upper row and the oldest on the estate: its old vines were already here when Josh bought the land. They grow untrellised, each standing alone like a small tree with a rough, twisted trunk, and locals call them 'the old men'. Zinfandel ripens very unevenly, one bunch often carrying green, ripe and already shrivelling berries together, and its wine is rich with fruit, like overripe blackberries and raspberry jam, with a touch of liquorice and spice.\nOld vines yield little, only a few bunches each, so by output this is the least 'efficient' block on the estate, and several consultants advised pulling it up for more valuable varieties. Josh refused. He numbered and photographed every old vine and made a clickable map recording each one's yield, diseases and pruning, and gave a few of the oldest names. He says these vines were here before him and he is only looking after them for a while.\nThe Zinfandel is picked in several passes: the pickers take the ripest bunches first and come back a week later for the rest. The winery makes two wines from it, a rich red and a pale pink rosé for summer by the pool. The estate's children love this block best, because the old vines are low enough to pick from, and the adults pretend not to notice.\nZinfandel came a long way to California: it is in fact the same variety as an old European grape, which was only confirmed by genetic testing. When Josh heard that, he put up a sign at the head of the block reading 'Long-lost relatives'. Each winter, when the old vines are pruned, Josh cuts the oldest few himself, and the cuttings are not thrown away but given to growers nearby, so the old vines' offspring grow on in other people's vineyards too."
     in: div_jjgxvk
     offset_km: [5.6, -1.8]
-    site: { layout: vineyard, angle_deg: 0, variant: red, size_m: [900, 700] }
+    site: { angle_deg: 0 }
   - id: poi_yp01jq
-    subtype: vineyard
+    type: vineyard_900x700_red
     status: generated
     names:
       zh: 乔什葡萄园·梅洛
@@ -84,9 +84,9 @@ places:
       en: "The Merlot block of Josh Vineyard, toward the east of the upper row, on an east-facing slope that gets plenty of morning sun and falls into shade early in the afternoon, a little cooler than the blocks to the west. Merlot ripens earlier than Cabernet, with bigger, thinner-skinned berries, and makes a soft, round wine tasting of plum, cherry and chocolate, its tannins fine and good to drink young. Josh often says Cabernet is the wine you open for guests and Merlot the wine you open for yourself on a Tuesday.\nIts soil is the heaviest clay on the estate and holds water well, which suits this drought-shy variety. But clay also waterlogs, so Josh laid drains beneath the block and put soil moisture probes every few rows, wired straight into an irrigation program he wrote himself: whichever row is dry gets a few minutes of drip and no more. In the program's first year the block's water use fell by nearly half, and the winemaker says the grapes tasted more concentrated, not less.\nAt Josh Winery Merlot is mostly blended with Cabernet Sauvignon and Cabernet Franc, the share of each worked out every year by the winemaker and Josh glass by glass in the tasting room. Blending day is a big day: the long table is laid with dozens of numbered glasses and anyone may vote. One year an old worker from the plate factory picked the very proportions finally chosen, and his prize was a number plate bearing his own name, now hanging by the cellar door.\nAt the east end of the Merlot block stands a wooden lookout tower for visiting schools, from which children can see the ten blocks each in its own colour: in autumn the Merlot leaves turn red first, the Cabernet a little later, and the white grapes' leaves go gold. A board on the tower teaches how to tell the varieties by their leaves, with a line of small print beneath: 'Don't worry if you get it wrong; grapes don't mind.'"
     in: div_jjgxvk
     offset_km: [6.6, -1.8]
-    site: { layout: vineyard, angle_deg: 0, variant: red, size_m: [900, 700] }
+    site: { angle_deg: 0 }
   - id: poi_has59e
-    subtype: vineyard
+    type: vineyard_900x700_red
     status: generated
     names:
       zh: 乔什葡萄园·品丽珠
@@ -98,9 +98,9 @@ places:
       en: "The Cabernet Franc block of Josh Vineyard, at the east end of the upper row beside the lane to the plate factory. Cabernet Franc is one of Cabernet Sauvignon's parents, earlier-ripening, thinner-skinned and paler, and its wine smells of red berries, violets and a little green pepper, light and angular to drink. In a blend it usually makes up only a small share, yet it lifts the whole glass's aroma at once; the winemaker calls it 'the high note in the wine'.\nThis block has the gentlest slope and the deepest soil, and a few rows are kept as trial plots: one variety under several pruning methods, row spacings and shade nets, every row signposted and wired with sensors, the data gathered on a big screen in Josh's Garage Lab. Growers from small wineries nearby often come to look, and Josh turned the results into a free little app called 'Josh Next Door': photograph your own vineyard and it tells you which pruning has worked best on a slope like yours.\nThe roses at the row ends here bloom better than anywhere on the estate, because the block is by the lane and passers-by water them as they go. Josh says this block taught him one thing: something need not be the biggest part to make the whole better. Someone on his team stuck that sentence on the wall, and then noticed Josh says it once a quarter.\nThe lane at the end of the Cabernet Franc block leads to the plate factory, and at the evening shift change the plate workers walk back to their quarters along it, pulling a few weeds as they pass. So Josh set a row of little wooden boxes by the lane with gloves and trowels inside, labelled 'Thanks for the hand'. After a few years the lane side has the fewest weeds on the estate, and the gardeners say the block has more than two hundred part-time gardeners, none of whom wants paying."
     in: div_jjgxvk
     offset_km: [7.6, -1.8]
-    site: { layout: vineyard, angle_deg: 0, variant: red, size_m: [900, 700] }
+    site: { angle_deg: 0 }
   - id: poi_3rt7be
-    subtype: vineyard
+    type: vineyard_900x700_red
     status: generated
     names:
       zh: 乔什葡萄园·黑皮诺
@@ -112,9 +112,9 @@ places:
       en: "The Pinot Noir block of Josh Vineyard, at the west end of the lower row and the coolest on the estate: at night cold air from the mountains flows down the slope and pools on the valley floor as a thin mist, which often does not lift until after nine. Pinot Noir is famously delicate, thin-skinned and prone to heat and disease, losing its aroma if ripening goes even slightly wrong; but in the right place its wine is pale and translucent, tasting of cherry, strawberry, rose and forest floor, the wine many winemakers spend a lifetime trying to get right.\nWhen Josh bought the estate this block grew Cabernet, which never quite ripened. He had a row of weather stations installed and recorded two years of temperature and humidity, compared them with the climates of several ancient wine regions, and concluded the valley floor suited Pinot Noir better. The winter the old vines came out and the new ones went in, he came to the block every morning; only later did people learn he was taking training photos for a new app, which can now tell from a leaf's colour when Pinot Noir begins to turn.\nThe Pinot Noir is all hand-picked into shallow little baskets so the berries are not crushed. The winery makes only a small red and a sparkling wine from it, the sparkling being the bottle Josh opens on the podium at the start of each racing season, more of it sprayed than drunk.\nAlong the Pinot Noir block stands a row of tall cypresses as a windbreak: the night wind on the valley floor is cold, and the trees keep the air by the vines a degree or two warmer without shutting out the morning mist. The trellises here are lower than elsewhere, so the bunches hang nearer the ground and borrow the warmth it stores by day. During the few days of flowering Josh stops all testing at the circuit, believing Pinot Noir likes quiet when it flowers; the winemaker says there is no science in it, but does not object."
     in: div_jjgxvk
     offset_km: [3.6, -1.0]
-    site: { layout: vineyard, angle_deg: 0, variant: red, size_m: [900, 700] }
+    site: { angle_deg: 0 }
   - id: poi_pd18c5
-    subtype: vineyard
+    type: vineyard_900x700_white
     status: generated
     names:
       zh: 乔什葡萄园·霞多丽
@@ -126,9 +126,9 @@ places:
       en: "The Chardonnay block of Josh Vineyard, in the lower row beside the Pinot Noir, sharing its morning mist and cool nights. Chardonnay is one of the most easy-going white grapes, growing almost anywhere, yet its flavour does just what the winemaker asks: fermented in steel it is crisp as green apple and lemon, aged in oak it turns round and tastes of butter, toasted nuts and vanilla. Josh Winery makes both and every summer pours them side by side in the tasting room, asking guests to guess which glass came from the same plot.\nThis block is where Josh tries out 'easy harvesting'. The trellises are strung especially level and the rows spaced to the width of a small harvester, which works at night, taking the fruit while it is coolest and carrying it to the winery before the day's heat can start it oxidising. The harvester has its own cameras to sort out rotten berries and leaves, but Josh still insists on someone walking behind it: 'the machine picks out bad fruit, a person picks out problems'.\nChardonnay is also the other half, with Pinot Noir, of the sparkling wine. Every winter the cellar holds hundreds of bottles upended in wooden racks, which workers turn an eighth of a turn each day to ease the sediment down into the neck. Josh once tried robots for the job, then found that the hours the workers spent turning bottles and chatting were when news travelled fastest on the estate, and gave the work back to people.\nBetween the Chardonnay rows grows a low clover that fixes nitrogen in the soil without competing with the vines for water; when it flowers in spring, bees from the hives beside the winery swarm over it, the block hums for days, and the honey goes into little jars labelled 'Made in the Chardonnay block'."
     in: div_jjgxvk
     offset_km: [4.6, -1.0]
-    site: { layout: vineyard, angle_deg: 0, variant: white, size_m: [900, 700] }
+    site: { angle_deg: 0 }
   - id: poi_2ce69a
-    subtype: vineyard
+    type: vineyard_900x700_white
     status: generated
     names:
       zh: 乔什葡萄园·长相思
@@ -140,9 +140,9 @@ places:
       en: "The Sauvignon Blanc block of Josh Vineyard, in the middle of the lower row, facing the grandstands of the racing circuit. Sauvignon Blanc is a white grape with a very 'direct' aroma, its wine smelling of grass, lime, passion fruit and new-mown lawn, its acidity bright, made to drink young and fresh without waiting in oak. Josh calls it 'the most summery wine', and it is the best seller in the grandstands every racing season.\nIt grows fast with dense leaves, and the bunches are easily shaded by their own foliage; without sun they turn too green-peppery, with too much they lose their aroma. So every summer the block is leafed several times to half-expose the bunches: the east side stripped so the fruit gets the gentle morning sun, the west side left to screen the afternoon glare. Which leaves to pull and which to leave was once purely the old gardener's judgement; now Josh's app suggests it from each row's aspect and the day's forecast, and after a year of watching it the old gardener said, 'it thinks much as I do, it just gets up earlier'.\nBeing near the circuit, these grapes are teasingly called 'grapes raised on engine noise'. The winemaker once seriously compared them, making the fruit from beside the track and from the far end of the block separately, and nobody could taste any difference; the label still carries a little chequered flag.\nThe south end of the Sauvignon Blanc block is the nearest point of the vineyard to the grandstands, and on racing-season weekends spectators often watch the grapes as well as the race; some hold tastings right in the stands, comparing the glass in hand with the vines in front of them. Josh later added a screen beside the stands that shows, between races, a time-lapse of this block from budburst to harvest, which the crowd calls 'the slowest race in the world'."
     in: div_jjgxvk
     offset_km: [5.6, -1.0]
-    site: { layout: vineyard, angle_deg: 0, variant: white, size_m: [900, 700] }
+    site: { angle_deg: 0 }
   - id: poi_5q7aje
-    subtype: vineyard
+    type: vineyard_900x700_white
     status: generated
     names:
       zh: 乔什葡萄园·雷司令
@@ -154,9 +154,9 @@ places:
       en: "The Riesling block of Josh Vineyard, toward the east of the lower row, the lowest and coolest on the estate, now and then frosted in winter. Riesling is a white grape from cold places, high in acid and pure in aroma: young it is green apple, white peach and orange blossom, and after a decade or more it slowly develops honey and a curious petrol note that connoisseurs take as the mark of an aged Riesling. It can be made dry or sweet, sweet as honey yet never cloying for its acidity.\nThe Riesling block holds the facility Josh is proudest of: a weather network hidden under the trellises, a temperature sensor every few dozen metres, with two frost fans and a line of misting pipes along the edge. Each late autumn the winemaker leaves a few rows unpicked to shrivel slowly on the vine as their sugar concentrates, and in some years an early frost comes, when the frozen grapes are picked through the night and pressed for a little ice wine. That night everyone on the estate is woken by their phones and comes out with head torches to help, and afterwards they drink hot chocolate in the winery.\nJosh calls Riesling the most patient grape, one that teaches you to wait. A saying goes round his team: 'apps update every week, Riesling waits ten years.' Each year when the ice wine is made Josh keeps a bottle, writes on it the most memorable thing of that year and puts it on the innermost rack of the cellar, meaning one day, when he is old, to open them one by one and remember.\nAt the edge of the Riesling block stands a small observation tower topped by a frost gauge and a loudspeaker, which before a frost first plays a piece of music so that people in the quarters nearby can get ready; the music was chosen by a vote of everyone on the estate and has never been changed."
     in: div_jjgxvk
     offset_km: [6.6, -1.0]
-    site: { layout: vineyard, angle_deg: 0, variant: white, size_m: [900, 700] }
+    site: { angle_deg: 0 }
   - id: poi_pq0q2f
-    subtype: vineyard
+    type: vineyard_900x700_white
     status: generated
     names:
       zh: 乔什葡萄园·维欧尼
@@ -168,7 +168,7 @@ places:
       en: "The Viognier block of Josh Vineyard, at the east end of the lower row, the smallest and youngest on the estate. Viognier is an intensely aromatic white grape whose wine smells of apricot, peach, honeysuckle and orange blossom, full-bodied but low in acid, so the moment of picking matters all the more: a day early and the aroma has not arrived, a day late and the wine goes dull. It once became so rare that only one small hillside still grew it, until later winemakers brought it back bit by bit.\nThis block was a present from Lucy. One year for Josh's birthday Lucy found a batch of Viognier cuttings through friends and sent them to the estate with a hand-written card: 'Chips need yield, so do grapes.' Josh planted them on this plot nearest the plate factory and made a small app just for it, which draws the block's sugar, acidity and weather as curves every day and sends them to Lucy, so Lucy became the block's most devoted 'remote gardener', often messaging in the middle of the night to ask why the sugar had dropped a little today.\nPart of the Viognier is made into a white wine on its own, and part is fermented with Syrah for the red called 'Friend'. On the winery's tasting list a line of small print stands beside the Viognier: 'Grown by Josh; supervised by Lucy.' Visitors always ask who Lucy is, and the staff point north-west and say, 'the one over the hills who makes chips'.\nWhen Lucy first came to see this block she planted an olive tree at its head, to keep the grapes company; olives grow slowly, and it is only now as tall as a person. Josh put a bench beneath it with 'Reserved for the remote gardener' carved on the back, and Lucy sits there a while on every visit."
     in: div_jjgxvk
     offset_km: [7.6, -1.0]
-    site: { layout: vineyard, angle_deg: 0, variant: white, size_m: [900, 700] }
+    site: { angle_deg: 0 }
   - id: poi_8jh5xy
     subtype: winery
     status: generated
