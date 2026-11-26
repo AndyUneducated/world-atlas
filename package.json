@@ -11,6 +11,8 @@
     "data:check": "python pipeline/build.py --check",
     "data:linux": "docker run --rm -v \"$PWD\":/w -w /w python:3.14-slim sh -c 'pip install -q -r pipeline/requirements.txt && python pipeline/build.py && python pipeline/verify.py'",
     "data:import": "python pipeline/import_csv.py",
+    "data:add": "python pipeline/add_places.py",
+    "data:place": "python pipeline/placecheck.py",
     "fonts": "node scripts/fetch-glyphs.mjs"
   },
   "dependencies": {

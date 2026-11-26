@@ -7,6 +7,8 @@ from pathlib import Path
 
 import yaml
 
+from . import placeforms
+
 ROOT = Path(__file__).resolve().parents[2]
 WORLD_DIR = ROOT / "world"
 
@@ -170,7 +172,9 @@ class World:
         self.features = self._collect(root / "features", "features")
         self.routes = self._collect(root / "transport", "routes")
         self.railways = self._collect(root / "transport", "railways")
-        self.places = self._collect(root / "places", "places")
+        # Building types (name: subtype and site); a place takes one with `type:`, and a file's `groups:` lay members out on slots.
+        self.building_types: dict = _load(root / "registry" / "building_types.yaml").get("building_types") or {}
+        self.places = self._collect(root / "places", "places", lambda doc: placeforms.expand_file(doc, self.building_types))
         # A region's features live in world/features/<generator file name>-*.yaml.
         # Each generator is merged over the settings every territory shares (world/generator/_defaults.yaml).
         defaults = _load(root / "generator" / "_defaults.yaml")
@@ -185,10 +189,15 @@ class World:
         self._parents = {d.get("parent") for d in self.divisions.values()}
         self._region_of = {did: gen for gen in self.generators for did in self.region_members(gen)}
 
-    def _collect(self, folder: Path, key: str) -> dict[str, dict]:
+    def _collect(self, folder: Path, key: str, expand=None) -> dict[str, dict]:
+        """Every entity under `key` in the folder's files; `expand` turns a file into its entities instead."""
         out: dict[str, dict] = {}
         for path in sorted(folder.glob("*.yaml")):
-            for item in _load(path).get(key, []):
+            try:
+                items = expand(_load(path)) if expand else _load(path).get(key, [])
+            except ValueError as e:
+                raise ValidationError(f"{path.name}: {e}") from None
+            for item in items:
                 if item["id"] in self.entities:
                     raise ValidationError(f"duplicate id {item['id']} in {path.name}")
                 item["_source"] = str(path.relative_to(self.root.parent)).replace("\\", "/")
@@ -616,8 +625,21 @@ class World:
         return errors
 
     def _place_errors(self) -> list[str]:
-        """Every place's district, position, labels, military facts and site."""
+        """Every building type; every place's district, position, labels, military facts and site."""
         errors: list[str] = []
+        for name, t in self.building_types.items():
+            size = t.get("size_m") if isinstance(t, dict) else None
+            if not isinstance(t, dict) or set(t) - {"subtype", *placeforms.TYPE_SITE_KEYS} or not t.get("subtype") \
+                    or t.get("layout") not in SITE_LAYOUTS or t.get("rural", True) is not True \
+                    or not (isinstance(size, list) and len(size) == 2 and all(isinstance(v, (int, float)) and v > 0 for v in size)) \
+                    or "variant" in t and t["variant"] not in SITE_VARIANTS.get(t.get("layout"), ()):
+                errors.append(f"building type {name}: gives subtype, layout, size_m [along, across] and, where they apply, variant and rural: true")
+            elif name != placeforms.type_name(t):
+                errors.append(f"building type {name}: its name follows its parameters ({placeforms.type_name(t)}); a new size is a new type")
+        group_file: dict[str, str] = {}
+        for pid, p in self.places.items():
+            if "group" in p and group_file.setdefault(p["group"], p["_source"]) != p["_source"]:
+                errors.append(f"{pid}: group {p['group']} is also in {group_file[p['group']]}")
         for pid, p in self.places.items():
             if p.get("in") not in self.divisions:
                 errors.append(f"{pid}: 'in' must name a division")

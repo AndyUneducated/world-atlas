@@ -32,6 +32,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from atlas.world import (CODE_DIGITS, DETECT_KINDS, FEATURE_SUBTYPES, HARBOUR_TERMINALS, NETWORK_CLASS, PARENT_SUBTYPES,  # noqa: E402
                          RAIL_NETWORKS, ROOT, SITE_LAYOUTS, WORLD_DIR, World, code_digits, ts_names)
+import add_places  # noqa: E402
 from new_id import mint  # noqa: E402
 
 DELETE = object()
@@ -123,8 +124,10 @@ KINDS = {
     "places": {
         "label": "地标", "folder": "places", "key": "places", "prefix": "poi", "default": "cn-nv-places.yaml",
         "cols": HEAD + [
-            Col("subtype", "类型", "subtype", required=True),
-            Col("in", "所在区", "in", "ref", required=True),
+            Col("subtype", "类型", "subtype"),
+            Col("type", "建筑类型", "type"),
+            Col("group", "建筑群"), Col("slot", "槽位"),
+            Col("in", "所在区", "in", "ref"),
             *NAMES,
             Col("short_zh", "中文简称", "short_names.zh"),
             Col("short_en", "英文简称", "short_names.en"),
@@ -206,6 +209,11 @@ class Importer:
         for pid, p in self.world.places.items():
             votes[p.get("subtype")] = votes.get(p.get("subtype"), 0) + (1 if pid.startswith("bld_") else -1)
         self.building_subtypes = {k for k, v in votes.items() if v > 0}
+        # building groups (name: file and entry), the slots taken in each and the new rows that join one
+        self.groups = add_places.raw_groups() if kind == "places" else {}
+        self.slot_of = {m["id"]: m["slot"] for _, g in self.groups.values() for m in g["members"]}
+        self.group_slots: dict[str, set[int]] = {}
+        self.member_of: dict[str, tuple[str, int]] = {}
 
     def _map_headers(self, rows):
         alias = {}
@@ -347,7 +355,8 @@ class Importer:
                 self.ids.append(eid)
             else:
                 prefix = self.spec["prefix"]
-                if self.kind == "places" and row.get("subtype") in self.building_subtypes:
+                subtype = row.get("subtype") or self.world.building_types.get(row.get("type"), {}).get("subtype")
+                if self.kind == "places" and subtype in self.building_subtypes:
                     prefix = "bld"
                 new = mint(prefix, self.taken)
                 self.ids.append(new)
@@ -470,14 +479,39 @@ class Importer:
             self.problems.add(self.where(i, "via"), "停靠站不能重复")
 
     def check_places(self, i, row, eid, is_new, changes, extras):
+        cur = self.world.places.get(eid, {})
+        if "type" in changes and changes["type"] is not DELETE and changes["type"] not in self.world.building_types:
+            self.problems.add(self.where(i, "type"), f"没有建筑类型 {changes['type']}（见 world/registry/building_types.yaml）")
+        if is_new and "type" not in changes and "subtype" not in changes:
+            self.problems.add(self.where(i, "subtype"), "新建地标需要填写 类型 或 建筑类型")
+        group, slot = row.get("group", ""), row.get("slot", "")
+        if not is_new and (group and group != cur.get("group") or slot and slot != str(self.slot_of.get(eid, ""))):
+            self.problems.add(self.where(i, "group"), "已有地标的建筑群和槽位不能用 CSV 改，请直接改 YAML")
+        elif is_new and group:
+            g = self.groups.get(group)
+            used = self.group_slots.setdefault(group, {m["slot"] for m in g[1]["members"]} if g else set())
+            if g is None:
+                self.problems.add(self.where(i, "group"), f"没有建筑群 {group}；新建筑群用 pipeline/add_places.py 建立")
+            elif any(row.get(k) for k in ("offset_east_km", "offset_north_km")) or "in" in changes and changes["in"] != g[1]["in"]:
+                self.problems.add(self.where(i, "group"), "建筑群成员的所在区和位置由建筑群决定，请留空")
+            elif slot and (not slot.isdigit() or int(slot) in used):
+                self.problems.add(self.where(i, "slot"), f"槽位必须是未占用的整数（已占用：{sorted(used)}）")
+            else:
+                n = int(slot) if slot else next(k for k in range(10**6) if k not in used)
+                used.add(n)
+                self.member_of[eid] = (group, n)
+                changes.pop("in", None)
+        elif is_new and "in" not in changes:
+            self.problems.add(self.where(i, "in"), "新建条目必须填写")
         off = self.pair(row, i, "offset_east_km", "offset_north_km")
         if off is not None:
             changes["offset_km"] = off
         size = self.pair(row, i, "site_along_m", "site_across_m")
         if size is not None:
             changes["site.size_m"] = size
-        cur = self.world.places.get(eid, {})
-        site = {**(cur.get("site") or {}), **{k.split(".")[1]: v for k, v in changes.items() if k.startswith("site.")}}
+        typed = self.world.building_types.get(changes.get("type"), {}) if isinstance(changes.get("type"), str) else {}
+        site = {**(cur.get("site") or {}), **{k: typed[k] for k in ("layout", "size_m") if k in typed},
+                **{k.split(".")[1]: v for k, v in changes.items() if k.startswith("site.")}}
         if site and size is not DELETE and ("layout" not in site or "size_m" not in site):
             self.problems.add(self.where(i, "site_layout"), "地标占地需要同时填写 占地布局、占地长米、占地宽米")
 
@@ -488,7 +522,7 @@ ORDER = {
     "features": ["id", "subtype", "status", "detect", "names", "notes"],
     "routes": ["id", "ref", "build_order", "network", "class", "status", "names", "notes", "background", "ring", "straight",
                "ends_at_network", "tunnel_cost", "legs", "shield", "via"],
-    "places": ["id", "subtype", "status", "names", "short_names", "notes", "in", "offset_km", "at", "emblem_of", "site"],
+    "places": ["id", "slot", "type", "subtype", "status", "names", "short_names", "notes", "in", "offset_km", "at", "emblem_of", "site"],
     "railways": ["id", "network", "conventional", "maglev", "status", "names", "notes", "background", "color", "tech",
                  "tunnel_cost", "via", "station_names"],
 }
@@ -675,8 +709,8 @@ def main():
         added, updated = [], []
         for eid, is_new, changes, extras in plans:
             if is_new:
-                src = into
-                ent = CommentedMap([("id", eid)])
+                src = imp.groups[imp.member_of[eid][0]][0] if eid in imp.member_of else into
+                ent = CommentedMap([("id", eid)] + ([("slot", imp.member_of[eid][1])] if eid in imp.member_of else []))
                 for path, v in changes.items():
                     if v is not DELETE:
                         set_path(ent, path, v)
@@ -685,7 +719,8 @@ def main():
                 added.append(ent)
             else:
                 src = ROOT / imp.world.entities[eid]["_source"]
-                ent = next(e for e in yaml_of(src)[1][spec["key"]] if e["id"] == eid)
+                doc = yaml_of(src)[1]
+                ent = next(e for e in [*(doc.get(spec["key"]) or []), *(m for g in doc.get("groups") or [] for m in g["members"])] if e["id"] == eid)
                 for path, v in changes.items():
                     set_path(ent, path, v)
                 updated.append(ent)
@@ -695,12 +730,21 @@ def main():
             y, _ = yaml_of(src)
             lines = lines_of(src)
             block = dump_item(y, ent)
+            if eid in imp.member_of or eid in imp.slot_of:  # a group's member sits two levels in
+                shift = 6 - (len(block[0]) - len(block[0].lstrip()))
+                block = [" " * shift + ln for ln in block]
+            if eid in imp.member_of:
+                add_places.append_block(lines, imp.member_of[eid][0], block)
+                continue
             parent = ent.get("parent") if kind == "divisions" else None
             after = [i for i in re.findall(r"^\s*- id: (\S+)", "\n".join(lines), flags=re.M)
                      if parent and parent in chain_of(i)] if is_new else []
             if after and after[-1] != re.findall(r"^\s*- id: (\S+)", "\n".join(lines), flags=re.M)[-1]:
                 _, end = item_block(lines, after[-1])
                 lines[end:end] = block
+            elif is_new and kind == "places":
+                end = add_places.section_end(lines, "places")
+                lines[end if end is not None else len(lines):end if end is not None else len(lines)] = block
             elif is_new:
                 while lines and not lines[-1].strip():
                     lines.pop()

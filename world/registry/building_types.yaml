@@ -1,0 +1,128 @@
+# Building types: the standard buildings a place can be with `type:` (see DECISIONS.md, "Building types and groups").
+# A type gives the subtype and the site (layout, size_m [along, across] in metres, and where they apply variant and
+# rural: true). Its name follows its parameters, so a type never changes size: a new size is a new type.
+building_types:
+  air_base_airbase_2400x900_uav_rural: { subtype: air_base, layout: airbase, size_m: [2400, 900], rural: true, variant: uav }
+  air_base_airbase_3200x1400_fighter_rural: { subtype: air_base, layout: airbase, size_m: [3200, 1400], rural: true, variant: fighter }
+  airport_2800x900: { subtype: airport, layout: airport, size_m: [2800, 900] }
+  airport_3000x1000: { subtype: airport, layout: airport, size_m: [3000, 1000] }
+  airport_3400x1200: { subtype: airport, layout: airport, size_m: [3400, 1200] }
+  airport_3600x1200: { subtype: airport, layout: airport, size_m: [3600, 1200] }
+  armoury_500x350_rural: { subtype: armoury, layout: armoury, size_m: [500, 350], rural: true }
+  bank_hall_200x140: { subtype: bank, layout: hall, size_m: [200, 140] }
+  bank_tower_90x90: { subtype: bank, layout: tower, size_m: [90, 90] }
+  bank_tower_140x140: { subtype: bank, layout: tower, size_m: [140, 140] }
+  border_crossing_checkpoint_300x200_rural: { subtype: border_crossing, layout: checkpoint, size_m: [300, 200], rural: true }
+  border_crossing_checkpoint_400x250_rural: { subtype: border_crossing, layout: checkpoint, size_m: [400, 250], rural: true }
+  checkpoint_300x200_rural: { subtype: checkpoint, layout: checkpoint, size_m: [300, 200], rural: true }
+  church_hall_170x90: { subtype: church, layout: hall, size_m: [170, 90] }
+  command_centre_bunker_400x300_rural: { subtype: command_centre, layout: bunker, size_m: [400, 300], rural: true }
+  command_centre_camp_800x600_hq_rural: { subtype: command_centre, layout: camp, size_m: [800, 600], rural: true, variant: hq }
+  court_courtyard_160x130: { subtype: court, layout: courtyard, size_m: [160, 130] }
+  court_courtyard_180x150: { subtype: court, layout: courtyard, size_m: [180, 150] }
+  data_centre_slab_240x120_rural: { subtype: data_centre, layout: slab, size_m: [240, 120], rural: true }
+  depot_plant_600x400_depot_rural: { subtype: depot, layout: plant, size_m: [600, 400], rural: true, variant: depot }
+  depot_plant_800x500_depot_rural: { subtype: depot, layout: plant, size_m: [800, 500], rural: true, variant: depot }
+  depot_plant_1200x800_depot_rural: { subtype: depot, layout: plant, size_m: [1200, 800], rural: true, variant: depot }
+  detention_centre_detention_700x500_rural: { subtype: detention_centre, layout: detention, size_m: [700, 500], rural: true }
+  exhibition_centre_hall_300x200: { subtype: exhibition_centre, layout: hall, size_m: [300, 200] }
+  factory_complex_500x300_rural: { subtype: factory, layout: complex, size_m: [500, 300], rural: true }
+  factory_complex_700x500_rural: { subtype: factory, layout: complex, size_m: [700, 500], rural: true }
+  factory_harbour_1200x600: { subtype: factory, layout: harbour, size_m: [1200, 600] }
+  factory_plant_800x500_assembly_rural: { subtype: factory, layout: plant, size_m: [800, 500], rural: true, variant: assembly }
+  factory_plant_800x500_depot_rural: { subtype: factory, layout: plant, size_m: [800, 500], rural: true, variant: depot }
+  factory_plant_1400x900_assembly_rural: { subtype: factory, layout: plant, size_m: [1400, 900], rural: true, variant: assembly }
+  factory_slab_360x200_rural: { subtype: factory, layout: slab, size_m: [360, 200], rural: true }
+  ferry_terminal_port_500x260: { subtype: ferry_terminal, layout: port, size_m: [500, 260] }
+  government_block_70x70: { subtype: government, layout: block, size_m: [70, 70] }
+  government_block_80x80: { subtype: government, layout: block, size_m: [80, 80] }
+  government_block_90x90: { subtype: government, layout: block, size_m: [90, 90] }
+  government_block_200x180: { subtype: government, layout: block, size_m: [200, 180] }
+  government_courtyard_140x110: { subtype: government, layout: courtyard, size_m: [140, 110] }
+  government_courtyard_160x140: { subtype: government, layout: courtyard, size_m: [160, 140] }
+  government_courtyard_220x180: { subtype: government, layout: courtyard, size_m: [220, 180] }
+  government_courtyard_240x200: { subtype: government, layout: courtyard, size_m: [240, 200] }
+  government_courtyard_300x240: { subtype: government, layout: courtyard, size_m: [300, 240] }
+  government_courtyard_300x260: { subtype: government, layout: courtyard, size_m: [300, 260] }
+  government_courtyard_320x260: { subtype: government, layout: courtyard, size_m: [320, 260] }
+  government_hall_200x140: { subtype: government, layout: hall, size_m: [200, 140] }
+  government_lshape_120x90: { subtype: government, layout: lshape, size_m: [120, 90] }
+  government_lshape_130x100: { subtype: government, layout: lshape, size_m: [130, 100] }
+  government_lshape_140x110: { subtype: government, layout: lshape, size_m: [140, 110] }
+  government_lshape_150x110: { subtype: government, layout: lshape, size_m: [150, 110] }
+  government_slab_120x70: { subtype: government, layout: slab, size_m: [120, 70] }
+  government_slab_130x70: { subtype: government, layout: slab, size_m: [130, 70] }
+  government_slab_130x80: { subtype: government, layout: slab, size_m: [130, 80] }
+  government_slab_150x80: { subtype: government, layout: slab, size_m: [150, 80] }
+  government_slab_160x90: { subtype: government, layout: slab, size_m: [160, 90] }
+  government_slab_220x130: { subtype: government, layout: slab, size_m: [220, 130] }
+  government_slab_240x140: { subtype: government, layout: slab, size_m: [240, 140] }
+  heliport_700x500_rural: { subtype: heliport, layout: heliport, size_m: [700, 500], rural: true }
+  hospital_camp_600x450_hospital_rural: { subtype: hospital, layout: camp, size_m: [600, 450], rural: true, variant: hospital }
+  hospital_complex_320x240: { subtype: hospital, layout: complex, size_m: [320, 240] }
+  hospital_complex_570x420_rural: { subtype: hospital, layout: complex, size_m: [570, 420], rural: true }
+  hotel_courtyard_180x150: { subtype: hotel, layout: courtyard, size_m: [180, 150] }
+  hotel_slab_260x120: { subtype: hotel, layout: slab, size_m: [260, 120] }
+  hotel_tower_120x120: { subtype: hotel, layout: tower, size_m: [120, 120] }
+  housing_apartments_400x300_rural: { subtype: housing, layout: apartments, size_m: [400, 300], rural: true }
+  housing_park_500x400_rural: { subtype: housing, layout: park, size_m: [500, 400], rural: true }
+  library_block_180x180: { subtype: library, layout: block, size_m: [180, 180] }
+  logistics_park_plant_1000x700_depot_rural: { subtype: logistics_park, layout: plant, size_m: [1000, 700], rural: true, variant: depot }
+  mansion_estate_400x300_villa_rural: { subtype: mansion, layout: estate, size_m: [400, 300], rural: true, variant: villa }
+  mansion_estate_700x500_compound_rural: { subtype: mansion, layout: estate, size_m: [700, 500], rural: true, variant: compound }
+  marketplace_market_200x140: { subtype: marketplace, layout: market, size_m: [200, 140] }
+  marketplace_market_220x140: { subtype: marketplace, layout: market, size_m: [220, 140] }
+  marketplace_market_260x180: { subtype: marketplace, layout: market, size_m: [260, 180] }
+  marketplace_market_300x200: { subtype: marketplace, layout: market, size_m: [300, 200] }
+  marketplace_market_400x300_rural: { subtype: marketplace, layout: market, size_m: [400, 300], rural: true }
+  militant_camp_camp_600x450_barracks_rural: { subtype: militant_camp, layout: camp, size_m: [600, 450], rural: true, variant: barracks }
+  military_base_camp_400x300_barracks_rural: { subtype: military_base, layout: camp, size_m: [400, 300], rural: true, variant: barracks }
+  military_base_camp_600x450_hq_rural: { subtype: military_base, layout: camp, size_m: [600, 450], rural: true, variant: hq }
+  military_base_camp_900x700_barracks_rural: { subtype: military_base, layout: camp, size_m: [900, 700], rural: true, variant: barracks }
+  military_base_camp_1100x800_barracks_rural: { subtype: military_base, layout: camp, size_m: [1100, 800], rural: true, variant: barracks }
+  mine_1200x900_rural: { subtype: mine, layout: mine, size_m: [1200, 900], rural: true }
+  mine_1400x1000_rural: { subtype: mine, layout: mine, size_m: [1400, 1000], rural: true }
+  missile_site_sam_600x600_rural: { subtype: missile_site, layout: sam, size_m: [600, 600], rural: true }
+  missile_site_sam_900x900: { subtype: missile_site, layout: sam, size_m: [900, 900] }
+  monastery_courtyard_180x180_rural: { subtype: monastery, layout: courtyard, size_m: [180, 180], rural: true }
+  monastery_courtyard_200x180_rural: { subtype: monastery, layout: courtyard, size_m: [200, 180], rural: true }
+  monastery_courtyard_220x200_rural: { subtype: monastery, layout: courtyard, size_m: [220, 200], rural: true }
+  mosque_dome_220x220: { subtype: mosque, layout: dome, size_m: [220, 220] }
+  museum_hall_180x120: { subtype: museum, layout: hall, size_m: [180, 120] }
+  museum_hall_200x120: { subtype: museum, layout: hall, size_m: [200, 120] }
+  museum_hall_240x160: { subtype: museum, layout: hall, size_m: [240, 160] }
+  naval_base_harbour_1400x700: { subtype: naval_base, layout: harbour, size_m: [1400, 700] }
+  office_slab_120x70: { subtype: office, layout: slab, size_m: [120, 70] }
+  office_slab_160x100_rural: { subtype: office, layout: slab, size_m: [160, 100], rural: true }
+  office_slab_180x90: { subtype: office, layout: slab, size_m: [180, 90] }
+  office_slab_400x300_rural: { subtype: office, layout: slab, size_m: [400, 300], rural: true }
+  office_tower_120x120: { subtype: office, layout: tower, size_m: [120, 120] }
+  orchard_800x600_rural: { subtype: orchard, layout: orchard, size_m: [800, 600], rural: true }
+  orchard_900x600_rural: { subtype: orchard, layout: orchard, size_m: [900, 600], rural: true }
+  orchard_1000x700_rural: { subtype: orchard, layout: orchard, size_m: [1000, 700], rural: true }
+  patrol_base_checkpoint_300x200_rural: { subtype: patrol_base, layout: checkpoint, size_m: [300, 200], rural: true }
+  patrol_base_harbour_700x400: { subtype: patrol_base, layout: harbour, size_m: [700, 400] }
+  patrol_base_park_200x150_rural: { subtype: patrol_base, layout: park, size_m: [200, 150], rural: true }
+  patrol_base_radar_300x200_dome_rural: { subtype: patrol_base, layout: radar, size_m: [300, 200], rural: true, variant: dome }
+  plaza_400x300: { subtype: plaza, layout: plaza, size_m: [400, 300] }
+  port_700x700: { subtype: port, layout: port, size_m: [700, 700] }
+  port_1400x600: { subtype: port, layout: port, size_m: [1400, 600] }
+  port_1800x700: { subtype: port, layout: port, size_m: [1800, 700] }
+  power_station_complex_500x350_rural: { subtype: power_station, layout: complex, size_m: [500, 350], rural: true }
+  racetrack_1200x600_rural: { subtype: racetrack, layout: racetrack, size_m: [1200, 600], rural: true }
+  radar_station_radar_500x400_dome_rural: { subtype: radar_station, layout: radar, size_m: [500, 400], rural: true, variant: dome }
+  refugee_camp_refugee_1200x900_rural: { subtype: refugee_camp, layout: refugee, size_m: [1200, 900], rural: true }
+  research_institute_campus_600x400_rural: { subtype: research_institute, layout: campus, size_m: [600, 400], rural: true }
+  sacred_site_park_400x300_rural: { subtype: sacred_site, layout: park, size_m: [400, 300], rural: true }
+  sacred_site_park_600x450_rural: { subtype: sacred_site, layout: park, size_m: [600, 450], rural: true }
+  school_lshape_200x160: { subtype: school, layout: lshape, size_m: [200, 160] }
+  shooting_range_shooting_700x300_rural: { subtype: shooting_range, layout: shooting, size_m: [700, 300], rural: true }
+  stadium_300x240: { subtype: stadium, layout: stadium, size_m: [300, 240] }
+  theatre_dome_180x160: { subtype: theatre, layout: dome, size_m: [180, 160] }
+  theatre_hall_450x340_rural: { subtype: theatre, layout: hall, size_m: [450, 340], rural: true }
+  tower_antenna_400x300_small_rural: { subtype: tower, layout: antenna, size_m: [400, 300], rural: true, variant: small }
+  townhall_complex_300x220: { subtype: townhall, layout: complex, size_m: [300, 220] }
+  training_range_range_4000x2500_armor_rural: { subtype: training_range, layout: range, size_m: [4000, 2500], rural: true, variant: armor }
+  university_campus_900x600: { subtype: university, layout: campus, size_m: [900, 600] }
+  vineyard_900x700_red: { subtype: vineyard, layout: vineyard, size_m: [900, 700], variant: red }
+  vineyard_900x700_white: { subtype: vineyard, layout: vineyard, size_m: [900, 700], variant: white }

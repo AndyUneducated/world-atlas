@@ -68,6 +68,14 @@ Entities can also be added or edited in bulk from a spreadsheet:
 `npm run data:import -- file.csv` checks every row and writes into `world/` only if the
 whole file passes. Templates and a guide (in Chinese) are in [`templates/csv/`](templates/csv/README.md).
 
+Standard buildings come in batches. A place takes its subtype and site from a building type
+(`type:`, from `world/registry/building_types.yaml`), and a building group (`groups:` in a places
+file) lays its members out on fixed slots from one anchor, along the district's streets.
+`npm run data:add -- batch.yaml` mints the ids, picks free spots, checks the batch and writes it
+(template: [`templates/batch/places.yaml`](templates/batch/places.yaml));
+`npm run data:place` checks where places stand against the last build in seconds, without
+building, and `npm run data:place -- --free <district> --type <type>` lists free spots.
+
 ## Conventions
 
 - **IDs.** Each entity has a permanent ID (`div_…`, `nat_…`, `rte_…`, `poi_…`, `bld_…`, `pty_…` for parties)

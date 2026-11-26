@@ -232,3 +232,33 @@ def check_bilingual(ents: dict) -> dict[str, list[str]]:
                 if oz and oe:
                     bad.append(f"{e['names']['zh']} ({e['id']}) {key}: {unit} zh {oz[:3]}, en {oe[:3]}")
     return {"zh and en give the same figures": bad}
+
+
+SIZE_NUM = r"(\d[\d,]*(?:\.\d+)?)\s?(米|公里)"
+LONG_WIDE = [re.compile(r"长(?:约|近|达)?\s?" + SIZE_NUM + r"[，、 ]{0,2}(?:而)?宽(?:约|近|达)?\s?" + SIZE_NUM),
+             re.compile(SIZE_NUM + r"\s?(?:长|×|x|乘)[、，]?\s?" + SIZE_NUM)]
+RUNWAY = re.compile(r"跑道(?:长|全长)?(?:约|近|达)?\s?" + SIZE_NUM)
+GROUND = re.compile(r"占地(?:约|近|达)?\s?(\d[\d,]*(?:\.\d+)?)\s?(公顷|平方公里|平方米|亩)")
+GROUND_M2 = {"公顷": 1e4, "平方公里": 1e6, "平方米": 1.0, "亩": 666.7}
+
+
+def check_site_sizes(places: dict) -> dict[str, list[str]]:
+    """A size a place's card quotes is the size it is drawn at (site.size_m, often from its building type):
+    length and width as given, a runway within 15% of the long side, a ground area within a factor of two.
+    So a type's or a site's size cannot change under a card that states it."""
+    metres = lambda v, unit: float(v.replace(",", "")) * (1000 if unit == "公里" else 1)  # noqa: E731
+    bad = []
+    for pid, p in places.items():
+        size, t = (p.get("site") or {}).get("size_m"), (p.get("notes") or {}).get("zh", "")
+        if not size or not t:
+            continue
+        for m in (m for pat in LONG_WIDE for m in pat.finditer(t)):
+            if sorted([metres(m[1], m[2]), metres(m[3], m[4])]) != sorted(size):
+                bad.append(f"{pid} {p['names']['zh']}: the card says {m[0]}, the site is {size[0]:g} × {size[1]:g} m")
+        for m in RUNWAY.finditer(t):
+            if abs(metres(m[1], m[2]) - max(size)) > 0.15 * max(size):
+                bad.append(f"{pid} {p['names']['zh']}: the card says {m[0]}, the site is {max(size):g} m long")
+        for m in GROUND.finditer(t):
+            if not 0.5 <= float(m[1].replace(",", "")) * GROUND_M2[m[2]] / (size[0] * size[1]) <= 2:
+                bad.append(f"{pid} {p['names']['zh']}: the card says {m[0]}, the site covers {size[0] * size[1] / 1e4:g} ha")
+    return {"sizes in the text are the sizes drawn": bad}

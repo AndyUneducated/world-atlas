@@ -1,0 +1,23 @@
+# 批量添加标准建筑：npm run data:add -- 这个文件.yaml（加 --check 只检查不写入）
+# 脚本分配编号、选位置、用上次构建的数据检查（重叠、不在建成区、港口不靠海），全部通过才写入。
+
+into: world/places/cn-es-places.yaml    # 写入哪个地点文件（往已有建筑群里加成员时不用写）
+in: 佩鲁诺区                              # 所在区：编号或中文名
+type: armoury_500x350_rural              # 建筑类型，见 world/registry/building_types.yaml
+status: generated                        # 可选，默认 draft
+
+# 建筑群（可选）：成员从锚点起按固定槽位排开。不写 group 时，每个地点各自写 offset_km。
+group: peruno-armouries                  # 建筑群名；已存在时成员接着空槽位往下排，下面几行不用写
+anchor_km: auto                          # 0 号槽位相对区中心的 [向东, 向北] km；auto 取离区中心最近的空地
+pattern: row                             # row 一排、grid 方阵（另写 columns）、ring 环形（另写 radius_m 和 count，锚点是圆心）
+spacing_m: 700                           # 槽位间距（米）；方阵可写 [沿排方向, 排与排之间]
+# angle_deg: 30                          # 可选：排的绝对朝向（正东为 0、逆时针）；不写时顺着所在区的街道方向
+
+places:
+  - names: { zh: 佩鲁诺第一军械库, en: Peruno No. 1 Armoury }
+    notes: { zh: 每个地点自己的简介。, en: Each place's own text. }
+  - names: { zh: 佩鲁诺第二军械库, en: Peruno No. 2 Armoury }
+    notes: { zh: 每个地点自己的简介。, en: Each place's own text. }
+    # slot: 5                            # 可选：指定槽位；不写时取最小的空槽位
+    # type: …  site: { angle_deg: 90 }   # 可选：这一个地点自己的类型或占地参数
+    # offset_km: [3.0, 1.5]              # 不用建筑群时：这个地点自己的位置，或 auto

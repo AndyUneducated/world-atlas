@@ -8,12 +8,15 @@ import shapely
 from shapely.geometry import LineString, Point
 from shapely.ops import nearest_points
 
-from . import buildings
+from . import buildings, placeforms
 from .common import place_offset, stable_seed, warn
 from .world import COASTAL_LAYOUTS, FACILITY_LAYOUTS
 
 SITE_SNAP_KM = 6.0  # how far (real km) a port or facility site may move to fit the shore
 SEA_BRIDGE_HALF_WIDTH_KM = 0.017  # a six-lane sea bridge deck
+# What landmark_sites was given for each district of the region being built. The build keeps it beside the
+# region's result, so a new place can be checked against the last build without building (pipeline/placecheck.py).
+PLACEMENT: dict[str, dict] = {}
 
 
 def main_axis(poly) -> float:
@@ -83,11 +86,15 @@ def landmark_sites(world, d, core, angle, built, land, seed, scale):
     City landmarks follow the street grid `angle`; an explicit site.angle_deg is absolute (east = 0).
     `built` is the district's built-up area (None without urban cover), `land` the dry land around it."""
     out, coast = [], None
+    PLACEMENT[d["id"]] = {"core": core, "angle": angle, "built": built, "land": land, "seed": seed, "scale": scale}
     for pid, pl in world.places.items():
         if pl["in"] != d["id"] or not pl.get("site"):
             continue
         cfg = pl["site"]
         ox, oy = place_offset(pl, core, scale)
+        if "slot_km" in pl:  # a group's member: its slot, turned to the group's direction (the street grid unless given)
+            sx, sy = placeforms.turned(pl["slot_km"], math.radians(pl["slot_angle_deg"]) if "slot_angle_deg" in pl else angle)
+            ox, oy = ox + sx, oy + sy
         size = (cfg["size_m"][0] / 1000, cfg["size_m"][1] / 1000)
         a = math.radians(cfg["angle_deg"]) if "angle_deg" in cfg else angle
         if cfg["layout"] in FACILITY_LAYOUTS:

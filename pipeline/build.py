@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import pickle
 import shutil
 import sys
 import traceback
@@ -22,7 +23,7 @@ from shapely.geometry import shape
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from atlas import cache, climate, common, economy, politics, traffic  # noqa: E402
+from atlas import cache, climate, common, economy, politics, sites, traffic  # noqa: E402
 from atlas.common import OUT, log, write_geojson  # noqa: E402
 from atlas.dem_tiles import TILE_PX, merge_dem_tiles, pack_dem_tiles, zoom_range  # noqa: E402
 from atlas.region import LAYERS, build_region  # noqa: E402
@@ -30,10 +31,11 @@ from atlas.routes import merge_crossings  # noqa: E402
 from atlas.world import TEXT_KEYS, World  # noqa: E402
 
 DEM_ARCHIVE = "terrain.pmtiles"
+PLACEMENT_FILE = "placement.pkl"
 WARNINGS_FILE = "warnings.json"  # a region's build warnings in its cache folder; all of them in the output
 # Source keys only the build reads (site layouts, routing options, crossings, operators), left out of entities.json.
 BUILD_ONLY_KEYS = ("site", "offset_km", "build_order", "tunnel_cost", "station_names", "access_road", "operators", "route_shield",
-                   "legs", "tunnel_names", "crossing", "undersea", "closed", "unlimited", "operator")
+                   "legs", "tunnel_names", "crossing", "undersea", "closed", "unlimited", "operator", "slot_km", "slot_angle_deg", "group")
 
 
 def base_entities(world: World) -> dict:
@@ -136,7 +138,10 @@ def region_worker(name: str, fresh: bool, stale_ok: bool):
     inputs = {**world.region_sources(spec), "dem_zooms": list(zoom_range(world.generators))}  # set by the finest region
     def compute(folder: Path) -> dict:
         common.WARNINGS.clear()
+        sites.PLACEMENT.clear()
         result = build_region(world, spec, base_entities(world), folder / "dem", not fresh)
+        with open(folder / PLACEMENT_FILE, "wb") as f:  # what each district's sites were laid out against
+            pickle.dump(sites.PLACEMENT, f, protocol=pickle.HIGHEST_PROTOCOL)
         (folder / WARNINGS_FILE).write_text(json.dumps(common.WARNINGS, ensure_ascii=False), encoding="utf-8")
         return result
 

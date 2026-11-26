@@ -95,8 +95,10 @@ npm run data                                    # 重新生成地图
 | 列 | 英文列名 | 说明 |
 |---|---|---|
 | 编号、状态 | id、status | |
-| 类型 | subtype | 采用 OSM / Overture 类别，如 `government`、`lighthouse`、`museum` |
-| 所在区 | in | 新建必填 |
+| 类型 | subtype | 采用 OSM / Overture 类别，如 `government`、`lighthouse`、`museum`；新建时「类型」和「建筑类型」至少填一个 |
+| 建筑类型 | type | 可选。`world/registry/building_types.yaml` 里的类型名：类别和占地（布局、长宽）都由类型给出，这时「类型」和占地各列可以不填，填了的以填的为准 |
+| 建筑群、槽位 | group、slot | 可选，只用于新建：加入一个已有的建筑群，位置由建筑群决定，所在区和偏移留空；槽位不填时取最小的空槽位。新建筑群用 `npm run data:add` 建立（模板 `templates/batch/places.yaml`） |
+| 所在区 | in | 新建必填（加入建筑群时不填） |
 | 中文名 … 卡西里语名 | name_zh … name_kasiri | |
 | 向东偏移、向北偏移 | offset_east_km、offset_north_km | 相对所在区城区中心的实际 km |
 | 徽标来自 | emblem_of | 可选。名片顶部显示这个条目（领地或市）的旗帜或徽章，如领地政府楼填所在领地；地图上不画徽章 |

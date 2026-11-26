@@ -183,7 +183,7 @@ def merge_crossings(world: World, entities: dict, layers: dict, graph: dict):
             ent["speed"] = engineering.speed_summary([sg.get("speed_kmh") for sg in ent["segments"]])
         if "engineering" in a:
             ea, eb = a["engineering"], b["engineering"]
-            merged = {k: ea.get(k, 0) + eb.get(k, 0) for k in ea.keys() | eb.keys()}
+            merged = {k: ea.get(k, 0) + eb.get(k, 0) for k in [*ea, *(k for k in eb if k not in ea)]}  # in a fixed order, so every build writes the same file
             c, u = std["cost_musd_per_km"], std["upkeep_kusd_per_km"]
             merged["length_km"] = round(merged["length_km"] + km, 1)
             merged["tunnel_km"] = round(merged["tunnel_km"] + km, 1)
@@ -193,7 +193,7 @@ def merge_crossings(world: World, entities: dict, layers: dict, graph: dict):
             merged["max_grade_permille"] = max(ea.get("max_grade_permille", 0), eb.get("max_grade_permille", 0))
             ent["engineering"] = merged
             sa, sb = a.get("structures", {}), b.get("structures", {})
-            ent["structures"] = {k: max(v, key=lambda s: s["km"]) for k in sa.keys() | sb.keys() if (v := [s for s in (sa.get(k), sb.get(k)) if s])}
+            ent["structures"] = {k: max(v, key=lambda s: s["km"]) for k in [*sa, *(k for k in sb if k not in sa)] if (v := [s for s in (sa.get(k), sb.get(k)) if s])}
             ent["structures"]["tunnel"] = {"names": r["tunnel_names"], "km": round(km, 1)}
         ends = [graph["places"].pop(f"{PORTAL}:{p['territory']}:{r['id']}", None) for p in (a, b)]
         if None not in ends:
